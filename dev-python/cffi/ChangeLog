@@ -1,0 +1,17 @@
+# ChangeLog for dev-python/cffi
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/cffi/ChangeLog,v 1.3 2012/10/10 09:16:12 djc Exp $
+
+*cffi-0.3 (10 Oct 2012)
+
+  10 Oct 2012; Dirkjan Ochtman <djc@gentoo.org> +cffi-0.3.ebuild:
+  Version bump to 0.3, depend on hgdistver (bug 437768).
+
+  09 Aug 2012; Patrick Lauer <patrick@gentoo.org> cffi-0.2.1.ebuild:
+  Restricting py-2.5 and jython
+
+*cffi-0.2.1 (27 Jul 2012)
+
+  27 Jul 2012; Dirkjan Ochtman <djc@gentoo.org> +cffi-0.2.1.ebuild,
+  +metadata.xml:
+  Initial version of cffi.

@@ -1,0 +1,29 @@
+# ChangeLog for dev-cpp/libxsd-frontend
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libxsd-frontend/ChangeLog,v 1.5 2012/10/17 18:53:35 maekke Exp $
+
+  17 Oct 2012; Markus Meier <maekke@gentoo.org> libxsd-frontend-1.18.0.ebuild:
+  add ~arm, bug #430072
+
+  23 Aug 2012; Tiziano Müller <dev-zero@gentoo.org>
+  +files/1.17.0-boost-filesystem-v2-deprecation.patch,
+  libxsd-frontend-1.17.0.ebuild, libxsd-frontend-1.18.0.ebuild:
+  Fix compatibility with boost >=1.49.0 (filesystem v2 gone), bug #424761.
+
+*libxsd-frontend-1.18.0 (01 Jun 2012)
+
+  01 Jun 2012; Tiziano Müller <dev-zero@gentoo.org>
+  +libxsd-frontend-1.18.0.ebuild:
+  Version and EAPI bump, pass the boost-filesystem-2 definition to build's pp
+  options instead of using append-flags.
+
+  04 Aug 2011; Markos Chandras <hwoarang@gentoo.org>
+  libxsd-frontend-1.17.0.ebuild:
+  Append -DBOOST_FILESYSTEM_VERSION=2 to C{XX}FLAGS. Bug #362911
+
+*libxsd-frontend-1.17.0 (20 Oct 2010)
+
+  20 Oct 2010; Tiziano Müller <dev-zero@gentoo.org>
+  +libxsd-frontend-1.17.0.ebuild, +metadata.xml:
+  Initial commit (ebuild written by me), needed for xsd and the required
+  libraries.

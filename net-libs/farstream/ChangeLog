@@ -1,0 +1,52 @@
+# ChangeLog for net-libs/farstream
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/farstream/ChangeLog,v 1.12 2012/10/28 16:18:44 armin76 Exp $
+
+  28 Oct 2012; Raúl Porcel <armin76@gentoo.org> farstream-0.1.2-r1.ebuild:
+  ia64/sparc stable wrt #427544
+
+  16 Oct 2012; Matt Turner <mattst88@gentoo.org> farstream-0.1.2-r1.ebuild:
+  Stable on alpha, bug 427544.
+
+  16 Oct 2012; Anthony G. Basile <blueness@gentoo.org>
+  farstream-0.1.2-r1.ebuild:
+  stable ppc64, bug #427544
+
+  07 Oct 2012; Anthony G. Basile <blueness@gentoo.org>
+  farstream-0.1.2-r1.ebuild:
+  stable ppc64, bug #427544
+
+  06 Oct 2012; Markus Meier <maekke@gentoo.org> farstream-0.1.2-r1.ebuild:
+  arm stable, bug #427544
+
+  04 Oct 2012; Agostino Sarubbo <ago@gentoo.org> farstream-0.1.2-r1.ebuild:
+  Stable for amd64, wrt bug #427544
+
+  03 Oct 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  farstream-0.1.2-r1.ebuild:
+  x86 stable wrt bug #427544
+
+  02 Oct 2012; Jeroen Roovers <jer@gentoo.org> farstream-0.1.2-r1.ebuild:
+  Stable for HPPA (bug #427544).
+
+  16 Jul 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  farstream-0.1.2-r1.ebuild,
+  +files/farstream-0.1.2-introspection-tag-order.patch:
+  Fix building with gobject-introspection-1.33.x (bug #425096, thanks to Marek
+  Bartosiewicz).
+
+*farstream-0.1.2-r1 (25 Jun 2012)
+
+  25 Jun 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -farstream-0.1.2.ebuild, +farstream-0.1.2-r1.ebuild:
+  Respect introspection USE flag (bug #420405, thanks to Florian Schmaus). Drop
+  broken 0.1.2 ebuild.
+
+  05 May 2012; Jeff Horelick <jdhore@gentoo.org> farstream-0.1.2.ebuild:
+  dev-util/pkgconfig -> virtual/pkgconfig
+
+*farstream-0.1.2 (26 Mar 2012)
+
+  26 Mar 2012; Nirbheek Chauhan <nirbheek@gentoo.org> +farstream-0.1.2.ebuild,
+  +metadata.xml:
+  New package farstream, rename of farsight2

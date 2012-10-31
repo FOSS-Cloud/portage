@@ -1,0 +1,23 @@
+# ChangeLog for net-libs/libtrace
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libtrace/ChangeLog,v 1.4 2012/10/23 07:01:20 radhermit Exp $
+
+  23 Oct 2012; Tim Harder <radhermit@gentoo.org> libtrace-3.0.15.ebuild:
+  Add comment for doxygen patch.
+
+  23 Oct 2012; Tim Harder <radhermit@gentoo.org> libtrace-3.0.15.ebuild,
+  +files/libtrace-3.0.15-no-doxygen.patch:
+  Use prune_libtool_files, properly skip rebuilding docs when doxygen is
+  present, and bump to EAPI 5.
+
+*libtrace-3.0.15 (15 Oct 2012)
+
+  15 Oct 2012; Jeroen Roovers <jer@gentoo.org> +libtrace-3.0.15.ebuild:
+  Version bump.
+
+*libtrace-3.0.14 (03 Sep 2012)
+
+  03 Sep 2012; Tim Harder <radhermit@gentoo.org> +libtrace-3.0.14.ebuild,
+  +files/libtrace-3.0.14-no-doxygen.patch, +metadata.xml:
+  Initial import, ebuild by me (bug #404099).
+

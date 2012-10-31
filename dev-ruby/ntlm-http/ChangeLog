@@ -1,0 +1,16 @@
+# ChangeLog for dev-ruby/ntlm-http
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ntlm-http/ChangeLog,v 1.3 2012/09/29 15:43:47 grobian Exp $
+
+  29 Sep 2012; Fabian Groffen <grobian@gentoo.org> ntlm-http-0.1.1.ebuild:
+  Added Prefix keywords, bug #432830
+
+  27 Sep 2012; Samuli Suominen <ssuominen@gentoo.org> ntlm-http-0.1.1.ebuild:
+  Keyword ~ppc/~ppc64 wrt #432830
+
+*ntlm-http-0.1.1 (14 Aug 2012)
+
+  14 Aug 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +files/ntlm-http-0.1.1+ruby-1.9.patch, +metadata.xml, +ntlm-http-0.1.1.ebuild:
+  Initial import of ntlm-http required for mechanize. Doesn't work on JRuby but
+  does work on Ruby 1.9 after patching.

@@ -1,0 +1,51 @@
+# ChangeLog for media-libs/harfbuzz
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/harfbuzz/ChangeLog,v 1.10 2012/10/31 06:54:28 scarabeus Exp $
+
+*harfbuzz-0.9.5 (31 Oct 2012)
+
+  31 Oct 2012; Tomáš Chvátal <scarabeus@gentoo.org> +harfbuzz-0.9.5.ebuild,
+  -files/harfbuzz-automagicness.patch, -harfbuzz-0.7.0_pre20110904.ebuild,
+  harfbuzz-9999.ebuild, metadata.xml:
+  Version bump to latest, keep with upstream and its automagicness as they do
+  not accept the patch.
+
+  05 May 2012; Jeff Horelick <jdhore@gentoo.org>
+  harfbuzz-0.7.0_pre20110904.ebuild, harfbuzz-9999.ebuild:
+  dev-util/pkgconfig -> virtual/pkgconfig
+
+  19 Oct 2011; Tomáš Chvátal <scarabeus@gentoo.org>
+  files/harfbuzz-automagicness.patch:
+  Fix graphite detection, pc file is graphite2.
+
+  06 Oct 2011; Tomáš Chvátal <scarabeus@gentoo.org> harfbuzz-9999.ebuild:
+  Add missing gtk-doc-am dependency. Fixes bug #385853
+
+*harfbuzz-9999 (06 Oct 2011)
+
+  06 Oct 2011; Tomáš Chvátal <scarabeus@gentoo.org> +harfbuzz-9999.ebuild,
+  +files/harfbuzz-automagicness.patch, metadata.xml:
+  Add live ebuild with fixed automagicness.
+
+  04 Sep 2011; Tomáš Chvátal <scarabeus@gentoo.org>
+  harfbuzz-0.7.0_pre20110904.ebuild:
+  Add automagic graphite2 to harddep, i wont rewrite this mess.
+
+  04 Sep 2011; Tomáš Chvátal <scarabeus@gentoo.org>
+  harfbuzz-0.7.0_pre20110904.ebuild:
+  Add comment about the buildsystem.
+
+*harfbuzz-0.7.0_pre20110904 (04 Sep 2011)
+
+  04 Sep 2011; Tomáš Chvátal <scarabeus@gentoo.org> -harfbuzz-0.6.0.ebuild,
+  +harfbuzz-0.7.0_pre20110904.ebuild:
+  Version bump harfuzz to snapshot from the git. 0.6.0 was quite antique.
+
+  11 Aug 2011; Tomáš Chvátal <scarabeus@gentoo.org> harfbuzz-0.6.0.ebuild:
+  Tested on ppc.
+
+*harfbuzz-0.6.0 (11 Aug 2011)
+
+  11 Aug 2011; Tomáš Chvátal <scarabeus@gentoo.org> +harfbuzz-0.6.0.ebuild,
+  +metadata.xml:
+  Intial commit. Library required by graphite2.

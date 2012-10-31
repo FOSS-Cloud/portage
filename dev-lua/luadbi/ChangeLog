@@ -1,0 +1,32 @@
+# ChangeLog for dev-lua/luadbi
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lua/luadbi/ChangeLog,v 1.7 2012/10/21 09:10:04 maekke Exp $
+
+  21 Oct 2012; Markus Meier <maekke@gentoo.org> luadbi-0.5-r1.ebuild:
+  x86 stable, bug #388797
+
+  30 Sep 2012; Dirkjan Ochtman <djc@gentoo.org> luadbi-0.5-r1.ebuild:
+  Upgrade to EAPI=4, for REQUIRED_USE (bug 427928, thanks to
+  gentoo@quintero.com).
+
+  04 May 2012; Jeff Horelick <jdhore@gentoo.org> luadbi-0.5-r1.ebuild:
+  dev-util/pkgconfig -> virtual/pkgconfig
+
+  01 Mar 2012; Dirkjan Ochtman <djc@gentoo.org> luadbi-0.5-r1.ebuild:
+  Depend on virtual/mysql instead of dev-db/mysql (bug 392395).
+
+  01 Mar 2012; Dirkjan Ochtman <djc@gentoo.org> -luadbi-0.5.ebuild:
+  Remove old version.
+
+*luadbi-0.5-r1 (02 May 2011)
+
+  02 May 2011; Dirkjan Ochtman <djc@gentoo.org>
+  +files/0.5-postgres-path.patch, +luadbi-0.5-r1.ebuild:
+  Fix path to postgres header (bug 364141).
+
+*luadbi-0.5 (08 Apr 2011)
+
+  08 Apr 2011; Dirkjan Ochtman <djc@gentoo.org> +files/0.5-Makefile.patch,
+  +luadbi-0.5.ebuild, +metadata.xml:
+  Initial version of luadbi, bug 352379.
+

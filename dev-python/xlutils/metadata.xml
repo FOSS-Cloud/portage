@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+   <herd>python</herd>
+   <maintainer>
+	  <email>johneed@hotmail.com</email>
+	  <name>Ian 'idella4' Delaney</name>
+   </maintainer>
+   <maintainer>
+	  <email>tampakrap@gentoo.org</email>
+   </maintainer>
+</pkgmetadata>

@@ -1,0 +1,17 @@
+# ChangeLog for www-apache/mod_anonymize_ip
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_anonymize_ip/ChangeLog,v 1.3 2012/10/12 07:54:55 patrick Exp $
+
+  12 Oct 2012; Patrick Lauer <patrick@gentoo.org> mod_anonymize_ip-0.3.1.ebuild:
+  Restricting to apache 2.2
+
+  14 May 2011; Benedikt Böhm <hollow@gentoo.org>
+  mod_anonymize_ip-0.3.1.ebuild:
+  change HOMEPAGE and SRC_URI to github
+
+*mod_anonymize_ip-0.3.1 (12 May 2010)
+
+  12 May 2010; Benedikt Böhm <hollow@gentoo.org>
+  +files/20_mod_anonymize_ip.conf, +mod_anonymize_ip-0.3.1.ebuild,
+  +metadata.xml:
+  initial ebuild

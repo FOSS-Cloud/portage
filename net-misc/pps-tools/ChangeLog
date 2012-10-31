@@ -1,0 +1,24 @@
+# ChangeLog for net-misc/pps-tools
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/pps-tools/ChangeLog,v 1.4 2012/08/18 21:21:40 vapier Exp $
+
+*pps-tools-0.0.20120407 (18 Aug 2012)
+
+  18 Aug 2012; Mike Frysinger <vapier@gentoo.org>
+  +files/pps-tools-0.0.20120407-build.patch,
+  +files/pps-tools-0.0.20120407-install.patch, +pps-tools-0.0.20120407.ebuild:
+  Update snapshot #424443 by Gary E. Miller.
+
+  05 May 2012; Markos Chandras <hwoarang@gentoo.org>
+  pps-tools-0.0.20110710.ebuild:
+  Stable on amd64 wrt bug #407767
+
+  05 May 2012; Markus Meier <maekke@gentoo.org> pps-tools-0.0.20110710.ebuild:
+  x86 stable, bug #407767
+
+*pps-tools-0.0.20110710 (11 Jul 2011)
+
+  11 Jul 2011; Robin H. Johnson <robbat2@gentoo.org>
+  +pps-tools-0.0.20110710.ebuild, +metadata.xml:
+  New package requested by bug #374613. Initial ebuild by Robin H. Johnson
+  <robbat2@gentoo.org>.

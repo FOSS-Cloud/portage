@@ -1,0 +1,160 @@
+# ChangeLog for sys-apps/hwids
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.32 2012/10/22 01:51:51 flameeyes Exp $
+
+*hwids-20121022 (22 Oct 2012)
+
+  22 Oct 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20121022.ebuild,
+  -hwids-20121014.ebuild, -hwids-20121020.ebuild:
+  Version bump and remove old.
+
+*hwids-20121020 (20 Oct 2012)
+
+  20 Oct 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20121020.ebuild:
+  Version bump.
+
+*hwids-20121014 (14 Oct 2012)
+
+  14 Oct 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20121014.ebuild,
+  -hwids-20121012.ebuild:
+  Version bump.
+
+*hwids-20121012 (12 Oct 2012)
+
+  12 Oct 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20121012.ebuild,
+  -hwids-20121010.ebuild:
+  Version bump.
+
+*hwids-20121010 (12 Oct 2012)
+
+  12 Oct 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20121010.ebuild,
+  -hwids-20121009.ebuild:
+  Version bump.
+
+*hwids-20121009 (08 Oct 2012)
+
+  08 Oct 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20121009.ebuild,
+  -hwids-20120929.ebuild, -hwids-20121001.ebuild:
+  Version bump; remove old.
+
+*hwids-20121001 (03 Oct 2012)
+
+  03 Oct 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20121001.ebuild:
+  Version bump.
+
+  02 Oct 2012; Anthony G. Basile <blueness@gentoo.org> hwids-20120922.ebuild:
+  stable arm, bug #436186
+
+*hwids-20120929 (30 Sep 2012)
+
+  30 Sep 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120929.ebuild,
+  -hwids-20120926.ebuild:
+  Version bump.
+
+*hwids-20120926 (27 Sep 2012)
+
+  27 Sep 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120926.ebuild:
+  Version bump.
+
+  26 Sep 2012; Samuli Suominen <ssuominen@gentoo.org> hwids-20120922.ebuild:
+  amd64/ppc/ppc64/x86 stable wrt #436186
+
+  26 Sep 2012; Jeroen Roovers <jer@gentoo.org> hwids-20120922.ebuild:
+  Stable for HPPA (bug #436186).
+
+*hwids-20120922 (22 Sep 2012)
+
+  22 Sep 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120922.ebuild,
+  -hwids-20120916.ebuild:
+  Version bump.
+
+*hwids-20120916 (17 Sep 2012)
+
+  17 Sep 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120916.ebuild,
+  -hwids-20120730.ebuild, -hwids-20120815.ebuild, -hwids-20120831.ebuild:
+  Version bump and remove old.
+
+*hwids-20120831 (02 Sep 2012)
+
+  02 Sep 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120831.ebuild:
+  Version bump.
+
+*hwids-20120815 (15 Aug 2012)
+
+  15 Aug 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120815.ebuild,
+  -hwids-20120625.ebuild, -hwids-20120711.ebuild:
+  Version bump; remove old.
+
+*hwids-20120730 (31 Jul 2012)
+
+  31 Jul 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120730.ebuild:
+  Version bump.
+
+*hwids-20120711 (11 Jul 2012)
+
+  11 Jul 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120711.ebuild:
+  Version bump.
+
+  30 Jun 2012; Diego E. Pettenò <flameeyes@gentoo.org> hwids-20120625.ebuild:
+  Fix; next time make sure the box you test and the box you commit are the same.
+
+*hwids-20120625 (30 Jun 2012)
+
+  30 Jun 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120625.ebuild,
+  -hwids-20120611.ebuild:
+  Version bump, remove old.
+
+  16 Jun 2012; Diego E. Pettenò <flameeyes@gentoo.org> -hwids-20120512.ebuild,
+  hwids-20120611.ebuild, hwids-99999999.ebuild:
+  Update to use the new GitHub repository in the gentoo organisation.
+
+*hwids-20120611 (12 Jun 2012)
+
+  12 Jun 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120611.ebuild,
+  -hwids-20120507.ebuild:
+  Version bump.
+
+  16 May 2012; Alexis Ballier <aballier@gentoo.org> hwids-20120512.ebuild:
+  keyword ~amd64-fbsd
+
+*hwids-20120512 (12 May 2012)
+
+  12 May 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120512.ebuild:
+  Bump, with no difference in database, but updated to use github.
+
+*hwids-20120507 (10 May 2012)
+
+  10 May 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120507.ebuild,
+  -hwids-20120408.ebuild, -hwids-20120416.ebuild:
+  Version bump (version is bumped to last update of pci.ids). Remove old.
+
+  21 Apr 2012; Mike Frysinger <vapier@gentoo.org> hwids-20120408.ebuild,
+  hwids-20120416.ebuild:
+  Add ~arch keywords #410401.
+
+*hwids-20120416 (16 Apr 2012)
+
+  16 Apr 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120416.ebuild:
+  Weekly update.
+
+  14 Apr 2012; Zac Medico <zmedico@gentoo.org> hwids-20120408.ebuild:
+  Add ~amd64-linux and ~x86-linux keywords.
+
+*hwids-20120408 (08 Apr 2012)
+
+  08 Apr 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120408.ebuild,
+  -hwids-20120401.ebuild:
+  Version bump of hwids (weekly snapshot); install README.
+
+  02 Apr 2012; Jeroen Roovers <jer@gentoo.org> hwids-20120401.ebuild:
+  Marked ~hppa (bug #410401).
+
+  01 Apr 2012; Naohiro Aota <naota@gentoo.org> hwids-20120401.ebuild:
+  Add ~x86-fbsd. #410401
+
+*hwids-99999999 (01 Apr 2012)
+*hwids-20120401 (01 Apr 2012)
+
+  01 Apr 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20120401.ebuild,
+  +hwids-99999999.ebuild, +metadata.xml:
+  Initial import of a split ebuild for USB/PCI ids.

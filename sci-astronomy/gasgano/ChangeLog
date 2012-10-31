@@ -1,0 +1,37 @@
+# ChangeLog for sci-astronomy/gasgano
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-astronomy/gasgano/ChangeLog,v 1.7 2012/08/05 17:59:37 bicatali Exp $
+
+  05 Aug 2012; Sébastien Fabbro <bicatali@gentoo.org> -gasgano-2.4.0.ebuild,
+  gasgano-2.4.3.ebuild:
+  keyword amd64-linux, x86-linux
+
+*gasgano-2.4.3 (04 Jun 2012)
+
+  04 Jun 2012; Sébastien Fabbro <bicatali@gentoo.org> +gasgano-2.4.3.ebuild:
+  Version bump
+
+  21 May 2012; Samuli Suominen <ssuominen@gentoo.org> gasgano-2.4.0.ebuild:
+  inherit eutils for make_desktop_entry
+
+  11 May 2012; Sébastien Fabbro <bicatali@gentoo.org> -gasgano-2.3.0.ebuild:
+  Removed old
+
+  04 Aug 2011; Sébastien Fabbro <bicatali@gentoo.org> metadata.xml:
+  Switched herd to sci-astronomy
+
+*gasgano-2.4.0 (24 Feb 2011)
+
+  24 Feb 2011; Sébastien Fabbro <bicatali@gentoo.org> +gasgano-2.4.0.ebuild:
+  Bump, switched to EAPI3
+
+*gasgano-2.3.0 (26 May 2010)
+
+  26 May 2010; Sébastien Fabbro <bicatali@gentoo.org>
+  +gasgano-2.3.0.ebuild, +metadata.xml:
+  Initial import to the main tree
+
+  02 Feb 2009; Sébastien Fabbro <bicatali@gentoo.org>
+  +sci-astronomy/gasgano/files/gasgano-2.2.8_beta1-no-ext.patch,
+  +sci-astronomy/gasgano/metadata.xml:
+  Initial import

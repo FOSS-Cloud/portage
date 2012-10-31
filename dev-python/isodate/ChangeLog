@@ -1,0 +1,24 @@
+# ChangeLog for dev-python/isodate
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/isodate/ChangeLog,v 1.4 2012/05/04 15:51:40 xarthisius Exp $
+
+  04 May 2012; Kacper Kowalik <xarthisius@gentoo.org> -isodate-0.4.7.ebuild,
+  isodate-0.4.8.ebuild:
+  Keyword for ~{amd64,x86}-linux, drop old
+
+  04 May 2012; Mike Gilbert <floppym@gentoo.org> metadata.xml:
+  Add remote-id.
+
+*isodate-0.4.8 (04 May 2012)
+
+  04 May 2012; Mike Gilbert <floppym@gentoo.org> +isodate-0.4.8.ebuild:
+  Version bump. Test suite now works for older Python versions. Thanks to Ian
+  Delaney for reporting upstream.
+
+*isodate-0.4.7 (04 May 2012)
+
+  04 May 2012; Kacper Kowalik <xarthisius@gentoo.org> +isodate-0.4.7.ebuild,
+  +metadata.xml:
+  Initial import, ebuild written by me. Fixes #408503 by Ian Delaney
+  <johneed@hotmail.com>
+

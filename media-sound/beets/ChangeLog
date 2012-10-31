@@ -1,0 +1,41 @@
+# ChangeLog for media-sound/beets
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/beets/ChangeLog,v 1.8 2012/08/21 21:23:33 sochotnicky Exp $
+
+*beets-1.0_beta15 (21 Aug 2012)
+
+  21 Aug 2012; Stanislav Ochotnicky <sochotnicky@gentoo.org>
+  +beets-1.0_beta15.ebuild:
+  Version bump to 1.0b15
+
+  30 May 2012; Kacper Kowalik <xarthisius@gentoo.org>
+  beets-1.0_beta14-r1.ebuild:
+  Enable test, restrict python 2.5, add correct dependencies
+
+  29 May 2012; Stanislav Ochotnicky <sochotnicky@gentoo.org>
+  -beets-1.0_beta14.ebuild, beets-1.0_beta14-r1.ebuild:
+  Install manpage (#418163) and optionally documentation. Remove first
+  version
+
+  29 May 2012; Jeff Horelick <jdhore@gentoo.org> beets-1.0_beta14-r1.ebuild:
+  Keyword ~x86
+
+*beets-1.0_beta14-r1 (29 May 2012)
+
+  29 May 2012; Stanislav Ochotnicky <sochotnicky@gentoo.org>
+  +beets-1.0_beta14-r1.ebuild, metadata.xml:
+  Add several use flags and plugin dependencies
+
+  28 May 2012; Jeff Horelick <jdhore@gentoo.org> beets-1.0_beta14.ebuild:
+  Keyword ~x86.
+
+  28 May 2012; Stanislav Ochotnicky <sochotnicky@gentoo.org>
+  beets-1.0_beta14.ebuild:
+  Use string replacement for version to simplify future updates
+
+*beets-1.0_beta14 (28 May 2012)
+
+  28 May 2012; Stanislav Ochotnicky <sochotnicky@gentoo.org>
+  +beets-1.0_beta14.ebuild, +metadata.xml:
+  New ebuild for beets music organizer
+

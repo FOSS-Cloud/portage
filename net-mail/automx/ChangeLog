@@ -1,0 +1,31 @@
+# ChangeLog for net-mail/automx
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-mail/automx/ChangeLog,v 1.5 2012/03/28 19:15:04 mschiff Exp $
+
+*automx-0.8 (28 Mar 2012)
+
+  28 Mar 2012; Marc Schiffbauer <mschiff@gentoo.org> -automx-0.8_rc2.ebuild,
+  +automx-0.8.ebuild:
+  Bump version. Remove old version.
+
+*automx-0.8_rc2 (23 Mar 2012)
+
+  23 Mar 2012; Marc Schiffbauer <mschiff@gentoo.org> -automx-0.8_rc1.ebuild,
+  +automx-0.8_rc2.ebuild:
+  Bump version. Remove old version. Added sql USE flag.
+
+*automx-0.8_rc1 (15 Mar 2012)
+
+  15 Mar 2012; Marc Schiffbauer <mschiff@gentoo.org> -automx-0.8_beta1.ebuild,
+  +automx-0.8_rc1.ebuild:
+  Version bump. Drop old version.
+
+  28 Feb 2012; Marc Schiffbauer <mschiff@gentoo.org> automx-0.8_beta1.ebuild:
+  Always install INSTALL file.
+
+*automx-0.8_beta1 (28 Feb 2012)
+
+  28 Feb 2012; Marc Schiffbauer <mschiff@gentoo.org> +automx-0.8_beta1.ebuild,
+  +metadata.xml:
+  New ebuild for automx.
+

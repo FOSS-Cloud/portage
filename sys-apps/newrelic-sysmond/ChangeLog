@@ -1,0 +1,19 @@
+# ChangeLog for sys-apps/newrelic-sysmond
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/newrelic-sysmond/ChangeLog,v 1.4 2012/09/07 10:56:34 xarthisius Exp $
+
+  07 Sep 2012; Kacper Kowalik <xarthisius@gentoo.org> metadata.xml:
+  Drop empy herd tag
+
+  18 Jul 2012; Benedikt Böhm <hollow@gentoo.org> files/newrelic-sysmond.rc:
+  fix start-stop-daemon syntax in init script
+
+  24 May 2012; Mike Frysinger <vapier@gentoo.org>
+  newrelic-sysmond-1.1.2.124.ebuild:
+  Inherit user for enewuser/etc...
+
+*newrelic-sysmond-1.1.2.124 (05 Dec 2011)
+
+  05 Dec 2011; <trapni@gentoo.org> +newrelic-sysmond-1.1.2.124.ebuild,
+  +files/newrelic-sysmond.rc, +metadata.xml:
+  initial release of NewRelic System Monitor

@@ -1,0 +1,21 @@
+# ChangeLog for dev-libs/liborcus
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/liborcus/ChangeLog,v 1.4 2012/09/27 16:44:53 scarabeus Exp $
+
+  27 Sep 2012; Tomáš Chvátal <scarabeus@gentoo.org> liborcus-0.1.0.ebuild:
+  Disable spreadsheet model on 0.1 as it aint working there.
+
+*liborcus-0.1.0 (25 Sep 2012)
+
+  25 Sep 2012; Tomáš Chvátal <scarabeus@gentoo.org> +liborcus-0.1.0.ebuild:
+  Add liborcus 0.1.0 without keywords as the live changed soname and lo wont be
+  ported for a while.
+
+  17 Sep 2012; Tomáš Chvátal <scarabeus@gentoo.org> liborcus-9999.ebuild:
+  Depend on mdds and boost.
+
+*liborcus-9999 (10 Sep 2012)
+
+  10 Sep 2012; Tomáš Chvátal <scarabeus@gentoo.org> +liborcus-9999.ebuild,
+  +metadata.xml:
+  Initial commit. Required by libreoffice-3.7.

@@ -1,0 +1,32 @@
+# ChangeLog for games-strategy/megaglest
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/megaglest/ChangeLog,v 1.7 2012/10/29 20:14:48 hasufell Exp $
+
+  29 Oct 2012; Julian Ospald <hasufell@gentoo.org> megaglest-3.6.0.3.ebuild,
+  +files/megaglest-3.6.0.3-gcc-4.7.patch:
+  fix compilation for gcc-4.7 wrt #440134
+
+  17 Sep 2012; Julian Ospald <hasufell@gentoo.org> megaglest-3.6.0.3.ebuild,
+  metadata.xml:
+  fix some flags/dependencies, also wrt #435286
+
+  08 Sep 2012; Julian Ospald <hasufell@gentoo.org> megaglest-3.6.0.3.ebuild:
+  fix various compilation issues thanks to Arfrever
+
+  07 Sep 2012; Julian Ospald <hasufell@gentoo.org> megaglest-3.6.0.3.ebuild:
+  fix dependencies
+
+  06 Sep 2012; Julian Ospald <hasufell@gentoo.org> megaglest-3.6.0.3.ebuild:
+  fix editor useflag thanks to Arfrever
+
+  01 Sep 2012; Julian Ospald <hasufell@gentoo.org> megaglest-3.6.0.3.ebuild,
+  +files/megaglest-3.6.0.3-as-needed.patch:
+  fix as-needed
+
+*megaglest-3.6.0.3 (19 Aug 2012)
+
+  19 Aug 2012; Julian Ospald <hasufell@gentoo.org> +megaglest-3.6.0.3.ebuild,
+  +files/megaglest-3.6.0.3-build.patch,
+  +files/megaglest-3.6.0.3-static-build.patch, +metadata.xml:
+  initial commit wrt #340343
+

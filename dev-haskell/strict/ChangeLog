@@ -1,0 +1,21 @@
+# ChangeLog for dev-haskell/strict
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/strict/ChangeLog,v 1.5 2012/09/25 14:08:01 nativemad Exp $
+
+  25 Sep 2012; Andreas Schuerch <nativemad@gentoo.org> strict-0.3.2.ebuild:
+  x86 stable, see bug 421351
+
+  12 Sep 2012; Alexander Vershilov <qnikst@gentoo.org> strict-0.3.2.ebuild:
+  move dev-haskell/strict/strict-0.3.2.ebuild ebuild to mirror://hackage
+
+  07 Sep 2012; Agostino Sarubbo <ago@gentoo.org> strict-0.3.2.ebuild:
+  Stable for amd64, wrt bug #421351
+
+  09 Aug 2012; Sergei Trofimovich <slyfox@gentoo.org> strict-0.3.2.ebuild:
+  Keyworded ~alpha/~ia64/~ppc/~ppc64/~sparc for darcs-2.8
+
+*strict-0.3.2 (05 May 2012)
+
+  05 May 2012; Mark Wright <gienah@gentoo.org> +strict-0.3.2.ebuild,
+  +metadata.xml:
+  Add strict for darcs 2.8.0 tests

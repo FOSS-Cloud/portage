@@ -1,0 +1,68 @@
+# ChangeLog for mail-client/alpine
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/alpine/ChangeLog,v 1.16 2012/10/23 05:50:55 eras Exp $
+
+  23 Oct 2012; Eray Aslan <eras@gentoo.org> alpine-2.00-r5.ebuild:
+  Fix building with doc USE flag
+
+*alpine-2.00-r5 (15 Oct 2012)
+
+  15 Oct 2012; Eray Aslan <eras@gentoo.org> +alpine-2.00-r5.ebuild,
+  +files/2.00-c-client.patch, +files/2.00-lcrypto.patch,
+  +files/2.00-qa-chappa-115.patch, +files/2.00-qa.patch:
+  Unbundle c-client library - bug #391387. Fix building with ssl. Fix Chappa URL
+  - bug #374405. Remove unneeded blocker - bug #437550
+
+  13 Jun 2012; Michael Weber <xmw@gentoo.org> alpine-2.00-r4.ebuild:
+  ppc stable (bug 317971)
+
+  09 Oct 2011; Torsten Veller <tove@gentoo.org> metadata.xml:
+  Remove tove from metadata.xml
+
+  03 Sep 2011; Raúl Porcel <armin76@gentoo.org> alpine-2.00-r4.ebuild:
+  alpha/ia64/sparc stable wrt #317971
+
+  26 Aug 2011; Markos Chandras <hwoarang@gentoo.org> alpine-2.00-r4.ebuild:
+  Stable on amd64 wrt bug #317971
+
+  20 Aug 2011; Thomas Kahle <tomka@gentoo.org> alpine-2.00-r4.ebuild:
+  x86 stable per bug 379983
+
+*alpine-2.00-r4 (09 Sep 2010)
+
+  09 Sep 2010; Torsten Veller <tove@gentoo.org> +alpine-2.00-r4.ebuild,
+  metadata.xml:
+  Bump chappa patches (73). Thanks to Sascha Lucas. Update metadata.xml
+
+*alpine-2.00-r3 (05 Mar 2010)
+
+  05 Mar 2010; Torsten Veller <tove@gentoo.org> +alpine-2.00-r3.ebuild:
+  Bump chappa patches (53) and use latest topal patches
+
+  07 Nov 2009; Mounir Lamouri <volkmar@gentoo.org> alpine-2.00-r2.ebuild:
+  Keywording for ppc, bug 267299
+
+*alpine-2.00-r2 (05 Sep 2009)
+
+  05 Sep 2009; Torsten Veller <tove@gentoo.org> +alpine-2.00-r2.ebuild:
+  Bump chappa patchset to patchlevel 52 (#283316)
+
+*alpine-2.00-r1 (17 Aug 2009)
+
+  17 Aug 2009; Torsten Veller <tove@gentoo.org> +alpine-2.00-r1.ebuild:
+  Bump chappa patchset to patchlevel 51
+
+  22 May 2009; Raúl Porcel <armin76@gentoo.org> alpine-2.00.ebuild:
+  Add ~ia64/~sparc wrt #267299
+
+  15 May 2009; Markus Meier <maekke@gentoo.org> alpine-2.00.ebuild:
+  add ~amd64, bug #267299
+
+  03 May 2009; Tobias Klausmann <klausman@gentoo.org> alpine-2.00.ebuild:
+  Keyworded on alpha, bug #267299
+
+*alpine-2.00 (24 Apr 2009)
+
+  24 Apr 2009; Torsten Veller <tove@gentoo.org> +files/2.00-lpam.patch,
+  +files/CVE-2008-5514.patch, +metadata.xml, +alpine-2.00.ebuild:
+  Initial commit. Thanks to Sascha Lucas et al. in bug #176904

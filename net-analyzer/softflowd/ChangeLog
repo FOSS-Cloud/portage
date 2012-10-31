@@ -1,0 +1,23 @@
+# ChangeLog for net-analyzer/softflowd
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/softflowd/ChangeLog,v 1.4 2012/09/19 00:02:12 jer Exp $
+
+  19 Sep 2012; Jeroen Roovers <jer@gentoo.org> -softflowd-0.9.8.ebuild:
+  Old.
+
+  21 Mar 2012; Robin H. Johnson <robbat2@gentoo.org> files/softflowd.confd,
+  files/softflowd.initd:
+  Make it easier to pass an explicit index for the interface.
+
+*softflowd-0.9.9 (21 Mar 2012)
+
+  21 Mar 2012; Tim Harder <radhermit@gentoo.org> +softflowd-0.9.9.ebuild,
+  +files/softflowd-0.9.9-no-strip.patch:
+  Version bump.
+
+*softflowd-0.9.8 (12 Oct 2011)
+
+  12 Oct 2011; Vadim Kuznetsov <vadimk@gentoo.org> +softflowd-0.9.8.ebuild,
+  +files/softflowd.confd, +files/softflowd.initd:
+  initial ebuild with muxing rc scripts
+

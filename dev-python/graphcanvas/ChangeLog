@@ -1,0 +1,23 @@
+# ChangeLog for dev-python/graphcanvas
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/graphcanvas/ChangeLog,v 1.4 2012/02/27 04:46:30 patrick Exp $
+
+  27 Feb 2012; Patrick Lauer <patrick@gentoo.org> graphcanvas-4.0.0.ebuild:
+  Restricting py2.5
+
+  17 Jan 2012; Sébastien Fabbro <bicatali@gentoo.org>
+  graphcanvas-4.0.0.ebuild:
+  Ebuild clean and EAPI bump
+
+*graphcanvas-4.0.0 (03 Aug 2011)
+
+  03 Aug 2011; Sébastien Fabbro <bicatali@gentoo.org>
+  +graphcanvas-4.0.0.ebuild:
+  Version bump. Possible API break.
+
+*graphcanvas-3.0.0 (01 Feb 2011)
+
+  01 Feb 2011; Arfrever Frehtes Taifersar Arahesis <arfrever@gentoo.org>
+  +graphcanvas-3.0.0.ebuild, +metadata.xml:
+  Initial addition. Ebuild written by me.
+

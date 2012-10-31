@@ -1,0 +1,20 @@
+# ChangeLog for net-libs/libkolab
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libkolab/ChangeLog,v 1.4 2012/10/17 18:57:30 maekke Exp $
+
+  17 Oct 2012; Markus Meier <maekke@gentoo.org> libkolab-0.3.2.ebuild:
+  add ~arm, bug #430072
+
+*libkolab-0.3.2 (26 Sep 2012)
+
+  26 Sep 2012; Chris Reffett <creffett@gentoo.org> +libkolab-0.3.2.ebuild:
+  Version bump
+
+  26 Sep 2012; Chris Reffett <creffett@gentoo.org> libkolab-0.2.0.ebuild:
+  Fix licenses
+
+*libkolab-0.2.0 (01 Aug 2012)
+
+  01 Aug 2012; Johannes Huber <johu@gentoo.org> +libkolab-0.2.0.ebuild,
+  +files/libkolab-fix-include.patch, +metadata.xml:
+  Initial commit. Import from kde overlay. Needed for KDE SC 4.9.0.

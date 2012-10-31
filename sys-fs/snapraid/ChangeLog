@@ -1,0 +1,21 @@
+# ChangeLog for sys-fs/snapraid
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/snapraid/ChangeLog,v 1.4 2012/10/22 18:58:53 ago Exp $
+
+  22 Oct 2012; Agostino Sarubbo <ago@gentoo.org> snapraid-1.12.ebuild:
+  Add ~amd64, wrt bug #439292
+
+  02 Oct 2012; Christoph Junghans <ottxor@gentoo.org> snapraid-1.12.ebuild:
+  fix DESCRIPTION (bug #436786)
+
+*snapraid-1.12 (30 Sep 2012)
+
+  30 Sep 2012; Christoph Junghans <ottxor@gentoo.org> +snapraid-1.12.ebuild,
+  -snapraid-1.11.ebuild, metadata.xml:
+  version bump
+
+*snapraid-1.11 (18 Jul 2012)
+
+  18 Jul 2012; Christoph Junghans <ottxor@gentoo.org> +metadata.xml,
+  +snapraid-1.11.ebuild:
+  initial commit
