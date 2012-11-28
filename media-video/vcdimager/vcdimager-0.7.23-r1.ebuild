@@ -1,41 +1,39 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vcdimager/vcdimager-0.7.23-r1.ebuild,v 1.3 2012/05/29 15:06:19 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/vcdimager/vcdimager-0.7.23-r1.ebuild,v 1.8 2012/11/27 15:51:36 jer Exp $
 
-EAPI=2
+EAPI=5
+inherit eutils
 
 DESCRIPTION="GNU VCDimager"
 HOMEPAGE="http://www.vcdimager.org/"
-SRC_URI="http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/${P}.tar.gz"
+SRC_URI="http://www.vcdimager.org/pub/${PN}/${PN}-${PV%.*}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
-IUSE="xml minimal"
+KEYWORDS="~alpha amd64 ~arm hppa ~ia64 ~ppc ~ppc64 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd"
+IUSE="+xml static-libs"
 
 RDEPEND=">=dev-libs/libcdio-0.71[-minimal]
-	!minimal? ( dev-libs/popt )
-	xml? ( >=dev-libs/libxml2-2.5.11 )"
+	dev-libs/popt
+	xml? ( dev-libs/libxml2 )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-RESTRICT="test"
+RESTRICT="test" #226249
+
+DOCS="AUTHORS BUGS ChangeLog FAQ HACKING NEWS README THANKS TODO"
 
 src_configure() {
-	local myconf
-
 	# We disable the xmltest because the configure script includes differently
 	# than the actual XML-frontend C files.
+	local myconf
 	use xml && myconf="--with-xml-prefix=/usr --disable-xmltest"
 	use xml || myconf="--without-xml-frontend"
-
-	econf \
-		--disable-dependency-tracking \
-		$(use_with !minimal cli-frontends) \
-		${myconf}
+	econf $(use_enable static-libs static) ${myconf}
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "make install failed"
-	dodoc AUTHORS BUGS ChangeLog FAQ HACKING NEWS README THANKS TODO
+	default
+	prune_libtool_files
 }

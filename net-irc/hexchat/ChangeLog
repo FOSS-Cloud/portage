@@ -1,6 +1,37 @@
 # ChangeLog for net-irc/hexchat
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/hexchat/ChangeLog,v 1.11 2012/10/20 15:33:39 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/hexchat/ChangeLog,v 1.19 2012/11/25 12:45:46 pinkbyte Exp $
+
+*hexchat-2.9.4 (25 Nov 2012)
+
+  25 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> +hexchat-2.9.4.ebuild,
+  metadata.xml:
+  Version bump, thanks to Phr33d0m
+
+  25 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> hexchat-2.9.3.ebuild:
+  Inherit multilib eclass explicitly
+
+  23 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  -files/hexchat-2.8.8-cflags.patch, -hexchat-2.9.1.ebuild,
+  -hexchat-2.9.2.ebuild:
+  Remove old
+
+  15 Nov 2012; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.3.ebuild:
+  Stable for x86, wrt bug #443118
+
+  15 Nov 2012; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.3.ebuild:
+  Stable for amd64, wrt bug #443118
+
+  15 Nov 2012; Anthony G. Basile <blueness@gentoo.org> hexchat-2.9.3.ebuild:
+  stable arm ppc ppc64, bug #443118
+
+  14 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  +files/hexchat-2.9.3-nogtk.patch, hexchat-2.9.3.ebuild:
+  Fix compile failure reported by peratu in bug #443138, thanks to Denis M. for
+  the patch
+
+  14 Nov 2012; Jeroen Roovers <jer@gentoo.org> hexchat-2.9.3.ebuild:
+  Stable for HPPA (bug #443118).
 
   20 Oct 2012; Sergey Popov <pinkbyte@gentoo.org> hexchat-2.9.3.ebuild:
   Keyword ~amd64-linux

@@ -1,6 +1,47 @@
 # ChangeLog for dev-libs/libnl
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libnl/ChangeLog,v 1.110 2012/10/26 02:18:02 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libnl/ChangeLog,v 1.121 2012/11/27 23:03:14 jer Exp $
+
+  27 Nov 2012; Jeroen Roovers <jer@gentoo.org> libnl-3.2.16.ebuild:
+  libnl -> ${PN} in SRC_URI.
+
+  27 Nov 2012; Jeroen Roovers <jer@gentoo.org> libnl-3.2.14.ebuild,
+  libnl-3.2.16.ebuild:
+  Download docs conditionally by Mike Auty (bug #445002).
+
+  27 Nov 2012; Jeroen Roovers <jer@gentoo.org> libnl-3.2.16.ebuild:
+  Fix building with USE=doc by Denys Duchier (bug #444878).
+
+  26 Nov 2012; Jeroen Roovers <jer@gentoo.org> -libnl-3.2.15.ebuild:
+  Old.
+
+*libnl-3.2.16 (26 Nov 2012)
+
+  26 Nov 2012; Rick Farina <zerochaos@gentoo.org> +libnl-3.2.16.ebuild:
+  version bump from upstream to address bug 444542
+
+  23 Nov 2012; Jeroen Roovers <jer@gentoo.org> libnl-3.2.14.ebuild,
+  libnl-3.2.15.ebuild:
+  Fix documentation path.
+
+*libnl-3.2.15 (23 Nov 2012)
+
+  23 Nov 2012; Jeroen Roovers <jer@gentoo.org> +libnl-3.2.15.ebuild:
+  Version bump.
+
+  21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.14.ebuild:
+  Stable for x86, wrt bug #444112
+
+  21 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> libnl-3.2.14.ebuild:
+  amd64 stable, wrt bug #444112
+
+  13 Nov 2012; Jeroen Roovers <jer@gentoo.org> libnl-3.2.13.ebuild,
+  libnl-3.2.14.ebuild:
+  Fix licenses for docs and utils.
+
+  07 Nov 2012; Mike Frysinger <vapier@gentoo.org> libnl-3.2.14.ebuild:
+  Run elibtoolize for cross-compile relinking, and use get_libdir when deleting
+  .la files.
 
   26 Oct 2012; Anthony G. Basile <blueness@gentoo.org> libnl-3.2.14.ebuild:
   keyword ~mips

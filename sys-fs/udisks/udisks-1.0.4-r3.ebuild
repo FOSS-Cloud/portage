@@ -1,9 +1,9 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udisks/udisks-1.0.4-r3.ebuild,v 1.1 2012/08/06 11:46:40 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udisks/udisks-1.0.4-r3.ebuild,v 1.3 2012/11/24 20:05:50 ssuominen Exp $
 
 EAPI=4
-inherit eutils bash-completion-r1 linux-info toolchain-funcs
+inherit eutils bash-completion-r1 linux-info udev
 
 DESCRIPTION="Daemon providing interfaces to work with storage devices"
 HOMEPAGE="http://www.freedesktop.org/wiki/Software/udisks"
@@ -14,15 +14,15 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86"
 IUSE="debug nls remote-access"
 
-COMMON_DEPEND=">=dev-libs/dbus-glib-0.98
-	>=dev-libs/glib-2.28
-	>=dev-libs/libatasmart-0.18
+COMMON_DEPEND=">=dev-libs/dbus-glib-0.100
+	>=dev-libs/glib-2.30
+	>=dev-libs/libatasmart-0.19
 	>=sys-auth/polkit-0.104-r1
-	>=sys-apps/dbus-1.4.20
+	>=sys-apps/dbus-1.6
 	>=sys-apps/sg3_utils-1.27.20090411
 	>=sys-block/parted-3
-	|| ( >=sys-fs/udev-171-r5[gudev,hwdb] <sys-fs/udev-171[extras] )
-	>=sys-fs/lvm2-2.02.66"
+	>=sys-fs/lvm2-2.02.66
+	virtual/udev[gudev,hwdb]"
 # util-linux -> mount, umount, swapon, swapoff (see also #403073)
 RDEPEND="${COMMON_DEPEND}
 	>=sys-apps/util-linux-2.20.1-r2
@@ -45,10 +45,11 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-1.0.2-ntfs-3g.patch
+	epatch \
+		"${FILESDIR}"/${PN}-1.0.2-ntfs-3g.patch \
+		"${FILESDIR}"/${P}-kernel-2.6.36-compat.patch
 
-	local udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-	sed -i -e "s:/lib/udev:${udevdir}:" data/80-udisks.rules || die
+	sed -i -e "s:/lib/udev:$(udev_get_udevdir):" data/80-udisks.rules || die
 }
 
 src_configure() {
@@ -72,14 +73,12 @@ src_test() {
 }
 
 src_install() {
-	local udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-
 	emake \
 		DESTDIR="${D}" \
 		slashsbindir=/usr/sbin \
 		slashlibdir=/usr/lib \
-		udevhelperdir="${udevdir}" \
-		udevrulesdir="${udevdir}"/rules.d \
+		udevhelperdir="$(udev_get_udevdir)" \
+		udevrulesdir="$(udev_get_udevdir)"/rules.d \
 		install #398081
 
 	dodoc AUTHORS HACKING NEWS README

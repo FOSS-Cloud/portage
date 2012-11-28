@@ -1,6 +1,49 @@
 # ChangeLog for dev-libs/icu
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/icu/ChangeLog,v 1.211 2012/10/28 21:16:21 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/icu/ChangeLog,v 1.219 2012/11/15 04:56:10 phajdan.jr Exp $
+
+*icu-50.1-r2 (15 Nov 2012)
+
+  15 Nov 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> +icu-50.1-r2.ebuild,
+  +files/icu-50.1-char16_t.patch:
+  Use a different (upstream) patch to handle c++11 issues, as asked by upstream
+  developer Steven R. Loomis in bug #439892.
+
+*icu-50.1-r1 (10 Nov 2012)
+
+  10 Nov 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> +icu-50.1-r1.ebuild,
+  +files/icu-50.1-no-c++11.patch:
+  Disable automagic detection of c++11, bug #439892 by Arfrever. Patch by Paul
+  Zander.
+
+  08 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> icu-50.1.ebuild:
+  The unicode license left us.
+
+*icu-50.1 (08 Nov 2012)
+
+  08 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> +icu-50.1.ebuild,
+  -icu-50_rc-r3.ebuild:
+  Bump to release.
+
+*icu-50_rc-r3 (05 Nov 2012)
+
+  05 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> +icu-50_rc-r3.ebuild,
+  -icu-50_rc-r2.ebuild:
+  Revision bump to fix bug#441794 and more wip goodies.
+
+  04 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> icu-50_rc-r2.ebuild:
+  Silence repoman.
+
+*icu-50_rc-r2 (04 Nov 2012)
+
+  04 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> +icu-50_rc-r2.ebuild,
+  -icu-50_rc-r1.ebuild, -icu-50_rc.ebuild:
+  Revision bump again. Drop the slotting idea. Try to solve cross-compilation
+  issues wrt bug#329729.
+
+  02 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> metadata.xml:
+  Take over as this needs to work for office all the time. Cpp/chromium teams,
+  you are more than welcome to chip in.
 
   28 Oct 2012; Mike Gilbert <floppym@gentoo.org> icu-50_rc-r1.ebuild:
   Improve support for clang. Patch by Arfrever.

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/gwyddion/gwyddion-2.29.ebuild,v 1.1 2012/08/01 22:30:25 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-visualization/gwyddion/gwyddion-2.29.ebuild,v 1.3 2012/11/14 13:34:26 ago Exp $
 
 EAPI=4
 
@@ -15,7 +15,7 @@ SRC_URI="http://gwyddion.net/download/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc fftw gnome kde nls opengl perl python ruby sourceview xml X"
 
 RDEPEND="media-libs/libpng
@@ -46,7 +46,7 @@ src_prepare() {
 }
 
 src_configure() {
-	local myeconfargs+=(
+	local myeconfargs=(
 		--disable-rpath
 		$(use_enable doc gtk-doc)
 		$(use_enable nls)

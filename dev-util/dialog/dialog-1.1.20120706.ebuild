@@ -1,10 +1,10 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/dialog/dialog-1.1.20120706.ebuild,v 1.1 2012/07/18 17:25:40 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/dialog/dialog-1.1.20120706.ebuild,v 1.8 2012/11/21 11:16:07 ago Exp $
 
 EAPI="4"
 
-inherit multilib
+inherit multilib eutils
 
 MY_PV="${PV/1.1./1.1-}"
 S=${WORKDIR}/${PN}-${MY_PV}
@@ -14,13 +14,12 @@ SRC_URI="ftp://invisible-island.net/${PN}/${PN}-${MY_PV}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="~alpha amd64 arm hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh ~sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 IUSE="examples minimal nls static-libs unicode"
 
 RDEPEND="
-	>=app-shells/bash-2.04-r3
-	!unicode? ( >=sys-libs/ncurses-5.2-r5 )
-	unicode? ( >=sys-libs/ncurses-5.2-r5[unicode] )
+	>=sys-libs/ncurses-5.2-r5
+	unicode? ( sys-libs/ncurses[unicode] )
 "
 DEPEND="
 	${RDEPEND}
@@ -31,16 +30,16 @@ DEPEND="
 
 src_prepare() {
 	sed -i configure -e '/LIB_CREATE=/s:${CC}:& ${LDFLAGS}:g' || die
+	sed -i '/$(LIBTOOL_COMPILE)/s:$: $(LIBTOOL_OPTS):' makefile.in || die
 }
 
 src_configure() {
-	local ncursesw
-	use unicode && ncursesw="w"
 	econf \
 		--disable-rpath-hack \
 		$(use_enable nls) \
 		$(use_with !minimal libtool) \
-		--with-ncurses${ncursesw}
+		--with-libtool-opts=$(usex static-libs '' '-shared') \
+		--with-ncurses$(usex unicode w '')
 }
 
 src_install() {
@@ -62,8 +61,6 @@ src_install() {
 	fi
 
 	if ! use static-libs; then
-		rm -f \
-			"${D}"usr/$(get_libdir)/libdialog.a \
-			"${D}"usr/$(get_libdir)/libdialog.la
+		rm -f "${ED}"usr/$(get_libdir)/libdialog.{la,a}
 	fi
 }

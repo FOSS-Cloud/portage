@@ -1,6 +1,25 @@
 # ChangeLog for media-libs/ladspa-cmt
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/ladspa-cmt/ChangeLog,v 1.41 2012/09/09 17:11:17 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/ladspa-cmt/ChangeLog,v 1.45 2012/11/27 12:08:45 aballier Exp $
+
+*ladspa-cmt-1.16-r2 (27 Nov 2012)
+
+  27 Nov 2012; Alexis Ballier <aballier@gentoo.org> +ladspa-cmt-1.16-r2.ebuild,
+  +files/ladspa-cmt-1.16-sa.patch:
+  Fix strict aliasing warnings, bug #307563
+
+*ladspa-cmt-1.16-r1 (27 Nov 2012)
+
+  27 Nov 2012; Alexis Ballier <aballier@gentoo.org> +ladspa-cmt-1.16-r1.ebuild,
+  +files/ladspa-cmt-1.16-respect-ldflags.patch:
+  Respect LDFLAGS, bug #334711, patch by Gavin Pryke
+
+  27 Nov 2012; Alexis Ballier <aballier@gentoo.org> ladspa-cmt-1.16.ebuild:
+  none of the DEPEND are RDEPEND so set it empty
+
+  27 Nov 2012; Alexis Ballier <aballier@gentoo.org> -ladspa-cmt-1.15.ebuild,
+  -files/ladspa-cmt-darwin.patch:
+  remove old
 
   09 Sep 2012; Raúl Porcel <armin76@gentoo.org> ladspa-cmt-1.16.ebuild:
   sparc stable wrt #419079

@@ -1,6 +1,18 @@
 # ChangeLog for mail-filter/amavisd-new
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/amavisd-new/ChangeLog,v 1.194 2012/10/09 10:03:03 eras Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/amavisd-new/ChangeLog,v 1.197 2012/11/13 17:52:44 jer Exp $
+
+  13 Nov 2012; Jeroen Roovers <jer@gentoo.org> amavisd-new-2.8.0.ebuild:
+  Marked ~hppa (bug #442188).
+
+  12 Nov 2012; Anthony G. Basile <blueness@gentoo.org> amavisd-new-2.8.0.ebuild:
+  keyword ~ppc, bug #442188
+
+*amavisd-new-2.8.0 (07 Nov 2012)
+
+  07 Nov 2012; Eray Aslan <eras@gentoo.org> +amavisd-new-2.8.0.ebuild,
+  +files/amavis-mc.initd, +files/amavisd.initd-r1, metadata.xml:
+  Version bump - bug #441988
 
   01 Oct 2012; Eray Aslan <eras@gentoo.org> -amavisd-new-2.6.3-r2.ebuild,
   -amavisd-new-2.7.0.ebuild, -amavisd-new-2.7.1.ebuild,

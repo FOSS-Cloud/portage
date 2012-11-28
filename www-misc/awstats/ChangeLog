@@ -1,6 +1,27 @@
 # ChangeLog for www-misc/awstats
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-misc/awstats/ChangeLog,v 1.28 2012/02/01 17:06:00 ranger Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-misc/awstats/ChangeLog,v 1.33 2012/11/15 12:23:20 blueness Exp $
+
+  15 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  awstats-7.1_p20121017.ebuild:
+  stable ppc, bug #440764
+
+  13 Nov 2012; Andreas Schuerch <nativemad@gentoo.org>
+  awstats-7.1_p20121017.ebuild:
+  x86 stable, see bug 440764
+
+  12 Nov 2012; Jeroen Roovers <jer@gentoo.org> awstats-7.1_p20121017.ebuild:
+  Stable for HPPA (bug #440764).
+
+  11 Nov 2012; <ago@gentoo.org> awstats-7.1_p20121017.ebuild:
+  Stable for amd64, wrt bug #440764
+
+*awstats-7.1_p20121017 (01 Nov 2012)
+
+  01 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +awstats-7.1_p20121017.ebuild, -awstats-7.0_p20101205-r3.ebuild,
+  -files/awstats-6.3-gentoo.diff, -files/awstats-7.0_p20101205-nofollow.patch:
+  Remove old; bump to a new snapshot as per bug #440764.
 
   01 Feb 2012; Brent Baude <ranger@gentoo.org> awstats-7.1-r2.ebuild:
   Marking awstats-7.1-r2 ppc for bug 384237
@@ -419,4 +440,3 @@
   Perolo Silantico < per.sil @ gmx.it >
   and me < zul @ gentoo.org >
   Finally closes # 19382.
-

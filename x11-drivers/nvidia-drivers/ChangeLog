@@ -1,6 +1,49 @@
 # ChangeLog for x11-drivers/nvidia-drivers
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/ChangeLog,v 1.403 2012/10/19 19:37:43 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/ChangeLog,v 1.413 2012/11/19 21:21:51 cardoe Exp $
+
+  19 Nov 2012; Doug Goldstein <cardoe@gentoo.org> nvidia-drivers-310.19.ebuild:
+  Fix bad directory reference
+
+  19 Nov 2012; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-96.43.23.ebuild:
+  Lower x11-base/xorg-server dependency (bug #443926).
+
+*nvidia-drivers-310.19 (19 Nov 2012)
+
+  19 Nov 2012; Doug Goldstein <cardoe@gentoo.org>
+  +nvidia-drivers-310.19.ebuild:
+  Version bump. Supports OpenGL 4.3 as well as additional 32-bit libraries on
+  64-bit multilib installs.
+
+  18 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  nvidia-drivers-173.14.36.ebuild, nvidia-drivers-304.60.ebuild,
+  nvidia-drivers-304.64.ebuild, nvidia-drivers-96.43.23.ebuild:
+  stable on amd64 and x86
+
+  18 Nov 2012; Doug Goldstein <cardoe@gentoo.org> nvidia-drivers-295.75.ebuild:
+  Stabilize on x86 based on a user report in bug #435700 since x86 is falling
+  way behind.
+
+  18 Nov 2012; Doug Goldstein <cardoe@gentoo.org>
+  -nvidia-drivers-302.17-r1.ebuild, -nvidia-drivers-304.37-r1.ebuild,
+  -nvidia-drivers-304.43.ebuild, -nvidia-drivers-304.48.ebuild,
+  -nvidia-drivers-304.51.ebuild:
+  Remove older versions
+
+  14 Nov 2012; Agostino Sarubbo <ago@gentoo.org> nvidia-drivers-96.43.23.ebuild:
+  stable for amd64, wrt to bug #438246
+
+  14 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  nvidia-drivers-173.14.36.ebuild:
+  Stable for amd64, wrt bug #438246
+
+  13 Nov 2012; Doug Goldstein <cardoe@gentoo.org> nvidia-drivers-304.60.ebuild:
+  Stabilize 304.60 for amd64. bug #438246
+
+*nvidia-drivers-304.64 (07 Nov 2012)
+
+  07 Nov 2012; Jeroen Roovers <jer@gentoo.org> +nvidia-drivers-304.64.ebuild:
+  Version bump.
 
   19 Oct 2012; Agostino Sarubbo <ago@gentoo.org> nvidia-drivers-295.75.ebuild:
   Stable for AMD64, wrt bug #435700

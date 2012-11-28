@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gupnp-igd/gupnp-igd-0.2.1.ebuild,v 1.6 2012/10/01 08:29:14 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gupnp-igd/gupnp-igd-0.2.1.ebuild,v 1.8 2012/11/25 17:22:08 eva Exp $
 
 EAPI="3"
 PYTHON_DEPEND="python? 2:2.5"

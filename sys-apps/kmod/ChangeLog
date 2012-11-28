@@ -1,5 +1,39 @@
 # ChangeLog for sys-apps/kmod
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/ChangeLog,v 1.53 2012/10/20 09:30:13 ssuominen Exp $
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/ChangeLog,v 1.60 2012/11/25 09:42:58 ssuominen Exp $
+
+*kmod-11-r3 (25 Nov 2012)
+
+  25 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> +kmod-11-r3.ebuild,
+  kmod-9999.ebuild:
+  Use --with-rootlibdir= instead of gen_usr_ldscript wrt #443710 by William
+  Hubbs
+
+  24 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
+  -files/kmod-8-gc-sections.patch, -kmod-10-r2.ebuild:
+  old
+
+*kmod-11-r2 (24 Nov 2012)
+
+  24 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> +kmod-11-r2.ebuild,
+  kmod-9999.ebuild:
+  Move kmod from /usr to / wrt #443710 by Francisco Blas Izquierdo Riera and
+  Lars Wendler
+
+  10 Nov 2012; William Hubbs <williamh@gentoo.org> ChangeLog:
+  add libxslt dependency for bug #442402 to kmod-11-r1 and kmod-9999.
+
+*kmod-11-r1 (08 Nov 2012)
+
+  08 Nov 2012; William Hubbs <williamh@gentoo.org> +kmod-11-r1.ebuild,
+  kmod-9999.ebuild:
+  kmod reads from /lib/modprobe.d not /usr/lib/modprobe.d
+
+*kmod-11 (08 Nov 2012)
+
+  08 Nov 2012; William Hubbs <williamh@gentoo.org> +kmod-11.ebuild,
+  kmod-9999.ebuild:
+  version bump and sync live ebuild
 
 *kmod-10-r2 (20 Oct 2012)
 

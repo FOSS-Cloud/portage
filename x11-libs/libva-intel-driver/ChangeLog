@@ -1,6 +1,31 @@
 # ChangeLog for x11-libs/libva-intel-driver
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-intel-driver/ChangeLog,v 1.10 2012/10/11 12:31:32 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-intel-driver/ChangeLog,v 1.16 2012/11/26 23:54:10 aballier Exp $
+
+  26 Nov 2012; Alexis Ballier <aballier@gentoo.org>
+  -libva-intel-driver-1.0.15.ebuild, -libva-intel-driver-1.0.18-r1.ebuild:
+  remove old
+
+  26 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> metadata.xml:
+  Update to global useflag.
+
+  21 Nov 2012; Alexis Ballier <aballier@gentoo.org>
+  libva-intel-driver-1.0.19.ebuild, libva-intel-driver-9999.ebuild:
+  disable silent rules, bug #443310
+
+  18 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  libva-intel-driver-1.0.17.ebuild:
+  Stable for x86, wrt bug #443292
+
+  16 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  libva-intel-driver-1.0.17.ebuild:
+  Stable for amd64, wrt bug #443292
+
+*libva-intel-driver-1.0.19 (14 Nov 2012)
+
+  14 Nov 2012; Alexis Ballier <aballier@gentoo.org>
+  +libva-intel-driver-1.0.19.ebuild, libva-intel-driver-9999.ebuild:
+  Version bump and update SRC_URI
 
   11 Oct 2012; Alexis Ballier <aballier@gentoo.org>
   libva-intel-driver-1.0.18-r1.ebuild, +files/libva-1.1.0.patch:
@@ -52,4 +77,3 @@
   +libva-intel-driver-1.0.15.ebuild, +libva-intel-driver-9999.ebuild,
   +metadata.xml:
   split out intel driver from x11-libs/libva
-

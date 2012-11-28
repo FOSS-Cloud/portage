@@ -3,8 +3,7 @@
 <pkgmetadata>
  <herd>web-apps</herd>
  <maintainer>
-   <email>planet@gentoo.org</email>
-   <name>Planet Gentoo team</name>
+   <email>tampakrap@gentoo.org</email>
  </maintainer>
  <use>
    <flag name="django">Support for django template style to config files</flag>

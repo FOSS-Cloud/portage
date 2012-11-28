@@ -1,6 +1,14 @@
 # ChangeLog for media-sound/murmur
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/murmur/ChangeLog,v 1.33 2012/06/09 23:13:11 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/murmur/ChangeLog,v 1.35 2012/11/16 00:51:01 tgurr Exp $
+
+  16 Nov 2012; Timo Gurr <tgurr@gentoo.org> -murmur-1.2.3.ebuild:
+  Actually remove the old.
+
+*murmur-1.2.4_beta1 (16 Nov 2012)
+
+  16 Nov 2012; Timo Gurr <tgurr@gentoo.org> +murmur-1.2.4_beta1.ebuild:
+  Version bump, remove old.
 
   09 Jun 2012; Zac Medico <zmedico@gentoo.org> murmur-1.2.3-r3.ebuild,
   murmur-1.2.3.ebuild:
@@ -166,4 +174,3 @@
   20 Jan 2007; Timothy Redaelli <drizzt@gentoo.org> +files/murmur.confd,
   +files/murmur.rc, +metadata.xml, +murmur-0.9.4.ebuild:
   New ebuild, mumble server (murmur) wrt bug #155517.
-

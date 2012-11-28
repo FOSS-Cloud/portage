@@ -1,6 +1,16 @@
 # ChangeLog for games-strategy/uqm
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/uqm/ChangeLog,v 1.39 2012/10/19 22:54:29 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/uqm/ChangeLog,v 1.42 2012/11/22 10:08:14 ago Exp $
+
+  22 Nov 2012; Agostino Sarubbo <ago@gentoo.org> uqm-0.7.0-r2.ebuild:
+  Stable for x86, tested by Vincent Olivert Riera <peratu@carrosses.com>, wrt
+  bug #443892
+
+  21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> uqm-0.7.0-r2.ebuild:
+  Stable for amd64, wrt bug #443892
+
+  20 Nov 2012; Anthony G. Basile <blueness@gentoo.org> uqm-0.7.0-r2.ebuild:
+  stable ppc ppc64, bug #443892
 
 *uqm-0.7.0-r2 (19 Oct 2012)
 

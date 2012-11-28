@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/oracle-instantclient-basic/oracle-instantclient-basic-11.2.0.3.ebuild,v 1.7 2012/09/24 21:13:22 haubi Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/oracle-instantclient-basic/oracle-instantclient-basic-11.2.0.3.ebuild,v 1.10 2012/11/15 19:36:02 haubi Exp $
 
 EAPI="4"
 
@@ -25,7 +25,7 @@ SRC_URI="
 
 LICENSE="OTN"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="amd64 x86"
 RESTRICT="fetch"
 IUSE="multilib"
 
@@ -38,6 +38,8 @@ RDEPEND="
 "
 
 S="${WORKDIR}"
+
+QA_PREBUILT="usr/lib*/oracle/${PV}/client/lib*/lib*"
 
 set_my_abivars() {
 	S="${WORKDIR}/${ABI}/instantclient_11_2"

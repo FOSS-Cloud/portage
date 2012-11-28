@@ -1,6 +1,21 @@
 # ChangeLog for www-servers/thttpd
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/thttpd/ChangeLog,v 1.48 2012/08/19 16:25:30 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/thttpd/ChangeLog,v 1.53 2012/11/22 14:34:07 blueness Exp $
+
+  22 Nov 2012; Anthony G. Basile <blueness@gentoo.org> thttpd-2.26.4-r1.ebuild:
+  Move chown/chmod to src_install, where they belong, bug #444183
+
+  21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> thttpd-2.26.4-r1.ebuild:
+  Stable for x86, wrt bug #441548
+
+  06 Nov 2012; <ago@gentoo.org> thttpd-2.26.4-r1.ebuild:
+  Stable for amd64, wrt bug #441548
+
+  03 Nov 2012; Anthony G. Basile <blueness@gentoo.org> thttpd-2.26.4-r1.ebuild:
+  stable arm, bug #441548
+
+  03 Nov 2012; Anthony G. Basile <blueness@gentoo.org> thttpd-2.26.4-r1.ebuild:
+  stable ppc ppc64, bug #441548
 
   19 Aug 2012; Raúl Porcel <armin76@gentoo.org> thttpd-2.26.2.ebuild,
   thttpd-2.26.4-r1.ebuild:
@@ -253,4 +268,3 @@
   files/thttpd-2.25/thttpd.conf.sample, files/thttpd-2.25/thttpd.confd,
   files/thttpd-2.25/thttpd.init:
   Initial import; thanks to Thomas Eckert <eckert.thomas@gmx.net> in bug #36173
-

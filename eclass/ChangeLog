@@ -1,6 +1,153 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.489 2012/10/31 01:51:52 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.526 2012/11/27 17:39:48 jer Exp $
+
+  27 Nov 2012; Jeroen Roovers <jer@gentoo.org> nvidia-driver.eclass:
+  Remove ebeep because newer nvidia-drivers have EAPI=4.
+
+  27 Nov 2012; Ulrich Müller <ulm@gentoo.org> scsh.eclass:
+  Drop default LICENSE assignment.
+
+  27 Nov 2012; Alexandre Rostovtsev <tetromino@gentoo.org> gnome2.eclass:
+  Handle DOCS when it is an exported array, i.e. "declare -ax" (bug #444740,
+  thanks to Arfrever).
+
+  26 Nov 2012; Alexandre Rostovtsev <tetromino@gentoo.org> gnome2.eclass:
+  Typo, probably caused by strange font in pms.pdf (bug #444740, thanks to
+  Alphat-PC).
+
+  26 Nov 2012; Michał Górny <mgorny@gentoo.org> python-utils-r1.eclass:
+  Add python_optimize() to compile Python modules.
+
+  26 Nov 2012; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass,
+  python-single-r1.eclass:
+  Run EXPORT_FUNCTIONS even if re-inheriting, to preserve the expected phase
+  overrides.
+
+  26 Nov 2012; Michał Górny <mgorny@gentoo.org> python-r1.eclass,
+  python-single-r1.eclass:
+  Override incompatible functions in python-single-r1 directly, instead of
+  adding checks to python-r1.
+
+  25 Nov 2012; Pacho Ramos <pacho@gentoo.org> emul-linux-x86.eclass:
+  Really install only libs, not everything included in .so* (#442910 by SpanKY,
+  Samuli Suominen and Jim Faulkner).
+
+  24 Nov 2012; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass,
+  python.eclass, python-r1.eclass, python-single-r1.eclass,
+  python-utils-r1.eclass:
+  Fix EAPI checks, add double- and colliding include guards.
+
+  24 Nov 2012; Michał Górny <mgorny@gentoo.org> +python-single-r1.eclass:
+  Introduce python-single-r1 to handle Python packages not supporting multiple
+  implementations.
+
+  24 Nov 2012; Michał Górny <mgorny@gentoo.org> python-r1.eclass,
+  +python-utils-r1.eclass:
+  Move common Python functions to python-utils-r1.
+
+  24 Nov 2012; Pacho Ramos <pacho@gentoo.org> gnome2.eclass:
+  Handle documentation as 'default' for eapi5 and newer (as discussed via
+  mail), bug #373131
+
+  21 Nov 2012; Michał Górny <mgorny@gentoo.org> systemd.eclass:
+  systemd_do*: use local variable scope instead of subshelling.
+
+  21 Nov 2012; Michał Górny <mgorny@gentoo.org> python-r1.eclass:
+  Introduce python_domodule() to install Python modules.
+
+  21 Nov 2012; Michał Górny <mgorny@gentoo.org> python-r1.eclass:
+  Introduce python_doscript() to install Python scripts.
+
+  19 Nov 2012; Michał Górny <mgorny@gentoo.org> python-r1.eclass:
+  Introduce a check for USE_PYTHON & PYTHON_TARGETS compatibility.
+
+  19 Nov 2012; Sergei Trofimovich <slyfox@gentoo.org> haskell-cabal.eclass:
+  Added new helper function 'cabal_chdeps' and and debug variable
+  'CABAL_DEBUG_LOOSENING' for it.
+
+  17 Nov 2012; Mike Gilbert <floppym@gentoo.org> enlightenment.eclass:
+  Remove the minimum restriction from PYTHON_DEPEND; any version of python from
+  the last several years will do the job.
+
+  17 Nov 2012; Pacho Ramos <pacho@gentoo.org> gnome2.eclass:
+  Rely on prune_libtool_files for eapis >= 5 as discussed with the team via
+  mail.
+
+  17 Nov 2012; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  enlightenment.eclass:
+  Raise python dependency to at least 2.5, fixes the breakage caused by
+  silently dropped support for python-2.4 in python eclass
+
+  16 Nov 2012; Sergei Trofimovich <slyfox@gentoo.org> ghc-package.eclass,
+  haskell-cabal.eclass:
+  Restore dynamic linking of Cabal's ./setup and add building of shared
+  libraries for ghc-7.7+.
+
+  15 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> obs-service.eclass:
+  Depend on suse-build as most services require it.
+
+  15 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> obs-service.eclass:
+  Darn copy pasto overlook.
+
+  15 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> obs-service.eclass:
+  Use src_uri arrows to allow versioning sanely.
+
+  12 Nov 2012; Davide Pesavento <pesa@gentoo.org> qt4-build.eclass:
+  Update from qt overlay: respect AR (bug #440262); drop support for EAPI=2;
+  switch to prune_libtool_files(); various cleanups.
+
+  08 Nov 2012; Davide Pesavento <pesa@gentoo.org> qt4-r2.eclass:
+  Partial sync with qt overlay. Apart from cosmetic changes, we now explicitly
+  define QMAKE_{AR,RANLIB,OBJCOPY} in eqmake4(), thus fixing bug 440266.
+
+  07 Nov 2012; Pacho Ramos <pacho@gentoo.org> gnome2.eclass:
+  Pass --disable-schemas-install when possible as discussed with the team via
+  mail.
+
+  07 Nov 2012; Pacho Ramos <pacho@gentoo.org> gnome2.eclass:
+  Pass --disable-silent-rules when possible (not needed for eapi5), bug #429308
+
+  05 Nov 2012; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Fix enabling byte-compiling.
+
+  04 Nov 2012; Michał Górny <mgorny@gentoo.org> python-r1.eclass:
+  Always require PYTHON_COMPAT. Add an exception for python-exec which is a
+  special case.
+
+  01 Nov 2012; Robin H. Johnson <robbat2@gentoo.org> mysql-autotools.eclass,
+  mysql-cmake.eclass, mysql-v2.eclass:
+  Bring in MySQL overlay eclass changes for tcmalloc, jemalloc, systemtap,
+  readline gplv3 and pbxt static build.
+
+  01 Nov 2012; Michał Górny <mgorny@gentoo.org> python-r1.eclass:
+  Minor documentation improvements.
+
+  01 Nov 2012; Michał Górny <mgorny@gentoo.org> python-r1.eclass:
+  Mark _python_ln_rel as @INTERNAL.
+
+  01 Nov 2012; Robin H. Johnson <robbat2@gentoo.org> mysql.eclass,
+  mysql-v2.eclass:
+  Bug #392361: Fix mysql_install_db cases to work between all versions &
+  variations of MySQL. Also add in checks for tmpdir/log-bin/relay-log
+  directories that must exist otherwise the install_db will fail.
+
+  01 Nov 2012; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Export PYTHONPATH for phases in out-of-source builds.
+
+  01 Nov 2012; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Explicitly set library build dir in out-of-source builds.
+
+  01 Nov 2012; Davide Pesavento <pesa@gentoo.org> qt4-build.eclass:
+  Update homepage.
+
+  31 Oct 2012; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Enable byte-compilation of Python modules only locally for
+  distutils-r1_python_install(). Thanks to Enlik for reminding me of it.
+
+  31 Oct 2012; Michał Górny <mgorny@gentoo.org> python-r1.eclass:
+  Fix the shebang correcting function to patch shebang only. Thanks to Enlik
+  for the patch.
 
   31 Oct 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   gst-plugins10.eclass:
@@ -262,6 +409,9 @@
   27 Sep 2012; Ian Stakenvicius <axs@gentoo.org> toolchain-funcs.eclass:
   Fixed tc-ninja_magic_to_arch() to also use KV_FULL and fail if no kernel
   version specified, bug 432390
+
+  08 Oct 2012; Robin H. Johnson <robbat2@gentoo.org> db.eclass:
+  Fix typo in src_test runner: makeopts_jobs not makeopts_job.
 
   27 Sep 2012; Ian Stakenvicius <axs@gentoo.org> eutils.eclass:
   Made 'usex' declaration conditional on lack of PM or EAPI5+ support

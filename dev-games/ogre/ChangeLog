@@ -1,6 +1,26 @@
 # ChangeLog for dev-games/ogre
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/ogre/ChangeLog,v 1.84 2012/08/04 09:44:02 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-games/ogre/ChangeLog,v 1.89 2012/11/12 23:27:35 hasufell Exp $
+
+  12 Nov 2012; Julian Ospald <hasufell@gentoo.org> ogre-1.8.1.ebuild:
+  fix bug 421493
+
+  01 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org> metadata.xml:
+  metadata cleanup
+
+  01 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/ogre-1.6.5-as-needed.patch, -files/ogre-1.6.5-automake.patch,
+  -files/ogre-1.6.5-boost.patch, -files/ogre-1.6.5-cegui.patch,
+  -files/ogre-1.6.5-gcc46.patch, -files/ogre-1.7.4-gcc46.patch,
+  -files/ogre-1.7.4-threading.patch, -ogre-1.6.5.ebuild, -ogre-1.7.4-r1.ebuild:
+  old
+
+*ogre-1.8.1 (01 Nov 2012)
+
+  01 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/ogre-1.8.1-flags.patch, +files/ogre-1.8.1-threading.patch,
+  +ogre-1.8.1.ebuild:
+  version bump (bug #440074)
 
   04 Aug 2012; Agostino Sarubbo <ago@gentoo.org> ogre-1.8.0.ebuild:
   Stable for amd64, wrt bug #427056

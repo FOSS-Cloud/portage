@@ -1,6 +1,24 @@
 # ChangeLog for dev-libs/geoip
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/geoip/ChangeLog,v 1.133 2012/08/30 09:14:37 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/geoip/ChangeLog,v 1.139 2012/11/20 20:49:06 ago Exp $
+
+  20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> geoip-1.4.8-r1.ebuild:
+  Stable for x86, wrt bug #441184
+
+  07 Nov 2012; Jeroen Roovers <jer@gentoo.org> geoip-1.4.8-r1.ebuild:
+  Stable for HPPA (bug #441184).
+
+  07 Nov 2012; Anthony G. Basile <blueness@gentoo.org> geoip-1.4.8-r1.ebuild:
+  stable arm, bug #441184
+
+  07 Nov 2012; Anthony G. Basile <blueness@gentoo.org> geoip-1.4.8-r1.ebuild:
+  stable ppc ppc64, bug #441184
+
+  06 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> geoip-1.4.8-r1.ebuild:
+  Fix tests wrt bug #335368. Thanks to Jeroen Roovers for providing patch
+
+  06 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> geoip-1.4.8-r1.ebuild:
+  Stable on amd64 wrt bug #441184
 
   30 Aug 2012; Sergey Popov <pinkbyte@gentoo.org> geoip-1.4.8-r1.ebuild:
   Add GeoIPASNum database to SRC_URI as it is updated by geoipupdate.sh and
@@ -486,4 +504,3 @@
 
   29 Jun 2003; <solar@gentoo.org> geoip-1.2.0.ebuild:
   Initial Import of GeoIP to portage
-

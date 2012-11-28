@@ -5,5 +5,10 @@
 <email>xmw@gentoo.org</email>
 <name>Michael Weber</name>
 </maintainer>
+<use>
+	<flag name="gcov">Enable coverage support</flag>
+	<flag name="simpleini">Enable simpleini support</flag>
+	<flag name="yajl">Enable yajl support</flag>
+</use>
 </pkgmetadata>
 

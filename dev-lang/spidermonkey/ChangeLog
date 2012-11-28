@@ -1,6 +1,32 @@
 # ChangeLog for dev-lang/spidermonkey
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/ChangeLog,v 1.89 2012/10/27 14:22:40 klausman Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/ChangeLog,v 1.94 2012/11/25 18:56:52 armin76 Exp $
+
+  25 Nov 2012; Raúl Porcel <armin76@gentoo.org> spidermonkey-1.8.5-r1.ebuild:
+  sparc stable wrt #438146
+
+  25 Nov 2012; <anarchy@gentoo.org> spidermonkey-1.8.5-r1.ebuild,
+  spidermonkey-1.8.5-r2.ebuild,
+  +files/spidermonkey-1.8.5-perf_event-check.patch:
+  Fix bug 441928
+
+  17 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
+  spidermonkey-1.8.5-r2.ebuild:
+  arm stable wrt #436670
+
+  09 Nov 2012; Ian Stakenvicius <axs@gentoo.org> spidermonkey-1.8.5-r1.ebuild,
+  spidermonkey-1.8.5-r2.ebuild,
+  +files/spidermonkey-1.8.5-arm_respect_cflags-3.patch:
+  matched ARM thumb2 configure check match with 1.8.7; after discussion with
+  mozilla upstream check should be based on toolchains setting instead of
+  system capabilities
+
+  02 Nov 2012; Ian Stakenvicius <axs@gentoo.org> spidermonkey-1.8.5-r1.ebuild,
+  spidermonkey-1.8.5-r2.ebuild,
+  +files/spidermonkey-1.8.5-arm_respect_cflags-2.patch,
+  -files/spidermonkey-1.8.5-arm_resprect_cflags-1.patch:
+  honour arm cflags and properly autodetect thumb2 support in 1.8.5 for gentoo
+  (bug 420471)
 
   27 Oct 2012; Tobias Klausmann <klausman@gentoo.org>
   spidermonkey-1.8.5-r1.ebuild:

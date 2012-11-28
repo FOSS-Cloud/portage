@@ -1,8 +1,8 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libvisio/libvisio-9999.ebuild,v 1.11 2012/06/09 00:15:14 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libvisio/libvisio-9999.ebuild,v 1.14 2012/11/21 13:26:59 scarabeus Exp $
 
-EAPI=4
+EAPI=5
 
 EGIT_REPO_URI="git://anongit.freedesktop.org/git/libreoffice/contrib/libvisio/"
 inherit base
@@ -14,17 +14,21 @@ HOMEPAGE="http://www.freedesktop.org/wiki/Software/libvisio"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-[[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~ppc ~x86"
+[[ ${PV} == 9999 ]] || \
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="doc static-libs"
 
 RDEPEND="
 	app-text/libwpd:0.9
 	app-text/libwpg:0.2
+	dev-libs/libxml2
+	sys-libs/zlib
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.46
-	virtual/pkgconfig
+	dev-util/gperf
 	sys-devel/libtool
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
 "
 

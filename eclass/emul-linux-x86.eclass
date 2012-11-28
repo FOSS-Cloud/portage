@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/emul-linux-x86.eclass,v 1.13 2012/10/28 09:43:49 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/emul-linux-x86.eclass,v 1.15 2012/11/25 07:19:51 pacho Exp $
 
 #
 # Original Author: Mike Doty <kingtaco@gentoo.org>
@@ -59,7 +59,7 @@ emul-linux-x86_src_unpack() {
 emul-linux-x86_src_prepare() {
 	ALLOWED=${ALLOWED:-^${S}/etc/env.d}
 	has development "${IUSE//+}" && use development && ALLOWED="${ALLOWED}|/usr/lib32/pkgconfig"
-	find "${S}" ! -type d ! -name '*.so*' | egrep -v "${ALLOWED}" | xargs -d $'\n' rm -f || die 'failed to remove everything but *.so*'
+	find "${S}" ! -type d ! '(' -name '*.so' -o -name '*.so.[0-9]*' ')' | egrep -v "${ALLOWED}" | xargs -d $'\n' rm -f || die 'failed to remove everything but *.so*'
 }
 
 emul-linux-x86_src_install() {
@@ -82,6 +82,8 @@ emul-linux-x86_src_install() {
 	if [[ ${x86_libdir} != "lib32" ]] ; then
 		ewarn "Moving lib32/ to ${x86_libdir}/; some libs might not work"
 		mv "${D}"/usr/lib32 "${D}"/usr/${x86_libdir} || die
-		mv "${D}"/lib32 "${D}"/${x86_libdir} || die
+		if [[ -d ${D}/lib32 ]] ; then
+			mv "${D}"/lib32 "${D}"/${x86_libdir} || die
+		fi
 	fi
 }

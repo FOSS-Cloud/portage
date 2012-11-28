@@ -5,6 +5,9 @@
 		<email>chainsaw@gentoo.org</email>
 		<name>Tony Vroon</name>
 	</maintainer>
-	<herd>mobile</herd>
+	<maintainer>
+		<email>zerochaos@gentoo.org</email>
+		<name> Rick Farina</name>
+	</maintainer>
 </pkgmetadata>
 

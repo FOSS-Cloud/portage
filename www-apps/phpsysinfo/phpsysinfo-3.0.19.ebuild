@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/phpsysinfo/phpsysinfo-3.0.19.ebuild,v 1.1 2012/08/28 08:42:11 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/phpsysinfo/phpsysinfo-3.0.19.ebuild,v 1.7 2012/11/27 04:11:19 radhermit Exp $
 
 EAPI="4"
 
@@ -11,7 +11,7 @@ HOMEPAGE="http://phpsysinfo.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86 ~x86-fbsd"
+KEYWORDS="amd64 hppa ppc ppc64 x86 ~x86-fbsd"
 IUSE=""
 
 RDEPEND="virtual/httpd-php
@@ -25,7 +25,7 @@ src_install() {
 	webapp_src_preinst
 
 	dodoc ChangeLog README*
-	rm -f ChangeLog COPYING README*
+	rm ChangeLog COPYING README* || die
 
 	insinto "${MY_HTDOCSDIR}"
 	doins -r .

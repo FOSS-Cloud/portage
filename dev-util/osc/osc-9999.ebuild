@@ -1,10 +1,11 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/osc/osc-9999.ebuild,v 1.4 2012/10/02 11:01:59 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/osc/osc-9999.ebuild,v 1.7 2012/11/19 13:33:26 scarabeus Exp $
 
-EAPI=4
+EAPI=5
 
 EGIT_REPO_URI="git://github.com/openSUSE/osc.git"
+PYTHON_DEPEND="2:2.6"
 
 if [[ "${PV}" == "9999" ]]; then
 	EXTRA_ECLASS="git-2"
@@ -33,7 +34,15 @@ DEPEND="
 	app-arch/rpm[python]
 	dev-python/m2crypto
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-admin/sudo
+	dev-util/obs-service-meta
+"
+
+pkg_setup() {
+	python_set_active_version 2
+	python_pkg_setup
+}
 
 src_install() {
 	distutils_src_install

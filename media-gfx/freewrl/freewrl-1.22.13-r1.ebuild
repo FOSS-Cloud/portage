@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/freewrl/freewrl-1.22.13-r1.ebuild,v 1.2 2012/10/24 19:12:13 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/freewrl/freewrl-1.22.13-r1.ebuild,v 1.3 2012/11/04 01:21:28 axs Exp $
 
 EAPI=4
 
@@ -117,10 +117,12 @@ src_install() {
 		# install vrml.jar as a JRE extension
 		dodir /usr/java/packages/lib/ext
 		dosym /usr/share/${PN}/lib/vrml.jar /usr/java/packages/lib/ext/vrml.jar
+		if ! has_version "media-gfx/freewrl[java]" ; then
 		elog "Because vrml.jar requires access to sockets, you will need to incorporate the"
 		elog "contents of /usr/share/${PN}/lib/java.policy into your system or user's default"
 		elog "java policy:"
 		elog "	cat /usr/share/${PN}/lib/java.policy >>~/.java.policy"
+		fi
 	fi
 
 	# remove unneeded .la files (as per Flameeyes' rant)
@@ -129,8 +131,10 @@ src_install() {
 }
 
 pkg_postinst() {
+	if [[ -z ${REPLACING_VERSIONS} ]]; then
 	elog "By default, FreeWRL expects to find the 'firefox' binary in your include"
 	elog "path.  If you do not have firefox installed or you wish to use a different"
 	elog "web browser to open links that are within VRML / X3D files, please be sure to"
 	elog "specify the command via your BROWSER environment variable."
+	fi
 }

@@ -1,8 +1,33 @@
 # ChangeLog for sys-auth/polkit
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/ChangeLog,v 1.109 2012/10/28 15:49:09 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/ChangeLog,v 1.116 2012/11/22 20:48:48 blueness Exp $
 
-  28 Oct 2012;  <naota@gentoo.org> polkit-0.104-r1.ebuild,
+  22 Nov 2012; Anthony G. Basile <blueness@gentoo.org> polkit-0.107-r1.ebuild:
+  stable arm, bug #436666
+
+  22 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> -polkit-0.107.ebuild:
+  old
+
+  22 Nov 2012; Anthony G. Basile <blueness@gentoo.org> polkit-0.107-r1.ebuild:
+  stable ppc64, bug #436666
+
+  22 Nov 2012; Agostino Sarubbo <ago@gentoo.org> polkit-0.107-r1.ebuild:
+  Stable for x86, tested by Vincent Olivert Riera <peratu@carrosses.com>, wrt
+  bug #436666
+
+  21 Nov 2012; Anthony G. Basile <blueness@gentoo.org> polkit-0.107-r1.ebuild:
+  stable ppc, bug #436666, thanks peratu
+
+  19 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> polkit-0.108.ebuild:
+  Link against -lgmodule-2.0 to prevent underlinking (backported from upstream,
+  but using sed to avoid eautoreconf) wrt #443798
+
+*polkit-0.108 (18 Nov 2012)
+
+  18 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> +polkit-0.108.ebuild:
+  Version bump.
+
+  28 Oct 2012; Naohiro Aota <naota@gentoo.org> polkit-0.104-r1.ebuild,
   polkit-0.107-r1.ebuild, polkit-0.107.ebuild:
   Drop ~x86-fbsd due to bug #439968.
 

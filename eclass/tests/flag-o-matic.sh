@@ -57,7 +57,7 @@ strip-unsupported-flags
 ftend
 
 for var in $(all-flag-vars) ; do
-	eval ${var}=\"-filter -filter-glob -${var%FLAGS}\"
+	eval ${var}=\"-filter -filter-glob -foo-${var%FLAGS}\"
 done
 
 tbegin "filter-flags basic"
@@ -65,7 +65,7 @@ filter-flags -filter
 (
 for var in $(all-flag-vars) ; do
 	val=${!var}
-	[[ ${val} == "-filter-glob -${var%FLAGS}" ]] || exit 1
+	[[ ${val} == "-filter-glob -foo-${var%FLAGS}" ]] || exit 1
 done
 )
 ftend
@@ -75,7 +75,7 @@ filter-flags '-filter-*'
 (
 for var in $(all-flag-vars) ; do
 	val=${!var}
-	[[ ${val} == "-${var%FLAGS}" ]] || exit 1
+	[[ ${val} == "-foo-${var%FLAGS}" ]] || exit 1
 done
 )
 ftend
@@ -108,6 +108,12 @@ tbegin "append-cflags -DFOO='a b c'"
 CFLAGS=
 append-cflags '-DFOO="a b c"'
 [[ ${CFLAGS} == '-DFOO="a b c"' ]]
+ftend
+
+tbegin "raw-ldflags"
+LDFLAGS='-Wl,-O1 -Wl,--as-needed -Wl,-z,now -flto'
+LDFLAGS=$(raw-ldflags)
+[[ ${LDFLAGS} == '-O1 --as-needed -z now' ]]
 ftend
 
 texit

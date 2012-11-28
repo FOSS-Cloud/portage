@@ -1,13 +1,10 @@
-# $Header: /var/cvsroot/gentoo-x86/profiles/features/selinux/package.mask,v 1.33 2012/09/29 16:56:23 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/features/selinux/package.mask,v 1.37 2012/11/18 09:25:48 swift Exp $
 
 # Zac Medico <zmedico@gentoo.org> (09 Aug 2011)
 # Bug #377907 - Use package.mask for compatibility with PMS section 5.2.7, and
 # future versions of sys-apps/portage.
 ##############################################################################
 # Basic SELinux required versionings
-
-# SELinux is integrated in 2.6
-<sys-kernel/vanilla-sources-2.6.0
 
 # Critical xattr fixes:
 <sys-boot/grub-0.94
@@ -74,6 +71,7 @@
 -sec-policy/selinux-cyphesis
 -sec-policy/selinux-daemontools
 -sec-policy/selinux-dante
+-sec-policy/selinux-dbadm
 -sec-policy/selinux-dbskk
 -sec-policy/selinux-dbus
 -sec-policy/selinux-dcc
@@ -133,9 +131,11 @@
 -sec-policy/selinux-loadkeys
 -sec-policy/selinux-lockdev
 -sec-policy/selinux-logrotate
+-sec-policy/selinux-logsentry
 -sec-policy/selinux-logwatch
 -sec-policy/selinux-lpd
 -sec-policy/selinux-mailman
+-sec-policy/selinux-makewhatis
 -sec-policy/selinux-mcelog
 -sec-policy/selinux-memcached
 -sec-policy/selinux-milter

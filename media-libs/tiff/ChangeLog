@@ -1,6 +1,16 @@
 # ChangeLog for media-libs/tiff
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/tiff/ChangeLog,v 1.217 2012/10/07 09:01:42 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/tiff/ChangeLog,v 1.219 2012/11/14 14:24:42 jlec Exp $
+
+  14 Nov 2012; Justin Lecher <jlec@gentoo.org> tiff-3.9.5-r3.ebuild:
+  Prefix fix for temporary installation directory
+
+*tiff-4.0.3-r1 (03 Nov 2012)
+
+  03 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> +tiff-4.0.3-r1.ebuild,
+  +files/tiff-4.0.3-tiff2pdf-colors.patch:
+  Fix output colors of `tiff2pdf` when JPEG compression is enabled wrt #145055 by
+  Syed Amer Gilani
 
   07 Oct 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop maintainer due retirement, #24135.

@@ -1,6 +1,50 @@
 # ChangeLog for media-gfx/nvidia-cg-toolkit
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/nvidia-cg-toolkit/ChangeLog,v 1.45 2012/07/24 13:09:08 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/nvidia-cg-toolkit/ChangeLog,v 1.52 2012/11/22 21:55:30 jlec Exp $
+
+  22 Nov 2012; Justin Lecher <jlec@gentoo.org>
+  nvidia-cg-toolkit-2.1.0012.ebuild:
+  Fix installation of examples, #355163
+
+*nvidia-cg-toolkit-3.1.0013-r2 (19 Nov 2012)
+
+  19 Nov 2012; Justin Lecher <jlec@gentoo.org>
+  +nvidia-cg-toolkit-3.1.0013-r2.ebuild:
+  Readding LDPATH into env as binary only apps use dl-open to load
+
+  16 Nov 2012; Justin Lecher <jlec@gentoo.org>
+  nvidia-cg-toolkit-3.1.0013-r1.ebuild, files/nvidia-cg-toolkit-gl.pc.in:
+  Don't mix ABIs in pkg-config deps
+
+*nvidia-cg-toolkit-3.1.0013-r1 (16 Nov 2012)
+
+  16 Nov 2012; Justin Lecher <jlec@gentoo.org> +files/80cgc-opt-3,
+  +nvidia-cg-toolkit-3.1.0013-r1.ebuild, +files/nvidia-cg-toolkit.pc.in,
+  +files/nvidia-cg-toolkit-gl.pc.in:
+  Don't add binary packages to global linker search path; instead using
+  pkg-config. Thanks ssuominen pointing this out
+
+*nvidia-cg-toolkit-3.1.0013 (15 Nov 2012)
+
+  15 Nov 2012; Justin Lecher <jlec@gentoo.org> files/80cgc-opt-2,
+  nvidia-cg-toolkit-2.1.0012.ebuild, -nvidia-cg-toolkit-2.1.0016.ebuild,
+  nvidia-cg-toolkit-2.1.0017.ebuild, nvidia-cg-toolkit-2.1.0017-r1.ebuild,
+  +nvidia-cg-toolkit-3.1.0013.ebuild:
+  Version BUmp, #270480, thanks Myckel Habets, Piotr Szymaniak and Jean-Marc
+  Hengen working on the ebuild; add multilib support, #262477, thanks Russell
+  Harmon and Dennis Schridde working on this; Add additional variables to
+  enviroment to find headers and libs, #344603
+
+*nvidia-cg-toolkit-2.1.0017-r1 (15 Nov 2012)
+
+  15 Nov 2012; Justin Lecher <jlec@gentoo.org> +files/80cgc-opt-2,
+  nvidia-cg-toolkit-2.1.0017.ebuild, +nvidia-cg-toolkit-2.1.0017-r1.ebuild:
+  Move to EAPI=5; handle example and doc installation via USE; support
+  FEATURES=noman and portges file filters; Make it more prefix friendly
+
+  14 Nov 2012; Justin Lecher <jlec@gentoo.org>
+  nvidia-cg-toolkit-2.1.0017.ebuild:
+  Keyworded for ~linux, tested by me
 
   24 Jul 2012; Justin Lecher <jlec@gentoo.org>
   nvidia-cg-toolkit-2.1.0017.ebuild, metadata.xml:

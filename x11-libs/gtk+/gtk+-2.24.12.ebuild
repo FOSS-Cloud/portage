@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/gtk+/gtk+-2.24.12.ebuild,v 1.11 2012/10/28 16:49:24 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/gtk+/gtk+-2.24.12.ebuild,v 1.12 2012/11/05 01:10:44 tetromino Exp $
 
 EAPI="4"
 
@@ -132,6 +132,15 @@ src_prepare() {
 		# https://bugzilla.gnome.org/show_bug.cgi?id=617473
 		sed -i -e 's:pltcheck.sh:$(NULL):g' \
 			gtk/Makefile.am || die
+
+		# UI tests require immodules already installed; bug #413185
+		if ! has_version 'x11-libs/gtk+:2'; then
+			ewarn "Disabling UI tests because this is the first install of"
+			ewarn "gtk+:2 on this machine. Please re-run the tests after $P"
+			ewarn "has been installed."
+			sed '/g_test_add_func.*ui-tests/ d' \
+				-i gtk/tests/testing.c || die "sed 2 failed"
+		fi
 	fi
 
 	if ! use examples; then

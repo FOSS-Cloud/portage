@@ -1,6 +1,26 @@
 # ChangeLog for mail-client/thunderbird
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/thunderbird/ChangeLog,v 1.173 2012/10/30 18:49:19 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/thunderbird/ChangeLog,v 1.177 2012/11/27 12:26:54 ago Exp $
+
+  27 Nov 2012; Agostino Sarubbo <ago@gentoo.org> thunderbird-10.0.11.ebuild:
+  Stable for amd64, wrt bug #444318
+
+*thunderbird-17.0-r1 (25 Nov 2012)
+
+  25 Nov 2012; <anarchy@gentoo.org> -thunderbird-16.0.1-r1.ebuild,
+  -thunderbird-17.0.ebuild, +thunderbird-17.0-r1.ebuild:
+  Fix about:memory useage with jemalloc-3
+
+*thunderbird-17.0 (24 Nov 2012)
+*thunderbird-10.0.11 (24 Nov 2012)
+
+  24 Nov 2012; Lars Wendler <polynomial-c@gentoo.org>
+  -thunderbird-10.0.5.ebuild, -thunderbird-10.0.9.ebuild,
+  +thunderbird-10.0.11.ebuild, +thunderbird-17.0.ebuild:
+  Version bump. Removed old.
+
+  03 Nov 2012; <ago@gentoo.org> thunderbird-10.0.10.ebuild:
+  Stable for amd64, wrt bug #439960
 
 *thunderbird-10.0.10 (30 Oct 2012)
 

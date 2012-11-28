@@ -1,10 +1,10 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-9999.ebuild,v 1.35 2012/10/20 09:30:13 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-9999.ebuild,v 1.40 2012/11/25 09:42:58 ssuominen Exp $
 
 EAPI=4
 
-inherit autotools eutils toolchain-funcs libtool
+inherit autotools eutils libtool multilib
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="git://git.kernel.org/pub/scm/utils/kernel/${PN}/${PN}.git"
@@ -29,9 +29,10 @@ RESTRICT="test"
 
 RDEPEND="!sys-apps/module-init-tools
 	!sys-apps/modutils
-	lzma? ( app-arch/xz-utils )
+	lzma? ( >=app-arch/xz-utils-5.0.4-r1 )
 	zlib? ( >=sys-libs/zlib-1.2.6 )" #427130
 DEPEND="${RDEPEND}
+	dev-libs/libxslt
 	doc? ( dev-util/gtk-doc )
 	lzma? ( virtual/pkgconfig )
 	zlib? ( virtual/pkgconfig )"
@@ -53,12 +54,14 @@ src_prepare()
 src_configure()
 {
 	econf \
+		--bindir=/sbin \
 		$(use_enable static-libs static) \
 		$(use_enable tools) \
 		$(use_enable debug) \
 		$(use_enable doc gtk-doc) \
 		$(use_with lzma xz) \
-		$(use_with zlib)
+		$(use_with zlib) \
+		--with-rootlibdir=/$(get_libdir)
 }
 
 src_install()
@@ -68,13 +71,10 @@ src_install()
 
 	if use tools; then
 		local cmd
-		for cmd in depmod insmod lsmod modinfo modprobe rmmod; do
-			dosym kmod /usr/bin/${cmd}
+		for cmd in depmod insmod modinfo modprobe rmmod; do
+			dosym kmod /sbin/${cmd}
 		done
-		# Compability symlink(s):
-		# These are both hardcoded in the Linux kernel source tree wrt #426698
-		dosym /usr/bin/kmod /sbin/depmod
-		dosym /usr/bin/kmod /sbin/modprobe
+		dosym /sbin/kmod /bin/lsmod
 	fi
 
 	cat <<-EOF > "${T}"/usb-load-ehci-first.conf
@@ -82,6 +82,6 @@ src_install()
 	softdep ohci_hcd pre: ehci_hcd
 	EOF
 
-	insinto /etc/modprobe.d
+	insinto /lib/modprobe.d
 	doins "${T}"/usb-load-ehci-first.conf #260139
 }

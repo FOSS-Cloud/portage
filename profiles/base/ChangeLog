@@ -1,6 +1,48 @@
 # ChangeLog for Gentoo base-profile
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.453 2012/10/30 18:49:02 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.466 2012/11/26 23:29:03 blueness Exp $
+
+  26 Nov 2012; Anthony G. Basile <blueness@gentoo.org> package.use.mask:
+  Remove maskings on net-misc/tor[nat-pmp,upnp]
+
+  24 Nov 2012; Mike Gilbert <floppym@gentoo.org> use.mask:
+  Add masks for python_single_target values.
+
+  24 Nov 2012; Michał Górny <mgorny@gentoo.org> make.defaults:
+  Introduce PYTHON_SINGLE_TARGET for Python packages not supporting multiple
+  Python implementations.
+
+  24 Nov 2012; <creffett@gentoo.org> package.use.mask:
+  Mask php USE flag for libkolab and libkolabxml
+
+  18 Nov 2012; <swift@gentoo.org> package.mask:
+  Preparing for selinux-makewhatis package
+
+  18 Nov 2012; <swift@gentoo.org> package.mask:
+  Preparation for new selinux-logsentry package
+
+  16 Nov 2012; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> make.defaults:
+  Add ENLIGHTENMENT_MODULES to USE_EXPAND as discussed on gentoo-dev ML
+
+  12 Nov 2012; Mike Gilbert <floppym@gentoo.org> make.defaults:
+  Move PYTHON_TARGETS=python3_2 from arch profiles to base.
+
+  11 Nov 2012; Mike Gilbert <floppym@gentoo.org> package.use.mask:
+  Mask test use flag for net-misc/freerdp.
+
+  06 Nov 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask glamor for xf86-video-ati too.
+
+  04 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.use.mask:
+  Mask dane USE flag for net-libs/gnutls.
+
+  01 Nov 2012; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  mask useflags requiring dev-ml/ocamlduce so that we can mask it and unmask
+  ocaml-4
+
+  01 Nov 2012; <swift@gentoo.org> package.mask:
+  Adding mask for selinux-dbadmin package
 
   30 Oct 2012; Samuli Suominen <ssuominen@gentoo.org> package.use.mask:
   Mask USE="systemd" for sys-power/upower because of stabilization.

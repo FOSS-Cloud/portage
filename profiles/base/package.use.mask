@@ -1,9 +1,38 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/package.use.mask,v 1.403 2012/10/30 18:49:02 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/package.use.mask,v 1.412 2012/11/26 23:29:03 blueness Exp $
 
 # This file requires >=portage-2.1.1
 # New entries go on top.
+#
+# Sergey Popov <pinkbyte@gentoo.org> (26 Nov 2012)
+# PDF docs building failed with sandbox violation
+media-gfx/opencolorio	pdf
+
+# Chris Reffett <creffett@gentoo.org> (23 Nov 2012)
+# CMake's PHP module can't find our install location, so 
+# libkolab(xml) fails with the php flag enabled.
+net-libs/libkolab php
+net-libs/libkolabxml php
+
+# Pawel Hajdan jr <phajdan.jr@gentoo.org> (15 Nov 2012)
+# Experimental, requires masked ffmpeg, no libav support yet.
+www-client/chromium system-ffmpeg
+
+# Mike Gilbert <floppym@gentoo.org> (11 Nov 2012)
+# Unit tests tend to segfault/crash, upstream doesn't care at the moment.
+net-misc/freerdp test
+
+# Diego Elio Pettenò <flameeyes@gentoo.org> (3 Nov 2012)
+# Requires net-dns/unbound which is not keyworded by most arches
+net-libs/gnutls dane
+
+# Alexis Ballier <aballier@gentoo.org> (1 Nov 2012)
+# dev-ml/ocamlduce requires ocaml-3 and there has been no upstream release to
+# support ocaml-4. Mask useflags requiring it so that we can mask ocamlduce and
+# unmask ocaml-4.
+dev-ml/tyxml ocamlduce
+www-servers/ocsigen ocamlduce
 
 # Samuli Suominen <ssuominen@gentoo.org> (22 Oct 2012)
 # This is temporary mask for >=sys-fs/udev-171 because we don't want
@@ -67,8 +96,9 @@ dev-lang/idb eclipse
 www-client/netsurf pdf-writer javascript gstreamer
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (16 Jul 2012)
-# Needs x11-libs/glamor stable first
+# Needs x11-libs/glamor stable/keyworded first #414295 #440872
 <x11-drivers/xf86-video-intel-2.20 glamor
+=x11-drivers/xf86-video-ati-7* glamor
 
 # Diego Elio Pettenò <flameeyes@gentoo.org> (16 Jul 2012)
 # Stop glibc/uclibc from using iconv in blender
@@ -90,6 +120,7 @@ sys-boot/grub libzfs
 # mask wayland flag for stable mesa, #419473
 =media-libs/mesa-8.0.3 wayland
 =media-libs/mesa-8.0.4-r1 wayland
+=media-libs/mesa-9.0 wayland
 
 # Zac Medico <zmedico@gentoo.org> (13 Jun 2012)
 # Mask USE=pypy1_9 for sys-apps/portage, since pypy has limited KEYWORDS.
@@ -315,10 +346,6 @@ app-emulation/qemu-kvm rbd
 <www-client/epiphany-3 introspection
 <x11-libs/libwnck-2.30.6-r1 introspection
 <x11-libs/pango-1.28.4 introspection
-
-# Anthony G. Basile <blueness@gentoo.org> (22 Jul 2011)
-# nat-pmp and upnp are only stable on amd64/x86 for this package
->=net-misc/tor-0.2.3 nat-pmp upnp
 
 # Robin H. Johnson <robbat2@gentoo.org> (10 Jul 2011)
 # PPS should work on all arches, but only keyworded on amd64/x86

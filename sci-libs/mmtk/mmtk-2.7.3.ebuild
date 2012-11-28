@@ -1,8 +1,8 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/mmtk/mmtk-2.7.3.ebuild,v 1.4 2012/02/28 12:41:48 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/mmtk/mmtk-2.7.3.ebuild,v 1.5 2012/11/04 10:00:55 jlec Exp $
 
-EAPI="2"
+EAPI=5
 
 PYTHON_DEPEND="2"
 SUPPORT_PYTHON_ABIS="1"
@@ -17,18 +17,21 @@ NUMBER="3421"
 MY_PN=${PN/mmtk/MMTK}
 MY_P=${MY_PN}-${PV}
 
+PYTHON_MODNAME="${MY_PN}"
+
 DESCRIPTION="Molecular Modeling ToolKit for Python"
 HOMEPAGE="http://dirac.cnrs-orleans.fr/MMTK/"
 SRC_URI="http://sourcesup.cru.fr/frs/download.php/${NUMBER}/${MY_P}.tar.gz"
 
 SLOT="0"
 LICENSE="CeCILL-2"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~x86 ~ppc ~amd64-linux ~x86-linux"
 IUSE="examples"
 
 RDEPEND="
-	>=dev-python/scientificpython-2.6
-	dev-python/cython"
+	dev-python/cython
+	dev-python/numpy
+	dev-python/scientificpython"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/${MY_P}
@@ -44,15 +47,11 @@ src_prepare() {
 src_install() {
 	distutils_src_install
 
-	dodoc README* Doc/CHANGELOG || die
-	dohtml -r Doc/HTML/* || die
+	dodoc README* Doc/CHANGELOG
+	dohtml -r Doc/HTML/*
 
 	if use examples; then
-		insinto /usr/share/doc/${PF}
-		doins -r Examples || die
-# Needs to wait for EAPI=4
-#		dodoc -r Doc/Examples || die
+		insinto /usr/share/${P}
+		doins -r Examples
 	fi
 }
-
-PYTHON_MODNAME="${MY_PN}"

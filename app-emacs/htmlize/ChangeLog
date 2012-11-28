@@ -1,6 +1,15 @@
 # ChangeLog for app-emacs/htmlize
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/htmlize/ChangeLog,v 1.24 2012/09/21 16:04:36 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/htmlize/ChangeLog,v 1.27 2012/11/20 20:43:02 ago Exp $
+
+  20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> htmlize-1.43.ebuild:
+  Stable for x86, wrt bug #441068
+
+  04 Nov 2012; Agostino Sarubbo <ago@gentoo.org> htmlize-1.43.ebuild:
+  Stable for amd64, wrt bug #441068
+
+  03 Nov 2012; Anthony G. Basile <blueness@gentoo.org> htmlize-1.43.ebuild:
+  stable ppc, bug #441068
 
 *htmlize-1.43 (21 Sep 2012)
 

@@ -1,6 +1,41 @@
 # ChangeLog for app-crypt/pinentry
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/pinentry/ChangeLog,v 1.128 2012/10/29 10:52:56 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/pinentry/ChangeLog,v 1.139 2012/11/25 14:45:28 swegener Exp $
+
+  25 Nov 2012; Sven Wegener <swegener@gentoo.org> metadata.xml:
+  Move to maintainer-needed.
+
+  22 Nov 2012; Agostino Sarubbo <ago@gentoo.org> pinentry-0.8.2.ebuild:
+  Stable for x86, tested by Vincent Olivert Riera <peratu@carrosses.com>, wrt
+  bug #443522
+
+  20 Nov 2012; Anthony G. Basile <blueness@gentoo.org> pinentry-0.8.2.ebuild:
+  stable arm, bug #443522
+
+  19 Nov 2012; Jeroen Roovers <jer@gentoo.org> pinentry-0.8.2.ebuild:
+  Stable for HPPA (bug #443522).
+
+  17 Nov 2012; Anthony G. Basile <blueness@gentoo.org> pinentry-0.8.2.ebuild:
+  stable ppc64, bug #443522
+
+  17 Nov 2012; Agostino Sarubbo <ago@gentoo.org> pinentry-0.8.2.ebuild:
+  Stable for ppc, tested by Vicente Olivert Riera <peratu@carrosses.com>, wrt
+  bug #443522
+
+  16 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> pinentry-0.8.2.ebuild:
+  Better fix the static issue with ncurses, thanks to Diego.
+
+  16 Nov 2012; Agostino Sarubbo <ago@gentoo.org> pinentry-0.8.2.ebuild:
+  Stable for amd64, wrt bug #443522
+
+  16 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> pinentry-0.8.2.ebuild:
+  Do not call ar directly, fixes bug#443526.
+
+  16 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> pinentry-0.8.2.ebuild:
+  Try to fix building with static useflag enabled
+
+  16 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> pinentry-0.8.2.ebuild:
+  Bump eapi in the ebuild and solve the log message print. Wrt bug#440540.
 
   29 Oct 2012; Tomáš Chvátal <scarabeus@gentoo.org>
   -files/pinentry-0.7.5-grab.patch, -files/pinentry-0.8.0-qt-fix.patch,

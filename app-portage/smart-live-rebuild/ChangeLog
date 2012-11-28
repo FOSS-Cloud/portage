@@ -1,6 +1,28 @@
 # ChangeLog for app-portage/smart-live-rebuild
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/smart-live-rebuild/ChangeLog,v 1.40 2012/10/15 08:09:59 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/smart-live-rebuild/ChangeLog,v 1.43 2012/11/15 19:14:05 mgorny Exp $
+
+*smart-live-rebuild-1.3 (15 Nov 2012)
+
+  15 Nov 2012; Michał Górny <mgorny@gentoo.org> +smart-live-rebuild-1.3.ebuild,
+  -smart-live-rebuild-1.2.3-r1.ebuild, -smart-live-rebuild-1.2.3-r2.ebuild,
+  -smart-live-rebuild-1.2.4.ebuild:
+  Version bump. The new version preserves proxy settings for VCS-es and fixes a
+  dead-lock when re-checking package list.
+
+*smart-live-rebuild-1.2.5 (02 Nov 2012)
+
+  02 Nov 2012; Michał Górny <mgorny@gentoo.org>
+  +smart-live-rebuild-1.2.5.ebuild:
+  Version bump. The new version fixes SIGCHLD restore issue when used as a
+  portage set, bug #440904.
+
+*smart-live-rebuild-1.2.4 (31 Oct 2012)
+
+  31 Oct 2012; Michał Górny <mgorny@gentoo.org>
+  +smart-live-rebuild-1.2.4.ebuild:
+  Version bump. The new version adds a --quiet option, disables creating binary
+  packages with --pretend and fixes an attempt to kill dead child process.
 
 *smart-live-rebuild-1.2.3-r2 (15 Oct 2012)
 

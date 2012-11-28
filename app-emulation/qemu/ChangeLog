@@ -1,6 +1,47 @@
 # ChangeLog for app-emulation/qemu
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.139 2012/10/30 21:01:35 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.149 2012/11/21 22:22:35 cardoe Exp $
+
+  21 Nov 2012; Doug Goldstein <cardoe@gentoo.org> qemu-1.1.1-r1.ebuild,
+  qemu-1.1.2-r1.ebuild, qemu-1.1.2-r2.ebuild, qemu-1.1.2-r3.ebuild,
+  qemu-1.2.0.ebuild, qemu-1.2.1.ebuild, qemu-9999.ebuild:
+  Fix usbredir depends based on bug #439972
+
+  21 Nov 2012; Doug Goldstein <cardoe@gentoo.org> metadata.xml:
+  Delete no longer used flags.
+
+*qemu-1.1.2-r3 (21 Nov 2012)
+
+  21 Nov 2012; Doug Goldstein <cardoe@gentoo.org> +qemu-1.1.2-r3.ebuild:
+  Bump 1.1.2 with more patches from the 1.1.x stabilization queue.
+
+  21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> qemu-1.1.2-r2.ebuild:
+  Stable for x86, wrt to bug #440092
+
+*qemu-1.2.1 (21 Nov 2012)
+
+  21 Nov 2012; Doug Goldstein <cardoe@gentoo.org> +qemu-1.2.1.ebuild:
+  Version bump to qemu 1.2.1 + qemu-kvm 1.2.0 + extra upstream fixes. Should be
+  Gentoo's first 1.2.x candidate.
+
+  21 Nov 2012; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
+  For 1.3 we're switching to qemu from qemu-kvm which is now merged fully into
+  qemu so adjust the 9999 live ebuild to do that.
+
+  05 Nov 2012; Sergei Trofimovich <slyfox@gentoo.org> qemu-9999.ebuild:
+  Once againt readd or32 target (OpenRISC). Added nore binaries to RWX exempt
+  list: qemu-{microblazeel,or32,s390x,unicore32}. unicore32 got system target
+  implementation.
+
+  05 Nov 2012; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.0.ebuild,
+  qemu-9999.ebuild:
+  Fix typo noticed by Alphat-PC <AlphatPC@gmail.com>
+
+  04 Nov 2012; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
+  Fix patch name.
+
+  03 Nov 2012; <ago@gentoo.org> qemu-1.1.2-r2.ebuild:
+  Stable for amd64, wrt bug #440092
 
   30 Oct 2012; Doug Goldstein <cardoe@gentoo.org> qemu-1.1.1-r1.ebuild,
   qemu-1.1.2-r1.ebuild, qemu-1.1.2-r2.ebuild, qemu-1.2.0.ebuild,

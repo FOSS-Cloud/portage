@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/tlf/tlf-1.1.3.ebuild,v 1.1 2012/08/26 06:10:46 tomjbe Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-radio/tlf/tlf-1.1.3.ebuild,v 1.4 2012/11/20 20:49:23 ago Exp $
 
 EAPI="4"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://github/Tlf/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="sys-libs/ncurses
@@ -23,6 +23,6 @@ DEPEND="${RDEPEND}
 	sys-apps/gawk"
 
 src_configure() {
-	append-flags -L/usr/$(get_libdir)/hamlib
+	append-ldflags -L/usr/$(get_libdir)/hamlib
 	econf --docdir=/usr/share/doc/${PF} --enable-hamlib
 }

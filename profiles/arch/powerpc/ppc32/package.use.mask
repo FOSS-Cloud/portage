@@ -1,9 +1,8 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ppc32/package.use.mask,v 1.30 2012/07/12 14:46:11 ranger Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ppc32/package.use.mask,v 1.32 2012/11/12 17:22:50 tetromino Exp $
 
 # This file requires >=portage-2.1.1
-
 
 # ranger <ranger@gentoo.org> (17 apr 2012)
 # Remasking llvm in mesa

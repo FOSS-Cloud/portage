@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/traits/traits-4.1.0.ebuild,v 1.4 2012/08/22 23:04:01 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/traits/traits-4.1.0.ebuild,v 1.6 2012/11/20 20:34:42 ago Exp $
 
 EAPI=4
 
@@ -16,7 +16,7 @@ SRC_URI="http://www.enthought.com/repo/ETS/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ppc ~ppc64 x86"
 IUSE="doc examples test"
 
 RDEPEND="dev-python/numpy"
@@ -33,6 +33,17 @@ src_prepare() {
 src_compile() {
 	distutils_src_compile
 	use doc && virtualmake -C docs html
+}
+
+src_test() {
+	testing() {
+		local exit_status=0
+		pushd $(find build-${PYTHON_ABI}/ -name "${PN}") > /dev/null
+		PYTHONPATH=. nosetests -v tests || exit_status=1
+		popd > /dev/null
+	return $exit_status
+	}
+	 python_execute_function testing
 }
 
 src_install() {

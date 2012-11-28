@@ -1,6 +1,16 @@
 # ChangeLog for media-libs/opus
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/opus/ChangeLog,v 1.7 2012/10/18 12:48:25 lu_zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/opus/ChangeLog,v 1.10 2012/11/22 10:05:37 ago Exp $
+
+  22 Nov 2012; Agostino Sarubbo <ago@gentoo.org> opus-1.0.1.ebuild:
+  Stable for x86, tested by Vincent Olivert Riera <peratu@carrosses.com>, wrt
+  bug #442518
+
+  11 Nov 2012; Anthony G. Basile <blueness@gentoo.org> opus-1.0.1.ebuild:
+  stable arm ppc ppc64, bug #442518
+
+  10 Nov 2012; <ago@gentoo.org> opus-1.0.1.ebuild:
+  Stable for amd64, wrt bug #442518
 
   18 Oct 2012; Luca Barbato <lu_zero@gentoo.org> opus-1.0.1.ebuild:
   Add freebsd as well

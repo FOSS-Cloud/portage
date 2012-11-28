@@ -1,6 +1,34 @@
 # ChangeLog for mail-filter/libspf2
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/libspf2/ChangeLog,v 1.41 2012/10/30 21:51:34 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/libspf2/ChangeLog,v 1.48 2012/11/21 11:28:37 ago Exp $
+
+  21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> libspf2-1.2.9.ebuild:
+  Stable for x86, wrt bug #440058
+
+*libspf2-1.2.9-r3 (20 Nov 2012)
+
+  20 Nov 2012; Eray Aslan <eras@gentoo.org> +files/libspf2-1.2.9-ipv6.patch,
+  +libspf2-1.2.9-r3.ebuild:
+  Fix ipv6 failures - bug #443984.  Thanks to Peter Danzmayr
+
+  03 Nov 2012; Eray Aslan <eras@gentoo.org> libspf2-1.2.9-r2.ebuild:
+  Add static USE flag to control building static binaries
+
+  03 Nov 2012; <ago@gentoo.org> libspf2-1.2.9.ebuild:
+  Stable for amd64, wrt bug #440058
+
+*libspf2-1.2.9-r2 (03 Nov 2012)
+
+  03 Nov 2012; Eray Aslan <eras@gentoo.org> +libspf2-1.2.9-r2.ebuild:
+  Always build static binaries
+
+*libspf2-1.2.9-r1 (02 Nov 2012)
+
+  02 Nov 2012; Eray Aslan <eras@gentoo.org> +libspf2-1.2.9-r1.ebuild:
+  Add static-libs support - bug #440958
+
+  31 Oct 2012; Jeroen Roovers <jer@gentoo.org> libspf2-1.2.9.ebuild:
+  Stable for HPPA (bug #440058).
 
   30 Oct 2012; Anthony G. Basile <blueness@gentoo.org> libspf2-1.2.9.ebuild:
   stable ppc ppc64, bug #440058

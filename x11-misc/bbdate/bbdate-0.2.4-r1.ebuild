@@ -1,6 +1,6 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/bbdate/bbdate-0.2.4-r1.ebuild,v 1.3 2011/12/11 09:04:57 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/bbdate/bbdate-0.2.4-r1.ebuild,v 1.5 2012/11/26 23:29:19 floppym Exp $
 
 inherit eutils autotools
 
@@ -17,6 +17,9 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 	epatch "${FILESDIR}"/${P}-as-needed.patch
+	sed -i \
+		-e 's|-helvetica-|-*-|g' \
+		resource.cc data/${PN}.{nobb,style} || die
 	eautoreconf
 }
 

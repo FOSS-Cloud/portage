@@ -1,6 +1,18 @@
 # ChangeLog for net-wireless/wpa_supplicant
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/wpa_supplicant/ChangeLog,v 1.186 2012/10/28 09:07:49 gurligebis Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/wpa_supplicant/ChangeLog,v 1.189 2012/11/20 22:50:56 zerochaos Exp $
+
+  20 Nov 2012; Rick Farina <zerochaos@gentoo.org> metadata.xml:
+  adding myself as co-maintainer to assist
+
+  18 Nov 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Drop mobile herd as talked in gentoo-dev ML
+
+*wpa_supplicant-1.0-r2 (11 Nov 2012)
+
+  11 Nov 2012; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +wpa_supplicant-1.0-r2.ebuild, metadata.xml:
+  Add enhanced WPS options to build. Add use flags for p2p and ap support.
 
   28 Oct 2012; <gurligebis@gentoo.org> wpa_supplicant-1.0-r1.ebuild:
   Removing debug USE flag (bug #439870) and making building verbose (bug
@@ -1023,4 +1035,3 @@
   16 Sep 2004; Henrik Brix Andersen <brix@gentoo.org>
   +files/wpa-supplicant-0.2.4-config, +wpa-supplicant-0.2.4.ebuild:
   Initial import. Fixes bug #57708. Ebuild by latexer and me.
-

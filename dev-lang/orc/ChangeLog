@@ -1,6 +1,23 @@
 # ChangeLog for dev-lang/orc
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/orc/ChangeLog,v 1.25 2012/05/21 18:48:45 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/orc/ChangeLog,v 1.29 2012/11/14 19:06:54 ago Exp $
+
+  14 Nov 2012; Agostino Sarubbo <ago@gentoo.org> orc-0.4.16-r1.ebuild:
+  Stable for amd64, wrt bug #442438
+
+  14 Nov 2012; Anthony G. Basile <blueness@gentoo.org> orc-0.4.16-r1.ebuild:
+  stable arm, bug #442438
+
+  12 Nov 2012; Jeroen Roovers <jer@gentoo.org> orc-0.4.16-r1.ebuild:
+  Stable for HPPA (bug #442438).
+
+*orc-0.4.16-r1 (09 Nov 2012)
+
+  09 Nov 2012; Alexandre Rostovtsev <tetromino@gentoo.org> orc-0.4.9.ebuild,
+  orc-0.4.10.ebuild, orc-0.4.11.ebuild, orc-0.4.14.ebuild, orc-0.4.16.ebuild,
+  +orc-0.4.16-r1.ebuild:
+  Install gtk-doc API documentation in the location where standard tools like
+  devhelp expect it. Make DESCRIPTION a bit more descriptive.
 
   21 May 2012; Kacper Kowalik <xarthisius@gentoo.org> orc-0.4.9.ebuild:
   Add missing inheritance of eutils.eclass
@@ -103,4 +120,3 @@
 
   21 Apr 2010; Samuli Suominen <ssuominen@gentoo.org> +orc-0.4.4.ebuild:
   Initial commit.
-

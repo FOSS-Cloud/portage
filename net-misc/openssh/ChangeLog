@@ -1,6 +1,40 @@
 # ChangeLog for net-misc/openssh
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openssh/ChangeLog,v 1.453 2012/10/12 19:09:11 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openssh/ChangeLog,v 1.459 2012/11/19 20:43:34 vapier Exp $
+
+  19 Nov 2012; Mike Frysinger <vapier@gentoo.org> openssh-6.1_p1.ebuild:
+  Only show ecdsa key message when upgrading from older versions, and drop
+  USE=pam warning wrt valid shells as people should know this #440568 by
+  poletti.marco.
+
+  19 Nov 2012; Mike Frysinger <vapier@gentoo.org> openssh-6.1_p1.ebuild:
+  Update to EAPI=4 to have USE=static depend on USE=static-libs of all the
+  library packages #443682 by siebz0r.
+
+  16 Nov 2012; Agostino Sarubbo <ago@gentoo.org> -openssh-5.5_p1-r2.ebuild,
+  -openssh-5.6_p1-r2.ebuild, -openssh-5.7_p1-r1.ebuild,
+  -openssh-5.8_p1-r1.ebuild, -openssh-5.8_p2-r1.ebuild, -openssh-5.8_p2.ebuild,
+  -openssh-5.9_p1-r3.ebuild:
+  Remove old
+
+  11 Nov 2012; Mike Frysinger <vapier@gentoo.org> openssh-6.1_p1.ebuild:
+  Do not hardcode `pkg-config`.
+
+  06 Nov 2012; Mike Gilbert <floppym@gentoo.org> openssh-5.5_p1-r2.ebuild,
+  openssh-5.6_p1-r2.ebuild, openssh-5.7_p1-r1.ebuild, openssh-5.8_p1-r1.ebuild,
+  openssh-5.8_p2-r1.ebuild, openssh-5.8_p2.ebuild, openssh-5.9_p1-r3.ebuild,
+  openssh-5.9_p1-r4.ebuild, openssh-6.0_p1-r1.ebuild, openssh-6.0_p1.ebuild,
+  openssh-6.1_p1.ebuild:
+  Use a slot dep for openssl; openssl:0.9.8 is not going to work here. Bug
+  437480.
+
+  06 Nov 2012; Rick Farina <zerochaos@gentoo.org> openssh-5.5_p1-r2.ebuild,
+  openssh-5.6_p1-r2.ebuild, openssh-5.7_p1-r1.ebuild, openssh-5.8_p1-r1.ebuild,
+  openssh-5.8_p2-r1.ebuild, openssh-5.8_p2.ebuild, openssh-5.9_p1-r3.ebuild,
+  openssh-5.9_p1-r4.ebuild, openssh-6.0_p1-r1.ebuild, openssh-6.0_p1.ebuild,
+  openssh-6.1_p1.ebuild:
+  openssh needs to match the bindist settings on openssl or it breaks. bug
+  #437480
 
   12 Oct 2012; Mike Frysinger <vapier@gentoo.org> openssh-6.1_p1.ebuild:
   Always specify pid-dir to avoid configure script falling back to /etc/ssh on

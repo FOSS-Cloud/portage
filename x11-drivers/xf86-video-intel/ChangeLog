@@ -1,6 +1,30 @@
 # ChangeLog for x11-drivers/xf86-video-intel
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-intel/ChangeLog,v 1.109 2012/10/24 06:24:45 remi Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-intel/ChangeLog,v 1.114 2012/11/27 06:22:08 remi Exp $
+
+*xf86-video-intel-2.20.14 (26 Nov 2012)
+
+  26 Nov 2012; Rémi Cardona <remi@gentoo.org>
+  +xf86-video-intel-2.20.14.ebuild:
+  Bump to 2.20.14.
+
+  18 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-intel-2.20.13.ebuild:
+  Stable for x86, wrt bug #440872
+
+  16 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-intel-2.20.13.ebuild:
+  Stable for amd64, wrt bug #440872
+
+  12 Nov 2012; Rémi Cardona <remi@gentoo.org> -xf86-video-intel-2.20.8.ebuild,
+  -xf86-video-intel-2.20.9.ebuild:
+  Prune older 2.20.x revisions.
+
+*xf86-video-intel-2.20.13 (12 Nov 2012)
+
+  12 Nov 2012; Rémi Cardona <remi@gentoo.org>
+  +xf86-video-intel-2.20.13.ebuild:
+  Bump to 2.20.13.
 
   24 Oct 2012; Rémi Cardona <remi@gentoo.org> +xf86-video-intel-2.20.2.ebuild:
   Bring 2.20.2 back from the dead for bug #439420.

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/exim/exim-4.80.1.ebuild,v 1.7 2012/10/30 21:00:04 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/exim/exim-4.80.1.ebuild,v 1.10 2012/11/11 16:31:22 armin76 Exp $
 
 EAPI="3"
 
@@ -21,7 +21,7 @@ HOMEPAGE="http://www.exim.org/"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="alpha amd64 hppa ~ia64 ppc ppc64 ~sparc x86 ~x86-solaris"
+KEYWORDS="alpha amd64 hppa ia64 ppc ppc64 sparc x86 ~x86-solaris"
 
 COMMON_DEPEND=">=sys-apps/sed-4.0.5
 	>=sys-libs/db-3.2
@@ -58,7 +58,6 @@ RDEPEND="${COMMON_DEPEND}
 	!mail-mta/mini-qmail
 	!<mail-mta/msmtp-1.4.19-r1
 	!>=mail-mta/msmtp-1.4.19-r1[mta]
-	!mail-mta/nbsmtp
 	!mail-mta/netqmail
 	!mail-mta/nullmailer
 	!mail-mta/postfix
@@ -83,7 +82,11 @@ src_prepare() {
 	epatch "${FILESDIR}"/exim-4.77-as-needed-ldflags.patch # 352265, 391279
 	epatch "${FILESDIR}"/exim-4.76-crosscompile.patch # 266591
 
-	use maildir && epatch "${FILESDIR}"/exim-4.20-maildir.patch
+	if use maildir ; then
+		epatch "${FILESDIR}"/exim-4.20-maildir.patch
+	else
+		epatch "${FILESDIR}"/exim-4.80-spool-mail-group.patch # 438606
+	fi
 
 	if use dsn ; then
 		cp "${DISTDIR}"/exim_${DSN_EXIM_V}_dsn_${DSN_V}.patch . || die

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-3.6.9999.ebuild,v 1.29 2012/09/24 08:26:04 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-3.6.9999.ebuild,v 1.34 2012/11/24 13:47:16 dilfridge Exp $
 
 EAPI=4
 
@@ -137,8 +137,8 @@ COMMON_DEPEND="
 		>=x11-libs/gtk+-2.24:2
 	)
 	gstreamer? (
-		>=media-libs/gstreamer-0.10
-		>=media-libs/gst-plugins-base-0.10
+		>=media-libs/gstreamer-0.10:0.10
+		>=media-libs/gst-plugins-base-0.10:0.10
 	)
 	jemalloc? ( dev-libs/jemalloc )
 	libreoffice_extensions_pdfimport? ( >=app-text/poppler-0.16[xpdf-headers(+),cxx] )
@@ -164,7 +164,7 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	!app-office/libreoffice-bin
 	!app-office/libreoffice-bin-debug
-	!<app-openoffice/openoffice-bin-3.4.0-r1
+	!<app-office/openoffice-bin-3.4.0-r1
 	!app-office/openoffice
 	media-fonts/libertine-ttf
 	media-fonts/liberation-fonts
@@ -206,7 +206,6 @@ DEPEND="${COMMON_DEPEND}
 	java? (
 		>=virtual/jdk-1.6
 		>=dev-java/ant-core-1.7
-		test? ( dev-java/junit:4 )
 	)
 	odk? ( app-doc/doxygen )
 	test? ( dev-util/cppunit )
@@ -350,6 +349,12 @@ src_configure() {
 	local ext_opts
 	local jbs=$(sed -ne 's/.*\(-j[[:space:]]*\|--jobs=\)\([[:digit:]]\+\).*/\2/;T;p' <<< "${MAKEOPTS}")
 
+	# Workaround the boost header include issue for older gccs
+	if [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 6 ]]; then
+		append-cppflags -DBOOST_NO_0X_HDR_TYPEINDEX
+		append-cppflags -DBOOST_NO_CXX11_HDR_TYPEINDEX
+	fi
+
 	# recheck that there is some value in jobs
 	[[ -z ${jbs} ]] && jbs="1"
 
@@ -372,6 +377,7 @@ src_configure() {
 		# hsqldb: system one is too new
 		# saxon: system one does not work properly
 		java_opts="
+			--without-junit
 			--without-system-hsqldb
 			--without-system-saxon
 			--with-ant-home="${ANT_HOME}"
@@ -394,12 +400,6 @@ src_configure() {
 				--with-commons-logging-jar=$(java-pkg_getjar commons-logging commons-logging.jar)
 				--with-servlet-api-jar=$(java-pkg_getjar tomcat-servlet-api-3.0 servlet-api.jar)
 			"
-		fi
-
-		if use test; then
-			java_opts+=" --with-junit=$(java-pkg_getjar junit-4 junit.jar)"
-		else
-			java_opts+=" --without-junit"
 		fi
 	fi
 
@@ -572,7 +572,7 @@ pkg_postinst() {
 	pax-mark -m "${EPREFIX}"/usr/$(get_libdir)/libreoffice/program/unopkg.bin
 
 	use java || \
-		ewarn 'If you plan to use lbase aplication you should enable java or you will get various crashes.'
+		ewarn 'If you plan to use lbase application you should enable java or you will get various crashes.'
 }
 
 pkg_postrm() {

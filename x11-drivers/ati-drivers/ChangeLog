@@ -1,6 +1,27 @@
 # ChangeLog for x11-drivers/ati-drivers
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ChangeLog,v 1.302 2012/10/26 17:37:55 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ChangeLog,v 1.307 2012/11/27 02:15:54 zerochaos Exp $
+
+  27 Nov 2012; Rick Farina <zerochaos@gentoo.org> ati-drivers-12.10.ebuild,
+  ati-drivers-12.11_beta.ebuild, ati-drivers-12.4.ebuild,
+  ati-drivers-12.6.ebuild, ati-drivers-12.6_beta_pre897.ebuild,
+  ati-drivers-12.8.ebuild:
+  masking clinfo for revdep-rebuild, see bug #443466
+
+  18 Nov 2012; Agostino Sarubbo <ago@gentoo.org> ati-drivers-12.11_beta.ebuild:
+  Stable for x86, wrt bug #440872
+
+  16 Nov 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ati-drivers-12.11_beta.ebuild:
+  Add warning message for xf86-video-intel-2.20.3 crashing bug #430000.
+
+  16 Nov 2012; Agostino Sarubbo <ago@gentoo.org> ati-drivers-12.11_beta.ebuild:
+  Stable for amd64, wrt bug #440872
+
+  11 Nov 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/ati-drivers-12.9-KCL_AGP_FindCapsRegisters-stub.patch,
+  ati-drivers-12.11_beta.ebuild:
+  add patch to fix building against AGP-less kernel, bug #435322.
 
   26 Oct 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
   ati-drivers-12.6_beta_pre897.ebuild:

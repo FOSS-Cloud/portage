@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/chromium-9999-r1.ebuild,v 1.144 2012/10/29 17:52:37 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/chromium-9999-r1.ebuild,v 1.148 2012/11/26 01:59:36 phajdan.jr Exp $
 
 EAPI="4"
 PYTHON_DEPEND="2:2.6"
@@ -19,14 +19,14 @@ ESVN_REPO_URI="http://src.chromium.org/svn/trunk/src"
 LICENSE="BSD"
 SLOT="live"
 KEYWORDS=""
-IUSE="bindist cups gnome gnome-keyring kerberos pulseaudio selinux tcmalloc"
+IUSE="bindist cups gnome gnome-keyring kerberos pulseaudio selinux system-ffmpeg tcmalloc"
 
 RDEPEND="app-arch/bzip2
 	cups? (
 		dev-libs/libgcrypt
 		>=net-print/cups-1.3.11
 	)
-	>=dev-lang/v8-3.14.5
+	>=dev-lang/v8-3.15.1.2
 	>=dev-libs/elfutils-0.149
 	dev-libs/expat
 	>=dev-libs/icu-49.1.1-r1
@@ -44,7 +44,10 @@ RDEPEND="app-arch/bzip2
 	>=media-libs/libwebp-0.2.0_rc1
 	media-libs/speex
 	pulseaudio? ( media-sound/pulseaudio )
+	system-ffmpeg? ( >=media-video/ffmpeg-1.0 )
+	>=net-libs/libsrtp-1.4.4_p20121108
 	sys-apps/dbus
+	sys-apps/pciutils
 	sys-libs/zlib[minizip]
 	sys-fs/udev
 	virtual/libusb:1
@@ -154,9 +157,10 @@ pkg_setup() {
 		chromium_suid_sandbox_check_kernel_config
 	fi
 
-	if use bindist; then
+	if use bindist && ! use system-ffmpeg; then
 		elog "bindist enabled: H.264 video support will be disabled."
-	else
+	fi
+	if ! use bindist; then
 		elog "bindist disabled: Resulting binaries may not be legal to re-distribute."
 	fi
 }
@@ -176,6 +180,8 @@ src_prepare() {
 	# zlib-1.2.5.1-r1 renames the OF macro in zconf.h, bug 383371.
 	# sed -i '1i#define OF(x) x' \
 	#	third_party/zlib/contrib/minizip/{ioapi,{,un}zip}.h || die
+
+	epatch "${FILESDIR}/${PN}-system-ffmpeg-r0.patch"
 
 	epatch_user
 
@@ -200,7 +206,6 @@ src_prepare() {
 		\! -path 'third_party/leveldatabase/*' \
 		\! -path 'third_party/libjingle/*' \
 		\! -path 'third_party/libphonenumber/*' \
-		\! -path 'third_party/libsrtp/*' \
 		\! -path 'third_party/libusb/libusb.h' \
 		\! -path 'third_party/libva/*' \
 		\! -path 'third_party/libvpx/libvpx.h' \
@@ -214,6 +219,7 @@ src_prepare() {
 		\! -path 'third_party/mt19937ar/*' \
 		\! -path 'third_party/npapi/*' \
 		\! -path 'third_party/openmax/*' \
+		\! -path 'third_party/opus/*' \
 		\! -path 'third_party/ots/*' \
 		\! -path 'third_party/protobuf/*' \
 		\! -path 'third_party/pywebsocket/*' \
@@ -279,7 +285,7 @@ src_configure() {
 	# Use system-provided libraries.
 	# TODO: use_system_ffmpeg
 	# TODO: use_system_hunspell (upstream changes needed).
-	# TODO: use_system_libsrtp (bug #348600).
+	# TODO: use_system_opus (bug #439884).
 	# TODO: use_system_ssl (http://crbug.com/58087).
 	# TODO: use_system_sqlite (http://crbug.com/22208).
 	myconf+="
@@ -289,6 +295,7 @@ src_configure() {
 		-Duse_system_libevent=1
 		-Duse_system_libjpeg=1
 		-Duse_system_libpng=1
+		-Duse_system_libsrtp=1
 		-Duse_system_libusb=1
 		-Duse_system_libvpx=1
 		-Duse_system_libwebp=1
@@ -298,7 +305,8 @@ src_configure() {
 		-Duse_system_v8=1
 		-Duse_system_xdg_utils=1
 		-Duse_system_yasm=1
-		-Duse_system_zlib=1"
+		-Duse_system_zlib=1
+		$(gyp_use system-ffmpeg use_system_ffmpeg)"
 
 	# Optional dependencies.
 	# TODO: linux_link_kerberos, bug #381289.
@@ -314,7 +322,8 @@ src_configure() {
 	# Use explicit library dependencies instead of dlopen.
 	# This makes breakages easier to detect by revdep-rebuild.
 	myconf+="
-		-Dlinux_link_gsettings=1"
+		-Dlinux_link_gsettings=1
+		-Dlinux_link_libpci=1"
 
 	if ! use selinux; then
 		# Enable SUID sandbox.
@@ -328,10 +337,18 @@ src_configure() {
 		-Dlinux_use_gold_binary=0
 		-Dlinux_use_gold_flags=0"
 
-	if ! use bindist; then
+	if ! use bindist && ! use system-ffmpeg; then
 		# Enable H.624 support in bundled ffmpeg.
 		myconf+=" -Dproprietary_codecs=1 -Dffmpeg_branding=Chrome"
 	fi
+
+	# Set up Google API keys, see http://www.chromium.org/developers/how-tos/api-keys .
+	# Note: these are for Gentoo use ONLY. For your own distribution,
+	# please get your own set of keys. Feel free to contact chromium@gentoo.org
+	# for more info.
+	myconf+=" -Dgoogle_api_key=AIzaSyDEAOvatFo0eTgsV_ZlEzx0ObmepsMzfAc
+		-Dgoogle_default_client_id=329227923882.apps.googleusercontent.com
+		-Dgoogle_default_client_secret=vgKG0NNv7GoDpbtoFNLxCUXu"
 
 	local myarch="$(tc-arch)"
 	if [[ $myarch = amd64 ]] ; then
@@ -426,19 +443,21 @@ src_test() {
 	runtest out/Release/crypto_unittests
 	runtest out/Release/googleurl_unittests
 	runtest out/Release/gpu_unittests
-	runtest out/Release/media_unittests
 
-	local excluded_net_unittests=(
-		"NetUtilTest.IDNToUnicode*" # bug 361885
-		"NetUtilTest.FormatUrl*" # see above
-		"DnsConfigServiceTest.GetSystemConfig" # bug #394883
-		"CertDatabaseNSSTest.ImportServerCert_SelfSigned" # bug #399269
-		"URLFetcher*" # bug #425764
-		"HTTPSOCSPTest.*" # bug #426630
-		"HTTPSEVCRLSetTest.*" # see above
-		"HTTPSCRLSetTest.*" # see above
-	)
-	runtest out/Release/net_unittests "${excluded_net_unittests[@]}"
+	# TODO: re-enable when we get the test data in a separate tarball.
+	# runtest out/Release/media_unittests
+
+	# local excluded_net_unittests=(
+	#	"NetUtilTest.IDNToUnicode*" # bug 361885
+	#	"NetUtilTest.FormatUrl*" # see above
+	#	"DnsConfigServiceTest.GetSystemConfig" # bug #394883
+	#	"CertDatabaseNSSTest.ImportServerCert_SelfSigned" # bug #399269
+	#	"URLFetcher*" # bug #425764
+	#	"HTTPSOCSPTest.*" # bug #426630
+	#	"HTTPSEVCRLSetTest.*" # see above
+	#	"HTTPSCRLSetTest.*" # see above
+	#)
+	# runtest out/Release/net_unittests "${excluded_net_unittests[@]}"
 
 	runtest out/Release/printing_unittests
 	runtest out/Release/sql_unittests
@@ -496,7 +515,9 @@ src_install() {
 	newman out/Release/chrome.1 chromium${CHROMIUM_SUFFIX}.1 || die
 	newman out/Release/chrome.1 chromium-browser${CHROMIUM_SUFFIX}.1 || die
 
-	doexe out/Release/libffmpegsumo.so || die
+	if ! use system-ffmpeg; then
+		doexe out/Release/libffmpegsumo.so || die
+	fi
 
 	# Install icons and desktop entry.
 	local branding size

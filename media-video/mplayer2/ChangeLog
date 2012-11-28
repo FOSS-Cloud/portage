@@ -1,6 +1,30 @@
 # ChangeLog for media-video/mplayer2
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/ChangeLog,v 1.70 2012/09/30 15:26:22 sping Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/ChangeLog,v 1.76 2012/11/26 13:57:38 scarabeus Exp $
+
+  26 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> metadata.xml:
+  Update to global useflag.
+
+  21 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org>
+  mplayer2-2.0_p20121108.ebuild, mplayer2-9999.ebuild:
+  Drop useless setter. Thanks to Nikoli.
+
+  21 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> metadata.xml,
+  mplayer2-2.0_p20121108.ebuild, mplayer2-9999.ebuild:
+  Drop the -j1 from docs wrt bug#361075#c8. Thanks to nikoli.
+
+*mplayer2-2.0_p20121108 (12 Nov 2012)
+
+  12 Nov 2012; Tim Harder <radhermit@gentoo.org>
+  +mplayer2-2.0_p20121108.ebuild, mplayer2-9999.ebuild, metadata.xml:
+  Bump to new snapshot and update live ebuild thanks to Nikoli (bug #442674).
+
+  09 Nov 2012; Luca Barbato <lu_zero@gentoo.org> metadata.xml:
+  Add Nikoli as maintainer
+
+  08 Nov 2012; Alexis Ballier <aballier@gentoo.org>
+  mplayer2-2.0_p20120828.ebuild, +files/mplayer2-2.0_p20120828-ffmpeg.patch:
+  add upstream fix to build with recent ffmpeg versions, bug #439604
 
   30 Sep 2012; Sebastian Pipping <sping@gentoo.org>
   mplayer2-2.0_p20120828.ebuild:

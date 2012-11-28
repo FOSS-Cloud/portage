@@ -1,9 +1,9 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/fluidsynth/fluidsynth-1.1.6.ebuild,v 1.1 2012/08/16 16:50:38 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/fluidsynth/fluidsynth-1.1.6.ebuild,v 1.4 2012/11/23 14:57:20 blueness Exp $
 
 EAPI=4
-inherit cmake-utils
+inherit cmake-utils flag-o-matic
 
 DESCRIPTION="Fluidsynth is a software real-time synthesizer based on the Soundfont 2 specifications."
 HOMEPAGE="http://www.fluidsynth.org/"
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="~alpha amd64 ~hppa ppc ppc64 ~sparc ~x86 ~x86-fbsd"
 IUSE="alsa dbus debug examples jack ladspa lash portaudio pulseaudio readline sndfile"
 
 RDEPEND=">=dev-libs/glib-2.6.5:2
@@ -29,6 +29,10 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_configure() {
+	# autotools based build system has AC_CHECK_LIB(pthread, pthread_create) wrt
+	# bug #436762
+	append-flags -pthread
+
 	mycmakeargs=(
 		$(cmake-utils_use alsa enable-alsa)
 		$(cmake-utils_use dbus enable-dbus)

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/hplip-3.12.10a.ebuild,v 1.4 2012/10/24 10:00:49 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/hplip-3.12.10a.ebuild,v 1.7 2012/11/21 10:16:54 ago Exp $
 
 EAPI=4
 
@@ -17,7 +17,7 @@ SRC_URI="mirror://sourceforge/hplip/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ~ppc ppc64 x86"
 
 # zeroconf does not work properly with >=cups-1.4.
 # Thus support for it is also disabled in hplip.
@@ -232,11 +232,13 @@ pkg_postinst() {
 	use !minimal && python_mod_optimize /usr/share/${PN}
 	fdo-mime_desktop_database_update
 
-	elog "For more information on setting up your printer please take"
-	elog "a look at the hplip section of the gentoo printing guide:"
-	elog "http://www.gentoo.org/doc/en/printing-howto.xml"
-	elog
-	elog "Any user who wants to print must be in the lp group."
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "For more information on setting up your printer please take"
+		elog "a look at the hplip section of the gentoo printing guide:"
+		elog "http://www.gentoo.org/doc/en/printing-howto.xml"
+		elog
+		elog "Any user who wants to print must be in the lp group."
+	fi
 }
 
 pkg_postrm() {

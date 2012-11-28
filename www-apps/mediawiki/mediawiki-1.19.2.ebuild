@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/mediawiki-1.19.2.ebuild,v 1.4 2012/10/05 17:07:45 ranger Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/mediawiki-1.19.2.ebuild,v 1.5 2012/11/07 22:06:52 radhermit Exp $
 
 EAPI="4"
 inherit webapp versionator
@@ -73,7 +73,7 @@ pkg_postinst() {
 		einfo
 		elog "=== Consult the release notes ==="
 		elog "Before doing anything, stop and consult the release notes"
-		elog "/usr/share/doc/${PF}/RELEASE-NOTES.bz2"
+		elog "/usr/share/doc/${PF}/RELEASE-NOTES-${PV:0:4}.bz2"
 		elog
 		elog "These detail bug fixes, new features and functionality, and any"
 		elog "particular points that may need to be noted during the upgrade procedure."

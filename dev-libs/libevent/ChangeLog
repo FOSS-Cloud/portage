@@ -1,6 +1,23 @@
 # ChangeLog for dev-libs/libevent
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libevent/ChangeLog,v 1.241 2012/10/20 16:39:16 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libevent/ChangeLog,v 1.245 2012/11/19 21:12:51 jer Exp $
+
+  19 Nov 2012; Jeroen Roovers <jer@gentoo.org> libevent-2.0.21.ebuild,
+  libevent-2.1.2.ebuild:
+  New HOMEPAGE and SRC_URI.
+
+*libevent-2.1.2 (19 Nov 2012)
+*libevent-2.0.21 (19 Nov 2012)
+
+  19 Nov 2012; Jeroen Roovers <jer@gentoo.org> +libevent-2.0.21.ebuild,
+  +libevent-2.1.2.ebuild:
+  Version bump.
+
+  17 Nov 2012; Jeroen Roovers <jer@gentoo.org> -libevent-2.0.18.ebuild:
+  Old.
+
+  16 Nov 2012; Agostino Sarubbo <ago@gentoo.org> libevent-2.0.20.ebuild:
+  Stable for amd64, wrt bug #437766
 
   20 Oct 2012; Raúl Porcel <armin76@gentoo.org> libevent-2.0.20.ebuild:
   alpha/ia64/s390/sh/sparc stable wrt #437766

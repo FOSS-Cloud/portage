@@ -1,6 +1,30 @@
 # ChangeLog for www-servers/lighttpd
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/lighttpd/ChangeLog,v 1.287 2012/09/09 17:05:15 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/lighttpd/ChangeLog,v 1.294 2012/11/25 19:04:53 armin76 Exp $
+
+  25 Nov 2012; Raúl Porcel <armin76@gentoo.org> lighttpd-1.4.32.ebuild:
+  alpha/ia64/sh/sparc/x86 stable wrt #444179
+
+  23 Nov 2012; Anthony G. Basile <blueness@gentoo.org> lighttpd-1.4.32.ebuild:
+  stable arm, bug #444179
+
+  22 Nov 2012; Anthony G. Basile <blueness@gentoo.org> lighttpd-1.4.32.ebuild:
+  stable ppc ppc64, bug #444179
+
+  22 Nov 2012; Jeroen Roovers <jer@gentoo.org> lighttpd-1.4.32.ebuild:
+  Stable for HPPA (bug #444179).
+
+  22 Nov 2012; Agostino Sarubbo <ago@gentoo.org> lighttpd-1.4.32.ebuild:
+  Stable for amd64, wrt bug #444179
+
+*lighttpd-1.4.32 (21 Nov 2012)
+
+  21 Nov 2012; Markos Chandras <hwoarang@gentoo.org> +lighttpd-1.4.32.ebuild:
+  Version bump
+
+  20 Nov 2012; Alex Alexander <wired@gentoo.org> lighttpd-1.4.30-r1.ebuild,
+  lighttpd-1.4.31.ebuild:
+  added initscript's GPL-2 to LICENSE, bug #426178
 
   09 Sep 2012; Raúl Porcel <armin76@gentoo.org> lighttpd-1.4.31.ebuild:
   alpha/ia64/sh/sparc stable wrt #430902

@@ -1,12 +1,12 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/mplayer2-9999.ebuild,v 1.46 2012/09/27 23:02:48 sping Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/mplayer2-9999.ebuild,v 1.49 2012/11/21 13:46:53 scarabeus Exp $
 
 EAPI=4
 
 [[ ${PV} = *9999* ]] && VCS_ECLASS="git-2" || VCS_ECLASS=""
 
-inherit toolchain-funcs eutils flag-o-matic multilib base ${VCS_ECLASS}
+inherit python toolchain-funcs eutils flag-o-matic multilib base ${VCS_ECLASS}
 
 NAMESUF="${PN/mplayer/}"
 DESCRIPTION="Media Player for Linux"
@@ -15,15 +15,8 @@ HOMEPAGE="http://www.mplayer2.org/"
 if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="git://git.mplayer2.org/mplayer2.git"
 else
-	RELEASE_URI="http://dev.gentoo.org/~lu_zero/${PN}/${P}.tar.xz"
+	SRC_URI="http://rion-overlay.googlecode.com/files/${P}.tar.xz"
 fi
-SRC_URI="${RELEASE_URI}
-	!truetype? (
-		mirror://mplayer/releases/fonts/font-arial-iso-8859-1.tar.bz2
-		mirror://mplayer/releases/fonts/font-arial-iso-8859-2.tar.bz2
-		mirror://mplayer/releases/fonts/font-arial-cp1250.tar.bz2
-	)
-"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -32,13 +25,14 @@ if [[ ${PV} == *9999* ]]; then
 else
 	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux"
 fi
-IUSE="+a52 aalib +alsa aqua bidi bindist bl bluray bs2b cddb +cdio
-	cpudetection debug directfb doc +dts +dv dvb +dvd +dvdnav dxr3 +enca +faad
-	fbcon ftp gif ggi +iconv ipv6 jack joystick jpeg kernel_linux ladspa
-	+libass libcaca lirc mad md5sum mng +mp3 nas +network nut +opengl oss png
-	pnm portaudio postproc pulseaudio pvr +quicktime quvi radio +rar +real
-	+rtc samba sdl +speex tga +theora +truetype +unicode v4l vdpau +vorbis
-	win32codecs +X xanim xinerama +xscreensaver +xv xvid"
+IUSE="+a52 +alsa aqua bindist bluray bs2b cddb +cdio cpudetection debug
+directfb doc +dts +dv dvb +dvd +dvdnav +enca +faad fbcon ftp gif +iconv
+ipv6 jack joystick jpeg kernel_linux ladspa lcms +libass libcaca lirc mad
+md5sum mng +mp3 +network nut +opengl oss png pnm portaudio +postproc
+pulseaudio pvr +quicktime quvi radio +rar +real +rtc samba sdl +speex tga
++theora +unicode v4l vcd vdpau +vorbis win32codecs +X xanim xinerama
++xscreensaver +xv xvid yuv4mpeg
+"
 IUSE+=" symlink"
 
 CPU_FEATURES="3dnow 3dnowext altivec +mmx mmxext +shm sse sse2 ssse3"
@@ -46,22 +40,15 @@ for x in ${CPU_FEATURES}; do
 	IUSE+=" ${x}"
 done
 
-VIDEO_CARDS="s3virge mga tdfx"
-for x in ${VIDEO_CARDS}; do
-	IUSE+=" video_cards_${x}"
-done
-
 # bindist does not cope with win32codecs, which are nonfree
 REQUIRED_USE="
 	bindist? ( !win32codecs )
 	cddb? ( cdio network )
 	dvdnav? ( dvd )
-	dxr3? ( X )
-	ggi? ( X )
-	libass? ( truetype )
-	opengl? ( || ( X aqua ) )
+	lcms? ( opengl )
+	libass? ( iconv )
+	opengl? ( || ( aqua X ) )
 	radio? ( || ( dvb v4l ) )
-	truetype? ( iconv )
 	vdpau? ( X )
 	xinerama? ( X )
 	xscreensaver? ( X )
@@ -69,7 +56,6 @@ REQUIRED_USE="
 "
 
 # Rar: althrought -gpl version is nice, it cant do most functions normal rars can
-#	nemesi? ( net-libs/libnemesi )
 RDEPEND+="
 	sys-libs/ncurses
 	sys-libs/zlib
@@ -81,11 +67,8 @@ RDEPEND+="
 	X? (
 		x11-libs/libXext
 		x11-libs/libXxf86vm
-		ggi? (
-			media-libs/libggi
-			media-libs/libggiwmh
-		)
 		opengl? ( virtual/opengl )
+		lcms? ( media-libs/lcms:2 )
 		vdpau? ( x11-libs/libvdpau )
 		xinerama? ( x11-libs/libXinerama )
 		xscreensaver? ( x11-libs/libXScrnSaver )
@@ -94,9 +77,7 @@ RDEPEND+="
 		)
 	)
 	a52? ( media-libs/a52dec )
-	aalib? ( media-libs/aalib )
 	alsa? ( media-libs/alsa-lib )
-	bidi? ( dev-libs/fribidi )
 	bluray? ( media-libs/libbluray )
 	bs2b? ( media-libs/libbs2b )
 	cdio? ( dev-libs/libcdio )
@@ -115,20 +96,19 @@ RDEPEND+="
 	jack? ( media-sound/jack-audio-connection-kit )
 	jpeg? ( virtual/jpeg )
 	ladspa? ( media-libs/ladspa-sdk )
-	libass? ( >=media-libs/libass-0.9.10[enca?,fontconfig] )
+	libass? ( >=media-libs/libass-0.9.10[enca?,fontconfig] virtual/ttf-fonts )
 	libcaca? ( media-libs/libcaca )
 	lirc? ( app-misc/lirc )
 	mad? ( media-libs/libmad )
 	mng? ( media-libs/libmng )
 	mp3? ( media-sound/mpg123 )
-	nas? ( media-libs/nas )
 	nut? ( >=media-libs/libnut-661 )
 	png? ( media-libs/libpng )
 	pnm? ( media-libs/netpbm )
 	portaudio? ( >=media-libs/portaudio-19_pre20111121 )
 	postproc? ( || ( media-libs/libpostproc <media-video/libav-0.8.2-r1 media-video/ffmpeg ) )
 	pulseaudio? ( media-sound/pulseaudio )
-	quvi? ( media-libs/libquvi )
+	quvi? ( >=media-libs/libquvi-0.4.1 )
 	rar? (
 		|| (
 			app-arch/unrar
@@ -139,11 +119,6 @@ RDEPEND+="
 	sdl? ( media-libs/libsdl )
 	speex? ( media-libs/speex )
 	theora? ( media-libs/libtheora )
-	truetype? (
-		media-libs/fontconfig
-		>=media-libs/freetype-2.2.1:2
-		virtual/ttf-fonts
-	)
 	vorbis? ( media-libs/libvorbis )
 	xanim? ( media-video/xanim )
 	xvid? ( media-libs/xvid )
@@ -154,11 +129,11 @@ ASM_DEP="dev-lang/yasm"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	>=dev-lang/python-2.7
+	dev-python/docutils
 	sys-devel/gettext
 	X? (
 		x11-proto/videoproto
 		x11-proto/xf86vidmodeproto
-		dxr3? ( media-video/em8300-libraries )
 		xinerama? ( x11-proto/xineramaproto )
 		xscreensaver? ( x11-proto/scrnsaverproto )
 	)
@@ -196,8 +171,20 @@ pkg_setup() {
 		ewarn "disabling this use flag."
 	fi
 
+	if use !libass; then
+		ewarn
+		ewarn "You've disabled the libass flag. No OSD or subtitles will be displayed."
+	fi
+
 	einfo "For various format support you need to enable the support on your ffmpeg package:"
 	einfo "    media-video/libav or media-video/ffmpeg"
+
+	# https://bugs.gentoo.org/show_bug.cgi?id=434356#c4
+	python_pkg_setup
+	major=$(python_get_version --major)
+	minor=$(python_get_version --minor)
+	[[ ( ${major} -eq 2 && ${minor} -ge 7 ) || ${major} -ge 3 ]] \
+			|| die "Please eselect Python 2.7 or later"
 }
 
 src_prepare() {
@@ -206,13 +193,11 @@ src_prepare() {
 	sed -i -e "1c\#!${EPREFIX}/bin/bash" \
 		${bash_scripts} || die
 
+	sed -e 's/rst2man /rst2man.py /g' -i Makefile || die
+
 	if [[ -n ${NAMESUF} ]]; then
 		sed -e "/^EXESUF/s,= \$_exesuf$,= ${NAMESUF}\$_exesuf," \
 			-i configure || die
-		sed -e "\, -m 644 DOCS/man/en/mplayer,i\	mv DOCS/man/en/mplayer.1 DOCS/man/en/${PN}.1" \
-			-e "\, -m 644 DOCS/man/\$(lang)/mplayer,i\	mv DOCS/man/\$(lang)/mplayer.1 DOCS/man/\$(lang)/${PN}.1" \
-			-e "s/er.1/er${NAMESUF}.1/g" \
-			-i Makefile || die
 		sed -e "s/mplayer/${PN}/" \
 			-i TOOLS/midentify.sh || die
 	fi
@@ -224,9 +209,6 @@ src_configure() {
 	local myconf=""
 	local uses i
 
-	# set LINGUAS
-	[[ -n $LINGUAS ]] && LINGUAS="${LINGUAS/da/dk}"
-
 	# mplayer ebuild uses "use foo || --disable-foo" to forcibly disable
 	# compilation in almost every situation. The reason for this is
 	# because if --enable is used, it will force the build of that option,
@@ -235,20 +217,16 @@ src_configure() {
 	###################
 	#Optional features#
 	###################
-	# disable svga since we don't want it
 	# disable tremor, it needs libvorbisidec and is for FPU-less systems only
 	myconf+="
-		--disable-svga
 		--disable-tremor
 		$(use_enable network networking)
 		$(use_enable joystick)
 	"
-	uses="bl bluray enca ftp libass rtc" # nemesi <- not working with in-tree ebuild
-	myconf+=" --disable-nemesi" # nemesi automagic disable
+	uses="bluray enca ftp libass rtc vcd"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done
-	use bidi || myconf+=" --disable-fribidi"
 	use ipv6 || myconf+=" --disable-inet6"
 	use nut || myconf+=" --disable-libnut"
 	use quvi || myconf+=" --disable-libquvi"
@@ -283,10 +261,8 @@ src_configure() {
 	#############
 	# Subtitles #
 	#############
-	# SRT/ASS/SSA (subtitles) requires freetype support
-	# freetype support requires iconv
+	#
 	# iconv optionally can use unicode
-	use truetype || myconf+=" --disable-freetype"
 	use iconv || myconf+=" --disable-iconv --charset=noconv"
 	use iconv && use unicode && myconf+=" --charset=UTF-8"
 
@@ -294,8 +270,6 @@ src_configure() {
 	# DVB / Video4Linux / Radio support #
 	#####################################
 	myconf+=" --disable-tv-bsdbt848"
-	# broken upstream, won't work with recent kernels
-	myconf+=" --disable-ivtv"
 	# v4l1 is gone since linux-headers-2.6.38
 	myconf+=" --disable-tv-v4l1"
 	if { use dvb || use v4l || use pvr || use radio; }; then
@@ -339,7 +313,6 @@ src_configure() {
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done
-	myconf+=" --disable-live" # >=live-2012 are broken
 
 	#################
 	# Binary codecs #
@@ -371,41 +344,18 @@ src_configure() {
 	################
 	# Video Output #
 	################
-	uses="directfb md5sum sdl"
+	uses="directfb md5sum sdl yuv4mpeg"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done
-	use aalib || myconf+=" --disable-aa"
-	use fbcon || myconf+=" --disable-fbdev"
-	use fbcon && use video_cards_s3virge && myconf+=" --enable-s3fb"
 	use libcaca || myconf+=" --disable-caca"
 	use postproc || myconf+=" --disable-libpostproc"
-
-	if ! use kernel_linux || ! use video_cards_mga; then
-		 myconf+=" --disable-mga --disable-xmga"
-	fi
-
-	if use video_cards_tdfx; then
-		myconf+="
-			$(use_enable video_cards_tdfx tdfxvid)
-			$(use_enable fbcon tdfxfb)
-		"
-	else
-		myconf+="
-			--disable-3dfx
-			--disable-tdfxvid
-			--disable-tdfxfb
-		"
-	fi
-
-	# sun card, disable by default, see bug #258729
-	myconf+=" --disable-xvr100"
 
 	################
 	# Audio Output #
 	################
 	myconf+=" --disable-rsound" # media-sound/rsound is in pro-audio overlay only
-	uses="alsa jack ladspa nas portaudio"
+	uses="alsa jack ladspa portaudio"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done
@@ -435,12 +385,13 @@ src_configure() {
 	###########################
 	# X enabled configuration #
 	###########################
-	myconf+=" --disable-dga1 --disable-dga2 --disable-vesa"
-	uses="dxr3 ggi vdpau xinerama xv"
+	use X || myconf+=" --disable-x11"
+	uses="vdpau xinerama xv"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done
 	use opengl || myconf+=" --disable-gl"
+	use lcms || myconf+=" --disable-lcms2"
 	use xscreensaver || myconf+=" --disable-xss"
 
 	############################
@@ -469,7 +420,7 @@ src_configure() {
 
 src_compile() {
 	base_src_compile
-	use doc && emake -j1 -C DOCS/xml html-chunked
+	use doc && emake -C DOCS/xml html-chunked
 }
 
 src_install() {
@@ -496,18 +447,6 @@ src_install() {
 		dohtml -r "${S}"/DOCS/HTML/*
 	fi
 
-	if ! use truetype; then
-		dodir /usr/share/${PN}/fonts
-		# Do this generic, as the mplayer people like to change the structure
-		# of their zips ...
-		for i in $(find "${WORKDIR}/" -type d -name 'font-arial-*'); do
-			cp -pPR "${i}" "${ED}/usr/share/${PN}/fonts"
-		done
-		# Fix the font symlink ...
-		rm -rf "${ED}/usr/share/${PN}/font"
-		dosym fonts/font-arial-14-iso-8859-1 /usr/share/${PN}/font
-	fi
-
 	insinto /etc/${PN}
 	newins "${S}/etc/example.conf" mplayer.conf
 	cat >> "${ED}/etc/${PN}/mplayer.conf" << _EOF_
@@ -527,8 +466,12 @@ _EOF_
 
 	newbin "${S}/TOOLS/midentify.sh" midentify${NAMESUF}
 
-	if [[ -n ${NAMESUF} ]] && use symlink; then
-		dosym "${PN}" /usr/bin/mplayer
-		dosym "midentify${NAMESUF}" /usr/bin/midentify
+	if [[ -n ${NAMESUF} ]]; then
+		mv "${ED}/usr/share/man/man1/mplayer.1" "${ED}/usr/share/man/man1/mplayer${NAMESUF}.1" || die
+
+		if use symlink; then
+			dosym "${PN}" /usr/bin/mplayer
+			dosym "midentify${NAMESUF}" /usr/bin/midentify
+		fi
 	fi
 }

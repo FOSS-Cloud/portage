@@ -1,6 +1,18 @@
 # ChangeLog for app-text/wv2
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/wv2/ChangeLog,v 1.68 2012/10/17 04:31:27 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/wv2/ChangeLog,v 1.72 2012/11/21 11:00:12 ago Exp $
+
+  21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> wv2-0.4.2-r1.ebuild:
+  Stable for x86, wrt bug #443420
+
+  19 Nov 2012; Jeroen Roovers <jer@gentoo.org> wv2-0.4.2-r1.ebuild:
+  Stable for HPPA (bug #443420).
+
+  17 Nov 2012; Anthony G. Basile <blueness@gentoo.org> wv2-0.4.2-r1.ebuild:
+  stable ppc ppc64, bug #443420
+
+  15 Nov 2012; <ago@gentoo.org> wv2-0.4.2-r1.ebuild:
+  Stable for amd64, wrt bug #443420
 
   17 Oct 2012; Michael Palimaka <kensington@gentoo.org>
   +files/wv2-0.4.2-glib.patch:

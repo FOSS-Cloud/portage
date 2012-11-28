@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-slip/python-slip-0.2.20.ebuild,v 1.1 2012/07/19 01:03:57 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-slip/python-slip-0.2.20.ebuild,v 1.2 2012/11/08 04:28:44 tetromino Exp $
 
 EAPI=4
 
@@ -13,7 +13,7 @@ DESCRIPTION="Miscellaneous convenience, extension and workaround code for Python
 HOMEPAGE="https://fedorahosted.org/python-slip/"
 SRC_URI="https://fedorahosted.org/released/${PN}/${P}.tar.bz2"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="dbus gtk selinux"

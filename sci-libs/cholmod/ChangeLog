@@ -1,6 +1,18 @@
 # ChangeLog for sci-libs/cholmod
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/cholmod/ChangeLog,v 1.32 2012/10/15 22:45:52 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/cholmod/ChangeLog,v 1.35 2012/11/14 20:29:00 bicatali Exp $
+
+  14 Nov 2012; Sébastien Fabbro <bicatali@gentoo.org> cholmod-2.0.1.ebuild:
+  Roll new version supporting USE=-metis
+
+  12 Nov 2012; Sébastien Fabbro <bicatali@gentoo.org> cholmod-2.0.1.ebuild:
+  Added configuration fixes for cuda (bug #442858)
+
+*cholmod-2.0.1 (12 Nov 2012)
+
+  12 Nov 2012; Sébastien Fabbro <bicatali@gentoo.org> +cholmod-2.0.1.ebuild,
+  metadata.xml:
+  Version bump
 
   15 Oct 2012;  <naota@gentoo.org> cholmod-1.7.4.ebuild:
   Add ~x86-fbsd.

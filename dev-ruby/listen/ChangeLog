@@ -1,6 +1,25 @@
 # ChangeLog for dev-ruby/listen
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/listen/ChangeLog,v 1.9 2012/10/12 05:50:10 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/listen/ChangeLog,v 1.13 2012/11/26 06:39:33 graaff Exp $
+
+*listen-0.6.0 (26 Nov 2012)
+
+  26 Nov 2012; Hans de Graaff <graaff@gentoo.org> +listen-0.6.0.ebuild:
+  Version bump.
+
+  26 Nov 2012; Hans de Graaff <graaff@gentoo.org> -listen-0.4.7.ebuild,
+  -listen-0.5.0.ebuild, -listen-0.5.2.ebuild:
+  Cleanup.
+
+  25 Nov 2012; Thomas Kahle <tomka@gentoo.org> listen-0.5.3.ebuild:
+  marked ~x86 per bug 433129
+
+  26 Nov 2012; Hans de Graaff <graaff@gentoo.org> -listen-0.4.7.ebuild,
+  -listen-0.5.0.ebuild, -listen-0.5.2.ebuild:
+  Cleanup.
+
+  18 Nov 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Drop maintainer as he is not taking care of this package.
 
 *listen-0.5.3 (12 Oct 2012)
 

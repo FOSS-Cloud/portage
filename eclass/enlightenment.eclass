@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/enlightenment.eclass,v 1.95 2012/10/22 10:14:31 tommy Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/enlightenment.eclass,v 1.98 2012/11/26 06:58:19 vapier Exp $
 
 # @ECLASS: enlightenment.eclass
 # @MAINTAINER:
@@ -63,7 +63,7 @@ fi
 # Parse requested python state
 : ${E_PYTHON:=${E_CYTHON}}
 if [[ -n ${E_PYTHON} ]] ; then
-	PYTHON_DEPEND="2:2.4"
+	PYTHON_DEPEND="2"
 
 	inherit python
 fi
@@ -118,7 +118,10 @@ enlightenment_src_unpack() {
 	else
 		unpack ${A}
 	fi
-	has src_prepare ${ENLIGHTENMENT_EXPF} || enlightenment_src_prepare
+	if ! has src_prepare ${ENLIGHTENMENT_EXPF} ; then
+		cd "${S}" || die
+		enlightenment_src_prepare
+	fi
 }
 
 enlightenment_src_prepare() {

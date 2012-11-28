@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/tigervnc/tigervnc-1.2.0.ebuild,v 1.3 2012/09/17 07:31:24 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/tigervnc/tigervnc-1.2.0.ebuild,v 1.7 2012/11/21 10:35:06 ago Exp $
 
 EAPI="4"
 
@@ -20,7 +20,7 @@ SRC_URI="mirror://sourceforge/tigervnc/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc x86"
 IUSE="gnutls +internal-fltk java nptl +opengl pam server +xorgmodule"
 
 RDEPEND="virtual/jpeg
@@ -72,7 +72,7 @@ DEPEND="${RDEPEND}
 		>=x11-proto/videoproto-2.2.2
 		>=x11-proto/xcmiscproto-1.2.0
 		>=x11-proto/xineramaproto-1.1.3
-	        >=x11-libs/xtrans-1.2.2
+		>=x11-libs/xtrans-1.2.2
 		>=x11-proto/dri2proto-2.8
 		opengl? ( >=media-libs/mesa-7.8_rc[nptl=] )
 	)"
@@ -108,7 +108,7 @@ src_prepare() {
 	fi
 
 	EPATCH_SOURCE="${WORKDIR}/patches" EPATCH_SUFFIX="patch" \
-		EPATCH_FORCE="yes" epatch
+		EPATCH_EXCLUDE="015_java7.patch" EPATCH_FORCE="yes" epatch
 
 	if use server ; then
 		cd unix/xserver
@@ -124,7 +124,34 @@ src_configure() {
 		$(cmake-utils_use_enable pam PAM)
 		$(cmake-utils_use_build java JAVA)
 	)
+
 	cmake-utils_src_configure
+
+	if use server; then
+		cd unix/xserver
+		econf \
+			$(use_enable nptl glx-tls) \
+			$(use_enable opengl glx) \
+			--disable-config-dbus \
+			--disable-config-hal \
+			--disable-config-udev \
+			--disable-devel-docs \
+			--disable-dmx \
+			--disable-dri \
+			--disable-kdrive \
+			--disable-silent-rules \
+			--disable-static \
+			--disable-unit-tests \
+			--disable-xephyr \
+			--disable-xinerama \
+			--disable-xnest \
+			--disable-xorg \
+			--disable-xvfb \
+			--disable-xwin \
+			--enable-dri2 \
+			--with-pic \
+			--without-dtrace
+	fi
 }
 
 src_compile() {
@@ -132,19 +159,7 @@ src_compile() {
 
 	if use server ; then
 		cd unix/xserver
-		econf \
-			--disable-xorg --disable-xnest --disable-xvfb --disable-dmx \
-			--disable-xwin --disable-xephyr --disable-kdrive --with-pic \
-			--disable-static --disable-xinerama --without-dtrace \
-			--disable-unit-tests --disable-devel-docs --disable-dri \
-			--disable-config-dbus \
-			--disable-config-hal \
-			--disable-config-udev \
-			--enable-dri2 \
-			$(use_enable opengl glx) \
-			$(use_enable nptl glx-tls) \
-			|| die "econf server failed"
-		emake || die "emake server failed"
+		emake
 	fi
 }
 
@@ -156,7 +171,7 @@ src_install() {
 
 	if use server ; then
 		cd unix/xserver/hw/vnc
-		emake DESTDIR="${D}" install || die "emake install failed"
+		emake DESTDIR="${D}" install
 		! use xorgmodule && rm -rf "${D}"/usr/$(get_libdir)/xorg
 
 		newconfd "${FILESDIR}"/${PN}.confd ${PN}

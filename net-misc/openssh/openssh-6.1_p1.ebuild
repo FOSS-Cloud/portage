@@ -1,8 +1,8 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openssh/openssh-6.1_p1.ebuild,v 1.3 2012/10/12 19:09:11 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openssh/openssh-6.1_p1.ebuild,v 1.8 2012/11/19 20:43:34 vapier Exp $
 
-EAPI="2"
+EAPI="4"
 inherit eutils user flag-o-matic multilib autotools pam systemd
 
 # Make it more portable between straight releases
@@ -24,25 +24,28 @@ SRC_URI="mirror://openbsd/OpenSSH/portable/${PARCH}.tar.gz
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
-IUSE="${HPN_PATCH:++}hpn kerberos ldap libedit pam selinux skey static tcpd X X509"
+IUSE="bindist ${HPN_PATCH:++}hpn kerberos ldap libedit pam selinux skey static tcpd X X509"
 
-RDEPEND="pam? ( virtual/pam )
+LIB_DEPEND="selinux? ( >=sys-libs/libselinux-1.28[static-libs(+)] )
+	skey? ( >=sys-auth/skey-1.1.5-r1[static-libs(+)] )
+	libedit? ( dev-libs/libedit[static-libs(+)] )
+	>=dev-libs/openssl-0.9.6d:0[bindist=]
+	dev-libs/openssl[static-libs(+)]
+	>=sys-libs/zlib-1.2.3[static-libs(+)]
+	tcpd? ( >=sys-apps/tcp-wrappers-7.6[static-libs(+)] )"
+RDEPEND="!static? ( ${LIB_DEPEND//\[static-libs(+)]} )
+	pam? ( virtual/pam )
 	kerberos? ( virtual/krb5 )
-	selinux? ( >=sys-libs/libselinux-1.28 )
-	skey? ( >=sys-auth/skey-1.1.5-r1 )
-	ldap? ( net-nds/openldap )
-	libedit? ( dev-libs/libedit )
-	>=dev-libs/openssl-0.9.6d
-	>=sys-libs/zlib-1.2.3
-	tcpd? ( >=sys-apps/tcp-wrappers-7.6 )
-	X? ( x11-apps/xauth )
-	userland_GNU? ( virtual/shadow )"
+	ldap? ( net-nds/openldap )"
 DEPEND="${RDEPEND}
+	static? ( ${LIB_DEPEND} )
 	virtual/pkgconfig
 	virtual/os-headers
 	sys-devel/autoconf"
 RDEPEND="${RDEPEND}
-	pam? ( >=sys-auth/pambase-20081028 )"
+	pam? ( >=sys-auth/pambase-20081028 )
+	userland_GNU? ( virtual/shadow )
+	X? ( x11-apps/xauth )"
 
 S=${WORKDIR}/${PARCH}
 
@@ -120,7 +123,8 @@ src_prepare() {
 			cipher.c || die
 	fi
 
-	sed -i "s:-lcrypto:$(pkg-config --libs openssl):" configure{,.ac} || die
+	tc-export PKG_CONFIG
+	sed -i "s:-lcrypto:$(${PKG_CONFIG} --libs openssl):" configure{,.ac} || die
 
 	# Disable PATH reset, trust what portage gives us. bug 254615
 	sed -i -e 's:^PATH=/:#PATH=/:' configure || die
@@ -177,9 +181,9 @@ src_configure() {
 }
 
 src_install() {
-	emake install-nokeys DESTDIR="${D}" || die
+	emake install-nokeys DESTDIR="${D}"
 	fperms 600 /etc/ssh/sshd_config
-	dobin contrib/ssh-copy-id || die
+	dobin contrib/ssh-copy-id
 	newinitd "${FILESDIR}"/sshd.rc6.3 sshd
 	newconfd "${FILESDIR}"/sshd.confd sshd
 	keepdir /var/empty
@@ -187,7 +191,7 @@ src_install() {
 	# not all openssl installs support ecc, or are functional #352645
 	if ! grep -q '#define OPENSSL_HAS_ECC 1' config.h ; then
 		elog "dev-libs/openssl was built with 'bindist' - disabling ecdsa support"
-		dosed 's:&& gen_key ecdsa::' /etc/init.d/sshd || die
+		sed -i 's:&& gen_key ecdsa::' "${ED}"/etc/init.d/sshd || die
 	fi
 
 	newpamd "${FILESDIR}"/sshd.pam_include.2 sshd
@@ -197,16 +201,16 @@ src_install() {
 			-e "/^#PasswordAuthentication /s:.*:PasswordAuthentication no:" \
 			-e "/^#PrintMotd /s:.*:PrintMotd no:" \
 			-e "/^#PrintLastLog /s:.*:PrintLastLog no:" \
-			"${D}"/etc/ssh/sshd_config || die "sed of configuration file failed"
+			"${ED}"/etc/ssh/sshd_config || die "sed of configuration file failed"
 	fi
 
 	# Gentoo tweaks to default config files
-	cat <<-EOF >> "${D}"/etc/ssh/sshd_config
+	cat <<-EOF >> "${ED}"/etc/ssh/sshd_config
 
 	# Allow client to pass locale environment variables #367017
 	AcceptEnv LANG LC_*
 	EOF
-	cat <<-EOF >> "${D}"/etc/ssh/ssh_config
+	cat <<-EOF >> "${ED}"/etc/ssh/ssh_config
 
 	# Send locale environment variables #367017
 	SendEnv LANG LC_*
@@ -229,8 +233,8 @@ src_install() {
 	diropts -m 0700
 	dodir /etc/skel/.ssh
 
-	systemd_dounit "${FILESDIR}"/sshd.{service,socket} || die
-	systemd_newunit "${FILESDIR}"/sshd_at.service 'sshd@.service' || die
+	systemd_dounit "${FILESDIR}"/sshd.{service,socket}
+	systemd_newunit "${FILESDIR}"/sshd_at.service 'sshd@.service'
 }
 
 src_test() {
@@ -273,17 +277,13 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	elog "Starting with openssh-5.8p1, the server will default to a newer key"
-	elog "algorithm (ECDSA).  You are encouraged to manually update your stored"
-	elog "keys list as servers update theirs.  See ssh-keyscan(1) for more info."
-	echo
+	if has_version "<${CATEGORY}/${PN}-5.8_p1" ; then
+		elog "Starting with openssh-5.8p1, the server will default to a newer key"
+		elog "algorithm (ECDSA).  You are encouraged to manually update your stored"
+		elog "keys list as servers update theirs.  See ssh-keyscan(1) for more info."
+	fi
 	ewarn "Remember to merge your config files in /etc/ssh/ and then"
 	ewarn "reload sshd: '/etc/init.d/sshd reload'."
-	if use pam ; then
-		echo
-		ewarn "Please be aware users need a valid shell in /etc/passwd"
-		ewarn "in order to be allowed to login."
-	fi
 	# This instruction is from the HPN webpage,
 	# Used for the server logging functionality
 	if [[ -n ${HPN_PATCH} ]] && use hpn ; then

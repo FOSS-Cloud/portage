@@ -1,6 +1,25 @@
 # ChangeLog for mail-mta/postfix
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/postfix/ChangeLog,v 1.396 2012/10/30 19:38:28 eras Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/postfix/ChangeLog,v 1.400 2012/11/27 19:59:36 eras Exp $
+
+*postfix-2.10_pre20121123 (27 Nov 2012)
+
+  27 Nov 2012; Eray Aslan <eras@gentoo.org> +postfix-2.10_pre20121123.ebuild,
+  -postfix-2.10_pre20121031.ebuild:
+  Version bump
+
+  06 Nov 2012; Eray Aslan <eras@gentoo.org> postfix-2.10_pre20121031.ebuild,
+  postfix-2.8.12.ebuild, postfix-2.8.9.ebuild, postfix-2.9.4.ebuild:
+  mail-mta/nbsmtp is no longer in the tree - remove from DEPEND
+
+*postfix-2.10_pre20121031 (06 Nov 2012)
+
+  06 Nov 2012; Eray Aslan <eras@gentoo.org> +postfix-2.10_pre20121031.ebuild,
+  -postfix-2.10_pre20121022.ebuild:
+  Version bump
+
+  02 Nov 2012; Eray Aslan <eras@gentoo.org> postfix-2.10_pre20121022.ebuild:
+  Add smtpd_relay_restrictions compatibility shim
 
   30 Oct 2012; Eray Aslan <eras@gentoo.org> -files/postfix-2.9.3-freebsd9.patch,
   -files/postfix.rc6.2.6, -postfix-2.8.10.ebuild, -postfix-2.8.11.ebuild,

@@ -1,8 +1,8 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/ucpp/ucpp-9999.ebuild,v 1.1 2012/09/24 13:34:07 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/ucpp/ucpp-9999.ebuild,v 1.2 2012/11/21 16:37:12 scarabeus Exp $
 
-EAPI=4
+EAPI=5
 
 EGIT_REPO_URI="git://github.com/scarabeusiv/ucpp.git"
 inherit eutils git-2 autotools

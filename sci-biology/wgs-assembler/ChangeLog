@@ -1,6 +1,20 @@
 # ChangeLog for sci-biology/wgs-assembler
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/wgs-assembler/ChangeLog,v 1.9 2012/02/06 09:12:38 weaver Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/wgs-assembler/ChangeLog,v 1.12 2012/11/13 19:19:00 nativemad Exp $
+
+  14 Nov 2012; Andreas Schuerch <nativemad@gentoo.org>
+  wgs-assembler-7.0-r1.ebuild:
+  x86 stable, see bug 328437
+
+  11 Nov 2012; <ago@gentoo.org> wgs-assembler-7.0-r1.ebuild:
+  Stable for amd64, wrt bug #328437
+
+*wgs-assembler-7.0-r1 (10 Nov 2012)
+
+  10 Nov 2012; Justin Lecher <jlec@gentoo.org> wgs-assembler-5.4.ebuild,
+  wgs-assembler-6.1.ebuild, wgs-assembler-7.0.ebuild,
+  +wgs-assembler-7.0-r1.ebuild, +files/wgs-assembler-7.0-build.patch:
+  Respect LDFLAGS, #331935; fix linking with gold; handle static-libs
 
 *wgs-assembler-7.0 (06 Feb 2012)
 

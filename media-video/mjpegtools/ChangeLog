@@ -1,6 +1,28 @@
 # ChangeLog for media-video/mjpegtools
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mjpegtools/ChangeLog,v 1.180 2012/09/28 17:24:38 billie Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mjpegtools/ChangeLog,v 1.186 2012/11/27 15:52:39 jer Exp $
+
+  27 Nov 2012; Jeroen Roovers <jer@gentoo.org> mjpegtools-2.0.0-r3.ebuild:
+  Stable for HPPA (bug #443824).
+
+  22 Nov 2012; Agostino Sarubbo <ago@gentoo.org> mjpegtools-2.0.0-r3.ebuild:
+  Stable for x86, tested by Vincent Olivert Riera <peratu@carrosses.com>, wrt
+  bug #443824
+
+  22 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  mjpegtools-2.0.0-r3.ebuild:
+  stable ppc64, bug #443824
+
+  21 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  mjpegtools-2.0.0-r3.ebuild:
+  stable ppc, bug #443824, thanks peratu
+
+  21 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> mjpegtools-2.0.0-r3.ebuild:
+  Stable on amd64, wrt bug #443824
+
+  20 Nov 2012; Daniel Pielmeier <billie@gentoo.org> mjpegtools-2.0.0-r3.ebuild:
+  Mention extra dependencies needed by user contributed scripts in elog
+  message. Thanks to Vicente Olivert Riera in bug #443972.
 
 *mjpegtools-2.0.0-r3 (28 Sep 2012)
 

@@ -1,6 +1,28 @@
 # ChangeLog for sys-power/powertop
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/powertop/ChangeLog,v 1.68 2012/09/20 03:26:51 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-power/powertop/ChangeLog,v 1.73 2012/11/23 18:05:35 zerochaos Exp $
+
+*powertop-2.2-r1 (23 Nov 2012)
+
+  23 Nov 2012; Rick Farina <zerochaos@gentoo.org>
+  +files/powertop-2.2-use-package_version.patch, +powertop-2.2-r1.ebuild,
+  -powertop-2.2.ebuild:
+  fix powertop 2.2 to report proper version tag wrt bug #444466
+
+  22 Nov 2012; Rick Farina <zerochaos@gentoo.org> powertop-2.2.ebuild:
+  fix bug #444370 by switching to EAPI5, there goes my cherry
+
+*powertop-2.2 (22 Nov 2012)
+
+  22 Nov 2012; Rick Farina <zerochaos@gentoo.org> +powertop-2.2.ebuild:
+  bump to 2.2
+
+  22 Nov 2012; Rick Farina <zerochaos@gentoo.org> powertop-2.1-r1.ebuild,
+  powertop-9999.ebuild:
+  SND_HDA_POWER_SAVE deprecated in kernel 3.7.0 so we conditionalize the check
+
+  18 Nov 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Drop mobile herd as talked in gentoo-dev ML
 
   20 Sep 2012; Rick Farina <zerochaos@gentoo.org> powertop-2.1-r1.ebuild,
   powertop-9999.ebuild:

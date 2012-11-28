@@ -1,6 +1,37 @@
 # ChangeLog for games-strategy/hedgewars
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/hedgewars/ChangeLog,v 1.39 2012/09/24 00:40:19 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/hedgewars/ChangeLog,v 1.46 2012/11/05 16:35:00 mr_bones_ Exp $
+
+  05 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org>
+  hedgewars-0.9.18-r1.ebuild:
+  add glut dep (bug #441870)
+
+  04 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org>
+  hedgewars-0.9.18-r1.ebuild:
+  don't try to find ghc automagically (bug #441686)
+
+*hedgewars-0.9.18-r1 (03 Nov 2012)
+
+  03 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org>
+  +hedgewars-0.9.18-r1.ebuild, -hedgewars-0.9.18.ebuild:
+  rev bump to get updated upstream tarball
+
+  02 Nov 2012; Julian Ospald <hasufell@gentoo.org>
+  files/hedgewars-0.9.18-cmake.patch:
+  newline messup, fixes bug 440974
+
+  01 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/hedgewars-0.9.18-cmake.patch, hedgewars-0.9.18.ebuild:
+  add parallel-make patch from hasufell
+
+  01 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org> hedgewars-0.9.18.ebuild:
+  add ffmpeg dep
+
+*hedgewars-0.9.18 (01 Nov 2012)
+
+  01 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/hedgewars-0.9.18-cflags.patch, +hedgewars-0.9.18.ebuild:
+  version bump (bug #440796)
 
   24 Sep 2012; Mike Frysinger <vapier@gentoo.org> hedgewars-0.9.17.ebuild:
   QA_DT_HASH (old/deprecated) -> QA_FLAGS_IGNORED (new hotness).

@@ -1,6 +1,28 @@
 # ChangeLog for net-print/hplip
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.248 2012/10/24 10:00:49 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.253 2012/11/21 10:16:54 ago Exp $
+
+  21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> hplip-3.12.10a.ebuild:
+  Stable for x86, wrt bug #439032
+
+*hplip-3.12.10a-r1 (18 Nov 2012)
+
+  18 Nov 2012; Daniel Pielmeier <billie@gentoo.org> +hplip-3.12.10a-r1.ebuild:
+  Fix bug #443680. Thanks to Petteri Räty for the report.
+
+  18 Nov 2012; Daniel Pielmeier <billie@gentoo.org>
+  -files/hplip-3.9.10-browser.patch, -files/hplip-3.9.12-cupsddk.patch,
+  -files/hplip-3.9.12-systray.patch, -files/hplip-3.10.9-cve-2010-4267.patch,
+  -files/hplip-3.11.1-desktop.patch, -files/hplip-3.11.1-htmldir.patch,
+  -files/hplip-3.11.10-udev-attrs.patch, -hplip-3.12.4.ebuild,
+  -hplip-3.12.10.ebuild:
+  Remove old.
+
+  13 Nov 2012; Brent Baude <ranger@gentoo.org> hplip-3.12.10a.ebuild:
+  Marking hplip-3.12.10a ppc64 for bug 439032
+
+  07 Nov 2012; Daniel Pielmeier <billie@gentoo.org> hplip-3.12.10a.ebuild:
+  Use REPLACING_VERSIONS to avoid elog pollution.
 
   24 Oct 2012; Agostino Sarubbo <ago@gentoo.org> hplip-3.12.10a.ebuild:
   Stable for amd64, wrt bug #439032

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nntp/pan/pan-9999.ebuild,v 1.9 2012/05/06 10:35:14 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-nntp/pan/pan-9999.ebuild,v 1.10 2012/11/04 09:17:06 tetromino Exp $
 
 EAPI="4"
 
@@ -16,7 +16,7 @@ SRC_URI=
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="gnome-keyring libnotify spell ssl"
+IUSE="dbus gnome-keyring libnotify spell ssl"
 
 RDEPEND=">=dev-libs/glib-2.26:2
 	>=x11-libs/gtk+-2.16:2
@@ -26,7 +26,7 @@ RDEPEND=">=dev-libs/glib-2.26:2
 	spell? (
 		>=app-text/enchant-1.6
 		>=app-text/gtkspell-2.0.7:2 )
-	ssl? ( >=net-libs/gnutls-2.12.10 )"
+	ssl? ( >=net-libs/gnutls-3 )"
 
 DEPEND="${RDEPEND}
 	app-text/gnome-doc-utils
@@ -35,7 +35,7 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 # The normal version tree ebuild we are based on (for patching)
-Pnorm="${PN}-0.137"
+Pnorm="${PN}-0.139"
 
 DOCS="AUTHORS ChangeLog MAINTAINERS NEWS README"
 
@@ -48,6 +48,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		--without-gtk3 \
+		$(use_with dbus) \
 		$(use_enable gnome-keyring gkr) \
 		$(use_with spell gtkspell) \
 		$(use_enable libnotify) \

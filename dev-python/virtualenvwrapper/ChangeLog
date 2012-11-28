@@ -1,6 +1,14 @@
 # ChangeLog for dev-python/virtualenvwrapper
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/virtualenvwrapper/ChangeLog,v 1.4 2012/04/15 04:30:20 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/virtualenvwrapper/ChangeLog,v 1.6 2012/11/05 08:51:26 patrick Exp $
+
+  05 Nov 2012; Patrick Lauer <patrick@gentoo.org> virtualenvwrapper-3.6.ebuild:
+  Fixed dependencies #440806
+
+*virtualenvwrapper-3.6 (01 Nov 2012)
+
+  01 Nov 2012; Patrick Lauer <patrick@gentoo.org> +virtualenvwrapper-3.6.ebuild:
+  Bump
 
 *virtualenvwrapper-3.2 (15 Apr 2012)
 
@@ -23,4 +31,3 @@
   +files/tox.ini, +metadata.xml:
   Initial version of virtualenvwrapper. Ebuild contributed by
   nicolas.pinto@gmail.com.
-

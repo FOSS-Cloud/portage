@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/xz-utils/xz-utils-9999.ebuild,v 1.12 2012/09/14 02:24:09 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/xz-utils/xz-utils-9999.ebuild,v 1.13 2012/11/24 20:33:49 ssuominen Exp $
 
 # Remember: we cannot leverage autotools in this ebuild in order
 #           to avoid circular deps with autotools
@@ -20,7 +20,7 @@ else
 	EXTRA_DEPEND=
 fi
 
-inherit eutils
+inherit eutils toolchain-funcs
 
 DESCRIPTION="utils for managing LZMA compressed files"
 HOMEPAGE="http://tukaani.org/xz/"
@@ -51,7 +51,8 @@ src_configure() {
 
 src_install() {
 	default
-	find "${ED}"/usr/ -name liblzma.la -delete || die # dependency_libs=''
+	gen_usr_ldscript -a lzma
+	prune_libtool_files --all
 	rm "${ED}"/usr/share/doc/xz/COPYING* || die
 	mv "${ED}"/usr/share/doc/{xz,${PF}} || die
 }

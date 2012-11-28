@@ -1,6 +1,26 @@
 # ChangeLog for media-gfx/xsane
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/xsane/ChangeLog,v 1.96 2012/08/22 02:24:10 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/xsane/ChangeLog,v 1.102 2012/11/22 10:07:28 ago Exp $
+
+  22 Nov 2012; Agostino Sarubbo <ago@gentoo.org> xsane-0.998-r1.ebuild:
+  Stable for x86, tested by Vincent Olivert Riera <peratu@carrosses.com>, wrt
+  bug #442440
+
+  14 Nov 2012; Agostino Sarubbo <ago@gentoo.org> xsane-0.998-r1.ebuild:
+  Stable for amd64, wrt bug #442440
+
+  14 Nov 2012; Anthony G. Basile <blueness@gentoo.org> xsane-0.998-r1.ebuild:
+  stable ppc, bug #442440
+
+  13 Nov 2012; Brent Baude <ranger@gentoo.org> xsane-0.998-r1.ebuild:
+  Marking xsane-0.998-r1 ppc64 for bug 442440
+
+  11 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> xsane-0.998-r1.ebuild:
+  Fix QA issue with dosym, omitting basename for symlink wrt bug #442440
+
+  11 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> xsane-0.998-r1.ebuild:
+  Fix direct AR call wrt bug #442606. Thanks to Vicente Olivert Riera for
+  reporting this issue
 
   22 Aug 2012; Christoph Junghans <ottxor@gentoo.org> xsane-0.998-r1.ebuild:
   added prefix keywords

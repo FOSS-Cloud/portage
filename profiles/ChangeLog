@@ -1,10 +1,409 @@
 # ChangeLog for profile directory
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.7082 2012/10/30 21:57:11 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.7201 2012/11/27 22:50:27 sping Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  27 Nov 2012; Sebastian Pipping <sping@gentoo.org> package.mask:
+  Mask app-admin/profiler for removal (bug #444332)
+
+  27 Nov 2012; Sebastian Pipping <sping@gentoo.org> package.mask:
+  Mask app-admin/smolt for removal (bug #438082)
+
+  27 Nov 2012; Tim Harder <radhermit@gentoo.org> package.mask:
+  Mask =media-libs/libsfml-2* for testing.
+
+  27 Nov 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.mask:
+  Add libxml2-2.9.x to gnome-3.6 mask (bug #444290).
+
+  26 Nov 2012; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Remove dev-libs/libnl-3.2.15 mask.
+
+  26 Nov 2012; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Mask www-client/opera-12.12.
+
+  26 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> use.desc:
+  Describe vdpau and wayland as global useflags.
+
+  26 Nov 2012; Sergey Popov <pinkbyte@gentoo.org>
+  arch/amd64/no-multilib/package.mask, features/64bit-native/package.mask:
+  Mask games-strategy/dominions2-demo on all non-multilib profiles
+
+  26 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> base/package.use.mask:
+  Mask media-gfx/opencolorio[pdf]
+
+  26 Nov 2012; Torsten Veller <tove@gentoo.org> updates/4Q-2012:
+  Move app-editors/XML-XSH to app-editors/XML-XSH
+
+  25 Nov 2012; Pacho Ramos <pacho@gentoo.org> package.mask:
+  Previous scilab mask entry also masks overlay versions by error
+
+  25 Nov 2012; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Add Sleepycat to GPL-COMPATIBLE and OSI-APPROVED license groups, bug 300426.
+  This replaces DB and OracleDB, remove them from both license groups.
+  Add IBPP-1.1 to MISC-FREE license group, bug 444626.
+
+  25 Nov 2012; Julian Ospald <hasufell@gentoo.org> package.mask:
+  remove pmask on games-rpg/nwn-penultima since bug 394869 is actually related
+  to games-rpg/nwn
+
+  25 Nov 2012; Kacper Kowalik <xarthisius@gentoo.org> package.mask:
+  Drop masks on x11-misc/bbacpi and x11-misc/bbappconf as corresponding bugs
+  were fixed
+
+  25 Nov 2012; Kacper Kowalik <xarthisius@gentoo.org> package.mask:
+  Drop masks on x11-misc/bbdate, x11-misc/bbweather, x11-misc/bbsload. Blocking
+  bugs were fixed
+
+  24 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
+  default/linux/packages.build:
+  Migrate packages.build from sys-fs/udev to virtual/udev.
+
+  24 Nov 2012; Michał Górny <mgorny@gentoo.org>
+  +desc/python_single_target.desc:
+  Introduce PYTHON_SINGLE_TARGET for Python packages not supporting multiple
+  Python implementations.
+
+  24 Nov 2012; Pacho Ramos <pacho@gentoo.org> package.mask:
+  Include mask entries for packages going to be removed
+
+  24 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
+  targets/desktop/package.use:
+  Imitate behavior of IUSE="+introspection", enabling introspection by default
+  for the desktop profile.
+
+  24 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
+  targets/desktop/package.use:
+  Synchronize sys-fs/udev and virtual/udev USE defaults for the desktop
+  profile.
+
+  24 Nov 2012; Gilles Dartiguelongue <eva@gentoo.org> package.mask:
+  Add new d-feet to gnome 3.6 mask.
+
+  24 Nov 2012; Richard Freeman <rich0@gentoo.org> package.mask:
+  Mask live ebuild.
+
+  24 Nov 2012; Jeroen Roovers <jer@gentoo.org> package.mask:
+  dev-libs/libnl-3.2.15 breaks ABI (bug #444542).
+
+  23 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Mask gdbserver for removal.
+
+  23 Nov 2012; Richard Freeman <rich0@gentoo.org> package.mask:
+  Mask mythtv 0.26 for addition to tree.
+
+  22 Nov 2012; Sergey Popov <pinkbyte@gentoo.org>
+  arch/amd64/no-multilib/package.mask:
+  Remove dead packages and missing atoms, wrt bug #444181
+
+  22 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Remove obsolete masks.
+
+  21 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  +hardened/linux/uclibc/amd64/use.force, +hardened/linux/uclibc/arm/use.force,
+  +hardened/linux/uclibc/mips/use.force, +hardened/linux/uclibc/ppc/use.force,
+  +hardened/linux/uclibc/x86/use.force:
+  Use force the arch flags for hardened/linux/uclibc as with regular arch
+  profiles
+
+  21 Nov 2012; Alexis Ballier <aballier@gentoo.org> updates/4Q-2012:
+  move x11-libs/vdpau-video to x11-libs/libva-vdpau-driver
+
+  21 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org>
+  default/linux/package.use.mask:
+  Unmask doc on mplayer2 again.
+
+  20 Nov 2012; Christian Faulhammer <fauli@gentoo.org> updates/4Q-2012:
+  move mail-client/claws-mail-spam_report to mail-client/claws-mail-spam-report
+
+  20 Nov 2012; Christian Faulhammer <fauli@gentoo.org> updates/4Q-2012:
+  move mail-client/claws-mail-tnef_parse to mail-client/claws-mail-tnef-parse
+
+  20 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  net-im/jabberd is goine
+
+  20 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  +hardened/linux/uclibc/arm/use.mask, +hardened/linux/uclibc/mips/use.mask,
+  +hardened/linux/uclibc/x86/use.mask:
+  Unmask SIMD flags on hardened/linux/uclibc/x86 and unmask arch USE flags for
+  all arches
+
+  20 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  +hardened/linux/uclibc/amd64/use.mask:
+  Unmask SIMD flags on hardened/linux/uclibc/amd64
+
+  20 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Mask net-wireless/wifiscanner for removal, bug #394949
+
+  20 Nov 2012; Magnus Granberg <zorry@gentoo.org>
+  hardened/linux/amd64/package.mask, hardened/linux/amd64/package.use.mask:
+  unmask >=nvidia-drivers-300.00 on amd64 but mask use X on it. Bug#433121
+
+  18 Nov 2012; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Unmask www-client/opera-12.11.
+
+  18 Nov 2012; Michael Palimaka <kensington@gentoo.org> package.mask:
+  Remove mask on net-libs/libwww - package removed wrt bug #320253.
+
+  18 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  dev-vcs/svk is gone
+
+  18 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  media-sound/audtty is gone
+
+  18 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  net-p2p/sancho-bin removal. Bug #421971
+
+  18 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  dev-libs/mpatrol is gone
+
+  18 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  gnome-extra/wp_tray is gone
+
+  18 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  sci-geosciences/qlandkarte is gone
+
+  18 Nov 2012; Robin H. Johnson <robbat2@gentoo.org> package.mask:
+  Obsolete dev-vcs/gitosis and dev-vcs/gitosis-gentoo.
+
+  16 Nov 2012; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> updates/4Q-2012:
+  Move x11-libs/elementary to media-libs/elementary
+
+  16 Nov 2012; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Add SNIA to MISC-FREE license group, bug 441924.
+
+  16 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Lastrite metacity-python wrt #438894
+
+  16 Nov 2012; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Remove JamesClark from MISC-FREE license group, duplicate of MIT.
+  Add UPEK-SDK-EULA to EULA license group.
+
+  16 Nov 2012; Hans de Graaff <graaff@gentoo.org> package.mask:
+  Remove mask for experimental gherkin slots, now removed from the tree.
+
+  16 Nov 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> base/package.use.mask:
+  Mask www-client/chromium system-ffmpeg USE flag (experimental).
+
+  15 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  hardened/linux/uclibc/mips/package.mask:
+  Mask app-cdr/cdrtools on hardened/linux/uclibc/mips
+
+  15 Nov 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  base/package.use.mask:
+  Mask wayland for mesa-9.0.
+
+  15 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Remove mask for app-crypt/cryptoapi, cause package is removed from tree, bug
+  #438458
+
+  15 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  hardened/linux/uclibc/mips/package.mask:
+  Prefer module-init-tools to kmod or modutils on hardened/linux/uclibc/mips
+
+  15 Nov 2012; Ole Markus With <olemarkus@gentoo.org> package.mask:
+  Masking php 5.5 alphas for testing
+
+  15 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> package.mask:
+  Update the libav mask to be correct.
+
+  15 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Mask libav-9 until its reverse dependencies build; see bug #443230 for
+  tracking the progress.
+
+  14 Nov 2012; Luca Barbato <lu_zero@gentoo.org> arch/amd64/use.mask,
+  arch/arm/use.mask, arch/powerpc/use.mask, arch/x86/use.mask, base/use.mask:
+  Mask fdk pending keywording
+
+  14 Nov 2012; Arun Raghavan <ford_prefect@gentoo.org>
+  default/linux/package.use.mask:
+  Mask systemd USE flag on media-sound/pulseaudio since systemd isn't in stable
+  yet,
+
+  14 Nov 2012; <naota@gentoo.org> package.mask:
+  Unmask dropbox. Seems working.
+
+  11 Nov 2012; Luca Barbato <lu_zero@gentoo.org> arch/alpha/package.use.mask:
+  Mask fdk on alpha, pending testing
+
+  11 Nov 2012; Mike Frysinger <vapier@gentoo.org> package.mask:
+  Drop mdadm mask.
+
+  11 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Unmask drizzle 7.2 as it fixes more than it can break.
+
+  10 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Mask net-analyzer/nbaudit wrt bug #335705
+
+  10 Nov 2012; Mike Frysinger <vapier@gentoo.org> package.mask:
+  Drop u-boot-tools mask.
+
+  10 Nov 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.mask:
+  Add gdk-pixbuf-2.26.5 to gnome-3.6 mask.
+
+  10 Nov 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> package.mask:
+  Mask net-libs/libsrtp-1.4.4_p20121108 for testing, bug #438756.
+
+  09 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Unmask boost-1.52 and related libraries, everything else in the tree seems to
+  be fine.
+
+  09 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Mask new u-boot-tools
+
+  09 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  update target for openocd
+
+  09 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Mask source-highlight-3.1.7-r2 for the new boost layout.
+
+  09 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Mask also xsd-3.3.0-r1 with the new boost.
+
+  09 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Mask a revbump for libxsd-frontend to handle the new boost layout in
+  1.52.0-r1.
+
+  09 Nov 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> package.mask:
+  Roll chromium package masks (24 -> 25).
+
+  08 Nov 2012; Tony Vroon <chainsaw@gentoo.org> package.mask:
+  Remove Asterisk 11 branch mask; the second release is out and initial tests
+  have been very positive.
+
+  08 Nov 2012; Víctor Ostorga <vostorga@gentoo.org> thirdpartymirrors:
+  Updating samba mirrors list
+
+  08 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Mask avr-libc together with the other crossdev packages.
+
+  08 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Collapse all the berkdb masks together.
+
+  08 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  More packages using obsolete boost.
+
+  08 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Mask older rb_libtorrent (bug #442314).
+
+  07 Nov 2012; Alexandre Rostovtsev <tetromino@gentoo.org> updates/4Q-2012:
+  Slotmove gst-rtsp-server-0.10.x to 0.10, since a gst-1.0 version is in the
+  works.
+
+  07 Nov 2012; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Mask www-client/opera-12.11.
+
+  07 Nov 2012; Justin Lecher <jlec@gentoo.org> updates/4Q-2012:
+  move app-office/texmakerx app-office/texstudio; upstream renaming
+
+  06 Nov 2012; Theo Chatzimichos <tampakrap@gentoo.org> package.mask:
+  Add puppet-syntax in p.mask as well
+
+  06 Nov 2012; Eray Aslan <eras@gentoo.org> package.mask:
+  mail-mta/nbsmtp is no longer in the tree - remove mask
+
+  05 Nov 2012; Julian Ospald <hasufell@gentoo.org> package.mask:
+  torbrowser and torbrowser-profile removed
+
+  05 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Mask boost 1.52 for testing.
+
+  05 Nov 2012; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  default/linux/packages.build:
+  Added sys-apps/kmod to the packages.build too soon as the new udev version
+  needs to be marked stable first. 
+
+  05 Nov 2012; Kacper Kowalik <xarthisius@gentoo.org> package.mask:
+  Drop mask on dev-util/intel-ocl-sdk as we are now using bundled boost for
+  tools. Fixes bug #441824 by Neil Dökkalfar <neil@next-touch.com>
+
+  05 Nov 2012; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  default/linux/packages.build:
+  Add sys-apps/kmod to default/linux/packages.build to fix the block with
+  sys-apps/module-init-tools on the seed stage3.
+
+  04 Nov 2012; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Remove unused RSA-MD4, RSA-MD5, and RSA-PKCS11 licenses; replaced by RSA.
+
+  04 Nov 2012; Joerg Bornkessel <hd_brummy@gentoo.org> package.mask:
+  masked media-plugins/vdr-softdevice-0.5.0.20110417 for testing on bug #422605
+
+  04 Nov 2012; Ulrich Müller <ulm@gentoo.org> license_groups:
+  PBZIP2 is gone (replace by BZIP2 template); remove it from MISC-FREE license
+  group. Add RSA license template to MISC-FREE.
+
+  04 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> package.mask:
+  Mask new icu for now.
+
+  04 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Mask new avidemux
+
+  04 Nov 2012; Justin Lecher <jlec@gentoo.org> updates/4Q-2012:
+  Move sci-chemistry/mmtk to sci-libs/mmtk due to duplication, #441648
+
+  04 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Mask some packages that depend on the old 1.46 version of boost.
+
+  03 Nov 2012; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Update mask for app-benchmarks/ltp
+
+  03 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  hardened/linux/uclibc/mips/package.mask:
+  Mask unstable versions of sysvinit and coreutils on
+  hardened/linux/uclibc/mips
+
+  03 Nov 2012; Markos Chandras <hwoarang@gentoo.org> updates/4Q-2012:
+  slotmove emesene from 2 to 0
+
+  02 Nov 2012; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask new argparse after adding appropriate warnings to the ebuild.
+
+  02 Nov 2012; Justin Lecher <jlec@gentoo.org> package.mask:
+  Correct package naming syntax and month, noted by pchrist
+
+  02 Nov 2012; Justin Lecher <jlec@gentoo.org> package.mask:
+  Mask old version to be able to move to new versioning schema
+
+  02 Nov 2012; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Update mask for app-editors/emacs-vcs live ebuilds.
+
+  02 Nov 2012; Robin H. Johnson <robbat2@gentoo.org> package.mask:
+  MySQL 5.5 release time.
+
+  01 Nov 2012; Robin H. Johnson <robbat2@gentoo.org>
+  arch/alpha/package.use.mask, arch/arm/package.use.mask,
+  arch/hppa/package.use.mask, arch/ia64/package.use.mask,
+  arch/powerpc/package.use.mask, arch/sparc/package.use.mask:
+  package.use.mask tcmalloc/jemalloc/systemtap for MySQL on arches that are
+  lagging keywording per bugs 351931, 429710, 429708.
+
+  01 Nov 2012; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Add RSA-PKCS11 to MISC-FREE license group, bug 440752.
+
+  01 Nov 2012; Alexis Ballier <aballier@gentoo.org> package.mask:
+  unmask ocaml-4
+
+  01 Nov 2012; Alexis Ballier <aballier@gentoo.org> package.mask:
+  mask dev-ml/ocamlduce
+
+  01 Nov 2012; Ulrich Müller <ulm@gentoo.org> license_groups:
+  New DEPRECATED license group, bug 440638.
+
+  01 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Unmask boost 1.50/1.51 to comply with glibc-2.16, as well as GnuTLS 3; keep
+  libtasn1-3 masked, and give more details on the reason.
+
+  31 Oct 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.mask:
+  Mask x11-apps/grandr for removal.
+
+  31 Oct 2012; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask broken pornview
+
+  31 Oct 2012; Diego E. Pettenò <flameeyes@gentoo.org> updates/4Q-2012:
+  Slotmove all boost and boost-build to slot 0.
 
   30 Oct 2012; Gilles Dartiguelongue <eva@gentoo.org> package.mask:
   Add dev-cpp/gstreamermm to gstreamer-0.10.36 mask.

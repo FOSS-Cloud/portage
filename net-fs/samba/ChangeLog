@@ -1,6 +1,51 @@
 # ChangeLog for net-fs/samba
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/samba/ChangeLog,v 1.530 2012/10/19 08:10:00 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/samba/ChangeLog,v 1.540 2012/11/26 11:59:19 ago Exp $
+
+  26 Nov 2012; Agostino Sarubbo <ago@gentoo.org> samba-3.6.9.ebuild:
+  Stable for amd64, wrt bug #432754
+
+*samba-4.0.0_rc5 (24 Nov 2012)
+
+  24 Nov 2012; Lars Wendler <polynomial-c@gentoo.org> +files/4.0/samba4.confd,
+  +files/4.0/samba4.initd-r1, -samba-4.0.0_rc3.ebuild, +samba-4.0.0_rc5.ebuild:
+  non-maintainer commit: Version bump. Removed old. Fixed samba4 init scripts
+  (bug #444016). Thanks to Aleksandr Yakimov who reported the bug and provided
+  the files.
+
+  21 Nov 2012; Alexis Ballier <aballier@gentoo.org> samba-3.6.9.ebuild:
+  keyword ~amd64-fbsd, bug #430720
+
+  16 Nov 2012; Agostino Sarubbo <ago@gentoo.org> metadata.xml:
+  use krb5 is unused
+
+  14 Nov 2012;  <naota@gentoo.org> samba-3.6.9.ebuild:
+  Add ~x86-fbsd. #430720
+
+  12 Nov 2012; Víctor Ostorga <vostorga@gentoo.org> samba-4.0.0_rc4.ebuild:
+  Correcting sys-libs/ldb version, bug #442416
+
+*samba-3.5.19 (08 Nov 2012)
+
+  08 Nov 2012; Víctor Ostorga <vostorga@gentoo.org> +samba-3.5.19.ebuild:
+  Version bump 3.5 branch
+
+  08 Nov 2012; Víctor Ostorga <vostorga@gentoo.org> files/4.0/samba4.initd,
+  -samba-3.5.17.ebuild, -samba-3.6.7.ebuild, -samba-3.6.8.ebuild,
+  -samba-4.0.0_alpha17.ebuild, -samba-4.0.0_rc1.ebuild,
+  -samba-4.0.0_rc2.ebuild:
+  Cleaning up old ebuilds. Fixing up non existant samba.pid condition. Patch
+  thanks to Claude <gta3user@ya.ru>
+
+*samba-4.0.0_rc4 (01 Nov 2012)
+
+  01 Nov 2012; Patrick Lauer <patrick@gentoo.org> +samba-4.0.0_rc4.ebuild:
+  Bump of 4.0_rc
+
+*samba-3.6.9 (01 Nov 2012)
+
+  01 Nov 2012; Patrick Lauer <patrick@gentoo.org> +samba-3.6.9.ebuild:
+  Bump
 
   19 Oct 2012; Sven Vermeulen samba-3.5.15.ebuild, samba-3.5.17.ebuild,
   samba-3.5.18.ebuild, samba-3.6.6.ebuild, samba-3.6.7.ebuild,

@@ -1,25 +1,22 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-9999.ebuild,v 1.29 2012/10/30 21:01:35 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-9999.ebuild,v 1.34 2012/11/21 22:22:35 cardoe Exp $
 
 EAPI="4"
-
-MY_PN="qemu-kvm"
-MY_P=${MY_PN}-${PV}
 
 PYTHON_DEPEND="2"
 inherit eutils flag-o-matic linux-info toolchain-funcs multilib python user
 #BACKPORTS=6cee76f0
 
 if [[ ${PV} = *9999* ]]; then
-	EGIT_REPO_URI="git://git.kernel.org/pub/scm/virt/kvm/qemu-kvm.git"
+	EGIT_REPO_URI="git://git.qemu.org/qemu.git"
 	inherit git-2
 	SRC_URI=""
 	KEYWORDS=""
 else
-	SRC_URI="mirror://sourceforge/kvm/${MY_PN}/${MY_P}.tar.gz
+	SRC_URI="http://wiki.qemu-project.org/download/${P}.tar.bz2
 	${BACKPORTS:+
-		http://dev.gentoo.org/~cardoe/distfiles/${MY_P}-${BACKPORTS}.tar.xz}"
+		http://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz}"
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
 fi
 
@@ -33,9 +30,9 @@ kernel_FreeBSD mixemu ncurses opengl +png pulseaudio python rbd sasl +seccomp \
 sdl smartcard spice static systemtap tci +threads tls usbredir +uuid vde \
 +vhost-net virtfs +vnc xattr xen xfs"
 
-COMMON_TARGETS="i386 x86_64 alpha arm cris m68k microblaze microblazeel mips mipsel ppc ppc64 sh4 sh4eb sparc sparc64 s390x"
+COMMON_TARGETS="i386 x86_64 alpha arm cris m68k microblaze microblazeel mips mipsel or32 ppc ppc64 sh4 sh4eb sparc sparc64 s390x unicore32"
 IUSE_SOFTMMU_TARGETS="${COMMON_TARGETS} lm32 mips64 mips64el ppcemb xtensa xtensaeb"
-IUSE_USER_TARGETS="${COMMON_TARGETS} armeb ppc64abi32 sparc32plus unicore32"
+IUSE_USER_TARGETS="${COMMON_TARGETS} armeb ppc64abi32 sparc32plus"
 
 # Setup the default SoftMMU targets, while using the loops
 # below to setup the other targets.
@@ -93,7 +90,7 @@ RDEPEND="!static? ( ${LIB_DEPEND//\[static-libs(+)]} )
 	smartcard? ( dev-libs/nss )
 	spice? ( >=app-emulation/spice-protocol-0.8.1 )
 	systemtap? ( dev-util/systemtap )
-	usbredir? ( sys-apps/usbredir )
+	usbredir? ( >=sys-apps/usbredir-0.3.4 )
 	virtfs? ( sys-libs/libcap )
 	xen? ( app-emulation/xen-tools )"
 
@@ -102,8 +99,6 @@ DEPEND="${RDEPEND}
 	doc? ( app-text/texi2html )
 	kernel_linux? ( >=sys-kernel/linux-headers-2.6.35 )
 	static? ( ${LIB_DEPEND} )"
-
-S="${WORKDIR}/${MY_P}"
 
 STRIP_MASK="/usr/share/qemu/palcode-clipper"
 
@@ -121,8 +116,10 @@ QA_WX_LOAD="${QA_PRESTRIPPED}
 	usr/bin/qemu-cris
 	usr/bin/qemu-m68k
 	usr/bin/qemu-microblaze
+	usr/bin/qemu-microblazeel
 	usr/bin/qemu-mips
 	usr/bin/qemu-mipsel
+	usr/bin/qemu-or32
 	usr/bin/qemu-ppc
 	usr/bin/qemu-ppc64
 	usr/bin/qemu-ppc64abi32
@@ -131,7 +128,9 @@ QA_WX_LOAD="${QA_PRESTRIPPED}
 	usr/bin/qemu-sparc
 	usr/bin/qemu-sparc64
 	usr/bin/qemu-armeb
-	usr/bin/qemu-sparc32plus"
+	usr/bin/qemu-s390x
+	usr/bin/qemu-sparc32plus
+	usr/bin/qemu-unicore32"
 
 pkg_pretend() {
 	if use kernel_linux && kernel_is lt 2 6 25; then
@@ -190,7 +189,7 @@ src_prepare() {
 
 	python_convert_shebangs -r 2 "${S}/scripts/kvm/kvm_stat"
 
-	epatch "${FILESDIR}"/${P}-cflags.patch
+	epatch "${FILESDIR}"/qemu-1.2.0-cflags.patch
 	epatch "${FILESDIR}"/${P}-fix-mipsen.patch
 	[[ -n ${BACKPORTS} ]] && \
 		EPATCH_FORCE=yes EPATCH_SUFFIX="patch" EPATCH_SOURCE="${S}/patches" \
@@ -352,7 +351,7 @@ src_install() {
 	dosym ../sgabios/sgabios.bin /usr/share/qemu/sgabios.bin
 
 	# Remove iPXE since we're using the iPXE packaged one
-	rm "${ED}/usr/share/qemu/pxe-*.rom"
+	rm "${ED}"/usr/share/qemu/pxe-*.rom
 	dosym ../ipxe/808610de.rom /usr/share/qemu/pxe-e1000.rom
 	dosym ../ipxe/80861209.rom /usr/share/qemu/pxe-eepro100.rom
 	dosym ../ipxe/10500940.rom /usr/share/qemu/pxe-ne2k_pci.rom

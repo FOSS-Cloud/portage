@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/python-r1.eclass,v 1.13 2012/10/29 11:27:30 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/python-r1.eclass,v 1.23 2012/11/26 08:31:26 mgorny Exp $
 
 # @ECLASS: python-r1
 # @MAINTAINER:
@@ -20,13 +20,17 @@
 # package easily. It also provides methods to easily run a command for
 # each enabled Python implementation and duplicate the sources for them.
 #
-# Please note that this eclass is mostly intended to be extended
-# on-request. If you find something you used in other eclasses missing,
-# please don't hack it around and request an enhancement instead.
+# Please note that python-r1 will always inherit python-utils-r1 as
+# well. Thus, all the functions defined there can be used
+# in the packages using python-r1, and there is no need ever to inherit
+# both.
+#
+# For more information, please see the python-r1 Developer's Guide:
+# http://www.gentoo.org/proj/en/Python/python-r1/dev-guide.xml
 
-case "${EAPI}" in
+case "${EAPI:-0}" in
 	0|1|2|3)
-		die "Unsupported EAPI=${EAPI} (too old) for ${ECLASS}"
+		die "Unsupported EAPI=${EAPI:-0} (too old) for ${ECLASS}"
 		;;
 	4|5)
 		# EAPI=4 needed for REQUIRED_USE
@@ -36,7 +40,9 @@ case "${EAPI}" in
 		;;
 esac
 
-inherit multilib
+if [[ ! ${_PYTHON_R1} ]]; then
+
+inherit python-utils-r1
 
 # @ECLASS-VARIABLE: _PYTHON_ALL_IMPLS
 # @INTERNAL
@@ -50,14 +56,11 @@ _PYTHON_ALL_IMPLS=(
 )
 
 # @ECLASS-VARIABLE: PYTHON_COMPAT
+# @REQUIRED
 # @DESCRIPTION:
 # This variable contains a list of Python implementations the package
 # supports. It must be set before the `inherit' call. It has to be
 # an array.
-#
-# The default is to enable all supported implementations. However, it is
-# discouraged to use that default unless in very special cases and test
-# the package with each added implementation instead.
 #
 # Example:
 # @CODE
@@ -69,7 +72,11 @@ _PYTHON_ALL_IMPLS=(
 # PYTHON_COMPAT=( python{2_5,2_6,2_7} )
 # @CODE
 if ! declare -p PYTHON_COMPAT &>/dev/null; then
-	PYTHON_COMPAT=( "${_PYTHON_ALL_IMPLS[@]}" )
+	if [[ ${CATEGORY}/${PN} == dev-python/python-exec ]]; then
+		PYTHON_COMPAT=( "${_PYTHON_ALL_IMPLS[@]}" )
+	else
+		die 'PYTHON_COMPAT not declared.'
+	fi
 fi
 
 # @ECLASS-VARIABLE: PYTHON_REQ_USE
@@ -87,8 +94,7 @@ fi
 #
 # It will cause the Python dependencies to look like:
 # @CODE
-# python_targets_pythonX_Y? (
-#   dev-lang/python:X_Y[gdbm,ncurses(-)?] )
+# python_targets_pythonX_Y? ( dev-lang/python:X.Y[gdbm,ncurses(-)?] )
 # @CODE
 
 # @ECLASS-VARIABLE: PYTHON_DEPS
@@ -99,14 +105,15 @@ fi
 # Example use:
 # @CODE
 # RDEPEND="${PYTHON_DEPS}
-#   dev-foo/mydep"
+#	dev-foo/mydep"
 # DEPEND="${RDEPEND}"
 # @CODE
 #
 # Example value:
 # @CODE
-# python_targets2_6? ( dev-lang/python:2.6[gdbm] )
-# python_targets2_7? ( dev-lang/python:2.7[gdbm] )
+# dev-python/python-exec
+# python_targets_python2_6? ( dev-lang/python:2.6[gdbm] )
+# python_targets_python2_7? ( dev-lang/python:2.7[gdbm] )
 # @CODE
 
 # @ECLASS-VARIABLE: PYTHON_USEDEP
@@ -180,159 +187,6 @@ _python_set_globals
 # ${WORKDIR}/foo-1.3-python2_6
 # @CODE
 
-# @ECLASS-VARIABLE: PYTHON
-# @DESCRIPTION:
-# The absolute path to the current Python interpreter.
-#
-# Set and exported only in commands run by python_foreach_impl().
-#
-# Example value:
-# @CODE
-# /usr/bin/python2.6
-# @CODE
-
-# @ECLASS-VARIABLE: EPYTHON
-# @DESCRIPTION:
-# The executable name of the current Python interpreter.
-#
-# This variable is used consistently with python.eclass.
-#
-# Set and exported only in commands run by python_foreach_impl().
-#
-# Example value:
-# @CODE
-# python2.6
-# @CODE
-
-# @ECLASS-VARIABLE: PYTHON_SITEDIR
-# @DESCRIPTION:
-# The path to Python site-packages directory.
-#
-# Set and exported on request using python_export().
-#
-# Example value:
-# @CODE
-# @CODE
-
-# @FUNCTION: python_export
-# @USAGE: [<impl>] <variables>...
-# @DESCRIPTION:
-# Set and export the Python implementation-relevant variables passed
-# as parameters.
-#
-# The optional first parameter may specify the requested Python
-# implementation (either as PYTHON_TARGETS value, e.g. python2_7,
-# or an EPYTHON one, e.g. python2.7). If no implementation passed,
-# the current one will be obtained from ${EPYTHON}.
-#
-# The variables which can be exported are: PYTHON, EPYTHON,
-# PYTHON_SITEDIR. They are described more completely in the eclass
-# variable documentation.
-python_export() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	local impl var
-
-	case "${1}" in
-		python*|jython*)
-			impl=${1/_/.}
-			shift
-			;;
-		pypy-c*)
-			impl=${1}
-			shift
-			;;
-		pypy*)
-			local v=${1#pypy}
-			impl=pypy-c${v/_/.}
-			shift
-			;;
-		*)
-			impl=${EPYTHON}
-			[[ ${impl} ]] || die "python_export: no impl nor EPYTHON"
-			;;
-	esac
-	debug-print "${FUNCNAME}: implementation: ${impl}"
-
-	for var; do
-		case "${var}" in
-			EPYTHON)
-				export EPYTHON=${impl}
-				debug-print "${FUNCNAME}: EPYTHON = ${EPYTHON}"
-				;;
-			PYTHON)
-				export PYTHON=${EPREFIX}/usr/bin/${impl}
-				debug-print "${FUNCNAME}: PYTHON = ${PYTHON}"
-				;;
-			PYTHON_SITEDIR)
-				local dir
-				case "${impl}" in
-					python*)
-						dir=/usr/$(get_libdir)/${impl}
-						;;
-					jython*)
-						dir=/usr/share/${impl}/Lib
-						;;
-					pypy*)
-						dir=/usr/$(get_libdir)/${impl/-c/}
-						;;
-				esac
-
-				export PYTHON_SITEDIR=${EPREFIX}${dir}/site-packages
-				debug-print "${FUNCNAME}: PYTHON_SITEDIR = ${PYTHON_SITEDIR}"
-				;;
-			*)
-				die "python_export: unknown variable ${var}"
-		esac
-	done
-}
-
-# @FUNCTION: python_get_PYTHON
-# @USAGE: [<impl>]
-# @DESCRIPTION:
-# Obtain and print the path to the Python interpreter for the given
-# implementation. If no implementation is provided, ${EPYTHON} will
-# be used.
-#
-# If you just need to have PYTHON set (and exported), then it is better
-# to use python_export() directly instead.
-python_get_PYTHON() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	python_export "${@}" PYTHON
-	echo "${PYTHON}"
-}
-
-# @FUNCTION: python_get_EPYTHON
-# @USAGE: <impl>
-# @DESCRIPTION:
-# Obtain and print the EPYTHON value for the given implementation.
-#
-# If you just need to have EPYTHON set (and exported), then it is better
-# to use python_export() directly instead.
-python_get_EPYTHON() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	python_export "${@}" EPYTHON
-	echo "${EPYTHON}"
-}
-
-# @FUNCTION: python_get_sitedir
-# @USAGE: [<impl>]
-# @DESCRIPTION:
-# Obtain and print the 'site-packages' path for the given
-# implementation. If no implementation is provided, ${EPYTHON} will
-# be used.
-#
-# If you just need to have PYTHON_SITEDIR set (and exported), then it is
-# better to use python_export() directly instead.
-python_get_sitedir() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	python_export "${@}" PYTHON_SITEDIR
-	echo "${PYTHON_SITEDIR}"
-}
-
 # @FUNCTION: python_copy_sources
 # @DESCRIPTION:
 # Create a single copy of the package sources (${S}) for each enabled
@@ -361,6 +215,202 @@ python_copy_sources() {
 	done
 }
 
+# @FUNCTION: _python_check_USE_PYTHON
+# @INTERNAL
+# @DESCRIPTION:
+# Check whether USE_PYTHON and PYTHON_TARGETS are in sync. Output
+# warnings if they are not.
+_python_check_USE_PYTHON() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	if [[ ! ${_PYTHON_USE_PYTHON_CHECKED} ]]; then
+		_PYTHON_USE_PYTHON_CHECKED=1
+
+		# python-exec has profile-forced flags.
+		if [[ ${CATEGORY}/${PN} == dev-python/python-exec ]]; then
+			return
+		fi
+
+		_try_eselect() {
+			# The eselect solution will work only with one py2 & py3.
+
+			local impl py2 py3 dis_py2 dis_py3
+			for impl in "${PYTHON_COMPAT[@]}"; do
+				if use "python_targets_${impl}"; then
+					case "${impl}" in
+						python2_*)
+							if [[ ${py2+1} ]]; then
+								debug-print "${FUNCNAME}: -> more than one py2: ${py2} ${impl}"
+								return 1
+							fi
+							py2=${impl/_/.}
+							;;
+						python3_*)
+							if [[ ${py3+1} ]]; then
+								debug-print "${FUNCNAME}: -> more than one py3: ${py3} ${impl}"
+								return 1
+							fi
+							py3=${impl/_/.}
+							;;
+						*)
+							return 1
+							;;
+					esac
+				else
+					case "${impl}" in
+						python2_*)
+							dis_py2=1
+							;;
+						python3_*)
+							dis_py3=1
+							;;
+					esac
+				fi
+			done
+
+			# The eselect solution won't work if the disabled Python version
+			# is installed.
+			if [[ ! ${py2+1} && ${dis_py2} ]]; then
+				debug-print "${FUNCNAME}: -> all py2 versions disabled"
+				if has_version '=dev-lang/python-2*'; then
+					debug-print "${FUNCNAME}: ---> but =python-2* installed!"
+					return 1
+				fi
+			fi
+			if [[ ! ${py3+1} && ${dis_py3} ]]; then
+				debug-print "${FUNCNAME}: -> all py3 versions disabled"
+				if has_version '=dev-lang/python-3*'; then
+					debug-print "${FUNCNAME}: ---> but =python-3* installed!"
+					return 1
+				fi
+			fi
+
+			local warned
+
+			# Now check whether the correct implementations are active.
+			if [[ ${py2+1} ]]; then
+				local sel_py2=$(eselect python show --python2)
+
+				debug-print "${FUNCNAME}: -> py2 built: ${py2}, active: ${sel_py2}"
+				if [[ ${py2} != ${sel_py2} ]]; then
+					ewarn "Building package for ${py2} only while ${sel_py2} is active."
+					ewarn "Please consider switching the active Python 2 interpreter:"
+					ewarn
+					ewarn "	eselect python set --python2 ${py2}"
+					warned=1
+				fi
+			fi
+
+			if [[ ${py3+1} ]]; then
+				local sel_py3=$(eselect python show --python3)
+
+				debug-print "${FUNCNAME}: -> py3 built: ${py3}, active: ${sel_py3}"
+				if [[ ${py3} != ${sel_py3} ]]; then
+					[[ ${warned} ]] && ewarn
+					ewarn "Building package for ${py3} only while ${sel_py3} is active."
+					ewarn "Please consider switching the active Python 3 interpreter:"
+					ewarn
+					ewarn "	eselect python set --python3 ${py3}"
+					warned=1
+				fi
+			fi
+
+			if [[ ${warned} ]]; then
+				ewarn
+				ewarn "Please note that after switching the active Python interpreter,"
+				ewarn "you may need to run 'python-updater' to rebuild affected packages."
+				ewarn
+				ewarn "For more information on python.eclass compatibility, please see"
+				ewarn "the appropriate python-r1 User's Guide chapter [1]."
+				ewarn
+				ewarn "[1] http://www.gentoo.org/proj/en/Python/python-r1/user-guide.xml#doc_chap2"
+			fi
+		}
+
+		# If user has no USE_PYTHON, try to avoid it.
+		if [[ ! ${USE_PYTHON} ]]; then
+			debug-print "${FUNCNAME}: trying eselect solution ..."
+			_try_eselect && return
+		fi
+
+		debug-print "${FUNCNAME}: trying USE_PYTHON solution ..."
+		debug-print "${FUNCNAME}: -> USE_PYTHON=${USE_PYTHON}"
+
+		local impl old=${USE_PYTHON} new=() removed=()
+
+		for impl in "${PYTHON_COMPAT[@]}"; do
+			local abi
+			case "${impl}" in
+				python*)
+					abi=${impl#python}
+					;;
+				jython*)
+					abi=${impl#jython}-jython
+					;;
+				pypy*)
+					abi=2.7-pypy-${impl#pypy}
+					;;
+				*)
+					die "Unexpected Python implementation: ${impl}"
+					;;
+			esac
+			abi=${abi/_/.}
+
+			has "${abi}" ${USE_PYTHON}
+			local has_abi=${?}
+			use "python_targets_${impl}"
+			local has_impl=${?}
+
+			# 0 = has, 1 = does not have
+			if [[ ${has_abi} == 0 && ${has_impl} == 1 ]]; then
+				debug-print "${FUNCNAME}: ---> remove ${abi}"
+				# remove from USE_PYTHON
+				old=${old/${abi}/}
+				removed+=( ${abi} )
+			elif [[ ${has_abi} == 1 && ${has_impl} == 0 ]]; then
+				debug-print "${FUNCNAME}: ---> add ${abi}"
+				# add to USE_PYTHON
+				new+=( ${abi} )
+			fi
+		done
+
+		if [[ ${removed[@]} || ${new[@]} ]]; then
+			old=( ${old} )
+
+			debug-print "${FUNCNAME}: -> old: ${old[@]}"
+			debug-print "${FUNCNAME}: -> new: ${new[@]}"
+			debug-print "${FUNCNAME}: -> removed: ${removed[@]}"
+
+			if [[ ${USE_PYTHON} ]]; then
+				ewarn "It seems that your USE_PYTHON setting lists different Python"
+				ewarn "implementations than your PYTHON_TARGETS variable. Please consider"
+				ewarn "using the following value instead:"
+				ewarn
+				ewarn "	USE_PYTHON='\033[35m${old[@]}${new[@]+ \033[1m${new[@]}}\033[0m'"
+
+				if [[ ${removed[@]} ]]; then
+					ewarn
+					ewarn "(removed \033[31m${removed[@]}\033[0m)"
+				fi
+			else
+				ewarn "It seems that you need to set USE_PYTHON to make sure that legacy"
+				ewarn "packages will be built with respect to PYTHON_TARGETS correctly:"
+				ewarn
+				ewarn "	USE_PYTHON='\033[35;1m${new[@]}\033[0m'"
+			fi
+
+			ewarn
+			ewarn "Please note that after changing the USE_PYTHON variable, you may need"
+			ewarn "to run 'python-updater' to rebuild affected packages."
+			ewarn
+			ewarn "For more information on python.eclass compatibility, please see"
+			ewarn "the appropriate python-r1 User's Guide chapter [1]."
+			ewarn
+			ewarn "[1] http://www.gentoo.org/proj/en/Python/python-r1/user-guide.xml#doc_chap2"
+		fi
+	fi
+}
+
 # @FUNCTION: python_foreach_impl
 # @USAGE: <command> [<args>...]
 # @DESCRIPTION:
@@ -373,6 +423,8 @@ python_copy_sources() {
 # locally, and the former two are exported to the command environment.
 python_foreach_impl() {
 	debug-print-function ${FUNCNAME} "${@}"
+
+	_python_check_USE_PYTHON
 
 	local impl
 	local bdir=${BUILD_DIR:-${S}}
@@ -417,96 +469,6 @@ python_export_best() {
 	python_export "${impl}" "${@}"
 }
 
-# @FUNCTION: _python_rewrite_shebang
-# @INTERNAL
-# @USAGE: [<EPYTHON>] <path>...
-# @DESCRIPTION:
-# Replaces 'python' executable in the shebang with the executable name
-# of the specified interpreter. If no EPYTHON value (implementation) is
-# used, the current ${EPYTHON} will be used.
-#
-# All specified files must start with a 'python' shebang. A file not
-# having a matching shebang will be refused. The exact shebang style
-# will be preserved in order not to break anything.
-#
-# Example conversions:
-# @CODE
-# From: #!/usr/bin/python -R
-# To: #!/usr/bin/python2.7 -R
-#
-# From: #!/usr/bin/env FOO=bar python
-# To: #!/usr/bin/env FOO=bar python2.7
-# @CODE
-_python_rewrite_shebang() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	local impl
-	case "${1}" in
-		python*|jython*|pypy-c*)
-			impl=${1}
-			shift
-			;;
-		*)
-			impl=${EPYTHON}
-			[[ ${impl} ]] || die "${FUNCNAME}: no impl nor EPYTHON"
-			;;
-	esac
-	debug-print "${FUNCNAME}: implementation: ${impl}"
-
-	local f
-	for f; do
-		local shebang=$(head -n 1 "${f}")
-		debug-print "${FUNCNAME}: path = ${f}"
-		debug-print "${FUNCNAME}: shebang = ${shebang}"
-
-		if [[ "${shebang} " != *'python '* ]]; then
-			eerror "A file does not seem to have a supported shebang:"
-			eerror "  file: ${f}"
-			eerror "  shebang: ${shebang}"
-			die "${FUNCNAME}: ${f} does not seem to have a valid shebang"
-		fi
-
-		sed -i -e "s:python:${impl}:" "${f}" || die
-	done
-}
-
-# @FUNCTION: _python_ln_rel
-# @USAGE: <from> <to>
-# @DESCRIPTION:
-# Create a relative symlink.
-_python_ln_rel() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	local from=${1}
-	local to=${2}
-
-	local frpath=${from%/*}/
-	local topath=${to%/*}/
-	local rel_path=
-
-	# remove double slashes
-	frpath=${frpath/\/\///}
-	topath=${topath/\/\///}
-
-	while [[ ${topath} ]]; do
-		local frseg=${frpath%%/*}
-		local toseg=${topath%%/*}
-
-		if [[ ${frseg} != ${toseg} ]]; then
-			rel_path=../${rel_path}${frseg:+${frseg}/}
-		fi
-
-		frpath=${frpath#${frseg}/}
-		topath=${topath#${toseg}/}
-	done
-	rel_path+=${frpath}${1##*/}
-
-	debug-print "${FUNCNAME}: ${from} -> ${to}"
-	debug-print "${FUNCNAME}: rel_path = ${rel_path}"
-
-	ln -fs "${rel_path}" "${to}"
-}
-
 # @FUNCTION: python_replicate_script
 # @USAGE: <path>...
 # @DESCRIPTION:
@@ -517,6 +479,10 @@ _python_ln_rel() {
 # having a matching shebang will be refused.
 python_replicate_script() {
 	debug-print-function ${FUNCNAME} "${@}"
+
+	if [[ ${_PYTHON_SINGLE_R1} ]]; then
+		die "${FUNCNAME} must not be used with python-single-r1 eclass."
+	fi
 
 	local suffixes=()
 
@@ -542,3 +508,6 @@ python_replicate_script() {
 		_python_ln_rel "${ED}"/usr/bin/python-exec "${f}" || die
 	done
 }
+
+_PYTHON_R1=1
+fi

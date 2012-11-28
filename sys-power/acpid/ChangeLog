@@ -1,6 +1,26 @@
 # ChangeLog for sys-power/acpid
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/acpid/ChangeLog,v 1.92 2012/09/16 16:20:05 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-power/acpid/ChangeLog,v 1.98 2012/11/25 18:59:25 armin76 Exp $
+
+  25 Nov 2012; Raúl Porcel <armin76@gentoo.org> acpid-2.0.17.ebuild:
+  ia64 stable wrt #434522
+
+  25 Nov 2012; <swift@gentoo.org> acpid-2.0.16-r1.ebuild, acpid-2.0.17.ebuild:
+  Adding optional SELinux apm module dependency
+
+  19 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> acpid-2.0.16-r1.ebuild,
+  acpid-2.0.17.ebuild:
+  Show message about power management guide only when installing package first
+  time wrt bug #440422
+
+  18 Nov 2012; Agostino Sarubbo <ago@gentoo.org> acpid-2.0.17.ebuild:
+  Stable for x86, wrt bug #434522
+
+  18 Nov 2012; Agostino Sarubbo <ago@gentoo.org> acpid-2.0.17.ebuild:
+  Stable for amd64, wrt bug #434522
+
+  18 Nov 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Drop mobile herd as talked in gentoo-dev ML
 
 *acpid-2.0.17 (16 Sep 2012)
 

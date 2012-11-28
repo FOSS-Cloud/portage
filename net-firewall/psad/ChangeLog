@@ -1,6 +1,25 @@
 # ChangeLog for net-firewall/psad
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/psad/ChangeLog,v 1.56 2011/07/20 15:40:19 pacho Exp $
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/psad/ChangeLog,v 1.59 2012/11/21 19:23:45 jer Exp $
+
+*psad-2.2-r1 (21 Nov 2012)
+
+  21 Nov 2012; Jeroen Roovers <jer@gentoo.org> -psad-2.2.ebuild,
+  +psad-2.2-r1.ebuild:
+  Install /etc/psad/icmp6_types by Graham Murray (bug #444208).
+
+*psad-2.2 (21 Nov 2012)
+
+  21 Nov 2012; Jeroen Roovers <jer@gentoo.org> +psad-2.2.ebuild,
+  +files/psad-2.2-var-run.patch, metadata.xml:
+  Make netmon maintainer. Version bump (bug #439562). Respect CC, CFLAGS,
+  LDFLAGS (bug #442486). Do not "fix" psad.conf (also fixes bug #349203). Do
+  not ewarn/einfo/e.. users about configuration issues (RTFM). Add some more
+  dependencies. Introduce some sanity in the build system (bug #340877 and a
+  lot more). Replace keepdir /var/run using checkpath.
+
+  11 Nov 2012; Anthony G. Basile <blueness@gentoo.org> metadata.xml:
+  Dropping to maintainer-needed, not sure why it belonged to hardened
 
   20 Jul 2011; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop maintainer due retirement, bug #34864
@@ -244,4 +263,3 @@
   Port Scanning Attack Detection daemon. This is a dependency of Bastille, and
   probably can be used standalone as well. Much thanks to Battoussai (Bryan
   Stine <admin@kentonet.net>) for this.
-

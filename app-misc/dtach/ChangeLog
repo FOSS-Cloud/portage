@@ -1,6 +1,28 @@
 # ChangeLog for app-misc/dtach
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/dtach/ChangeLog,v 1.17 2011/01/04 17:55:39 jlec Exp $
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/dtach/ChangeLog,v 1.23 2012/11/15 12:55:36 jlec Exp $
+
+  15 Nov 2012; Justin Lecher <jlec@gentoo.org> -dtach-0.8.ebuild:
+  Drop vulnerable version, #426496
+
+  15 Nov 2012; Anthony G. Basile <blueness@gentoo.org> dtach-0.8-r1.ebuild:
+  stable ppc, bug #426496
+
+  13 Nov 2012; Andreas Schuerch <nativemad@gentoo.org> dtach-0.8-r1.ebuild:
+  x86 stable, see bug 426496
+
+  10 Nov 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  dtach-0.8-r1.ebuild:
+  Keyword ~arm
+
+  10 Nov 2012; <ago@gentoo.org> dtach-0.8-r1.ebuild:
+  Stable for amd64, wrt bug #426496
+
+*dtach-0.8-r1 (07 Nov 2012)
+
+  07 Nov 2012; Justin Lecher <jlec@gentoo.org> +dtach-0.8-r1.ebuild,
+  +files/dtach-0.8-CVE-2012-3368.patch:
+  Backport fix for CVE-2012-3368, #426496
 
   04 Jan 2011; Justin Lecher <jlec@gentoo.org> dtach-0.8.ebuild:
   Some Clean up
@@ -55,4 +77,3 @@
   23 Jun 2004; Sven Wegener <swegener@gentoo.org> +metadata.xml,
   +dtach-0.6.ebuild:
   Initial import, ebuild written by me.
-

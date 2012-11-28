@@ -1,6 +1,50 @@
 # ChangeLog for x11-wm/enlightenment
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/enlightenment/ChangeLog,v 1.154 2012/05/04 08:58:56 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/enlightenment/ChangeLog,v 1.163 2012/11/27 20:15:36 tommy Exp $
+
+*enlightenment-0.17.0_alpha6 (27 Nov 2012)
+
+  27 Nov 2012; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -enlightenment-0.17.0_alpha3.ebuild, -enlightenment-0.17.0_alpha5.ebuild,
+  +enlightenment-0.17.0_alpha6.ebuild:
+  Version bump, drop old for enlightenment:0.17
+
+*enlightenment-0.17.0_alpha5 (23 Nov 2012)
+
+  23 Nov 2012; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +enlightenment-0.17.0_alpha5.ebuild:
+  Version bump for enlightenment:0.17
+
+  17 Nov 2012; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  enlightenment-0.17.0_alpha3.ebuild:
+  Add missing dependency, fixes bug 443652
+
+  16 Nov 2012; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +files/gentoo-sysactions.conf, +files/quickstart.diff:
+  Add missing files
+
+  16 Nov 2012; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  enlightenment-0.17.0_alpha3.ebuild, metadata.xml:
+  Remove conf-wallpaper2 module, always disabled by upstream
+
+*enlightenment-0.17.0_alpha3 (16 Nov 2012)
+
+  16 Nov 2012; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +enlightenment-0.17.0_alpha3.ebuild, metadata.xml:
+  Initial addition of alpha3 release of e17
+
+  08 Nov 2012; Mike Frysinger <vapier@gentoo.org>
+  enlightenment-0.16.9999.ebuild:
+  Drop doc rmdir that is no longer needed #440986 by Godfath3r.
+
+*enlightenment-1.0.11 (08 Nov 2012)
+
+  08 Nov 2012; Mike Frysinger <vapier@gentoo.org> +enlightenment-1.0.11.ebuild:
+  Version bump.
+
+  05 Nov 2012; Mike Frysinger <vapier@gentoo.org>
+  enlightenment-0.16.9999.ebuild, enlightenment-1.0.10.ebuild:
+  Update to EAPI=4.
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org>
   enlightenment-0.16.9999.ebuild, enlightenment-1.0.2.ebuild,

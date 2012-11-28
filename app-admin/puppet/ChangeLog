@@ -1,6 +1,49 @@
 # ChangeLog for app-admin/puppet
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/puppet/ChangeLog,v 1.122 2012/09/10 15:38:59 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/puppet/ChangeLog,v 1.132 2012/11/11 01:40:27 idl0r Exp $
+
+  11 Nov 2012; Christian Ruppert <idl0r@gentoo.org> puppet-3.0.1.ebuild:
+  The puppetmasterd is no longer provided by puppet 3.x so there's no need to
+  remove it any longer.
+
+  07 Nov 2012; Christian Ruppert <idl0r@gentoo.org> puppet-3.0.1.ebuild:
+  Update deps according to
+  http://docs.puppetlabs.com/puppet/3/reference/release_notes.html#dependencies
+  -and-supported-systems
+
+  06 Nov 2012; Theo Chatzimichos <tampakrap@gentoo.org> puppet-2.7.11.ebuild,
+  puppet-2.7.12.ebuild, puppet-2.7.13.ebuild:
+  Append GPL-2 in all ebuilds to cover the initscript license, bug 425870
+
+  06 Nov 2012; Theo Chatzimichos <tampakrap@gentoo.org> puppet-3.0.1.ebuild:
+  vim-syntax is split to puppet-syntax, bug 417085
+
+  06 Nov 2012; Christian Ruppert <idl0r@gentoo.org> puppet-2.7.19.ebuild,
+  puppet-3.0.1.ebuild:
+  Fix ruby deps
+
+  06 Nov 2012; Christian Ruppert <idl0r@gentoo.org> puppet-2.7.19.ebuild,
+  puppet-3.0.1.ebuild:
+  We need ruby with yaml
+
+  06 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> puppet-3.0.1.ebuild:
+  Fix dependencies.
+
+*puppet-3.0.1 (06 Nov 2012)
+*puppet-2.7.19 (06 Nov 2012)
+
+  06 Nov 2012; Christian Ruppert <idl0r@gentoo.org> +puppet-2.7.19.ebuild,
+  +puppet-3.0.1.ebuild, +files/puppet.init-r1, files/puppetmaster.confd,
+  files/puppetmaster.init:
+  Version bump, bug 434814. puppet-3 ebuild by Alec Warner <antarus@gentoo.org>
+  and me. Also fixes bug 421207.
+
+  06 Nov 2012; Theo Chatzimichos <tampakrap@gentoo.org> metadata.xml:
+  Add sysadmin and ruby herds in metadata.xml
+
+  06 Nov 2012; Hans de Graaff <graaff@gentoo.org> puppet-2.7.18-r1.ebuild:
+  Add back ruby19 target now that all dependencies are ready for ruby19. This
+  avoids nasty downgrades to 2.7.12 which already had the ruby19 target.
 
 *puppet-2.7.18-r1 (10 Sep 2012)
 

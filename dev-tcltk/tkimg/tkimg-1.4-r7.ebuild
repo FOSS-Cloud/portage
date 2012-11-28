@@ -1,12 +1,12 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/tkimg/tkimg-1.4-r7.ebuild,v 1.1 2012/10/06 09:49:18 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/tkimg/tkimg-1.4-r7.ebuild,v 1.6 2012/11/21 11:28:15 ago Exp $
 
 EAPI=4
 
 VIRTUALX_USE=test
 
-inherit eutils multilib prefix virtualx
+inherit eutils multilib prefix toolchain-funcs virtualx
 
 MYP="${PN}${PV}"
 
@@ -16,10 +16,10 @@ SRC_URI="
 	http://dev.gentoo.org/~jlec/distfiles/${P}-gentoo+bundled-tiff.patch.xz
 	mirror://sourceforge/${PN}/${PV}/${MYP}.tar.bz2"
 
-IUSE="doc test"
 SLOT="0"
 LICENSE="BSD"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ppc x86 ~amd64-linux ~x86-linux"
+IUSE="doc test static-libs"
 
 RDEPEND="
 	dev-lang/tk
@@ -27,6 +27,7 @@ RDEPEND="
 	media-libs/tiff:0
 	media-libs/libpng:0
 	>=sys-libs/zlib-1.2.7
+	x11-libs/libX11
 	virtual/jpeg"
 DEPEND="${RDEPEND}
 	test? (
@@ -56,6 +57,7 @@ src_prepare() {
 		-i */configure  || die
 
 	eprefixify */*.h
+	tc-export AR
 }
 
 src_test() {
@@ -69,6 +71,10 @@ src_install() {
 		DESTDIR="${D}" \
 		INSTALL_ROOT="${D}" \
 		install
+
+	if ! use static-libs; then
+		find "${ED}"/usr/$(get_libdir)/ -type f -name "*\.a" -delete || die
+	fi
 
 	# Make library links
 	for l in "${ED}"/usr/lib*/Img*/*tcl*.so; do

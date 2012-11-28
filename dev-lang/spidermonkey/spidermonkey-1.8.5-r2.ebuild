@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/spidermonkey-1.8.5-r2.ebuild,v 1.1 2012/10/23 19:07:07 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/spidermonkey-1.8.5-r2.ebuild,v 1.5 2012/11/25 13:09:41 anarchy Exp $
 
 EAPI="5"
 WANT_AUTOCONF="2.1"
@@ -16,7 +16,7 @@ SRC_URI="https://ftp.mozilla.org/pub/mozilla.org/js/${TARBALL_P}.tar.gz"
 
 LICENSE="NPL-1.1"
 SLOT="0/mozjs185"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="~alpha ~amd64 arm ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
 IUSE="debug minimal static-libs test"
 
 S="${WORKDIR}/${MY_P}"
@@ -40,9 +40,12 @@ src_prepare() {
 	# https://bugzilla.mozilla.org/show_bug.cgi?id=638056#c9
 	epatch "${FILESDIR}/${P}-fix-ppc64.patch"
 	# https://bugs.gentoo.org/show_bug.cgi?id=400727
-	epatch "${FILESDIR}/${P}-arm_resprect_cflags-1.patch"
+	# https://bugs.gentoo.org/show_bug.cgi?id=420471
+	epatch "${FILESDIR}/${P}-arm_respect_cflags-3.patch"
 	# https://bugs.gentoo.org/show_bug.cgi?id=438746
 	epatch "${FILESDIR}"/${PN}-1.8.7-freebsd-pthreads.patch
+	# https://bugs.gentoo.org/show_bug.cgi?id=441928
+	epatch "${FILESDIR}"/${PN}-1.8.5-perf_event-check.patch
 
 	epatch_user
 

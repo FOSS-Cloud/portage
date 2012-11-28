@@ -1,6 +1,22 @@
 # ChangeLog for x11-libs/libdrm
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libdrm/ChangeLog,v 1.203 2012/10/20 23:36:11 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libdrm/ChangeLog,v 1.207 2012/11/18 12:25:14 ago Exp $
+
+  18 Nov 2012; Agostino Sarubbo <ago@gentoo.org> libdrm-2.4.40.ebuild:
+  Stable for x86, wrt bug #440872
+
+  16 Nov 2012; Agostino Sarubbo <ago@gentoo.org> libdrm-2.4.40.ebuild:
+  Stable for amd64, wrt bug #440872
+
+  10 Nov 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/libdrm-2.4.40-bsd-etime.patch, libdrm-2.4.40.ebuild:
+  Fix building on fbsd, bug #433403.
+
+*libdrm-2.4.40 (06 Nov 2012)
+
+  06 Nov 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +libdrm-2.4.40.ebuild:
+  Version bump.
 
   20 Oct 2012; Richard Yao <ryao@gentoo.org> libdrm-2.4.37.ebuild,
   libdrm-2.4.38.ebuild, libdrm-2.4.39.ebuild:

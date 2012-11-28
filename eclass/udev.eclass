@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/udev.eclass,v 1.3 2012/10/30 20:26:54 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/udev.eclass,v 1.6 2012/10/31 18:28:10 ssuominen Exp $
 
 # @ECLASS: udev.eclass
 # @MAINTAINER:
@@ -17,7 +17,13 @@
 # DEPEND="${RDEPEND}"
 #
 # src_configure() {
-#	econf --with-udevdir="$(udev_get_udevdir)"
+#	econf \
+#		--with-udevrulesdir="$(udev_get_udevdir)"/rules.d
+# }
+#
+# src_install() {
+#	# udev_dorules contrib/99-foomatic
+#	udev_newrules contrib/98-foomatic 99-foomatic
 # }
 # @CODE
 
@@ -49,8 +55,35 @@ _udev_get_udevdir() {
 # This function always succeeds, even if udev is not installed.
 # The fallback value is set to /lib/udev
 udev_get_udevdir() {
-	has "${EAPI:-0}" 0 1 2 && ! use prefix && EPREFIX=
 	debug-print-function ${FUNCNAME} "${@}"
 
-	echo "${EPREFIX}$(_udev_get_udevdir)"
+	echo "$(_udev_get_udevdir)"
+}
+
+# @FUNCTION: udev_dorules
+# @USAGE: rules [...]
+# @DESCRIPTION:
+# Install udev rule(s). Uses doins, thus it is fatal in EAPI 4
+# and non-fatal in earlier EAPIs.
+udev_dorules() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	(
+		insinto "$(_udev_get_udevdir)"/rules.d
+		doins "${@}"
+	)
+}
+
+# @FUNCTION: udev_newrules
+# @USAGE: oldname newname
+# @DESCRIPTION:
+# Install udev rule with a new name. Uses newins, thus it is fatal
+# in EAPI 4 and non-fatal in earlier EAPIs.
+udev_newrules() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	(
+		insinto "$(_udev_get_udevdir)"/rules.d
+		newins "${@}"
+	)
 }

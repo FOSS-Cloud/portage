@@ -1,5 +1,10 @@
 ### THIS FILE IS ONLY FOR PACKAGES MASKED ON BOTH 64-BIT AND 32-BIT USERLAND!!!
 
+# Samuli Suominen <ssuominen@gentoo.org> (24 Nov 2012)
+# TODO: Keyword and stabilize media-gfx/opencolorio and media-libs/opencv
+opencolorio
+opencv
+
 # Brent Baude <ranger@gentoo.org> (3 Oct 2008)
 # Masking xindy use flag for ppc64
 xindy

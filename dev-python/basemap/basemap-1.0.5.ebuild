@@ -1,13 +1,13 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/basemap/basemap-1.0.5.ebuild,v 1.1 2012/08/24 07:44:59 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/basemap/basemap-1.0.5.ebuild,v 1.3 2012/11/19 23:17:58 bicatali Exp $
 
 EAPI=4
 PYTHON_DEPEND="2"
 SUPPORT_PYTHON_ABIS="1"
 RESTRICT_PYTHON_ABIS="3.* *-jython 2.7-pypy-*"
 
-inherit eutils distutils
+inherit eutils distutils virtualx
 
 DESCRIPTION="matplotlib toolkit to plot map projections"
 HOMEPAGE="http://matplotlib.sourceforge.net/basemap/doc/html/ http://pypi.python.org/pypi/basemap"
@@ -15,7 +15,7 @@ SRC_URI="mirror://sourceforge/matplotlib/${P}.tar.gz"
 
 IUSE="examples test"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="MIT GPL-2"
 
 CDEPEND="sci-libs/shapelib
@@ -35,6 +35,9 @@ DOCS="FAQ API_CHANGES"
 REQUIRED_USE="test? ( examples )"
 
 src_prepare() {
+	sed -i \
+		-e "s:/usr:${EPREFIX}/usr:g" \
+		setup.py || die
 	# use /usr/share/data
 	sed -i \
 		-e "/_datadir.*=.*join/s|\(.*datadir.*=\).*|\1'${EROOT}usr/share/${PN}'|g" \
@@ -45,7 +48,7 @@ src_prepare() {
 # This one works. examples appear to be need be installed to run.
 src_test() {
 	testing() {
-		pushd "$(find build-${PYTHON_ABI}/ -namelib.linux-*)/mpl_toolkits/basemap/"
+		pushd "$(find build-${PYTHON_ABI} -name lib.\*)/mpl_toolkits/basemap/"
 		PYTHONPATH=.:../../ "$(PYTHON)" test.py
 		popd
 	}

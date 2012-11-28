@@ -1,6 +1,26 @@
 # ChangeLog for app-misc/screen
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/ChangeLog,v 1.173 2012/07/10 19:19:37 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/ChangeLog,v 1.177 2012/11/13 19:49:07 swegener Exp $
+
+*screen-4.0.3-r7 (13 Nov 2012)
+
+  13 Nov 2012; Sven Wegener <swegener@gentoo.org> +screen-4.0.3-r7.ebuild,
+  files/screen-4.0.3-cppflags.patch:
+  Include an updated patch for bug #424557.
+
+*screen-4.0.3-r6 (07 Nov 2012)
+
+  07 Nov 2012; Justin Lecher <jlec@gentoo.org> -screen-4.0.3-r5.ebuild,
+  +screen-4.0.3-r6.ebuild:
+  Revbump to force everyone to rebuild. This should save those who emerged the
+  broken ebuild #442070
+
+  06 Nov 2012; Justin Lecher <jlec@gentoo.org> screen-4.0.3-r5.ebuild:
+  Revert last commit
+
+  04 Nov 2012; Sven Wegener <swegener@gentoo.org> screen-4.0.3-r5.ebuild,
+  +files/screen-4.0.3-cppflags.patch:
+  Support CPPFLAGS for bug #424557.
 
   10 Jul 2012; Justin Lecher <jlec@gentoo.org> -screen-4.0.3-r4.ebuild,
   metadata.xml:

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/rb_libtorrent/rb_libtorrent-0.16.3.ebuild,v 1.1 2012/08/24 23:59:30 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/rb_libtorrent/rb_libtorrent-0.16.3.ebuild,v 1.3 2012/11/08 06:24:13 flameeyes Exp $
 
 EAPI="4"
 PYTHON_DEPEND="python? 2:2.6"
@@ -23,7 +23,7 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
 IUSE="debug doc examples python ssl static-libs"
 RESTRICT="test"
 
-DEPEND=">=dev-libs/boost-1.48[python?]
+DEPEND=">=dev-libs/boost-1.48[python?,threads(+)]
 	>=sys-devel/libtool-2.2
 	sys-libs/zlib
 	examples? ( !net-p2p/mldonkey )
@@ -42,18 +42,18 @@ src_prepare() {
 }
 
 src_configure() {
+	local myconf
+
 	# use multi-threading versions of boost libs
-	local BOOST_LIBS="--with-boost-system=boost_system-mt \
-		--with-boost-python=boost_python-${PYTHON_ABI}-mt"
-	# detect boost version and location, bug 295474
-	BOOST_PKG="$(best_version ">=dev-libs/boost-1.34.1")"
-	BOOST_VER="$(get_version_component_range 1-2 "${BOOST_PKG/*boost-/}")"
-	BOOST_VER="$(replace_all_version_separators _ "${BOOST_VER}")"
-	BOOST_INC="${EPREFIX}/usr/include/boost-${BOOST_VER}"
-	BOOST_LIB="${EPREFIX}/usr/$(get_libdir)/boost-${BOOST_VER}"
+	if has_version '>=dev-libs/boost-1.52.0-r1'; then
+		myconf+=" --with-boost-python=boost_python-${PYTHON_ABI}"
+	else
+		myconf+=" --with-boost-system=boost_system-mt \
+			--with-boost-python=boost_python-${PYTHON_ABI}-mt"
+	fi
 
 	local LOGGING
-	use debug && LOGGING="--enable-logging=verbose"
+	use debug && myconf+=" --enable-logging=verbose"
 
 	econf $(use_enable debug) \
 		$(use_enable test tests) \
@@ -61,10 +61,7 @@ src_configure() {
 		$(use_enable python python-binding) \
 		$(use_enable ssl encryption) \
 		$(use_enable static-libs static) \
-		${LOGGING} \
-		--with-boost=${BOOST_INC} \
-		--with-boost-libdir=${BOOST_LIB} \
-		${BOOST_LIBS}
+		${myconf}
 }
 
 src_install() {

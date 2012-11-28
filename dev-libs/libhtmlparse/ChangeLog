@@ -1,6 +1,16 @@
 # ChangeLog for dev-libs/libhtmlparse
-# Copyright 2002-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libhtmlparse/ChangeLog,v 1.10 2012/05/10 15:53:04 ago Exp $
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libhtmlparse/ChangeLog,v 1.12 2012/11/02 11:09:34 pinkbyte Exp $
+
+*libhtmlparse-0.1.13-r1 (02 Nov 2012)
+
+  02 Nov 2012; Sergey Popov <pinkbyte@gentoo.org>
+  +libhtmlparse-0.1.13-r1.ebuild:
+  Revision bump: EAPI 4, add missing 'die' statements, add 'static-libs' USE
+  flag, keyword ~amd64 wrt bug #440734. Thanks to Vicente Olivert Riera
+
+  02 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> libhtmlparse-0.1.13.ebuild:
+  Fix description and other minor QA issues
 
   10 May 2012; Agostino Sarubbo <ago@gentoo.org> -libhtmlparse-0.1.12.ebuild:
   Remove old

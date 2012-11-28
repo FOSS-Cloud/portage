@@ -1,6 +1,17 @@
 # ChangeLog for dev-libs/grantlee
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/grantlee/ChangeLog,v 1.15 2012/08/19 07:58:27 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/grantlee/ChangeLog,v 1.18 2012/11/23 18:24:34 ago Exp $
+
+  23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> grantlee-0.2.0.ebuild:
+  Stable for x86, wrt bug #442394
+
+  23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> grantlee-0.2.0.ebuild:
+  Stable for amd64, wrt bug #442394
+
+*grantlee-0.3.0 (13 Nov 2012)
+
+  13 Nov 2012; Johannes Huber <johu@gentoo.org> +grantlee-0.3.0.ebuild:
+  Version bump.
 
   19 Aug 2012; Tomáš Chvátal <scarabeus@gentoo.org>
   -files/grantlee-0.1.8-arm.patch, -grantlee-0.1.8.ebuild,

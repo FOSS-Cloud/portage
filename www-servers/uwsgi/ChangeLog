@@ -1,6 +1,25 @@
 # ChangeLog for www-servers/uwsgi
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/ChangeLog,v 1.30 2012/10/29 21:59:47 ultrabug Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/ChangeLog,v 1.33 2012/11/22 07:49:13 dev-zero Exp $
+
+*uwsgi-1.4.1-r2 (22 Nov 2012)
+
+  22 Nov 2012; Tiziano Müller <dev-zero@gentoo.org> +uwsgi-1.4.1-r2.ebuild,
+  metadata.xml:
+  Add support for the postgresql probe plugin.
+
+*uwsgi-1.4.1-r1 (21 Nov 2012)
+
+  21 Nov 2012; Tiziano Müller <dev-zero@gentoo.org> +uwsgi-1.4.1-r1.ebuild,
+  -uwsgi-1.4.1.ebuild, metadata.xml:
+  Fix broken build with USE=lua (bug #443986), add missing embedded_plugins from
+  base.ini
+
+*uwsgi-1.4.1 (19 Nov 2012)
+
+  19 Nov 2012; Ultrabug <ultrabug@gentoo.org> -uwsgi-1.2.4.ebuild,
+  +uwsgi-1.4.1.ebuild:
+  Version bump
 
 *uwsgi-1.3-r1 (29 Oct 2012)
 

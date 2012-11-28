@@ -1,6 +1,16 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/package.use.mask,v 1.103 2012/10/21 17:28:21 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/package.use.mask,v 1.106 2012/11/11 20:11:58 lu_zero Exp $
+
+# Luca Barbato <lu_zero@gentoo.org> (11 Nov 2012)
+# Libav 9 can use fdk-aac
+
+>=media-video/libav-9_beta2 fdk
+
+# Robin H Johnson <robbat2@gentoo.org> (01 Nov 2012)
+# MySQL 5.5 wants systemtap, tcmalloc & jemalloc
+>=dev-db/mysql-5.5 tcmalloc jemalloc
+>=dev-db/mariadb-5.5 tcmalloc jemalloc
 
 # Raúl Porcel <armin76@gentoo.org> (25 Jun 2012)
 # x11-libs/qt-webkit doesn't seem to work
@@ -15,9 +25,9 @@ x11-misc/google-gadgets qt4
 x11-misc/xscreensaver new-login
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (25 May 2012)
-# Remove mask entry when app-misc/geoclue and app-accessibility/at-spi2-core
-# are keyworded here, bug #411761
-net-libs/webkit-gtk geoloc webkit2
+# Remove mask entry when app-accessibility/at-spi2-core
+# is keyworded here, bug #411761
+net-libs/webkit-gtk webkit2
 
 # Samuli Suominen <ssuominen@gentoo.org> (20 May 2012)
 # This is masked because of this entry:

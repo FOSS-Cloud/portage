@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/aufs3/aufs3-3_p20121015-r1.ebuild,v 1.1 2012/10/25 06:04:25 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/aufs3/aufs3-3_p20121015-r1.ebuild,v 1.3 2012/11/26 20:36:26 jlec Exp $
 
 EAPI=4
 
@@ -33,7 +33,7 @@ S="${WORKDIR}"/${PN}-standalone
 MODULE_NAMES="aufs(misc:${S})"
 
 pkg_setup() {
-	CONFIG_CHECK="${CONFIG_CHECK} ~EXPERIMENTAL"
+	CONFIG_CHECK="${CONFIG_CHECK} ~EXPERIMENTAL !AUFS_FS"
 	use inotify && CONFIG_CHECK="${CONFIG_CHECK} ~FSNOTIFY"
 	use nfs && CONFIG_CHECK="${CONFIG_CHECK} EXPORTFS"
 	use fuse && CONFIG_CHECK="${CONFIG_CHECK} ~FUSE_FS"
@@ -110,7 +110,7 @@ src_prepare() {
 	use nfs && ( use amd64 || use ppc64 ) && set_config INO_T_64
 	use ramfs && set_config BR_RAMFS
 
-	use pax_kernel && epatch "${FILESDIR}"/pax.patch "${FILESDIR}"/pax-2.patch
+	use pax_kernel && epatch "${FILESDIR}"/pax-2.patch
 
 	sed -i "s:aufs.ko usr/include/linux/aufs_type.h:aufs.ko:g" Makefile || die
 	sed -i "s:__user::g" include/linux/aufs_type.h || die

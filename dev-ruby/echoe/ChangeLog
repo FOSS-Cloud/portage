@@ -1,6 +1,15 @@
 # ChangeLog for dev-ruby/echoe
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/echoe/ChangeLog,v 1.39 2012/10/28 17:17:26 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/echoe/ChangeLog,v 1.42 2012/11/23 15:08:41 blueness Exp $
+
+  23 Nov 2012; Anthony G. Basile <blueness@gentoo.org> echoe-4.6.3.ebuild:
+  stable ppc ppc64, bug #421621
+
+  10 Nov 2012; <ago@gentoo.org> echoe-4.6.3.ebuild:
+  Stable for amd64, wrt bug #421621
+
+  08 Nov 2012; Jeroen Roovers <jer@gentoo.org> echoe-4.6.3.ebuild:
+  Stable for HPPA (bug #421621).
 
   28 Oct 2012; Raúl Porcel <armin76@gentoo.org> echoe-4.3.1-r1.ebuild,
   echoe-4.6.3.ebuild:
@@ -160,4 +169,3 @@
   21 Dec 2009; Diego E. Pettenò <flameeyes@gentoo.org> +echoe-4.0.ebuild,
   +metadata.xml:
   Initial import of echoe, an alternative to hoe.
-

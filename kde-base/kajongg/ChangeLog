@@ -1,6 +1,23 @@
 # ChangeLog for kde-base/kajongg
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kajongg/ChangeLog,v 1.67 2012/10/02 18:12:04 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kajongg/ChangeLog,v 1.72 2012/11/23 18:32:58 ago Exp $
+
+  23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> kajongg-4.9.3.ebuild:
+  Stable for x86, wrt bug #442394
+
+  23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> kajongg-4.9.3.ebuild:
+  Stable for amd64, wrt bug #442394
+
+  13 Nov 2012; Johannes Huber <johu@gentoo.org> -kajongg-4.9.2.ebuild:
+  Remove KDE SC 4.9.2
+
+  13 Nov 2012; Johannes Huber <johu@gentoo.org> -kajongg-4.9.1.ebuild:
+  Remove KDE SC 4.9.1
+
+*kajongg-4.9.3 (08 Nov 2012)
+
+  08 Nov 2012; <creffett@gentoo.org> +kajongg-4.9.3.ebuild:
+  Version bump KDE SC 4.9.3
 
 *kajongg-4.9.2 (02 Oct 2012)
 

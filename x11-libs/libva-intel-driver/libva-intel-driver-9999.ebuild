@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-intel-driver/libva-intel-driver-9999.ebuild,v 1.4 2012/10/11 12:16:08 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-intel-driver/libva-intel-driver-9999.ebuild,v 1.6 2012/11/21 18:16:19 aballier Exp $
 
 EAPI="3"
 
@@ -19,9 +19,7 @@ if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
 	SRC_URI=""
 	S="${WORKDIR}/${PN}"
 else
-	MY_P=${P#libva-}
-	SRC_URI="http://cgit.freedesktop.org/vaapi/intel-driver/snapshot/${MY_P}.tar.bz2"
-	S="${WORKDIR}/${MY_P}"
+	SRC_URI="http://www.freedesktop.org/software/vaapi/releases/libva-intel-driver/${P}.tar.bz2"
 fi
 
 LICENSE="MIT"
@@ -47,6 +45,7 @@ src_prepare() {
 
 src_configure() {
 	econf \
+		--disable-silent-rules \
 		$(use_enable wayland) \
 		$(use_enable X x11)
 }

@@ -1,6 +1,22 @@
 # ChangeLog for dev-python/pytest
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pytest/ChangeLog,v 1.38 2012/10/30 08:05:44 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pytest/ChangeLog,v 1.41 2012/11/23 01:19:57 floppym Exp $
+
+  23 Nov 2012; Mike Gilbert <floppym@gentoo.org> -pytest-2.3.2.ebuild,
+  pytest-2.3.2-r1.ebuild, pytest-2.3.3.ebuild:
+  Update dependency on dev-python/py and add a safety check. Thanks to Arfrever
+  for pointing out the problem.
+
+*pytest-2.3.3 (11 Nov 2012)
+
+  11 Nov 2012; Tim Harder <radhermit@gentoo.org> +pytest-2.3.3.ebuild:
+  Version bump.
+
+*pytest-2.3.2-r1 (07 Nov 2012)
+
+  07 Nov 2012; Ian Delaney <idella4@gentoo.org> +pytest-2.3.2-r1.ebuild,
+  pytest-2.3.2.ebuild:
+  rev bump, doc flag added, building of docs added, minor update to test phase
 
 *pytest-2.3.2 (30 Oct 2012)
 

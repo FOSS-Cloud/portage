@@ -1,6 +1,23 @@
 # ChangeLog for dev-util/buildbot-slave
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot-slave/ChangeLog,v 1.28 2012/10/01 10:43:05 djc Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot-slave/ChangeLog,v 1.33 2012/11/20 20:57:13 ago Exp $
+
+  20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> buildbot-slave-0.8.7.ebuild:
+  Stable for x86, wrt bug #441306
+
+  13 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  buildbot-slave-0.8.7.ebuild:
+  stable arm, bug #441306
+
+  07 Nov 2012; Jeroen Roovers <jer@gentoo.org> buildbot-slave-0.8.7.ebuild:
+  Stable for HPPA (bug #441306).
+
+  06 Nov 2012; Agostino Sarubbo <ago@gentoo.org> buildbot-slave-0.8.7.ebuild:
+  Stable for amd64, wrt bug #441306
+
+  06 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  buildbot-slave-0.8.7.ebuild:
+  stable ppc ppc64, bug #441306
 
   01 Oct 2012; Dirkjan Ochtman <djc@gentoo.org> buildbot-slave-0.8.7.ebuild:
   Fix dependency on Twisted.
@@ -114,4 +131,3 @@
   +buildbot-slave-0.8.2.ebuild, +files/buildslave.confd,
   +files/buildslave.initd, +metadata.xml:
   Initial addition. Ebuild written by me.
-

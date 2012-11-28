@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/conky/conky-1.9.0-r1.ebuild,v 1.1 2012/08/18 08:48:10 billie Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/conky/conky-1.9.0-r1.ebuild,v 1.5 2012/11/21 10:16:13 ago Exp $
 
 EAPI=4
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3 BSD LGPL-2.1 MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ppc ppc64 ~sparc x86"
 IUSE="apcupsd audacious curl debug eve hddtemp imlib iostats lua lua-cairo lua-imlib math moc mpd nano-syntax ncurses nvidia +portmon rss thinkpad truetype vim-syntax weather-metar weather-xoap wifi X xmms2"
 
 DEPEND_COMMON="
@@ -121,13 +121,14 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "You can find a sample configuration file at ${ROOT%/}/etc/conky/conky.conf."
-	elog "To customize, copy it to ~/.conkyrc and edit it to your liking."
-	elog
-	elog "For more info on Conky's features please look at the Changelog in"
-	elog "${ROOT%/}/usr/share/doc/${PF}. There are also pretty html docs available"
-	elog "on Conky's site or in ${ROOT%/}/usr/share/doc/${PF}/html."
-	elog
-	elog "Also see http://www.gentoo.org/doc/en/conky-howto.xml"
-	elog
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "You can find sample configurations at ${ROOT%/}/usr/share/doc/${PF}."
+		elog "To customize, copy to ~/.conkyrc and edit it to your liking."
+		elog
+		elog "There are pretty html docs available at the conky homepage"
+		elog "or in ${ROOT%/}/usr/share/doc/${PF}/html."
+		elog
+		elog "Also see http://www.gentoo.org/doc/en/conky-howto.xml"
+		elog
+	fi
 }

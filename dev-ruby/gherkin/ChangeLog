@@ -1,6 +1,18 @@
 # ChangeLog for dev-ruby/gherkin
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/gherkin/ChangeLog,v 1.43 2012/10/28 17:18:05 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/gherkin/ChangeLog,v 1.46 2012/11/24 13:22:09 graaff Exp $
+
+  24 Nov 2012; Hans de Graaff <graaff@gentoo.org> gherkin-2.11.5.ebuild:
+  Only require yard with USE=doc. Update homepage. Both reported in bug 443708.
+
+  16 Nov 2012; Hans de Graaff <graaff@gentoo.org> -gherkin-2.9.3.ebuild,
+  -gherkin-2.10.0.ebuild:
+  Remove experimental slotted gherkin packages.
+
+*gherkin-2.11.5 (16 Nov 2012)
+
+  16 Nov 2012; Hans de Graaff <graaff@gentoo.org> +gherkin-2.11.5.ebuild:
+  Version bump.
 
   28 Oct 2012; Raúl Porcel <armin76@gentoo.org> gherkin-1.0.30-r1.ebuild,
   gherkin-2.7.3.ebuild:

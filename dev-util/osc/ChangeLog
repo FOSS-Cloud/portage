@@ -1,6 +1,24 @@
 # ChangeLog for dev-util/osc
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/osc/ChangeLog,v 1.5 2012/10/02 11:01:59 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/osc/ChangeLog,v 1.10 2012/11/19 13:33:26 scarabeus Exp $
+
+  19 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> osc-0.136.0.ebuild,
+  osc-9999.ebuild:
+  Depend also on sudo.
+
+  16 Nov 2012; Agostino Sarubbo <ago@gentoo.org> osc-0.136.0.ebuild:
+  workaround for bug 399061
+
+  16 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> osc-0.136.0.ebuild,
+  osc-9999.ebuild:
+  Fix py3 crasher by restricting py3. Fixes bug#443514.
+
+  15 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> osc-0.136.0.ebuild,
+  osc-9999.ebuild:
+  Pull in the services as without them almost nothing in osc works.
+
+  15 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> osc-0.136.0.ebuild:
+  We can go stable here without a prob.
 
 *osc-0.136.0 (02 Oct 2012)
 

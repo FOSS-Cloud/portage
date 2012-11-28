@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/xbmc-11.0.ebuild,v 1.15 2012/10/24 22:36:12 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/xbmc-11.0.ebuild,v 1.17 2012/11/15 18:06:04 scarabeus Exp $
 
 EAPI="4"
 
@@ -16,8 +16,7 @@ if [[ ${PV} == "9999" ]] ; then
 else
 	inherit autotools
 	MY_P=${P/_/-*_}
-	SRC_URI="http://mirrors.xbmc.org/releases/source/${MY_P}.tar.gz
-		http://dev.gentoo.org/~aballier/distfiles/${P}-ffmpeg-1.0-compat-1.tar.bz2"
+	SRC_URI="http://mirrors.xbmc.org/releases/source/${MY_P}.tar.gz"
 	KEYWORDS="amd64 x86"
 	S=${WORKDIR}/${MY_P}
 fi
@@ -75,7 +74,7 @@ COMMON_DEPEND="virtual/opengl
 	pulseaudio? ( media-sound/pulseaudio )
 	media-sound/wavpack
 	|| ( media-libs/libpostproc <media-video/libav-0.8.2-r1 media-video/ffmpeg )
-	>=virtual/ffmpeg-0.10.2[encode]
+	>=virtual/ffmpeg-0.6[encode]
 	rtmp? ( media-video/rtmpdump )
 	avahi? ( net-dns/avahi )
 	webserver? ( net-libs/libmicrohttpd )
@@ -127,11 +126,9 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-11.0-nomythtv.patch
 	epatch "${FILESDIR}"/${PN}-11.0-no-arm-flags.patch #400617
 	epatch "${FILESDIR}"/${PN}-11.0-no-exec-stack.patch
-	EPATCH_MULTI_MSG="Applying patches from upstream to fix building with recent FFmpeg versions..." \
-		EPATCH_SUFFIX="patch" \
-		epatch "${WORKDIR}/${P}-ffmpeg-1.0-compat" #438842
 	epatch "${FILESDIR}"/${PN}-11.0-ffmpeg-0.10.2.patch #406215
 	epatch "${FILESDIR}"/${PN}-11.0-libav.patch #406215
+	epatch "${FILESDIR}"/${PN}-11.0-ffmpeg.patch #406215
 	# The mythtv patch touches configure.ac, so force a regen
 	rm -f configure
 

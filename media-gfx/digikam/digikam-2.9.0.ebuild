@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/digikam/digikam-2.9.0.ebuild,v 1.4 2012/10/27 04:19:20 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/digikam/digikam-2.9.0.ebuild,v 1.6 2012/11/23 06:23:47 dilfridge Exp $
 
 EAPI=4
 
@@ -33,9 +33,9 @@ IUSE="addressbook debug doc gphoto2 mysql semantic-desktop themedesigner +thumbn
 CDEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	$(add_kdebase_dep kdebase-kioslaves)
-	$(add_kdebase_dep libkdcraw)
+	$(add_kdebase_dep libkdcraw)  <kde-base/libkdcraw-4.9.50
 	$(add_kdebase_dep libkexiv2)
-	$(add_kdebase_dep libkipi)
+	$(add_kdebase_dep libkipi)  <kde-base/libkipi-4.9.50
 	$(add_kdebase_dep marble plasma)
 	$(add_kdebase_dep solid)
 	media-libs/jasper
@@ -75,6 +75,8 @@ S="${WORKDIR}/${MY_P}/core"
 
 RESTRICT=test
 # bug 366505
+
+PATCHES=( "${FILESDIR}/${PN}-2.9.0"-mariadb55.patch )
 
 src_prepare() {
 	# just to make absolutely sure

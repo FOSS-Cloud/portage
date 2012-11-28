@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/distutils-r1.eclass,v 1.14 2012/10/29 13:34:02 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/distutils-r1.eclass,v 1.20 2012/11/26 10:05:11 mgorny Exp $
 
 # @ECLASS: distutils-r1
 # @MAINTAINER:
@@ -40,10 +40,13 @@
 # Also, please note that distutils-r1 will always inherit python-r1
 # as well. Thus, all the variables defined and documented there are
 # relevant to the packages using distutils-r1.
+#
+# For more information, please see the python-r1 Developer's Guide:
+# http://www.gentoo.org/proj/en/Python/python-r1/dev-guide.xml
 
-case "${EAPI}" in
+case "${EAPI:-0}" in
 	0|1|2|3)
-		die "Unsupported EAPI=${EAPI} (too old) for ${ECLASS}"
+		die "Unsupported EAPI=${EAPI:-0} (too old) for ${ECLASS}"
 		;;
 	4|5)
 		;;
@@ -52,9 +55,15 @@ case "${EAPI}" in
 		;;
 esac
 
+if [[ ! ${_DISTUTILS_R1} ]]; then
+
 inherit eutils python-r1
 
+fi
+
 EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
+
+if [[ ! ${_DISTUTILS_R1} ]]; then
 
 RDEPEND=${PYTHON_DEPS}
 DEPEND=${PYTHON_DEPS}
@@ -151,7 +160,12 @@ esetup.py() {
 			die 'Out-of-source build requested, yet BUILD_DIR unset.'
 		fi
 
-		args+=( build --build-base "${BUILD_DIR}" )
+		args+=(
+			build
+			--build-base "${BUILD_DIR}"
+			# using a single directory for them helps us export ${PYTHONPATH}
+			--build-lib "${BUILD_DIR}/lib"
+		)
 	fi
 
 	set -- "${PYTHON:-python}" setup.py \
@@ -275,7 +289,9 @@ distutils-r1_python_install() {
 	esac
 	debug-print "${FUNCNAME}: [${EPYTHON}] flags: ${flags}"
 
-	unset PYTHONDONTWRITEBYTECODE
+	# enable compilation for the install phase.
+	local PYTHONDONTWRITEBYTECODE
+	export PYTHONDONTWRITEBYTECODE
 
 	esetup.py install "${flags[@]}" --root="${D}" "${@}"
 
@@ -326,12 +342,22 @@ distutils-r1_python_install_all() {
 # @USAGE: [<argv>...]
 # @INTERNAL
 # @DESCRIPTION:
-# Run the given command in BUILD_DIR.
+# Run the given command.
+#
+# If out-of-source builds are used, the phase function is run in source
+# directory, with BUILD_DIR pointing at the build directory
+# and PYTHONPATH having an entry for the module build directory.
+#
+# If in-source builds are used, the command is executed in the BUILD_DIR
+# (the directory holding per-implementation copy of sources).
 distutils-r1_run_phase() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	if [[ ${DISTUTILS_IN_SOURCE_BUILD} ]]; then
 		pushd "${BUILD_DIR}" &>/dev/null || die
+	else
+		local PYTHONPATH="${BUILD_DIR}/lib:${PYTHONPATH}"
+		export PYTHONPATH
 	fi
 
 	"${@}" || die "${1} failed."
@@ -413,3 +439,6 @@ distutils-r1_src_install() {
 		distutils-r1_python_install_all
 	fi
 }
+
+_DISTUTILS_R1=1
+fi

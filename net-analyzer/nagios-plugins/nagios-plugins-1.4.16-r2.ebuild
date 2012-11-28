@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-plugins/nagios-plugins-1.4.16-r2.ebuild,v 1.3 2012/09/06 01:42:42 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-plugins/nagios-plugins-1.4.16-r2.ebuild,v 1.9 2012/11/21 18:31:35 flameeyes Exp $
 
 EAPI=4
 
@@ -15,7 +15,7 @@ SRC_URI="mirror://sourceforge/nagiosplug/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm hppa ppc ppc64 ~sparc x86"
 IUSE="+ssl samba mysql postgres ldap snmp nagios-dns nagios-ntp nagios-ping nagios-ssh nagios-game ups ipv6 radius +suid jabber gnutls sudo smart"
 
 DEPEND="ldap? ( >=net-nds/openldap-2.0.25 )
@@ -93,7 +93,7 @@ src_install() {
 		cat - > "${T}"/50${PN} <<EOF
 # we add /bin/false so that we don't risk causing syntax errors if all USE flags
 # are off as we'd end up with an empty set
-Cmnd_Alias NAGIOS_PLUGINS_CMDS = /bin/false, $(usex smart /usr/sbin/smartctl)
+Cmnd_Alias NAGIOS_PLUGINS_CMDS = /bin/false $(use smart && echo ", /usr/sbin/smartctl")
 User_Alias NAGIOS_PLUGINS_USERS = nagios, icinga
 
 NAGIOS_PLUGINS_USERS ALL=(root) NOPASSWD: NAGIOS_PLUGINS_CMDS
@@ -122,6 +122,10 @@ EOF
 
 	dosym ../utils.sh ${nagiosplugindir}/contrib/utils.sh
 	dosym ../utils.pm ${nagiosplugindir}/contrib/utils.pm
+
+	# enforce permissions/owners (seem to trigger only in some case)
+	chown -R root:nagios "${D}${nagiosplugindir}" || die
+	chmod -R o-rwx "${D}${nagiosplugindir}" || die
 }
 
 pkg_postinst() {

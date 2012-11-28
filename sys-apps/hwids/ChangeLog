@@ -1,6 +1,39 @@
 # ChangeLog for sys-apps/hwids
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.32 2012/10/22 01:51:51 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.40 2012/11/23 06:14:01 flameeyes Exp $
+
+  23 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> hwids-20121123.ebuild:
+  Use the new SRC_URI that actually simplifies this quite a bit.
+
+*hwids-20121123 (23 Nov 2012)
+
+  23 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20121123.ebuild:
+  Version bump.
+
+  21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> hwids-20121119.ebuild:
+  Stable for x86, tested by Vincent Olivert Riera <peratu@carrosses.com>, wrt
+  bug #443940
+
+  20 Nov 2012; Jeroen Roovers <jer@gentoo.org> hwids-20121119.ebuild:
+  Stable for HPPA (bug #443940).
+
+  20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> hwids-20121119.ebuild:
+  Stable for ppc, tested by Vicente Olivert Riera <peratu@carrosses.com>, wrt
+  bug #443940
+
+  20 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> hwids-20121119.ebuild:
+  amd64 stable, bug #443940
+
+*hwids-20121119 (19 Nov 2012)
+
+  19 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20121119.ebuild,
+  -hwids-20121022.ebuild, -hwids-20121109.ebuild:
+  Version bump.
+
+*hwids-20121109 (09 Nov 2012)
+
+  09 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20121109.ebuild:
+  Version bump.
 
 *hwids-20121022 (22 Oct 2012)
 

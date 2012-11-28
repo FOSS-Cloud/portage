@@ -1,6 +1,18 @@
 # ChangeLog for app-text/libspectre
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/libspectre/ChangeLog,v 1.58 2012/09/15 09:31:53 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/libspectre/ChangeLog,v 1.62 2012/11/20 20:46:34 ago Exp $
+
+  20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> libspectre-0.2.7.ebuild:
+  Stable for x86, wrt bug #441114
+
+  04 Nov 2012; Agostino Sarubbo <ago@gentoo.org> libspectre-0.2.7.ebuild:
+  Stable for amd64, wrt bug #441114
+
+  03 Nov 2012; Anthony G. Basile <blueness@gentoo.org> libspectre-0.2.7.ebuild:
+  stable arm, bug #441114
+
+  03 Nov 2012; Anthony G. Basile <blueness@gentoo.org> libspectre-0.2.7.ebuild:
+  stable ppc ppc64, bug #441114
 
 *libspectre-0.2.7 (15 Sep 2012)
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-9999-r2.ebuild,v 1.122 2012/10/30 21:00:29 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-9999-r2.ebuild,v 1.134 2012/11/26 12:55:56 scarabeus Exp $
 
 EAPI=4
 
@@ -23,7 +23,7 @@ DEV_URI="
 EXT_URI="http://ooo.itc.hu/oxygenoffice/download/libreoffice"
 ADDONS_URI="http://dev-www.libreoffice.org/src/"
 
-BRANDING="${PN}-branding-gentoo-0.6.tar.xz"
+BRANDING="${PN}-branding-gentoo-0.7.tar.xz"
 # PATCHSET="${P}-patchset-01.tar.xz"
 
 [[ ${PV} == *9999* ]] && SCM_ECLASS="git-2"
@@ -38,16 +38,12 @@ SRC_URI="branding? ( http://dev.gentoo.org/~dilfridge/distfiles/${BRANDING} )"
 # Split modules following git/tarballs
 # Core MUST be first!
 # Help is used for the image generator
-MODULES="core binfilter help"
+MODULES="core help"
 # Only release has the tarballs
 if [[ ${PV} != *9999* ]]; then
 	for i in ${DEV_URI}; do
 		for mod in ${MODULES}; do
-			if [[ ${mod} == binfilter ]]; then
-				SRC_URI+=" binfilter? ( ${i}/${PN}-${mod}-${PV}.tar.xz )"
-			else
-				SRC_URI+=" ${i}/${PN}-${mod}-${PV}.tar.xz"
-			fi
+			SRC_URI+=" ${i}/${PN}-${mod}-${PV}.tar.xz"
 		done
 		unset mod
 	done
@@ -71,10 +67,11 @@ unset ADDONS_URI
 unset EXT_URI
 unset ADDONS_SRC
 
-IUSE="binfilter bluetooth +branding +cups dbus eds gnome gstreamer +gtk
-gtk3 jemalloc kde mysql odk opengl postgres svg telepathy test +vba +webdav"
+IUSE="bluetooth +branding +cups dbus eds gnome gstreamer +gtk gtk3
+jemalloc kde mysql nsplugin odk opengl pdfimport postgres telepathy
+test +vba +webdav"
 
-LO_EXTS="nlpsolver pdfimport presenter-console presenter-minimizer scripting-beanshell scripting-javascript wiki-publisher"
+LO_EXTS="nlpsolver presenter-console presenter-minimizer scripting-beanshell scripting-javascript wiki-publisher"
 # Unpackaged separate extensions:
 # diagram: lo has 0.9.5 upstream is weirdly patched 0.9.4 -> wtf?
 # hunart: only on ooo extensions -> fubared download path somewhere on sf
@@ -106,7 +103,6 @@ COMMON_DEPEND="
 	dev-cpp/libcmis:0.3
 	dev-db/unixODBC
 	dev-libs/expat
-	>=dev-libs/glib-2.28
 	>=dev-libs/hyphen-2.7.1
 	>=dev-libs/icu-4.8.1.1
 	dev-libs/liborcus
@@ -125,7 +121,6 @@ COMMON_DEPEND="
 	>=net-misc/curl-7.21.4
 	net-nds/openldap
 	sci-mathematics/lpsolve
-	>=sys-libs/db-4.8
 	virtual/jpeg
 	>=x11-libs/cairo-1.10.0[X]
 	x11-libs/libXinerama
@@ -146,7 +141,6 @@ COMMON_DEPEND="
 		>=media-libs/gst-plugins-base-0.10:0.10
 	)
 	jemalloc? ( dev-libs/jemalloc )
-	libreoffice_extensions_pdfimport? ( >=app-text/poppler-0.16[xpdf-headers(+),cxx] )
 	libreoffice_extensions_scripting-beanshell? ( >=dev-java/bsh-2.0_beta4 )
 	libreoffice_extensions_scripting-javascript? ( dev-java/rhino:1.6 )
 	libreoffice_extensions_wiki-publisher? (
@@ -157,12 +151,13 @@ COMMON_DEPEND="
 		dev-java/tomcat-servlet-api:3.0
 	)
 	mysql? ( >=dev-db/mysql-connector-c++-1.1.0 )
+	nsplugin? ( net-misc/npapi-sdk )
 	opengl? (
 		virtual/glu
 		virtual/opengl
 	)
+	pdfimport? ( >=app-text/poppler-0.16[xpdf-headers(+),cxx] )
 	postgres? ( >=dev-db/postgresql-base-9.0[kerberos] )
-	svg? ( gnome-base/librsvg )
 	telepathy? (
 		dev-libs/glib:2
 		>=net-libs/telepathy-glib-0.18.0
@@ -173,7 +168,7 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	!app-office/libreoffice-bin
 	!app-office/libreoffice-bin-debug
-	!<app-openoffice/openoffice-bin-3.4.0-r1
+	!<app-office/openoffice-bin-3.4.0-r1
 	!app-office/openoffice
 	media-fonts/libertine-ttf
 	media-fonts/liberation-fonts
@@ -216,7 +211,6 @@ DEPEND="${COMMON_DEPEND}
 	java? (
 		>=virtual/jdk-1.6
 		>=dev-java/ant-core-1.7
-		test? ( dev-java/junit:4 )
 	)
 	odk? ( app-doc/doxygen )
 	test? ( dev-util/cppunit )
@@ -236,6 +230,7 @@ REQUIRED_USE="
 	libreoffice_extensions_scripting-beanshell? ( java )
 	libreoffice_extensions_scripting-javascript? ( java )
 	libreoffice_extensions_wiki-publisher? ( java )
+	nsplugin? ( gtk )
 "
 
 S="${WORKDIR}/${PN}-core-${PV}"
@@ -250,9 +245,9 @@ pkg_pretend() {
 		check-reqs_pkg_pretend
 
 		if [[ $(gcc-major-version) -lt 4 ]] || \
-				 ( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 5 ]] ) \
+				 ( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 6 ]] ) \
 				; then
-			eerror "Compilation with gcc older than 4.5 is not supported"
+			eerror "Compilation with gcc older than 4.6 is not supported"
 			die "Too old gcc found."
 		fi
 	fi
@@ -288,9 +283,6 @@ src_unpack() {
 
 	if [[ ${PV} != *9999* ]]; then
 		for mod in ${MODULES}; do
-			if [[ ${mod} == binfilter ]] && ! use binfilter; then
-				continue
-			fi
 			unpack "${PN}-${mod}-${PV}.tar.xz"
 			if [[ ${mod} != core ]]; then
 				mod2=${mod}
@@ -303,9 +295,6 @@ src_unpack() {
 		done
 	else
 		for mod in ${MODULES}; do
-			if [[ ${mod} == binfilter ]] && ! use binfilter; then
-				continue
-			fi
 			mypv=${PV/.9999}
 			[[ ${mypv} != ${PV} ]] && EGIT_BRANCH="${PN}-${mypv/./-}"
 			EGIT_PROJECT="${PN}/${mod}"
@@ -387,6 +376,7 @@ src_configure() {
 	if use java; then
 		# hsqldb: system one is too new
 		java_opts="
+			--without-junit
 			--without-system-hsqldb
 			--with-ant-home="${ANT_HOME}"
 			--with-jdk-home=$(java-config --jdk-home 2>/dev/null)
@@ -409,12 +399,6 @@ src_configure() {
 				--with-servlet-api-jar=$(java-pkg_getjar tomcat-servlet-api-3.0 servlet-api.jar)
 			"
 		fi
-
-		if use test; then
-			java_opts+=" --with-junit=$(java-pkg_getjar junit-4 junit.jar)"
-		else
-			java_opts+=" --without-junit"
-		fi
 	fi
 
 	if use branding; then
@@ -435,8 +419,6 @@ src_configure() {
 	# --disable-kde: kde3 support
 	# --disable-mozilla: mozilla internal is for contact integration, never
 	#   worked on linux
-	# --disable-nsplugin: does not work at all, reall effort to fix this
-	#   required
 	# --disable-pch: precompiled headers cause build crashes
 	# --disable-rpath: relative runtime path is not desired
 	# --disable-systray: quickstarter does not actually work at all so do not
@@ -472,7 +454,6 @@ src_configure() {
 		--disable-kdeab \
 		--disable-kde \
 		--disable-mozilla \
-		--disable-nsplugin \
 		--disable-online-update \
 		--disable-pch \
 		--disable-rpath \
@@ -499,8 +480,7 @@ src_configure() {
 		--without-help \
 		--with-helppack-integration \
 		--without-sun-templates \
-		$(use_enable binfilter) \
-		$(use_enable bluetooth sdremote) \
+		$(use_enable bluetooth sdremote-bluetooth) \
 		$(use_enable cups) \
 		$(use_enable dbus) \
 		$(use_enable eds evolution2) \
@@ -512,10 +492,11 @@ src_configure() {
 		$(use_enable gtk3) \
 		$(use_enable kde kde4) \
 		$(use_enable mysql ext-mysql-connector) \
+		$(use_enable nsplugin) \
 		$(use_enable odk) \
 		$(use_enable opengl) \
+		$(use_enable pdfimport) \
 		$(use_enable postgres postgresql-sdbc) \
-		$(use_enable svg librsvg system) \
 		$(use_enable telepathy) \
 		$(use_enable test linkoo) \
 		$(use_enable vba) \
@@ -568,6 +549,9 @@ src_install() {
 		newins "${WORKDIR}/branding-sofficerc" sofficerc
 	fi
 
+	# symlink the nsplugin to proper location
+	use nsplugin && inst_plugin /usr/$(get_libdir)/libreoffice/program/libnpsoplugin.so
+
 	# Hack for offlinehelp, this needs fixing upstream at some point.
 	# It is broken because we send --without-help
 	# https://bugs.freedesktop.org/show_bug.cgi?id=46506
@@ -590,7 +574,7 @@ pkg_postinst() {
 	pax-mark -m "${EPREFIX}"/usr/$(get_libdir)/libreoffice/program/unopkg.bin
 
 	use java || \
-		ewarn 'If you plan to use lbase aplication you should enable java or you will get various crashes.'
+		ewarn 'If you plan to use lbase application you should enable java or you will get various crashes.'
 }
 
 pkg_postrm() {

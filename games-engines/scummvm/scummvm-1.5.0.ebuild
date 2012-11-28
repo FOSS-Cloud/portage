@@ -1,9 +1,9 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-engines/scummvm/scummvm-1.5.0.ebuild,v 1.5 2012/10/09 23:55:28 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-engines/scummvm/scummvm-1.5.0.ebuild,v 1.7 2012/11/14 23:12:11 hasufell Exp $
 
 EAPI=2
-inherit eutils flag-o-matic games
+inherit eutils flag-o-matic toolchain-funcs games
 
 DESCRIPTION="Reimplementation of the SCUMM game engine used in Lucasarts adventures"
 HOMEPAGE="http://scummvm.sourceforge.net/"
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/scummvm/${P/_/}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
+KEYWORDS="amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
 IUSE="aac alsa debug flac fluidsynth mp3 opengl truetype vorbis"
 RESTRICT="test"  # it only looks like there's a test there #77507
 
@@ -71,6 +71,10 @@ src_configure() {
 		$(use_enable truetype freetype2) \
 		$(use_enable x86 nasm) \
 		${myconf} || die
+}
+
+src_compile() {
+	emake AR="$(tc-getAR) cru" RANLIB=$(tc-getRANLIB)
 }
 
 src_install() {

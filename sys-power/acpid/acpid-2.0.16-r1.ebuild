@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/acpid/acpid-2.0.16-r1.ebuild,v 1.4 2012/07/01 18:37:28 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-power/acpid/acpid-2.0.16-r1.ebuild,v 1.6 2012/11/25 15:11:36 swift Exp $
 
 EAPI=4
 inherit systemd
@@ -12,7 +12,10 @@ SRC_URI="http://tedfelix.com/linux/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ia64 -ppc x86"
-IUSE=""
+IUSE="selinux"
+
+RDEPEND="selinux? ( sec-policy/selinux-apm )"
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	econf --docdir=/usr/share/doc/${PF}
@@ -37,11 +40,13 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog
-	elog "You may wish to read the Gentoo Linux Power Management Guide,"
-	elog "which can be found online at:"
-	elog "http://www.gentoo.org/doc/en/power-management-guide.xml"
-	elog
+	if ! has_version 'sys-power/acpid'; then
+		elog
+		elog "You may wish to read the Gentoo Linux Power Management Guide,"
+		elog "which can be found online at:"
+		elog "http://www.gentoo.org/doc/en/power-management-guide.xml"
+		elog
+	fi
 
 	# files/systemd/acpid.socket -> ListenStream=/run/acpid.socket
 	mkdir -p "${ROOT}"/run

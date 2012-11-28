@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/ltxml/ltxml-1.2.9.ebuild,v 1.3 2012/06/06 03:39:11 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/ltxml/ltxml-1.2.9.ebuild,v 1.5 2012/11/05 13:01:17 kensington Exp $
 
 EAPI=4
 
@@ -12,7 +12,7 @@ SRC_URI=ftp://ftp.cogsci.ed.ac.uk/pub/LTXML/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~ia64 ~ppc ~x86"
+KEYWORDS="~amd64 ~ia64 ~ppc ~x86"
 IUSE=""
 
 DEPEND="dev-lang/perl"
@@ -22,10 +22,15 @@ PV_MAJ="${PV:0:1}${PV:2:1}"
 
 S=${WORKDIR}/${P}/XML
 
+pkg_setup() {
+	tc-export AR
+}
+
 src_prepare() {
 	sed -e '/CFLAGS=/s:-g::' \
 		-e '/CFLAGS=/s:-O2::' \
 		-i configure || die
+	sed -e 's/ar rv/$(AR) rv/' -i src/Makefile.sub.in || die
 }
 
 src_compile() {

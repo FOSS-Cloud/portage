@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/gnash/gnash-0.8.10-r2.ebuild,v 1.8 2012/09/18 21:26:35 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/gnash/gnash-0.8.10-r2.ebuild,v 1.10 2012/11/04 04:38:36 flameeyes Exp $
 
 EAPI=4
 CMAKE_REQUIRED="never"
@@ -38,9 +38,7 @@ REQUIRED_USE="dump? ( agg ffmpeg )
 	|| ( dump fbcon gtk kde sdl )
 	"
 
-# gnash fails if obsolete boost is installed, bug #334259
 RDEPEND=">=dev-libs/boost-1.41.0
-	!!dev-libs/boost:0
 	dev-libs/expat
 	dev-libs/libxml2
 	virtual/jpeg
@@ -114,12 +112,6 @@ RESTRICT="test"
 
 pkg_setup() {
 	kde4-base_pkg_setup
-
-	if has_version ">=dev-libs/boost-1.46" && has_version "<dev-libs/boost-1.46"; then
-		ewarn "If you have multiple versions of boost installed, gnash may attempt to"
-		ewarn "compile against the older version and link against newer version, which can"
-		ewarn "cause the build to fail. Unmerge of the old version of boost is recommended."
-	fi
 
 	if use !ffmpeg && use !gstreamer; then
 		ewarn "You are trying to build Gnash without choosing a media handler."

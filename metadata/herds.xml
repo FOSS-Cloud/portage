@@ -20,7 +20,7 @@
    always a description without a lang attribute. Also there are no overlapping
    descriptions allowed (multiple description tags with the same language)
 
-   $Header: /var/cvsroot/gentoo/xml/htdocs/proj/en/metastructure/herds/herds.xml,v 1.968 2012/10/07 10:19:18 pacho Exp $
+   $Header: /var/cvsroot/gentoo/xml/htdocs/proj/en/metastructure/herds/herds.xml,v 1.978 2012/11/27 20:12:30 pacho Exp $
 
 -->
 <herds>
@@ -31,19 +31,6 @@
   <maintainer>
     <email>voyageur@gentoo.org</email>
     <name>Bernard Cafarelli</name>
-  </maintainer>
-  </herd>
-  <herd>
-    <name>apache</name>
-    <email>apache-bugs@gentoo.org</email>
-  <description>The Apache web server and supporting packages</description>
-  <maintainer>
-    <email>trapni@gentoo.org</email>
-    <name>Christian Parpart</name>
-  </maintainer>
-  <maintainer>
-    <email>nelchael@gentoo.org</email>
-    <name>Krzysztof Pawlik</name>
   </maintainer>
   </herd>
   <herd>
@@ -515,6 +502,11 @@
     <email>radhermit@gentoo.org</email>
     <name>Tim Harder</name>
   </maintainer>
+  <maintainer>
+    <email>nativemad@gentoo.org</email>
+    <name>Andreas Schuerch</name>
+  </maintainer>
+
 </herd>
 <herd>
   <name>base-system</name>
@@ -1014,10 +1006,6 @@
     <role>Lead</role>
   </maintainer>
   <maintainer>
-    <email>redhatter@gentoo.org</email>
-    <name>Stuart Longland</name>
-  </maintainer>
-  <maintainer>
     <email>nirbheek@gentoo.org</email>
     <name>Nirbheek Chauhan</name>
   </maintainer>
@@ -1168,27 +1156,6 @@
   </maintainer>
 </herd>
 <herd>
-  <name>mobile</name>
-  <email>mobile@gentoo.org</email>
-  <description>Mobile computing, including wireless networking (IEEE
-  802.11, bluetooth, infrared, etc), power management and laptop
-  specific packages</description>
-  <maintainer>
-    <email>steev@gentoo.org</email>
-    <name>Stephen Klimaszewski</name>
-    <role>APM</role>
-  </maintainer>
-  <maintainer>
-    <email>cardoe@gentoo.org</email>
-    <name>Doug Goldstein</name>
-  </maintainer>
-  <maintainer>
-    <email>betelgeuse@gentoo.org</email>
-    <name>Petteri Räty</name>
-    <role>maintainer of linux-wlan-ng and longrun</role>
-  </maintainer>
-</herd>
-<herd>
   <name>postgresql</name>
   <email>pgsql-bugs@gentoo.org</email>
   <description>PostgreSQL and related packages</description>
@@ -1249,10 +1216,6 @@
   <maintainer>
     <email>kumba@gentoo.org</email>
     <name>Joshua Kinard</name>
-  </maintainer>
-  <maintainer>
-    <email>redhatter@gentoo.org</email>
-    <name>Stuart Longland</name>
   </maintainer>
   <maintainer>
     <email>alexxy@gentoo.org</email>
@@ -1336,10 +1299,6 @@
   <maintainer>
     <email>aballier@gentoo.org</email>
     <name>Alexis Ballier</name>
-  </maintainer>
-  <maintainer>
-    <email>beandog@gentoo.org</email>
-    <name>Steve Dibb</name>
   </maintainer>
   <maintainer>
     <email>radhermit@gentoo.org</email>
@@ -2013,6 +1972,18 @@
     <email>robbat2@gentoo.org</email>
     <name>Robin H. Johnson</name>
   </maintainer>
+  <maintainer>
+    <email>tampakrap@gentoo.org</email>
+    <name>Theo Chatzimichos</name>
+  </maintainer>
+  <maintainer>
+    <email>idl0r@gentoo.org</email>
+    <name>Christian Ruppert</name>
+  </maintainer>
+  <maintainer>
+    <email>antarus@gentoo.org</email>
+    <name>Alec Warner</name>
+  </maintainer>
 </herd>
 <herd>
   <name>livecd</name>
@@ -2134,10 +2105,11 @@
      <email>leio@gentoo.org</email>
   </maintainer>
   <maintainer>
-     <email>ford_prefect@gentoo.org</email>
+     <email>tester@gentoo.org</email>
   </maintainer>
   <maintainer>
-     <email>tester@gentoo.org</email>
+    <email>eva@gentoo.org</email>
+    <name>Gilles Dartiguelongue</name>
   </maintainer>
 </herd>
 <herd>
@@ -2336,10 +2308,6 @@
     <name>theology</name>
     <email>theology@gentoo.org</email>
     <description>Religious, genealogy, humanities-related packages</description>
-    <maintainer>
-        <email>beandog@gentoo.org</email>
-        <name>Steve Dibb</name>
-    </maintainer>
 </herd>
 <herd>
     <name>mythtv</name>

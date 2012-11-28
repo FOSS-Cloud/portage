@@ -1,6 +1,27 @@
 # ChangeLog for mail-client/claws-mail
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail/ChangeLog,v 1.214 2012/10/27 12:59:47 klausman Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail/ChangeLog,v 1.218 2012/11/20 20:17:33 fauli Exp $
+
+*claws-mail-3.9.0 (20 Nov 2012)
+
+  20 Nov 2012; Christian Faulhammer <fauli@gentoo.org>
+  -claws-mail-3.8.0.ebuild, -claws-mail-3.8.1.ebuild,
+  -claws-mail-3.8.1-r1.ebuild, +claws-mail-3.9.0.ebuild:
+  version bump and clean up
+
+  11 Nov 2012; Raúl Porcel <armin76@gentoo.org> claws-mail-3.8.1-r2.ebuild:
+  sparc stable wrt #437814
+
+*claws-mail-3.8.1-r3 (04 Nov 2012)
+
+  04 Nov 2012; Christian Faulhammer <fauli@gentoo.org>
+  +claws-mail-3.8.1-r3.ebuild, +files/claws-mail-3.8.1_fix-gnutls-3.1.3.patch:
+  add patch for bug 440898 by John Brendler, valuable input from Duncan and
+  others
+
+  31 Oct 2012; Andreas Schuerch <nativemad@gentoo.org>
+  claws-mail-3.8.1-r2.ebuild:
+  x86 stable, see bug 437814
 
   27 Oct 2012; Tobias Klausmann <klausman@gentoo.org>
   claws-mail-3.8.1-r2.ebuild:

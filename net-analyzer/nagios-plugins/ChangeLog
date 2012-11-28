@@ -1,6 +1,40 @@
 # ChangeLog for net-analyzer/nagios-plugins
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-plugins/ChangeLog,v 1.153 2012/09/06 01:42:42 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-plugins/ChangeLog,v 1.162 2012/11/24 06:35:32 tove Exp $
+
+  21 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  nagios-plugins-1.4.16-r2.ebuild, nagios-plugins-1.4.16-r3.ebuild:
+  Make sure not to install a wrong sudoers file if smart USE is disabled.
+
+  21 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  nagios-plugins-1.4.16-r2.ebuild:
+  Stable for x86, wrt bug #441654
+
+*nagios-plugins-1.4.16-r3 (19 Nov 2012)
+
+  19 Nov 2012; Matthew Thode <prometheanfire@gentoo.org>
+  +nagios-plugins-1.4.16-r3.ebuild:
+  moved 'use suid && fperms 04710 /check_{icmp,ide_smart,dhcp}' below chmod
+  should also solve bug #443642
+
+  14 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  nagios-plugins-1.4.16-r2.ebuild:
+  Stable for amd64, wrt bug #441654
+
+  12 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  nagios-plugins-1.4.16-r2.ebuild:
+  stable ppc ppc64, bug #441654
+
+  09 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  nagios-plugins-1.4.16-r2.ebuild:
+  Enforce ownership of the nagios plugin directory. Should solve bug #441980.
+
+  07 Nov 2012; Jeroen Roovers <jer@gentoo.org> nagios-plugins-1.4.16-r2.ebuild:
+  Stable for HPPA (bug #441654).
+
+  04 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  -nagios-plugins-1.4.16-r1.ebuild:
+  Remove old version.
 
   06 Sep 2012; Anthony G. Basile <blueness@gentoo.org>
   nagios-plugins-1.4.16-r2.ebuild:

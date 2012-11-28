@@ -1,5 +1,39 @@
 # ChangeLog for sys-libs/glibc
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/ChangeLog,v 1.900 2012/10/21 17:17:18 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/ChangeLog,v 1.908 2012/11/18 09:32:24 vapier Exp $
+
+  18 Nov 2012; Mike Frysinger <vapier@gentoo.org> glibc-2.16.0.ebuild:
+  Fix arm cross-compile errors with _Unwind_Resume.
+
+  18 Nov 2012; Mike Frysinger <vapier@gentoo.org>
+  files/eblits/src_compile.eblit:
+  Disable fortify/ssp compiler checks when build glibc headers #443632 by Andrej
+  Gelenberg.
+
+  11 Nov 2012; Magnus Granberg <zorry@gentoo.org> glibc-2.16.0.ebuild,
+  +files/2.16/glibc-2.16-hardened-pie.patch:
+  Update the hardened pie patch for 2.16, bug #442712
+
+  11 Nov 2012; Mike Frysinger <vapier@gentoo.org>
+  files/eblits/src_install.eblit, files/eblits/src_unpack.eblit,
+  glibc-2.16.0.ebuild:
+  Fix cross-compile bootstrapping of glibc headers with 2.16.0.
+
+  02 Nov 2012; Mike Frysinger <vapier@gentoo.org> glibc-2.10.1-r1.ebuild,
+  glibc-2.11.3.ebuild, glibc-2.12.1-r3.ebuild, glibc-2.12.2.ebuild,
+  glibc-2.13-r2.ebuild, glibc-2.13-r4.ebuild, glibc-2.14.1-r2.ebuild,
+  glibc-2.14.1-r3.ebuild, glibc-2.14.ebuild, glibc-2.15-r1.ebuild,
+  glibc-2.15-r2.ebuild, glibc-2.15-r3.ebuild, glibc-2.16.0.ebuild,
+  glibc-2.9_p20081201-r3.ebuild, glibc-9999.ebuild:
+  Drop libtool inherit since we do not use it.
+
+  01 Nov 2012; Raúl Porcel <armin76@gentoo.org> glibc-2.15-r3.ebuild:
+  sparc stable wrt #404993
+
+  31 Oct 2012; Mike Frysinger <vapier@gentoo.org> glibc-2.16.0.ebuild:
+  Move into ~arch.
+
+  31 Oct 2012; Mike Frysinger <vapier@gentoo.org> glibc-2.15-r3.ebuild:
+  Mark alpha/ia64/s390 stable #404993.
 
   21 Oct 2012; Anthony G. Basile <blueness@gentoo.org> glibc-2.15-r3.ebuild:
   stable arm, bug #404993

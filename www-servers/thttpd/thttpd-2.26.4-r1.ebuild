@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/thttpd/thttpd-2.26.4-r1.ebuild,v 1.3 2012/08/19 16:25:30 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/thttpd/thttpd-2.26.4-r1.ebuild,v 1.8 2012/11/22 14:34:07 blueness Exp $
 
 EAPI="4"
 
@@ -15,7 +15,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 arm ~hppa ~mips ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 RDEPEND=""
@@ -58,13 +58,11 @@ src_install () {
 	mkdir "${ED}"${WEBROOT}/htdocs
 
 	keepdir ${WEBROOT}/htdocs
-}
 
-pkg_postinst() {
-	chown root:${THTTPD_GROUP} "${EROOT}/usr/sbin/makeweb" \
+	chown root:${THTTPD_GROUP} "${ED}/usr/sbin/makeweb" \
 		|| die "Failed chown makeweb"
-	chmod 2751 "${EROOT}/usr/sbin/makeweb" \
+	chmod 2751 "${ED}/usr/sbin/makeweb" \
 		|| die "Failed chmod makeweb"
-	chmod 755 "${EROOT}/usr/share/doc/${PF}/htdocs.dist/cgi-bin/printenv" \
+	chmod 755 "${ED}/usr/share/doc/${PF}/htdocs.dist/cgi-bin/printenv" \
 		|| die "Failed chmod printenv"
 }

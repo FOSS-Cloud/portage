@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xscreensaver/xscreensaver-5.20.ebuild,v 1.5 2012/10/30 17:34:51 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xscreensaver/xscreensaver-5.20.ebuild,v 1.8 2012/11/18 14:53:11 xarthisius Exp $
 
 EAPI=4
 inherit autotools eutils flag-o-matic multilib pam
@@ -11,7 +11,7 @@ SRC_URI="http://www.jwz.org/xscreensaver/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm hppa ~ia64 ~mips ppc ppc64 ~sh ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm hppa ~ia64 ~mips ppc ppc64 ~sh ~sparc x86 ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~x64-solaris ~x86-solaris"
 IUSE="gdm jpeg new-login opengl pam +perl selinux suid xinerama"
 
 COMMON_DEPEND="dev-libs/libxml2
@@ -58,8 +58,6 @@ DEPEND="${COMMON_DEPEND}
 
 REQUIRED_USE="gdm? ( new-login )"
 
-MAKEOPTS="${MAKEOPTS} -j1"
-
 src_prepare() {
 	if use new-login && ! use gdm; then #392967
 		sed -i \
@@ -74,7 +72,8 @@ src_prepare() {
 		"${FILESDIR}"/${PN}-5.20-check-largefile-support.patch \
 		"${FILESDIR}"/${PN}-5.20-conf264.patch \
 		"${FILESDIR}"/${PN}-5.20-test-passwd-segv-tty.patch \
-		"${FILESDIR}"/${PN}-5.20-tests-miscfix.patch
+		"${FILESDIR}"/${PN}-5.20-tests-miscfix.patch \
+		"${FILESDIR}"/${PN}-5.20-parallel-build.patch
 
 	eautoconf
 	eautoheader

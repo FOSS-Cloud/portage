@@ -1,6 +1,26 @@
 # ChangeLog for sci-calculators/units
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-calculators/units/ChangeLog,v 1.36 2012/10/24 16:13:41 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-calculators/units/ChangeLog,v 1.42 2012/11/22 19:33:03 ago Exp $
+
+  22 Nov 2012; Agostino Sarubbo <ago@gentoo.org> units-2.00.ebuild:
+  Stable for amd64, wrt bug #439518
+
+  21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> units-2.00.ebuild:
+  Stable for x86, wrt bug #439518
+
+  13 Nov 2012; Jeroen Roovers <jer@gentoo.org> units-2.00.ebuild:
+  Stable for HPPA (bug #439518).
+
+  11 Nov 2012; Anthony G. Basile <blueness@gentoo.org> units-2.00.ebuild:
+  stable ppc, bug #439518
+
+  05 Nov 2012; Jeroen Roovers <jer@gentoo.org> units-2.01.ebuild,
+  +files/units-2.01-install.patch:
+  Fix parallel make in src_install().
+
+  05 Nov 2012; Jeroen Roovers <jer@gentoo.org> units-2.00.ebuild,
+  units-2.01.ebuild:
+  Drop sys-libs/ncurses dependency by Jean-Pierre de la Croix (bug #439518).
 
 *units-2.01 (24 Oct 2012)
 

@@ -1,6 +1,98 @@
 # ChangeLog for sys-kernel/vanilla-sources
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/vanilla-sources/ChangeLog,v 1.1068 2012/10/29 14:17:10 mpagano Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/vanilla-sources/ChangeLog,v 1.1083 2012/11/27 13:01:45 ago Exp $
+
+  27 Nov 2012; Agostino Sarubbo <ago@gentoo.org> -vanilla-sources-3.0.51.ebuild,
+  -vanilla-sources-3.0.52.ebuild, -vanilla-sources-3.2.21.ebuild,
+  -vanilla-sources-3.2.33.ebuild, -vanilla-sources-3.4.18.ebuild,
+  -vanilla-sources-3.4.19.ebuild, -vanilla-sources-3.6.3.ebuild:
+  Remove old
+
+*vanilla-sources-3.0.53 (26 Nov 2012)
+
+  26 Nov 2012; Agostino Sarubbo <ago@gentoo.org> +vanilla-sources-3.0.53.ebuild:
+  Version bump for the 3.0 series
+
+*vanilla-sources-3.4.20 (26 Nov 2012)
+
+  26 Nov 2012; Agostino Sarubbo <ago@gentoo.org> +vanilla-sources-3.4.20.ebuild:
+  Version bump for the 3.4 series
+
+*vanilla-sources-3.6.8 (26 Nov 2012)
+
+  26 Nov 2012; Michael Pagano <mpagano@gentoo.org>
+  +vanilla-sources-3.6.8.ebuild:
+  Version bump
+
+*vanilla-sources-3.4.19 (18 Nov 2012)
+*vanilla-sources-3.0.52 (18 Nov 2012)
+
+  18 Nov 2012; Agostino Sarubbo <ago@gentoo.org> +vanilla-sources-3.0.52.ebuild,
+  +vanilla-sources-3.4.19.ebuild:
+  version bump for 3.0 and 3.4 series
+
+*vanilla-sources-3.6.7 (17 Nov 2012)
+
+  17 Nov 2012; Michael Pagano <mpagano@gentoo.org>
+  +vanilla-sources-3.6.7.ebuild:
+  Version bump
+
+*vanilla-sources-3.2.34 (16 Nov 2012)
+
+  16 Nov 2012; Agostino Sarubbo <ago@gentoo.org> +vanilla-sources-3.2.34.ebuild:
+  Version bump for the 3.2 series
+
+  14 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  -vanilla-sources-2.6.16.62.ebuild, -vanilla-sources-2.6.32.58.ebuild,
+  -vanilla-sources-2.6.32.59.ebuild, -vanilla-sources-2.6.38.7.ebuild,
+  -vanilla-sources-2.6.38.8.ebuild, -vanilla-sources-3.0.49.ebuild,
+  -vanilla-sources-3.0.50.ebuild, -vanilla-sources-3.2.31.ebuild,
+  -vanilla-sources-3.3.8.ebuild, -vanilla-sources-3.4.16.ebuild,
+  -vanilla-sources-3.4.17.ebuild, -vanilla-sources-3.5.6.ebuild:
+  Remove old
+
+*vanilla-sources-2.6.32.60 (11 Nov 2012)
+*vanilla-sources-3.2.33 (11 Nov 2012)
+
+  11 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
+  +vanilla-sources-2.6.32.60.ebuild, +vanilla-sources-3.2.33.ebuild:
+  Version bump for 2.6.32 and 3.2 series
+
+  11 Nov 2012; Raúl Porcel <armin76@gentoo.org> vanilla-sources-3.5.7.ebuild:
+  alpha/arm/ia64/s390/sh/sparc stable wrt #438798
+
+*vanilla-sources-3.4.18 (05 Nov 2012)
+*vanilla-sources-3.0.51 (05 Nov 2012)
+
+  05 Nov 2012; Michael Pagano <mpagano@gentoo.org>
+  +vanilla-sources-3.0.51.ebuild, +vanilla-sources-3.4.18.ebuild:
+  Version bumps
+
+  05 Nov 2012; Michael Pagano <mpagano@gentoo.org>
+  -vanilla-sources-3.0.45.ebuild, -vanilla-sources-3.0.46.ebuild,
+  -vanilla-sources-3.0.47.ebuild, -vanilla-sources-3.2.12.ebuild,
+  -vanilla-sources-3.4.14.ebuild, -vanilla-sources-3.4.15.ebuild,
+  -vanilla-sources-3.6.0.ebuild, -vanilla-sources-3.6.1.ebuild,
+  -vanilla-sources-3.6.2.ebuild:
+  Remove old versions
+
+*vanilla-sources-3.6.6 (05 Nov 2012)
+
+  05 Nov 2012; Michael Pagano <mpagano@gentoo.org>
+  +vanilla-sources-3.6.6.ebuild:
+  Version bump
+
+*vanilla-sources-3.6.5 (01 Nov 2012)
+*vanilla-sources-3.4.17 (01 Nov 2012)
+*vanilla-sources-3.0.50 (01 Nov 2012)
+
+  01 Nov 2012; Michael Pagano <mpagano@gentoo.org>
+  +vanilla-sources-3.0.50.ebuild, +vanilla-sources-3.4.17.ebuild,
+  +vanilla-sources-3.6.5.ebuild:
+  Version bumps
+
+  01 Nov 2012; Jeroen Roovers <jer@gentoo.org> vanilla-sources-3.2.21.ebuild:
+  Stable for HPPA (bug #422713).
 
 *vanilla-sources-3.6.4 (29 Oct 2012)
 *vanilla-sources-3.4.16 (29 Oct 2012)
