@@ -1,6 +1,21 @@
 # ChangeLog for dev-games/ogre
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/ogre/ChangeLog,v 1.89 2012/11/12 23:27:35 hasufell Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-games/ogre/ChangeLog,v 1.93 2013/01/31 00:00:32 mr_bones_ Exp $
+
+  31 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/ogre-1.8.0-flags.patch, -files/ogre-1.8.0-threading.patch,
+  -ogre-1.8.0.ebuild:
+  old
+
+  09 Jan 2013; Julian Ospald <hasufell@gentoo.org> ogre-1.8.1.ebuild,
+  +files/ogre-1.8.1-gles2.patch:
+  fix build with USE=gles2 wrt #435560
+
+  14 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ogre-1.8.1.ebuild:
+  Stable for x86, wrt bug #447160
+
+  14 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ogre-1.8.1.ebuild:
+  Stable for amd64, wrt bug #447160
 
   12 Nov 2012; Julian Ospald <hasufell@gentoo.org> ogre-1.8.1.ebuild:
   fix bug 421493

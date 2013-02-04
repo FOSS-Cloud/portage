@@ -1,6 +1,40 @@
 # ChangeLog for dev-python/nose
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/nose/ChangeLog,v 1.85 2012/10/05 12:23:54 djc Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/nose/ChangeLog,v 1.93 2013/02/02 22:01:39 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.1.2-r1.ebuild:
+  Stable for x86, wrt bug #454314
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.1.2-r1.ebuild:
+  Stable for amd64, wrt bug #454314
+
+*nose-1.2.1_p2012 (08 Jan 2013)
+
+  08 Jan 2013; Michał Górny <mgorny@gentoo.org> +nose-1.2.1_p2012.ebuild,
+  nose-9999.ebuild:
+  Introduce a snapshot ebuild to get the Python3.3 support. Update homepage.
+
+  02 Jan 2013; Michał Górny <mgorny@gentoo.org> nose-1.2.1.ebuild:
+  Restrict python3.3 due to failures (again).
+
+*nose-1.2.1 (02 Jan 2013)
+*nose-9999 (02 Jan 2013)
+
+  02 Jan 2013; Michał Górny <mgorny@gentoo.org> +nose-1.2.1.ebuild,
+  +nose-9999.ebuild, nose-1.1.2-r1.ebuild:
+  Version bump. Enable coverage unconditionally since it is now required by the
+  tests. Disable parallel build in src_test() because of tests concurrency.
+
+  22 Dec 2012; Mike Gilbert <floppym@gentoo.org> nose-1.1.2-r1.ebuild:
+  Add pypy2_0.
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> nose-1.1.2-r1.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+*nose-1.1.2-r1 (09 Dec 2012)
+
+  09 Dec 2012; Michał Górny <mgorny@gentoo.org> +nose-1.1.2-r1.ebuild:
+  Migrate to distutils-r1.
 
   05 Oct 2012; Dirkjan Ochtman <djc@gentoo.org>
   -files/nose-0.10.0-tests-nonetwork.patch, -nose-1.0.0.ebuild,
@@ -322,4 +356,3 @@
 
   03 Feb 2007; Tiziano Müller <dev-zero@gentoo.org> +metadata.xml:
   Initial ebuild for bug #141662 (thanks to Brad Walker)
-

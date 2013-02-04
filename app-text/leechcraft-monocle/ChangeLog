@@ -1,6 +1,26 @@
 # ChangeLog for app-text/leechcraft-monocle
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/leechcraft-monocle/ChangeLog,v 1.7 2012/10/08 15:50:29 pinkbyte Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/leechcraft-monocle/ChangeLog,v 1.11 2013/01/10 11:50:19 pinkbyte Exp $
+
+  10 Jan 2013; Sergey Popov <pinkbyte@gentoo.org>
+  leechcraft-monocle-0.5.90.ebuild, leechcraft-monocle-9999.ebuild,
+  metadata.xml:
+  Enable optional support for libspectre via USE-flag, fix bug #451088. Thanks
+  to Karl Ernst Brunk for discovering this issue
+
+*leechcraft-monocle-0.5.90 (25 Dec 2012)
+
+  25 Dec 2012; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-monocle-0.5.90.ebuild:
+  Bump LeechCraft to 0.5.90, thanks to 0xd34df00d
+
+  21 Dec 2012; Sergey Popov <pinkbyte@gentoo.org>
+  leechcraft-monocle-0.5.85.ebuild, leechcraft-monocle-9999.ebuild:
+  Remove obsolete pkg_pretend function - overrided by eclass one
+
+  19 Dec 2012; Maxim Koltsov <maksbotan@gentoo.org>
+  -leechcraft-monocle-0.5.75.ebuild, -leechcraft-monocle-0.5.80.ebuild:
+  Remove old LeechCraft versions
 
 *leechcraft-monocle-0.5.85 (08 Oct 2012)
 

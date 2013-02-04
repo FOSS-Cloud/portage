@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox/virtualbox-4.2.4-r1.ebuild,v 1.1 2012/11/12 18:19:52 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox/virtualbox-4.2.4-r1.ebuild,v 1.5 2013/01/11 10:04:37 polynomial-c Exp $
 
 EAPI=4
 
@@ -21,7 +21,7 @@ fi
 DESCRIPTION="Family of powerful x86 virtualization products for enterprise as well as home use"
 HOMEPAGE="http://www.virtualbox.org/"
 SRC_URI="${SRC_URI}
-	http://dev.gentoo.org/~polynomial-c/virtualbox/patchsets/virtualbox-4.2.2-patches-01.tar.xz"
+	http://dev.gentoo.org/~polynomial-c/virtualbox/patchsets/virtualbox-4.2.4-patches-01.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -36,7 +36,7 @@ RDEPEND="!app-emulation/virtualbox-bin
 	dev-libs/openssl
 	dev-libs/libxml2
 	sys-libs/zlib
-	>=sys-fs/udev-171-r6
+	>=virtual/udev-171
 	!headless? (
 		qt4? (
 			x11-libs/qt-gui:4
@@ -50,7 +50,7 @@ RDEPEND="!app-emulation/virtualbox-bin
 		x11-libs/libXext
 		x11-libs/libXmu
 		x11-libs/libXt
-		media-libs/libsdl[X,video]
+		media-libs/libsdl:0[X,video]
 	)
 	vnc? ( >=net-libs/libvncserver-0.9.9 )
 	java? ( || ( virtual/jre:1.7 virtual/jre:1.6 ) )"
@@ -58,7 +58,6 @@ DEPEND="${RDEPEND}
 	>=dev-util/kbuild-0.1.9998_pre20120806
 	>=dev-lang/yasm-0.6.2
 	sys-devel/bin86
-	sys-devel/dev86
 	sys-power/iasl
 	media-libs/libpng
 	pam? ( sys-libs/pam )

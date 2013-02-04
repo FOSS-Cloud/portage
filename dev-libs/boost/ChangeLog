@@ -1,6 +1,18 @@
 # ChangeLog for dev-libs/boost
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/boost/ChangeLog,v 1.285 2012/11/22 19:48:37 zerochaos Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/boost/ChangeLog,v 1.287 2013/01/25 23:04:42 flameeyes Exp $
+
+*boost-1.53.0_beta1 (25 Jan 2013)
+
+  25 Jan 2013; Diego E. Pettenò <flameeyes@gentoo.org>
+  +boost-1.53.0_beta1.ebuild, -boost-1.52.0-r4.ebuild:
+  Version bump to latest beta for testing; remove non stable candidate ebuild.
+
+*boost-1.52.0-r5 (15 Dec 2012)
+
+  15 Dec 2012; Michał Górny <mgorny@gentoo.org> +boost-1.52.0-r5.ebuild,
+  metadata.xml:
+  Migrate to python-r1.
 
   22 Nov 2012; Rick Farina <zerochaos@gentoo.org> boost-1.49.0-r2.ebuild:
   sorry about that, that commit was not meant for gentoo-x86, reverting.

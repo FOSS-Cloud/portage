@@ -1,6 +1,63 @@
 # ChangeLog for x11-libs/cairo
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/cairo/ChangeLog,v 1.313 2012/11/18 12:23:30 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/cairo/ChangeLog,v 1.325 2013/01/31 13:35:51 chithanh Exp $
+
+*cairo-1.12.10-r2 (31 Jan 2013)
+
+  31 Jan 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +cairo-1.12.10-r2.ebuild, +files/cairo-1.12.10-xshm-corruption.patch,
+  -cairo-1.10.2-r2.ebuild, -cairo-1.12.10-r1.ebuild, -cairo-1.12.2-r2.ebuild,
+  -cairo-1.12.2-r3.ebuild, -cairo-1.12.2-r4.ebuild, -cairo-1.12.6.ebuild,
+  -cairo-1.8.10.ebuild, -files/cairo-1.12.2-fdr-nodl.patch,
+  -files/cairo-1.12.2-sphinx-nodl.patch,
+  -files/cairo-1.12.2-surfaceless-extension.patch,
+  -files/cairo-1.2.4-lcd-cleartype-like.diff,
+  -files/cairo-1.8.10-libpng14.patch, files/cairo-1.8.8-interix.patch,
+  metadata.xml:
+  Add patch to fix graphics corruption, bug #454468.
+
+*cairo-1.12.10-r1 (27 Jan 2013)
+
+  27 Jan 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +cairo-1.12.10-r1.ebuild, +files/cairo-1.12.10-xlib-corruption.patch,
+  -cairo-1.12.10.ebuild:
+  Add patch to fix display corruption, bug #454108.
+
+*cairo-1.12.10 (23 Jan 2013)
+
+  23 Jan 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +cairo-1.12.10.ebuild, cairo-9999.ebuild:
+  Version bump. Sync release and live ebuilds.
+
+  04 Jan 2013; Jeroen Roovers <jer@gentoo.org> cairo-1.10.2-r3.ebuild:
+  Stable for HPPA (bug #440872).
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> cairo-1.10.2-r3.ebuild:
+  s390/sh stable wrt #440872
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cairo-1.10.2-r3.ebuild:
+  Stable for alpha, wrt bug #440872
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cairo-1.10.2-r3.ebuild:
+  Stable for sparc, wrt bug #440872
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cairo-1.10.2-r3.ebuild:
+  Stable for ia64, wrt bug #440872
+
+  17 Dec 2012; Markus Meier <maekke@gentoo.org> cairo-1.10.2-r3.ebuild:
+  arm stable, bug #440872
+
+  08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cairo-1.10.2-r3.ebuild:
+  Stable for ppc64, wrt bug #440872
+
+  28 Nov 2012; Brent Baude <ranger@gentoo.org> cairo-1.10.2-r3.ebuild:
+  Marking cairo-1.10.2-r3 ppc stable for bug 440872
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> cairo-1.10.2-r2.ebuild,
+  cairo-1.10.2-r3.ebuild, cairo-1.12.2-r2.ebuild, cairo-1.12.2-r3.ebuild,
+  cairo-1.12.2-r4.ebuild, cairo-1.12.6.ebuild, cairo-1.12.8.ebuild,
+  cairo-1.8.10.ebuild, cairo-9999.ebuild:
+  Use virtual/udev instead of sys-fs/udev wrt #444398
 
   18 Nov 2012; Agostino Sarubbo <ago@gentoo.org> cairo-1.10.2-r3.ebuild:
   Stable for x86, wrt bug #440872

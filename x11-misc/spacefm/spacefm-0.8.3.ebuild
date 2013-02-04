@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/spacefm/spacefm-0.8.3.ebuild,v 1.1 2012/11/25 12:12:06 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/spacefm/spacefm-0.8.3.ebuild,v 1.5 2012/12/25 02:58:42 jdhore Exp $
 
 EAPI=5
 
@@ -13,13 +13,12 @@ SRC_URI="http://dev.gentoo.org/~hasufell/distfiles/${P}.tar.xz
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+startup-notification"
 
 RDEPEND="dev-libs/glib:2
 	dev-util/desktop-file-utils
-	sys-apps/dbus
-	>=sys-fs/udev-143
+	>=virtual/udev-143
 	virtual/freedesktop-icon-theme
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
@@ -65,6 +64,7 @@ pkg_postinst() {
 	elog "  x11-libs/gksu"
 	elog "  kde-base/kdesu"
 	elog "Other optional dependencies:"
+	elog "  sys-apps/dbus"
 	elog "  sys-process/lsof (device processes)"
 	elog "  virtual/eject (eject media)"
 	einfo
@@ -72,7 +72,7 @@ pkg_postinst() {
 		elog "When using SpaceFM without udisks, and without the udisks-daemon running,"
 		elog "you may need to enable kernel polling for device media changes to be detected."
 		elog "See /usr/share/doc/${PF}/html/spacefm-manual-en.html#devices-kernpoll"
-		has_version '<sys-fs/udev-173' && ewarn "You need at least udev-173"
+		has_version '<virtual/udev-173' && ewarn "You need at least udev-173"
 		kernel_is lt 2 6 38 && ewarn "You need at least kernel 2.6.38"
 		einfo
 	fi

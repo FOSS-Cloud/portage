@@ -1,6 +1,17 @@
 # ChangeLog for dev-ruby/rb-inotify
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rb-inotify/ChangeLog,v 1.14 2012/09/29 15:18:12 grobian Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rb-inotify/ChangeLog,v 1.17 2013/02/03 11:07:10 pacho Exp $
+
+  03 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due #63939
+
+*rb-inotify-0.9.0 (19 Jan 2013)
+
+  19 Jan 2013; Hans de Graaff <graaff@gentoo.org> +rb-inotify-0.9.0.ebuild:
+  Version bump.
+
+  15 Jan 2013; Rick Farina <zerochaos@gentoo.org> rb-inotify-0.8.8.ebuild:
+  adding ~arm keywords to net-analyzer/metasploit rdeps
 
   29 Sep 2012; Fabian Groffen <grobian@gentoo.org> rb-inotify-0.8.8.ebuild:
   Marked ~x64-macos

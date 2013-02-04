@@ -1,6 +1,27 @@
 # ChangeLog for dev-python/setproctitle
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/setproctitle/ChangeLog,v 1.16 2012/07/09 17:17:54 bicatali Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/setproctitle/ChangeLog,v 1.23 2013/01/01 14:17:05 ago Exp $
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> setproctitle-1.1.6.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> setproctitle-1.1.6.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> setproctitle-1.1.6.ebuild:
+  Stable for x86, wrt bug #449430
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> setproctitle-1.1.6.ebuild:
+  Stable for amd64, wrt bug #449430
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> setproctitle-1.1.6.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> -setproctitle-1.1.2.ebuild:
+  Remove old version.
+
+  12 Dec 2012; Agostino Sarubbo <ago@gentoo.org> setproctitle-1.1.6.ebuild:
+  Add ~ppc, wrt bug #413125
 
   09 Jul 2012; Sébastien Fabbro <bicatali@gentoo.org> setproctitle-1.1.6.ebuild:
   keyword amd64-linux and x86-linux

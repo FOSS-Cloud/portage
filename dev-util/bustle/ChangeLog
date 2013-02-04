@@ -1,6 +1,24 @@
 # ChangeLog for dev-util/bustle
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/bustle/ChangeLog,v 1.10 2012/11/14 22:04:51 slyfox Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/bustle/ChangeLog,v 1.16 2013/01/06 09:31:27 ago Exp $
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> bustle-0.4.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> bustle-0.4.2.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> bustle-0.4.2.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> bustle-0.4.2.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> bustle-0.4.2.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  07 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> bustle-0.4.2.ebuild:
+  Get rid of 'dev-haskell/time' depend as it's a ghc's core library.
 
 *bustle-0.4.2 (14 Nov 2012)
 

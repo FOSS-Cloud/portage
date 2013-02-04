@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/totem/totem-3.4.3.ebuild,v 1.5 2012/09/21 04:33:56 nirbheek Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/totem/totem-3.4.3.ebuild,v 1.7 2013/01/12 11:38:07 eva Exp $
 
 EAPI="4"
 GCONF_DEBUG="yes"
@@ -18,7 +18,7 @@ HOMEPAGE="http://projects.gnome.org/totem/"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-IUSE="doc flash grilo +introspection iplayer lirc nautilus nsplugin +python test
+IUSE="flash grilo +introspection iplayer lirc nautilus nsplugin +python test
 vala zeitgeist zeroconf"
 KEYWORDS="~amd64 ~x86 ~x86-fbsd"
 
@@ -86,12 +86,12 @@ DEPEND="${RDEPEND}
 	app-text/docbook-xml-dtd:4.5
 	>=app-text/gnome-doc-utils-0.20.3
 	app-text/scrollkeeper
+	>=dev-util/gtk-doc-am-1.14
 	>=dev-util/intltool-0.40
 	sys-devel/gettext
 	x11-proto/xextproto
 	x11-proto/xproto
 	virtual/pkgconfig
-	doc? ( >=dev-util/gtk-doc-1.14 )
 	test? ( python? ( dev-python/pylint ) )"
 # Only needed when regenerating C sources from Vala files
 #	vala? ( $(vala_depend) )"
@@ -164,13 +164,12 @@ src_prepare() {
 	# Only needed when regenerating C sources from Vala files
 	#use vala && vala_src_prepare
 	gnome2_src_prepare
-}
 
-src_configure() {
-	# Work around sandbox violations when FEATURES=-userpriv caused by
-	# gst-inspect-0.10 (bug #358755)
-	unset DISPLAY
-	gnome2_src_configure
+	# FIXME: upstream should provide a way to set GST_INSPECT, bug #358755 & co.
+	# gst-inspect causes sandbox violations when a plugin needs write access to
+	# /dev/dri/card* in its init phase.
+	sed -e "s|\(gst010_inspect=\).*|\1$(type -P true)|" \
+		-i configure || die
 }
 
 pkg_postinst() {

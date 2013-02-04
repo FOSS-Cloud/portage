@@ -1,6 +1,24 @@
 # ChangeLog for media-libs/libmp3splt
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libmp3splt/ChangeLog,v 1.28 2012/11/20 20:06:08 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libmp3splt/ChangeLog,v 1.32 2013/01/28 22:37:35 sping Exp $
+
+*libmp3splt-0.8.1a (28 Jan 2013)
+
+  28 Jan 2013; Sebastian Pipping <sping@gentoo.org> -libmp3splt-0.8.1.ebuild,
+  -files/libmp3splt-0.8.1-missing-files.patch, +libmp3splt-0.8.1a.ebuild:
+  Bump to 0.8.1a
+
+  28 Jan 2013; Sebastian Pipping <sping@gentoo.org> libmp3splt-0.8.1.ebuild:
+  Require doxygen 1.8.3.1 or later (bug #454348)
+
+*libmp3splt-0.8.1 (27 Jan 2013)
+
+  27 Jan 2013; Sebastian Pipping <sping@gentoo.org> +libmp3splt-0.8.1.ebuild,
+  +files/libmp3splt-0.8.1-missing-files.patch:
+  Bump to 0.8.1
+
+  01 Dec 2012; Raúl Porcel <armin76@gentoo.org> libmp3splt-0.7.3.ebuild:
+  alpha/sparc stable wrt #441372
 
   20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> libmp3splt-0.7.3.ebuild:
   Stable for x86, wrt bug #441372

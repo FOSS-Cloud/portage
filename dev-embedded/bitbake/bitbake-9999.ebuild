@@ -1,19 +1,19 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/bitbake/bitbake-9999.ebuild,v 1.10 2012/03/17 10:28:26 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-embedded/bitbake/bitbake-9999.ebuild,v 1.13 2013/01/14 04:07:33 radhermit Exp $
 
-EAPI="4"
-PYTHON_DEPEND="2:2.5"
+EAPI="5"
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_REQ_USE="sqlite"
 
-inherit distutils
+inherit distutils-r1 vcs-snapshot
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="git://git.openembedded.org/bitbake.git"
 	inherit git-2
-	SRC_URI=""
 	KEYWORDS=""
 else
-	SRC_URI="http://cgit.openembedded.org/cgit.cgi/${PN}/snapshot/${P}.tar.bz2"
+	SRC_URI="https://github.com/openembedded/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~ppc ~x86"
 fi
 
@@ -24,23 +24,9 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="doc"
 
-RDEPEND="
-	|| (
-		dev-lang/python:2.7[sqlite]
-		dev-lang/python:2.6[sqlite]
-		dev-lang/python:2.5[sqlite]
-		>=dev-python/pysqlite-2.3.2
-	)
-	dev-python/futures
-	dev-python/ply
+RDEPEND="dev-python/ply
 	dev-python/progressbar"
-DEPEND="${RDEPEND}
-	doc? ( dev-libs/libxslt )"
-
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-}
+DEPEND="doc? ( dev-libs/libxslt )"
 
 src_prepare() {
 	if ! use doc ; then

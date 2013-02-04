@@ -1,6 +1,73 @@
 # ChangeLog for gnome-base/gnome-control-center
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-control-center/ChangeLog,v 1.110 2012/09/23 14:12:30 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-control-center/ChangeLog,v 1.122 2013/02/02 22:33:47 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-control-center-3.6.3-r1.ebuild:
+  Add ~arm, wrt bug #449220
+
+  25 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org> metadata.xml:
+  Remove unused local description.
+
+  25 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-control-center-3.4.2-r1.ebuild,
+  -files/gnome-control-center-3.4.2-cups-1.6.patch,
+  -files/gnome-control-center-3.4.2-gentoo-paths.patch,
+  -files/gnome-control-center-3.4.2-optional-bt-colord-goa-wacom.patch,
+  -files/org.gnome.control-center.defaultbackground.policy:
+  Clean up old revisions and files.
+
+  22 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org> metadata.xml:
+  Switch to global systemd USE flag.
+
+  22 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-control-center-3.4.2-r1.ebuild, gnome-control-center-3.6.3-r1.ebuild,
+  metadata.xml:
+  Rename USE=wacom to INPUT_DEVICES=wacom to match the rest of the tree.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-control-center-3.6.3-r1.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-control-center-3.6.3-r1.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-control-center-3.6.3-r1.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  gnome-control-center-3.6.3-r1.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  gnome-control-center-3.6.3-r1.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-control-center-3.4.2-r1.ebuild:
+  Restore accidentally dropped ppc/ppc64 keywords. Cannot be propagated to 3.6
+  due to new libpwquality dependency.
+
+*gnome-control-center-3.6.3-r1 (25 Dec 2012)
+
+  25 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  -files/gnome-control-center-3.2.1-optional-colord.patch,
+  -gnome-control-center-3.2.2-r1.ebuild,
+  -files/gnome-control-center-3.2.2-metacity-gconf.patch,
+  -files/gnome-control-center-3.2.2-timezone-free.patch,
+  -files/gnome-control-center-3.2.2-timezones-linguas.patch,
+  -gnome-control-center-3.2.3.ebuild,
+  -files/gnome-control-center-3.2.3-cups-1.6.patch,
+  -files/gnome-control-center-3.2.3-optional-colord-goa.patch,
+  -gnome-control-center-3.4.2.ebuild,
+  +files/gnome-control-center-3.5.91-gentoo-paths.patch,
+  +files/gnome-control-center-3.5.91-optional-bt-colord-goa-wacom.patch,
+  +files/gnome-control-center-3.5.91-optional-kerberos.patch,
+  +gnome-control-center-3.6.3-r1.ebuild,
+  +files/gnome-control-center-3.6.3-pulseaudio-3-fix.patch, metadata.xml:
+  Version bump for Gnome 3.6. Switch to EAPI=5. Clean up old revisions.
 
   23 Sep 2012; Anthony G. Basile <blueness@gentoo.org>
   gnome-control-center-3.4.2.ebuild:

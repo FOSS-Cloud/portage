@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/freerdp/freerdp-1.1.0_pre20121004-r1.ebuild,v 1.3 2012/11/14 19:05:23 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/freerdp/freerdp-1.1.0_pre20121004-r1.ebuild,v 1.6 2012/12/04 15:36:53 ago Exp $
 
 EAPI="4"
 
@@ -10,7 +10,7 @@ if [[ ${PV} != 9999* ]]; then
 	SRC_URI="mirror://github/FreeRDP/FreeRDP/${P}.tar.gz
 		mirror://gentoo/${P}.tar.gz
 		http://dev.gentoo.org/~floppym/distfiles/${P}.tar.gz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="amd64 x86"
 else
 	inherit git-2
 	SRC_URI=""
@@ -25,8 +25,7 @@ HOMEPAGE="http://www.freerdp.com/"
 LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="alsa +channels +client cups debug directfb doc ffmpeg gstreamer jpeg
-	pulseaudio smartcard sse2 test X xinerama xv"
-
+	pulseaudio smartcard sse2 X xinerama xv"
 RESTRICT="test"
 
 RDEPEND="
@@ -45,8 +44,8 @@ RDEPEND="
 	)
 	ffmpeg? ( virtual/ffmpeg )
 	gstreamer? (
-		media-libs/gstreamer
-		media-libs/gst-plugins-base
+		media-libs/gstreamer:0.10
+		media-libs/gst-plugins-base:0.10
 		x11-libs/libXrandr
 	)
 	jpeg? ( virtual/jpeg )
@@ -62,7 +61,6 @@ DEPEND="${RDEPEND}
 		app-text/docbook-xml-dtd:4.1.2
 		app-text/xmlto
 	) ) )
-	test? ( dev-util/cunit )
 "
 
 DOCS=( README )
@@ -86,7 +84,6 @@ src_configure() {
 		$(cmake-utils_use_with pulseaudio PULSEAUDIO)
 		$(cmake-utils_use_with smartcard PCSC)
 		$(cmake-utils_use_with sse2 SSE2)
-		$(cmake-utils_use_with test CUNIT)
 		$(cmake-utils_use_with X X11)
 		$(cmake-utils_use_with X XCURSOR)
 		$(cmake-utils_use_with X XEXT)

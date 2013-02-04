@@ -1,4 +1,67 @@
 
+  13 Jan 2013; Anthony G. Basile <blueness@gentoo.org> -elfix-0.6.0.ebuild:
+  Remove older stable
+
+  10 Jan 2013; Anthony G. Basile <blueness@gentoo.org> elfix-0.7.0.ebuild:
+  Stable x86, bug #445334
+
+  06 Jan 2013; Anthony G. Basile <blueness@gentoo.org> -elfix-0.8.0.ebuild:
+  Remove deprecated unstable version
+
+*elfix-0.8.1 (06 Jan 2013)
+
+  06 Jan 2013; Anthony G. Basile <blueness@gentoo.org> +elfix-0.8.1.ebuild:
+  Minor version bump, switch to EAPI=5
+
+  31 Dec 2012; Jeroen Roovers <jer@gentoo.org> elfix-0.7.0.ebuild:
+  Stable for HPPA (bug #445334).
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> elfix-0.7.0.ebuild:
+  Stable for alpha, wrt bug #445334
+
+  29 Dec 2012; Anthony G. Basile <blueness@gentoo.org> -elfix-0.5.2.ebuild:
+  Remove older version, bug #440018
+
+*elfix-0.8.0 (29 Dec 2012)
+
+  29 Dec 2012; Anthony G. Basile <blueness@gentoo.org> +elfix-0.8.0.ebuild:
+  Version bump, use portage for link mappings in revdep-pax and migrate-pax
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> elfix-0.7.0.ebuild:
+  Stable for sparc, wrt bug #445334
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> elfix-0.7.0.ebuild:
+  Stable for ia64, wrt bug #445334
+
+  18 Dec 2012; Anthony G. Basile <blueness@gentoo.org> elfix-0.7.0.ebuild:
+  stable arm ppc ppc64, bug #445334
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> elfix-0.7.0.ebuild:
+  Stable for amd64, wrt bug #445334
+
+  18 Dec 2012; Anthony G. Basile <blueness@gentoo.org> elfix-0.7.0.ebuild:
+  Minor clean up of use_enable syntax
+
+  18 Dec 2012; Anthony G. Basile <blueness@gentoo.org> elfix-0.7.0.ebuild:
+  Remove USE=test which only works on a properly configured pax kernel
+
+*elfix-0.7.0 (17 Dec 2012)
+
+  17 Dec 2012; Anthony G. Basile <blueness@gentoo.org> +elfix-0.7.0.ebuild:
+  Version bump: adds improved tests, fixes flag setting, bug #446518
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> elfix-0.6.0.ebuild:
+  x86 stable wrt bug #445334
+
+  02 Dec 2012; <ago@gentoo.org> elfix-0.6.0.ebuild:
+  Stable for amd64, wrt bug #445334
+
+  30 Nov 2012; Jeroen Roovers <jer@gentoo.org> elfix-0.6.0.ebuild:
+  Stable for HPPA (bug #445334).
+
+  30 Nov 2012; Anthony G. Basile <blueness@gentoo.org> elfix-0.6.0.ebuild:
+  stable arm ppc ppc64, bug #445334
+
 *elfix-0.6.0 (11 Nov 2012)
 
   11 Nov 2012; Anthony G. Basile <blueness@gentoo.org> +elfix-0.6.0.ebuild,

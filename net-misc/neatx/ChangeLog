@@ -1,6 +1,17 @@
 # ChangeLog for net-misc/neatx
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/neatx/ChangeLog,v 1.19 2012/08/23 12:30:40 voyageur Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/neatx/ChangeLog,v 1.22 2013/01/30 18:07:25 ago Exp $
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> neatx-0.3.1_p59-r4.ebuild:
+  Stable for x86, wrt bug #441628
+
+  18 Dec 2012; Bernard Cafarelli <voyageur@gentoo.org>
+  neatx-0.3.1_p59-r1.ebuild, -neatx-0.3.1_p59-r2.ebuild,
+  neatx-0.3.1_p59-r4.ebuild:
+  Drop -Werror, spotted by ago in bug #447374
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> neatx-0.3.1_p59-r4.ebuild:
+  Stable for amd64, wrt bug #441628
 
 *neatx-0.3.1_p59-r4 (23 Aug 2012)
 
@@ -96,4 +107,3 @@
   09 Sep 2009; Bernard Cafarelli <voyageur@gentoo.org>
   +neatx-0.3.1_p43.ebuild, +metadata.xml:
   Initial commit from the NX overlay, ebuild by ikelos and me
-

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/autotools.eclass,v 1.149 2012/09/20 18:04:59 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/autotools.eclass,v 1.151 2013/01/28 04:13:00 vapier Exp $
 
 # @ECLASS: autotools.eclass
 # @MAINTAINER:
@@ -157,7 +157,13 @@ eautoreconf() {
 		for x in $(autotools_check_macro_val AC_CONFIG_SUBDIRS) ; do
 			if [[ -d ${x} ]] ; then
 				pushd "${x}" >/dev/null
-				AT_NOELIBTOOLIZE="yes" multijob_child_init eautoreconf || die
+				if [[ -z ${PAST_TOPLEVEL_EAUTORECONF} ]] ; then
+					PAST_TOPLEVEL_EAUTORECONF="yes" AT_NOELIBTOOLIZE="yes" \
+						multijob_child_init eautoreconf || die
+				else
+					# Avoid unsafe nested multijob_finish_one for bug #426512.
+					AT_NOELIBTOOLIZE="yes" eautoreconf || die
+				fi
 				popd >/dev/null
 			fi
 		done
@@ -531,15 +537,20 @@ autotools_check_macro_val() {
 }
 
 _autotools_m4dir_include() {
-	local x include_opts
+	local x include_opts flag
+
+	# Use the right flag to autoconf based on the version #448986
+	[[ ${WANT_AUTOCONF} == "2.1" ]] \
+		&& flag="l" \
+		|| flag="I"
 
 	for x in "$@" ; do
 		case ${x} in
 			# We handle it below
-			-I) ;;
+			-${flag}) ;;
 			*)
 				[[ ! -d ${x} ]] && ewarn "autotools.eclass: '${x}' does not exist"
-				include_opts+=" -I ${x}"
+				include_opts+=" -${flag} ${x}"
 				;;
 		esac
 	done

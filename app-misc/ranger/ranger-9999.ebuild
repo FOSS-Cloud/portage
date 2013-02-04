@@ -1,20 +1,17 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/ranger/ranger-9999.ebuild,v 1.1 2012/06/24 03:42:02 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/ranger/ranger-9999.ebuild,v 1.3 2013/01/11 22:25:09 radhermit Exp $
 
-EAPI="4"
-PYTHON_DEPEND="2:2.6 3:3.1"
-PYTHON_USE_WITH="ncurses"
-SUPPORT_PYTHON_ABIS="1"
-RESTRICT_PYTHON_ABIS="2.[45]"
+EAPI="5"
+PYTHON_COMPAT=( python{2_6,2_7,3_1,3_2,3_3} )
+PYTHON_REQ_USE="ncurses"
 
-inherit distutils git-2
+inherit distutils-r1 git-2
 
 EGIT_REPO_URI="git://git.savannah.nongnu.org/ranger.git"
 
 DESCRIPTION="A vim-inspired file manager for the console"
 HOMEPAGE="http://ranger.nongnu.org/"
-SRC_URI=""
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -24,8 +21,6 @@ IUSE=""
 RDEPEND="virtual/pager"
 
 pkg_postinst() {
-	distutils_pkg_postinst
-
 	elog "Ranger has many optional dependencies to support enhanced file previews."
 	elog "See the README or homepage for more details."
 }

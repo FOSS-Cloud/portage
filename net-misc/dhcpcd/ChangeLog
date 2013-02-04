@@ -1,6 +1,40 @@
 # ChangeLog for net-misc/dhcpcd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcpcd/ChangeLog,v 1.339 2012/11/06 18:13:44 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcpcd/ChangeLog,v 1.349 2013/01/03 16:50:25 williamh Exp $
+
+*dhcpcd-5.6.6 (03 Jan 2013)
+
+  03 Jan 2013; William Hubbs <williamh@gentoo.org> +dhcpcd-5.6.6.ebuild:
+  version bump for #448370.
+
+  15 Dec 2012; Raúl Porcel <armin76@gentoo.org> dhcpcd-5.6.4.ebuild:
+  alpha/ia64/s390/sh/sparc stable wrt #446283
+
+  10 Dec 2012; William Hubbs <williamh@gentoo.org> dhcpcd-5.6.4.ebuild:
+  add a call to epatch_user for bug #446366, thanks to Toralf Forster.
+
+  08 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> dhcpcd-5.6.4.ebuild:
+  x86 stable wrt bug #446283
+
+  08 Dec 2012; Anthony G. Basile <blueness@gentoo.org> dhcpcd-5.6.4.ebuild:
+  stable arm ppc64, bug #446283
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> dhcpcd-5.6.4.ebuild:
+  Stable for ppc, wrt bug #446283
+
+  07 Dec 2012; Jeroen Roovers <jer@gentoo.org> dhcpcd-5.6.4.ebuild:
+  Stable for HPPA (bug #446283).
+
+  07 Dec 2012; Sergey Popov <pinkbyte@gentoo.org> dhcpcd-5.6.4.ebuild:
+  Stable on amd64, wrt bug #446283
+
+*dhcpcd-5.6.4 (06 Dec 2012)
+
+  06 Dec 2012; William Hubbs <williamh@gentoo.org> +dhcpcd-5.6.4.ebuild:
+  version bump
+
+  01 Dec 2012; Raúl Porcel <armin76@gentoo.org> dhcpcd-5.6.2.ebuild:
+  alpha/ia64/s390/sh/sparc stable wrt #439926
 
   06 Nov 2012; Jeroen Roovers <jer@gentoo.org> dhcpcd-5.6.2.ebuild:
   Stable for HPPA (bug #439926).

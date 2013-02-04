@@ -1,6 +1,46 @@
 # ChangeLog for media-sound/spotify
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/spotify/ChangeLog,v 1.3 2012/11/16 05:13:07 prometheanfire Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/spotify/ChangeLog,v 1.11 2013/01/10 17:12:17 prometheanfire Exp $
+
+  10 Jan 2013; Matthew Thode <prometheanfire@gentoo.org>
+  spotify-0.8.8.323-r1.ebuild:
+  another small update for bug 450520
+
+  10 Jan 2013; Matthew Thode <prometheanfire@gentoo.org>
+  spotify-0.8.8.323-r1.ebuild:
+  updated r1 for bug 451090
+
+  09 Jan 2013; Matthew Thode <prometheanfire@gentoo.org>
+  spotify-0.8.8.323-r1.ebuild:
+  another update for spotify-0.8.8.323-r1 bug 450520
+
+*spotify-0.8.8.323-r1 (09 Jan 2013)
+
+  09 Jan 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.8.8.323-r1.ebuild:
+  r1 for removing the script used by spotify to register desktop and icon files
+
+  09 Jan 2013; Matthew Thode <prometheanfire@gentoo.org>
+  spotify-0.8.8.323.ebuild:
+  spelling fix for spotify
+
+  08 Jan 2013; Matthew Thode <prometheanfire@gentoo.org>
+  spotify-0.8.8.323.ebuild:
+  adding QA_REBUILT for bug 450832
+
+*spotify-0.8.8.323 (08 Jan 2013)
+
+  08 Jan 2013; Matthew Thode <prometheanfire@gentoo.org>
+  -spotify-0.8.4.103-r2.ebuild, -spotify-0.8.4.103-r3.ebuild,
+  +spotify-0.8.8.323.ebuild:
+  removing now-unavailable versions and updating ebuild, bug 450520
+
+*spotify-0.8.4.103-r3 (17 Dec 2012)
+
+  17 Dec 2012; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.8.4.103-r3.ebuild, -spotify-0.8.4.103-r1.ebuild,
+  -spotify-0.8.4.103.ebuild:
+  add the cups rdep to spotify, becuse, whynot
 
 *spotify-0.8.4.103-r2 (16 Nov 2012)
 
@@ -19,4 +59,3 @@
   07 Nov 2012; Matthew Thode <prometheanfire@gentoo.org>
   +spotify-0.8.4.103.ebuild:
   adding spotify-0.8.4.103 for bug 373093
-

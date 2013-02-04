@@ -1,6 +1,76 @@
 # ChangeLog for sys-kernel/dracut
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.94 2012/11/01 19:30:47 aidecoe Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.109 2013/02/02 23:12:46 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> dracut-024-r4.ebuild:
+  Add ~arm, wrt bug #449220
+
+  27 Jan 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-024-r4.ebuild:
+  Warn in postinst log if rd.auto option is not set.  Rels bug #453836.
+
+  08 Jan 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-024-r2.ebuild,
+  -dracut-024-r3.ebuild:
+  Remove old 024 revisions.
+
+*dracut-024-r4 (07 Jan 2013)
+
+  07 Jan 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +files/024-0002-dracut-functions.sh-fixed-inst_rules-s.patch,
+  -files/024-0002-dracut-functions.sh-support-for-altern.patch,
+  +files/024-0003-dracut-functions.sh-support-for-altern.patch,
+  -files/024-0003-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +files/024-0004-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +dracut-024-r4.ebuild:
+  Use alternative dirs to search for udev rules, but install in udevdir. Fixes
+  bug #447088. Thanks to Alexander Tsoy <alexander@tsoy.me> for a patch.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> dracut-024-r3.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  05 Jan 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-014-r3.ebuild,
+  dracut-018-r3.ebuild, dracut-019-r6.ebuild, dracut-022-r6.ebuild,
+  dracut-023-r4.ebuild, dracut-024-r2.ebuild, dracut-024-r3.ebuild:
+  Revert dependency from virtual/udev to sys-fs/udev. Dracut need to be
+  customized first to depend both on eudev and udev.
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> dracut-024-r3.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> dracut-024-r3.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> dracut-024-r3.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> dracut-024-r3.ebuild:
+  Add ~ppc, wrt bug #449220
+
+*dracut-024-r3 (16 Dec 2012)
+
+  16 Dec 2012; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  files/024-0001-Fallback-to-external-blkid-and-path_id.patch,
+  +files/024-0002-dracut-functions.sh-support-for-altern.patch,
+  +files/024-0003-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +dracut-024-r3.ebuild:
+  Use alternative dirs to search for udev rules. Use pkg-config to detect
+  primary udevdir at run-time. Fixes bug #447088.
+
+  16 Dec 2012; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-023-r2.ebuild,
+  -dracut-024.ebuild:
+  Remove old revisions.
+
+  28 Nov 2012; Jeroen Roovers <jer@gentoo.org> dracut-022-r6.ebuild:
+  Fix Manifest. Inherit multilib in 022-r6 too.
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> dracut-014-r3.ebuild,
+  dracut-018-r3.ebuild, dracut-019-r6.ebuild:
+  Inherit multilib.eclass for get_libdir function.
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> dracut-014-r3.ebuild,
+  dracut-018-r3.ebuild, dracut-019-r6.ebuild, dracut-022-r6.ebuild,
+  dracut-023-r2.ebuild, dracut-023-r4.ebuild, dracut-024.ebuild,
+  dracut-024-r2.ebuild:
+  Use virtual/udev instead of sys-fs/udev wrt #444398
 
 *dracut-024-r2 (01 Nov 2012)
 *dracut-023-r4 (01 Nov 2012)

@@ -1,6 +1,38 @@
 # ChangeLog for dev-ruby/rspec
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec/ChangeLog,v 1.129 2012/11/15 07:19:11 graaff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec/ChangeLog,v 1.139 2013/01/21 16:21:33 ago Exp $
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rspec-2.12.0.ebuild:
+  Stable for sparc, wrt bug #450532
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rspec-2.12.0.ebuild:
+  Stable for ia64, wrt bug #450532
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rspec-2.12.0.ebuild:
+  Stable for ppc, wrt bug #450532
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rspec-2.12.0.ebuild:
+  Stable for ppc64, wrt bug #450532
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rspec-2.12.0.ebuild:
+  Stable for alpha, wrt bug #450532
+
+  15 Jan 2013; Rick Farina <zerochaos@gentoo.org> rspec-1.3.1-r1.ebuild,
+  rspec-1.3.2.ebuild:
+  adding ~arm keywords to net-analyzer/metasploit rdeps
+
+  15 Jan 2013; Rick Farina <zerochaos@gentoo.org> rspec-2.10.0.ebuild,
+  rspec-2.11.0.ebuild, rspec-2.12.0.ebuild, rspec-2.6.0-r1.ebuild:
+  adding ~arm keywords to net-analyzer/metasploit rdeps
+
+  11 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rspec-2.12.0.ebuild:
+  Stable for x86, wrt bug #450532
+
+  11 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rspec-2.12.0.ebuild:
+  Stable for amd64, wrt bug #450532
+
+  09 Jan 2013; Jeroen Roovers <jer@gentoo.org> rspec-2.12.0.ebuild:
+  Stable for HPPA (bug #450532).
 
 *rspec-2.12.0 (15 Nov 2012)
 

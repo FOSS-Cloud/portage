@@ -1,6 +1,45 @@
 # ChangeLog for www-apps/owncloud
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/owncloud/ChangeLog,v 1.20 2012/11/22 16:03:52 voyageur Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/owncloud/ChangeLog,v 1.27 2013/01/29 13:27:37 voyageur Exp $
+
+  29 Jan 2013; Bernard Cafarelli <voyageur@gentoo.org> owncloud-4.0.11.ebuild,
+  owncloud-4.5.6.ebuild:
+  Also requires php with USE=simplexml, thanks Eugene Rosenzweig
+  <ugn@hotmail.com> in bug #454234
+
+  23 Jan 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  -files/owncloud-4.5.2-fix_sabre_connector.patch:
+  Clean leftover patch file
+
+*owncloud-4.5.6 (23 Jan 2013)
+*owncloud-4.0.11 (23 Jan 2013)
+
+  23 Jan 2013; Bernard Cafarelli <voyageur@gentoo.org> -owncloud-4.0.10.ebuild,
+  +owncloud-4.0.11.ebuild, -owncloud-4.5.5.ebuild, +owncloud-4.5.6.ebuild:
+  Security bump, remove vulnerable versions, bug #453604
+
+  17 Jan 2013; Bernard Cafarelli <voyageur@gentoo.org> owncloud-4.0.10.ebuild,
+  owncloud-4.5.5.ebuild:
+  Requires php with USE=hash, thanks grischa.toedt@web.de in bug #452304
+
+*owncloud-4.5.5 (27 Dec 2012)
+*owncloud-4.0.10 (27 Dec 2012)
+
+  27 Dec 2012; Bernard Cafarelli <voyageur@gentoo.org> -owncloud-4.0.9.ebuild,
+  +owncloud-4.0.10.ebuild, -owncloud-4.5.2-r1.ebuild, -owncloud-4.5.3.ebuild,
+  -owncloud-4.5.4.ebuild, +owncloud-4.5.5.ebuild:
+  Version bump, security bug #448270. Remove vulnerable versions, rename
+  USE=sqlite3 to sqlite to follow php
+
+*owncloud-4.5.4 (04 Dec 2012)
+
+  04 Dec 2012; Bernard Cafarelli <voyageur@gentoo.org> +owncloud-4.5.4.ebuild:
+  Version bump, thanks Michael Eklund <meklund@dealnews.com> in bug #445936
+
+*owncloud-4.5.3 (28 Nov 2012)
+
+  28 Nov 2012; Bernard Cafarelli <voyageur@gentoo.org> +owncloud-4.5.3.ebuild:
+  Version bump, thanks Daniel T. <dane.tschi@gmx.at> in bug #444966
 
 *owncloud-4.5.2-r1 (22 Nov 2012)
 

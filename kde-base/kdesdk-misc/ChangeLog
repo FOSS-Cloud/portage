@@ -1,6 +1,39 @@
 # ChangeLog for kde-base/kdesdk-misc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdesdk-misc/ChangeLog,v 1.206 2012/11/23 18:51:57 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdesdk-misc/ChangeLog,v 1.215 2013/01/28 12:12:52 ago Exp $
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org> -kdesdk-misc-4.9.3.ebuild,
+  -kdesdk-misc-4.9.4.ebuild:
+  Remove old
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> kdesdk-misc-4.9.5.ebuild:
+  Stable for ppc, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> kdesdk-misc-4.9.5.ebuild:
+  Stable for x86, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> kdesdk-misc-4.9.5.ebuild:
+  Stable for amd64, wrt bug #450678
+
+*kdesdk-misc-4.9.5 (05 Jan 2013)
+
+  05 Jan 2013; <creffett@gentoo.org> +kdesdk-misc-4.9.5.ebuild:
+  Version bump KDE SC 4.9.5
+
+  25 Dec 2012; Markus Meier <maekke@gentoo.org> kdesdk-misc-4.9.4.ebuild:
+  add ~arm
+
+  08 Dec 2012; Andreas K. Huettel <dilfridge@gentoo.org>
+  -kdesdk-misc-4.8.5.ebuild:
+  Drop KDE 4.8
+
+*kdesdk-misc-4.9.4 (05 Dec 2012)
+
+  05 Dec 2012; Alexey Shvetsov <alexxy@gentoo.org> +kdesdk-misc-4.9.4.ebuild:
+  Version bump KDE SC 4.9.4
+
+  30 Nov 2012; <ago@gentoo.org> kdesdk-misc-4.9.3.ebuild:
+  Stable for ppc, wrt bug #442394
 
   23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> kdesdk-misc-4.9.3.ebuild:
   Stable for x86, wrt bug #442394

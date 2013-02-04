@@ -1,6 +1,35 @@
 # ChangeLog for media-libs/ming
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/ming/ChangeLog,v 1.93 2012/07/29 18:22:11 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/ming/ChangeLog,v 1.102 2012/12/30 14:18:49 kensington Exp $
+
+  30 Dec 2012; Michael Palimaka <kensington@gentoo.org>
+  -files/ming-0.4.3-libpng-1.5.patch, -ming-0.4.3-r1.ebuild,
+  -ming-0.4.3-r2.ebuild:
+  Remove old.
+
+  29 Dec 2012; Raúl Porcel <armin76@gentoo.org> ming-0.4.4.ebuild:
+  alpha/s390/sh/sparc stable wrt #445440
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ming-0.4.4.ebuild:
+  Stable for ia64, wrt bug #445440
+
+  17 Dec 2012; Markus Meier <maekke@gentoo.org> ming-0.4.4.ebuild:
+  arm stable, bug #445440
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ming-0.4.4.ebuild:
+  Stable for ppc, wrt bug #445440
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ming-0.4.4.ebuild:
+  Stable for ppc64, wrt bug #445440
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> ming-0.4.4.ebuild:
+  x86 stable wrt bug #445440
+
+  05 Dec 2012; Jeroen Roovers <jer@gentoo.org> ming-0.4.4.ebuild:
+  Stable for HPPA (bug #445440).
+
+  01 Dec 2012; <ago@gentoo.org> ming-0.4.4.ebuild:
+  Stable for amd64, wrt bug #445440
 
   29 Jul 2012; Raúl Porcel <armin76@gentoo.org> ming-0.4.3-r2.ebuild:
   alpha/ia64/s390/sh/sparc stable wrt #419719

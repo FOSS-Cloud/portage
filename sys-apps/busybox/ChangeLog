@@ -1,6 +1,25 @@
 # ChangeLog for sys-apps/busybox
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/busybox/ChangeLog,v 1.331 2012/11/02 18:59:14 vapier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/busybox/ChangeLog,v 1.335 2013/01/25 18:51:27 vapier Exp $
+
+  25 Jan 2013; Mike Frysinger <vapier@gentoo.org> busybox-1.21.0.ebuild:
+  Add init.d logic from the live git ebuild.
+
+*busybox-1.21.0 (22 Jan 2013)
+
+  22 Jan 2013; Mike Frysinger <vapier@gentoo.org> +busybox-1.21.0.ebuild,
+  busybox-9999.ebuild:
+  Version bump.
+
+  21 Dec 2012; Anthony G. Basile <blueness@gentoo.org> files/klogd.initd,
+  files/ntpd.initd, files/syslogd.initd, files/watchdog.initd:
+  Add pidfile to initd for klogd, ntpd and watchdog, bug #444718
+
+  04 Dec 2012; Anthony G. Basile <blueness@gentoo.org> +files/klogd.confd,
+  +files/klogd.initd, +files/ntpd.confd, +files/ntpd.initd,
+  +files/syslogd.confd, +files/syslogd.initd, +files/watchdog.confd,
+  +files/watchdog.initd, busybox-9999.ebuild:
+  Integrate support for busybox-{sysklogd,ntpd,watchdog}, bug #444718
 
   02 Nov 2012; Mike Frysinger <vapier@gentoo.org> busybox-1.20.2.ebuild,
   busybox-9999.ebuild, metadata.xml:

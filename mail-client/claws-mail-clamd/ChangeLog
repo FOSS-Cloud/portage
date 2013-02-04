@@ -1,6 +1,20 @@
 # ChangeLog for mail-client/claws-mail-clamd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-clamd/ChangeLog,v 1.24 2012/11/20 20:31:41 fauli Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-clamd/ChangeLog,v 1.28 2013/01/04 11:04:26 fauli Exp $
+
+  04 Jan 2013; Christian Faulhammer <fauli@gentoo.org>
+  -claws-mail-clamd-3.5.4.ebuild:
+  clean up
+
+  03 Jan 2013; Christian Faulhammer <fauli@gentoo.org>
+  claws-mail-clamd-3.5.5.ebuild:
+  reintroduce deletion of .a and .la files
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> claws-mail-clamd-3.5.5.ebuild:
+  Stable for x86, wrt bug #448968
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> claws-mail-clamd-3.5.5.ebuild:
+  Stable for amd64, wrt bug #448968
 
 *claws-mail-clamd-3.5.5 (20 Nov 2012)
 
@@ -101,4 +115,3 @@
   22 Nov 2010; Christian Faulhammer <fauli@gentoo.org>
   +claws-mail-clamd-3.5.ebuild, +metadata.xml:
   initial import, a Claws Mail plugin to scan for viruses
-

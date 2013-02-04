@@ -1,6 +1,80 @@
 # ChangeLog for net-fs/samba
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/samba/ChangeLog,v 1.540 2012/11/26 11:59:19 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-fs/samba/ChangeLog,v 1.557 2013/02/03 12:56:41 polynomial-c Exp $
+
+  03 Feb 2013; Lars Wendler <polynomial-c@gentoo.org> samba-4.0.1-r1.ebuild:
+  Non-maintainer commit: Added test USE flag to IUSE.
+
+*samba-4.0.1-r1 (03 Feb 2013)
+
+  03 Feb 2013; Sergey Popov <pinkbyte@gentoo.org> +samba-4.0.1-r1.ebuild:
+  Revision bump: port to python-r1 eclass, add missing dependency, wrt bug
+  #195703. Thanks to Georgy Kovtunov
+
+*samba-3.5.21 (31 Jan 2013)
+
+  31 Jan 2013; Patrick Lauer <patrick@gentoo.org> +samba-3.5.21.ebuild:
+  Bump of 3.5
+
+*samba-3.6.11 (29 Jan 2013)
+
+  29 Jan 2013; Lars Wendler <polynomial-c@gentoo.org> +samba-3.6.11.ebuild:
+  Non-maintainer commit: Version bump.
+
+  21 Jan 2013; Víctor Ostorga <vostorga@gentoo.org> samba-4.0.1.ebuild:
+  Fixing up modules dir
+
+*samba-4.0.1 (15 Jan 2013)
+
+  15 Jan 2013; Víctor Ostorga <vostorga@gentoo.org> -samba-4.0.0.ebuild,
+  +samba-4.0.1.ebuild:
+  Version bump fixing CVE-2013-0172
+
+*samba-3.5.20 (09 Jan 2013)
+
+  09 Jan 2013; Lars Wendler <polynomial-c@gentoo.org> samba-3.5.15.ebuild,
+  +samba-3.5.20.ebuild, samba-3.6.9.ebuild, samba-3.6.10.ebuild,
+  -samba-4.0.0_rc5.ebuild, samba-4.0.0.ebuild, metadata.xml:
+  Non-maintainer commit: Fixed cups dependency in samba-3.5.15.ebuild (bug
+  #451026). Added latest 3.5 version. Adjusted SRC_URI so source packages can
+  still be found when they got superseded by newer versions. Removed obsolete
+  version. Removed unused USE flag description from metadata.xml file.
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> samba-3.6.10.ebuild:
+  Add ~ia64, wrt bug #444688
+
+  28 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> samba-4.0.0.ebuild:
+  Small dependency cleanup.
+
+  21 Dec 2012; Víctor Ostorga <vostorga@gentoo.org> samba-4.0.0.ebuild:
+  Samba 4 First Release, including fixes from everyone in bug #195703
+
+  20 Dec 2012; Andreas Schuerch <nativemad@gentoo.org> samba-3.6.9.ebuild:
+  x86 stable, see bug 432754
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> samba-3.6.10.ebuild:
+  Add ~ppc64, wrt bug #444688
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> samba-3.6.10.ebuild:
+  Add ~ppc, wrt bug #444688
+
+*samba-4.0.0 (12 Dec 2012)
+*samba-3.6.10 (12 Dec 2012)
+
+  12 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> -files/4.0/samba4.initd,
+  -samba-3.5.18.ebuild, -samba-3.6.6.ebuild, +samba-3.6.10.ebuild,
+  -samba-4.0.0_rc4.ebuild, +samba-4.0.0.ebuild:
+  non-maintainer commit: Version bump (bug #446926 for samba4). Removed old.
+
+  02 Dec 2012; Markus Meier <maekke@gentoo.org> samba-3.6.9.ebuild:
+  add ~arm, bug #444688
+
+  30 Nov 2012; Lars Wendler <polynomial-c@gentoo.org> files/4.0/samba4.confd:
+  Fixed comments in conf.d file. Thanks to Torsten Kurbad for providing a patch
+  in bug #444016.
+
+  29 Nov 2012; Jeroen Roovers <jer@gentoo.org> samba-3.6.9.ebuild:
+  Stable for HPPA (bug #432754).
 
   26 Nov 2012; Agostino Sarubbo <ago@gentoo.org> samba-3.6.9.ebuild:
   Stable for amd64, wrt bug #432754

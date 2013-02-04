@@ -1,6 +1,32 @@
 # ChangeLog for app-text/zathura
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/zathura/ChangeLog,v 1.41 2012/09/21 02:03:45 heroxbd Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/zathura/ChangeLog,v 1.48 2013/01/27 21:50:00 ssuominen Exp $
+
+*zathura-0.2.2 (27 Jan 2013)
+
+  27 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> +zathura-0.2.2.ebuild:
+  Version bump. Still using GTK+ 2.x because of -pdf-poppler plug-in
+  compability.
+
+  11 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> zathura-0.2.1.ebuild:
+  Keyword ~arm wrt #368757 (tested with cortex-a8, hardfloat)
+
+  11 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> -zathura-0.2.0.ebuild:
+  old
+
+  11 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> zathura-0.2.1.ebuild:
+  Fix testsuite; missing dev-libs/check dependency and virtualx usage for dummy
+  $DISPLAY wrt #426234 by Patrick Lauer
+
+  11 Jan 2013; Agostino Sarubbo <ago@gentoo.org> zathura-0.2.1.ebuild:
+  Stable for x86, wrt bug #450750
+
+  11 Jan 2013; Agostino Sarubbo <ago@gentoo.org> zathura-0.2.1.ebuild:
+  Stable for amd64, wrt bug #450750
+
+  11 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> zathura-0.2.1.ebuild:
+  Run fdo-mime_desktop_database_update from fdo-mime.eclass for MimeType= line
+  of zathura.desktop.
 
   21 Sep 2012; Benda Xu <heroxbd@gentoo.org> zathura-0.2.1.ebuild:
   keyword ~amd64-linux ~x86-linux
@@ -162,4 +188,3 @@
   05 Mar 2010; Samuli Suominen <ssuominen@gentoo.org> +zathura-0.0.2.ebuild,
   +files/zathura-0.0.2-build.patch:
   Initial commit.
-

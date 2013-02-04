@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/audit/audit-1.7.17.ebuild,v 1.6 2012/05/21 23:23:36 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/audit/audit-1.7.17.ebuild,v 1.7 2012/12/18 21:57:17 robbat2 Exp $
 
 EAPI="3"
 PYTHON_DEPEND="2"
@@ -60,7 +60,10 @@ src_prepare() {
 	fi
 
 	# Don't build static version of Python module.
-	epatch "${FILESDIR}"/${P}-python.patch
+	epatch "${FILESDIR}"/${PN}-1.7.17-python.patch
+	# bug #405887
+	epatch "${FILESDIR}"/audit-1.7.18-as-needed.patch
+	epatch "${FILESDIR}"/audit-1.7.18-missing_headers.patch
 
 	# Regenerate autotooling
 	eautoreconf

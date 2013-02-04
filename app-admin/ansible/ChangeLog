@@ -1,6 +1,30 @@
 # ChangeLog for app-admin/ansible
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.6 2012/10/21 14:50:25 pinkbyte Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.11 2013/01/15 15:18:28 pinkbyte Exp $
+
+  15 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> ansible-0.9-r1.ebuild:
+  Fix docompress call in src_install
+
+*ansible-0.9-r1 (10 Jan 2013)
+
+  10 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> -ansible-0.9.ebuild,
+  +ansible-0.9-r1.ebuild, +files/ansible-0.9-distribution-fix.patch:
+  Fix get_distribution() function, new revision
+
+  10 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> ansible-0.9.ebuild,
+  ansible-9999.ebuild:
+  Add missing dependency on net-misc/sshpass for 0.9 and later
+
+  05 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> ansible-9999.ebuild:
+  Sync live ebuild, regarding previous commit
+
+*ansible-0.9 (05 Jan 2013)
+*ansible-0.8 (05 Jan 2013)
+*ansible-0.7.2 (05 Jan 2013)
+
+  05 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> -ansible-0.7.1.ebuild,
+  +ansible-0.7.2.ebuild, +ansible-0.8.ebuild, +ansible-0.9.ebuild:
+  Version bump, thanks to Georgy Kovtunov. Drop old version
 
   21 Oct 2012; Sergey Popov <pinkbyte@gentoo.org> ansible-0.7.1.ebuild,
   ansible-9999.ebuild:

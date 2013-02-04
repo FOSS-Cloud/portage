@@ -1,6 +1,54 @@
 # ChangeLog for net-misc/vino
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/vino/ChangeLog,v 1.174 2012/05/20 03:59:50 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/vino/ChangeLog,v 1.187 2013/02/02 23:07:27 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> vino-3.6.2-r1.ebuild:
+  Add ~arm, wrt bug #449220
+
+  07 Jan 2013; Agostino Sarubbo <ago@gentoo.org> vino-2.32.2-r1.ebuild:
+  Stable for alpha, wrt bug #434930
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> vino-3.6.2-r1.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> vino-2.32.2-r1.ebuild:
+  Stable for ia64, wrt bug #434930
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> vino-2.32.2-r1.ebuild:
+  Stable for ppc64, wrt bug #434930
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> vino-3.6.2-r1.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> vino-3.6.2-r1.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> vino-2.32.2-r1.ebuild:
+  Stable for arm, wrt bug #434930
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> vino-2.32.2-r1.ebuild:
+  Stable for ppc, wrt bug #434930
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> vino-2.32.2-r1.ebuild:
+  Stable for sparc, wrt bug #434930
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> vino-2.32.2-r1.ebuild:
+  Stable for x86, wrt bug #343930
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> vino-2.32.2-r1.ebuild:
+  Stable for amd64, wrt bug #343930
+
+*vino-3.6.2-r1 (18 Dec 2012)
+*vino-3.4.2-r1 (18 Dec 2012)
+*vino-2.32.2-r1 (18 Dec 2012)
+
+  18 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> vino-2.32.2.ebuild,
+  +vino-2.32.2-r1.ebuild, -vino-3.2.2.ebuild, vino-3.4.2.ebuild,
+  +vino-3.4.2-r1.ebuild, +vino-3.6.2-r1.ebuild,
+  +files/vino-3.6.2-clipboard-leak.patch:
+  Version bump for gnome-3.6 (and drop keywords due to libsecret dependency,
+  bug #447426). Fix clipboard leak to unauthenticated clients (bug #434930,
+  CVE-2012-4429, thanks to nandhp). Update homepage and license. Drop old.
 
 *vino-3.4.2 (20 May 2012)
 

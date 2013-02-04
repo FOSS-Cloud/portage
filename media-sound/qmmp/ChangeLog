@@ -1,6 +1,32 @@
 # ChangeLog for media-sound/qmmp
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/qmmp/ChangeLog,v 1.99 2012/11/05 21:59:18 hwoarang Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/qmmp/ChangeLog,v 1.106 2013/01/18 10:31:27 ago Exp $
+
+  18 Jan 2013; Agostino Sarubbo <ago@gentoo.org> -qmmp-0.6.0.ebuild:
+  Remove old
+
+  18 Jan 2013; Agostino Sarubbo <ago@gentoo.org> qmmp-0.6.5.ebuild:
+  Stable for x86, wrt bug #440822
+
+  18 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> qmmp-0.6.5.ebuild:
+  Stable on amd64, wrt bug #440822
+
+  16 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> qmmp-0.6.6.ebuild:
+  Fix compability with libcdio-paranoia.
+
+*qmmp-0.6.6 (14 Jan 2013)
+
+  14 Jan 2013; Markos Chandras <hwoarang@gentoo.org> +qmmp-0.6.6.ebuild:
+  Version bump
+
+  22 Dec 2012; Markos Chandras <hwoarang@gentoo.org> -qmmp-0.6.3.ebuild,
+  -qmmp-0.6.4.ebuild:
+  Remove old
+
+*qmmp-0.6.5 (08 Dec 2012)
+
+  08 Dec 2012; Markos Chandras <hwoarang@gentoo.org> +qmmp-0.6.5.ebuild:
+  Version bump
 
 *qmmp-0.6.4 (05 Nov 2012)
 

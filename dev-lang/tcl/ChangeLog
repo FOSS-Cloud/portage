@@ -1,6 +1,52 @@
 # ChangeLog for dev-lang/tcl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/tcl/ChangeLog,v 1.158 2012/06/07 16:36:40 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/tcl/ChangeLog,v 1.168 2013/01/11 16:50:05 grobian Exp $
+
+  11 Jan 2013; Fabian Groffen <grobian@gentoo.org> tcl-8.6.0-r1.ebuild:
+  Fix CFLAGS fix not to leave a single s behind (in case of -Os)
+
+  11 Jan 2013; Justin Lecher <jlec@gentoo.org> tcl-8.6.0-r1.ebuild:
+  Subslot to PV
+
+  10 Jan 2013; Justin Lecher <jlec@gentoo.org> tcl-8.6.0-r1.ebuild:
+  Use minimal tarball
+
+*tcl-8.6.0-r1 (10 Jan 2013)
+
+  10 Jan 2013; Justin Lecher <jlec@gentoo.org> -tcl-8.6.0.ebuild,
+  +tcl-8.6.0-r1.ebuild:
+  Don't set encoding during build
+
+*tcl-8.6.0 (09 Jan 2013)
+
+  09 Jan 2013; Justin Lecher <jlec@gentoo.org> +tcl-8.6.0.ebuild:
+  Version Bump, #448602
+
+*tcl-8.5.13-r1 (09 Jan 2013)
+
+  09 Jan 2013; Justin Lecher <jlec@gentoo.org> +tcl-8.5.13-r1.ebuild,
+  +files/tcl-8.5.13-conf.patch, +files/tcl-8.5.13-multilib.patch, metadata.xml:
+  Fix build system so that autoconf will always be executed and sanitize sed so
+  that tclConfig.sh will be sane, #449134
+
+  05 Dec 2012; Ulrich Müller <ulm@gentoo.org> tcl-8.4.19.ebuild,
+  tcl-8.5.10-r1.ebuild, tcl-8.5.11-r1.ebuild, tcl-8.5.13.ebuild:
+  Specify LICENSE more precisely, bug 445468.
+
+  29 Nov 2012; Justin Lecher <jlec@gentoo.org> tcl-8.5.13.ebuild:
+  Renaming done wrong
+
+  29 Nov 2012; Justin Lecher <jlec@gentoo.org> tcl-8.5.13.ebuild:
+  Enable test phase
+
+*tcl-8.5.13 (29 Nov 2012)
+
+  29 Nov 2012; Justin Lecher <jlec@gentoo.org>
+  -files/tcl-8.4.11-multilib.patch, -tcl-8.4.18.ebuild, -tcl-8.5.7.ebuild,
+  -tcl-8.5.8-r1.ebuild, -tcl-8.5.8-r2.ebuild, -files/tcl-8.5.8-fortify.patch,
+  -tcl-8.5.9.ebuild, +files/tcl-8.5.10-conf.patch, -tcl-8.5.11.ebuild,
+  +tcl-8.5.13.ebuild, +files/tcl-8.5.13-autopath.patch:
+  Version Bump, #444296; Cleaned old
 
 *tcl-8.5.11-r1 (07 Jun 2012)
 

@@ -1,6 +1,91 @@
 # ChangeLog for net-misc/networkmanager
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager/ChangeLog,v 1.152 2012/11/05 03:59:34 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager/ChangeLog,v 1.168 2013/02/03 19:38:15 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> networkmanager-0.9.6.4.ebuild:
+  Stable for arm, wrt bug #448006
+
+  03 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due #333419
+
+  31 Jan 2013; Agostino Sarubbo <ago@gentoo.org> networkmanager-0.9.6.4.ebuild:
+  Stable for ppc64, wrt bug #448006
+
+  28 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  networkmanager-0.9.4.0-r6.ebuild, networkmanager-0.9.6.4.ebuild,
+  networkmanager-0.9.6.4-r1.ebuild:
+  Update description
+
+*networkmanager-9999 (28 Jan 2013)
+*networkmanager-0.9.7.995 (28 Jan 2013)
+
+  28 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +networkmanager-0.9.7.995.ebuild,
+  +files/networkmanager-0.9.7.995-pre-sleep.patch, +networkmanager-9999.ebuild,
+  +files/init.d.NetworkManager:
+  Add 0.9.8 development pre-release and a live git ebuild (bug #444814, thanks
+  to Pavel Šimerda and Sobhan Mohammadpour). Lots of improvements and
+  bugfixes. Wimax support has been disabled until we have a libnl:3 compatible
+  version in portage.
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> networkmanager-0.9.6.4.ebuild:
+  Stable for ppc, wrt bug #448006
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> networkmanager-0.9.6.4.ebuild:
+  Stable for x86, wrt bug #448006
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> networkmanager-0.9.6.4.ebuild:
+  Stable for amd64, wrt bug #448006
+
+*networkmanager-0.9.6.4-r1 (25 Jan 2013)
+
+  25 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  networkmanager-0.9.6.4.ebuild, +networkmanager-0.9.6.4-r1.ebuild,
+  metadata.xml:
+  Update to EAPI5 to clean up the ebuilds a bit. Allow disabling both
+  consolekit and systemd (bug #441756, thanks to Pavel Šimerda). Disable
+  systemd in 0.9.6.4 to allow stabilization; add 0.9.6.4-r1 with systemd
+  support.
+
+  25 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  networkmanager-0.9.6.4.ebuild,
+  -files/networkmanager-0.9.6.4-object-api.h.patch:
+  Remove the patch, since it apparently causes problems when building against
+  older libnl:3 releases (thanks to Pavel Šimerda). Instead, simply mark
+  networkmanager as incompatible with =libnl-3.2.20, since libnl-3.2.21
+  installs object-api.h again.
+
+  24 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -networkmanager-0.9.4.0-r5.ebuild, -networkmanager-0.9.4.0-r7.ebuild,
+  -networkmanager-0.9.6.0.ebuild,
+  -files/networkmanager-0.9.6.0-cached-ipv6-routes-1.patch,
+  -files/networkmanager-0.9.6.0-cached-ipv6-routes-2.patch,
+  networkmanager-0.9.6.4.ebuild,
+  +files/networkmanager-0.9.6.4-object-api.h.patch:
+  Fix build failure with libnl-3.2.20 (bug #453736, thanks to Harris
+  Landgarten, Ben Kohler et al.); drop old.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> networkmanager-0.9.6.4.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> networkmanager-0.9.6.4.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> networkmanager-0.9.6.4.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  11 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -networkmanager-0.8.4.0-r2.ebuild,
+  -files/networkmanager-0.8.4.0-fix-tests.patch,
+  -files/networkmanager-0.8.4.0-ifnet-smarter-write.patch,
+  -files/networkmanager-0.8.4.0-shared-connection.patch:
+  Drop nm-0.8 as requested in bug #382045.
+
+  02 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  networkmanager-0.8.4.0-r2.ebuild, networkmanager-0.9.4.0-r5.ebuild,
+  networkmanager-0.9.4.0-r6.ebuild, networkmanager-0.9.4.0-r7.ebuild,
+  networkmanager-0.9.6.0.ebuild, networkmanager-0.9.6.4.ebuild:
+  Use virtual/udev instead of sys-fs/udev wrt #444398
 
   05 Nov 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   -files/networkmanager-0.9_rc3-fix-tests.patch,

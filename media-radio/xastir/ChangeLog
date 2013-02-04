@@ -1,6 +1,27 @@
 # ChangeLog for media-radio/xastir
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/xastir/ChangeLog,v 1.28 2012/10/24 19:15:33 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-radio/xastir/ChangeLog,v 1.33 2013/01/25 20:01:49 tomjbe Exp $
+
+  25 Jan 2013; Thomas Beierlein <tomjbe@gentoo.org> xastir-2.0.4.ebuild:
+  Respect AR (bug #453244). Thanks ago.
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> xastir-2.0.4.ebuild:
+  Stable for x86, wrt bug #452724
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> xastir-2.0.4.ebuild:
+  Stable for amd64, wrt bug #452724
+
+*xastir-2.0.4 (07 Dec 2012)
+
+  07 Dec 2012; Thomas Beierlein <tomjbe@gentoo.org> +xastir-2.0.4.ebuild,
+  +files/xastir-2.0.4-fortify.diff,
+  +files/xastir-2.0.4-no-builtin-shapelib.diff,
+  +files/xastir-2.0.4-scripts.diff:
+  Version bump
+
+  07 Dec 2012; Thomas Beierlein <tomjbe@gentoo.org> xastir-2.0.0-r2.ebuild,
+  +files/xastir-2.0.0-dont-filter-flags.diff:
+  Do not filter duplicate CFLAGS (bug 411095). Thanks D.Dexter
 
   24 Oct 2012; Ulrich Müller <ulm@gentoo.org> xastir-2.0.0-r1.ebuild,
   xastir-2.0.0-r2.ebuild:
@@ -84,4 +105,3 @@
   +files/xastir-1.9.8-Destdir.diff, +files/xastir-1.9.8-scripts.diff,
   +metadata.xml:
   Moved back from sunrise. See Bug #109695
-

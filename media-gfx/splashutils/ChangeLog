@@ -1,6 +1,42 @@
 # ChangeLog for media-gfx/splashutils
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/splashutils/ChangeLog,v 1.205 2012/10/28 16:20:50 hwoarang Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/splashutils/ChangeLog,v 1.215 2013/02/02 22:45:11 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> splashutils-1.5.4.4-r2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  20 Jan 2013; Pacho Ramos <pacho@gentoo.org> -splashutils-1.5.4.3-r3.ebuild,
+  -splashutils-1.5.4.4.ebuild, metadata.xml:
+  Cleanup due retirement, bug #35242
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> splashutils-1.5.4.4-r2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> splashutils-1.5.4.4-r2.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> splashutils-1.5.4.4-r2.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> splashutils-1.5.4.4-r2.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> splashutils-1.5.4.3-r3.ebuild,
+  splashutils-1.5.4.4.ebuild, splashutils-1.5.4.4-r1.ebuild,
+  splashutils-1.5.4.4-r2.ebuild:
+  virtualized references to sys-fs/udev
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> splashutils-1.5.4.4-r1.ebuild:
+  Stable for ppc, wrt bug #422921
+
+  30 Nov 2012; Michael Weber <xmw@gentoo.org> -splashutils-1.5.4.4-r3.ebuild:
+  Remove broken version
+
+*splashutils-1.5.4.4-r3 (30 Nov 2012)
+
+  30 Nov 2012; Michael Weber <xmw@gentoo.org> +splashutils-1.5.4.4-r3.ebuild,
+  +files/splashutils-1.5.4.4-r3-bzip2.patch:
+  Revbump to add -lbz2 to libfbsplashrender.pc (bug 408283)
 
   28 Oct 2012; Markos Chandras <hwoarang@gentoo.org>
   splashutils-1.5.4.4-r1.ebuild:

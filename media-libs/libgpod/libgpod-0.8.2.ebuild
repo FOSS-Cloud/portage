@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libgpod/libgpod-0.8.2.ebuild,v 1.7 2012/08/16 22:03:03 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libgpod/libgpod-0.8.2.ebuild,v 1.9 2013/02/03 16:34:39 ssuominen Exp $
 
 EAPI=4
 
@@ -28,7 +28,7 @@ RDEPEND=">=app-pda/libplist-1.0
 		>=media-libs/mutagen-1.8
 		>=dev-python/pygobject-2.8:2
 		)
-	udev? ( sys-fs/udev )
+	udev? ( virtual/udev )
 	mono? (
 		>=dev-lang/mono-1.9.1
 		>=dev-dotnet/gtk-sharp-2.12
@@ -37,6 +37,7 @@ DEPEND="${RDEPEND}
 	python? ( >=dev-lang/swig-1.3.24 )
 	dev-libs/libxslt
 	dev-util/intltool
+	sys-devel/gettext
 	virtual/pkgconfig"
 
 DOCS="AUTHORS NEWS README* TROUBLESHOOTING"

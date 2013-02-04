@@ -1,10 +1,10 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/vzctl/vzctl-9999.ebuild,v 1.11 2012/08/11 13:57:38 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/vzctl/vzctl-9999.ebuild,v 1.13 2012/12/13 08:45:38 pinkbyte Exp $
 
-EAPI="4"
+EAPI="5"
 
-inherit bash-completion-r1 autotools git-2 toolchain-funcs
+inherit bash-completion-r1 autotools git-2 udev toolchain-funcs
 
 DESCRIPTION="OpenVZ ConTainers control utility"
 HOMEPAGE="http://openvz.org/"
@@ -14,13 +14,15 @@ EGIT_REPO_URI="git://git.openvz.org/pub/${PN}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="+ploop +cgroup"
 
 RDEPEND="
 	net-firewall/iptables
 	sys-apps/ed
-	sys-apps/iproute2
-	sys-fs/vzquota"
+	>=sys-apps/iproute2-3.0
+	sys-fs/vzquota
+	ploop? ( >=sys-cluster/ploop-1.5 )
+	cgroup? ( >=dev-libs/libcgroup-0.37 )"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
@@ -29,9 +31,7 @@ src_prepare() {
 	# Set default OSTEMPLATE on gentoo
 	sed -e 's:=redhat-:=gentoo-:' -i etc/dists/default || die
 	eautoreconf
-	local udevdir=/lib/udev
-	has_version sys-fs/udev && udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-	sed -i -e "s:/lib/udev:${udevdir}:" src/lib/dev.c || die
+	sed -i -e "s:/lib/udev:$(udev_get_udevdir):" src/lib/dev.c || die
 }
 
 src_configure() {
@@ -39,13 +39,13 @@ src_configure() {
 		--localstatedir=/var \
 		--enable-udev \
 		--enable-bashcomp \
-		--enable-logrotate
+		--enable-logrotate \
+		$(use_with ploop) \
+		$(use_with cgroup)
 }
 
 src_install() {
-	local udevdir=/lib/udev
-	has_version sys-fs/udev && udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-	emake DESTDIR="${D}" udevdir="${udevdir}"/rules.d install install-gentoo
+	emake DESTDIR="${D}" udevdir="$(udev_get_udevdir)"/rules.d install install-gentoo
 
 	# install the bash-completion script into the right location
 	rm -rf "${ED}"/etc/bash_completion.d

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/use.mask,v 1.149 2012/11/24 21:38:14 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/use.mask,v 1.157 2013/02/01 21:27:43 mgorny Exp $
 
 # not ready for primetime
 packagekit
@@ -57,8 +57,12 @@ sse2
 sse3
 sse4
 sse4a
+sse41
 sse5
 ssse3
+avx
+avx128fma
+avx256
 svga
 win32codecs
 real
@@ -309,3 +313,20 @@ python_single_target_python3_3
 # Luca barbato <lu_zero@gentoo.org> (14 Oct 2012)
 # Pending keywording on arches
 fdk
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (09 Dec 2012)
+# dev-lang/orc is useful only for some specific arches (amd64/x86/arm/...)
+orc
+
+# Mike Gilbert <floppym@gentoo.org> (02 Jan 2013)
+# PyPy is unkeyworded on most arches. If you are running amd64 or x86,
+# please switch to one of the testing 13.0 profiles to get it.
+python_targets_pypy1_9
+python_targets_pypy2_0
+python_single_target_pypy1_9
+python_single_target_pypy2_0
+
+# Michał Górny <mgorny@gentoo.org> (26 Jan 2013)
+# Mask the multilib flags globally. Unmasked in specific arches.
+abi_x86_32
+abi_x86_64

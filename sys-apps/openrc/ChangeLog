@@ -1,6 +1,69 @@
 # ChangeLog for sys-apps/openrc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/ChangeLog,v 1.246 2012/11/25 06:12:19 williamh Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/ChangeLog,v 1.262 2013/01/03 21:11:37 williamh Exp $
+
+  03 Jan 2013; William Hubbs <williamh@gentoo.org> metadata.xml,
+  openrc-9999.ebuild:
+  Add support for tools use flag
+
+  02 Jan 2013; William Hubbs <williamh@gentoo.org> -openrc-0.11.6.ebuild:
+  remove old version
+
+  02 Jan 2013; Raúl Porcel <armin76@gentoo.org> openrc-0.11.8.ebuild:
+  alpha/m68k/s390/sh stable wrt #435756
+
+  02 Jan 2013; Tobias Klausmann <klausman@gentoo.org> openrc-0.11.6.ebuild:
+  Stable on alpha, bug #435756
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> openrc-0.11.8.ebuild:
+  Stable for sparc, wrt bug #435756
+
+  29 Dec 2012; William Hubbs <williamh@gentoo.org> -openrc-0.10.5.ebuild:
+  remove old unstable version
+
+  28 Dec 2012; Jeroen Roovers <jer@gentoo.org> openrc-0.11.8.ebuild:
+  Stable for HPPA (bug #435756).
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> openrc-0.11.8.ebuild:
+  Stable for ia64, wrt bug #435756
+
+  09 Dec 2012; Markus Meier <maekke@gentoo.org> openrc-0.11.8.ebuild:
+  arm stable, bug #435756
+
+  08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> openrc-0.11.8.ebuild:
+  Stable for ppc64, wrt bug #435756
+
+  08 Dec 2012; Markus Meier <maekke@gentoo.org> openrc-0.11.6.ebuild:
+  arm stable, bug #435756
+
+*openrc-0.11.8 (07 Dec 2012)
+
+  07 Dec 2012; William Hubbs <williamh@gentoo.org> +openrc-0.11.8.ebuild:
+  dont try to remove the /init.d directory while root is ro, bug
+
+  07 Dec 2012; William Hubbs <williamh@gentoo.org> -openrc-0.11.7.ebuild:
+  remove broken version
+
+*openrc-0.11.7 (07 Dec 2012)
+
+  07 Dec 2012; William Hubbs <williamh@gentoo.org> +openrc-0.11.7.ebuild:
+  This reworks the migration from /lib*/rc/init.d to /run/openrc so that
+  it does not require a reboot (reported by Chainsaw), and adds a fix for
+  systems that have the /usr merge so that /run is not looked for under
+  /usr. Again this is going directly to stable where 0.11.x is stable
+  because it is part of the upgrade path.
+
+  02 Dec 2012; William Hubbs <williamh@gentoo.org> -openrc-0.11.5.ebuild:
+  remove broken version
+
+*openrc-0.11.6 (30 Nov 2012)
+
+  30 Nov 2012; William Hubbs <williamh@gentoo.org> +openrc-0.11.6.ebuild:
+  This fixes #443996 and #445116.
+  Also, we now unmount /usr if it was not pre-mounted by an initramfs on
+  Linux systems.
+  I am taking this to stable on all arches where 0.11.5 was stable because
+  these issues were not reported to me until we started stabilizing.
 
   25 Nov 2012; William Hubbs <williamh@gentoo.org> ChangeLog:
   sign manifest; the previous commit was mine as well. signing was not

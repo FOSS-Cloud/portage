@@ -1,6 +1,30 @@
 # ChangeLog for net-misc/openvpn
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openvpn/ChangeLog,v 1.239 2012/09/09 17:15:31 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openvpn/ChangeLog,v 1.245 2013/01/25 08:52:26 xarthisius Exp $
+
+  25 Jan 2013; Kacper Kowalik <xarthisius@gentoo.org> +files/openvpn.service,
+  +files/openvpn.tmpfile, openvpn-2.3.0.ebuild:
+  Add unit and tmp file for systemd compatibility. Fixes bug 448884
+
+  24 Jan 2013; Dirkjan Ochtman <djc@gentoo.org> openvpn-2.3.0.ebuild:
+  Emit message about split out easy-rsa.
+
+  12 Jan 2013; Dirkjan Ochtman <djc@gentoo.org> openvpn-9999.ebuild:
+  Update live ebuild with changes for 2.3.0 (bug 415995).
+
+  12 Jan 2013; Dirkjan Ochtman <djc@gentoo.org>
+  -files/openvpn-2.1_rc13-peercred.patch, -files/openvpn-2.1_rc20-pkcs11.patch,
+  -openvpn-2.1.4.ebuild, -files/openvpn-2.2.0-pkcs11.patch, metadata.xml:
+  Remove old versions and files.
+
+*openvpn-2.3.0 (12 Jan 2013)
+
+  12 Jan 2013; Dirkjan Ochtman <djc@gentoo.org> +openvpn-2.3.0.ebuild,
+  metadata.xml:
+  Version bump to 2.3.0 (bug 451376) with updated build system (bug 415995).
+
+  06 Jan 2013; Torsten Veller <tove@gentoo.org> openvpn-2.2.2.ebuild:
+  Drop duplicate arches from KEYWORDS
 
   09 Sep 2012; Justin Lecher <jlec@gentoo.org> openvpn-2.1.4.ebuild,
   openvpn-2.2.2.ebuild, openvpn-9999.ebuild:

@@ -1,6 +1,24 @@
 # ChangeLog for app-admin/puppet
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/puppet/ChangeLog,v 1.132 2012/11/11 01:40:27 idl0r Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/puppet/ChangeLog,v 1.137 2013/02/03 13:01:38 prometheanfire Exp $
+
+  03 Feb 2013; Matthew Thode <prometheanfire@gentoo.org> metadata.xml,
+  puppet-3.0.1.ebuild:
+  not maintainer-needed anymore
+
+  03 Feb 2013; Pacho Ramos <pacho@gentoo.org> -puppet-2.7.11.ebuild,
+  -puppet-2.7.12.ebuild, -puppet-2.7.13.ebuild, -puppet-2.7.18-r1.ebuild,
+  metadata.xml:
+  Cleanup due #22900
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> puppet-3.0.1.ebuild:
+  Add ~ppc, wrt bug #449184
+
+  31 Dec 2012; Jeroen Roovers <jer@gentoo.org> puppet-3.0.1.ebuild:
+  Marked ~hppa (bug #449184).
+
+  31 Dec 2012; Jeroen Roovers <jer@gentoo.org> puppet-3.0.1.ebuild:
+  Drop keywords for broken arches (bug #449184).
 
   11 Nov 2012; Christian Ruppert <idl0r@gentoo.org> puppet-3.0.1.ebuild:
   The puppetmasterd is no longer provided by puppet 3.x so there's no need to

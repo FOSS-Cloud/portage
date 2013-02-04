@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-base/postgresql-base-9999.ebuild,v 1.2 2012/06/28 09:39:05 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-base/postgresql-base-9999.ebuild,v 1.3 2013/01/12 19:08:18 titanofold Exp $
 
 EAPI="4"
 
@@ -146,7 +146,7 @@ src_compile() {
 }
 
 src_install() {
-	mkdir -p ${D}/usr/share/postgresql-${SLOT}
+	mkdir -p "${D}/usr/share/postgresql-${SLOT}"
 	emake DESTDIR="${D}" install
 	insinto /usr/include/postgresql-${SLOT}/postmaster
 	doins "${S}"/src/include/postmaster/*.h
@@ -156,7 +156,11 @@ src_install() {
 	#cp -r "${S}"/doc/src/sgml/man{1,7} "${ED}"/usr/share/postgresql-${SLOT}/man/ || die
 	#rm "${ED}/usr/share/postgresql-${SLOT}/man/man1"/{initdb,pg_{controldata,ctl,resetxlog},post{gres,master}}.1
 	#docompress /usr/share/postgresql-${SLOT}/man/man{1,7}
-	dodoc README doc/{TODO,bug.template}
+
+	# Don't use ${PF} here as three packages
+	# (dev-db/postgresql-{docs,base,server}) have the same set of docs.
+	insinto /usr/share/doc/postgresql-${SLOT}
+	doins README HISTORY doc/{README.*,TODO,bug.template}
 
 	cd "${S}/contrib"
 	emake DESTDIR="${D}" install

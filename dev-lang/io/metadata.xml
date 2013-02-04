@@ -3,7 +3,6 @@
 <pkgmetadata>
 <maintainer>
 <email>araujo@gentoo.org</email>
-<name>Luis F. Araujo</name>
 </maintainer>
 <use>
 <flag name="clutter">Build add-on for <pkg>media-libs/clutter</pkg></flag>

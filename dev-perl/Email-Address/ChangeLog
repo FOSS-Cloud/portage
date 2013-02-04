@@ -1,6 +1,34 @@
 # ChangeLog for dev-perl/Email-Address
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Email-Address/ChangeLog,v 1.64 2012/08/06 11:45:01 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Email-Address/ChangeLog,v 1.72 2013/01/06 20:47:31 tove Exp $
+
+  06 Jan 2013; Torsten Veller <tove@gentoo.org> -Email-Address-1.88.9.ebuild,
+  -Email-Address-1.892.0.ebuild, -Email-Address-1.893.0.ebuild,
+  -Email-Address-1.895.0.ebuild:
+  Cleanup
+
+  27 Dec 2012; Raúl Porcel <armin76@gentoo.org> Email-Address-1.896.0.ebuild:
+  alpha/sparc stable wrt #441222
+
+*Email-Address-1.897.0 (25 Dec 2012)
+
+  25 Dec 2012; Torsten Veller <tove@gentoo.org> +Email-Address-1.897.0.ebuild:
+  Version bump
+
+  13 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Email-Address-1.896.0.ebuild:
+  Stable for ia64, wrt bug #441222
+
+  06 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Email-Address-1.896.0.ebuild:
+  Stable for ppc64, wrt bug #441222
+
+  06 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Email-Address-1.896.0.ebuild:
+  Stable for ppc, wrt bug #441222
+
+  06 Dec 2012; <ago@gentoo.org> Email-Address-1.896.0.ebuild:
+  Stable for x86, wrt bug #441222
+
+  06 Dec 2012; <ago@gentoo.org> Email-Address-1.896.0.ebuild:
+  Stable for amd64, wrt bug #441222
 
 *Email-Address-1.896.0 (06 Aug 2012)
 

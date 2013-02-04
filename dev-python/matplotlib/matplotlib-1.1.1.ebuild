@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/matplotlib/matplotlib-1.1.1.ebuild,v 1.5 2012/11/26 06:21:01 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/matplotlib/matplotlib-1.1.1.ebuild,v 1.8 2013/01/30 19:00:31 ago Exp $
 
 EAPI="3"
 
@@ -23,7 +23,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 IUSE="cairo doc excel examples fltk gtk latex qt4 test tk wxwidgets"
 SLOT="0"
-KEYWORDS="amd64 ppc ~ppc64 ~x86 ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="amd64 ppc ~ppc64 x86 ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 
 # Main license: matplotlib
 # Some modules: BSD
@@ -58,7 +58,7 @@ DEPEND="${CDEPEND}
 	test? ( dev-python/nose )"
 
 RDEPEND="${CDEPEND}
-	dev-python/pyparsing
+	virtual/pyparsing
 	cairo? ( dev-python/pycairo )
 	excel? ( dev-python/xlwt )
 	fltk? ( dev-python/pyfltk )

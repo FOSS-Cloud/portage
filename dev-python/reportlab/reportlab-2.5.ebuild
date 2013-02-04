@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/reportlab/reportlab-2.5.ebuild,v 1.8 2012/02/22 07:18:29 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/reportlab/reportlab-2.5.ebuild,v 1.10 2013/01/22 21:30:43 floppym Exp $
 
 EAPI="3"
 PYTHON_DEPEND="2"

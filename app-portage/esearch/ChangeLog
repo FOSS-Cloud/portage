@@ -1,6 +1,40 @@
 # ChangeLog for app-portage/esearch
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/esearch/ChangeLog,v 1.100 2012/11/02 19:28:35 fuzzyray Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/esearch/ChangeLog,v 1.111 2013/01/01 18:58:38 armin76 Exp $
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> esearch-1.3.ebuild:
+  s390/sh/sparc stable wrt #446834
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> esearch-1.3.ebuild:
+  Stable for alpha, wrt bug #446834
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> esearch-1.3.ebuild:
+  arm stable, bug #446834
+
+  23 Dec 2012; Agostino Sarubbo <ago@gentoo.org> esearch-1.3.ebuild:
+  Stable for ppc64, wrt bug #446834
+
+  19 Dec 2012; Jeroen Roovers <jer@gentoo.org> esearch-1.3.ebuild:
+  Stable for HPPA (bug #446834).
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> esearch-1.3.ebuild:
+  Stable for ia64, wrt bug #446834
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> esearch-1.3.ebuild:
+  Stable for ppc, wrt bug #446834
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> esearch-1.3.ebuild:
+  Stable for x86, wrt bug #446834
+
+  12 Dec 2012; Sergey Popov <pinkbyte@gentoo.org> esearch-1.3.ebuild:
+  Stable on amd64, wrt bug #446834
+
+  11 Dec 2012; Paul Varner <fuzzyray@gentoo.org> ChangeLog:
+  Forcing signed manifest, since previous key was expired.
+
+  11 Dec 2012; Paul Varner <fuzzyray@gentoo.org> esearch-1.3.ebuild,
+  esearch-9999.ebuild:
+  Add "|| die" to rm statements.
 
 *esearch-1.3 (02 Nov 2012)
 
@@ -429,4 +463,3 @@
   part of gentoolkit, I suppose, but it works fantastically stand-alone.  To
   use it, please use eupdatedb regularly, and then esearch instead of
   "emerge search" and esearch -S instead of "emerge -S"
-

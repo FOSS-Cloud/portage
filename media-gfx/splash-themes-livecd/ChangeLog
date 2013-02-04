@@ -1,6 +1,16 @@
 # ChangeLog for media-gfx/splash-themes-livecd
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/splash-themes-livecd/ChangeLog,v 1.22 2009/05/29 10:59:58 fauli Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/splash-themes-livecd/ChangeLog,v 1.24 2013/01/20 10:03:39 pacho Exp $
+
+  20 Jan 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due retirement, bug #35242
+
+  16 Dec 2012; Ulrich Müller <ulm@gentoo.org>
+  splash-themes-livecd-2005.0.ebuild, splash-themes-livecd-2005.1.ebuild,
+  splash-themes-livecd-2006.0.ebuild, splash-themes-livecd-2006.1.ebuild,
+  splash-themes-livecd-2007.0.ebuild, splash-themes-livecd-2007.0-r1.ebuild,
+  splash-themes-livecd-2007.0-r2.ebuild:
+  Fix LICENSE, bug 445834.
 
   29 May 2009; Christian Faulhammer <fauli@gentoo.org>
   splash-themes-livecd-2007.0-r2.ebuild:
@@ -122,4 +132,3 @@
   12 Oct 2004; Chris Gianelloni <wolf31o2@gentoo.org> +metadata.xml,
   +splash-themes-livecd-2004.3.ebuild:
   Initial import.
-

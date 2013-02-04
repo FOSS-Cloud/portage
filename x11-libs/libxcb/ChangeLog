@@ -1,6 +1,30 @@
 # ChangeLog for x11-libs/libxcb
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libxcb/ChangeLog,v 1.100 2012/11/18 12:25:37 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libxcb/ChangeLog,v 1.108 2013/01/04 18:02:20 jer Exp $
+
+  04 Jan 2013; Jeroen Roovers <jer@gentoo.org> libxcb-1.9.ebuild:
+  Stable for HPPA (bug #440872).
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> libxcb-1.9.ebuild:
+  s390/sh stable wrt #440872
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.ebuild:
+  Stable for alpha, wrt bug #440872
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.ebuild:
+  Stable for sparc, wrt bug #440872
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.ebuild:
+  Stable for ia64, wrt bug #440872
+
+  17 Dec 2012; Markus Meier <maekke@gentoo.org> libxcb-1.9.ebuild:
+  arm stable, bug #440872
+
+  08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.ebuild:
+  Stable for ppc64, wrt bug #440872
+
+  28 Nov 2012; Brent Baude <ranger@gentoo.org> libxcb-1.9.ebuild:
+  Marking libxcb-1.9 ppc stable for bug 440872
 
   18 Nov 2012; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.ebuild:
   Stable for x86, wrt bug #440872

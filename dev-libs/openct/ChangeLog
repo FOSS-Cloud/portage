@@ -1,6 +1,47 @@
 # ChangeLog for dev-libs/openct
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/openct/ChangeLog,v 1.98 2012/06/19 13:56:54 flameeyes Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/openct/ChangeLog,v 1.110 2013/01/01 18:48:27 armin76 Exp $
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> openct-0.6.20-r3.ebuild:
+  m68k/s390/sh stable wrt #418765
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> openct-0.6.20-r3.ebuild:
+  Stable for sparc, wrt bug #418765
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> openct-0.6.20-r3.ebuild:
+  Stable for alpha, wrt bug #418765
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> openct-0.6.20-r3.ebuild:
+  Stable for ia64, wrt bug #418765
+
+  11 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> openct-0.6.20.ebuild,
+  openct-0.6.20-r3.ebuild:
+  Use the udev_newrules function from udev.eclass
+
+  04 Dec 2012; Anthony G. Basile <blueness@gentoo.org> openct-0.6.20-r3.ebuild:
+  stable arm, bug #418765
+
+  04 Dec 2012;  <ago@gentoo.org> openct-0.6.20-r3.ebuild:
+  Stable for x86, wrt bug #418765
+
+  03 Dec 2012; Anthony G. Basile <blueness@gentoo.org> openct-0.6.20-r3.ebuild:
+  stable ppc ppc64, bug #418765
+
+  29 Nov 2012; Jeroen Roovers <jer@gentoo.org> openct-0.6.20-r3.ebuild:
+  Stable for HPPA (bug #418765).
+
+  29 Nov 2012; <ago@gentoo.org> openct-0.6.20-r3.ebuild:
+  Stable for amd64, wrt bug #418765
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> -openct-0.6.20-r2.ebuild:
+  old
+
+*openct-0.6.20-r3 (28 Nov 2012)
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> openct-0.6.20.ebuild,
+  +openct-0.6.20-r3.ebuild:
+  Use virtual/udev. Use udev.eclass to install udev helpers and rules to
+  correct directories wrt #419423 by SpanKY
 
 *openct-0.6.20-r2 (19 Jun 2012)
 

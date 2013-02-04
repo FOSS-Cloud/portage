@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/systemd.eclass,v 1.19 2012/11/21 09:06:42 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/systemd.eclass,v 1.21 2012/12/31 13:09:09 mgorny Exp $
 
 # @ECLASS: systemd.eclass
 # @MAINTAINER:
@@ -47,6 +47,18 @@ systemd_get_unitdir() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	echo "${EPREFIX}$(_systemd_get_unitdir)"
+}
+
+# @FUNCTION: systemd_get_userunitdir
+# @DESCRIPTION:
+# Output the path for the systemd user unit directory (not including
+# ${D}). This function always succeeds, even if systemd is not
+# installed.
+systemd_get_userunitdir() {
+	has "${EAPI:-0}" 0 1 2 && ! use prefix && EPREFIX=
+	debug-print-function ${FUNCNAME} "${@}"
+
+	echo "${EPREFIX}/usr/lib/systemd/user"
 }
 
 # @FUNCTION: systemd_get_utildir
@@ -183,4 +195,27 @@ systemd_to_myeconfargs() {
 		"${myeconfargs[@]}"
 		--with-systemdsystemunitdir="$(systemd_get_unitdir)"
 	)
+}
+
+# @FUNCTION: systemd_update_catalog
+# @DESCRIPTION:
+# Update the journald catalog. This needs to be called after installing
+# or removing catalog files.
+#
+# If systemd is not installed, no operation will be done. The catalog
+# will be (re)built once systemd is installed.
+#
+# See: http://www.freedesktop.org/wiki/Software/systemd/catalog
+systemd_update_catalog() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	# Make sure to work on the correct system.
+	local journalctl=${EPREFIX}/usr/bin/journalctl
+	if [[ -x ${journalctl} ]]; then
+		ebegin "Updating systemd journal catalogs"
+		journalctl --update-catalog
+		eend $?
+	else
+		debug-print "${FUNCNAME}: journalctl not found."
+	fi
 }

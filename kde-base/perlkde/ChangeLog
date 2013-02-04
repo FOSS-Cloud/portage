@@ -1,6 +1,38 @@
 # ChangeLog for kde-base/perlkde
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/perlkde/ChangeLog,v 1.48 2012/11/23 19:31:30 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/perlkde/ChangeLog,v 1.57 2013/01/28 12:13:36 ago Exp $
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org> -perlkde-4.9.3.ebuild,
+  -perlkde-4.9.4.ebuild:
+  Remove old
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org> perlkde-4.9.5.ebuild:
+  Stable for ppc, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> perlkde-4.9.5.ebuild:
+  Stable for x86, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> perlkde-4.9.5.ebuild:
+  Stable for amd64, wrt bug #450678
+
+*perlkde-4.9.5 (05 Jan 2013)
+
+  05 Jan 2013; <creffett@gentoo.org> +perlkde-4.9.5.ebuild:
+  Version bump KDE SC 4.9.5
+
+  26 Dec 2012; Markus Meier <maekke@gentoo.org> perlkde-4.9.4.ebuild:
+  add ~arm
+
+  08 Dec 2012; Andreas K. Huettel <dilfridge@gentoo.org> -perlkde-4.8.5.ebuild:
+  Drop KDE 4.8
+
+*perlkde-4.9.4 (05 Dec 2012)
+
+  05 Dec 2012; Alexey Shvetsov <alexxy@gentoo.org> +perlkde-4.9.4.ebuild:
+  Version bump KDE SC 4.9.4
+
+  30 Nov 2012; <ago@gentoo.org> perlkde-4.9.3.ebuild:
+  Stable for ppc, wrt bug #442394
 
   23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> perlkde-4.9.3.ebuild:
   Stable for x86, wrt bug #442394
@@ -188,4 +220,3 @@
   27 Jul 2011; Alexey Shvetsov <alexxy@gentoo.org> +perlkde-4.7.0.ebuild,
   +metadata.xml:
   Version bump KDE SC 4.7.0
-

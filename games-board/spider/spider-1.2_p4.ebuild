@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/spider/spider-1.2_p4.ebuild,v 1.5 2010/04/09 18:47:23 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-board/spider/spider-1.2_p4.ebuild,v 1.7 2013/01/24 00:01:58 hasufell Exp $
 
 EAPI=2
 inherit eutils games
@@ -14,7 +14,7 @@ HOMEPAGE="http://packages.debian.org/stable/games/spider"
 SRC_URI="mirror://debian/pool/main/s/spider/${MY_P}.orig.tar.gz
 	mirror://debian/pool/main/s/spider/${MY_P}-${DEB_V}.diff.gz"
 
-LICENSE="as-is"
+LICENSE="HPND"
 SLOT="0"
 KEYWORDS="~amd64 x86"
 IUSE="athena"

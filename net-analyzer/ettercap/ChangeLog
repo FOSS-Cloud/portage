@@ -1,6 +1,76 @@
 # ChangeLog for net-analyzer/ettercap
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/ettercap/ChangeLog,v 1.109 2012/11/03 12:58:57 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/ettercap/ChangeLog,v 1.126 2013/02/01 17:09:32 ago Exp $
+
+*ettercap-0.7.5.3 (01 Feb 2013)
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org> +ettercap-0.7.5.3.ebuild:
+  Version bump to 0.7.5.3, committing intentionally with stable keywords because
+  the change is trivial
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> -ettercap-0.7.5.1.ebuild,
+  -ettercap-0.7.5.ebuild, -ettercap-0.7.5_p20130103.ebuild:
+  Remove old
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.5.2.ebuild:
+  Stable for arm, wrt bug #451198
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.5.2.ebuild:
+  Stable for sparc, wrt bug #451198
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.5.2.ebuild:
+  Stable for alpha, wrt bug #451198
+
+  29 Jan 2013; Jeroen Roovers <jer@gentoo.org> ettercap-0.7.5.2.ebuild:
+  Stable for HPPA (bug #451198).
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.5.2.ebuild:
+  Stable for ppc64, wrt bug #451198
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.5.2.ebuild:
+  Stable for ppc, wrt bug #451198
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.5.2.ebuild:
+  Stable for x86, wrt bug #451198
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.5.2.ebuild:
+  Stable for amd64, wrt bug #451198
+
+*ettercap-0.7.5.2 (29 Jan 2013)
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> +ettercap-0.7.5.2.ebuild:
+  Version bump to 0.7.5.2
+
+  08 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  ettercap-0.7.5_p20130103.ebuild:
+  override INSTALL_SYSCONFDIR to install properly in a prefix environment
+
+  08 Jan 2013; Rick Farina <zerochaos@gentoo.org> ettercap-0.7.5.1.ebuild,
+  ettercap-0.7.5.ebuild, ettercap-9999.ebuild:
+  override INSTALL_SYSCONFDIR to install properly in a prefix environment
+
+*ettercap-0.7.5.1 (06 Jan 2013)
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> +ettercap-0.7.5.1.ebuild:
+  Version bump to 0.7.5.1
+
+*ettercap-0.7.5_p20130103 (03 Jan 2013)
+
+  03 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  +ettercap-0.7.5_p20130103.ebuild, -ettercap-0.7.5_p20121216.ebuild:
+  Automated addition of the new snapshot.
+
+*ettercap-0.7.5_p20121216 (16 Dec 2012)
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  +ettercap-0.7.5_p20121216.ebuild, -ettercap-0.7.5_p20121103.ebuild:
+  Automated addition of the new snapshot.
+
+*ettercap-9999 (16 Dec 2012)
+
+  16 Dec 2012; Rick Farina <zerochaos@gentoo.org> +ettercap-9999.ebuild:
+  it suits me to have a live version of this ebuild for testing, hope others
+  like it too
 
 *ettercap-0.7.5_p20121103 (03 Nov 2012)
 

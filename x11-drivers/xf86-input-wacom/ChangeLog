@@ -1,6 +1,34 @@
 # ChangeLog for x11-drivers/xf86-input-wacom
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-input-wacom/ChangeLog,v 1.64 2012/11/18 12:11:59 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-input-wacom/ChangeLog,v 1.72 2013/01/08 10:47:20 ago Exp $
+
+  08 Jan 2013; Agostino Sarubbo <ago@gentoo.org> xf86-input-wacom-0.19.0.ebuild:
+  Add ~sparc, wrt to bug #449220
+
+  06 Jan 2013; Mike Auty <ikelos@gentoo.org> metadata.xml:
+  Remove myself from the metadata.xml.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> xf86-input-wacom-0.18.0.ebuild:
+  Add ~sparc, wrt bug #449220
+
+*xf86-input-wacom-0.19.0 (04 Jan 2013)
+
+  04 Jan 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xf86-input-wacom-0.19.0.ebuild:
+  Version bump.
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> xf86-input-wacom-0.18.0.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> xf86-input-wacom-0.18.0.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  08 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  xf86-input-wacom-0.17.0.ebuild:
+  Stable for ppc64, wrt bug #440872
+
+  28 Nov 2012; Brent Baude <ranger@gentoo.org> xf86-input-wacom-0.17.0.ebuild:
+  Marking xf86-input-wacom-0.17.0 ppc stable for bug 440872
 
   18 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
   xf86-input-wacom-0.17.0.ebuild:

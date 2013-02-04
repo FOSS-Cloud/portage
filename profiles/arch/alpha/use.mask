@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation.
+# Copyright 1999-2013 Gentoo Foundation.
 # Distributed under the terms of the GNU General Public License, v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/use.mask,v 1.73 2012/11/24 21:38:11 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/use.mask,v 1.81 2013/01/20 16:53:23 ago Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -alpha
@@ -66,6 +66,8 @@ kde
 quvi
 systemd
 metalink
+tremor
+fdk
 
 # Stuff that doesn't compile on alpha
 clisp
@@ -87,11 +89,6 @@ devil
 gts
 
 # Other
-
-# Alexandre Rostovtsev <tetromino@gmail.com> (28 Oct 2011)
-# x11-misc/colord and app-admin/packagekit-base not tested. Bug #387959.
-colord
-packagekit
 
 # Raúl Porcel <armin76@gentoo.org> (23 Apr 2011)
 # Needs to be tested
@@ -200,10 +197,6 @@ wayland
 connman
 
 # Matt Turner <mattst88@gentoo.org (27 May 2012)
-# net-libs/gnome-online-accounts is not keyworded
-gnome-online-accounts
-
-# Matt Turner <mattst88@gentoo.org (27 May 2012)
 # sys-apps/entropy is not keyworded
 entropy
 
@@ -211,11 +204,14 @@ entropy
 # net-libs/libsocialweb is not keyworded
 socialweb
 
-# Michał Górny <mgorny@gentoo.org> (31 Oct 2012)
-# Mask PYTHON_TARGETS for implementations not keyworded on this arch.
-python_targets_pypy1_8
-python_targets_pypy1_9
-python_targets_jython2_5
-python_single_target_pypy1_8
-python_single_target_pypy1_9
-python_single_target_jython2_5
+# Alexandre Rostovtsev <tetromino@gentoo.org> (31 Dec 2012)
+# media-libs/xine-lib is not keyworded
+xine
+
+# Samuli Suominen <ssuominen@gentoo.org> (18 Jan 2013)
+# libdlm and cman are not keyworded
+cman
+clvm
+
+-zeitgeist
+template_haskell

@@ -1,8 +1,8 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/upower/upower-0.9.18.ebuild,v 1.7 2012/11/19 21:31:09 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-power/upower/upower-0.9.18.ebuild,v 1.10 2012/12/26 11:21:26 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 
 # PYTHON_DEPEND="test? 3"
 # inherit python
@@ -15,7 +15,7 @@ SRC_URI="http://${PN}.freedesktop.org/releases/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~ia64 ~mips ppc ppc64 ~sparc x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd"
 IUSE="debug doc +introspection ios kernel_FreeBSD kernel_linux systemd" # test
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.100
@@ -24,8 +24,8 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.100
 	>=sys-auth/polkit-0.104-r1
 	introspection? ( dev-libs/gobject-introspection )
 	kernel_linux? (
-		|| ( >=sys-fs/udev-171-r6[gudev] <sys-fs/udev-171[extras] )
 		virtual/libusb:1
+		virtual/udev[gudev]
 		ios? (
 			>=app-pda/libimobiledevice-1
 			>=app-pda/libplist-1
@@ -60,7 +60,6 @@ src_configure() {
 		backend=dummy
 	fi
 
-	# note: systemd.eclass is missing support for --with-systemdutildir=
 	econf \
 		--localstatedir="${EPREFIX}"/var \
 		$(use_enable introspection) \
@@ -73,6 +72,7 @@ src_configure() {
 		--with-html-dir="${EPREFIX}"/usr/share/doc/${PF}/html \
 		--with-backend=${backend} \
 		$(use_with ios idevice) \
+		"$(systemd_with_utildir)" \
 		"$(systemd_with_unitdir)"
 }
 

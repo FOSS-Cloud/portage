@@ -1,6 +1,18 @@
 # ChangeLog for mail-client/mutt
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/mutt/ChangeLog,v 1.233 2012/08/25 12:15:04 grobian Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/mutt/ChangeLog,v 1.236 2013/01/21 19:49:23 steev Exp $
+
+  21 Jan 2013; Steev Klimaszewski <steev@gentoo.org> mutt-1.5.21-r12.ebuild:
+  Add ~arm keyword
+
+  19 Dec 2012; Fabian Groffen <grobian@gentoo.org> mutt-1.5.21-r12.ebuild:
+  Drop duplicate patch, which caused no problems, but obviously isn't necessary
+
+*mutt-1.5.21-r12 (07 Dec 2012)
+
+  07 Dec 2012; Fabian Groffen <grobian@gentoo.org> +mutt-1.5.21-r12.ebuild,
+  -mutt-1.5.21-r9.ebuild:
+  Revbump, adding several fixes from upstream
 
 *mutt-1.5.21-r11 (25 Aug 2012)
 

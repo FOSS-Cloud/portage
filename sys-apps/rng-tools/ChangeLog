@@ -1,6 +1,51 @@
 # ChangeLog for sys-apps/rng-tools
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/rng-tools/ChangeLog,v 1.33 2012/11/11 06:24:22 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/rng-tools/ChangeLog,v 1.40 2012/12/24 17:03:01 flameeyes Exp $
+
+  24 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org> files/rngd-initd-4.1:
+  Fix typo. Thanks to Chris Mayo for reporting.
+
+  17 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org> files/rngd-confd-4.1,
+  files/rngd-initd-4.1:
+  Remove direct uses of /dev/urandom — if the user wants to, they can do it
+  explicitly; also update the upper limit for the watermark in the comment so
+  that users know to check the poolsize (hardened can be much bigger than 4k).
+  No revision bump since it's non-default behaviour anyway.
+
+*rng-tools-4-r5 (17 Dec 2012)
+
+  17 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org> +rng-tools-4-r5.ebuild,
+  -rng-tools-4-r4.ebuild, files/rngd-initd-4.1:
+  Handle NO_TPM the way NO_DRNG is handled, as otherwise it can fail the same
+  way.
+
+*rng-tools-4-r4 (16 Dec 2012)
+
+  16 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org> +rng-tools-4-r4.ebuild,
+  -rng-tools-4-r3.ebuild, files/rngd-initd-4.1:
+  Fix init script also when using an actual RNG device. Closes bug #447464 by
+  Toralf Förster.
+
+  16 Dec 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due retirement, #95685
+
+*rng-tools-4-r3 (16 Dec 2012)
+
+  16 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org> +rng-tools-4-r3.ebuild,
+  -rng-tools-4-r2.ebuild, files/rngd-confd-4.1, files/rngd-initd-4.1:
+  More fixes to the init script if there is no device at all. Also fix handling
+  of rdrand, as --no-drng=0 misbehaves.
+
+*rng-tools-4-r2 (16 Dec 2012)
+
+  16 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org> +files/rngd-confd-4.1,
+  +files/rngd-initd-4.1, +rng-tools-4-r2.ebuild:
+  Update init script so that OpenRC can check on the daemon, also fix stop with
+  rdrand-capable CPUs (bug #442238), and disallow /dev/urandom mixin by default
+  (bug #292239). The init script no longer tries to second-guess the
+  configuration parameters, leaving the erroring out for missing sources to rngd
+  itself, as it was broken and would have caused more trouble when rdrand is
+  present.
 
 *rng-tools-4-r1 (11 Nov 2012)
 

@@ -1,6 +1,19 @@
 # ChangeLog for net-libs/zeromq
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/zeromq/ChangeLog,v 1.29 2012/11/13 17:48:09 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/zeromq/ChangeLog,v 1.32 2013/01/24 10:56:53 naota Exp $
+
+  24 Jan 2013; Naohiro Aota <naota@gentoo.org> zeromq-2.2.0.ebuild,
+  zeromq-3.2.2.ebuild:
+  Update dependency to add ~x86-fbsd.
+
+*zeromq-3.2.2 (20 Jan 2013)
+
+  20 Jan 2013;  <qnikst@gentoo.org> +zeromq-3.2.2.ebuild, metadata.xml,
+  zeromq-2.1.10.ebuild, zeromq-2.2.0.ebuild:
+  Adding zeromq 3.2.2
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> zeromq-2.2.0.ebuild:
+  Add ~ppc64, wrt bug #442188
 
   13 Nov 2012; Jeroen Roovers <jer@gentoo.org> zeromq-2.2.0.ebuild:
   Marked ~hppa (bug #442188).

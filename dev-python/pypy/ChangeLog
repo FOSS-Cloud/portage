@@ -1,6 +1,35 @@
 # ChangeLog for dev-python/pypy
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy/ChangeLog,v 1.25 2012/11/18 02:06:28 floppym Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy/ChangeLog,v 1.31 2013/01/02 04:41:23 floppym Exp $
+
+  02 Jan 2013; Mike Gilbert <floppym@gentoo.org> pypy-2.0_beta1.ebuild:
+  Add keywords.
+
+  24 Dec 2012; Zac Medico <zmedico@gentoo.org> pypy-2.0_beta1.ebuild:
+  Add pypy2_0 to PYTHON_COMPAT, since it appears to work.
+
+*pypy-2.0_beta1 (20 Dec 2012)
+
+  20 Dec 2012; Mike Gilbert <floppym@gentoo.org>
+  +files/2.0-distutils-fix_handling_of_executables_and_flags.patch,
+  +files/2.0-no-static-hack.patch, +pypy-2.0_beta1.ebuild:
+  Version bump for testing, bug 445450. No keywords.
+
+  02 Dec 2012; Mike Gilbert <floppym@gentoo.org> pypy-1.8-r2.ebuild,
+  pypy-1.9-r2.ebuild:
+  Add missing back-slashes.
+
+  01 Dec 2012; Mike Gilbert <floppym@gentoo.org> pypy-1.8-r2.ebuild,
+  pypy-1.9-r2.ebuild:
+  Fix module compilation and simpify PYTHONPATH for grammar pickle generation.
+
+*pypy-1.8-r2 (01 Dec 2012)
+*pypy-1.9-r2 (01 Dec 2012)
+
+  01 Dec 2012; Michał Górny <mgorny@gentoo.org> +pypy-1.8-r2.ebuild,
+  +pypy-1.9-r2.ebuild:
+  Introduce a cleaned up PyPy ebuilds using python-any-r1 & installing epython
+  module.
 
   18 Nov 2012; Mike Gilbert <floppym@gentoo.org> pypy-1.8-r1.ebuild,
   pypy-1.9-r1.ebuild, pypy-1.9.ebuild:

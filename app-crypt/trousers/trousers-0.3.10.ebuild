@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/trousers/trousers-0.3.10.ebuild,v 1.3 2012/11/16 14:51:49 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/trousers/trousers-0.3.10.ebuild,v 1.7 2013/01/13 17:47:40 maekke Exp $
 
 EAPI=4
 
@@ -13,7 +13,7 @@ HOMEPAGE="http://trousers.sf.net"
 SRC_URI="mirror://sourceforge/trousers/${P}.tar.gz"
 LICENSE="CPL-1.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 arm x86"
 IUSE="doc" # gtk
 
 # gtk support presently does NOT compile.
@@ -89,8 +89,7 @@ src_install() {
 	use doc && dodoc doc/*
 	newinitd "${FILESDIR}"/tcsd.initd tcsd
 	newconfd "${FILESDIR}"/tcsd.confd tcsd
-	insinto "$(udev_get_udevdir)"/rules.d
-	doins "${FILESDIR}"/61-trousers.rules
+	udev_dorules "${FILESDIR}"/61-trousers.rules
 	fowners tss:tss /var/lib/tpm
 	rm -f "${ED}"/usr/lib*/libtspi.la
 }

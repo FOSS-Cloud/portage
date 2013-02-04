@@ -1,6 +1,44 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/package.use.mask,v 1.106 2012/11/11 20:11:58 lu_zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/package.use.mask,v 1.119 2013/01/31 05:57:08 tetromino Exp $
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (31 Jan 2013)
+# remove mask when net-libs/libqmi is keyworded here
+net-misc/modemmanager qmi qmi-newest
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (22 Jan 2013)
+# remove mask if/when media-gfx/argyllcms is keywored here.
+x11-misc/colord extra-print-profiles
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (31 Dec 2012)
+# requires app-office/unoconv, which requires virtual/ooo, which is not
+# keyworded here. Remove mask if this situation changes.
+gnome-extra/sushi office
+
+# Raúl Porcel <armin76@gentoo.org> (30 Dec 2012)
+# Needs testing
+media-libs/phonon gstreamer vlc
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (27 Dec 2012)
+# remove mask when app-text/yelp-tools is keyworded here
+>=gnome-extra/zenity-3.6 test
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (27 Dec 2012)
+# remove mask when dev-java/fop is keyworded here
+gnome-extra/libgda reports
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (27 Dec 2012)
+# remove mask when >=app-editors/gedit-3.6 is keyworded here
+dev-util/devhelp gedit
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (27 Dec 2012)
+# remove mask when app-crypt/libsecret is keyworded here
+>=gnome-base/gvfs-1.14 gnome-keyring
+>=gnome-extra/libgda-5.1 gnome-keyring
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (15 Dec 2012)
+# media-video/coherence not keyworded
+=media-video/totem-2* upnp-av
 
 # Luca Barbato <lu_zero@gentoo.org> (11 Nov 2012)
 # Libav 9 can use fdk-aac
@@ -39,23 +77,19 @@ sys-auth/consolekit acl
 # UDisks2 untested wrt http://bugs.gentoo.org/412801
 gnome-base/gvfs udisks
 
-# Raúl Porcel <armin76@gentoo.org> (26 Dec 2011)
-# Fails to build
-www-client/firefox crashreporter
-
 # Alexey Shvetsov <alexxy@gentoo.org> (17 Dec 2011)
 # mask use numa for openmpi
-sys-cluster/openmpi numa open-mx psm knem openmpi_fabrics_psm openmpi_fabrics_knem openmpi_fabrics_open-mx openmpi_fabrics_ofed openmpi_fabrics_dapl openmpi_rm_slurm openmpi_ofed_features_rdmacm
+sys-cluster/openmpi openmpi_fabrics_psm openmpi_fabrics_knem openmpi_fabrics_open-mx openmpi_fabrics_ofed openmpi_fabrics_dapl openmpi_rm_slurm openmpi_ofed_features_rdmacm
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (25 Nov 2011)
 # Mask USE flags on gnome-3.2 packages due to missing keywords on deps;
 # bug #390345
 >=app-cdr/brasero-3 tracker
 app-text/evince xps
->=dev-libs/folks-0.6 eds socialweb tracker
+>=dev-libs/folks-0.6 socialweb tracker
 >=gnome-base/gnome-menus-3.2 test
 >=gnome-base/gnome-panel-3 eds
->=gnome-base/nautilus-3 previewer sendto tracker
+>=gnome-base/nautilus-3 previewer tracker
 
 # Patrick McLean <chutzpah@gentoo.org> (08 Nov 2011)
 # mask conntrack USE flag for dnsmasq as dep is not keyworded
@@ -95,7 +129,7 @@ media-plugins/gst-plugins-meta dts libvisual vcd
 
 # Pacho Ramos <pacho@gentoo.org> (02 Apr 2011)
 # quvi support is needed to play youtube files now
-media-video/totem youtube
+media-video/totem flash youtube
 
 # Diego Elio Pettenò <flameeyes@gentoo.org> (17 Dec 2010)
 # needs sys-libs/libcap-ng that is masked right now

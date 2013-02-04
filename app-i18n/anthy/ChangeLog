@@ -1,6 +1,30 @@
 # ChangeLog for app-i18n/anthy
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/anthy/ChangeLog,v 1.133 2011/02/06 02:07:16 abcd Exp $
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/anthy/ChangeLog,v 1.141 2012/12/30 15:09:37 ago Exp $
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> anthy-9100h-r1.ebuild:
+  Stable for alpha, wrt bug #441080
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> anthy-9100h-r1.ebuild:
+  Stable for sparc, wrt bug #441080
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> anthy-9100h-r1.ebuild:
+  Stable for ia64, wrt bug #441080
+
+  10 Dec 2012; Jeroen Roovers <jer@gentoo.org> anthy-9100h-r1.ebuild:
+  Stable for HPPA (bug #441080).
+
+  08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> anthy-9100h-r1.ebuild:
+  Stable for ppc64, wrt bug #441080
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> anthy-9100h-r1.ebuild:
+  Stable for ppc, wrt bug #441080
+
+  07 Dec 2012; <ago@gentoo.org> anthy-9100h-r1.ebuild:
+  Stable for x86, wrt bug #441080
+
+  07 Dec 2012; <ago@gentoo.org> anthy-9100h-r1.ebuild:
+  Stable for amd64, wrt bug #441080
 
   06 Feb 2011; Jonathan Callen <abcd@gentoo.org> anthy-9100h-r1.ebuild:
   Add prefix keywords
@@ -499,4 +523,3 @@
   Initial import.  Ebuild first created by Satoshi Fuktommy
   <fuktommy@phaeton.cs.uec.ac.jp> and polished by MATSUU Takuto
   <matsuu@gentoo.org> at GentooJP BugTrack
-

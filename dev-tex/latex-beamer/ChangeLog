@@ -1,6 +1,50 @@
 # ChangeLog for dev-tex/latex-beamer
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tex/latex-beamer/ChangeLog,v 1.113 2012/11/24 02:18:03 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-tex/latex-beamer/ChangeLog,v 1.126 2013/01/13 11:21:21 ago Exp $
+
+  13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> latex-beamer-3.24.ebuild:
+  Stable for x86, wrt bug #449922
+
+  13 Jan 2013; Tim Harder <radhermit@gentoo.org> latex-beamer-3.26.ebuild:
+  Remove lyx use flag and clean up docs install (bug #451148).
+
+*latex-beamer-3.26 (09 Jan 2013)
+
+  09 Jan 2013; Tim Harder <radhermit@gentoo.org> +latex-beamer-3.26.ebuild:
+  Version bump.
+
+  07 Jan 2013; Agostino Sarubbo <ago@gentoo.org> latex-beamer-3.24.ebuild:
+  Stable for alpha, wrt bug #449922
+
+  07 Jan 2013; Jeroen Roovers <jer@gentoo.org> latex-beamer-3.24.ebuild:
+  Stable for HPPA (bug #449922).
+
+  06 Jan 2013; Markus Meier <maekke@gentoo.org> latex-beamer-3.24.ebuild:
+  arm stable, bug #449922
+
+  05 Jan 2013; Agostino Sarubbo <ago@gentoo.org> latex-beamer-3.24.ebuild:
+  Stable for sparc, wrt bug #449922
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> latex-beamer-3.24.ebuild:
+  Stable for ia64, wrt bug #449922
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> latex-beamer-3.24.ebuild:
+  Stable for ppc64, wrt bug #449922
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> latex-beamer-3.24.ebuild:
+  Stable for ppc, wrt bug #449922
+
+  03 Jan 2013; Agostino Sarubbo <ago@gentoo.org> latex-beamer-3.24.ebuild:
+  Stable for amd64, wrt bug #449922
+
+  03 Jan 2013; Tim Harder <radhermit@gentoo.org> -latex-beamer-3.21.ebuild,
+  -latex-beamer-3.22.ebuild, -latex-beamer-3.23.ebuild:
+  Remove old.
+
+*latex-beamer-3.25 (03 Jan 2013)
+
+  03 Jan 2013; Tim Harder <radhermit@gentoo.org> +latex-beamer-3.25.ebuild:
+  Version bump.
 
   24 Nov 2012; Tim Harder <radhermit@gentoo.org> latex-beamer-3.24.ebuild:
   Use gentoo mirror.

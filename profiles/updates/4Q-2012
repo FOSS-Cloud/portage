@@ -52,3 +52,10 @@ move mail-client/claws-mail-tnef_parse mail-client/claws-mail-tnef-parse
 move mail-client/claws-mail-spam_report mail-client/claws-mail-spam-report
 move x11-libs/vdpau-video x11-libs/libva-vdpau-driver
 move app-editors/XML-XSH app-editors/XML-XSH2
+slotmove <net-libs/farstream-0.1.90 0 0.1
+move dev-ruby/ruby-bsearch dev-ruby/bsearch
+move net-misc/ptunnel net-proxy/pingtunnel
+move media-sound/leechcraft-lemon net-misc/leechcraft-lemon
+move dev-haskell/hsql-sqlite dev-haskell/hsql-sqlite3
+slotmove dev-ruby/builder 3.1.4 3.1
+move x11-terms/terminal x11-terms/xfce4-terminal

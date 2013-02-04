@@ -1,6 +1,17 @@
 # ChangeLog for sci-geosciences/gmt
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gmt/ChangeLog,v 1.28 2012/06/16 16:57:44 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gmt/ChangeLog,v 1.30 2013/02/02 06:40:13 patrick Exp $
+
+*gmt-4.5.9 (02 Feb 2013)
+
+  02 Feb 2013; Patrick Lauer <patrick@gentoo.org>
+  +files/gmt-4.5.9-no-strip.patch, +gmt-4.5.9.ebuild:
+  Bump
+
+  12 Dec 2012; Justin Lecher <jlec@gentoo.org> gmt-4.5.8.ebuild,
+  +files/gmt-4.5.8-bfr-overflow.patch, +files/gmt-4.5.8-impl-dec.patch,
+  metadata.xml:
+  Backport fix for buffer overflow, #430030
 
   16 Jun 2012; Samuli Suominen <ssuominen@gentoo.org> gmt-4.5.6.ebuild,
   gmt-4.5.8.ebuild, metadata.xml:

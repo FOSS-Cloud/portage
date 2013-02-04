@@ -1,6 +1,45 @@
 # ChangeLog for dev-lang/gdl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/gdl/ChangeLog,v 1.33 2012/07/29 19:53:42 bicatali Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/gdl/ChangeLog,v 1.41 2013/01/10 22:40:35 bicatali Exp $
+
+*gdl-0.9.3-r2 (10 Jan 2013)
+
+  10 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org> +gdl-0.9.3-r2.ebuild,
+  -gdl-0.9.3-r1.ebuild, files/0.9.3-netcdf-cxx.patch:
+  Make sure we build an exec when python is not selected (bug #451070). Trim the
+  netcdf patch, depend on netcdf-cxx-4.2-r1 to avoid underlinking
+
+*gdl-0.9.3-r1 (08 Jan 2013)
+
+  08 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org> +gdl-0.9.3-r1.ebuild,
+  -gdl-0.9.3.ebuild:
+  Removed unused patch, revision bump for the few last changes
+
+  04 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org> -files/0.9.3-numpy.patch,
+  gdl-0.9.3.ebuild:
+  Reestricting python-3 per bug #450066
+
+  04 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org> +files/0.9.3-numpy.patch,
+  gdl-0.9.3.ebuild:
+  Added a patch for python-3 at configure time
+
+  03 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/0.9.3-netcdf-cxx.patch, gdl-0.9.3.ebuild:
+  Added a patch for netcdf-4 support, bug #449984
+
+  03 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org> gdl-0.9.2-r2.ebuild,
+  gdl-0.9.3.ebuild:
+  java is needed for antlr, bug #449462
+
+*gdl-0.9.3 (02 Jan 2013)
+
+  02 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/0.9.3-sstream.patch, +gdl-0.9.3.ebuild:
+  Version bump. Added a patch to overcome buffer overflows in integer to string
+  conversions
+
+  11 Dec 2012; Sébastien Fabbro <bicatali@gentoo.org> gdl-0.9.2-r2.ebuild:
+  Keyword amd64-linux and x86-linux
 
   29 Jul 2012; Sébastien Fabbro <bicatali@gentoo.org> gdl-0.9.2-r2.ebuild:
   Impose -odbc for wxGTK because of conflicting types between GDL types and SQL

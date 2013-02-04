@@ -1,6 +1,38 @@
 # ChangeLog for net-fs/cifs-utils
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/cifs-utils/ChangeLog,v 1.38 2012/11/25 13:08:38 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-fs/cifs-utils/ChangeLog,v 1.47 2013/01/01 19:05:38 armin76 Exp $
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> cifs-utils-5.6-r1.ebuild:
+  s390/sh stable wrt #444672
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cifs-utils-5.6-r1.ebuild:
+  Stable for alpha, wrt bug #444672
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cifs-utils-5.6-r1.ebuild:
+  Stable for sparc, wrt bug #444672
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cifs-utils-5.6-r1.ebuild:
+  Stable for ia64, wrt bug #444672
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  cifs-utils-5.6-r1.ebuild:
+  x86 stable wrt bug #444672
+
+*cifs-utils-5.8-r1 (04 Dec 2012)
+
+  04 Dec 2012; Tiziano Müller <dev-zero@gentoo.org> +cifs-utils-5.8-r1.ebuild,
+  -cifs-utils-5.8.ebuild:
+  Fix linux-info eclass usage by calling its pkg_setup method. Don't install
+  empty dir.
+
+  01 Dec 2012; Anthony G. Basile <blueness@gentoo.org> cifs-utils-5.6-r1.ebuild:
+  stable arm ppc64, bug #444672
+
+  29 Nov 2012; Brent Baude <ranger@gentoo.org> cifs-utils-5.6-r1.ebuild:
+  Marking cifs-utils-5.6-r1 ppc for bug 444672
+
+  29 Nov 2012; Jeroen Roovers <jer@gentoo.org> cifs-utils-5.6-r1.ebuild:
+  Stable for HPPA (bug #444672).
 
   25 Nov 2012; <ago@gentoo.org> cifs-utils-5.6-r1.ebuild:
   Stable for amd64, wrt bug #444672

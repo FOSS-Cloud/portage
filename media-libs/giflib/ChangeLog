@@ -1,6 +1,23 @@
 # ChangeLog for media-libs/giflib
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/giflib/ChangeLog,v 1.64 2012/05/09 00:23:21 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/giflib/ChangeLog,v 1.67 2013/01/23 18:03:04 vapier Exp $
+
+*giflib-5.0.4 (23 Jan 2013)
+
+  23 Jan 2013; Mike Frysinger <vapier@gentoo.org> +giflib-5.0.4.ebuild,
+  -giflib-5.0.2.ebuild, -giflib-5.0.3.ebuild:
+  Version bump #453686 by Agostino Sarubbo.
+
+*giflib-5.0.3 (06 Jan 2013)
+
+  06 Jan 2013; Mike Frysinger <vapier@gentoo.org> +giflib-5.0.3.ebuild:
+  Version bump #450566 by Agostino Sarubbo.
+
+*giflib-5.0.2 (30 Dec 2012)
+
+  30 Dec 2012; Mike Frysinger <vapier@gentoo.org> +giflib-5.0.2.ebuild:
+  Version bump -- masked until testing in the tree is finished #423393 by Peter
+  Alfredsen.
 
   09 May 2012; Alexis Ballier <aballier@gentoo.org> giflib-4.1.6-r2.ebuild:
   keyword ~amd64-fbsd

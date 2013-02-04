@@ -1,6 +1,25 @@
 # ChangeLog for app-text/qpdf
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/qpdf/ChangeLog,v 1.16 2012/11/06 13:57:40 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/qpdf/ChangeLog,v 1.21 2013/01/19 00:25:51 radhermit Exp $
+
+*qpdf-4.0.1 (19 Jan 2013)
+
+  19 Jan 2013; Tim Harder <radhermit@gentoo.org> +qpdf-4.0.1.ebuild:
+  Version bump and add subslot.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> qpdf-3.0.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+*qpdf-4.0.0 (03 Jan 2013)
+
+  03 Jan 2013; Tim Harder <radhermit@gentoo.org> +qpdf-4.0.0.ebuild:
+  Version bump.
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> qpdf-3.0.2.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  19 Dec 2012; Agostino Sarubbo <ago@gentoo.org> qpdf-3.0.2.ebuild:
+  Add ~ia64, wrt bug #428356
 
   06 Nov 2012; Alexis Ballier <aballier@gentoo.org> qpdf-3.0.2.ebuild:
   keyword ~amd64-fbsd

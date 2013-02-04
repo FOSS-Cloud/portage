@@ -1,6 +1,24 @@
 # ChangeLog for gnome-extra/zeitgeist-datahub
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/zeitgeist-datahub/ChangeLog,v 1.8 2012/09/11 19:24:44 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/zeitgeist-datahub/ChangeLog,v 1.14 2013/02/02 22:42:40 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> zeitgeist-datahub-0.9.5.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> zeitgeist-datahub-0.9.5.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> zeitgeist-datahub-0.9.5.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> zeitgeist-datahub-0.9.5.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> zeitgeist-datahub-0.9.5.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> zeitgeist-datahub-0.9.5.ebuild:
+  Add ~ppc, wrt bug #449220
 
 *zeitgeist-datahub-0.9.5 (11 Sep 2012)
 
@@ -39,4 +57,3 @@
   02 Mar 2011; Kevin McCarthy <signals@gentoo.org>
   +zeitgeist-datahub-0.7.0.ebuild, +metadata.xml:
   Initial commit. Ebuild by signals@gentoo.org.
-

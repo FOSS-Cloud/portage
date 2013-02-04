@@ -1,6 +1,25 @@
 # ChangeLog for media-gfx/splash-themes-gentoo
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/splash-themes-gentoo/ChangeLog,v 1.23 2012/02/16 18:47:11 phajdan.jr Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/splash-themes-gentoo/ChangeLog,v 1.26 2013/01/20 10:39:59 pinkbyte Exp $
+
+*splash-themes-gentoo-20101212-r1 (20 Jan 2013)
+
+  20 Jan 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +splash-themes-gentoo-20101212-r1.ebuild:
+  Revision bump: EAPI 5, QA fixes, use internal function for installation
+  instead of simple 'cp'. Show postinstallation messages only at first install,
+  wrt bug #440458
+
+  20 Jan 2013; Pacho Ramos <pacho@gentoo.org>
+  -splash-themes-gentoo-20050429.ebuild, -splash-themes-gentoo-20080914.ebuild,
+  -splash-themes-gentoo-20090324.ebuild, -splash-themes-gentoo-20090926.ebuild,
+  -splash-themes-gentoo-20100302.ebuild, -splash-themes-gentoo-20100820.ebuild,
+  metadata.xml:
+  Cleanup due retirement, bug #35242
+
+  03 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  splash-themes-gentoo-20101212.ebuild:
+  Stable for ppc, wrt bug #397067
 
   16 Feb 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org>
   splash-themes-gentoo-20101212.ebuild:
@@ -109,4 +128,3 @@
   Initial commmit. The package contains themes that were previously
   distributed as a part of the splashutils package. Extraction of the themes
   was requested in bug #90307.
-

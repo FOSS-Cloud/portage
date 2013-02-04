@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/ball/ball-1.4.1.ebuild,v 1.2 2012/07/26 15:17:02 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/ball/ball-1.4.1.ebuild,v 1.4 2013/01/27 14:30:47 jlec Exp $
 
 EAPI=4
 
@@ -48,6 +48,9 @@ PATCHES=(
 	"${FILESDIR}"/${P}-libsvm.patch
 	"${FILESDIR}"/${P}-pthread.patch
 	"${FILESDIR}"/${P}-python.patch
+	"${FILESDIR}"/${P}-missing-signed.patch
+	"${FILESDIR}"/${P}-gcc-4.7.patch
+	"${FILESDIR}"/${P}-BondOrder.xml.patch
 	)
 
 pkg_setup() {
@@ -66,4 +69,14 @@ src_configure() {
 		$(cmake-utils_use python BALL_PYTHON_SUPPORT)
 	)
 	cmake-utils_src_configure
+	local i
+	for i in "${S}"/data/*; do
+		ln -sf "${i}" "${BUILD_DIR}"/source/TEST/ || die
+		ln -sf "${i}" "${S}"/source/TEST/ || die
+	done
+}
+
+src_compile() {
+	cmake-utils_src_compile
+	use test && cmake-utils_src_make build_tests
 }

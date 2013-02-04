@@ -1,6 +1,77 @@
 # ChangeLog for media-sound/rhythmbox
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/rhythmbox/ChangeLog,v 1.222 2012/10/26 07:17:45 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/rhythmbox/ChangeLog,v 1.239 2013/02/02 22:58:15 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> rhythmbox-2.97.ebuild,
+  rhythmbox-2.98.ebuild:
+  Add ~arm, wrt bug #449220
+
+  08 Jan 2013; Denis Dupeyron <calchan@gentoo.org> rhythmbox-2.97.ebuild:
+  Only build against brasero-3.4* with USE=cdr, because older is too old and
+  more recent links against gstreamer 1.0 which conflicts with rhythmbox being
+  built against gstreamer 0.10.
+
+  07 Jan 2013; Denis Dupeyron <calchan@gentoo.org> rhythmbox-2.97.ebuild:
+  Prevent rhythmbox from linking against a webkit-gtk which itself is linked
+  against gstreamer 1.0.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rhythmbox-2.97.ebuild,
+  rhythmbox-2.98.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rhythmbox-2.97.ebuild,
+  rhythmbox-2.98.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rhythmbox-2.98.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rhythmbox-2.97.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> rhythmbox-2.98.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> rhythmbox-2.97.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> rhythmbox-2.98.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> rhythmbox-2.97.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  22 Dec 2012; Denis Dupeyron <calchan@gentoo.org> rhythmbox-2.97.ebuild:
+  Fixed missing dependency on media-libs/libdiscid when using musicbrainz.
+
+  20 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  rhythmbox-0.12.8-r1.ebuild, rhythmbox-0.13.3.ebuild, rhythmbox-2.97.ebuild,
+  rhythmbox-2.98.ebuild:
+  Do not call python.eclass functions when USE=-python (bug #447916, thanks to
+  MJJoker).
+
+  18 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  rhythmbox-0.12.8-r1.ebuild, rhythmbox-0.13.3.ebuild, rhythmbox-2.97.ebuild:
+  Remove useless doc USE flag (bug #438012).
+
+  16 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> metadata.xml:
+  Switch to global dbus, udev, webkit USE flags.
+
+  15 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  rhythmbox-0.12.8-r1.ebuild, rhythmbox-0.13.3.ebuild, -rhythmbox-2.96.ebuild,
+  rhythmbox-2.97.ebuild, rhythmbox-2.98.ebuild, metadata.xml:
+  Rename upnp USE flag to upnp-av (bug #435774, thanks to Michał Górny). Drop
+  old.
+
+  03 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  rhythmbox-0.12.8-r1.ebuild, rhythmbox-0.13.3.ebuild, rhythmbox-2.96.ebuild,
+  rhythmbox-2.97.ebuild, rhythmbox-2.98.ebuild:
+  Use virtual/udev instead of sys-fs/udev wrt #444398
+
+  03 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  rhythmbox-0.12.8-r1.ebuild, rhythmbox-0.13.3.ebuild, rhythmbox-2.96.ebuild,
+  rhythmbox-2.97.ebuild, rhythmbox-2.98.ebuild:
+  Use virtual/udev instead of sys-fs/udev wrt #444398
 
 *rhythmbox-2.98 (25 Oct 2012)
 

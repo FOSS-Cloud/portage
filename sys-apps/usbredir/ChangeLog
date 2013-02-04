@@ -1,6 +1,41 @@
 # ChangeLog for sys-apps/usbredir
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/usbredir/ChangeLog,v 1.19 2012/09/25 11:38:12 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/usbredir/ChangeLog,v 1.29 2013/02/02 23:09:48 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> usbredir-0.4.4.ebuild,
+  usbredir-0.6.ebuild:
+  Add ~arm, wrt bug #449220
+
+  25 Jan 2013; Agostino Sarubbo <ago@gentoo.org> usbredir-0.4.4.ebuild:
+  Stable for x86, wrt bug #453284
+
+  25 Jan 2013; Agostino Sarubbo <ago@gentoo.org> usbredir-0.4.4.ebuild:
+  Stable for amd64, wrt bug #453284
+
+*usbredir-0.4.4 (12 Jan 2013)
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> +usbredir-0.4.4.ebuild:
+  Add version for qemu 1.2 and lower.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> usbredir-0.6.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> usbredir-0.6.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> usbredir-0.6.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> usbredir-0.6.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> usbredir-0.6.ebuild:
+  Add ~ppc, wrt bug #449220
+
+*usbredir-0.6 (17 Dec 2012)
+
+  17 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> +usbredir-0.6.ebuild:
+  Version bump.
 
 *usbredir-0.5.1 (25 Sep 2012)
 
@@ -80,4 +115,3 @@
 
   09 Jan 2012; Samuli Suominen <ssuominen@gentoo.org> +usbredir-0.3.2.ebuild:
   Initial commit.
-

@@ -1,6 +1,38 @@
 # ChangeLog for app-office/libreoffice-l10n
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice-l10n/ChangeLog,v 1.62 2012/11/17 11:08:12 scarabeus Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice-l10n/ChangeLog,v 1.68 2013/01/31 13:50:13 scarabeus Exp $
+
+  31 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  libreoffice-l10n-4.0.0.2.ebuild:
+  Drop the dependency over libo here.
+
+*libreoffice-l10n-4.0.0.2 (30 Jan 2013)
+
+  30 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +libreoffice-l10n-4.0.0.2.ebuild, -libreoffice-l10n-4.0.0.1.ebuild:
+  Version bump to 4.0.0.2 to mitigate issue with the calc errors. Dep strings to
+  be adjusted later.
+
+*libreoffice-l10n-4.0.0.1 (23 Jan 2013)
+
+  23 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +libreoffice-l10n-4.0.0.1.ebuild, files/lo_gen_langs.sh:
+  Add 4.0 langpacks to fix weird crashers.
+
+  20 Dec 2012; Tomáš Chvátal <scarabeus@gentoo.org>
+  -libreoffice-l10n-3.5.7.ebuild, -libreoffice-l10n-3.6.3.2.ebuild,
+  libreoffice-l10n-3.6.4.3.ebuild:
+  Stabilise latest, drop older.
+
+  08 Dec 2012; Markus Meier <maekke@gentoo.org>
+  libreoffice-l10n-3.6.3.2.ebuild:
+  add ~arm, bug #440908
+
+*libreoffice-l10n-3.6.4.3 (05 Dec 2012)
+
+  05 Dec 2012; Tomáš Chvátal <scarabeus@gentoo.org>
+  +libreoffice-l10n-3.6.4.3.ebuild:
+  Version bump to latest.
 
   17 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org>
   libreoffice-l10n-3.6.3.2.ebuild:

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/qt4-build.eclass,v 1.139 2012/11/12 09:28:53 pesa Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/qt4-build.eclass,v 1.142 2013/01/03 08:39:49 pesa Exp $
 
 # @ECLASS: qt4-build.eclass
 # @MAINTAINER:
@@ -36,20 +36,13 @@ case ${QT4_BUILD_TYPE} in
 		EGIT_BRANCH=${PV%.9999}
 		;;
 	release)
-		if version_is_at_least 4.8.1; then
-			SRC_URI="http://releases.qt-project.org/qt4/source/${MY_P}.tar.gz"
-		else
-			SRC_URI="http://get.qt.nokia.com/qt/source/${MY_P}.tar.gz"
-		fi
+		SRC_URI="http://releases.qt-project.org/qt4/source/${MY_P}.tar.gz"
 		;;
 esac
 
 IUSE="aqua debug pch"
 [[ ${CATEGORY}/${PN} != x11-libs/qt-xmlpatterns ]] && IUSE+=" +exceptions"
-if version_is_at_least 4.8; then
-	[[ ${CATEGORY}/${PN} != x11-libs/qt-webkit ]] && IUSE+=" c++0x"
-	version_is_at_least 4.8.3 || IUSE+=" qpa"
-fi
+[[ ${CATEGORY}/${PN} != x11-libs/qt-webkit ]] && IUSE+=" c++0x"
 
 DEPEND="virtual/pkgconfig"
 if [[ ${QT4_BUILD_TYPE} == live ]]; then
@@ -274,15 +267,10 @@ qt4-build_src_prepare() {
 
 	# Respect CC, CXX, LINK and *FLAGS in config.tests
 	find config.tests/unix -name '*.test' -type f -print0 | xargs -0 \
-		sed -i -e "/bin\/qmake/ s: \"QT_BUILD_TREE=: \
+		sed -i -e "/bin\/qmake/ s: \"\$SRCDIR/: \
 			'QMAKE_CC=$(tc-getCC)'    'QMAKE_CXX=$(tc-getCXX)'      'QMAKE_LINK=$(tc-getCXX)' \
 			'QMAKE_CFLAGS+=${CFLAGS}' 'QMAKE_CXXFLAGS+=${CXXFLAGS}' 'QMAKE_LFLAGS+=${LDFLAGS}'&:" \
 		|| die "sed config.tests failed"
-
-	if ! version_is_at_least 4.8; then
-		# Strip predefined CFLAGS from mkspecs (bugs 312689 and 352778)
-		sed -i -e '/^QMAKE_CFLAGS_RELEASE/s:+=.*:+=:' mkspecs/common/g++.conf || die
-	fi
 
 	# Bug 172219
 	sed -e 's:/X11R6/:/:' -i mkspecs/$(qt_mkspecs_dir)/qmake.conf || die
@@ -411,9 +399,8 @@ qt4-build_src_configure() {
 	# exceptions USE flag
 	conf+=" $(in_iuse exceptions && qt_use exceptions || echo -exceptions)"
 
-	# disable rpath on Qt >= 4.8 (bug 380415)
-	# but leave it enabled on prefix (bug 417169)
-	version_is_at_least 4.8 && use !prefix && conf+=" -no-rpath"
+	# disable rpath (bug 380415), except on prefix (bug 417169)
+	use prefix || conf+=" -no-rpath"
 
 	# precompiled headers don't work on hardened, where the flag is masked
 	conf+=" $(qt_use pch)"
@@ -436,15 +423,6 @@ qt4-build_src_configure() {
 		# avoid the -pthread argument
 		conf+=" ${glibflags//-pthread}"
 		unset glibflags
-	fi
-
-	if use_if_iuse qpa; then
-		echo
-		ewarn "The qpa useflag enables the Qt Platform Abstraction, formely"
-		ewarn "known as Qt Lighthouse. If you are not sure what that is, then"
-		ewarn "disable it before reporting any bugs related to this useflag."
-		echo
-		conf+=" -qpa"
 	fi
 
 	if use aqua; then

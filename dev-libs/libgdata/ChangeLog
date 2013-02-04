@@ -1,6 +1,31 @@
 # ChangeLog for dev-libs/libgdata
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgdata/ChangeLog,v 1.55 2012/09/23 05:53:42 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgdata/ChangeLog,v 1.61 2013/02/02 22:25:51 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libgdata-0.13.2-r2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libgdata-0.13.2-r2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libgdata-0.13.2-r2.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libgdata-0.13.2-r2.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  28 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  libgdata-0.13.2-r2.ebuild:
+  Add missing gnome-common to DEPEND, bug #448978.
+
+*libgdata-0.13.2-r2 (19 Dec 2012)
+
+  19 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  libgdata-0.8.1-r2.ebuild, libgdata-0.12.0.ebuild, +libgdata-0.13.2-r2.ebuild,
+  +files/libgdata-0.13.2-Requires.private.patch,
+  +files/libgdata-0.13.2-libgdata.pc-unused-deps.patch, metadata.xml:
+  Version bump for gnome-3.6. Update license. Drop useless doc USE flag, switch
+  to global introspection flag.
 
   23 Sep 2012; Anthony G. Basile <blueness@gentoo.org> libgdata-0.10.2.ebuild:
   keyword ~ppc, bug #379651

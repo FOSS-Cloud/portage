@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcp/dhcp-4.2.4_p2-r1.ebuild,v 1.4 2012/11/11 21:42:02 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcp/dhcp-4.2.4_p2-r1.ebuild,v 1.7 2013/01/01 12:44:25 ago Exp $
 
 EAPI="4"
 
@@ -16,9 +16,9 @@ HOMEPAGE="http://www.isc.org/products/DHCP"
 SRC_URI="ftp://ftp.isc.org/isc/dhcp/${MY_P}.tar.gz
 	ftp://ftp.isc.org/isc/dhcp/${MY_PV}/${MY_P}.tar.gz"
 
-LICENSE="as-is BSD"
+LICENSE="ISC BSD SSLeay GPL-2" # GPL-2 only for init script
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 IUSE="+client ipv6 kernel_linux ldap selinux +server ssl vim-syntax"
 
 DEPEND="selinux? ( sec-policy/selinux-dhcp )

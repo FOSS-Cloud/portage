@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/xine-lib-1.2.2.ebuild,v 1.4 2012/08/02 13:22:31 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/xine-lib-1.2.2.ebuild,v 1.7 2013/01/18 09:54:17 ago Exp $
 
 EAPI=4
 
@@ -13,7 +13,7 @@ if [[ ${PV} == *9999* ]]; then
 	NLS_DEPEND="sys-devel/gettext"
 	NLS_RDEPEND="virtual/libintl"
 else
-	KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86 ~x86-fbsd"
+	KEYWORDS="amd64 ~hppa ~ppc ~ppc64 x86 ~x86-fbsd"
 	SRC_URI="mirror://sourceforge/xine/${P}.tar.xz"
 	NLS_IUSE="nls"
 	NLS_DEPEND="nls? ( sys-devel/gettext )"
@@ -194,6 +194,11 @@ src_configure() {
 		--with-w32-path=${win32dir} \
 		$(use_with wavpack) \
 		${myconf}
+}
+
+src_compile() {
+	# enable verbose building, bug #448140
+	emake V=1
 }
 
 src_install() {

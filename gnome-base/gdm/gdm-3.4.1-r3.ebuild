@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gdm/gdm-3.4.1-r3.ebuild,v 1.1 2012/09/29 06:05:16 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gdm/gdm-3.4.1-r3.ebuild,v 1.2 2012/12/26 21:45:01 eva Exp $
 
 EAPI="4"
 GNOME2_LA_PUNT="yes"
@@ -16,9 +16,8 @@ SRC_URI="${SRC_URI}
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~sh ~x86"
-
 IUSE="accessibility audit +consolekit +fallback fprint +gnome-shell +introspection ipv6 ldap plymouth selinux smartcard systemd tcpd test xinerama +xklavier"
+KEYWORDS="~amd64 ~sh ~x86"
 
 # NOTE: x11-base/xorg-server dep is for X_SERVER_PATH etc, bug #295686
 # nspr used by smartcard extension
@@ -104,31 +103,6 @@ RDEPEND="${COMMON_DEPEND}
 	!gnome-extra/fast-user-switch-applet"
 
 pkg_setup() {
-	DOCS="AUTHORS ChangeLog NEWS README TODO"
-
-	# PAM is the only auth scheme supported
-	# even though configure lists shadow and crypt
-	# they don't have any corresponding code.
-	# --with-at-spi-registryd-directory= needs to be passed explicitly because
-	# of https://bugzilla.gnome.org/show_bug.cgi?id=607643#c4
-	G2CONF="${G2CONF}
-		--disable-static
-		--localstatedir=${EPREFIX}/var
-		--with-xdmcp=yes
-		--enable-authentication-scheme=pam
-		--with-pam-prefix=${EPREFIX}/etc
-		--with-at-spi-registryd-directory=${EPREFIX}/usr/libexec
-		$(use_with accessibility xevie)
-		$(use_with audit libaudit)
-		$(use_enable ipv6)
-		$(use_enable xklavier libxklavier)
-		$(use_with consolekit console-kit)
-		$(use_with plymouth)
-		$(use_with selinux)
-		$(use_with systemd)
-		$(use_with tcpd tcp-wrappers)
-		$(use_with xinerama)"
-
 	enewgroup gdm
 	enewgroup video # Just in case it hasn't been created yet
 	enewuser gdm -1 -1 /var/lib/gdm gdm,video
@@ -184,6 +158,34 @@ src_prepare() {
 	eautoreconf
 
 	gnome2_src_prepare
+}
+
+src_configure() {
+	DOCS="AUTHORS ChangeLog NEWS README TODO"
+
+	# PAM is the only auth scheme supported
+	# even though configure lists shadow and crypt
+	# they don't have any corresponding code.
+	# --with-at-spi-registryd-directory= needs to be passed explicitly because
+	# of https://bugzilla.gnome.org/show_bug.cgi?id=607643#c4
+	G2CONF="${G2CONF}
+		--disable-static
+		--localstatedir=${EPREFIX}/var
+		--with-xdmcp=yes
+		--enable-authentication-scheme=pam
+		--with-pam-prefix=${EPREFIX}/etc
+		--with-at-spi-registryd-directory=${EPREFIX}/usr/libexec
+		$(use_with accessibility xevie)
+		$(use_with audit libaudit)
+		$(use_enable ipv6)
+		$(use_enable xklavier libxklavier)
+		$(use_with consolekit console-kit)
+		$(use_with plymouth)
+		$(use_with selinux)
+		$(use_with systemd)
+		$(use_with tcpd tcp-wrappers)
+		$(use_with xinerama)"
+	gnome2_src_configure
 }
 
 src_install() {

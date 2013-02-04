@@ -1,6 +1,18 @@
 # ChangeLog for net-libs/libssh
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libssh/ChangeLog,v 1.67 2012/11/25 23:13:25 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libssh/ChangeLog,v 1.71 2013/01/15 23:50:10 radhermit Exp $
+
+  15 Jan 2013; Tim Harder <radhermit@gentoo.org> -libssh-0.5.2.ebuild:
+  Remove old.
+
+  03 Dec 2012; Andreas Schuerch <nativemad@gentoo.org> libssh-0.5.3.ebuild:
+  x86 stable, see bug 444147. Thanks Dan Dexter for testing.
+
+  01 Dec 2012; Anthony G. Basile <blueness@gentoo.org> libssh-0.5.3.ebuild:
+  stable ppc64, bug #444147
+
+  29 Nov 2012; <ago@gentoo.org> libssh-0.5.3.ebuild:
+  Stable for ppc, wrt bug #444147
 
   25 Nov 2012; Tim Harder <radhermit@gentoo.org> libssh-0.5.3.ebuild:
   Build static libs when tests are enabled and drop REQUIRED_USE.

@@ -1,12 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/grass/grass-6.4.2.ebuild,v 1.4 2012/10/24 19:38:26 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/grass/grass-6.4.2.ebuild,v 1.6 2013/01/18 01:28:52 lu_zero Exp $
 
 EAPI=4
 
 PYTHON_DEPEND="python? 2"
+WANT_AUTOCONF="2.1"
 
-inherit eutils gnome2 multilib python versionator wxwidgets base
+inherit eutils gnome2 multilib python versionator wxwidgets base autotools
 
 MY_PM=${PN}$(get_version_component_range 1-2 ${PV})
 MY_PM=${MY_PM/.}
@@ -33,7 +34,7 @@ RDEPEND="
 	sys-libs/ncurses
 	sys-libs/zlib
 	cairo? ( x11-libs/cairo[X?,opengl?] )
-	ffmpeg? ( virtual/ffmpeg )
+	ffmpeg? ( >=virtual/ffmpeg-0.10 )
 	fftw? ( sci-libs/fftw:3.0 )
 	gmath? (
 		virtual/blas
@@ -92,6 +93,9 @@ S="${WORKDIR}/${MY_P}"
 PATCHES=(
 	"${FILESDIR}"/${PN}-pkgconf.patch
 	"${FILESDIR}"/${PN}-6.4.1-libav-0.8.patch
+	"${FILESDIR}"/${PN}-6.4.2-ffmpeg-1.patch
+	"${FILESDIR}"/${PN}-6.4.2-configure.patch
+	"${FILESDIR}"/${PN}-6.4.2-libav-9.patch
 )
 
 REQUIRED_USE="
@@ -130,6 +134,7 @@ pkg_setup() {
 src_prepare() {
 	use opengl || epatch "${FILESDIR}"/${PN}-6.4.0-html-nonviz.patch
 	base_src_prepare
+	eautoconf
 }
 
 src_configure() {
@@ -187,7 +192,6 @@ src_configure() {
 		$(use_with cxx) \
 		$(use_with fftw) \
 		$(use_with ffmpeg) \
-		--with-ffmpeg-includes="/usr/include/libavcodec /usr/include/libavdevice /usr/include/libavfilter /usr/include/libavformat /usr/include/libavutil /usr/include/libpostproc /usr/include/libswscale" \
 		$(use_with gmath blas) \
 		$(use_with gmath lapack) \
 		$(use_with jpeg) \

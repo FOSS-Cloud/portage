@@ -1,6 +1,35 @@
 # ChangeLog for dev-games/cegui
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/cegui/ChangeLog,v 1.52 2012/11/17 06:12:40 mr_bones_ Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-games/cegui/ChangeLog,v 1.60 2013/01/30 20:09:04 mr_bones_ Exp $
+
+  30 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org> -cegui-0.7.6-r1.ebuild:
+  old
+
+  25 Jan 2013; Agostino Sarubbo <ago@gentoo.org> cegui-0.7.7-r1.ebuild:
+  Stable for amd64, wrt bug #453624
+
+  25 Jan 2013; Agostino Sarubbo <ago@gentoo.org> cegui-0.7.7-r1.ebuild:
+  Stable for x86, wrt bug #453624
+
+*cegui-0.7.9 (18 Jan 2013)
+
+  18 Jan 2013; Julian Ospald <hasufell@gentoo.org> +cegui-0.7.9.ebuild:
+  version bump
+
+  18 Jan 2013; Julian Ospald <hasufell@gentoo.org> cegui-0.7.7-r1.ebuild:
+  fix static-libs build
+
+  07 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org> -cegui-0.7.7.ebuild:
+  old
+
+*cegui-0.7.7-r1 (20 Dec 2012)
+
+  20 Dec 2012; Julian Ospald <hasufell@gentoo.org> +cegui-0.7.7-r1.ebuild,
+  +files/cegui-0.7.7-irrlicht-1.8.patch:
+  revision bump wrt #446410
+
+  07 Dec 2012; Julian Ospald <hasufell@gentoo.org> cegui-0.7.7.ebuild:
+  prepare deps for irrlicht-1.8 import
 
   17 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org> -cegui-0.7.5-r1.ebuild,
   -files/cegui-0.7.5-gcc46.patch, -files/cegui-0.7.5-tinyxml.patch:

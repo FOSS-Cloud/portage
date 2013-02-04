@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-9999.ebuild,v 1.54 2012/10/23 17:36:10 lu_zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-9999.ebuild,v 1.56 2013/01/17 11:29:34 scarabeus Exp $
 
-EAPI=4
+EAPI=5
 
 if [[ ${PV} == *9999 ]] ; then
 	SCM="git-2"
@@ -23,7 +23,7 @@ else # Official release
 fi
 
 LICENSE="LGPL-2.1  gpl? ( GPL-3 )"
-SLOT="0"
+SLOT="0/9"
 [[ ${PV} == *9999 ]] || KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64
 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos
 ~x64-solaris ~x86-solaris"
@@ -47,7 +47,12 @@ RDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	amr? ( media-libs/opencore-amr )
 	bzip2? ( app-arch/bzip2 )
-	cdio? ( dev-libs/libcdio )
+	cdio? (
+		|| (
+			dev-libs/libcdio-paranoia
+			<dev-libs/libcdio-0.90[-minimal]
+		)
+	)
 	encode? (
 		aac? ( media-libs/vo-aacenc )
 		amr? ( media-libs/vo-amrwbenc )

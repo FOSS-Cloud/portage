@@ -1,6 +1,38 @@
 # ChangeLog for x11-wm/openbox
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/openbox/ChangeLog,v 1.255 2012/10/06 17:39:30 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/openbox/ChangeLog,v 1.264 2012/12/27 08:29:04 armin76 Exp $
+
+  27 Dec 2012; Raúl Porcel <armin76@gentoo.org>
+  openbox-3.5.0_p20111019.ebuild:
+  alpha/sparc stable wrt #444882
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  openbox-3.5.0_p20121006.ebuild:
+  x86 stable wrt bug #444882
+
+  03 Dec 2012; Anthony G. Basile <blueness@gentoo.org>
+  openbox-3.5.0_p20121006.ebuild:
+  stable ppc ppc64, bug #444882
+
+  02 Dec 2012; Markos Chandras <hwoarang@gentoo.org> openbox-9999.ebuild:
+  whitespace
+
+  02 Dec 2012; Markos Chandras <hwoarang@gentoo.org>
+  openbox-3.5.0_p20121006.ebuild:
+  Stable on amd64 wrt bug #444882
+
+  02 Dec 2012; Markus Meier <maekke@gentoo.org> openbox-3.5.0_p20121006.ebuild:
+  arm stable, bug #444882
+
+  30 Nov 2012; Markos Chandras <hwoarang@gentoo.org> metadata.xml,
+  openbox-3.5.0_p20121006.ebuild, openbox-9999.ebuild:
+  Convert python shebangs to python2. Describe the python useflag. Bug #442802
+
+  30 Nov 2012; Markos Chandras <hwoarang@gentoo.org> ChangeLog:
+  Add --disable-silent-rules for bug #445108
+
+  29 Nov 2012; Jeroen Roovers <jer@gentoo.org> openbox-3.5.0_p20121006.ebuild:
+  Stable for HPPA (bug #444882).
 
 *openbox-3.5.0_p20121006 (06 Oct 2012)
 

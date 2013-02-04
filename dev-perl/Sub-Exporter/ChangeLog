@@ -1,6 +1,16 @@
 # ChangeLog for dev-perl/Sub-Exporter
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Sub-Exporter/ChangeLog,v 1.27 2012/10/02 01:10:15 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Sub-Exporter/ChangeLog,v 1.30 2013/01/28 18:10:10 bicatali Exp $
+
+  28 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  Sub-Exporter-0.984.0.ebuild:
+  Keyworded amd64-linux and x86-linux
+
+  06 Jan 2013; Torsten Veller <tove@gentoo.org> -Sub-Exporter-0.982.0.ebuild:
+  Cleanup
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Sub-Exporter-0.984.0.ebuild:
+  Add ~ppc64, wrt bug #403413
 
   02 Oct 2012; Anthony G. Basile <blueness@gentoo.org>
   Sub-Exporter-0.984.0.ebuild:

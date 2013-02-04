@@ -1,6 +1,40 @@
 # ChangeLog for gnome-extra/gnome-tweak-tool
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/gnome-tweak-tool/ChangeLog,v 1.8 2012/05/19 09:12:45 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/gnome-tweak-tool/ChangeLog,v 1.16 2013/02/02 22:39:31 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-tweak-tool-3.6.1-r1.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-tweak-tool-3.6.1-r1.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-tweak-tool-3.6.1-r1.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-tweak-tool-3.6.1-r1.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  gnome-tweak-tool-3.6.1-r1.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  gnome-tweak-tool-3.6.1-r1.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  25 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-tweak-tool-3.6.1-r1.ebuild:
+  Cosmetic fixes reported by repoman.
+
+*gnome-tweak-tool-3.6.1-r1 (25 Dec 2012)
+
+  25 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-tweak-tool-3.2.2-r2.ebuild, +gnome-tweak-tool-3.6.1-r1.ebuild:
+  Version bump for Gnome 3.6. Switch to EAPI=5 and python-r1.eclass.
 
 *gnome-tweak-tool-3.4.0.1 (19 May 2012)
 
@@ -57,4 +91,3 @@
   +files/gnome-tweak-tool-3.0.4-gentoo-cursor-themes.patch,
   +gnome-tweak-tool-3.2.1.ebuild, +metadata.xml:
   Add GNOME 3 advanced customization tool from the gnome overlay.
-

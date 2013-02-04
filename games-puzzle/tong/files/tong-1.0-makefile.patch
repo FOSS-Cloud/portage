@@ -1,5 +1,5 @@
---- Makefile.orig	2005-02-01 11:49:23.000000000 -0500
-+++ Makefile	2005-02-01 11:51:07.000000000 -0500
+--- Makefile.orig
++++ Makefile
 @@ -1,11 +1,10 @@
  #hello world
  #my first attempt at making a makefile

@@ -1,6 +1,33 @@
 # ChangeLog for sys-apps/pcsc-lite
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/pcsc-lite/ChangeLog,v 1.148 2012/11/17 10:32:21 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/pcsc-lite/ChangeLog,v 1.154 2013/01/16 20:49:25 flameeyes Exp $
+
+*pcsc-lite-1.8.8 (16 Jan 2013)
+
+  16 Jan 2013; Diego E. Pettenò <flameeyes@gentoo.org> +files/pcscd-init.6,
+  +pcsc-lite-1.8.8.ebuild, -pcsc-lite-1.8.7.ebuild:
+  Version bump; use /run directly rather than rely on /var/run. Add GPL-2 to the
+  list of licenses because of init script.
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pcsc-lite-1.8.7.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  28 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org> -files/pcscd-init.3,
+  -pcsc-lite-1.6.6-r2.ebuild, files/pcscd-init.5:
+  Cleanup old; add an 'use logger' to the init script.
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> pcsc-lite-1.8.6.ebuild:
+  x86 stable wrt bug #442432
+
+*pcsc-lite-1.8.7 (30 Nov 2012)
+
+  30 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> +pcsc-lite-1.8.7.ebuild:
+  Version bump.
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
+  pcsc-lite-1.6.6-r2.ebuild, pcsc-lite-1.8.2.ebuild, pcsc-lite-1.8.6.ebuild:
+  Use udev.eclass for determining correct udevdir. Use virtual/udev instead of
+  sys-fs/udev.
 
   17 Nov 2012; Ulrich Müller <ulm@gentoo.org> pcsc-lite-1.6.6-r2.ebuild,
   pcsc-lite-1.8.2.ebuild, pcsc-lite-1.8.6.ebuild:

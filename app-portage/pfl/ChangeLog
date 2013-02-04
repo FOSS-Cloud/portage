@@ -1,6 +1,18 @@
 # ChangeLog for app-portage/pfl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/pfl/ChangeLog,v 1.45 2012/08/05 14:09:15 ryao Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/pfl/ChangeLog,v 1.48 2013/02/02 19:28:02 billie Exp $
+
+  02 Feb 2013; Daniel Pielmeier <billie@gentoo.org> pfl-2.3-r2.ebuild:
+  Remove distutils-r1_src_install from python_install_all() to avoid endless
+  loop.
+
+  02 Feb 2013; Daniel Pielmeier <billie@gentoo.org> pfl-2.3-r2.ebuild:
+  Use python_install_all(). Thanks to Michał Górny in bug 455128.
+
+*pfl-2.3-r2 (02 Feb 2013)
+
+  02 Feb 2013; Daniel Pielmeier <billie@gentoo.org> +pfl-2.3-r2.ebuild:
+  Revison bump. Switch to EAPI 5 and distutils-r1.
 
   05 Aug 2012; Richard Yao <ryao@gentoo.org> pfl-2.3-r1.ebuild:
   Keyword ~x64-freebsd

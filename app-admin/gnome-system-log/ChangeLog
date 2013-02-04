@@ -1,6 +1,27 @@
 # ChangeLog for app-admin/gnome-system-log
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/gnome-system-log/ChangeLog,v 1.1 2012/05/05 06:57:13 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/gnome-system-log/ChangeLog,v 1.6 2013/01/06 09:11:28 ago Exp $
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gnome-system-log-3.6.1.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-system-log-3.6.1.ebuild:
+  Drop sparc keyword, needs gtk+-3.6
+
+  17 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-system-log-3.6.1.ebuild:
+  Require gtk+-3.6 (bug #447476, thanks to Kobboi et al.)
+
+  16 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-system-log-3.4.1.ebuild, gnome-system-log-3.6.1.ebuild:
+  Update license, EAPI5-ize and de-9999-ize ebuild.
+
+*gnome-system-log-3.6.1 (16 Dec 2012)
+
+  16 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-system-log-3.6.1.ebuild:
+  Version bump for Gnome 3.6.
 
 *gnome-system-log-3.4.1 (05 May 2012)
 
@@ -8,4 +29,3 @@
   +gnome-system-log-3.4.1.ebuild, +metadata.xml:
   New separate gnome log viewer package, formerly part of
   gnome-extra/gnome-utils.
-

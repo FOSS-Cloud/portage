@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-base/xorg-server/xorg-server-1.12.4.ebuild,v 1.3 2012/11/18 13:03:29 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-base/xorg-server/xorg-server-1.12.4.ebuild,v 1.12 2013/01/04 17:50:03 jer Exp $
 
 EAPI=4
 
@@ -9,7 +9,7 @@ inherit xorg-2 multilib versionator flag-o-matic
 EGIT_REPO_URI="git://anongit.freedesktop.org/git/xorg/xserver"
 
 DESCRIPTION="X.Org X servers"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sh sparc x86 ~amd64-fbsd ~x86-fbsd"
 
 IUSE_SERVERS="dmx kdrive xnest xorg xvfb"
 IUSE="${IUSE_SERVERS} ipv6 minimal nptl selinux tslib +udev"
@@ -53,7 +53,7 @@ RDEPEND=">=app-admin/eselect-opengl-1.0.8
 		>=media-libs/mesa-7.8_rc[nptl=]
 	)
 	tslib? ( >=x11-libs/tslib-1.0 )
-	udev? ( >=sys-fs/udev-150 )
+	udev? ( >=virtual/udev-150 )
 	>=x11-apps/xinit-1.3
 	selinux? ( sec-policy/selinux-xserver )"
 
@@ -210,8 +210,8 @@ pkg_postinst() {
 		ewarn "	emerge @x11-module-rebuild"
 	fi
 
-	if use udev && has_version sys-fs/udev[-keymap]; then
-		ewarn "sys-fs/udev was built without keymap support. This may cause input device"
+	if use udev && has_version virtual/udev[-keymap]; then
+		ewarn "virtual/udev was built without keymap support. This may cause input device"
 		ewarn "autoconfiguration to fail."
 	fi
 }

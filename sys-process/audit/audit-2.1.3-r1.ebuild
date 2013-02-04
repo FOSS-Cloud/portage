@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/audit/audit-2.1.3-r1.ebuild,v 1.8 2012/07/03 19:48:08 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/audit/audit-2.1.3-r1.ebuild,v 1.17 2012/12/31 21:44:31 ago Exp $
 
 EAPI="3"
 PYTHON_DEPEND="python? 2"
@@ -15,7 +15,7 @@ SRC_URI="http://people.redhat.com/sgrubb/audit/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 hppa ~ia64 ~mips ppc ~ppc64 ~sparc x86"
+KEYWORDS="alpha amd64 hppa ia64 ~mips ppc ppc64 sparc x86"
 IUSE="ldap prelude python"
 # Testcases are pretty useless as they are built for RedHat users/groups and
 # kernels.
@@ -68,9 +68,14 @@ src_prepare() {
 	# Don't build static version of Python module.
 	epatch "${FILESDIR}"/${PN}-2.1.3-python.patch
 
+	# glibc/kernel upstreams suck with both defining ia64_fpreg
+	# This patch is a horribly workaround that is only valid as long as you
+	# don't need the OTHER definitions in fpu.h.
+	epatch "${FILESDIR}"/${PN}-2.1.3-ia64-compile-fix.patch
+
 	# Python bindings are built/installed manually.
 	sed -e "/^SUBDIRS =/s/ python//" -i bindings/Makefile.am
-	sed -e "/^SUBDIRS =/s/ swig//" -i Makefile.am
+	sed -e "/^SUBDIRS .*=/s/ swig//" -i Makefile.am
 
 	# Regenerate autotooling
 	eautoreconf
@@ -137,6 +142,10 @@ src_install() {
 	# things like shadow use this so we need to be in /
 	gen_usr_ldscript -a audit auparse
 
+	[ -f "${D}"/sbin/audisp-remote ] && \
+	dodir /usr/sbin && \
+	mv "${D}"/{sbin,usr/sbin}/audisp-remote || die
+
 	# remove RedHat garbage
 	rm -r "${D}"/etc/{rc.d,sysconfig} || die
 
@@ -155,9 +164,16 @@ src_install() {
 	use python && python_clean_installation_image
 }
 
+pkg_preinst() {
+	# Preserve from the audit-1 series
+	preserve_old_lib /$(get_libdir)/libau{dit,parse}.so.0
+}
+
 pkg_postinst() {
 	lockdown_perms "${ROOT}"
 	use python && python_mod_optimize audit.py
+	# Preserve from the audit-1 series
+	preserve_old_lib_notify /$(get_libdir)/libau{dit,parse}.so.0
 }
 
 pkg_postrm() {

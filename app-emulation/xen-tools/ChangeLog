@@ -1,6 +1,127 @@
 # ChangeLog for app-emulation/xen-tools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-tools/ChangeLog,v 1.113 2012/07/10 21:59:27 prometheanfire Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-tools/ChangeLog,v 1.134 2013/02/03 21:36:55 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> -xen-tools-4.1.1-r6.ebuild,
+  -xen-tools-4.1.2-r3.ebuild, -xen-tools-4.2.0-r2.ebuild:
+  Remove old
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.2.0-r3.ebuild:
+  Stable for x86, wrt bug #454314
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.2.0-r3.ebuild:
+  Stable for amd64, wrt bug #454314
+
+  01 Feb 2013; Ian Delaney <idella4@gentoo.org> xen-tools-4.2.0-r3.ebuild,
+  xen-tools-4.2.1-r1.ebuild:
+  Reversed/Re-added bin86 & dev86 to DEPEND in -4.2.0-r3 -4,2.2-r1 subsequent to
+  arch testing
+
+  31 Jan 2013; Ian Delaney <idella4@gentoo.org> files/ipxe-nopie.patch,
+  xen-tools-4.2.0-r2.ebuild, xen-tools-4.2.0-r3.ebuild,
+  xen-tools-4.2.1-r1.ebuild:
+  Re-setting/correcting ipxe-nopie.patch to match source content in 4.2.0-r3 and
+  disabling the patch in -4.2.1-r1 (pending further testing) consequent to Bug
+  #447716, removed redunadant 4-add-nopie.patch
+
+*xen-tools-4.2.0-r3 (30 Jan 2013)
+*xen-tools-4.2.1-r1 (30 Jan 2013)
+
+  30 Jan 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4-CVE-2012-4544-XSA-25.patch,
+  +files/xen-4-CVE-2012-6075-XSA-41.patch, +files/xen-4-fix_dotconfig-gcc.patch,
+  +files/xen-tools-4-add-nopie.patch, +files/xen-tools-4-docfix.patch,
+  +xen-tools-4.2.0-r3.ebuild, +xen-tools-4.2.1-r1.ebuild,
+  -files/xen-tools-3.4.2-as-needed.patch, files/ipxe-nopie.patch,
+  xen-tools-4.2.0-r2.ebuild:
+  revbump;-4.2.0-r3; adjustments to DEPS, implementation of ocaml flag courtesy
+  of user known as 'a.m' wrt Bug #447716, reconstitution of ipxe-nopie with
+  subsequent add of -4-add-nopie.patch, new use ocaml added and implemented
+  (possible to rename), sed statements reduced to patches, 2 sec. patches
+  applied, build & install of docs corrected/upgrade. 4.2.1-r1; changes mirrored
+  those to 4.2.0-r3, add of 1 valid sec. patch. Drop un-needed -3.4.2-as-
+  needed.patch
+
+  24 Jan 2013; Ian Delaney <idella4@gentoo.org> -xen-tools-4.1.2-r2.ebuild,
+  -xen-tools-4.2.0-r1.ebuild, xen-tools-4.2.0-r2.ebuild, xen-tools-4.2.1.ebuild:
+  4.2.0-r2, correct DEPS, thanks OP of Bug #447716, 4.2.1, rm white space, drop
+  old
+
+*xen-tools-4.2.1 (24 Jan 2013)
+
+  24 Jan 2013; Ian Delaney <idella4@gentoo.org> +xen-tools-4.2.1.ebuild,
+  metadata.xml:
+  bump
+
+  23 Jan 2013; Ian Delaney <idella4@gentoo.org> xen-tools-4.1.1-r6.ebuild:
+  patch from razamatan applied, fixes Bug #413493
+
+  21 Jan 2013; Samuli Suominen <ssuominen@gentoo.org>
+  xen-tools-4.1.1-r6.ebuild, xen-tools-4.1.2-r2.ebuild,
+  xen-tools-4.1.2-r3.ebuild, xen-tools-4.2.0-r1.ebuild,
+  xen-tools-4.2.0-r2.ebuild:
+  Remove sys-apps/hotplug dependency from || () in favour of virtual/udev wrt
+  #145809
+
+  20 Jan 2013; Michał Górny <mgorny@gentoo.org> xen-tools-4.2.0-r2.ebuild:
+  Drop python2.5 because of lxml.
+
+  20 Dec 2012; Michał Górny <mgorny@gentoo.org> xen-tools-4.2.0-r2.ebuild:
+  Use python_fix_shebang() to fix shebangs.
+
+  18 Dec 2012; Ian Delaney <idella4@gentoo.org> files/ipxe-nopie.patch:
+  patched patch ipxe-nopie.patch, thanks to patch submitted by user uen in Bug
+  #446022
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> xen-tools-4.2.0-r2.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+*xen-tools-4.2.0-r2 (16 Dec 2012)
+
+  16 Dec 2012; Michał Górny <mgorny@gentoo.org> +xen-tools-4.2.0-r2.ebuild:
+  Migrate to python-r1, clean up a bit. Acked by idella4.
+
+  11 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  xen-tools-4.1.1-r6.ebuild, xen-tools-4.1.2-r3.ebuild,
+  xen-tools-4.2.0-r1.ebuild:
+  Move sys-power/iasl dependency from USE="hvm" to always required because
+  econf won't pass without it. Use udev.eclass to install udev rules into
+  correct directory. Convert to virtual/udev again after it was mistakenly
+  reverted 05 Dec 2012 by idella4.
+
+  04 Dec 2012; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Change maintainer tag (bug #390951).
+
+  04 Dec 2012; Tomáš Chvátal <scarabeus@gentoo.org> xen-tools-4.1.1-r6.ebuild:
+  This is supposed to be stable amd64 and x86. We do not remove stable keywords
+  just for fun.
+
+  05 Dec 2012; Ian Delaney <idella4@gentoo.org> xen-tools-4.1.1-r6.ebuild:
+  Correction to amd64 keyword in 4.4.4-r6
+
+*xen-tools-4.2.0-r1 (05 Dec 2012)
+
+  05 Dec 2012; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4.2.0-anti-download.patch, +files/xen-4.2.0-jserver.patch,
+  +files/xen-4.2.0-nostrip.patch, +xen-tools-4.2.0-r1.ebuild,
+  -files/xen-tools-3.3.1-sandbox-fix.patch,
+  -files/xen-tools-3.4.2-fix-definitions.patch,
+  -files/xen-tools-3.4.2-fix-include.patch,
+  -files/xen-tools-3.4.2-ldflags-respect.patch,
+  -files/xen-tools-3.4.2-remove-default-cflags.patch,
+  -files/xen-tools-3.4.2-werror-idiocy-v2.patch,
+  -files/xen-tools-4.1.1-upstream-23104-1976adbf2b80.patch,
+  -xen-tools-3.4.2-r3.ebuild, -xen-tools-3.4.2-r5.ebuild,
+  -xen-tools-4.1.1-r5.ebuild, metadata.xml, xen-tools-4.1.1-r6.ebuild,
+  xen-tools-4.1.2-r3.ebuild:
+  initial 4.2.0 found in virtual overlay, bump to 4.2.0-r1, added patches fixing
+  QA issues, added edits to build of external packages
+
+  02 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  xen-tools-3.4.2-r3.ebuild, xen-tools-3.4.2-r5.ebuild,
+  xen-tools-4.1.1-r5.ebuild, xen-tools-4.1.1-r6.ebuild,
+  xen-tools-4.1.2-r2.ebuild, xen-tools-4.1.2-r3.ebuild:
+  Use virtual/udev instead of sys-fs/udev wrt #444398
 
 *xen-tools-4.1.2-r3 (10 Jul 2012)
 
@@ -674,4 +795,3 @@
   easier maintenance. Switch to a snapshot versioning scheme that keeps
   release/snapshot versions in order. Add myself as an additional maintainer
   in metadata.xml
-

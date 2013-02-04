@@ -1,6 +1,46 @@
 # ChangeLog for gnome-extra/evolution-data-server
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/evolution-data-server/ChangeLog,v 1.346 2012/11/25 19:33:56 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/evolution-data-server/ChangeLog,v 1.353 2013/02/02 22:36:37 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  evolution-data-server-3.6.2-r1.ebuild:
+  Add ~arm, wrt bug #449220
+
+*evolution-data-server-2.32.3-r3 (22 Jan 2013)
+
+  22 Jan 2013; Pacho Ramos <pacho@gentoo.org>
+  +evolution-data-server-2.32.3-r3.ebuild,
+  +files/evolution-data-server-2.32.3-libical-0.48.patch:
+  Fix incompatibility with libical-0.48 (#453546 by lor)
+
+*evolution-data-server-3.6.3 (22 Jan 2013)
+
+  22 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +evolution-data-server-3.6.3.ebuild:
+  Version bump with various bugfixes. Modernize ebuild.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  evolution-data-server-3.6.2-r1.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  evolution-data-server-3.6.2-r1.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  evolution-data-server-3.6.2-r1.ebuild:
+  Add ~ia64, wrt bug #449220
+
+*evolution-data-server-3.6.2-r1 (19 Dec 2012)
+
+  19 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -files/evolution-data-server-3.2.2-g_thread_init.patch,
+  -files/evolution-data-server-3.2.2-gmodule-explicit.patch,
+  -evolution-data-server-3.2.3-r2.ebuild,
+  -files/evolution-data-server-3.2.3-caldav-cannot-modify.patch,
+  -files/evolution-data-server-3.2.3-google-calendar.patch,
+  +evolution-data-server-3.6.2-r1.ebuild, metadata.xml:
+  Version bump for gnome-3.6. Drop old. Switch to global introspection flag.
 
   25 Nov 2012; Ulrich Müller <ulm@gentoo.org>
   evolution-data-server-2.32.3-r2.ebuild,

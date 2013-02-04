@@ -1,6 +1,59 @@
 # ChangeLog for net-misc/iputils
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/iputils/ChangeLog,v 1.106 2012/04/20 19:56:55 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/iputils/ChangeLog,v 1.118 2013/01/31 23:10:23 ago Exp $
+
+  31 Jan 2013; Agostino Sarubbo <ago@gentoo.org> iputils-20121221.ebuild:
+  Stable for ppc, wrt bug #408183
+
+  31 Jan 2013; Agostino Sarubbo <ago@gentoo.org> iputils-20121221.ebuild:
+  Stable for ppc64, wrt bug #408183
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> iputils-20121221.ebuild:
+  Stable for x86, wrt bug #408183
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> iputils-20121221.ebuild:
+  Stable for ia64, wrt bug #408183
+
+  28 Jan 2013; Mike Frysinger <vapier@gentoo.org> iputils-20121221-r1.ebuild,
+  iputils-20121221.ebuild, iputils-99999999.ebuild:
+  Use slot 0 for openssl as pointed out by Zac Medico.
+
+  28 Jan 2013; Jeroen Roovers <jer@gentoo.org> iputils-20121221.ebuild:
+  Stable for HPPA (bug #408183).
+
+  28 Jan 2013; Mike Frysinger <vapier@gentoo.org> iputils-20121221.ebuild,
+  iputils-20121221-r1.ebuild, iputils-99999999.ebuild:
+  Have USE=static depend on USE=static-libs in all of its lib packages #454410
+  by Sergey Popov. Also put ssl/gnutls behind USE=ipv6 since that code is only
+  used in ping6.
+
+  28 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> iputils-20121221.ebuild:
+  Stable on arm, wrt bug #408183
+
+  28 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> iputils-20121221.ebuild:
+  Stable on amd64, wrt bug #408183
+
+*iputils-20121221-r1 (27 Jan 2013)
+
+  27 Jan 2013; Mike Frysinger <vapier@gentoo.org> +iputils-20121221-r1.ebuild,
+  iputils-99999999.ebuild:
+  Move traceroute6 to the traceroute package.  Move arping/clockdiff to bin.
+  Use new file capabilities to allow people to execute
+  arping/clockdiff/ping/ping6.
+
+  26 Jan 2013; Mike Frysinger <vapier@gentoo.org>
+  files/iputils-20121221-makefile.patch:
+  Fix CC/CFLAGS handling #454136 by Alphat-PC.
+
+*iputils-20121221 (25 Jan 2013)
+
+  25 Jan 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/iputils-20121221-crypto-build.patch,
+  +files/iputils-20121221-makefile.patch, +files/iputils-20121221-openssl.patch,
+  +files/iputils-20121221-owl-pingsock.diff,
+  +files/iputils-20121221-printf-size.patch, +iputils-20121221.ebuild,
+  iputils-20101006-r2.ebuild, iputils-99999999.ebuild:
+  Version bump #453806 by Agostino Sarubbo.
 
   20 Apr 2012; Samuli Suominen <ssuominen@gentoo.org>
   -files/iputils-20070202-makefile.patch, -iputils-20100418-r1.ebuild,

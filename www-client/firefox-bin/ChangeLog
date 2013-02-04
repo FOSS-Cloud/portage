@@ -1,6 +1,45 @@
 # ChangeLog for www-client/firefox-bin
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/firefox-bin/ChangeLog,v 1.127 2012/11/27 12:26:15 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/firefox-bin/ChangeLog,v 1.135 2013/01/25 18:27:49 anarchy Exp $
+
+*firefox-bin-18.0.1 (25 Jan 2013)
+
+  25 Jan 2013; <anarchy@gentoo.org> -firefox-bin-18.0.ebuild,
+  +firefox-bin-18.0.1.ebuild:
+  Version bump fx-18.0.1
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> firefox-bin-17.0.2.ebuild:
+  Stable for x86, wrt bug #450940
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> firefox-bin-17.0.2.ebuild:
+  Stable for amd64, wrt bug #450940
+
+*firefox-bin-17.0.2 (11 Jan 2013)
+
+  11 Jan 2013; Jeff Horelick <jdhore@gentoo.org> +firefox-bin-17.0.2.ebuild:
+  Version bump on new ESR branch
+
+  09 Jan 2013; Jeff Horelick <jdhore@gentoo.org> -firefox-bin-10.0.6.ebuild,
+  -firefox-bin-10.0.7.ebuild, -firefox-bin-10.0.9.ebuild,
+  -firefox-bin-15.0.1.ebuild:
+  Remove some old versions.
+
+*firefox-bin-10.0.12 (09 Jan 2013)
+*firefox-bin-18.0 (09 Jan 2013)
+
+  09 Jan 2013; Jeff Horelick <jdhore@gentoo.org> +firefox-bin-10.0.12.ebuild,
+  +firefox-bin-18.0.ebuild:
+  Version bump on ESR and mainline branches
+
+*firefox-bin-17.0.1 (13 Dec 2012)
+
+  13 Dec 2012; Ian Stakenvicius <axs@gentoo.org> -firefox-bin-17.0.ebuild,
+  +firefox-bin-17.0.1.ebuild:
+  version bump, bug 446890
+
+  03 Dec 2012; Andreas Schuerch <nativemad@gentoo.org>
+  firefox-bin-10.0.11.ebuild:
+  x86 stable, see bug 444318
 
   27 Nov 2012; Agostino Sarubbo <ago@gentoo.org> firefox-bin-10.0.11.ebuild:
   Stable for amd64, wrt bug #444318

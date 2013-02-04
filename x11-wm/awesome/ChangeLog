@@ -1,6 +1,20 @@
 # ChangeLog for x11-wm/awesome
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/awesome/ChangeLog,v 1.140 2012/11/28 00:20:30 robbat2 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/awesome/ChangeLog,v 1.143 2013/02/03 12:47:10 pacho Exp $
+
+  03 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due #22900
+
+*awesome-3.4.14 (06 Jan 2013)
+
+  06 Jan 2013; Maxim Koltsov <maksbotan@gentoo.org> +awesome-3.4.14.ebuild:
+  Bump to 3.4.14, bug #450456
+
+*awesome-3.5 (04 Jan 2013)
+
+  04 Jan 2013; Christian Ruppert <idl0r@gentoo.org> -awesome-3.5_rc1-r1.ebuild,
+  +awesome-3.5.ebuild:
+  Non maintainer bump, bug 447576
 
 *awesome-3.5_rc1-r1 (28 Nov 2012)
 

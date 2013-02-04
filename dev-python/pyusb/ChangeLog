@@ -1,6 +1,20 @@
 # ChangeLog for dev-python/pyusb
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyusb/ChangeLog,v 1.10 2012/07/25 17:57:50 steev Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyusb/ChangeLog,v 1.14 2013/01/06 17:17:58 floppym Exp $
+
+  06 Jan 2013; Mike Gilbert <floppym@gentoo.org> metadata.xml:
+  Add upstream node.
+
+  06 Jan 2013; Mike Gilbert <floppym@gentoo.org> pyusb-1.0.0_alpha3.ebuild:
+  Switch to pypi, which has tarballs.
+
+  07 Jan 2013; Ian Delaney <idella4@gentoo.org> pyusb-1.0.0_alpha3.ebuild:
+  Added unzip to DEPEND, picked up and thx to Arferever
+
+*pyusb-1.0.0_alpha3 (05 Jan 2013)
+
+  05 Jan 2013; Ian Delaney <idella4@gentoo.org> +pyusb-1.0.0_alpha3.ebuild:
+  bump, requested by K. Niemi, Bug #447998
 
   25 Jul 2012; Steev Klimaszewski <steev@gentoo.org> pyusb-1.0.0_alpha1.ebuild:
   Add ~arm keywording. Tested on an mx51 and mx6.
@@ -45,4 +59,3 @@
   28 May 2009; Joseph Jezak <josejx@gentoo.org> +metadata.xml,
   +pyusb-0.4.1.ebuild:
   Initial commit.
-

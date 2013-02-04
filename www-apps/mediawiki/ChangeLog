@@ -1,6 +1,46 @@
 # ChangeLog for www-apps/mediawiki
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.203 2012/11/18 10:21:17 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.213 2013/01/22 17:24:26 ago Exp $
+
+  22 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.20.2.ebuild:
+  Stable for x86, wrt bug #451616
+
+  16 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.20.2.ebuild:
+  Stable for ppc, wrt bug #451616
+
+  14 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.20.2.ebuild:
+  Stable for amd64, wrt bug #451616
+
+  09 Jan 2013; Ole Markus With <olemarkus@gentoo.org> mediawiki-1.18.6.ebuild,
+  mediawiki-1.19.3.ebuild, mediawiki-1.20.1.ebuild, mediawiki-1.20.2.ebuild:
+  For a transitional period, both php[sqlite] and php[sqlite3] means sqlite3.
+  The sqlite3 USE flag will be removed in the near future
+
+*mediawiki-1.20.2 (05 Dec 2012)
+
+  05 Dec 2012; Tim Harder <radhermit@gentoo.org> +mediawiki-1.20.2.ebuild:
+  Version bump.
+
+  03 Dec 2012; Tim Harder <radhermit@gentoo.org> -mediawiki-1.18.5.ebuild,
+  -mediawiki-1.19.2.ebuild, -mediawiki-1.20.0.ebuild:
+  Remove old, insecure verisons.
+
+  03 Dec 2012; Andreas Schuerch <nativemad@gentoo.org> mediawiki-1.19.3.ebuild:
+  x86 stable, see bug 445065
+
+  02 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.3.ebuild:
+  Stable for ppc, wrt bug #445065
+
+  01 Dec 2012; <ago@gentoo.org> mediawiki-1.19.3.ebuild:
+  Stable for amd64, wrt bug #445065
+
+*mediawiki-1.20.1 (30 Nov 2012)
+*mediawiki-1.19.3 (30 Nov 2012)
+*mediawiki-1.18.6 (30 Nov 2012)
+
+  30 Nov 2012; Tim Harder <radhermit@gentoo.org> +mediawiki-1.18.6.ebuild,
+  +mediawiki-1.19.3.ebuild, +mediawiki-1.20.1.ebuild:
+  Security bumps (bug #445065).
 
   18 Nov 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop maintainer as he is not taking care of this package. Remove old.

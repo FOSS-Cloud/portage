@@ -1,6 +1,43 @@
 # ChangeLog for dev-perl/Text-CSV_XS
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Text-CSV_XS/ChangeLog,v 1.115 2012/11/24 07:37:57 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Text-CSV_XS/ChangeLog,v 1.125 2013/01/16 19:59:46 tove Exp $
+
+*Text-CSV_XS-0.950.0 (16 Jan 2013)
+
+  16 Jan 2013; Torsten Veller <tove@gentoo.org> +Text-CSV_XS-0.950.0.ebuild:
+  Version bump
+
+  06 Jan 2013; Mike Frysinger <vapier@gentoo.org> Text-CSV_XS-0.910.0.ebuild,
+  Text-CSV_XS-0.940.0.ebuild:
+  Fix arm/hppa/s390/sh keywords.
+
+  06 Jan 2013; Torsten Veller <tove@gentoo.org> -Text-CSV_XS-0.860.0.ebuild,
+  -Text-CSV_XS-0.900.0.ebuild, -Text-CSV_XS-0.920.0.ebuild,
+  -Text-CSV_XS-0.930.0.ebuild:
+  Cleanup
+
+  27 Dec 2012; Raúl Porcel <armin76@gentoo.org> Text-CSV_XS-0.910.0.ebuild:
+  alpha/sparc stable wrt #441260
+
+  13 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Text-CSV_XS-0.910.0.ebuild:
+  Stable for ia64, wrt bug #441260
+
+  06 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Text-CSV_XS-0.910.0.ebuild:
+  Stable for ppc64, wrt bug #441260
+
+  06 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Text-CSV_XS-0.910.0.ebuild:
+  Stable for ppc, wrt bug #441260
+
+  06 Dec 2012; <ago@gentoo.org> Text-CSV_XS-0.910.0.ebuild:
+  Stable for x86, wrt bug #441260
+
+  06 Dec 2012; <ago@gentoo.org> Text-CSV_XS-0.910.0.ebuild:
+  Stable for amd64, wrt bug #441260
+
+*Text-CSV_XS-0.940.0 (03 Dec 2012)
+
+  03 Dec 2012; Torsten Veller <tove@gentoo.org> +Text-CSV_XS-0.940.0.ebuild:
+  Version bump
 
 *Text-CSV_XS-0.930.0 (24 Nov 2012)
 

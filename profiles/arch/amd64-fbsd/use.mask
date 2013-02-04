@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation.
+# Copyright 1999-2013 Gentoo Foundation.
 # Distributed under the terms of the GNU General Public License, v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64-fbsd/use.mask,v 1.11 2012/11/24 21:38:11 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64-fbsd/use.mask,v 1.13 2013/01/20 10:51:20 mgorny Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -amd64-fbsd
@@ -32,22 +32,20 @@
 
 # Other
 
+# Alexandre Rostovtsev <tetromino@gentoo.org> (09 Dec 2012)
+# Orc optimisations work fine on amd64 and x86
+-orc
+
 # Alexandre Rostovtsev <tetromino@gmail.com> (16 Jul 2012)
 # Only python:2.7 and :3.2 are keyworded on this arch
 python_targets_python2_4
 python_targets_python2_5
 python_targets_python2_6
 python_targets_python3_1
-python_targets_pypy1_8
-python_targets_pypy1_9
-python_targets_jython2_5
 python_single_target_python2_4
 python_single_target_python2_5
 python_single_target_python2_6
 python_single_target_python3_1
-python_single_target_pypy1_8
-python_single_target_pypy1_9
-python_single_target_jython2_5
 
 # Diego Elio Pettenò <flameeyes@gentoo.org> (21 Aug 2012)
 # IPMI is only implemented for x86, amd64 and ia64

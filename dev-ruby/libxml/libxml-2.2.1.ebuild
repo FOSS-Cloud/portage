@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/libxml/libxml-2.2.1.ebuild,v 1.9 2012/05/01 18:24:15 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/libxml/libxml-2.2.1.ebuild,v 1.11 2013/01/15 07:16:14 zerochaos Exp $
 
 EAPI=2
 
@@ -18,9 +18,9 @@ inherit ruby-fakegem
 DESCRIPTION="Ruby libxml with a user friendly API, akin to REXML, but feature complete and significantly faster."
 HOMEPAGE="http://libxml.rubyforge.org"
 
-LICENSE="as-is"
+LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 hppa ppc ppc64 x86"
+KEYWORDS="amd64 ~arm hppa ppc ppc64 x86"
 IUSE=""
 
 RDEPEND="${RDEPEND} dev-libs/libxml2"

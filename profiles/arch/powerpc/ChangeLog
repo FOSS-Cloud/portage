@@ -1,6 +1,85 @@
 # ChangeLog for Gentoo/PPC profile directory
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ChangeLog,v 1.201 2012/11/24 22:03:42 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ChangeLog,v 1.226 2013/01/31 22:58:29 ago Exp $
+
+  31 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ppc64/64ul/package.use.mask:
+  Mask gnome-extra/nm-applet bluetooth because requires a lot of unstable
+  depends not ready for the stabilization
+
+  31 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask net-misc/modemmanager[qmi,qmi-newest] until libqmi is keyworded.
+
+  22 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask colord[extra-print-profiles] until argyllcms is keyworded here.
+
+  20 Jan 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Remove duplicate pypy/jython masks (masked in base profile now).
+
+  18 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> use.mask:
+  Mask USE="cman clvm" because cman and libdlm are not keyworded on this arch.
+
+  14 Jan 2013; Sergei Trofimovich <slyfox@gentoo.org> ppc64/64ul/use.mask:
+  mask template_haskell on ppc64 (unregisterised arch)
+
+  10 Jan 2013; Sergei Trofimovich <slyfox@gentoo.org> package.use.mask:
+  mask USE=seccomp for app-emulation/qemu (sys-libs/libseccomp knows only about
+  x86 and amd64 hosts)
+
+  06 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Remove obsolete mask entries
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> package.use.mask, use.mask:
+  remove folks[eds/telepathy] and add -zeitgeist
+
+  31 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Unmask evolution[connman] since connman has been keyworded.
+
+  31 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  ppc64/package.use.mask:
+  Mask sushi[office], needs virtual/ooo.
+
+  30 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  ppc32/package.use.mask:
+  Unmask zeitgeist-datasources[tomboy] (masked in base).
+
+  27 Dec 2012; Sergey Popov <pinkbyte@gentoo.org> package.mask,
+  package.use.mask, ppc32/package.use.mask:
+  Remove obsolete masks, wrt bug #444181
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask gnome-control-center[colord] until gnome-color-manager is keyworded
+  here.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask devhelp[gedit] until gedit-3.6 is keyworded.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask >=folks-0.8[telepathy] until dev-libs/libzeitgeist is keyworded.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask USE=colord for stable versions of x11-libs/gtk+ to fix repoman failure.
+  Remove this mask when x11-misc/colord is stable for ppc/ppc64.
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ppc64/64ul/use.mask:
+  mask kde since is not anymore keyworded for ppc64
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> use.mask:
+  mask clang IUSE
+
+  19 Dec 2012; Agostino Sarubbo <ago@gentoo.org> use.mask:
+  Remove packagekit and colord
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ppc64/64ul/use.mask:
+  mask clang for ppc64 since llvm fails to compile
+
+  12 Dec 2012; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  remove media-sound/picard acoustid wrt to bug #426340
+
+  30 Nov 2012; Joseph Jezak <josejx@gentoo.org> +ppc64/32ul/packages:
+  Removed kgcc64 from ppc64-32ul profile, it's no longer needed.
+
+  30 Nov 2012; Agostino Sarubbo <ago@gentoo.org> ppc64/32ul/package.mask:
+  Lirc now works on ppc32 with 64bit kernel, removing mask
 
   24 Nov 2012; Mike Gilbert <floppym@gentoo.org> use.mask:
   Mask python_single_target values not supported on this arch.

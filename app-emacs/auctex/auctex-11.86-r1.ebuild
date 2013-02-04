@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/auctex/auctex-11.86-r1.ebuild,v 1.8 2012/01/14 16:09:17 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/auctex/auctex-11.86-r1.ebuild,v 1.9 2012/12/03 22:04:59 ulm Exp $
 
 EAPI=3
 
@@ -10,7 +10,7 @@ DESCRIPTION="Extended support for writing, formatting and using (La)TeX, Texinfo
 HOMEPAGE="http://www.gnu.org/software/auctex/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
-LICENSE="GPL-3 FDL-1.2"
+LICENSE="GPL-3+ FDL-1.3+"
 SLOT="0"
 KEYWORDS="amd64 ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris"
 IUSE="preview-latex"

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-guest-additions/virtualbox-guest-additions-4.1.22.ebuild,v 1.4 2012/11/17 11:54:03 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-guest-additions/virtualbox-guest-additions-4.1.22.ebuild,v 1.5 2012/12/22 12:28:08 polynomial-c Exp $
 
 EAPI=2
 
@@ -49,7 +49,7 @@ pkg_setup() {
 		linux-mod_pkg_setup
 		BUILD_PARAMS="KERN_DIR=${KV_DIR} KERNOUT=${KV_OUT_DIR}"
 		enewgroup vboxguest
-		enewuser vboxguest -1 /bin/sh /var/run/vboxguest vboxguest
+		enewuser vboxguest -1 /bin/sh /dev/null vboxguest
 }
 
 src_unpack() {

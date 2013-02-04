@@ -1,7 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/capi4k-utils/capi4k-utils-20050718-r3.ebuild,v 1.14 2012/09/30 18:21:18 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/capi4k-utils/capi4k-utils-20050718-r3.ebuild,v 1.18 2013/01/21 22:32:19 ssuominen Exp $
 
+EAPI=1
 inherit eutils multilib linux-info
 
 YEAR_PV="${PV:0:4}"
@@ -19,14 +20,14 @@ SRC_URI="ftp://ftp.in-berlin.de/pub/capi4linux/${MY_P}.tar.gz
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="alpha amd64 ppc x86"
-IUSE="fax pppd tcpd usb pcmcia"
+IUSE="fax +pppd tcpd usb pcmcia"
 
 DEPEND="virtual/linux-sources
 	virtual/os-headers
 	>=sys-apps/sed-4"
 
-RDEPEND="usb? ( sys-apps/hotplug )
-	pcmcia? ( virtual/pcmcia )
+RDEPEND="usb? ( virtual/udev )
+	pcmcia? ( sys-apps/pcmciautils )
 	dev-lang/perl"
 
 S="${WORKDIR}/${PN}"
@@ -152,7 +153,6 @@ pkg_postinst() {
 	elog "the CAPI driver you need for your card(s):"
 	elog "  net-dialup/fritzcapi - AVM passive ISDN controllers"
 	elog "  net-dialup/fcdsl     - AVM ISDN/DSL controllers PCI/USB"
-	elog "  net-dialup/misdn     - some passive cards with HiSax chipset"
 	elog
 	ewarn "If you're upgrading from an older capi4k-utils, you must recompile"
 	ewarn "the other packages on your system that link with libcapi after the"

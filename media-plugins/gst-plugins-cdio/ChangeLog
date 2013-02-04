@@ -1,6 +1,83 @@
 # ChangeLog for media-plugins/gst-plugins-cdio
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-cdio/ChangeLog,v 1.55 2011/12/05 11:23:59 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-cdio/ChangeLog,v 1.72 2013/02/03 13:56:09 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild, gst-plugins-cdio-1.0.3.ebuild,
+  gst-plugins-cdio-1.0.5.ebuild:
+  Add ~arm, wrt bug #450672
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild, gst-plugins-cdio-1.0.3.ebuild:
+  Add ~arm, wrt bug #449220
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild:
+  Stable for ppc, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild:
+  Stable for ppc64, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild:
+  Stable for x86, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild:
+  Stable for amd64, wrt bug #454906
+
+  29 Jan 2013; Alexis Ballier <aballier@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild, gst-plugins-cdio-1.0.5.ebuild:
+  keyword ~amd64-fbsd
+
+*gst-plugins-cdio-1.0.5 (22 Jan 2013)
+
+  22 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-cdio-1.0.5.ebuild:
+  Version bump.
+
+  16 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild, gst-plugins-cdio-1.0.3.ebuild:
+  Use subslot operator for dependency on cdio.
+
+  16 Jan 2013; Samuli Suominen <ssuominen@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild,
+  +files/gst-plugins-cdio-0.10.19-cdio-cd-text-api.patch:
+  Fix compability with dev-libs/libcdio >= 0.90 wrt #452434
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild, gst-plugins-cdio-1.0.3.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gst-plugins-cdio-1.0.3.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  09 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild, gst-plugins-cdio-1.0.3.ebuild:
+  Restore accidentally dropped keywords.
+
+*gst-plugins-cdio-1.0.3 (05 Dec 2012)
+
+  05 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  gst-plugins-cdio-0.10.19.ebuild, +gst-plugins-cdio-1.0.3.ebuild:
+  Version bump.
+
+*gst-plugins-cdio-0.10.19 (02 Dec 2012)
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-cdio-0.10.19.ebuild:
+  Version bump.
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  -gst-plugins-cdio-0.10.16.ebuild, -gst-plugins-cdio-0.10.17.ebuild,
+  gst-plugins-cdio-0.10.18.ebuild:
+  Clean up old revision. EAPI bump stable due to pending eclass changes and
+  slot pinning.
 
   05 Dec 2011; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop gnome team from metadata as talked with leio and eva.
@@ -246,4 +323,3 @@
   27 Feb 2006; Zaheer Abbas Merali <zaheerm@gentoo.org> +metadata.xml,
   +gst-plugins-cdio-0.10.2.ebuild:
   cdio plugin for gstreamer 0.10
-

@@ -1,6 +1,42 @@
 # ChangeLog for media-sound/mpg123
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/mpg123/ChangeLog,v 1.269 2012/09/08 06:35:00 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/mpg123/ChangeLog,v 1.280 2013/01/15 21:44:13 ssuominen Exp $
+
+*mpg123-1.14.4-r1 (15 Jan 2013)
+
+  15 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> +mpg123-1.14.4-r1.ebuild:
+  Introduce eselect-mpg123 support.
+
+  14 Jan 2013; Tim Harder <radhermit@gentoo.org> -mpg123-1.13.2.ebuild,
+  -mpg123-1.14.2.ebuild, -mpg123-1.14.3.ebuild:
+  Remove old.
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mpg123-1.14.4.ebuild:
+  Stable for alpha, wrt bug #441400
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mpg123-1.14.4.ebuild:
+  Stable for sparc, wrt bug #441400
+
+  20 Dec 2012; Jeroen Roovers <jer@gentoo.org> mpg123-1.14.4.ebuild:
+  Stable for HPPA (bug #441400).
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mpg123-1.14.4.ebuild:
+  Stable for ia64, wrt bug #441400
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mpg123-1.14.4.ebuild:
+  Stable for x86, wrt bug #441400
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mpg123-1.14.4.ebuild:
+  Stable for ppc64, wrt bug #441400
+
+  09 Dec 2012; Markus Meier <maekke@gentoo.org> mpg123-1.14.4.ebuild:
+  arm stable, bug #441400
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mpg123-1.14.4.ebuild:
+  Stable for ppc, wrt bug #441400
+
+  08 Dec 2012; <ago@gentoo.org> mpg123-1.14.4.ebuild:
+  Stable for amd64, wrt bug #441400
 
 *mpg123-1.14.4 (08 Sep 2012)
 

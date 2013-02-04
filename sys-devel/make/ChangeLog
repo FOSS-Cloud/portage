@@ -1,6 +1,39 @@
 # ChangeLog for sys-devel/make
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/make/ChangeLog,v 1.103 2012/10/17 12:41:40 ottxor Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/make/ChangeLog,v 1.114 2013/01/28 14:23:00 aballier Exp $
+
+  28 Jan 2013; Alexis Ballier <aballier@gentoo.org> make-3.82-r4.ebuild:
+  keyword ~amd64-fbsd, it seems I did not keyword the latest version...
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> make-3.82-r4.ebuild:
+  m68k/s390/sh stable wrt #441528
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> make-3.82-r4.ebuild:
+  Stable for alpha, wrt bug #441528
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> make-3.82-r4.ebuild:
+  Stable for sparc, wrt bug #441528
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> make-3.82-r4.ebuild:
+  Stable for ia64, wrt bug #441528
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> make-3.82-r4.ebuild:
+  Stable for x86, wrt bug #441528
+
+  14 Dec 2012; Jeroen Roovers <jer@gentoo.org> make-3.82-r4.ebuild:
+  Stable for HPPA (bug #441528).
+
+  12 Dec 2012; Agostino Sarubbo <ago@gentoo.org> make-3.82-r4.ebuild:
+  Stable for amd64, wrt bug #441528
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org> make-3.82-r4.ebuild:
+  Stable for ppc64, wrt bug #441528
+
+  09 Dec 2012; Markus Meier <maekke@gentoo.org> make-3.82-r4.ebuild:
+  arm stable, bug #441528
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org> make-3.82-r4.ebuild:
+  Stable for ppc, wrt bug #441528
 
   17 Oct 2012; Christoph Junghans <ottxor@gentoo.org>
   +files/make-3.82-darwin-library_search-dylib.patch, make-3.82-r4.ebuild:

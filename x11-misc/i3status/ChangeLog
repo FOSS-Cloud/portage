@@ -1,6 +1,16 @@
 # ChangeLog for x11-misc/i3status
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/i3status/ChangeLog,v 1.12 2012/10/03 15:28:52 xarthisius Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/i3status/ChangeLog,v 1.15 2013/01/27 18:31:04 xarthisius Exp $
+
+  27 Jan 2013; Kacper Kowalik <xarthisius@gentoo.org> -i3status-2.5.1.ebuild,
+  i3status-2.6.ebuild, metadata.xml:
+  Drop old. Use new fcaps.eclass
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> i3status-2.6.ebuild:
+  Stable for x86, wrt bug #446950
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> i3status-2.6.ebuild:
+  Stable for amd64, wrt bug #446950
 
 *i3status-2.6 (03 Oct 2012)
 

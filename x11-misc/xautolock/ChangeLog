@@ -1,6 +1,12 @@
 # ChangeLog for x11-misc/xautolock
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xautolock/ChangeLog,v 1.27 2012/11/21 11:14:45 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xautolock/ChangeLog,v 1.29 2012/12/17 19:16:01 jer Exp $
+
+  17 Dec 2012; Jeroen Roovers <jer@gentoo.org> -xautolock-2.1-r1.ebuild:
+  Old.
+
+  16 Dec 2012; Raúl Porcel <armin76@gentoo.org> xautolock-2.2.ebuild:
+  sparc stable wrt #440288
 
   21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> xautolock-2.2.ebuild:
   Stable for x86, wrt bug #440288

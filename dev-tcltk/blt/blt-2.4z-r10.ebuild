@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/blt/blt-2.4z-r10.ebuild,v 1.14 2012/11/02 16:54:03 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/blt/blt-2.4z-r10.ebuild,v 1.16 2013/01/09 21:27:59 jlec Exp $
 
 EAPI="3"
 
@@ -44,6 +44,7 @@ src_prepare() {
 	sed \
 		-e "s:\(^libdir=\${exec_prefix}/\)lib:\1$(get_libdir):" \
 		-e 's:LD_RUN_PATH=.*$:LD_RUN_PATH="":g' \
+		-e "/RANLIB/s:ranlib:$(tc-getRANLIB):g" \
 		-i configure* || die "sed configure* failed"
 	sed \
 		-e "/^scriptdir =/s:lib:$(get_libdir):" \
@@ -78,7 +79,6 @@ src_configure() {
 		--with-gnu-ld \
 		$(use_enable jpeg) \
 		$(use_with X x)
-
 }
 
 src_compile() {

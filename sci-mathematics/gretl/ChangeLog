@@ -1,6 +1,16 @@
 # ChangeLog for sci-mathematics/gretl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/gretl/ChangeLog,v 1.39 2012/06/10 18:46:33 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/gretl/ChangeLog,v 1.41 2013/01/15 18:22:35 bicatali Exp $
+
+  15 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org> -gretl-1.9.9.ebuild,
+  gretl-1.9.11.ebuild:
+  Unfortunate forcing of gtk for emacs use flag (bug #452112)
+
+*gretl-1.9.11 (30 Nov 2012)
+
+  30 Nov 2012; Sébastien Fabbro <bicatali@gentoo.org> +gretl-1.9.11.ebuild,
+  -gretl-1.9.7.ebuild, -gretl-1.9.8.ebuild:
+  Version bump
 
 *gretl-1.9.9 (10 Jun 2012)
 
@@ -212,4 +222,3 @@
   07 Nov 2007; Sébastien Fabbro <bicatali@gentoo.org> +metadata.xml,
   +gretl-1.6.5.ebuild:
   Initial import. Close bug #39966. Thanks everyone in the bug who helped.
-

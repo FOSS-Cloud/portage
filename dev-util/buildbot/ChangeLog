@@ -1,6 +1,51 @@
 # ChangeLog for dev-util/buildbot
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot/ChangeLog,v 1.108 2012/09/30 17:07:43 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot/ChangeLog,v 1.121 2013/01/26 16:36:44 hwoarang Exp $
+
+  26 Jan 2013; Markos Chandras <hwoarang@gentoo.org> buildbot-0.8.7_p1.ebuild:
+  Rework code for the env file creation. Thanks to floppym@gentoo.org. Use EAPI5
+
+*buildbot-0.8.7_p1 (26 Jan 2013)
+
+  26 Jan 2013; Markos Chandras <hwoarang@gentoo.org> +buildbot-0.8.7_p1.ebuild,
+  -buildbot-0.8.5.ebuild, -buildbot-0.8.6.ebuild:
+  Version bump. Protect web pages which might be shared by multiple masters.
+  Drop old
+
+*buildbot-0.8.7 (23 Jan 2013)
+
+  23 Jan 2013; Markos Chandras <hwoarang@gentoo.org> +buildbot-0.8.7.ebuild:
+  Version bump. Bug #436136
+
+  23 Jan 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add myself as maintainer
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.6_p1.ebuild:
+  Stable for alpha, wrt bug #449426
+
+  16 Jan 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.6_p1.ebuild:
+  Stable for ppc, wrt bug #449426
+
+  06 Jan 2013; Markus Meier <maekke@gentoo.org> buildbot-0.8.6_p1.ebuild:
+  arm stable, bug #449426
+
+  05 Jan 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.6_p1.ebuild:
+  Stable for sparc, wrt bug #449426
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.6_p1.ebuild:
+  Stable for x86, wrt bug #449426
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.6_p1.ebuild:
+  Stable for amd64, wrt bug #449426
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.6_p1.ebuild:
+  Stable for ia64, wrt bug #449426
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.6_p1.ebuild:
+  Stable for ppc64, wrt bug #449426
+
+  31 Dec 2012; Jeroen Roovers <jer@gentoo.org> buildbot-0.8.6_p1.ebuild:
+  Stable for HPPA (bug #449426).
 
   30 Sep 2012; Raúl Porcel <armin76@gentoo.org> buildbot-0.8.6.ebuild,
   buildbot-0.8.6_p1.ebuild:

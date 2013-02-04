@@ -1,6 +1,27 @@
 # ChangeLog for games-fps/quake3
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/quake3/ChangeLog,v 1.62 2012/09/25 11:12:54 pinkbyte Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-fps/quake3/ChangeLog,v 1.68 2013/01/31 00:38:52 mr_bones_ Exp $
+
+  31 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/quake3-1.34_rc3-gcc42.patch, -quake3-1.34_rc3.ebuild,
+  -quake3-1.36.ebuild:
+  old
+
+  13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> quake3-1.36-r1.ebuild:
+  Stable for x86, wrt bug #447164
+
+  03 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> quake3-9999.ebuild:
+  Add missing 'die' statement to renderers installation, add new docs
+
+  03 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> quake3-9999.ebuild:
+  Add workarounds for zlib and renderers loading, wrt bug #449510. Thanks to
+  robo9k <robo+gentoo AT 9k.lv> for discovering these issues
+
+  03 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> quake3-9999.ebuild:
+  Set new repo address for live ebuild, wrt bug #449510
+
+  20 Dec 2012; Agostino Sarubbo <ago@gentoo.org> quake3-1.36-r1.ebuild:
+  Stable for amd64, wrt bug #447164
 
   25 Sep 2012; Sergey Popov <pinkbyte@gentoo.org> quake3-1.36-r1.ebuild:
   Disable patch for jpeg unbundling, cause it is uncompleted and may cause
@@ -174,4 +195,3 @@
 
   26 Oct 2005; Mike Frysinger <vapier@gentoo.org> :
   Initial version of quake3-from-source #103591.
-

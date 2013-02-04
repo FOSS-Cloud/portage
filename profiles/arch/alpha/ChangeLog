@@ -1,6 +1,70 @@
 # ChangeLog for Gentoo/Alpha profile directory
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/ChangeLog,v 1.147 2012/11/24 21:38:11 floppym Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/ChangeLog,v 1.167 2013/01/31 05:57:08 tetromino Exp $
+
+  31 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask net-misc/modemmanager[qmi,qmi-newest] until libqmi is keyworded.
+
+  22 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask colord[extra-print-profiles] until argyllcms is keyworded here.
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> use.mask:
+  remove mask on colord/packagekit use
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> use.mask:
+  mask template_haskell IUSE as per slyfox suggest
+
+  20 Jan 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Remove duplicate pypy/jython masks (masked in base profile now).
+
+  18 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> use.mask:
+  Mask USE="cman clvm" because cman and libdlm are not keyworded on this arch.
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask, use.mask:
+  Remove dev-libs/folks eds telepathy and gnome-base/nautilus sendto from
+  package.use.mask. Remove gnome-online-accounts and add -zeitgeist from
+  use.mask
+
+  31 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> use.mask:
+  Mask USE=xine since xine-lib is not keyworded here.
+
+  31 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask totem[flash]: like totem[youtube], it needs quvi.
+
+  31 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask sushi[office], needs virtual/ooo.
+
+  30 Dec 2012; Raúl Porcel <armin76@gentoo.org> package.use.mask:
+  P.use.mask media-libs/phonon gstreamer vlc, needs testing
+
+  27 Dec 2012; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
+  Remove obsolete masks, wrt bug #444181
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask >=zenity-3.6[test] until yelp-tools is keyworded.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask >=libgda-5.1[gnome-keyring,reports] until app-crypt/libsecret and
+  dev-java/fop are keywored.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask devhelp[gedit] until gedit-3.6 is keyworded.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask >=gvfs-1.14[gnome-keyring] until app-crypt/libsecret is keyworded.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask >=folks-0.8[telepathy] until dev-libs/libzeitgeist is keyworded.
+
+  15 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask totem[upnp-av] after upnp -> upnp-av rename since media-video/coherence
+  not keyworded (bug #435776).
+
+  01 Dec 2012; Raúl Porcel <armin76@gentoo.org> use.mask:
+  Use.mask fdk, bug #442806
+
+  01 Dec 2012; Raúl Porcel <armin76@gentoo.org> use.mask:
+  Use.mask tremor, bug #439722
 
   24 Nov 2012; Mike Gilbert <floppym@gentoo.org> use.mask:
   Mask python_single_target values not supported on this arch.

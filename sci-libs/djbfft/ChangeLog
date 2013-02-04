@@ -1,6 +1,19 @@
 # ChangeLog for sci-libs/djbfft
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/djbfft/ChangeLog,v 1.16 2012/11/16 11:11:28 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/djbfft/ChangeLog,v 1.20 2013/01/14 10:05:22 jlec Exp $
+
+  14 Jan 2013; Justin Lecher <jlec@gentoo.org> -djbfft-0.76.ebuild,
+  metadata.xml:
+  Drop old, fixes #423877
+
+  27 Dec 2012; Raúl Porcel <armin76@gentoo.org> djbfft-0.76-r1.ebuild:
+  alpha/sh/sparc stable wrt #442748
+
+  04 Dec 2012; <ago@gentoo.org> djbfft-0.76-r1.ebuild:
+  Stable for x86, wrt bug #442748
+
+  30 Nov 2012; Sébastien Fabbro <bicatali@gentoo.org> djbfft-0.76-r1.ebuild:
+  Slightly more verbose build, bug #443142
 
   16 Nov 2012; Anthony G. Basile <blueness@gentoo.org> djbfft-0.76-r1.ebuild:
   stable arm, bug #442748

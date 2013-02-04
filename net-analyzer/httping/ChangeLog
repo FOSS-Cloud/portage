@@ -1,6 +1,17 @@
 # ChangeLog for net-analyzer/httping
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/httping/ChangeLog,v 1.88 2012/11/19 14:12:27 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/httping/ChangeLog,v 1.90 2013/01/12 02:04:27 radhermit Exp $
+
+*httping-1.5.7 (12 Jan 2013)
+
+  12 Jan 2013; Tim Harder <radhermit@gentoo.org> +httping-1.5.7.ebuild:
+  Version bump.
+
+*httping-1.5.6 (10 Dec 2012)
+
+  10 Dec 2012; Jeroen Roovers <jer@gentoo.org> +httping-1.5.6.ebuild,
+  +files/httping-1.5.6-help.patch:
+  Version bump.
 
   19 Nov 2012; Agostino Sarubbo <ago@gentoo.org> httping-1.5.5.ebuild:
   Stable for x86, wrt bug #439390

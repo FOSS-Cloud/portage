@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/ogre/ogre-1.8.1.ebuild,v 1.2 2012/11/12 23:26:40 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-games/ogre/ogre-1.8.1.ebuild,v 1.5 2013/01/09 17:26:13 hasufell Exp $
 
 EAPI=4
 inherit eutils cmake-utils
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}_src_v${MY_PV}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+boost cg doc double-precision examples +freeimage gles2 ois +opengl poco profile tbb threads tools +zip"
 REQUIRED_USE="threads? ( || ( boost poco tbb ) )"
 RESTRICT="test" #139905
@@ -45,7 +45,8 @@ S=${WORKDIR}/${PN}_src_v${MY_PV}
 src_prepare() {
 	epatch \
 		"${FILESDIR}"/${P}-threading.patch \
-		"${FILESDIR}"/${P}-flags.patch
+		"${FILESDIR}"/${P}-flags.patch \
+		"${FILESDIR}"/${P}-gles2.patch
 	sed -i \
 		-e "s:share/OGRE/docs:share/doc/${PF}:" \
 		Docs/CMakeLists.txt || die

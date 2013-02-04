@@ -1,6 +1,6 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ada/cbind/cbind-6.0.ebuild,v 1.7 2008/12/08 10:32:32 george Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ada/cbind/cbind-6.0.ebuild,v 1.8 2012/11/30 12:40:17 george Exp $
 
 # !NOTE!
 # this is a utility, no libs generated, no reason to do the gnat.eclass dance
@@ -12,6 +12,7 @@ HOMEPAGE="http://www.rational.com/"
 LICENSE="GMGPL"
 
 DEPEND="virtual/ada"
+RDEPEND="${DEPEND}"
 
 SLOT="0"
 KEYWORDS="~x86 ~amd64"

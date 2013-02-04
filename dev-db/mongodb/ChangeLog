@@ -1,6 +1,32 @@
 # ChangeLog for dev-db/mongodb
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/ChangeLog,v 1.52 2012/11/22 03:45:06 flameeyes Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/ChangeLog,v 1.56 2013/02/02 19:04:05 ultrabug Exp $
+
+*mongodb-2.2.3 (02 Feb 2013)
+
+  02 Feb 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.2.2.ebuild,
+  +mongodb-2.2.3.ebuild:
+  Version bump, drop old
+
+*mongodb-2.2.2-r1 (18 Jan 2013)
+
+  18 Jan 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-1.8.5.ebuild,
+  +mongodb-2.2.2-r1.ebuild, files/mms-agent.initd, files/mongodb.initd,
+  files/mongos.initd:
+  Do not keepdir /var/run wrt #445686, obsolete version 1.8.5 moved to ultrabug
+  overlay wrt #376983
+
+*mongodb-2.0.8-r2 (28 Nov 2012)
+*mongodb-2.0.8-r1 (28 Nov 2012)
+
+  28 Nov 2012; Ultrabug <ultrabug@gentoo.org> +mongodb-2.0.8-r1.ebuild,
+  +mongodb-2.0.8-r2.ebuild:
+  2.0.8 splitted boost-1.50 version bumps
+
+*mongodb-2.2.2 (28 Nov 2012)
+
+  28 Nov 2012; Ultrabug <ultrabug@gentoo.org> +mongodb-2.2.2.ebuild:
+  Version bump
 
   22 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> mongodb-2.0.7-r1.ebuild,
   mongodb-2.0.7-r2.ebuild, mongodb-2.2.0-r1.ebuild, mongodb-2.2.0-r2.ebuild:

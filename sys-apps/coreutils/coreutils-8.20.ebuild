@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/coreutils/coreutils-8.20.ebuild,v 1.1 2012/10/23 19:52:35 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/coreutils/coreutils-8.20.ebuild,v 1.12 2013/01/01 18:55:02 armin76 Exp $
 
 EAPI="3"
 
 inherit eutils flag-o-matic toolchain-funcs
 
-PATCH_VER="1.0"
+PATCH_VER="1.1"
 DESCRIPTION="Standard GNU file utilities (chmod, cp, dd, dir, ls...), text utilities (sort, tr, head, wc..), and shell utilities (whoami, who,...)"
 HOMEPAGE="http://www.gnu.org/software/coreutils/"
 SRC_URI="mirror://gnu-alpha/coreutils/${P}.tar.xz
@@ -17,7 +17,7 @@ SRC_URI="mirror://gnu-alpha/coreutils/${P}.tar.xz
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd"
 IUSE="acl caps gmp nls selinux static userland_BSD vanilla xattr"
 
 LIB_DEPEND="acl? ( sys-apps/acl[static-libs] )
@@ -54,7 +54,7 @@ src_prepare() {
 	# Also, it's not like we changed the usage on any of these things,
 	# so let's just update the timestamps and skip the help2man step.
 	set -- man/*.x
-	tc-is-cross-compiler && touch ${@/%x/1}
+	touch ${@/%x/1}
 
 	# Avoid perl dep for compiled in dircolors default #348642
 	if ! has_version dev-lang/perl ; then

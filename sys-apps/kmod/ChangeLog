@@ -1,6 +1,52 @@
 # ChangeLog for sys-apps/kmod
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/ChangeLog,v 1.60 2012/11/25 09:42:58 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/ChangeLog,v 1.69 2013/01/27 13:53:03 ago Exp $
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> kmod-12-r1.ebuild:
+  Stable for ppc, wrt bug #452556
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> kmod-12-r1.ebuild:
+  Stable for x86, wrt bug #452556
+
+  19 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-12-r1.ebuild:
+  amd64 stable wrt #452556
+
+  18 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-12-r1.ebuild,
+  kmod-9999.ebuild:
+  Pass --disable-silent-rules wrt #452854 by Agostino Sarubbo
+
+  07 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-12-r1.ebuild,
+  kmod-9999.ebuild:
+  Create also /bin/modinfo symlink because the application is useble and
+  useful as a normal user.
+
+  18 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> -kmod-12.ebuild:
+  old
+
+*kmod-12-r1 (18 Dec 2012)
+
+  18 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> +kmod-12-r1.ebuild,
+  kmod-9999.ebuild:
+  Moving binaries to where they are with module-init-tools one last time (!)
+  wrt #447580 by "consus"
+
+  06 Dec 2012; William Hubbs <williamh@gentoo.org> -kmod-11-r4.ebuild:
+  remove broken version
+
+*kmod-12 (05 Dec 2012)
+
+  05 Dec 2012; William Hubbs <williamh@gentoo.org> +kmod-12.ebuild,
+  kmod-9999.ebuild:
+  version bump and sync live ebuild. We dropped the --libdir= configure switch
+  to install the pkg-config file in the proper location.
+
+*kmod-11-r4 (04 Dec 2012)
+
+  04 Dec 2012; William Hubbs <williamh@gentoo.org> +kmod-11-r4.ebuild,
+  kmod-9999.ebuild:
+  Upstream recommended to me that we install the kmod binary in /bin. Also I
+  have put the syminks there except for the compatibility symlinks for the
+  kernel.
 
 *kmod-11-r3 (25 Nov 2012)
 

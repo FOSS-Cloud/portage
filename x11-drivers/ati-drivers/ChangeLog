@@ -1,6 +1,51 @@
 # ChangeLog for x11-drivers/ati-drivers
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ChangeLog,v 1.307 2012/11/27 02:15:54 zerochaos Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ChangeLog,v 1.316 2013/01/19 02:17:08 zerochaos Exp $
+
+*ati-drivers-12.8 (19 Jan 2013)
+
+  19 Jan 2013; Rick Farina <zerochaos@gentoo.org> +ati-drivers-12.8.ebuild:
+  readding 12.8, needed as dep for oclhashcat-*-bin
+
+*ati-drivers-13.1 (18 Jan 2013)
+
+  18 Jan 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-13.1.ebuild, -ati-drivers-12.10.ebuild,
+  -ati-drivers-12.11_beta.ebuild, -ati-drivers-12.6.ebuild,
+  -ati-drivers-12.8.ebuild:
+  Version bump, import of Emil Karlson's ebuild from the x11 overlay. Remove old.
+
+  04 Jan 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ati-drivers-12.11_beta11.ebuild:
+  Add dependency on virtual/glu, bug #437720.
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  ati-drivers-12.11_beta11.ebuild:
+  Stable for x86, wrt bug #448562
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  ati-drivers-12.11_beta11.ebuild:
+  Stable for amd64, wrt bug #448562
+
+  29 Dec 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ati-drivers-12.6_beta_pre897.ebuild:
+  Attempt to re-unify portage and x11 overlay ebuilds.
+
+*ati-drivers-12.11_beta11 (25 Dec 2012)
+
+  25 Dec 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-12.11_beta11.ebuild,
+  +files/ati-drivers-kernel-3.8-acpihandle.patch,
+  -ati-drivers-12.11_beta8.ebuild, ati-drivers-12.6_beta_pre897.ebuild:
+  Bump to latest beta, import of Emil Karlson's ebuild from the x11 overlay.
+  Fixes bugs #437016, #448100 and #448216.
+
+*ati-drivers-12.11_beta8 (28 Nov 2012)
+
+  28 Nov 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-12.11_beta8.ebuild, ati-drivers-12.6.ebuild:
+  New prerelease, import of Emil Karlson's ebuild from the x11 overlay. Address
+  repoman warning that was introduced by the fix for bug #443466.
 
   27 Nov 2012; Rick Farina <zerochaos@gentoo.org> ati-drivers-12.10.ebuild,
   ati-drivers-12.11_beta.ebuild, ati-drivers-12.4.ebuild,

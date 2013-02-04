@@ -1,16 +1,16 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libmtp/libmtp-1.1.5.ebuild,v 1.6 2012/11/20 20:06:28 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libmtp/libmtp-1.1.5.ebuild,v 1.8 2013/01/01 12:23:27 ago Exp $
 
 EAPI=4
 
-inherit autotools eutils user toolchain-funcs
+inherit autotools eutils udev user toolchain-funcs
 
 if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="git://${PN}.git.sourceforge.net/gitroot/${PN}/${PN}"
 	inherit git-2
 else
-	KEYWORDS="amd64 hppa ppc ppc64 x86"
+	KEYWORDS="amd64 hppa ~ia64 ppc ppc64 x86"
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 fi
 
@@ -41,14 +41,11 @@ src_prepare() {
 }
 
 src_configure() {
-	local udevdir=/lib/udev
-	has_version sys-fs/udev && udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-
 	econf \
 		$(use_enable static-libs static) \
 		$(use_enable doc doxygen) \
 		$(use_enable crypt mtpz) \
-		--with-udev="${udevdir}" \
+		--with-udev="$(udev_get_udevdir)" \
 		--with-udev-group=plugdev \
 		--with-udev-mode=0660
 }

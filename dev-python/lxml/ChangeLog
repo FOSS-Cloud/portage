@@ -1,6 +1,36 @@
 # ChangeLog for dev-python/lxml
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/lxml/ChangeLog,v 1.141 2012/11/01 12:21:20 mgorny Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/lxml/ChangeLog,v 1.151 2013/02/02 22:00:07 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> lxml-3.0.1.ebuild:
+  Stable for x86, wrt bug #454314
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> lxml-3.0.1.ebuild:
+  Stable for amd64, wrt bug #454314
+
+  18 Jan 2013; Patrick McLean <chutzpah@gentoo.org> lxml-3.0.1.ebuild:
+  Re-add python-3.3 support
+
+  17 Jan 2013; Michał Górny <mgorny@gentoo.org> lxml-3.0.1.ebuild:
+  Finish adding PYTHON_USEDEPs.
+
+  16 Jan 2013; Michał Górny <mgorny@gentoo.org> lxml-3.0.1.ebuild:
+  Add PYTHON_USEDEP on setuptools. Disable python2.5 because of beautifulsoup.
+
+  27 Dec 2012; Raúl Porcel <armin76@gentoo.org> lxml-2.3.4.ebuild:
+  alpha/s390/sh/sparc stable wrt #441256
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> lxml-3.0.1.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+  10 Dec 2012; Michał Górny <mgorny@gentoo.org> lxml-3.0.1.ebuild:
+  Fix running tests in out-of-source build.
+
+  10 Dec 2012; Michał Górny <mgorny@gentoo.org> lxml-3.0.1.ebuild:
+  Clean up the ebuild a bit. Fix test phases. Enable all CPython versions.
+
+  01 Dec 2012; Michał Górny <mgorny@gentoo.org> lxml-3.0.1.ebuild:
+  Force in-source build due to src_test() hackery.
 
   01 Nov 2012; Michał Górny <mgorny@gentoo.org> lxml-3.0.1.ebuild:
   Update to match distutils library build dir.

@@ -1,6 +1,27 @@
 # ChangeLog for sys-fs/fuse
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse/ChangeLog,v 1.167 2012/11/07 04:20:56 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse/ChangeLog,v 1.173 2013/01/20 13:09:39 ago Exp $
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.1-r1.ebuild:
+  Stable for arm, wrt bug #437568
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.1-r1.ebuild:
+  Stable for sparc, wrt bug #437568
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.1-r1.ebuild:
+  Stable for alpha, wrt bug #437568
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.1-r1.ebuild:
+  Stable for ia64, wrt bug #437568
+
+  11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> fuse-2.9.1-r1.ebuild,
+  fuse-2.9.2.ebuild:
+  get udevdir using udev.eclass , to support virtual/udev
+
+*fuse-2.9.2 (01 Dec 2012)
+
+  01 Dec 2012; Tim Harder <radhermit@gentoo.org> +fuse-2.9.2.ebuild:
+  Version bump (bug #439308).
 
   07 Nov 2012; Jeroen Roovers <jer@gentoo.org> fuse-2.9.1-r1.ebuild:
   Stable for HPPA (bug #437568).

@@ -1,6 +1,43 @@
 # ChangeLog for dev-lang/tk
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/tk/ChangeLog,v 1.174 2012/11/04 18:35:33 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/tk/ChangeLog,v 1.181 2013/01/13 21:54:44 grobian Exp $
+
+  13 Jan 2013; Fabian Groffen <grobian@gentoo.org> tk-8.6.0.ebuild:
+  Fix building on Darwin (or other platforms that have -Os in tcl.m4), bug
+  #451604
+
+  11 Jan 2013; Justin Lecher <jlec@gentoo.org> tk-8.6.0.ebuild:
+  Subslot to PV
+
+*tk-8.6.0 (09 Jan 2013)
+
+  09 Jan 2013; Justin Lecher <jlec@gentoo.org> +tk-8.6.0.ebuild:
+  Version Bump, #448604
+
+*tk-8.5.13-r1 (09 Jan 2013)
+
+  09 Jan 2013; Justin Lecher <jlec@gentoo.org> tk-8.5.13.ebuild,
+  +tk-8.5.13-r1.ebuild, +files/tk-8.5.13-conf.patch, metadata.xml:
+  Fix build system so that autoconf will always be executed and sanitize sed so
+  that tclConfig.sh will be sane, #449134
+
+  05 Dec 2012; Ulrich Müller <ulm@gentoo.org> tk-8.4.19-r1.ebuild,
+  tk-8.5.10-r1.ebuild, tk-8.5.11-r1.ebuild, tk-8.5.13.ebuild:
+  Specify LICENSE more precisely, bug 445468.
+
+  05 Dec 2012; Justin Lecher <jlec@gentoo.org> tk-8.5.13.ebuild,
+  +files/tk-8.5.13-multilib.patch:
+  Avoid problems with autotools by only modifying configure.in, #445432
+
+*tk-8.5.13 (29 Nov 2012)
+
+  29 Nov 2012; Justin Lecher <jlec@gentoo.org>
+  -files/remove-control-v-8.4.9.diff, files/tk-8.4.15-aqua.patch,
+  -tk-8.4.18.ebuild, -tk-8.4.18-r1.ebuild, -tk-8.5.7.ebuild,
+  -tk-8.5.7-r1.ebuild, -tk-8.5.8-r1.ebuild, -tk-8.5.9-r1.ebuild,
+  +files/tk-8.5.10-conf.patch, -tk-8.5.11.ebuild, +tk-8.5.13.ebuild,
+  -files/tk-CVE-2007-4851.patch:
+  Version Bump, #444296; Cleaned old
 
   04 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
   +files/tk-8.5.11-fix-name-collision-uclibc.patch, tk-8.5.11-r1.ebuild,

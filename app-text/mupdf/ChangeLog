@@ -1,6 +1,24 @@
 # ChangeLog for app-text/mupdf
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/mupdf/ChangeLog,v 1.52 2012/11/27 13:17:23 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/mupdf/ChangeLog,v 1.56 2012/11/29 13:11:52 blueness Exp $
+
+  29 Nov 2012; Anthony G. Basile <blueness@gentoo.org> mupdf-1.1.ebuild:
+  stable ppc, bug #444914
+
+*mupdf-1.1_p20121127 (28 Nov 2012)
+
+  28 Nov 2012; Michael Weber <xmw@gentoo.org> +mupdf-1.1_p20121127.ebuild,
+  +files/mupdf-1.1_p20121127-buildsystem.patch:
+  Version bump to current snapshot
+
+*mupdf-1.1_p20120816 (28 Nov 2012)
+
+  28 Nov 2012; Michael Weber <xmw@gentoo.org> +mupdf-1.1_p20120816.ebuild:
+  Version bump to llpp requirement
+
+  28 Nov 2012; Michael Weber <xmw@gentoo.org> mupdf-9999.ebuild,
+  +files/mupdf-9999-buildsystem.patch:
+  Fix live build
 
   27 Nov 2012; Michael Weber <xmw@gentoo.org> mupdf-1.1.ebuild:
   Fix ar invocation (bug 444926, thanks Agostino Sarubbo)

@@ -1,6 +1,96 @@
 # ChangeLog for sys-apps/systemd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/ChangeLog,v 1.59 2012/10/27 21:52:57 mgorny Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/ChangeLog,v 1.77 2013/01/21 19:48:28 tetromino Exp $
+
+  21 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  systemd-197-r1.ebuild, systemd-9999.ebuild:
+  Block nss-myhostname since it was merged into systemd-197 (bug#453026, thanks
+  to Michał Bartoszkiewicz).
+
+  21 Jan 2013; Mike Gilbert <floppym@gentoo.org> systemd-9999.ebuild:
+  Append to the DEPEND variable instead of overwriting it.
+
+  21 Jan 2013; Mike Gilbert <floppym@gentoo.org> systemd-9999.ebuild:
+  Update live ebuild with previous change.
+
+  21 Jan 2013; Mike Gilbert <floppym@gentoo.org> systemd-197-r1.ebuild:
+  udev-197-r3 is good enough as it does install sd-daemon.h.
+
+  21 Jan 2013; Michał Górny <mgorny@gentoo.org> -systemd-196.ebuild,
+  systemd-197-r1.ebuild, systemd-9999.ebuild:
+  Drop old as requested by ssuominen. Bump udev requirement to avoid bug
+  #452972.
+
+*systemd-197-r1 (21 Jan 2013)
+
+  21 Jan 2013; Mike Gilbert <floppym@gentoo.org> +systemd-197-r1.ebuild,
+  -systemd-197.ebuild, systemd-9999.ebuild:
+  Disable SysV init script compatibility. Thanks to Michał Bartoszkiewicz on bug
+  453260.
+
+  20 Jan 2013; Michał Górny <mgorny@gentoo.org> systemd-197.ebuild,
+  systemd-9999.ebuild:
+  Remove pointless README files installed in random system locations.
+
+  19 Jan 2013; Michał Górny <mgorny@gentoo.org>
+  files/197-0001-Disable-udev-targets.patch, systemd-197.ebuild,
+  systemd-9999.ebuild:
+  Fix installing udev rules for the new udev location.
+
+*systemd-197 (18 Jan 2013)
+
+  18 Jan 2013; Michał Górny <mgorny@gentoo.org> +systemd-197.ebuild,
+  files/197-0001-Disable-udev-targets.patch, systemd-9999.ebuild:
+  Commit the incomplete/broken ebuild to let people submit patches.
+
+  11 Jan 2013; Michał Górny <mgorny@gentoo.org> -systemd-195.ebuild,
+  systemd-196.ebuild, systemd-9999.ebuild:
+  Bump the sys-apps/dbus dependency, per bug #451402. Drop old.
+
+  08 Jan 2013; Michał Górny <mgorny@gentoo.org> systemd-9999.ebuild:
+  Remove unnecessary enewuser/enewgroup -- spotted by WilliamH.
+
+  08 Jan 2013; Michał Górny <mgorny@gentoo.org> systemd-9999.ebuild:
+  Update the journald catalogs when rebuilding systemd.
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> systemd-196.ebuild,
+  systemd-9999.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+*systemd-9999 (15 Dec 2012)
+
+  15 Dec 2012; Michał Górny <mgorny@gentoo.org>
+  +files/197-0001-Disable-udev-targets.patch, +systemd-9999.ebuild:
+  Import the live ebuild.
+
+  05 Dec 2012; Michał Górny <mgorny@gentoo.org> metadata.xml,
+  systemd-196.ebuild:
+  Make kmod optional, bug #446138.
+
+  04 Dec 2012; Michał Górny <mgorny@gentoo.org>
+  +files/196-0002-Don-t-fail-with-missing-gcrypt-macros.patch,
+  systemd-196.ebuild:
+  Do not require libgcrypt macros when gcrypt is disabled, bug #445920.
+
+*systemd-196 (02 Dec 2012)
+
+  02 Dec 2012; Michał Górny <mgorny@gentoo.org>
+  +files/196-0001-Disable-udev-targets.patch, +systemd-196.ebuild,
+  -files/0001-Disable-udev-targets-for-udev-189.patch,
+  -files/0002-journald-add-missing-includes.patch,
+  -files/0003-journal-add-HAVE_XZ-check-to-avoid-build-failure.patch,
+  -files/0004-journal-don-t-try-to-compress-without-XZ.patch,
+  -files/191-0002-journal-bring-mmap-cache-prototype-in-sync.patch,
+  -files/191-0003-log-fix-repeated-invocation-of-vsnprintf-vaprintf-in.patch,
+  -files/update-etc-systemd-symlinks.path,
+  -files/update-etc-systemd-symlinks.service,
+  -files/update-etc-systemd-symlinks.sh:
+  Version bump. Enable Python support. Drop old patches.
+
+  01 Dec 2012; Michał Górny <mgorny@gentoo.org> -systemd-189-r3.ebuild,
+  -systemd-191-r1.ebuild, -systemd-192.ebuild, -systemd-193.ebuild,
+  -systemd-194.ebuild:
+  Drop old.
 
   27 Oct 2012; Michał Górny <mgorny@gentoo.org> systemd-195.ebuild:
   Disable storing coredumps again, since it is insecure (bug #433457, c9).

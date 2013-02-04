@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/crda/crda-1.1.2-r4.ebuild,v 1.2 2012/10/28 09:14:25 gurligebis Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/crda/crda-1.1.2-r4.ebuild,v 1.8 2013/01/06 10:05:54 ago Exp $
 
 EAPI=4
 inherit eutils toolchain-funcs python
@@ -9,15 +9,15 @@ DESCRIPTION="Central Regulatory Domain Agent for wireless networks."
 HOMEPAGE="http://wireless.kernel.org/en/developers/Regulatory"
 SRC_URI="http://linuxwireless.org/download/crda/${P}.tar.bz2"
 
-LICENSE="as-is"
+LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~mips ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 IUSE=""
 
 RDEPEND="dev-libs/openssl:0
-	dev-libs/libnl
+	dev-libs/libnl:3
 	net-wireless/wireless-regdb
-	>=sys-fs/udev-152"
+	>=virtual/udev-171"
 DEPEND="${RDEPEND}
 	dev-python/m2crypto
 	=dev-lang/python-2*

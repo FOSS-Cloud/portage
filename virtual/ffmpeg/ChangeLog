@@ -1,6 +1,17 @@
 # ChangeLog for virtual/ffmpeg
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/ffmpeg/ChangeLog,v 1.46 2012/11/26 13:52:54 scarabeus Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/ffmpeg/ChangeLog,v 1.48 2013/01/16 12:40:02 scarabeus Exp $
+
+*ffmpeg-9 (16 Jan 2013)
+
+  16 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> +ffmpeg-9.ebuild,
+  -ffmpeg-0.10.2-r1.ebuild:
+  Add new virtual for 1.1/9 series. Masked. Also it has switched dep order as
+  will be announced upon unmasking.
+
+  05 Dec 2012; Tomáš Chvátal <scarabeus@gentoo.org> ffmpeg-0.10.2-r1.ebuild,
+  ffmpeg-0.10.3.ebuild:
+  Raise libav dep and stabilise as it passes repoman.
 
   26 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> metadata.xml:
   Update to global useflag.

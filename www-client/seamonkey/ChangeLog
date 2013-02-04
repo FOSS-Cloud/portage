@@ -1,6 +1,70 @@
 # ChangeLog for www-client/seamonkey
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.413 2012/11/27 12:27:55 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.428 2013/01/21 15:24:49 polynomial-c Exp $
+
+*seamonkey-2.15.1 (21 Jan 2013)
+
+  21 Jan 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -seamonkey-2.15-r1.ebuild, +seamonkey-2.15.1.ebuild:
+  Version bump. Comitted straight to stable as it replaces seamonkey-2.15-r1
+  which got removed.
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.15-r1.ebuild:
+  Stable for x86, wrt bug #450940
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.15-r1.ebuild:
+  Stable for amd64, wrt bug #450940
+
+  16 Jan 2013; Michał Górny <mgorny@gentoo.org> seamonkey-2.0.14-r1.ebuild,
+  seamonkey-2.14-r1.ebuild, seamonkey-2.14.1.ebuild, seamonkey-2.15-r1.ebuild,
+  seamonkey-2.4.1-r1.ebuild:
+  Remove python.eclass traces (python now controlled by mozcoreconf-2.eclass).
+
+  16 Jan 2013; <anarchy@gentoo.org> seamonkey-2.15-r1.ebuild:
+  Fix linguas support in fx-18
+
+*seamonkey-2.15-r1 (16 Jan 2013)
+
+  16 Jan 2013; <anarchy@gentoo.org> -seamonkey-2.15.ebuild,
+  +seamonkey-2.15-r1.ebuild, metadata.xml:
+  Fix bug #451180, adds system-jpeg useflag, add support for hardened
+
+  16 Jan 2013; <anarchy@gentoo.org> seamonkey-2.15.ebuild:
+  Remove pysqlite dep, use python[sqlite]
+
+  14 Jan 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -files/icon/seamonkey.png:
+  Removed binary file as per bug #370897.
+
+*seamonkey-2.15 (10 Jan 2013)
+
+  10 Jan 2013; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.12.1.ebuild,
+  +seamonkey-2.15.ebuild:
+  Security bump (bug #450968). Removed old.
+
+  10 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.14-r1.ebuild,
+  seamonkey-2.14.1.ebuild:
+  Removed alsa USE flag.
+
+  10 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.14-r1.ebuild,
+  seamonkey-2.14.1.ebuild:
+  Removed webm USE flag.
+
+  10 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.14-r1.ebuild,
+  seamonkey-2.14.1.ebuild:
+  Removed jit USE flag.
+
+  04 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.14.1.ebuild:
+  Use latest ff patchset.
+
+  03 Dec 2012; Andreas Schuerch <nativemad@gentoo.org> seamonkey-2.14-r1.ebuild:
+  x86 stable, see bug 444318
+
+*seamonkey-2.14.1 (30 Nov 2012)
+
+  30 Nov 2012; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.13.2.ebuild,
+  +seamonkey-2.14.1.ebuild:
+  Version bump. Removed old.
 
   27 Nov 2012; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.14-r1.ebuild:
   Stable for amd64, wrt bug #444318

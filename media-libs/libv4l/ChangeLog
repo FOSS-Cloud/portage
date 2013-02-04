@@ -1,6 +1,35 @@
 # ChangeLog for media-libs/libv4l
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libv4l/ChangeLog,v 1.73 2012/10/20 07:15:40 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libv4l/ChangeLog,v 1.82 2012/12/29 17:50:41 armin76 Exp $
+
+  29 Dec 2012; Raúl Porcel <armin76@gentoo.org> libv4l-0.8.9.ebuild:
+  alpha/sparc stable wrt #446036
+
+  19 Dec 2012; Jeroen Roovers <jer@gentoo.org> libv4l-0.8.9.ebuild:
+  Stable for HPPA (bug #446036).
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libv4l-0.8.9.ebuild:
+  Stable for ia64, wrt bug #446036
+
+  17 Dec 2012; Markus Meier <maekke@gentoo.org> libv4l-0.8.9.ebuild:
+  arm stable, bug #446036
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libv4l-0.8.9.ebuild:
+  Stable for ppc, wrt bug #446036
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libv4l-0.8.9.ebuild:
+  Stable for x86, wrt bug #446036
+
+  11 Dec 2012; Chema Alonso <nimiux@gentoo.org> libv4l-0.8.9.ebuild:
+  Stable for amd64 wrt bug #446036
+
+  10 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libv4l-0.8.9.ebuild:
+  Stable for ppc64, wrt bug #446036
+
+  05 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -libv4l-0.8.5.ebuild, -libv4l-0.8.5-r1.ebuild,
+  -files/libv4l-0.8.5-disable_fancy_upsampling.patch:
+  Drop old.
 
 *libv4l-0.8.9 (20 Oct 2012)
 

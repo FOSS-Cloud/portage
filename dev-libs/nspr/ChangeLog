@@ -1,6 +1,24 @@
 # ChangeLog for dev-libs/nspr
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/nspr/ChangeLog,v 1.203 2012/11/25 19:07:41 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/nspr/ChangeLog,v 1.213 2013/01/28 04:37:36 vapier Exp $
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.9.4.ebuild:
+  Stable for sparc/ppc/ppc64/x86/amd64, wrt bug #450940
+
+  16 Jan 2013; Lars Wendler <polynomial-c@gentoo.org> nspr-4.9.1.ebuild,
+  nspr-4.9.2.ebuild, nspr-4.9.2-r1.ebuild, nspr-4.9.4.ebuild:
+  Converted MPL-1.1 to MPL-2.0 license (bug #452588).
+
+  16 Jan 2013; Jeroen Roovers <jer@gentoo.org> nspr-4.9.4.ebuild:
+  Stable for HPPA (bug #450940).
+
+  06 Jan 2013; Raúl Porcel <armin76@gentoo.org> nspr-4.9.ebuild,
+  nspr-4.9.1.ebuild, nspr-4.9.2.ebuild, nspr-4.9.2-r1.ebuild,
+  nspr-4.9.4.ebuild:
+  Add ~sh
+
+  29 Nov 2012; Anthony G. Basile <blueness@gentoo.org> nspr-4.9.2.ebuild:
+  stable ppc64, bug #439586
 
   25 Nov 2012; Raúl Porcel <armin76@gentoo.org> nspr-4.9.2.ebuild:
   alpha/ia64/sparc stable wrt #439586

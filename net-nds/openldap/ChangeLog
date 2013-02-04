@@ -1,6 +1,43 @@
 # ChangeLog for net-nds/openldap
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/openldap/ChangeLog,v 1.423 2012/10/22 08:25:27 robbat2 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-nds/openldap/ChangeLog,v 1.429 2013/01/15 03:56:00 patrick Exp $
+
+*openldap-2.3.43-r3 (15 Jan 2013)
+
+  15 Jan 2013; Patrick Lauer <patrick@gentoo.org> +openldap-2.3.43-r3.ebuild,
+  -openldap-2.3.43-r2.ebuild:
+  Bump 2.3 again to force init script change, force stable keywords
+
+  15 Jan 2013; Patrick Lauer <patrick@gentoo.org> files/slapd-initd:
+  Rectifying incomplete fix to 2.3 init script
+
+  14 Jan 2013; Patrick Lauer <patrick@gentoo.org> openldap-2.3.43-r1.ebuild,
+  openldap-2.3.43-r2.ebuild, openldap-2.4.19-r1.ebuild, openldap-2.4.21.ebuild,
+  openldap-2.4.23.ebuild, openldap-2.4.24.ebuild, openldap-2.4.25-r1.ebuild,
+  openldap-2.4.25.ebuild, openldap-2.4.28-r1.ebuild, openldap-2.4.28.ebuild,
+  openldap-2.4.30.ebuild, openldap-2.4.31-r1.ebuild, openldap-2.4.31.ebuild,
+  openldap-2.4.32.ebuild, openldap-2.4.33-r1.ebuild, openldap-2.4.33.ebuild:
+  Fixing gnutls dep #421463
+
+*openldap-2.3.43-r2 (14 Jan 2013)
+
+  14 Jan 2013; Patrick Lauer <patrick@gentoo.org> +openldap-2.3.43-r2.ebuild,
+  files/slapd-initd:
+  Bump 2.3 for init script checkpath change, #444912
+
+  03 Dec 2012; Robin H. Johnson <robbat2@gentoo.org> metadata.xml:
+  Add description for USE=minimal.
+
+*openldap-2.4.33-r1 (01 Dec 2012)
+
+  01 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +openldap-2.4.33-r1.ebuild:
+  Improve USE=minimal, dropping dependencies on tcpd and libtool in that
+  configuration (they are used by the server), and only installing
+  files/directories for the server if it's going to be built. Drop dependency
+  over ncurses (not used anywhere in the code) and stop using keepdir on
+  /var/run (the init script will do that properly and support tmpfs
+  configurations).
 
   22 Oct 2012; Robin H. Johnson <robbat2@gentoo.org> openldap-2.4.30.ebuild:
   Fix missing dep per bug #420887.

@@ -1,6 +1,21 @@
 # ChangeLog for media-libs/libgpod
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libgpod/ChangeLog,v 1.93 2012/08/16 22:03:03 johu Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libgpod/ChangeLog,v 1.97 2013/02/03 16:34:39 ssuominen Exp $
+
+  03 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> libgpod-0.8.2.ebuild:
+  Pull in sys-devel/gettext too which was implicit from dev-util/intltool
+  before wrt #372153
+
+  03 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> metadata.xml:
+  Maintained in the pda@ herd.
+
+  03 Feb 2013; Pacho Ramos <pacho@gentoo.org> -libgpod-0.8.0.ebuild,
+  metadata.xml:
+  Cleanup due #453094
+
+  11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> libgpod-0.8.0.ebuild,
+  libgpod-0.8.2.ebuild:
+  virtualized the udev dependency
 
   16 Aug 2012; Johannes Huber <johu@gentoo.org> libgpod-0.8.2.ebuild:
   Stable for x86, wrt bug #423155
@@ -351,4 +366,3 @@
   29 Nov 2005; Joe McCann <joem@gentoo.org> +metadata.xml,
   +libgpod-0.2.0.ebuild:
   New library that gives you access to contents of an ipod
-

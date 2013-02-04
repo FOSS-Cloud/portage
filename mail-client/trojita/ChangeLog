@@ -1,6 +1,28 @@
 # ChangeLog for mail-client/trojita
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/trojita/ChangeLog,v 1.14 2012/03/30 10:34:00 johu Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/trojita/ChangeLog,v 1.19 2013/01/16 20:40:20 hwoarang Exp $
+
+*trojita-0.3.91 (16 Jan 2013)
+
+  16 Jan 2013; Markos Chandras <hwoarang@gentoo.org> +trojita-0.3.91.ebuild:
+  Version bump. Bug #451328
+
+  15 Jan 2013; Markos Chandras <hwoarang@gentoo.org> trojita-9999.ebuild:
+  Update git repo. Add virtualx eclass for tests. Bug #451328. Thanks to Jan
+  Kundrát <jkt@gentoo.org>
+
+  10 Dec 2012; Agostino Sarubbo <ago@gentoo.org> -trojita-0.2.9.4.ebuild,
+  -trojita-0.3.ebuild, trojita-0.3.90.ebuild:
+  Add ~ppc and remove old
+
+*trojita-0.3.90 (08 Dec 2012)
+
+  08 Dec 2012; Markos Chandras <hwoarang@gentoo.org> +trojita-0.3.90.ebuild:
+  Version bump. Bug #446287
+
+  28 Nov 2012; Ben de Groot <yngwin@gentoo.org> trojita-0.3.ebuild,
+  trojita-9999.ebuild:
+  Apply changes from bug #444062
 
 *trojita-0.3 (30 Mar 2012)
 
@@ -68,4 +90,3 @@
   +metadata.xml:
   Initial commit. I am proxying it for jkt. All credit for ebuild goes for
   him. Per bug #283372.
-

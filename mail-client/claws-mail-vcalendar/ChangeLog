@@ -1,6 +1,37 @@
 # ChangeLog for mail-client/claws-mail-vcalendar
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-vcalendar/ChangeLog,v 1.125 2012/11/23 15:11:35 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-vcalendar/ChangeLog,v 1.133 2013/01/04 12:01:15 fauli Exp $
+
+  04 Jan 2013; Christian Faulhammer <fauli@gentoo.org>
+  -claws-mail-vcalendar-2.0.13-r1.ebuild:
+  clean up
+
+  03 Jan 2013; Christian Faulhammer <fauli@gentoo.org>
+  claws-mail-vcalendar-2.0.14.ebuild:
+  reintroduce deletion of .a and .la files
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  claws-mail-vcalendar-2.0.14.ebuild:
+  Stable for x86, wrt bug #448968
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  claws-mail-vcalendar-2.0.14.ebuild:
+  Stable for amd64, wrt bug #448968
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  claws-mail-vcalendar-2.0.14.ebuild:
+  Stable for ppc, wrt bug #448968
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  claws-mail-vcalendar-2.0.14.ebuild:
+  Stable for ppc64, wrt bug #448968
+
+  27 Dec 2012; Christian Faulhammer <fauli@gentoo.org>
+  -claws-mail-vcalendar-2.0.13.ebuild:
+  clean up
+
+  03 Dec 2012;  <ago@gentoo.org> claws-mail-vcalendar-2.0.13-r1.ebuild:
+  Stable for x86, wrt bug #443500
 
   23 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
   claws-mail-vcalendar-2.0.13-r1.ebuild:

@@ -1,6 +1,14 @@
 # ChangeLog for media-fonts/liberation-fonts
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-fonts/liberation-fonts/ChangeLog,v 1.38 2012/08/25 08:16:33 scarabeus Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-fonts/liberation-fonts/ChangeLog,v 1.40 2013/01/16 21:15:18 grobian Exp $
+
+  16 Jan 2013; Fabian Groffen <grobian@gentoo.org>
+  liberation-fonts-2.00.0-r1.ebuild:
+  Marked ~x64-solaris
+
+  08 Dec 2012; Markus Meier <maekke@gentoo.org>
+  liberation-fonts-2.00.0-r1.ebuild:
+  add ~arm, bug #440908
 
   25 Aug 2012; Tomáš Chvátal <scarabeus@gentoo.org>
   liberation-fonts-2.00.0-r1.ebuild:

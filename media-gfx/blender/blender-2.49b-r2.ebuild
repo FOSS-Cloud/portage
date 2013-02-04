@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/blender/blender-2.49b-r2.ebuild,v 1.17 2012/09/05 07:51:31 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/blender/blender-2.49b-r2.ebuild,v 1.19 2013/01/17 16:52:21 ssuominen Exp $
 
 EAPI=2
 
@@ -16,7 +16,7 @@ SRC_URI="http://download.blender.org/source/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="|| ( GPL-2 BL BSD )"
-KEYWORDS="amd64 ppc ppc64 x86"
+KEYWORDS="amd64 x86"
 
 RDEPEND="ffmpeg? ( virtual/ffmpeg[encode,theora] )
 	>=media-libs/openjpeg-1.5.0
@@ -66,6 +66,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-2.49b-linux-3.patch  # Bug #381099
 	epatch "${FILESDIR}"/${PN}-2.49b-subversion-1.7.patch
 	epatch "${FILESDIR}"/${P}-libav-0.7.patch
+	epatch "${FILESDIR}"/${P}-gcc46.patch
 	rm -f "${S}/release/scripts/bpymodules/"*.pyc
 
 	# Fix building with >=media-libs/openjpeg-1.5.0 (bug #409283)

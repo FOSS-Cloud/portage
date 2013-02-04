@@ -1,6 +1,22 @@
 # ChangeLog for dev-perl/Test-Inline
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Test-Inline/ChangeLog,v 1.75 2012/10/08 18:30:26 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Test-Inline/ChangeLog,v 1.80 2013/01/06 14:58:17 tove Exp $
+
+  06 Jan 2013; Torsten Veller <tove@gentoo.org> -Test-Inline-2.201.ebuild,
+  -Test-Inline-2.208.ebuild:
+  Cleanup
+
+  08 Dec 2012; Jeroen Roovers <jer@gentoo.org> Test-Inline-2.212.0.ebuild:
+  Stable for HPPA (bug #441254).
+
+  06 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Test-Inline-2.212.0.ebuild:
+  Stable for ppc, wrt bug #441254
+
+  06 Dec 2012; <ago@gentoo.org> Test-Inline-2.212.0.ebuild:
+  Stable for x86, wrt bug #441254
+
+  06 Dec 2012; <ago@gentoo.org> Test-Inline-2.212.0.ebuild:
+  Stable for amd64, wrt bug #441254
 
   08 Oct 2012; Anthony G. Basile <blueness@gentoo.org> Test-Inline-2.208.ebuild:
   stable ppc, bug #436870

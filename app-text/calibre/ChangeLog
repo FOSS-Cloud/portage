@@ -1,6 +1,70 @@
 # ChangeLog for app-text/calibre
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/ChangeLog,v 1.243 2012/11/23 18:37:29 zmedico Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/ChangeLog,v 1.255 2013/02/01 15:34:43 zmedico Exp $
+
+*calibre-0.9.17 (01 Feb 2013)
+
+  01 Feb 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.17.ebuild,
+  -calibre-0.9.15.ebuild:
+  0.9.17 version bump.
+
+*calibre-0.9.16 (25 Jan 2013)
+
+  25 Jan 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.16.ebuild:
+  0.9.16 version bump.
+
+*calibre-0.9.15 (19 Jan 2013)
+
+  19 Jan 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.15.ebuild:
+  0.9.15 version bump.
+
+  12 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> -calibre-0.9.13.ebuild,
+  -calibre-0.9.6.ebuild, calibre-0.9.14.ebuild:
+  Stable on amd64 and x86. Drop older.
+
+*calibre-0.9.14 (11 Jan 2013)
+
+  11 Jan 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.14.ebuild,
+  -calibre-0.9.12.ebuild:
+  0.9.14 version bump.
+
+*calibre-0.9.13 (05 Jan 2013)
+
+  05 Jan 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.13.ebuild,
+  -calibre-0.9.11.ebuild:
+  0.9.13 version bump.
+
+*calibre-0.9.12 (28 Dec 2012)
+
+  28 Dec 2012; Zac Medico <zmedico@gentoo.org> +calibre-0.9.12.ebuild,
+  -calibre-0.9.10.ebuild:
+  0.9.12 version bump.
+
+*calibre-0.9.11 (21 Dec 2012)
+
+  21 Dec 2012; Zac Medico <zmedico@gentoo.org> +calibre-0.9.11.ebuild,
+  -calibre-0.9.9.ebuild:
+  0.9.11 version bump.
+
+*calibre-0.9.10 (14 Dec 2012)
+
+  14 Dec 2012; Zac Medico <zmedico@gentoo.org> +calibre-0.9.10.ebuild,
+  -calibre-0.9.8.ebuild:
+  0.9.10 version bump.
+
+  12 Dec 2012; Zac Medico <zmedico@gentoo.org> calibre-0.9.9.ebuild:
+  Add workaround for PyQt4-4.9.6 compile failure, bug #446790.
+
+*calibre-0.9.9 (08 Dec 2012)
+
+  08 Dec 2012; Zac Medico <zmedico@gentoo.org> +calibre-0.9.9.ebuild,
+  -calibre-0.9.7.ebuild:
+  0.9.9 version bump.
+
+*calibre-0.9.8 (30 Nov 2012)
+
+  30 Nov 2012; Zac Medico <zmedico@gentoo.org> +calibre-0.9.8.ebuild:
+  0.9.8 version bump.
 
 *calibre-0.9.7 (23 Nov 2012)
 

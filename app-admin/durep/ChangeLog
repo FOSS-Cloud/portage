@@ -1,6 +1,34 @@
 # ChangeLog for app-admin/durep
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/durep/ChangeLog,v 1.13 2012/07/10 13:08:13 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/durep/ChangeLog,v 1.21 2012/12/21 01:21:15 hasufell Exp $
+
+  21 Dec 2012; Julian Ospald <hasufell@gentoo.org> -durep-0.9-r3.ebuild,
+  -files/durep-0.9-color-output.patch:
+  remove old
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> durep-0.9-r4.ebuild:
+  x86 stable wrt bug #445498
+
+  04 Dec 2012; Anthony G. Basile <blueness@gentoo.org> durep-0.9-r4.ebuild:
+  stable ppc, bug #445498
+
+  01 Dec 2012; <ago@gentoo.org> durep-0.9-r4.ebuild:
+  Stable for amd64, wrt bug #445498
+
+*durep-0.9-r4 (01 Dec 2012)
+
+  01 Dec 2012; Julian Ospald <hasufell@gentoo.org> +durep-0.9-r4.ebuild,
+  +files/durep-0.9-r4-color-output.patch:
+  revbump, apply patch from #436148
+
+  01 Dec 2012; Julian Ospald <hasufell@gentoo.org> durep-0.9-r3.ebuild:
+  unlock for ~arch users as well since virtual/perl-Switch is stable now
+
+  01 Dec 2012; Julian Ospald <hasufell@gentoo.org> durep-0.9-r3.ebuild:
+  fix dependencies wrt #436148
+
+  01 Dec 2012; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  set myself as maintainer
 
   10 Jul 2012; Michael Palimaka <kensington@gentoo.org> -durep-0.9-r2.ebuild:
   Remove old.

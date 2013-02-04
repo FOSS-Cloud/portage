@@ -1,6 +1,31 @@
 # ChangeLog for dev-python/apsw
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/apsw/ChangeLog,v 1.50 2012/09/07 22:04:11 johu Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/apsw/ChangeLog,v 1.55 2013/01/05 21:23:06 radhermit Exp $
+
+*apsw-3.7.15.1_p1 (05 Jan 2013)
+
+  05 Jan 2013; Tim Harder <radhermit@gentoo.org> +apsw-3.7.15.1_p1.ebuild:
+  Version bump. Migrate to distutils-r1.
+
+  08 Dec 2012; Mike Gilbert <floppym@gentoo.org> apsw-3.7.14.1_p1.ebuild,
+  apsw-3.7.14_p1.ebuild:
+  Drop versionator.
+
+*apsw-3.7.14.1_p1 (08 Dec 2012)
+*apsw-3.7.14_p1 (08 Dec 2012)
+
+  08 Dec 2012; Mike Gilbert <floppym@gentoo.org> +apsw-3.7.14.1_p1.ebuild,
+  +apsw-3.7.14_p1.ebuild, -apsw-3.7.14.1.ebuild:
+  Version bump. Adjust version numbering to make tracking upstream versions
+  simpler. Thanks to Arfrever for pointing out the problem.
+
+  01 Dec 2012; Tim Harder <radhermit@gentoo.org> apsw-3.7.13.1.ebuild,
+  apsw-3.7.14.1.ebuild:
+  Fix LICENSE (bug #445406 by ulm).
+
+  01 Dec 2012; Tim Harder <radhermit@gentoo.org> -apsw-3.7.6.2.1.ebuild,
+  -apsw-3.7.10.1.ebuild, -apsw-3.7.11.1.ebuild, -apsw-3.7.12.1.ebuild:
+  Remove old.
 
   07 Sep 2012; Johannes Huber <johu@gentoo.org> apsw-3.7.13.1.ebuild:
   Stable for x86, wrt bug #432432
@@ -228,4 +253,3 @@
   02 Apr 2006; Alin Nastac <mrness@gentoo.org> +metadata.xml,
   +apsw-3.2.7.1.ebuild:
   Initial import from bug #100296, thanks to Lorenzo Luengo <loluengo@vtr.net>.
-

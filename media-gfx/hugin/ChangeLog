@@ -1,6 +1,21 @@
 # ChangeLog for media-gfx/hugin
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/hugin/ChangeLog,v 1.125 2012/11/18 16:19:09 maekke Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/hugin/ChangeLog,v 1.129 2013/01/04 10:58:39 maekke Exp $
+
+  04 Jan 2013; Markus Meier <maekke@gentoo.org>
+  -files/hugin-2011.0.0_rc1-libpng15.patch:
+  cleanup unused patches
+
+  04 Jan 2013; Markus Meier <maekke@gentoo.org> -hugin-2011.0.0.ebuild,
+  -hugin-2011.2.0.ebuild, -hugin-2011.4.0.ebuild, hugin-2012.0.0.ebuild:
+  add missing media-libs/glew dep by Andrew Jeffery and Matt Turner in bug
+  #449714, remove old
+
+  27 Dec 2012; Jeff Horelick <jdhore@gentoo.org> hugin-2011.4.0-r1.ebuild:
+  marked x86 per bug 443754
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> hugin-2011.4.0-r1.ebuild:
+  Stable for ppc, wrt bug #443754
 
   18 Nov 2012; Markus Meier <maekke@gentoo.org> hugin-2012.0.0.ebuild:
   add missing media-libs/lensfun dependency by Christian Schmitt and Nikoli,

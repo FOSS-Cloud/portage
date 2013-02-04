@@ -1,6 +1,65 @@
 # ChangeLog for sys-auth/polkit
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/ChangeLog,v 1.116 2012/11/22 20:48:48 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/ChangeLog,v 1.132 2013/01/31 23:09:14 ago Exp $
+
+  31 Jan 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.110.ebuild:
+  Stable for ppc, wrt bug #452688
+
+  29 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> polkit-0.110.ebuild:
+  Force USE="debug" to be disabled in dev-lang/spidermonkey to avoid asseration
+  errors as noted by _AxS_.
+
+  26 Jan 2013; Markus Meier <maekke@gentoo.org> polkit-0.110.ebuild:
+  arm stable, bug #452688
+
+  20 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> polkit-0.110.ebuild:
+  x86 stable wrt #452688
+
+  19 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> polkit-0.110.ebuild:
+  amd64 stable wrt #452688
+
+  11 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> -polkit-0.104-r1.ebuild,
+  -polkit-0.109-r1.ebuild, -files/polkit-0.109-XAUTHORITY-fallback.patch:
+  old
+
+*polkit-0.110 (11 Jan 2013)
+
+  11 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> +polkit-0.110.ebuild:
+  Version bump.
+
+  06 Jan 2013; Raúl Porcel <armin76@gentoo.org> polkit-0.107-r1.ebuild,
+  polkit-0.109-r1.ebuild:
+  Add ~sh wrt #436668
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.109-r1.ebuild:
+  Add ~ia64, wrt bug #436668
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> polkit-0.107-r1.ebuild:
+  Stable for sparc, wrt bug #436666
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> polkit-0.107-r1.ebuild:
+  Stable for alpha, wrt bug #436666
+
+  21 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> -polkit-0.108.ebuild,
+  -polkit-0.109.ebuild:
+  old
+
+*polkit-0.109-r1 (21 Dec 2012)
+
+  21 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> +polkit-0.109-r1.ebuild,
+  +files/polkit-0.109-XAUTHORITY-fallback.patch:
+  Backport XAUTHORITY fallback support from upstream git.
+
+  19 Dec 2012; Agostino Sarubbo <ago@gentoo.org> polkit-0.108.ebuild:
+  Add ~ia64, wrt bug #436668
+
+*polkit-0.109 (19 Dec 2012)
+
+  19 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> +polkit-0.109.ebuild:
+  Version bump. Fix PaX marking logic wrt #444446 by Maxim Kammerer
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> polkit-0.107-r1.ebuild:
+  Stable for ia64, wrt bug #436666
 
   22 Nov 2012; Anthony G. Basile <blueness@gentoo.org> polkit-0.107-r1.ebuild:
   stable arm, bug #436666

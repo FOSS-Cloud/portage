@@ -1,6 +1,39 @@
 # ChangeLog for sys-apps/accountsservice
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/ChangeLog,v 1.20 2012/09/30 09:14:01 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/ChangeLog,v 1.25 2013/01/07 00:39:40 tetromino Exp $
+
+*accountsservice-0.6.30 (07 Jan 2013)
+
+  07 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  accountsservice-0.6.22.ebuild,
+  -files/accountsservice-0.6.24-dont-delete-root.patch,
+  -accountsservice-0.6.25.ebuild, accountsservice-0.6.29-r1.ebuild,
+  +accountsservice-0.6.30.ebuild,
+  +files/accountsservice-0.6.30-login-history-variant.patch,
+  +files/accountsservice-0.6.30-xsession-typo.patch:
+  Version bump (bug #450576, thanks to Agostino Sarubbo). Update license. Drop
+  old.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  accountsservice-0.6.29-r1.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  accountsservice-0.6.29-r1.ebuild:
+  Add ~ia64, wrt bug #449220
+
+*accountsservice-0.6.29-r1 (04 Dec 2012)
+
+  04 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -accountsservice-0.6.29.ebuild, +accountsservice-0.6.29-r1.ebuild,
+  +files/accountsservice-0.6.29-32bit-crash.patch:
+  Fix crash on 32-bit systems (bug #445894, thanks to Denny Reeh).
+
+*accountsservice-0.6.29 (30 Nov 2012)
+
+  30 Nov 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  -accountsservice-0.6.24.ebuild, +accountsservice-0.6.29.ebuild:
+  Version bump. Clean up old revision.
 
 *accountsservice-0.6.25 (30 Sep 2012)
 

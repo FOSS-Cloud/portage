@@ -1,6 +1,21 @@
 # ChangeLog for dev-ruby/maruku
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/maruku/ChangeLog,v 1.19 2012/08/14 18:38:34 flameeyes Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/maruku/ChangeLog,v 1.23 2013/01/15 06:44:44 zerochaos Exp $
+
+  15 Jan 2013; Rick Farina <zerochaos@gentoo.org> maruku-0.6.0-r2.ebuild,
+  maruku-0.6.1.ebuild:
+  adding ~arm keywords to net-analyzer/metasploit rdeps
+
+  26 Dec 2012; Agostino Sarubbo <ago@gentoo.org> maruku-0.6.0-r2.ebuild:
+  Stable for x86, wrt bug #448310
+
+  26 Dec 2012; Agostino Sarubbo <ago@gentoo.org> maruku-0.6.0-r2.ebuild:
+  Stable for amd64, wrt bug #448310
+
+*maruku-0.6.1 (24 Dec 2012)
+
+  24 Dec 2012; Hans de Graaff <graaff@gentoo.org> +maruku-0.6.1.ebuild:
+  Version bump.
 
   14 Aug 2012; Diego E. Pettenò <flameeyes@gentoo.org> metadata.xml:
   Update metadata.xml so that it's the same as most other packages.

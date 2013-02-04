@@ -1,6 +1,64 @@
 # ChangeLog for media-gfx/darktable
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/darktable/ChangeLog,v 1.23 2012/11/24 19:47:07 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/darktable/ChangeLog,v 1.36 2013/01/24 02:32:38 radhermit Exp $
+
+  24 Jan 2013; Tim Harder <radhermit@gentoo.org> darktable-9999.ebuild:
+  Update kwallet related deps.
+
+*darktable-1.1.2-r1 (14 Jan 2013)
+
+  14 Jan 2013; Tim Harder <radhermit@gentoo.org> +darktable-1.1.2-r1.ebuild:
+  Revision bump, update usermanual.
+
+  12 Jan 2013; Tim Harder <radhermit@gentoo.org> darktable-1.1.2.ebuild:
+  Drop graphicsmagick and jpeg2k use flags since support isn't in a released
+  version yet.
+
+*darktable-1.1.2 (12 Jan 2013)
+
+  12 Jan 2013; Tim Harder <radhermit@gentoo.org> +darktable-1.1.2.ebuild,
+  darktable-9999.ebuild, metadata.xml:
+  Version bump. Add graphicsmagick/jpeg2k use flags and update the desktop mime
+  database on install. Add pax_kernel use flag to work around hardened issue
+  (bug #448692 by prometheanfire).
+
+  19 Dec 2012; Tim Harder <radhermit@gentoo.org> darktable-9999.ebuild,
+  metadata.xml:
+  Add graphicsmagick and jpeg2k use flags.
+
+  10 Dec 2012; Tim Harder <radhermit@gentoo.org> +darktable-9999.ebuild:
+  Re-add live ebuild.
+
+  10 Dec 2012; Tim Harder <radhermit@gentoo.org> darktable-1.1.1.ebuild:
+  Remove unnecessary line wrap.
+
+  10 Dec 2012; Tim Harder <radhermit@gentoo.org> darktable-1.1.1.ebuild:
+  Minor simplifications related to opencl support.
+
+  10 Dec 2012; Tim Harder <radhermit@gentoo.org> -darktable-1.1.ebuild,
+  -files/darktable-1.1-system-libraw.patch:
+  Remove old.
+
+  10 Dec 2012; Tim Harder <radhermit@gentoo.org> darktable-1.1.1.ebuild:
+  Fix user manual install (bug #446704).
+
+*darktable-1.1.1 (10 Dec 2012)
+
+  10 Dec 2012; Tim Harder <radhermit@gentoo.org> +darktable-1.1.1.ebuild:
+  Version bump. Add doc use flag to install user manual, rename gnome use flag
+  to gnome-keyring, use bundled libraw due to upstream modifications.
+
+  09 Dec 2012; Tim Harder <radhermit@gentoo.org> darktable-1.1.ebuild:
+  Check for openmp support in pkg_pretend as well (bug #446368) and remove
+  unnecessary file (bug #446516).
+
+*darktable-1.1 (07 Dec 2012)
+
+  07 Dec 2012; Tim Harder <radhermit@gentoo.org> +darktable-1.1.ebuild,
+  +files/darktable-1.1-automagic-colord.patch,
+  +files/darktable-1.1-cflags.patch, +files/darktable-1.1-opencl-kernels.patch,
+  +files/darktable-1.1-system-libraw.patch, metadata.xml:
+  Version bump (bug #444518).
 
   24 Nov 2012; Gilles Dartiguelongue <eva@gentoo.org> metadata.xml:
   Add upstream tags.

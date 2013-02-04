@@ -1,6 +1,36 @@
 # ChangeLog for media-plugins/gst-plugins-soundtouch
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-soundtouch/ChangeLog,v 1.4 2012/03/24 17:40:02 phajdan.jr Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-soundtouch/ChangeLog,v 1.10 2013/02/01 12:37:54 ago Exp $
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-soundtouch-0.10.23.ebuild:
+  Stable for x86, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-soundtouch-0.10.23.ebuild:
+  Stable for amd64, wrt bug #454906
+
+*gst-plugins-soundtouch-1.0.5 (22 Jan 2013)
+
+  22 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-soundtouch-1.0.5.ebuild:
+  Version bump.
+
+*gst-plugins-soundtouch-1.0.3 (05 Dec 2012)
+
+  05 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-soundtouch-1.0.3.ebuild:
+  Version bump.
+
+*gst-plugins-soundtouch-0.10.23 (02 Dec 2012)
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-soundtouch-0.10.23.ebuild:
+  Version bump.
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  gst-plugins-soundtouch-0.10.22.ebuild:
+  EAPI bump, gstreamer slot pinning.
 
   24 Mar 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org>
   gst-plugins-soundtouch-0.10.22.ebuild:
@@ -22,4 +52,3 @@
   detection and pitch controller element. The bpmdetect element is particularly
   needed by media-sound/banshee for its automatic beats-per-minute detection
   feature. Bug 284036
-

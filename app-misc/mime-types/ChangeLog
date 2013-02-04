@@ -1,6 +1,24 @@
 # ChangeLog for app-misc/mime-types
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/mime-types/ChangeLog,v 1.79 2012/10/15 08:51:54 djc Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/mime-types/ChangeLog,v 1.85 2013/01/04 13:21:33 ago Exp $
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mime-types-9.ebuild:
+  Stable for ppc64, wrt bug #449406
+
+  01 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> mime-types-9.ebuild:
+  Stable on amd64, wrt bug #449406
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> mime-types-9.ebuild:
+  alpha/arm/ia64/m68k/s390/sh/sparc stable wrt #449406
+
+  31 Dec 2012; Jeff Horelick <jdhore@gentoo.org> mime-types-9.ebuild:
+  marked x86 per bug 449406
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mime-types-9.ebuild:
+  Stable for ppc, wrt bug #449406
+
+  31 Dec 2012; Jeroen Roovers <jer@gentoo.org> mime-types-9.ebuild:
+  Stable for HPPA (bug #449406).
 
   15 Oct 2012; Dirkjan Ochtman <djc@gentoo.org> -mime-types-3.ebuild,
   -mime-types-5.ebuild, -mime-types-7.ebuild:

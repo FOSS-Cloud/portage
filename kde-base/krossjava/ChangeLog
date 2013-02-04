@@ -1,6 +1,39 @@
 # ChangeLog for kde-base/krossjava
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/krossjava/ChangeLog,v 1.106 2012/11/23 19:13:52 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/krossjava/ChangeLog,v 1.115 2013/01/28 12:13:16 ago Exp $
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org> -krossjava-4.9.3.ebuild,
+  -krossjava-4.9.4.ebuild:
+  Remove old
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> krossjava-4.9.5.ebuild:
+  Stable for ppc, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> krossjava-4.9.5.ebuild:
+  Stable for x86, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> krossjava-4.9.5.ebuild:
+  Stable for amd64, wrt bug #450678
+
+*krossjava-4.9.5 (05 Jan 2013)
+
+  05 Jan 2013; <creffett@gentoo.org> +krossjava-4.9.5.ebuild:
+  Version bump KDE SC 4.9.5
+
+  16 Dec 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due retirement, #169737
+
+  08 Dec 2012; Andreas K. Huettel <dilfridge@gentoo.org>
+  -krossjava-4.8.5.ebuild:
+  Drop KDE 4.8
+
+*krossjava-4.9.4 (05 Dec 2012)
+
+  05 Dec 2012; Alexey Shvetsov <alexxy@gentoo.org> +krossjava-4.9.4.ebuild:
+  Version bump KDE SC 4.9.4
+
+  30 Nov 2012; <ago@gentoo.org> krossjava-4.9.3.ebuild:
+  Stable for ppc, wrt bug #442394
 
   23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> krossjava-4.9.3.ebuild:
   Stable for x86, wrt bug #442394
@@ -433,4 +466,3 @@
   23 May 2009; Alistair Bush <ali_bush@gentoo.org> +krossjava-4.2.3.ebuild,
   +files/krossjava-4.2.3_includes.patch, +metadata.xml:
   New Package.
-

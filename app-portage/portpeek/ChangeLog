@@ -1,6 +1,25 @@
 # ChangeLog for app-portage/portpeek
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/portpeek/ChangeLog,v 1.158 2012/11/01 13:50:57 mpagano Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/portpeek/ChangeLog,v 1.162 2013/01/18 14:08:39 mpagano Exp $
+
+*portpeek-2.1.6 (18 Jan 2013)
+
+  18 Jan 2013; Michael Pagano <mpagano@gentoo.org> +portpeek-2.1.6.ebuild:
+  Refactor atom handling. Make nicer output for package.use changes
+
+*portpeek-2.1.4 (17 Dec 2012)
+
+  17 Dec 2012; Michael Pagano <mpagano@gentoo.org> -portpeek-2.1.3.ebuild,
+  +portpeek-2.1.4.ebuild:
+  Always add tilde to atom check. Remove old version
+
+*portpeek-2.1.3 (15 Dec 2012)
+
+  15 Dec 2012; Michael Pagano <mpagano@gentoo.org> +portpeek-2.1.3.ebuild:
+  Refactor mask status of packages
+
+  01 Dec 2012; Raúl Porcel <armin76@gentoo.org> portpeek-2.0.25.ebuild:
+  sparc stable wrt #437832
 
 *portpeek-2.1.1 (01 Nov 2012)
 

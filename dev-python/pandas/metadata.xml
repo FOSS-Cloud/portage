@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>sci</herd>
-<longdescription lang='en'>
+<longdescription lang="en">
   Pandas is a Python package providing fast, flexible, and expressive
   data structures designed to make working with "relational" or
   "labeled" data both easy and intuitive. It aims to be the
@@ -10,7 +10,7 @@
   world data analysis in Python. 
 </longdescription>
 <use>
-  <flag name='excel'>Pull a few Python packages Microsoft Excel i/o</flag>
-  <flag name='R'>Enable support for R via <pkg>dev-python/rpy</pkg></flag>
+  <flag name="excel">Pull a few Python packages for Microsoft Excel i/o</flag>
+  <flag name="R">Enable support for R via <pkg>dev-python/rpy</pkg></flag>
 </use>
 </pkgmetadata>

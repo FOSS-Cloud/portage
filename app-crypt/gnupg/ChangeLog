@@ -1,6 +1,70 @@
 # ChangeLog for app-crypt/gnupg
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/gnupg/ChangeLog,v 1.438 2012/09/08 01:58:50 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/gnupg/ChangeLog,v 1.457 2013/01/19 21:16:55 alonbl Exp $
+
+  19 Jan 2013; Alon Bar-Lev <alonbl@gentoo.org>
+  files/gnupg-2.0.17-gpgsm-gencert.patch:
+  cleanup files
+
+  19 Jan 2013; Alon Bar-Lev <alonbl@gentoo.org>
+  -files/gnupg-2.0.17-libgrcrypt150-bugfix.patch,
+  files/gnupg-2.0.17-gpgsm-gencert.patch:
+  cleanup files
+
+*gnupg-1.4.13-r1 (19 Jan 2013)
+
+  19 Jan 2013; Alon Bar-Lev <alonbl@gentoo.org> +gnupg-1.4.13-r1.ebuild,
+  gnupg-2.0.19-r1.ebuild, metadata.xml:
+  Add mta USE for --enable-mailto, bug#382415
+
+  13 Jan 2013; Alon Bar-Lev <alonbl@gentoo.org> -gnupg-1.4.11.ebuild,
+  -gnupg-1.4.12.ebuild, -gnupg-2.0.17-r2.ebuild, -gnupg-2.0.17-r3.ebuild,
+  -gnupg-2.0.17.ebuild, -gnupg-2.0.18.ebuild, metadata.xml:
+  Cleanup old ebuilds
+
+  13 Jan 2013; Raúl Porcel <armin76@gentoo.org> gnupg-1.4.13.ebuild:
+  s390/sh stable wrt #449546
+
+  12 Jan 2013; Alon Bar-Lev <alonbl@gentoo.org> gnupg-2.0.19-r1.ebuild:
+  Add curl static-libs USE for static USE, bug#408121
+
+*gnupg-2.0.19-r1 (12 Jan 2013)
+
+  12 Jan 2013; Alon Bar-Lev <alonbl@gentoo.org> +gnupg-2.0.19-r1.ebuild:
+  Add bzip2 with static-libs, per bug#390163
+
+  07 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.13.ebuild:
+  Stable for alpha, wrt bug #449546
+
+  06 Jan 2013; Markus Meier <maekke@gentoo.org> gnupg-1.4.13.ebuild:
+  arm stable, bug #449546
+
+  05 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.13.ebuild:
+  Stable for sparc, wrt bug #449546
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.13.ebuild:
+  Stable for ia64, wrt bug #449546
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.13.ebuild:
+  Stable for ppc64, wrt bug #449546
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.13.ebuild:
+  Stable for ppc, wrt bug #449546
+
+  02 Jan 2013; Jeroen Roovers <jer@gentoo.org> gnupg-1.4.13.ebuild:
+  Stable for HPPA (bug #449546).
+
+  02 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> gnupg-1.4.13.ebuild:
+  Stable on amd64, wrt bug #449546
+
+  01 Jan 2013; Jeff Horelick <jdhore@gentoo.org> gnupg-1.4.13.ebuild:
+  marked x86 per bug 449546
+
+*gnupg-1.4.13 (01 Jan 2013)
+
+  01 Jan 2013; Alon Bar-Lev <alonbl@gentoo.org> +gnupg-1.4.13.ebuild:
+  Version bump, per bug#449546, remove idea USE and handling as it is provided
+  by package, minor cleanups
 
   08 Sep 2012; Tim Harder <radhermit@gentoo.org> metadata.xml:
   Remove redundant maintainer from metadata.

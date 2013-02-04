@@ -1,6 +1,28 @@
 # ChangeLog for sci-mathematics/msieve
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/msieve/ChangeLog,v 1.6 2012/11/27 13:35:18 patrick Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/msieve/ChangeLog,v 1.11 2013/01/06 14:20:34 patrick Exp $
+
+*msieve-9999 (06 Jan 2013)
+
+  06 Jan 2013; Patrick Lauer <patrick@gentoo.org> +msieve-9999.ebuild:
+  Adding live ebuild
+
+  06 Jan 2013; Patrick Lauer <patrick@gentoo.org> msieve-1.50-r4.ebuild:
+  Small dependency tweak to avoid linking problems
+
+  30 Nov 2012; Patrick Lauer <patrick@gentoo.org> +files/reduce-printf2.patch,
+  +files/reduce-printf3.patch, msieve-1.50-r4.ebuild:
+  Reducing output verbosity some more
+
+*msieve-1.50-r4 (30 Nov 2012)
+
+  30 Nov 2012; Patrick Lauer <patrick@gentoo.org> +files/fix-version.patch,
+  +files/fix-version2.patch, +msieve-1.50-r4.ebuild, -msieve-1.50-r1.ebuild,
+  -msieve-1.50-r2.ebuild, -msieve-1.50-r3.ebuild, -msieve-1.50.ebuild:
+  Fix displayed versioning
+
+  28 Nov 2012; Patrick Lauer <patrick@gentoo.org> msieve-1.50-r3.ebuild:
+  Removing erroneous dep
 
 *msieve-1.50-r3 (27 Nov 2012)
 

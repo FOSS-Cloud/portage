@@ -1,16 +1,16 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libqmi/libqmi-9999.ebuild,v 1.1 2012/09/23 21:28:19 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libqmi/libqmi-9999.ebuild,v 1.2 2013/01/28 23:21:17 vapier Exp $
 
 EAPI="4"
 
-inherit multilib
+inherit multilib autotools
 if [[ ${PV} == "9999" ]] ; then
-	inherit git-2 autotools
+	inherit git-2
 	EGIT_REPO_URI="git://anongit.freedesktop.org/libqmi"
 else
 	KEYWORDS="~amd64 ~arm ~x86"
-	SRC_URI=""
+	SRC_URI="http://cgit.freedesktop.org/libqmi/snapshot/${P}.tar.gz"
 fi
 
 DESCRIPTION="QMI modem protocol helper library"
@@ -18,7 +18,7 @@ HOMEPAGE="http://cgit.freedesktop.org/libqmi/"
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="debug doc static-libs test"
+IUSE="doc static-libs test"
 
 RDEPEND=">=dev-libs/glib-2.32"
 DEPEND="${RDEPEND}
@@ -26,16 +26,12 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_prepare() {
-	if [[ ${PV} == "9999" ]] ; then
-		eautoreconf
-	fi
-	sed -i '/GLIB_MKENUMS=/s:pkg-config:$PKG_CONFIG:' configure
+	[[ -e configure ]] || eautoreconf
 }
 
 src_configure() {
 	econf \
 		$(use_enable static{-libs,}) \
-		$(use_with debug traces) \
 		$(use_with doc{,s}) \
 		$(use_with test{,s})
 }

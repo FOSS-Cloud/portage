@@ -1,6 +1,69 @@
 # ChangeLog for x11-drivers/xf86-video-intel
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-intel/ChangeLog,v 1.114 2012/11/27 06:22:08 remi Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-intel/ChangeLog,v 1.124 2013/01/31 14:54:31 chithanh Exp $
+
+*xf86-video-intel-2.20.19-r1 (31 Jan 2013)
+
+  31 Jan 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/xf86-video-intel-2.20.19-discard-mappings.patch,
+  +xf86-video-intel-2.20.19-r1.ebuild, -xf86-video-intel-2.20.15.ebuild,
+  -xf86-video-intel-2.20.16.ebuild, -xf86-video-intel-2.20.17.ebuild,
+  -xf86-video-intel-2.20.18.ebuild, -xf86-video-intel-2.20.19.ebuild,
+  xf86-video-intel-2.20.13.ebuild:
+  Add patch for bug #454412. Remove old.
+
+*xf86-video-intel-2.20.19 (23 Jan 2013)
+
+  23 Jan 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xf86-video-intel-2.20.19.ebuild, xf86-video-intel-2.19.0.ebuild:
+  Version bump.
+
+*xf86-video-intel-2.20.18 (17 Jan 2013)
+
+  17 Jan 2013; Rémi Cardona <remi@gentoo.org>
+  +xf86-video-intel-2.20.18.ebuild:
+  Bump to 2.20.18.
+
+*xf86-video-intel-2.20.17 (10 Jan 2013)
+
+  10 Jan 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xf86-video-intel-2.20.17.ebuild:
+  Version bump, bug #449396.
+
+  02 Jan 2013; Matt Turner <mattst88@gentoo.org> xf86-video-intel-2.9.1.ebuild,
+  xf86-video-intel-2.19.0.ebuild, xf86-video-intel-2.20.2.ebuild,
+  xf86-video-intel-2.20.13.ebuild, xf86-video-intel-2.20.15.ebuild,
+  xf86-video-intel-2.20.16.ebuild:
+  Drop -ia64 keywords.
+
+  02 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  marked -ia64, wrt bug #449816
+
+  29 Dec 2012; Rémi Cardona <remi@gentoo.org> -xf86-video-intel-2.8.1.ebuild,
+  -xf86-video-intel-2.10.0-r1.ebuild, -xf86-video-intel-2.11.0.ebuild,
+  -xf86-video-intel-2.13.0.ebuild, -xf86-video-intel-2.14.0.ebuild,
+  -xf86-video-intel-2.15.0-r1.ebuild, -xf86-video-intel-2.16.0.ebuild,
+  -xf86-video-intel-2.17.0-r3.ebuild, -xf86-video-intel-2.18.0.ebuild,
+  -xf86-video-intel-2.20.10.ebuild, -xf86-video-intel-2.20.12.ebuild,
+  -xf86-video-intel-2.20.14.ebuild:
+  Prune old revisions.
+
+*xf86-video-intel-2.20.16 (16 Dec 2012)
+
+  16 Dec 2012; Rémi Cardona <remi@gentoo.org>
+  +xf86-video-intel-2.20.16.ebuild:
+  Bump to 2.20.16.
+
+*xf86-video-intel-2.20.15 (03 Dec 2012)
+
+  03 Dec 2012; Rémi Cardona <remi@gentoo.org>
+  +xf86-video-intel-2.20.15.ebuild:
+  Bump to 2.20.15.
+
+  02 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  xf86-video-intel-2.20.10.ebuild, xf86-video-intel-2.20.12.ebuild,
+  xf86-video-intel-2.20.13.ebuild, xf86-video-intel-2.20.14.ebuild:
+  Use virtual/udev instead of sys-fs/udev
 
 *xf86-video-intel-2.20.14 (26 Nov 2012)
 

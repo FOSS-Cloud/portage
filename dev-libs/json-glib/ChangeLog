@@ -1,6 +1,19 @@
 # ChangeLog for dev-libs/json-glib
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/json-glib/ChangeLog,v 1.37 2012/07/14 13:23:39 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/json-glib/ChangeLog,v 1.40 2013/02/02 22:25:30 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> json-glib-0.15.2.ebuild:
+  Add ~arm, wrt bug #449220
+
+*json-glib-0.15.2 (19 Dec 2012)
+
+  19 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -json-glib-0.12.6.ebuild, json-glib-0.14.2.ebuild, +json-glib-0.15.2.ebuild:
+  Version bump for gnome-3.6. Update dependencies and license, drop useless doc
+  USE flag. Drop old.
+
+  16 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> metadata.xml:
+  Switch to global introspection USE flag.
 
   14 Jul 2012; Anthony G. Basile <blueness@gentoo.org> json-glib-0.14.2.ebuild:
   Keyword ~mips
@@ -154,4 +167,3 @@
   +json-glib-0.6.2.ebuild, +metadata.xml:
   Initial commit, thanks to Avuton Olrich <avuton@gmail.com> in bug #233715
   for first ebuild
-

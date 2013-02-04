@@ -1,6 +1,37 @@
 # ChangeLog for kde-base/libplasmaclock
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/libplasmaclock/ChangeLog,v 1.126 2012/11/23 19:27:50 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/libplasmaclock/ChangeLog,v 1.134 2013/01/28 12:13:32 ago Exp $
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org> -libplasmaclock-4.9.3.ebuild,
+  -libplasmaclock-4.9.4.ebuild:
+  Remove old
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libplasmaclock-4.9.5.ebuild:
+  Stable for ppc, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libplasmaclock-4.9.5.ebuild:
+  Stable for x86, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libplasmaclock-4.9.5.ebuild:
+  Stable for amd64, wrt bug #450678
+
+*libplasmaclock-4.9.5 (05 Jan 2013)
+
+  05 Jan 2013; <creffett@gentoo.org> +libplasmaclock-4.9.5.ebuild:
+  Version bump KDE SC 4.9.5
+
+  08 Dec 2012; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libplasmaclock-4.8.5.ebuild:
+  Drop KDE 4.8
+
+*libplasmaclock-4.9.4 (05 Dec 2012)
+
+  05 Dec 2012; Alexey Shvetsov <alexxy@gentoo.org>
+  +libplasmaclock-4.9.4.ebuild:
+  Version bump KDE SC 4.9.4
+
+  30 Nov 2012; <ago@gentoo.org> libplasmaclock-4.9.3.ebuild:
+  Stable for ppc, wrt bug #442394
 
   23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> libplasmaclock-4.9.3.ebuild:
   Stable for x86, wrt bug #442394
@@ -542,4 +573,3 @@
   27 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> +metadata.xml,
   +libplasmaclock-4.2.0.ebuild:
   Bump KDE-4.2.0
-

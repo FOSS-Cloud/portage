@@ -1,6 +1,22 @@
 # ChangeLog for dev-haskell/unix-compat
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/unix-compat/ChangeLog,v 1.6 2012/11/18 07:43:03 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/unix-compat/ChangeLog,v 1.10 2012/12/23 20:05:05 slyfox Exp $
+
+*unix-compat-0.4.1.0 (23 Dec 2012)
+
+  23 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org>
+  +unix-compat-0.4.1.0.ebuild:
+  Version bump.
+
+  10 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org>
+  unix-compat-0.3.0.1.ebuild:
+  stable on alpha/ia64/sparc (bug #421351)
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> unix-compat-0.3.0.1.ebuild:
+  Stable for ppc64, wrt bug #421351
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> unix-compat-0.3.0.1.ebuild:
+  Stable for ppc, wrt bug #421351
 
 *unix-compat-0.4.0.0 (18 Nov 2012)
 

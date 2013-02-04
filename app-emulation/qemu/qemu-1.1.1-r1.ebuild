@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.1.1-r1.ebuild,v 1.6 2012/11/21 22:22:35 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.1.1-r1.ebuild,v 1.11 2013/01/12 23:08:29 cardoe Exp $
 
 EAPI="4"
 
@@ -8,7 +8,7 @@ MY_PN="qemu-kvm"
 MY_P=${MY_PN}-${PV}
 
 PYTHON_DEPEND="2"
-inherit eutils flag-o-matic linux-info toolchain-funcs multilib python user
+inherit eutils flag-o-matic linux-info toolchain-funcs multilib python user udev
 BACKPORTS=1
 
 if [[ ${PV} = *9999* ]]; then
@@ -63,8 +63,8 @@ RDEPEND="
 	>=dev-libs/glib-2.0
 	media-libs/libpng
 	sys-apps/pciutils
-	>=sys-firmware/seabios-1.7.0
-	sys-firmware/vgabios
+	~sys-firmware/seabios-1.7.0
+	~sys-firmware/vgabios-0.6c
 	virtual/jpeg
 	aio? ( dev-libs/libaio )
 	alsa? ( >=media-libs/alsa-lib-1.0.13 )
@@ -92,7 +92,7 @@ RDEPEND="
 	tls? ( net-libs/gnutls )
 	usbredir? (
 		>=sys-apps/usbredir-0.3.4
-		x86? ( <sys-apps/usbredir-0.5 )
+		<sys-apps/usbredir-0.5
 		)
 	vde? ( net-misc/vde )
 	virtfs? ( sys-libs/libcap )
@@ -319,13 +319,12 @@ src_install() {
 
 	if [[ -n ${softmmu_targets} ]]; then
 		if use kernel_linux; then
-			insinto /lib/udev/rules.d/
-			doins "${FILESDIR}"/65-kvm.rules
+			udev_dorules "${FILESDIR}"/65-kvm.rules
 		fi
 
 		if use qemu_softmmu_targets_x86_64 ; then
 			dobin "${FILESDIR}"/qemu-kvm
-			ewarn "The depreciated '/usr/bin/kvm' symlink is no longer installed"
+			ewarn "The deprecated '/usr/bin/kvm' symlink is no longer installed"
 			ewarn "You should use '/usr/bin/qemu-kvm', you may need to edit"
 			ewarn "your libvirt configs or other wrappers for ${PN}"
 		else
@@ -341,7 +340,7 @@ src_install() {
 		dohtml qemu-doc.html qemu-tech.html || die
 	fi
 
-	use python & dobin scripts/kvm/kvm_stat
+	use python && dobin scripts/kvm/kvm_stat
 
 	# Remove SeaBIOS since we're using the SeaBIOS packaged one
 	rm "${ED}/usr/share/qemu/bios.bin"

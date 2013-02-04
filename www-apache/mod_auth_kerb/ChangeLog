@@ -1,6 +1,29 @@
 # ChangeLog for www-apache/mod_auth_kerb
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_auth_kerb/ChangeLog,v 1.10 2012/11/27 19:04:30 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_auth_kerb/ChangeLog,v 1.14 2013/01/15 21:32:01 pacho Exp $
+
+  15 Jan 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/mod_auth_kerb-5.4-s4u2proxy-r1.patch, mod_auth_kerb-5.4-r1.ebuild:
+  Try to fix the same problem again (#452186 by Thomas Beinicke)
+
+  11 Jan 2013; Pacho Ramos <pacho@gentoo.org>
+  files/mod_auth_kerb-5.4-s4u2proxy.patch:
+  Commit patch properly to prevent CVS keywords to be modified (#327445#c15 by
+  Zac Medico)
+
+*mod_auth_kerb-5.4-r1 (03 Jan 2013)
+
+  03 Jan 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/mod_auth_kerb-5.4-cachedir.patch,
+  +files/mod_auth_kerb-5.4-delegation.patch,
+  +files/mod_auth_kerb-5.4-fixes.patch, +files/mod_auth_kerb-5.4-httpd24.patch,
+  +files/mod_auth_kerb-5.4-rcopshack.patch,
+  +files/mod_auth_kerb-5.4-s4u2proxy.patch, +mod_auth_kerb-5.4-r1.ebuild:
+  Include Fedora patches to fix a lot of bugs and add compat with apache-2.4
+
+  09 Dec 2012; Ulrich Müller <ulm@gentoo.org> mod_auth_kerb-5.3.ebuild,
+  mod_auth_kerb-5.4.ebuild:
+  Fix LICENSE, see LICENSE file.
 
   27 Nov 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop apache herd as discussed in http://www.gossamer-

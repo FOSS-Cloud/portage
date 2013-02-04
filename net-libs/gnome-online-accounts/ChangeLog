@@ -1,6 +1,37 @@
 # ChangeLog for net-libs/gnome-online-accounts
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gnome-online-accounts/ChangeLog,v 1.5 2012/09/23 14:11:24 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gnome-online-accounts/ChangeLog,v 1.11 2013/02/02 23:02:57 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-online-accounts-3.6.2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  22 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-online-accounts-3.4.2.ebuild, gnome-online-accounts-3.6.2.ebuild,
+  +files/gnome-online-accounts-3.6.2-GoaKerberosIdentity.patch:
+  Fix build failure with USE=kerberos and gcc-4.5 (bug #450706, thanks to
+  Clemente Aguiar). Require mit-krb5 when USE=kerberos; gnome-online-accounts
+  is incompatible with heimdal. Update license, modernize ebuild.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-online-accounts-3.6.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-online-accounts-3.6.2.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-online-accounts-3.6.2.ebuild:
+  Add ~ia64, wrt bug #449220
+
+*gnome-online-accounts-3.6.2 (25 Dec 2012)
+
+  25 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-online-accounts-3.2.1.ebuild, -gnome-online-accounts-3.4.1-r1.ebuild,
+  +gnome-online-accounts-3.6.2.ebuild, metadata.xml:
+  Version bump for Gnome 3.6. Switch to EAPI=5. Clean up old revisions.
+  USE=introspection is now global.
 
   23 Sep 2012; Anthony G. Basile <blueness@gentoo.org>
   gnome-online-accounts-3.4.2.ebuild:

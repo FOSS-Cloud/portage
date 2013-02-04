@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/darcs/darcs-2.8.3-r1.ebuild,v 1.1 2012/11/25 06:24:06 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/darcs/darcs-2.8.3-r1.ebuild,v 1.3 2012/12/28 08:03:56 gienah Exp $
 
 EAPI=5
 
@@ -50,11 +50,12 @@ DEPEND="${RDEPEND}
 		)
 		test? ( >=dev-haskell/cmdlib-0.2.1[profile?]
 				<dev-haskell/cmdlib-0.4[profile?]
+				>=dev-haskell/quickcheck-2.3
 				>=dev-haskell/shellish-0.1.3[profile?]
 				<dev-haskell/shellish-0.2[profile?]
-				dev-haskell/test-framework[profile?]
-				dev-haskell/test-framework-hunit[profile?]
-				dev-haskell/test-framework-quickcheck2[profile?]
+				>=dev-haskell/test-framework-0.4.0[profile?]
+				>=dev-haskell/test-framework-hunit-0.2.2[profile?]
+				>=dev-haskell/test-framework-quickcheck2-0.2.8[profile?]
 		)
 		"
 
@@ -70,6 +71,7 @@ src_prepare() {
 
 	epatch "${FILESDIR}/${PN}-2.8.1-tar-0.4.patch"
 	epatch "${FILESDIR}"/${P}-hack-for-haskeline-0.7-breaks-non-utf8.patch
+	epatch "${FILESDIR}"/${P}-tf-0.8.patch
 
 	# ghc-7.6
 	cabal_chdeps \

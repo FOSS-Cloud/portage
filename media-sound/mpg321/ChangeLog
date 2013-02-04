@@ -1,6 +1,17 @@
 # ChangeLog for media-sound/mpg321
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/mpg321/ChangeLog,v 1.85 2012/06/06 13:14:50 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/mpg321/ChangeLog,v 1.88 2013/01/15 21:42:51 ssuominen Exp $
+
+*mpg321-0.3.1-r1 (15 Jan 2013)
+
+  15 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> +mpg321-0.3.1-r1.ebuild:
+  Introduce eselect-mpg123 support.
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mpg321-0.3.1.ebuild:
+  Stable for sparc, wrt bug #419127
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mpg321-0.3.1.ebuild:
+  Stable for alpha, wrt bug #419127
 
   06 Jun 2012; Samuli Suominen <ssuominen@gentoo.org> mpg321-0.3.1.ebuild:
   ppc stable wrt #419127

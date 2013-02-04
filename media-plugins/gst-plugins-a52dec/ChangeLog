@@ -1,6 +1,49 @@
 # ChangeLog for media-plugins/gst-plugins-a52dec
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-a52dec/ChangeLog,v 1.136 2012/05/17 14:03:07 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-a52dec/ChangeLog,v 1.145 2013/02/03 23:55:30 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-a52dec-0.10.19.ebuild:
+  Stable for ia64, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-a52dec-0.10.19.ebuild:
+  Stable for ppc, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-a52dec-0.10.19.ebuild:
+  Stable for ppc64, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-a52dec-0.10.19.ebuild:
+  Stable for x86, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-a52dec-0.10.19.ebuild:
+  Stable for amd64, wrt bug #454906
+
+*gst-plugins-a52dec-1.0.5 (22 Jan 2013)
+
+  22 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-a52dec-1.0.5.ebuild:
+  Version bump.
+
+  09 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gst-plugins-a52dec-0.10.19.ebuild, gst-plugins-a52dec-1.0.3.ebuild:
+  Restore accidentally dropped keywords.
+
+*gst-plugins-a52dec-1.0.3 (05 Dec 2012)
+
+  05 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  gst-plugins-a52dec-0.10.19.ebuild, +gst-plugins-a52dec-1.0.3.ebuild:
+  Version bump. Fix repoman keywords complaints.
+
+*gst-plugins-a52dec-0.10.19 (02 Dec 2012)
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  -gst-plugins-a52dec-0.10.16.ebuild, -gst-plugins-a52dec-0.10.17.ebuild,
+  +gst-plugins-a52dec-0.10.19.ebuild:
+  Version bump.
 
   17 May 2012; Alexis Ballier <aballier@gentoo.org>
   gst-plugins-a52dec-0.10.18.ebuild:

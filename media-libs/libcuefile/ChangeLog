@@ -1,6 +1,15 @@
 # ChangeLog for media-libs/libcuefile
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libcuefile/ChangeLog,v 1.33 2012/09/30 18:09:32 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libcuefile/ChangeLog,v 1.36 2013/02/02 22:48:44 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libcuefile-477.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libcuefile-477.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libcuefile-477.ebuild:
+  Add ~ia64, wrt bug #449220
 
   30 Sep 2012; Raúl Porcel <armin76@gentoo.org> libcuefile-477.ebuild:
   alpha stable wrt #419081
@@ -115,4 +124,3 @@
   25 Jul 2009; Samuli Suominen <ssuominen@gentoo.org>
   +libcuefile-444.ebuild, +files/libcuefile-444-multilib_and_shared.patch:
   Initial commit.
-

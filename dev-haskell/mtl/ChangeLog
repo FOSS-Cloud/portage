@@ -1,6 +1,36 @@
 # ChangeLog for dev-haskell/mtl
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/mtl/ChangeLog,v 1.50 2012/11/24 04:12:02 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/mtl/ChangeLog,v 1.60 2012/12/30 15:02:05 ago Exp $
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mtl-2.1.2.ebuild:
+  Stable for alpha, wrt bug #441154
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mtl-2.1.2.ebuild:
+  Stable for sparc, wrt bug #441154
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mtl-2.1.2.ebuild:
+  Stable for ia64, wrt bug #441154
+
+  10 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> mtl-2.1.1.ebuild:
+  stable on alpha/ia64/sparc (bug #421351)
+
+  08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mtl-2.1.2.ebuild:
+  Stable for ppc64, wrt bug #441154
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mtl-2.1.2.ebuild:
+  Stable for ppc, wrt bug #441154
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mtl-2.1.1.ebuild:
+  Stable for ppc64, wrt bug #421351
+
+  07 Dec 2012; <ago@gentoo.org> mtl-2.1.2.ebuild:
+  Stable for x86, wrt bug #441154
+
+  07 Dec 2012; <ago@gentoo.org> mtl-2.1.2.ebuild:
+  Stable for amd64, wrt bug #441154
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mtl-2.1.1.ebuild:
+  Stable for ppc, wrt bug #421351
 
 *mtl-2.1.2-r1 (24 Nov 2012)
 

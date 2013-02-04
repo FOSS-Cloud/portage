@@ -1,6 +1,35 @@
 # ChangeLog for net-libs/nodejs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/nodejs/ChangeLog,v 1.64 2012/11/27 03:52:52 patrick Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/nodejs/ChangeLog,v 1.69 2013/01/21 03:58:37 patrick Exp $
+
+*nodejs-0.8.18 (21 Jan 2013)
+
+  21 Jan 2013; Patrick Lauer <patrick@gentoo.org> +nodejs-0.8.18.ebuild:
+  Bump
+
+  15 Jan 2013; Rick Farina <zerochaos@gentoo.org> nodejs-0.6.21-r1.ebuild,
+  nodejs-0.8.17.ebuild, nodejs-0.9.3-r1.ebuild:
+  adding ~arm keywords to net-analyzer/metasploit rdeps
+
+*nodejs-0.8.17 (10 Jan 2013)
+
+  10 Jan 2013; Patrick Lauer <patrick@gentoo.org> +nodejs-0.8.17.ebuild,
+  -nodejs-0.8.15.ebuild, -nodejs-0.8.16.ebuild:
+  Bump
+
+*nodejs-0.9.3-r1 (14 Dec 2012)
+
+  14 Dec 2012; Patrick Lauer <patrick@gentoo.org> +nodejs-0.9.3-r1.ebuild:
+  Restoring accidentally removed 0.9 version
+
+*nodejs-0.8.16 (14 Dec 2012)
+
+  14 Dec 2012; Patrick Lauer <patrick@gentoo.org> +nodejs-0.8.16.ebuild,
+  -nodejs-0.8.11.ebuild, -nodejs-0.8.12.ebuild, -nodejs-0.8.14.ebuild,
+  -nodejs-0.8.8-r1.ebuild, -nodejs-0.8.9.ebuild, -nodejs-0.9.0-r2.ebuild,
+  -nodejs-0.9.1.ebuild, -nodejs-0.9.2.ebuild, -nodejs-0.9.3-r1.ebuild,
+  -nodejs-0.9.3.ebuild:
+  Bump, clean out old
 
 *nodejs-0.8.15 (27 Nov 2012)
 

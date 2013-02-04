@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/gnome2.eclass,v 1.114 2012/11/27 00:48:01 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/gnome2.eclass,v 1.120 2013/01/16 23:01:02 eva Exp $
 
 # @ECLASS: gnome2.eclass
 # @MAINTAINER:
 # gnome@gentoo.org
-# @BLURB: 
+# @BLURB: Provides phases for Gnome/Gtk+ based packages.
 # @DESCRIPTION:
 # Exports portage base functions used by ebuilds written for packages using the
 # GNOME framework. For additional functions, see gnome2-utils.eclass.
@@ -23,7 +23,7 @@ case "${EAPI:-0}" in
 esac
 
 # @ECLASS-VARIABLE: G2CONF
-# @DEFAULT-UNSET
+# @DEFAULT_UNSET
 # @DESCRIPTION:
 # Extra configure opts passed to econf
 G2CONF=${G2CONF:-""}
@@ -39,26 +39,19 @@ else
 fi
 
 # @ECLASS-VARIABLE: ELTCONF
-# @DEFAULT-UNSET
+# @DEFAULT_UNSET
 # @DESCRIPTION:
 # Extra options passed to elibtoolize
 ELTCONF=${ELTCONF:-""}
 
 # @ECLASS-VARIABLE: USE_EINSTALL
-# @DEFAULT-UNSET
-# @DEPRECATED
+# @DEFAULT_UNSET
 # @DESCRIPTION:
-# Should we use EINSTALL instead of DESTDIR
+# Should we use EINSTALL instead of DESTDIR. DEPRECATED
 USE_EINSTALL=${USE_EINSTALL:-""}
 
-# @ECLASS-VARIABLE: SCROLLKEEPER_UPDATE
-# @DEPRECATED
-# @DESCRIPTION:
-# Whether to run scrollkeeper for this package or not.
-SCROLLKEEPER_UPDATE=${SCROLLKEEPER_UPDATE:-"1"}
-
 # @ECLASS-VARIABLE: DOCS
-# @DEFAULT-UNSET
+# @DEFAULT_UNSET
 # @DESCRIPTION:
 # String containing documents passed to dodoc command.
 
@@ -118,41 +111,57 @@ gnome2_src_configure() {
 	# Update the GNOME configuration options
 	if [[ ${GCONF_DEBUG} != 'no' ]] ; then
 		if use debug ; then
-			G2CONF="${G2CONF} --enable-debug=yes"
+			G2CONF="--enable-debug=yes ${G2CONF}"
 		fi
 	fi
 
-	# Prevent a QA warning
-	if has doc ${IUSE} ; then
-		grep -q "enable-gtk-doc" configure && G2CONF="${G2CONF} $(use_enable doc gtk-doc)"
+	# Starting with EAPI=5, we consider packages installing gtk-doc to be
+	# handled by adding DEPEND="dev-util/gtk-doc-am" which provides tools to
+	# relink URLs in documentation to already installed documentation.
+	# This decision also greatly helps with constantly broken doc generation.
+	# Remember to drop 'doc' USE flag from your package if it was only used to
+	# rebuild docs.
+	# Preserve old behavior for older EAPI.
+	if grep -q "enable-gtk-doc" ${ECONF_SOURCE:-.}/configure ; then
+		if has ${EAPI:-0} 0 1 2 3 4 && in_iuse doc ; then
+			G2CONF="$(use_enable doc gtk-doc) ${G2CONF}"
+		else
+			G2CONF="--disable-gtk-doc ${G2CONF}"
+		fi
 	fi
 
 	# Pass --disable-maintainer-mode when needed
-	if grep -q "^[[:space:]]*AM_MAINTAINER_MODE(\[enable\])" configure.*; then
-		G2CONF="${G2CONF} --disable-maintainer-mode"
+	if grep -q "^[[:space:]]*AM_MAINTAINER_MODE(\[enable\])" \
+		${ECONF_SOURCE:-.}/configure.*; then
+		G2CONF="--disable-maintainer-mode ${G2CONF}"
 	fi
 
 	# Pass --disable-scrollkeeper when possible
-	if grep -q "disable-scrollkeeper" configure; then
-		G2CONF="${G2CONF} --disable-scrollkeeper"
+	if grep -q "disable-scrollkeeper" ${ECONF_SOURCE:-.}/configure; then
+		G2CONF="--disable-scrollkeeper ${G2CONF}"
 	fi
 
 	# Pass --disable-silent-rules when possible (not needed for eapi5), bug #429308
 	if has ${EAPI:-0} 0 1 2 3 4; then
-		if grep -q "disable-silent-rules" configure; then
-			G2CONF="${G2CONF} --disable-silent-rules"
+		if grep -q "disable-silent-rules" ${ECONF_SOURCE:-.}/configure; then
+			G2CONF="--disable-silent-rules ${G2CONF}"
 		fi
 	fi
 
 	# Pass --disable-schemas-install when possible
-	if grep -q "disable-schemas-install" configure; then
-		G2CONF="${G2CONF} --disable-schemas-install"
+	if grep -q "disable-schemas-install" ${ECONF_SOURCE:-.}/configure; then
+		G2CONF="--disable-schemas-install ${G2CONF}"
+	fi
+
+	# Pass --disable-schemas-compile when possible
+	if grep -q "disable-schemas-compile" ${ECONF_SOURCE:-.}/configure; then
+		G2CONF="--disable-schemas-compile ${G2CONF}"
 	fi
 
 	# Avoid sandbox violations caused by gnome-vfs (bug #128289 and #345659)
 	addwrite "$(unset HOME; echo ~)/.gnome2"
 
-	econf "$@" ${G2CONF}
+	econf ${G2CONF} "$@"
 }
 
 # @FUNCTION: gnome2_src_compile
@@ -222,7 +231,7 @@ gnome2_src_install() {
 	if has ${EAPI:-0} 0 1 2 3 4; then
 		if [[ "${GNOME2_LA_PUNT}" != "no" ]]; then
 			ebegin "Removing .la files"
-			if ! { has static-libs ${IUSE//+} && use static-libs; }; then
+			if ! use_if_iuse static-libs ; then
 				find "${D}" -name '*.la' -exec rm -f {} + || die "la file removal failed"
 			fi
 			eend
@@ -259,8 +268,6 @@ gnome2_pkg_postinst() {
 	gnome2_scrollkeeper_update
 }
 
-# @#FUNCTION: gnome2_pkg_prerm
-# @#DESCRIPTION:
 # # FIXME Handle GConf schemas removal
 #gnome2_pkg_prerm() {
 #	gnome2_gconf_uninstall

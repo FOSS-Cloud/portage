@@ -1,6 +1,47 @@
 # ChangeLog for x11-wm/xpra
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/xpra/ChangeLog,v 1.38 2012/11/18 18:24:47 xmw Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/xpra/ChangeLog,v 1.47 2013/02/04 07:29:42 xmw Exp $
+
+*xpra-0.8.1 (04 Feb 2013)
+
+  04 Feb 2013; Michael Weber <xmw@gentoo.org> +xpra-0.8.1.ebuild:
+  Version bump
+
+*xpra-0.8.0 (01 Feb 2013)
+
+  01 Feb 2013; Michael Weber <xmw@gentoo.org> +xpra-0.8.0.ebuild,
+  +files/xpra-0.8.0-prefix.patch:
+  Version bump
+
+  24 Jan 2013; Agostino Sarubbo <ago@gentoo.org> xpra-0.7.5.ebuild:
+  Stable for x86, wrt bug #453288
+
+  24 Jan 2013; Agostino Sarubbo <ago@gentoo.org> xpra-0.7.5.ebuild:
+  Stable for amd64, wrt bug #453288
+
+*xpra-0.7.8 (21 Jan 2013)
+
+  21 Jan 2013; Michael Weber <xmw@gentoo.org> -xpra-0.6.4.ebuild,
+  -xpra-0.7.4.ebuild, +xpra-0.7.8.ebuild:
+  Version bump, drop old.
+
+*xpra-0.7.6 (11 Jan 2013)
+
+  11 Jan 2013; Michael Weber <xmw@gentoo.org> +xpra-0.7.6.ebuild:
+  Version bump (thanks euscan)
+
+  07 Dec 2012; Michael Weber <xmw@gentoo.org> metadata.xml:
+  Remove unused local USE flag descriptions
+
+*xpra-0.7.5 (07 Dec 2012)
+
+  07 Dec 2012; Michael Weber <xmw@gentoo.org> -xpra-0.7.2.ebuild,
+  -xpra-0.7.3.ebuild, +xpra-0.7.5.ebuild:
+  Version bump (euscan), drop old.
+
+  30 Nov 2012; Michael Weber <xmw@gentoo.org> xpra-0.7.4.ebuild,
+  +files/xpra-0.7.4-prefix.patch:
+  Prefix support by Benda Xu (bug 445332).
 
 *xpra-0.7.4 (18 Nov 2012)
 

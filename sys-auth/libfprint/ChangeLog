@@ -1,6 +1,36 @@
 # ChangeLog for sys-auth/libfprint
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/libfprint/ChangeLog,v 1.11 2012/10/31 18:27:06 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/libfprint/ChangeLog,v 1.20 2013/02/02 23:10:47 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libfprint-0.4.0.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libfprint-0.4.0.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  06 Jan 2013; Michael Weber <xmw@gentoo.org> libfprint-0.5.0.ebuild:
+  Re-add eutils.eclass for prune_libtool_files, USE udev upstream bug report
+
+  06 Jan 2013; Michael Weber <xmw@gentoo.org> metadata.xml:
+  Add bugs-to in metadata
+
+*libfprint-0.5.0 (06 Jan 2013)
+
+  06 Jan 2013; Michael Weber <xmw@gentoo.org> +libfprint-0.5.0.ebuild:
+  Version bump (thanks Matthias Blümel, bug 450274), new drivers aes1660,
+  aes2550, aes2660, vfs301. vcs-snapshot eclass.
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libfprint-0.4.0.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libfprint-0.4.0.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libfprint-0.4.0.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libfprint-0.4.0.ebuild:
+  Add ~ppc, wrt bug #449220
 
   31 Oct 2012; Samuli Suominen <ssuominen@gentoo.org> libfprint-0.4.0.ebuild:
   Use prune_libtool_files from eutils.eclass. Use udev_get_udevdir from
@@ -51,4 +81,3 @@
   17 Oct 2010; Michael Weber <xmw@gentoo.org> +libfprint-0.0.6.ebuild,
   +libfprint-0.1.0_pre2.ebuild, +metadata.xml:
   Initial import, fixes bug 341107 by Jan Buecken <jb.faq@gmx.de>
-

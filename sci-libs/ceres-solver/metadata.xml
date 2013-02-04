@@ -10,7 +10,7 @@
     * robust loss functions
     * local parameterizations
     * threaded Jacobian evaluators and linear solvers
-    * Levenberg-Marquardt and Dogleg (Powell,Subspace) solvers
+    * Levenberg-Marquardt and Dogleg (Powell, Subspace) solvers
     * Dense QR and Cholesky factorization (using Eigen) for small problems
     * Sparse Cholesky factorization (using SuiteSparse) for large sparse
       problems

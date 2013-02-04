@@ -1,6 +1,27 @@
 # ChangeLog for app-accessibility/festival
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/festival/ChangeLog,v 1.106 2012/09/20 19:58:15 neurogeek Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/festival/ChangeLog,v 1.110 2013/02/02 22:18:04 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> festival-2.1-r1.ebuild:
+  Add ~arm, wrt bug #449220
+
+  28 Dec 2012; Ulrich Müller <ulm@gentoo.org> festival-2.1.ebuild,
+  festival-2.1-r1.ebuild:
+  Fix LICENSE, see COPYING and README files, bug 447290.
+
+  03 Dec 2012; Jesus Rivero <neurogeek@gentoo.org> -festival-1.96_beta.ebuild,
+  -files/festival-1.96_beta-gcc43.patch,
+  -files/festival-1.96_beta-hts-voices.patch,
+  -files/festival-1.96_beta-init-scm.patch, -files/festival.rc,
+  -files/server.scm, metadata.xml:
+  Removed older version because of security issues. Closes bugs #386319 and
+  #425854
+
+*festival-2.1-r1 (03 Dec 2012)
+
+  03 Dec 2012; Jesus Rivero <neurogeek@gentoo.org> +festival-2.1-r1.ebuild,
+  +files/festival-2.1-gcc4.7.patch:
+  Revbump. Makes it compile with gcc-4.7
 
   20 Sep 2012; Jesus Rivero <neurogeek@gentoo.org>
   -festival-1.96_beta-r1.ebuild, -festival-2.0.95_beta.ebuild,

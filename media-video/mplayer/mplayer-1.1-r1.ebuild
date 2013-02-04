@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-1.1-r1.ebuild,v 1.12 2012/11/25 19:07:26 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-1.1-r1.ebuild,v 1.19 2013/01/17 17:48:55 aballier Exp $
 
 EAPI=4
 
@@ -61,7 +61,7 @@ RDEPEND+="
 	sys-libs/ncurses
 	app-arch/bzip2
 	sys-libs/zlib
-	>=media-video/ffmpeg-0.10.3
+	>=virtual/ffmpeg-0.10.3
 	!bindist? (
 		x86? (
 			win32codecs? ( media-libs/win32codecs )
@@ -73,7 +73,7 @@ RDEPEND+="
 	bidi? ( dev-libs/fribidi )
 	bluray? ( >=media-libs/libbluray-0.2.1 )
 	bs2b? ( media-libs/libbs2b )
-	cdio? ( dev-libs/libcdio )
+	cdio? ( || ( dev-libs/libcdio-paranoia <dev-libs/libcdio-0.90[-minimal] ) )
 	cdparanoia? ( !cdio? ( media-sound/cdparanoia ) )
 	dga? ( x11-libs/libXxf86dga )
 	directfb? ( dev-libs/DirectFB )
@@ -194,6 +194,7 @@ REQUIRED_USE="bindist? ( !faac !win32codecs )
 PATCHES=(
 	"${FILESDIR}/${PN}-1.0_rc4-pkg-config.patch"
 	"${FILESDIR}/${P}-ffmpeg.patch"
+	"${FILESDIR}/${P}-libav-0.8.patch"
 	"${FILESDIR}/${P}-codecid.patch"
 )
 
@@ -259,7 +260,19 @@ src_prepare() {
 	# fix path to bash executable in configure scripts
 	sed -i -e "1c\#!${EPREFIX}/bin/bash" configure version.sh || die
 
+	if has_version dev-libs/libcdio-paranoia; then
+		sed -i \
+			-e 's:cdio/cdda.h:cdio/paranoia/cdda.h:' \
+			-e 's:cdio/paranoia.h:cdio/paranoia/paranoia.h:' \
+			configure stream/stream_cdda.c || die
+	fi
+
 	base_src_prepare
+	if has_version '>=media-video/libav-9_rc' || has_version '>=media-video/ffmpeg-1.1' ; then
+		epatch "${FILESDIR}/${P}-libav-9.patch" \
+			"${FILESDIR}/${P}-planaraudio.patch" \
+			"${FILESDIR}/${P}-missingbreak.patch"
+	fi
 }
 
 src_configure() {

@@ -1,6 +1,56 @@
 # ChangeLog for sys-process/audit
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/audit/ChangeLog,v 1.80 2012/07/03 19:48:08 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-process/audit/ChangeLog,v 1.92 2013/02/02 23:13:29 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> audit-2.2.2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> audit-2.1.3-r1.ebuild:
+  Stable for alpha, wrt to bug #418395
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> audit-2.1.3-r1.ebuild:
+  Stable for sparc, wrt bug #418395
+
+  26 Dec 2012; Agostino Sarubbo <ago@gentoo.org> audit-2.1.3-r1.ebuild:
+  Stable for ia64, wrt bug #418395
+
+  23 Dec 2012; Agostino Sarubbo <ago@gentoo.org> audit-2.1.3-r1.ebuild:
+  Stable for ppc64, wrt bug #418395
+
+  22 Dec 2012; Robin H. Johnson <robbat2@gentoo.org> audit-2.1.3-r1.ebuild,
+  audit-2.2.2.ebuild:
+  Bug #448174: default not valid in pkg_*inst preinst. Also /usr/sbin existence.
+
+  22 Dec 2012; Robin H. Johnson <robbat2@gentoo.org> audit-2.1.3-r1.ebuild,
+  audit-2.2.2.ebuild:
+  Fix swig build. Bug #398071: Fix audisp-remote location, move to /usr/sbin due
+  to linkage against libcap-ng.
+
+*audit-2.2.2 (22 Dec 2012)
+
+  22 Dec 2012; Robin H. Johnson <robbat2@gentoo.org> +audit-2.2.2.ebuild:
+  Bump. Still in package.mask because swig refuses to build, with libtool
+  looking for non-existent _audit.soT.
+
+  22 Dec 2012; Robin H. Johnson <robbat2@gentoo.org>
+  +files/audit-2.1.3-ia64-compile-fix.patch, audit-2.1.3-r1.ebuild:
+  Bug #439188: Absolutely ridiculous workaround for upstream glibc/kernel header
+  issue: http://sourceware.org/bugzilla/show_bug.cgi?id=762 Patch written &
+  tested on dolphin.ia64.dev.gentoo.org.
+
+  21 Dec 2012; Sergey Popov <pinkbyte@gentoo.org> audit-2.1.3-r1.ebuild:
+  Fix pkg_preinst function, wrt bug #447954 (non-maintainer commit)
+
+*audit-1.7.18 (18 Dec 2012)
+
+  18 Dec 2012; Robin H. Johnson <robbat2@gentoo.org> +audit-1.7.18.ebuild,
+  +files/audit-1.7.18-as-needed.patch,
+  +files/audit-1.7.18-missing_headers.patch, audit-1.7.17.ebuild:
+  Bug #405887: fix for newer system headers; bug #405897: bump to 1.7.18.
+
+  18 Dec 2012; Robin H. Johnson <robbat2@gentoo.org> audit-2.0.5.ebuild,
+  audit-2.1.3-r1.ebuild, audit-2.1.3.ebuild:
+  Bug #383235: implement preserve_old_lib.
 
   03 Jul 2012; Jeroen Roovers <jer@gentoo.org> audit-2.1.3-r1.ebuild:
   Stable for HPPA (bug #418395).
@@ -356,4 +406,3 @@
 
   29 Apr 2005; Elfyn McBratney <beu@gentoo.org> :
   Initial ebuild, from yours truly.
-

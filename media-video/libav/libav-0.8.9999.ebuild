@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-0.8.9999.ebuild,v 1.19 2012/05/22 16:52:18 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-0.8.9999.ebuild,v 1.22 2013/01/17 11:29:34 scarabeus Exp $
 
-EAPI=4
+EAPI=5
 
 if [[ ${PV} == *9999 ]] ; then
 	SCM="git-2"
@@ -25,7 +25,7 @@ fi
 SRC_URI+=" test? ( http://dev.gentoo.org/~lu_zero/libav/fate-0.8.2.tar.xz )"
 
 LICENSE="LGPL-2.1 gpl? ( GPL-3 )"
-SLOT="0"
+SLOT="0/0.8"
 [[ ${PV} == *9999 ]] || KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64
 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos
 ~x64-solaris ~x86-solaris"
@@ -48,7 +48,12 @@ RDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	amr? ( media-libs/opencore-amr )
 	bzip2? ( app-arch/bzip2 )
-	cdio? ( dev-libs/libcdio )
+	cdio? (
+		|| (
+			dev-libs/libcdio-paranoia
+			<dev-libs/libcdio-0.90[-minimal]
+		)
+	)
 	dirac? ( media-video/dirac )
 	encode? (
 		aac? ( media-libs/vo-aacenc )
@@ -99,7 +104,7 @@ DEPEND="${RDEPEND}
 # x264 requires gpl2
 REQUIRED_USE="bindist? ( !faac !openssl )
 			  rtmp? ( network )
-			  amr? ( gpl ) aac? ( gpl ) x264? ( gpl ) X? ( gpl )
+			  amr? ( gpl ) aac? ( gpl ) x264? ( gpl ) X? ( gpl ) cdio? ( gpl )
 			  test? ( encode )"
 
 src_prepare() {
@@ -262,6 +267,8 @@ src_configure() {
 		--ar="$(tc-getAR)" \
 		$(use_enable static-libs static) \
 		${myconf} || die
+
+	MAKEOPTS+=" V=1"
 }
 
 src_compile() {
@@ -276,13 +283,10 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" install install-man
 
-	dodoc Changelog README INSTALL
-	dodoc doc/*.txt
+	dodoc Changelog README INSTALL doc/*.txt
 	use doc && dodoc doc/*.html
 
-	if use qt-faststart; then
-		dobin tools/qt-faststart
-	fi
+	use qt-faststart && dobin tools/qt-faststart
 
 	for i in $(usex sdl avplay "") $(usex network avserver "") avprobe; do
 		dosym  ${i} /usr/bin/${i/av/ff}
@@ -295,6 +299,7 @@ pkg_postinst() {
 	elog
 	elog "ffmpeg had been replaced by the feature incompatible avconv thus"
 	elog "the legacy ffmpeg is provided for compatibility with older scripts"
+	elog "but will be removed in the next version"
 }
 
 src_test() {

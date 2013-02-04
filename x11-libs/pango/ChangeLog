@@ -1,6 +1,38 @@
 # ChangeLog for x11-libs/pango
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/pango/ChangeLog,v 1.359 2012/11/17 13:31:12 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/pango/ChangeLog,v 1.368 2013/01/28 13:51:34 aballier Exp $
+
+  28 Jan 2013; Alexis Ballier <aballier@gentoo.org> pango-1.32.5.ebuild:
+  keyword ~amd64-fbsd
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pango-1.32.5.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pango-1.32.5.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pango-1.32.5.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  28 Dec 2012; Fabian Groffen <grobian@gentoo.org> pango-1.32.5.ebuild:
+  Fix double prefix
+
+  24 Dec 2012; Jeroen Roovers <jer@gentoo.org> pango-1.32.5.ebuild:
+  Marked ~hppa (bug #447854).
+
+  23 Dec 2012; Agostino Sarubbo <ago@gentoo.org> pango-1.32.5.ebuild:
+  Add ~ppc64, wrt bug #447854
+
+*pango-1.32.5 (19 Dec 2012)
+
+  19 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +files/pango-1.32.1-lib64.patch, +pango-1.32.5.ebuild:
+  Version bump for gnome-3.6; now uses an external harfbuzz library and
+  supports Unicode 6.1. The pangox library was split off into a separate
+  package (pangox-compat). Keywords dropped due to harfbuzz dependency.
+
+  16 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> metadata.xml:
+  Switch to global introspection USE flag.
 
   17 Nov 2012; Pacho Ramos <pacho@gentoo.org> -pango-1.28.4.ebuild,
   -pango-1.29.4.ebuild, pango-1.30.1.ebuild:

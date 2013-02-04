@@ -1,6 +1,29 @@
 # ChangeLog for www-servers/uwsgi
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/ChangeLog,v 1.33 2012/11/22 07:49:13 dev-zero Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/ChangeLog,v 1.37 2013/02/02 18:54:26 ultrabug Exp $
+
+*uwsgi-1.4.5 (02 Feb 2013)
+
+  02 Feb 2013; Ultrabug <ultrabug@gentoo.org> -uwsgi-1.4.2.ebuild,
+  +uwsgi-1.4.5.ebuild:
+  Version bump, drop old
+
+*uwsgi-1.4.4 (10 Jan 2013)
+
+  10 Jan 2013; Ultrabug <ultrabug@gentoo.org> -uwsgi-1.4.1-r2.ebuild,
+  +uwsgi-1.4.4.ebuild:
+  Version bump, drop old
+
+*uwsgi-1.4.3 (12 Dec 2012)
+
+  12 Dec 2012; Ultrabug <ultrabug@gentoo.org> -uwsgi-1.3-r1.ebuild,
+  -uwsgi-1.4.1-r1.ebuild, +uwsgi-1.4.3.ebuild:
+  Version bump, drop old
+
+*uwsgi-1.4.2 (28 Nov 2012)
+
+  28 Nov 2012; Ultrabug <ultrabug@gentoo.org> +uwsgi-1.4.2.ebuild:
+  Version bump
 
 *uwsgi-1.4.1-r2 (22 Nov 2012)
 

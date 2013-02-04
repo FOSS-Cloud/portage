@@ -1,6 +1,24 @@
 # ChangeLog for gnome-base/gnome-core-libs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-core-libs/ChangeLog,v 1.4 2012/11/05 21:33:43 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-core-libs/ChangeLog,v 1.9 2013/02/02 22:34:28 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gnome-core-libs-3.6.2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gnome-core-libs-3.6.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gnome-core-libs-3.6.2.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gnome-core-libs-3.6.2.ebuild:
+  Add ~ia64, wrt bug #449220
+
+*gnome-core-libs-3.6.2 (26 Dec 2012)
+
+  26 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-core-libs-3.2.1.ebuild, +gnome-core-libs-3.6.2.ebuild:
+  Version bump.
 
   05 Nov 2012; Ulrich Müller <ulm@gentoo.org> gnome-core-libs-3.2.1.ebuild,
   gnome-core-libs-3.4.1.ebuild:
@@ -23,4 +41,3 @@
   07 Nov 2011; Alexandre Rostovtsev <tetromino@gentoo.org>
   +gnome-core-libs-3.2.1.ebuild, +metadata.xml:
   Add the sub-meta package for core gnome-3 libraries from the gnome overlay.
-

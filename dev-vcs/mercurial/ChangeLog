@@ -1,6 +1,86 @@
 # ChangeLog for dev-vcs/mercurial
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/mercurial/ChangeLog,v 1.88 2012/11/24 22:42:49 polynomial-c Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/mercurial/ChangeLog,v 1.108 2013/02/03 23:42:38 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> mercurial-2.4.2.ebuild:
+  Stable for ia64, wrt bug #442788
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> mercurial-2.4.2.ebuild:
+  Stable for arm, wrt bug #442788
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> mercurial-2.4.2.ebuild:
+  Stable for ppc, wrt bug #442788
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> mercurial-2.4.2.ebuild:
+  Stable for x86, wrt bug #442788
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> mercurial-2.4.2.ebuild:
+  Stable for amd64, wrt bug #442788
+
+  03 Feb 2013; Dirkjan Ochtman <djc@gentoo.org> -mercurial-2.4.1-r1.ebuild,
+  -mercurial-2.4.1-r2.ebuild, -mercurial-2.4.1.ebuild:
+  Remove old versions.
+
+  03 Feb 2013; Dirkjan Ochtman <djc@gentoo.org> mercurial-2.4.2.ebuild,
+  mercurial-2.5.ebuild:
+  Don't install PKG-INFO as documentation.
+
+*mercurial-2.5 (03 Feb 2013)
+
+  03 Feb 2013; Dirkjan Ochtman <djc@gentoo.org> +mercurial-2.5.ebuild:
+  Version bump mercurial to 2.5.
+
+*mercurial-2.4.2 (02 Jan 2013)
+
+  02 Jan 2013; Dirkjan Ochtman <djc@gentoo.org> +mercurial-2.4.2.ebuild:
+  Version bump to 2.4.2.
+
+  02 Jan 2013; Dirkjan Ochtman <djc@gentoo.org> mercurial-2.4.1-r2.ebuild,
+  mercurial-9999.ebuild:
+  Fix up docs brokenness (bug 449434).
+
+  31 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> -mercurial-2.3.2.ebuild,
+  -mercurial-2.4-r1.ebuild:
+  Remove old versions.
+
+  31 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> mercurial-2.4.1-r2.ebuild,
+  mercurial-9999.ebuild:
+  Improve test restrictions.
+
+  31 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> mercurial-2.4.1-r2.ebuild,
+  mercurial-9999.ebuild:
+  Synchronize ebuilds some more.
+
+*mercurial-2.4.1-r2 (31 Dec 2012)
+
+  31 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> +mercurial-2.4.1-r2.ebuild:
+  Build docs before emacs, add a doc use flag, add a docs dependency (bug
+  449336).
+
+  30 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> mercurial-2.4.1-r1.ebuild,
+  mercurial-9999.ebuild:
+  Bring 2.4.1-r1 and 9999 versions closer together.
+
+*mercurial-2.4.1-r1 (30 Dec 2012)
+
+  30 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> +mercurial-2.4.1-r1.ebuild,
+  +files/cacerts.rc:
+  Make Mercurial aware of cacerts by default (bug 429470).
+
+  27 Dec 2012; Christoph Junghans <ottxor@gentoo.org> mercurial-9999.ebuild:
+  mercurial.eclass respects  now
+
+  16 Dec 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due retirement, #95685
+
+*mercurial-2.4.1 (07 Dec 2012)
+
+  07 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> +mercurial-2.4.1.ebuild,
+  metadata.xml:
+  Version bump. Added myself to the list of maintainers.
+
+  04 Dec 2012; Fabian Groffen <grobian@gentoo.org> mercurial-2.4-r1.ebuild:
+  Fix shebang of hg-ssh, since it only works with Python 2.x, bug #445842
 
 *mercurial-2.4-r1 (24 Nov 2012)
 
@@ -899,4 +979,3 @@
 
   24 Jun 2005; Aron Griffis <agriffis@gentoo.org> +mercurial-0.5b.ebuild:
   First pass ebuild for mercurial
-

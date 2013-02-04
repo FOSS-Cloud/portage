@@ -1,6 +1,47 @@
 # ChangeLog for media-video/totem
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/totem/ChangeLog,v 1.345 2012/09/21 04:33:56 nirbheek Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/totem/ChangeLog,v 1.356 2013/02/02 23:00:08 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> totem-3.6.3-r1.ebuild:
+  Add ~arm, wrt bug #449220
+
+  12 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org> totem-2.32.0-r2.ebuild,
+  totem-3.4.3.ebuild, totem-3.6.3-r1.ebuild:
+  Workaround sandbox violations due to gst-inspect, bug #358755 & co.
+
+  12 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org> totem-2.32.0-r2.ebuild,
+  totem-3.4.3.ebuild:
+  Drop USE=doc as it was useless, bug #387793.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> totem-3.6.3-r1.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> totem-3.6.3-r1.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> totem-3.6.3-r1.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> totem-3.6.3-r1.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> totem-3.6.3-r1.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  28 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org> totem-3.6.3-r1.ebuild:
+  Raise clutter dependency, bug #449090.
+
+*totem-3.6.3-r1 (24 Dec 2012)
+
+  24 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org> +totem-3.6.3-r1.ebuild,
+  metadata.xml:
+  Version bump for Gnome 3.6. Switch to EAPI=5 and python-single-r1 eclass.
+
+  15 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  totem-2.32.0-r2.ebuild, -totem-3.2.2.ebuild, -totem-3.4.2.ebuild,
+  metadata.xml:
+  Rename upnp USE flag to upnp-av (bug #435776, thanks to Michał Górny). Drop
+  old.
 
   21 Sep 2012; Nirbheek Chauhan <nirbheek@gentoo.org> totem-3.4.3.ebuild:
   We don't really need vala for building from the source tarball

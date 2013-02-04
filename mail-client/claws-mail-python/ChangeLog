@@ -1,6 +1,20 @@
 # ChangeLog for mail-client/claws-mail-python
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-python/ChangeLog,v 1.35 2012/11/20 20:50:00 fauli Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-python/ChangeLog,v 1.39 2013/01/04 11:56:51 fauli Exp $
+
+  04 Jan 2013; Christian Faulhammer <fauli@gentoo.org>
+  -claws-mail-python-0.10.ebuild:
+  clean up
+
+  03 Jan 2013; Christian Faulhammer <fauli@gentoo.org>
+  claws-mail-python-0.11.ebuild:
+  reintroduce deletion of .a and .la files
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> claws-mail-python-0.11.ebuild:
+  Stable for x86, wrt bug #448968
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> claws-mail-python-0.11.ebuild:
+  Stable for amd64, wrt bug #448968
 
 *claws-mail-python-0.11 (20 Nov 2012)
 
@@ -151,4 +165,3 @@
   18 Oct 2009; Christian Faulhammer <fauli@gentoo.org>
   +claws-mail-python-0.2.ebuild, +metadata.xml:
   initial ebuild
-

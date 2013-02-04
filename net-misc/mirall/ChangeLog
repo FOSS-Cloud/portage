@@ -1,6 +1,48 @@
 # ChangeLog for net-misc/mirall
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/mirall/ChangeLog,v 1.8 2012/11/16 20:16:04 johu Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/mirall/ChangeLog,v 1.16 2013/02/03 12:40:44 scarabeus Exp $
+
+  03 Feb 2013; Tomáš Chvátal <scarabeus@gentoo.org> mirall-1.2.0.ebuild:
+  Drop languages as the setup as now is broken because it does not match
+  linguas.
+
+*mirall-1.2.0 (31 Jan 2013)
+
+  31 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> +mirall-1.2.0.ebuild,
+  -mirall-1.1.2.ebuild, -mirall-1.1.4.ebuild, -mirall-1.2.0_beta2.ebuild:
+  Version bump to mirall-1.2.0. Punt older.
+
+  22 Jan 2013; Chris Reffett <creffett@gentoo.org> mirall-1.2.0_beta2.ebuild:
+  Fix use of { instead of ( in cmake-utils_use_with (though documentation
+  doesn't build right now to start with).
+
+*mirall-1.2.0_beta2 (22 Jan 2013)
+
+  22 Jan 2013; Chris Reffett <creffett@gentoo.org>
+  +files/mirall-1.2.0_beta2-automagicness.patch, +mirall-1.2.0_beta2.ebuild:
+  Version bump. Add patch to fix some automagicness.
+
+*mirall-1.1.4 (21 Dec 2012)
+
+  21 Dec 2012; Chris Reffett <creffett@gentoo.org> +mirall-1.1.4.ebuild:
+  Version bump.
+
+*mirall-1.1.2 (14 Dec 2012)
+
+  14 Dec 2012; Chris Reffett <creffett@gentoo.org> +mirall-1.1.2.ebuild,
+  -mirall-1.0.5.ebuild, -mirall-1.1.0.ebuild, -mirall-1.1.1-r1.ebuild,
+  metadata.xml:
+  Version bump, remove old.
+
+  30 Nov 2012; Chris Reffett <creffett@gentoo.org> mirall-1.1.1-r1.ebuild:
+  Make the USEs enabled by default in the csync ebuild enabled by default here
+  too.
+
+*mirall-1.1.1-r1 (30 Nov 2012)
+
+  30 Nov 2012; Chris Reffett <creffett@gentoo.org> +mirall-1.1.1-r1.ebuild,
+  -mirall-1.1.1.ebuild, metadata.xml:
+  Add USE-conditional deps on csync USE flags wrt bug 433165
 
 *mirall-1.1.1 (16 Nov 2012)
 

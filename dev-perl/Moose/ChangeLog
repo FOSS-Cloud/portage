@@ -1,6 +1,22 @@
 # ChangeLog for dev-perl/Moose
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Moose/ChangeLog,v 1.103 2012/09/23 12:34:08 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Moose/ChangeLog,v 1.108 2013/01/30 18:57:32 ago Exp $
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> Moose-2.60.400.ebuild:
+  Stable for x86, wrt bug #448508
+
+  13 Jan 2013; Markus Meier <maekke@gentoo.org> Moose-2.60.400.ebuild:
+  add ~arm, bug #449762
+
+  06 Jan 2013; Torsten Veller <tove@gentoo.org> -Moose-1.240.ebuild,
+  -Moose-2.60.300.ebuild:
+  Cleanup
+
+  25 Dec 2012; Anthony G. Basile <blueness@gentoo.org> Moose-2.60.400.ebuild:
+  stable ppc, bug #448508, thanks peratu
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Moose-2.60.400.ebuild:
+  Stable for amd64, wrt bug #448508
 
 *Moose-2.60.400 (23 Sep 2012)
 

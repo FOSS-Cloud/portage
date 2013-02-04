@@ -1,6 +1,39 @@
 # ChangeLog for dev-db/mysql-workbench
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mysql-workbench/ChangeLog,v 1.70 2012/11/26 20:41:42 graaff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mysql-workbench/ChangeLog,v 1.78 2013/01/31 23:11:27 ago Exp $
+
+  31 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mysql-workbench-5.2.45.ebuild:
+  Stable for ppc, wrt bug #454320
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mysql-workbench-5.2.45.ebuild:
+  Stable for x86, wrt bug #454320
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mysql-workbench-5.2.45.ebuild:
+  Stable for amd64, wrt bug #454320
+
+  17 Jan 2013; Michał Górny <mgorny@gentoo.org>
+  mysql-workbench-5.2.44-r1.ebuild, mysql-workbench-5.2.44.ebuild,
+  mysql-workbench-5.2.45.ebuild:
+  Request built-in Python sqlite3 support rather than pysqlite package.
+
+  02 Jan 2013; Hans de Graaff <graaff@gentoo.org>
+  -files/mysql-workbench-5.2.31-python-libs.patch,
+  -files/mysql-workbench-5.2.34-gcc46.patch,
+  -files/mysql-workbench-5.2.39-glib-2.32.patch:
+  Remove unused patches.
+
+*mysql-workbench-5.2.45 (02 Jan 2013)
+
+  02 Jan 2013; Hans de Graaff <graaff@gentoo.org>
+  +mysql-workbench-5.2.45.ebuild:
+  Version bump, bug 449636.
+
+  02 Jan 2013; Hans de Graaff <graaff@gentoo.org>
+  -mysql-workbench-5.2.35.ebuild, -mysql-workbench-5.2.40.ebuild:
+  Cleanup.
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mysql-workbench-5.2.44.ebuild:
+  Stable for ppc, wrt bug #441142
 
 *mysql-workbench-5.2.44-r1 (26 Nov 2012)
 
@@ -364,4 +397,3 @@
   +files/mysql-workbench-5.2.15-configure.in.pythonlib.patch, +metadata.xml:
   Initial import of mysql-workbench from my overlay, which in turn was based
   on the hard work of many in #238507.
-

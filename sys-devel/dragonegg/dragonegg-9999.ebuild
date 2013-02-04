@@ -1,9 +1,9 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/dragonegg/dragonegg-9999.ebuild,v 1.2 2012/07/03 13:57:17 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/dragonegg/dragonegg-9999.ebuild,v 1.3 2012/12/03 20:38:33 voyageur Exp $
 
-EAPI=4
-inherit subversion multilib
+EAPI=5
+inherit subversion multilib toolchain-funcs
 
 DESCRIPTION="GCC plugin that uses LLVM for optimization and code generation"
 HOMEPAGE="http://dragonegg.llvm.org/"
@@ -26,13 +26,6 @@ src_unpack() {
 		ESVN_PROJECT=llvm S="${WORKDIR}"/llvm subversion_fetch "http://llvm.org/svn/llvm-project/llvm/trunk"
 	fi
 	subversion_fetch
-}
-
-src_prepare() {
-	# Replace svnversion call
-	subversion_wc_info
-	sed -e "s/\(^REVISION:=\).*/\1${ESVN_WC_REVISION}/" \
-		-i Makefile || die "Setting revision failed"
 }
 
 src_compile() {

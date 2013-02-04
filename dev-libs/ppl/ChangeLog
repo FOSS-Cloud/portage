@@ -1,6 +1,20 @@
 # ChangeLog for dev-libs/ppl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/ppl/ChangeLog,v 1.51 2012/04/29 06:51:32 dirtyepic Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/ppl/ChangeLog,v 1.54 2013/01/08 18:45:31 vapier Exp $
+
+  08 Jan 2013; Mike Frysinger <vapier@gentoo.org> ppl-0.10.2-r1.ebuild,
+  ppl-0.11.2-r1.ebuild, ppl-0.12.1-r1.ebuild, ppl-0.12.1.ebuild,
+  ppl-0.12.ebuild:
+  Drop epause usage #450922 by Jean-Francis Roy.
+
+  08 Jan 2013; Jeroen Roovers <jer@gentoo.org> ppl-0.12.1-r1.ebuild:
+  Fix typo by Alphat-PC (bug #447928 comment #27).
+
+*ppl-0.12.1-r1 (08 Jan 2013)
+
+  08 Jan 2013; Patrick Lauer <patrick@gentoo.org>
+  +files/ppl-fix-gmp-5.1.0.patch, +ppl-0.12.1-r1.ebuild:
+  Adding patch to make things work with gmp-5.1, #447928
 
 *ppl-0.12.1 (29 Apr 2012)
 
@@ -199,4 +213,3 @@
 
   21 Sep 2008; Mike Frysinger <vapier@gentoo.org> +ppl-0.10_pre27.ebuild:
   Initial ebuild based on work from Zhang Le for gcc-4.4+.
-

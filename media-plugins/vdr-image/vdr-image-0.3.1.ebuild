@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-image/vdr-image-0.3.1.ebuild,v 1.3 2012/05/05 08:27:20 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-image/vdr-image-0.3.1.ebuild,v 1.5 2013/01/17 22:32:32 aballier Exp $
 
-EAPI="3"
+EAPI="5"
 
-inherit vdr-plugin eutils flag-o-matic
+inherit vdr-plugin-2 flag-o-matic
 
 VERSION="679" #every bump, new version
 
@@ -18,7 +18,7 @@ LICENSE="GPL-2"
 IUSE="exif"
 
 COMMON_DEPEND=">=media-video/vdr-1.5.8
-	>=virtual/ffmpeg-0.4.8_p20080326
+	>=virtual/ffmpeg-0.10
 	>=media-libs/netpbm-10.0
 	exif? ( media-libs/libexif )"
 
@@ -32,9 +32,13 @@ VDR_RCADDON_FILE="${FILESDIR}/rc-addon-0.3.0.sh"
 BUILD_PARAMS="-j1"
 
 src_prepare() {
-	vdr-plugin_src_prepare
+	# remove empty translation file
+	rm "${S}"/po/{cs_CZ,da_DK,et_EE,hr_HR,hu_HU,nn_NO,pl_PL,ro_RO}.po
 
-	epatch "${FILESDIR}/${P}-gentoo.diff"
+	vdr-plugin-2_src_prepare
+
+	epatch "${FILESDIR}/${P}-gentoo.diff" \
+		"${FILESDIR}/${P}-ffmpeg-1.patch"
 
 	use !exif && sed -i "s:#WITHOUT_LIBEXIF:WITHOUT_LIBEXIF:" Makefile
 
@@ -47,7 +51,7 @@ src_prepare() {
 }
 
 src_install() {
-	vdr-plugin_src_install
+	vdr-plugin-2_src_install
 
 	insinto /etc/vdr/imagecmds
 	newins examples/imagecmds.conf imagecmds.example.conf

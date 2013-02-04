@@ -1,6 +1,76 @@
 # ChangeLog for mail-mta/postfix
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/postfix/ChangeLog,v 1.400 2012/11/27 19:59:36 eras Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/postfix/ChangeLog,v 1.416 2013/01/26 16:46:15 jer Exp $
+
+  26 Jan 2013; Jeroen Roovers <jer@gentoo.org> postfix-2.9.5.ebuild:
+  Stable for HPPA (bug #452590).
+
+  26 Jan 2013; Markus Meier <maekke@gentoo.org> postfix-2.9.5.ebuild:
+  arm stable, bug #452590
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> postfix-2.9.5.ebuild:
+  Stable for sparc, wrt bug #452590
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> postfix-2.9.5.ebuild:
+  Stable for ia64, wrt bug #452590
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> postfix-2.9.5.ebuild:
+  Stable for ppc, wrt bug #452590
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> postfix-2.9.5.ebuild:
+  Stable for ppc64, wrt bug #452590
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> postfix-2.9.5.ebuild:
+  Stable for alpha, wrt bug #452590
+
+  18 Jan 2013; Agostino Sarubbo <ago@gentoo.org> postfix-2.9.5.ebuild:
+  Stable for x86, wrt bug #452590
+
+  18 Jan 2013; Agostino Sarubbo <ago@gentoo.org> postfix-2.9.5.ebuild:
+  Stable for amd64, wrt bug #452590
+
+*postfix-2.10_pre20130113 (16 Jan 2013)
+
+  16 Jan 2013; Eray Aslan <eras@gentoo.org> +postfix-2.10_pre20130113.ebuild,
+  -postfix-2.10_pre20130101.ebuild:
+  Version bump
+
+*postfix-2.10_pre20130101 (03 Jan 2013)
+
+  03 Jan 2013; Eray Aslan <eras@gentoo.org> +postfix-2.10_pre20130101.ebuild,
+  -postfix-2.10_pre20121227.ebuild:
+  Version bump
+
+*postfix-2.10_pre20121227 (28 Dec 2012)
+
+  28 Dec 2012; Eray Aslan <eras@gentoo.org> +postfix-2.10_pre20121227.ebuild,
+  -postfix-2.10_pre20121226.ebuild:
+  Version bump
+
+*postfix-2.10_pre20121226 (27 Dec 2012)
+
+  27 Dec 2012; Eray Aslan <eras@gentoo.org> +postfix-2.10_pre20121226.ebuild,
+  -postfix-2.10_pre20121224.ebuild:
+  Version bump
+
+*postfix-2.10_pre20121224 (25 Dec 2012)
+
+  25 Dec 2012; Eray Aslan <eras@gentoo.org> +postfix-2.10_pre20121224.ebuild,
+  -postfix-2.10_pre20121210.ebuild:
+  Version bump
+
+*postfix-2.9.5 (13 Dec 2012)
+*postfix-2.8.13 (13 Dec 2012)
+
+  13 Dec 2012; Eray Aslan <eras@gentoo.org> +postfix-2.8.13.ebuild,
+  +postfix-2.9.5.ebuild:
+  Version bump
+
+*postfix-2.10_pre20121210 (11 Dec 2012)
+
+  11 Dec 2012; Eray Aslan <eras@gentoo.org> +postfix-2.10_pre20121210.ebuild,
+  -postfix-2.10_pre20121123.ebuild:
+  Version bump
 
 *postfix-2.10_pre20121123 (27 Nov 2012)
 

@@ -1,6 +1,18 @@
 # ChangeLog for dev-ruby/addressable
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/addressable/ChangeLog,v 1.23 2012/07/27 17:38:40 graaff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/addressable/ChangeLog,v 1.27 2013/01/01 09:04:02 ago Exp $
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> addressable-2.3.2.ebuild:
+  Stable for x86, wrt bug #448672
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> addressable-2.3.2.ebuild:
+  Stable for amd64, wrt bug #448672
+
+  01 Dec 2012; Hans de Graaff <graaff@gentoo.org> addressable-2.3.2.ebuild:
+  Use proper license, fixing bug 445454.
+
+  01 Dec 2012; Hans de Graaff <graaff@gentoo.org> -addressable-2.2.8.ebuild:
+  Remove old version.
 
 *addressable-2.3.2 (27 Jul 2012)
 
@@ -105,4 +117,3 @@
   +addressable-2.1.1.ebuild, +metadata.xml:
   Initial import of addressable with the fakegem eclass (dependency of Typo
   for those interested).
-

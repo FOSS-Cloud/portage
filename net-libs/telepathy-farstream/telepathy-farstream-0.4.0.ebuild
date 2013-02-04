@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/telepathy-farstream/telepathy-farstream-0.4.0.ebuild,v 1.1 2012/06/25 04:17:12 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/telepathy-farstream/telepathy-farstream-0.4.0.ebuild,v 1.3 2012/12/23 18:07:27 maekke Exp $
 
 EAPI="4"
 PYTHON_DEPEND="python? 2:2.5"
@@ -15,14 +15,14 @@ SRC_URI="http://telepathy.freedesktop.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="examples python"
 
 RDEPEND=">=dev-libs/glib-2.30:2
 	>=sys-apps/dbus-0.60
 	>=dev-libs/dbus-glib-0.60
 	>=net-libs/telepathy-glib-0.17.5
-	>=net-libs/farstream-0.1.0
+	>=net-libs/farstream-0.1.0:0.1
 	python? (
 		>=dev-python/pygobject-2.12.0:2
 		>=dev-python/gst-python-0.10.10 )"

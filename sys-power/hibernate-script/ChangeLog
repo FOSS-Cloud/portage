@@ -1,6 +1,28 @@
 # ChangeLog for sys-power/hibernate-script
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/hibernate-script/ChangeLog,v 1.91 2012/11/18 11:42:00 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-power/hibernate-script/ChangeLog,v 1.95 2013/01/12 17:38:01 alonbl Exp $
+
+*hibernate-script-2.0-r6 (12 Jan 2013)
+
+  12 Jan 2013; Alon Bar-Lev <alonbl@gentoo.org> +hibernate-script-2.0-r6.ebuild,
+  -files/hibernate-script-baselayout2-clock.patch,
+  -hibernate-script-2.0-r5.ebuild:
+  Fix bug#268820, bug#268133, cleanup old ebuilds
+
+  18 Dec 2012; Alon Bar-Lev <alonbl@gentoo.org> metadata.xml:
+  Assign myself as maintainer
+
+*hibernate-script-2.0-r5 (17 Dec 2012)
+
+  17 Dec 2012; Sergey Popov <pinkbyte@gentoo.org>
+  +files/hibernate-script-baselayout2-clock.patch,
+  -hibernate-script-2.0-r4.ebuild, +hibernate-script-2.0-r5.ebuild:
+  Revision bump: EAPI 5, fix incorrect clock script name wrt bug #406065, drop
+  old revision
+
+  16 Dec 2012; Pacho Ramos <pacho@gentoo.org> -hibernate-script-2.0-r2.ebuild,
+  -hibernate-script-2.0-r3.ebuild, metadata.xml:
+  Cleanup due retirement, #95685
 
   18 Nov 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop mobile herd as talked in gentoo-dev ML

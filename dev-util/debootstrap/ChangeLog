@@ -1,6 +1,48 @@
 # ChangeLog for dev-util/debootstrap
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/debootstrap/ChangeLog,v 1.192 2012/11/21 04:07:37 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/debootstrap/ChangeLog,v 1.204 2013/01/01 19:21:39 armin76 Exp $
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> debootstrap-1.0.44.ebuild:
+  sh stable wrt #448102
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> debootstrap-1.0.44.ebuild:
+  Stable for arm, wrt bug #448102
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> debootstrap-1.0.44.ebuild:
+  Stable for alpha, wrt bug #448102
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> debootstrap-1.0.44.ebuild:
+  Stable for sparc, wrt bug #448102
+
+*debootstrap-1.0.46 (28 Dec 2012)
+
+  28 Dec 2012; Jeroen Roovers <jer@gentoo.org> +debootstrap-1.0.46.ebuild:
+  Version bump.
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> debootstrap-1.0.44.ebuild:
+  Stable for ia64, wrt bug #448102
+
+  25 Dec 2012; Anthony G. Basile <blueness@gentoo.org>
+  debootstrap-1.0.44.ebuild:
+  stable ppc, bug #448102, thanks peratu
+
+*debootstrap-1.0.45 (24 Dec 2012)
+
+  24 Dec 2012; Jeroen Roovers <jer@gentoo.org> +debootstrap-1.0.45.ebuild:
+  Version bump.
+
+  23 Dec 2012; Agostino Sarubbo <ago@gentoo.org> debootstrap-1.0.44.ebuild:
+  Stable for ppc64, wrt bug #448102
+
+  23 Dec 2012; Jeff Horelick <jdhore@gentoo.org> debootstrap-1.0.44.ebuild:
+  marked x86 per bug 448102
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> debootstrap-1.0.44.ebuild:
+  Stable for amd64, wrt bug #448102
+
+  02 Dec 2012; Jeroen Roovers <jer@gentoo.org> debootstrap-1.0.42.ebuild,
+  debootstrap-1.0.43.ebuild, debootstrap-1.0.44.ebuild:
+  Change LICENSE by Ulrich Müller (bug #445648).
 
 *debootstrap-1.0.44 (21 Nov 2012)
 
@@ -753,4 +795,3 @@
   15 Jul 2003; Heinrich Wendel <lanius@gentoo.org>
   debootstrap-0.1.17.30.ebuild:
   initial release
-

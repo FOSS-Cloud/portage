@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/cheese/cheese-3.4.2.ebuild,v 1.4 2012/10/25 20:48:15 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/cheese/cheese-3.4.2.ebuild,v 1.6 2012/12/19 03:03:57 tetromino Exp $
 
 EAPI="4"
 GNOME2_LA_PUNT="yes"
@@ -10,7 +10,7 @@ inherit gnome2 virtualx
 DESCRIPTION="A cheesy program to take pictures and videos from your webcam"
 HOMEPAGE="http://www.gnome.org/projects/cheese/"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 IUSE="doc +introspection sendto test"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
@@ -21,7 +21,7 @@ COMMON_DEPEND="
 	>=x11-libs/gtk+-2.99.4:3[introspection?]
 	>=x11-libs/cairo-1.10
 	>=x11-libs/pango-1.28.0
-	>=sys-fs/udev-171[gudev]
+	>=virtual/udev-171[gudev]
 	>=gnome-base/gnome-desktop-2.91.6:3
 	>=gnome-base/librsvg-2.32.0:2
 	>=media-libs/libcanberra-0.26[gtk3]

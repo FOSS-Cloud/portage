@@ -1,6 +1,28 @@
 # ChangeLog for dev-libs/libcgroup
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libcgroup/ChangeLog,v 1.6 2012/11/27 07:46:25 pinkbyte Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libcgroup/ChangeLog,v 1.11 2013/01/05 11:24:38 pinkbyte Exp $
+
+  05 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> libcgroup-0.38-r1.ebuild,
+  libcgroup-0.39_rc1-r1.ebuild:
+  Make build log verbose, wrt bug #450302. Thanks to Agostino Sarubbo for
+  discovering this issue
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libcgroup-0.38-r1.ebuild:
+  Stable for x86, wrt bug #437854
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libcgroup-0.38-r1.ebuild:
+  Stable for amd64, wrt bug #437854
+
+  03 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Add description to maintainer field
+
+*libcgroup-0.39_rc1-r1 (03 Jan 2013)
+*libcgroup-0.38-r1 (03 Jan 2013)
+
+  03 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> -libcgroup-0.38.ebuild,
+  +libcgroup-0.38-r1.ebuild, -libcgroup-0.39_rc1.ebuild,
+  +libcgroup-0.39_rc1-r1.ebuild, files/cgconfig.initd, files/cgred.initd:
+  Remove dependency on 'local' initscript, wrt bug #424405, revbump
 
   27 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> -libcgroup-0.37-r2.ebuild,
   -files/libcgroup-0.37-wildcard-substitutions.patch:

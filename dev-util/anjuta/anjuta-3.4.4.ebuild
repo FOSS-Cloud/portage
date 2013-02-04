@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/anjuta/anjuta-3.4.4.ebuild,v 1.2 2012/11/17 12:31:47 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/anjuta/anjuta-3.4.4.ebuild,v 1.3 2012/12/17 10:19:26 tetromino Exp $
 
 EAPI="4"
 GCONF_DEBUG="yes"
@@ -14,7 +14,7 @@ inherit gnome2 flag-o-matic multilib python vala
 DESCRIPTION="A versatile IDE for GNOME"
 HOMEPAGE="http://www.anjuta.org"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~sparc ~x86 ~x86-fbsd"
 IUSE="debug devhelp glade graphviz +introspection packagekit subversion test vala"

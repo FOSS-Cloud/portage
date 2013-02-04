@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/tigervnc/tigervnc-1.2.0.ebuild,v 1.7 2012/11/21 10:35:06 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/tigervnc/tigervnc-1.2.0.ebuild,v 1.17 2013/01/04 19:29:51 ago Exp $
 
 EAPI="4"
 
-inherit eutils cmake-utils autotools java-pkg-opt-2
+inherit eutils cmake-utils autotools java-pkg-opt-2 flag-o-matic
 
 PATCHVER="0.1"
 XSERVER_VERSION="1.13.0"
@@ -20,7 +20,7 @@ SRC_URI="mirror://sourceforge/tigervnc/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sh sparc x86"
 IUSE="gnutls +internal-fltk java nptl +opengl pam server +xorgmodule"
 
 RDEPEND="virtual/jpeg
@@ -117,6 +117,9 @@ src_prepare() {
 }
 
 src_configure() {
+
+	use arm || use hppa && append-flags "-fPIC"
+
 	mycmakeargs=(
 		-G "Unix Makefiles"
 		$(cmake-utils_use_use internal-fltk INCLUDED_FLTK)
@@ -139,6 +142,7 @@ src_configure() {
 			--disable-dmx \
 			--disable-dri \
 			--disable-kdrive \
+			--disable-selective-werror \
 			--disable-silent-rules \
 			--disable-static \
 			--disable-unit-tests \

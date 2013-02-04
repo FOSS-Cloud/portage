@@ -1,6 +1,21 @@
 # ChangeLog for dev-libs/seed
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/seed/ChangeLog,v 1.9 2012/08/13 18:20:01 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/seed/ChangeLog,v 1.14 2013/02/02 22:27:32 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> seed-3.2.0-r1.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> seed-3.2.0-r1.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> seed-3.2.0-r1.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> seed-3.2.0-r1.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> seed-3.2.0-r1.ebuild:
+  Add ~ppc64, wrt bug #449220
 
   13 Aug 2012; Anthony G. Basile <blueness@gentoo.org> seed-3.2.0-r1.ebuild:
   Keyword ppc, dep for bug #385237
@@ -45,4 +60,3 @@
   +files/seed-fix-gnome-js-common-circular-dep.patch, +metadata.xml:
   Add new ebuild for dev-libs/seed, needed by gnome-games. Masked for now
   till the issues mentioned in the ebuild are fixed
-

@@ -1,6 +1,120 @@
 # ChangeLog for Gentoo/ARM profile directory
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/ChangeLog,v 1.178 2012/11/24 21:38:12 floppym Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/ChangeLog,v 1.213 2013/02/02 22:12:05 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask, use.mask:
+  add -zeitgeist to use.mask and remove gnome-base/nautilus-3[sendto]
+
+  01 Feb 2013; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Mask dev-python/numpy[lapack] because of missing keywords on virtual/cblas,
+  bug #455050.
+
+  29 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> package.mask,
+  package.use.mask:
+  Masks cleanup, wrt bug #444181
+
+  26 Jan 2013; Christoph Junghans <ottxor@gentoo.org> use.mask:
+  unmasked lapack
+
+  22 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask colord[extra-print-profiles] until argyllcms is keyworded here.
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> package.use.mask:
+  tcmalloc now available on arm.
+
+  20 Jan 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Remove duplicate pypy/jython masks (masked in base profile now).
+
+  18 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> use.mask:
+  Mask USE="cman clvm" because cman and libdlm are not keyworded on this arch.
+
+  04 Jan 2013; Raúl Porcel <armin76@gentoo.org> armv6j/make.defaults,
+  armv7a/make.defaults:
+  Update armv6j/armv7a make.defaults to note that the default is hardfloat
+
+  04 Jan 2013; Raúl Porcel <armin76@gentoo.org> package.use.mask:
+  Move contents from default/linux/arm/10.0/package.use.mask to here, its
+  proper place
+
+  31 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> use.mask:
+  Mask USE=xine since xine-lib is not keyworded here.
+
+  31 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask totem[flash]: like totem[youtube], it needs quvi.
+
+  31 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask sushi[office], needs virtual/ooo.
+
+  30 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Unmask sys-kernel/dracut[dracut_modules_systemd] (masked in base).
+
+  30 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask dev-util/dbus-test-runner[test]: it requires dev-util/bustle which is
+  written in haskell.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Add epiphany[jit] to webkit-gtk[jit] unmask.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask >=zenity-3.6[test] until yelp-tools is keyworded.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask devhelp[gedit] until gedit-3.6 is keyworded.
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask >=gvfs-1.14[gnome-keyring] until app-crypt/libsecret is keyworded.
+
+  26 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask kde-base/smokeqt[qscintilla,qwt] and
+  kde-base/qtruby[qscintilla,qwt]
+
+  25 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask kde-base/smokeqt qscintilla[qwt]
+
+  25 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask unkeyworded deps for app-accessibility/speech-dispatcher
+
+  25 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask kde-base/kdesdk-misc[extras]
+
+  24 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask kde-base/kdenetwork-meta[ppp]
+
+  24 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask kde-base/kdeutils-meta[floppy]
+
+  24 Dec 2012; Mike Frysinger <vapier@gentoo.org> armv6j/make.defaults,
+  armv7a/make.defaults:
+  Drop -mfpu/-mfloat-abi flags as toolchain.eclass takes care of setting sane
+  defaults based on $CHOST #448126.
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask kde-base/kstars[indi]
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask kde-base/okular[ebook,chm]
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask kde-base/kdeplasma-addons[fcitx,oauth,qwt,scim]
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask kde-base/kopete[jingle,msn,sms]
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask kde-base/krdc[rdesktop]
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  mask kde-base/kalzium flags due to unkeyworded dependencies
+
+  15 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask totem[upnp-av] after upnp -> upnp-av rename since media-video/coherence
+  not keyworded (bug #435776).
+
+  08 Dec 2012; Markus Meier <maekke@gentoo.org> use.mask:
+  unmask synaptics input driver
+
+  08 Dec 2012; Markus Meier <maekke@gentoo.org> package.use.mask:
+  mask app-office/libreoffice java extensions
 
   24 Nov 2012; Mike Gilbert <floppym@gentoo.org> use.mask:
   Mask python_single_target values not supported on this arch.

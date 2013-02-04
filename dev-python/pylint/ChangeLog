@@ -1,6 +1,21 @@
 # ChangeLog for dev-python/pylint
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pylint/ChangeLog,v 1.89 2012/10/30 07:49:52 patrick Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pylint/ChangeLog,v 1.93 2013/02/02 22:29:36 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> pylint-0.26.0.ebuild:
+  Add ~arm, wrt bug #449220
+
+  07 Jan 2013; Ian Delaney <idella4@gentoo.org>
+  +files/pylint-0.26.0-gtktest.patch, pylint-0.26.0.ebuild:
+  EAPI to 4, restricted pypy subsequent to test failures, added gtktest.patch
+  skipping over 1 new test which otherwise needs full virtualx to pass, fixes
+  Bug #44952 by flameeyes
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pylint-0.26.0.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> pylint-0.26.0.ebuild:
+  Add ~ppc64, wrt bug #449220
 
 *pylint-0.26.0 (30 Oct 2012)
 

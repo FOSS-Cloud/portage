@@ -1,6 +1,20 @@
 # ChangeLog for dev-perl/MIME-Types
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/MIME-Types/ChangeLog,v 1.87 2012/11/04 14:37:16 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/MIME-Types/ChangeLog,v 1.90 2013/01/19 12:28:21 tove Exp $
+
+*MIME-Types-1.380.0 (19 Jan 2013)
+
+  19 Jan 2013; Torsten Veller <tove@gentoo.org> +MIME-Types-1.380.0.ebuild:
+  Version bump
+
+  06 Jan 2013; Torsten Veller <tove@gentoo.org> -MIME-Types-1.340.0.ebuild,
+  -MIME-Types-1.360.0.ebuild:
+  Cleanup
+
+*MIME-Types-1.370.0 (25 Dec 2012)
+
+  25 Dec 2012; Torsten Veller <tove@gentoo.org> +MIME-Types-1.370.0.ebuild:
+  Version bump
 
 *MIME-Types-1.360.0 (04 Nov 2012)
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/netatalk/netatalk-3.0.1.ebuild,v 1.2 2012/10/07 13:18:02 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/netatalk/netatalk-3.0.1.ebuild,v 1.3 2013/01/29 13:48:50 jlec Exp $
 
 EAPI=4
 
@@ -10,7 +10,7 @@ inherit autotools-utils flag-o-matic multilib pam
 
 DESCRIPTION="Open Source AFP server"
 HOMEPAGE="http://netatalk.sourceforge.net/"
-SRC_URI="mirror://sourceforge/${PN}/${PV}/${P}.tar.bz2"
+SRC_URI="mirror://sourceforge/project/${PN}/${PN}/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2 BSD"
 SLOT="0"

@@ -1,6 +1,71 @@
 # ChangeLog for app-emulation/xen
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/ChangeLog,v 1.97 2012/06/01 00:12:36 zmedico Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/ChangeLog,v 1.106 2013/02/03 21:36:11 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> -xen-4.1.1-r2.ebuild,
+  -xen-4.1.2.ebuild:
+  Remove old
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> xen-4.2.0-r1.ebuild:
+  Stable for x86, wrt bug #454314
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> xen-4.2.0-r1.ebuild:
+  Stable for amd64, wrt bug #454314
+
+  01 Feb 2013; Ian Delaney <idella4@gentoo.org> xen-4.2.0-r1.ebuild,
+  xen-4.2.1-r1.ebuild:
+  Removal of un-needed dep grub or grub-static from RDEP in 4.2.0-r1.4.2.1-r1,
+  from user a.m in Bug #447716
+
+*xen-4.2.1-r1 (30 Jan 2013)
+*xen-4.2.0-r1 (30 Jan 2013)
+
+  30 Jan 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4-CVE-2012-4535-XSA-20.patch,
+  +files/xen-4-CVE-2012-4537-XSA-22.patch,
+  +files/xen-4-CVE-2012-4538-XSA-23.patch,
+  +files/xen-4-CVE-2012-4539-XSA-24.patch,
+  +files/xen-4-CVE-2012-5510-XSA-26.patch,
+  +files/xen-4-CVE-2012-5513-XSA-29.patch,
+  +files/xen-4-CVE-2012-5514-XSA-30.patch,
+  +files/xen-4-CVE-2012-5515-XSA-31.patch,
+  +files/xen-4-CVE-2012-5525-XSA-32.patch,
+  +files/xen-4-CVE-2012-5634-XSA-33.patch,
+  +files/xen-4-CVE-2013-0151-XSA-27_34_35.patch,
+  +files/xen-4-CVE-2013-0151-XSA-34_35.patch,
+  +files/xen-4-CVE-2013-0154-XSA-37.patch, +xen-4.2.0-r1.ebuild,
+  +xen-4.2.1-r1.ebuild, -xen-4.2.0.ebuild, -xen-4.2.1.ebuild,
+  files/xen-4-fix_dotconfig-gcc.patch:
+  revbumps; -4.2.0-r1, eclass python-single-r1 added to anable & ensure a build
+  by py2 fixing Bug #453930, PYTHON_COMPAT set accordingly, EAPI->5, sed
+  statements reduced to patches, many sec. patches added addressing Bugs
+  #445254, #431156, #454314. -4.2.1-r1, changes mirrored in those of -4.2.0-r1,
+  addition of 3 sec. patches that pertain to 4.2.1. Dropped 4.2.0 & 4.2.1 by
+  virtue of being prone to failure in form of Bug #453930. Sees 4.2.0-r1 ready
+  for testing for stable
+
+*xen-4.2.1 (24 Jan 2013)
+
+  24 Jan 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4-fix_dotconfig-gcc.patch, +xen-4.2.1.ebuild:
+  bump
+
+  05 Dec 2012; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Change maintainer tag (bug #390951).
+
+  04 Dec 2012; Tomáš Chvátal <scarabeus@gentoo.org> xen-4.1.1-r2.ebuild:
+  This is supposed to be stable amd64 and x86. We do not remove stable keywords
+  just for fun.
+
+*xen-4.2.0 (05 Dec 2012)
+
+  05 Dec 2012; Ian Delaney <idella4@gentoo.org> +xen-4.2.0.ebuild,
+  -files/xen-3.3.0-unexported-target-fix.patch,
+  -files/xen-3.4.2-CVE-2011-1583.patch,
+  -files/xen-3.4.2-dump_registers-watchdog-fix.patch,
+  -files/xen-3.4.2-fix-__addr_ok-limit.patch, -files/xen-3.4.2-no-DMA.patch,
+  -files/xen-3.4.2-werror-idiocy.patch, xen-4.1.1-r2.ebuild:
+  bump and all that goes with it; note todo ovmf
 
   01 Jun 2012; Zac Medico <zmedico@gentoo.org> xen-4.1.1-r2.ebuild:
   tweak inherit so repoman can parse it, and inherit eutils for epatch
@@ -462,4 +527,3 @@
   +files/xend-init, +files/xendomains-conf, +files/xendomains-init,
   +metadata.xml, +xen-2.0.7.ebuild, +xen-3.0.0_pre20050906.ebuild:
   New package. Thanks to the many who contributed in bug #70161.
-

@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/zathura-meta/zathura-meta-0.ebuild,v 1.4 2012/10/07 09:58:00 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/zathura-meta/zathura-meta-0.ebuild,v 1.6 2013/01/27 22:00:11 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 
 DESCRIPTION="Meta package for app-text/zathura plugins"
 HOMEPAGE="http://pwmt.org/projects/zathura/"
@@ -10,7 +10,7 @@ SRC_URI=""
 
 LICENSE="metapackage"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE="cb djvu +pdf postscript"
 
 RDEPEND="app-text/zathura

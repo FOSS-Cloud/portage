@@ -1,6 +1,37 @@
 # ChangeLog for app-accessibility/caribou
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/caribou/ChangeLog,v 1.12 2012/11/22 22:18:58 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/caribou/ChangeLog,v 1.20 2013/02/02 22:17:23 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> caribou-0.4.7.ebuild:
+  Add ~arm, wrt bug #449220
+
+*caribou-0.4.7 (25 Jan 2013)
+
+  25 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org> -caribou-0.4.5.ebuild,
+  +caribou-0.4.7.ebuild:
+  Version bump. Cannot enable docs due to valadoc.
+
+*caribou-0.4.6 (13 Jan 2013)
+
+  13 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org> -caribou-0.4.1.ebuild,
+  -caribou-0.4.1-r1.ebuild, -caribou-0.4.2.ebuild, -caribou-0.4.4.ebuild,
+  +caribou-0.4.6.ebuild:
+  Version bump, switch to EAPI=5 and python-r1. Drop old revisions.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> caribou-0.4.5.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> caribou-0.4.5.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> caribou-0.4.5.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> caribou-0.4.5.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> caribou-0.4.5.ebuild:
+  Add ~ppc, wrt bug #449220
 
 *caribou-0.4.5 (22 Nov 2012)
 

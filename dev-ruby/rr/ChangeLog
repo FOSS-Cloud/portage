@@ -1,6 +1,15 @@
 # ChangeLog for dev-ruby/rr
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rr/ChangeLog,v 1.23 2012/09/15 12:06:00 graaff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rr/ChangeLog,v 1.26 2013/01/15 06:12:48 zerochaos Exp $
+
+  15 Jan 2013; Rick Farina <zerochaos@gentoo.org> rr-1.0.4.ebuild:
+  adding ~arm keywords to net-analyzer/metasploit rdeps
+
+  30 Dec 2012; Raúl Porcel <armin76@gentoo.org> rr-1.0.4.ebuild:
+  Add ~alpha/~sparc wrt #448162
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> rr-1.0.4.ebuild:
+  Add ~ia64, wrt bug #448162
 
   15 Sep 2012; Hans de Graaff <graaff@gentoo.org> -rr-1.0.2.ebuild,
   -rr-1.0.3.ebuild:
@@ -95,4 +104,3 @@
   +metadata.xml:
   Initial import of rr as needed by the gemcutter testsuite. Warning:
   license unknown.
-

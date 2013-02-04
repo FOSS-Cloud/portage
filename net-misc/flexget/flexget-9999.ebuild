@@ -1,15 +1,15 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/flexget/flexget-9999.ebuild,v 1.27 2012/11/02 23:05:30 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/flexget/flexget-9999.ebuild,v 1.31 2013/01/18 04:03:09 floppym Exp $
 
-EAPI=4
+EAPI=5
 
 PYTHON_COMPAT=( python2_{6,7} )
 
 inherit distutils-r1 eutils
 
 if [[ ${PV} != 9999 ]]; then
-	MY_P="FlexGet-${PV/_beta/r}"
+	MY_P="FlexGet-${PV}"
 	SRC_URI="http://download.flexget.com/unstable/${MY_P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 else
@@ -27,7 +27,7 @@ SLOT="0"
 IUSE="test"
 
 DEPEND="
-	>=dev-python/feedparser-5.1.2
+	>=dev-python/feedparser-5.1.3
 	>=dev-python/sqlalchemy-0.7
 	dev-python/pyyaml
 	dev-python/beautifulsoup:python-2
@@ -40,7 +40,8 @@ DEPEND="
 	dev-python/flask
 	dev-python/cherrypy
 	dev-python/python-dateutil
-	=dev-python/requests-0.14*
+	>=dev-python/requests-1.0
+	<dev-python/requests-1.99
 	dev-python/setuptools
 	virtual/python-argparse[${PYTHON_USEDEP}]
 "
@@ -53,7 +54,7 @@ else
 	S="${WORKDIR}/${MY_P}"
 fi
 
-python_prepare_all() {
+src_prepare() {
 	# Prevent setup from grabbing nose from pypi
 	sed -e /setup_requires/d \
 		-e '/SQLAlchemy/s/, <0.8//' \
@@ -66,7 +67,7 @@ python_prepare_all() {
 		paver generate_setup || die
 	fi
 
-	distutils-r1_python_prepare_all
+	distutils-r1_src_prepare
 }
 
 python_test() {

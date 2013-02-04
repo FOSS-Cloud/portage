@@ -2,6 +2,7 @@
 #
 # Masking out llvm
 llvm
+clang
 
 # These flags should only be used for ppc
 -ppcsha1
@@ -182,11 +183,6 @@ mumble
 # ppc keywords were dropped for dev-libs/prelude
 prelude
 
-# Alexandre Rostovtsev <tetromino@gmail.com> (28 Oct 2011)
-# x11-misc/colord and app-admin/packagekit-base not tested. Bug #387959.
-colord
-packagekit
-
 # Matt Turner <mattst88@gentoo.org) (10 Feb 2012)
 # mask d3d since we don't have wine
 d3d
@@ -203,14 +199,13 @@ systemd
 # Masked because nvidia-texture-tools is not (tested) for PowerPC
 nvtt
 
-# Michał Górny <mgorny@gentoo.org> (31 Oct 2012)
-# Mask PYTHON_TARGETS for implementations not keyworded on this arch.
-python_targets_pypy1_8
-python_targets_pypy1_9
-python_targets_jython2_5
-python_single_target_pypy1_8
-python_single_target_pypy1_9
-python_single_target_jython2_5
-
 # fdk-aac is already keyworded here
 -fdk
+
+# Samuli Suominen <ssuominen@gentoo.org> (18 Jan 2013)
+# libdlm and cman are not keyworded
+cman
+clvm
+
+# for gnome 3.6 keywording
+-zeitgeist

@@ -1,6 +1,48 @@
 # ChangeLog for kde-base/kdepim-strigi-analyzer
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdepim-strigi-analyzer/ChangeLog,v 1.123 2012/11/23 18:50:44 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdepim-strigi-analyzer/ChangeLog,v 1.133 2013/01/28 12:12:51 ago Exp $
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  -kdepim-strigi-analyzer-4.9.3.ebuild, -kdepim-strigi-analyzer-4.9.4.ebuild:
+  Remove old
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  kdepim-strigi-analyzer-4.9.5.ebuild:
+  Stable for ppc, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  kdepim-strigi-analyzer-4.9.5.ebuild:
+  Stable for x86, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  kdepim-strigi-analyzer-4.9.5.ebuild:
+  Stable for amd64, wrt bug #450678
+
+*kdepim-strigi-analyzer-4.9.5 (05 Jan 2013)
+
+  05 Jan 2013; <creffett@gentoo.org> +kdepim-strigi-analyzer-4.9.5.ebuild:
+  Version bump KDE SC 4.9.5
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org>
+  kdepim-strigi-analyzer-4.9.4.ebuild:
+  add ~arm
+
+  08 Dec 2012; Andreas K. Huettel <dilfridge@gentoo.org>
+  kdepim-strigi-analyzer-4.4.11.1.ebuild:
+  Drop ppc64 as in rest of KDE
+
+  08 Dec 2012; Andreas K. Huettel <dilfridge@gentoo.org>
+  -kdepim-strigi-analyzer-4.8.5.ebuild:
+  Drop KDE 4.8
+
+*kdepim-strigi-analyzer-4.9.4 (05 Dec 2012)
+
+  05 Dec 2012; Alexey Shvetsov <alexxy@gentoo.org>
+  +kdepim-strigi-analyzer-4.9.4.ebuild:
+  Version bump KDE SC 4.9.4
+
+  30 Nov 2012; <ago@gentoo.org> kdepim-strigi-analyzer-4.9.3.ebuild:
+  Stable for ppc, wrt bug #442394
 
   23 Nov 2012; Agostino Sarubbo <ago@gentoo.org>
   kdepim-strigi-analyzer-4.9.3.ebuild:
@@ -589,4 +631,3 @@
   02 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   +metadata.xml, +kdepim-strigi-analyzer-4.1.2.ebuild:
   Add kde-4.1.2 into the tree from the kde-testing overlay.
-

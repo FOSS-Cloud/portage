@@ -1,6 +1,42 @@
 # ChangeLog for sys-fs/multipath-tools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/multipath-tools/ChangeLog,v 1.47 2012/08/25 22:35:16 vapier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/multipath-tools/ChangeLog,v 1.56 2013/01/06 11:12:09 ago Exp $
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  multipath-tools-0.4.9-r5.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  multipath-tools-0.4.9-r5.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  multipath-tools-0.4.9-r5.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  multipath-tools-0.4.9-r5.ebuild:
+  Stable for ppc, wrt bug #448060
+
+  26 Dec 2012; Jeff Horelick <jdhore@gentoo.org>
+  multipath-tools-0.4.9-r5.ebuild:
+  marked x86 per bug 448060
+
+  24 Dec 2012; Sergey Popov <pinkbyte@gentoo.org>
+  multipath-tools-0.4.9-r5.ebuild:
+  Stable on amd64, wrt bug #448060
+
+  23 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  multipath-tools-0.4.9-r5.ebuild:
+  Stable for ppc64, wrt bug #448060
+
+  11 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  multipath-tools-0.4.8-r1.ebuild, multipath-tools-0.4.9-r5.ebuild:
+  Migrate latest to udev.eclass. Use virtual/udev instead of sys-fs/udev.
+
+  11 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  -multipath-tools-0.4.9-r3.ebuild, -multipath-tools-0.4.9-r4.ebuild:
+  old
 
   25 Aug 2012; Mike Frysinger <vapier@gentoo.org>
   multipath-tools-0.4.9-r5.ebuild:

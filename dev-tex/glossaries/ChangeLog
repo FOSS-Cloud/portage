@@ -1,6 +1,33 @@
 # ChangeLog for dev-tex/glossaries
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tex/glossaries/ChangeLog,v 1.54 2012/11/24 02:16:09 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-tex/glossaries/ChangeLog,v 1.63 2013/01/20 10:14:40 ago Exp $
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> glossaries-3.04.ebuild:
+  Stable for alpha, wrt bug #449926
+
+  13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> glossaries-3.04.ebuild:
+  Stable for x86, wrt bug #449926
+
+  07 Jan 2013; Jeroen Roovers <jer@gentoo.org> glossaries-3.04.ebuild:
+  Stable for HPPA (bug #449926).
+
+  06 Jan 2013; Markus Meier <maekke@gentoo.org> glossaries-3.04.ebuild:
+  arm stable, bug #449926
+
+  05 Jan 2013; Agostino Sarubbo <ago@gentoo.org> glossaries-3.04.ebuild:
+  Stable for sparc, wrt bug #449926
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> glossaries-3.04.ebuild:
+  Stable for ia64, wrt bug #449926
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> glossaries-3.04.ebuild:
+  Stable for ppc64, wrt bug #449926
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> glossaries-3.04.ebuild:
+  Stable for ppc, wrt bug #449926
+
+  03 Jan 2013; Agostino Sarubbo <ago@gentoo.org> glossaries-3.04.ebuild:
+  Stable for amd64, wrt bug #449926
 
   24 Nov 2012; Tim Harder <radhermit@gentoo.org> glossaries-3.04.ebuild:
   Use gentoo mirror.
@@ -200,4 +227,3 @@
   22 Jul 2007; Lars Weiler <pylon@gentoo.org> +metadata.xml,
   +glossaries-1.02.ebuild:
   New package for glossaries (or list of acronyms).
-

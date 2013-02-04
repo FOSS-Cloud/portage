@@ -1,6 +1,30 @@
 # ChangeLog for app-vim/align
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-vim/align/ChangeLog,v 1.55 2012/08/03 09:15:56 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-vim/align/ChangeLog,v 1.63 2013/01/29 07:42:26 radhermit Exp $
+
+  29 Jan 2013; Tim Harder <radhermit@gentoo.org> align-42.ebuild:
+  Remove empty IUSE.
+
+  29 Jan 2013; Tim Harder <radhermit@gentoo.org> -align-41.ebuild:
+  Remove old.
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> align-42.ebuild:
+  Stable for alpha, wrt bug #441122
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> align-42.ebuild:
+  Stable for sparc, wrt bug #441122
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> align-42.ebuild:
+  Stable for ia64, wrt bug #441122
+
+  04 Dec 2012; <ago@gentoo.org> align-42.ebuild:
+  Stable for x86, wrt bug #441122
+
+  04 Dec 2012; Anthony G. Basile <blueness@gentoo.org> align-42.ebuild:
+  stable ppc, bug #441122
+
+  03 Dec 2012; <ago@gentoo.org> align-42.ebuild:
+  Stable for amd64, wrt bug #441122
 
 *align-42 (03 Aug 2012)
 
@@ -195,4 +219,3 @@
   Third vim plugin added to app-vim! Verified license by writing to the author,
   Chip Campbell. His response: "I probably should put notices in all my scripts
   so that they're all copyrighted&vim-charity-style-licensed."
-

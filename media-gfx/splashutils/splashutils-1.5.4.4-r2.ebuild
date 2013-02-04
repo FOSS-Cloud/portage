@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/splashutils/splashutils-1.5.4.4-r2.ebuild,v 1.1 2012/10/26 20:29:03 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/splashutils/splashutils-1.5.4.4-r2.ebuild,v 1.7 2013/02/02 22:45:11 ago Exp $
 
 EAPI=4
 
@@ -33,7 +33,7 @@ SRC_URI="mirror://berlios/fbsplash/${PN}-lite-${PV}.tar.bz2
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 RDEPEND="gpm? ( sys-libs/gpm[static-libs(+)] )
 	truetype? (
 		>=media-libs/freetype-2[static-libs]
@@ -188,7 +188,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	if has_version sys-fs/devfsd || ! has_version sys-fs/udev ; then
+	if has_version sys-fs/devfsd || ! has_version virtual/udev ; then
 		elog "This package has been designed with udev in mind. Other solutions, such as"
 		elog "devfs or a static /dev tree might work, but are generally discouraged and"
 		elog "not supported. If you decide to switch to udev, you might want to have a"

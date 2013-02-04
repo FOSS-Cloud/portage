@@ -1,6 +1,17 @@
 # ChangeLog for sci-geosciences/grass
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/grass/ChangeLog,v 1.117 2012/10/24 19:38:26 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/grass/ChangeLog,v 1.119 2013/01/18 01:28:52 lu_zero Exp $
+
+  18 Jan 2013; Luca Barbato <lu_zero@gentoo.org> grass-6.4.2.ebuild,
+  +files/grass-6.4.2-configure.patch, files/grass-6.4.2-ffmpeg-1.patch,
+  +files/grass-6.4.2-libav-9.patch:
+  Finish addressing bug #443264 and force configure regeneration to second QA
+  team requests
+
+  17 Jan 2013; Alexis Ballier <aballier@gentoo.org> grass-6.4.2.ebuild,
+  +files/grass-6.4.2-ffmpeg-1.patch:
+  Fix build with latest ffmpeg. Part of bug #443264. Note: this patches
+  configure directly to avoid having to autoreconf it.
 
   24 Oct 2012; Ulrich Müller <ulm@gentoo.org> grass-6.4.1-r1.ebuild,
   grass-6.4.2.ebuild:

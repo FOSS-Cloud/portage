@@ -1,6 +1,82 @@
 # ChangeLog for dev-db/mysql
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mysql/ChangeLog,v 1.626 2012/11/25 19:03:10 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mysql/ChangeLog,v 1.644 2013/01/28 02:10:49 robbat2 Exp $
+
+*mysql-5.1.67-r1 (28 Jan 2013)
+*mysql-5.1.66-r1 (28 Jan 2013)
+
+  28 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> +mysql-5.1.66-r1.ebuild,
+  +mysql-5.1.67-r1.ebuild:
+  revbump for new patchset w/ bug #374349 fixed.
+
+  28 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> -mysql-5.5.19.ebuild,
+  -mysql-5.5.20.ebuild, -mysql-5.5.21.ebuild, -mysql-5.5.22-r1.ebuild,
+  -mysql-5.5.22.ebuild, -mysql-5.5.28.ebuild:
+  Remove unneeded versions.
+
+  21 Jan 2013; Jeroen Roovers <jer@gentoo.org> mysql-5.1.67.ebuild:
+  Stable for HPPA (bug #445602).
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mysql-5.1.67.ebuild:
+  Stable for sparc, wrt bug #445602
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mysql-5.1.67.ebuild:
+  Stable for ia64, wrt bug #445602
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mysql-5.1.67.ebuild:
+  Stable for ppc, wrt bug #445602
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mysql-5.1.67.ebuild:
+  Stable for ppc64, wrt bug #445602
+
+*mysql-5.5.29-r1 (20 Jan 2013)
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> +mysql-5.5.29-r1.ebuild:
+  Bump for bug #442000 to help arm and other arches.
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mysql-5.1.67.ebuild:
+  stable for amd64/x86, wrt to bug #445602
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mysql-5.1.67.ebuild:
+  Stable for arm, wrt bug #445602
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> files/my.cnf-5.1,
+  files/my.cnf-5.5:
+  Bug #430836: eprefix paths in my.cnf.
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> +files/my.cnf-5.5:
+  New my.cnf for 5.5 series, per eclass changes.
+
+*mysql-5.5.29 (20 Jan 2013)
+*mysql-5.1.67 (20 Jan 2013)
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> +mysql-5.1.67.ebuild,
+  +mysql-5.5.29.ebuild:
+  Bump, includes upstream security fixes. Many thanks to Brian Evans
+  <grknight@lavabit.com> for his contributions.
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> -mysql-5.0.91.ebuild,
+  -mysql-5.0.92.ebuild, mysql-5.0.96.ebuild:
+  Move stable keywords on p.masked 5.0 series to 5.0.96 and clean up old
+  versions. 5.0.96 to remain only for migration from 4.x releases.
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> -mysql-5.1.51.ebuild,
+  -mysql-5.1.52-r1.ebuild, -mysql-5.1.52.ebuild, -mysql-5.1.53.ebuild,
+  -mysql-5.1.56-r1.ebuild, -mysql-5.1.56.ebuild, -mysql-5.1.57.ebuild,
+  -mysql-5.1.58-r1.ebuild, -mysql-5.1.59.ebuild, -mysql-5.1.61.ebuild,
+  -mysql-5.1.62-r1.ebuild, -mysql-5.1.62.ebuild:
+  Clean up old 5.1 versions.
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> mysql-5.5.19.ebuild,
+  mysql-5.5.20.ebuild, mysql-5.5.21.ebuild, mysql-5.5.22-r1.ebuild,
+  mysql-5.5.22.ebuild, mysql-5.5.28.ebuild:
+  Fix minor typo in test runner.
+
+  05 Dec 2012; Fabian Groffen <grobian@gentoo.org> mysql-5.5.28.ebuild:
+  Marked ~x86-linux, bug #444950
+
+  01 Dec 2012; Anthony G. Basile <blueness@gentoo.org> mysql-5.1.66.ebuild:
+  stable ppc64, bug #417989
 
   25 Nov 2012; Raúl Porcel <armin76@gentoo.org> mysql-5.1.66.ebuild:
   alpha/ia64/s390/sh/sparc stable wrt #417989

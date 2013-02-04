@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mediastreamer/mediastreamer-2.8.2.ebuild,v 1.1 2012/11/19 21:28:03 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/mediastreamer/mediastreamer-2.8.2.ebuild,v 1.4 2013/01/17 21:56:29 aballier Exp $
 
 EAPI="4"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://nongnu/linphone/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 # Many cameras will not work or will crash an application if mediastreamer2 is
 # not built with v4l2 support (taken from configure.ac)
 # TODO: run-time test for ipv6: does it really need ortp[ipv6] ?
@@ -68,7 +68,8 @@ src_prepare() {
 		|| die "patching help/Makefile.am failed"
 
 	epatch "${FILESDIR}/${P}-v4l-automagic.patch" \
-		"${FILESDIR}/${P}-autopoint.patch"
+		"${FILESDIR}/${P}-autopoint.patch" \
+		"${FILESDIR}/${P}-ffmpeg-1.0.patch"
 
 	# linux/videodev.h dropped in 2.6.38
 	sed -i -e 's:linux/videodev.h ::' configure.ac || die

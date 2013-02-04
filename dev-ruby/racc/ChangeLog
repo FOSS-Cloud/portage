@@ -1,6 +1,42 @@
 # ChangeLog for dev-ruby/racc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/racc/ChangeLog,v 1.82 2012/11/06 16:54:47 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/racc/ChangeLog,v 1.93 2013/01/28 15:15:18 aballier Exp $
+
+  28 Jan 2013; Alexis Ballier <aballier@gentoo.org> racc-1.4.9.ebuild:
+  keyword ~amd64-fbsd
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> racc-1.4.8.ebuild:
+  arm/s390/sh stable wrt #448296
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> racc-1.4.8.ebuild:
+  Stable for alpha, wrt bug #448296
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> racc-1.4.8.ebuild:
+  Stable for sparc, wrt bug #448296
+
+  29 Dec 2012; Jeroen Roovers <jer@gentoo.org> racc-1.4.8.ebuild:
+  Stable for HPPA (bug #448296).
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> racc-1.4.8.ebuild:
+  Stable for ppc, wrt bug #448296
+
+  27 Dec 2012; Jeff Horelick <jdhore@gentoo.org> racc-1.4.8.ebuild:
+  marked x86 per bug 448296
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> racc-1.4.8.ebuild:
+  Stable for ia64, wrt bug #448296
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> racc-1.4.8.ebuild:
+  Stable for amd64, wrt bug #448296
+
+  23 Dec 2012; Agostino Sarubbo <ago@gentoo.org> racc-1.4.8.ebuild:
+  Stable for ppc64, wrt bug #448296
+
+*racc-1.4.9 (01 Dec 2012)
+
+  01 Dec 2012; Hans de Graaff <graaff@gentoo.org> +racc-1.4.9.ebuild:
+  Version bump. Drop ree18 since tests are broken and ree18 will be masked
+  shortly anyway.
 
   06 Nov 2012; Jeroen Roovers <jer@gentoo.org> racc-1.4.6-r1.ebuild:
   Stable for HPPA (bug #411507).

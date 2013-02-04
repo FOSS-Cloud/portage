@@ -1,6 +1,63 @@
 # ChangeLog for media-libs/gst-plugins-bad
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gst-plugins-bad/ChangeLog,v 1.93 2012/09/07 13:42:19 leio Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/gst-plugins-bad/ChangeLog,v 1.105 2013/02/03 23:51:16 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-bad-0.10.23-r1.ebuild:
+  Stable for ia64, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-bad-0.10.23-r1.ebuild:
+  Stable for ppc, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-bad-0.10.23-r1.ebuild:
+  Stable for ppc64, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-bad-0.10.23-r1.ebuild:
+  Stable for x86, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-bad-0.10.23-r1.ebuild:
+  Stable for amd64, wrt bug #454906
+
+*gst-plugins-bad-1.0.5 (22 Jan 2013)
+
+  22 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-bad-1.0.5.ebuild:
+  Version bump.
+
+  20 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> metadata.xml:
+  Switch to global orc USE flag.
+
+  08 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gst-plugins-bad-0.10.23-r1.ebuild:
+  Forgot to add a comment explaining the patches.
+
+*gst-plugins-bad-0.10.23-r1 (08 Dec 2012)
+
+  08 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +gst-plugins-bad-0.10.23-r1.ebuild:
+  Add upstream patches fixing h264 baseline video decoding failure (bug
+  #446384, thanks to barrie backhurst).
+
+*gst-plugins-bad-1.0.3 (03 Dec 2012)
+
+  03 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-bad-1.0.3.ebuild:
+  Version bump.
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  gst-plugins-bad-0.10.22.ebuild:
+  Fix install due to usage of default in EAPI=2, bug #445698.
+
+*gst-plugins-bad-0.10.23 (02 Dec 2012)
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  -gst-plugins-bad-0.10.19.ebuild, -gst-plugins-bad-0.10.21.ebuild,
+  gst-plugins-bad-0.10.22.ebuild, +gst-plugins-bad-0.10.23.ebuild:
+  Version bump. Update ebuild to make proper use of new eclass.
 
   07 Sep 2012; Mart Raudsepp <leio@gentoo.org> gst-plugins-bad-0.10.19.ebuild,
   gst-plugins-bad-0.10.21.ebuild, gst-plugins-bad-0.10.22.ebuild:
@@ -435,4 +492,3 @@
   21 Jan 2006; Saleem Abdulrasool <compnerd@gentoo.org>
   +gst-plugins-bad-0.10.0.ebuild:
   Initial import
-

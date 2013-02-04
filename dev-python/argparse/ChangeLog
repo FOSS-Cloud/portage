@@ -1,6 +1,56 @@
 # ChangeLog for dev-python/argparse
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/argparse/ChangeLog,v 1.34 2012/11/02 21:31:36 mgorny Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/argparse/ChangeLog,v 1.49 2013/01/01 19:01:38 armin76 Exp $
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> argparse-1.2.1-r1.ebuild:
+  s390/sh/x86 stable wrt #446496
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> argparse-1.2.1-r1.ebuild:
+  Stable for alpha, wrt bug #446496
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> argparse-1.2.1-r1.ebuild:
+  Stable for sparc, wrt bug #446496
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> argparse-1.2.1-r1.ebuild:
+  arm stable, bug #446496
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> argparse-1.2.1-r1.ebuild:
+  Stable for ia64, wrt bug #446496
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> argparse-1.2.1-r1.ebuild,
+  argparse-1.2.1-r2.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> argparse-1.2.1-r1.ebuild:
+  Stable for ppc, wrt bug #446496
+
+  15 Dec 2012; Michał Górny <mgorny@gentoo.org> argparse-1.2.1-r2.ebuild:
+  Remove jython2.5 support, bug #447148.
+
+  12 Dec 2012; Agostino Sarubbo <ago@gentoo.org> argparse-1.2.1-r1.ebuild:
+  Stable for amd64, wrt bug #446496
+
+  12 Dec 2012; Michał Górny <mgorny@gentoo.org> argparse-1.2.1-r1.ebuild:
+  Drop jython from the potentially-stable ebuild as well.
+
+  12 Dec 2012; Michał Górny <mgorny@gentoo.org> argparse-1.2.1-r1.ebuild:
+  Drop unstable implementations from the older ebuild, to clear the way for
+  stabilization.
+
+  10 Dec 2012; Agostino Sarubbo <ago@gentoo.org> argparse-1.2.1-r1.ebuild:
+  Stable for ppc64, wrt bug #446496
+
+  10 Dec 2012; Jeroen Roovers <jer@gentoo.org> argparse-1.2.1-r1.ebuild:
+  Stable for HPPA (bug #446496).
+
+*argparse-1.2.1-r2 (08 Dec 2012)
+
+  08 Dec 2012; Michał Górny <mgorny@gentoo.org> +argparse-1.2.1-r2.ebuild:
+  Revbump again to end the transitional period and stop installing argparse for
+  new Python versions.
+
+  08 Dec 2012; Michał Górny <mgorny@gentoo.org> argparse-1.2.1-r1.ebuild:
+  Add PYTHON_USEDEP on migrated packages.
 
   02 Nov 2012; Michał Górny <mgorny@gentoo.org> argparse-1.2.1-r1.ebuild:
   Re-enable all Python implementations but warn if the package is not useful,

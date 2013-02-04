@@ -1,6 +1,41 @@
 # ChangeLog for net-misc/bfgminer
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/bfgminer/ChangeLog,v 1.27 2012/10/31 11:07:59 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/bfgminer/ChangeLog,v 1.32 2013/01/04 02:12:04 blueness Exp $
+
+*bfgminer-2.10.2 (04 Jan 2013)
+
+  04 Jan 2013; Anthony G. Basile <blueness@gentoo.org> +bfgminer-2.10.2.ebuild:
+  Another version bump
+
+*bfgminer-2.9.7 (04 Jan 2013)
+
+  04 Jan 2013; Anthony G. Basile <blueness@gentoo.org> +bfgminer-2.9.7.ebuild,
+  -bfgminer-2.6.1.ebuild, -bfgminer-2.6.3.ebuild, -bfgminer-2.6.4.ebuild,
+  -bfgminer-2.7.0.ebuild, -bfgminer-2.8.0.ebuild, -bfgminer-2.8.3.ebuild,
+  -bfgminer-2.8.4.ebuild, -bfgminer-2.8.6.ebuild, -bfgminer-2.9.0.ebuild,
+  -bfgminer-2.9.1.ebuild, -bfgminer-2.9.3.ebuild:
+  Version bump, remove older
+
+  06 Dec 2012; Anthony G. Basile <blueness@gentoo.org> bfgminer-2.8.6.ebuild,
+  bfgminer-2.8.7.ebuild, bfgminer-2.9.3.ebuild, bfgminer-2.9.4.ebuild:
+  Use virtual/udev instead of sys-fs/udev, bug #444398
+
+*bfgminer-2.9.3 (06 Dec 2012)
+*bfgminer-2.8.6 (06 Dec 2012)
+*bfgminer-2.9.4 (06 Dec 2012)
+*bfgminer-2.8.7 (06 Dec 2012)
+
+  06 Dec 2012; Anthony G. Basile <blueness@gentoo.org> +bfgminer-2.8.6.ebuild,
+  +bfgminer-2.8.7.ebuild, +bfgminer-2.9.3.ebuild, +bfgminer-2.9.4.ebuild:
+  Version bumps
+
+  03 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> bfgminer-2.3.6.ebuild,
+  bfgminer-2.4.4.ebuild, bfgminer-2.5.0.ebuild, bfgminer-2.5.3.ebuild,
+  bfgminer-2.6.1.ebuild, bfgminer-2.6.3.ebuild, bfgminer-2.6.4.ebuild,
+  bfgminer-2.6.5.ebuild, bfgminer-2.7.0.ebuild, bfgminer-2.7.5.ebuild,
+  bfgminer-2.8.0.ebuild, bfgminer-2.8.3.ebuild, bfgminer-2.8.4.ebuild,
+  bfgminer-2.9.0.ebuild, bfgminer-2.9.1.ebuild:
+  Use virtual/udev instead of sys-fs/udev wrt #444398
 
   31 Oct 2012; Anthony G. Basile <blueness@gentoo.org> metadata.xml:
   Correct x6500 description in metadata.xml

@@ -1,6 +1,44 @@
 # ChangeLog for x11-libs/qt-assistant
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/qt-assistant/ChangeLog,v 1.153 2012/10/14 17:16:25 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/qt-assistant/ChangeLog,v 1.164 2012/12/30 23:16:19 pesa Exp $
+
+  30 Dec 2012; Davide Pesavento <pesa@gentoo.org> metadata.xml:
+  Cleanup metadata.
+
+  29 Dec 2012; Michael Palimaka <kensington@gentoo.org>
+  -files/4.8.2-qatomic-x32.patch, -qt-assistant-4.7.4.ebuild,
+  -qt-assistant-4.8.1-r1.ebuild, -qt-assistant-4.8.2-r1.ebuild,
+  -qt-assistant-4.8.3.ebuild:
+  Remove old.
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> qt-assistant-4.8.4.ebuild:
+  Stable for alpha, wrt bug #445956
+
+  26 Dec 2012; Agostino Sarubbo <ago@gentoo.org> qt-assistant-4.8.4.ebuild:
+  Stable for sparc, wrt bug #445956
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> qt-assistant-4.8.4.ebuild:
+  Stable for arm, wrt bug #445956
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> qt-assistant-4.8.4.ebuild:
+  Stable for x86, wrt bug #445956
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> qt-assistant-4.8.4.ebuild:
+  Stable for ppc64, wrt bug #445956
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> qt-assistant-4.8.4.ebuild:
+  Stable for ppc, wrt bug #445956
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> qt-assistant-4.8.4.ebuild:
+  Stable for ia64, wrt bug #445956
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> qt-assistant-4.8.4.ebuild:
+  Stable for amd64, wrt bug #445956
+
+*qt-assistant-4.8.4 (05 Dec 2012)
+
+  05 Dec 2012; Ben de Groot <yngwin@gentoo.org> +qt-assistant-4.8.4.ebuild:
+  Qt 4.8.4 version bump
 
   14 Oct 2012; Raúl Porcel <armin76@gentoo.org> qt-assistant-4.8.2-r1.ebuild:
   alpha/ia64/sparc stable wrt #424625

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/linkchecker/linkchecker-7.9.ebuild,v 1.5 2012/09/23 08:05:58 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/linkchecker/linkchecker-7.9.ebuild,v 1.8 2013/01/31 12:59:35 jlec Exp $
 
 EAPI=4
 
@@ -8,8 +8,10 @@ PYTHON_DEPEND="2:2.7"
 SUPPORT_PYTHON_ABIS="1"
 RESTRICT_PYTHON_ABIS="2.4 2.5 2.6 3.*"
 PYTHON_MODNAME="linkcheck"
+PYTHON_USE_WITH=sqlite
+PYTHON_USE_WITH_OPT=bookmarks
 
-inherit bash-completion-r1 distutils eutils
+inherit bash-completion-r1 distutils eutils multilib
 
 MY_P="${P/linkchecker/LinkChecker}"
 
@@ -25,7 +27,6 @@ IUSE="bash-completion bookmarks clamav doc geoip gnome login syntax-check X"
 RDEPEND="
 	dev-python/dnspython
 	bash-completion? ( dev-python/optcomplete )
-	bookmarks? ( dev-python/pysqlite:2 )
 	clamav? ( app-antivirus/clamav )
 	geoip? ( dev-python/geoip-python )
 	gnome? ( dev-python/pygtk:2 )
@@ -35,7 +36,8 @@ RDEPEND="
 		dev-python/utidylib
 		)
 	X? (
-		dev-python/PyQt4[X,assistant]
+		|| ( >=dev-python/PyQt4-4.9.6-r1[X,help]
+			<dev-python/PyQt4-4.9.6-r1[X,assistant] )
 		dev-python/qscintilla-python
 		)"
 DEPEND="
@@ -44,6 +46,10 @@ DEPEND="
 RESTRICT="test"
 
 S="${WORKDIR}/${MY_P}"
+
+pkg_setup() {
+	python_pkg_setup
+}
 
 src_prepare() {
 	epatch \

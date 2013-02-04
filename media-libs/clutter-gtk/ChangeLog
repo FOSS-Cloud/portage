@@ -1,6 +1,28 @@
 # ChangeLog for media-libs/clutter-gtk
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter-gtk/ChangeLog,v 1.36 2012/10/17 23:11:58 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter-gtk/ChangeLog,v 1.41 2013/02/02 22:46:40 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> clutter-gtk-1.4.2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> clutter-gtk-1.4.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> clutter-gtk-1.4.2.ebuild:
+  Add ~ia64, wrt bug #449220
+
+*clutter-gtk-1.4.2 (17 Dec 2012)
+
+  17 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  clutter-gtk-0.10.8.ebuild, clutter-gtk-1.0.4.ebuild,
+  clutter-gtk-1.4.0.ebuild, +clutter-gtk-1.4.2.ebuild, metadata.xml:
+  Version bump. Update homepage and description. Switch to global
+  instrospection flag.
+
+  05 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  clutter-gtk-1.0.4.ebuild, -clutter-gtk-1.2.0.ebuild,
+  clutter-gtk-1.4.0.ebuild:
+  Update to EAPI5. Drop old.
 
 *clutter-gtk-1.4.0 (17 Oct 2012)
 
@@ -166,4 +188,3 @@
   26 Feb 2010; Nirbheek Chauhan <nirbheek@gentoo.org>
   +clutter-gtk-0.10.2.ebuild, +metadata.xml:
   Add initial ebuild for clutter-gtk, gtk+ integration library for clutter
-

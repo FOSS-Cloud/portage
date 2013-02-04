@@ -1,6 +1,42 @@
 # ChangeLog for app-office/scribus
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/scribus/ChangeLog,v 1.164 2012/08/31 14:17:26 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/scribus/ChangeLog,v 1.172 2013/01/23 12:35:38 jlec Exp $
+
+*scribus-1.4.2-r2 (23 Jan 2013)
+
+  23 Jan 2013; Justin Lecher <jlec@gentoo.org> -scribus-1.4.2-r1.ebuild,
+  +scribus-1.4.2-r2.ebuild:
+  Use correct WITH_* for cmake options
+
+  22 Jan 2013; Justin Lecher <jlec@gentoo.org> scribus-1.4.2-r1.ebuild,
+  +files/scribus-1.4.2-cups.patch, metadata.xml:
+  Rename USE spell to aspell to better fit its meaning; handle cups support not
+  automagically; add missing deps
+
+*scribus-1.4.2-r1 (22 Jan 2013)
+
+  22 Jan 2013; Justin Lecher <jlec@gentoo.org> -scribus-1.4.2.ebuild,
+  +scribus-1.4.2-r1.ebuild:
+  Add missing cmake options for hunspell support
+
+*scribus-1.4.2 (21 Jan 2013)
+
+  21 Jan 2013; Justin Lecher <jlec@gentoo.org> +scribus-1.4.2.ebuild,
+  +files/scribus-1.4.2-docs.patch, scribus-1.4.9999.ebuild, metadata.xml:
+  Version Bump
+
+  10 Dec 2012; Justin Lecher <jlec@gentoo.org> -scribus-1.4.0-r2.ebuild,
+  -scribus-1.4.1.ebuild:
+  Drop old
+
+  07 Dec 2012; Jeroen Roovers <jer@gentoo.org> scribus-1.4.1-r1.ebuild:
+  Stable for HPPA (bug #441100).
+
+  07 Dec 2012; <ago@gentoo.org> scribus-1.4.1-r1.ebuild:
+  Stable for x86, wrt bug #441100
+
+  07 Dec 2012; <ago@gentoo.org> scribus-1.4.1-r1.ebuild:
+  Stable for amd64, wrt bug #441100
 
 *scribus-1.4.1-r1 (31 Aug 2012)
 

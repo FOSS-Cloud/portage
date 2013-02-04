@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libwacom/libwacom-0.6.ebuild,v 1.4 2012/09/23 12:04:09 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libwacom/libwacom-0.6.ebuild,v 1.8 2013/01/06 09:25:13 ago Exp $
 
 EAPI=4
 
-inherit eutils toolchain-funcs
+inherit eutils udev
 
 DESCRIPTION="Library for identifying Wacom tablets and their model-specific features"
 HOMEPAGE="http://linuxwacom.sourceforge.net/"
@@ -12,11 +12,11 @@ SRC_URI="mirror://sourceforge/linuxwacom/${PN}/${P}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="doc static-libs"
 
 RDEPEND="dev-libs/glib:2
-	sys-fs/udev[gudev]"
+	virtual/udev[gudev]"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
@@ -33,11 +33,11 @@ src_configure() {
 
 src_install() {
 	default
-	local udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
+	local udevdir="$(udev_get_udevdir)"
 	dodir "${udevdir}/rules.d"
 	# generate-udev-rules must be run from inside tools directory
 	pushd tools > /dev/null
-	./generate-udev-rules > "${ED}${udevdir}/rules.d/65-libwacom.rules" ||
+	./generate-udev-rules > "${ED}/${udevdir}/rules.d/65-libwacom.rules" ||
 		die "generating udev rules failed"
 	popd > /dev/null
 	use doc && dohtml -r doc/html/*

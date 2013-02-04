@@ -1,6 +1,37 @@
 # ChangeLog for net-proxy/havp
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/havp/ChangeLog,v 1.33 2009/07/16 06:11:55 mrness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/havp/ChangeLog,v 1.41 2013/01/10 17:26:47 jer Exp $
+
+*havp-0.92a-r1 (10 Jan 2013)
+
+  10 Jan 2013; Jeroen Roovers <jer@gentoo.org> +havp-0.92a-r1.ebuild:
+  Respect CXXFLAGS (bug #451186, bug #451188, AR (bug #451184).
+
+  10 Jan 2013; Jeroen Roovers <jer@gentoo.org> -havp-0.90-r1.ebuild,
+  -files/havp-0.90-gcc44.patch:
+  Old.
+
+  10 Jan 2013; Agostino Sarubbo <ago@gentoo.org> havp-0.92a.ebuild:
+  Stable for x86, wrt bug #330475
+
+  10 Jan 2013; Agostino Sarubbo <ago@gentoo.org> havp-0.92a.ebuild:
+  Stable for amd64, wrt bug #330475
+
+  09 Jan 2013; Jeroen Roovers <jer@gentoo.org> havp-0.92a.ebuild,
+  +files/havp-0.92a-run.patch, files/havp.initd:
+  Use checkpath instead of mkdir. Fix paths in havp.config too.
+
+  08 Jan 2013; Jeroen Roovers <jer@gentoo.org> -havp-0.91.ebuild:
+  Old.
+
+  08 Jan 2013; Jeroen Roovers <jer@gentoo.org> havp-0.92a.ebuild:
+  Do not install havp.config.in.
+
+*havp-0.92a (08 Jan 2013)
+
+  08 Jan 2013; Jeroen Roovers <jer@gentoo.org> havp-0.90-r1.ebuild,
+  havp-0.91.ebuild, +havp-0.92a.ebuild, files/havp.initd:
+  Inherit user.eclass. Version bump (bug 330475, bug #449880).
 
 *havp-0.91 (16 Jul 2009)
 
@@ -156,4 +187,3 @@
   +files/havp-0.76-gentoo.patch, +files/havp.initd, +metadata.xml,
   +havp-0.76.ebuild:
   Initial import from bug #99303.
-

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/flag-o-matic.eclass,v 1.183 2012/11/18 08:29:17 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/flag-o-matic.eclass,v 1.187 2013/01/12 14:32:31 jlec Exp $
 
 # @ECLASS: flag-o-matic.eclass
 # @MAINTAINER:
@@ -45,7 +45,7 @@ setup-allowed-flags() {
 		-mtls-direct-seg-refs -mno-tls-direct-seg-refs -mflat -mno-flat \
 		-mno-faster-structs -mfaster-structs -m32 -m64 -mx32 -mabi \
 		-mlittle-endian -mbig-endian -EL -EB -fPIC -mlive-g0 -mcmodel \
-		-mstack-bias -mno-stack-bias -msecure-plt -m*-toc -mfloat-abi=* \
+		-mstack-bias -mno-stack-bias -msecure-plt -m*-toc -mfloat-abi \
 		-D* -U*"
 
 	# 4.5
@@ -392,8 +392,12 @@ test-flag-PROG() {
 
 	# use -c so we can test the assembler as well
 	local PROG=$(tc-get${comp})
-	${PROG} "${flag}" -c -o /dev/null -x${lang} /dev/null \
-		> /dev/null 2>&1
+	if ${PROG} -c -o /dev/null -x${lang} - < /dev/null > /dev/null 2>&1 ; then
+		${PROG} "${flag}" -c -o /dev/null -x${lang} - < /dev/null \
+			> /dev/null 2>&1
+	else
+		${PROG} "${flag}" -c -o /dev/null /dev/null > /dev/null 2>&1
+	fi
 }
 
 # @FUNCTION: test-flag-CC

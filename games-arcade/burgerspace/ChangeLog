@@ -1,6 +1,14 @@
 # ChangeLog for games-arcade/burgerspace
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/burgerspace/ChangeLog,v 1.34 2012/10/11 06:17:38 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-arcade/burgerspace/ChangeLog,v 1.36 2012/12/06 04:47:40 mr_bones_ Exp $
+
+  06 Dec 2012; Michael Sterrett <mr_bones_@gentoo.org>
+  -burgerspace-1.9.0.ebuild:
+  old
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  burgerspace-1.9.1.ebuild:
+  x86 stable wrt bug #436938
 
   11 Oct 2012; Anthony G. Basile <blueness@gentoo.org> burgerspace-1.9.1.ebuild:
   stable ppc, bug #436938

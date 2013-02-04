@@ -1,6 +1,37 @@
 # ChangeLog for sci-libs/cln
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/cln/ChangeLog,v 1.53 2012/10/10 13:29:45 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/cln/ChangeLog,v 1.63 2013/01/14 10:01:18 jlec Exp $
+
+  14 Jan 2013; Justin Lecher <jlec@gentoo.org> -cln-1.3.1.ebuild,
+  -cln-1.3.2.ebuild, metadata.xml:
+  Drop old, fixes #303189 & #444450
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> cln-1.3.2-r1.ebuild:
+  Stable for arm, wrt bug #446100
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cln-1.3.2-r1.ebuild:
+  Stable for alpha, wrt bug #446100
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cln-1.3.2-r1.ebuild:
+  Stable for sparc, wrt bug #446100
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cln-1.3.2-r1.ebuild:
+  Stable for ia64, wrt bug #446100
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cln-1.3.2-r1.ebuild:
+  Stable for x86, wrt bug #446100
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cln-1.3.2-r1.ebuild:
+  Stable for ppc64, wrt bug #446100
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> cln-1.3.2-r1.ebuild:
+  Stable for ppc, wrt bug #446100
+
+  07 Dec 2012; <ago@gentoo.org> cln-1.3.2-r1.ebuild:
+  Stable for amd64, wrt bug #446100
+
+  05 Dec 2012; Jeroen Roovers <jer@gentoo.org> cln-1.3.2-r1.ebuild:
+  Stable for HPPA (bug #446100).
 
 *cln-1.3.2-r1 (10 Oct 2012)
 
@@ -229,4 +260,3 @@
 
   31 Aug 2002; Pierre-Henri Jondot <Pierre-Henri.Jondot@wanadoo.fr> Changelog :
   ebuild submitted by Pierre-Henri Jondot <Pierre-Henri.Jondot@wanadoo.fr> 
-

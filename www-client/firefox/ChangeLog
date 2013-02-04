@@ -1,6 +1,91 @@
 # ChangeLog for www-client/firefox
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/firefox/ChangeLog,v 1.187 2012/11/27 12:25:41 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/firefox/ChangeLog,v 1.210 2013/01/25 18:33:00 anarchy Exp $
+
+*firefox-18.0.1 (25 Jan 2013)
+
+  25 Jan 2013; <anarchy@gentoo.org> -firefox-18.0-r1.ebuild,
+  +firefox-18.0.1.ebuild:
+  Version bump fx-18.0.1
+
+  22 Jan 2013; Mike Frysinger <vapier@gentoo.org> firefox-18.0-r1.ebuild:
+  Require libpng-1.5.13 as the configure script aborts with older versions.
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.2.ebuild:
+  Stable for ppc, wrt bug #450940
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.2.ebuild:
+  Stable for ppc64, wrt bug #450940
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.2.ebuild:
+  Stable for x86, wrt bug #450940
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.2.ebuild:
+  Stable for amd64, wrt bug #450940
+
+  16 Jan 2013; Michał Górny <mgorny@gentoo.org> firefox-10.0.10.ebuild,
+  firefox-10.0.11.ebuild, firefox-10.0.6.ebuild, firefox-10.0.7.ebuild,
+  firefox-10.0.9.ebuild, firefox-17.0.2.ebuild, firefox-18.0-r1.ebuild:
+  Remove python.eclass traces (python now controlled by mozcoreconf-2.eclass).
+
+  16 Jan 2013; <anarchy@gentoo.org> firefox-18.0-r1.ebuild:
+  Fix linguas support in fx-18
+
+*firefox-18.0-r1 (16 Jan 2013)
+
+  16 Jan 2013; <anarchy@gentoo.org> -firefox-18.0.ebuild,
+  +firefox-18.0-r1.ebuild, metadata.xml:
+  Fix bug #451180, adds system-jpeg useflag
+
+  16 Jan 2013; <anarchy@gentoo.org> firefox-17.0.2.ebuild, firefox-18.0.ebuild:
+  Remove pysqlite dep, use python[sqlite]
+
+  11 Jan 2013; <anarchy@gentoo.org> firefox-17.0.2.ebuild:
+  Fix nss/nspr dep
+
+*firefox-18.0 (09 Jan 2013)
+*firefox-17.0.2 (09 Jan 2013)
+
+  09 Jan 2013; <anarchy@gentoo.org> -firefox-17.0.1.ebuild,
+  +firefox-17.0.2.ebuild, +firefox-18.0.ebuild:
+  Security bumps, move to 17.0.x esr release
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> firefox-10.0.11.ebuild:
+  Stable for alpha, wrt bug #389839
+
+  26 Dec 2012; Agostino Sarubbo <ago@gentoo.org> firefox-10.0.11.ebuild:
+  Stable for ia64, wrt bug #444318
+
+  10 Dec 2012; Ian Stakenvicius <axs@gentoo.org> firefox-17.0.1.ebuild:
+  restored jit flag as is required for the embedded js, esp on hardened
+
+  10 Dec 2012; Ian Stakenvicius <axs@gentoo.org> firefox-17.0.1.ebuild:
+  fixed alsa and webm dependencies for bug 444874 and part of bug 444780
+
+  10 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> firefox-17.0.1.ebuild:
+  Added changes on request by Anarchy.
+
+*firefox-17.0.1 (09 Dec 2012)
+
+  09 Dec 2012; Ian Stakenvicius <axs@gentoo.org> -firefox-17.0-r1.ebuild,
+  +firefox-17.0.1.ebuild:
+  version bump for 17 series; includes fixes for various bugs
+
+  05 Dec 2012; Agostino Sarubbo <ago@gentoo.org> firefox-10.0.11.ebuild:
+  Stable for ppc64, wrt bug #444318
+
+  03 Dec 2012; Andreas Schuerch <nativemad@gentoo.org> firefox-10.0.11.ebuild:
+  x86 stable, see bug 444318
+
+  30 Nov 2012; Agostino Sarubbo <ago@gentoo.org> firefox-10.0.11.ebuild:
+  Stable for ppc, wrt bug #444318
+
+  30 Nov 2012; Ian Stakenvicius <axs@gentoo.org> firefox-17.0-r1.ebuild:
+  disabled webrtc for ppc and ppc64, bug 444780
+
+  28 Nov 2012; Lars Wendler <polynomial-c@gentoo.org> +firefox-10.0.7.ebuild:
+  Restored accidently removed 10.0.7 ebuild. Thanks to Mark Davies for
+  reporting this in bug #445079.
 
   27 Nov 2012; Agostino Sarubbo <ago@gentoo.org> firefox-10.0.11.ebuild:
   Stable for amd64, wrt bug #444318

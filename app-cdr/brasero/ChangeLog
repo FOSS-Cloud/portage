@@ -1,6 +1,30 @@
 # ChangeLog for app-cdr/brasero
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/brasero/ChangeLog,v 1.145 2012/11/07 21:44:04 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/brasero/ChangeLog,v 1.149 2012/12/17 11:12:54 jlec Exp $
+
+  17 Dec 2012; Justin Lecher <jlec@gentoo.org>
+  +files/0001-Fix-build-link-libbrasero-burn-against-libm-for-ceil.patch,
+  brasero-3.4.1.ebuild:
+  Backport fix for underlinking, #447574
+
+  16 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  brasero-3.6.1.ebuild:
+  Restore clean EAPI5 ebuild.
+
+  16 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org> brasero-3.6.1.ebuild:
+  Version bump for Gnome 3.6.
+
+*brasero-3.6.1 (16 Dec 2012)
+
+  16 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  brasero-2.32.1-r1.ebuild, -brasero-3.2.0-r1.ebuild,
+  -files/brasero-3.2.0-brasero.desktop.patch,
+  -files/brasero-3.2.0-brasero-nautilus.desktop.patch,
+  -files/brasero-3.2.0-drive-not-selected.patch, -brasero-3.4.0.ebuild,
+  brasero-3.4.1.ebuild, +brasero-3.6.1.ebuild, metadata.xml:
+  Version bump for gnome-3.6, now uses gstreamer-1.0. Update description and
+  license. Drop useless doc USE flag. Switch to global introspection flag. Drop
+  old.
 
   07 Nov 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   brasero-2.32.1-r1.ebuild, brasero-3.2.0-r1.ebuild, brasero-3.4.0.ebuild,
@@ -636,4 +660,3 @@
   04 Sep 2006; Luis Medinas <metalgod@gentoo.org> +metadata.xml,
   +brasero-0.4.2.ebuild:
   Initial import of Brasero. This application is the new name for Bonfire.
-

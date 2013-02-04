@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-9999.ebuild,v 1.34 2012/11/21 22:22:35 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-9999.ebuild,v 1.45 2013/01/21 15:07:32 cardoe Exp $
 
 EAPI="4"
 
 PYTHON_DEPEND="2"
-inherit eutils flag-o-matic linux-info toolchain-funcs multilib python user
+inherit eutils flag-o-matic linux-info toolchain-funcs multilib python user udev
 #BACKPORTS=6cee76f0
 
 if [[ ${PV} = *9999* ]]; then
@@ -27,7 +27,7 @@ LICENSE="GPL-2 LGPL-2 BSD-2"
 SLOT="0"
 IUSE="+aio alsa bluetooth brltty +caps +curl debug doc fdt +jpeg kernel_linux \
 kernel_FreeBSD mixemu ncurses opengl +png pulseaudio python rbd sasl +seccomp \
-sdl smartcard spice static systemtap tci +threads tls usbredir +uuid vde \
+sdl selinux smartcard spice static systemtap tci +threads tls usbredir +uuid vde \
 +vhost-net virtfs +vnc xattr xen xfs"
 
 COMMON_TARGETS="i386 x86_64 alpha arm cris m68k microblaze microblazeel mips mipsel or32 ppc ppc64 sh4 sh4eb sparc sparc64 s390x unicore32"
@@ -50,7 +50,7 @@ done
 
 # Block USE flag configurations known to not work
 REQUIRED_USE="${REQUIRED_USE}
-	static? ( !alsa !pulseaudio !bluetooth )
+	static? ( !alsa !pulseaudio !bluetooth !opengl )
 	virtfs? ( xattr )"
 
 # Yep, you need both libcap and libcap-ng since virtfs only uses libcap.
@@ -67,8 +67,8 @@ LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	rbd? ( sys-cluster/ceph[static-libs(+)] )
 	sasl? ( dev-libs/cyrus-sasl[static-libs(+)] )
 	sdl? ( >=media-libs/libsdl-1.2.11[static-libs(+)] )
-	seccomp? ( >=sys-libs/libseccomp-1.0.0[static-libs(+)] )
-	spice? ( >=app-emulation/spice-0.9.0[static-libs(+)] )
+	seccomp? ( >=sys-libs/libseccomp-1.0.1[static-libs(+)] )
+	spice? ( >=app-emulation/spice-0.12.0[static-libs(+)] )
 	tls? ( net-libs/gnutls[static-libs(+)] )
 	uuid? ( >=sys-apps/util-linux-2.16.0[static-libs(+)] )
 	vde? ( net-misc/vde[static-libs(+)] )
@@ -76,10 +76,18 @@ LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	xfs? ( sys-fs/xfsprogs[static-libs(+)] )"
 RDEPEND="!static? ( ${LIB_DEPEND//\[static-libs(+)]} )
 	!app-emulation/kqemu
-	sys-firmware/ipxe
-	>=sys-firmware/seabios-1.7.0
-	sys-firmware/sgabios
-	sys-firmware/vgabios
+	qemu_softmmu_targets_i386? (
+		sys-firmware/ipxe
+		>=sys-firmware/seabios-1.7.0
+		sys-firmware/sgabios
+		sys-firmware/vgabios
+	)
+	qemu_softmmu_targets_x86_64? (
+		sys-firmware/ipxe
+		>=sys-firmware/seabios-1.7.0
+		sys-firmware/sgabios
+		sys-firmware/vgabios
+	)
 	alsa? ( >=media-libs/alsa-lib-1.0.13 )
 	bluetooth? ( net-wireless/bluez )
 	brltty? ( app-accessibility/brltty )
@@ -87,10 +95,11 @@ RDEPEND="!static? ( ${LIB_DEPEND//\[static-libs(+)]} )
 	pulseaudio? ( media-sound/pulseaudio )
 	python? ( =dev-lang/python-2*[ncurses] )
 	sdl? ( media-libs/libsdl[X] )
+	selinux? ( sec-policy/selinux-qemu )
 	smartcard? ( dev-libs/nss )
-	spice? ( >=app-emulation/spice-protocol-0.8.1 )
+	spice? ( >=app-emulation/spice-protocol-0.12.2 )
 	systemtap? ( dev-util/systemtap )
-	usbredir? ( >=sys-apps/usbredir-0.3.4 )
+	usbredir? ( >=sys-apps/usbredir-0.6 )
 	virtfs? ( sys-libs/libcap )
 	xen? ( app-emulation/xen-tools )"
 
@@ -188,18 +197,24 @@ src_prepare() {
 		Makefile Makefile.target || die
 
 	python_convert_shebangs -r 2 "${S}/scripts/kvm/kvm_stat"
+	python_convert_shebangs -r 2 "${S}/scripts/kvm/vmxcap"
 
-	epatch "${FILESDIR}"/qemu-1.2.0-cflags.patch
-	epatch "${FILESDIR}"/${P}-fix-mipsen.patch
+	epatch "${FILESDIR}"/${P}-cflags.patch
 	[[ -n ${BACKPORTS} ]] && \
 		EPATCH_FORCE=yes EPATCH_SUFFIX="patch" EPATCH_SOURCE="${S}/patches" \
 			epatch
+
+	# Fix ld and objcopy being called directly
+	tc-export LD OBJCOPY
+
+	# Verbose builds
+	MAKEOPTS+=" V=1"
 
 	epatch_user
 }
 
 src_configure() {
-	local conf_opts audio_opts user_targets
+	local conf_opts audio_opts
 
 	for target in ${IUSE_SOFTMMU_TARGETS} ; do
 		use "qemu_softmmu_targets_${target}" && \
@@ -245,6 +260,7 @@ src_configure() {
 
 	./configure --prefix=/usr \
 		--sysconfdir=/etc \
+		--docdir=/usr/share/doc/${PF}/html \
 		--disable-bsd-user \
 		--disable-guest-agent \
 		--disable-libiscsi \
@@ -270,7 +286,6 @@ src_configure() {
 		$(use_enable sasl vnc-sasl) \
 		$(use_enable sdl) \
 		$(use_enable seccomp) \
-		$(use_enable smartcard smartcard) \
 		$(use_enable smartcard smartcard-nss) \
 		$(use_enable spice) \
 		$(use_enable tci tcg-interpreter) \
@@ -303,36 +318,38 @@ src_install() {
 
 	if [[ -n ${softmmu_targets} ]]; then
 		if use kernel_linux; then
-			insinto /lib/udev/rules.d/
-			doins "${FILESDIR}"/65-kvm.rules
+			udev_dorules "${FILESDIR}"/65-kvm.rules
 		fi
 
 		if use qemu_softmmu_targets_x86_64 ; then
 			dosym /usr/bin/qemu-system-x86_64 /usr/bin/qemu-kvm
-			ewarn "The depreciated '/usr/bin/kvm' symlink is no longer installed"
+			ewarn "The deprecated '/usr/bin/kvm' symlink is no longer installed"
 			ewarn "You should use '/usr/bin/qemu-kvm', you may need to edit"
 			ewarn "your libvirt configs or other wrappers for ${PN}"
-		else
+		elif use x86 || use amd64; then
 			elog "You disabled QEMU_SOFTMMU_TARGETS=x86_64, this disables install"
 			elog "of the /usr/bin/qemu-kvm symlink."
 		fi
 	fi
 
-	dodoc Changelog MAINTAINERS TODO pci-ids.txt
+	dodoc Changelog MAINTAINERS TODO docs/specs/pci-ids.txt
 	newdoc pc-bios/README README.pc-bios
 
-	if use doc; then
-		dohtml qemu-doc.html qemu-tech.html || die
-	fi
-
-	use python & dobin scripts/kvm/kvm_stat
+	use python && dobin scripts/kvm/kvm_stat
+	use python && dobin scripts/kvm/vmxcap
 
 	# Avoid collision with app-emulation/libcacard
 	use smartcard && mv "${ED}/usr/bin/vscclient" "${ED}/usr/bin/qemu-vscclient"
 
+	# Install binfmt handler init script for user targets
+	[[ -n ${user_targets} ]] && \
+		newinitd "${FILESDIR}/qemu-binfmt.initd" qemu-binfmt
+
 	# Remove SeaBIOS since we're using the SeaBIOS packaged one
 	rm "${ED}/usr/share/qemu/bios.bin"
-	dosym ../seabios/bios.bin /usr/share/qemu/bios.bin
+	if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
+		dosym ../seabios/bios.bin /usr/share/qemu/bios.bin
+	fi
 
 	# Remove vgabios since we're using the vgabios packaged one
 	rm "${ED}/usr/share/qemu/vgabios.bin"
@@ -340,28 +357,36 @@ src_install() {
 	rm "${ED}/usr/share/qemu/vgabios-qxl.bin"
 	rm "${ED}/usr/share/qemu/vgabios-stdvga.bin"
 	rm "${ED}/usr/share/qemu/vgabios-vmware.bin"
-	dosym ../vgabios/vgabios.bin /usr/share/qemu/vgabios.bin
-	dosym ../vgabios/vgabios-cirrus.bin /usr/share/qemu/vgabios-cirrus.bin
-	dosym ../vgabios/vgabios-qxl.bin /usr/share/qemu/vgabios-qxl.bin
-	dosym ../vgabios/vgabios-stdvga.bin /usr/share/qemu/vgabios-stdvga.bin
-	dosym ../vgabios/vgabios-vmware.bin /usr/share/qemu/vgabios-vmware.bin
+	if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
+		dosym ../vgabios/vgabios.bin /usr/share/qemu/vgabios.bin
+		dosym ../vgabios/vgabios-cirrus.bin /usr/share/qemu/vgabios-cirrus.bin
+		dosym ../vgabios/vgabios-qxl.bin /usr/share/qemu/vgabios-qxl.bin
+		dosym ../vgabios/vgabios-stdvga.bin /usr/share/qemu/vgabios-stdvga.bin
+		dosym ../vgabios/vgabios-vmware.bin /usr/share/qemu/vgabios-vmware.bin
+	fi
 
 	# Remove sgabios since we're using the sgabios packaged one
 	rm "${ED}/usr/share/qemu/sgabios.bin"
-	dosym ../sgabios/sgabios.bin /usr/share/qemu/sgabios.bin
+	if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
+		dosym ../sgabios/sgabios.bin /usr/share/qemu/sgabios.bin
+	fi
 
 	# Remove iPXE since we're using the iPXE packaged one
 	rm "${ED}"/usr/share/qemu/pxe-*.rom
-	dosym ../ipxe/808610de.rom /usr/share/qemu/pxe-e1000.rom
-	dosym ../ipxe/80861209.rom /usr/share/qemu/pxe-eepro100.rom
-	dosym ../ipxe/10500940.rom /usr/share/qemu/pxe-ne2k_pci.rom
-	dosym ../ipxe/10222000.rom /usr/share/qemu/pxe-pcnet.rom
-	dosym ../ipxe/10ec8139.rom /usr/share/qemu/pxe-rtl8139.rom
-	dosym ../ipxe/1af41000.rom /usr/share/qemu/pxe-virtio.rom
+	if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
+		dosym ../ipxe/808610de.rom /usr/share/qemu/pxe-e1000.rom
+		dosym ../ipxe/80861209.rom /usr/share/qemu/pxe-eepro100.rom
+		dosym ../ipxe/10500940.rom /usr/share/qemu/pxe-ne2k_pci.rom
+		dosym ../ipxe/10222000.rom /usr/share/qemu/pxe-pcnet.rom
+		dosym ../ipxe/10ec8139.rom /usr/share/qemu/pxe-rtl8139.rom
+		dosym ../ipxe/1af41000.rom /usr/share/qemu/pxe-virtio.rom
+	fi
 }
 
 pkg_postinst() {
-	if [[ -n ${softmmu_targets} ]]; then
+	if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386 \
+		use qemu_softmmu_targets_ppc || use qemu_softmmu_targets_ppc64 \
+		use qemu_softmmu_targets_s390x; then
 		elog "If you don't have kvm compiled into the kernel, make sure you have"
 		elog "the kernel module loaded before running kvm. The easiest way to"
 		elog "ensure that the kernel module is loaded is to load it on boot."
@@ -372,7 +397,8 @@ pkg_postinst() {
 		elog "Make sure your user is in the 'kvm' group"
 		elog "Just run 'gpasswd -a <USER> kvm', then have <USER> re-login."
 		elog
-		elog "The ssl USE flag was renamed to tls, so adjust your USE flags."
-		elog "The nss USE flag was renamed to smartcard, so adjust your USE flags."
 	fi
+
+	elog "The ssl USE flag was renamed to tls, so adjust your USE flags."
+	elog "The nss USE flag was renamed to smartcard, so adjust your USE flags."
 }

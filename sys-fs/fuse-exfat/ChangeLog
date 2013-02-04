@@ -1,6 +1,29 @@
 # ChangeLog for sys-fs/fuse-exfat
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse-exfat/ChangeLog,v 1.5 2012/10/19 09:27:42 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse-exfat/ChangeLog,v 1.11 2013/01/21 15:43:49 ssuominen Exp $
+
+  21 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> fuse-exfat-1.0.0.ebuild:
+  Fix typing error of fcsk -> fsck by Nikoli.
+
+*fuse-exfat-1.0.0 (21 Jan 2013)
+
+  21 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> +fuse-exfat-1.0.0.ebuild:
+  Version bump. Thanks to Nikoli for reporting.
+
+  11 Jan 2013; Samuli Suominen <ssuominen@gentoo.org>
+  fuse-exfat-0.9.8-r1.ebuild:
+  pkg_postinst() note for installing also exfat-tools.
+
+  09 Jan 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/fuse-exfat-0.9.8-build-vars.patch, fuse-exfat-0.9.8-r1.ebuild:
+  Fix cross-compiling -- patch already in upstream.
+
+  12 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> -fuse-exfat-0.9.7.ebuild,
+  -fuse-exfat-0.9.8.ebuild:
+  old
+
+  11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> fuse-exfat-0.9.8-r1.ebuild:
+  install udev rules with udev.eclass, to support virtual/udev
 
 *fuse-exfat-0.9.8-r1 (19 Oct 2012)
 
@@ -27,4 +50,3 @@
 
   14 Jun 2011; Samuli Suominen <ssuominen@gentoo.org> +fuse-exfat-0.9.5.ebuild:
   Initial commit wrt #371587 by Azamat H. Hackimov
-

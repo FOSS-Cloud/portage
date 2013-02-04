@@ -1,6 +1,26 @@
 # ChangeLog for dev-embedded/bitbake
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/bitbake/ChangeLog,v 1.50 2012/08/02 02:50:03 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-embedded/bitbake/ChangeLog,v 1.55 2013/01/14 04:07:33 radhermit Exp $
+
+  14 Jan 2013; Tim Harder <radhermit@gentoo.org> bitbake-9999.ebuild:
+  Fix live ebuild too.
+
+  14 Jan 2013; Tim Harder <radhermit@gentoo.org> bitbake-1.17.0.ebuild:
+  Use correct variable name to specify python use flag deps.
+
+  05 Jan 2013; Tim Harder <radhermit@gentoo.org> bitbake-1.17.0.ebuild,
+  bitbake-9999.ebuild:
+  Simplify dependencies.
+
+  08 Dec 2012; Tim Harder <radhermit@gentoo.org> -bitbake-1.15.1-r1.ebuild,
+  -bitbake-1.15.2.ebuild:
+  Remove old.
+
+*bitbake-1.17.0 (08 Dec 2012)
+
+  08 Dec 2012; Tim Harder <radhermit@gentoo.org> +bitbake-1.17.0.ebuild,
+  bitbake-9999.ebuild:
+  Version bump and update live ebuild. Migrate to distutils-r1 eclass.
 
 *bitbake-1.15.3 (02 Aug 2012)
 

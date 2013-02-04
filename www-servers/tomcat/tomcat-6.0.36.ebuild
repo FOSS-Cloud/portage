@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/tomcat/tomcat-6.0.36.ebuild,v 1.1 2012/10/29 10:57:07 fordfrog Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/tomcat/tomcat-6.0.36.ebuild,v 1.6 2012/12/07 17:54:48 fordfrog Exp $
 
 EAPI=4
 
@@ -16,7 +16,7 @@ SRC_URI="mirror://apache/${PN}/tomcat-6/v${PV}/src/${MY_P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="6"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
+KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd"
 IUSE="extra-webapps"
 
 RESTRICT="test"
@@ -124,7 +124,11 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "For how to deploy a server instance run:"
+	elog "New ebuilds of Tomcat support running multiple instances. If you used prior version"
+	elog "of Tomcat (<6.0.36), you have to migrate your existing instance to work with new Tomcat."
+	elog "You can find more information at https://wiki.gentoo.org/wiki/Apache_Tomcat"
+
+	elog "To manage Tomcat instances, run:"
 	elog "  ${EPREFIX}/usr/share/${PN}-${SLOT}/gentoo/tomcat-instance-manager.bash --help"
 
 	ewarn "tomcat-dbcp.jar is not built at this time. Please fetch jar"

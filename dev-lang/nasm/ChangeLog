@@ -1,6 +1,31 @@
 # ChangeLog for dev-lang/nasm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/nasm/ChangeLog,v 1.102 2012/10/30 17:04:46 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/nasm/ChangeLog,v 1.108 2013/01/22 18:03:39 mr_bones_ Exp $
+
+  22 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org> -nasm-2.10.01.ebuild:
+  old
+
+  11 Jan 2013; Rick Farina <zerochaos@gentoo.org> nasm-2.10.05.ebuild,
+  nasm-2.10.07.ebuild:
+  backpeddling arm keyword because even though it works fine everyone thinks
+  it's not needed and it's too late for me to test right now
+
+  11 Jan 2013; Rick Farina <zerochaos@gentoo.org> nasm-2.10.05.ebuild,
+  nasm-2.10.07.ebuild:
+  not sure why -* is there, seems to work fine on arm, adding keyword
+
+*nasm-2.10.07 (02 Jan 2013)
+
+  02 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org> +nasm-2.10.07.ebuild:
+  version bump
+
+  31 Dec 2012; Michael Sterrett <mr_bones_@gentoo.org> -nasm-2.10.06.ebuild:
+  punt buggy version (bug #448630)
+
+*nasm-2.10.06 (20 Dec 2012)
+
+  20 Dec 2012; Michael Sterrett <mr_bones_@gentoo.org> +nasm-2.10.06.ebuild:
+  version bump (bug #447982)
 
   30 Oct 2012; Agostino Sarubbo <ago@gentoo.org> nasm-2.10.05.ebuild:
   Stable for amd64, wrt bug #440152

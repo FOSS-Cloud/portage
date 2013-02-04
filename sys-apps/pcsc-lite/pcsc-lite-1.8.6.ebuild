@@ -1,10 +1,10 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/pcsc-lite/pcsc-lite-1.8.6.ebuild,v 1.7 2012/11/17 10:32:21 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/pcsc-lite/pcsc-lite-1.8.6.ebuild,v 1.9 2012/12/06 03:57:16 phajdan.jr Exp $
 
 EAPI="4"
 
-inherit multilib eutils user toolchain-funcs
+inherit eutils multilib udev user
 
 DESCRIPTION="PC/SC Architecture smartcard middleware library"
 HOMEPAGE="http://pcsclite.alioth.debian.org/"
@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD ISC MIT GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 arm hppa ~ia64 ~m68k ppc ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="amd64 arm hppa ~ia64 ~m68k ppc ppc64 ~s390 ~sh ~sparc x86 ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 
 # This is called libusb so that it doesn't fool people in thinking that
 # it is _required_ for USB support. Otherwise they'll disable udev and
@@ -26,7 +26,7 @@ IUSE="libusb +udev"
 REQUIRED_USE="^^ ( udev libusb )"
 
 CDEPEND="libusb? ( virtual/libusb:1 )
-	udev? ( sys-fs/udev )"
+	udev? ( virtual/udev )"
 DEPEND="${CDEPEND}
 	virtual/pkgconfig"
 RDEPEND="${CDEPEND}
@@ -41,7 +41,6 @@ pkg_setup() {
 src_configure() {
 	econf \
 		--disable-maintainer-mode \
-		--disable-dependency-tracking \
 		--disable-silent-rules \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
 		--enable-usbdropdir="${EPREFIX}/usr/$(get_libdir)/readers/usb" \
@@ -57,11 +56,10 @@ src_install() {
 	default
 	prune_libtool_files
 
-	newinitd "${FILESDIR}/pcscd-init.5" pcscd
+	newinitd "${FILESDIR}"/pcscd-init.5 pcscd
 
 	if use udev; then
-		local udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-		insinto "${udevdir}"/rules.d
+		insinto "$(udev_get_udevdir)"/rules.d
 		doins "${FILESDIR}"/99-pcscd-hotplug.rules
 	fi
 }

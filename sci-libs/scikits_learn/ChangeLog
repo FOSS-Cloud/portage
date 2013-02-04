@@ -1,6 +1,22 @@
 # ChangeLog for sci-libs/scikits_learn
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/scikits_learn/ChangeLog,v 1.13 2012/06/21 19:17:13 bicatali Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/scikits_learn/ChangeLog,v 1.16 2013/01/30 17:42:10 bicatali Exp $
+
+*scikits_learn-0.13 (30 Jan 2013)
+
+  30 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  +scikits_learn-0.13.ebuild:
+  Version bump
+
+  10 Dec 2012; Sébastien Fabbro <bicatali@gentoo.org>
+  -scikits_learn-0.11.ebuild, scikits_learn-0.12.1.ebuild:
+  Restricting python-3, removed old
+
+*scikits_learn-0.12.1 (30 Nov 2012)
+
+  30 Nov 2012; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/0.12.1-linalg.patch, +scikits_learn-0.12.1.ebuild:
+  Version bump
 
   21 Jun 2012; Sébastien Fabbro <bicatali@gentoo.org>
   -scikits_learn-0.10-r1.ebuild, scikits_learn-0.11.ebuild:
@@ -101,4 +117,3 @@
   26 Mar 2010; Sébastien Fabbro <bicatali@gentoo.org>
   +scikits_learn-0.2.ebuild, +metadata.xml:
   Initial import
-

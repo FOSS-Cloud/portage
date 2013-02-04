@@ -1,6 +1,47 @@
 # ChangeLog for app-arch/libarchive
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/libarchive/ChangeLog,v 1.127 2012/11/10 13:50:18 grobian Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/libarchive/ChangeLog,v 1.139 2013/01/16 10:09:43 ssuominen Exp $
+
+  16 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> libarchive-3.1.1.ebuild:
+  Include subslot support and call it 13 from SONAME wrt #452444 by Michael
+  Palimaka
+
+  15 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> -libarchive-3.0.3.ebuild,
+  -files/libarchive-3.0.3-nozlib.patch:
+  old
+
+*libarchive-3.1.1 (15 Jan 2013)
+
+  15 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> +libarchive-3.1.1.ebuild:
+  Version bump.
+
+  06 Jan 2013; Raúl Porcel <armin76@gentoo.org> libarchive-3.0.4-r1.ebuild:
+  s390/sh stable wrt #447654
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libarchive-3.0.4-r1.ebuild:
+  Stable for alpha, wrt bug #447654
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libarchive-3.0.4-r1.ebuild:
+  Stable for sparc, wrt bug #447654
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libarchive-3.0.4-r1.ebuild:
+  Stable for ia64, wrt bug #447654
+
+  25 Dec 2012; Markus Meier <maekke@gentoo.org> libarchive-3.0.4-r1.ebuild:
+  arm stable, bug #447654
+
+  20 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  libarchive-3.0.4-r1.ebuild:
+  ppc/ppc64 stable wrt #447654
+
+  20 Dec 2012; Jeroen Roovers <jer@gentoo.org> libarchive-3.0.4-r1.ebuild:
+  Stable for HPPA (bug #447654).
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libarchive-3.0.4-r1.ebuild:
+  Stable for x86, wrt bug #447654
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libarchive-3.0.4-r1.ebuild:
+  Stable for amd64, wrt bug #447654
 
   10 Nov 2012; Fabian Groffen <grobian@gentoo.org> libarchive-3.0.4-r1.ebuild:
   Marked ~x64-solaris

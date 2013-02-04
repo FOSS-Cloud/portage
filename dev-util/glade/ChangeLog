@@ -1,6 +1,24 @@
 # ChangeLog for dev-util/glade
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/glade/ChangeLog,v 1.176 2012/11/26 19:59:15 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/glade/ChangeLog,v 1.180 2013/01/29 01:49:26 aballier Exp $
+
+  29 Jan 2013; Alexis Ballier <aballier@gentoo.org> glade-3.14.2.ebuild:
+  keyword ~amd64-fbsd
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> glade-3.14.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> glade-3.14.2.ebuild:
+  Drop sparc and amd64-fbsd keywords, needs gtk+-3.6 to be keyworded.
+
+*glade-3.14.2 (17 Dec 2012)
+*glade-3.8.3 (17 Dec 2012)
+
+  17 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> glade-3.8.2.ebuild,
+  +glade-3.8.3.ebuild, glade-3.12.1.ebuild, glade-3.12.2.ebuild,
+  +files/glade-3.14.1-doc-version.patch, +glade-3.14.2.ebuild, metadata.xml:
+  Version bumps for gnome-3.6 and for gtk2. Improve description, update
+  license, drop useless doc USE flag, switch to global introspection flag.
 
   26 Nov 2012; Gilles Dartiguelongue <eva@gentoo.org> -glade-3.10.2.ebuild,
   glade-3.12.2.ebuild:

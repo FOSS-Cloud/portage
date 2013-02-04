@@ -1,6 +1,32 @@
 # ChangeLog for mail-filter/bogofilter
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/bogofilter/ChangeLog,v 1.140 2012/06/04 23:40:01 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/bogofilter/ChangeLog,v 1.148 2012/12/15 17:45:29 armin76 Exp $
+
+  15 Dec 2012; Raúl Porcel <armin76@gentoo.org> bogofilter-1.2.3.ebuild:
+  alpha/ia64/sh/sparc stable wrt #445908
+
+  05 Dec 2012; Anthony G. Basile <blueness@gentoo.org> bogofilter-1.2.3.ebuild:
+  stable arm, bug #445908
+
+  04 Dec 2012; Jeroen Roovers <jer@gentoo.org> bogofilter-1.2.3.ebuild:
+  Stable for HPPA (bug #445908).
+
+  04 Dec 2012; <ago@gentoo.org> bogofilter-1.2.3.ebuild:
+  Stable for ppc64, wrt bug #445908
+
+  04 Dec 2012; <ago@gentoo.org> bogofilter-1.2.3.ebuild:
+  Stable for ppc, wrt bug #445908
+
+  04 Dec 2012; <ago@gentoo.org> bogofilter-1.2.3.ebuild:
+  Stable for x86, wrt bug #445908
+
+  04 Dec 2012; <ago@gentoo.org> bogofilter-1.2.3.ebuild:
+  Stable for amd64, wrt bug #445908
+
+*bogofilter-1.2.3 (04 Dec 2012)
+
+  04 Dec 2012; Eray Aslan <eras@gentoo.org> +bogofilter-1.2.3.ebuild:
+  Security bump - bug #445908
 
   04 Jun 2012; Zac Medico <zmedico@gentoo.org> bogofilter-1.2.2.ebuild:
   inherit eutils for epatch

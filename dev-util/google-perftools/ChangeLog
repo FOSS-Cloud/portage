@@ -1,6 +1,24 @@
 # ChangeLog for dev-util/google-perftools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/google-perftools/ChangeLog,v 1.20 2012/11/02 00:48:32 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/google-perftools/ChangeLog,v 1.24 2013/02/03 15:09:08 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> google-perftools-2.0-r1.ebuild:
+  Add ~ppc, wrt bug #429710
+
+*google-perftools-2.0-r1 (20 Jan 2013)
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org>
+  +files/gperftools-2.0-32bit-barrier.patch, +google-perftools-2.0-r1.ebuild:
+  Compilefix for bug #446770, done w/ revbump due to change of internal lock for
+  SuggestedDelayNS function.
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org>
+  google-perftools-2.0.ebuild:
+  Compiles on ~arm, tested on mv78100.
+
+  20 Jan 2013; Robin H. Johnson <robbat2@gentoo.org>
+  google-perftools-1.8.3.ebuild, google-perftools-2.0.ebuild:
+  This contains ASM it turns out, with support only for some arches.
 
   02 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
   google-perftools-2.0.ebuild:

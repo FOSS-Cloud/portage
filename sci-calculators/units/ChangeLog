@@ -1,6 +1,41 @@
 # ChangeLog for sci-calculators/units
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-calculators/units/ChangeLog,v 1.42 2012/11/22 19:33:03 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-calculators/units/ChangeLog,v 1.53 2013/01/14 20:24:25 jer Exp $
+
+  14 Jan 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Fix metadata.xml.
+
+  14 Jan 2013; Jeroen Roovers <jer@gentoo.org> -files/units-2.00-gentoo.patch:
+  Clean up after Justin.
+
+  14 Jan 2013; Justin Lecher <jlec@gentoo.org> -units-1.88.ebuild,
+  -units-1.88-r1.ebuild, -units-2.00.ebuild, metadata.xml:
+  Drop old
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> units-2.01.ebuild:
+  Stable for alpha, wrt bug #448448
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> units-2.01.ebuild:
+  Stable for sparc, wrt bug #448448
+
+  25 Dec 2012; Anthony G. Basile <blueness@gentoo.org> units-2.01.ebuild:
+  stable ppc, bug #448448, thanks peratu
+
+  25 Dec 2012; Jeroen Roovers <jer@gentoo.org> units-2.01.ebuild:
+  Stable for HPPA (bug #448448).
+
+  24 Dec 2012; Jeff Horelick <jdhore@gentoo.org> units-2.01.ebuild:
+  marked x86 per bug 448448
+
+  24 Dec 2012; Sergey Popov <pinkbyte@gentoo.org> units-2.01.ebuild:
+  Stable on amd64, wrt bug #448448
+
+  07 Dec 2012; Jeroen Roovers <jer@gentoo.org> units-2.00.ebuild,
+  units-2.01.ebuild:
+  Stable for SPARC (bug #439518).
+
+  07 Dec 2012; Jeroen Roovers <jer@gentoo.org> units-2.01.ebuild:
+  Stable for SPARC (bug #439518).
 
   22 Nov 2012; Agostino Sarubbo <ago@gentoo.org> units-2.00.ebuild:
   Stable for amd64, wrt bug #439518

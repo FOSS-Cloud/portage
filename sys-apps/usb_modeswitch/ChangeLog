@@ -1,6 +1,34 @@
 # ChangeLog for sys-apps/usb_modeswitch
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/usb_modeswitch/ChangeLog,v 1.36 2012/08/25 14:16:32 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/usb_modeswitch/ChangeLog,v 1.42 2013/01/11 04:21:59 zerochaos Exp $
+
+  11 Jan 2013; Rick Farina <zerochaos@gentoo.org>
+  usb_modeswitch-1.2.5_p20121109.ebuild:
+  adding ~arm keyword after test
+
+  18 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  -usb_modeswitch-1.2.4_p20120815.ebuild:
+  old
+
+  18 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  usb_modeswitch-1.2.5_p20121109.ebuild:
+  amd64/x86 stable
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
+  -usb_modeswitch-1.2.3_p20120531-r1.ebuild,
+  -usb_modeswitch-1.2.3_p20120531-r2.ebuild:
+  old
+
+*usb_modeswitch-1.2.5_p20121109 (28 Nov 2012)
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
+  +usb_modeswitch-1.2.5_p20121109.ebuild:
+  Version bump (of both, the program and the data files)
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
+  usb_modeswitch-1.2.4_p20120815.ebuild:
+  Use udev.eclass for determining correct udevdir for helpers and rules. Use
+  virtual/udev instead of sys-fs/udev. Mark stable for amd64 and x86.
 
 *usb_modeswitch-1.2.4_p20120815 (25 Aug 2012)
 
@@ -187,4 +215,3 @@
   +files/91-usb_modeswitch.rules.udev-lt-106, +metadata.xml,
   +usb_modeswitch-0.9.4.ebuild:
   initial import
-

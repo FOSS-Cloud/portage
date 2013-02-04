@@ -1,6 +1,25 @@
 # ChangeLog for www-apache/mod_security
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_security/ChangeLog,v 1.90 2012/11/27 19:31:31 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_security/ChangeLog,v 1.95 2013/02/03 02:51:06 jdhore Exp $
+
+  03 Feb 2013; Jeff Horelick <jdhore@gentoo.org> mod_security-2.7.1.ebuild:
+  x86 stable wrt bug #453850
+
+  28 Jan 2013; Chema Alonso <nimiux@gentoo.org> mod_security-2.7.1.ebuild:
+  Marked stable for amd64 wrt bug #453850
+
+*mod_security-2.7.2 (25 Jan 2013)
+
+  25 Jan 2013; Diego E. Pettenò <flameeyes@gentoo.org>
+  +mod_security-2.7.2.ebuild:
+  Version bump.
+
+  24 Jan 2013; Diego E. Pettenò <flameeyes@gentoo.org> -files/modsecurity.conf,
+  -mod_security-2.6.6.ebuild, mod_security-2.7.1.ebuild:
+  Remove old version. Fix SRC_URI for new one.
+
+  15 Dec 2012; Raúl Porcel <armin76@gentoo.org> mod_security-2.7.0.ebuild:
+  sparc stable wrt #438724
 
   27 Nov 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop apache herd as discussed in http://www.gossamer-

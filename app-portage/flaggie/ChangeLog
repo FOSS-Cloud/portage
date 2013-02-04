@@ -1,6 +1,32 @@
 # ChangeLog for app-portage/flaggie
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/flaggie/ChangeLog,v 1.37 2012/11/21 13:17:39 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/flaggie/ChangeLog,v 1.44 2012/12/17 20:02:42 mgorny Exp $
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> flaggie-0.2-r2.ebuild,
+  flaggie-0.2-r3.ebuild, flaggie-9999.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> flaggie-0.2-r2.ebuild:
+  Stable for x86, wrt bug #445178
+
+*flaggie-9999 (15 Dec 2012)
+
+  15 Dec 2012; Michał Górny <mgorny@gentoo.org> +flaggie-9999.ebuild:
+  Import the live ebuild.
+
+*flaggie-0.2-r3 (09 Dec 2012)
+
+  09 Dec 2012; Michał Górny <mgorny@gentoo.org> +flaggie-0.2-r3.ebuild:
+  Enable python3.3 and pypy1.8.
+
+  02 Dec 2012; <ago@gentoo.org> flaggie-0.2-r2.ebuild:
+  Stable for amd64, wrt bug #445178
+
+  29 Nov 2012; Michał Górny <mgorny@gentoo.org> flaggie-0.2-r2.ebuild:
+  Remove pypy from PYTHON_COMPAT to clear the path for STABLEREQ.
+
+  29 Nov 2012; Michał Górny <mgorny@gentoo.org> -flaggie-0.2-r1.ebuild:
+  Remove old.
 
   22 Nov 2012; Ian Delaney <idella4@gentoo.org> flaggie-0.2-r2.ebuild:
   pypy comaptibility added

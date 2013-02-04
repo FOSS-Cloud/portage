@@ -1,6 +1,24 @@
 # ChangeLog for net-analyzer/sniffit
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/sniffit/ChangeLog,v 1.18 2010/09/16 23:13:07 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/sniffit/ChangeLog,v 1.23 2013/01/31 23:12:13 ago Exp $
+
+  31 Jan 2013; Agostino Sarubbo <ago@gentoo.org> sniffit-0.3.7-r4.ebuild:
+  Stable for ppc, wrt bug #454014
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> sniffit-0.3.7-r4.ebuild:
+  Stable for x86, wrt bug #454014
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> sniffit-0.3.7-r4.ebuild:
+  Stable for amd64, wrt bug #454014
+
+*sniffit-0.3.7-r4 (05 Dec 2012)
+
+  05 Dec 2012; Jeroen Roovers <jer@gentoo.org> +sniffit-0.3.7-r4.ebuild:
+  Install binary into sbin by Sergey S. Starikoff (bug #390603).
+
+  05 Dec 2012; Jeroen Roovers <jer@gentoo.org> sniffit-0.3.7-r1.ebuild,
+  sniffit-0.3.7-r3.ebuild:
+  Set LICENSE=BSD by Ulrich Müller (bug #446064).
 
 *sniffit-0.3.7-r3 (16 Sep 2010)
 

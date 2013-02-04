@@ -1,6 +1,64 @@
 # ChangeLog for sys-kernel/spl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/ChangeLog,v 1.32 2012/11/14 21:56:51 ryao Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/ChangeLog,v 1.42 2013/02/02 16:44:19 ryao Exp $
+
+*spl-0.6.0_rc14 (02 Feb 2013)
+
+  02 Feb 2013; Richard Yao <ryao@gentoo.org> +spl-0.6.0_rc14.ebuild:
+  Bump sys-kernel/spl to 0.6.0_rc14
+
+  16 Jan 2013; Richard Yao <ryao@gentoo.org> spl-9999.ebuild:
+  Filter -Wl,* from LDFLAGS to prevent build failures on ARM
+
+*spl-0.6.0_rc13-r2 (16 Jan 2013)
+
+  16 Jan 2013; Richard Yao <ryao@gentoo.org> +spl-0.6.0_rc13-r2.ebuild:
+  Filter -Wl,* from LDFLAGS to prevent build failures on ARM
+
+  14 Jan 2013; Richard Yao <ryao@gentoo.org> spl-0.6.0_rc13-r1.ebuild:
+  Fix trailing whitespace in ebuild
+
+*spl-0.6.0_rc13-r1 (14 Jan 2013)
+
+  14 Jan 2013; Richard Yao <ryao@gentoo.org>
+  +files/spl-0.6.0_rc13-fix-on_each_cpu-autotools-check.patch,
+  +files/spl-0.6.0_rc13-fix-soft-lockup.patch, +spl-0.6.0_rc13-r1.ebuild,
+  spl-0.6.0_rc11-r2.ebuild:
+  Fix autotools issue detected on ~arm, fix soft lockup regression, add Linux
+  3.8 support
+
+  29 Dec 2012; Richard Yao <ryao@gentoo.org> spl-0.6.0_rc10.ebuild,
+  spl-0.6.0_rc11-r2.ebuild, spl-0.6.0_rc11.ebuild, spl-0.6.0_rc12-r1.ebuild,
+  spl-0.6.0_rc12.ebuild, spl-0.6.0_rc13.ebuild, spl-9999.ebuild:
+  Fix sys-kernel/spl-0.6.0_rc10 ebuild; provide USE=debug-log to 0.6.0_rc10 and
+  0.6.0_rc11
+
+  27 Dec 2012; Richard Yao <ryao@gentoo.org> spl-0.6.0_rc10.ebuild,
+  spl-0.6.0_rc11-r2.ebuild, spl-0.6.0_rc11.ebuild, spl-0.6.0_rc12-r1.ebuild,
+  spl-0.6.0_rc12.ebuild, spl-0.6.0_rc13.ebuild, spl-9999.ebuild:
+  The fact that the code is technically GPLv2+ does not mean that we need to
+  specify GPL-3 in LICENSE. Change LICENSE to GPL-2. Thanks init_6 for pointing
+  this out.
+
+*spl-0.6.0_rc13 (23 Dec 2012)
+
+  23 Dec 2012; Richard Yao <ryao@gentoo.org> +spl-0.6.0_rc13.ebuild:
+  Bump sys-kernel/spl to 0.6.0_rc13
+
+  12 Dec 2012; Richard Yao <ryao@gentoo.org> metadata.xml,
+  spl-0.6.0_rc10.ebuild, spl-0.6.0_rc11-r2.ebuild, spl-0.6.0_rc11.ebuild,
+  spl-0.6.0_rc12-r1.ebuild, spl-0.6.0_rc12.ebuild:
+  Add USE=debug-log
+
+*spl-0.6.0_rc12-r1 (11 Dec 2012)
+*spl-0.6.0_rc11-r2 (11 Dec 2012)
+
+  11 Dec 2012; Richard Yao <ryao@gentoo.org>
+  +files/spl-0.6.0_rc12-fix-3.6-compat-regression.patch,
+  +files/spl-0.6.0_rc12-fix-race-in-slabs.patch,
+  +files/spl-0.6.0_rc12-linux-3.7-compat.patch, +spl-0.6.0_rc11-r2.ebuild,
+  +spl-0.6.0_rc12-r1.ebuild, -spl-0.6.0_rc11-r1.ebuild:
+  Linux 3.7 Support; Linux 3.6 Stability Fix
 
 *spl-0.6.0_rc12 (14 Nov 2012)
 

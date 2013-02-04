@@ -1,6 +1,22 @@
 # ChangeLog for mail-client/claws-mail-archive
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-archive/ChangeLog,v 1.49 2012/11/20 20:22:08 fauli Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-archive/ChangeLog,v 1.53 2013/01/04 10:42:49 fauli Exp $
+
+  04 Jan 2013; Christian Faulhammer <fauli@gentoo.org>
+  -claws-mail-archive-0.6.12.ebuild:
+  clean up
+
+  03 Jan 2013; Christian Faulhammer <fauli@gentoo.org>
+  claws-mail-archive-0.6.13.ebuild:
+  reintroduce deletion of .a and .la files
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  claws-mail-archive-0.6.13.ebuild:
+  Stable for x86, wrt bug #448968
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  claws-mail-archive-0.6.13.ebuild:
+  Stable for amd64, wrt bug #448968
 
 *claws-mail-archive-0.6.13 (20 Nov 2012)
 
@@ -212,4 +228,3 @@
   16 Oct 2008; Christian Faulhammer <opfer@gentoo.org> +metadata.xml,
   +claws-mail-archive-0.6.2.ebuild:
   initial commit for bug 238622
-

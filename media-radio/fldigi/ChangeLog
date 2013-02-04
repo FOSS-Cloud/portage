@@ -1,6 +1,47 @@
 # ChangeLog for media-radio/fldigi
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/fldigi/ChangeLog,v 1.64 2012/11/26 05:37:58 tomjbe Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-radio/fldigi/ChangeLog,v 1.73 2013/02/02 12:40:50 tomjbe Exp $
+
+*fldigi-3.21.67 (02 Feb 2013)
+
+  02 Feb 2013; Thomas Beierlein <tomjbe@gentoo.org> -fldigi-3.21.61.ebuild,
+  -fldigi-3.21.62.ebuild, -fldigi-3.21.63.ebuild, -fldigi-3.21.64.ebuild,
+  +fldigi-3.21.67.ebuild:
+  Version bump. remove old.
+
+*fldigi-3.21.66 (13 Jan 2013)
+
+  13 Jan 2013; Thomas Beierlein <tomjbe@gentoo.org> +fldigi-3.21.66.ebuild:
+  Maintenance release
+
+*fldigi-3.21.65 (02 Jan 2013)
+
+  02 Jan 2013; Thomas Beierlein <tomjbe@gentoo.org> +fldigi-3.21.65.ebuild:
+  Version bump
+
+*fldigi-3.21.64 (28 Dec 2012)
+
+  28 Dec 2012; Thomas Beierlein <tomjbe@gentoo.org> +fldigi-3.21.64.ebuild:
+  Version bump
+
+  14 Dec 2012; Thomas Beierlein <tomjbe@gentoo.org> fldigi-3.21.60.ebuild,
+  fldigi-3.21.61.ebuild, fldigi-3.21.62.ebuild, fldigi-3.21.63.ebuild:
+  Make build log verbose (bug #447234). Thanks ago.
+
+  14 Dec 2012; Thomas Beierlein <tomjbe@gentoo.org> -fldigi-3.21.42.ebuild,
+  -fldigi-3.21.58.ebuild, -fldigi-3.21.59.ebuild:
+  remove old
+
+  14 Dec 2012; Agostino Sarubbo <ago@gentoo.org> fldigi-3.21.60.ebuild:
+  Stable for x86, wrt bug #447230
+
+  14 Dec 2012; Agostino Sarubbo <ago@gentoo.org> fldigi-3.21.60.ebuild:
+  Stable for amd64, wrt bug #447230
+
+*fldigi-3.21.63 (07 Dec 2012)
+
+  07 Dec 2012; Thomas Beierlein <tomjbe@gentoo.org> +fldigi-3.21.63.ebuild:
+  Version bump
 
 *fldigi-3.21.62 (26 Nov 2012)
 

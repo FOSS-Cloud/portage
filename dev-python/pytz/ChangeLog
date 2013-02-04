@@ -1,6 +1,20 @@
 # ChangeLog for dev-python/pytz
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pytz/ChangeLog,v 1.130 2012/11/03 00:58:24 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pytz/ChangeLog,v 1.133 2013/01/13 21:27:35 mgorny Exp $
+
+  13 Jan 2013; Michał Górny <mgorny@gentoo.org> pytz-2012j.ebuild:
+  Enable pypy2.0.
+
+*pytz-2012j (05 Jan 2013)
+
+  05 Jan 2013; Tim Harder <radhermit@gentoo.org> +pytz-2012j.ebuild:
+  Version bump.
+
+*pytz-2012h-r1 (19 Dec 2012)
+
+  19 Dec 2012; Michał Górny <mgorny@gentoo.org>
+  +files/pytz-2009h-zoneinfo-noinstall.patch, +pytz-2012h-r1.ebuild:
+  Migrate to distutils-r1 and clean up.
 
 *pytz-2012h (03 Nov 2012)
 
@@ -481,4 +495,3 @@
   24 Nov 2005; Marien Zwart <marienz@gentoo.org> +metadata.xml,
   +pytz-2005m.ebuild:
   New ebuild, based on an ebuild from André Malo <nd@perlig.de> (bug #111513)
-

@@ -1,6 +1,14 @@
 # ChangeLog for dev-perl/Sub-Exporter-Progressive
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Sub-Exporter-Progressive/ChangeLog,v 1.6 2012/09/17 16:46:11 grobian Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Sub-Exporter-Progressive/ChangeLog,v 1.8 2013/01/13 12:46:57 maekke Exp $
+
+  13 Jan 2013; Markus Meier <maekke@gentoo.org>
+  Sub-Exporter-Progressive-0.1.6.ebuild:
+  add ~arm, bug #449762
+
+  10 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  Sub-Exporter-Progressive-0.1.6.ebuild:
+  Add ~ppc, wrt bug #446444
 
   17 Sep 2012; Fabian Groffen <grobian@gentoo.org>
   Sub-Exporter-Progressive-0.1.6.ebuild:

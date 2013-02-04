@@ -1,6 +1,22 @@
 # ChangeLog for dev-cpp/libcmis
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libcmis/ChangeLog,v 1.20 2012/11/17 11:06:25 scarabeus Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libcmis/ChangeLog,v 1.24 2013/01/31 15:34:17 scarabeus Exp $
+
+*libcmis-0.3.1 (31 Jan 2013)
+
+  31 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libcmis-0.3.1.ebuild,
+  libcmis-9999.ebuild:
+  Version bump to latest.
+
+  12 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> libcmis-0.3.0.ebuild,
+  libcmis-9999.ebuild:
+  Keyword ~arm, wrt bug #451464
+
+  20 Dec 2012; Tomáš Chvátal <scarabeus@gentoo.org> -libcmis-0.1.0-r1.ebuild:
+  Remove oldest, unused.
+
+  08 Dec 2012; Markus Meier <maekke@gentoo.org> libcmis-0.2.3-r1.ebuild:
+  add ~arm, bug #440908
 
   17 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> libcmis-0.2.3-r1.ebuild:
   Stable on ppc and x86 wrt bug#440922.

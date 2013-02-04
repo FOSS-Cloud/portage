@@ -1,6 +1,21 @@
 # ChangeLog for net-misc/sslwrap
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/sslwrap/ChangeLog,v 1.23 2012/11/20 20:38:16 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/sslwrap/ChangeLog,v 1.27 2012/12/02 05:02:36 ssuominen Exp $
+
+  02 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> sslwrap-2.0.6-r2.ebuild:
+  Rename "sslwrap" to "SSLeay" as per original name of the license.
+
+  02 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  -files/2.0.6-openssl-0.9.7.patch, -sslwrap-2.0.6-r1.ebuild:
+  old
+
+  02 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> sslwrap-2.0.6-r2.ebuild,
+  +files/sslwrap-2.0.6-build.patch:
+  Update .ebuild to meet current requirement(s)
+
+  01 Dec 2012; Raúl Porcel <armin76@gentoo.org> sslwrap-2.0.6-r1.ebuild,
+  sslwrap-2.0.6-r2.ebuild:
+  Drop sparc keywords
 
   20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> sslwrap-2.0.6-r2.ebuild:
   Stable for x86, wrt bug #441484

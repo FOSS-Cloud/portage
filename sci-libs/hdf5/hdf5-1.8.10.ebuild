@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/hdf5/hdf5-1.8.10.ebuild,v 1.1 2012/11/06 19:56:41 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/hdf5/hdf5-1.8.10.ebuild,v 1.11 2013/01/04 20:09:11 ago Exp $
 
 EAPI=4
 
@@ -14,7 +14,7 @@ SRC_URI="http://www.hdfgroup.org/ftp/HDF5/releases/${P}/src/${P}.tar.bz2"
 
 LICENSE="NCSA-HDF"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="cxx debug examples fortran fortran2003 mpi static-libs szip threads zlib"
 
 REQUIRED_USE="
@@ -28,10 +28,11 @@ RDEPEND="
 	zlib? ( sys-libs/zlib )"
 
 DEPEND="${RDEPEND}
-	sys-devel/libtool:2"
+	sys-devel/libtool:2
+	>=sys-devel/autoconf-2.69"
 
 pkg_setup() {
-	tc-export CXX CC # workaround for bug 285148
+	tc-export CXX CC AR # workaround for bug 285148
 	if use fortran; then
 		use fortran2003 && FORTRAN_STANDARD=2003
 		fortran-2_pkg_setup
@@ -54,7 +55,8 @@ src_prepare() {
 		"${FILESDIR}"/${PN}-1.8.8-array_bounds.patch \
 		"${FILESDIR}"/${P}-implicits.patch \
 		"${FILESDIR}"/${PN}-1.8.9-static_libgfortran.patch \
-		"${FILESDIR}"/${PN}-1.8.9-mpicxx.patch
+		"${FILESDIR}"/${PN}-1.8.9-mpicxx.patch \
+		"${FILESDIR}"/${P}-comments.patch
 	# respect gentoo examples directory
 	sed \
 		-e "s:hdf5_examples:doc/${PF}/examples:g" \
@@ -100,4 +102,16 @@ src_configure() {
 src_install() {
 	default
 	use static-libs || find "${ED}" -name '*.la' -exec rm -f {} +
+}
+
+pkg_postinst() {
+	if has_version "sci-libs/hdf5"; then
+		ewarn "You have upgraded hdf5 from previous version and the software"
+		ewarn "using it may start complaining about mismatch between headers"
+		ewarn "and library version. You have two options:"
+		ewarn "  1. export HDF5_DISABLE_VERSION_CHECK=2 to get rid of the"
+		ewarn "     warning/error message"
+		ewarn "  2. re-emerge all reverse dependencies (type"
+		ewarn "     'emerge --depclean -pv sci-libs/hdf5' to get the list)"
+	fi
 }

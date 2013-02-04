@@ -1,6 +1,22 @@
 # ChangeLog for media-plugins/gst-plugins-ofa
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-ofa/ChangeLog,v 1.4 2011/12/22 22:20:51 maekke Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-ofa/ChangeLog,v 1.8 2013/02/01 12:35:11 ago Exp $
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gst-plugins-ofa-0.10.23.ebuild:
+  Stable for x86, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gst-plugins-ofa-0.10.23.ebuild:
+  Stable for amd64, wrt bug #454906
+
+*gst-plugins-ofa-0.10.23 (02 Dec 2012)
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-ofa-0.10.23.ebuild:
+  Version bump.
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  gst-plugins-ofa-0.10.22.ebuild:
+  EAPI bump. Add missing gstreamer slot notation.
 
   22 Dec 2011; Markus Meier <maekke@gentoo.org> gst-plugins-ofa-0.10.22.ebuild:
   x86 stable, bug #394873
@@ -19,4 +35,3 @@
   09 Jun 2011; Steve Dibb <beandog@gentoo.org>
   +gst-plugins-ofa-0.10.21.ebuild:
   Initial commit, bug 360851
-

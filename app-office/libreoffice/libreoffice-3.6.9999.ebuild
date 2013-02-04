@@ -1,16 +1,16 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-3.6.9999.ebuild,v 1.34 2012/11/24 13:47:16 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-3.6.9999.ebuild,v 1.39 2013/01/01 10:56:53 scarabeus Exp $
 
-EAPI=4
+EAPI=5
 
 KDE_REQUIRED="optional"
 QT_MINIMAL="4.7.4"
 KDE_SCM="git"
 CMAKE_REQUIRED="never"
 
-PYTHON_DEPEND="2"
-PYTHON_USE_WITH="threads,xml"
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_REQ_USE="threads,xml"
 
 # experimental ; release ; old
 # Usually the tarballs are moved a lot so this should make
@@ -27,7 +27,7 @@ BRANDING="${PN}-branding-gentoo-0.6.tar.xz"
 # PATCHSET="${P}-patchset-01.tar.xz"
 
 [[ ${PV} == *9999* ]] && SCM_ECLASS="git-2"
-inherit base autotools bash-completion-r1 check-reqs eutils java-pkg-opt-2 kde4-base pax-utils python multilib toolchain-funcs flag-o-matic ${SCM_ECLASS}
+inherit base autotools bash-completion-r1 check-reqs eutils java-pkg-opt-2 kde4-base pax-utils python-single-r1 multilib toolchain-funcs flag-o-matic ${SCM_ECLASS}
 unset SCM_ECLASS
 
 DESCRIPTION="LibreOffice, a full office productivity suite."
@@ -73,7 +73,7 @@ unset EXT_URI
 unset ADDONS_SRC
 
 IUSE="binfilter binfilterdebug +branding +cups dbus eds gnome gstreamer +gtk
-jemalloc kde mysql odk opengl postgres svg test +vba +webdav"
+jemalloc kde mysql odk opengl postgres test +vba +webdav"
 
 LO_EXTS="nlpsolver pdfimport presenter-console presenter-minimizer scripting-beanshell scripting-javascript wiki-publisher"
 # Unpackaged separate extensions:
@@ -90,9 +90,10 @@ unset lo_xt
 
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
-[[ ${PV} == *9999* ]] || KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+[[ ${PV} == *9999* ]] || KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
 
 COMMON_DEPEND="
+	${PYTHON_DEPS}
 	app-arch/zip
 	app-arch/unzip
 	>=app-text/hunspell-1.3.2-r3
@@ -113,6 +114,7 @@ COMMON_DEPEND="
 	>=dev-lang/perl-5.0
 	>=dev-libs/openssl-1.0.0d
 	>=dev-libs/redland-1.0.14[ssl]
+	gnome-base/librsvg
 	media-gfx/graphite2
 	>=media-libs/fontconfig-2.8.0
 	media-libs/freetype:2
@@ -157,7 +159,6 @@ COMMON_DEPEND="
 		virtual/opengl
 	)
 	postgres? ( >=dev-db/postgresql-base-9.0[kerberos] )
-	svg? ( gnome-base/librsvg )
 	webdav? ( net-libs/neon )
 "
 
@@ -259,9 +260,7 @@ pkg_pretend() {
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 	kde4-base_pkg_setup
-
-	python_set_active_version 2
-	python_pkg_setup
+	python-single-r1_pkg_setup
 
 	[[ ${MERGE_TYPE} != binary ]] && check-reqs_pkg_setup
 }
@@ -441,6 +440,7 @@ src_configure() {
 		--enable-largefile \
 		--enable-mergelibs \
 		--enable-python=system \
+		--enable-librsvg=system \
 		--enable-randr \
 		--enable-randr-link \
 		--enable-release-build \
@@ -499,7 +499,6 @@ src_configure() {
 		$(use_enable odk) \
 		$(use_enable opengl) \
 		$(use_enable postgres postgresql-sdbc) \
-		$(use_enable svg librsvg system) \
 		$(use_enable test linkoo) \
 		$(use_enable vba) \
 		$(use_enable webdav neon) \

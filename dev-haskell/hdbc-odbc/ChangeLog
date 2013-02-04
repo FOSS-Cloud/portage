@@ -1,6 +1,22 @@
 # ChangeLog for dev-haskell/hdbc-odbc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hdbc-odbc/ChangeLog,v 1.16 2012/09/12 15:52:48 qnikst Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hdbc-odbc/ChangeLog,v 1.20 2013/01/19 15:44:48 slyfox Exp $
+
+  19 Jan 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/hdbc-odbc-2.3.1.0-ghc-7.6.patch, hdbc-odbc-2.3.1.1.ebuild:
+  Added missing patch noticed by Diego Elio Pettenò in bug #452994.
+
+*hdbc-odbc-2.3.1.1 (24 Dec 2012)
+
+  24 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> +hdbc-odbc-2.3.1.1.ebuild,
+  -hdbc-odbc-2.2.3.2.ebuild:
+  Version bump.
+
+  07 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> hdbc-odbc-2.2.3.2.ebuild:
+  Get rid of 'dev-haskell/time' depend as it's a ghc's core library.
+
+  06 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> hdbc-odbc-2.3.1.0.ebuild:
+  Get rid of 'dev-haskell/time' depend as it's a ghc's core library.
 
   12 Sep 2012; Alexander Vershilov <qnikst@gentoo.org> hdbc-odbc-2.2.3.2.ebuild,
   hdbc-odbc-2.3.1.0.ebuild:

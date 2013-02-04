@@ -1,6 +1,57 @@
 # ChangeLog for media-plugins/grilo-plugins
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/grilo-plugins/ChangeLog,v 1.14 2012/11/25 14:45:13 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/grilo-plugins/ChangeLog,v 1.26 2013/02/02 22:52:48 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> grilo-plugins-0.1.20.ebuild,
+  grilo-plugins-0.2.5.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> grilo-plugins-0.1.20.ebuild,
+  grilo-plugins-0.2.5.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> grilo-plugins-0.1.20.ebuild,
+  grilo-plugins-0.2.5.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> grilo-plugins-0.2.5.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> grilo-plugins-0.1.20.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> grilo-plugins-0.2.5.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> grilo-plugins-0.1.20.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> grilo-plugins-0.2.5.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> grilo-plugins-0.1.20.ebuild:
+  Add ~ppc, wrt bug #449220
+
+*grilo-plugins-0.2.5 (15 Dec 2012)
+
+  15 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  grilo-plugins-0.1.18.ebuild, grilo-plugins-0.1.20.ebuild,
+  -grilo-plugins-0.2.3.ebuild, grilo-plugins-0.2.4.ebuild,
+  +grilo-plugins-0.2.5.ebuild, metadata.xml:
+  Version bump. Rename upnp USE flag to upnp-av (bug #435772, thanks to Michał
+  Górny). Drop old.
+
+  10 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  grilo-plugins-0.2.4.ebuild:
+  Typo in G2CONF, thanks to Albert W. Hopkins for noticing (bug #446718).
+
+*grilo-plugins-0.2.4 (10 Dec 2012)
+
+  10 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -grilo-plugins-0.2.0.ebuild, -grilo-plugins-0.2.2.ebuild,
+  +grilo-plugins-0.2.4.ebuild:
+  Version bump, adds documentation, fixes various bugs. Update license. Drop
+  old.
 
 *grilo-plugins-0.2.3 (25 Nov 2012)
 

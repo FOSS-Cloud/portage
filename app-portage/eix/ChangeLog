@@ -1,6 +1,60 @@
 # ChangeLog for app-portage/eix
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/eix/ChangeLog,v 1.434 2012/11/25 03:09:22 axs Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/eix/ChangeLog,v 1.445 2013/02/01 14:10:29 axs Exp $
+
+*eix-0.28.2 (01 Feb 2013)
+
+  01 Feb 2013; Ian Stakenvicius <axs@gentoo.org> -eix-0.28.1-r1.ebuild,
+  -files/eix-0.28.1-overlay-number-regression.patch, +eix-0.28.2.ebuild,
+  metadata.xml:
+  version bump, contains new strong-security flag which (for now) enables the
+  new safety features of clang[static-analyzer] and gcc-4.8
+
+*eix-0.28.1-r1 (25 Jan 2013)
+
+  25 Jan 2013; Ian Stakenvicius <axs@gentoo.org> -eix-0.28.1.ebuild,
+  +eix-0.28.1-r1.ebuild, +files/eix-0.28.1-overlay-number-regression.patch:
+  fixed bug 452548
+
+*eix-0.28.1 (14 Jan 2013)
+
+  14 Jan 2013; Ian Stakenvicius <axs@gentoo.org> -eix-0.28.0.ebuild,
+  +eix-0.28.1.ebuild:
+  fixed a regression and an ebuild coding error
+
+*eix-0.28.0 (14 Jan 2013)
+
+  14 Jan 2013; Ian Stakenvicius <axs@gentoo.org> +eix-0.28.0.ebuild:
+  version bump; internal restructuring, minor bugfixes, documentation updates
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> eix-0.27.6.ebuild:
+  Add ~ppc, wrt bug #425494
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> eix-0.27.6.ebuild:
+  Add ~ppc64, wrt bug #425494
+
+*eix-0.27.6 (09 Dec 2012)
+
+  09 Dec 2012; Ian Stakenvicius <axs@gentoo.org> -eix-0.27.5-r1.ebuild,
+  -files/eix-0.27.5-commentlines.patch, +eix-0.27.6.ebuild:
+  new upstream release, fixed colors some more
+
+  06 Dec 2012; Ian Stakenvicius <axs@gentoo.org>
+  -files/eix-0.2.5-commentlines.patch, +files/eix-0.27.5-commentlines.patch:
+  fixed typo in patch filename (bug #446178)
+
+*eix-0.27.5-r1 (05 Dec 2012)
+
+  05 Dec 2012; Ian Stakenvicius <axs@gentoo.org>
+  +files/eix-0.2.5-commentlines.patch, -eix-0.27.5.ebuild,
+  +eix-0.27.5-r1.ebuild:
+  fixed bug 446078
+
+*eix-0.27.5 (04 Dec 2012)
+
+  04 Dec 2012; Ian Stakenvicius <axs@gentoo.org> +eix-0.27.5.ebuild:
+  version bump; fixes some bugs, heuristics have saner defaults, mask handling
+  is more similar to new portage releases
 
 *eix-0.27.4 (25 Nov 2012)
 

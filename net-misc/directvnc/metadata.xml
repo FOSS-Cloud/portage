@@ -2,8 +2,14 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer>
-    <email>s4t4n@gentoo.org</email>
-    <name>Michele Noberasco</name>
+    <email>dennis.yxun@gmail.com</email>
+    <name>Dennis (dlan) Lan</name>
+    <description>maintainer, assign bugs</description>
+  </maintainer>
+  <maintainer>
+    <email>tomka@gentoo.org</email>
+    <name>Thomas Kahle</name>
+    <description>proxy maintainer, CC on bugs</description>
   </maintainer>
   <use>
     <flag name="mouse">Adds mouse support</flag>

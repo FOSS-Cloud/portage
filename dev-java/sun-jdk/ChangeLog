@@ -1,6 +1,35 @@
 # ChangeLog for dev-java/sun-jdk
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/sun-jdk/ChangeLog,v 1.341 2012/10/23 05:03:16 nativemad Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/sun-jdk/ChangeLog,v 1.348 2013/02/03 17:02:32 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> sun-jdk-1.6.0.39.ebuild:
+  Stable for amd64, wrt bug #455174
+
+  03 Feb 2013; Ralph Sennhauser <sera@gentoo.org> sun-jdk-1.6.0.39.ebuild:
+  Update download url, thanks to Agostino Sarubbo <ago@gentoo.org>
+
+*sun-jdk-1.6.0.39 (03 Feb 2013)
+
+  03 Feb 2013; Ralph Sennhauser <sera@gentoo.org> -sun-jdk-1.6.0.37.ebuild,
+  +sun-jdk-1.6.0.39.ebuild:
+  Security bump. #455174
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> sun-jdk-1.6.0.38.ebuild:
+  Stable for x86, wrt bug #451422
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> sun-jdk-1.6.0.38.ebuild:
+  Stable for amd64, wrt bug #451422
+
+  19 Dec 2012; Ralph Sennhauser <sera@gentoo.org> -files/sun-jdk-1.6.env,
+  -files/fontconfig.Gentoo.properties:
+  Remove unused auxiliary files.
+
+*sun-jdk-1.6.0.38 (19 Dec 2012)
+
+  19 Dec 2012; Ralph Sennhauser <sera@gentoo.org> -sun-jdk-1.6.0.35.ebuild,
+  -sun-jdk-1.6.0.35-r1.ebuild, +sun-jdk-1.6.0.38.ebuild:
+  Version bump (ia64 not available).
+  Remove vulnerable.
 
   23 Oct 2012; Andreas Schuerch <nativemad@gentoo.org> sun-jdk-1.6.0.37.ebuild:
   x86 stable, see bug 438706

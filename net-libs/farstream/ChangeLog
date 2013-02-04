@@ -1,6 +1,25 @@
 # ChangeLog for net-libs/farstream
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/farstream/ChangeLog,v 1.12 2012/10/28 16:18:44 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/farstream/ChangeLog,v 1.16 2012/12/14 16:03:39 mgorny Exp $
+
+  14 Dec 2012; Michał Górny <mgorny@gentoo.org> metadata.xml:
+  Remove redundant USE=upnp description; it matches the global flag meaning.
+
+*farstream-0.2.2 (08 Dec 2012)
+
+  08 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  farstream-0.1.2-r1.ebuild, +farstream-0.2.2.ebuild:
+  Add farstream-0.2.2 with gstreamer-1.0 support (bug #436238),
+  parallel-installable with the 0.1 versions.
+
+  08 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  farstream-0.1.2-r1.ebuild:
+  Update dependencies for gst-plugins-libnice split. Update license,
+  description, homepage.
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  farstream-0.1.2-r1.ebuild:
+  Pin gstreamer dependencies.
 
   28 Oct 2012; Raúl Porcel <armin76@gentoo.org> farstream-0.1.2-r1.ebuild:
   ia64/sparc stable wrt #427544

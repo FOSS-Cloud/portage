@@ -1,6 +1,31 @@
 # ChangeLog for dev-libs/nettle
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/nettle/ChangeLog,v 1.70 2012/10/20 16:40:22 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/nettle/ChangeLog,v 1.76 2013/01/18 03:39:56 radhermit Exp $
+
+  18 Jan 2013; Tim Harder <radhermit@gentoo.org> nettle-2.6.ebuild,
+  files/nettle-2.6-shared.patch:
+  Remove explicit src_test. The default just throws a couple warnings if static
+  libs aren't built but still passes successfully.
+
+  18 Jan 2013; Tim Harder <radhermit@gentoo.org> nettle-2.6.ebuild:
+  Explicitly specify examples dir.
+
+*nettle-2.6 (18 Jan 2013)
+
+  18 Jan 2013; Tim Harder <radhermit@gentoo.org> +nettle-2.6.ebuild,
+  +files/nettle-2.6-shared.patch:
+  Version bump. Update to EAPI 5 and add subslot, add doc and test use flags,
+  and run tests.
+
+  14 Dec 2012;  Alon Bar-Lev <alonbl@gentoo.org> +files/nettle-2.5-build-ar.patch,
+  nettle-2.5-r1.ebuild:
+  Fix ar detection per bug#438160 by Sean McGovern
+
+*nettle-2.5-r1 (14 Dec 2012)
+
+  14 Dec 2012;  Alon Bar-Lev <alonbl@gentoo.org> +files/nettle-2.5-static-libs.patch,
+  +nettle-2.5-r1.ebuild:
+  bug#405525 add support for USE static-libs
 
   20 Oct 2012; Raúl Porcel <armin76@gentoo.org> nettle-2.5.ebuild:
   alpha/ia64/s390/sh/sparc stable wrt #433235

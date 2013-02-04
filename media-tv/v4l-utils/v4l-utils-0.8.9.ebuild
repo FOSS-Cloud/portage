@@ -1,9 +1,9 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/v4l-utils/v4l-utils-0.8.9.ebuild,v 1.2 2012/10/26 17:45:48 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/v4l-utils/v4l-utils-0.8.9.ebuild,v 1.7 2012/12/16 19:57:12 ago Exp $
 
 EAPI=4
-inherit toolchain-funcs qt4-r2
+inherit toolchain-funcs udev qt4-r2
 
 DESCRIPTION="Separate utilities ebuild from upstream v4l-utils package"
 HOMEPAGE="http://git.linuxtv.org/v4l-utils.git"
@@ -11,7 +11,7 @@ SRC_URI="http://linuxtv.org/downloads/v4l-utils/${P}.tar.bz2"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="qt4"
 
 RDEPEND=">=media-libs/libv4l-${PV}
@@ -24,11 +24,9 @@ DEPEND="${RDEPEND}
 S=${WORKDIR}/${P}/utils
 
 src_prepare() {
-	use qt4 || sed -i -e 's:which $$QMAKE:which dISaBlEd:' Makefile
+	use qt4 || sed -i -e 's:which $$QMAKE:which dISaBlEd:' Makefile || die
 
-	local udevdir=/lib/udev
-	has_version sys-fs/udev && udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-	sed -i -e "s:/lib/udev:${udevdir}:" keytable/Makefile || die
+	sed -i -e "s:/lib/udev:$(udev_get_udevdir):" keytable/Makefile || die
 }
 
 src_configure() {

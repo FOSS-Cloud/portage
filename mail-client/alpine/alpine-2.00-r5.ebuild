@@ -1,10 +1,10 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/alpine/alpine-2.00-r5.ebuild,v 1.2 2012/10/23 05:50:55 eras Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/alpine/alpine-2.00-r5.ebuild,v 1.9 2012/12/30 16:46:12 armin76 Exp $
 
 EAPI=4
 
-inherit eutils flag-o-matic autotools multilib
+inherit eutils flag-o-matic autotools multilib toolchain-funcs
 
 CHAPPA_PL=115
 DESCRIPTION="alpine is an easy to use text-based based mail and news client"
@@ -15,7 +15,7 @@ SRC_URI="ftp://ftp.cac.washington.edu/alpine/${P}.tar.bz2
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~sparc ~x86"
+KEYWORDS="alpha amd64 ia64 ppc sparc x86"
 IUSE="doc ipv6 kerberos ldap nls onlyalpine passfile smime spell ssl threads topal +chappa"
 
 DEPEND="virtual/pam
@@ -88,6 +88,10 @@ src_configure() {
 		${myconf}
 }
 
+src_compile() {
+	emake AR=$(tc-getAR)
+}
+
 src_install() {
 	if use onlyalpine ; then
 		dobin alpine/alpine
@@ -104,22 +108,5 @@ src_install() {
 
 		docinto html/tech-notes
 		dohtml -r doc/tech-notes/
-	fi
-}
-
-pkg_postinst() {
-	if use spell ; then
-		elog
-		elog "In order to use spell checking"
-		elog "  emerge app-dicts/aspell-\<your_langs\>"
-		elog "and setup alpine with:"
-		elog "  Speller = /usr/bin/aspell -c"
-		elog
-	fi
-	if use passfile ; then
-		elog
-		elog "${PN} will cache passwords between connections."
-		elog "File ~/.pinepwd will be used for this."
-		elog
 	fi
 }

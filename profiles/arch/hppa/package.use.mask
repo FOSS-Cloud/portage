@@ -1,8 +1,22 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/package.use.mask,v 1.114 2012/11/01 23:51:34 robbat2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/package.use.mask,v 1.120 2013/01/22 19:04:15 jer Exp $
 
 # DON'T TOUCH THIS FILE. Instead, file a bug and assign it to <hppa@gentoo.org>.
+
+# Jeroen Roovers <jer@gentoo.org> (22 Jan 2013)
+# dev-python/greenlet has not been ported to HPPA but is needed for
+# dev-python/restkit which is needed for dev-python/pyquery's test phase
+# (bug #452764)
+dev-python/pyquery test
+
+# Jeroen Roovers <jer@gentoo.org> (2 Jan 2013)
+# Mask sci-libs/proj for dev-perl/PDL (bug #417453)
+dev-perl/PDL proj
+
+# Jeroen Roovers <jer@gentoo.org> (2 Jan 2013)
+# Mask non-keyworded sci-libs/hdf5 for sci-mathematics/octave
+sci-mathematics/octave hdf5 qhull
 
 # Robin H Johnson <robbat2@gentoo.org> (01 Nov 2012)
 # MySQL 5.5 wants systemtap, tcmalloc & jemalloc
@@ -49,10 +63,6 @@ xfce-extra/xfce4-systemload-plugin udev
 # Jeroen Roovers <jer@gentoo.org> (25 Oct 2011)
 # Depends upon an as yet unsupported version of dev-libs/dietlibc
 dev-libs/libowfat diet
-
-# Jeroen Roovers <jer@gentoo.org> (25 Oct 2011)
-# Untested, probably never needed (bug #387959)
-app-admin/packagekit-base connman entropy nsplugin
 
 # Robin H. Johnson <robbat2@gentoo.org> (03 Sep 2011)
 # Remove this for your arch after you keyword dev-utils/google-perftools and virtual/gsasl (bug #381737
@@ -101,7 +111,6 @@ x11-misc/xscreensaver gdm new-login
 x11-libs/wxGTK gstreamer
 net-p2p/mldonkey guionly gtk
 media-libs/libcanberra gtk gtk3
-gnome-extra/libgsf thumbnail
 dev-vcs/git gtk
 app-cdr/cdrdao gcdmaster
 net-im/pidgin eds
@@ -142,8 +151,8 @@ app-text/texlive xindy
 net-analyzer/nagios-plugins ups
 
 # Mart Raudsepp <leio@gentoo.org> (02 Apr 2008)
-# media-plugins/gst-plugins-{mythtv,dvb,fluendo-mpegdemux,bad} not keyworded
-media-plugins/gst-plugins-meta dvb mythtv
+# media-plugins/gst-plugins-{dvb,fluendo-mpegdemux,bad} not keyworded
+media-plugins/gst-plugins-meta dvb
 
 # Jeroen Roovers <jer@gentoo.org> (12 Apr 2007)
 # Mask until fixed.

@@ -1,6 +1,31 @@
 # ChangeLog for app-text/docbook-xml-dtd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/docbook-xml-dtd/ChangeLog,v 1.88 2012/04/26 18:27:47 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/docbook-xml-dtd/ChangeLog,v 1.93 2013/01/26 17:38:40 grobian Exp $
+
+  26 Jan 2013; Fabian Groffen <grobian@gentoo.org>
+  docbook-xml-dtd-4.1.2-r6.ebuild, docbook-xml-dtd-4.2-r2.ebuild,
+  docbook-xml-dtd-4.3-r1.ebuild, docbook-xml-dtd-4.4-r2.ebuild,
+  docbook-xml-dtd-4.5-r1.ebuild:
+  Marked ~m68k-mint, bug #449976
+
+  01 Jan 2013; Fabian Groffen <grobian@gentoo.org>
+  docbook-xml-dtd-4.1.2-r6.ebuild:
+  Marked ~x64-freebsd
+
+  31 Dec 2012; Fabian Groffen <grobian@gentoo.org>
+  docbook-xml-dtd-4.1.2-r6.ebuild:
+  Marked ~x86-freebsd
+
+  08 Dec 2012; Ulrich Müller <ulm@gentoo.org> docbook-xml-dtd-4.1.2-r6.ebuild,
+  docbook-xml-dtd-4.2-r2.ebuild, docbook-xml-dtd-4.3-r1.ebuild,
+  docbook-xml-dtd-4.4-r2.ebuild, docbook-xml-dtd-4.5-r1.ebuild:
+  Fix LICENSE, bug 446352.
+
+  06 Dec 2012; Mike Gilbert <floppym@gentoo.org> -docbook-xml-dtd-4.4-r1.ebuild,
+  -docbook-xml-dtd-4.5.ebuild, docbook-xml-dtd-4.1.2-r6.ebuild,
+  docbook-xml-dtd-4.2-r2.ebuild, docbook-xml-dtd-4.3-r1.ebuild,
+  docbook-xml-dtd-4.4-r2.ebuild:
+  Re-arrange dependencies per bug 446196.
 
   26 Apr 2012; Alexis Ballier <aballier@gentoo.org>
   docbook-xml-dtd-4.1.2-r6.ebuild, docbook-xml-dtd-4.3-r1.ebuild:

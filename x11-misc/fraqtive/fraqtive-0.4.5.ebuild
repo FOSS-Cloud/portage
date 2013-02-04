@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/fraqtive/fraqtive-0.4.5.ebuild,v 1.2 2012/07/21 18:53:25 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/fraqtive/fraqtive-0.4.5.ebuild,v 1.3 2013/01/30 20:50:19 jer Exp $
 
 EAPI=4
 
 inherit eutils gnome2-utils qt4-r2
 
-DESCRIPTION="Fraqtive is a KDE-based program for interactively drawing Mandelbrot and Julia fractals"
+DESCRIPTION="an open source, multi-platform generator of the Mandelbrot family fractals"
 HOMEPAGE="http://fraqtive.mimec.org/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 

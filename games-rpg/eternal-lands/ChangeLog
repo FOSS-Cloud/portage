@@ -1,6 +1,23 @@
 # ChangeLog for games-rpg/eternal-lands
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/eternal-lands/ChangeLog,v 1.65 2012/06/24 16:17:30 rich0 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-rpg/eternal-lands/ChangeLog,v 1.69 2013/01/24 23:20:08 rich0 Exp $
+
+  24 Jan 2013; Richard Freeman <rich0@gentoo.org>
+  eternal-lands-1.9.3-r2.ebuild:
+  Add glew dep - 448596
+
+  24 Jan 2013; Julian Ospald <hasufell@gentoo.org>
+  eternal-lands-1.9.3-r2.ebuild:
+  fix doc useflag wrt #404079
+
+  30 Dec 2012; Julian Ospald <hasufell@gentoo.org>
+  eternal-lands-1.9.3-r2.ebuild:
+  fix useflag deps of media-libs/libsdl
+
+  02 Dec 2012; Richard Freeman <rich0@gentoo.org>
+  eternal-lands-1.9.3-r2.ebuild, +files/eternal-lands-1.9.3-glbuild.patch,
+  +files/eternal-lands-1.9.3-minizip.patch:
+  Fixes for bugs 445658, 423327 - unbundle minizip and fix build issue.
 
   24 Jun 2012; Richard Freeman <rich0@gentoo.org>
   eternal-lands-1.9.3-r2.ebuild:

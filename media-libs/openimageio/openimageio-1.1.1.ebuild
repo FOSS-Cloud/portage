@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/openimageio/openimageio-1.1.1.ebuild,v 1.4 2012/11/26 11:21:13 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/openimageio/openimageio-1.1.1.ebuild,v 1.7 2013/01/16 05:50:00 pinkbyte Exp $
 
 EAPI=5
 
 PYTHON_DEPEND="python? 2:2.7"
 
-inherit cmake-utils multilib python vcs-snapshot
+inherit cmake-utils eutils multilib python vcs-snapshot
 
 DESCRIPTION="A library for reading and writing images"
 HOMEPAGE="http://sites.google.com/site/openimageio/ http://github.com/OpenImageIO"
@@ -14,7 +14,7 @@ SRC_URI="http://github.com/OpenImageIO/oiio/tarball/Release-${PV} -> ${P}.tar.gz
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~ppc64 x86"
 IUSE="jpeg2k opencolorio opencv opengl python qt4 tbb +truetype"
 
 RESTRICT="test" #431412
@@ -31,7 +31,7 @@ RDEPEND="dev-libs/boost[python?]
 	sys-libs/zlib
 	virtual/jpeg
 	jpeg2k? ( >=media-libs/openjpeg-1.5 )
-	opencolorio? ( >=media-gfx/opencolorio-1.0.7 )
+	opencolorio? ( >=media-libs/opencolorio-1.0.7 )
 	opencv? ( >=media-libs/opencv-2.3 )
 	opengl? (
 		virtual/glu
@@ -56,6 +56,8 @@ pkg_setup() {
 }
 
 src_prepare() {
+	epatch "${FILESDIR}"/${P}-x86-build.patch #444784
+
 	# remove bundled code to make it build
 	# https://github.com/OpenImageIO/oiio/issues/403
 	rm */pugixml* || die

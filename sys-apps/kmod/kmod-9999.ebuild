@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-9999.ebuild,v 1.40 2012/11/25 09:42:58 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-9999.ebuild,v 1.46 2013/01/18 17:01:13 ssuominen Exp $
 
 EAPI=4
 
@@ -54,14 +54,15 @@ src_prepare()
 src_configure()
 {
 	econf \
-		--bindir=/sbin \
+		--disable-silent-rules \
+		--bindir=/bin \
+		--with-rootlibdir=/$(get_libdir) \
 		$(use_enable static-libs static) \
 		$(use_enable tools) \
 		$(use_enable debug) \
 		$(use_enable doc gtk-doc) \
 		$(use_with lzma xz) \
-		$(use_with zlib) \
-		--with-rootlibdir=/$(get_libdir)
+		$(use_with zlib)
 }
 
 src_install()
@@ -70,11 +71,15 @@ src_install()
 	prune_libtool_files
 
 	if use tools; then
-		local cmd
-		for cmd in depmod insmod modinfo modprobe rmmod; do
-			dosym kmod /sbin/${cmd}
+		local bincmd sbincmd
+		for sbincmd in depmod insmod lsmod modinfo modprobe rmmod; do
+			dosym /bin/kmod /sbin/${sbincmd}
 		done
-		dosym /sbin/kmod /bin/lsmod
+
+		# These are also usable as normal user
+		for bincmd in lsmod modinfo; do
+			dosym kmod /bin/${bincmd}
+		done
 	fi
 
 	cat <<-EOF > "${T}"/usb-load-ehci-first.conf

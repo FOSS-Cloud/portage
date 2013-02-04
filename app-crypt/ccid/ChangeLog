@@ -1,6 +1,37 @@
 # ChangeLog for app-crypt/ccid
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/ccid/ChangeLog,v 1.86 2012/11/16 16:33:23 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/ccid/ChangeLog,v 1.96 2013/01/16 20:51:28 flameeyes Exp $
+
+*ccid-1.4.9 (16 Jan 2013)
+
+  16 Jan 2013; Diego E. Pettenò <flameeyes@gentoo.org> +ccid-1.4.9.ebuild:
+  Version bump.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ccid-1.4.8.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ccid-1.4.8.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ccid-1.4.8.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  28 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org> -ccid-1.4.2.ebuild,
+  -ccid-1.4.5.ebuild:
+  Cleanup old.
+
+  14 Dec 2012; Alon Bar-Lev <alonbl@gentoo.org> ccid-1.4.8.ebuild:
+  Enable verbose build, bug#443130 by Agostino Sarubbo
+
+  11 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> ccid-1.4.2.ebuild,
+  ccid-1.4.5.ebuild, ccid-1.4.8.ebuild:
+  Use udev_newrules function to install udev rules into correct path.
+
+  11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> ccid-1.4.8.ebuild:
+  virtualized references to sys-fs/udev
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> ccid-1.4.8.ebuild:
+  x86 stable wrt bug #442432
 
   16 Nov 2012; Jeroen Roovers <jer@gentoo.org> ccid-1.4.8.ebuild:
   Stable for HPPA (bug #442432).

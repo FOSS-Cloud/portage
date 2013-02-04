@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/3to2/3to2-1.0.ebuild,v 1.1 2012/11/09 00:15:59 chutzpah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/3to2/3to2-1.0.ebuild,v 1.5 2013/01/18 23:55:44 mgorny Exp $
 
-EAPI=4
+EAPI=5
 
 PYTHON_COMPAT=(python2_7)
 inherit distutils-r1
@@ -16,5 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="${PYTHON_DEPS}"
-RDEPEND="${DEPEND}"
+python_test() {
+	cd "${BUILD_DIR}"/lib || die
+	# the standard test runner fails to properly return failure
+	"${PYTHON}" -m unittest discover || die "Tests fail with ${EPYTHON}"
+}

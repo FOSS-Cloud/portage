@@ -1,6 +1,33 @@
 # ChangeLog for games-arcade/methane
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/methane/ChangeLog,v 1.19 2012/05/04 04:22:28 jdhore Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-arcade/methane/ChangeLog,v 1.26 2013/01/18 09:41:20 mr_bones_ Exp $
+
+  18 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/methane-1.4.8-gcc46.patch, -files/methane-1.4.8-ldflags.patch,
+  -methane-1.4.8.ebuild:
+  old
+
+  18 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org> methane-1.5.1.ebuild:
+  stable for amd64 and x86 (bug #449898)
+
+  05 Jan 2013; Julian Ospald <hasufell@gentoo.org>
+  files/methane-1.5.1-gentoo.patch:
+  use correct compiler wrt #450446
+
+  05 Jan 2013; Julian Ospald <hasufell@gentoo.org> methane-1.5.1.ebuild:
+  we want mkdir, not dodir :o
+
+  05 Jan 2013; Julian Ospald <hasufell@gentoo.org> methane-1.5.1.ebuild:
+  fix parallel make issue wrt #450422
+
+  05 Jan 2013; Julian Ospald <hasufell@gentoo.org> methane-1.5.1.ebuild:
+  fix dependencies wrt #450422
+
+*methane-1.5.1 (29 Nov 2012)
+
+  29 Nov 2012; Tupone Alfredo <tupone@gentoo.org> +methane-1.5.1.ebuild,
+  +files/methane-1.5.1-gentoo.patch:
+  Version bump to 1.5.1 Bug #349548 by Hans Meier
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org> methane-1.4.8.ebuild:
   dev-util/pkgconfig -> virtual/pkgconfig

@@ -1,6 +1,26 @@
 # ChangeLog for media-plugins/gst-plugins-ffmpeg
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-ffmpeg/ChangeLog,v 1.143 2012/09/20 12:49:36 xarthisius Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-ffmpeg/ChangeLog,v 1.148 2013/02/04 00:00:23 ago Exp $
+
+  04 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-ffmpeg-0.10.13-r2.ebuild:
+  Stable for ia64, wrt bug #454906
+
+  20 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> metadata.xml:
+  Switch to global orc USE flag.
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-ffmpeg-0.10.13-r1.ebuild:
+  Restore 0.10.13-r1 due to bug #423717, thanks to Hanno for reminding me.
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  gst-plugins-ffmpeg-0.10.11-r1.ebuild, gst-plugins-ffmpeg-0.10.13-r2.ebuild:
+  Add missing gstreamer slots.
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  -gst-plugins-ffmpeg-0.10.9.ebuild, -gst-plugins-ffmpeg-0.10.12.ebuild,
+  -gst-plugins-ffmpeg-0.10.13-r1.ebuild:
+  Clean up old revisions.
 
   20 Sep 2012; Kacper Kowalik <xarthisius@gentoo.org>
   gst-plugins-ffmpeg-0.10.13-r2.ebuild:

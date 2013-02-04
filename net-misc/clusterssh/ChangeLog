@@ -1,6 +1,24 @@
 # ChangeLog for net-misc/clusterssh
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/clusterssh/ChangeLog,v 1.9 2012/03/02 13:35:29 ultrabug Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/clusterssh/ChangeLog,v 1.14 2013/01/14 10:08:02 jlec Exp $
+
+  14 Jan 2013; Justin Lecher <jlec@gentoo.org> -clusterssh-3.28.ebuild:
+  Drop old, fix #426810
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> clusterssh-4.01.01.ebuild:
+  Stable for x86, wrt bug #447672
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> clusterssh-4.01.01.ebuild:
+  Stable for amd64, wrt bug #447672
+
+  23 Dec 2012; Justin Lecher <jlec@gentoo.org> clusterssh-4.01.01.ebuild:
+  Add missing new test dep, #447884
+
+  18 Dec 2012; Justin Lecher <jlec@gentoo.org> -clusterssh-3.26.ebuild,
+  -clusterssh-4.00_pre06.ebuild, -clusterssh-4.00_pre11.ebuild,
+  clusterssh-4.01.01.ebuild, +files/clusterssh-4.01.01-testfix-1.patch,
+  metadata.xml:
+  Drop old; Fix tests, #430664
 
   02 Mar 2012; Ultrabug <ultrabug@gentoo.org> clusterssh-4.01.01.ebuild:
   Fix RDEPEND #406001 thx to Drunkard Zhang
@@ -197,4 +215,3 @@
 
   13 Jul 2004; Michael Imhof <tantive@gentoo.org> +clusterssh-2.14.ebuild:
   Initial import. Closes #52728.
-

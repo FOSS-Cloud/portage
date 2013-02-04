@@ -1,6 +1,27 @@
 # ChangeLog for net-firewall/shorewall6-lite
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/shorewall6-lite/ChangeLog,v 1.41 2012/10/12 18:17:40 constanze Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/shorewall6-lite/ChangeLog,v 1.46 2013/01/30 05:41:22 jer Exp $
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> shorewall6-lite-4.5.8.2.ebuild:
+  Stable for HPPA (bug #452830).
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> shorewall6-lite-4.5.8.2.ebuild:
+  Stable for alpha, wrt bug #452830
+
+  18 Jan 2013; Agostino Sarubbo <ago@gentoo.org> shorewall6-lite-4.5.8.2.ebuild:
+  Stable for x86, wrt bug #452830
+
+  18 Jan 2013; Agostino Sarubbo <ago@gentoo.org> shorewall6-lite-4.5.8.2.ebuild:
+  Stable for amd64, wrt bug #452830
+
+*shorewall6-lite-4.5.11.2 (18 Jan 2013)
+
+  18 Jan 2013; Constanze Hausner <constanze@gentoo.org>
+  -shorewall6-lite-4.4.15.1.ebuild, -shorewall6-lite-4.4.27.ebuild,
+  -shorewall6-lite-4.4.27-r1.ebuild, -shorewall6-lite-4.5.0.1.ebuild,
+  -shorewall6-lite-4.5.4.2.ebuild, -shorewall6-lite-4.5.6.2.ebuild,
+  +shorewall6-lite-4.5.11.2.ebuild:
+  Version bump and cleanup of old versions
 
 *shorewall6-lite-4.5.8.2 (12 Oct 2012)
 
@@ -228,4 +249,3 @@
   22 Jan 2009; Peter Volkov <pva@gentoo.org> +files/shorewall6-lite.initd,
   +metadata.xml, +shorewall6-lite-4.2.4.1.ebuild:
   Initial import, bug #255437, thank Vieri for all work.
-

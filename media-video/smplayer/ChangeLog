@@ -1,6 +1,33 @@
 # ChangeLog for media-video/smplayer
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/smplayer/ChangeLog,v 1.122 2012/10/29 19:45:40 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/smplayer/ChangeLog,v 1.129 2013/01/25 14:40:53 ago Exp $
+
+  25 Jan 2013; Agostino Sarubbo <ago@gentoo.org> smplayer-0.8.3.ebuild:
+  Stable for amd64, wrt bug #453484
+
+  25 Jan 2013; Agostino Sarubbo <ago@gentoo.org> smplayer-0.8.3.ebuild:
+  Stable for x86, wrt bug #453484
+
+  24 Jan 2013; Jeroen Roovers <jer@gentoo.org> smplayer-0.8.3.ebuild:
+  Stable for HPPA (bug #453484).
+
+  16 Jan 2013; Ben de Groot <yngwin@gentoo.org> -smplayer-0.8.0.ebuild,
+  -smplayer-0.8.2.1.ebuild, smplayer-0.8.3.ebuild:
+  remove old; prefer mplayer2 (bug #452440)
+
+*smplayer-0.8.3 (23 Dec 2012)
+
+  23 Dec 2012; Ben de Groot <yngwin@gentoo.org> +smplayer-0.8.3.ebuild:
+  version bump
+
+  10 Dec 2012; Agostino Sarubbo <ago@gentoo.org> smplayer-0.8.2.1.ebuild:
+  Add ~ppc, wrt bug #383945
+
+*smplayer-0.8.2.1 (05 Dec 2012)
+
+  05 Dec 2012; Michael Palimaka <kensington@gentoo.org>
+  +smplayer-0.8.2.1.ebuild:
+  Version bump, wrt bug #445212.
 
   29 Oct 2012; Jeroen Roovers <jer@gentoo.org> smplayer-0.8.1.ebuild:
   Stable for HPPA (bug #439258).

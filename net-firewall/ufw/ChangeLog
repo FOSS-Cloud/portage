@@ -1,6 +1,20 @@
 # ChangeLog for net-firewall/ufw
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/ufw/ChangeLog,v 1.10 2012/10/14 19:06:35 thev00d00 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/ufw/ChangeLog,v 1.12 2012/12/17 19:20:54 hwoarang Exp $
+
+*ufw-0.34_pre805 (17 Dec 2012)
+
+  17 Dec 2012; Markos Chandras <hwoarang@gentoo.org> +ufw-0.34_pre805.ebuild,
+  metadata.xml:
+  Version bump. Fixes bug #437266. Thanks to slawomir.nizio@sabayon.org
+
+*ufw-0.33-r2 (06 Dec 2012)
+*ufw-0.31.1-r2 (06 Dec 2012)
+
+  06 Dec 2012; Ian Whyman <thev00d00@gentoo.org> -ufw-0.31.1-r1.ebuild,
+  +ufw-0.31.1-r2.ebuild, -ufw-0.33-r1.ebuild, +ufw-0.33-r2.ebuild:
+  Install check-requirements script. 0.33 now requires iptables w/ ipv6 support
+  (bug #437266). Thanks to Sławomir Nizio
 
 *ufw-0.33-r1 (14 Oct 2012)
 *ufw-0.31.1-r1 (14 Oct 2012)
@@ -62,4 +76,3 @@
   +files/ufw-2.initd, +files/ufw.confd, +files/ufw-dont-check-iptables.patch,
   +files/ufw-move-path.patch, +metadata.xml:
   Initial import, bug #264912, thank Sławomir Nizio for this job.
-

@@ -1,6 +1,30 @@
 # ChangeLog for dev-perl/Spiffy
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Spiffy/ChangeLog,v 1.27 2012/08/05 18:42:56 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Spiffy/ChangeLog,v 1.35 2013/01/06 15:03:59 tove Exp $
+
+  06 Jan 2013; Torsten Veller <tove@gentoo.org> -Spiffy-0.300.0.ebuild:
+  Cleanup
+
+  27 Dec 2012; Raúl Porcel <armin76@gentoo.org> Spiffy-0.310.0.ebuild:
+  alpha/s390/sh/sparc stable wrt #441252
+
+  13 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Spiffy-0.310.0.ebuild:
+  Stable for ia64, wrt bug #441252
+
+  09 Dec 2012; Markus Meier <maekke@gentoo.org> Spiffy-0.310.0.ebuild:
+  arm stable, bug #441252
+
+  08 Dec 2012; Jeroen Roovers <jer@gentoo.org> Spiffy-0.310.0.ebuild:
+  Stable for HPPA (bug #441252).
+
+  06 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Spiffy-0.310.0.ebuild:
+  Stable for ppc, wrt bug #441252
+
+  06 Dec 2012; <ago@gentoo.org> Spiffy-0.310.0.ebuild:
+  Stable for x86, wrt bug #441252
+
+  06 Dec 2012; <ago@gentoo.org> Spiffy-0.310.0.ebuild:
+  Stable for amd64, wrt bug #441252
 
 *Spiffy-0.310.0 (05 Aug 2012)
 

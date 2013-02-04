@@ -1,6 +1,18 @@
 # ChangeLog for virtual/jdk
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/jdk/ChangeLog,v 1.51 2012/10/30 20:31:10 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/jdk/ChangeLog,v 1.55 2012/12/08 12:34:59 ago Exp $
+
+  08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> jdk-1.6.0-r1.ebuild:
+  Stable for ppc64, wrt bug #425456
+
+  08 Dec 2012; Rick Farina <zerochaos@gentoo.org> jdk-1.7.0.ebuild:
+  revert improper x86 stabilization wrt #435202 comment 2
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> jdk-1.6.0-r1.ebuild:
+  Stable for ppc, wrt bug #425456
+
+  07 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> jdk-1.7.0.ebuild:
+  x86 stable wrt bug #435202
 
   30 Oct 2012; Fabian Groffen <grobian@gentoo.org> jdk-1.6.0-r1.ebuild,
   jdk-1.7.0.ebuild:

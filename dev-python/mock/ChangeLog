@@ -1,6 +1,21 @@
 # ChangeLog for dev-python/mock
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/mock/ChangeLog,v 1.54 2012/11/13 10:05:56 patrick Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/mock/ChangeLog,v 1.58 2013/01/28 14:27:12 aballier Exp $
+
+  28 Jan 2013; Alexis Ballier <aballier@gentoo.org> mock-1.0.1-r1.ebuild:
+  keyword ~amd64-fbsd
+
+*mock-1.0.1-r1 (08 Jan 2013)
+
+  08 Jan 2013; Michał Górny <mgorny@gentoo.org> +mock-1.0.1-r1.ebuild:
+  Enable python3.3.
+
+  06 Jan 2013; Michał Górny <mgorny@gentoo.org> mock-0.7.1.ebuild,
+  mock-0.7.2.ebuild, mock-0.8.0.ebuild, mock-1.0.0.ebuild, mock-1.0.1.ebuild:
+  Use virtual/python-unittest2.
+
+  06 Dec 2012; Sébastien Fabbro <bicatali@gentoo.org> mock-1.0.1.ebuild:
+  Keyword amd64-linux and x86-linux
 
 *mock-1.0.1 (13 Nov 2012)
 

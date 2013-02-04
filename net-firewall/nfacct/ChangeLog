@@ -1,6 +1,12 @@
 # ChangeLog for net-firewall/nfacct
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/nfacct/ChangeLog,v 1.2 2012/10/23 19:47:55 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/nfacct/ChangeLog,v 1.4 2013/01/30 18:53:03 ago Exp $
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> nfacct-1.0.0.ebuild:
+  Stable for x86, wrt bug #449218
+
+  02 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> nfacct-1.0.0.ebuild:
+  Stable on amd64, wrt bug #449218
 
   23 Oct 2012; Jeroen Roovers <jer@gentoo.org> nfacct-1.0.0.ebuild:
   Update net-libs/libnetfilter_acct dependency.
@@ -10,4 +16,3 @@
   31 Aug 2012; Sergey Popov <pinkbyte@gentoo.org> +nfacct-1.0.0.ebuild,
   +metadata.xml:
   New ebuild for nfacct, wrt bug #429452
-

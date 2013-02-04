@@ -1,6 +1,21 @@
 # ChangeLog for dev-python/imaging
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/imaging/ChangeLog,v 1.75 2012/05/28 14:14:07 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/imaging/ChangeLog,v 1.79 2013/01/24 16:07:48 mgorny Exp $
+
+  24 Jan 2013; Michał Górny <mgorny@gentoo.org> imaging-1.1.7-r2.ebuild:
+  Fix use of includedir on Prefix.
+
+*imaging-1.1.7-r2 (16 Jan 2013)
+
+  16 Jan 2013; Michał Górny <mgorny@gentoo.org> +imaging-1.1.7-r2.ebuild:
+  Migrate to distutils-r1.
+
+  01 Dec 2012; Tim Harder <radhermit@gentoo.org> -imaging-1.1.7.ebuild:
+  Remove old.
+
+  01 Dec 2012; Tim Harder <radhermit@gentoo.org> imaging-1.1.7.ebuild,
+  imaging-1.1.7-r1.ebuild:
+  Fix LICENSE (bug #445416 by ulm).
 
   28 May 2012; Raúl Porcel <armin76@gentoo.org> imaging-1.1.7-r1.ebuild:
   alpha/ia64/sparc stable wrt #410075

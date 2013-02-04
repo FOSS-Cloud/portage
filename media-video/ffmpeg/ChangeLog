@@ -1,6 +1,51 @@
 # ChangeLog for media-video/ffmpeg
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ChangeLog,v 1.587 2012/11/26 14:24:24 scarabeus Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ChangeLog,v 1.598 2013/01/27 23:51:36 aballier Exp $
+
+  27 Jan 2013; Alexis Ballier <aballier@gentoo.org> ffmpeg-9999.ebuild:
+  Add ffescape and fourcc2pixfmt tools
+
+  23 Jan 2013; Alexis Ballier <aballier@gentoo.org> -ffmpeg-1.0.1.ebuild,
+  -ffmpeg-1.1.ebuild:
+  remove old
+
+*ffmpeg-1.1.1 (23 Jan 2013)
+
+  23 Jan 2013; Alexis Ballier <aballier@gentoo.org> +ffmpeg-1.1.1.ebuild:
+  version bump
+
+  17 Jan 2013; Alexis Ballier <aballier@gentoo.org> metadata.xml:
+  Describe what the bindist useflag does here.
+
+  16 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> ffmpeg-0.10.6.ebuild,
+  ffmpeg-1.0.1.ebuild, ffmpeg-1.1.ebuild:
+  Fix compability with libcdio-paranoia.
+
+*ffmpeg-1.1 (13 Jan 2013)
+
+  13 Jan 2013; Alexis Ballier <aballier@gentoo.org> +ffmpeg-1.1.ebuild:
+  version bump
+
+  13 Jan 2013; Alexis Ballier <aballier@gentoo.org> ffmpeg-9999.ebuild:
+  Improve documentation installation and add an examples useflag
+
+  19 Dec 2012; Alexis Ballier <aballier@gentoo.org> -ffmpeg-0.10.2.ebuild,
+  -ffmpeg-0.10.4.ebuild, -ffmpeg-0.10.5.ebuild, -ffmpeg-0.11.1.ebuild,
+  -ffmpeg-0.11.2.ebuild, -ffmpeg-1.0.ebuild:
+  remove old
+
+*ffmpeg-1.0.1 (18 Dec 2012)
+
+  18 Dec 2012; Alexis Ballier <aballier@gentoo.org> +ffmpeg-1.0.1.ebuild:
+  version bump
+
+  08 Dec 2012; Alexis Ballier <aballier@gentoo.org> ffmpeg-0.10.6.ebuild,
+  +files/flashtest.patch:
+  backport upstream fix for the vsynth1-flashsv2 test with recent zlib
+  versions, bug #446390
+
+  08 Dec 2012; Alexis Ballier <aballier@gentoo.org> ffmpeg-9999.ebuild:
+  v4l1 indev is gone, no need to disable it explicitly
 
   26 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> metadata.xml:
   Update to global useflag.

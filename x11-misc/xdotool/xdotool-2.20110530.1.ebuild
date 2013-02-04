@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdotool/xdotool-2.20110530.1.ebuild,v 1.7 2012/11/14 19:51:08 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdotool/xdotool-2.20110530.1.ebuild,v 1.9 2012/12/23 20:27:54 ulm Exp $
 
 EAPI=2
 
@@ -10,9 +10,9 @@ DESCRIPTION="Simulate keyboard input and mouse activity, move and resize windows
 HOMEPAGE="http://www.semicomplete.com/projects/xdotool/"
 SRC_URI="http://semicomplete.googlecode.com/files/${P}.tar.gz"
 
-LICENSE="as-is"
+LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm ~ppc x86"
+KEYWORDS="amd64 arm ppc x86"
 IUSE="examples"
 
 RDEPEND="x11-libs/libXtst
@@ -28,7 +28,7 @@ RESTRICT="test"
 
 src_prepare() {
 	sed -e "s/installheader post-install$/installheader/" \
-	    -i Makefile || die "sed failed"
+		-i Makefile || die "sed failed"
 }
 
 src_compile() {

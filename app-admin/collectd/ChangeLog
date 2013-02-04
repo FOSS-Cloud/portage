@@ -1,6 +1,28 @@
 # ChangeLog for app-admin/collectd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/collectd/ChangeLog,v 1.45 2012/11/19 19:30:06 hwoarang Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/collectd/ChangeLog,v 1.49 2013/01/16 07:23:15 pinkbyte Exp $
+
+  16 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> collectd-5.2.0-r1.ebuild:
+  Sort eclasses inherit order, wrt bug #448480. Changes by Johan Bergström
+
+*collectd-5.2.0-r1 (16 Jan 2013)
+
+  16 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> +collectd-5.2.0-r1.ebuild:
+  Revision bump: add installation of systemd service file and other little
+  fixes, wrt bug #448480. Thanks to Johan Bergström
+
+*collectd-5.2.0 (03 Dec 2012)
+
+  03 Dec 2012; Markos Chandras <hwoarang@gentoo.org> +collectd-5.2.0.ebuild,
+  metadata.xml:
+  Version bump thanks to Johan Bergström <bugs@bergstroem.nu>. Bug #443954
+
+*collectd-5.1.1-r1 (03 Dec 2012)
+
+  03 Dec 2012; Markos Chandras <hwoarang@gentoo.org> +collectd-5.1.1-r1.ebuild,
+  +files/collectd-5.1.1-perl-prefix.patch:
+  Revbump to fix installation path for perl module. Bug #444360 thanks to Johan
+  Bergström <bugs@bergstroem.nu>
 
 *collectd-5.1.1 (19 Nov 2012)
 

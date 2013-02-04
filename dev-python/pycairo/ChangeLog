@@ -1,6 +1,45 @@
 # ChangeLog for dev-python/pycairo
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pycairo/ChangeLog,v 1.119 2012/11/22 12:50:05 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pycairo/ChangeLog,v 1.130 2013/01/14 17:29:27 bicatali Exp $
+
+  14 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org> pycairo-1.10.0-r4.ebuild:
+  Keyworded amd64-linux and x86-linux
+
+  13 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org> pycairo-1.10.0-r4.ebuild:
+  Add python3_3 to the list of supported python.
+
+  13 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org> pycairo-1.10.0-r4.ebuild:
+  Fix ebuild per mgorny's comment.
+
+*pycairo-1.10.0-r4 (13 Jan 2013)
+
+  13 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +pycairo-1.10.0-r4.ebuild:
+  Switch to EAPI=5 and python-r1.eclass.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pycairo-1.10.0-r3.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  05 Jan 2013; Mike Gilbert <floppym@gentoo.org> pycairo-1.10.0-r2.ebuild:
+  Restrict pypy and cleanup src_test.
+
+  05 Jan 2013; Mike Gilbert <floppym@gentoo.org> pycairo-1.10.0-r3.ebuild:
+  Annotate the WAF_BINARY setting thanks to Alexander Patrakov and cleanup
+  src_test. Bug 447856.
+
+  04 Jan 2013; Ian Delaney <idella4@gentoo.org> pycairo-1.10.0-r3.ebuild:
+  Restricting pypy, its capacity to run the testsuite totally broken by the last
+  revbump changes
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pycairo-1.10.0-r3.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pycairo-1.10.0-r3.ebuild:
+  Add ~ia64, wrt bug #442934
+
+  05 Dec 2012; Fabian Groffen <grobian@gentoo.org>
+  +files/py2cairo-1.10.0-ppc-darwin.patch, pycairo-1.10.0-r3.ebuild:
+  Fix for Darwin/Prefix, added *-macos keywords, bug #442934
 
   22 Nov 2012; Anthony G. Basile <blueness@gentoo.org> pycairo-1.10.0-r3.ebuild:
   keyword mips, bug #442934

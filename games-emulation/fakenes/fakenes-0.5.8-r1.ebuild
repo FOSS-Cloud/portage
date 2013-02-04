@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/fakenes/fakenes-0.5.8-r1.ebuild,v 1.7 2012/05/04 04:38:40 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-emulation/fakenes/fakenes-0.5.8-r1.ebuild,v 1.8 2013/01/24 00:26:56 hasufell Exp $
 
 EAPI="2"
 
@@ -33,7 +33,7 @@ src_prepare() {
 	sed -i \
 		-e "s:LIBAGL = agl:LIBAGL = alleggl:" \
 		build/alleggl.cbd || die
-	epatch "${FILESDIR}"/${P}-underlink.patch
+	epatch "${FILESDIR}"/${P}-{underlink,zlib}.patch
 }
 
 src_compile() {
@@ -41,13 +41,13 @@ src_compile() {
 
 	append-ldflags -Wl,-z,noexecstack
 
-	$(tc-getCC) ${CFLAGS} cbuild.c -o cbuild || die "cbuild build failed"
+	$(tc-getBUILD_CC) cbuild.c -o cbuild || die "cbuild build failed"
 
 	use openal || myconf="$myconf -openal"
 	use opengl || myconf="$myconf -alleggl"
 	use zlib   || myconf="$myconf -zlib"
 
-	./cbuild ${myconf} --verbose || die "cbuild failed"
+	LD="$(tc-getCC) ${CFLAGS}" ./cbuild ${myconf} --verbose || die "cbuild failed"
 }
 
 src_install() {

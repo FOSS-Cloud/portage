@@ -1,6 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-pdf-viewer/claws-mail-pdf-viewer-0.9.3.ebuild,v 1.2 2012/11/20 21:19:10 fauli Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-pdf-viewer/claws-mail-pdf-viewer-0.9.3.ebuild,v 1.5 2013/01/03 01:18:19 fauli Exp $
+
+EAPI=5
 
 inherit eutils
 
@@ -12,12 +14,12 @@ HOMEPAGE="http://www.claws-mail.org/"
 SRC_URI="http://www.claws-mail.org/downloads/plugins/${MY_P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="x86 ~amd64"
 IUSE=""
 CDEPEND=">=mail-client/claws-mail-3.9.0"
 RDEPEND="app-text/ghostscript-gpl"
 DEPEND="${CDEPEND}
-		app-text/poppler
+		app-text/poppler[cairo]
 		virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
@@ -25,4 +27,7 @@ S="${WORKDIR}/${MY_P}"
 src_install() {
 	emake DESTDIR="${D}" install || die
 	dodoc AUTHORS ChangeLog README
+
+	# kill useless files
+	rm -f "${D}"/usr/lib*/claws-mail/plugins/*.{a,la}
 }

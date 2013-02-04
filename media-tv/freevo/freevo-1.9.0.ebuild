@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/freevo/freevo-1.9.0.ebuild,v 1.11 2012/06/04 23:49:17 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/freevo/freevo-1.9.0.ebuild,v 1.13 2013/01/17 16:32:21 mgorny Exp $
 
 EAPI="3"
 PYTHON_DEPEND="2:2.5"

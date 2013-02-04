@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-extra/tumbler/tumbler-0.1.25.ebuild,v 1.7 2012/10/12 01:59:33 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/xfce-extra/tumbler/tumbler-0.1.25.ebuild,v 1.9 2013/01/13 10:57:24 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 inherit xfconf
 
 DESCRIPTION="A thumbnail service for the filemanager of Xfce desktop environment"

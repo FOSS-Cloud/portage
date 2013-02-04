@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/pology/pology-0.11.ebuild,v 1.3 2012/11/16 19:49:02 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/pology/pology-0.11.ebuild,v 1.5 2013/01/19 12:01:38 scarabeus Exp $
 
 EAPI=4
 
@@ -13,7 +13,7 @@ inherit python cmake-utils bash-completion-r1 ${VCS_ECLASS}
 unset VCS_ECLASS
 
 DESCRIPTION="A framework for custom processing of PO files."
-HOMEPAGE="http://pology.nedohodnik.nete"
+HOMEPAGE="http://pology.nedohodnik.net"
 [[ ${PV} == 9999 ]] || SRC_URI="http://pology.nedohodnik.net//release/${P}.tar.bz2"
 
 LICENSE="GPL-3"
@@ -21,7 +21,7 @@ SLOT="0"
 
 # Don't move KEYWORDS on the previous line or ekeyword won't work # 399061
 [[ ${PV} == 9999 ]] || \
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE=""
 

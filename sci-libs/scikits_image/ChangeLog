@@ -1,6 +1,19 @@
 # ChangeLog for sci-libs/scikits_image
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/scikits_image/ChangeLog,v 1.7 2012/10/29 12:07:24 bicatali Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/scikits_image/ChangeLog,v 1.9 2013/01/03 20:40:40 bicatali Exp $
+
+  03 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  scikits_image-0.7.2-r1.ebuild:
+  Restricting to all python-3 versions
+
+*scikits_image-0.7.2-r1 (10 Dec 2012)
+
+  10 Dec 2012; Sébastien Fabbro <bicatali@gentoo.org>
+  +scikits_image-0.7.2-r1.ebuild, -scikits_image-0.5.ebuild,
+  -scikits_image-0.6.ebuild, -scikits_image-0.7.2.ebuild, metadata.xml:
+  Fixed dependencies. Removed doc building because of missing files. Restrict
+  more python versions, rewrote test building, added freeimage possible
+  dependency
 
 *scikits_image-0.7.2 (29 Oct 2012)
 

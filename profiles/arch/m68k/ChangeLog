@@ -1,6 +1,16 @@
 # ChangeLog for Gentoo/ia64 profile
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/m68k/ChangeLog,v 1.22 2012/11/24 21:38:12 floppym Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/m68k/ChangeLog,v 1.25 2013/01/23 11:15:03 armin76 Exp $
+
+  23 Jan 2013; Raúl Porcel <armin76@gentoo.org> package.use.mask:
+  P.use.mask dev-libs/libpcre jit as it fails to build, unsupported
+  architecture
+
+  20 Jan 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Remove duplicate pypy/jython masks (masked in base profile now).
+
+  18 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> use.mask:
+  Mask USE="cman clvm" because cman and libdlm are not keyworded on this arch.
 
   24 Nov 2012; Mike Gilbert <floppym@gentoo.org> use.mask:
   Mask python_single_target values not supported on this arch.

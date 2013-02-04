@@ -1,3 +1,65 @@
+# ChangeLog for dev-python/pypax
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pypax/ChangeLog,v 1.42 2013/01/13 15:44:57 blueness Exp $
+
+  13 Jan 2013; Anthony G. Basile <blueness@gentoo.org> pypax-0.8.1.ebuild:
+  distutils_src_compile dropped in distutils-r1, bug #451814
+
+  13 Jan 2013; Anthony G. Basile <blueness@gentoo.org> -pypax-0.6.0.ebuild:
+  Remove older stable
+
+  10 Jan 2013; Anthony G. Basile <blueness@gentoo.org> pypax-0.7.0.ebuild:
+  Stable x86, bug #445334
+
+  06 Jan 2013; Anthony G. Basile <blueness@gentoo.org> pypax-0.8.1.ebuild:
+  Obsessing over the DESCRIPTION
+
+  06 Jan 2013; Anthony G. Basile <blueness@gentoo.org> -pypax-0.8.0.ebuild:
+  Remove deprecated unstable version
+
+*pypax-0.8.1 (06 Jan 2013)
+
+  06 Jan 2013; Anthony G. Basile <blueness@gentoo.org> +pypax-0.8.1.ebuild,
+  pypax-0.7.0.ebuild:
+  Minor version bump, switch to distutils-r1 and EAPI=5
+
+  31 Dec 2012; Jeroen Roovers <jer@gentoo.org> pypax-0.7.0.ebuild:
+  Stable for HPPA (bug #445334).
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> pypax-0.7.0.ebuild:
+  Stable for alpha, wrt bug #445334
+
+  29 Dec 2012; Anthony G. Basile <blueness@gentoo.org> -pypax-0.5.2.ebuild:
+  Remove older version, bug #440018
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> pypax-0.7.0.ebuild:
+  Stable for sparc, wrt bug #445334
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> pypax-0.7.0.ebuild:
+  Stable for ia64, wrt bug #445334
+
+  18 Dec 2012; Anthony G. Basile <blueness@gentoo.org> pypax-0.7.0.ebuild:
+  stable arm ppc ppc64, bug #445334
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> pypax-0.7.0.ebuild:
+  Stable for amd64, wrt bug #445334
+
+*pypax-0.7.0 (17 Dec 2012)
+
+  17 Dec 2012; Anthony G. Basile <blueness@gentoo.org> +pypax-0.7.0.ebuild:
+  Version bump: improved flag setting logic
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> pypax-0.6.0.ebuild:
+  x86 stable wrt bug #445334
+
+  02 Dec 2012; <ago@gentoo.org> pypax-0.6.0.ebuild:
+  Stable for amd64, wrt bug #445334
+
+  30 Nov 2012; Jeroen Roovers <jer@gentoo.org> pypax-0.6.0.ebuild:
+  Stable for HPPA (bug #445334).
+
+  30 Nov 2012; Anthony G. Basile <blueness@gentoo.org> pypax-0.6.0.ebuild:
+  stable arm ppc ppc64, bug #445334
 
 *pypax-0.6.0 (11 Nov 2012)
 

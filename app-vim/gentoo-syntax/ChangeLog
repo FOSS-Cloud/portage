@@ -1,6 +1,26 @@
 # ChangeLog for app-vim/gentoo-syntax
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-vim/gentoo-syntax/ChangeLog,v 1.139 2012/07/25 04:57:31 yngwin Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-vim/gentoo-syntax/ChangeLog,v 1.144 2013/01/27 11:50:39 radhermit Exp $
+
+  27 Jan 2013; Tim Harder <radhermit@gentoo.org> gentoo-syntax-99999999.ebuild:
+  Eclass now removes stray makefiles too.
+
+  27 Jan 2013; Tim Harder <radhermit@gentoo.org> gentoo-syntax-99999999.ebuild:
+  Git directories (and related files) and now removed via the vim-plugin
+  eclass.
+
+  26 Jan 2013; Mike Gilbert <floppym@gentoo.org> gentoo-syntax-99999999.ebuild:
+  Remove the .git directory so that it does not get installed.
+
+*gentoo-syntax-99999999 (24 Jan 2013)
+
+  24 Jan 2013; Tim Harder <radhermit@gentoo.org>
+  +gentoo-syntax-99999999.ebuild:
+  Add live ebuild.
+
+  01 Jan 2013; Fabian Groffen <grobian@gentoo.org>
+  gentoo-syntax-20120109.ebuild:
+  Marked ~x86-freebsd
 
   25 Jul 2012; Ben de Groot <yngwin@gentoo.org> metadata.xml:
   Take over maintainership from spatz.

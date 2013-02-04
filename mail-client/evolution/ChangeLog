@@ -1,6 +1,42 @@
 # ChangeLog for mail-client/evolution
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/evolution/ChangeLog,v 1.376 2012/11/26 16:19:56 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/evolution/ChangeLog,v 1.384 2013/02/02 22:43:45 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> evolution-3.6.2-r1.ebuild:
+  Add ~arm, wrt bug #449220
+
+*evolution-3.6.3 (22 Jan 2013)
+
+  22 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +evolution-3.6.3.ebuild:
+  Version bump with various bugfixes. Modernize ebuild.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> evolution-3.6.2-r1.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> evolution-3.6.2-r1.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> evolution-3.6.2-r1.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> evolution-3.6.2-r1.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  24 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  evolution-2.32.3-r1.ebuild, evolution-3.4.4.ebuild,
+  evolution-3.6.2-r1.ebuild:
+  Depend on evolution-data-server with the same major/minor version (bug
+  #448350).
+
+*evolution-3.6.2-r1 (19 Dec 2012)
+
+  19 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -files/evolution-3.2.1-reorder-mx-clutter-gtk.patch,
+  -evolution-3.2.3-r1.ebuild, -files/evolution-3.2.3-g_thread_init.patch,
+  -files/evolution-3.2.3-gmodule-explicit.patch,
+  -files/evolution-3.2.3-gtkhtml-4.4.patch, +evolution-3.6.2-r1.ebuild:
+  Version bump for gnome-3.6. Drop old.
 
   26 Nov 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   evolution-3.2.3-r1.ebuild, evolution-3.4.4.ebuild:

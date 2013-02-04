@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/cmake-utils.eclass,v 1.85 2012/10/25 12:48:58 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/cmake-utils.eclass,v 1.91 2013/01/17 20:18:28 creffett Exp $
 
 # @ECLASS: cmake-utils.eclass
 # @MAINTAINER:
@@ -29,7 +29,7 @@ WANT_CMAKE="${WANT_CMAKE:-always}"
 # @ECLASS-VARIABLE: CMAKE_MIN_VERSION
 # @DESCRIPTION:
 # Specify the minimum required CMake version.  Default is 2.8.4
-CMAKE_MIN_VERSION="${CMAKE_MIN_VERSION:-2.8.4}"
+CMAKE_MIN_VERSION="${CMAKE_MIN_VERSION:-2.8.8}"
 
 # @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES_LIST
 # @DESCRIPTION:
@@ -114,12 +114,15 @@ _use_me_now_inverted() {
 	fi
 }
 
-# @ECLASS-VARIABLE: CMAKE_BUILD_DIR
+# @ECLASS-VARIABLE: BUILD_DIR
 # @DESCRIPTION:
 # Build directory where all cmake processed files should be generated.
 # For in-source build it's fixed to ${CMAKE_USE_DIR}.
 # For out-of-source build it can be overriden, by default it uses
 # ${WORKDIR}/${P}_build.
+#
+# This variable has been called CMAKE_BUILD_DIR formerly.
+# It is set under that name for compatibility.
 
 # @ECLASS-VARIABLE: CMAKE_BUILD_TYPE
 # @DESCRIPTION:
@@ -163,12 +166,31 @@ _check_build_dir() {
 	: ${CMAKE_USE_DIR:=${S}}
 	if [[ -n ${CMAKE_IN_SOURCE_BUILD} ]]; then
 		# we build in source dir
-		CMAKE_BUILD_DIR="${CMAKE_USE_DIR}"
+		BUILD_DIR="${CMAKE_USE_DIR}"
 	else
-		: ${CMAKE_BUILD_DIR:=${WORKDIR}/${P}_build}
+		# Respect both the old variable and the new one, depending
+		# on which one was set by the ebuild.
+		if [[ ! ${BUILD_DIR} && ${CMAKE_BUILD_DIR} ]]; then
+			eqawarn "The CMAKE_BUILD_DIR variable has been renamed to BUILD_DIR."
+			eqawarn "Please migrate the ebuild to use the new one."
+
+			# In the next call, both variables will be set already
+			# and we'd have to know which one takes precedence.
+			_RESPECT_CMAKE_BUILD_DIR=1
+		fi
+
+		if [[ ${_RESPECT_CMAKE_BUILD_DIR} ]]; then
+			BUILD_DIR=${CMAKE_BUILD_DIR:-${WORKDIR}/${P}_build}
+		else
+			: ${BUILD_DIR:=${WORKDIR}/${P}_build}
+		fi
 	fi
-	mkdir -p "${CMAKE_BUILD_DIR}"
-	echo ">>> Working in BUILD_DIR: \"$CMAKE_BUILD_DIR\""
+
+	# Backwards compatibility for getting the value.
+	CMAKE_BUILD_DIR=${BUILD_DIR}
+
+	mkdir -p "${BUILD_DIR}"
+	echo ">>> Working in BUILD_DIR: \"$BUILD_DIR\""
 }
 
 # Determine which generator to use
@@ -328,9 +350,10 @@ enable_cmake-utils_src_configure() {
 	fi
 
 	# Prepare Gentoo override rules (set valid compiler, append CPPFLAGS etc.)
-	local build_rules=${CMAKE_BUILD_DIR}/gentoo_rules.cmake
+	local build_rules=${BUILD_DIR}/gentoo_rules.cmake
 	cat > "${build_rules}" <<- _EOF_
 		SET (CMAKE_AR $(type -P $(tc-getAR)) CACHE FILEPATH "Archive manager" FORCE)
+		SET (CMAKE_ASM_COMPILE_OBJECT "<CMAKE_C_COMPILER> <DEFINES> ${CFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "ASM compile command" FORCE)
 		SET (CMAKE_C_COMPILER $(type -P $(tc-getCC)) CACHE FILEPATH "C compiler" FORCE)
 		SET (CMAKE_C_COMPILE_OBJECT "<CMAKE_C_COMPILER> <DEFINES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "C compile command" FORCE)
 		SET (CMAKE_CXX_COMPILER $(type -P $(tc-getCXX)) CACHE FILEPATH "C++ compiler" FORCE)
@@ -364,7 +387,7 @@ enable_cmake-utils_src_configure() {
 	fi
 
 	# Common configure parameters (invariants)
-	local common_config=${CMAKE_BUILD_DIR}/gentoo_common_config.cmake
+	local common_config=${BUILD_DIR}/gentoo_common_config.cmake
 	local libdir=$(get_libdir)
 	cat > "${common_config}" <<- _EOF_
 		SET (LIB_SUFFIX ${libdir/lib} CACHE STRING "library path suffix" FORCE)
@@ -396,7 +419,7 @@ enable_cmake-utils_src_configure() {
 		"${MYCMAKEARGS}"
 	)
 
-	pushd "${CMAKE_BUILD_DIR}" > /dev/null
+	pushd "${BUILD_DIR}" > /dev/null
 	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is ${mycmakeargs_local[*]}"
 	echo "${CMAKE_BINARY}" "${cmakeargs[@]}" "${CMAKE_USE_DIR}"
 	"${CMAKE_BINARY}" "${cmakeargs[@]}" "${CMAKE_USE_DIR}" || die "cmake failed"
@@ -418,7 +441,7 @@ cmake-utils_src_make() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
-	pushd "${CMAKE_BUILD_DIR}" > /dev/null
+	pushd "${BUILD_DIR}" > /dev/null
 	if [[ $(_generator_to_use) = Ninja ]]; then
 		# first check if Makefile exist otherwise die
 		[[ -e build.ninja ]] || die "Makefile not found. Error during configure stage."
@@ -444,7 +467,7 @@ enable_cmake-utils_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
-	pushd "${CMAKE_BUILD_DIR}" > /dev/null
+	pushd "${BUILD_DIR}" > /dev/null
 	if [[ $(_generator_to_use) = Ninja ]]; then
 		DESTDIR=${D} ninja install "$@" || die "died running ninja install"
 		base_src_install_docs
@@ -464,28 +487,27 @@ enable_cmake-utils_src_install() {
 
 enable_cmake-utils_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
-	local ctestargs
 
 	_check_build_dir
-	pushd "${CMAKE_BUILD_DIR}" > /dev/null
+	pushd "${BUILD_DIR}" > /dev/null
 	[[ -e CTestTestfile.cmake ]] || { echo "No tests found. Skipping."; return 0 ; }
 
-	[[ -n ${TEST_VERBOSE} ]] && ctestargs="--extra-verbose --output-on-failure"
+	[[ -n ${TEST_VERBOSE} ]] && myctestargs+=( --extra-verbose --output-on-failure )
 
-	if ctest ${ctestargs} "$@" ; then
+	if ctest "${myctestargs[@]}" "$@" ; then
 		einfo "Tests succeeded."
 		popd > /dev/null
 		return 0
 	else
 		if [[ -n "${CMAKE_YES_I_WANT_TO_SEE_THE_TEST_LOG}" ]] ; then
 			# on request from Diego
-			eerror "Tests failed. Test log ${CMAKE_BUILD_DIR}/Testing/Temporary/LastTest.log follows:"
+			eerror "Tests failed. Test log ${BUILD_DIR}/Testing/Temporary/LastTest.log follows:"
 			eerror "--START TEST LOG--------------------------------------------------------------"
-			cat "${CMAKE_BUILD_DIR}/Testing/Temporary/LastTest.log"
+			cat "${BUILD_DIR}/Testing/Temporary/LastTest.log"
 			eerror "--END TEST LOG----------------------------------------------------------------"
 			die "Tests failed."
 		else
-			die "Tests failed. When you file a bug, please attach the following file: \n\t${CMAKE_BUILD_DIR}/Testing/Temporary/LastTest.log"
+			die "Tests failed. When you file a bug, please attach the following file: \n\t${BUILD_DIR}/Testing/Temporary/LastTest.log"
 		fi
 
 		# die might not die due to nonfatal

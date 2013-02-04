@@ -1,6 +1,26 @@
 # ChangeLog for dev-python/pyinotify
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyinotify/ChangeLog,v 1.47 2012/02/07 23:09:38 floppym Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyinotify/ChangeLog,v 1.51 2013/01/22 19:48:35 chutzpah Exp $
+
+  22 Jan 2013; Patrick McLean <chutzpah@gentoo.org> pyinotify-0.9.4-r1.ebuild:
+  Make the python 3.3 workaround only apply for python 3.3 and above, fixes bug
+  #453354
+
+  18 Jan 2013; Patrick McLean <chutzpah@gentoo.org>
+  +files/pyinotify-0.9.4-workaround-sandbox-bug.patch,
+  pyinotify-0.9.4-r1.ebuild:
+  Add python-3.3 to PYTHON_TARGETS with a patch to work around bug #438070
+  (works around bug #364877).
+
+*pyinotify-0.9.4-r1 (22 Dec 2012)
+
+  22 Dec 2012; Michał Górny <mgorny@gentoo.org> +pyinotify-0.9.4-r1.ebuild:
+  Migrate to distutils-r1.
+
+*pyinotify-0.9.4 (29 Nov 2012)
+
+  29 Nov 2012; Patrick Lauer <patrick@gentoo.org> +pyinotify-0.9.4.ebuild:
+  Bump
 
   07 Feb 2012; Mike Gilbert <floppym@gentoo.org> pyinotify-0.9.2.ebuild,
   pyinotify-0.9.3.ebuild:
@@ -175,4 +195,3 @@
   +pyinotify-0.6.3.ebuild:
   Initial import, bug 125960. Slightly updated ebuild from Panard
   <panard.inzenet.org>
-

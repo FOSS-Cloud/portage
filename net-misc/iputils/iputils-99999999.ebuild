@@ -1,15 +1,15 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/iputils/iputils-99999999.ebuild,v 1.6 2011/11/09 22:34:11 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/iputils/iputils-99999999.ebuild,v 1.10 2013/01/28 20:05:01 vapier Exp $
 
 # For released versions, we precompile the man/html pages and store
 # them in a tarball on our mirrors.  This avoids ugly issues while
 # building stages, and when the jade/sgml packages are broken (which
 # seems to be more common than would be nice).
 
-EAPI="2"
+EAPI="4"
 
-inherit flag-o-matic eutils toolchain-funcs
+inherit flag-o-matic eutils toolchain-funcs fcaps
 if [[ ${PV} == "99999999" ]] ; then
 	EGIT_REPO_URI="git://www.linux-ipv6.org/gitroot/iputils"
 	inherit git-2
@@ -20,16 +20,22 @@ else
 fi
 
 DESCRIPTION="Network monitoring tools including ping and ping6"
-HOMEPAGE="http://www.linux-foundation.org/en/Net:Iputils"
+HOMEPAGE="http://www.linuxfoundation.org/collaborate/workgroups/networking/iputils"
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="doc idn ipv6 SECURITY_HAZARD ssl static"
+IUSE="caps doc gnutls idn ipv6 SECURITY_HAZARD ssl static"
 
+LIB_DEPEND="caps? ( sys-libs/libcap[static-libs(+)] )
+	idn? ( net-dns/libidn[static-libs(+)] )
+	ipv6? (
+		gnutls? ( net-libs/gnutls[static-libs(+)] )
+		ssl? ( dev-libs/openssl:0[static-libs(+)] )
+	)"
 RDEPEND="!net-misc/rarpd
-	ssl? ( dev-libs/openssl )
-	idn? ( net-dns/libidn )"
+	!static? ( ${LIB_DEPEND//\[static-libs(+)]} )"
 DEPEND="${RDEPEND}
+	static? ( ${LIB_DEPEND} )
 	virtual/os-headers"
 if [[ ${PV} == "99999999" ]] ; then
 	DEPEND+="
@@ -44,51 +50,51 @@ S=${WORKDIR}/${PN}-s${PV}
 
 src_prepare() {
 	epatch "${FILESDIR}"/021109-uclibc-no-ether_ntohost.patch
-	epatch "${FILESDIR}"/${PN}-20100418-openssl.patch #335436
+	epatch "${FILESDIR}"/${PN}-20121221-openssl.patch #335436
 	epatch "${FILESDIR}"/${PN}-20100418-so_mark.patch #335347
-	epatch "${FILESDIR}"/${PN}-20100418-makefile.patch
-	epatch "${FILESDIR}"/${PN}-20100418-proper-libs.patch #332703
-	epatch "${FILESDIR}"/${PN}-20100418-printf-size.patch
-	epatch "${FILESDIR}"/${PN}-20100418-aliasing.patch
-	epatch "${FILESDIR}"/${PN}-20071127-kernel-ifaddr.patch
-	epatch "${FILESDIR}"/${PN}-20070202-idn.patch #218638
-	epatch "${FILESDIR}"/${PN}-20071127-infiniband.patch #377687
-	epatch "${FILESDIR}"/${PN}-20101006-owl-pingsock.diff
+	epatch "${FILESDIR}"/${PN}-20121221-makefile.patch
+	epatch "${FILESDIR}"/${PN}-20121221-printf-size.patch
+	epatch "${FILESDIR}"/${PN}-20121221-owl-pingsock.diff
 	use SECURITY_HAZARD && epatch "${FILESDIR}"/${PN}-20071127-nonroot-floodping.patch
 	use static && append-ldflags -static
-	use ssl && append-cppflags -DHAVE_OPENSSL
-	use ipv6 || sed -i -e 's:IPV6_TARGETS=:#IPV6_TARGETS=:' Makefile
-	export IDN=$(use idn && echo yes)
 }
 
 src_compile() {
 	tc-export CC
-	emake || die
+	emake \
+		USE_CAP=$(usex caps) \
+		USE_IDN=$(usex idn) \
+		USE_GNUTLS=$(usex gnutls) \
+		USE_CRYPTO=$(usex ssl) \
+		$(use ipv6 || echo IPV6_TARGETS=)
 
 	if [[ ${PV} == "99999999" ]] ; then
-		emake -j1 html man || die
+		emake -j1 html man
 	fi
 }
 
+ipv6() { usex ipv6 "$*" '' ; }
+
 src_install() {
 	into /
-	dobin ping || die
-	use ipv6 && dobin ping6
-	dosbin arping || die
+	dobin arping ping $(ipv6 ping6)
 	into /usr
-	dosbin tracepath || die
-	use ipv6 && dosbin trace{path,route}6
-	dosbin clockdiff rarpd rdisc ipg tftpd || die
-
-	fperms 4711 /bin/ping
-	use ipv6 && fperms 4711 /bin/ping6 /usr/sbin/traceroute6
+	dobin clockdiff
+	dosbin rarpd rdisc ipg tftpd tracepath $(ipv6 tracepath6)
 
 	dodoc INSTALL RELNOTES
 	use ipv6 \
 		&& dosym ping.8 /usr/share/man/man8/ping6.8 \
 		|| rm -f doc/*6.8
-	rm -f doc/setkey.8
+	rm -f doc/{setkey,traceroute6}.8
 	doman doc/*.8
 
 	use doc && dohtml doc/*.html
+}
+
+pkg_postinst() {
+	fcaps cap_net_raw \
+		bin/{ar,}ping \
+		$(ipv6 bin/ping6) \
+		usr/bin/clockdiff
 }

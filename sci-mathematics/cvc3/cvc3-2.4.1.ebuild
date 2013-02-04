@@ -1,8 +1,8 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/cvc3/cvc3-2.4.1.ebuild,v 1.2 2012/06/01 02:12:45 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/cvc3/cvc3-2.4.1.ebuild,v 1.5 2012/12/14 09:49:53 ulm Exp $
 
-EAPI="4"
+EAPI="5"
 
 inherit elisp-common
 
@@ -10,39 +10,41 @@ DESCRIPTION="CVC3 is an automatic theorem prover for Satisfiability Modulo Theor
 HOMEPAGE="http://www.cs.nyu.edu/acsys/cvc3/index.html"
 SRC_URI="http://www.cs.nyu.edu/acsys/cvc3/releases/2.4.1/${P}.tar.gz"
 
-LICENSE="BSD MIT as-is zchaff? ( zchaff )"
+LICENSE="BSD MIT HPND zchaff? ( zchaff )"
 RESTRICT="mirror zchaff? ( bindist )"
-SLOT="0"
-KEYWORDS="~x86 ~amd64"
-IUSE="doc emacs isabelle static-libs zchaff"
+SLOT="0/${PV}"
+KEYWORDS="~amd64 ~x86"
+IUSE="doc emacs isabelle test zchaff"
 
-RDEPEND=""
+RDEPEND="dev-libs/gmp
+		isabelle? (
+			>=sci-mathematics/isabelle-2011.1-r1:=
+		)"
 DEPEND="${RDEPEND}
-		>=dev-libs/gmp-5[static-libs?]
 		doc? (
 			app-doc/doxygen
 			media-gfx/graphviz
 		)
 		emacs? (
 			virtual/emacs
-		)
-		isabelle? (
-			>=sci-mathematics/isabelle-2011.1-r1
 		)"
 
 SITEFILE=50${PN}-gentoo.el
 
 src_prepare() {
-	sed -e 's/prefix=@prefix@/prefix=${DESTDIR}@prefix@/' \
-		-e 's/libdir=@libdir@/libdir=${DESTDIR}@libdir@/' \
-		-e 's/mandir=@mandir@/mandir=${DESTDIR}@mandir@/' \
+	sed -e 's#prefix=@prefix@#prefix=$(patsubst %/,%,$(DESTDIR))@prefix@#' \
+		-e 's#libdir=@libdir@#libdir=$(patsubst %/,%,$(DESTDIR))@libdir@#' \
+		-e 's#mandir=@mandir@#mandir=$(patsubst %/,%,$(DESTDIR))@mandir@#' \
 		-i "${S}/Makefile.local.in" \
 		|| die "Could not set DESTDIR in Makefile.local.in"
 }
 
 src_configure() {
+	# --enable-static disables building of shared libraries, statically
+	# links /usr/bin/cvc3 and installs static libraries.
+	# --enable-static --enable-sharedlibs behaves the same as just --enable-static
 	econf \
-		$(use_enable static-libs static) \
+		--enable-dynamic \
 		$(use_enable zchaff)
 
 	if use test; then
@@ -100,9 +102,7 @@ src_install() {
 	if use isabelle; then
 		ISABELLE_HOME="$(isabelle getenv ISABELLE_HOME | cut -d'=' -f 2)" \
 			|| die "isabelle getenv ISABELLE_HOME failed"
-		if [[ -z "${ISABELLE_HOME}" ]]; then
-			die "ISABELLE_HOME empty"
-		fi
+		[[ -n "${ISABELLE_HOME}" ]] || die "ISABELLE_HOME empty"
 		dodir "${ISABELLE_HOME}/contrib/${PN}-${PV}/etc"
 		cat <<- EOF >> "${S}/settings"
 			CVC3_COMPONENT="\$COMPONENT"
@@ -148,7 +148,7 @@ pkg_postrm() {
 			if [ -f "${ROOT}etc/isabelle/components" ]; then
 				# Note: this sed should only match the version of this ebuild
 				# Which is what we want as we do not want to remove the line
-				# of a new E being installed during an upgrade.
+				# of a new CVC3 being installed during an upgrade.
 				sed -e "/contrib\/${PN}-${PV}/d" \
 					-i "${ROOT}etc/isabelle/components"
 			fi

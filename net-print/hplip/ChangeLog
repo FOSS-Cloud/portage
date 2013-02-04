@@ -1,6 +1,22 @@
 # ChangeLog for net-print/hplip
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.253 2012/11/21 10:16:54 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.257 2012/12/15 09:31:35 billie Exp $
+
+  15 Dec 2012; Daniel Pielmeier <billie@gentoo.org> -hplip-3.12.9-r1.ebuild,
+  -hplip-3.12.10a-r1.ebuild:
+  Remove old.
+
+  11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> hplip-3.12.9-r1.ebuild,
+  hplip-3.12.10a.ebuild, hplip-3.12.10a-r1.ebuild, hplip-3.12.11.ebuild:
+  virtualize udev dependency, get udevdir via udev.eclass
+
+*hplip-3.12.11 (30 Nov 2012)
+
+  30 Nov 2012; Daniel Pielmeier <billie@gentoo.org> +hplip-3.12.11.ebuild:
+  Version bump. Switch to EAPI 5.
+
+  28 Nov 2012; Brent Baude <ranger@gentoo.org> hplip-3.12.10a.ebuild:
+  Marking hplip-3.12.10a ppc for bug 439032
 
   21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> hplip-3.12.10a.ebuild:
   Stable for x86, wrt bug #439032

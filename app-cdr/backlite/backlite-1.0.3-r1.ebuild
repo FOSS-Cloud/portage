@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/backlite/backlite-1.0.3-r1.ebuild,v 1.1 2012/11/18 13:15:17 billie Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/backlite/backlite-1.0.3-r1.ebuild,v 1.4 2013/01/22 17:30:36 ago Exp $
 
 EAPI=4
 
-inherit qt4-r2
+inherit qt4-r2 eutils
 
 DESCRIPTION="backlite is a pure QT4 version of k9copy"
 HOMEPAGE="http://k9copy.sourceforge.net/"
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/k9copy/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="mplayer"
 
 # According to the author of backlite/k9copy libdvdread and libdvdnav are
@@ -32,6 +32,8 @@ RDEPEND="${DEPEND}
 src_prepare() {
 	sed -i -e '/^MimeTypes=.*/d' \
 		-e '/^Encoding=.*/d' *.desktop || die
+	epatch "${FILESDIR}/${P}-ffmpeg-0.11.patch" \
+		"${FILESDIR}/${P}-includepaths.patch"
 }
 
 src_configure() {

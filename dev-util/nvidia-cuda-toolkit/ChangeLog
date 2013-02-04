@@ -1,6 +1,50 @@
 # ChangeLog for dev-util/nvidia-cuda-toolkit
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/nvidia-cuda-toolkit/ChangeLog,v 1.53 2012/09/24 00:44:31 vapier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/nvidia-cuda-toolkit/ChangeLog,v 1.61 2013/01/22 17:57:40 jlec Exp $
+
+*nvidia-cuda-toolkit-5.0.35-r2 (22 Jan 2013)
+*nvidia-cuda-toolkit-4.2.9-r2 (22 Jan 2013)
+
+  22 Jan 2013; Justin Lecher <jlec@gentoo.org>
+  +nvidia-cuda-toolkit-4.2.9-r2.ebuild, +nvidia-cuda-toolkit-5.0.35-r2.ebuild:
+  Correct postinst msg logic; fine grade deletion of files
+
+  17 Jan 2013; Justin Lecher <jlec@gentoo.org>
+  nvidia-cuda-toolkit-5.0.35.ebuild, nvidia-cuda-toolkit-5.0.35-r1.ebuild:
+  Correct deps which are only needed with USE=debugger
+
+  17 Jan 2013; Justin Lecher <jlec@gentoo.org>
+  +nvidia-cuda-toolkit-5.0.35.ebuild:
+  Add new dep on libtinfo.so, #452164
+
+  17 Jan 2013; Christoph Junghans <ottxor@gentoo.org> metadata.xml,
+  nvidia-cuda-toolkit-4.2.9-r1.ebuild:
+  fix build on x86 (bug #452388)
+
+*nvidia-cuda-toolkit-5.0.35-r1 (16 Jan 2013)
+
+  16 Jan 2013; Justin Lecher <jlec@gentoo.org>
+  -nvidia-cuda-toolkit-5.0.35.ebuild, +nvidia-cuda-toolkit-5.0.35-r1.ebuild:
+  Correct support gcc version, #452386
+
+  16 Jan 2013; Justin Lecher <jlec@gentoo.org>
+  nvidia-cuda-toolkit-4.2.9-r1.ebuild:
+  x86 and x86_64 packages are different, #452388
+
+  16 Jan 2013; Justin Lecher <jlec@gentoo.org>
+  nvidia-cuda-toolkit-5.0.35.ebuild:
+  Drop old version of gcc which do not provide GLIBCXX_3.4.15;depend on cxx
+  support in gcc
+
+*nvidia-cuda-toolkit-5.0.35 (14 Jan 2013)
+*nvidia-cuda-toolkit-4.2.9-r1 (14 Jan 2013)
+
+  14 Jan 2013; Justin Lecher <jlec@gentoo.org> -nvidia-cuda-toolkit-3.2.ebuild,
+  +nvidia-cuda-toolkit-4.2.9-r1.ebuild, +nvidia-cuda-toolkit-5.0.35.ebuild,
+  +files/cuda-config.in, metadata.xml:
+  Version Bump, #446072 and #451972; fine grad what msg we are showing,
+  #440434; support prefix installations, #405317; drop old, #351702; take the
+  package
 
   24 Sep 2012; Mike Frysinger <vapier@gentoo.org>
   nvidia-cuda-toolkit-3.2.ebuild, nvidia-cuda-toolkit-4.0.ebuild,

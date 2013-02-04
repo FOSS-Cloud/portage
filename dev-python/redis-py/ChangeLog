@@ -1,6 +1,26 @@
 # ChangeLog for dev-python/redis-py
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/redis-py/ChangeLog,v 1.27 2012/10/11 15:41:09 mr_bones_ Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/redis-py/ChangeLog,v 1.32 2013/01/23 15:57:13 mgorny Exp $
+
+  23 Jan 2013; Michał Górny <mgorny@gentoo.org> redis-py-2.7.2-r1.ebuild:
+  Fix installing "tests" module.
+
+*redis-py-2.7.2-r1 (13 Jan 2013)
+
+  13 Jan 2013; Michał Górny <mgorny@gentoo.org> +redis-py-2.7.2-r1.ebuild:
+  Migrate to distutils-r1. Disallow the test server from using TCP sockets.
+  Disable the tests which require TCP sockets.
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> redis-py-2.7.1.ebuild:
+  Stable for x86, wrt bug #449414
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> redis-py-2.7.1.ebuild:
+  Stable for amd64, wrt bug #449414
+
+*redis-py-2.7.2 (31 Dec 2012)
+
+  31 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> +redis-py-2.7.2.ebuild:
+  Version bump to 2.7.2.
 
   11 Oct 2012; Michael Sterrett <mr_bones_@gentoo.org> redis-py-2.7.1.ebuild:
   add missing test to IUSE

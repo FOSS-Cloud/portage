@@ -1,6 +1,31 @@
 # ChangeLog for media-libs/clutter
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter/ChangeLog,v 1.58 2012/07/14 13:19:30 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter/ChangeLog,v 1.63 2013/02/02 22:45:55 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> clutter-1.12.2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> clutter-1.12.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> clutter-1.12.2.ebuild:
+  Add ~ia64, wrt bug #449220
+
+*clutter-1.12.2 (16 Dec 2012)
+
+  16 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +clutter-1.12.2.ebuild, metadata.xml:
+  Version bump for gnome-3.6. Switch to global introspection USE flag.
+
+  05 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -clutter-1.2.14.ebuild, -clutter-1.6.16.ebuild, -clutter-1.6.20.ebuild,
+  -clutter-1.8.2-r1.ebuild,
+  -files/clutter-1.8.2-cogl-fallback-to-non-transparent.patch,
+  -files/clutter-1.8.2-default-resolution.patch,
+  -files/clutter-1.8.2-em-computation.patch,
+  -files/clutter-1.8.2-offscreen-effect-actor-size.patch, clutter-1.8.4.ebuild,
+  -clutter-1.10.4.ebuild, clutter-1.10.8.ebuild:
+  Update to EAPI5. Drop old.
 
   14 Jul 2012; Anthony G. Basile <blueness@gentoo.org> clutter-1.8.4.ebuild,
   clutter-1.10.4.ebuild, clutter-1.10.8.ebuild:
@@ -281,4 +306,3 @@
   +files/clutter-1.0.0-disable-tests.patch, +clutter-1.0.10.ebuild,
   +metadata.xml:
   Initial ebuild for clutter, an opengl-based toolkit for user interfaces
-

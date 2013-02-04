@@ -1,6 +1,36 @@
 # ChangeLog for net-libs/rb_libtorrent
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/rb_libtorrent/ChangeLog,v 1.142 2012/11/22 02:35:12 flameeyes Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/rb_libtorrent/ChangeLog,v 1.150 2013/01/22 20:47:41 hwoarang Exp $
+
+*rb_libtorrent-0.16.7 (22 Jan 2013)
+
+  22 Jan 2013; Markos Chandras <hwoarang@gentoo.org>
+  +rb_libtorrent-0.16.7.ebuild:
+  Version bump
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rb_libtorrent-0.16.5.ebuild:
+  Stable for arm, wrt bug #442314
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> rb_libtorrent-0.16.5.ebuild:
+  Stable for sparc, wrt bug #442314
+
+  26 Dec 2012; Jeff Horelick <jdhore@gentoo.org> rb_libtorrent-0.16.5.ebuild:
+  marked x86 per bug 442314
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> rb_libtorrent-0.16.5.ebuild:
+  Stable for ppc, wrt bug #442314
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> rb_libtorrent-0.16.5.ebuild:
+  Stable for amd64, wrt bug #442314
+
+*rb_libtorrent-0.16.6 (17 Dec 2012)
+
+  17 Dec 2012; Markos Chandras <hwoarang@gentoo.org>
+  +rb_libtorrent-0.16.6.ebuild:
+  Version bump
+
+  10 Dec 2012; Agostino Sarubbo <ago@gentoo.org> rb_libtorrent-0.16.5.ebuild:
+  Stable for ppc64, wrt bug #442314
 
   22 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org>
   -files/rb_libtorrent-0.14.12_boost-1.45.patch,

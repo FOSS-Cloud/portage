@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/liboauth/liboauth-0.9.7.ebuild,v 1.3 2012/09/23 05:52:42 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/liboauth/liboauth-0.9.7.ebuild,v 1.8 2013/02/02 23:04:38 ago Exp $
 
 EAPI=4
 
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz
 
 LICENSE="|| ( GPL-2 MIT )"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x64-macos"
 IUSE="curl doc bindist +nss"
 
 REQUIRED_USE="bindist? ( nss )"
@@ -34,7 +34,7 @@ DEPEND="${CDEPEND}
 	doc? (
 		app-doc/doxygen
 		media-gfx/graphviz
-		media-fonts/freefont-ttf
+		media-fonts/freefont
 	)
 	virtual/pkgconfig"
 

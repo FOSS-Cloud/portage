@@ -1,6 +1,20 @@
 # ChangeLog for app-portage/deltup
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/deltup/ChangeLog,v 1.23 2012/03/15 18:11:44 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/deltup/ChangeLog,v 1.26 2013/01/30 06:04:16 patrick Exp $
+
+*deltup-0.4.5 (30 Jan 2013)
+
+  30 Jan 2013; Patrick Lauer <patrick@gentoo.org> +deltup-0.4.5.ebuild:
+  Bump
+
+  27 Dec 2012; Sergey Popov <pinkbyte@gentoo.org> deltup-0.4.4.ebuild,
+  +files/deltup-0.4.4-gcc47.patch:
+  Fix building with gcc 4.7, wrt bug #429652. Thanks to Diego Elio Pettenò for
+  discovering this issue and eroen - for providing patch
+
+  26 Dec 2012; Paul Varner <fuzzyray@gentoo.org> metadata.xml:
+  Move to maintainer-needed, due to not being maintained by anyone in the
+  tools-portage herd.
 
   15 Mar 2012; Samuli Suominen <ssuominen@gentoo.org> deltup-0.4.4.ebuild,
   +files/deltup-0.4.4-zlib-1.2.5.2.patch:
@@ -84,4 +98,3 @@
   New ebuild thanks to Alexander Jenisch <nt-@gmx.de> in bug 66790, thanks to
   Nicolai Lissner <nlissne@linux01.gwdg.de> for getdelta and ebuild mirroring
   and to Torsten Veller <torsten@veller.net> for previous ebuild enhancements
-

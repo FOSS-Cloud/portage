@@ -1,0 +1,14 @@
+# ChangeLog for net-misc/rancid
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/rancid/ChangeLog,v 1.2 2013/01/23 16:55:15 xmw Exp $
+
+  23 Jan 2013; Michael Weber <xmw@gentoo.org> metadata.xml:
+  fix herd
+
+*rancid-2.3.8 (22 Jan 2013)
+
+  22 Jan 2013; Michael Weber <xmw@gentoo.org> +rancid-2.3.8.ebuild,
+  +files/rancid-2.3.8-buildsystem.patch, +files/rancid-2.3.8-config.patch,
+  +files/rancid-2.3.8-mailprefix.patch, +metadata.xml:
+  Initial import, thanks to all contributors on bug 151846.
+

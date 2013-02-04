@@ -1,6 +1,35 @@
 # ChangeLog for dev-python/simplejson
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/simplejson/ChangeLog,v 1.80 2012/11/20 20:56:30 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/simplejson/ChangeLog,v 1.86 2013/01/13 20:04:12 radhermit Exp $
+
+*simplejson-3.0.7 (13 Jan 2013)
+
+  13 Jan 2013; Tim Harder <radhermit@gentoo.org> +simplejson-3.0.7.ebuild:
+  Version bump and update LICENSE.
+
+*simplejson-3.0.5 (09 Jan 2013)
+
+  09 Jan 2013; Tim Harder <radhermit@gentoo.org> +simplejson-3.0.5.ebuild:
+  Version bump (bug #450562).
+
+*simplejson-3.0.4-r1 (03 Jan 2013)
+
+  03 Jan 2013; Mike Gilbert <floppym@gentoo.org> +simplejson-3.0.4-r1.ebuild:
+  Convert to distutils-r1, which should resolve bug 449978.
+
+*simplejson-3.0.4 (03 Jan 2013)
+
+  03 Jan 2013; Tim Harder <radhermit@gentoo.org> +simplejson-3.0.4.ebuild:
+  Version bump.
+
+*simplejson-3.0.0 (31 Dec 2012)
+
+  31 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> +simplejson-3.0.0.ebuild:
+  Version bump to 3.0.0.
+
+  31 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> -simplejson-2.6.0.ebuild,
+  -simplejson-2.6.1.ebuild:
+  Remove old versions.
 
   20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> simplejson-2.6.2.ebuild:
   Stable for x86, wrt bug #441300

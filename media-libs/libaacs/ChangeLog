@@ -1,6 +1,25 @@
 # ChangeLog for media-libs/libaacs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libaacs/ChangeLog,v 1.13 2012/08/24 12:04:21 xmw Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libaacs/ChangeLog,v 1.19 2013/01/05 08:12:58 radhermit Exp $
+
+  05 Jan 2013; Tim Harder <radhermit@gentoo.org> metadata.xml:
+  Remove whitespace from metadata.
+
+  05 Jan 2013; Tim Harder <radhermit@gentoo.org> -libaacs-0.3.0.ebuild,
+  -libaacs-0.3.1.ebuild, -libaacs-0.4.0.ebuild:
+  Remove old.
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libaacs-0.5.0.ebuild:
+  Stable for x86, wrt bug #441370
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libaacs-0.5.0.ebuild:
+  Stable for ppc64, wrt bug #441370
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libaacs-0.5.0.ebuild:
+  Stable for ppc, wrt bug #441370
+
+  08 Dec 2012; <ago@gentoo.org> libaacs-0.5.0.ebuild:
+  Stable for amd64, wrt bug #441370
 
   24 Aug 2012; Michael Weber <xmw@gentoo.org> libaacs-0.4.0.ebuild:
   ppc stable (bug 422105).

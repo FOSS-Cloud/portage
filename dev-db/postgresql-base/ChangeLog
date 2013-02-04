@@ -1,6 +1,35 @@
 # ChangeLog for dev-db/postgresql-base
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-base/ChangeLog,v 1.214 2012/11/13 16:56:43 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-base/ChangeLog,v 1.217 2013/01/12 19:08:18 titanofold Exp $
+
+*postgresql-base-9.2.2-r1 (12 Jan 2013)
+*postgresql-base-9.1.7-r1 (12 Jan 2013)
+*postgresql-base-9.0.11-r1 (12 Jan 2013)
+*postgresql-base-8.4.15-r1 (12 Jan 2013)
+*postgresql-base-8.3.22-r1 (12 Jan 2013)
+
+  12 Jan 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  +postgresql-base-8.3.22-r1.ebuild, +postgresql-base-8.4.15-r1.ebuild,
+  +postgresql-base-9.0.11-r1.ebuild, +postgresql-base-9.1.7-r1.ebuild,
+  +postgresql-base-9.2.2-r1.ebuild, postgresql-base-9999.ebuild:
+  Fixes bug 444214
+
+*postgresql-base-8.3.22 (10 Dec 2012)
+*postgresql-base-9.1.7 (10 Dec 2012)
+*postgresql-base-8.4.15 (10 Dec 2012)
+*postgresql-base-9.0.11 (10 Dec 2012)
+*postgresql-base-9.2.2 (10 Dec 2012)
+
+  10 Dec 2012; Patrick Lauer <patrick@gentoo.org>
+  +postgresql-base-8.3.22.ebuild, +postgresql-base-8.4.15.ebuild,
+  +postgresql-base-9.0.11.ebuild, +postgresql-base-9.1.7.ebuild,
+  +postgresql-base-9.2.2.ebuild:
+  Bump
+
+  01 Dec 2012; Raúl Porcel <armin76@gentoo.org> postgresql-base-8.3.21.ebuild,
+  postgresql-base-8.4.14.ebuild, postgresql-base-9.0.10.ebuild,
+  postgresql-base-9.1.6.ebuild, postgresql-base-9.2.1.ebuild:
+  alpha/ia64/s390/sh/sparc/x86 stable wrt #441144
 
   13 Nov 2012; Jeroen Roovers <jer@gentoo.org> postgresql-base-8.3.21.ebuild,
   postgresql-base-8.4.14.ebuild, postgresql-base-9.0.10.ebuild,

@@ -1,6 +1,57 @@
 # ChangeLog for dev-lang/spidermonkey
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/ChangeLog,v 1.94 2012/11/25 18:56:52 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/ChangeLog,v 1.105 2013/01/28 14:44:52 aballier Exp $
+
+  28 Jan 2013; Alexis Ballier <aballier@gentoo.org>
+  spidermonkey-1.8.5-r4.ebuild, spidermonkey-1.8.7-r3.ebuild:
+  keyword ~amd64-fbsd
+
+  28 Jan 2013; Alexis Ballier <aballier@gentoo.org>
+  spidermonkey-1.8.5-r4.ebuild, spidermonkey-1.8.7-r3.ebuild:
+  Drop freebsd hacks that do not work anymore.
+
+  06 Jan 2013; Raúl Porcel <armin76@gentoo.org> spidermonkey-1.8.5-r1.ebuild,
+  spidermonkey-1.8.5-r2.ebuild, spidermonkey-1.8.5-r3.ebuild:
+  Mark other non-working versions on ia64
+
+  06 Jan 2013; Raúl Porcel <armin76@gentoo.org> spidermonkey-1.8.5-r4.ebuild,
+  spidermonkey-1.8.7.ebuild, spidermonkey-1.8.7-r2.ebuild,
+  spidermonkey-1.8.7-r3.ebuild:
+  Add ~sh
+
+  06 Jan 2013; Raúl Porcel <armin76@gentoo.org> spidermonkey-1.8.7.ebuild,
+  spidermonkey-1.8.7-r2.ebuild, spidermonkey-1.8.7-r3.ebuild:
+  1.8.7 segfaults on ia64
+
+  06 Jan 2013; Raúl Porcel <armin76@gentoo.org> spidermonkey-1.8.5-r4.ebuild,
+  +files/spidermonkey-1.8.5-ia64-fix.patch,
+  +files/spidermonkey-1.8.5-ia64-static-strings.patch:
+  Add patches for ia64, mark stable, bug #441934
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> spidermonkey-1.8.5-r4.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  19 Dec 2012; Agostino Sarubbo <ago@gentoo.org> spidermonkey-1.8.5-r2.ebuild:
+  Add ~ia64, wrt bug #436668
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> spidermonkey-1.8.5-r1.ebuild:
+  Stable for ia64, wrt bug #436666
+
+*spidermonkey-1.8.7-r3 (11 Dec 2012)
+*spidermonkey-1.8.5-r4 (11 Dec 2012)
+
+  11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> +spidermonkey-1.8.5-r4.ebuild,
+  +spidermonkey-1.8.7-r3.ebuild:
+  do not call python helpers when merging a binary package, bug 446910
+
+*spidermonkey-1.8.7-r2 (06 Dec 2012)
+*spidermonkey-1.8.5-r3 (06 Dec 2012)
+
+  06 Dec 2012; Ian Stakenvicius <axs@gentoo.org> +spidermonkey-1.8.5-r3.ebuild,
+  +files/spidermonkey-1.8.5-symbol-versions.patch,
+  -spidermonkey-1.8.7-r1.ebuild, +spidermonkey-1.8.7-r2.ebuild,
+  +files/spidermonkey-1.8.7-symbol-versions.patch:
+  added symbol versioning to libmozjs, bug 439260 (and others)
 
   25 Nov 2012; Raúl Porcel <armin76@gentoo.org> spidermonkey-1.8.5-r1.ebuild:
   sparc stable wrt #438146

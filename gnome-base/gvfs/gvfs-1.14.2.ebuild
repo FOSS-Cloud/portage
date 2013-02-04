@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/gvfs-1.14.2.ebuild,v 1.1 2012/11/22 23:09:01 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/gvfs-1.14.2.ebuild,v 1.6 2013/01/22 07:49:29 tetromino Exp $
 
-EAPI="4"
+EAPI="5"
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 
@@ -36,8 +36,8 @@ RDEPEND=">=dev-libs/glib-2.33.12:2
 	sys-apps/dbus
 	dev-libs/libxml2:2
 	net-misc/openssh
-	afp? ( >=dev-libs/libgcrypt-1.2.2 )
-	archive? ( app-arch/libarchive )
+	afp? ( >=dev-libs/libgcrypt-1.2.2:= )
+	archive? ( app-arch/libarchive:= )
 	avahi? ( >=net-dns/avahi-0.6 )
 	bluetooth? (
 		>=app-mobilephone/obex-data-server-0.4.5
@@ -51,7 +51,7 @@ RDEPEND=">=dev-libs/glib-2.33.12:2
 		=sys-apps/gnome-disk-utility-3.0.2-r300
 		=sys-apps/gnome-disk-utility-3.0.2-r200 ) )
 	gnome-keyring? ( app-crypt/libsecret )
-	gphoto2? ( >=media-libs/libgphoto2-2.4.7 )
+	gphoto2? ( >=media-libs/libgphoto2-2.4.7:= )
 	gtk? ( >=x11-libs/gtk+-3.0:3 )
 	http? ( >=net-libs/libsoup-gnome-2.26.0 )
 	ios? (
@@ -60,19 +60,27 @@ RDEPEND=">=dev-libs/glib-2.33.12:2
 	samba? ( >=net-fs/samba-3.4.6[smbclient] )
 	systemd? ( sys-apps/systemd )
 	udev? (
-		cdda? ( >=dev-libs/libcdio-0.78.2[-minimal] )
-		|| ( >=sys-fs/udev-171[gudev] >=sys-fs/udev-164-r2[extras] ) )
-	udisks? ( >=sys-fs/udisks-1.97:2[systemd?] )"
+		cdda? ( || ( dev-libs/libcdio-paranoia <dev-libs/libcdio-0.90[-minimal] ) )
+		virtual/udev[gudev] )
+	udisks? ( >=sys-fs/udisks-1.97:2 )"
 DEPEND="${RDEPEND}
 	dev-libs/libxslt
 	>=dev-util/intltool-0.40
 	virtual/pkgconfig
+	dev-util/gdbus-codegen
 	dev-util/gtk-doc-am
 	doc? ( >=dev-util/gtk-doc-1 )"
 
 REQUIRED_USE="cdda? ( udev )"
 
 src_prepare() {
+	# Replace me with correct patch, see #452400
+	if has_version dev-libs/libcdio-paranoia; then
+	sed -i \
+		-e '/#include/s:cdio/paranoia.h:cdio/paranoia/paranoia.h:' \
+		daemon/gvfsbackendcdda.c || die
+	fi
+
 	if use archive; then
 		epatch "${FILESDIR}"/${PN}-1.2.2-expose-archive-backend.patch
 		echo mount-archive.desktop.in >> po/POTFILES.in
@@ -109,6 +117,7 @@ src_configure() {
 		$(use_enable bluetooth obexftp)
 		$(use_enable bluray)
 		$(use_enable cdda)
+		$(use_enable doc gtk-doc)
 		$(use_enable fuse)
 		$(use_enable gdu)
 		$(use_enable gphoto2)

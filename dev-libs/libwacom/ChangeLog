@@ -1,6 +1,19 @@
 # ChangeLog for dev-libs/libwacom
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libwacom/ChangeLog,v 1.7 2012/09/23 12:04:09 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libwacom/ChangeLog,v 1.11 2013/01/06 09:25:13 ago Exp $
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libwacom-0.6.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libwacom-0.6.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libwacom-0.6.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> libwacom-0.5.ebuild,
+  libwacom-0.6.ebuild:
+  Use udev.eclass and virtual/udev.
 
   23 Sep 2012; Anthony G. Basile <blueness@gentoo.org> libwacom-0.6.ebuild:
   Keyword ~arm for gnome-settings-daemon

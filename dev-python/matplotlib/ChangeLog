@@ -1,11 +1,52 @@
 # ChangeLog for dev-python/matplotlib
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/matplotlib/ChangeLog,v 1.127 2012/11/26 06:21:01 idella4 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/matplotlib/ChangeLog,v 1.136 2013/01/30 19:00:31 ago Exp $
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> matplotlib-1.1.1.ebuild:
+  Stable for x86, wrt bug #441278
+
+  09 Jan 2013; Justin Lecher <jlec@gentoo.org> matplotlib-1.2.0.ebuild,
+  matplotlib-1.2.0-r1.ebuild, metadata.xml:
+  Restrict py3.3 as numpy is restricted here; use github mirror definition
+
+  07 Jan 2013; Ian Delaney <idella4@gentoo.org> matplotlib-1.0.1-r1.ebuild,
+  matplotlib-1.1.0.ebuild, matplotlib-1.1.1.ebuild, matplotlib-1.2.0-r1.ebuild,
+  matplotlib-1.2.0.ebuild:
+  all updated to 2013 in header, in 1.2.0-r1; SetSetup updated to encapsulate
+  all patches, DocCheck dropped in src_prepare, replaced with buildDocs to
+  ensure docs are built by py2, test phase likewise updated, closes Bug 449454
+
+  31 Dec 2012; Michał Górny <mgorny@gentoo.org> matplotlib-1.0.1-r1.ebuild,
+  matplotlib-1.1.0.ebuild, matplotlib-1.1.1.ebuild, matplotlib-1.2.0-r1.ebuild,
+  matplotlib-1.2.0.ebuild:
+  Use virtual/pyparsing.
+
+*matplotlib-1.2.0-r1 (08 Dec 2012)
+
+  08 Dec 2012; Ian Delaney <idella4@gentoo.org> +matplotlib-1.2.0-r1.ebuild,
+  files/matplotlib-1.2.0-setup.patch, metadata.xml:
+  rev bump; use flag gtk3 added, conditional of gtk corrected, setup patch
+  upgraded, deps added, use of separate source dirs var added, setting setup.cfg
+  updraded, all of which address build with use gtk/gtk3 by corresponding python
+  version
+
+  30 Nov 2012; Ian Delaney <idella4@gentoo.org> matplotlib-1.2.0.ebuild:
+  Correction to DocCheck to doc check
+
+*matplotlib-1.2.0 (30 Nov 2012)
+
+  30 Nov 2012; Ian Delaney <idella4@gentoo.org>
+  +files/matplotlib-1.2.0-ft-refcount.patch,
+  +files/matplotlib-1.2.0-setup.patch, +matplotlib-1.2.0.ebuild:
+  bump to 1.2.0, test phase upgraded, new ft-refcount.patch from upstream,
+  python3 support but for USE doc requiring  special treatment, ack to users
+  Nicolas Bigaouette <nbigaouette@gmail.com> and Rafał Mużyło <galtgendo@o2.pl>
+  for patches in entered in Bug #443836
 
   26 Nov 2012; Ian Delaney <idella4@gentoo.org>
   files/matplotlib-1.1.1-ft-refcount.patch, matplotlib-1.1.1.ebuild:
   Appended missing hunk to -ft-refcount.patch, reported by, and thanks to, Carl
-  Michal in Bug #442298
+  Michal <michal@physics.ubc.ca> in Bug #442298
 
   06 Nov 2012; Agostino Sarubbo <ago@gentoo.org> matplotlib-1.1.1.ebuild:
   Stable for amd64, wrt bug #441278

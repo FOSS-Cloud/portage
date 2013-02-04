@@ -1,6 +1,15 @@
 # ChangeLog for dev-php/symfony
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/symfony/ChangeLog,v 1.13 2012/11/27 12:34:52 olemarkus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-php/symfony/ChangeLog,v 1.16 2012/12/03 20:47:16 ago Exp $
+
+  03 Dec 2012;  <ago@gentoo.org> -symfony-1.4.18.ebuild, -symfony-1.4.19.ebuild:
+  Remove old
+
+  03 Dec 2012;  <ago@gentoo.org> symfony-1.4.20.ebuild:
+  Stable for x86, wrt bug #444696
+
+  01 Dec 2012; <ago@gentoo.org> symfony-1.4.20.ebuild:
+  Stable for amd64, wrt bug #444696
 
 *symfony-1.4.20 (27 Nov 2012)
 

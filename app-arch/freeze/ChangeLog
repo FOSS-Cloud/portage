@@ -1,6 +1,41 @@
 # ChangeLog for app-arch/freeze
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/freeze/ChangeLog,v 1.19 2012/11/22 18:13:39 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/freeze/ChangeLog,v 1.29 2013/01/13 11:31:59 ago Exp $
+
+  13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> freeze-2.5.0-r1.ebuild:
+  Stable for x86, wrt bug #449920
+
+  07 Jan 2013; Agostino Sarubbo <ago@gentoo.org> freeze-2.5.0-r1.ebuild:
+  Stable for alpha, wrt bug #449920
+
+  05 Jan 2013; Agostino Sarubbo <ago@gentoo.org> freeze-2.5.0-r1.ebuild:
+  Stable for sparc, wrt bug #449920
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> freeze-2.5.0-r1.ebuild:
+  Stable for ppc64, wrt bug #449920
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> freeze-2.5.0-r1.ebuild:
+  Stable for ppc, wrt bug #449920
+
+  03 Jan 2013; Jeroen Roovers <jer@gentoo.org> freeze-2.5.0-r1.ebuild:
+  Stable for HPPA (bug #449920).
+
+  03 Jan 2013; Agostino Sarubbo <ago@gentoo.org> freeze-2.5.0-r1.ebuild:
+  Stable for amd64, wrt bug #449920
+
+  12 Dec 2012; Jeroen Roovers <jer@gentoo.org> freeze-2.5.0-r1.ebuild,
+  +files/freeze-2.5.0-gentoo.patch:
+  Fix symlinks in /usr/bin and mandir.
+
+*freeze-2.5.0-r1 (12 Dec 2012)
+
+  12 Dec 2012; Jeroen Roovers <jer@gentoo.org> freeze-2.5.0.ebuild,
+  +freeze-2.5.0-r1.ebuild:
+  Adjust sleuthkit blocker to a specific minimal version. Revision bump for an
+  ebuild that removes the fcat and fcat.1 symlinks (bug #444872).
+
+  09 Dec 2012; Jeroen Roovers <jer@gentoo.org> freeze-2.5.0.ebuild:
+  Block app-forensics/sleuthkit (bug #444872 by Marc Schiffbauer).
 
   22 Nov 2012; Ulrich Müller <ulm@gentoo.org> freeze-2.5.0.ebuild:
   Fix LICENSE, bug 444342.

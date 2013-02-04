@@ -1,6 +1,17 @@
 # ChangeLog for dev-python/whoosh
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/whoosh/ChangeLog,v 1.6 2012/09/13 16:35:49 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/whoosh/ChangeLog,v 1.9 2013/01/14 11:06:32 blueness Exp $
+
+*whoosh-2.4.1-r1 (14 Jan 2013)
+
+  14 Jan 2013; Anthony G. Basile <blueness@gentoo.org> +whoosh-2.4.1-r1.ebuild:
+  Switch to distutils-r1, bug #451976
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> whoosh-2.4.1.ebuild:
+  Stable for x86, wrt bug #446082
+
+  09 Dec 2012; <ago@gentoo.org> whoosh-2.4.1.ebuild:
+  Stable for amd64, wrt bug #446082
 
   13 Sep 2012; Anthony G. Basile <blueness@gentoo.org> whoosh-2.4.0.ebuild,
   whoosh-2.4.1.ebuild:

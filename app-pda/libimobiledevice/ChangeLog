@@ -1,6 +1,21 @@
 # ChangeLog for app-pda/libimobiledevice
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-pda/libimobiledevice/ChangeLog,v 1.37 2012/11/03 07:19:09 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-pda/libimobiledevice/ChangeLog,v 1.40 2013/02/02 22:23:16 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  libimobiledevice-1.1.4-r2.ebuild:
+  Add ~arm, wrt bug #449220
+
+*libimobiledevice-1.1.4-r3 (16 Jan 2013)
+
+  16 Jan 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +libimobiledevice-1.1.4-r3.ebuild:
+  Remove python support because it's unused and broken wrt #451044 by
+  Michelangelo Scopelliti
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  libimobiledevice-1.1.4-r2.ebuild:
+  Add ~ppc, wrt bug #449220
 
   03 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
   -libimobiledevice-1.1.1.ebuild:
@@ -175,4 +190,3 @@
   +libimobiledevice-1.0.0.ebuild, +metadata.xml:
   Added because it is a dep of newer libgpod for bug #311093, ebuild from
   bug #311087
-

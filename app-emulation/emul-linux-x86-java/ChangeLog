@@ -1,6 +1,29 @@
 # ChangeLog for app-emulation/emul-linux-x86-java
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-java/ChangeLog,v 1.120 2012/10/21 10:59:26 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-java/ChangeLog,v 1.124 2013/02/03 17:02:23 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  emul-linux-x86-java-1.6.0.39.ebuild:
+  Stable for amd64, wrt bug #455174
+
+*emul-linux-x86-java-1.6.0.39 (03 Feb 2013)
+
+  03 Feb 2013; Ralph Sennhauser <sera@gentoo.org>
+  -emul-linux-x86-java-1.6.0.37.ebuild, +emul-linux-x86-java-1.6.0.39.ebuild:
+  Security bump. #455174
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  emul-linux-x86-java-1.6.0.38.ebuild:
+  Stable for amd64, wrt bug #451422
+
+*emul-linux-x86-java-1.6.0.38 (19 Dec 2012)
+
+  19 Dec 2012; Ralph Sennhauser <sera@gentoo.org>
+  -emul-linux-x86-java-1.6.0.35.ebuild, +emul-linux-x86-java-1.6.0.38.ebuild,
+  -files/emul-linux-x86-java-1.6.env:
+  Version bump.
+  Remove vulnerable.
+  Remove unused auxiliary files.
 
   21 Oct 2012; Agostino Sarubbo <ago@gentoo.org>
   emul-linux-x86-java-1.6.0.37.ebuild:
@@ -684,4 +707,3 @@
   +files/javasettings_Linux_x86.xml, +metadata.xml,
   +emul-linux-x86-java-1.4.2.02.ebuild:
   Initial release, largely based on blackdown-jre ebuild.
-

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-3.1-r2.ebuild,v 1.5 2012/11/18 11:12:30 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-3.1-r2.ebuild,v 1.9 2013/01/03 23:29:51 voyageur Exp $
 
 EAPI="4"
 PYTHON_DEPEND="2"
@@ -12,7 +12,7 @@ SRC_URI="http://llvm.org/releases/${PV}/${P}.src.tar.gz"
 
 LICENSE="UoI-NCSA"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~ppc x86 ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="amd64 arm ppc x86 ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 IUSE="debug gold +libffi multitarget ocaml test udis86 vim-syntax"
 
 DEPEND="dev-lang/perl
@@ -25,8 +25,7 @@ DEPEND="dev-lang/perl
 	libffi? ( virtual/pkgconfig
 		virtual/libffi )
 	ocaml? ( dev-lang/ocaml )
-	udis86? ( amd64? ( dev-libs/udis86[pic] )
-		!amd64? ( dev-libs/udis86 ) )"
+	udis86? ( dev-libs/udis86[pic(+)] )"
 RDEPEND="dev-lang/perl
 	libffi? ( virtual/libffi )
 	vim-syntax? ( || ( app-editors/vim app-editors/gvim ) )"
@@ -99,6 +98,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-3.0-PPC_macro.patch
 	epatch "${FILESDIR}"/${P}-ivybridge_support.patch
 	epatch "${FILESDIR}"/${P}-fix_debug_line_info.patch
+	epatch "${FILESDIR}"/${P}-ExecutionEngine_tests_xfail_arm.patch
 
 	# Apply r600 OpenCL-related patches, bug #425688
 	epatch "${FILESDIR}"/cl-patches/*.patch

@@ -1,6 +1,37 @@
 # ChangeLog for app-crypt/libsecret
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/libsecret/ChangeLog,v 1.4 2012/10/24 16:47:22 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/libsecret/ChangeLog,v 1.13 2013/01/28 14:56:10 aballier Exp $
+
+  28 Jan 2013; Alexis Ballier <aballier@gentoo.org> libsecret-0.12.ebuild:
+  keyword ~amd64-fbsd
+
+  06 Jan 2013; Markus Meier <maekke@gentoo.org> libsecret-0.12.ebuild:
+  add ~arm, bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libsecret-0.12.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libsecret-0.12.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libsecret-0.12.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libsecret-0.12.ebuild:
+  Add ~ppc, wrt bug #447426
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libsecret-0.12.ebuild:
+  Add ~ppc64, wrt bug #447426
+
+  16 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  libsecret-0.12.ebuild, metadata.xml:
+  Switch to global introspection USE flag. Clean up ebuild a bit.
+
+*libsecret-0.12 (09 Dec 2012)
+
+  09 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -libsecret-0.10.ebuild, +libsecret-0.12.ebuild:
+  Version bump, adds shared memory pool with gcr. Drop old.
 
   24 Oct 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   libsecret-0.11.ebuild:
@@ -23,4 +54,3 @@
   +libsecret-0.10.ebuild, +metadata.xml:
   Add a new library for accessing the freedesktop.org Secret Service API, which
   is implemented by gnome-keyring and ksecrets.
-

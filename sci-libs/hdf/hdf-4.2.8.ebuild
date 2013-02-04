@@ -1,8 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/hdf/hdf-4.2.8.ebuild,v 1.2 2012/10/18 21:24:27 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/hdf/hdf-4.2.8.ebuild,v 1.6 2013/01/04 19:19:54 ago Exp $
 
 EAPI=4
+
+FORTRAN_NEEDED=fortran
 
 inherit eutils fortran-2 toolchain-funcs autotools flag-o-matic
 
@@ -14,7 +16,7 @@ SRC_URI="http://www.hdfgroup.org/ftp/HDF/HDF_Current/src/${MYP}.tar.bz2"
 
 SLOT="0"
 LICENSE="NCSA-HDF"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="fortran szip static-libs"
 
 RDEPEND="
@@ -26,7 +28,8 @@ DEPEND="${RDEPEND}"
 S=${WORKDIR}/${MYP}
 
 src_prepare() {
-	epatch "${FILESDIR}"/4.2.7_p1-autotools.patch
+	epatch "${FILESDIR}"/4.2.7_p1-autotools.patch \
+		"${FILESDIR}"/${PN}-ppc.patch
 	sed -i -e 's/-R/-L/g' config/commence.am || die #rpath
 	eautoreconf
 	[[ $(tc-getFC) = *gfortran ]] && append-fflags -fno-range-check

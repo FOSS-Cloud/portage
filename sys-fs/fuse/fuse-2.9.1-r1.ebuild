@@ -1,9 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse/fuse-2.9.1-r1.ebuild,v 1.6 2012/11/07 04:20:56 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse/fuse-2.9.1-r1.ebuild,v 1.11 2013/01/20 13:09:39 ago Exp $
 
 EAPI=4
-inherit eutils libtool linux-info toolchain-funcs
+inherit eutils libtool linux-info udev toolchain-funcs
 
 MY_P=${P/_/-}
 DESCRIPTION="An interface for filesystems implemented in userspace."
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/fuse/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm hppa ~ia64 ppc ppc64 ~sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="kernel_linux kernel_FreeBSD static-libs"
 
 PDEPEND="kernel_FreeBSD? ( sys-fs/fuse4bsd )"
@@ -37,13 +37,10 @@ src_prepare() {
 }
 
 src_configure() {
-	local UDEV_PATH=/lib/udev
-	has_version sys-fs/udev && UDEV_PATH="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-
 	econf \
 		INIT_D_PATH="${EPREFIX}/etc/init.d" \
 		MOUNT_FUSE_PATH="${EPREFIX}/sbin" \
-		UDEV_RULES_PATH="${EPREFIX}/${UDEV_PATH}/rules.d" \
+		UDEV_RULES_PATH="${EPREFIX}/$(udev_get_udevdir)/rules.d" \
 		$(use_enable static-libs static) \
 		--disable-example
 }

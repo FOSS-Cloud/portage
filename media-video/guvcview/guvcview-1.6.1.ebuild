@@ -1,8 +1,8 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/guvcview/guvcview-1.6.1.ebuild,v 1.2 2012/11/19 11:57:19 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/guvcview/guvcview-1.6.1.ebuild,v 1.5 2012/12/23 12:51:50 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 inherit autotools
 
 MY_P=${PN}-src-${PV}
@@ -21,13 +21,15 @@ RDEPEND=">=dev-libs/glib-2.10
 	>=media-libs/libsdl-1.2.10
 	media-libs/libv4l
 	>=media-libs/portaudio-19_pre
-	sys-fs/udev
+	virtual/udev
 	virtual/ffmpeg
 	x11-libs/gtk+:3
-	pulseaudio? ( >=media-sound/pulseaudio-0.9.15 )"
+	pulseaudio? ( >=media-sound/pulseaudio-0.9.15 )
+	!<sys-kernel/linux-headers-3.4-r2" #448260
 DEPEND="${RDEPEND}
 	dev-util/intltool
 	sys-devel/gettext
+	virtual/os-headers
 	virtual/pkgconfig"
 
 S=${WORKDIR}/${MY_P}
@@ -39,7 +41,6 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--disable-silent-rules \
 		--disable-debian-menu \
 		$(use_enable pulseaudio pulse)
 }

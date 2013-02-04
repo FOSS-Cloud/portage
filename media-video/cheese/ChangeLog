@@ -1,6 +1,30 @@
 # ChangeLog for media-video/cheese
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/cheese/ChangeLog,v 1.62 2012/10/25 20:48:15 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/cheese/ChangeLog,v 1.68 2013/02/02 22:59:02 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> cheese-3.6.2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> cheese-3.6.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> cheese-3.6.2.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> cheese-3.6.2.ebuild:
+  Add ~ia64, wrt bug #449220
+
+*cheese-3.6.2 (19 Dec 2012)
+
+  19 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  cheese-2.32.0.ebuild, -cheese-3.2.2.ebuild, cheese-3.4.2.ebuild,
+  +cheese-3.6.2.ebuild, metadata.xml:
+  Version bump for gnome-3.6 and gstreamer-1.0. Update license. Drop old.
+  Switch to global introspection flag.
+
+  11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> cheese-2.32.0.ebuild,
+  cheese-3.2.2.ebuild, cheese-3.4.2.ebuild:
+  virtualized the udev dependency
 
   25 Oct 2012; Gilles Dartiguelongue <eva@gentoo.org> cheese-3.2.2.ebuild,
   -cheese-3.4.1.ebuild, cheese-3.4.2.ebuild:

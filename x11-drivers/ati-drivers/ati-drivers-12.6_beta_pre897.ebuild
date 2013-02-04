@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ati-drivers-12.6_beta_pre897.ebuild,v 1.8 2012/11/27 02:15:54 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ati-drivers-12.6_beta_pre897.ebuild,v 1.11 2012/12/30 17:05:35 mr_bones_ Exp $
 
 EAPI=4
 
@@ -20,9 +20,11 @@ else
 fi
 IUSE="debug +modules multilib qt4 static-libs"
 
-LICENSE="AMD GPL-2 QPL-1.0 as-is"
+LICENSE="AMD GPL-2 QPL-1.0"
 KEYWORDS="amd64 x86"
 SLOT="1"
+
+RESTRICT="bindist"
 
 RDEPEND="
 	<=x11-base/xorg-server-1.12.49[-minimal]
@@ -58,6 +60,7 @@ DEPEND="${RDEPEND}
 	x11-libs/libXtst
 	sys-apps/findutils
 	app-misc/pax-utils
+	app-arch/unzip
 "
 
 EMULTILIB_PKG="true"
@@ -103,7 +106,7 @@ QA_SONAME="
 	usr/lib\(32\|64\)\?/libamdocl\(32\|64\)\?.so
 "
 
-QA_FLAGS_IGNORED="
+QA_DT_HASH="
 	opt/bin/amdcccle
 	opt/bin/aticonfig
 	opt/bin/atiodcli
@@ -229,9 +232,8 @@ pkg_pretend() {
 	# workaround until bug 365543 is solved
 	if use modules; then
 		linux-info_pkg_setup
-		if linux_config_exists; then
-			_check_kernel_config
-		fi
+		require_configured_kernel
+		_check_kernel_config
 	fi
 }
 
@@ -328,6 +330,10 @@ src_prepare() {
 	# compile fix for linux-3.7
 	# https://bugs.gentoo.org/show_bug.cgi?id=438516
 	epatch "${FILESDIR}/ati-drivers-vm-reserverd.patch"
+
+	# Use ACPI_DEVICE_HANDLE wrapper to make driver build on linux-3.8
+	# see https://bugs.gentoo.org/show_bug.cgi?id=448216
+	epatch "${FILESDIR}/ati-drivers-kernel-3.8-acpihandle.patch"
 
 	cd "${MODULE_DIR}"
 

@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/chromium-9999-r1.ebuild,v 1.148 2012/11/26 01:59:36 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/chromium-9999-r1.ebuild,v 1.163 2013/01/26 04:14:15 phajdan.jr Exp $
 
-EAPI="4"
+EAPI="5"
 PYTHON_DEPEND="2:2.6"
 
 CHROMIUM_LANGS="am ar bg bn ca cs da de el en_GB es es_LA et fa fi fil fr gu he
@@ -21,35 +21,45 @@ SLOT="live"
 KEYWORDS=""
 IUSE="bindist cups gnome gnome-keyring kerberos pulseaudio selinux system-ffmpeg tcmalloc"
 
-RDEPEND="app-arch/bzip2
+RDEPEND="app-accessibility/speech-dispatcher
+	app-arch/bzip2
 	cups? (
 		dev-libs/libgcrypt
 		>=net-print/cups-1.3.11
 	)
-	>=dev-lang/v8-3.15.1.2
+	>=dev-lang/v8-3.15.11.1:=
 	>=dev-libs/elfutils-0.149
 	dev-libs/expat
-	>=dev-libs/icu-49.1.1-r1
+	>=dev-libs/icu-49.1.1-r1:=
+	dev-libs/jsoncpp
 	>=dev-libs/libevent-1.4.13
 	dev-libs/libxml2[icu]
 	dev-libs/libxslt
+	dev-libs/nspr
 	>=dev-libs/nss-3.12.3
+	dev-libs/protobuf
 	gnome? ( >=gnome-base/gconf-2.24.0 )
 	gnome-keyring? ( >=gnome-base/gnome-keyring-2.28.2 )
 	>=media-libs/alsa-lib-1.0.19
 	media-libs/flac
+	media-libs/harfbuzz
 	>=media-libs/libjpeg-turbo-1.2.0-r1
 	media-libs/libpng
 	media-libs/libvpx
 	>=media-libs/libwebp-0.2.0_rc1
+	media-libs/opus
 	media-libs/speex
 	pulseaudio? ( media-sound/pulseaudio )
-	system-ffmpeg? ( >=media-video/ffmpeg-1.0 )
+	system-ffmpeg? ( || (
+		>=media-video/ffmpeg-1.0[opus]
+		<media-video/ffmpeg-1.0
+		media-video/libav
+	) )
 	>=net-libs/libsrtp-1.4.4_p20121108
 	sys-apps/dbus
 	sys-apps/pciutils
 	sys-libs/zlib[minizip]
-	sys-fs/udev
+	virtual/udev
 	virtual/libusb:1
 	x11-libs/gtk+:2
 	x11-libs/libXinerama
@@ -61,11 +71,15 @@ RDEPEND="app-arch/bzip2
 		sys-libs/libselinux
 	)"
 DEPEND="${RDEPEND}
+	!arm? (
+		>=dev-lang/nacl-toolchain-newlib-0_p9093
+		dev-lang/yasm
+	)
 	dev-lang/perl
-	dev-lang/yasm
 	dev-python/ply
 	dev-python/simplejson
 	>=dev-util/gperf-3.0.3
+	sys-apps/hwids
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
 	>=sys-devel/make-3.81-r2
@@ -166,22 +180,17 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# if ! use arm; then
-	#	ebegin "Preparing NaCl newlib toolchain"
-	#	pushd "${T}" >/dev/null || die
-	#	mkdir sdk || die
-	#	cp -a /usr/$(get_libdir)/nacl-toolchain-newlib sdk/nacl-sdk || die
-	#	mkdir -p "${S}"/native_client/toolchain/.tars || die
-	#	tar czf "${S}"/native_client/toolchain/.tars/naclsdk_linux_x86.tgz sdk || die
-	#	popd >/dev/null || die
-	#	eend $?
-	# fi
+	if ! use arm; then
+		mkdir -p out/Release/obj/gen/sdk/toolchain || die
+		cp -a /usr/$(get_libdir)/nacl-toolchain-newlib \
+			out/Release/obj/gen/sdk/toolchain/linux_x86_newlib || die
+		touch out/Release/obj/gen/sdk/toolchain/linux_x86_newlib/stamp.untar || die
+	fi
 
-	# zlib-1.2.5.1-r1 renames the OF macro in zconf.h, bug 383371.
-	# sed -i '1i#define OF(x) x' \
-	#	third_party/zlib/contrib/minizip/{ioapi,{,un}zip}.h || die
+	# Fix build without NaCl glibc toolchain.
+	epatch "${FILESDIR}/${PN}-ppapi-r0.patch"
 
-	epatch "${FILESDIR}/${PN}-system-ffmpeg-r0.patch"
+	epatch "${FILESDIR}/${PN}-system-ffmpeg-r1.patch"
 
 	epatch_user
 
@@ -193,22 +202,14 @@ src_prepare() {
 		\! -path 'third_party/cld/*' \
 		\! -path 'third_party/cros_system_api/*' \
 		\! -path 'third_party/ffmpeg/*' \
-		\! -path 'third_party/flac/flac.h' \
 		\! -path 'third_party/flot/*' \
-		\! -path 'third_party/gpsd/*' \
-		\! -path 'third_party/harfbuzz/*' \
-		\! -path 'third_party/harfbuzz-ng/*' \
 		\! -path 'third_party/hunspell/*' \
 		\! -path 'third_party/hyphen/*' \
 		\! -path 'third_party/iccjpeg/*' \
-		\! -path 'third_party/jsoncpp/*' \
 		\! -path 'third_party/khronos/*' \
 		\! -path 'third_party/leveldatabase/*' \
 		\! -path 'third_party/libjingle/*' \
 		\! -path 'third_party/libphonenumber/*' \
-		\! -path 'third_party/libusb/libusb.h' \
-		\! -path 'third_party/libva/*' \
-		\! -path 'third_party/libvpx/libvpx.h' \
 		\! -path 'third_party/libxml/chromium/*' \
 		\! -path 'third_party/libXNVCtrl/*' \
 		\! -path 'third_party/libyuv/*' \
@@ -219,17 +220,13 @@ src_prepare() {
 		\! -path 'third_party/mt19937ar/*' \
 		\! -path 'third_party/npapi/*' \
 		\! -path 'third_party/openmax/*' \
-		\! -path 'third_party/opus/*' \
 		\! -path 'third_party/ots/*' \
-		\! -path 'third_party/protobuf/*' \
 		\! -path 'third_party/pywebsocket/*' \
 		\! -path 'third_party/qcms/*' \
 		\! -path 'third_party/re2/*' \
-		\! -path 'third_party/scons-2.0.1/*' \
 		\! -path 'third_party/sfntly/*' \
 		\! -path 'third_party/skia/*' \
 		\! -path 'third_party/smhasher/*' \
-		\! -path 'third_party/speex/speex.h' \
 		\! -path 'third_party/sqlite/*' \
 		\! -path 'third_party/tcmalloc/*' \
 		\! -path 'third_party/tlslite/*' \
@@ -237,7 +234,6 @@ src_prepare() {
 		\! -path 'third_party/undoview/*' \
 		\! -path 'third_party/v8-i18n/*' \
 		\! -path 'third_party/webdriver/*' \
-		\! -path 'third_party/webgl_conformance/*' \
 		\! -path 'third_party/webrtc/*' \
 		\! -path 'third_party/widevine/*' \
 		-delete || die
@@ -268,15 +264,15 @@ src_configure() {
 	# drivers, bug #413637.
 	myconf+=" $(gyp_use tcmalloc linux_use_tcmalloc)"
 
-	# TODO: build with NaCl (pnacl is sort of required).
-	myconf+=" -Ddisable_nacl=1"
-
 	# Disable glibc Native Client toolchain, we don't need it (bug #417019).
-	# myconf+=" -Ddisable_glibc=1"
+	myconf+=" -Ddisable_glibc=1"
 
 	# TODO: also build with pnacl
-	# myconf+=" -Ddisable_pnacl=1
-	#	-Dbuild_pnacl_newlib=0"
+	myconf+=" -Ddisable_pnacl=1"
+
+	# It would be awkward for us to tar the toolchain and get it untarred again
+	# during the build.
+	myconf+=" -Ddisable_newlib_untar=1"
 
 	# Make it possible to remove third_party/adobe.
 	echo > "${T}/flapper_version.h" || die
@@ -285,13 +281,14 @@ src_configure() {
 	# Use system-provided libraries.
 	# TODO: use_system_ffmpeg
 	# TODO: use_system_hunspell (upstream changes needed).
-	# TODO: use_system_opus (bug #439884).
 	# TODO: use_system_ssl (http://crbug.com/58087).
 	# TODO: use_system_sqlite (http://crbug.com/22208).
 	myconf+="
 		-Duse_system_bzip2=1
 		-Duse_system_flac=1
+		-Duse_system_harfbuzz=1
 		-Duse_system_icu=1
+		-Duse_system_jsoncpp=1
 		-Duse_system_libevent=1
 		-Duse_system_libjpeg=1
 		-Duse_system_libpng=1
@@ -301,6 +298,9 @@ src_configure() {
 		-Duse_system_libwebp=1
 		-Duse_system_libxml=1
 		-Duse_system_minizip=1
+		-Duse_system_nspr=1
+		-Duse_system_opus=1
+		-Duse_system_protobuf=1
 		-Duse_system_speex=1
 		-Duse_system_v8=1
 		-Duse_system_xdg_utils=1
@@ -310,6 +310,7 @@ src_configure() {
 
 	# Optional dependencies.
 	# TODO: linux_link_kerberos, bug #381289.
+	# TODO: linux_use_libgps, linux_link_libgps.
 	myconf+="
 		$(gyp_use cups)
 		$(gyp_use gnome use_gconf)
@@ -323,7 +324,12 @@ src_configure() {
 	# This makes breakages easier to detect by revdep-rebuild.
 	myconf+="
 		-Dlinux_link_gsettings=1
-		-Dlinux_link_libpci=1"
+		-Dlinux_link_libpci=1
+		-Dlinux_link_libspeechd=1"
+
+	# TODO: use the file at run time instead of effectively compiling it in.
+	myconf+="
+		-Dusb_ids_path=/usr/share/misc/usb.ids"
 
 	if ! use selinux; then
 		# Enable SUID sandbox.
@@ -337,9 +343,12 @@ src_configure() {
 		-Dlinux_use_gold_binary=0
 		-Dlinux_use_gold_flags=0"
 
+	# Always support proprietary codecs.
+	myconf+=" -Dproprietary_codecs=1"
+
 	if ! use bindist && ! use system-ffmpeg; then
 		# Enable H.624 support in bundled ffmpeg.
-		myconf+=" -Dproprietary_codecs=1 -Dffmpeg_branding=Chrome"
+		myconf+=" -Dffmpeg_branding=Chrome"
 	fi
 
 	# Set up Google API keys, see http://www.chromium.org/developers/how-tos/api-keys .
@@ -474,12 +483,12 @@ src_install() {
 
 	doexe out/Release/chromedriver || die
 
-	# if ! use arm; then
-	#	doexe out/Release/nacl_helper{,_bootstrap} || die
-	#	insinto "${CHROMIUM_HOME}"
-	#	doins out/Release/nacl_irt_*.nexe || die
-	#	doins out/Release/libppGoogleNaClPluginChrome.so || die
-	# fi
+	if ! use arm; then
+		doexe out/Release/nacl_helper{,_bootstrap} || die
+		insinto "${CHROMIUM_HOME}"
+		doins out/Release/nacl_irt_*.nexe || die
+		doins out/Release/libppGoogleNaClPluginChrome.so || die
+	fi
 
 	newexe "${FILESDIR}"/chromium-launcher-r2.sh chromium-launcher.sh || die
 	if [[ "${CHROMIUM_SUFFIX}" != "" ]]; then

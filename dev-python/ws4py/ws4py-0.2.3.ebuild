@@ -1,17 +1,15 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ws4py/ws4py-0.2.3.ebuild,v 1.1 2012/10/31 06:51:09 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ws4py/ws4py-0.2.3.ebuild,v 1.3 2013/01/11 15:50:38 idella4 Exp $
 
-# The gevent package isn't in the tree yet, so we delete
-# those implementations.
-#
 # We could depend on dev-python/cherrypy when USE=server, but
 # that is an optional component ...
 # Same for www-servers/tornado and USE=client ...
 
 EAPI="4"
-PYTHON_DEPEND="2:2.6"
-DISTUTILS_SRC_TEST="setup.py"
+PYTHON_DEPEND="*:2.6"
+SUPPORT_PYTHON_ABIS="1"
+DISTUTILS_SRC_TEST="py.test"
 
 inherit distutils eutils
 if [[ ${PV} == "9999" ]] ; then
@@ -33,19 +31,18 @@ IUSE="+client +server test +threads"
 RDEPEND="client? ( dev-lang/python[threads?] )"
 DEPEND="test? (
 		${RDEPEND}
-		dev-python/unittest2
-		dev-python/cherrypy
+		virtual/python-unittest2
+		>=dev-python/cherrypy-3.2.0
 		dev-python/gevent
 	)"
 
 src_prepare() {
-	sed -i -e 's/tests_require=['unittest2', 'gevent', 'cherrypy'],//' setup.py || die "Fail"
+	epatch "${FILESDIR}"/${PN}-0.2-cherrypy_test.patch
+	distutils_src_prepare
 }
 
 src_install() {
 	distutils_src_install
-	# We don't have a gevent pkg in the tree, so punt.
-	rm -rf "${ED}$(python_get_sitedir)"/ws4py/*/gevent*.py
 	use client || rm -rf "${ED}$(python_get_sitedir)"/ws4py/client
 	use server || rm -rf "${ED}$(python_get_sitedir)"/ws4py/server
 }

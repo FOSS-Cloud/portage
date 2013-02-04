@@ -1,6 +1,39 @@
 # ChangeLog for dev-perl/Net-SSLeay
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Net-SSLeay/ChangeLog,v 1.91 2012/10/20 18:57:25 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Net-SSLeay/ChangeLog,v 1.101 2013/01/19 20:30:07 tove Exp $
+
+*Net-SSLeay-1.520.0 (19 Jan 2013)
+
+  19 Jan 2013; Torsten Veller <tove@gentoo.org> +Net-SSLeay-1.520.0.ebuild:
+  Version bump
+
+  06 Jan 2013; Torsten Veller <tove@gentoo.org> -Net-SSLeay-1.360.0.ebuild,
+  -Net-SSLeay-1.480.0-r1.ebuild:
+  Cleanup
+
+  27 Dec 2012; Raúl Porcel <armin76@gentoo.org> Net-SSLeay-1.490.0.ebuild:
+  alpha/m68k/s390/sh/sparc stable wrt #441244
+
+  13 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Net-SSLeay-1.490.0.ebuild:
+  Stable for ia64, wrt bug #441244
+
+  09 Dec 2012; Markus Meier <maekke@gentoo.org> Net-SSLeay-1.490.0.ebuild:
+  arm stable, bug #441244
+
+  08 Dec 2012; Jeroen Roovers <jer@gentoo.org> Net-SSLeay-1.490.0.ebuild:
+  Stable for HPPA (bug #441244).
+
+  06 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Net-SSLeay-1.490.0.ebuild:
+  Stable for ppc64, wrt bug #441244
+
+  06 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Net-SSLeay-1.490.0.ebuild:
+  Stable for ppc, wrt bug #441244
+
+  06 Dec 2012; <ago@gentoo.org> Net-SSLeay-1.490.0.ebuild:
+  Stable for x86, wrt bug #441244
+
+  06 Dec 2012; <ago@gentoo.org> Net-SSLeay-1.490.0.ebuild:
+  Stable for amd64, wrt bug #441244
 
   20 Oct 2012; Raúl Porcel <armin76@gentoo.org> Net-SSLeay-1.480.0-r1.ebuild:
   alpha/ia64/m68k/s390/sh/sparc stable wrt #433249

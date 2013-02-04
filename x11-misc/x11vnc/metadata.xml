@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer>
-    <email>swegener@gentoo.org</email>
-    <description>Primary Maintainer</description>
+	  <email>floppym@gentoo.org</email>
+	  <name>Mike Gilbert</name>
   </maintainer>
   <longdescription>
 The primary goal of this program is to create a portable and simple command-line

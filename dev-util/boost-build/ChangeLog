@@ -1,6 +1,24 @@
 # ChangeLog for dev-util/boost-build
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/boost-build/ChangeLog,v 1.109 2012/11/08 03:19:21 flameeyes Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/boost-build/ChangeLog,v 1.112 2013/01/25 23:03:15 flameeyes Exp $
+
+*boost-build-1.53.0_beta1 (25 Jan 2013)
+
+  25 Jan 2013; Diego E. Pettenò <flameeyes@gentoo.org>
+  +boost-build-1.53.0_beta1.ebuild, -boost-build-1.46.1.ebuild,
+  -boost-build-1.51.0.ebuild:
+  Version bump. Remove obsolete.
+
+  08 Dec 2012; Fabian Groffen <grobian@gentoo.org>
+  +files/boost-build-1.49.0-darwin-gentoo-toolchain.patch,
+  +files/boost-build-1.52.0-darwin-no-python-framework.patch,
+  boost-build-1.52.0-r1.ebuild,
+  files/boost-build-1.50.0-respect-c_ld-flags.patch:
+  Finish Prefix support, add Patches for Darwin and Solaris, add Prefix keywords
+
+  06 Dec 2012; Sébastien Fabbro <bicatali@gentoo.org>
+  boost-build-1.52.0-r1.ebuild:
+  Prefix fix for python
 
 *boost-build-1.52.0-r1 (08 Nov 2012)
 

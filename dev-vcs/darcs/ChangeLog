@@ -1,6 +1,33 @@
 # ChangeLog for dev-vcs/darcs
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/darcs/ChangeLog,v 1.37 2012/11/25 06:24:06 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/darcs/ChangeLog,v 1.43 2012/12/28 08:03:56 gienah Exp $
+
+  28 Dec 2012; Mark Wright <gienah@gentoo.org> +files/darcs-2.8.3-tf-0.8.patch,
+  darcs-2.8.3-r1.ebuild:
+  Fix build failure against dev-haskell/test-framework-0.8
+
+  24 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> -darcs-2.4.4-r1.ebuild,
+  -darcs-2.5.2-r1.ebuild, -darcs-2.5.2-r2.ebuild,
+  -files/darcs-1.0.9-bashcomp.patch,
+  -files/darcs-2.4.4-issue1770-curl_multi_perform-no-running-handles.patch,
+  -files/darcs-2.4.4-tests-emailformat.patch, -files/darcs-2.5.2-ghc-7.2.patch,
+  -files/darcs-2.5.2-ghc-7.4.patch, -files/darcs-2.5.2-mtl-2.1.patch,
+  -files/darcs-2.5.2-relax-http-libs-deps.patch,
+  -files/darcs-2.5.2-relax-regex-libs-deps.patch,
+  -files/darcs-2.5.2-tests-ghc-7.2.patch:
+  Removed old.
+
+  10 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> darcs-2.8.0.ebuild:
+  stable on alpha/ia64/sparc (bug #421351)
+
+  10 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> darcs-2.8.3-r1.ebuild:
+  Ameld lower bounds for test depends.
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> darcs-2.8.0.ebuild:
+  Stable for ppc64, wrt bug #421351
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> darcs-2.8.0.ebuild:
+  Stable for ppc, wrt bug #421351
 
 *darcs-2.8.3-r1 (25 Nov 2012)
 

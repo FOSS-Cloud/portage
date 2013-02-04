@@ -1,6 +1,32 @@
 # ChangeLog for sci-libs/vtk
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/vtk/ChangeLog,v 1.99 2012/09/04 06:28:56 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/vtk/ChangeLog,v 1.106 2013/01/31 08:09:39 jlec Exp $
+
+  31 Jan 2013; Justin Lecher <jlec@gentoo.org> files/vtk-5.10.1-tcl8.6.patch:
+  Backport upstream patch for tcl/tk-8.6.0, #454762
+
+  17 Jan 2013; Alexis Ballier <aballier@gentoo.org> vtk-5.10.1.ebuild,
+  +files/vtk-5.10.1-ffmpeg-1.patch:
+  Fix build with latest ffmpeg. Part of bug #450464.
+
+  15 Jan 2013; Justin Lecher <jlec@gentoo.org> vtk-5.10.1.ebuild,
+  +files/vtk-5.10.1-tcl8.6.patch:
+  Better fix for tcl support
+
+  14 Jan 2013; Justin Lecher <jlec@gentoo.org> vtk-5.10.1.ebuild:
+  Solve problems with USE=examples, #447146
+
+  10 Jan 2013; Justin Lecher <jlec@gentoo.org> vtk-5.10.1.ebuild:
+  Add compatibility fix for tcl8.6
+
+*vtk-5.10.1 (13 Dec 2012)
+
+  13 Dec 2012; Justin Lecher <jlec@gentoo.org> +vtk-5.10.1.ebuild,
+  metadata.xml:
+  Version Bump
+
+  06 Dec 2012; Sébastien Fabbro <bicatali@gentoo.org> vtk-5.10.0.ebuild:
+  Keyword amd64-linux and x86-linux
 
   04 Sep 2012; Justin Lecher <jlec@gentoo.org> -vtk-5.6.1.ebuild,
   -vtk-5.8.0.ebuild:
@@ -418,4 +444,3 @@
   10 May 2005; Patrick Dawson <pkdawson@gentoo.org>
   +files/vtk-4.2.6-gcc34.patch, +vtk-4.2.6.ebuild:
   Initial import. See bug #25335.
-

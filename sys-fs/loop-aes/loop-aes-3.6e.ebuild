@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/loop-aes/loop-aes-3.6e.ebuild,v 1.2 2012/04/29 15:48:48 tomka Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/loop-aes/loop-aes-3.6e.ebuild,v 1.4 2012/12/22 23:40:43 alonbl Exp $
 
 EAPI="3"
 
@@ -23,9 +23,9 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
+	CONFIG_CHECK="!BLK_DEV_LOOP MODULES"
 	linux-mod_pkg_setup
 
-	CONFIG_CHECK="!BLK_DEV_LOOP"
 	MODULE_NAMES="loop(block::tmp-d-kbuild)"
 	BUILD_TARGETS="all"
 

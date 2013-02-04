@@ -1,6 +1,50 @@
 # ChangeLog for sys-devel/clang
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/clang/ChangeLog,v 1.77 2012/08/30 09:41:16 voyageur Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/clang/ChangeLog,v 1.85 2013/02/04 08:50:49 mgorny Exp $
+
+  04 Feb 2013; Michał Górny <mgorny@gentoo.org> clang-3.2.ebuild,
+  clang-9999.ebuild:
+  Use supported Python implementation during build. Fixes bug #455260.
+
+  02 Feb 2013; Michał Górny <mgorny@gentoo.org> clang-3.2.ebuild,
+  clang-9999.ebuild:
+  Migrate to python-r1.
+
+  15 Jan 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Switch to UTF8.
+
+  11 Jan 2013; Richard Yao <ryao@gentoo.org> clang-3.2.ebuild:
+  Drop ~amd64-fbsd ~x64-freebsd keywords due to broken C++ support
+
+  03 Jan 2013; Bernard Cafarelli <voyageur@gentoo.org> clang-2.8-r3.ebuild,
+  clang-2.9-r1.ebuild, clang-3.0-r4.ebuild, clang-3.1-r5.ebuild,
+  clang-3.2.ebuild, clang-9999.ebuild:
+  debug USE-flag needs to be in sync with llvm's one, thanks hasufell in bug
+  #448530
+
+*clang-3.2 (21 Dec 2012)
+
+  21 Dec 2012; Bernard Cafarelli <voyageur@gentoo.org> -clang-3.2_rc3.ebuild,
+  +clang-3.2.ebuild:
+  Bump to final version, remove release candidate
+
+*clang-3.2_rc3 (07 Dec 2012)
+
+  07 Dec 2012; Bernard Cafarelli <voyageur@gentoo.org> +clang-3.2_rc3.ebuild,
+  -clang-3.2_rc2.ebuild:
+  RC bump
+
+*clang-3.2_rc2 (03 Dec 2012)
+
+  03 Dec 2012; Bernard Cafarelli <voyageur@gentoo.org> -clang-3.1-r1.ebuild,
+  -clang-3.1-r2.ebuild, -clang-3.1-r4.ebuild,
+  -files/clang-3.1-fix_cxx_include_root.patch,
+  -files/clang-3.1-gentoo-freebsd-fix-cxx-paths.patch,
+  -files/clang-3.1-gentoo-linux-fix-cxx-include.patch,
+  -files/clang-3.1-gentoo-runtime-gcc-detection.patch, +clang-3.2_rc2.ebuild,
+  clang-9999.ebuild:
+  Release candidate bump, sync changes in live ebuild, remove some 3.1
+  versions. Still need to fix the gentoo-freebsd-fix-cxx-paths patch
 
   30 Aug 2012; Bernard Cafarelli <voyageur@gentoo.org>
   -files/cl-patches/0001-Add-r600-TargetInfo.patch,

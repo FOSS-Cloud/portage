@@ -1,6 +1,42 @@
 # ChangeLog for net-wireless/aircrack-ng
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/aircrack-ng/ChangeLog,v 1.61 2012/07/05 16:05:14 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/aircrack-ng/ChangeLog,v 1.71 2012/12/23 18:15:03 maekke Exp $
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> aircrack-ng-1.1-r2.ebuild:
+  arm stable, bug #311797
+
+*aircrack-ng-1.1-r3 (16 Dec 2012)
+
+  16 Dec 2012; Alon Bar-Lev <alonbl@gentoo.org> +aircrack-ng-1.1-r3.ebuild:
+  respect ar, runlib, bug#447492, thanks to Agostino Sarubbo
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> aircrack-ng-1.1-r2.ebuild:
+  Stable for ppc, wrt bug #311797
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> aircrack-ng-1.1-r2.ebuild:
+  Stable for x86, wrt bug #311797
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> aircrack-ng-1.1-r2.ebuild:
+  Stable for amd64, wrt bug #311797
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> metadata.xml:
+  updated rick mail
+
+*aircrack-ng-1.1-r2 (15 Dec 2012)
+
+  15 Dec 2012; Alon Bar-Lev <alonbl@gentoo.org> +aircrack-ng-1.1-r2.ebuild,
+  +files/aircrack-ng-1.1-CVE-2010-1159.patch, -aircrack-ng-1.1-r1.ebuild:
+  Fix CVE-2010-1159, per bug#311797 by Tim Sammut
+
+  14 Dec 2012; Alon Bar-Lev <alonbl@gentoo.org> -files/aircrack-ng-1.0_rc2-freebsd.patch:
+  remove unused files
+
+*aircrack-ng-1.1-r1 (14 Dec 2012)
+
+  14 Dec 2012; Alon Bar-Lev <alonbl@gentoo.org> +aircrack-ng-1.1-r1.ebuild,
+  +files/aircrack-ng-1.1-sse-pic.patch:
+  Fix hardened toolchain issue, bug#285703, thanks to Rick Farina
+  <zerochaos@gentoo.org>.
 
   05 Jul 2012; Rick Farina <zerochaos@gentoo.org> metadata.xml:
   adding myself as maintainer to better keep in sync with upstream

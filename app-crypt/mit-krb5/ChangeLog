@@ -1,6 +1,44 @@
 # ChangeLog for app-crypt/mit-krb5
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/mit-krb5/ChangeLog,v 1.341 2012/09/25 09:25:29 eras Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/mit-krb5/ChangeLog,v 1.348 2012/12/28 07:29:59 eras Exp $
+
+*mit-krb5-1.11-r1 (28 Dec 2012)
+
+  28 Dec 2012; Eray Aslan <eras@gentoo.org>
+  +files/mit-krb5_krb5-config_LDFLAGS.patch, +mit-krb5-1.11-r1.ebuild:
+  Do not output LDFLAGS in krb5-config --libs output - bug #448778
+
+  24 Dec 2012; Eray Aslan <eras@gentoo.org> -files/2011-006-patch-r18.patch,
+  -files/CVE-2010-1322.patch, -files/CVE-2010-1323.1324.4020.patch,
+  -files/CVE-2010-4022.patch, -files/CVE-2011-0281.0282.0283.patch,
+  -files/CVE-2011-0284.patch, -files/CVE-2011-0285.patch,
+  -files/CVE-2011-1530.patch, -files/mit-krb5-1.10_uninitialized.patch,
+  -files/mit-krb5-1.8.3-CVE-2011-0281.0282.0283.patch,
+  -files/mit-krb5-1.8.3-CVE-2011-0285.patch,
+  -files/mit-krb5-kprop_exit_on_error.patch, -files/mit-krb5_testsuite.patch:
+  Remove old patches
+
+  24 Dec 2012; Eray Aslan <eras@gentoo.org>
+  files/mit-krb5-1.11_uninitialized.patch:
+  Initialize more variables - bug #448398
+
+  20 Dec 2012; Eray Aslan <eras@gentoo.org>
+  +files/mit-krb5-1.11_uninitialized.patch:
+  Add missing patch - bug #447886
+
+*mit-krb5-1.11 (19 Dec 2012)
+
+  19 Dec 2012; Eray Aslan <eras@gentoo.org> +files/mit-krb5kadmind.initd-r1,
+  +files/mit-krb5kdc.initd-r1, +files/mit-krb5kpropd.initd-r1,
+  +mit-krb5-1.11.ebuild:
+  Version bump
+
+  19 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.10.3.ebuild:
+  Add ~ia64, wrt bug #412489
+
+  16 Dec 2012; Ulrich Müller <ulm@gentoo.org> mit-krb5-1.9.4-r1.ebuild,
+  mit-krb5-1.10.2-r1.ebuild, mit-krb5-1.10.3.ebuild:
+  Fix LICENSE, see NOTICE file, bug 447292.
 
   25 Sep 2012; Eray Aslan <eras@gentoo.org> -mit-krb5-1.10.1-r2.ebuild,
   -mit-krb5-1.8.3-r6.ebuild, -mit-krb5-1.9.2-r2.ebuild, -mit-krb5-1.9.4.ebuild:

@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/lilypond/lilypond-9999.ebuild,v 1.1 2012/09/30 02:40:47 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/lilypond/lilypond-9999.ebuild,v 1.2 2013/01/14 03:04:10 radhermit Exp $
 
-EAPI="4"
-PYTHON_DEPEND="2"
+EAPI="5"
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
 
-inherit elisp-common python autotools eutils git-2
+inherit elisp-common autotools eutils git-2 python-single-r1
 
 EGIT_REPO_URI="git://git.sv.gnu.org/lilypond.git"
 
@@ -23,7 +23,8 @@ RDEPEND=">=app-text/ghostscript-gpl-8.15
 	media-libs/fontconfig
 	media-libs/freetype:2
 	>=x11-libs/pango-1.12.3
-	emacs? ( virtual/emacs )"
+	emacs? ( virtual/emacs )
+	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}
 	app-text/t1utils
 	dev-lang/perl
@@ -38,11 +39,6 @@ DEPEND="${RDEPEND}
 
 # Correct output data for tests isn't bundled with releases
 RESTRICT="test"
-
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-}
 
 src_prepare() {
 	if ! use vim-syntax ; then
@@ -80,7 +76,7 @@ src_install () {
 	emake DESTDIR="${D}" vimdir=/usr/share/vim/vimfiles install
 
 	# remove elisp files since they are in the wrong directory
-	rm -r "${D}"/usr/share/emacs || die
+	rm -r "${ED}"/usr/share/emacs || die
 
 	if use emacs ; then
 		elisp-install ${PN} elisp/*.{el,elc} elisp/out/*.el \
@@ -88,7 +84,9 @@ src_install () {
 		elisp-site-file-install "${FILESDIR}"/50${PN}-gentoo.el
 	fi
 
-	python_convert_shebangs -r 2 "${D}"
+	python_fix_shebang "${ED}"
+
+	dodoc HACKING README.txt
 }
 
 pkg_postinst() {

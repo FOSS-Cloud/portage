@@ -1,6 +1,29 @@
 # ChangeLog for net-libs/libdmapsharing
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libdmapsharing/ChangeLog,v 1.9 2012/10/04 15:00:11 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libdmapsharing/ChangeLog,v 1.16 2013/02/02 23:03:59 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libdmapsharing-2.9.15.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libdmapsharing-2.9.15.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  03 Jan 2013; Pacho Ramos <pacho@gentoo.org> -libdmapsharing-2.9.13.ebuild,
+  libdmapsharing-2.9.15.ebuild:
+  Remove gtk-doc rebuilding as it's not needed and causes failures (#447794 by
+  Juergen Rose and flameeyes), remove old.
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libdmapsharing-2.9.15.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> libdmapsharing-2.9.15.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libdmapsharing-2.9.15.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libdmapsharing-2.9.15.ebuild:
+  Add ~ppc, wrt bug #449220
 
   04 Oct 2012; Agostino Sarubbo <ago@gentoo.org> libdmapsharing-2.9.15.ebuild:
   Stable for amd64, wrt bug #427544
@@ -49,4 +72,3 @@
   +libdmapsharing-2.1.13.ebuild,
   +files/libdmapsharing-2.1.13-slotability-fix.patch, +metadata.xml:
   Initial commit, needed for rhythmbox, bug #341677.
-

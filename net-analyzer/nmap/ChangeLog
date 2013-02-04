@@ -1,6 +1,110 @@
 # ChangeLog for net-analyzer/nmap
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nmap/ChangeLog,v 1.257 2012/09/25 18:54:58 pinkbyte Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nmap/ChangeLog,v 1.286 2013/01/31 02:38:48 jer Exp $
+
+  31 Jan 2013; Jeroen Roovers <jer@gentoo.org> nmap-6.25.ebuild:
+  Fix libpcap USE dep by Rick Farina.
+
+  31 Jan 2013; Jeroen Roovers <jer@gentoo.org> nmap-6.25.ebuild:
+  Bring back USE=ipv6.
+
+  26 Jan 2013; Jeroen Roovers <jer@gentoo.org> nmap-6.01.ebuild,
+  nmap-6.25.ebuild:
+  Run python_set_active_version conditionally.
+
+  26 Jan 2013; Jeroen Roovers <jer@gentoo.org> nmap-6.01.ebuild,
+  nmap-6.25.ebuild:
+  Drop PYTHON_DEPEND and -4.75-include.patch by Alexander Zubkov (bug #435462).
+
+  18 Jan 2013; Lars Wendler <polynomial-c@gentoo.org> nmap-6.01.ebuild,
+  nmap-6.25.ebuild:
+  non-maintaienr commit: Removed ipv6 dependency now that a proper fix went
+  into libpcap (bug #452832).
+
+  16 Jan 2013; Jeroen Roovers <jer@gentoo.org> nmap-6.25.ebuild,
+  +files/nmap-6.25-liblua-ar.patch:
+  Fix AR/RANLIB again (bug #445524).
+
+  16 Jan 2013; Jeroen Roovers <jer@gentoo.org> nmap-6.01.ebuild:
+  Fix AR/RANLIB again (bug #445524).
+
+  16 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> nmap-6.01.ebuild,
+  nmap-6.25.ebuild:
+  Fix building with USE='lua' due to recent changes, wrt bug #452452. Thanks to
+  Marien Zwart
+
+  16 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> nmap-6.01.ebuild,
+  nmap-6.25.ebuild:
+  Respect AR and RANLIB, wrt bug #445524. Thanks to Agostino Sarubbo for
+  discovering this issue
+
+  15 Jan 2013; Jeroen Roovers <jer@gentoo.org> -files/nmap-5.00-python.patch,
+  -files/nmap-5.20-nolua.patch, -files/nmap-5.21-openssl-1.patch,
+  -nmap-5.51.ebuild, -nmap-5.51.6.ebuild, -nmap-6.00.ebuild, nmap-6.01.ebuild,
+  nmap-6.25.ebuild, -files/nmap-logo-64.png:
+  Go back to depend on net-libs/libpcap[ipv6] (bug #451162).
+
+  11 Jan 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Remove spock (bug #35242).
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> nmap-6.01.ebuild:
+  s390/sh stable wrt #445500
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> nmap-6.01.ebuild:
+  Stable for alpha, wrt bug #445500
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> nmap-6.01.ebuild:
+  Stable for sparc, wrt bug #445500
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> nmap-6.01.ebuild:
+  Stable for ia64, wrt bug #445500
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> nmap-6.01.ebuild:
+  x86 stable wrt bug #445500
+
+  04 Dec 2012; Jeroen Roovers <jer@gentoo.org> nmap-6.01.ebuild:
+  Stable for HPPA (bug #445500).
+
+  04 Dec 2012; Anthony G. Basile <blueness@gentoo.org> nmap-6.01.ebuild:
+  stable arm, bug #445500
+
+  03 Dec 2012; Jeroen Roovers <jer@gentoo.org> nmap-6.25.ebuild:
+  Add even more LINGUAs by Alphat-PC (bug #445752).
+
+  03 Dec 2012; Anthony G. Basile <blueness@gentoo.org> nmap-6.01.ebuild:
+  stable ppc ppc64, bug #445500
+
+  03 Dec 2012; Jeroen Roovers <jer@gentoo.org> nmap-6.25.ebuild, metadata.xml:
+  Describe USE=lua better, prefer USE=lua. Enforce USE=-nls.
+
+  03 Dec 2012; Jeroen Roovers <jer@gentoo.org> nmap-6.25.ebuild:
+  Add IUSE=ipv6, IUSE=nls and LINGUAS (bug #445752 by Alex Turbov).
+
+  03 Dec 2012; Jeroen Roovers <jer@gentoo.org> nmap-6.01.ebuild:
+  Add IUSE=ipv6 (bug #445734 by LeeL).
+
+  02 Dec 2012; Jeroen Roovers <jer@gentoo.org> nmap-6.25.ebuild,
+  +files/nmap-6.25-lua.patch:
+  Fix building with USE=-lua by Anton Bolshakov (bug #445552).
+
+  01 Dec 2012; <ago@gentoo.org> nmap-6.01.ebuild:
+  Stable for amd64, wrt bug #445500
+
+*nmap-6.25 (01 Dec 2012)
+
+  01 Dec 2012; Jeroen Roovers <jer@gentoo.org> +nmap-6.25.ebuild:
+  Version bump by Anton Bolshakov (bug #445348).
+
+  01 Dec 2012; Jeroen Roovers <jer@gentoo.org> -nmap-5.21-r1.ebuild,
+  -nmap-5.35.ebuild, nmap-6.01.ebuild:
+  Remove binary from FILESDIR, step 1, by Matt Turner (bug #370907). Put -j1 on
+  the emake line.
+
+  01 Dec 2012; Jeroen Roovers <jer@gentoo.org> nmap-6.01.ebuild:
+  Break up long lines. Clean up.
+
+  01 Dec 2012; Jeroen Roovers <jer@gentoo.org> nmap-6.01.ebuild:
+  Fix python dependencies (bug #435462 by Alexander Zubkov).
 
 *nmap-5.51.6 (25 Sep 2012)
 

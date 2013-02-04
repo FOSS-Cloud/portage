@@ -1,6 +1,18 @@
-# ChangeLog for mail-client/claws-mail-tnef_parse
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-tnef-parse/ChangeLog,v 1.1 2012/11/20 21:11:02 fauli Exp $
+# ChangeLog for mail-client/claws-mail-tnef-parse
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-tnef-parse/ChangeLog,v 1.4 2013/01/03 01:32:07 fauli Exp $
+
+  03 Jan 2013; Christian Faulhammer <fauli@gentoo.org>
+  claws-mail-tnef-parse-0.3.14.ebuild:
+  reintroduce deletion of .a and .la files
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  claws-mail-tnef-parse-0.3.14.ebuild:
+  Stable for x86, wrt bug #448968
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  claws-mail-tnef-parse-0.3.14.ebuild:
+  Stable for amd64, wrt bug #448968
 
 *claws-mail-tnef_parse-0.3.14 (20 Nov 2012)
 
@@ -224,4 +236,3 @@
   16 Oct 2008; Christian Faulhammer <opfer@gentoo.org> +metadata.xml,
   +claws-mail-tnef_parse-0.3.2.ebuild:
   initial commit for bug 239320
-

@@ -1,6 +1,16 @@
 # ChangeLog for net-libs/sofia-sip
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/sofia-sip/ChangeLog,v 1.23 2012/05/05 02:54:27 jdhore Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/sofia-sip/ChangeLog,v 1.26 2013/02/02 23:05:58 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> sofia-sip-1.12.11.ebuild:
+  Add ~arm, wrt bug #449220
+
+  15 Jan 2013; Ulrich Müller <ulm@gentoo.org> sofia-sip-1.12.10.ebuild,
+  sofia-sip-1.12.11.ebuild:
+  Specify LICENSE more precisely, bug 452402.
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> sofia-sip-1.12.11.ebuild:
+  Add ~ppc64, wrt bug #449220
 
   05 May 2012; Jeff Horelick <jdhore@gentoo.org> sofia-sip-1.12.11.ebuild:
   dev-util/pkgconfig -> virtual/pkgconfig
@@ -101,4 +111,3 @@
   +sofia-sip-1.11.8.ebuild:
   New ebuild inspired by the voip and zugaina overlay, first step for tapioca,
   bug 127383
-

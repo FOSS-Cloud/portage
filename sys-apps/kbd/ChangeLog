@@ -1,6 +1,22 @@
 # ChangeLog for sys-apps/kbd
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kbd/ChangeLog,v 1.105 2011/10/11 16:44:58 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kbd/ChangeLog,v 1.108 2013/01/20 17:23:16 vapier Exp $
+
+*kbd-1.15.5-r1 (20 Jan 2013)
+
+  20 Jan 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/kbd-1.15.5-loadkeys-parse.patch, +kbd-1.15.5-r1.ebuild:
+  Add fix from upstream for loadkey syntax errors #447440 by gglaboussole.
+
+*kbd-1.15.5 (06 Dec 2012)
+
+  06 Dec 2012; Mike Frysinger <vapier@gentoo.org> +kbd-1.15.5.ebuild:
+  Version bump.
+
+*kbd-1.15.4 (02 Dec 2012)
+
+  02 Dec 2012; Mike Frysinger <vapier@gentoo.org> +kbd-1.15.4.ebuild:
+  Version bump.
 
   11 Oct 2011; Jeroen Roovers <jer@gentoo.org> kbd-1.15.3.ebuild:
   Stable for HPPA (bug #329693).

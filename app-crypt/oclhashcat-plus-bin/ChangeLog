@@ -1,6 +1,18 @@
 # ChangeLog for app-crypt/oclhashcat-plus-bin
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/oclhashcat-plus-bin/ChangeLog,v 1.5 2012/10/30 16:30:44 zerochaos Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/oclhashcat-plus-bin/ChangeLog,v 1.7 2013/02/03 01:55:07 zerochaos Exp $
+
+*oclhashcat-plus-bin-0.13 (03 Feb 2013)
+
+  03 Feb 2013; Rick Farina <zerochaos@gentoo.org>
+  +oclhashcat-plus-bin-0.13.ebuild:
+  version bump, user must now accept the license with every new release
+
+*oclhashcat-plus-bin-0.12 (31 Dec 2012)
+
+  31 Dec 2012; Rick Farina <zerochaos@gentoo.org>
+  +oclhashcat-plus-bin-0.12.ebuild:
+  version bump
 
   30 Oct 2012; Rick Farina <zerochaos@gentoo.org>
   oclhashcat-plus-bin-0.09.ebuild:

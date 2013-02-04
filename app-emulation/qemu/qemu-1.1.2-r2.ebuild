@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.1.2-r2.ebuild,v 1.7 2012/11/21 22:22:35 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.1.2-r2.ebuild,v 1.13 2013/01/12 23:08:29 cardoe Exp $
 
 EAPI="4"
 
@@ -8,7 +8,7 @@ MY_PN="qemu-kvm"
 MY_P=${MY_PN}-${PV}
 
 PYTHON_DEPEND="2"
-inherit eutils flag-o-matic linux-info toolchain-funcs multilib python user
+inherit eutils flag-o-matic linux-info toolchain-funcs multilib python user udev
 BACKPORTS=6cee76f0
 
 if [[ ${PV} = *9999* ]]; then
@@ -29,7 +29,7 @@ HOMEPAGE="http://www.linux-kvm.org"
 LICENSE="GPL-2 LGPL-2 BSD-2"
 SLOT="0"
 IUSE="+aio alsa bluetooth brltty +caps +curl debug doc fdt +jpeg kernel_linux \
-kernel_FreeBSD mixemu ncurses opengl +png pulseaudio python rbd sasl sdl \
+kernel_FreeBSD mixemu ncurses opengl +png pulseaudio python rbd sasl sdl selinux \
 smartcard spice static systemtap tci +threads tls usbredir +uuid vde +vhost-net \
 virtfs +vnc xattr xen xfs"
 
@@ -78,9 +78,9 @@ LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	xfs? ( sys-fs/xfsprogs[static-libs(+)] )"
 RDEPEND="!static? ( ${LIB_DEPEND//\[static-libs(+)]} )
 	!app-emulation/kqemu
-	>=sys-firmware/seabios-1.7.0
-	sys-firmware/sgabios
-	sys-firmware/vgabios
+	~sys-firmware/seabios-1.7.0
+	~sys-firmware/sgabios-0.1_pre8
+	~sys-firmware/vgabios-0.6c
 	alsa? ( >=media-libs/alsa-lib-1.0.13 )
 	bluetooth? ( net-wireless/bluez )
 	brltty? ( app-accessibility/brltty )
@@ -88,12 +88,13 @@ RDEPEND="!static? ( ${LIB_DEPEND//\[static-libs(+)]} )
 	pulseaudio? ( media-sound/pulseaudio )
 	python? ( =dev-lang/python-2*[ncurses] )
 	sdl? ( media-libs/libsdl[X] )
+	selinux? ( sec-policy/selinux-qemu )
 	smartcard? ( dev-libs/nss )
 	spice? ( >=app-emulation/spice-protocol-0.8.1 )
 	systemtap? ( dev-util/systemtap )
 	usbredir? (
 		>=sys-apps/usbredir-0.3.4
-		x86? ( <sys-apps/usbredir-0.5 )
+		<sys-apps/usbredir-0.5
 		)
 	virtfs? ( sys-libs/libcap )
 	xen? ( app-emulation/xen-tools )"
@@ -306,13 +307,12 @@ src_install() {
 
 	if [[ -n ${softmmu_targets} ]]; then
 		if use kernel_linux; then
-			insinto /lib/udev/rules.d/
-			doins "${FILESDIR}"/65-kvm.rules
+			udev_dorules "${FILESDIR}"/65-kvm.rules
 		fi
 
 		if use qemu_softmmu_targets_x86_64 ; then
 			dobin "${FILESDIR}"/qemu-kvm
-			ewarn "The depreciated '/usr/bin/kvm' symlink is no longer installed"
+			ewarn "The deprecated '/usr/bin/kvm' symlink is no longer installed"
 			ewarn "You should use '/usr/bin/qemu-kvm', you may need to edit"
 			ewarn "your libvirt configs or other wrappers for ${PN}"
 		else
@@ -328,7 +328,7 @@ src_install() {
 		dohtml qemu-doc.html qemu-tech.html || die
 	fi
 
-	use python & dobin scripts/kvm/kvm_stat
+	use python && dobin scripts/kvm/kvm_stat
 
 	# Remove SeaBIOS since we're using the SeaBIOS packaged one
 	rm "${ED}/usr/share/qemu/bios.bin"

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-db/man-db-2.6.3-r1.ebuild,v 1.1 2012/10/28 11:09:21 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-db/man-db-2.6.3-r1.ebuild,v 1.7 2013/02/03 23:47:30 ago Exp $
 
 EAPI="4"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://nongnu/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="~alpha amd64 arm ~hppa ia64 ~m68k ~mips ppc ~ppc64 ~s390 ~sh ~sparc x86"
 IUSE="berkdb +gdbm nls static-libs zlib"
 
 RDEPEND="dev-libs/libpipeline
@@ -58,8 +58,14 @@ src_install() {
 }
 
 pkg_preinst() {
-	if [[ -f "${ROOT}"var/cache/man/whatis ]]; then
-		einfo "Cleaning ${ROOT}var/cache/man from sys-apps/man"
-		find "${ROOT}"var/cache/man -type f '!' '(' -name index.bt -o -name index.db ')' -delete
+	if [[ -f ${EROOT}var/cache/man/whatis ]] ; then
+		einfo "Cleaning ${EROOT}var/cache/man from sys-apps/man"
+		find "${EROOT}"var/cache/man -type f '!' '(' -name index.bt -o -name index.db ')' -delete
+	fi
+	if [[ ! -g ${EROOT}var/cache/man ]] ; then
+		einfo "Resetting permissions on ${EROOT}var/cache/man" #447944
+		mkdir -p "${EROOT}var/cache/man"
+		chown -R man:root "${EROOT}"var/cache/man
+		find "${EROOT}"var/cache/man -type d '!' -perm /g=s -exec chmod 2755 {} +
 	fi
 }

@@ -1,6 +1,49 @@
 # ChangeLog for dev-ruby/ruby-gettext
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-gettext/ChangeLog,v 1.89 2012/10/28 16:09:58 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-gettext/ChangeLog,v 1.102 2013/01/15 06:14:02 zerochaos Exp $
+
+  15 Jan 2013; Rick Farina <zerochaos@gentoo.org> ruby-gettext-2.2.1.ebuild,
+  ruby-gettext-2.3.3.ebuild:
+  adding ~arm keywords to net-analyzer/metasploit rdeps
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.2.1.ebuild:
+  Stable for ia64, wrt bug #448310
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.2.1.ebuild:
+  Stable for alpha, wrt bug #448310
+
+  30 Dec 2012; Raúl Porcel <armin76@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Re-add ~alpha/~sparc wrt #448162
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.2.1.ebuild:
+  Stable for sparc, wrt bug #448310
+
+  29 Dec 2012; Jeroen Roovers <jer@gentoo.org> ruby-gettext-2.2.1.ebuild:
+  Stable for HPPA (bug #448310).
+
+  27 Dec 2012; Jeroen Roovers <jer@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Marked ~hppa (bug #448162).
+
+  23 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  ruby-gettext-2.1.0_p20100728-r3.ebuild:
+  Stable for ppc64, wrt bug #448310
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Add ~ia64, wrt bug #448162
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Add ~x86, wrt bug #448162
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Add ~ppc64, wrt bug #448162
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Add ~ppc, wrt bug #448162
+
+*ruby-gettext-2.3.3 (29 Nov 2012)
+
+  29 Nov 2012; Hans de Graaff <graaff@gentoo.org> +ruby-gettext-2.3.3.ebuild:
+  Version bump. Dropped arches due to new test-unit-rr dependency.
 
   28 Oct 2012; Jeroen Roovers <jer@gentoo.org> ruby-gettext-2.2.1.ebuild:
   Marked ~hppa (bug #431290).

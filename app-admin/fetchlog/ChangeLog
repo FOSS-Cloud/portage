@@ -1,6 +1,14 @@
 # ChangeLog for app-admin/fetchlog
-# Copyright 2000-2008 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/fetchlog/ChangeLog,v 1.12 2009/05/09 19:48:26 pvdabeel Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/fetchlog/ChangeLog,v 1.14 2013/02/01 12:39:42 phosphan Exp $
+
+*fetchlog-1.4 (01 Feb 2013)
+
+  01 Feb 2013; Patrick Kursawe <phosphan@gentoo.org> +fetchlog-1.4.ebuild:
+  Version bump, see bug #451848
+
+  01 Feb 2013; Patrick Kursawe <phosphan@gentoo.org> -fetchlog-0.94.ebuild:
+  Cleanup
 
   09 May 2009; Pieter Van den Abeele <pvdabeel@gentoo.org> fetchlog-1.0.ebuild:
   Added ppc64 testing keyword
@@ -38,4 +46,3 @@
   15 Aug 2003; Patrick Kursawe <phosphan@gentoo.org> fetchlog-0.94.ebuild:
   Initial import, closing bug 25029. Ebuild committed by
   Jasmine Chua <jasmine.chua@securecirt.com>
-

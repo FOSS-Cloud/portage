@@ -1,6 +1,20 @@
 # ChangeLog for dev-python/py
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/py/ChangeLog,v 1.124 2012/11/13 10:30:00 patrick Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/py/ChangeLog,v 1.128 2013/01/02 04:30:53 floppym Exp $
+
+  02 Jan 2013; Mike Gilbert <floppym@gentoo.org> py-1.4.12-r1.ebuild:
+  Add pypy2_0.
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> py-1.4.12-r1.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+  07 Dec 2012; Michał Górny <mgorny@gentoo.org> py-1.4.12-r1.ebuild:
+  Add PYTHON_USEDEP on pytest.
+
+*py-1.4.12-r1 (02 Dec 2012)
+
+  02 Dec 2012; Michał Górny <mgorny@gentoo.org> +py-1.4.12-r1.ebuild:
+  Migrate to distutils-r1.
 
 *py-1.4.12 (13 Nov 2012)
 

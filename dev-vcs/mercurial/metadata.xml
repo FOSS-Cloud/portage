@@ -2,12 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer>
-    <email>nelchael@gentoo.org</email>
-    <name>Krzysztof Pawlik</name>
-  </maintainer>
-  <maintainer>
     <email>djc@gentoo.org</email>
     <name>Dirkjan Ochtman</name>
+  </maintainer>
+  <maintainer>
+    <email>polynomial-c@gentoo.org</email>
+    <name>Lars Wendler</name>
   </maintainer>
   <use>
     <flag name="bugzilla">Support bugzilla integration.</flag>

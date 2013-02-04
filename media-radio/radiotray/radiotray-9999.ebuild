@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/radiotray/radiotray-9999.ebuild,v 1.6 2012/11/25 10:41:07 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-radio/radiotray/radiotray-9999.ebuild,v 1.8 2012/12/27 19:01:32 ottxor Exp $
 
 EAPI=4
 PYTHON_COMPAT='python2_6 python2_7'
@@ -24,27 +24,25 @@ for x in ${LANGS}; do
 	IUSE="${IUSE} linguas_${x}"
 done
 
-RDEPEND="dev-python/gst-python
+RDEPEND="dev-python/gst-python:0.10
 	dev-python/pygtk
 	dev-python/lxml
 	dev-python/pyxdg
 	dev-python/pygobject:2
 	dev-python/notify-python
-	media-libs/gst-plugins-good
-	media-libs/gst-plugins-ugly
-	media-plugins/gst-plugins-alsa
-	media-plugins/gst-plugins-libmms
-	media-plugins/gst-plugins-ffmpeg
-	media-plugins/gst-plugins-mad
-	media-plugins/gst-plugins-ogg
-	media-plugins/gst-plugins-soup
-	media-plugins/gst-plugins-vorbis"
+	media-libs/gst-plugins-good:0.10
+	media-libs/gst-plugins-ugly:0.10
+	media-plugins/gst-plugins-alsa:0.10
+	media-plugins/gst-plugins-libmms:0.10
+	media-plugins/gst-plugins-ffmpeg:0.10
+	media-plugins/gst-plugins-mad:0.10
+	media-plugins/gst-plugins-ogg:0.10
+	media-plugins/gst-plugins-soup:0.10
+	media-plugins/gst-plugins-vorbis:0.10"
 
 DEPEND="${RDEPEND}"
 
 DOCS="AUTHORS CONTRIBUTORS NEWS README"
-
-S="${WORKDIR}"/${PN}
 
 src_prepare() {
 	python_convert_shebangs -r 2 .

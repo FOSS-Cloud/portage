@@ -1,6 +1,43 @@
 # ChangeLog for kde-base/akregator
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/akregator/ChangeLog,v 1.239 2012/11/23 18:26:31 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/akregator/ChangeLog,v 1.249 2013/01/28 12:12:27 ago Exp $
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org> -akregator-4.9.3.ebuild,
+  -akregator-4.9.4.ebuild:
+  Remove old
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> akregator-4.9.5.ebuild:
+  Stable for ppc, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> akregator-4.9.5.ebuild:
+  Stable for x86, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> akregator-4.9.5.ebuild:
+  Stable for amd64, wrt bug #450678
+
+*akregator-4.9.5 (05 Jan 2013)
+
+  05 Jan 2013; <creffett@gentoo.org> +akregator-4.9.5.ebuild:
+  Version bump KDE SC 4.9.5
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> akregator-4.9.4.ebuild:
+  add ~arm
+
+  08 Dec 2012; Andreas K. Huettel <dilfridge@gentoo.org>
+  akregator-4.4.11.1.ebuild, akregator-4.4.11.1-r1.ebuild:
+  Drop ppc64 as in rest of KDE
+
+  08 Dec 2012; Andreas K. Huettel <dilfridge@gentoo.org>
+  -akregator-4.8.5.ebuild:
+  Drop KDE 4.8
+
+*akregator-4.9.4 (05 Dec 2012)
+
+  05 Dec 2012; Alexey Shvetsov <alexxy@gentoo.org> +akregator-4.9.4.ebuild:
+  Version bump KDE SC 4.9.4
+
+  30 Nov 2012; <ago@gentoo.org> akregator-4.9.3.ebuild:
+  Stable for ppc, wrt bug #442394
 
   23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> akregator-4.9.3.ebuild:
   Stable for x86, wrt bug #442394
@@ -969,4 +1006,3 @@
   +akregator-3.4.0_beta1.ebuild:
   Adding the split ebuilds to portage. For KDE 3.4, we've created separate
   ebuilds for all the KDE apps.
-

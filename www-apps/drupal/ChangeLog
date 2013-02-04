@@ -1,6 +1,28 @@
 # ChangeLog for www-apps/drupal
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/drupal/ChangeLog,v 1.89 2012/11/11 16:56:11 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/drupal/ChangeLog,v 1.93 2013/01/17 08:50:45 radhermit Exp $
+
+  17 Jan 2013; Tim Harder <radhermit@gentoo.org> -drupal-6.27.ebuild,
+  -drupal-7.18.ebuild:
+  Remove insecure versions.
+
+*drupal-7.19 (17 Jan 2013)
+*drupal-6.28 (17 Jan 2013)
+
+  17 Jan 2013; Tim Harder <radhermit@gentoo.org> +drupal-6.28.ebuild,
+  +drupal-7.19.ebuild:
+  Version bumps to fix security issue.
+
+  13 Jan 2013; Tim Harder <radhermit@gentoo.org> -drupal-6.26.ebuild,
+  -drupal-7.16.ebuild, -drupal-7.17.ebuild:
+  Remove insecure versions.
+
+*drupal-7.18 (13 Jan 2013)
+*drupal-6.27 (13 Jan 2013)
+
+  13 Jan 2013; Tim Harder <radhermit@gentoo.org> +drupal-6.27.ebuild,
+  +drupal-7.18.ebuild:
+  Version bumps to fix security issue (bug #447940).
 
   11 Nov 2012; Anthony G. Basile <blueness@gentoo.org> -drupal-7.15.ebuild:
   Drop 7.x before 7.16, bug #442756

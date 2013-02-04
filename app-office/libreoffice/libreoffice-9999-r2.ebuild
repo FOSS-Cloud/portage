@@ -1,16 +1,16 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-9999-r2.ebuild,v 1.134 2012/11/26 12:55:56 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-9999-r2.ebuild,v 1.159 2013/01/31 15:36:23 scarabeus Exp $
 
-EAPI=4
+EAPI=5
 
 KDE_REQUIRED="optional"
 QT_MINIMAL="4.7.4"
 KDE_SCM="git"
 CMAKE_REQUIRED="never"
 
-PYTHON_DEPEND="2"
-PYTHON_USE_WITH="threads,xml"
+PYTHON_COMPAT=( python2_7 python3_3 )
+PYTHON_REQ_USE="threads,xml"
 
 # experimental ; release ; old
 # Usually the tarballs are moved a lot so this should make
@@ -27,7 +27,7 @@ BRANDING="${PN}-branding-gentoo-0.7.tar.xz"
 # PATCHSET="${P}-patchset-01.tar.xz"
 
 [[ ${PV} == *9999* ]] && SCM_ECLASS="git-2"
-inherit base autotools bash-completion-r1 check-reqs eutils java-pkg-opt-2 kde4-base pax-utils python multilib toolchain-funcs flag-o-matic ${SCM_ECLASS}
+inherit base autotools bash-completion-r1 check-reqs eutils java-pkg-opt-2 kde4-base pax-utils python-single-r1 multilib toolchain-funcs flag-o-matic nsplugins ${SCM_ECLASS}
 unset SCM_ECLASS
 
 DESCRIPTION="LibreOffice, a full office productivity suite."
@@ -43,7 +43,11 @@ MODULES="core help"
 if [[ ${PV} != *9999* ]]; then
 	for i in ${DEV_URI}; do
 		for mod in ${MODULES}; do
-			SRC_URI+=" ${i}/${PN}-${mod}-${PV}.tar.xz"
+			if [[ ${mod} == core ]]; then
+				SRC_URI+=" ${i}/${P}.tar.xz"
+			else
+				SRC_URI+=" ${i}/${PN}-${mod}-${PV}.tar.xz"
+			fi
 		done
 		unset mod
 	done
@@ -67,11 +71,10 @@ unset ADDONS_URI
 unset EXT_URI
 unset ADDONS_SRC
 
-IUSE="bluetooth +branding +cups dbus eds gnome gstreamer +gtk gtk3
-jemalloc kde mysql nsplugin odk opengl pdfimport postgres telepathy
-test +vba +webdav"
+IUSE="bluetooth +branding +cups dbus debug eds gnome gstreamer +gtk
+gtk3 jemalloc kde mysql odk opengl postgres telepathy test +vba +webdav"
 
-LO_EXTS="nlpsolver presenter-console presenter-minimizer scripting-beanshell scripting-javascript wiki-publisher"
+LO_EXTS="nlpsolver presenter-minimizer scripting-beanshell scripting-javascript wiki-publisher"
 # Unpackaged separate extensions:
 # diagram: lo has 0.9.5 upstream is weirdly patched 0.9.4 -> wtf?
 # hunart: only on ooo extensions -> fubared download path somewhere on sf
@@ -86,9 +89,10 @@ unset lo_xt
 
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
-[[ ${PV} == *9999* ]] || KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+[[ ${PV} == *9999* ]] || KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
 
 COMMON_DEPEND="
+	${PYTHON_DEPS}
 	app-arch/zip
 	app-arch/unzip
 	>=app-text/hunspell-1.3.2-r3
@@ -99,13 +103,14 @@ COMMON_DEPEND="
 	app-text/libwpd:0.9[tools]
 	app-text/libwpg:0.2
 	>=app-text/libwps-0.2.2
+	>=app-text/poppler-0.16[xpdf-headers(+),cxx]
 	>=dev-cpp/clucene-2.3.3.4-r2
-	dev-cpp/libcmis:0.3
+	>=dev-cpp/libcmis-0.3.1:0.3
 	dev-db/unixODBC
 	dev-libs/expat
 	>=dev-libs/hyphen-2.7.1
-	>=dev-libs/icu-4.8.1.1
-	dev-libs/liborcus
+	>=dev-libs/icu-4.8.1.1:=
+	>=dev-libs/liborcus-0.3
 	>=dev-libs/nspr-4.8.8
 	>=dev-libs/nss-3.12.9
 	>=dev-lang/perl-5.0
@@ -137,8 +142,8 @@ COMMON_DEPEND="
 	)
 	gtk3? ( >=x11-libs/gtk+-3.2:3 )
 	gstreamer? (
-		>=media-libs/gstreamer-0.10:0.10
-		>=media-libs/gst-plugins-base-0.10:0.10
+		media-libs/gstreamer:1.0
+		media-libs/gst-plugins-base:1.0
 	)
 	jemalloc? ( dev-libs/jemalloc )
 	libreoffice_extensions_scripting-beanshell? ( >=dev-java/bsh-2.0_beta4 )
@@ -151,16 +156,15 @@ COMMON_DEPEND="
 		dev-java/tomcat-servlet-api:3.0
 	)
 	mysql? ( >=dev-db/mysql-connector-c++-1.1.0 )
-	nsplugin? ( net-misc/npapi-sdk )
 	opengl? (
 		virtual/glu
 		virtual/opengl
 	)
-	pdfimport? ( >=app-text/poppler-0.16[xpdf-headers(+),cxx] )
 	postgres? ( >=dev-db/postgresql-base-9.0[kerberos] )
 	telepathy? (
 		dev-libs/glib:2
 		>=net-libs/telepathy-glib-0.18.0
+		>=x11-libs/gtk+-2.24:2
 	)
 	webdav? ( net-libs/neon )
 "
@@ -176,9 +180,13 @@ RDEPEND="${COMMON_DEPEND}
 	java? ( >=virtual/jre-1.6 )
 "
 
-PDEPEND="
-	=app-office/libreoffice-l10n-3.6*
-"
+if [[ ${PV} != *9999* ]]; then
+	PDEPEND="~app-office/libreoffice-l10n-${PV}"
+else
+	# Translations are not reliable on live ebuilds
+	# rather force people to use english only.
+	PDEPEND="!app-office/libreoffice-l10n"
+fi
 
 # FIXME: cppunit should be moved to test conditional
 #        after everything upstream is under gbuild
@@ -230,10 +238,7 @@ REQUIRED_USE="
 	libreoffice_extensions_scripting-beanshell? ( java )
 	libreoffice_extensions_scripting-javascript? ( java )
 	libreoffice_extensions_wiki-publisher? ( java )
-	nsplugin? ( gtk )
 "
-
-S="${WORKDIR}/${PN}-core-${PV}"
 
 CHECKREQS_MEMORY="512M"
 CHECKREQS_DISK_BUILD="6G"
@@ -266,9 +271,7 @@ pkg_pretend() {
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 	kde4-base_pkg_setup
-
-	python_set_active_version 2
-	python_pkg_setup
+	python-single-r1_pkg_setup
 
 	[[ ${MERGE_TYPE} != binary ]] && check-reqs_pkg_setup
 }
@@ -277,28 +280,21 @@ src_unpack() {
 	local mod mod2 dest tmplfile tmplname mypv
 
 	[[ -n ${PATCHSET} ]] && unpack ${PATCHSET}
-	if use branding; then
-		unpack "${BRANDING}"
-	fi
+	use branding && unpack "${BRANDING}"
 
 	if [[ ${PV} != *9999* ]]; then
+		unpack "${P}.tar.xz"
 		for mod in ${MODULES}; do
+			[[ ${mod} == core ]] && continue
 			unpack "${PN}-${mod}-${PV}.tar.xz"
-			if [[ ${mod} != core ]]; then
-				mod2=${mod}
-				# mapping does not match on help
-				[[ ${mod} == help ]] && mod2="helpcontent2"
-				mkdir -p "${S}/${mod2}/" || die
-				mv -n "${WORKDIR}/${PN}-${mod}-${PV}"/* "${S}/${mod2}" || die
-				rm -rf "${WORKDIR}/${PN}-${mod}-${PV}"
-			fi
 		done
 	else
 		for mod in ${MODULES}; do
 			mypv=${PV/.9999}
 			[[ ${mypv} != ${PV} ]] && EGIT_BRANCH="${PN}-${mypv/./-}"
 			EGIT_PROJECT="${PN}/${mod}"
-			EGIT_SOURCEDIR="${WORKDIR}/${PN}-${mod}-${PV}"
+			EGIT_SOURCEDIR="${WORKDIR}/${P}"
+			[[ ${mod} != core ]] && EGIT_SOURCEDIR="${WORKDIR}/${PN}-${mod}-${PV}"
 			EGIT_REPO_URI="git://anongit.freedesktop.org/${PN}/${mod}"
 			EGIT_NOUNPACK="true"
 			git-2_src_unpack
@@ -406,6 +402,11 @@ src_configure() {
 		mv -v "${WORKDIR}/branding-intro.png" "${S}/icon-themes/galaxy/brand/intro.png" || die
 	fi
 
+	# System python 2.7 enablement:
+	export PYTHON="${PYTHON}"
+	export PYTHON_CFLAGS=`pkg-config --cflags ${EPYTHON}`
+	export PYTHON_LIBS=`pkg-config --libs ${EPYTHON}`
+
 	# system headers/libs/...: enforce using system packages
 	# --enable-unix-qstart-libpng: use libpng splashscreen that is faster
 	# --enable-cairo: ensure that cairo is always required
@@ -414,19 +415,14 @@ src_configure() {
 	# --enable-release-build: build the libreoffice as release
 	# --disable-fetch-external: prevent dowloading during compile phase
 	# --disable-gnome-vfs: old gnome virtual fs support
-	# --disable-gstreamer: support for 1.0 api, we use gstreamer-0.10 for now
 	# --disable-kdeab: kde3 adressbook
 	# --disable-kde: kde3 support
-	# --disable-mozilla: mozilla internal is for contact integration, never
-	#   worked on linux
-	# --disable-pch: precompiled headers cause build crashes
 	# --disable-rpath: relative runtime path is not desired
 	# --disable-systray: quickstarter does not actually work at all so do not
 	#   promote it
 	# --disable-zenity: disable build icon
 	# --enable-extension-integration: enable any extension integration support
 	# --without-{afms,fonts,myspell-dicts,ppsd}: prevent install of sys pkgs
-	# --without-stlport: disable deprecated extensions framework
 	# --disable-ext-report-builder: too much java packages pulled in
 	econf \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}/" \
@@ -443,19 +439,18 @@ src_configure() {
 		--enable-randr-link \
 		--enable-release-build \
 		--enable-unix-qstart-libpng \
+		--enable-hardlink-deliver \
 		--disable-ccache \
 		--disable-crashdump \
 		--disable-dependency-tracking \
 		--disable-epm \
 		--disable-fetch-external \
 		--disable-gnome-vfs \
-		--disable-gstreamer \
+		--disable-gstreamer-0-10 \
 		--disable-ext-report-builder \
 		--disable-kdeab \
 		--disable-kde \
-		--disable-mozilla \
 		--disable-online-update \
-		--disable-pch \
 		--disable-rpath \
 		--disable-systray \
 		--disable-zenity \
@@ -475,27 +470,23 @@ src_configure() {
 		--without-afms \
 		--without-fonts \
 		--without-myspell-dicts \
-		--without-stlport \
-		--without-system-mozilla \
 		--without-help \
 		--with-helppack-integration \
 		--without-sun-templates \
 		$(use_enable bluetooth sdremote-bluetooth) \
 		$(use_enable cups) \
+		$(use_enable debug) \
 		$(use_enable dbus) \
 		$(use_enable eds evolution2) \
 		$(use_enable gnome gconf) \
 		$(use_enable gnome gio) \
 		$(use_enable gnome lockdown) \
-		$(use_enable gstreamer gstreamer-0-10) \
 		$(use_enable gtk) \
 		$(use_enable gtk3) \
 		$(use_enable kde kde4) \
 		$(use_enable mysql ext-mysql-connector) \
-		$(use_enable nsplugin) \
 		$(use_enable odk) \
 		$(use_enable opengl) \
-		$(use_enable pdfimport) \
 		$(use_enable postgres postgresql-sdbc) \
 		$(use_enable telepathy) \
 		$(use_enable test linkoo) \
@@ -550,7 +541,7 @@ src_install() {
 	fi
 
 	# symlink the nsplugin to proper location
-	use nsplugin && inst_plugin /usr/$(get_libdir)/libreoffice/program/libnpsoplugin.so
+	use gtk && inst_plugin /usr/$(get_libdir)/libreoffice/program/libnpsoplugin.so
 
 	# Hack for offlinehelp, this needs fixing upstream at some point.
 	# It is broken because we send --without-help

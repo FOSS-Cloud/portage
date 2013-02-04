@@ -1,6 +1,19 @@
 # ChangeLog for net-mail/mhonarc
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/mhonarc/ChangeLog,v 1.27 2012/11/14 20:26:36 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/mhonarc/ChangeLog,v 1.31 2012/12/27 11:48:33 kensington Exp $
+
+  27 Dec 2012; Michael Palimaka <kensington@gentoo.org> -mhonarc-2.6.18.ebuild:
+  Remove old.
+
+  27 Dec 2012; Raúl Porcel <armin76@gentoo.org> mhonarc-2.6.18.ebuild,
+  mhonarc-2.6.18-r1.ebuild:
+  Drop alpha/sparc keywords
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> mhonarc-2.6.18-r1.ebuild:
+  x86 stable wrt bug #441464
+
+  04 Dec 2012; <ago@gentoo.org> mhonarc-2.6.18-r1.ebuild:
+  Stable for x86, wrt bug #441464
 
   14 Nov 2012; Agostino Sarubbo <ago@gentoo.org> mhonarc-2.6.18-r1.ebuild:
   Stable for amd64, wrt bug #441464

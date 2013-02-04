@@ -1,6 +1,46 @@
 # ChangeLog for sys-devel/autoconf-archive
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/autoconf-archive/ChangeLog,v 1.52 2012/09/24 02:14:38 binki Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/autoconf-archive/ChangeLog,v 1.62 2013/01/01 19:01:10 armin76 Exp $
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org>
+  autoconf-archive-2012.09.08.ebuild:
+  m68k/s390/sh stable wrt #441526
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  autoconf-archive-2012.09.08.ebuild:
+  Stable for alpha, wrt bug #441526
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  autoconf-archive-2012.09.08.ebuild:
+  Stable for sparc, wrt bug #441526
+
+  18 Dec 2012; Jeroen Roovers <jer@gentoo.org>
+  autoconf-archive-2012.09.08.ebuild:
+  Stable for HPPA (bug #441526).
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  autoconf-archive-2012.09.08.ebuild:
+  Stable for ia64, wrt bug #441526
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  autoconf-archive-2012.09.08.ebuild:
+  Stable for x86, wrt bug #441526
+
+  12 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  autoconf-archive-2012.09.08.ebuild:
+  Stable for amd64, wrt bug #441526
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  autoconf-archive-2012.09.08.ebuild:
+  Stable for ppc64, wrt bug #441526
+
+  09 Dec 2012; Markus Meier <maekke@gentoo.org>
+  autoconf-archive-2012.09.08.ebuild:
+  arm stable, bug #441526
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  autoconf-archive-2012.09.08.ebuild:
+  Stable for ppc, wrt bug #441526
 
 *autoconf-archive-2012.09.08 (24 Sep 2012)
 

@@ -1,11 +1,11 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ldaptor/ldaptor-0.0.43.ebuild,v 1.16 2011/11/11 20:36:37 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ldaptor/ldaptor-0.0.43.ebuild,v 1.18 2013/01/27 07:30:22 idella4 Exp $
 
-EAPI="3"
-PYTHON_DEPEND="2"
+EAPI="4"
+PYTHON_DEPEND="2:2.6"
 SUPPORT_PYTHON_ABIS="1"
-RESTRICT_PYTHON_ABIS="3.* *-jython"
+RESTRICT_PYTHON_ABIS="3.* 2.5 *-jython 2.7-pypy-*"  # pypy fails several tests
 DISTUTILS_SRC_TEST="trial"
 DISTUTILS_DISABLE_TEST_DEPENDENCY="1"
 
@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS="alpha amd64 ia64 ppc sparc x86"
 IUSE="doc samba web"
 
-DEPEND="dev-python/pyparsing
+DEPEND="virtual/pyparsing
 	>=dev-python/twisted-2
 	dev-python/twisted-mail
 	dev-python/twisted-names
@@ -44,7 +44,7 @@ src_prepare() {
 	distutils_src_prepare
 	epatch "${FILESDIR}/${P}-zope_interface.patch"
 	epatch "${FILESDIR}/${P}-usage-exception.patch"
-
+	epatch "${FILESDIR}"/${PN}-prem_test.patch
 	# Delete test with additional dependencies.
 	if ! use web; then
 		rm -f ldaptor/test/test_webui.py

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/netbeans-profiler/netbeans-profiler-7.2.ebuild,v 1.1 2012/07/25 16:10:32 fordfrog Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/netbeans-profiler/netbeans-profiler-7.2.ebuild,v 1.4 2012/12/09 19:36:01 ago Exp $
 
 EAPI="4"
 WANT_ANT_TASKS="ant-nodeps"
@@ -13,9 +13,12 @@ SOURCE_URL="http://download.netbeans.org/netbeans/7.2/final/zip/netbeans-7.2-201
 SRC_URI="${SOURCE_URL}
 	http://dev.gentoo.org/~fordfrog/distfiles/netbeans-7.2-r1-build.xml.patch.bz2"
 LICENSE="|| ( CDDL GPL-2-with-linking-exception )"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 S="${WORKDIR}"
+
+# Binary files needed for remote profiling
+QA_PREBUILT="usr/share/netbeans-profiler-${SLOT}/lib/deployed/*"
 
 CDEPEND="~dev-java/netbeans-ide-${PV}
 	~dev-java/netbeans-java-${PV}

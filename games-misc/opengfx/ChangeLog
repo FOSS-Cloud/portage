@@ -1,6 +1,23 @@
 # ChangeLog for games-misc/opengfx
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-misc/opengfx/ChangeLog,v 1.24 2012/11/01 20:02:28 mr_bones_ Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-misc/opengfx/ChangeLog,v 1.29 2013/01/15 05:42:39 mr_bones_ Exp $
+
+*opengfx-0.4.6.1 (15 Jan 2013)
+
+  15 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org> +opengfx-0.4.6.1.ebuild:
+  version bump (bug #451960)
+
+  13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> opengfx-0.4.5.ebuild:
+  Stable for x86, wrt bug #449906
+
+  11 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org> opengfx-0.4.5.ebuild:
+  EAPI=5; restrict test (bug #451444)
+
+  03 Jan 2013; Agostino Sarubbo <ago@gentoo.org> opengfx-0.4.5.ebuild:
+  Stable for amd64, wrt bug #449906
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> opengfx-0.4.4.ebuild:
+  Add ~ppc64, wrt bug #412329
 
 *opengfx-0.4.5 (01 Nov 2012)
 

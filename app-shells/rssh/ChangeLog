@@ -1,6 +1,25 @@
 # ChangeLog for app-shells/rssh
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/rssh/ChangeLog,v 1.30 2012/08/22 14:18:26 xmw Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-shells/rssh/ChangeLog,v 1.35 2013/01/05 21:35:40 pinkbyte Exp $
+
+  05 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> rssh-2.3.4.ebuild:
+  Respect CFLAGS, wrt bug #450458. Thanks to Diego Elio Pettenò for
+  discovering this issue
+
+  03 Dec 2012; Andreas Schuerch <nativemad@gentoo.org> rssh-2.3.4.ebuild:
+  x86 stable, see bug 445166. Thanks Dan Dexter for testing.
+
+  02 Dec 2012; Agostino Sarubbo <ago@gentoo.org> rssh-2.3.4.ebuild:
+  Stable for ppc, wrt bug #445166
+
+  30 Nov 2012; Sergey Popov <pinkbyte@gentoo.org> rssh-2.3.4.ebuild:
+  Stable on amd64, wrt bug #445166
+
+*rssh-2.3.4 (29 Nov 2012)
+
+  29 Nov 2012; Markos Chandras <hwoarang@gentoo.org> +rssh-2.3.4.ebuild:
+  Version bump. Bug #445166. Thanks to Marios Andreopoulos
+  <opensource@andmarios.com>
 
   22 Aug 2012; Michael Weber <xmw@gentoo.org> rssh-2.3.3-r2.ebuild:
   ppc stable (bug 415255).

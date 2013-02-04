@@ -1,6 +1,23 @@
 # ChangeLog for sys-kernel/linux-docs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-docs/ChangeLog,v 1.36 2012/10/17 13:24:13 mpagano Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-docs/ChangeLog,v 1.40 2013/01/15 20:12:26 mpagano Exp $
+
+*linux-docs-3.6.11 (15 Jan 2013)
+
+  15 Jan 2013; Michael Pagano <mpagano@gentoo.org> -linux-docs-3.6.2.ebuild,
+  +linux-docs-3.6.11.ebuild:
+  Add candidate for stabilization. Remove old.
+
+*linux-docs-3.7.1 (02 Jan 2013)
+
+  02 Jan 2013; Michael Pagano <mpagano@gentoo.org> +linux-docs-3.7.1.ebuild:
+  Add new version
+
+  08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> linux-docs-3.4.1.ebuild:
+  Stable for ppc64, wrt bug #429218
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> linux-docs-3.4.1.ebuild:
+  Stable for ppc, wrt bug #429218
 
 *linux-docs-3.6.2 (17 Oct 2012)
 

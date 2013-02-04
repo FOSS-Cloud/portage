@@ -1,6 +1,29 @@
 # ChangeLog for net-analyzer/fail2ban
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/fail2ban/ChangeLog,v 1.86 2012/09/07 12:10:52 pinkbyte Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/fail2ban/ChangeLog,v 1.93 2013/01/04 13:15:29 ago Exp $
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> fail2ban-0.8.8.ebuild:
+  Stable for ppc64, wrt bug #447572
+
+  03 Jan 2013; Jeroen Roovers <jer@gentoo.org> fail2ban-0.8.8.ebuild:
+  /var/run/fail2ban -> /run/fail2ban (bug #449966).
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> fail2ban-0.8.8.ebuild:
+  Stable for ppc, wrt bug #447572
+
+  28 Dec 2012; Jeroen Roovers <jer@gentoo.org> fail2ban-0.8.8.ebuild:
+  Stable for HPPA (bug #447572).
+
+  26 Dec 2012; Agostino Sarubbo <ago@gentoo.org> fail2ban-0.8.8.ebuild:
+  Stable for amd64, wrt bug #447572
+
+  26 Dec 2012; Jeff Horelick <jdhore@gentoo.org> fail2ban-0.8.8.ebuild:
+  marked x86 per bug 447572
+
+*fail2ban-0.8.8 (17 Dec 2012)
+
+  17 Dec 2012; Jeroen Roovers <jer@gentoo.org> +fail2ban-0.8.8.ebuild:
+  Version bump by Mario Kicherer (bug #447572).
 
 *fail2ban-0.8.7.1 (07 Sep 2012)
 
@@ -373,4 +396,3 @@
   +fail2ban-0.6.0.ebuild:
   Initial commit. Fixes bug 90339. Thanks to Cyril Jaquier <cyril dot jaquier
   at bluewin dot ch>. Added netmon as a herd in metadata.xml.
-

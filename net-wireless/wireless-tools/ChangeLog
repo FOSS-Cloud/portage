@@ -1,6 +1,39 @@
 # ChangeLog for net-wireless/wireless-tools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/wireless-tools/ChangeLog,v 1.145 2012/11/25 01:23:25 zerochaos Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/wireless-tools/ChangeLog,v 1.155 2013/01/26 00:14:12 zerochaos Exp $
+
+  26 Jan 2013; Rick Farina <zerochaos@gentoo.org> wireless-tools-30_pre9.ebuild:
+  bump eapi and minor cleanup for prefix support
+
+  26 Jan 2013; Rick Farina <zerochaos@gentoo.org>
+  -files/wireless-tools-29-inline-fix.patch, -wireless-tools-29-r1.ebuild,
+  -wireless-tools-29.ebuild:
+  remove old unneeded ebuilds
+
+  05 Jan 2013; Raúl Porcel <armin76@gentoo.org> wireless-tools-30_pre9.ebuild:
+  sh stable wrt #445292
+
+  19 Dec 2012; Jeroen Roovers <jer@gentoo.org> wireless-tools-30_pre9.ebuild:
+  Stable for HPPA (bug #445292).
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> wireless-tools-30_pre9.ebuild:
+  Stable for ia64, wrt bug #445292
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> wireless-tools-30_pre9.ebuild:
+  Stable for ppc, wrt bug #445292
+
+  09 Dec 2012; Agostino Sarubbo <ago@gentoo.org> wireless-tools-30_pre9.ebuild:
+  Stable for ppc64, wrt bug #445292
+
+  08 Dec 2012; Markus Meier <maekke@gentoo.org> wireless-tools-30_pre9.ebuild:
+  arm stable, bug #445292
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  wireless-tools-30_pre9.ebuild:
+  x86 stable wrt bug #445292
+
+  01 Dec 2012; <ago@gentoo.org> wireless-tools-30_pre9.ebuild:
+  Stable for amd64, wrt bug #445292
 
   25 Nov 2012; Rick Farina <zerochaos@gentoo.org> metadata.xml:
   remove anarchy as maintainer per his wishes

@@ -1,6 +1,22 @@
 # ChangeLog for dev-libs/libmirage
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libmirage/ChangeLog,v 1.23 2012/05/04 18:35:43 jdhore Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libmirage/ChangeLog,v 1.27 2013/02/02 22:03:29 tetromino Exp $
+
+  02 Feb 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  libmirage-2.0.0.ebuild:
+  Require >=gcc-4.6 to build (bug #455108, thanks to Anton Romanov).
+
+  30 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  libmirage-2.0.0.ebuild, +files/libmirage-2.0.0-gtk-doc.patch:
+  Ensure gtk-doc and gobject-introspection really are optional at build time
+  (bug #454550, thanks to Cesko Voeten).
+
+*libmirage-2.0.0 (28 Jan 2013)
+
+  28 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -libmirage-1.4.0.ebuild, libmirage-1.5.0-r1.ebuild, +libmirage-2.0.0.ebuild:
+  Version bump; adds support for DMG (Apple disk image) and MDX (Daemon Tools)
+  formats. Update to EAPI5. Update license. Drop old.
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org> libmirage-1.4.0.ebuild,
   libmirage-1.5.0-r1.ebuild:

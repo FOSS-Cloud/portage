@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/eternal-lands/eternal-lands-1.9.3-r2.ebuild,v 1.2 2012/06/24 16:17:30 rich0 Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-rpg/eternal-lands/eternal-lands-1.9.3-r2.ebuild,v 1.6 2013/01/24 23:20:08 rich0 Exp $
 
 EAPI=4
 inherit eutils flag-o-matic gnome2-utils games
@@ -15,28 +15,30 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~x86-fbsd"
 IUSE="debug doc kernel_linux"
 
-RDEPEND="x11-libs/libX11
+RDEPEND="dev-libs/libxml2
+	media-libs/cal3d[-16bit-indices]
+	media-libs/freealut
+	media-libs/libpng:0
+	media-libs/libsdl[X,opengl,video]
+	media-libs/libvorbis
+	media-libs/openal
+	media-libs/sdl-image
+	media-libs/sdl-net
+	>=games-rpg/eternal-lands-data-1.9.3
+	sys-libs/zlib[minizip]
+	virtual/glu
+	virtual/opengl
+	x11-libs/libX11
 	x11-libs/libXau
 	x11-libs/libXdmcp
-	x11-libs/libXext
-	virtual/opengl
-	virtual/glu
-	media-libs/libsdl[X]
-	media-libs/sdl-net
-	media-libs/sdl-image
-	media-libs/openal
-	media-libs/freealut
-	media-libs/libvorbis
-	dev-libs/libxml2
-	media-libs/cal3d[-16bit-indices]
-	media-libs/libpng
-	>=games-rpg/eternal-lands-data-1.9.3"
-
+	x11-libs/libXext"
 DEPEND="${RDEPEND}
 	>=app-admin/eselect-opengl-1.0.6-r1
 	app-arch/unzip
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen
-		media-gfx/graphviz )"
+		media-gfx/graphviz )
+	media-libs/glew"
 
 S="${WORKDIR}/elc"
 
@@ -53,18 +55,20 @@ src_prepare() {
 	sed -i -e '/#server_address =/ s/.*/#server_address = game.eternal-lands.com/' \
 		el.ini || die "sed failed"
 
-	epatch "${FILESDIR}/${PN}-1.9.2-glext.patch"
+	epatch "${FILESDIR}/${PN}-1.9.3-glbuild.patch"
 	epatch "${FILESDIR}/${PN}-1.9.3-build.patch"
+	epatch "${FILESDIR}/${PN}-1.9.3-minizip.patch"
+
+	# remove bundled minizip
+	rm io/{crypt,ioapi,unzip,zip}.h || die
+	rm io/{ioapi,unzip,zip}.c || die
 
 	cp Makefile.linux Makefile
-
-	# Fix for Gentoo zlib OF redefine
-	sed -i '1i#define OF(x) x' `find -name "*.c"` || die "sed failed"
 }
 
 src_compile() {
 	emake \
-		DEBUG="$(usex debug "yes" "no")" \
+		DEBUG="$(usex debug)" \
 		BSD_KERNEL="$(usex !kernel_linux)" \
 		DATADIR="${GAMES_DATADIR}/${PN}/"
 
@@ -84,7 +88,7 @@ src_install() {
 	doins -r *.ini *.txt commands.lst
 
 	if use doc ; then
-		dohtml -r client/*
+		dohtml -r "${WORKDIR}"/client/*
 	fi
 
 	doicon -s 64 "${DISTDIR}/${PN}.png"

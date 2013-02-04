@@ -1,6 +1,34 @@
 # ChangeLog for x11-wm/mutter
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/mutter/ChangeLog,v 1.12 2012/07/21 17:55:53 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/mutter/ChangeLog,v 1.20 2013/02/02 23:14:52 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> mutter-3.6.2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mutter-3.6.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mutter-3.6.2.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mutter-3.6.2.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mutter-3.6.2.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mutter-3.6.2.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  16 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org> mutter-3.6.2.ebuild:
+  Add subslot notation for cogl, thanks to Alexandre Rostovtsev for noticing.
+
+*mutter-3.6.2 (16 Dec 2012)
+
+  16 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org> -mutter-3.2.2.ebuild,
+  -mutter-3.2.2-r1.ebuild, +mutter-3.6.2.ebuild, metadata.xml:
+  Version bump for Gnome 3.6. Drop old revision. USE=introspection is now
+  global.
 
   21 Jul 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   mutter-3.4.1-r1.ebuild:
@@ -68,4 +96,3 @@
   30 Sep 2011; Nirbheek Chauhan <nirbheek@gentoo.org> +mutter-3.0.2.1.ebuild,
   +metadata.xml:
   Move from GNOME overlay for GNOME 3
-

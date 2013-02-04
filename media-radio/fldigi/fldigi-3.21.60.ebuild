@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/fldigi/fldigi-3.21.60.ebuild,v 1.1 2012/11/12 18:03:16 tomjbe Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-radio/fldigi/fldigi-3.21.60.ebuild,v 1.4 2012/12/14 17:51:50 tomjbe Exp $
 
 EAPI=4
 
@@ -10,7 +10,7 @@ SRC_URI="http://www.w1hkj.com/downloads/fldigi/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="hamlib nls portaudio pulseaudio sndfile xmlrpc"
 
 RDEPEND="x11-libs/fltk:1[threads,xft]
@@ -37,5 +37,6 @@ src_configure() {
 		$(use_enable nls) \
 		$(use_with pulseaudio) \
 		$(use_with xmlrpc) \
+		--disable-silent-rules \
 		--without-asciidoc
 }

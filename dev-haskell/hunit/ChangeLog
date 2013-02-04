@@ -1,6 +1,31 @@
 # ChangeLog for dev-haskell/hunit
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hunit/ChangeLog,v 1.53 2012/09/14 12:31:57 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hunit/ChangeLog,v 1.61 2012/12/30 15:01:35 ago Exp $
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> hunit-1.2.5.1.ebuild:
+  Stable for alpha, wrt bug #441152
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> hunit-1.2.5.1.ebuild:
+  Stable for sparc, wrt bug #441152
+
+  24 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> -hunit-1.2.0.3.ebuild,
+  -hunit-1.2.2.1.ebuild, -hunit-1.2.2.3.ebuild, -hunit-1.2.4.3.ebuild:
+  Removed old.
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> hunit-1.2.5.1.ebuild:
+  Stable for ia64, wrt bug #441152
+
+  08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> hunit-1.2.5.1.ebuild:
+  Stable for ppc64, wrt bug #441152
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> hunit-1.2.5.1.ebuild:
+  Stable for ppc, wrt bug #441152
+
+  07 Dec 2012; <ago@gentoo.org> hunit-1.2.5.1.ebuild:
+  Stable for x86, wrt bug #441152
+
+  07 Dec 2012; <ago@gentoo.org> hunit-1.2.5.1.ebuild:
+  Stable for amd64, wrt bug #441152
 
 *hunit-1.2.5.1 (14 Sep 2012)
 

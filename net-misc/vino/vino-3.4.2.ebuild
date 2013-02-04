@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/vino/vino-3.4.2.ebuild,v 1.1 2012/05/20 03:59:50 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/vino/vino-3.4.2.ebuild,v 1.2 2012/12/18 08:49:04 tetromino Exp $
 
 EAPI="4"
 GCONF_DEBUG="yes"
@@ -9,9 +9,9 @@ GNOME2_LA_PUNT="yes"
 inherit gnome2
 
 DESCRIPTION="An integrated VNC server for GNOME"
-HOMEPAGE="http://www.gnome.org/"
+HOMEPAGE="http://live.gnome.org/Vino"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
 IUSE="avahi crypt ipv6 jpeg gnome-keyring libnotify networkmanager ssl +telepathy +zlib"

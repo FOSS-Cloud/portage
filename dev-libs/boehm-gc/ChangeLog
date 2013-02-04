@@ -1,6 +1,16 @@
 # ChangeLog for dev-libs/boehm-gc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/boehm-gc/ChangeLog,v 1.83 2012/10/13 13:42:13 naota Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/boehm-gc/ChangeLog,v 1.85 2013/02/03 12:12:05 pacho Exp $
+
+  03 Feb 2013; Pacho Ramos <pacho@gentoo.org> -boehm-gc-7.0-r1.ebuild,
+  -boehm-gc-7.2_alpha4-r1.ebuild, -boehm-gc-7.2_alpha6.ebuild, metadata.xml:
+  Cleanup due #22900
+
+  16 Dec 2012; Ulrich Müller <ulm@gentoo.org> boehm-gc-6.8.ebuild,
+  boehm-gc-7.0-r1.ebuild, boehm-gc-7.1-r1.ebuild,
+  boehm-gc-7.2_alpha4-r1.ebuild, boehm-gc-7.2_alpha6.ebuild,
+  boehm-gc-7.2d.ebuild:
+  Fix LICENSE, see doc/README, bug 447456.
 
   13 Oct 2012;  <naota@gentoo.org> +files/boehm-gc-7.2d-configure.patch,
   boehm-gc-7.2d.ebuild:

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/fxruby/fxruby-1.6.25.ebuild,v 1.8 2012/11/18 11:49:04 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/fxruby/fxruby-1.6.25.ebuild,v 1.10 2013/01/08 08:47:15 nativemad Exp $
 
 EAPI=4
 USE_RUBY="ruby18 ruby19"
@@ -11,14 +11,14 @@ RUBY_FAKEGEM_TASK_DOC="docs"
 
 RUBY_FAKEGEM_EXTRADOC="History.txt index.html README.rdoc TODO"
 
-inherit multilib ruby-fakegem toolchain-funcs
+inherit multilib virtualx ruby-fakegem toolchain-funcs
 
 DESCRIPTION="Ruby language binding to the FOX GUI toolkit"
 HOMEPAGE="http://www.fxruby.org/"
 
 LICENSE="LGPL-2.1"
 SLOT="1.6"
-KEYWORDS="amd64 hppa ppc ppc64 ~x86 ~x86-fbsd"
+KEYWORDS="amd64 hppa ppc ppc64 x86 ~x86-fbsd"
 IUSE="examples doc"
 
 CDEPEND="x11-libs/fox:1.6 >=x11-libs/fxscintilla-1.62-r1"
@@ -60,6 +60,10 @@ each_ruby_configure() {
 each_ruby_compile() {
 	CXX=$(tc-getCXX) emake -Cext/fox16 || die
 	cp ext/fox16/fox16$(get_modname) lib/ || die
+}
+
+each_ruby_test() {
+	VIRTUALX_COMMAND=${RUBY} virtualmake -S rake test || die
 }
 
 all_ruby_install() {

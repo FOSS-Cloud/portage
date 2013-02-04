@@ -1,6 +1,30 @@
 # ChangeLog for dev-libs/liborcus
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/liborcus/ChangeLog,v 1.6 2012/11/16 20:07:49 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/liborcus/ChangeLog,v 1.12 2013/01/15 08:42:58 scarabeus Exp $
+
+  15 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> liborcus-0.3.0.ebuild,
+  liborcus-9999.ebuild:
+  Disable werror. Fixes bug#451564.
+
+  11 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> liborcus-9999.ebuild:
+  Use eapi5.
+
+  11 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> liborcus-0.3.0.ebuild,
+  liborcus-9999.ebuild:
+  Works on ppc.
+
+  20 Dec 2012; Tomáš Chvátal <scarabeus@gentoo.org> -liborcus-0.1.0.ebuild:
+  Drop unused oldest version.
+
+  30 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> liborcus-0.3.0.ebuild:
+  Seems like part of the commit was not included in the branch. Fixes
+  bug#445240.
+
+*liborcus-0.3.0 (28 Nov 2012)
+
+  28 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> +liborcus-0.3.0.ebuild,
+  liborcus-9999.ebuild:
+  Version bump to latest liborcus release.
 
   16 Nov 2012; Agostino Sarubbo <ago@gentoo.org> liborcus-0.1.0.ebuild:
   workaround for bug 399061

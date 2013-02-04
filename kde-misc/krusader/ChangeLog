@@ -1,6 +1,17 @@
 # ChangeLog for kde-misc/krusader
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/krusader/ChangeLog,v 1.108 2012/10/26 19:53:28 creffett Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-misc/krusader/ChangeLog,v 1.111 2013/01/11 13:04:03 ago Exp $
+
+  11 Jan 2013; Agostino Sarubbo <ago@gentoo.org> krusader-2.4.0_beta3.ebuild:
+  Drop ~ppc64
+
+  25 Dec 2012; Tomáš Chvátal <scarabeus@gentoo.org>
+  -files/krusader-2.4.0_beta1-gcc47.patch, -krusader-2.4.0_beta1-r1.ebuild,
+  krusader-2.4.0_beta3.ebuild:
+  Stable x86 wrt bug#446088. Punt older. Force due to unupdated tree.
+
+  07 Dec 2012; <ago@gentoo.org> krusader-2.4.0_beta3.ebuild:
+  Stable for amd64, wrt bug #446088
 
 *krusader-2.4.0_beta3 (26 Oct 2012)
 

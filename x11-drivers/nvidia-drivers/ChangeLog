@@ -1,6 +1,32 @@
 # ChangeLog for x11-drivers/nvidia-drivers
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/ChangeLog,v 1.413 2012/11/19 21:21:51 cardoe Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/ChangeLog,v 1.418 2013/01/20 10:09:13 pacho Exp $
+
+  20 Jan 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due retirement, bug #35242
+
+  17 Jan 2013; Doug Goldstein <cardoe@gentoo.org> nvidia-drivers-313.18.ebuild:
+  Fix X.org server depend
+
+*nvidia-drivers-313.18 (16 Jan 2013)
+
+  16 Jan 2013; Doug Goldstein <cardoe@gentoo.org>
+  +nvidia-drivers-313.18.ebuild:
+  Version bump
+
+  19 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  nvidia-drivers-96.43.20.ebuild, nvidia-drivers-96.43.23.ebuild,
+  nvidia-drivers-173.14.35.ebuild, nvidia-drivers-173.14.36.ebuild,
+  nvidia-drivers-295.71.ebuild, nvidia-drivers-295.75.ebuild,
+  nvidia-drivers-304.60.ebuild, nvidia-drivers-304.64.ebuild,
+  nvidia-drivers-310.19.ebuild:
+  Depend on pangox-compat if using pango-1.32.
+
+  11 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  nvidia-drivers-295.71.ebuild, nvidia-drivers-295.75.ebuild,
+  nvidia-drivers-304.60.ebuild, nvidia-drivers-304.64.ebuild,
+  nvidia-drivers-310.19.ebuild:
+  Use udev.eclass to install nvidia udev rules.
 
   19 Nov 2012; Doug Goldstein <cardoe@gentoo.org> nvidia-drivers-310.19.ebuild:
   Fix bad directory reference
@@ -178,12 +204,6 @@
 
   10 Aug 2012; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-173.14.35.ebuild:
   Stable for AMD64 (bug #426642).
-
-  10 Aug 2012; Samuli Suominen <ssuominen@gentoo.org>
-  nvidia-drivers-295.59-r1.ebuild, nvidia-drivers-302.17-r1.ebuild,
-  nvidia-drivers-304.22.ebuild:
-  Read udevdir from udev.pc pkg-config file for compability with sys-fs/udev >=
-  187.
 
 *nvidia-drivers-295.71 (08 Aug 2012)
 

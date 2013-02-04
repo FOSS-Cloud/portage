@@ -1,6 +1,24 @@
 # ChangeLog for dev-db/couchdb
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/couchdb/ChangeLog,v 1.61 2012/10/19 09:15:55 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-db/couchdb/ChangeLog,v 1.66 2013/01/21 12:43:24 ago Exp $
+
+  21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> couchdb-1.2.1.ebuild:
+  Stable for x86, wrt bug #452020
+
+  16 Jan 2013; Agostino Sarubbo <ago@gentoo.org> couchdb-1.2.1.ebuild:
+  Stable for ppc, wrt bug #452020
+
+  16 Jan 2013; Agostino Sarubbo <ago@gentoo.org> couchdb-1.2.1.ebuild:
+  Stable for amd64, wrt bug #452020
+
+  12 Jan 2013; Zac Medico <zmedico@gentoo.org> couchdb-1.2.1.ebuild:
+  Fix SRC_URI.
+
+*couchdb-1.2.1 (12 Jan 2013)
+
+  12 Jan 2013; Dirkjan Ochtman <djc@gentoo.org> +couchdb-1.2.1.ebuild,
+  +files/couchdb.init-3:
+  Version bump to 1.2.1.
 
   19 Oct 2012; Samuli Suominen <ssuominen@gentoo.org> couchdb-1.1.1.ebuild,
   couchdb-1.2.0.ebuild:
@@ -236,4 +254,3 @@
   22 Mar 2009; Caleb Tennis <caleb@gentoo.org> +files/couchdb.conf-0.8.1,
   +files/couchdb.init-0.8.1, +couchdb-0.8.1.ebuild:
   Initial import, from bug 197176.  Thanks to everyone there who submitted ebuilds and supplemental files.
-

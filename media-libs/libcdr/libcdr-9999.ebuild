@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libcdr/libcdr-9999.ebuild,v 1.8 2012/08/10 08:09:34 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libcdr/libcdr-9999.ebuild,v 1.9 2013/01/25 15:09:25 scarabeus Exp $
 
-EAPI=4
+EAPI=5
 
 EGIT_REPO_URI="git://anongit.freedesktop.org/git/libreoffice/libcdr/"
-inherit base
+inherit base eutils
 [[ ${PV} == 9999 ]] && inherit autotools git-2
 
 DESCRIPTION="Library parsing the Corel cdr documents"
@@ -14,12 +14,13 @@ HOMEPAGE="http://www.freedesktop.org/wiki/Software/libcdr"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-[[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~ppc ~x86"
+[[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~arm ~ppc ~x86"
 IUSE="doc static-libs"
 
 RDEPEND="
 	app-text/libwpd:0.9
 	app-text/libwpg:0.2
+	dev-libs/icu:=
 	media-libs/lcms:2
 	sys-libs/zlib
 "
@@ -45,5 +46,5 @@ src_configure() {
 
 src_install() {
 	default
-	find "${ED}" -name '*.la' -exec rm -f {} +
+	prune_libtool_files --all
 }

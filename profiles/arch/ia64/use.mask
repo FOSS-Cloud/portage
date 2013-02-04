@@ -48,10 +48,10 @@ capi
 lensfun
 kde
 metalink
-quvi
 upnp
 systemd
 webm
+fdk
 
 # Stuff we don't want
 antlr
@@ -104,11 +104,6 @@ pike
 xemacs
 
 # Other
-
-# Alexandre Rostovtsev <tetromino@gmail.com> (28 Oct 2011)
-# x11-misc/colord and app-admin/packagekit-base not tested. Bug #387959.
-colord
-packagekit
 
 # Raúl Porcel <armin76@gentoo.org> (23 Apr 2011)
 # Needs to be tested
@@ -168,6 +163,10 @@ video_cards_newport
 video_cards_siliconmotion
 video_cards_sis
 
+# Matt Turner <mattst88@gentoo.org> (02 Jan 2013)
+# Not available on ia64. See bugs 449816, 448606.
+video_cards_intel
+
 # Matt Turner <mattst88@gentoo.org>
 # Mask more VIDEO_CARDs added with mesa-8.0
 video_cards_i915
@@ -226,11 +225,18 @@ wayland
 # media-sound/fluidsynth isn't keyworded
 fluidsynth
 
-# Michał Górny <mgorny@gentoo.org> (31 Oct 2012)
-# Mask PYTHON_TARGETS for implementations not keyworded on this arch.
-python_targets_pypy1_8
-python_targets_pypy1_9
-python_targets_jython2_5
-python_single_target_pypy1_8
-python_single_target_pypy1_9
-python_single_target_jython2_5
+# Alexandre Rostovtsev <tetromino@gentoo.org> (31 Dec 2012)
+# net-misc/connman is not keyworded, bug 348308
+connman
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (31 Dec 2012)
+# media-libs/xine-lib is not keyworded
+xine
+
+# Samuli Suominen <ssuominen@gentoo.org> (18 Jan 2013)
+# libdlm and cman are not keyworded
+cman
+clvm
+
+-zeitgeist
+template_haskell

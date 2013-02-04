@@ -1,20 +1,20 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/parity/parity-9999.ebuild,v 1.3 2011/08/10 20:31:23 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/parity/parity-9999.ebuild,v 1.5 2013/01/17 11:07:21 haubi Exp $
 
 EAPI=4
 
 if [[ ${PV} == 9999 ]]; then
 	inherit subversion
-	ESVN_REPO_URI="https://parity.svn.sf.net/svnroot/parity/trunk"
+	ESVN_REPO_URI="http://svn.code.sf.net/p/parity/code/trunk"
 	ESVN_BOOTSTRAP="confix --bootstrap"
 	ESVN_PROJECT="${PN}"
-	KEYWORDS=""
+	: ${KEYWORDS=""}
 
 	DEPEND="dev-util/confix"
 else
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
-	KEYWORDS="~x86-interix ~x86-winnt"
+	KEYWORDS="~x86-interix"
 fi
 DESCRIPTION="An Interix to native Win32 Cross-Compiler Tool (requires Visual Studio)."
 HOMEPAGE="http://www.sourceforge.net/projects/parity/"

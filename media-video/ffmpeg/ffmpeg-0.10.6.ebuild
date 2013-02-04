@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ffmpeg-0.10.6.ebuild,v 1.1 2012/11/14 12:37:17 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ffmpeg-0.10.6.ebuild,v 1.3 2013/01/16 07:54:55 ssuominen Exp $
 
 EAPI="4"
 
@@ -54,7 +54,7 @@ RDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	amr? ( media-libs/opencore-amr )
 	bzip2? ( app-arch/bzip2 )
-	cdio? ( dev-libs/libcdio )
+	cdio? ( || ( dev-libs/libcdio-paranoia <dev-libs/libcdio-0.90[-minimal] ) )
 	celt? ( >=media-libs/celt-0.11.1 )
 	dirac? ( media-video/dirac )
 	encode? (
@@ -120,6 +120,14 @@ src_prepare() {
 		export revision=git-N-${FFMPEG_REVISION}
 	fi
 	epatch "${FILESDIR}/freiordl.patch"
+	epatch "${FILESDIR}/flashtest.patch"
+
+	if has_version dev-libs/libcdio-paranoia; then
+		sed -i \
+			-e 's:cdio/cdda.h:cdio/paranoia/cdda.h:' \
+			-e 's:cdio/paranoia.h:cdio/paranoia/paranoia.h:' \
+			configure libavdevice/libcdio.c || die
+	fi
 }
 
 src_configure() {

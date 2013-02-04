@@ -1,6 +1,33 @@
 # ChangeLog for app-misc/uptimed
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/uptimed/ChangeLog,v 1.82 2012/05/23 13:23:07 xarthisius Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/uptimed/ChangeLog,v 1.87 2013/01/14 18:08:59 polynomial-c Exp $
+
+  14 Jan 2013; Lars Wendler <polynomial-c@gentoo.org> files/uptimed.init:
+  Better fix for bug #448382. Thanks to WilliamH for giving the right input.
+
+  24 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> files/uptimed.init:
+  Really fix init script this time.
+
+*uptimed-0.3.17-r1 (24 Dec 2012)
+*uptimed-0.3.16-r6 (24 Dec 2012)
+
+  24 Dec 2012; Lars Wendler <polynomial-c@gentoo.org>
+  -uptimed-0.3.16-r5.ebuild, +uptimed-0.3.16-r6.ebuild, -uptimed-0.3.17.ebuild,
+  +uptimed-0.3.17-r1.ebuild, files/uptimed.init:
+  Fixed init script so openrc no longer sees uptimed as crashed. Thanks to
+  Nikolaj Sjujskij for reporting this in bug #448382.
+
+  19 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> metadata.xml:
+  Took over maintenance.
+
+*uptimed-0.3.17 (19 Dec 2012)
+*uptimed-0.3.16-r5 (19 Dec 2012)
+
+  19 Dec 2012; Lars Wendler <polynomial-c@gentoo.org>
+  -uptimed-0.3.16-r4.ebuild, +uptimed-0.3.16-r5.ebuild, +uptimed-0.3.17.ebuild,
+  -files/uptimed, files/uptimed.init:
+  Non-maintainer commit: Revision bump so stable users get a working
+  (completely rewritten) init script again (bug #445398). Version bump.
 
   23 May 2012; Kacper Kowalik <xarthisius@gentoo.org> uptimed-0.3.16-r4.ebuild:
   Add missing user.eclass for enewgroup. Fixes #417153 by Eugene Ho

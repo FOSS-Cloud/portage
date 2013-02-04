@@ -1,6 +1,46 @@
 # ChangeLog for app-admin/webalizer
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/webalizer/ChangeLog,v 1.89 2012/10/28 20:13:19 swegener Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/webalizer/ChangeLog,v 1.100 2013/01/13 14:33:08 blueness Exp $
+
+  13 Jan 2013; Anthony G. Basile <blueness@gentoo.org> metadata.xml:
+  Adopting this
+
+  13 Jan 2013; Anthony G. Basile <blueness@gentoo.org> webalizer-2.21.02.ebuild:
+  Drop all keywords but stable sparc
+
+  13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> webalizer-2.23.05.ebuild:
+  Stable for x86, wrt bug #445226
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> webalizer-2.23.05.ebuild:
+  Stable for alpha, wrt bug #445226
+
+  27 Dec 2012; Jeroen Roovers <jer@gentoo.org> webalizer-2.23.05.ebuild:
+  Stable for HPPA (bug #445226).
+
+  23 Dec 2012; Agostino Sarubbo <ago@gentoo.org> webalizer-2.23.05.ebuild:
+  Stable for ppc64, wrt bug #445226
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> webalizer-2.23.05.ebuild:
+  Stable for ppc, wrt bug #445226
+
+  19 Dec 2012; Agostino Sarubbo <ago@gentoo.org> webalizer-2.23.05.ebuild:
+  Stable for amd64, wrt bug #445226
+
+  18 Dec 2012; Anthony G. Basile <blueness@gentoo.org> webalizer-2.23.05.ebuild:
+  Add pkg_postinst() message about upgrading to XTENDED, bug #445226, comment #4
+
+  29 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  -files/geolizer-2.01.10_p20070115-strip.patch, -files/webalizer-db4.2.patch,
+  -files/webalizer-storage-size.patch, -webalizer-2.01.10-r15.ebuild,
+  -webalizer-2.01.10-r16.ebuild, -webalizer-2.01.10-r17.ebuild,
+  webalizer-2.21.02.ebuild, webalizer-2.23.05.ebuild:
+  Remove very old versions, fix home page
+
+*webalizer-2.23.05 (29 Nov 2012)
+
+  29 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
+  +webalizer-2.23.05.ebuild:
+  Version bump, bug #385291
 
   28 Oct 2012; Sven Wegener <swegener@gentoo.org> webalizer-2.21.02.ebuild:
   Add support for on-the-fly bzip2 decompression.

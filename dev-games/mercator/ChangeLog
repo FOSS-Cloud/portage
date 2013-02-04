@@ -1,6 +1,31 @@
 # ChangeLog for dev-games/mercator
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/mercator/ChangeLog,v 1.23 2012/07/10 21:32:33 mr_bones_ Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-games/mercator/ChangeLog,v 1.30 2013/01/22 18:42:57 mr_bones_ Exp $
+
+  22 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/mercator-0.3.0-gentoo.patch, -mercator-0.3.0.ebuild,
+  -mercator-0.3.1.ebuild:
+  old
+
+  13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mercator-0.3.2.ebuild:
+  Stable for x86, wrt bug #449890
+
+  03 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mercator-0.3.2.ebuild:
+  Stable for amd64, wrt bug #449890
+
+  26 Dec 2012; Jeff Horelick <jdhore@gentoo.org> mercator-0.3.1.ebuild:
+  marked x86 per bug 447338
+
+  20 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mercator-0.3.1.ebuild:
+  Stable for amd64, wrt bug #447338
+
+*mercator-0.3.2 (02 Dec 2012)
+
+  02 Dec 2012; Michael Sterrett <mr_bones_@gentoo.org> +mercator-0.3.2.ebuild:
+  version bump (bug #445532)
+
+  01 Dec 2012; Michael Sterrett <mr_bones_@gentoo.org> -mercator-0.2.9.ebuild:
+  old
 
 *mercator-0.3.1 (10 Jul 2012)
 
@@ -86,4 +111,3 @@
 
   01 Feb 2007; Tupone Alfredo <tupone@gentoo.org> +metadata.xml, +mercator-0.2.5.ebuild:
   New ebuild. Fix partially bug #58213 by Boris Smus
-

@@ -1,6 +1,40 @@
 # ChangeLog for app-misc/tracker
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/tracker/ChangeLog,v 1.136 2012/11/21 23:04:42 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/tracker/ChangeLog,v 1.144 2013/02/02 22:22:59 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> tracker-0.14.4.ebuild:
+  Add ~arm, wrt bug #449220
+
+  25 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org> tracker-0.14.4.ebuild,
+  tracker-9999.ebuild:
+  Switch to EAPI=5, move configuration stuff to src_configure. Fix xps USE flag
+  handling. Be more complete in REQUIRED_USE.
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> tracker-0.14.4.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> tracker-0.14.4.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org> tracker-0.14.4.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> tracker-0.14.4.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> tracker-0.14.4.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  15 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -files/tracker-0.8.0-strigi.patch,
+  -files/tracker-0.8.17-build-with-eds232.patch,
+  -files/tracker-0.8.17-poppler-0.16.patch,
+  -files/tracker-0.8.17-tests-fixes.patch,
+  -files/tracker-0.8.17-use-upower.patch, tracker-0.12.10-r1.ebuild,
+  -tracker-0.14.2-r1.ebuild, tracker-0.14.3.ebuild, tracker-0.14.4.ebuild,
+  tracker-9999.ebuild, metadata.xml:
+  Rename upnp USE flag to upnp-av (bug #435768, thanks to Michał Górny). Drop
+  old.
 
 *tracker-0.14.4 (21 Nov 2012)
 

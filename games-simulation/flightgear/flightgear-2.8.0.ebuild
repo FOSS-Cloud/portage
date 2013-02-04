@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-simulation/flightgear/flightgear-2.8.0.ebuild,v 1.5 2012/10/15 11:25:56 nativemad Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-simulation/flightgear/flightgear-2.8.0.ebuild,v 1.8 2012/12/09 15:09:51 ago Exp $
 
 EAPI=4
 
@@ -12,20 +12,19 @@ SRC_URI="mirror://flightgear/Source/${P}.tar.bz2 mirror://flightgear/Shared/Flig
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
-IUSE="debug jpeg +jsbsim oldfdm subversion test +udev +yasim"
-#fgpanel - disabled for now, doesn't link
-#fgpanel? (
-#		media-libs/freeglut
-#		media-libs/libpng
-#	)
+KEYWORDS="amd64 ppc x86"
+IUSE="debug fgpanel jpeg +jsbsim oldfdm subversion test +udev +yasim"
 
 COMMON_DEPEND="
 	>=dev-games/openscenegraph-3.0.1[png]
 	~dev-games/simgear-${PV}[jpeg?,subversion?]
 	sys-libs/zlib
 	virtual/opengl
-	udev? ( sys-fs/udev )
+	udev? ( virtual/udev )
+	fgpanel? (
+		media-libs/freeglut
+		media-libs/libpng
+	)
 "
 # Most entries below are just buildsystem bugs (deps unconditionally
 # inherited from static version of simgear)
@@ -42,6 +41,10 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-fgpanel-linking.patch"
+)
+
 DOCS=(AUTHORS ChangeLog NEWS README Thanks)
 
 src_configure() {
@@ -51,7 +54,7 @@ src_configure() {
 		-DENABLE_RTI=OFF
 		-DFG_DATA_DIR="${GAMES_DATADIR}"/${PN}
 		-DSIMGEAR_SHARED=ON
-		-DWITH_FGPANEL=OFF
+		$(cmake-utils_use_with fgpanel)
 		$(cmake-utils_use jpeg JPEG_FACTORY)
 		$(cmake-utils_use_enable jsbsim)
 		$(cmake-utils_use_enable oldfdm LARCSIM)
@@ -62,7 +65,6 @@ src_configure() {
 		$(cmake-utils_use udev EVENT_INPUT)
 		$(cmake-utils_use_enable yasim)
 	)
-	#$(cmake-utils_use_with fgpanel)
 
 	cmake-utils_src_configure
 }

@@ -1,6 +1,50 @@
 # ChangeLog for net-wireless/bluez
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/bluez/ChangeLog,v 1.147 2012/11/18 12:08:13 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/bluez/ChangeLog,v 1.158 2013/01/26 13:15:30 ago Exp $
+
+  26 Jan 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r5.ebuild:
+  Stable for ppc64, wrt bug #448908
+
+  26 Jan 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r5.ebuild:
+  Stable for ppc, wrt bug #448908
+
+  22 Jan 2013; Jeroen Roovers <jer@gentoo.org> bluez-4.101-r5.ebuild:
+  Stable for HPPA (bug #448908).
+
+  22 Jan 2013; Pacho Ramos <pacho@gentoo.org> bluez-4.101-r5.ebuild:
+  Add missing dependency for simple-agent as it also needs newer gi python
+  module (#452960 by Constantin Baranov)
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r5.ebuild:
+  Stable for x86, wrt bug #448908
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r5.ebuild:
+  Stable for arm, wrt bug #448908
+
+  18 Jan 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r5.ebuild:
+  Stable for amd64, wrt bug #448908
+
+*bluez-4.101-r5 (27 Dec 2012)
+
+  27 Dec 2012; Pacho Ramos <pacho@gentoo.org> +bluez-4.101-r5.ebuild,
+  +files/bluez-4.101-mgmt-update.patch, -bluez-4.101-r3.ebuild,
+  -bluez-4.98-r2.ebuild:
+  Revert upstream commit causing problems with mouse connection (#431624 by
+  cache), will need to recheck without reversion in bluez-5, move to python-
+  single-r1.eclass and drop old.
+
+  11 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> bluez-4.98-r2.ebuild,
+  bluez-4.99.ebuild, bluez-4.101-r3.ebuild:
+  Use virtual/udev instead of sys-fs/udev
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> bluez-4.99.ebuild:
+  Stable for ppc64, wrt bug #411015
+
+*bluez-4.101-r4 (02 Dec 2012)
+
+  02 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> +bluez-4.101-r4.ebuild:
+  Use oui.txt from sys-apps/hwids instead of local copy. Relax USE="consolekit"
+  dependencies for logind in sys-apps/systemd.
 
   18 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> metadata.xml:
   Remove pda@ because this isn't exactly related to PDAs.

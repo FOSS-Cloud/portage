@@ -1,6 +1,32 @@
 # ChangeLog for sys-kernel/openvz-sources
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/openvz-sources/ChangeLog,v 1.180 2012/10/21 16:04:27 pva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/openvz-sources/ChangeLog,v 1.185 2013/01/23 12:03:08 pinkbyte Exp $
+
+*openvz-sources-2.6.32.72.10 (23 Jan 2013)
+
+  23 Jan 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +openvz-sources-2.6.32.72.10.ebuild:
+  Version bump, requested by Andreis Vinogradovs
+
+  14 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Adjust list of maintainers
+
+  11 Jan 2013; Sergey Popov <pinkbyte@gentoo.org>
+  openvz-sources-2.6.18.028.099.3.ebuild,
+  openvz-sources-2.6.18.028.101.1.ebuild:
+  Drop ~ia64 keyword due to build failures. Upstream does not support it
+  anymore, bug #411161
+
+  03 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Adding proxy maintainers team and Andreis Vinogradovs as proxy maintainer
+
+*openvz-sources-2.6.32.68.8 (03 Jan 2013)
+*openvz-sources-2.6.18.028.101.1 (03 Jan 2013)
+
+  03 Jan 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +openvz-sources-2.6.18.028.101.1.ebuild, +openvz-sources-2.6.32.68.8.ebuild:
+  Version bump, wrt bug #427286, ebuilds from rion overlay. Thanks to Joakim
+  for discovering this issue and Andreis Vinogradovs - for providing ebuilds
 
 *openvz-sources-2.6.32.62.2 (21 Oct 2012)
 

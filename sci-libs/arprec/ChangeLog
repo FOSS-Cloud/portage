@@ -1,6 +1,26 @@
 # ChangeLog for sci-libs/arprec
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/arprec/ChangeLog,v 1.13 2012/10/18 21:12:44 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/arprec/ChangeLog,v 1.17 2012/12/22 18:39:31 hwoarang Exp $
+
+  22 Dec 2012; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add missing space. Bug #448182
+
+*arprec-2.2.16 (11 Dec 2012)
+
+  11 Dec 2012; Sébastien Fabbro <bicatali@gentoo.org> +arprec-2.2.16.ebuild,
+  -arprec-2.2.13.ebuild, -arprec-2.2.15.ebuild,
+  -files/arprec-2.2.15-fix-enabling.patch:
+  Version bump. Patch applied upstream. Fix mathtool according to bug #446418
+  thanks to James Cloos
+
+  30 Nov 2012; Sébastien Fabbro <bicatali@gentoo.org> arprec-2.2.15.ebuild:
+  Build in source as easy fix for bug #445306
+
+*arprec-2.2.15 (30 Nov 2012)
+
+  30 Nov 2012; Sébastien Fabbro <bicatali@gentoo.org> +arprec-2.2.15.ebuild,
+  +files/arprec-2.2.15-fix-enabling.patch, metadata.xml:
+  Version bump. Fix wrong enable option parsing at configure time
 
   18 Oct 2012; Justin Lecher <jlec@gentoo.org> arprec-2.2.13.ebuild,
   metadata.xml:

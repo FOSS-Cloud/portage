@@ -1,6 +1,16 @@
 # ChangeLog for dev-python/hglib
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/hglib/ChangeLog,v 1.3 2012/03/16 07:25:07 patrick Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/hglib/ChangeLog,v 1.5 2013/01/23 16:20:50 idella4 Exp $
+
+  23 Jan 2013; Ian Delaney <idella4@gentoo.org> +files/hglib-0.3-tests.patch,
+  hglib-0.3.ebuild:
+  tests.patch allowing pypy to pass testsuite, pypy support added, see upstream
+  pypy.org/issue1380
+
+*hglib-0.3 (22 Jan 2013)
+
+  22 Jan 2013; Ian Delaney <idella4@gentoo.org> +hglib-0.3.ebuild:
+  bump
 
 *hglib-0.2 (16 Mar 2012)
 
@@ -15,4 +25,3 @@
   04 Dec 2011; Maxim Koltsov <maksbotan@gentoo.org> +hglib-0.1.ebuild,
   +metadata.xml:
   Added dev-python/hglib-0.1, thanks to Arne Babenhauserheide. Bug #392387
-

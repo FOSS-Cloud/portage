@@ -1,6 +1,50 @@
 # ChangeLog for media-libs/gstreamer
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gstreamer/ChangeLog,v 1.312 2012/10/24 04:42:50 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/gstreamer/ChangeLog,v 1.324 2013/02/04 00:21:55 ago Exp $
+
+  04 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36.ebuild:
+  Stable for ia64, wrt bug #454906
+
+  03 Feb 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gstreamer-0.10.36.ebuild:
+  Fix wrong "|| die" logic in previous commit (bug #455304, thanks to Nikoli).
+
+  03 Feb 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gstreamer-0.10.36.ebuild:
+  Disable windows-portability tests on non-x86/amd64 arches, where they can
+  fail due to different ELF layouts (bug #455038, thanks to Agostino Sarubbo).
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36.ebuild:
+  Stable for ppc, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36.ebuild:
+  Stable for ppc64, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36.ebuild:
+  Stable for x86, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36.ebuild:
+  Stable for amd64, wrt bug #454906
+
+*gstreamer-1.0.5 (13 Jan 2013)
+
+  13 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org> +gstreamer-1.0.5.ebuild:
+  Version bump, bug #451662.
+
+  20 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> metadata.xml:
+  Switch to global introspection USE flag.
+
+*gstreamer-1.0.3 (03 Dec 2012)
+
+  03 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org> +gstreamer-1.0.3.ebuild:
+  Version bump.
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org> gstreamer-0.10.36.ebuild:
+  Import cleaned up ebuild from gnome overlay.
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  -gstreamer-0.10.32-r1.ebuild, -files/gstreamer-0.10.32-fix-valve-drops.patch:
+  Clean up old revision.
 
   24 Oct 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   gstreamer-0.10.36.ebuild, metadata.xml:

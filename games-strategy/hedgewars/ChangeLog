@@ -1,6 +1,15 @@
 # ChangeLog for games-strategy/hedgewars
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/hedgewars/ChangeLog,v 1.46 2012/11/05 16:35:00 mr_bones_ Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/hedgewars/ChangeLog,v 1.49 2013/01/22 18:05:59 mr_bones_ Exp $
+
+  22 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org> -hedgewars-0.9.17.ebuild:
+  old
+
+  13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> hedgewars-0.9.18-r1.ebuild:
+  Stable for x86, wrt bug #449904
+
+  03 Jan 2013; Agostino Sarubbo <ago@gentoo.org> hedgewars-0.9.18-r1.ebuild:
+  Stable for amd64, wrt bug #449904
 
   05 Nov 2012; Michael Sterrett <mr_bones_@gentoo.org>
   hedgewars-0.9.18-r1.ebuild:

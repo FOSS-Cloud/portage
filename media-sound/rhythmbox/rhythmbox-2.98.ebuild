@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/rhythmbox/rhythmbox-2.98.ebuild,v 1.1 2012/10/26 07:17:45 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/rhythmbox/rhythmbox-2.98.ebuild,v 1.10 2013/02/02 22:58:15 ago Exp $
 
 EAPI="4"
 GNOME2_LA_PUNT="yes"
@@ -15,9 +15,9 @@ HOMEPAGE="http://www.rhythmbox.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="cdr clutter daap dbus gnome-keyring html ipod libnotify lirc mtp nsplugin +python test +udev upnp webkit zeitgeist"
+IUSE="cdr clutter daap dbus gnome-keyring html ipod libnotify lirc mtp nsplugin +python test +udev upnp-av webkit zeitgeist"
 # vala
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 
 REQUIRED_USE="
 	ipod? ( udev )
@@ -58,9 +58,9 @@ COMMON_DEPEND="
 	lirc? ( app-misc/lirc )
 	python? ( >=dev-python/pygobject-3:3 )
 	udev? (
+		virtual/udev[gudev]
 		ipod? ( >=media-libs/libgpod-0.7.92[udev] )
-		mtp? ( >=media-libs/libmtp-0.3 )
-		|| ( >=sys-fs/udev-171[gudev] >=sys-fs/udev-145[extras] ) )
+		mtp? ( >=media-libs/libmtp-0.3 ) )
 	zeitgeist? ( gnome-extra/zeitgeist )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -72,9 +72,9 @@ RDEPEND="${COMMON_DEPEND}
 	>=media-plugins/gst-plugins-meta-0.10-r2:0.10
 	>=media-plugins/gst-plugins-taglib-0.10.6:0.10
 	x11-themes/gnome-icon-theme-symbolic
-	upnp? (
+	upnp-av? (
 		>=media-libs/grilo-0.2:0.2
-		>=media-plugins/grilo-plugins-0.2:0.2[upnp] )
+		>=media-plugins/grilo-plugins-0.2:0.2[upnp-av] )
 	python? (
 		>=dev-python/gst-python-0.10.8:0.10
 
@@ -131,7 +131,7 @@ src_configure() {
 		$(use_enable lirc)
 		$(use_enable nsplugin browser-plugin)
 		$(use_enable python)
-		$(use_enable upnp grilo)
+		$(use_enable upnp-av grilo)
 		$(use_with cdr brasero)
 		$(use_with daap mdns avahi)
 		$(use_with gnome-keyring)
@@ -146,7 +146,7 @@ src_configure() {
 
 src_prepare() {
 	gnome2_src_prepare
-	python_clean_py-compile_files
+	use python && python_clean_py-compile_files
 }
 
 src_test() {
@@ -170,5 +170,5 @@ pkg_postinst() {
 
 pkg_postrm() {
 	gnome2_pkg_postrm
-	python_mod_cleanup /usr/$(get_libdir)/rhythmbox/plugins
+	use python && python_mod_cleanup /usr/$(get_libdir)/rhythmbox/plugins
 }

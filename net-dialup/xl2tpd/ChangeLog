@@ -1,6 +1,38 @@
 # ChangeLog for net-dialup/xl2tpd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/xl2tpd/ChangeLog,v 1.29 2012/09/14 20:34:25 darkside Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/xl2tpd/ChangeLog,v 1.36 2013/01/30 16:31:47 ago Exp $
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> xl2tpd-1.3.1-r2.ebuild:
+  Stable for amd64, wrt bug #454694
+
+  26 Dec 2012; Mike Gilbert <floppym@gentoo.org> metadata.xml:
+  Add myself as a maintainer.
+
+*xl2tpd-1.3.1-r2 (26 Dec 2012)
+
+  26 Dec 2012; Mike Gilbert <floppym@gentoo.org>
+  +files/xl2tpd-1.3.1-kernelmode.patch,
+  +files/xl2tpd-1.3.1-no-type-punning-b119c0da.patch, +xl2tpd-1.3.1-r2.ebuild,
+  metadata.xml:
+  Add fix for kernel mode by Sergey Fionov, resolves bug 441828 by nE0sIghT.
+  Cherry-pick a patch from upstream to avoid type-punning.
+
+  26 Dec 2012; Mike Gilbert <floppym@gentoo.org> -xl2tpd-1.3.1.ebuild,
+  xl2tpd-1.3.1-r1.ebuild:
+  Fix sed.
+
+  25 Dec 2012; Mike Gilbert <floppym@gentoo.org>
+  +files/xl2tpd-1.3.1-CFLAGS.patch, xl2tpd-1.3.1-r1.ebuild:
+  Respect CFLAGS.
+
+  25 Dec 2012; Mike Gilbert <floppym@gentoo.org> files/xl2tpd-init-r1:
+  Further simplify init script.
+
+*xl2tpd-1.3.1-r1 (25 Dec 2012)
+
+  25 Dec 2012; Mike Gilbert <floppym@gentoo.org> +xl2tpd-1.3.1-r1.ebuild,
+  files/xl2tpd-init-r1:
+  Fix path in init script.
 
   14 Sep 2012; Jeremy Olexa <darkside@gentoo.org> -xl2tpd-1.2.4.ebuild,
   -files/xl2tpd-1.2.4-as-needed.patch, -xl2tpd-1.2.6-r1.ebuild,

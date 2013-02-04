@@ -1,6 +1,121 @@
 # ChangeLog for net-analyzer/wireshark
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/wireshark/ChangeLog,v 1.413 2012/10/08 18:21:54 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/wireshark/ChangeLog,v 1.442 2013/02/03 17:57:02 ago Exp $
+
+  03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.13.ebuild,
+  wireshark-1.8.5.ebuild:
+  Stable for ppc, wrt bug #454606
+
+  31 Jan 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.13.ebuild,
+  wireshark-1.8.5.ebuild:
+  Stable for ppc64, wrt bug #454606
+
+*wireshark-1.8.5-r1 (31 Jan 2013)
+*wireshark-1.6.13-r1 (31 Jan 2013)
+
+  31 Jan 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.13.ebuild,
+  +wireshark-1.6.13-r1.ebuild, +wireshark-1.8.5-r1.ebuild:
+  Use fcaps.eclass (bug #454770).
+
+  31 Jan 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.13.ebuild,
+  wireshark-1.8.5.ebuild:
+  Run enewuser before fcaps.
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org>
+  files/wireshark-1.6.13-ldflags.patch, -files/wireshark-1.8.1-ldflags.patch,
+  wireshark-1.8.4.ebuild, wireshark-1.8.5.ebuild:
+  Simplify LDFLAGS patch.
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.8.5.ebuild:
+  Stable for HPPA (bug #454606).
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.13.ebuild,
+  wireshark-1.8.5.ebuild:
+  Stable for x86, wrt bug #454606
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.13.ebuild,
+  wireshark-1.8.5.ebuild:
+  Stable for amd64, wrt bug #454606
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.13.ebuild:
+  USE=gcrypt -> USE=crypt.
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.13.ebuild:
+  Stable for HPPA (bug #454606).
+
+  30 Jan 2013; Rick Farina <zerochaos@gentoo.org> wireshark-1.6.13.ebuild,
+  wireshark-1.8.5.ebuild:
+  bumping eapi for subslot support to enable automatic rebuilding of external
+  modules
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org>
+  files/wireshark-1.8.1-ldflags.patch:
+  Change file order in patch to match equivalent 1.6.13 patch.
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.13.ebuild,
+  wireshark-1.8.5.ebuild:
+  Run enewuser in pkg_postinst() where it is used.
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.12.ebuild,
+  wireshark-1.6.13.ebuild, +files/wireshark-1.6.13-ldflags.patch,
+  files/wireshark-1.8.1-ldflags.patch:
+  Remove even more -L/usr/lib abuse.
+
+*wireshark-1.6.13 (30 Jan 2013)
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> +wireshark-1.6.13.ebuild,
+  files/wireshark-1.8.1-ldflags.patch:
+  Version bump. Expand -L/usr/lib abuse prevention.
+
+*wireshark-1.8.5 (30 Jan 2013)
+
+  30 Jan 2013; Rick Farina <zerochaos@gentoo.org> +wireshark-1.8.5.ebuild:
+  added new wireshark 1.8.5 addressing multiple vulnerabilities. 1.6.13 should
+  be along shortly
+
+  15 Dec 2012; Jeroen Roovers <jer@gentoo.org> -wireshark-1.6.10-r2.ebuild,
+  -files/wireshark-1.6.10-CVE-2012-3548.patch, -wireshark-1.6.11.ebuild,
+  -files/wireshark-1.8.2-CVE-2012-3548.patch,
+  -files/wireshark-1.8.2-python3.patch, -wireshark-1.8.3.ebuild,
+  -wireshark-1.8.3-r2.ebuild, -files/wireshark-1.8.3-dtls-sctp.patch:
+  Old.
+
+  15 Dec 2012; Raúl Porcel <armin76@gentoo.org> wireshark-1.6.12.ebuild,
+  wireshark-1.8.4.ebuild:
+  alpha/ia64/sparc stable wrt #445138
+
+  04 Dec 2012; <ago@gentoo.org> wireshark-1.6.12.ebuild:
+  Stable for ppc64, wrt bug #445138
+
+  04 Dec 2012; <ago@gentoo.org> wireshark-1.6.12.ebuild:
+  Stable for ppc, wrt bug #445138
+
+  04 Dec 2012; <ago@gentoo.org> wireshark-1.8.4.ebuild:
+  Stable for ppc64, wrt bug #445138
+
+  04 Dec 2012; <ago@gentoo.org> wireshark-1.8.4.ebuild:
+  Stable for ppc, wrt bug #445138
+
+  03 Dec 2012;  <ago@gentoo.org> wireshark-1.6.12.ebuild,
+  wireshark-1.8.4.ebuild:
+  Stable for x86, wrt bug #445138
+
+  30 Nov 2012; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.12.ebuild,
+  wireshark-1.8.4.ebuild:
+  Stable for HPPA (bug #445138).
+
+  30 Nov 2012; <ago@gentoo.org> wireshark-1.6.12.ebuild:
+  Stable for amd64, wrt bug #445138
+
+  30 Nov 2012; <ago@gentoo.org> wireshark-1.8.4.ebuild:
+  Stable for amd64, wrt bug #445138
+
+*wireshark-1.8.4 (29 Nov 2012)
+*wireshark-1.6.12 (29 Nov 2012)
+
+  29 Nov 2012; Jeroen Roovers <jer@gentoo.org> +wireshark-1.6.12.ebuild,
+  +wireshark-1.8.4.ebuild:
+  Version bump (bug #445138).
 
 *wireshark-1.8.3-r2 (08 Oct 2012)
 

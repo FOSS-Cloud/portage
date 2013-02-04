@@ -1,6 +1,62 @@
 # ChangeLog for app-emulation/libvirt
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/ChangeLog,v 1.235 2012/11/14 08:34:33 cardoe Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/ChangeLog,v 1.247 2013/02/01 00:07:52 cardoe Exp $
+
+  01 Feb 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.2-r1.ebuild:
+  Fix Xen support after user feedback on bug #454598
+
+*libvirt-1.0.2-r1 (31 Jan 2013)
+
+  31 Jan 2013; Doug Goldstein <cardoe@gentoo.org>
+  +files/0001-complete-virterror-virerror-name-change.patch,
+  -libvirt-1.0.2.ebuild, +libvirt-1.0.2-r1.ebuild:
+  The 1.0.2 release had broken python bindings.
+
+*libvirt-1.0.2 (30 Jan 2013)
+
+  30 Jan 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.2.ebuild:
+  Version bump
+
+  24 Jan 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.0.ebuild,
+  libvirt-1.0.1.ebuild:
+  Remove the debug USE flag as its really not what we want to support. This
+  just disables the debug log level.
+
+  24 Jan 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.0.ebuild,
+  libvirt-1.0.1.ebuild:
+  Tweak Xen depends to make bug #446572 not bite people.
+
+  24 Jan 2013; Doug Goldstein <cardoe@gentoo.org> -libvirt-0.10.2-r3.ebuild,
+  -files/libvirtd.confd-r3, -files/libvirtd.init-r9:
+  Remove older version
+
+  13 Jan 2013; Doug Goldstein <cardoe@gentoo.org> -libvirt-0.9.13-r1.ebuild,
+  -files/libvirtd.init-r8:
+  Retire the 0.9.x series
+
+  13 Jan 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-0.10.2.1.ebuild:
+  Stabilize on amd64. Using this in production.
+
+*libvirt-0.10.2.2 (11 Jan 2013)
+
+  11 Jan 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-0.10.2.2.ebuild,
+  libvirt-1.0.1.ebuild:
+  Version bump the stable release. Add workaround for a new issue that cropped
+  up in Portage as suggested by Zac Medico in bug #451168
+
+*libvirt-1.0.1 (06 Jan 2013)
+
+  06 Jan 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.1.ebuild:
+  Version bump.
+
+  06 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  libvirt-0.10.2-r3.ebuild:
+  x86 stable wrt bug #439298
+
+  29 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> libvirt-0.9.13-r1.ebuild,
+  libvirt-0.10.2-r3.ebuild, libvirt-0.10.2.1.ebuild, libvirt-1.0.0.ebuild,
+  libvirt-9999.ebuild:
+  Use virtual/udev instead of sys-fs/udev wrt #444398
 
   14 Nov 2012; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.0.ebuild,
   libvirt-9999.ebuild:

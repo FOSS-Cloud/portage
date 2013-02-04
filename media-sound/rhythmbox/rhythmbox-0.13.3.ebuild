@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/rhythmbox/rhythmbox-0.13.3.ebuild,v 1.10 2012/10/26 07:17:45 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/rhythmbox/rhythmbox-0.13.3.ebuild,v 1.14 2012/12/20 15:58:46 tetromino Exp $
 
 EAPI="3"
 PYTHON_DEPEND="python? 2:2.5"
@@ -13,7 +13,7 @@ HOMEPAGE="http://www.rhythmbox.org/"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="cdr daap doc gnome-keyring ipod +lastfm libnotify lirc musicbrainz mtp nsplugin python test udev upnp webkit"
+IUSE="cdr daap gnome-keyring ipod +lastfm libnotify lirc musicbrainz mtp nsplugin python test udev upnp-av webkit"
 
 # FIXME: double check what to do with fm-radio plugin
 # TODO: watchout for udev use flag changes
@@ -41,9 +41,9 @@ COMMON_DEPEND=">=dev-libs/glib-2.26:2
 		>=net-dns/avahi-0.6 )
 	gnome-keyring? ( >=gnome-base/gnome-keyring-0.4.9 )
 	udev? (
+		virtual/udev[gudev]
 		ipod? ( >=media-libs/libgpod-0.7.92 )
-		mtp? ( >=media-libs/libmtp-0.3 )
-		|| ( >=sys-fs/udev-171[gudev] >=sys-fs/udev-145[extras] ) )
+		mtp? ( >=media-libs/libmtp-0.3 ) )
 	lastfm? ( dev-libs/json-glib )
 	libnotify? ( >=x11-libs/libnotify-0.4.1 )
 	lirc? ( app-misc/lirc )
@@ -63,7 +63,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.26:2
 		webkit? (
 			dev-python/mako
 			dev-python/pywebkitgtk )
-		upnp? ( media-video/coherence )
+		upnp-av? ( media-video/coherence )
 	)
 	webkit? ( >=net-libs/webkit-gtk-1.1.7:2 )
 "
@@ -76,14 +76,12 @@ RDEPEND="${COMMON_DEPEND}
 	>=media-plugins/gst-plugins-meta-0.10-r2:0.10
 	>=media-plugins/gst-plugins-taglib-0.10.6:0.10
 "
-# gtk-doc-am needed for eautoreconf
-#	dev-util/gtk-doc-am
 DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
+	dev-util/gtk-doc-am
 	>=dev-util/intltool-0.40
 	app-text/scrollkeeper
 	>=app-text/gnome-doc-utils-0.9.1
-	doc? ( >=dev-util/gtk-doc-1.4 )
 	test? ( dev-libs/check )"
 
 DOCS="AUTHORS ChangeLog DOCUMENTERS INTERNALS \
@@ -120,8 +118,8 @@ pkg_setup() {
 	fi
 
 	if ! use python; then
-		if use upnp; then
-			ewarn "You need python support in addition to upnp"
+		if use upnp-av; then
+			ewarn "You need python support in addition to upnp-av"
 		fi
 	fi
 
@@ -150,9 +148,7 @@ pkg_setup() {
 
 src_prepare() {
 	gnome2_src_prepare
-
-	# disable pyc compiling
-	echo > py-compile
+	use python && python_clean_py-compile_files
 }
 
 src_compile() {

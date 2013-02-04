@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/package.mask,v 1.54 2012/11/20 20:14:24 ranger Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/package.mask,v 1.56 2013/01/11 23:53:45 cardoe Exp $
 
 # Brent Baude <ranger@gentoo.org> (20 Nov 2012)
 # Masking kgcc64 now that toolchain is biarch
@@ -16,15 +16,10 @@ x11-themes/smplayer-themes
 # Need deps pecl-apc and pecl-uploadprogress bug #416897
 >=www-apps/drupal-7.14
 
-# Johannes Huber <johu@gentoo.org> (21 Feb 2012)
-# Mask failing package on powerpc
-=kde-base/krossjava-4.7*
-
 # Justin Lecher <jlec@gentoo.org> (9 Mar 2011)
 # sci-libs/plplot needs keywords #358035
 =sci-biology/emboss-6.3.1*
 
-# Joseph Jezak <josejx@gentoo.org> (12 Feb 2010)
-# Masking MOL due to breakage, but leaving it in the tree in case anyone
-# still needs it. Unmask if you want, but there's nothing in the way of support.
-app-emulation/mol
+# Doug Goldstein <cardoe@gentoo.org> (11 Jan 2013)
+# Masked due to depends on bug #438780
+>=app-emulation/qemu-1.2.0

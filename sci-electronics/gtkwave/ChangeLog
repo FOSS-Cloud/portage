@@ -1,6 +1,20 @@
 # ChangeLog for sci-electronics/gtkwave
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/gtkwave/ChangeLog,v 1.76 2012/06/13 13:39:41 xmw Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-electronics/gtkwave/ChangeLog,v 1.79 2013/01/26 20:30:58 tomjbe Exp $
+
+  26 Jan 2013; Thomas Beierlein <tomjbe@gentoo.org> gtkwave-3.3.42.ebuild,
+  +files/gtkwave-parallel-make.diff:
+  Fix parallel build (bug 454068). Thanks Diego. Respect system AR
+
+*gtkwave-3.3.42 (21 Jan 2013)
+
+  21 Jan 2013; Michael Weber <xmw@gentoo.org> +gtkwave-3.3.42.ebuild:
+  Version bump
+
+*gtkwave-3.3.41 (22 Dec 2012)
+
+  22 Dec 2012; Thomas Beierlein <tomjbe@gentoo.org> +gtkwave-3.3.41.ebuild:
+  Version bump
 
 *gtkwave-3.3.37 (13 Jun 2012)
 

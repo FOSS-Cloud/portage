@@ -1,6 +1,27 @@
 # ChangeLog for app-editors/scite
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/scite/ChangeLog,v 1.144 2012/09/05 07:10:16 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/scite/ChangeLog,v 1.150 2013/01/29 21:11:51 ago Exp $
+
+*scite-3.2.4 (29 Jan 2013)
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> +scite-3.2.4.ebuild,
+  -scite-3.1.0.ebuild:
+  Version bump to 3.2.4, remove old.
+
+  02 Jan 2013; Agostino Sarubbo <ago@gentoo.org> scite-3.2.3.ebuild:
+  Stable for amd64, wrt bug #449758
+
+  02 Jan 2013; Agostino Sarubbo <ago@gentoo.org> scite-3.2.3.ebuild:
+  Stable for x86, wrt bug #449758
+
+  02 Jan 2013; Agostino Sarubbo <ago@gentoo.org> scite-3.2.3.ebuild:
+  Stable for ppc, wrt bug #449758
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> files/scite.desktop:
+  Fix .desktop validation
+
+  16 Dec 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Drop maintainer due retirement, #95685
 
   05 Sep 2012; Justin Lecher <jlec@gentoo.org> scite-3.1.0.ebuild:
   Use domenu instead insinto + doins to install .desktop files

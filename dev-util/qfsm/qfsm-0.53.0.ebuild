@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/qfsm/qfsm-0.53.0.ebuild,v 1.2 2012/11/10 13:02:42 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/qfsm/qfsm-0.53.0.ebuild,v 1.4 2013/01/23 08:12:04 pinkbyte Exp $
 
 EAPI=4
 
@@ -17,10 +17,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="sys-libs/zlib
-	>=x11-libs/qt-core-4.7
-	>=x11-libs/qt-qt3support-4.7
-	>=x11-libs/qt-svg-4.7
-	media-gfx/graphviz"
+	>=x11-libs/qt-core-4.7:4
+	>=x11-libs/qt-qt3support-4.7:4
+	>=x11-libs/qt-svg-4.7:4
+	<media-gfx/graphviz-2.28.0"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${MY_P}"

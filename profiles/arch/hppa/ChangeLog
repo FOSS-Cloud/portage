@@ -1,6 +1,30 @@
 # ChangeLog for Gentoo/hppa profile
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/ChangeLog,v 1.174 2012/11/24 21:38:12 floppym Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/ChangeLog,v 1.182 2013/01/22 19:04:15 jer Exp $
+
+  22 Jan 2013; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Mask USE=test for dev-python/pyquery (bug #452764).
+
+  21 Jan 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Remove the pypy/jython mask. It is masked in base profile now.
+
+  21 Jan 2013; Jeroen Roovers <jer@gentoo.org> use.mask:
+  Remove ancient/unused USE flags.
+
+  02 Jan 2013; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Mask sci-libs/proj for dev-perl/PDL (bug #417453).
+
+  02 Jan 2013; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Mask non-keyworded media-libs/qhull for sci-mathematics/octave.
+
+  02 Jan 2013; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Mask non-keyworded sci-libs/hdf5 for sci-mathematics/octave.
+
+  31 Dec 2012; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Remove p.u.mask for non-keyworded app-admin/packagekit-base.
+
+  24 Dec 2012; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Clean up (bug #444181).
 
   24 Nov 2012; Mike Gilbert <floppym@gentoo.org> use.mask:
   Mask python_single_target values not supported on this arch.

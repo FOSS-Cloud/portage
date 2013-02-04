@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-kids/memonix/memonix-1.6.ebuild,v 1.1 2012/11/17 07:56:14 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-kids/memonix/memonix-1.6.ebuild,v 1.4 2013/01/13 11:22:23 ago Exp $
 
 EAPI=4
 inherit cmake-utils games
@@ -9,9 +9,9 @@ DESCRIPTION="Brain teasers, puzzle and memory games for kid's in one pack"
 HOMEPAGE="http://www.viewizard.com/memonix/"
 SRC_URI="http://www.viewizard.com/download/${PN}_${PV}_src.tar.bz2"
 
-LICENSE="Memonix"
+LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND="media-libs/libsdl[audio,opengl,video]

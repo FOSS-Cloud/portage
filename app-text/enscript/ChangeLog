@@ -1,6 +1,30 @@
 # ChangeLog for app-text/enscript
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/enscript/ChangeLog,v 1.68 2012/09/30 17:35:03 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/enscript/ChangeLog,v 1.76 2012/12/30 14:35:21 ago Exp $
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> enscript-1.6.6.ebuild:
+  Stable for alpha, wrt bug #441108
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> enscript-1.6.6.ebuild:
+  Stable for sparc, wrt bug #441108
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> enscript-1.6.6.ebuild:
+  Stable for ia64, wrt bug #441108
+
+  08 Dec 2012; Jeroen Roovers <jer@gentoo.org> enscript-1.6.6.ebuild:
+  Stable for HPPA (bug #441108).
+
+  08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> enscript-1.6.6.ebuild:
+  Stable for ppc64, wrt bug #441108
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> enscript-1.6.6.ebuild:
+  Stable for ppc, wrt bug #441108
+
+  07 Dec 2012; <ago@gentoo.org> enscript-1.6.6.ebuild:
+  Stable for x86, wrt bug #441108
+
+  07 Dec 2012; <ago@gentoo.org> enscript-1.6.6.ebuild:
+  Stable for amd64, wrt bug #441108
 
   30 Sep 2012; Raúl Porcel <armin76@gentoo.org> enscript-1.6.5.2-r1.ebuild:
   alpha/ia64/sparc stable wrt #393991

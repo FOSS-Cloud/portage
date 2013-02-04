@@ -1,6 +1,56 @@
 # ChangeLog for app-misc/mc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/mc/ChangeLog,v 1.267 2012/09/15 07:33:26 slyfox Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/mc/ChangeLog,v 1.279 2013/01/13 19:34:37 armin76 Exp $
+
+  13 Jan 2013; Raúl Porcel <armin76@gentoo.org> mc-4.8.7.ebuild:
+  s390/sh stable wrt #436518
+
+*mc-4.8.7-r1 (11 Jan 2013)
+
+  11 Jan 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -files/mc-4.8.1-fix-fallocate-xBSD.patch, -mc-4.8.3-r2.ebuild,
+  -files/mc-4.8.3-fix-chown-crash.patch,
+  -files/mc-4.8.3-fix-relative-symlink-creation-crash.patch,
+  -files/mc-4.8.3-missing-do_panel_cd_stub_env.c, -mc-4.8.4-r3.ebuild,
+  -files/mc-4.8.4-Ticket-2851-fixes-of-ext.d-scripts.patch,
+  -files/mc-4.8.4-Ticket-2853-fileposition-in-mcedit.patch,
+  -files/mc-4.8.4-Ticket-2856-aspell-sigsegv.patch,
+  -files/mc-4.8.4-Ticket-2858-htmlview-segfault.patch, -mc-4.8.6.ebuild,
+  +mc-4.8.7-r1.ebuild, metadata.xml:
+  Fixed handling of external programs with xdg USE flag being unset (bug
+  #449936). Removed old versions. Added myself as maintainer.
+
+  07 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mc-4.8.7.ebuild:
+  Stable for alpha, wrt bug #436518
+
+  06 Jan 2013; Markus Meier <maekke@gentoo.org> mc-4.8.7.ebuild:
+  arm stable, bug #436518
+
+  05 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mc-4.8.7.ebuild:
+  Stable for sparc, wrt bug #436518
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mc-4.8.7.ebuild:
+  Stable for ia64, wrt bug #436518
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mc-4.8.7.ebuild:
+  Stable for ppc64, wrt bug #436518
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mc-4.8.7.ebuild:
+  Stable for ppc, wrt bug #436518
+
+  02 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mc-4.8.7.ebuild:
+  Stable for amd64, wrt bug #436518
+
+  02 Jan 2013; Jeroen Roovers <jer@gentoo.org> mc-4.8.7.ebuild:
+  Stable for HPPA (bug #436518).
+
+  01 Jan 2013; Jeff Horelick <jdhore@gentoo.org> mc-4.8.7.ebuild:
+  marked x86 per bug 436518
+
+*mc-4.8.7 (28 Dec 2012)
+
+  28 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> +mc-4.8.7.ebuild:
+  Version bump.
 
 *mc-4.8.6 (15 Sep 2012)
 

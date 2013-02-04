@@ -1,6 +1,13 @@
 # ChangeLog for app-text/pep
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/pep/ChangeLog,v 1.24 2012/11/22 10:13:45 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/pep/ChangeLog,v 1.26 2012/12/20 14:59:20 kensington Exp $
+
+  20 Dec 2012; Michael Palimaka <kensington@gentoo.org> -pep-2.8.ebuild:
+  Remove old.
+
+  16 Dec 2012; Raúl Porcel <armin76@gentoo.org> pep-2.8.ebuild,
+  pep-2.8-r1.ebuild:
+  Drop sparc keywords
 
   22 Nov 2012; Agostino Sarubbo <ago@gentoo.org> pep-2.8-r1.ebuild:
   Stable for x86, tested by Vincent Olivert Riera <peratu@carrosses.com>, wrt

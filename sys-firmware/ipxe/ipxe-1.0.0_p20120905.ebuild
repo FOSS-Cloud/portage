@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-firmware/ipxe/ipxe-1.0.0_p20120905.ebuild,v 1.1 2012/09/10 21:32:58 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-firmware/ipxe/ipxe-1.0.0_p20120905.ebuild,v 1.5 2013/01/26 20:16:13 cardoe Exp $
 
 EAPI=4
 
@@ -13,13 +13,16 @@ SRC_URI="https://git.ipxe.org/ipxe.git/snapshot/${GIT_REV}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64 x86"
 IUSE="iso +qemu undi usb vmware"
 
 DEPEND="sys-devel/make
 	dev-lang/perl
 	sys-libs/zlib
-	iso? ( sys-boot/syslinux )"
+	iso? (
+		sys-boot/syslinux
+		virtual/cdrtools
+	)"
 RDEPEND=""
 
 S="${WORKDIR}/ipxe-${GIT_SHORT}/src"

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libgphoto2/libgphoto2-2.4.14-r1.ebuild,v 1.1 2012/09/04 15:40:41 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libgphoto2/libgphoto2-2.4.14-r1.ebuild,v 1.3 2012/12/16 12:38:14 eva Exp $
 
 # TODO
 # 1. Track upstream bug --disable-docs does not work.
@@ -8,7 +8,7 @@
 
 EAPI="4"
 
-inherit autotools eutils multilib user toolchain-funcs
+inherit autotools eutils multilib udev user toolchain-funcs
 
 DESCRIPTION="Library that implements support for numerous digital cameras"
 HOMEPAGE="http://www.gphoto.org/"
@@ -122,9 +122,6 @@ src_configure() {
 		einfo "Enabled camera drivers: all"
 	fi
 
-	local udevdir=/lib/udev
-	has_version sys-fs/udev && udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-
 	local myconf
 	use doc || myconf="ac_cv_path_DOXYGEN=false"
 	econf \
@@ -141,7 +138,7 @@ src_configure() {
 		--with-html-dir=/usr/share/doc/${PF}/html \
 		--with-hotplug-doc-dir=/usr/share/doc/${PF}/hotplug \
 		--with-rpmbuild=$(type -P true) \
-		udevscriptdir="${udevdir}" \
+		udevscriptdir="$(udev_get_udevdir)" \
 		${myconf}
 
 # FIXME: gtk-doc is currently broken
@@ -177,10 +174,7 @@ src_install() {
 	fi
 	# end fixup
 
-	local udevdir=/lib/udev
-	has_version sys-fs/udev && udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-
-	UDEV_RULES="${udevdir}/rules.d/70-libgphoto2.rules"
+	UDEV_RULES="$(udev_get_udevdir)/rules.d/70-libgphoto2.rules"
 	CAM_LIST="/usr/$(get_libdir)/libgphoto2/print-camera-list"
 
 	if [ -x "${D}"${CAM_LIST} ]; then
@@ -205,8 +199,11 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Don't forget to add yourself to the plugdev group "
-	elog "if you want to be able to access your camera."
+	if ! has_version "sys-auth/consolekit[acl]" ; then
+		elog "Don't forget to add yourself to the plugdev group "
+		elog "if you want to be able to access your camera."
+	fi
+
 	local OLD_UDEV_RULES="${ROOT}"etc/udev/rules.d/99-libgphoto2.rules
 	if [[ -f ${OLD_UDEV_RULES} ]]; then
 		rm -f "${OLD_UDEV_RULES}"

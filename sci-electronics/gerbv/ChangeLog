@@ -1,6 +1,22 @@
 # ChangeLog for sci-electronics/gerbv
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/gerbv/ChangeLog,v 1.43 2012/05/04 07:10:19 jdhore Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-electronics/gerbv/ChangeLog,v 1.48 2013/01/04 12:56:09 ago Exp $
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gerbv-2.6.0.ebuild:
+  Stable for ppc, wrt bug #449734
+
+  03 Jan 2013; Thomas Beierlein <tomjbe@gentoo.org> gerbv-2.6.0.ebuild:
+  Add USE=static-libs support (bug 449768). Thanks ago
+
+  02 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gerbv-2.6.0.ebuild:
+  Stable for x86, wrt bug #449734
+
+  02 Jan 2013; Agostino Sarubbo <ago@gentoo.org> gerbv-2.6.0.ebuild:
+  Stable for amd64, wrt bug #449734
+
+  02 Jan 2013; Thomas Beierlein <tomjbe@gentoo.org> -gerbv-2.3.0-r2.ebuild,
+  gerbv-2.6.0.ebuild:
+  Fix homepage. Drop old
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org> gerbv-2.3.0-r2.ebuild,
   gerbv-2.4.0.ebuild, gerbv-2.5.0.ebuild, gerbv-2.6.0.ebuild:
@@ -199,4 +215,3 @@
 
   27 Nov 2003; <plasmaroo@gentoo.org> gerbv-0.15.ebuild:
   Initial import.
-

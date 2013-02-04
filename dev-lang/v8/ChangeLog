@@ -1,6 +1,80 @@
 # ChangeLog for dev-lang/v8
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/v8/ChangeLog,v 1.259 2012/11/25 19:05:33 floppym Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/v8/ChangeLog,v 1.274 2013/01/31 00:34:37 floppym Exp $
+
+*v8-3.15.11.13 (31 Jan 2013)
+
+  31 Jan 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.15.11.13.ebuild,
+  -v8-3.15.11.2.ebuild, -v8-3.15.11.5.ebuild:
+  Beta channel bump.
+
+*v8-3.15.11.11 (24 Jan 2013)
+
+  24 Jan 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.15.11.11.ebuild:
+  Beta channel bump.
+
+*v8-3.16.4.1 (18 Jan 2013)
+
+  18 Jan 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.16.4.1.ebuild:
+  Dev channel bump.
+
+*v8-3.16.4 (17 Jan 2013)
+
+  17 Jan 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.16.4.ebuild:
+  Dev channel bump.
+
+  11 Jan 2013; Agostino Sarubbo <ago@gentoo.org> -v8-3.13.7.5.ebuild,
+  -v8-3.14.5.2.ebuild:
+  Remove old
+
+  11 Jan 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.14.5.3.ebuild:
+  Stable for x86, wrt bug #451334
+
+  11 Jan 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.14.5.3.ebuild:
+  Stable for amd64, wrt bug #451334
+
+*v8-3.15.11.5 (09 Jan 2013)
+
+  09 Jan 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.15.11.1.ebuild,
+  +v8-3.15.11.5.ebuild:
+  Dev channel bump. Remove old.
+
+*v8-3.15.11.2 (27 Dec 2012)
+
+  27 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.15.7.2.ebuild,
+  +v8-3.15.11.2.ebuild:
+  Dev channel bump. Remove old.
+
+  20 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> +files/v8-vfp2-r0.patch,
+  v8-3.13.7.5.ebuild, v8-3.14.5.3.ebuild, v8-3.15.11.1.ebuild:
+  Backport upstream patch for vfp2 support, bug #441792 by chithanh.
+
+*v8-3.14.5.3 (20 Dec 2012)
+
+  20 Dec 2012; Mike Gilbert <floppym@gentoo.org> +v8-3.14.5.3.ebuild,
+  -v8-3.14.5.1-r1.ebuild, -v8-3.14.5.1.ebuild, -v8-3.14.5.ebuild:
+  Beta channel bump.
+
+*v8-3.15.11.1 (15 Dec 2012)
+
+  15 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.15.1.2-r1.ebuild,
+  +v8-3.15.11.1.ebuild:
+  Dev channel bump. Remove old.
+
+  08 Dec 2012; Mike Gilbert <floppym@gentoo.org> v8-3.14.5.1-r1.ebuild,
+  v8-3.14.5.2.ebuild, v8-3.15.1.2-r1.ebuild, v8-3.15.7.2.ebuild:
+  Use python-any-r1.eclass to find a suitable python for building.
+
+*v8-3.15.7.2 (08 Dec 2012)
+
+  08 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.15.1.2.ebuild,
+  +v8-3.15.7.2.ebuild:
+  Dev channel bump. Remove old.
+
+*v8-3.14.5.2 (08 Dec 2012)
+
+  08 Dec 2012; Mike Gilbert <floppym@gentoo.org> +v8-3.14.5.2.ebuild:
+  Beta channel bump.
 
   25 Nov 2012; Mike Gilbert <floppym@gentoo.org> v8-3.14.5.1-r1.ebuild,
   v8-3.15.1.2-r1.ebuild, v8-9999.ebuild:

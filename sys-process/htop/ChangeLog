@@ -1,6 +1,33 @@
 # ChangeLog for sys-process/htop
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/htop/ChangeLog,v 1.127 2012/11/21 10:17:17 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-process/htop/ChangeLog,v 1.136 2013/01/01 19:33:54 armin76 Exp $
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> htop-1.0.2.ebuild:
+  sh stable wrt #447952
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> htop-1.0.2.ebuild:
+  Stable for alpha, wrt bug #447952
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> htop-1.0.2.ebuild:
+  Stable for sparc, wrt bug #447952
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> htop-1.0.2.ebuild:
+  Stable for ia64, wrt bug #447952
+
+  23 Dec 2012; Jeff Horelick <jdhore@gentoo.org> htop-1.0.2.ebuild:
+  marked x86 per bug 447952
+
+  20 Dec 2012; Anthony G. Basile <blueness@gentoo.org> htop-1.0.2.ebuild:
+  stable arm ppc pp64, bug #447952, thanks peratu
+
+  20 Dec 2012; Jeroen Roovers <jer@gentoo.org> htop-1.0.2.ebuild:
+  Stable for HPPA (bug #447952).
+
+  20 Dec 2012; Sergey Popov <pinkbyte@gentoo.org> htop-1.0.2.ebuild:
+  Stable on amd64, wrt bug #447952
+
+  16 Dec 2012; Raúl Porcel <armin76@gentoo.org> htop-1.0.1-r1.ebuild:
+  alpha/ia64/sh/sparc stable wrt #439548
 
   21 Nov 2012; Agostino Sarubbo <ago@gentoo.org> htop-1.0.1-r1.ebuild:
   Stable for x86, wrt bug #439548

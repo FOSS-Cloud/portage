@@ -1,6 +1,16 @@
 # ChangeLog for dev-libs/libffi
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libffi/ChangeLog,v 1.156 2012/10/04 11:12:07 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libffi/ChangeLog,v 1.159 2013/01/27 19:57:08 grobian Exp $
+
+  27 Jan 2013; Fabian Groffen <grobian@gentoo.org> libffi-3.0.11.ebuild:
+  Unbreak Prefix bootstraps with host-provided libffi
+
+  13 Jan 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/libffi-3.0.11-x86-pic-check.patch, libffi-3.0.11.ebuild:
+  Add fix from upstream for PIC compile checks #417179 by Richard Yao.
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> libffi-3.0.11.ebuild:
+  Stable for ppc64, wrt bug #416669
 
   04 Oct 2012; Samuli Suominen <ssuominen@gentoo.org> libffi-3.0.11.ebuild:
   Check if ${ROOT} is / or not before executing the -lffi sanity link check wrt

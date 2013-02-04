@@ -1,6 +1,21 @@
 # ChangeLog for dev-libs/jemalloc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/jemalloc/ChangeLog,v 1.23 2012/11/25 12:46:43 anarchy Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/jemalloc/ChangeLog,v 1.27 2013/01/28 20:17:28 vapier Exp $
+
+  28 Jan 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/jemalloc-3.3.0-s390.patch, jemalloc-3.3.0.ebuild:
+  Add s390 love #429708 by Robin Johnson.
+
+*jemalloc-3.3.0 (26 Jan 2013)
+
+  26 Jan 2013; <anarchy@gentoo.org> +jemalloc-3.3.0.ebuild:
+  Misc upstream bug fixes, refer to changelog
+
+  29 Dec 2012; Raúl Porcel <armin76@gentoo.org> jemalloc-3.2.0.ebuild:
+  Add ~alpha wrt #429708
+
+  19 Dec 2012; Agostino Sarubbo <ago@gentoo.org> jemalloc-3.2.0.ebuild:
+  Add ~ia64, wrt bug #429708
 
 *jemalloc-3.2.0 (25 Nov 2012)
 
@@ -107,4 +122,3 @@
   30 Dec 2010; Jory A. Pratt <anarchy@gentoo.org> +jemalloc-2.0.1.ebuild,
   +files/jemalloc-strip-optimization.patch, +metadata.xml:
   initial import to tree
-

@@ -1,6 +1,49 @@
 # ChangeLog for media-plugins/gst-plugins-dts
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-dts/ChangeLog,v 1.18 2012/06/20 08:48:37 scarabeus Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-dts/ChangeLog,v 1.29 2013/02/02 22:53:49 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gst-plugins-dts-0.10.23.ebuild,
+  gst-plugins-dts-1.0.3.ebuild:
+  Add ~arm, wrt bug #449220
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gst-plugins-dts-0.10.23.ebuild:
+  Stable for x86, wrt bug #454906
+
+  01 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gst-plugins-dts-0.10.23.ebuild:
+  Stable for amd64, wrt bug #454906
+
+*gst-plugins-dts-1.0.5 (22 Jan 2013)
+
+  22 Jan 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-dts-1.0.5.ebuild:
+  Version bump.
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> gst-plugins-dts-1.0.3.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> gst-plugins-dts-0.10.23.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> gst-plugins-dts-1.0.3.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> gst-plugins-dts-0.10.23.ebuild:
+  Add ~ppc, wrt bug #449220
+
+  20 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> metadata.xml:
+  Switch to global orc USE flag.
+
+*gst-plugins-dts-1.0.3 (05 Dec 2012)
+
+  05 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  +gst-plugins-dts-1.0.3.ebuild:
+  Version bump.
+
+*gst-plugins-dts-0.10.23 (02 Dec 2012)
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org>
+  gst-plugins-dts-0.10.22.ebuild, +gst-plugins-dts-0.10.23.ebuild:
+  Version bump. Fix stable ebuild eclass usage.
 
   20 Jun 2012; Tomáš Chvátal <scarabeus@gentoo.org> metadata.xml:
   Whitespace.
@@ -30,4 +73,3 @@
   26 Aug 2011; Arun Raghavan <ford_prefect@gentoo.org>
   +gst-plugins-dts-0.10.22.ebuild, +metadata.xml:
   Initial version of package -- provides a DTS decoder.
-

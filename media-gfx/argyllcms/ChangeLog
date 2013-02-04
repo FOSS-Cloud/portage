@@ -1,6 +1,39 @@
 # ChangeLog for media-gfx/argyllcms
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/argyllcms/ChangeLog,v 1.25 2012/10/13 11:00:14 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/argyllcms/ChangeLog,v 1.33 2012/12/29 16:15:03 floppym Exp $
+
+  29 Dec 2012; Mike Gilbert <floppym@gentoo.org> argyllcms-1.4.0-r2.ebuild:
+  Use makeopts_jobs for more robust MAKEOPTS parsing. Bug 449106 by jannis.
+
+*argyllcms-1.4.0-r2 (14 Dec 2012)
+
+  14 Dec 2012; Justin Lecher <jlec@gentoo.org> +argyllcms-1.4.0-r2.ebuild:
+  Be verbose in build, #445522; Respect CFLAGS, CC, AR, RANLIB
+
+  14 Dec 2012; Justin Lecher <jlec@gentoo.org> -argyllcms-1.4.0.ebuild,
+  metadata.xml:
+  Drop vulnerable version, #437652
+
+  11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> argyllcms-1.4.0.ebuild,
+  argyllcms-1.4.0-r1.ebuild:
+  use udev.eclass for rules installation (a cleaner virtualization of udev)
+
+  11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> argyllcms-1.4.0.ebuild,
+  argyllcms-1.4.0-r1.ebuild:
+  virtualized references to sys-fs/udev
+
+  03 Dec 2012; Andreas Schuerch <nativemad@gentoo.org>
+  argyllcms-1.4.0-r1.ebuild:
+  x86 stable, see bug 437652
+
+  01 Dec 2012; <ago@gentoo.org> argyllcms-1.4.0-r1.ebuild:
+  Stable for amd64, wrt bug #437652
+
+*argyllcms-1.4.0-r1 (01 Dec 2012)
+
+  01 Dec 2012; Pacho Ramos <pacho@gentoo.org> +argyllcms-1.4.0-r1.ebuild,
+  +files/argyllcms-1.4.0-CVE-2012-4405.patch:
+  Fix CVE-2012-4405
 
   13 Oct 2012; Sergey Popov <pinkbyte@gentoo.org> argyllcms-1.4.0.ebuild:
   Fix location for installing udev rules wrt bug #438114. Thanks to poncho for
@@ -143,4 +176,3 @@
   New application, see bug 125774. Thanks go to Guillaume Castagnino and all
   the previous authors of the ebuild (see bug 125774 for details), and to
   chiiph, ohnobinki, and hwoarang for reviewing on IRC.
-

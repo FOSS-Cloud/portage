@@ -1,6 +1,59 @@
 # ChangeLog for sys-fs/zfs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs/ChangeLog,v 1.50 2012/11/14 21:57:19 ryao Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs/ChangeLog,v 1.59 2013/02/03 15:51:45 ryao Exp $
+
+  03 Feb 2013; Richard Yao <ryao@gentoo.org> zfs-0.6.0_rc14.ebuild:
+  Commit warning about missing feature flags support in sys-boot/grub:2
+
+*zfs-0.6.0_rc14 (02 Feb 2013)
+
+  02 Feb 2013; Richard Yao <ryao@gentoo.org> +zfs-0.6.0_rc14.ebuild:
+  Bump sys-fs/zfs to 0.6.0_rc14
+
+  23 Jan 2013; Richard Yao <ryao@gentoo.org> zfs-0.6.0_rc13-r1.ebuild,
+  zfs-9999.ebuild:
+  Do not add sys-fs/zfs-9999 to package database with USE=kernel-builtin
+
+  23 Jan 2013; Richard Yao <ryao@gentoo.org> zfs-0.6.0_rc13-r1.ebuild,
+  zfs-9999.ebuild:
+  Make sys-fs/zfs-9999 add itself to the module database to ensure that the
+  userland-kernel interface remains in sync when using the 9999 ebuilds.
+
+  11 Jan 2013; Richard Yao <ryao@gentoo.org> zfs-9999.ebuild:
+  Synchronize zfs-9999.ebuild with zfs-0.6.0_rc13-r1.ebuild, bug #451016. Thanks
+  Marcin
+
+*zfs-0.6.0_rc13-r1 (05 Jan 2013)
+*zfs-0.6.0_rc11-r2 (05 Jan 2013)
+*zfs-0.6.0_rc10-r3 (05 Jan 2013)
+*zfs-0.6.0_rc12-r2 (05 Jan 2013)
+
+  05 Jan 2013; Richard Yao <ryao@gentoo.org> +zfs-0.6.0_rc10-r3.ebuild,
+  +zfs-0.6.0_rc11-r2.ebuild, +zfs-0.6.0_rc12-r2.ebuild,
+  +zfs-0.6.0_rc13-r1.ebuild, -files/linuxrc, -files/zfs-shutdown,
+  -zfs-0.6.0_rc10-r2.ebuild, -zfs-0.6.0_rc11-r1.ebuild,
+  -zfs-0.6.0_rc12-r1.ebuild, -zfs-0.6.0_rc13.ebuild:
+  The zfs-shutdown script will never work as originally envisioned, so I am
+  removing it from the tree.
+
+*zfs-0.6.0_rc13 (23 Dec 2012)
+
+  23 Dec 2012; Richard Yao <ryao@gentoo.org> +zfs-0.6.0_rc13.ebuild:
+  Bump sys-fs/zfs to 0.6.0_rc13
+
+  03 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> zfs-0.6.0_rc10-r2.ebuild,
+  zfs-0.6.0_rc11-r1.ebuild, zfs-0.6.0_rc12-r1.ebuild, zfs-9999.ebuild:
+  Use virtual/udev instead of sys-fs/udev wrt #444398
+
+*zfs-0.6.0_rc10-r2 (29 Nov 2012)
+*zfs-0.6.0_rc11-r1 (29 Nov 2012)
+*zfs-0.6.0_rc12-r1 (29 Nov 2012)
+
+  29 Nov 2012; Richard Yao <ryao@gentoo.org> +zfs-0.6.0_rc10-r2.ebuild,
+  +zfs-0.6.0_rc11-r1.ebuild, +zfs-0.6.0_rc12-r1.ebuild,
+  -zfs-0.6.0_rc10-r1.ebuild, -zfs-0.6.0_rc11.ebuild, -zfs-0.6.0_rc12.ebuild,
+  files/zfs-shutdown:
+  Make zfs-shutdown script a noop on systems that do not use ZFS as their rootfs
 
 *zfs-0.6.0_rc12 (14 Nov 2012)
 

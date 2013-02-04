@@ -1,6 +1,17 @@
 # ChangeLog for media-sound/ardour
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/ardour/ChangeLog,v 1.107 2012/11/24 00:48:51 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/ardour/ChangeLog,v 1.110 2013/01/04 21:47:58 radhermit Exp $
+
+  04 Jan 2013; Tim Harder <radhermit@gentoo.org>
+  -files/ardour-2.8.11-soundtouch.patch, -ardour-2.8.12.ebuild,
+  -files/ardour-2.8.12-gcc47.patch, -files/ardour-2.8.12-syslibs.patch,
+  -ardour-2.8.14.ebuild:
+  Remove old.
+
+*ardour-2.8.16 (05 Dec 2012)
+
+  05 Dec 2012; Tim Harder <radhermit@gentoo.org> +ardour-2.8.16.ebuild:
+  Version bump.
 
   24 Nov 2012; Tim Harder <radhermit@gentoo.org> ardour-2.8.14-r1.ebuild:
   Fix whitespace.
@@ -13,7 +24,7 @@
   24 Nov 2012; Andreas Schuerch <nativemad@gentoo.org> ardour-2.8.14.ebuild,
   +ardour-2.8.14-r1.ebuild:
   added boost to rdeps and made a revbump for dropping ppc and add lilv and
-  suil to the rdeps for lv2. Thanks Tim Harden and Martin Erdtmann for pointing
+  suil to the rdeps for lv2. Thanks Tim Harder and Martin Erdtmann for pointing
   out the issues! See bug 444434. 
 
   22 Nov 2012; Andreas Schuerch <nativemad@gentoo.org> ardour-2.8.14.ebuild,

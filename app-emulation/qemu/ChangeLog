@@ -1,6 +1,138 @@
 # ChangeLog for app-emulation/qemu
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.149 2012/11/21 22:22:35 cardoe Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.178 2013/01/25 12:08:00 ago Exp $
+
+  25 Jan 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.2.2-r2.ebuild:
+  Stable for x86, wrt bug #453284
+
+  25 Jan 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.2.2-r2.ebuild:
+  Stable for amd64, wrt bug #453284
+
+  21 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
+  Fix build issues identified by Michal Privoznik <miso.privoznik@gmail.com>
+
+*qemu-1.2.2-r100 (21 Jan 2013)
+
+  21 Jan 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.2.2-r100.ebuild:
+  Add support for USE=static-softmmu and USE=static-user. Break out build rules
+  between the two so we can better support user needs.
+
+  19 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.2-r2.ebuild:
+  Just change the name of the tarball so no one sees anything weird
+
+*qemu-1.2.2-r2 (19 Jan 2013)
+
+  19 Jan 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.2.2-r2.ebuild,
+  -qemu-1.2.2-r1.ebuild:
+  Regenerate bad patchset. Identified by Marien Zwart <marienz@gentoo.org>, bug
+  #452918
+
+*qemu-1.2.2-r1 (19 Jan 2013)
+
+  19 Jan 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.2.2-r1.ebuild,
+  +files/qemu-binfmt.initd-r1:
+  Backport a number of stability and code correctness fixes. Fix qemu-user init
+  script to point to the correct paths.
+
+  14 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.2.ebuild,
+  qemu-1.3.0.ebuild, qemu-9999.ebuild:
+  Install vmxcap script to detect hardware virtualization support
+
+  14 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.2.ebuild,
+  qemu-1.3.0.ebuild, qemu-9999.ebuild:
+  Only tell x86 and amd64 users about the qemu-kvm symlink since it only
+  applies to them.
+
+  14 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.2.ebuild,
+  qemu-1.3.0.ebuild, qemu-9999.ebuild:
+  Only install the firmware components if we're building a target that uses
+  them. Update some USE=static blockers. Update the elog message to print out
+  in correct cases.
+
+  13 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.2.ebuild:
+  Rebase backport patchset to fix a glaringly obvious mistake I made when
+  backporting the arm boot patch. bug #451598
+
+*qemu-1.3.0 (12 Jan 2013)
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.3.0.ebuild:
+  Add an initial masked version of qemu-1.3.0 which doesn't build yet due to
+  missing SeaBIOS depends. Upstream hasn't actually released a compatible
+  version yet.
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.2.ebuild:
+  Fix some missing user targets
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.1.1-r1.ebuild,
+  qemu-1.1.2-r2.ebuild, qemu-1.2.1.ebuild, qemu-1.2.2.ebuild:
+  Fix firmware blobs depends to be locked down per each version, similar to how
+  upstream ships the prebuilt blobs. bug #441716
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.1.1-r1.ebuild,
+  qemu-1.1.2-r2.ebuild:
+  Adjust usbredir depends to avoid any future problems. bug #439972
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> -qemu-1.1.2-r1.ebuild,
+  -qemu-1.1.2-r3.ebuild, -qemu-1.2.0.ebuild:
+  Remove older versions
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.1.ebuild,
+  qemu-1.2.2.ebuild:
+  Due to various fixes, we need to explicitly depend on this version. bug
+  #439972
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
+  Fixes from qemu-1.2.2 bump. Set usbredir depend to 0.6 and greater since
+  that's what qemu 1.3 and newer need.
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> +files/qemu-binfmt.initd,
+  qemu-1.2.2.ebuild:
+  Install initscript that qemu-user provides for binfmts when QEMU_USER_TARGETS
+  are set.
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.2.ebuild:
+  Remove trailing whitespace.
+
+*qemu-1.2.2 (12 Jan 2013)
+
+  12 Jan 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.2.2.ebuild:
+  Version bump. Fix libseccomp issues (fun tracking that down). Fix doc
+  installation, fix from Chris Mayo <aklhfex@gmail.com>, bug #438228. Fix mips
+  link issue due to piix4_pm_init, bug # 447196. Backport madvise() call to for
+  THP support, bug #446490. Fix ld and objcopy calls, bug #438040. Add verbose
+  log (which is useless), bug #438036.
+
+  11 Jan 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.1.1-r1.ebuild,
+  qemu-1.1.2-r1.ebuild, qemu-1.1.2-r2.ebuild, qemu-1.1.2-r3.ebuild,
+  qemu-1.2.0.ebuild, qemu-1.2.1.ebuild, qemu-9999.ebuild:
+  Fix bad ampersand usage.
+
+  10 Jan 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/qemu-9999-cflags.patch, qemu-9999.ebuild:
+  Refresh cflags patch by Michal Privoznik and by Tom Wijsman (bug #451178).
+
+  03 Jan 2013; Sven Vermeulen <swift@gentoo.org> qemu-1.1.2-r2.ebuild,
+  qemu-1.1.2-r3.ebuild, qemu-1.2.0.ebuild, qemu-1.2.1.ebuild:
+  Adding SELinux dependency towards selinux-qemu package
+
+  13 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> qemu-1.1.1-r1.ebuild,
+  qemu-1.1.2-r1.ebuild, qemu-1.1.2-r2.ebuild, qemu-1.1.2-r3.ebuild,
+  qemu-1.2.0.ebuild, qemu-1.2.1.ebuild, qemu-9999.ebuild:
+  Use udev_dorules to install udev rules into correct path wrt #447116 by
+  Alexander Tsoy
+
+  05 Dec 2012; Doug Goldstein <cardoe@gentoo.org> qemu-1.1.1-r1.ebuild,
+  qemu-1.1.2-r1.ebuild, qemu-1.1.2-r2.ebuild, qemu-1.1.2-r3.ebuild,
+  qemu-1.2.0.ebuild, qemu-1.2.1.ebuild, qemu-9999.ebuild:
+  Fix spelling mistake found by Francisco Riera <klondike@gentoo.org>. bug
+  #441632
+
+  05 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org>
+  -files/qemu-9999-fix-mipsen.patch, qemu-9999.ebuild:
+  Drop mips patch as fix gone upstream.
+
+  04 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> qemu-9999.ebuild:
+  Follow upstream bump of minimal spice protocol versions.
 
   21 Nov 2012; Doug Goldstein <cardoe@gentoo.org> qemu-1.1.1-r1.ebuild,
   qemu-1.1.2-r1.ebuild, qemu-1.1.2-r2.ebuild, qemu-1.1.2-r3.ebuild,

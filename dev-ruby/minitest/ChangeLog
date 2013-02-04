@@ -1,6 +1,52 @@
 # ChangeLog for dev-ruby/minitest
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/minitest/ChangeLog,v 1.84 2012/11/06 16:52:41 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/minitest/ChangeLog,v 1.97 2013/02/02 14:07:56 graaff Exp $
+
+*minitest-4.5.0 (02 Feb 2013)
+
+  02 Feb 2013; Hans de Graaff <graaff@gentoo.org> +minitest-4.5.0.ebuild:
+  Version bump.
+
+  28 Jan 2013; Alexis Ballier <aballier@gentoo.org> minitest-4.3.3.ebuild:
+  keyword ~amd64-fbsd
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> minitest-3.5.0.ebuild:
+  arm/s390/sh/x86 stable wrt #448372
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> minitest-3.5.0.ebuild:
+  Stable for alpha, wrt bug #448372
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> minitest-3.5.0.ebuild:
+  Stable for sparc, wrt bug #448372
+
+  29 Dec 2012; Jeroen Roovers <jer@gentoo.org> minitest-3.5.0.ebuild:
+  Stable for HPPA (bug #448372).
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> minitest-3.5.0.ebuild:
+  Stable for ppc, wrt bug #448372
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> minitest-3.5.0.ebuild:
+  Stable for ppc64, wrt bug #448372
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> minitest-3.5.0.ebuild:
+  Stable for ia64, wrt bug #448372
+
+  25 Dec 2012; Agostino Sarubbo <ago@gentoo.org> minitest-3.5.0.ebuild:
+  Stable for amd64, wrt bug #448372
+
+*minitest-4.3.3 (24 Dec 2012)
+
+  24 Dec 2012; Hans de Graaff <graaff@gentoo.org> +minitest-4.3.3.ebuild:
+  Version bump.
+
+  24 Dec 2012; Hans de Graaff <graaff@gentoo.org> -minitest-2.6.2.ebuild,
+  -minitest-3.3.0.ebuild:
+  Cleanup.
+
+*minitest-4.3.2 (01 Dec 2012)
+
+  01 Dec 2012; Hans de Graaff <graaff@gentoo.org> +minitest-4.3.2.ebuild:
+  Version bump. Run tests directly to avoid dependencies on hoe and rdoc.
 
   06 Nov 2012; Jeroen Roovers <jer@gentoo.org> minitest-2.12.1.ebuild:
   Stable for HPPA (bug #411507).
@@ -324,4 +370,3 @@
   14 Dec 2009; Hans de Graaff <graaff@gentoo.org> +minitest-1.4.2.ebuild,
   +metadata.xml:
   Initial import. New dependency for dev-ruby/hoe.
-

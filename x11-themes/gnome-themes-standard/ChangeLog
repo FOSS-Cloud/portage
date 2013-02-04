@@ -1,6 +1,24 @@
 # ChangeLog for x11-themes/gnome-themes-standard
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-themes-standard/ChangeLog,v 1.33 2012/11/21 23:01:26 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-themes-standard/ChangeLog,v 1.37 2013/01/28 14:25:03 aballier Exp $
+
+  28 Jan 2013; Alexis Ballier <aballier@gentoo.org>
+  gnome-themes-standard-3.6.2.ebuild:
+  keyword ~amd64-fbsd
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-themes-standard-3.6.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-themes-standard-3.4.2.ebuild:
+  Require gtk+-3.4, since gnome-themes-standard-3.4 + gtk+-3.6 = crashes
+  (thanks to ibqn for reporting).
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -gnome-themes-standard-3.6.1.ebuild, gnome-themes-standard-3.6.2.ebuild:
+  Drop sparc keyword, needs gtk+-3.6 to be keyworded. Update to EAPI5. Drop
+  old.
 
 *gnome-themes-standard-3.6.2 (21 Nov 2012)
 

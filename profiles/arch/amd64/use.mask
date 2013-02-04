@@ -1,11 +1,15 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/use.mask,v 1.37 2012/11/24 21:38:11 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/use.mask,v 1.45 2013/02/01 21:28:56 mgorny Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -amd64
 
 # SECTION: Unmask
+
+# Alexandre Rostovtsev <tetromino@gentoo.org> (09 Dec 2012)
+# Orc optimisations work fine on amd64 and x86
+-orc
 
 # Diego Elio Pettenò <flameeyes@gentoo.org> (21 Aug 2012)
 # IPMI is only implemented for x86, amd64 and ia64
@@ -45,7 +49,7 @@
 
 # 2010/05/03 - Alex Legler <a3li@gentoo.org>
 # Add support for Ruby Enterprise Edition targets where rubyee is available
--ruby_targets_ree18
+# -ruby_targets_ree18
 
 # 2010/01/08 - Diego E. Pettenò <flameeyes@gentoo.org>
 # Add support for JRuby targets where jruby is available
@@ -116,7 +120,11 @@
 -sse3
 -sse4
 -sse4a
+-sse41
 -sse5
+-avx
+-avx128fma
+-avx256
 -3dnow
 -3dnowext
 
@@ -172,5 +180,10 @@ capslib
 
 # fdk-aac is already keyworded here
 -fdk
+
+# Michał Górny <mgorny@gentoo.org> (26 Jan 2013)
+# Unmask the multilib flags for this arch.
+-abi_x86_32
+-abi_x86_64
 
 # NOT NECESSARY - SECTION

@@ -1,6 +1,34 @@
 # ChangeLog for net-p2p/bitcoin-qt
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/bitcoin-qt/ChangeLog,v 1.46 2012/11/09 20:35:33 flameeyes Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/bitcoin-qt/ChangeLog,v 1.51 2013/01/13 22:40:35 blueness Exp $
+
+  13 Jan 2013; Anthony G. Basile <blueness@gentoo.org>
+  bitcoin-qt-0.5.6_rc2.ebuild, bitcoin-qt-0.5.7_rc3.ebuild,
+  bitcoin-qt-0.5.7_rc4.ebuild, bitcoin-qt-0.6.0.10_rc3.ebuild,
+  bitcoin-qt-0.6.0.10_rc4.ebuild, bitcoin-qt-0.6.3.ebuild,
+  bitcoin-qt-0.6.4_rc4-r1.ebuild:
+  Remove boost versioning for remaining versions, bug #445180
+
+  08 Jan 2013; Anthony G. Basile <blueness@gentoo.org> bitcoin-qt-0.7.0.ebuild,
+  bitcoin-qt-0.7.2.ebuild, bitcoin-qt-0.7.2_rc2.ebuild:
+  Remove boost versioning for 0.7.*.  They could all probably use it.  Bug
+  #445180
+
+*bitcoin-qt-0.7.2 (04 Jan 2013)
+
+  04 Jan 2013; Anthony G. Basile <blueness@gentoo.org> +bitcoin-qt-0.7.2.ebuild:
+  Version bump
+
+  14 Dec 2012; Michał Górny <mgorny@gentoo.org> metadata.xml:
+  Remove redundant USE=upnp description; it matches the global flag meaning.
+
+*bitcoin-qt-0.7.2_rc2 (06 Dec 2012)
+*bitcoin-qt-0.6.4_rc4-r1 (06 Dec 2012)
+
+  06 Dec 2012; Anthony G. Basile <blueness@gentoo.org>
+  +bitcoin-qt-0.6.4_rc4-r1.ebuild, +bitcoin-qt-0.7.2_rc2.ebuild,
+  -bitcoin-qt-0.6.4_rc3.ebuild, -bitcoin-qt-0.6.4_rc4.ebuild:
+  Version bumps
 
   09 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> bitcoin-qt-0.7.1.ebuild:
   No need to specify a boost version anymore, as boost is unslotted; also add a

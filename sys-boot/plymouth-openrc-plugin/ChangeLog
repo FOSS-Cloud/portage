@@ -1,6 +1,30 @@
 # ChangeLog for sys-boot/plymouth-openrc-plugin
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/plymouth-openrc-plugin/ChangeLog,v 1.8 2012/04/23 20:06:00 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/plymouth-openrc-plugin/ChangeLog,v 1.14 2013/02/02 23:12:04 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  plymouth-openrc-plugin-0.1.2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  06 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  plymouth-openrc-plugin-0.1.2.ebuild:
+  Add ~sparc, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  plymouth-openrc-plugin-0.1.2.ebuild:
+  Add ~alpha, wrt bug #449220
+
+  01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
+  plymouth-openrc-plugin-0.1.2.ebuild:
+  Add ~ia64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  plymouth-openrc-plugin-0.1.2.ebuild:
+  Add ~ppc64, wrt bug #449220
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
+  plymouth-openrc-plugin-0.1.2.ebuild:
+  Add ~ppc, wrt bug #449220
 
   23 Apr 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   a3li is the new maintainer (as discussed in #gentoo-dev).
@@ -46,4 +70,3 @@
 
   Plugin for OpenRC is installed directly by sys-boot/plymouth until upcoming
   plymouth-0.8.3-r5.ebuild. Now it's going to be installed by this package.
-

@@ -1,6 +1,82 @@
 # ChangeLog for dev-python/setuptools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/setuptools/ChangeLog,v 1.161 2012/11/20 05:40:42 mgorny Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/setuptools/ChangeLog,v 1.182 2013/01/11 09:59:31 mgorny Exp $
+
+*setuptools-9999 (11 Jan 2013)
+
+  11 Jan 2013; Michał Górny <mgorny@gentoo.org> +setuptools-9999.ebuild:
+  Add a live ebuild.
+
+  06 Jan 2013; Markus Meier <maekke@gentoo.org> setuptools-0.6.33.ebuild:
+  arm stable, bug #449426
+
+  02 Jan 2013; Mike Gilbert <floppym@gentoo.org> setuptools-0.6.33.ebuild:
+  Add keywords where python-exec has been keyworded.
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> setuptools-0.6.30-r1.ebuild:
+  s390/sh/x86 stable wrt #446496
+
+*setuptools-0.6.33 (31 Dec 2012)
+
+  31 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> +setuptools-0.6.33.ebuild:
+  Version bump to 0.6.33.
+
+  31 Dec 2012; Dirkjan Ochtman <djc@gentoo.org> -setuptools-0.6.27.ebuild,
+  -setuptools-0.6.28.ebuild, -setuptools-0.6.30.ebuild,
+  -setuptools-0.6.30-r2.ebuild:
+  Remove old versions.
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> setuptools-0.6.30-r1.ebuild:
+  Stable for alpha, wrt bug #446496
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> setuptools-0.6.30-r1.ebuild:
+  Stable for sparc, wrt bug #446496
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> setuptools-0.6.30-r1.ebuild:
+  arm stable, bug #446496
+
+  22 Dec 2012; Mike Gilbert <floppym@gentoo.org> setuptools-0.6.32.ebuild:
+  Add pypy2_0.
+
+  18 Dec 2012; Agostino Sarubbo <ago@gentoo.org> setuptools-0.6.30-r1.ebuild:
+  Stable for ia64, wrt bug #446496
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> setuptools-0.6.30-r1.ebuild,
+  setuptools-0.6.30-r2.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> setuptools-0.6.30-r1.ebuild:
+  Stable for ppc, wrt bug #446496
+
+  15 Dec 2012; Michał Górny <mgorny@gentoo.org> setuptools-0.6.30-r2.ebuild,
+  setuptools-0.6.32.ebuild:
+  Remove jython2.5 support, bug #447148.
+
+  12 Dec 2012; Agostino Sarubbo <ago@gentoo.org> setuptools-0.6.30-r1.ebuild:
+  Stable for amd64, wrt bug #446496
+
+*setuptools-0.6.30-r2 (12 Dec 2012)
+
+  12 Dec 2012; Michał Górny <mgorny@gentoo.org> +setuptools-0.6.30-r2.ebuild,
+  setuptools-0.6.30-r1.ebuild:
+  Fork unstable PYTHON_TARGETS to clear the way for stabilization.
+
+  10 Dec 2012; Agostino Sarubbo <ago@gentoo.org> setuptools-0.6.30-r1.ebuild:
+  Stable for ppc64, wrt bug #446496
+
+  10 Dec 2012; Jeroen Roovers <jer@gentoo.org> setuptools-0.6.30-r1.ebuild:
+  Stable for HPPA (bug #446496).
+
+  01 Dec 2012; Michał Górny <mgorny@gentoo.org> setuptools-0.6.30-r1.ebuild:
+  Force in-source build in the older version too.
+
+  01 Dec 2012; Michał Górny <mgorny@gentoo.org> setuptools-0.6.32.ebuild:
+  Force in-source build due to build system modifying sources.
+
+*setuptools-0.6.32 (30 Nov 2012)
+
+  30 Nov 2012; Tim Harder <radhermit@gentoo.org> +setuptools-0.6.32.ebuild:
+  Version bump.
 
   20 Nov 2012; Michał Górny <mgorny@gentoo.org> setuptools-0.6.30-r1.ebuild:
   Re-keyword ~hppa after adding necessary masks.

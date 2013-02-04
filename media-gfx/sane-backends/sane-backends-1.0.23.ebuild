@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/sane-backends/sane-backends-1.0.23.ebuild,v 1.2 2012/10/08 17:16:29 phosphan Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/sane-backends/sane-backends-1.0.23.ebuild,v 1.14 2013/02/01 12:07:07 phosphan Exp $
 
 EAPI="4"
 
-inherit eutils flag-o-matic multilib user
+inherit eutils flag-o-matic multilib udev user
 
 # gphoto and v4l are handled by their usual USE flags.
 # The pint backend was disabled because I could not get it to compile.
@@ -96,9 +96,18 @@ IUSE_SANE_BACKENDS="
 
 IUSE="avahi doc gphoto2 ipv6 threads usb v4l xinetd"
 
+mySign=""
+
 for backend in ${IUSE_SANE_BACKENDS}; do
 	if [ ${backend} = pnm ]; then
 		IUSE="${IUSE} -sane_backends_pnm"
+	elif [ ${backend} = mustek_usb2 -o ${backend} = kvs40xx ]; then
+		if use threads; then
+			mySign="+"
+		else
+			mySign="-"
+		fi
+		IUSE="${IUSE} ${mySign}sane_backends_${backend}"
 	else
 		IUSE="${IUSE} +sane_backends_${backend}"
 	fi
@@ -148,7 +157,7 @@ SRC_URI="https://alioth.debian.org/frs/download.php/3752/sane-backends-1.0.23.ta
 	https://alioth.debian.org/frs/download.php/3754/sane-backends-1.0.23.tar.gz.3"
 SLOT="0"
 LICENSE="GPL-2 public-domain"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 
 pkg_setup() {
 	enewgroup scanner
@@ -245,10 +254,7 @@ src_install () {
 		doexe tools/hotplug/libusbscanner
 		newdoc tools/hotplug/README README.hotplug
 	fi
-	local udevdir="/lib/udev"
-	has_version sys-fs/udev && udevdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)"
-	insinto "${udevdir}"/rules.d
-	newins tools/udev/libsane.rules 41-libsane.rules
+	udev_newrules tools/udev/libsane.rules 41-libsane.rules
 	insinto "/usr/share/pkgconfig"
 	doins tools/sane-backends.pc
 

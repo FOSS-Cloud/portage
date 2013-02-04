@@ -1,12 +1,309 @@
 # ChangeLog for sys-fs/udev
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/ChangeLog,v 1.742 2012/11/24 17:35:09 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/ChangeLog,v 1.818 2013/02/03 19:18:32 ssuominen Exp $
+
+  03 Feb 2013; Samuli Suominen <ssuominen@gentoo.org>
+  files/80-net-name-slot.rules:
+  Recommend copying the file from /lib/udev/rules.d/ to /etc/udev/rules.d/
+  instead of deleting this dummy file because stable udev's ebuild will always
+  put the file in place if it isn't there already.
+
+  03 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r6.ebuild,
+  udev-9999.ebuild:
+  Check for CONFIG_KALLSYMS=y wrt #447042 by "erhard.furtner"
+
+  02 Feb 2013; Fabian Groffen <grobian@gentoo.org> udev-171-r10.ebuild:
+  Drop ~x86-linux, bug #452708
+
+*udev-197-r6 (01 Feb 2013)
+
+  01 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> +udev-197-r6.ebuild,
+  udev-9999.ebuild:
+  Trim 40-gentoo.rules in favour of upstream 50-udev-default.rules; and
+  write it using the ebuild.
+
+  01 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> -udev-197-r3.ebuild:
+  old
+
+  31 Jan 2013; Agostino Sarubbo <ago@gentoo.org> udev-197-r4.ebuild:
+  Stable for ppc, wrt bug #452556
+
+  31 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r4.ebuild,
+  udev-197-r5.ebuild, udev-9999.ebuild:
+  Backport kernel .config check from ebuild of 171; BLK_DEV_BSG, !IDE,
+  INOTIFY_USER, !SYSFS_DEPRECATED, !SYSFS_DEPRECATED_V2, and SIGNALFD
+  wrt #454614 by Alexandre Rostovtsev
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> udev-197-r4.ebuild:
+  Stable for x86, wrt bug #452556
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> udev-197-r4.ebuild:
+  Stable for amd64, wrt bug #452556
+
+*udev-197-r5 (29 Jan 2013)
+
+  29 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r4.ebuild,
+  +udev-197-r5.ebuild:
+  Install 80-net-name-slot.rules if the file isn't there yet for stabilization
+  of -r4. This will make the new -r5 the old -r4.
+
+  29 Jan 2013; Samuli Suominen <ssuominen@gentoo.org>
+  files/80-net-name-slot.rules:
+  Update link to Tracker wrt #454452 by Ian Abbott
+
+  28 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Change KV_min to 3.3 for ia64 because accept4 support in the kernel came
+  late. Thanks to ryao for noticing.
+
+  28 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Change block <sys-fs/lvm2-2.02.45 to <sys-fs/lvm2-2.02.97-r1 because it's the
+  first compatible version with this version of udev.
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> udev-197-r3.ebuild:
+  Stable for ppc, wrt bug #452556
+
+  27 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Block old version of selinux-base because it's not compatible with
+  >=sys-fs/udev-197 wrt #451128 by Hinnerk van Bruinehsen
+
+  27 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Since libudev.so.0 was in /usr for a while; adjust the preserve_old_lib
+  command by Zero_Chaos
+
+  24 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r4.ebuild,
+  udev-9999.ebuild:
+  Set the net_rules variable outside of the copy_net_rules() function for later
+  use in the postinst phase.
+
+  24 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r4.ebuild,
+  udev-9999.ebuild:
+  Disable the new predictable network interface name scheme if
+  sys-apps/biosdevname is installed.
+
+  23 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Move a file install to pkg_postinst() from pkg_preinst() to use $ROOT
+  instead of $FILESDIR for binpkg support wrt #453726 by Fabio Erculiani
+
+  23 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Post install message about changed network interface renaming wrt #453494
+
+  21 Jan 2013; Mike Gilbert <floppym@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Another tweak for the fstab check.
+
+  21 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Warn users only if fstype of /dev in /etc/fstab is not devtmpfs by WilliamH
+
+  21 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Raise udev-init-scripts dependency to 19-r1 to avoid launching the symlink to
+  udevd.
+
+  21 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Warn users if they are mounting /dev from /etc/fstab wrt #453186 by "wbrana"
+
+  21 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> -udev-171-r9.ebuild,
+  -udev-196-r1.ebuild:
+  old
+
+  21 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-171-r10.ebuild:
+  Stabilize for everyone because of one patch; restore support for 2.6.31.
+
+  20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> udev-197-r3.ebuild:
+  Stable for x86, wrt bug #452556
+
+  20 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r4.ebuild,
+  udev-9999.ebuild:
+  Optionalize dev-util/gperf dependency behind USE="keymap" wrt #452760 by Mike
+  Frysinger
+
+  19 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Install mans related to libsystemd-daemon wrt #452892 by Mike Gilbert. Block
+  <sys-apps/systemd-${PV}.
+
+  19 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-197-r4.ebuild, udev-9999.ebuild:
+  Update PDEPEND of virtual/udev to 197.
+
+  19 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild:
+  amd64 stable wrt #452556
+
+  19 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> -udev-197-r2.ebuild:
+  old
+
+*udev-197-r4 (19 Jan 2013)
+
+  19 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  +udev-197-r4.ebuild, udev-9999.ebuild:
+  Move /lib/systemd/udevd to /sbin/udevd. Remove empty directory /lib/systemd.
+  Symlink /sbin/udevd to /usr/lib/systemd/systemd-udevd. Point systemd .service
+  files to /usr/lib/systemd/systemd-udevd. Closing bug #408891.
+  Fix installation of sd-daemon.h include for libsystemd-daemon wrt #452892
+  by Marien Zwart and Mike Gilbert.
+
+  18 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-9999.ebuild:
+  Pass --disable-silent-rules wrt #429886 by Julian Ospald
+
+  17 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> +udev-196-r1.ebuild:
+  Put 196-r1 back in tree for sys-apps/systemd. If you don't use systemd, you
+  shouldn't be emerging this package because it has wrong udevdir= in udev.pc.
+
+  17 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-9999.ebuild:
+  Remove one more use of secure_getenv() from src/shared/missing.h when
+  required.
+
+  17 Jan 2013; William Hubbs <williamh@gentoo.org> udev-197-r2.ebuild,
+  udev-197-r3.ebuild, udev-9999.ebuild:
+  adjust gtk-doc dependency for bug #452668
+
+  17 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r3.ebuild,
+  udev-9999.ebuild:
+  Restore support for uClibc head by disabling usage of secure_getenv() in
+  logs. Use maintainer safe kludge when building from git to avoid missing 
+  other uses. Thanks to Mike Frysinger in bug #443030, Comment #5.
+  Fix building without dev-util/intltool and sys-devel/gettext wrt #443028,
+  Comment #3 by Mike Frysinger.
+
+  17 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-171-r10.ebuild:
+  Change KV_min and KV_reliable from 2.6.32 to 2.6.31 because it was 
+  backported from sys-fs/eudev, see http://github.com/gentoo/eudev/issues/7
+
+  17 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> -udev-141-r1.ebuild,
+  -udev-146-r1.ebuild, -udev-149.ebuild, -udev-151-r4.ebuild,
+  -udev-164-r2.ebuild, -udev-196-r1.ebuild, metadata.xml:
+  old; if you need support for older kernels use sys-fs/eudev or
+  local overlay:
+  http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/sys-fs/udev/?hideattic=0
+
+  17 Jan 2013; William Hubbs <williamh@gentoo.org> udev-197-r2.ebuild,
+  udev-197-r3.ebuild, udev-9999.ebuild:
+  make separate /usr warning message more verbose. Udev will not always fail
+  without an initramfs, but the failures you get will be difficult to
+  troubleshoot.
+
+*udev-197-r3 (16 Jan 2013)
+
+  16 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r2.ebuild,
+  +udev-197-r3.ebuild, udev-9999.ebuild:
+  Edit -r2 to install 80-net-name-slot.rules if the file isn't there yet; this
+  is for stable. This will make current -r2 as -r3 with a safe kludge to avoid
+  overwriting the file; this is for ~arch.
+
+  15 Jan 2013; William Hubbs <williamh@gentoo.org> udev-9999.ebuild:
+  sync live ebuild
+
+  15 Jan 2013; William Hubbs <williamh@gentoo.org> udev-197-r2.ebuild:
+  add toolchain-funcs to inherit call since we use gcc-version
+
+  15 Jan 2013; William Hubbs <williamh@gentoo.org> udev-197-r2.ebuild:
+  Allow udev to compile correctly with gcc 4.5 and >=glibc-2.16 for bug #451110,
+  thanks to vapier.
+
+  14 Jan 2013; William Hubbs <williamh@gentoo.org> udev-197-r2.ebuild:
+  update the emerge procedure for udev consumers to use qfile. Thanks to Paul
+  Varner for explaining why this is the better option.
+
+  14 Jan 2013; William Hubbs <williamh@gentoo.org> udev-197-r2.ebuild:
+  Add an example of the command needed to re-emerge packages with files in
+  /usr/lib/udev for bug #451266.
+
+  13 Jan 2013; William Hubbs <williamh@gentoo.org> udev-197-r2.ebuild,
+  udev-9999.ebuild:
+  Fix udev-init-scripts dependencies per poly-c and move udevadm to /bin. If
+  someone wants a revbump I will do so.
+
+  13 Jan 2013; William Hubbs <williamh@gentoo.org> -udev-197-r1.ebuild:
+  remove old version
+
+  12 Jan 2013; William Hubbs <williamh@gentoo.org> udev-197-r2.ebuild,
+  udev-9999.ebuild:
+  add -j1 to the make install phase for bug #451500
+
+*udev-197-r2 (12 Jan 2013)
+
+  12 Jan 2013; William Hubbs <williamh@gentoo.org> +udev-197-r2.ebuild,
+  udev-9999.ebuild:
+  This is the last of the revisions to move everything back to / and fix
+  rootlibdir, thanks to Dave Reisner on the #systemd irc channel for his
+  assistance.
+
+  11 Jan 2013; William Hubbs <williamh@gentoo.org> -udev-195.ebuild,
+  -udev-197.ebuild:
+  remove old versions
+
+*udev-197-r1 (11 Jan 2013)
+
+  11 Jan 2013; William Hubbs <williamh@gentoo.org> +udev-197-r1.ebuild,
+  udev-9999.ebuild:
+  use systemd eclass for bug #451152, thanks to Mike Gilbert for the patch.
+
+  09 Jan 2013; William Hubbs <williamh@gentoo.org> udev-197.ebuild,
+  udev-9999.ebuild:
+  I was told that the fix I mentioned in the previous commit is incorrect
+  because systemd already generates the man pages in their tarball.
+
+*udev-197 (09 Jan 2013)
+
+  09 Jan 2013; William Hubbs <williamh@gentoo.org>
+  +files/80-net-name-slot.rules, +udev-197.ebuild, udev-9999.ebuild:
+  version bump and fix #446702
+
+*udev-171-r10 (18 Dec 2012)
+
+  18 Dec 2012; Richard Yao <ryao@gentoo.org> +udev-171-r10.ebuild:
+  Backport accept4 fallback path from eudev-1_beta1, approved by WilliamH and
+  ssuominen
+
+  02 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> -udev-196.ebuild:
+  old
+
+*udev-196-r1 (02 Dec 2012)
+
+  02 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> +udev-196-r1.ebuild,
+  udev-9999.ebuild:
+  USE="hwdb" will now pull in sys-apps/hwids with USE="udev" enabled to gain
+  pci.ids, usb.ids and oui.txt to generate /etc/udev/udev.bin from.
+  Run udevadm hwdb --update too. Thanks to Flameeyes for co-operating with
+  this one.
+
+*udev-196 (02 Dec 2012)
+
+  02 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> +udev-196.ebuild,
+  udev-9999.ebuild:
+  Version bump.
+
+  01 Dec 2012; William Hubbs <williamh@gentoo.org> -udev-189.ebuild,
+  -udev-190.ebuild, -udev-191.ebuild, -udev-192.ebuild, -udev-193.ebuild,
+  -udev-194.ebuild:
+  after speaking with the systemd maintainer, older versions of udev are being
+  removed.
+
+  01 Dec 2012; William Hubbs <williamh@gentoo.org> +udev-189.ebuild,
+  +udev-190.ebuild, +udev-191.ebuild, +udev-192.ebuild, +udev-193.ebuild,
+  +udev-194.ebuild:
+  restore old versions so we do not break systemd
+
+  01 Dec 2012; William Hubbs <williamh@gentoo.org> -udev-189.ebuild,
+  -udev-190.ebuild, -udev-191.ebuild, -udev-192.ebuild, -udev-193.ebuild,
+  -udev-194.ebuild:
+  remove old versions
 
   24 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> -udev-171-r8.ebuild:
   old
 
   24 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> udev-146-r1.ebuild,
-  udev-151-r4.ebuild, udev-164-r2.ebuild:
+  udev-149.ebuild, udev-151-r4.ebuild, udev-164-r2.ebuild:
   Reset keywording back to ~arch since these can't be considered stable
   anymore. Use at your own risk.
 

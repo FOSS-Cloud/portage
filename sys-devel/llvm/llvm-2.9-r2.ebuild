@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-2.9-r2.ebuild,v 1.9 2012/07/03 14:32:17 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-2.9-r2.ebuild,v 1.11 2013/01/03 23:29:51 voyageur Exp $
 
-EAPI="3"
+EAPI="4"
 inherit eutils flag-o-matic multilib toolchain-funcs pax-utils
 
 DESCRIPTION="Low Level Virtual Machine"
@@ -23,8 +23,7 @@ DEPEND="dev-lang/perl
 	libffi? ( virtual/pkgconfig
 		virtual/libffi )
 	ocaml? ( dev-lang/ocaml )
-	udis86? ( amd64? ( dev-libs/udis86[pic] )
-		!amd64? ( dev-libs/udis86 ) )"
+	udis86? ( dev-libs/udis86[pic(+)] )"
 RDEPEND="dev-lang/perl
 	libffi? ( virtual/libffi )
 	vim-syntax? ( || ( app-editors/vim app-editors/gvim ) )"
@@ -86,6 +85,9 @@ src_prepare() {
 
 	# Upstream commit r131062
 	epatch "${FILESDIR}"/${P}-Operator.h-c++0x.patch
+
+	# Additional unistd.h include for GCC 4.7
+	epatch "${FILESDIR}"/${P}-gcc4.7.patch
 }
 
 src_configure() {

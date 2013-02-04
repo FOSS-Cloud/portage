@@ -1,6 +1,15 @@
 # ChangeLog for net-im/bitlbee
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/bitlbee/ChangeLog,v 1.161 2012/10/19 09:20:17 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-im/bitlbee/ChangeLog,v 1.163 2013/01/08 14:25:21 cedk Exp $
+
+  08 Jan 2013; Cédric Krier <cedk@gentoo.org> bitlbee-3.0.5-r1.ebuild,
+  bitlbee-3.0.6.ebuild, bitlbee-3.2.ebuild, files/bitlbee.initd:
+  Remove /var/run keepdir statements for bug #450882
+
+*bitlbee-3.2 (07 Jan 2013)
+
+  07 Jan 2013; Tim Harder <radhermit@gentoo.org> +bitlbee-3.2.ebuild:
+  Version bump. Migrate to python-single-r1.
 
 *bitlbee-3.0.6 (19 Oct 2012)
 

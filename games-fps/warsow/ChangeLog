@@ -1,6 +1,24 @@
 # ChangeLog for games-fps/warsow
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/warsow/ChangeLog,v 1.46 2012/11/22 14:30:11 hasufell Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-fps/warsow/ChangeLog,v 1.50 2013/01/30 21:58:40 mr_bones_ Exp $
+
+  30 Jan 2013; Michael Sterrett <mr_bones_@gentoo.org> -warsow-1.02.ebuild:
+  old
+
+  19 Jan 2013; Julian Ospald <hasufell@gentoo.org> warsow-1.0.ebuild,
+  warsow-1.02.ebuild, warsow-1.02-r1.ebuild:
+  clarify licenses
+
+*warsow-1.02-r1 (18 Jan 2013)
+
+  18 Jan 2013; Julian Ospald <hasufell@gentoo.org> +warsow-1.02-r1.ebuild,
+  files/warsow-1.02-build.patch:
+  unbundle libRocket, revbump for safety
+
+  27 Dec 2012; Julian Ospald <hasufell@gentoo.org> warsow-1.02.ebuild,
+  files/warsow-1.02-build.patch:
+  respect CFLAGS in linking command, don't mix up CFLAGS and CXXFLAGS, improve
+  verbosity handling
 
   22 Nov 2012; Julian Ospald <hasufell@gentoo.org> warsow-1.0.ebuild,
   +files/warsow-1.0-pic.patch, warsow-1.02.ebuild,

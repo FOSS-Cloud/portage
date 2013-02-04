@@ -1,6 +1,17 @@
 # ChangeLog for sys-boot/unetbootin
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/unetbootin/ChangeLog,v 1.92 2012/10/17 13:28:21 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/unetbootin/ChangeLog,v 1.95 2013/02/02 17:17:58 jdhore Exp $
+
+  02 Feb 2013; Jeff Horelick <jdhore@gentoo.org> unetbootin-583.ebuild:
+  x86 stable wrt bug #454766
+
+  31 Jan 2013; Homer Parker <hparker@gentoo.org> unetbootin-583.ebuild:
+  Stable on amd64 fixing bug #454766
+
+*unetbootin-583 (24 Dec 2012)
+
+  24 Dec 2012; Jeroen Roovers <jer@gentoo.org> +unetbootin-583.ebuild:
+  Version bump.
 
   17 Oct 2012; Jeroen Roovers <jer@gentoo.org> -unetbootin-575.ebuild,
   -unetbootin-577.ebuild, -unetbootin-578.ebuild:

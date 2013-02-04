@@ -1,6 +1,51 @@
 # ChangeLog for dev-perl/PortageXS
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/PortageXS/ChangeLog,v 1.44 2011/12/14 23:01:53 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/PortageXS/ChangeLog,v 1.56 2013/01/03 08:46:32 armin76 Exp $
+
+*PortageXS-0.02.10-r3 (03 Jan 2013)
+
+  03 Jan 2013; Raúl Porcel <armin76@gentoo.org> -PortageXS-0.02.09.ebuild,
+  -PortageXS-0.02.10-r1.ebuild, -PortageXS-0.02.10-r2.ebuild,
+  +PortageXS-0.02.10-r3.ebuild, files/PortageXS-0.02.10-portage_path_fix.patch,
+  files/PortageXS-0.02.10-prefix.patch:
+  Fix make.profile location, straight to stable
+
+  30 Dec 2012; Raúl Porcel <armin76@gentoo.org> PortageXS-0.02.10-r2.ebuild:
+  sh stable wrt #437414
+
+  30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> PortageXS-0.02.10-r2.ebuild:
+  Stable for sparc, wrt bug #437414
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> PortageXS-0.02.10-r2.ebuild:
+  Stable for alpha, wrt bug #437414
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> PortageXS-0.02.10-r2.ebuild:
+  arm stable, bug #437414
+
+  23 Dec 2012; Agostino Sarubbo <ago@gentoo.org> PortageXS-0.02.10-r2.ebuild:
+  Stable for ppc64, wrt bug #437414
+
+  19 Dec 2012; Jeroen Roovers <jer@gentoo.org> PortageXS-0.02.10-r2.ebuild:
+  Stable for HPPA (bug #437414).
+
+  17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> PortageXS-0.02.10-r2.ebuild:
+  Stable for ia64, wrt bug #437414
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> PortageXS-0.02.10-r2.ebuild:
+  Stable for ppc, wrt bug #437414
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> PortageXS-0.02.10-r2.ebuild:
+  Stable for x86, wrt bug #437414
+
+  16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> PortageXS-0.02.10-r2.ebuild:
+  Stable for amd64, wrt bug #437414
+
+*PortageXS-0.02.10-r2 (15 Dec 2012)
+
+  15 Dec 2012; Raúl Porcel <armin76@gentoo.org> +PortageXS-0.02.10-r2.ebuild,
+  +files/PortageXS-0.02.10-portage_path_fix.patch,
+  +files/PortageXS-0.02.10-prefix.patch:
+  Add patch to fix bug #437414
 
   14 Dec 2011; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop maintainer due move to staffer, bug #99016
@@ -192,4 +237,3 @@
   12 Nov 2006; Christian Hartmann <ian@gentoo.org> +metadata.xml,
   +PortageXS-0.02.ebuild:
   Release
-

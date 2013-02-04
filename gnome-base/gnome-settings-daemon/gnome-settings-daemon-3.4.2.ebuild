@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-settings-daemon/gnome-settings-daemon-3.4.2.ebuild,v 1.4 2012/09/23 14:05:02 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-settings-daemon/gnome-settings-daemon-3.4.2.ebuild,v 1.6 2013/01/22 07:37:37 tetromino Exp $
 
 EAPI="4"
 GCONF_DEBUG="no"
@@ -11,10 +11,10 @@ inherit autotools eutils gnome2 virtualx
 DESCRIPTION="Gnome Settings Daemon"
 HOMEPAGE="http://www.gnome.org"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~x86-solaris"
-IUSE="+colord +cups debug packagekit policykit +short-touchpad-timeout smartcard systemd +udev wacom"
+IUSE="+colord +cups debug input_devices_wacom packagekit policykit +short-touchpad-timeout smartcard systemd +udev"
 
 # colord-0.1.13 needed to avoid polkit errors in CreateProfile and CreateDevice
 COMMON_DEPEND="
@@ -43,16 +43,18 @@ COMMON_DEPEND="
 
 	colord? ( >=x11-misc/colord-0.1.13 )
 	cups? ( >=net-print/cups-1.4[dbus] )
+	input_devices_wacom? (
+		>=dev-libs/libwacom-0.6
+		x11-drivers/xf86-input-wacom )
 	packagekit? (
-		sys-fs/udev[gudev]
+		virtual/udev[gudev]
 		>=app-admin/packagekit-base-0.6.12 )
 	smartcard? (
-		sys-fs/udev[gudev]
+		virtual/udev[gudev]
 		>=dev-libs/nss-3.11.2 )
 	systemd? ( >=sys-apps/systemd-31 )
-	udev? ( sys-fs/udev[gudev] )
-	wacom? ( >=dev-libs/libwacom-0.3
-		x11-drivers/xf86-input-wacom )"
+	udev? ( virtual/udev[gudev] )
+"
 # Themes needed by g-s-d, gnome-shell, gtk+:3 apps to work properly
 # <gnome-color-manager-3.1.1 has file collisions with g-s-d-3.1.x
 # <gnome-power-manager-3.1.3 has file collisions with g-s-d-3.1.x
@@ -75,24 +77,8 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/inputproto
 	x11-proto/kbproto
 	x11-proto/xf86miscproto
-	>=x11-proto/xproto-7.0.15"
-
-pkg_setup() {
-	# README is empty
-	DOCS="AUTHORS NEWS ChangeLog MAINTAINERS"
-	G2CONF="${G2CONF}
-		--disable-static
-		--disable-schemas-compile
-		$(use_enable colord color)
-		$(use_enable cups)
-		$(use_enable debug)
-		$(use_enable debug more-warnings)
-		$(use_enable packagekit)
-		$(use_enable smartcard smartcard-support)
-		$(use_enable systemd)
-		$(use_enable udev gudev)
-		$(use_enable wacom)"
-}
+	>=x11-proto/xproto-7.0.15
+"
 
 src_prepare() {
 	# https://bugzilla.gnome.org/show_bug.cgi?id=621836
@@ -115,6 +101,23 @@ src_prepare() {
 	eautoreconf
 
 	gnome2_src_prepare
+}
+
+src_configure() {
+	# README is empty
+	DOCS="AUTHORS NEWS ChangeLog MAINTAINERS"
+	gnome2_src_configure \
+		--disable-static \
+		--disable-schemas-compile \
+		$(use_enable colord color) \
+		$(use_enable cups) \
+		$(use_enable debug) \
+		$(use_enable debug more-warnings) \
+		$(use_enable packagekit) \
+		$(use_enable smartcard smartcard-support) \
+		$(use_enable systemd) \
+		$(use_enable udev gudev) \
+		$(use_enable input_devices_wacom wacom)
 }
 
 src_test() {

@@ -1,6 +1,64 @@
 # ChangeLog for dev-python/docutils
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/docutils/ChangeLog,v 1.159 2012/10/07 00:44:32 floppym Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/docutils/ChangeLog,v 1.176 2013/02/02 22:00:51 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> docutils-0.10.ebuild:
+  Stable for x86, wrt bug #454314
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> docutils-0.10.ebuild:
+  Stable for amd64, wrt bug #454314
+
+  19 Jan 2013; Michał Górny <mgorny@gentoo.org> docutils-0.10.ebuild:
+  Enable pypy2.0 for deps.
+
+  18 Jan 2013; Michał Górny <mgorny@gentoo.org> docutils-0.10.ebuild:
+  Enable python3.3.
+
+  13 Jan 2013; Michał Górny <mgorny@gentoo.org> docutils-0.10.ebuild,
+  docutils-0.9.1-r1.ebuild:
+  Disable pypy1.8 to fix broken deps.
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> docutils-0.9.1.ebuild:
+  Stable for amd64, wrt bug #449412
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> docutils-0.9.1.ebuild:
+  Stable for ppc, wrt bug #449412
+
+  04 Jan 2013; Agostino Sarubbo <ago@gentoo.org> docutils-0.9.1.ebuild:
+  Stable for ppc64, wrt bug #449412
+
+  02 Jan 2013; Michał Górny <mgorny@gentoo.org> docutils-0.10.ebuild:
+  Add missing "glep?" to RDEP.
+
+  01 Jan 2013; Raúl Porcel <armin76@gentoo.org> docutils-0.9.1.ebuild:
+  alpha/arm/ia64/s390/sh/sparc stable wrt #449412
+
+  31 Dec 2012; Jeff Horelick <jdhore@gentoo.org> docutils-0.9.1.ebuild:
+  marked x86 per bug 449412
+
+  31 Dec 2012; Jeroen Roovers <jer@gentoo.org> docutils-0.9.1.ebuild:
+  Stable for HPPA (bug #449412).
+
+*docutils-0.10 (31 Dec 2012)
+
+  31 Dec 2012; Michał Górny <mgorny@gentoo.org> +docutils-0.10.ebuild,
+  +files/docutils-0.10-optparser.patch:
+  Version bump with a patch for buildhtml.py. Move GLEP support to dev-python
+  /docutils-glep.
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> docutils-0.9.1-r1.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+  16 Dec 2012; Michał Górny <mgorny@gentoo.org> docutils-0.9.1-r1.ebuild:
+  Enable python2.5.
+
+  16 Dec 2012; Mike Gilbert <floppym@gentoo.org> docutils-0.9.1-r1.ebuild:
+  Fix installation with USE=-glep. Bug 447410 by Derk W te Bokkel.
+
+*docutils-0.9.1-r1 (15 Dec 2012)
+
+  15 Dec 2012; Michał Górny <mgorny@gentoo.org> +docutils-0.9.1-r1.ebuild:
+  Migrate to distutils-r1.
 
   07 Oct 2012; Mike Gilbert <floppym@gentoo.org> docutils-0.8.1.ebuild,
   docutils-0.9.1.ebuild, docutils-0.9.ebuild:

@@ -1,6 +1,65 @@
 # ChangeLog for media-tv/xbmc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/ChangeLog,v 1.155 2012/11/26 14:26:27 scarabeus Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/ChangeLog,v 1.170 2013/01/29 17:11:12 scarabeus Exp $
+
+  29 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> xbmc-9999.ebuild:
+  Silence qa warn as the second arg must be full path not just dir based on PMS.
+
+  26 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> xbmc-9999.ebuild:
+  Symlink in-system fonts rather than use bundled ones.
+
+  26 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> xbmc-9999.ebuild:
+  Remove fontconfig dirs as they are useless at best.
+
+  21 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org> xbmc-9999.ebuild:
+  Remove simplejson code as it is not used anyway.
+
+*xbmc-12.0_rc3 (18 Jan 2013)
+
+  18 Jan 2013; Mike Frysinger <vapier@gentoo.org> +files/generate.sh,
+  +xbmc-12.0_rc3.ebuild:
+  Version bump #452422 by Elis Axelsson.
+
+  17 Jan 2013; Michał Górny <mgorny@gentoo.org> xbmc-11.0-r1.ebuild,
+  xbmc-11.0.ebuild:
+  Fix the python[sqlite] dep on older versions too.
+
+  15 Jan 2013; Michał Górny <mgorny@gentoo.org> xbmc-12.0_rc2.ebuild,
+  xbmc-9999.ebuild:
+  Fix sqlite3 module dependency -- the package supports only built-in Python
+  sqlite3, not external pysqlite2.
+
+  29 Dec 2012; Mike Frysinger <vapier@gentoo.org> xbmc-12.0_rc2.ebuild,
+  xbmc-9999.ebuild:
+  Require libmicrohttpd[messages] #449082 by Ben Kohler.
+
+  29 Dec 2012; Mike Frysinger <vapier@gentoo.org> xbmc-12.0_rc2.ebuild,
+  xbmc-9999.ebuild:
+  Depend on tinyxml[stl] since xbmc uses those features #448754#3 by Ben Kohler.
+
+  25 Dec 2012; Mike Frysinger <vapier@gentoo.org> xbmc-12.0_rc2.ebuild,
+  xbmc-9999.ebuild:
+  Fix lookup of dirs to autotool #448488 by Ivan.
+
+*xbmc-12.0_rc2 (25 Dec 2012)
+
+  25 Dec 2012; Mike Frysinger <vapier@gentoo.org> +xbmc-12.0_rc2.ebuild,
+  xbmc-9999.ebuild:
+  Add USE=java to contain upstream idiocy #434662 by BT.  Version bump #443572
+  by Tomasz Golinski.
+
+  24 Dec 2012; Mike Frysinger <vapier@gentoo.org> xbmc-9999.ebuild:
+  Require libcec-2+ #438376 by Ian Whyman.
+
+  08 Dec 2012; Mike Frysinger <vapier@gentoo.org>
+  +files/xbmc-11.0-nfs-limits.patch, xbmc-11.0-r1.ebuild, xbmc-11.0.ebuild:
+  Add fix from upstream for building with newer libnfs #445174 by Winfried
+  Lorenzen.
+
+  28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> xbmc-11.0.ebuild,
+  xbmc-11.0-r1.ebuild, xbmc-9999.ebuild:
+  Missing virtual/glu dependency (AC_CHECK_LIB for libGLU in configure.in) wrt
+  #445075 by Steven Cristian
 
   26 Nov 2012; Tomáš Chvátal <scarabeus@gentoo.org> metadata.xml:
   Update to global useflag.

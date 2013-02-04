@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/openafs-kernel/openafs-kernel-1.6.1-r2.ebuild,v 1.1 2012/11/11 20:04:46 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/openafs-kernel/openafs-kernel-1.6.1-r2.ebuild,v 1.5 2013/01/26 17:34:01 vapier Exp $
 
 EAPI="4"
 
@@ -17,9 +17,9 @@ HOMEPAGE="http://www.openafs.org/"
 SRC_URI="http://openafs.org/dl/openafs/${MY_PV}/${MY_P}-src.tar.bz2
 	mirror://gentoo/${MY_P2}-patches-${PVER}.tar.bz2"
 
-LICENSE="IBM BSD openafs-krb5-a APSL-2 sun-rpc"
+LICENSE="IBM BSD openafs-krb5-a APSL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~sparc ~x86 ~amd64-linux ~x86-linux ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="amd64 sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE=""
 
 S=${WORKDIR}/${MY_P}
@@ -78,9 +78,11 @@ src_install() {
 pkg_postinst() {
 	# Update linker.hints file
 	use kernel_FreeBSD && /usr/sbin/kldxref "${EPREFIX}/boot/modules"
+	use linux_kernel && linux-mod_pkg_postinst
 }
 
 pkg_postrm() {
 	# Update linker.hints file
 	use kernel_FreeBSD && /usr/sbin/kldxref "${EPREFIX}/boot/modules"
+	use linux_kernel && linux-mod_pkg_postrm
 }

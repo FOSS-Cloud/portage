@@ -1,6 +1,34 @@
 # ChangeLog for dev-python/pygments
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pygments/ChangeLog,v 1.87 2012/11/09 12:07:43 idella4 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pygments/ChangeLog,v 1.95 2013/02/04 04:51:05 patrick Exp $
+
+*pygments-1.6 (04 Feb 2013)
+
+  04 Feb 2013; Patrick Lauer <patrick@gentoo.org> +pygments-1.6.ebuild:
+  Bump
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.5-r1.ebuild:
+  Stable for x86, wrt bug #454314
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.5-r1.ebuild:
+  Stable for amd64, wrt bug #454314
+
+  18 Jan 2013; Michał Górny <mgorny@gentoo.org> pygments-1.5-r1.ebuild:
+  Enable python3.3. Remove unnecessary DOCS.
+
+  13 Jan 2013; Michał Górny <mgorny@gentoo.org> pygments-1.5-r1.ebuild:
+  Enable pypy2.0.
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> pygments-1.5-r1.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+  16 Dec 2012; Michał Górny <mgorny@gentoo.org> pygments-1.5-r1.ebuild:
+  Re-enable python2.5, seems that the test failure was my fault somehow.
+
+*pygments-1.5-r1 (13 Dec 2012)
+
+  13 Dec 2012; Michał Górny <mgorny@gentoo.org> +pygments-1.5-r1.ebuild:
+  Migrate to distutils-r1.
 
   10 Nov 2012; Ian Delaney <idella4@gentoo.org> pygments-1.5.ebuild:
   Added missing dep dev-texlive/texlive-latexrecommended under test?, fixes Bug

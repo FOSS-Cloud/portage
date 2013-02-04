@@ -1,6 +1,37 @@
 # ChangeLog for app-crypt/mcrypt
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/mcrypt/ChangeLog,v 1.34 2012/02/18 08:34:38 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/mcrypt/ChangeLog,v 1.42 2012/12/31 23:29:13 ago Exp $
+
+  31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mcrypt-2.6.8-r2.ebuild:
+  Stable for ppc, wrt bug #440778
+
+  28 Dec 2012; Agostino Sarubbo <ago@gentoo.org> mcrypt-2.6.8-r2.ebuild:
+  Stable for sparc, wrt bug #440778
+
+  24 Dec 2012; Sergey Popov <pinkbyte@gentoo.org> mcrypt-2.6.8-r2.ebuild:
+  Stable on amd64, wrt bug #440778
+
+  23 Dec 2012; Jeff Horelick <jdhore@gentoo.org> mcrypt-2.6.8-r2.ebuild:
+  marked x86 per bug 440778
+
+  22 Dec 2012; Alon Bar-Lev <alonbl@gentoo.org>
+  +files/mcrypt-2.6.8-overflow.patch, mcrypt-2.6.8-r2.ebuild:
+  Fix CVE-2012-4409 per bug#434112
+
+  22 Dec 2012; Alon Bar-Lev <alonbl@gentoo.org>
+  files/mcrypt-2.6.8-sprintf.patch, mcrypt-2.6.8-r2.ebuild:
+  Rework sprintf patch to remove RCS substitution in patch, as it invalidate it
+
+  22 Dec 2012; Alon Bar-Lev <alonbl@gentoo.org>
+  +files/mcrypt-2.6.8-format-string.patch, +files/mcrypt-2.6.8-sprintf.patch,
+  mcrypt-2.6.8-r2.ebuild:
+  Fix CVE-2012-4527, CVE-2012-4426 per bug#440778
+
+*mcrypt-2.6.8-r2 (22 Dec 2012)
+
+  22 Dec 2012; Alon Bar-Lev <alonbl@gentoo.org> +files/mcrypt-2.6.8-segv.patch,
+  +mcrypt-2.6.8-r2.ebuild:
+  Fix segv issues with short content, per bug#426914
 
   18 Feb 2012; Tim Harder <radhermit@gentoo.org> mcrypt-2.6.8-r1.ebuild,
   files/mcrypt-2.6.8-stdlib.h.patch:

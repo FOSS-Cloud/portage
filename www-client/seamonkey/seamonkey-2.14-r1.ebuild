@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/seamonkey-2.14-r1.ebuild,v 1.2 2012/11/27 12:27:55 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/seamonkey-2.14-r1.ebuild,v 1.7 2013/01/16 19:02:13 mgorny Exp $
 
 EAPI="3"
 WANT_AUTOCONF="2.1"
@@ -26,7 +26,7 @@ else
 	MOZ_LANGPACK_SUFFIX=".langpack.xpi"
 fi
 
-inherit check-reqs flag-o-matic toolchain-funcs eutils mozconfig-3 multilib pax-utils fdo-mime autotools mozextension python nsplugins mozlinguas
+inherit check-reqs flag-o-matic toolchain-funcs eutils mozconfig-3 multilib pax-utils fdo-mime autotools mozextension nsplugins mozlinguas
 
 PATCHFF="firefox-17.0-patches-0.1"
 PATCH="${PN}-2.14-patches-01"
@@ -42,12 +42,12 @@ if [[ ${PV} == *_pre* ]] ; then
 else
 	# This is where arch teams should change the KEYWORDS.
 
-	KEYWORDS="amd64 ~arm ~ppc ~ppc64 ~x86"
+	KEYWORDS="amd64 ~arm ~ppc ~ppc64 x86"
 fi
 
 SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
-IUSE="+alsa +chatzilla +crypt gstreamer +ipc +jit +roaming system-sqlite +webm"
+IUSE="+chatzilla +crypt gstreamer +ipc +roaming system-sqlite"
 
 SRC_URI+="${SRC_URI}
 	${MOZ_FTP_URI}/source/${MY_MOZ_P}.source.tar.bz2 -> ${P}.source.tar.bz2
@@ -64,6 +64,7 @@ RDEPEND=">=sys-devel/binutils-2.16.1
 	>=dev-libs/glib-2.26:2
 	>=media-libs/mesa-7.10
 	>=media-libs/libpng-1.5.11[apng]
+	>=media-libs/libvpx-1.0.0
 	>=x11-libs/cairo-1.10
 	>=x11-libs/pango-1.14.0
 	>=x11-libs/gtk+-2.14
@@ -74,18 +75,15 @@ RDEPEND=">=sys-devel/binutils-2.16.1
 	)
 	system-sqlite? ( >=dev-db/sqlite-3.7.13[fts3,secure-delete,threadsafe,unlock-notify,debug=] )
 	crypt? ( >=app-crypt/gnupg-1.4 )
-	webm? (
-		>=media-libs/libvpx-1.0.0
-		kernel_linux? ( media-libs/alsa-lib )
-	)
+	kernel_linux? ( media-libs/alsa-lib )
 	selinux? ( sec-policy/selinux-mozilla )"
 
 DEPEND="${RDEPEND}
-	dev-python/pysqlite
 	!elibc_glibc? ( dev-libs/libexecinfo )
 	virtual/pkgconfig
-	webm? ( amd64? ( ${ASM_DEPEND} )
-		x86? ( ${ASM_DEPEND} )
+	amd64? ( ${ASM_DEPEND}
+		virtual/opengl )
+	x86? ( ${ASM_DEPEND}
 		virtual/opengl )"
 
 if [[ ${PV} == *beta* ]] ; then
@@ -223,9 +221,6 @@ src_configure() {
 
 	mozconfig_use_enable gstreamer
 	mozconfig_use_enable system-sqlite
-	# Both methodjit and tracejit conflict with PaX
-	mozconfig_use_enable jit methodjit
-	mozconfig_use_enable jit tracejit
 
 	# Use an objdir to keep things organized.
 	echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/seamonk" \

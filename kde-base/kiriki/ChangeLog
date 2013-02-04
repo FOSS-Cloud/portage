@@ -1,6 +1,38 @@
 # ChangeLog for kde-base/kiriki
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kiriki/ChangeLog,v 1.132 2012/11/23 19:01:24 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kiriki/ChangeLog,v 1.141 2013/01/28 12:13:03 ago Exp $
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org> -kiriki-4.9.3.ebuild,
+  -kiriki-4.9.4.ebuild:
+  Remove old
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> kiriki-4.9.5.ebuild:
+  Stable for ppc, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> kiriki-4.9.5.ebuild:
+  Stable for x86, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> kiriki-4.9.5.ebuild:
+  Stable for amd64, wrt bug #450678
+
+*kiriki-4.9.5 (05 Jan 2013)
+
+  05 Jan 2013; <creffett@gentoo.org> +kiriki-4.9.5.ebuild:
+  Version bump KDE SC 4.9.5
+
+  23 Dec 2012; Markus Meier <maekke@gentoo.org> kiriki-4.9.4.ebuild:
+  add ~arm
+
+  08 Dec 2012; Andreas K. Huettel <dilfridge@gentoo.org> -kiriki-4.8.5.ebuild:
+  Drop KDE 4.8
+
+*kiriki-4.9.4 (05 Dec 2012)
+
+  05 Dec 2012; Alexey Shvetsov <alexxy@gentoo.org> +kiriki-4.9.4.ebuild:
+  Version bump KDE SC 4.9.4
+
+  30 Nov 2012; <ago@gentoo.org> kiriki-4.9.3.ebuild:
+  Stable for ppc, wrt bug #442394
 
   23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> kiriki-4.9.3.ebuild:
   Stable for x86, wrt bug #442394
@@ -515,4 +547,3 @@
 
   17 Jan 2008; Wulf C. Krueger <philantrop@gentoo.org> +kiriki-4.0.0.ebuild:
   Added KDE 4.0.0's kiriki.
-

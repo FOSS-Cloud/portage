@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/mplayer2-9999.ebuild,v 1.49 2012/11/21 13:46:53 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/mplayer2-9999.ebuild,v 1.53 2013/02/02 01:13:18 mr_bones_ Exp $
 
 EAPI=4
 
@@ -193,8 +193,6 @@ src_prepare() {
 	sed -i -e "1c\#!${EPREFIX}/bin/bash" \
 		${bash_scripts} || die
 
-	sed -e 's/rst2man /rst2man.py /g' -i Makefile || die
-
 	if [[ -n ${NAMESUF} ]]; then
 		sed -e "/^EXESUF/s,= \$_exesuf$,= ${NAMESUF}\$_exesuf," \
 			-i configure || die
@@ -270,8 +268,6 @@ src_configure() {
 	# DVB / Video4Linux / Radio support #
 	#####################################
 	myconf+=" --disable-tv-bsdbt848"
-	# v4l1 is gone since linux-headers-2.6.38
-	myconf+=" --disable-tv-v4l1"
 	if { use dvb || use v4l || use pvr || use radio; }; then
 		use dvb || myconf+=" --disable-dvb"
 		use pvr || myconf+=" --disable-pvr"
@@ -411,11 +407,12 @@ src_configure() {
 		--bindir="${EPREFIX}"/usr/bin \
 		--libdir="${EPREFIX}"/usr/$(get_libdir) \
 		--confdir="${EPREFIX}"/etc/${PN} \
-		--datadir="${EPREFIX}"/usr/share/${PN} \
 		--mandir="${EPREFIX}"/usr/share/man \
 		--localedir="${EPREFIX}"/usr/share/locale \
 		--enable-translation \
 		${myconf} || die
+
+	MAKEOPTS+=" V=1"
 }
 
 src_compile() {

@@ -1,6 +1,19 @@
 # ChangeLog for app-accessibility/speech-tools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/speech-tools/ChangeLog,v 1.81 2012/05/31 02:18:35 zmedico Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/speech-tools/ChangeLog,v 1.84 2013/02/02 22:19:51 ago Exp $
+
+  02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> speech-tools-2.1-r2.ebuild:
+  Add ~arm, wrt bug #449220
+
+  28 Dec 2012; Ulrich Müller <ulm@gentoo.org> speech-tools-1.2.96_beta.ebuild,
+  speech-tools-1.2.96_beta-r2.ebuild, speech-tools-2.0.95_beta.ebuild,
+  speech-tools-2.1-r1.ebuild, speech-tools-2.1-r2.ebuild:
+  Fix LICENSE, see README file, bug 447290.
+
+*speech-tools-2.1-r2 (03 Dec 2012)
+
+  03 Dec 2012; Jesus Rivero <neurogeek@gentoo.org> +speech-tools-2.1-r2.ebuild:
+  Revbump. Fixes bugs #421789 and #438628
 
   31 May 2012; Zac Medico <zmedico@gentoo.org>
   speech-tools-1.2.96_beta-r2.ebuild, speech-tools-1.2.96_beta.ebuild,
@@ -374,4 +387,3 @@ Closes #146906.
   Initial revision. More of the bounty from #22053.
   
   Submitted by: Paul Giordano <giordano@covad.net>
-

@@ -1,6 +1,34 @@
 # ChangeLog for sys-apps/lm_sensors
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/lm_sensors/ChangeLog,v 1.129 2012/11/18 11:34:49 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/lm_sensors/ChangeLog,v 1.134 2013/01/31 15:37:50 flameeyes Exp $
+
+*lm_sensors-3.3.3-r2 (31 Jan 2013)
+
+  31 Jan 2013; Diego E. Pettenò <flameeyes@gentoo.org>
+  +lm_sensors-3.3.3-r2.ebuild, -lm_sensors-3.3.3-r1.ebuild,
+  -lm_sensors-3.3.3.ebuild, files/sensord-4-init.d:
+  Fix sensord init script that was typoed (thanks to Gordon Pritchard for the
+  report); make it use /run directly, overriding the default pid file location.
+  Remove unused for the slot.
+
+  28 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  lm_sensors-3.3.3-r1.ebuild:
+  Actually use the init scripts.
+
+*lm_sensors-3.3.3-r1 (28 Dec 2012)
+
+  28 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +files/fancontrol-init.d-2, +files/sensord-4-init.d,
+  +lm_sensors-3.3.3-r1.ebuild:
+  Update init scripts to use the new short form.
+
+*lm_sensors-3.3.3 (29 Nov 2012)
+
+  29 Nov 2012;  <ago@gentoo.org> +lm_sensors-3.3.3.ebuild:
+  bump to 3.3.3
+
+  29 Nov 2012; Jeff Horelick <jdhore@gentoo.org> metadata.xml:
+  Adopt lm_sensors
 
   18 Nov 2012; Pacho Ramos <pacho@gentoo.org>
   -files/lm_sensors-3.1.2-sensors-detect-gentoo.patch, -lm_sensors-3.2.0.ebuild,

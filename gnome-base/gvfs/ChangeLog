@@ -1,6 +1,27 @@
 # ChangeLog for gnome-base/gvfs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/ChangeLog,v 1.193 2012/11/22 23:09:01 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/ChangeLog,v 1.199 2013/01/22 08:06:34 tetromino Exp $
+
+  22 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org> metadata.xml:
+  Switch to global systemd USE flag.
+
+  22 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org> gvfs-1.14.2.ebuild:
+  Current udisks versions no longer have a systemd flag (bug #453482, thanks to
+  Lee Trager).
+
+  16 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> gvfs-1.14.2.ebuild:
+  Fix compability with dev-libs/libcdio-paranoia wrt #452400
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> gvfs-1.14.2.ebuild:
+  Add missing gdbus-codegen dependency (bug #448916, thanks to Mark).
+
+  10 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> -gvfs-1.14.1.ebuild,
+  gvfs-1.14.2.ebuild:
+  Update to EAPI5; drop old.
+
+  03 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> gvfs-1.12.3.ebuild,
+  gvfs-1.12.3-r1.ebuild, gvfs-1.14.1.ebuild, gvfs-1.14.2.ebuild:
+  Use virtual/udev instead of sys-fs/udev wrt #444398
 
 *gvfs-1.14.2 (22 Nov 2012)
 

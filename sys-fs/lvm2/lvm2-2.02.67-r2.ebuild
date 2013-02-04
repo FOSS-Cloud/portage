@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/lvm2/lvm2-2.02.67-r2.ebuild,v 1.8 2012/05/04 19:09:16 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/lvm2/lvm2-2.02.67-r2.ebuild,v 1.12 2012/12/11 21:48:10 ssuominen Exp $
 
 EAPI=2
 inherit eutils multilib toolchain-funcs autotools linux-info
@@ -19,7 +19,7 @@ IUSE="readline +static clvm cman +lvm1 selinux"
 DEPEND_COMMON="!!sys-fs/device-mapper
 	clvm? ( =sys-cluster/dlm-2*
 			cman? ( =sys-cluster/cman-2* ) )
-	|| ( >=sys-fs/udev-151-r2 =sys-fs/udev-146-r3 )"
+	<virtual/udev-196"
 
 RDEPEND="${DEPEND_COMMON}
 	!<sys-apps/openrc-0.4
@@ -148,7 +148,7 @@ src_configure() {
 		--with-usrlibdir=/usr/$(get_libdir) \
 		--enable-udev_rules \
 		--enable-udev_sync \
-		--with-udevdir=/$(get_libdir)/udev/rules.d/ \
+		--with-udevdir=/lib/udev/rules.d/ \
 		${myconf} \
 		CLDFLAGS="${LDFLAGS}" || die
 }

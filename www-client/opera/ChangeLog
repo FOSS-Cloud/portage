@@ -1,6 +1,96 @@
 # ChangeLog for www-client/opera
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/opera/ChangeLog,v 1.775 2012/11/26 18:06:51 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/opera/ChangeLog,v 1.797 2013/01/31 01:54:17 jer Exp $
+
+  31 Jan 2013; Jeroen Roovers <jer@gentoo.org> -opera-12.12_p1707.ebuild:
+  Old.
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> opera-12.13_p1734.ebuild:
+  Stable for x86, wrt bug #454654
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> opera-12.13_p1734.ebuild:
+  Stable for amd64, wrt bug #454654
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> opera-12.13_p1734.ebuild:
+  Do not install the update checker.
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> -opera-12.13_pre1721.ebuild,
+  -opera-12.13_pre1725.ebuild, -opera-12.13_pre1733.ebuild:
+  Old.
+
+*opera-12.13_p1734 (30 Jan 2013)
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> +opera-12.13_p1734.ebuild:
+  http://my.opera.com/desktopteam/blog/2013/01/30/12-13-final-released
+
+*opera-12.13_pre1733 (28 Jan 2013)
+
+  28 Jan 2013; Jeroen Roovers <jer@gentoo.org> +opera-12.13_pre1733.ebuild:
+  http://my.opera.com/desktopteam/blog/2013/01/28/opera-12-13-rc2
+
+*opera-12.13_pre1725 (25 Jan 2013)
+
+  25 Jan 2013; Jeroen Roovers <jer@gentoo.org> +opera-12.13_pre1725.ebuild:
+  http://my.opera.com/desktopteam/blog/2013/01/25/opera-12-13-rc1
+
+*opera-12.13_pre1721 (17 Jan 2013)
+
+  17 Jan 2013; Jeroen Roovers <jer@gentoo.org> +opera-12.13_pre1721.ebuild:
+  http://my.opera.com/desktopteam/blog/2013/01/17/twelvethirteen
+
+  28 Dec 2012; Jeroen Roovers <jer@gentoo.org> opera-12.12_p1707.ebuild:
+  Set QA_PREBUILT in global scope (bug #442090).
+
+  19 Dec 2012; Jeroen Roovers <jer@gentoo.org> -opera-12.11.1661.ebuild:
+  Old.
+
+  19 Dec 2012; Agostino Sarubbo <ago@gentoo.org> opera-12.12_p1707.ebuild:
+  Stable for amd64, wrt bug #446096
+
+  19 Dec 2012; Andreas Schuerch <nativemad@gentoo.org>
+  opera-12.12_p1707.ebuild:
+  x86 stable, see bug 446096
+
+  18 Dec 2012; Jeroen Roovers <jer@gentoo.org> -opera-12.12_pre1704.ebuild:
+  Old.
+
+*opera-12.12_p1707 (18 Dec 2012)
+
+  18 Dec 2012; Jeroen Roovers <jer@gentoo.org> -opera-12.12_pre1680.ebuild,
+  -opera-12.12_pre1693.ebuild, +opera-12.12_p1707.ebuild:
+  Version bump (bug #446096).
+
+*opera-12.12_pre1704 (13 Dec 2012)
+
+  13 Dec 2012; Jeroen Roovers <jer@gentoo.org> +opera-12.12_pre1704.ebuild:
+  http://my.opera.com/desktopteam/blog/2012/12/12/12-12-rc-2
+
+*opera-12.12_pre1693 (11 Dec 2012)
+
+  11 Dec 2012; Jeroen Roovers <jer@gentoo.org> -opera-12.12_pre1662.ebuild,
+  +opera-12.12_pre1693.ebuild:
+  http://my.opera.com/desktopteam/blog/2012/12/11/endofyear-release
+
+*opera-12.12_pre1680 (06 Dec 2012)
+
+  06 Dec 2012; Jeroen Roovers <jer@gentoo.org> +opera-12.12_pre1680.ebuild:
+  http://my.opera.com/desktopteam/blog/2012/12/06/the-wait-is-over
+
+  02 Dec 2012; Gilles Dartiguelongue <eva@gentoo.org> opera-12.11.1661.ebuild,
+  opera-12.12_pre1662.ebuild:
+  Pin gstreamer dependencies.
+
+  28 Nov 2012; Jeroen Roovers <jer@gentoo.org> opera-12.12_pre1662.ebuild:
+  Apply O_B mangling more.
+
+  28 Nov 2012; Jeroen Roovers <jer@gentoo.org> opera-12.12_pre1662.ebuild:
+  Merge O_B mangling into O_P concatenation.
+
+*opera-12.12_pre1662 (28 Nov 2012)
+
+  28 Nov 2012; Jeroen Roovers <jer@gentoo.org> +opera-12.12_pre1662.ebuild,
+  -opera-12.12.1662.ebuild:
+  Fix the difference between snapshot and release builds in the version string.
 
 *opera-12.12.1662 (26 Nov 2012)
 

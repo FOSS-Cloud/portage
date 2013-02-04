@@ -1,6 +1,46 @@
 # ChangeLog for sys-fs/dosfstools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/dosfstools/ChangeLog,v 1.96 2012/10/05 17:57:47 ranger Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/dosfstools/ChangeLog,v 1.107 2013/01/30 18:22:01 ago Exp $
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.13.ebuild:
+  Stable for x86, wrt bug #453716
+
+  30 Jan 2013; Jeroen Roovers <jer@gentoo.org> dosfstools-3.0.13.ebuild:
+  Stable for HPPA (bug #453716).
+
+  29 Jan 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.13.ebuild:
+  Stable for ia64, wrt bug #453716
+
+  26 Jan 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.13.ebuild:
+  Stable for arm, wrt bug #453716
+
+  26 Jan 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.13.ebuild:
+  Stable for ppc64, wrt bug #453716
+
+  26 Jan 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.13.ebuild:
+  Stable for ppc, wrt bug #453716
+
+  24 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> dosfstools-3.0.14.ebuild:
+  Remove forced -g (by removing entire DEBUGFLAGS) and leave setting debug
+  level to user wrt #453764 by Sergey Popov
+
+  24 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> dosfstools-3.0.13.ebuild:
+  Stable on amd64, wrt bug #453716
+
+*dosfstools-3.0.14 (23 Jan 2013)
+
+  23 Jan 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +dosfstools-3.0.14.ebuild:
+  Version bump.
+
+  23 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> dosfstools-3.0.12.ebuild,
+  dosfstools-3.0.13.ebuild:
+  Fix SRC_URI wrt #453712 by Csaba Péter
+
+  23 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> -dosfstools-3.0.9.ebuild,
+  -dosfstools-3.0.10.ebuild, -dosfstools-3.0.11.ebuild,
+  -files/dosfstools-3.0.11-name-ext.patch:
+  old
 
   05 Oct 2012; Brent Baude <ranger@gentoo.org> dosfstools-3.0.12.ebuild:
   Marking dosfstools-3.0.12 ppc64 for bug 432330

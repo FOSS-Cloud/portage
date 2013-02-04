@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/leechcraft-full/leechcraft-full-9999.ebuild,v 1.18 2012/11/10 18:35:13 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/leechcraft-full/leechcraft-full-9999.ebuild,v 1.21 2012/12/28 17:22:58 maksbotan Exp $
 
 EAPI="4"
 
@@ -18,6 +18,8 @@ RDEPEND="
 		~media-sound/leechcraft-hotstreams-${PV}
 		~media-sound/leechcraft-lmp-${PV}
 		~media-sound/leechcraft-lastfmscrobble-${PV}
+		~media-sound/leechcraft-musiczombie-${PV}
+		~media-sound/leechcraft-touchstreams-${PV}
 		~net-analyzer/leechcraft-networkmonitor-${PV}
 		~net-im/leechcraft-azoth-${PV}
 		~net-misc/leechcraft-advancednotifications-${PV}
@@ -33,6 +35,7 @@ RDEPEND="
 		~net-misc/leechcraft-knowhow-${PV}
 		~net-misc/leechcraft-lackman-${PV}
 		~net-misc/leechcraft-launchy-${PV}
+		~net-misc/leechcraft-lemon-${PV}
 		~net-misc/leechcraft-liznoo-${PV}
 		~net-misc/leechcraft-newlife-${PV}
 		~net-misc/leechcraft-netstoremanager-${PV}
@@ -41,7 +44,6 @@ RDEPEND="
 		~net-misc/leechcraft-pintab-${PV}
 		~net-misc/leechcraft-secman-${PV}
 		~net-misc/leechcraft-summary-${PV}
-		~net-misc/leechcraft-tabpp-${PV}
 		~net-misc/leechcraft-tabslist-${PV}
 		~net-misc/leechcraft-tabsessmanager-${PV}
 		~net-news/leechcraft-aggregator-${PV}

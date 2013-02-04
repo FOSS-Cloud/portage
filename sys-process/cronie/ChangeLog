@@ -1,6 +1,51 @@
 # ChangeLog for sys-process/cronie
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/cronie/ChangeLog,v 1.24 2012/04/06 18:26:25 swift Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-process/cronie/ChangeLog,v 1.32 2013/01/30 18:22:32 ago Exp $
+
+  30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> cronie-1.4.9-r4.ebuild:
+  Stable for x86, wrt bug #453364
+
+*cronie-1.4.9-r5 (23 Jan 2013)
+*cronie-1.4.9-r4 (23 Jan 2013)
+
+  23 Jan 2013; Lars Wendler <polynomial-c@gentoo.org> files/anacron-1.0-initd,
+  -cronie-1.4.9-r2.ebuild, -cronie-1.4.9-r3.ebuild, +cronie-1.4.9-r4.ebuild,
+  +cronie-1.4.9-r5.ebuild:
+  Fixed location of pidfile in anacron init script. Thanks to Marcin Mirosław
+  for reporting this in bug #453708. cronie-1.4.9-r4 committed straight to
+  stable.
+
+*cronie-1.4.9-r3 (23 Jan 2013)
+
+  23 Jan 2013; Mike Gilbert <floppym@gentoo.org> +cronie-1.4.9-r3.ebuild:
+  Install systemd service unit and hourly anacron file (disabled by default).
+  Bug 450728 by Enrico Tagliavini.
+
+*cronie-1.4.9-r2 (22 Jan 2013)
+
+  22 Jan 2013; Lars Wendler <polynomial-c@gentoo.org> -cronie-1.4.9-r1.ebuild,
+  +cronie-1.4.9-r2.ebuild:
+  Fixed location of anacron spool directory. Thanks to Marcin Mirosław for
+  reporting this in bug #453548. Comitted straight to stable.
+
+  21 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> cronie-1.4.9-r1.ebuild:
+  Stable on amd64, wrt bug #453364
+
+  21 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> cronie-1.4.9-r1.ebuild:
+  Stable on arm, wrt bug #453364
+
+*cronie-1.4.9-r1 (19 Jan 2013)
+
+  19 Jan 2013; Lars Wendler <polynomial-c@gentoo.org> -cronie-1.4.8-r1.ebuild,
+  -cronie-1.4.9.ebuild, +cronie-1.4.9-r1.ebuild:
+  Make cronie use /etc/crontab again. Thanks to Dave Armstrong who reported
+  this in bug #452970.
+
+*cronie-1.4.9 (18 Dec 2012)
+
+  18 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> cronie-1.4.8.ebuild,
+  cronie-1.4.8-r1.ebuild, +cronie-1.4.9.ebuild:
+  Version bump (bug #447772). Fixed QA warning about missing user.eclass.
 
   06 Apr 2012; <swift@gentoo.org> cronie-1.4.8-r1.ebuild:
   Toggling SELinux support through USE=selinux (bug #403293)
@@ -111,4 +156,3 @@
   +files/cronie-1.2-pathnames.h-fix-SPOOL_DIR.patch, +metadata.xml,
   +cronie-1.2.ebuild:
   cronie - a vixie-cron fork by the fedora people
-

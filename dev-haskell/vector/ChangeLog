@@ -1,6 +1,15 @@
 # ChangeLog for dev-haskell/vector
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/vector/ChangeLog,v 1.7 2012/11/18 06:31:00 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/vector/ChangeLog,v 1.10 2012/12/10 21:53:14 slyfox Exp $
+
+  10 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> vector-0.9.1.ebuild:
+  stable on alpha/ia64/sparc (bug #421351)
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> vector-0.9.1.ebuild:
+  Stable for ppc64, wrt bug #421351
+
+  07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> vector-0.9.1.ebuild:
+  Stable for ppc, wrt bug #421351
 
 *vector-0.10.0.1 (18 Nov 2012)
 

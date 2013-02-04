@@ -1,6 +1,53 @@
 # ChangeLog for Gentoo/x86 profile directory
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/ChangeLog,v 1.117 2012/11/26 23:31:21 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/ChangeLog,v 1.132 2013/02/01 21:28:57 mgorny Exp $
+
+  01 Feb 2013; Michał Górny <mgorny@gentoo.org> use.force, use.mask:
+  Set ABI_X86 flags for amd64 & x86 up.
+
+  25 Jan 2013; Christoph Junghans <ottxor@gentoo.org> use.mask:
+  unmask missing amd64/x86 instruction sets
+
+  20 Jan 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Remove the pypy unmask for old profiles. It is unmasked in the new EAPI=5
+  profiles now.
+
+  18 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> use.mask:
+  Don't unmask USE="clvm" here because it's not masked in base profile thus
+  making this entry pointless.
+
+  02 Jan 2013; Mike Gilbert <floppym@gentoo.org> use.mask:
+  Mask pypy-1.8 for removal.
+
+  02 Jan 2013; Mike Gilbert <floppym@gentoo.org> use.mask:
+  Unmask pypy targets.
+
+  30 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Unmask sys-kernel/dracut[dracut_modules_systemd] (masked in base).
+
+  30 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Unmask sys-kernel/dracut[dracut_modules_biosdevname] (masked in base).
+
+  30 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Unmask zeitgeist-datasources[chromium,tomboy] (masked in base).
+
+  27 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Add epiphany[jit] to webkit-gtk[jit] unmask.
+
+  26 Dec 2012; Christoph Junghans <ottxor@gentoo.org> package.use.mask:
+  unmasked openmm/mkl for sci-chemistry/gromacs
+
+  19 Dec 2012; Sergey Popov <pinkbyte@gentoo.org> package.mask,
+  package.use.mask, xbox/package.mask:
+  Clean up some deprecated atoms, wrt bug #444181
+
+  09 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask,
+  use.mask:
+  dev-lang/orc is used in many packages, so move orc from package.use.mask to
+  use.mask
+
+  30 Nov 2012; Christoph Junghans <ottxor@gentoo.org> package.use.mask:
+  unmasked cuda for sci-chemistry/gromacs
 
   26 Nov 2012; Anthony G. Basile <blueness@gentoo.org> package.use.mask:
   No need to unmask net-misc/tor[nat-pmp,upnp] on x86

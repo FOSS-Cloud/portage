@@ -1,6 +1,20 @@
 # ChangeLog for app-misc/getopt
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/getopt/ChangeLog,v 1.7 2012/04/26 17:13:54 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/getopt/ChangeLog,v 1.10 2013/01/01 16:34:49 grobian Exp $
+
+  01 Jan 2013; Fabian Groffen <grobian@gentoo.org> getopt-1.1.5.ebuild:
+  Marked ~x64-freebsd
+
+  28 Dec 2012; Fabian Groffen <grobian@gentoo.org>
+  +files/getopt-1.1.5-libintl.patch, getopt-1.1.5.ebuild:
+  Add back libintl bits for e.g. Solaris 10
+
+*getopt-1.1.5 (28 Dec 2012)
+
+  28 Dec 2012; Fabian Groffen <grobian@gentoo.org>
+  +files/getopt-1.1.5-longrename.patch, +files/getopt-1.1.5-setlocale.patch,
+  +getopt-1.1.5.ebuild:
+  Version bump, fix for build problem on OpenIndiana
 
   26 Apr 2012; Alexis Ballier <aballier@gentoo.org> getopt-1.1.4.ebuild:
   keyword ~amd64-fbsd
@@ -29,4 +43,3 @@
   +metadata.xml, +getopt-1.1.4.ebuild:
   Add getopt package providing getopt-long for platforms where getopt(1) does
   not support GNU style long options.
-

@@ -1,6 +1,22 @@
 # ChangeLog for dev-python/pytest
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pytest/ChangeLog,v 1.41 2012/11/23 01:19:57 floppym Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pytest/ChangeLog,v 1.45 2013/01/02 04:32:07 floppym Exp $
+
+  02 Jan 2013; Mike Gilbert <floppym@gentoo.org> pytest-2.3.4.ebuild:
+  Add pypy2_0.
+
+*pytest-2.3.4 (23 Dec 2012)
+
+  23 Dec 2012; Tim Harder <radhermit@gentoo.org> +pytest-2.3.4.ebuild:
+  Version bump.
+
+  17 Dec 2012; Michał Górny <mgorny@gentoo.org> pytest-2.3.3-r1.ebuild:
+  Bump to EAPI=5 to make Paludis happy, bug #447524.
+
+*pytest-2.3.3-r1 (07 Dec 2012)
+
+  07 Dec 2012; Michał Górny <mgorny@gentoo.org> +pytest-2.3.3-r1.ebuild:
+  Migrate to distutils-r1.
 
   23 Nov 2012; Mike Gilbert <floppym@gentoo.org> -pytest-2.3.2.ebuild,
   pytest-2.3.2-r1.ebuild, pytest-2.3.3.ebuild:

@@ -1,6 +1,46 @@
 # ChangeLog for kde-base/pykde4
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/pykde4/ChangeLog,v 1.185 2012/11/23 19:33:35 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/pykde4/ChangeLog,v 1.196 2013/01/28 12:13:39 ago Exp $
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org> -pykde4-4.9.3.ebuild,
+  -pykde4-4.9.4.ebuild:
+  Remove old
+
+  28 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pykde4-4.9.5.ebuild:
+  Stable for ppc, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pykde4-4.9.5.ebuild:
+  Stable for x86, wrt bug #450678
+
+  27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pykde4-4.9.5.ebuild:
+  Stable for amd64, wrt bug #450678
+
+  08 Jan 2013; Michael Palimaka <kensington@gentoo.org>
+  -files/pykde4-4.9.2-pyqt45.patch:
+  Remove unused patches.
+
+*pykde4-4.9.5 (05 Jan 2013)
+
+  05 Jan 2013; <creffett@gentoo.org> +pykde4-4.9.5.ebuild:
+  Version bump KDE SC 4.9.5
+
+  26 Dec 2012; Davide Pesavento <pesa@gentoo.org> pykde4-4.9.3.ebuild,
+  pykde4-4.9.4.ebuild:
+  Update PyQt4 deps, acked by creffett.
+
+  08 Dec 2012; Andreas K. Huettel <dilfridge@gentoo.org> -pykde4-4.8.5.ebuild:
+  Drop KDE 4.8
+
+*pykde4-4.9.4 (05 Dec 2012)
+
+  05 Dec 2012; Alexey Shvetsov <alexxy@gentoo.org> +pykde4-4.9.4.ebuild:
+  Version bump KDE SC 4.9.4
+
+  03 Dec 2012; Zac Medico <zmedico@gentoo.org> pykde4-4.9.3.ebuild:
+  Apply fix for bug #445668 by Niko Böckerman <niko.bockerman@gmail.com>.
+
+  30 Nov 2012; <ago@gentoo.org> pykde4-4.9.3.ebuild:
+  Stable for ppc, wrt bug #442394
 
   23 Nov 2012; Agostino Sarubbo <ago@gentoo.org> pykde4-4.9.3.ebuild:
   Stable for x86, wrt bug #442394

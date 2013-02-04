@@ -1,6 +1,14 @@
 # ChangeLog for dev-python/ldaptor
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ldaptor/ChangeLog,v 1.36 2011/11/11 20:36:37 hwoarang Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ldaptor/ChangeLog,v 1.38 2013/01/27 07:30:22 idella4 Exp $
+
+  27 Jan 2013; Ian Delaney <idella4@gentoo.org> +files/ldaptor-prem_test.patch,
+  ldaptor-0.0.43.ebuild:
+  bump to EAPI=4, patch ldaptor-prem_test.patch to disable 1 test premature to
+  package's devel level, fixes Bug 452998 thx to flameeyes
+
+  31 Dec 2012; Michał Górny <mgorny@gentoo.org> ldaptor-0.0.43.ebuild:
+  Use virtual/pyparsing.
 
   11 Nov 2011; Markos Chandras <hwoarang@gentoo.org> ldaptor-0.0.43.ebuild:
   Restrict Jython ABIs. Sort dependencies. Fix disabling of test_webui with

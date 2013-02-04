@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/memphis/memphis-0.2.3.ebuild,v 1.11 2012/07/09 14:06:28 ranger Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/memphis/memphis-0.2.3.ebuild,v 1.16 2013/02/02 22:52:06 ago Exp $
 
 EAPI=4
 
@@ -16,7 +16,7 @@ SRC_URI="http://wenner.ch/files/public/mirror/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0.2"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86"
 IUSE="debug doc +introspection vala static-libs"
 
 RDEPEND="

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.0.0.ebuild,v 1.3 2012/11/14 08:34:33 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.0.0.ebuild,v 1.6 2013/01/27 00:31:57 cardoe Exp $
 
 EAPI=4
 
@@ -34,7 +34,7 @@ DESCRIPTION="C toolkit to manipulate virtual machines"
 HOMEPAGE="http://www.libvirt.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="audit avahi +caps debug firewalld iscsi +libvirtd lvm +lxc +macvtap nfs \
+IUSE="audit avahi +caps firewalld iscsi +libvirtd lvm +lxc +macvtap nfs \
 	nls numa openvz parted pcap phyp policykit python qemu rbd sasl \
 	selinux +udev uml +vepa virtualbox virt-network xen elibc_glibc"
 REQUIRED_USE="libvirtd? ( || ( lxc openvz qemu uml virtualbox xen ) )
@@ -94,7 +94,7 @@ RDEPEND="sys-libs/readline
 	selinux? ( >=sys-libs/libselinux-2.0.85 )
 	virtualbox? ( || ( app-emulation/virtualbox >=app-emulation/virtualbox-bin-2.2.0 ) )
 	xen? ( app-emulation/xen-tools app-emulation/xen )
-	udev? ( >=sys-fs/udev-145 >=x11-libs/libpciaccess-0.10.9 )
+	udev? ( virtual/udev >=x11-libs/libpciaccess-0.10.9 )
 	virt-network? ( net-dns/dnsmasq
 		>=net-firewall/iptables-1.4.10
 		net-misc/radvd
@@ -214,8 +214,6 @@ src_prepare() {
 src_configure() {
 	local myconf=""
 
-	myconf="${myconf} $(use_enable debug)"
-
 	## enable/disable daemon, otherwise client only utils
 	myconf="${myconf} $(use_with libvirtd)"
 
@@ -224,9 +222,8 @@ src_configure() {
 
 	## hypervisors on the local host
 	myconf="${myconf} $(use_with xen) $(use_with xen xen-inotify)"
-	 # leave it automagic as it depends on the version of xen used.
-	use xen || myconf+=" --without-libxl"
-	use xen || myconf+=" --without-xenapi"
+	myconf="${myconf} $(use_with xen xenapi)"
+	myconf+=" --without-libxl"
 	myconf="${myconf} $(use_with openvz)"
 	myconf="${myconf} $(use_with lxc)"
 	if use virtualbox && has_version app-emulation/virtualbox-ose; then

@@ -1,6 +1,21 @@
 # ChangeLog for dev-libs/uthash
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/uthash/ChangeLog,v 1.4 2012/10/16 20:58:55 hwoarang Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/uthash/ChangeLog,v 1.9 2013/01/15 21:19:00 hwoarang Exp $
+
+  15 Jan 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Remove myself from metadata
+
+  29 Dec 2012; Agostino Sarubbo <ago@gentoo.org> uthash-1.9.7.ebuild:
+  Stable for sparc, wrt bug #445588
+
+  23 Dec 2012; Jeff Horelick <jdhore@gentoo.org> uthash-1.9.7.ebuild:
+  marked x86 per bug 445588
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> uthash-1.9.7.ebuild:
+  Stable for ppc, wrt bug #445588
+
+  22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> uthash-1.9.7.ebuild:
+  Stable for amd64, wrt bug #445588
 
 *uthash-1.9.7 (16 Oct 2012)
 

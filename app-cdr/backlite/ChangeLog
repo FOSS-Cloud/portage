@@ -1,6 +1,22 @@
 # ChangeLog for app-cdr/backlite
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/backlite/ChangeLog,v 1.32 2012/11/18 13:15:17 billie Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/backlite/ChangeLog,v 1.36 2013/01/24 19:43:11 billie Exp $
+
+  24 Jan 2013; Daniel Pielmeier <billie@gentoo.org> -backlite-1.0.3.ebuild:
+  Remove old.
+
+  22 Jan 2013; Agostino Sarubbo <ago@gentoo.org> backlite-1.0.3-r1.ebuild:
+  Stable for x86, wrt bug #451276
+
+  17 Jan 2013; Alexis Ballier <aballier@gentoo.org> backlite-1.0.3-r1.ebuild,
+  +files/backlite-1.0.3-ffmpeg-0.11.patch,
+  +files/backlite-1.0.3-includepaths.patch:
+  Fix build with recent ffmpeg versions: Import patch from slackware and
+  sanitize the include paths so that libavutil headers do not pollute it. Part
+  of bug #443192
+
+  13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> backlite-1.0.3-r1.ebuild:
+  Stable for amd64, wrt bug #451276
 
 *backlite-1.0.3-r1 (18 Nov 2012)
 
@@ -119,4 +135,3 @@
   +metadata.xml:
   Initial commit. Many thanks go to Jean-Michel Petit the upstream author
   for providing backlite, a pure Qt version of k9copy.
-

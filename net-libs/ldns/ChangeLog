@@ -1,6 +1,38 @@
 # ChangeLog for net-libs/ldns
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/ldns/ChangeLog,v 1.36 2012/11/13 20:24:40 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/ldns/ChangeLog,v 1.45 2013/02/03 21:37:09 radhermit Exp $
+
+  03 Feb 2013; Tim Harder <radhermit@gentoo.org> ldns-1.6.16.ebuild:
+  Drop unused autotools eclass.
+
+  03 Feb 2013; Tim Harder <radhermit@gentoo.org> metadata.xml:
+  Add myself as a maintainer and indent metadata.
+
+  03 Feb 2013; Pacho Ramos <pacho@gentoo.org> -ldns-1.6.11.ebuild,
+  -ldns-1.6.12-r1.ebuild, -ldns-1.6.12-r2.ebuild, -ldns-1.6.13-r1.ebuild,
+  metadata.xml:
+  Cleanup due #22900
+
+*ldns-1.6.16 (22 Jan 2013)
+
+  22 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> +ldns-1.6.16.ebuild,
+  ldns-1.6.12-r2.ebuild, ldns-1.6.13-r1.ebuild:
+  Bump per bug #447208. Also fix bug #452770.
+
+  18 Jan 2013; Richard Yao <ryao@gentoo.org> ldns-1.6.13-r1.ebuild:
+  Drop ~x64-freebsd keyword because USE=vim-syntax is not prefix-safe.
+
+  18 Jan 2013; Richard Yao <ryao@gentoo.org> ldns-1.6.13-r1.ebuild:
+  Keyword ~amd64-fbsd and ~x64-freebsd
+
+  18 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> ldns-1.6.13-r1.ebuild:
+  Works on sparc, tested on bender.sparc.dev.gentoo.org.
+
+  18 Jan 2013; Robin H. Johnson <robbat2@gentoo.org> ldns-1.6.13-r1.ebuild:
+  Works on alpha, tested on monolith.alpha.dev.gentoo.org.
+
+  19 Dec 2012; Agostino Sarubbo <ago@gentoo.org> ldns-1.6.13-r1.ebuild:
+  Add ~ia64, wrt bug #441688
 
   13 Nov 2012; Anthony G. Basile <blueness@gentoo.org> ldns-1.6.13-r1.ebuild:
   keyword ~mips, bug #441688
