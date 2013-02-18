@@ -1,6 +1,24 @@
 # ChangeLog for media-libs/freetype
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/freetype/ChangeLog,v 1.355 2013/02/01 12:58:08 yngwin Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/freetype/ChangeLog,v 1.361 2013/02/18 01:04:52 zmedico Exp $
+
+  18 Feb 2013; Zac Medico <zmedico@gentoo.org> freetype-2.4.11.ebuild:
+  Add ~arm-linux keyword.
+
+  09 Feb 2013; Agostino Sarubbo <ago@gentoo.org> freetype-2.4.11.ebuild:
+  Stable for ia64, wrt bug #448550
+
+  08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> freetype-2.4.11.ebuild:
+  Stable for alpha, wrt bug #448550
+
+  08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> freetype-2.4.11.ebuild:
+  Stable for s390, wrt bug #448550
+
+  08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> freetype-2.4.11.ebuild:
+  Stable for sh, wrt bug #448550
+
+  06 Feb 2013; Agostino Sarubbo <ago@gentoo.org> freetype-2.4.11.ebuild:
+  Stable for sparc, wrt bug #448550
 
   01 Feb 2013; Ben de Groot <yngwin@gentoo.org> -freetype-2.4.10-r1.ebuild,
   -freetype-2.4.10.ebuild:

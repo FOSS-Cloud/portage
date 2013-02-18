@@ -1,6 +1,39 @@
 # ChangeLog for www-client/chromium
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/ChangeLog,v 1.801 2013/01/31 01:22:30 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/ChangeLog,v 1.807 2013/02/17 20:19:02 floppym Exp $
+
+  17 Feb 2013; Mike Gilbert <floppym@gentoo.org> chromium-26.0.1403.0.ebuild,
+  chromium-9999-r1.ebuild:
+  Use python-any-r1 eclass.
+
+  17 Feb 2013; Mike Gilbert <floppym@gentoo.org> chromium-26.0.1403.0.ebuild,
+  chromium-9999-r1.ebuild:
+  Use the correct values for *.host as suggested by vapier in bug 410883. Move
+  tc-export from pkg_setup to src_configure.
+
+*chromium-25.0.1364.84 (15 Feb 2013)
+
+  15 Feb 2013; Mike Gilbert <floppym@gentoo.org> +chromium-25.0.1364.84.ebuild,
+  -chromium-25.0.1364.58.ebuild:
+  Beta channel bump.
+
+  06 Feb 2013; Mike Gilbert <floppym@gentoo.org> -chromium-24.0.1312.52.ebuild,
+  chromium-24.0.1312.56.ebuild:
+  Add an upper bound on v8 due to API change. Reported by Mr_Bones_.
+
+*chromium-25.0.1364.68 (06 Feb 2013)
+
+  06 Feb 2013; Mike Gilbert <floppym@gentoo.org> +chromium-25.0.1364.68.ebuild,
+  -chromium-25.0.1364.45.ebuild:
+  Beta channel bump.
+
+*chromium-26.0.1403.0 (05 Feb 2013)
+
+  05 Feb 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-gpsd-r0.patch, +files/chromium-system-v8-r0.patch,
+  +chromium-26.0.1403.0.ebuild, chromium-9999-r1.ebuild:
+  Dev channel bump. Back to bundled libvpx and bigger tarball. Use system mesa
+  and re2. Add optional support for libgps. Remove old.
 
 *chromium-25.0.1364.58 (31 Jan 2013)
 

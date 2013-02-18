@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xfe/xfe-1.33-r1.ebuild,v 1.1 2012/12/25 22:28:55 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xfe/xfe-1.33-r1.ebuild,v 1.6 2013/02/14 12:22:39 ago Exp $
 
 EAPI=5
 
@@ -16,7 +16,7 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 ppc ppc64 ~sparc x86"
 IUSE="debug nls startup-notification"
 
 RDEPEND="
@@ -35,7 +35,7 @@ DEPEND="
 	)
 "
 
-DOCS=( AUTHORS BUGS ChangeLog NEWS README TODO )
+DOCS=( AUTHORS BUGS ChangeLog README TODO )
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.32.2-missing_Xlib_h.patch
 	"${FILESDIR}"/${P}-flags.patch

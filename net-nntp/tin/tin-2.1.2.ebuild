@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nntp/tin/tin-2.1.2.ebuild,v 1.3 2013/01/11 15:35:00 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-nntp/tin/tin-2.1.2.ebuild,v 1.4 2013/02/07 12:12:14 kensington Exp $
 
-EAPI=4
+EAPI=5
 inherit eutils toolchain-funcs versionator
 
 TIN_PV=$(get_version_component_range 1-2)
@@ -26,7 +26,7 @@ RDEPEND="
 	sasl? ( virtual/gsasl )
 	socks5? ( net-proxy/dante )
 	sys-libs/ncurses[unicode?]
-	unicode? ( dev-libs/icu )
+	unicode? ( dev-libs/icu:= )
 "
 
 DEPEND="

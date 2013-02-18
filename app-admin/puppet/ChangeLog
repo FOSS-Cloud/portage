@@ -1,6 +1,26 @@
 # ChangeLog for app-admin/puppet
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/puppet/ChangeLog,v 1.137 2013/02/03 13:01:38 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/puppet/ChangeLog,v 1.140 2013/02/11 16:43:38 prometheanfire Exp $
+
+*puppet-3.1.0 (11 Feb 2013)
+
+  11 Feb 2013; Matthew Thode <prometheanfire@gentoo.org> +puppet-3.1.0.ebuild:
+  upating puppet to 3.1 for bug 456274
+
+  09 Feb 2013; Matthew Thode <prometheanfire@gentoo.org>
+  puppet-2.7.18-r1.ebuild, puppet-2.7.19-r1.ebuild, puppet-3.0.1-r1.ebuild:
+  init scripts were not renamed, but were in the ebuild (file the ebuild wanted
+  didn't exist)
+
+*puppet-3.0.1-r1 (08 Feb 2013)
+*puppet-2.7.19-r1 (08 Feb 2013)
+
+  08 Feb 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +files/puppetmaster-2.7.6.init-CVE-2012-6120, +puppet-2.7.18-r1.ebuild,
+  -puppet-2.7.19.ebuild, +puppet-2.7.19-r1.ebuild, -puppet-3.0.1.ebuild,
+  +puppet-3.0.1-r1.ebuild, +files/puppet.init-CVE-2012-6120,
+  files/puppet.init-r1, files/puppetmaster.init:
+  updating initscripts with checkpath for bug 456002 CVE-2012-6120
 
   03 Feb 2013; Matthew Thode <prometheanfire@gentoo.org> metadata.xml,
   puppet-3.0.1.ebuild:

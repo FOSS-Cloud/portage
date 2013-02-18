@@ -1,6 +1,24 @@
 # ChangeLog for sys-apps/kmod
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/ChangeLog,v 1.69 2013/01/27 13:53:03 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/ChangeLog,v 1.74 2013/02/15 18:33:52 ssuominen Exp $
+
+  15 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-12-r1.ebuild,
+  kmod-9999.ebuild:
+  Warn users also about missing CONFIG_MODULE_UNLOAD (otherwise modprobe -r and
+  lsmod won't behave as they should)
+
+  09 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-12-r1.ebuild:
+  arm/ppc64 stable wrt #452556
+
+  09 Feb 2013; Agostino Sarubbo <ago@gentoo.org> kmod-12-r1.ebuild:
+  Stable for ia64, wrt bug #452556
+
+  08 Feb 2013; Jeroen Roovers <jer@gentoo.org> kmod-12-r1.ebuild:
+  Stable for HPPA (bug #452556).
+
+  05 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-12-r1.ebuild,
+  kmod-9999.ebuild:
+  Ensure CONFIG_MODULES is set using linux-info.eclass by Agostino Sarubbo
 
   27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> kmod-12-r1.ebuild:
   Stable for ppc, wrt bug #452556

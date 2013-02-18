@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/star/star-1.5.1-r1.ebuild,v 1.7 2012/02/02 15:20:43 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/star/star-1.5.1-r1.ebuild,v 1.8 2013/02/04 11:45:39 jlec Exp $
 
 EAPI="3"
 
@@ -15,7 +15,8 @@ SLOT="0"
 KEYWORDS="alpha amd64 hppa ia64 ~mips ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
 IUSE="acl xattr"
 
-DEPEND="acl? ( sys-apps/acl )
+DEPEND="
+	acl? ( sys-apps/acl )
 	xattr? ( sys-apps/attr )"
 RDEPEND="${DEPEND}"
 

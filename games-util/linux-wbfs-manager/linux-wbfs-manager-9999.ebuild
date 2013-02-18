@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-util/linux-wbfs-manager/linux-wbfs-manager-9999.ebuild,v 1.2 2010/01/05 15:53:19 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-util/linux-wbfs-manager/linux-wbfs-manager-9999.ebuild,v 1.3 2013/02/17 22:58:06 hasufell Exp $
 
-EAPI=2
+EAPI=5
 if [[ "${PV}" == "9999" ]]; then
 	ESVN_REPO_URI="http://linux-wbfs-manager.googlecode.com/svn/trunk/"
 	inherit toolchain-funcs subversion
@@ -11,7 +11,7 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	inherit toolchain-funcs
 	SRC_URI="http://linux-wbfs-manager.googlecode.com/files/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~ppc ~x86"
 fi;
 
 DESCRIPTION="WBFS manager for Linux using GTK+"
@@ -21,8 +21,10 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
-DEPEND="dev-libs/glib:2
+RDEPEND="dev-libs/glib:2
 	gnome-base/libglade:2.0"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 if [[ ${PV} == "9999" ]] ; then
 	S=${WORKDIR}/${ECVS_MODULE}
@@ -34,15 +36,15 @@ src_unpack() {
 	if [[ ${PV} == "9999" ]]; then
 		subversion_src_unpack
 	else
-		unpack ${A}
+		default
 	fi
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)" || die
+	emake CC="$(tc-getCC)"
 }
 
 src_install() {
-	dobin wbfs_gtk || die
+	dobin wbfs_gtk
 	dodoc README
 }

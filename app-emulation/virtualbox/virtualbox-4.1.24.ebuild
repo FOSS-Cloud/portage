@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox/virtualbox-4.1.24.ebuild,v 1.2 2013/01/11 10:04:37 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox/virtualbox-4.1.24.ebuild,v 1.5 2013/02/14 13:27:13 ago Exp $
 
 EAPI=4
 
@@ -23,7 +23,7 @@ SRC_URI="${SRC_URI}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+additions alsa doc extensions headless java pam pulseaudio +opengl python +qt4 +sdk vboxwebsrv vnc"
 
 RDEPEND="!app-emulation/virtualbox-bin
@@ -169,6 +169,14 @@ src_prepare() {
 	EPATCH_SUFFIX="patch" \
 	EPATCH_FORCE="yes" \
 	epatch "${WORKDIR}"/patches
+
+	# fix location of ifconfig binary (bug #455902)
+	local ifcfg="$(type -p ifconfig)"
+	if [ "${ifcfg}" != "/sbin/ifconfig" ] ; then
+		sed "/VBOXADPCTL_IFCONFIG_PATH/s@/sbin/ifconfig@${ifcfg}@" \
+			-i "${S}"/src/apps/adpctl/VBoxNetAdpCtl.cpp \
+			|| die
+	fi
 }
 
 src_configure() {

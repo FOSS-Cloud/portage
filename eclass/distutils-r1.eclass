@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/distutils-r1.eclass,v 1.48 2013/01/27 16:39:23 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/distutils-r1.eclass,v 1.53 2013/02/11 09:46:07 mgorny Exp $
 
 # @ECLASS: distutils-r1
 # @MAINTAINER:
@@ -215,6 +215,14 @@ esetup.py() {
 			die 'Out-of-source build requested, yet BUILD_DIR unset.'
 		fi
 
+		# if setuptools is used, adjust egg_info path as well
+		# (disabled since it causes build not to install scripts)
+#		if "${PYTHON:-python}" setup.py --help egg_info &>/dev/null; then
+#			add_args+=(
+#				egg_info --egg-base "${BUILD_DIR}"
+#			)
+#		fi
+
 		add_args+=(
 			build
 			--build-base "${BUILD_DIR}"
@@ -230,6 +238,60 @@ esetup.py() {
 
 	echo "${@}" >&2
 	"${@}" || die
+}
+
+# @FUNCTION: distutils_install_for_testing
+# @USAGE: [<args>...]
+# @DESCRIPTION:
+# Install the package into a temporary location for running tests.
+# Update PYTHONPATH appropriately and set TEST_DIR to the test
+# installation root. The Python packages will be installed in 'lib'
+# subdir, and scripts in 'scripts' subdir (like in BUILD_DIR).
+#
+# Please note that this function should be only used if package uses
+# namespaces (and therefore proper install needs to be done to enforce
+# PYTHONPATH) or tests rely on the results of install command.
+# For most of the packages, tests built in BUILD_DIR are good enough.
+distutils_install_for_testing() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	# A few notes:
+	# 1) because of namespaces, we can't use 'install --root',
+	# 2) 'install --home' is terribly broken on pypy, so we need
+	#    to override --install-lib and --install-scripts,
+	# 3) non-root 'install' complains about PYTHONPATH and missing dirs,
+	#    so we need to set it properly and mkdir them,
+	# 4) it runs a bunch of commands which write random files to cwd,
+	#    in order to avoid that, we need to run them ourselves to pass
+	#    alternate build paths,
+	# 5) 'install' needs to go before 'bdist_egg' or the latter would
+	#    re-set install paths.
+
+	if [[ ${DISTUTILS_IN_SOURCE_BUILD} ]]; then
+		# use 'build' subdirectory to reduce the risk of collisions
+		local BUILD_DIR=${BUILD_DIR}/build
+	fi
+
+	TEST_DIR=${BUILD_DIR}/test
+	local bindir=${TEST_DIR}/scripts
+	local libdir=${TEST_DIR}/lib
+	PYTHONPATH=${libdir}:${PYTHONPATH}
+
+	local add_args=(
+		install
+			--home="${TEST_DIR}"
+			--install-lib="${libdir}"
+			--install-scripts="${bindir}"
+	)
+
+	if "${PYTHON:-python}" setup.py --help bdist_egg &>/dev/null; then
+		add_args+=(
+			bdist_egg --dist-dir="${TEST_DIR}"
+		)
+	fi
+
+	mkdir -p "${libdir}" || die
+	esetup.py "${add_args[@]}"
 }
 
 # @FUNCTION: distutils-r1_python_prepare_all
@@ -367,6 +429,10 @@ distutils-r1_python_install() {
 
 	esetup.py install "${flags[@]}" --root="${root}" "${@}"
 
+	if [[ -d ${root}$(python_get_sitedir)/tests ]]; then
+		die "Package installs 'tests' package, file collisions likely."
+	fi
+
 	if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
 		_distutils-r1_rename_scripts "${root}"
 		_distutils-r1_merge_root "${root}" "${D}"
@@ -419,7 +485,10 @@ distutils-r1_python_install_all() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	if declare -p DOCS &>/dev/null; then
-		dodoc -r "${DOCS[@]}" || die "dodoc failed"
+		# an empty list == don't install anything
+		if [[ ${DOCS[@]} ]]; then
+			dodoc -r "${DOCS[@]}" || die "dodoc failed"
+		fi
 	else
 		local f
 		# same list as in PMS

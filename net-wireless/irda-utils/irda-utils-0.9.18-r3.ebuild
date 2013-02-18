@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/irda-utils/irda-utils-0.9.18-r3.ebuild,v 1.9 2012/12/11 17:37:23 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/irda-utils/irda-utils-0.9.18-r3.ebuild,v 1.11 2013/02/10 15:23:21 floppym Exp $
 
-inherit eutils toolchain-funcs flag-o-matic
+inherit eutils toolchain-funcs flag-o-matic udev
 
 DESCRIPTION="IrDA management and handling utilities"
 HOMEPAGE="http://irda.sourceforge.net"
@@ -87,9 +87,8 @@ src_install () {
 	insinto /etc/modprobe.d
 	newins "${FILESDIR}/irda.modsd" irda.conf
 
-	insinto /etc/udev/rules.d
-	newins "${FILESDIR}/irda.rules" 53-irda.rules
-	exeinto /lib/udev
+	udev_newrules "${FILESDIR}/irda.rules" 53-irda.rules
+	exeinto "$(get_udevdir)"
 	newexe "${FILESDIR}/irda-setup.sh" irda-setup
 	newexe "${FILESDIR}/irda-usb.sh" irda-usb
 }

@@ -1,23 +1,24 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-firmware/linux-firmware-99999999.ebuild,v 1.20 2012/10/03 20:45:59 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-firmware/linux-firmware-99999999.ebuild,v 1.22 2013/02/11 20:16:17 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 inherit savedconfig
 
 if [[ ${PV} == 99999999* ]]; then
 	inherit git-2
 	SRC_URI=""
 	EGIT_REPO_URI="git://git.kernel.org/pub/scm/linux/kernel/git/firmware/${PN}.git"
+	KEYWORDS=""
 else
 	SRC_URI="mirror://gentoo/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm ~ia64 ~x86"
 fi
 
 DESCRIPTION="Linux firmware files"
 HOMEPAGE="http://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git"
 
 LICENSE="GPL-1 GPL-2 GPL-3 BSD freedist"
-KEYWORDS=""
 SLOT="0"
 IUSE="savedconfig"
 
@@ -28,7 +29,7 @@ RDEPEND="!savedconfig? (
 		!media-sound/alsa-firmware[alsa_cards_sb16]
 		!media-sound/alsa-firmware[alsa_cards_ymfpci]
 		!media-tv/cx18-firmware
-		!media-tv/ivtv-firmware
+		!<sys-firmware/ivtv-firmware-20080701-r1
 		!media-tv/linuxtv-dvb-firmware[dvb_cards_cx231xx]
 		!media-tv/linuxtv-dvb-firmware[dvb_cards_cx23885]
 		!media-tv/linuxtv-dvb-firmware[dvb_cards_usb-dib0700]

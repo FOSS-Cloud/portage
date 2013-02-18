@@ -1,6 +1,25 @@
 # ChangeLog for media-video/arista
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/arista/ChangeLog,v 1.13 2012/10/25 20:41:13 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/arista/ChangeLog,v 1.17 2013/02/11 21:13:36 pinkbyte Exp $
+
+*arista-0.9.7 (11 Feb 2013)
+
+  11 Feb 2013; Sergey Popov <pinkbyte@gentoo.org> +arista-0.9.7.ebuild,
+  +files/arista-0.9.7-doc-install.patch:
+  Version bump, wrt bug #358461 - EAPI 5, port to distutils-r1 eclass, utilize
+  l10n eclass
+
+  11 Feb 2013; Sergey Popov <pinkbyte@gentoo.org> arista-0.9.5.ebuild:
+  Add missing dependencies on gnome-base/librsvg and
+  x11-themes/gnome-icon-theme, last - wrt bug #391321. Thanks to Travelinrob
+  <rob AT clerk.com> for discovering this issue
+
+  07 Feb 2013; Sergey Popov <pinkbyte@gentoo.org> arista-0.9.5.ebuild:
+  Fix HOMEPAGE, wrt bug #353422. Thanks to Branko Majic for discovering this
+  issue
+
+  05 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup after talking with Ford_Prefect
 
   25 Oct 2012; Gilles Dartiguelongue <eva@gentoo.org> arista-0.9.5.ebuild:
   Add missing gstreamer slot pin.
@@ -57,4 +76,3 @@
   02 Aug 2009; Arun Raghavan <ford_prefect@gentoo.org> +arista-0.9.3.ebuild,
   +metadata.xml:
   Initial commit.
-

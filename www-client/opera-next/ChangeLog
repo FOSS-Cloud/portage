@@ -1,6 +1,19 @@
 # ChangeLog for www-client/opera-next
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/opera-next/ChangeLog,v 1.169 2013/01/30 14:48:11 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/opera-next/ChangeLog,v 1.172 2013/02/12 17:18:08 jer Exp $
+
+  12 Feb 2013; Jeroen Roovers <jer@gentoo.org> opera-next-12.14_pre1737.ebuild:
+  Set HOMEPAGE according to the build release type.
+
+  06 Feb 2013; Jeroen Roovers <jer@gentoo.org> opera-next-12.13_pre1733.ebuild,
+  opera-next-12.14_pre1737.ebuild:
+  Fix update checker removal.
+
+*opera-next-12.14_pre1737 (05 Feb 2013)
+
+  05 Feb 2013; Jeroen Roovers <jer@gentoo.org>
+  +opera-next-12.14_pre1737.ebuild:
+  http://my.opera.com/desktopteam/blog/2013/02/05/opera-12-14-fixing-bad-crasher
 
   30 Jan 2013; Jeroen Roovers <jer@gentoo.org>
   -opera-next-12.12_pre1707.ebuild, -opera-next-12.13_pre1721.ebuild,

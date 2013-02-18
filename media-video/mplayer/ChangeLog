@@ -1,6 +1,37 @@
 # ChangeLog for media-video/mplayer
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/ChangeLog,v 1.874 2013/01/17 17:52:54 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/ChangeLog,v 1.882 2013/02/14 21:01:11 aballier Exp $
+
+  14 Feb 2013; Alexis Ballier <aballier@gentoo.org> mplayer-9999.ebuild:
+  It seems fine with libav-9 so allow it in the deps
+
+  08 Feb 2013; Alexis Ballier <aballier@gentoo.org> mplayer-9999.ebuild:
+  Merge all binary codec support under win32codecs useflag
+
+  08 Feb 2013; Alexis Ballier <aballier@gentoo.org> mplayer-9999.ebuild:
+  disable libilbc for the same reason as libopus: it is for internal ffmpeg
+  only.
+
+  08 Feb 2013; Alexis Ballier <aballier@gentoo.org> mplayer-1.1-r1.ebuild,
+  mplayer-9999.ebuild:
+  let mplayer find by itself the binary codec dir, should fix bug #320087
+
+  08 Feb 2013; Alexis Ballier <aballier@gentoo.org> metadata.xml:
+  describe bindist as enforcing REQUIRED_USE, bug #369251
+
+  08 Feb 2013; Alexis Ballier <aballier@gentoo.org> mplayer-9999.ebuild:
+  disable opus since it only controls opus support in internal ffmpeg which we
+  do not use, bug #434258
+
+  08 Feb 2013; Alexis Ballier <aballier@gentoo.org> mplayer-9999.ebuild:
+  fix and simplify tremor and vorbis useflags by using external tremor, bug
+  #437594
+
+  08 Feb 2013; Alexis Ballier <aballier@gentoo.org>
+  -mplayer-1.0_rc4_p20110322-r1.ebuild,
+  -files/mplayer-1.0_rc4_p20110322-gcc46.patch,
+  -files/mplayer-1.0_rc4_p20110322-sami_subtitle_parsing.patch:
+  remove old
 
   17 Jan 2013; Alexis Ballier <aballier@gentoo.org>
   -mplayer-1.0_rc4_p20120213.ebuild, -mplayer-1.0_rc4_p20120405.ebuild,

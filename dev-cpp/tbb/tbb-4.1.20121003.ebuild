@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/tbb/tbb-4.1.20121003.ebuild,v 1.2 2012/12/22 14:06:43 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/tbb/tbb-4.1.20121003.ebuild,v 1.5 2013/02/14 09:34:20 scarabeus Exp $
 
 EAPI=4
 inherit eutils flag-o-matic multilib versionator toolchain-funcs
@@ -16,7 +16,7 @@ SRC_URI="http://threadingbuildingblocks.org/sites/default/files/software_release
 LICENSE="GPL-2-with-exceptions"
 
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~ppc x86 ~amd64-linux ~x86-linux"
 IUSE="debug doc examples"
 
 DEPEND=""
@@ -24,7 +24,9 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${MYP}"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-4.0.297-underlinking.patch
+	epatch \
+		"${FILESDIR}"/${PN}-4.0.297-underlinking.patch \
+		"${FILESDIR}"/${PN}-4.1.20121003-ppc.patch
 	# use fully qualified gcc compilers. do not force march/mcpu
 	# not tested with icc
 	# order in sed expressions is important

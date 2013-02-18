@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/rmblast/rmblast-1.2.ebuild,v 1.3 2012/10/31 20:41:32 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/rmblast/rmblast-1.2.ebuild,v 1.4 2013/02/18 10:48:11 jlec Exp $
 
 EAPI="3"
 
-inherit flag-o-matic toolchain-funcs
+inherit eutils flag-o-matic toolchain-funcs
 
 MY_NCBI_BLAST_V=2.2.23+
 
@@ -24,9 +24,12 @@ S="${WORKDIR}/${P}-ncbi-blast-${MY_NCBI_BLAST_V}-src/c++"
 
 src_prepare() {
 	filter-ldflags -Wl,--as-needed
-	sed -i -e 's/-print-file-name=libstdc++.a//' \
+	sed \
+		-e 's/-print-file-name=libstdc++.a//' \
 		-e '/sed/ s/\([gO]\[0-9\]\)\*/\1\\+/' \
-		src/build-system/configure || die
+		-e "/DEF_FAST_FLAGS=/s:=\".*\":=\"${CFLAGS}\":g" \
+		-i src/build-system/configure || die
+	epatch "${FILESDIR}"/${P}-gcc47.patch
 }
 
 src_configure() {
@@ -37,10 +40,6 @@ src_configure() {
 		--without-static \
 		--with-dll \
 		--prefix="${ED}"/opt/${PN} \
-		--with-boost=/usr/include/boost-1_35/boost \
+		--with-boost="${EPREFIX}/usr/include/boost" \
 		|| die
-}
-
-src_install() {
-	emake install || die
 }

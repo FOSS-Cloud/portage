@@ -1,6 +1,39 @@
 # ChangeLog for sys-process/psmisc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/psmisc/ChangeLog,v 1.140 2012/10/09 04:30:31 vapier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-process/psmisc/ChangeLog,v 1.150 2013/02/17 18:29:34 jer Exp $
+
+  17 Feb 2013; Jeroen Roovers <jer@gentoo.org> psmisc-22.20.ebuild:
+  Stable for HPPA (bug #456390).
+
+  12 Feb 2013; Agostino Sarubbo <ago@gentoo.org> psmisc-22.20.ebuild:
+  Stable for sparc, wrt bug #456390
+
+  12 Feb 2013; Agostino Sarubbo <ago@gentoo.org> psmisc-22.20.ebuild:
+  Stable for alpha, wrt bug #456390
+
+  12 Feb 2013; Agostino Sarubbo <ago@gentoo.org> psmisc-22.20.ebuild:
+  Stable for ia64, wrt bug #456390
+
+  11 Feb 2013; Agostino Sarubbo <ago@gentoo.org> psmisc-22.20.ebuild:
+  Stable for arm, wrt bug #456390
+
+  10 Feb 2013; Agostino Sarubbo <ago@gentoo.org> psmisc-22.20.ebuild:
+  Stable for ppc, wrt bug #456390
+
+  10 Feb 2013; Agostino Sarubbo <ago@gentoo.org> psmisc-22.20.ebuild:
+  Stable for ppc64, wrt bug #456390
+
+  10 Feb 2013; Agostino Sarubbo <ago@gentoo.org> psmisc-22.20.ebuild:
+  Stable for x86, wrt bug #456390
+
+  10 Feb 2013; Agostino Sarubbo <ago@gentoo.org> psmisc-22.20.ebuild:
+  Stable for amd64, wrt bug #456390
+
+  10 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> -psmisc-22.19-r1.ebuild:
+  old
+
+  10 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> psmisc-22.16.ebuild:
+  Use -> in SRC_URI to prevent filesize problem with Manifest
 
   09 Oct 2012; Mike Frysinger <vapier@gentoo.org>
   +files/psmisc-22.20-selinux.patch, psmisc-22.20.ebuild:

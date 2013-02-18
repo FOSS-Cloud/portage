@@ -1,6 +1,25 @@
 # ChangeLog for media-libs/opus
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/opus/ChangeLog,v 1.15 2013/02/03 14:01:37 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/opus/ChangeLog,v 1.20 2013/02/08 16:39:27 ago Exp $
+
+  08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.1.ebuild:
+  Stable for alpha, wrt bug #450438
+
+  08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.1.ebuild,
+  opus-1.0.2-r1.ebuild:
+  reverted the stabilization on wong version, stabilized the right.
+
+  07 Feb 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.2-r1.ebuild:
+  Stable for hppa, wrt bug #454906
+
+  04 Feb 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.1.ebuild:
+  Add ~sparc, wrt bug #450672
+
+*opus-1.0.2-r1 (04 Feb 2013)
+
+  04 Feb 2013; Hanno Boeck <hanno@gentoo.org> +opus-1.0.2-r1.ebuild,
+  metadata.xml:
+  Add custom-modes local use flag, fix herd (audio -> sound).
 
   03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.1.ebuild:
   Add ~alpha, wrt bug #450672

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-9999.ebuild,v 1.45 2013/01/21 15:07:32 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-9999.ebuild,v 1.46 2013/02/16 21:37:48 cardoe Exp $
 
 EAPI="4"
 
@@ -137,8 +137,8 @@ QA_WX_LOAD="${QA_PRESTRIPPED}
 	usr/bin/qemu-sparc
 	usr/bin/qemu-sparc64
 	usr/bin/qemu-armeb
-	usr/bin/qemu-s390x
 	usr/bin/qemu-sparc32plus
+	usr/bin/qemu-s390x
 	usr/bin/qemu-unicore32"
 
 pkg_pretend() {

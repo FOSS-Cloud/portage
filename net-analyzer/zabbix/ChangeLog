@@ -1,6 +1,22 @@
 # ChangeLog for net-analyzer/zabbix
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/zabbix/ChangeLog,v 1.113 2013/01/18 23:58:34 mattm Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/zabbix/ChangeLog,v 1.117 2013/02/16 02:20:59 mattm Exp $
+
+  16 Feb 2013; Matthew Marlowe <mattm@gentoo.org> zabbix-2.0.5.ebuild:
+  Remove testing keywords on zabbix-2.0.5 while troubleshooting issue with a
+  patch.
+
+*zabbix-2.0.5 (13 Feb 2013)
+
+  13 Feb 2013; Matthew Marlowe <mattm@gentoo.org> +zabbix-2.0.5.ebuild,
+  -zabbix-1.8.15.ebuild, -zabbix-2.0.3.ebuild:
+  Bump for Zabbix 2.0.5, keyworded ~amd64/~x86 for testing
+
+  11 Feb 2013; Agostino Sarubbo <ago@gentoo.org> zabbix-2.0.4-r1.ebuild:
+  Stable for x86, wrt bug #452878
+
+  11 Feb 2013; Agostino Sarubbo <ago@gentoo.org> zabbix-2.0.4-r1.ebuild:
+  Stable for amd64, wrt bug #452878
 
   18 Jan 2013; Matthew Marlowe <mattm@gentoo.org>
   files/2.0/init.d/zabbix-agentd, files/2.0/init.d/zabbix-server,

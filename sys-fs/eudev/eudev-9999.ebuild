@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/eudev-9999.ebuild,v 1.19 2013/01/29 14:22:44 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/eudev-9999.ebuild,v 1.21 2013/02/09 07:58:36 lu_zero Exp $
 
 EAPI=5
 
@@ -151,14 +151,14 @@ src_configure()
 		ac_cv_header_sys_capability_h=yes
 		DBUS_CFLAGS=' '
 		DBUS_LIBS=' '
-		--with-rootprefix="/"
-		--docdir="/usr/share/doc/${PF}"
-		--libdir="/usr/$(get_libdir)"
-		--with-firmware-path="${EROOT}usr/lib/firmware/updates:${EROOT}usr/lib/firmware:${EROOT}lib/firmware/updates:${EROOT}lib/firmware"
+		--with-rootprefix=
+		--docdir=/usr/share/doc/${PF}
+		--libdir=/usr/$(get_libdir)
+		--with-firmware-path="${EPREFIX}usr/lib/firmware/updates:${EPREFIX}usr/lib/firmware:${EPREFIX}lib/firmware/updates:${EPREFIX}lib/firmware"
 		--with-html-dir="/usr/share/doc/${PF}/html"
-		--with-rootlibdir="/$(get_libdir)"
-		--exec-prefix="/"
+		--with-rootlibdir=/$(get_libdir)
 		--enable-split-usr
+		--exec-prefix=/
 		$(use_enable doc gtk-doc)
 		$(use_enable gudev)
 		$(use_enable introspection)
@@ -225,7 +225,7 @@ pkg_postinst()
 		einfo "Removed unneeded file 64-device-mapper.rules"
 	fi
 
-	use hwdb && udevadm hwdb --update
+	use hwdb && udevadm hwdb --update --root="${ROOT%/}"
 
 	ewarn
 	ewarn "You need to restart eudev as soon as possible to make the"

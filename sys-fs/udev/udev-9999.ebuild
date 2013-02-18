@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.171 2013/02/03 06:33:36 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.178 2013/02/17 19:12:21 ssuominen Exp $
 
 EAPI=4
 
-KV_min=2.6.39
+KV_min=2.6.32
 
 inherit autotools eutils linux-info multilib systemd toolchain-funcs versionator
 
@@ -18,7 +18,8 @@ else
 	if [[ -n "${patchset}" ]]
 		then
 				SRC_URI="${SRC_URI}
-					http://dev.gentoo.org/~williamh/dist/${P}-patches-${patchset}.tar.bz2"
+					http://dev.gentoo.org/~williamh/dist/${P}-patches-${patchset}.tar.bz2
+					http://dev.gentoo.org/~ssuominen/${P}-patches-${patchset}.tar.bz2"
 			fi
 	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 fi
@@ -37,7 +38,7 @@ COMMON_DEPEND=">=sys-apps/util-linux-2.20
 	gudev? ( >=dev-libs/glib-2 )
 	introspection? ( >=dev-libs/gobject-introspection-1.31.1 )
 	kmod? ( >=sys-apps/kmod-12 )
-	selinux? ( sys-libs/libselinux )
+	selinux? ( >=sys-libs/libselinux-2.1.9 )
 	!<sys-libs/glibc-2.11
 	!<sys-apps/systemd-${PV}"
 
@@ -46,7 +47,6 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 	!<sys-kernel/linux-headers-${KV_min}
 	doc? ( >=dev-util/gtk-doc-1.18 )
-	hwdb? ( >=sys-apps/hwids-20130114[udev] )
 	keymap? ( dev-util/gperf )"
 
 if [[ ${PV} = 9999* ]]
@@ -63,12 +63,13 @@ RDEPEND="${COMMON_DEPEND}
 	!sys-apps/coldplug
 	!<sys-fs/lvm2-2.02.97-r1
 	!sys-fs/device-mapper
-	!<sys-fs/udev-init-scripts-19
+	!<sys-fs/udev-init-scripts-22
 	!<sys-kernel/dracut-017-r1
 	!<sys-kernel/genkernel-3.4.25
 	!<sec-policy/selinux-base-2.20120725-r10"
 
-PDEPEND=">=virtual/udev-197
+PDEPEND=">=virtual/udev-197-r1
+	hwdb? ( >=sys-apps/hwids-20130114[udev] )
 	openrc? ( >=sys-fs/udev-init-scripts-19-r1 )"
 
 S=${WORKDIR}/systemd-${PV}
@@ -77,8 +78,6 @@ QA_MULTILIB_PATHS="lib/systemd/systemd-udevd"
 
 udev_check_KV()
 {
-	# accept4 came late for ia64
-	use ia64 && KV_min=3.3
 	if kernel_is lt ${KV_min//./ }
 	then
 		return 1
@@ -103,7 +102,7 @@ check_default_rules()
 
 pkg_setup()
 {
-	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~KALLSYMS ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD"
+	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD"
 
 	linux-info_pkg_setup
 
@@ -134,8 +133,12 @@ src_prepare()
 
 	# These are missing from upstream 50-udev-default.rules
 	cat <<-EOF > "${T}"/40-gentoo.rules
+	# Propably unrequired, check how it is with OSS/OSS4, then remove
 	SUBSYSTEM=="snd", GROUP="audio"
+	# Gentoo specific usb group
 	SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", GROUP="usb"
+	# Keep this for Linux 2.6.32 support wrt #457868
+	SUBSYSTEM=="mem", KERNEL=="null|zero|full|random|urandom", MODE="0666"
 	EOF
 
 	# Remove requirements for gettext and intltool wrt bug #443028
@@ -176,13 +179,13 @@ src_prepare()
 
 	if [[ ${PV} = 9999* ]]; then
 		# secure_getenv() disable for non-glibc systems wrt bug #443030
-		if ! [[ $(grep -r secure_getenv * | wc -l) -eq 13 ]]; then
+		if ! [[ $(grep -r secure_getenv * | wc -l) -eq 23 ]]; then
 			eerror "The line count for secure_getenv() failed, see bug #443030"
 			die
 		fi
 
 		# gperf disable if keymaps are not requested wrt bug #452760
-		if ! [[ $(grep -i gperf Makefile.am | wc -l) -eq 24 ]]; then
+		if ! [[ $(grep -i gperf Makefile.am | wc -l) -eq 27 ]]; then
 			eerror "The line count for gperf references failed, see bug 452760"
 			die
 		fi
@@ -228,6 +231,7 @@ src_configure()
 		--disable-timedated
 		--disable-xz
 		--disable-silent-rules
+		--disable-polkit
 		$(use_enable acl)
 		$(use_enable doc gtk-doc)
 		$(use_enable gudev)
@@ -252,7 +256,6 @@ src_compile()
 		systemd-udevd
 		udevadm
 		libudev.la
-		libsystemd-daemon.la
 		ata_id
 		cdrom_id
 		collect
@@ -260,10 +263,6 @@ src_compile()
 		v4l_id
 		accelerometer
 		mtd_probe
-		man/sd_is_fifo.3
-		man/sd_notify.3
-		man/sd_listen_fds.3
-		man/sd-daemon.3
 		man/udev.7
 		man/udevadm.8
 		man/systemd-udevd.8
@@ -282,8 +281,8 @@ src_compile()
 
 src_install()
 {
-	local lib_LTLIBRARIES="libsystemd-daemon.la libudev.la" \
-		pkgconfiglib_DATA="src/libsystemd-daemon/libsystemd-daemon.pc src/libudev/libudev.pc"
+	local lib_LTLIBRARIES="libudev.la" \
+		pkgconfiglib_DATA="src/libudev/libudev.pc"
 
 	local targets=(
 		install-libLTLIBRARIES
@@ -307,11 +306,7 @@ src_install()
 		install-sharepkgconfigDATA
 		install-typelibsDATA
 		install-dist_docDATA
-		udev-confdirs
-		systemd-install-hook
 		libudev-install-hook
-		libsystemd-daemon-install-hook
-		install-pkgincludeHEADERS
 	)
 
 	if use gudev
@@ -325,14 +320,9 @@ src_install()
 		rootlibexec_PROGRAMS=systemd-udevd
 		bin_PROGRAMS=udevadm
 		lib_LTLIBRARIES="${lib_LTLIBRARIES}"
-		MANPAGES="man/sd-daemon.3 man/sd_notify.3 man/sd_listen_fds.3 \
-				man/sd_is_fifo.3 man/sd_booted.3 man/udev.7 man/udevadm.8 \
+		MANPAGES="man/udev.7 man/udevadm.8 \
 				man/systemd-udevd.service.8"
-		MANPAGES_ALIAS="man/sd_is_socket.3 man/sd_is_socket_unix.3 \
-				man/sd_is_socket_inet.3 man/sd_is_mq.3 man/sd_notifyf.3 \
-				man/SD_LISTEN_FDS_START.3 man/SD_EMERG.3 man/SD_ALERT.3 \
-				man/SD_CRIT.3 man/SD_ERR.3 man/SD_WARNING.3 man/SD_NOTICE.3 \
-				man/SD_INFO.3 man/SD_DEBUG.3 man/systemd-udevd.8"
+		MANPAGES_ALIAS="man/systemd-udevd.8"
 		dist_systemunit_DATA="units/systemd-udevd-control.socket \
 				units/systemd-udevd-kernel.socket"
 		nodist_systemunit_DATA="units/systemd-udevd.service \
@@ -340,9 +330,8 @@ src_install()
 				units/systemd-udev-settle.service"
 		pkgconfiglib_DATA="${pkgconfiglib_DATA}"
 		systemunitdir="$(systemd_get_unitdir)"
-		pkginclude_HEADERS="src/systemd/sd-daemon.h"
 	)
-	emake -j1 DESTDIR="${D}" "${targets[@]}"
+	emake DESTDIR="${D}" "${targets[@]}"
 	if use doc
 	then
 		emake -C docs/libudev DESTDIR="${D}" install
@@ -524,5 +513,5 @@ pkg_postinst()
 	elog "         fixing known issues visit:"
 	elog "         http://www.gentoo.org/doc/en/udev-guide.xml"
 
-	use hwdb && udevadm hwdb --update
+	use hwdb && udevadm hwdb --update --root="${ROOT%/}"
 }

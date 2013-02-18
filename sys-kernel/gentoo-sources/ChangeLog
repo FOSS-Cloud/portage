@@ -1,6 +1,37 @@
 # ChangeLog for sys-kernel/gentoo-sources
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1053 2013/01/26 11:05:18 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1058 2013/02/14 20:19:32 mpagano Exp $
+
+*gentoo-sources-3.7.8 (14 Feb 2013)
+
+  14 Feb 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.7.8.ebuild:
+  Linux patch 3.7.8
+
+  12 Feb 2013; Michael Pagano <mpagano@gentoo.org>
+  gentoo-sources-3.0.17-r2.ebuild, gentoo-sources-3.0.35.ebuild,
+  gentoo-sources-3.0.57.ebuild, gentoo-sources-3.4.9.ebuild,
+  gentoo-sources-3.4.24.ebuild, gentoo-sources-3.5.7.ebuild:
+  Fix copyright
+
+*gentoo-sources-3.7.7 (12 Feb 2013)
+
+  12 Feb 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.7.7.ebuild:
+  Linux patch 3.7.7.
+
+*gentoo-sources-3.0.62 (08 Feb 2013)
+
+  08 Feb 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.0.62.ebuild:
+  Linux patches 3.0.58 - 3.0.62.
+
+*gentoo-sources-3.7.6 (06 Feb 2013)
+
+  06 Feb 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.7.6.ebuild:
+  Ensure that /dev/root doesn't appear in /proc/mounts when bootint without an
+  initramfs. Linux patch 3.7.5. Linux patch 3.7.6. Enable mic mute led in
+  thinkpads. bug #449248
 
   26 Jan 2013; Markus Meier <maekke@gentoo.org> gentoo-sources-3.6.11.ebuild:
   arm stable, bug #447864

@@ -1,6 +1,28 @@
 # ChangeLog for sys-fs/udev-init-scripts
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/ChangeLog,v 1.41 2013/02/01 08:09:29 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/ChangeLog,v 1.47 2013/02/15 19:05:23 ago Exp $
+
+  15 Feb 2013; Agostino Sarubbo <ago@gentoo.org> udev-init-scripts-23.ebuild:
+  Stable for x86, wrt bug #457568
+
+  15 Feb 2013; Agostino Sarubbo <ago@gentoo.org> udev-init-scripts-23.ebuild:
+  Stable for amd64, wrt bug #457568
+
+  09 Feb 2013; Samuli Suominen <ssuominen@gentoo.org>
+  udev-init-scripts-22.ebuild:
+  arm/ppc64 stable wrt #452556
+
+  09 Feb 2013; Agostino Sarubbo <ago@gentoo.org> udev-init-scripts-22.ebuild:
+  Stable for ia64, wrt bug #452556
+
+  08 Feb 2013; Jeroen Roovers <jer@gentoo.org> udev-init-scripts-22.ebuild:
+  Stable for HPPA (bug #452556).
+
+*udev-init-scripts-23 (05 Feb 2013)
+
+  05 Feb 2013; William Hubbs <williamh@gentoo.org>
+  +udev-init-scripts-23.ebuild:
+  version bump
 
   01 Feb 2013; Samuli Suominen <ssuominen@gentoo.org>
   -udev-init-scripts-19-r1.ebuild,

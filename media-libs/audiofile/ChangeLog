@@ -1,6 +1,16 @@
 # ChangeLog for media-libs/audiofile
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/audiofile/ChangeLog,v 1.120 2012/11/26 06:34:04 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/audiofile/ChangeLog,v 1.122 2013/02/07 11:02:24 ssuominen Exp $
+
+  07 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> audiofile-0.3.5.ebuild:
+  Fix sed line from SRC_SUBDIRS to SUBDIRS for 0.3.5 release wrt #455978 by
+  Tomas Mozes
+
+*audiofile-0.3.5 (07 Feb 2013)
+
+  07 Feb 2013; Tim Harder <radhermit@gentoo.org> +audiofile-0.3.5.ebuild,
+  +files/audiofile-0.3.5-system-gtest.patch:
+  Version bump. Update to EAPI 5, add subslot, and use system gtest for tests.
 
   26 Nov 2012; Tim Harder <radhermit@gentoo.org> audiofile-0.3.4.ebuild:
   Use prune_libtool_files.

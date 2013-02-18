@@ -1,6 +1,52 @@
 # ChangeLog for x11-libs/qt-core
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/qt-core/ChangeLog,v 1.204 2013/01/26 09:01:41 pesa Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/qt-core/ChangeLog,v 1.215 2013/02/15 10:20:02 pesa Exp $
+
+*qt-core-4.8.4-r4 (15 Feb 2013)
+
+  15 Feb 2013; Davide Pesavento <pesa@gentoo.org>
+  +files/blacklist-mis-issued-Turktrust-certs.patch,
+  +files/moc-workaround-for-BOOST_JOIN.patch, +qt-core-4.8.4-r4.ebuild,
+  -qt-core-4.8.4-r3.ebuild:
+  Apply workaround for newer boost headers (bug 454080 by Flameeyes). Blacklist
+  mis-issued Türktrust SSL certs.
+
+*qt-core-4.8.4-r3 (13 Feb 2013)
+
+  13 Feb 2013; Davide Pesavento <pesa@gentoo.org>
+  +files/fix-call-to-QMetaObject-metaCall-from-updateProperty.patch,
+  +qt-core-4.8.4-r3.ebuild:
+  Fix bug 450818. Patch by David E. Narváez <david.narvaez@computer.org>.
+
+  12 Feb 2013; Agostino Sarubbo <ago@gentoo.org> qt-core-4.8.4-r2.ebuild:
+  Stable for alpha, wrt bug #455884
+
+  12 Feb 2013; Agostino Sarubbo <ago@gentoo.org> qt-core-4.8.4-r2.ebuild:
+  Stable for x86, wrt bug #455884
+
+  11 Feb 2013; Agostino Sarubbo <ago@gentoo.org> qt-core-4.8.4-r2.ebuild:
+  Stable for arm, wrt bug #455884
+
+  10 Feb 2013; Jeroen Roovers <jer@gentoo.org> qt-core-4.8.4-r2.ebuild:
+  Stable for HPPA (bug #455884).
+
+  10 Feb 2013; Agostino Sarubbo <ago@gentoo.org> qt-core-4.8.4-r2.ebuild:
+  Stable for ppc, wrt bug #455884
+
+  10 Feb 2013; Agostino Sarubbo <ago@gentoo.org> qt-core-4.8.4-r2.ebuild:
+  Stable for ppc64, wrt bug #455884
+
+  09 Feb 2013; Agostino Sarubbo <ago@gentoo.org> qt-core-4.8.4-r2.ebuild:
+  Stable for ia64, wrt bug #455884
+
+  09 Feb 2013; Sergey Popov <pinkbyte@gentoo.org> qt-core-4.8.4-r2.ebuild:
+  Stable on amd64, wrt bug #455884
+
+*qt-core-4.8.4-r2 (09 Feb 2013)
+
+  09 Feb 2013; Davide Pesavento <pesa@gentoo.org> +files/CVE-2013-0254.patch,
+  +qt-core-4.8.4-r2.ebuild, -qt-core-4.8.4-r1.ebuild:
+  Apply upstream patch for CVE-2013-0254 (Gentoo bug #455884)
 
   26 Jan 2013; Davide Pesavento <pesa@gentoo.org>
   +files/set-pkg-config-locations-directly-to-install-dir.patch,

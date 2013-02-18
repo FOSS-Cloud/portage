@@ -1,6 +1,28 @@
 # ChangeLog for media-video/ffmpeg
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ChangeLog,v 1.598 2013/01/27 23:51:36 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ChangeLog,v 1.603 2013/02/13 17:42:36 aballier Exp $
+
+  13 Feb 2013; Alexis Ballier <aballier@gentoo.org> ffmpeg-9999.ebuild:
+  run tests against built libavresample
+
+  07 Feb 2013; Alexis Ballier <aballier@gentoo.org> -ffmpeg-1.1.1.ebuild:
+  remove old
+
+  07 Feb 2013; Alexis Ballier <aballier@gentoo.org> ffmpeg-1.1.2.ebuild,
+  ffmpeg-9999.ebuild:
+  fix cdio dep
+
+*ffmpeg-1.0.4 (07 Feb 2013)
+
+  07 Feb 2013; Alexis Ballier <aballier@gentoo.org> +ffmpeg-1.0.4.ebuild:
+  Restore the 1.0 branch as this one could be unmasked rather soonish, 1.1 will
+  require more work since the change of output format of some audio decoders
+  causes runtime regressions in some programs.
+
+*ffmpeg-1.1.2 (07 Feb 2013)
+
+  07 Feb 2013; Alexis Ballier <aballier@gentoo.org> +ffmpeg-1.1.2.ebuild:
+  version bump
 
   27 Jan 2013; Alexis Ballier <aballier@gentoo.org> ffmpeg-9999.ebuild:
   Add ffescape and fourcc2pixfmt tools

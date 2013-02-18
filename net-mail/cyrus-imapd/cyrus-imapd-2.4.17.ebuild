@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/cyrus-imapd/cyrus-imapd-2.4.17.ebuild,v 1.2 2012/12/21 13:23:00 eras Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/cyrus-imapd/cyrus-imapd-2.4.17.ebuild,v 1.9 2013/02/17 18:32:10 jer Exp $
 
 EAPI=4
 
-inherit db-use eutils multilib pam ssl-cert user
+inherit autotools db-use eutils multilib pam ssl-cert user toolchain-funcs
 
 MY_P=${P/_/}
 
@@ -14,7 +14,7 @@ SRC_URI="ftp://ftp.cyrusimap.org/cyrus-imapd/${MY_P}.tar.gz"
 
 LICENSE="BSD-with-attribution"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 ~arm hppa ~ia64 ppc ppc64 sparc x86"
 IUSE="afs berkdb kerberos mysql nntp pam postgres replication sieve snmp sqlite ssl tcpd"
 
 RDEPEND="sys-libs/zlib
@@ -78,6 +78,17 @@ src_prepare() {
 	# libcom_err.a to libafscom_err.a
 	sed -i -e '/afs\/libcom_err.a/s:libcom_err.a:libafscom_err.a:' \
 		configure{,.in} || die
+
+	sed -i -e "s/ar cr/$(tc-getAR) cr/" \
+		perl/sieve/lib/Makefile.in \
+		imap/Makefile.in \
+		lib/Makefile.in \
+		installsieve/Makefile.in \
+		com_err/et/Makefile.in \
+		sieve/Makefile.in \
+		syslog/Makefile.in || die
+
+	eautoreconf
 }
 
 src_configure() {

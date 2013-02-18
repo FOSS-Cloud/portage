@@ -1,6 +1,18 @@
 # ChangeLog for dev-ml/res
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/res/ChangeLog,v 1.14 2012/10/10 11:50:44 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/res/ChangeLog,v 1.18 2013/02/12 16:59:15 ago Exp $
+
+  12 Feb 2013; Agostino Sarubbo <ago@gentoo.org> res-4.0.2.ebuild:
+  Stable for ppc, wrt bug #456562
+
+  11 Feb 2013; Agostino Sarubbo <ago@gentoo.org> res-4.0.2.ebuild:
+  Stable for x86, wrt bug #456562
+
+  11 Feb 2013; Agostino Sarubbo <ago@gentoo.org> res-4.0.2.ebuild:
+  Stable for amd64, wrt bug #456562
+
+  07 Feb 2013; Alexis Ballier <aballier@gentoo.org> res-4.0.2.ebuild:
+  eapi 5, define subslot
 
 *res-4.0.2 (10 Oct 2012)
 
@@ -54,4 +66,3 @@
   +res-2.1.1.ebuild:
   Res is a library of resizable structures (arrays, buffers...) in ocaml. Thanks
   to Bardur Arantsson <gentoo@scientician.net> for the submission (bug #60921).
-

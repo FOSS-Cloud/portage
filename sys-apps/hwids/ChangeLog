@@ -1,6 +1,23 @@
 # ChangeLog for sys-apps/hwids
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.77 2013/01/31 16:04:01 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.80 2013/02/09 20:25:26 flameeyes Exp $
+
+*hwids-20130209.1 (09 Feb 2013)
+
+  09 Feb 2013; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20130209.1.ebuild,
+  -hwids-20130131.ebuild, hwids-99999999.ebuild:
+  Version bump; this version generates thw hwdb.bin file straight in the
+  package, rather than in postinst, so that the file is no longer orphaned.
+
+  07 Feb 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -hwids-20130131-r1.ebuild, hwids-99999999.ebuild:
+  Wait until upstream has accepted the --root patch.
+
+*hwids-20130131-r1 (07 Feb 2013)
+
+  07 Feb 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +hwids-20130131-r1.ebuild, hwids-99999999.ebuild:
+  Use --root switch in udevadm hwdb --update for an offset root support.
 
 *hwids-20130131 (31 Jan 2013)
 

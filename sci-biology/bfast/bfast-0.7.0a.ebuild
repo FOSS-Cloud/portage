@@ -1,10 +1,12 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/bfast/bfast-0.7.0a.ebuild,v 1.1 2011/11/28 02:15:41 weaver Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/bfast/bfast-0.7.0a.ebuild,v 1.3 2013/02/17 10:38:44 jlec Exp $
 
-EAPI=4
+EAPI=5
 
-inherit autotools
+AUTOTOOLS_AUTORECONF=true
+
+inherit autotools-utils
 
 DESCRIPTION="Blat-like Fast Accurate Search Tool"
 HOMEPAGE="https://sourceforge.net/projects/bfast/"
@@ -12,7 +14,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
+IUSE="test"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND=""
@@ -27,5 +29,12 @@ src_prepare() {
 	sed \
 		-e 's:. test.definitions.sh:. ./test.definitions.sh:g' \
 		-i tests/*sh || die
-	eautoreconf
+
+	sed \
+		-e '/docdir/d' \
+		-i Makefile.am || die
+
+	use test && AUTOTOOLS_IN_SOURCE_BUILD=1
+
+	autotools-utils_src_prepare
 }

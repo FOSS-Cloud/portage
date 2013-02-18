@@ -1,6 +1,14 @@
 # ChangeLog for dev-python/greenlet
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/greenlet/ChangeLog,v 1.10 2012/12/06 17:35:30 bicatali Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/greenlet/ChangeLog,v 1.12 2013/02/12 11:49:58 mgorny Exp $
+
+  12 Feb 2013; Michał Górny <mgorny@gentoo.org> greenlet-0.4.0-r1.ebuild:
+  Add a note that greenlet is built-in in PyPy.
+
+*greenlet-0.4.0-r1 (04 Feb 2013)
+
+  04 Feb 2013; Michał Górny <mgorny@gentoo.org> +greenlet-0.4.0-r1.ebuild:
+  Migrate to distutils-r1.
 
   06 Dec 2012; Sébastien Fabbro <bicatali@gentoo.org> greenlet-0.4.0.ebuild:
   Keyword amd64-linux and x86-linux

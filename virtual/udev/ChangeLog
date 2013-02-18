@@ -1,6 +1,29 @@
 # ChangeLog for virtual/udev
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/udev/ChangeLog,v 1.20 2013/01/28 14:42:41 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/udev/ChangeLog,v 1.27 2013/02/15 19:04:58 ago Exp $
+
+  15 Feb 2013; Agostino Sarubbo <ago@gentoo.org> udev-197-r1.ebuild:
+  Stable for x86, wrt bug #457568
+
+  15 Feb 2013; Agostino Sarubbo <ago@gentoo.org> udev-197-r1.ebuild:
+  Stable for amd64, wrt bug #457568
+
+  10 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197-r1.ebuild:
+  Raise eudev dependency to -r2.
+
+  09 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> udev-197.ebuild:
+  arm/ppc64 stable wrt #452556
+
+*udev-197-r1 (09 Feb 2013)
+
+  09 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> +udev-197-r1.ebuild:
+  Revision bump to mark the start of --root parameter support in udevadm.
+
+  09 Feb 2013; Agostino Sarubbo <ago@gentoo.org> udev-197.ebuild:
+  Stable for ia64, wrt bug #452556
+
+  08 Feb 2013; Jeroen Roovers <jer@gentoo.org> udev-197.ebuild:
+  Stable for HPPA (bug #452556).
 
   28 Jan 2013; Ian Stakenvicius <axs@gentoo.org> udev-197.ebuild:
   Adjust passthrough of USE=kmod on eudev to enable USE=modutils instead, bug

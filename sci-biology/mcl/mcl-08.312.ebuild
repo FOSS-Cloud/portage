@@ -1,8 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/mcl/mcl-08.312.ebuild,v 1.2 2012/04/26 16:17:02 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/mcl/mcl-08.312.ebuild,v 1.3 2013/02/17 10:14:30 jlec Exp $
 
 EAPI=4
+
+AUTOTOOLS_AUTORECONF=true
+
+inherit autotools-utils
 
 MY_P="${PN}-${PV/./-}"
 
@@ -17,6 +21,17 @@ IUSE="+blast"
 
 S="${WORKDIR}/${MY_P}"
 
+src_prepare() {
+	find \
+		-name Makefile.am \
+		-exec sed \
+			-e '/docdir/d' \
+			-e '/exampledir/s:doc::g' \
+			-i '{}' + || die
+	autotools-utils_src_prepare
+}
+
 src_configure() {
-	econf $(use_enable blast)
+	local myeconfargs=( $(use_enable blast) )
+	autotools-utils_src_configure
 }

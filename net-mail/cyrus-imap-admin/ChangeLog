@@ -1,6 +1,24 @@
 # ChangeLog for net-mail/cyrus-imap-admin
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/cyrus-imap-admin/ChangeLog,v 1.124 2012/12/21 13:23:49 eras Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-mail/cyrus-imap-admin/ChangeLog,v 1.130 2013/02/15 22:41:35 ago Exp $
+
+  15 Feb 2013; Agostino Sarubbo <ago@gentoo.org> cyrus-imap-admin-2.4.17.ebuild:
+  Stable for sparc, wrt bug #456530
+
+  14 Feb 2013; Agostino Sarubbo <ago@gentoo.org> cyrus-imap-admin-2.4.17.ebuild:
+  Stable for ppc, wrt bug #456530
+
+  14 Feb 2013; Agostino Sarubbo <ago@gentoo.org> cyrus-imap-admin-2.4.17.ebuild:
+  Stable for ppc64, wrt bug #456530
+
+  14 Feb 2013; Eray Aslan <eras@gentoo.org> cyrus-imap-admin-2.4.17.ebuild:
+  Respect AR - bug #457542
+
+  14 Feb 2013; Agostino Sarubbo <ago@gentoo.org> cyrus-imap-admin-2.4.17.ebuild:
+  Stable for x86, wrt bug #456530
+
+  14 Feb 2013; Agostino Sarubbo <ago@gentoo.org> cyrus-imap-admin-2.4.17.ebuild:
+  Stable for amd64, wrt bug #456530
 
   21 Dec 2012; Eray Aslan <eras@gentoo.org> cyrus-imap-admin-2.4.16.ebuild,
   cyrus-imap-admin-2.4.17.ebuild:

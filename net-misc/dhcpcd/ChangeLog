@@ -1,6 +1,19 @@
 # ChangeLog for net-misc/dhcpcd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcpcd/ChangeLog,v 1.349 2013/01/03 16:50:25 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcpcd/ChangeLog,v 1.352 2013/02/17 23:09:52 zmedico Exp $
+
+  17 Feb 2013; Zac Medico <zmedico@gentoo.org> dhcpcd-5.6.7.ebuild:
+  Add ~arm-linux keyword.
+
+*dhcpcd-9999 (17 Feb 2013)
+
+  17 Feb 2013; William Hubbs <williamh@gentoo.org> +dhcpcd-9999.ebuild:
+  add live ebuild for bug #457762, thanks to Scott Bertilson.
+
+*dhcpcd-5.6.7 (05 Feb 2013)
+
+  05 Feb 2013; William Hubbs <williamh@gentoo.org> +dhcpcd-5.6.7.ebuild:
+  version bump for #454528
 
 *dhcpcd-5.6.6 (03 Jan 2013)
 

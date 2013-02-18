@@ -1,6 +1,38 @@
 # ChangeLog for sci-geosciences/googleearth
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/googleearth/ChangeLog,v 1.39 2013/02/02 13:26:49 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/googleearth/ChangeLog,v 1.46 2013/02/17 00:28:34 hasufell Exp $
+
+  17 Feb 2013; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  set correct maintainer
+
+*googleearth-7.0.2.8415-r2 (10 Feb 2013)
+
+  10 Feb 2013; Julian Ospald <hasufell@gentoo.org>
+  -googleearth-7.0.2.8415-r1.ebuild, +googleearth-7.0.2.8415-r2.ebuild,
+  metadata.xml:
+  swap the foo-bundled logic to enable proper masking, revbump because of the
+  various changes
+
+  10 Feb 2013; Julian Ospald <hasufell@gentoo.org>
+  googleearth-7.0.2.8415-r1.ebuild:
+  pax-mark for hardened wrt #437336
+
+  10 Feb 2013; Julian Ospald <hasufell@gentoo.org>
+  googleearth-7.0.2.8415-r1.ebuild:
+  fix prefix installation
+
+  10 Feb 2013; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  update metadata.xml
+
+  04 Feb 2013; Julian Ospald <hasufell@gentoo.org>
+  googleearth-7.0.2.8415.ebuild:
+  fix typo
+
+*googleearth-7.0.2.8415-r1 (04 Feb 2013)
+
+  04 Feb 2013; Julian Ospald <hasufell@gentoo.org>
+  +googleearth-7.0.2.8415-r1.ebuild:
+  revbump to fix bug #455124
 
   02 Feb 2013; Julian Ospald <hasufell@gentoo.org>
   googleearth-7.0.2.8415.ebuild:

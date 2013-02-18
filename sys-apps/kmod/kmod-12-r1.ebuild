@@ -1,17 +1,17 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-12-r1.ebuild,v 1.7 2013/01/27 13:53:03 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-12-r1.ebuild,v 1.12 2013/02/15 18:33:52 ssuominen Exp $
 
 EAPI=4
 
-inherit autotools eutils libtool multilib
+inherit autotools eutils libtool multilib linux-info
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="git://git.kernel.org/pub/scm/utils/kernel/${PN}/${PN}.git"
 	inherit git-2
 else
 	SRC_URI="mirror://kernel/linux/utils/kernel/kmod/${P}.tar.xz"
-	KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~m68k ~mips ppc ~ppc64 ~s390 ~sh ~sparc x86"
+	KEYWORDS="~alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh ~sparc x86"
 fi
 
 DESCRIPTION="library and tools for managing linux kernel modules"
@@ -36,6 +36,12 @@ DEPEND="${RDEPEND}
 	doc? ( dev-util/gtk-doc )
 	lzma? ( virtual/pkgconfig )
 	zlib? ( virtual/pkgconfig )"
+
+pkg_setup() {
+	CONFIG_CHECK="~MODULES ~MODULE_UNLOAD"
+
+	linux-info_pkg_setup
+}
 
 src_prepare()
 {

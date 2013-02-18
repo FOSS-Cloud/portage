@@ -1,6 +1,24 @@
 # ChangeLog for dev-db/postgis
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgis/ChangeLog,v 1.73 2013/02/03 15:01:38 titanofold Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/postgis/ChangeLog,v 1.77 2013/02/16 21:01:38 swegener Exp $
+
+  16 Feb 2013; Sven Wegener <swegener@gentoo.org> postgis-1.5.8.ebuild:
+  Allow building with postgresql-9.2.
+
+*postgis-2.0.2-r2 (11 Feb 2013)
+
+  11 Feb 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  -postgis-2.0.2-r1.ebuild, +postgis-2.0.2-r2.ebuild,
+  files/postgis-2.0-pkgconfig-json.patch:
+  Patch now defines HAVE_LIBJSON.
+
+  06 Feb 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  postgis-2.0.2-r1.ebuild:
+  Fix recursive make errors by adding MAKEOPTS="-j1"
+
+  04 Feb 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  postgis-2.0.2-r1.ebuild, +files/postgis-2.0-pkgconfig-json.patch:
+  Really fix bug 454774.
 
 *postgis-2.0.2-r1 (03 Feb 2013)
 

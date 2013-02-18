@@ -1,6 +1,14 @@
 # ChangeLog for net-libs/miniupnpc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/miniupnpc/ChangeLog,v 1.30 2012/12/16 18:16:50 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/miniupnpc/ChangeLog,v 1.32 2013/02/16 12:52:44 pacho Exp $
+
+  16 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #96436
+
+*miniupnpc-1.8 (11 Feb 2013)
+
+  11 Feb 2013; Michał Górny <mgorny@gentoo.org> +miniupnpc-1.8.ebuild:
+  Version bump.
 
   16 Dec 2012; Raúl Porcel <armin76@gentoo.org> miniupnpc-1.6-r1.ebuild,
   miniupnpc-1.6.20120509.ebuild, miniupnpc-1.7.ebuild:

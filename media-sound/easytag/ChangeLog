@@ -1,6 +1,25 @@
 # ChangeLog for media-sound/easytag
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/easytag/ChangeLog,v 1.164 2012/07/29 18:06:49 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/easytag/ChangeLog,v 1.168 2013/02/13 08:54:45 radhermit Exp $
+
+  13 Feb 2013; Tim Harder <radhermit@gentoo.org> easytag-2.1.8.ebuild,
+  +files/easytag-2.1.8-taglib.patch:
+  Fix check for taglib (bug #456976).
+
+  12 Feb 2013; Samuli Suominen <ssuominen@gentoo.org>
+  files/easytag-2.1.8-desktop.patch:
+  Remove inode/directory from MimeType line to prevent easytag from acting as
+  default filemanager.
+
+*easytag-2.1.8 (12 Feb 2013)
+
+  12 Feb 2013; Tim Harder <radhermit@gentoo.org> +easytag-2.1.8.ebuild,
+  +files/easytag-2.1.8-desktop.patch, +files/easytag-2.1.8-docs.patch,
+  +files/easytag-2.1.8-werror.patch:
+  Version bump.
+
+  10 Feb 2013; Tim Harder <radhermit@gentoo.org> easytag-2.1.7-r2.ebuild:
+  Update HOMEPAGE (bug #456378).
 
   29 Jul 2012; Samuli Suominen <ssuominen@gentoo.org> -easytag-2.1.6-r3.ebuild,
   -files/easytag-2.1.6-cddb.patch, -files/easytag-2.1.6-desktop_entry.patch,

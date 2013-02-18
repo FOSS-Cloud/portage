@@ -1,6 +1,26 @@
 # ChangeLog for dev-python/cython
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/cython/ChangeLog,v 1.88 2013/02/04 04:32:11 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/cython/ChangeLog,v 1.93 2013/02/16 22:07:28 mgorny Exp $
+
+  16 Feb 2013; Michał Górny <mgorny@gentoo.org> cython-0.18-r1.ebuild:
+  Enable py3.3.
+
+  09 Feb 2013; Michał Górny <mgorny@gentoo.org> cython-0.18-r1.ebuild:
+  Use a weaker dep on sphinx, it does not import source code.
+
+  09 Feb 2013; Michał Górny <mgorny@gentoo.org> cython-0.18-r1.ebuild:
+  As explained in bug 456318, numpy is really a dependency when compiling code
+  that uses numpy or in tests. Therefore, adjust the dep. Thanks to Matěj Laitl
+  for insight.
+
+  09 Feb 2013; Michał Górny <mgorny@gentoo.org> cython-0.18-r1.ebuild:
+  Use sphinx-generated docs and remove outdated examples. Adjust description to
+  match one used upstream. Fix install phase. Suggestions were from bug #456318.
+
+*cython-0.18-r1 (09 Feb 2013)
+
+  09 Feb 2013; Michał Górny <mgorny@gentoo.org> +cython-0.18-r1.ebuild:
+  Migrate to distutils-r1.
 
 *cython-0.18 (04 Feb 2013)
 

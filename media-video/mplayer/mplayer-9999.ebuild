@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-9999.ebuild,v 1.134 2012/10/25 12:48:11 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-9999.ebuild,v 1.140 2013/02/14 21:01:11 aballier Exp $
 
 EAPI=4
 
@@ -15,9 +15,9 @@ bs2b cddb +cdio cdparanoia cpudetection debug dga
 directfb doc +dts +dv dvb +dvd +dvdnav dxr3 +enca +encode faac +faad fbcon
 ftp gif ggi gsm +iconv ipv6 jack joystick jpeg jpeg2k kernel_linux ladspa
 +libass libcaca libmpeg2 lirc +live lzo mad md5sum +mmx mmxext mng +mp3 nas
-+network nut openal +opengl +osdmenu oss png pnm pulseaudio pvr +quicktime
-radio +rar +real +rtc rtmp samba +shm sdl +speex sse sse2 ssse3
-tga +theora +tremor +truetype +toolame +twolame +unicode v4l vdpau vidix
++network nut openal +opengl +osdmenu oss png pnm pulseaudio pvr
+radio +rar +rtc rtmp samba +shm sdl +speex sse sse2 ssse3
+tga +theora tremor +truetype +toolame +twolame +unicode v4l vdpau vidix
 +vorbis win32codecs +X +x264 xanim xinerama +xscreensaver +xv +xvid xvmc
 zoran"
 
@@ -61,7 +61,7 @@ RDEPEND+="
 	sys-libs/ncurses
 	app-arch/bzip2
 	sys-libs/zlib
-	>=media-video/ffmpeg-0.11.1
+	|| ( >=media-video/ffmpeg-1.0 >=media-video/libav-9 )
 	!bindist? (
 		x86? (
 			win32codecs? ( media-libs/win32codecs )
@@ -127,9 +127,10 @@ RDEPEND+="
 	sdl? ( media-libs/libsdl )
 	speex? ( media-libs/speex )
 	theora? ( media-libs/libtheora[encode?] )
+	tremor? ( media-libs/tremor )
 	truetype? ( ${FONT_RDEPS} )
 	vdpau? ( x11-libs/libvdpau )
-	vorbis? ( media-libs/libvorbis )
+	vorbis? ( !tremor? ( media-libs/libvorbis ) )
 	X? ( ${X_RDEPS}	)
 	xanim? ( media-video/xanim )
 	xinerama? ( x11-libs/libXinerama )
@@ -172,7 +173,6 @@ fi
 # dvd navigation requires dvd read support
 # ass and freetype font require iconv and ass requires freetype fonts
 # unicode transformations are usefull only with iconv
-# libvorbis require external tremor to work
 # radio requires oss or alsa backend
 # xvmc requires xvideo support
 REQUIRED_USE="bindist? ( !faac !win32codecs )
@@ -274,11 +274,15 @@ src_configure() {
 	# disable svga since we don't want it
 	# disable arts since we don't have kde3
 	# always disable internal ass
+	# disable opus and ilbc since it only controls support in internal
+	#         ffmpeg which we do not use
 	myconf+="
 		--disable-svga --disable-svgalib_helper
 		--disable-ass-internal
 		--disable-arts
 		--disable-kai
+		--disable-libopus
+		--disable-libilbc
 		$(use_enable network networking)
 		$(use_enable joystick)
 	"
@@ -375,26 +379,17 @@ src_configure() {
 			--disable-mpg123
 		"
 	fi
-	uses="a52 bs2b dv gsm lzo rtmp"
+	uses="a52 bs2b dv gsm lzo rtmp vorbis"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-lib${i}"
 	done
 
-	uses="faad gif jpeg libmpeg2 live mad mng png pnm speex tga theora xanim"
+	uses="faad gif jpeg libmpeg2 live mad mng png pnm speex tga theora tremor xanim"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done
 	use jpeg2k || myconf+=" --disable-libopenjpeg"
-	if use vorbis || use tremor; then
-		use tremor || myconf+=" --disable-tremor-internal"
-		use vorbis || myconf+=" --disable-libvorbis"
-	else
-		myconf+="
-			--disable-tremor-internal
-			--disable-tremor
-			--disable-libvorbis
-		"
-	fi
+
 	# Encoding
 	uses="faac x264 xvid toolame twolame"
 	if use encode; then
@@ -412,29 +407,11 @@ src_configure() {
 	#################
 	# Binary codecs #
 	#################
-	# bug 213836
-	if ! use x86 || ! use win32codecs; then
-		use quicktime || myconf+=" --disable-qtx"
+	if use win32codecs ; then
+		myconf+=" --enable-win32dll"
+	else
+		myconf+=" --disable-qtx --disable-real --disable-win32dll"
 	fi
-
-	######################
-	# RealPlayer support #
-	######################
-	# Realplayer support shows up in four places:
-	# - libavcodec (internal)
-	# - win32codecs
-	# - realcodecs (win32codecs libs)
-	# - realcodecs (realplayer libs)
-
-	# internal
-	use real || myconf+=" --disable-real"
-
-	# Real binary codec support only available on x86, amd64
-	if use real; then
-		use x86 && myconf+=" --codecsdir=/opt/RealPlayer/codecs"
-		use amd64 && myconf+=" --codecsdir=/usr/$(get_libdir)/codecs"
-	fi
-	myconf+=" $(use_enable win32codecs win32dll)"
 
 	################
 	# Video Output #
@@ -579,7 +556,7 @@ src_install() {
 	dodoc DOCS/tech/{*.txt,MAINTAINERS,mpsub.sub,playtree,TODO,wishlist}
 	docinto TOOLS/
 	dodoc -r TOOLS
-	if use real; then
+	if use win32codecs; then
 		docinto tech/realcodecs/
 		dodoc DOCS/tech/realcodecs/*
 	fi

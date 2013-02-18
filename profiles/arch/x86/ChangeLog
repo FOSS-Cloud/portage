@@ -1,6 +1,16 @@
 # ChangeLog for Gentoo/x86 profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/ChangeLog,v 1.132 2013/02/01 21:28:57 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/ChangeLog,v 1.135 2013/02/16 21:26:08 ago Exp $
+
+  16 Feb 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  mask net-misc/leechcraft-full[unstable] because requires packages not ready
+  for the stabilization
+
+  12 Feb 2013; Christoph Junghans <ottxor@gentoo.org> use.mask:
+  sse41 -> sse4_1 (bug #456886)
+
+  07 Feb 2013; Matt Turner <mattst88@gentoo.org> use.mask:
+  Drop sse5 USE flag.
 
   01 Feb 2013; Michał Górny <mgorny@gentoo.org> use.force, use.mask:
   Set ABI_X86 flags for amd64 & x86 up.

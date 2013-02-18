@@ -1,6 +1,79 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.658 2013/02/01 21:39:50 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.678 2013/02/18 09:43:18 hd_brummy Exp $
+
+  18 Feb 2013; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-plugin.eclass:
+  vdr-plugin.eclass, add eerror to get .eclass depricated
+
+  14 Feb 2013; Justin Lecher <jlec@gentoo.org> intel-sdp.eclass:
+  Make it possible to bypass license check from ebuilds
+
+  14 Feb 2013; Justin Lecher <jlec@gentoo.org> intel-sdp.eclass:
+  Drop KEYWORDS from eclass, #342185
+
+  12 Feb 2013; Michael Haubenwallner <haubi@gentoo.org>
+  ELT-patches/aixrtl/1.5.0-cmds-c:
+  Fix typo: extra apostrophe being shell syntax error.
+
+  11 Feb 2013; Michał Górny <mgorny@gentoo.org> autotools-utils.eclass,
+  distutils-r1.eclass:
+  Support DOCS=() to disable installing documentation.
+
+  10 Feb 2013; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Temporarily disable egg_info since it causes problems with installing
+  scripts.
+
+  10 Feb 2013; Michał Górny <mgorny@gentoo.org> +cmake-multilib.eclass:
+  Introduce cmake-utils wrapper eclass for multilib.
+
+  10 Feb 2013; Michał Górny <mgorny@gentoo.org> autotools-multilib.eclass,
+  multilib-build.eclass:
+  Move header checking function into multilib-build for wider reuse.
+
+  10 Feb 2013; Michał Górny <mgorny@gentoo.org> eutils.eclass:
+  QA-warn if epunt_cxx does not find any checks to punt.
+
+  10 Feb 2013; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Introduce a function to install package for running tests, solving all the
+  issues with PyPy, setuptools and namespaces.
+
+  10 Feb 2013; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Override egg-info write location in out-of-source builds.
+
+  10 Feb 2013; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Error out if "tests" package is installed. This is a common mistake and a
+  source of file collisions.
+
+  08 Feb 2013; Michał Górny <mgorny@gentoo.org> vcs-snapshot.eclass:
+  Document the src_unpack() function. Requested in bug #456160.
+
+  08 Feb 2013; Michael Palimaka <kensington@gentoo.org> cmake-utils.eclass:
+  Bump CMake minimum version to latest stable.
+
+  08 Feb 2013; Patrick Lauer <patrick@gentoo.org> distutils.eclass:
+  Fixing confusing message in distutils.eclass
+
+  07 Feb 2013; Michael Palimaka <kensington@gentoo.org> cmake-utils.eclass:
+  Export src_prepare. Improve support for dev-util/ninja wrt bug #439608. Add
+  support for CMAKE_DISABLE_FIND_PACKAGE wrt bug #453746.
+
+  07 Feb 2013; Alexey Shvetsov <alexxy@gentoo.org> kde4-base.eclass,
+  kde4-functions.eclass, kde4-meta.eclass, kde4-meta-pkg.eclass:
+  Version bump KDE SC 4.10.0
+
+  04 Feb 2013; Pacho Ramos <pacho@gentoo.org> readme.gentoo.eclass:
+  Add a variable to stop autoformatting when not desired, use '-e' option for
+  echo in the autoformatting way to let people control it with sequences
+  recognized by it (see man echo), fix it to work ok with prebuilt packages
+  (#455030 by Brian Harring, Zac Medico and Fabio Erculiani)
+
+  04 Feb 2013; Michał Górny <mgorny@gentoo.org> python-utils-r1.eclass:
+  Introduce python_get_library_path() to obtain the path to the Python library.
+  Required by dev-python/shiboken.
+
+  04 Feb 2013; Michał Górny <mgorny@gentoo.org> python-utils-r1.eclass:
+  Introduce python_newscript(), to install scripts with renaming. Requested in
+  bug #454640.
 
   01 Feb 2013; Michał Górny <mgorny@gentoo.org> autotools-multilib.eclass,
   +multilib-build.eclass:
@@ -769,6 +842,9 @@
   19 Oct 2012; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
   Call no-op default phases for each implementation (meaningless but more
   correct).
+
+  19 Oct 2012; Patrick Lauer <patrick@gentoo.org> check-reqs.eclass:
+  Fixing units
 
   19 Oct 2012; Patrick Lauer <patrick@gentoo.org> check-reqs.eclass:
   Fixing units

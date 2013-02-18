@@ -1,6 +1,29 @@
 # ChangeLog for net-libs/gnutls
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gnutls/ChangeLog,v 1.403 2013/01/20 19:56:21 alonbl Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gnutls/ChangeLog,v 1.408 2013/02/10 14:35:24 flameeyes Exp $
+
+*gnutls-3.1.8 (10 Feb 2013)
+
+  10 Feb 2013; Diego E. Pettenò <flameeyes@gentoo.org> +gnutls-3.1.8.ebuild,
+  -gnutls-3.1.7.ebuild:
+  Version bump to 3.1.8 that, once again, connects to GTalk.
+
+  08 Feb 2013; Alexis Ballier <aballier@gentoo.org> gnutls-3.1.7.ebuild:
+  keyword ~amd64-fbsd
+
+  05 Feb 2013; Alon Bar-Lev <alonbl@gentoo.org> gnutls-3.1.7.ebuild:
+  Alter SRC_URI to some more generic expression
+
+*gnutls-2.12.23 (05 Feb 2013)
+
+  05 Feb 2013; Alon Bar-Lev <alonbl@gentoo.org> +gnutls-2.12.23.ebuild:
+  Version bump, bug#455560, solves GNUTLS-SA-2013-1
+
+*gnutls-3.1.7 (04 Feb 2013)
+
+  04 Feb 2013; Diego E. Pettenò <flameeyes@gentoo.org> +gnutls-3.1.7.ebuild:
+  Version bump; do not make heartbeat optional yet; fix automake dependency
+  properly to not require 1.11 when 1.12+ is installed.
 
   20 Jan 2013; Alon Bar-Lev <alonbl@gentoo.org>
   +files/gnutls-3.1.6-danetool.patch, gnutls-3.1.6.ebuild:

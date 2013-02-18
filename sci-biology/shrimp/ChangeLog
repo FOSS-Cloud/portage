@@ -1,6 +1,17 @@
 # ChangeLog for sci-biology/shrimp
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/shrimp/ChangeLog,v 1.17 2013/01/23 10:06:29 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/shrimp/ChangeLog,v 1.20 2013/02/17 11:14:56 jlec Exp $
+
+  17 Feb 2013; Justin Lecher <jlec@gentoo.org> shrimp-2.2.3.ebuild:
+  Force sse2 support by the cpu, #337401
+
+  17 Feb 2013; Justin Lecher <jlec@gentoo.org> shrimp-2.0.1.ebuild,
+  -shrimp-2.1.0.ebuild, shrimp-2.2.3.ebuild, metadata.xml:
+  Drop old; block collision with emboss, #450426; move to new python eclasses
+
+  05 Feb 2013; Ulrich Müller <ulm@gentoo.org> shrimp-2.0.1.ebuild,
+  shrimp-2.1.0.ebuild, shrimp-2.2.3.ebuild:
+  Specify LICENSE more precisely, see LICENSE file, bug 455566.
 
   23 Jan 2013; Patrick Lauer <patrick@gentoo.org> shrimp-2.0.1.ebuild,
   shrimp-2.1.0.ebuild, shrimp-2.2.3.ebuild:

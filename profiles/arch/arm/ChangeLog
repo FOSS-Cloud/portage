@@ -1,6 +1,24 @@
 # ChangeLog for Gentoo/ARM profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/ChangeLog,v 1.213 2013/02/02 22:12:05 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/ChangeLog,v 1.219 2013/02/16 09:20:31 eras Exp $
+
+  16 Feb 2013; Eray Aslan <eras@gentoo.org> package.use.mask:
+  Mask =dev-libs/cyrus-sasl-2.1.25-r4 java
+
+  10 Feb 2013; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
+  Mask =dev-libs/xapian-bindings-1.2.12-r1 cause it becomes stable wrt bug
+  #456550
+
+  08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> package.mask:
+  Remove KDE SC 4.10.0, wrt to bug #455960
+
+  07 Feb 2013; Alexey Shvetsov <alexxy@gentoo.org> package.mask:
+  Mask KDE SC 4.10.0 for keywording bug #455960
+
+  05 Feb 2013; Rick Farina <zerochaos@gentoo.org> use.mask package.use.mask:
+  removing java use mask, jre 1.6 is now available, 1.7 is next
+  adjust package.use.mask to keep the mask on stable packages with
+  java use flag
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask, use.mask:
   add -zeitgeist to use.mask and remove gnome-base/nautilus-3[sendto]

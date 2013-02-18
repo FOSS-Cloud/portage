@@ -1,6 +1,16 @@
 # ChangeLog for app-arch/rpm
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/rpm/ChangeLog,v 1.170 2013/01/21 16:20:05 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/rpm/ChangeLog,v 1.173 2013/02/15 11:38:31 scarabeus Exp $
+
+  15 Feb 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  -files/rpm-4.8.1-autotools.patch, -rpm-4.10.0.ebuild:
+  Cleanup older.
+
+  08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> rpm-4.10.2.ebuild:
+  Stable for s390, wrt bug #450286
+
+  08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> rpm-4.10.2.ebuild:
+  Stable for sh, wrt bug #450286
 
   21 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rpm-4.10.2.ebuild:
   Stable for sparc, wrt bug #450286
