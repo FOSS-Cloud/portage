@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/dialog/dialog-1.2.20121230.ebuild,v 1.10 2013/02/17 18:33:57 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/dialog/dialog-1.2.20121230.ebuild,v 1.12 2013/02/20 09:24:48 ago Exp $
 
 EAPI="4"
 
@@ -14,7 +14,7 @@ SRC_URI="ftp://invisible-island.net/${PN}/${PN}-${MY_PV}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ~ia64 ~m68k ~mips ppc ppc64 s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 IUSE="examples minimal nls static-libs unicode"
 
 RDEPEND="
@@ -44,23 +44,14 @@ src_configure() {
 
 src_install() {
 	if use minimal; then
-		emake DESTDIR="${D}" install
+		default
 	else
 		emake DESTDIR="${D}" install-full
 	fi
 
 	dodoc CHANGES README
 
-	if use examples; then
-		docinto samples
-		dodoc $( find samples -maxdepth 1 -type f )
-		docinto samples/copifuncs
-		dodoc $( find samples/copifuncs -maxdepth 1 -type f )
-		docinto samples/install
-		dodoc $( find samples/install -type f )
-	fi
+	use examples && dodoc -r samples
 
-	if ! use static-libs; then
-		rm -f "${ED}"usr/$(get_libdir)/libdialog.{la,a}
-	fi
+	use static-libs || prune_libtool_files
 }

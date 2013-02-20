@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/mailbase/mailbase-1.1.ebuild,v 1.10 2013/01/22 17:21:40 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/mailbase/mailbase-1.1.ebuild,v 1.13 2013/02/20 09:55:48 ago Exp $
 
 inherit pam eutils user
 
@@ -10,7 +10,7 @@ HOMEPAGE="http://www.gentoo.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 IUSE="pam"
 
 RDEPEND="pam? ( virtual/pam )"
@@ -59,12 +59,12 @@ get_permissions_oct() {
 pkg_postinst() {
 	if [[ "$(get_permissions_oct /var/spool/mail)" != "3775" ]] ; then
 		echo
-		ewarn "Your ${ROOT}/var/spool/mail/ directory permissions differ from"
+		ewarn "Your ${ROOT}var/spool/mail/ directory permissions differ from"
 		ewarn "  those which mailbase wants to set it to (03775)."
 		ewarn "  If you did not change them on purpose, consider running:"
 		ewarn
-		ewarn "    chown root:mail ${ROOT}/var/spool/mail/"
-		ewarn "    chmod 03775 ${ROOT}/var/spool/mail/"
+		ewarn "    chown root:mail ${ROOT}var/spool/mail/"
+		ewarn "    chmod 03775 ${ROOT}var/spool/mail/"
 		echo
 	fi
 }

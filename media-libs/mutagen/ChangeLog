@@ -1,6 +1,19 @@
 # ChangeLog for media-libs/mutagen
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mutagen/ChangeLog,v 1.91 2011/04/24 17:42:45 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/mutagen/ChangeLog,v 1.94 2013/02/18 15:41:24 floppym Exp $
+
+  18 Feb 2013; Mike Gilbert <floppym@gentoo.org> mutagen-1.21.ebuild:
+  Fix the test phase properly.
+
+  18 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> mutagen-1.21.ebuild:
+  Restore eyeD3 test dependency and run ./setup.py test again by overriding
+  distutils-r1 src_test()
+
+*mutagen-1.21 (18 Feb 2013)
+
+  18 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> +mutagen-1.21.ebuild:
+  Version bump wrt #458052 by Jamie Daws. Use distutils-r1 but it's like
+  src_test() is ignored.
 
   24 Apr 2011; Raúl Porcel <armin76@gentoo.org> mutagen-1.20.ebuild:
   sparc stable wrt #357427
@@ -333,4 +346,3 @@
   +mutagen-1.0.ebuild:
   Initial Commit. Slightly modified from the original ebuild by Kai Huuhko
   <kai.huuhko@gmail.com> attached to Bug #128482.
-

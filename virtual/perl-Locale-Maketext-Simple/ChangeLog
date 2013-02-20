@@ -1,6 +1,34 @@
 # ChangeLog for virtual/perl-Locale-Maketext-Simple
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Locale-Maketext-Simple/ChangeLog,v 1.25 2012/05/21 11:50:38 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Locale-Maketext-Simple/ChangeLog,v 1.32 2013/02/19 22:13:35 ago Exp $
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  perl-Locale-Maketext-Simple-0.210.0-r2.ebuild:
+  Stable for arm, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  perl-Locale-Maketext-Simple-0.210.0-r2.ebuild:
+  Stable for s390, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  perl-Locale-Maketext-Simple-0.210.0-r2.ebuild:
+  Stable for alpha, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  perl-Locale-Maketext-Simple-0.210.0-r2.ebuild:
+  Stable for hppa, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  perl-Locale-Maketext-Simple-0.210.0-r2.ebuild:
+  Stable for ppc, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
+  perl-Locale-Maketext-Simple-0.210.0-r2.ebuild:
+  Stable for ppc64, wrt bug #458122
+
+  18 Feb 2013; Zac Medico <zmedico@gentoo.org>
+  perl-Locale-Maketext-Simple-0.210.0-r2.ebuild:
+  Add ~arm-linux keyword.
 
 *perl-Locale-Maketext-Simple-0.210.0-r2 (21 May 2012)
 
@@ -115,4 +143,3 @@
   01 Nov 2008; Yuval Yaari <yuval@gentoo.org> +metadata.xml,
   +perl-Locale-Maketext-Simple-0.18.ebuild:
   Adding virtuals for dual-lifed modules that come with perl-5.10
-

@@ -1,6 +1,18 @@
 # ChangeLog for net-analyzer/mtr
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/mtr/ChangeLog,v 1.127 2012/05/10 21:48:15 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/mtr/ChangeLog,v 1.130 2013/02/20 14:07:12 jer Exp $
+
+  20 Feb 2013; Jeroen Roovers <jer@gentoo.org> +files/0.83-no_ipv6.patch,
+  mtr-0.83.ebuild:
+  Fix USE=-ipv6 (bug #456788).
+
+  20 Feb 2013; Jeroen Roovers <jer@gentoo.org> mtr-0.83.ebuild:
+  Fix USE=-gtk (where dev-libs/glib is still used, bug #456788).
+
+*mtr-0.83 (19 Feb 2013)
+
+  19 Feb 2013; Jeroen Roovers <jer@gentoo.org> +mtr-0.83.ebuild:
+  Version bump.
 
   10 May 2012; Tim Harder <radhermit@gentoo.org> -mtr-0.81.ebuild:
   Remove old.

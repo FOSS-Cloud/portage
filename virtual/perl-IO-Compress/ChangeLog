@@ -1,6 +1,33 @@
 # ChangeLog for virtual/perl-IO-Compress
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-IO-Compress/ChangeLog,v 1.58 2013/01/19 12:18:37 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-IO-Compress/ChangeLog,v 1.67 2013/02/19 22:06:49 ago Exp $
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-IO-Compress-2.60.0.ebuild:
+  Stable for arm, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-IO-Compress-2.60.0.ebuild:
+  Stable for s390, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-IO-Compress-2.60.0.ebuild:
+  Stable for alpha, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-IO-Compress-2.60.0.ebuild:
+  Stable for hppa, wrt bug #458122
+
+  19 Feb 2013; Zac Medico <zmedico@gentoo.org> perl-IO-Compress-2.60.0.ebuild:
+  Add ~arm-linux keyword.
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-IO-Compress-2.60.0.ebuild:
+  Stable for ppc, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-IO-Compress-2.60.0.ebuild:
+  Stable for ppc64, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-IO-Compress-2.60.0.ebuild:
+  Stable for x86, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-IO-Compress-2.60.0.ebuild:
+  Stable for amd64, wrt bug #458122
 
 *perl-IO-Compress-2.60.0 (19 Jan 2013)
 
@@ -274,4 +301,3 @@
   25 Apr 2009; Torsten Veller <tove@gentoo.org> +metadata.xml,
   +perl-IO-Compress-2.017.ebuild:
   Initial commit
-

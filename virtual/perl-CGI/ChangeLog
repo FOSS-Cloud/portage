@@ -1,6 +1,30 @@
 # ChangeLog for virtual/perl-CGI
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-CGI/ChangeLog,v 1.101 2012/11/17 19:18:59 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-CGI/ChangeLog,v 1.109 2013/02/19 21:59:33 ago Exp $
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Stable for arm, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Stable for s390, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Stable for alpha, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Stable for hppa, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Stable for ppc, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Stable for ppc64, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Stable for x86, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Stable for amd64, wrt bug #458122
 
 *perl-CGI-3.630.0 (17 Nov 2012)
 
@@ -388,4 +412,3 @@
   +perl-CGI-3.05.ebuild, +perl-CGI-3.07.ebuild, +perl-CGI-3.09.ebuild,
   +perl-CGI-3.10.ebuild, +perl-CGI-3.15.ebuild:
   New virtual for perl-core/CGI
-

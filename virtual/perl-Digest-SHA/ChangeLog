@@ -1,6 +1,27 @@
 # ChangeLog for virtual/perl-Digest-SHA
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Digest-SHA/ChangeLog,v 1.50 2013/01/25 21:18:59 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Digest-SHA/ChangeLog,v 1.57 2013/02/19 19:23:37 ago Exp $
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Digest-SHA-5.820.0.ebuild:
+  Stable for alpha, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Digest-SHA-5.820.0.ebuild:
+  Stable for hppa, wrt bug #458122
+
+  19 Feb 2013; Zac Medico <zmedico@gentoo.org> perl-Digest-SHA-5.820.0.ebuild:
+  Add ~arm-linux keyword.
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Digest-SHA-5.820.0.ebuild:
+  Stable for ppc, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Digest-SHA-5.820.0.ebuild:
+  Stable for ppc64, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Digest-SHA-5.820.0.ebuild:
+  Stable for x86, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Digest-SHA-5.820.0.ebuild:
+  Stable for amd64, wrt bug #458122
 
 *perl-Digest-SHA-5.820.0 (25 Jan 2013)
 
@@ -212,4 +233,3 @@
   +perl-Digest-SHA-5.45.ebuild, +perl-Digest-SHA-5.46.ebuild,
   +perl-Digest-SHA-5.47.ebuild:
   Adding virtuals for dual-lifed modules that come with perl-5.10
-

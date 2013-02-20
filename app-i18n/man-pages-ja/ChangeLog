@@ -1,6 +1,24 @@
 # ChangeLog for app-i18n/man-pages-ja
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/man-pages-ja/ChangeLog,v 1.35 2013/02/18 11:06:22 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/man-pages-ja/ChangeLog,v 1.41 2013/02/20 14:50:55 jer Exp $
+
+  20 Feb 2013; Jeroen Roovers <jer@gentoo.org> man-pages-ja-20111020.ebuild:
+  Stable for HPPA (bug #457620).
+
+  20 Feb 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20111020.ebuild:
+  Stable for s390, wrt bug #457620
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20111020.ebuild:
+  Stable for alpha, wrt bug #457620
+
+  19 Feb 2013; Sergey Popov <pinkbyte@gentoo.org> man-pages-ja-20111020.ebuild:
+  Stable on arm, wrt bug #457620
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20111020.ebuild:
+  Stable for ppc64, wrt bug #457620
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20111020.ebuild:
+  Stable for ppc, wrt bug #457620
 
   18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20111020.ebuild:
   Stable for x86, wrt bug #457620

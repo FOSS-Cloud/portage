@@ -1,6 +1,27 @@
 # ChangeLog for perl-core/bignum
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/bignum/ChangeLog,v 1.40 2012/09/13 19:05:16 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/bignum/ChangeLog,v 1.47 2013/02/19 21:57:42 ago Exp $
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> bignum-0.300.0.ebuild:
+  Stable for arm, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> bignum-0.300.0.ebuild:
+  Stable for s390, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> bignum-0.300.0.ebuild:
+  Stable for alpha, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> bignum-0.300.0.ebuild:
+  Stable for hppa, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> bignum-0.300.0.ebuild:
+  Stable for ppc, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> bignum-0.300.0.ebuild:
+  Stable for x86, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> bignum-0.300.0.ebuild:
+  Stable for amd64, wrt bug #458122
 
 *bignum-0.300.0 (13 Sep 2012)
 

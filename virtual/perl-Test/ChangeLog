@@ -1,6 +1,30 @@
 # ChangeLog for virtual/perl-Test
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Test/ChangeLog,v 1.11 2013/01/19 12:02:56 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Test/ChangeLog,v 1.19 2013/02/19 22:11:26 ago Exp $
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Test-1.260.0.ebuild:
+  Stable for arm, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Test-1.260.0.ebuild:
+  Stable for s390, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Test-1.260.0.ebuild:
+  Stable for alpha, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Test-1.260.0.ebuild:
+  Stable for hppa, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Test-1.260.0.ebuild:
+  Stable for ppc, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Test-1.260.0.ebuild:
+  Stable for ppc64, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Test-1.260.0.ebuild:
+  Stable for x86, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-Test-1.260.0.ebuild:
+  Stable for amd64, wrt bug #458122
 
 *perl-Test-1.260.0 (19 Jan 2013)
 
@@ -46,4 +70,3 @@
   07 Feb 2006; Michael Cummings <mcummings@gentoo.org> +metadata.xml,
   +perl-Test-1.24.ebuild, +perl-Test-1.25.ebuild:
   New virtual for perl-core/Test
-

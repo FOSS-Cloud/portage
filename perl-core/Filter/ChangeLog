@@ -1,6 +1,27 @@
 # ChangeLog for perl-core/Filter
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/Filter/ChangeLog,v 1.37 2013/01/20 11:25:18 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/perl-core/Filter/ChangeLog,v 1.44 2013/02/19 21:50:57 ago Exp $
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> Filter-1.450.0.ebuild:
+  Stable for arm, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> Filter-1.450.0.ebuild:
+  Stable for s390, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> Filter-1.450.0.ebuild:
+  Stable for alpha, wrt bug #458122
+
+  19 Feb 2013; Agostino Sarubbo <ago@gentoo.org> Filter-1.450.0.ebuild:
+  Stable for hppa, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> Filter-1.450.0.ebuild:
+  Stable for ppc, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> Filter-1.450.0.ebuild:
+  Stable for x86, wrt bug #458122
+
+  18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> Filter-1.450.0.ebuild:
+  Stable for amd64, wrt bug #458122
 
 *Filter-1.450.0 (20 Jan 2013)
 
