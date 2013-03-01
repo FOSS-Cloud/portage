@@ -1,6 +1,19 @@
 # ChangeLog for net-print/hplip
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.261 2013/02/14 19:17:34 billie Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.264 2013/02/24 10:52:07 billie Exp $
+
+  24 Feb 2013; Daniel Pielmeier <billie@gentoo.org> hplip-3.13.2-r1.ebuild:
+  Use PYTHON_USEDEP for notify-python as it now uses python-r1.
+
+*hplip-3.13.2-r1 (21 Feb 2013)
+
+  21 Feb 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.2.ebuild,
+  +hplip-3.13.2-r1.ebuild:
+  Ensure correct permissions for /var/tmp/hp when upgrading from versions
+  affected by bug #452586.
+
+  21 Feb 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.12.11.ebuild:
+  Remove vulnerable version. See bug #452586.
 
   14 Feb 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.12.11-r1.ebuild:
   Remove old.

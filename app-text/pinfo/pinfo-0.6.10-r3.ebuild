@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/pinfo/pinfo-0.6.10-r3.ebuild,v 1.7 2012/06/17 18:36:19 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/pinfo/pinfo-0.6.10-r3.ebuild,v 1.8 2013/02/27 20:20:39 jer Exp $
 
 EAPI=4
 
@@ -16,7 +16,7 @@ KEYWORDS="alpha amd64 hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd"
 IUSE="nls readline"
 
 RDEPEND="
-	sys-libs/ncurses
+	sys-libs/ncurses[-tinfo]
 	nls? ( virtual/libintl )
 "
 

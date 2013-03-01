@@ -1,6 +1,57 @@
 # ChangeLog for app-emulation/qemu
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.186 2013/02/17 22:05:22 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.198 2013/02/28 16:07:36 cardoe Exp $
+
+  28 Feb 2013; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
+  TODO no longer exists in the top level. Items are tracked in the bug tracker
+  now
+
+  28 Feb 2013; Tiziano Müller <dev-zero@gentoo.org> qemu-1.4.0.ebuild:
+  Block libcacard since qemu is libcacard upstream and bundles/installs it from
+  now on. Also block spice[smartcard] if smartcard-support in qemu is requested
+  since that one is pulling in libcacard and to make sure users know what to do.
+  Renaming the binary is then not required anymore.
+
+  26 Feb 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.2-r4.ebuild,
+  qemu-1.4.0.ebuild:
+  Fix more typos
+
+  26 Feb 2013; Doug Goldstein <cardoe@gentoo.org> -qemu-1.3.0.ebuild:
+  Remove older version
+
+  26 Feb 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.2-r4.ebuild,
+  qemu-1.4.0.ebuild:
+  Fix fcaps usage
+
+  25 Feb 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.4.0.ebuild:
+  Fix patch to virtfs-proxy-helper
+
+  25 Feb 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.2.2-r3.ebuild:
+  Stable for x86, wrt bug #459094
+
+  25 Feb 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.2.2-r3.ebuild:
+  Stable for amd64, wrt bug #459094
+
+  25 Feb 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.4.0.ebuild,
+  metadata.xml:
+  Fix up depends. Disable building of tools for the user emulation targets to
+  remove some necessary depends. Fix automagical depend on GnuTLS when VNC
+  WebSockets are enabled.
+
+  25 Feb 2013; Doug Goldstein <cardoe@gentoo.org> +files/qemu-kvm-1.4,
+  qemu-1.4.0.ebuild:
+  Patches from Cole Robinson for qemu-kvm -> qemu migration fixes.
+  Start on the stable 1.4 patch series. New qemu-kvm wrapper.
+
+*qemu-1.2.2-r4 (25 Feb 2013)
+
+  25 Feb 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.2.2-r4.ebuild,
+  qemu-1.4.0.ebuild:
+  Support file capabilities for helper binaries
+
+  21 Feb 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.2.2-r3.ebuild,
+  +files/bridge.conf:
+  Add example qemu-bridge-helper config script.
 
   17 Feb 2013; Mike Frysinger <vapier@gentoo.org> files/qemu-binfmt.initd,
   files/qemu-binfmt.initd-r1:

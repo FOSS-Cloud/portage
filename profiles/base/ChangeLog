@@ -1,6 +1,23 @@
 # ChangeLog for Gentoo base-profile
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.505 2013/02/20 02:41:59 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.510 2013/02/27 23:20:53 mgorny Exp $
+
+  27 Feb 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Mask x32 ABI in base profile. Unmasked in specific profile.
+
+  26 Feb 2013; Michał Górny <mgorny@gentoo.org> package.use.force:
+  Force "development" flag on emul-linux-x86-xlibs meta-package since it is no
+  longer effective.
+
+  24 Feb 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Mask the systemd flag globally. Unmasked in 13.0 profiles.
+
+  21 Feb 2013; Justin Lecher <jlec@gentoo.org> package.use.mask:
+  cuda only works on x86 and amd64
+
+  21 Feb 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  Mask >=media-plugins/gst-plugins-meta-1.0[vpx] because requires new libvpx
+  and is not ready to go to stable
 
   20 Feb 2013; Julian Ospald <hasufell@gentoo.org> package.use.mask:
   mask system-wine useflag for net-misc/teamviewer

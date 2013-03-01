@@ -1,6 +1,25 @@
 # ChangeLog for www-servers/apache
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/ChangeLog,v 1.204 2013/02/16 13:07:31 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/ChangeLog,v 1.207 2013/02/28 22:17:52 chainsaw Exp $
+
+*apache-2.2.24 (28 Feb 2013)
+
+  28 Feb 2013; Tony Vroon <chainsaw@gentoo.org> +apache-2.2.24.ebuild:
+  Upstream security fix adds "SSLCompression" parameter to disable flawed
+  compression support and thus protect against the CRIME attack. For security
+  bug #438680 filed by Hanno Boeck.
+
+*apache-2.4.4-r1 (27 Feb 2013)
+
+  27 Feb 2013; Tony Vroon <chainsaw@gentoo.org> +apache-2.4.4-r1.ebuild,
+  metadata.xml:
+  Add support for mod_proxy_fcgi; work by Dan Kozlowski rediffed by Jaco Kroon.
+  Testing by Tomas Mozes & Marios Andreopoulos in bug #421135.
+
+*apache-2.4.4 (27 Feb 2013)
+
+  27 Feb 2013; Patrick Lauer <patrick@gentoo.org> +apache-2.4.4.ebuild:
+  Bump for #459264 #438758
 
   16 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due bug #96436

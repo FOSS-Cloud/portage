@@ -1,12 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.4.0.ebuild,v 1.1 2013/02/16 21:43:26 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.4.0.ebuild,v 1.8 2013/02/28 12:16:33 dev-zero Exp $
 
 EAPI=5
 
 PYTHON_DEPEND="2:2.4"
-inherit eutils flag-o-matic linux-info toolchain-funcs multilib python user udev
-#BACKPORTS=7c9a3a87
+inherit eutils flag-o-matic linux-info toolchain-funcs multilib python \
+	user udev fcaps
+BACKPORTS=ebc00c94
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://git.qemu.org/qemu.git"
@@ -59,6 +60,7 @@ REQUIRED_USE="${REQUIRED_USE}
 LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	sys-apps/pciutils[static-libs(+)]
 	sys-libs/zlib[static-libs(+)]
+	>=x11-libs/pixman-0.28.0[static-libs(+)]
 	aio? ( dev-libs/libaio[static-libs(+)] )
 	caps? ( sys-libs/libcap-ng[static-libs(+)] )
 	curl? ( >=net-misc/curl-7.15.4[static-libs(+)] )
@@ -70,7 +72,8 @@ LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	sasl? ( dev-libs/cyrus-sasl[static-libs(+)] )
 	sdl? ( >=media-libs/libsdl-1.2.11[static-libs(+)] )
 	seccomp? ( >=sys-libs/libseccomp-1.0.1[static-libs(+)] )
-	spice? ( >=app-emulation/spice-0.12.0[static-libs(+)] )
+	spice? ( >=app-emulation/spice-0.12.0[static-libs(+)]
+		smartcard? ( app-emulation/spice[-smartcard] ) )
 	tls? ( net-libs/gnutls[static-libs(+)] )
 	uuid? ( >=sys-apps/util-linux-2.16.0[static-libs(+)] )
 	vde? ( net-misc/vde[static-libs(+)] )
@@ -98,10 +101,10 @@ RDEPEND="!static-softmmu? ( ${LIB_DEPEND//\[static-libs(+)]} )
 	python? ( =dev-lang/python-2*[ncurses] )
 	sdl? ( media-libs/libsdl[X] )
 	selinux? ( sec-policy/selinux-qemu )
-	smartcard? ( dev-libs/nss )
-	spice? ( >=app-emulation/spice-protocol-0.12.2 )
+	smartcard? ( dev-libs/nss !app-emulation/libcacard )
+	spice? ( >=app-emulation/spice-protocol-0.12.3 )
 	systemtap? ( dev-util/systemtap )
-	usbredir? ( >=sys-apps/usbredir-0.5.3 )
+	usbredir? ( >=sys-apps/usbredir-0.6 )
 	virtfs? ( sys-libs/libcap )
 	xen? ( app-emulation/xen-tools )"
 
@@ -250,11 +253,13 @@ qemu_src_configure() {
 		conf_opts+=" --target-list=${user_targets}"
 		conf_opts+=" --disable-bluez"
 		conf_opts+=" --disable-sdl"
+		conf_opts+=" --disable-tools"
 	fi
 
 	if [[ ${buildtype} == "softmmu" ]]; then
 		conf_opts+=" --disable-linux-user"
 		conf_opts+=" --enable-system"
+		conf_opts+=" --with-system-pixman"
 		conf_opts+=" --target-list=${softmmu_targets}"
 		conf_opts+=" $(use_enable bluetooth bluez)"
 		conf_opts+=" $(use_enable sdl)"
@@ -275,6 +280,7 @@ qemu_src_configure() {
 		conf_opts+=" $(use_enable smartcard smartcard-nss)"
 		conf_opts+=" $(use_enable spice)"
 		conf_opts+=" $(use_enable tls vnc-tls)"
+		conf_opts+=" $(use_enable tls vnc-ws)"
 		conf_opts+=" $(use_enable usbredir usb-redir)"
 		conf_opts+=" $(use_enable uuid)"
 		conf_opts+=" $(use_enable vde)"
@@ -287,6 +293,7 @@ qemu_src_configure() {
 		conf_opts+=" $(use_enable xfs xfsctl)"
 		use mixemu && conf_opts+=" --enable-mixemu"
 		conf_opts+=" --audio-drv-list=${audio_opts}"
+		conf_opts+=" --enable-migration-from-qemu-kvm"
 	fi
 
 	conf_opts+=" $(use_enable debug debug-info)"
@@ -382,25 +389,26 @@ src_install() {
 		fi
 
 		if use qemu_softmmu_targets_x86_64 ; then
-			dosym /usr/bin/qemu-system-x86_64 /usr/bin/qemu-kvm
+			newbin "${FILESDIR}/qemu-kvm-1.4" qemu-kvm
 			ewarn "The deprecated '/usr/bin/kvm' symlink is no longer installed"
 			ewarn "You should use '/usr/bin/qemu-kvm', you may need to edit"
 			ewarn "your libvirt configs or other wrappers for ${PN}"
 		elif use x86 || use amd64; then
 			elog "You disabled QEMU_SOFTMMU_TARGETS=x86_64, this disables install"
-			elog "of the /usr/bin/qemu-kvm symlink."
+			elog "of the /usr/bin/qemu-kvm script."
 		fi
 
 		use python && dobin "${S}/scripts/kvm/kvm_stat"
 		use python && dobin "${S}/scripts/kvm/vmxcap"
 	fi
 
+	# Install config file example for qemu-bridge-helper
+	insinto "/etc/qemu"
+	doins "${FILESDIR}/bridge.conf"
+
 	cd "${S}"
 	dodoc Changelog MAINTAINERS TODO docs/specs/pci-ids.txt
 	newdoc pc-bios/README README.pc-bios
-
-	# Avoid collision with app-emulation/libcacard
-	use smartcard && mv "${ED}/usr/bin/vscclient" "${ED}/usr/bin/qemu-vscclient"
 
 	# Remove SeaBIOS since we're using the SeaBIOS packaged one
 	rm "${ED}/usr/share/qemu/bios.bin"
@@ -441,6 +449,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	local virtfs_caps=
+
 	if qemu_support_kvm; then
 		elog "If you don't have kvm compiled into the kernel, make sure you have"
 		elog "the kernel module loaded before running kvm. The easiest way to"
@@ -453,6 +463,12 @@ pkg_postinst() {
 		elog "Just run 'gpasswd -a <USER> kvm', then have <USER> re-login."
 		elog
 	fi
+
+	virtfs_caps+="cap_chown,cap_dac_override,cap_fowner,cap_fsetid,"
+	virtfs_caps+="cap_setgid,cap_mknod,cap_setuid"
+
+	fcaps cap_net_admin /usr/libexec/qemu-bridge-helper
+	use virtfs && fcaps ${virtfs_caps} /usr/bin/virtfs-proxy-helper
 
 	elog "The ssl USE flag was renamed to tls, so adjust your USE flags."
 	elog "The nss USE flag was renamed to smartcard, so adjust your USE flags."

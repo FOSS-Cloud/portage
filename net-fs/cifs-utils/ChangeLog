@@ -1,6 +1,23 @@
 # ChangeLog for net-fs/cifs-utils
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/cifs-utils/ChangeLog,v 1.47 2013/01/01 19:05:38 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/cifs-utils/ChangeLog,v 1.50 2013/02/25 12:07:15 polynomial-c Exp $
+
+*cifs-utils-5.9-r1 (25 Feb 2013)
+
+  25 Feb 2013; Lars Wendler <polynomial-c@gentoo.org> -cifs-utils-5.9.ebuild,
+  +cifs-utils-5.9-r1.ebuild,
+  +files/cifs-utils-5.9-set-parsed_info-got_user-when-a-cred-file.patch:
+  Mounting with credentials file fixed. Thanks to Michael Buchfink for
+  reporting this in bug #459040.
+
+*cifs-utils-5.9 (22 Feb 2013)
+
+  22 Feb 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -cifs-utils-5.5-r1.ebuild, +cifs-utils-5.9.ebuild:
+  Non-maintainer commit: Version bump. Removed old.
+
+  22 Feb 2013; Zac Medico <zmedico@gentoo.org> cifs-utils-5.8-r1.ebuild:
+  Fix for prefix and add ~arm-linux + ~x86-linux keywords.
 
   01 Jan 2013; Raúl Porcel <armin76@gentoo.org> cifs-utils-5.6-r1.ebuild:
   s390/sh stable wrt #444672

@@ -13,4 +13,7 @@
   <use>
     <flag name="umfpack">Adds support for sparse solving with <pkg>sci-libs/umfpack</pkg></flag>
   </use>
+  <upstream>
+    <remote-id type="pypi">scipy</remote-id>
+  </upstream>
 </pkgmetadata>

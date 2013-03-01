@@ -491,7 +491,7 @@ app-emulation/qemu:static-softmmu - Builds the Software MMU (system) targets as 
 app-emulation/qemu:static-user - Build the User targets as static binaries
 app-emulation/qemu:systemtap - Enable SystemTAP/DTrace tracing
 app-emulation/qemu:tci - Enable the TCG Interpreter which can speed up or slowdown workloads depending on the host and guest CPUs being emulated. In the future it will be a runtime option but for now its compile time.
-app-emulation/qemu:tls - Enable TLS support for the VNC console server
+app-emulation/qemu:tls - Enable TLS support for the VNC console server. For 1.4 and newer this also enables WebSocket support.
 app-emulation/qemu:usbredir - Use sys-apps/usbredir to redirect USB devices to another machine over TCP
 app-emulation/qemu:uuid - Enable UUID support in the vdi block driver
 app-emulation/qemu:vde - Enable VDE-based networking
@@ -548,6 +548,7 @@ app-emulation/wine:udisks - Support dynamic storage devices using sys-fs/udisks
 app-emulation/wine:win32 - Build a 32bit version of Wine (won't run Win64 binaries)
 app-emulation/wine:win64 - Build a 64bit version of Wine (won't run Win32 binaries)
 app-emulation/x48:readline - Enables support for libreadline
+app-emulation/xen:efi - Adds efi boot support, requires LDFLAG -melf_x86_64 for amd64
 app-emulation/xen:flask - Enable the Flask XSM module from NSA
 app-emulation/xen:pae - Enable support for PAE kernels (usually x86-32 with >4GB memory)
 app-emulation/xen:xsm - Enable the Xen Security Modules (XSM)
@@ -609,6 +610,9 @@ app-i18n/libtomoe-gtk:gucharmap - Enable gucharmap dictionary plugin
 app-i18n/mozc:ibus - Enable support for app-i18n/ibus
 app-i18n/mozc:renderer - Enable native candidate window.
 app-i18n/mozc:scim - Enable support for app-i18n/scim
+app-i18n/pyzy:boost - Enable support for dev-libs/boost
+app-i18n/pyzy:doc - Enable support for documents
+app-i18n/pyzy:opencc - Use app-i18n/opencc for input
 app-i18n/scim:gtk3 - Enable support for x11-libs/gtk+:3
 app-i18n/scim-tomoe:gucharmap - Enable gucharmap dictionary plugin
 app-i18n/tomoe:hyperestraier - Enable support for app-text/hyperestraier
@@ -867,6 +871,7 @@ app-shells/pdsh:rsh - This allows the use of rsh (remote shell) and rcp (remote 
 app-shells/scsh-install-lib:scsh - Use a non-FHS directory layout
 app-shells/shish:diet - Use dev-libs/dietlibc
 app-shells/tcsh:catalogs - Add support for NLS catalogs
+app-text/acroread:html - HTML support and help reading capability (only for x86).
 app-text/asciidoc:highlight - Enable source code highlighting
 app-text/calibre:udisks - Add run-time dependency on sys-fs/udisks in order to mount and unmount reading devices.
 app-text/cb2bib:poll - Use clipboard polling
@@ -1388,11 +1393,6 @@ dev-libs/glib:systemtap - Build support for profiling and tracing using dev-util
 dev-libs/glib:utils - Install gtester-report utility to generate test report files for your software.
 dev-libs/gmp:pgo - after building gmp, run some tests against to produce faster libraries -- this option will double the compile time
 dev-libs/gobject-introspection:doctool - Install g-ir-doc-tool for generating documentation from introspected data
-dev-libs/igraph:arpack - Use external sci-libs/arpack
-dev-libs/igraph:blas - Use external virtual/blas numerical library
-dev-libs/igraph:gmp - Enables dev-libs/gmp support
-dev-libs/igraph:gprof - Enables profiling support
-dev-libs/igraph:lapack - Use external lapack numerical library
 dev-libs/intel-common:compiler - Install the libraries needed for the icc and ifort compilers
 dev-libs/jemalloc:stats - Enable statistics calculation/reporting
 dev-libs/keybinder:introspection - Use dev-libs/gobject-introspection for introspection
@@ -1444,6 +1444,10 @@ dev-libs/libverto:libevent - Support event loops using dev-libs/libevent
 dev-libs/libverto:tevent - Support event loops using sys-libs/tevent
 dev-libs/link-grammar:aspell - Adds support for app-text/aspell spell checker
 dev-libs/link-grammar:hunspell - Adds support for app-text/hunspell spell checker
+dev-libs/log4cplus:iconv - Use inconv for wchar_t <-> char conversions. See also log4cplus's unicode.txt documentation
+dev-libs/log4cplus:qt - Build the liblog4cplusqt4debugappender library that implements Qt4DebugAppender
+dev-libs/log4cplus:working-c-locale - Use the C99 locale facilities for wchar_t <-> char conversions. See also log4cplus's unicode.txt documentation
+dev-libs/log4cplus:working-locale - Use C++'s std::locale for wchar_t <-> char conversions. See also log4cplus's unicode.txt documentation
 dev-libs/log4cxx:smtp - Offer SMTP support via net-libs/libesmtp
 dev-libs/m17n-lib:X - Builds the Graphical User Interface API and utilities for the package.
 dev-libs/m17n-lib:anthy - Enable support for app-i18n/anthy input method.
@@ -1979,6 +1983,7 @@ games-engines/odamex:master - Build master server target (advertises odamex serv
 games-engines/odamex:odalaunch - Build the wxwidgets based launcher.
 games-engines/odamex:portmidi - Enable portmidi support.
 games-engines/odamex:server - Build server target.
+games-engines/renpy:development - Install IDE for game developers and an empty game template
 games-engines/scummvm:fluidsynth - compile with support for fluidsynth
 games-fps/alienarena:vidmode - Link against x11-libs/libXxf86vm. Required for full-screen support.
 games-fps/darkplaces:cdsound - Enables using CD audio in the engine
@@ -2027,6 +2032,7 @@ games-fps/warsow:angelscript - Enable AngelScript support
 games-fps/warsow:irc - Enable IRC support
 games-fps/warsow:server - Build server binaries additionally
 games-fps/worldofpadman:maps - Install extra maps (PadPack)
+games-misc/katawa-shoujo:system-renpy - Use games-engines/renpy instead of the bundled one (experimental)
 games-misc/xcowsay:fortune - Installs the fortune-mod xcow binary
 games-mud/tf:atcp - enable ATCP support.
 games-mud/tf:gmcp - enable GMCP support.
@@ -2629,6 +2635,7 @@ media-gfx/nvidia-texture-tools:cg - Enable NVIDIA C graphics compiler toolkit pl
 media-gfx/nvidia-texture-tools:cuda - Enable NVIDIA CUDA toolkit support
 media-gfx/nvidia-texture-tools:glew - Enable support for The OpenGL Extension Wrangler Library (media-libs/glew)
 media-gfx/openclipart:gzip - Compresses clip art using gzip
+media-gfx/pngcrush:system-libs - Use libpng and libz provided by system
 media-gfx/postr:gnome2 - Install plugin for =gnome-base/nautilus-2*. Warning: will make =nautilus-3* crash.
 media-gfx/potrace:metric - default to a4 paper size and metric measurement
 media-gfx/povray:mkl - Enable support for Intel Vector Math Library, part of sci-libs/mkl
@@ -2831,6 +2838,7 @@ media-libs/swfdec:gstreamer - Enable media-libs/gstreamer to support various med
 media-libs/swfdec:gtk - Enable GTK+ convenience library while is necessary for all GTK+ apps using swfdec (gnome-extra/swfdec-gnome and www-plugins/swfdec-mozilla)
 media-libs/swfdec:pulseaudio - Use media-sound/pulseaudio for audio output
 media-libs/taglib:asf - Provide support for Microsoft's 'advanced systems format' media container.
+media-libs/tremor:low-accuracy - enable 32bit only multiply operations
 media-libs/vips:fits - Enable support for the FITS image format through sci-libs/cfitsio
 media-libs/win32codecs:real - Installs the real video codecs
 media-libs/x264:10bit - Set output bit depth to 10, this may not be compatible with all decoders
@@ -2952,6 +2960,7 @@ media-sound/amarok:mp3tunes - Enable mp3tunes integration
 media-sound/amarok:mtp - Enable support for libMTP (Plays4Sure) devices access through libmtp
 media-sound/amarok:ofa - Use media-libs/libofa to compute MusicDNS acoustic fingerprints (used by MusicBrainz)
 media-sound/amarok:utils - Build the utils - old media-sound/amarok-utils
+media-sound/amsynth:dssi - Enable support for DSSI Soft Synth Interface
 media-sound/aqualung:ifp - Enable support for iRiver iFP portable audio players
 media-sound/aqualung:lua - Enable support for programmable title formatting with dev-lang/lua
 media-sound/aqualung:mac - Enable support for decoding Monkey's Audio files
@@ -3611,6 +3620,7 @@ net-analyzer/echoping:tos - enable support for TOS (TYpe Of Service).
 net-analyzer/ettercap:plugins - Install ettercap plugins (et_*.so)
 net-analyzer/flowgrind:pcap - Enable packet capturing support using net-libs/libpcap
 net-analyzer/fprobe:messages - enable console messages
+net-analyzer/httping:tfo - Enable support for TCP Fast Open
 net-analyzer/hydra:ncp - NCP protocol (NetWare) support through net-fs/ncpfs
 net-analyzer/icinga:eventhandler - Adds support for running custom scripts whenever a host or service state change occurs
 net-analyzer/icinga:idoutils - Adds DB support
@@ -4229,6 +4239,9 @@ net-libs/gupnp:connman - Add support for net-misc/connman
 net-libs/gupnp:introspection - Use dev-libs/gobject-introspection for introspection
 net-libs/gupnp-av:introspection - Use dev-libs/gobject-introspection for introspection
 net-libs/gupnp-igd:introspection - Use dev-libs/gobject-introspection for introspection
+net-libs/h323plus:aec - Enable acoustic echo cancellation
+net-libs/h323plus:audio - Enable audio codecs
+net-libs/h323plus:video - Enable video codecs
 net-libs/iax:snomhack - Use slower memset for SNOM phoneem
 net-libs/ldns:ecdsa - Enable ECDSA support
 net-libs/ldns:gost - Enable GOST support
@@ -4577,8 +4590,12 @@ net-misc/nxserver-freenx:nxclient - Allow to install net-misc/nxclient in parall
 net-misc/ofono:atmodem - ETSI AT modem support.
 net-misc/ofono:bluetooth - Enable Bluetooth modem support using net-wireless/bluez.
 net-misc/ofono:cdmamodem - Enable CDMA modem support.
+net-misc/ofono:datafiles - Enable install configuration and data files.
+net-misc/ofono:dundee - Enable BlueTooth DUN deamon support.
 net-misc/ofono:isimodem - Enable PhoNet/ISI modem support.
 net-misc/ofono:phonesim - Enable phone Simulator support
+net-misc/ofono:provision - Enable GPRS provisioning support
+net-misc/ofono:qmimodem - Enable Qualcomm QMI modem support
 net-misc/ofono:tools - Enable testing tools
 net-misc/oidentd:masquerade - Enable support for masqueraded/NAT connections
 net-misc/openconnect:openssl - Enable dev-libs/openssl support
@@ -4643,6 +4660,32 @@ net-misc/spice-gtk:introspection - Use dev-libs/gobject-introspection for intros
 net-misc/spice-gtk:policykit - Enable sys-auth/polkit support for the usbredir acl helper
 net-misc/spice-gtk:usbredir - Use sys-apps/usbredir to redirect USB devices to another machine over TCP
 net-misc/spice-gtk:vala - Generate dev-lang/vala bindings using vapigen and regenerate .vala files using valac
+net-misc/stargazer:debug - Enable extra debug codepaths, like asserts and extra output.
+net-misc/stargazer:doc - Adds extra documentation (API, doc, etc).
+net-misc/stargazer:examples - Install examples, usually source code.
+net-misc/stargazer:module_auth_always_online - Enable build of "Always Online" authentication module for Stargazer.
+net-misc/stargazer:module_auth_freeradius - Enable build of "Radius" authentication module for Stargazer. This module capable of using RADIUS procotol for user authentication.
+net-misc/stargazer:module_auth_internet_access - Enable build of "InetAccess" authentication module for Stargazer. InetAccess is a Stargazer specific authentication protocol.
+net-misc/stargazer:module_capture_ether - Enable build of "Ethernet" traffic capture module for Stargazer. This module uses RAW sockets to capture traffic.
+net-misc/stargazer:module_capture_ipq - Enable build of "IPQ" traffic capture module for Stargazer. This module uses IPQ subsystem to capture traffic.
+net-misc/stargazer:module_capture_netflow - Enable build of "NetFlow" traffic capture module for Stargazer. This module capable of receiving traffic data by NetFlow protocol.
+net-misc/stargazer:module_config_rpcconfig - Enable build of "XMLRPC" configuration module for Stargazer. This module uses XML-RPC protocol for configuring Stargazer.
+net-misc/stargazer:module_config_sgconfig - Enable build of "SGConf" configuration module for Stargazer. This module uses Stargazer specific protocol for configuring Stargazer.
+net-misc/stargazer:module_other_ping - Enable build of "Ping" module for Stargazer. This module pings connected users from time to time to ensure they are alive.
+net-misc/stargazer:module_other_remote_script - Enable build of "Remote Script" module for Stargazer. This module control rscriptd daemon over the net and makes it execute scripts in reaction to different Stargazer events.
+net-misc/stargazer:module_other_smux - Enable build of SMUX module for Stargazer. This module uses SMUX protocol to provide various information about Stargazer.
+net-misc/stargazer:module_store_files - Enable build of storage plugin for Stargazer based on plain files.
+net-misc/stargazer:module_store_firebird - Enable build of storage plugin for Stargazer, which uses Firebird database for storage.
+net-misc/stargazer:module_store_mysql - Enable build of storage plugin for Stargazer, which uses MySQL for storage.
+net-misc/stargazer:module_store_postgres - Enable build of storage plugin for Stargazer, which uses PostgreSQL for storage.
+net-misc/stargazer:radius - Enable build of FreeRADIUS module for data access via Stargazer.
+net-misc/stargazer:rscriptd - Enable build of remote script execute daemon for Stargazer, which run scripts when receive special signal from Stargazer.
+net-misc/stargazer:sgauth - Enable build of command-line utility for authorization in Stargazer.
+net-misc/stargazer:sgconf - Enable build of command-line utility for configuring Stargazer.
+net-misc/stargazer:sgconf_xml - Enable build of command-line xml-based utility for configuring Stargazer.
+net-misc/stargazer:sgconv - Enable build of utility to convert Stargazer data between storage backends.
+net-misc/stargazer:stargazer - Enable build of Stargazer billing system.
+net-misc/stargazer:static-libs - Install static libraries.
 net-misc/streamtuner:shout - Enable shoutcast plug-in.
 net-misc/streamtuner:xiph - Enable xiph.org plug-in.
 net-misc/strongswan:dhcp - Enable server support for querying virtual IP addresses for clients from a DHCP server. (IKEv2 only)
@@ -4699,6 +4742,7 @@ net-nds/389-ds-base:pam-passthru - Enable pam-passthru plugin - for simple and f
 net-nds/389-ds-base:presence - Enable presence plugin - non-stabdart syntax validation
 net-nds/gosa-core:mail - Manage mail accounts and servers with gosa.
 net-nds/gosa-core:samba - Manage samba accounts with gosa.
+net-nds/ldapvi:gnutls - Use net-libs/gnutls instead of dev-libs/openssl
 net-nds/nsscache:nsscache - Depend on sys-auth/libnss-cache to handle flat files
 net-nds/nsscache:nssdb - Depend on sys-libs/libnss_db to handle dbm files.
 net-nds/openldap:experimental - Enable experimental backend options
@@ -4925,7 +4969,7 @@ sci-astronomy/predict:xforms - Add a "map" client which uses the x11-libs/xforms
 sci-astronomy/predict:xplanet - Project predict data onto world maps generated by x11-misc/xplanet / x11-misc/xearth
 sci-astronomy/stellarium:stars - Install extra star catalogs
 sci-astronomy/wcslib:fits - Enable support for the FITS format through sci-libs/cfitsio
-sci-astronomy/wcslib:pgplot - Builds routines for the sci-libs/pgplot library
+sci-astronomy/wcslib:pgplot - Builds PGBSOX routines, needs sci-libs/pgplot library
 sci-biology/amos:qt - Compile the hawkeye assembly viewer
 sci-biology/bioperl:db - Install sci-biology/bioperl-run
 sci-biology/bioperl:network - Install sci-biology/bioperl-run
@@ -5787,7 +5831,6 @@ www-apache/mod_suphp:checkpath - Check if script resides in DOCUMENT_ROOT
 www-apache/mod_suphp:mode-force - Run scripts with UID/GID specified in Apache configuration
 www-apache/mod_suphp:mode-owner - Run scripts with owner UID/GID
 www-apache/mod_suphp:mode-paranoid - Run scripts with owner UID/GID but also check if they match the UID/GID specified in the Apache configuration
-www-apache/mod_vhs:suphp - Enable www-apache/mod_suphp support
 www-apache/pwauth:domain-aware - Ignore leading domain names in username (Windows compat)
 www-apache/pwauth:faillog - Log failed login attempts
 www-apache/pwauth:ignore-case - Ignore string case in username (mostly Windows compat)
@@ -5924,6 +5967,7 @@ www-servers/apache:apache2_modules_lbmethod_bybusyness - Pending request countin
 www-servers/apache:apache2_modules_lbmethod_byrequests - Request counting load balancer scheduler algorithm for proxy_balancer.
 www-servers/apache:apache2_modules_lbmethod_bytraffic - Weighted traffic counting load balancer scheduler algorithm for proxy_balancer.
 www-servers/apache:apache2_modules_lbmethod_heartbeat - Heartbeat traffic counting load balancer scheduler algorithm for proxy_balancer.
+www-servers/apache:apache2_modules_proxy_fcgi - FCGI support module for mod_proxy.
 www-servers/apache:apache2_modules_slotmem_shm - Slot-based shared memory provider.
 www-servers/apache:apache2_modules_socache_shmcb - A shared object cache provider using a high-performance cyclic buffer inside a shared memory segment.
 www-servers/apache:apache2_modules_unixd - Basic (required) security for Unix-family platforms.

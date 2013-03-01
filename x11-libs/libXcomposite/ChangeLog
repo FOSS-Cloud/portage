@@ -1,6 +1,14 @@
 # ChangeLog for x11-libs/libXcomposite
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libXcomposite/ChangeLog,v 1.91 2013/01/04 02:56:09 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libXcomposite/ChangeLog,v 1.93 2013/02/26 16:34:55 mgorny Exp $
+
+*libXcomposite-0.4.4-r1 (26 Feb 2013)
+
+  26 Feb 2013; Michał Górny <mgorny@gentoo.org> +libXcomposite-0.4.4-r1.ebuild:
+  Enable multilib.
+
+  22 Feb 2013; Zac Medico <zmedico@gentoo.org> libXcomposite-0.4.4.ebuild:
+  Add ~arm-linux keyword.
 
 *libXcomposite-0.4.4 (04 Jan 2013)
 

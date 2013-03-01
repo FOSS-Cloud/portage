@@ -1,0 +1,21 @@
+# ChangeLog for games-engines/renpy
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-engines/renpy/ChangeLog,v 1.3 2013/02/27 21:51:34 hasufell Exp $
+
+  27 Feb 2013; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  add proxy-maintainer
+
+*renpy-6.14.1-r1 (27 Feb 2013)
+
+  27 Feb 2013; Julian Ospald <hasufell@gentoo.org> -renpy-6.14.1.ebuild,
+  +renpy-6.14.1-r1.ebuild:
+  update dependencies, update new eselect-module in pkg_postinst
+
+*renpy-6.14.1 (27 Feb 2013)
+
+  27 Feb 2013; Julian Ospald <hasufell@gentoo.org> +renpy-6.14.1.ebuild,
+  +files/renpy-6.14.1-av_close_input_stream.patch,
+  +files/renpy-6.14.1-multiple-abi.patch,
+  +files/renpy-6.14.1-remove-AVFormatParameters.patch, +metadata.xml:
+  initial import wrt #301324
+

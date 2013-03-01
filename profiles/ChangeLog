@@ -1,10 +1,119 @@
 # ChangeLog for profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.7507 2013/02/18 21:15:42 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.7542 2013/02/28 15:11:43 jlec Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  28 Feb 2013; Justin Lecher <jlec@gentoo.org> package.mask:
+  Clean package.mask
+
+  27 Feb 2013; Michał Górny <mgorny@gentoo.org> desc/abi_x86.desc:
+  Describe x32 ABI flag.
+
+  26 Feb 2013; Ulrich Müller <ulm@gentoo.org> package.mask:
+  app-emacs/yow masked for removal.
+
+  26 Feb 2013; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Update the google-chrome mask.
+
+  26 Feb 2013; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask the multilib freetype for testing due to header location change.
+
+  26 Feb 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> package.mask:
+  Roll dev-lang/v8, www-client/chromium p.mask entries for M27.
+
+  26 Feb 2013; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask freetype after fixing the demo build bug.
+
+  26 Feb 2013; Diego E. Pettenò <flameeyes@gentoo.org> package.mask:
+  Mask devmanual live ebuild.
+
+  26 Feb 2013; Eray Aslan <eras@gentoo.org> package.mask:
+  Remove mask for net-mail/dovecot-2.2_beta* - no longer in the tree
+
+  26 Feb 2013; Eray Aslan <eras@gentoo.org> package.mask:
+  Mask net-mail/dovecot-2.2_rc* releases
+
+  26 Feb 2013; Eray Aslan <eras@gentoo.org> package.mask:
+  Remove mask for mail-filter/opendkim-2.8.0_beta* - no longer in the tree
+
+  26 Feb 2013; Michał Górny <mgorny@gentoo.org> package.mask:
+  Temporarily mask new fontconfig & freetype because of USE=utils being broken.
+
+  25 Feb 2013; Luca Barbato <lu_zero@gentoo.org> package.mask:
+  Update mask for libav-9.2
+
+  24 Feb 2013; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Add ACE license to MISC-FREE group, bug 455530.
+
+  24 Feb 2013; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Mask dev-util/ciabot-svn for removal. Bug #445644
+
+  23 Feb 2013; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Mask dev-python/pysqlite:0 for removal.
+
+  23 Feb 2013; Alexis Ballier <aballier@gentoo.org> package.mask:
+  unmask ffmpeg-1.0
+
+  23 Feb 2013; Alexis Ballier <aballier@gentoo.org> package.mask:
+  Unmask gst-{ffmpeg,libav} now that they do not need anymore a masked
+  ffmpeg/libav
+
+  22 Feb 2013; Dion Moult <moult@gentoo.org> package.mask:
+  Remove www-apps/online-bookmarks mask as removed from tree. See #449820.
+
+  22 Feb 2013; Dion Moult <moult@gentoo.org> package.mask:
+  Mask net-misc/wxdfast (bug 457832)
+
+  22 Feb 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.mask:
+  Mask net-libs/h323plus-1.25.0
+
+  22 Feb 2013; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Mask =net-analyzer/mtr-0.83 (bug #456788).
+
+  22 Feb 2013; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Mask development versions of net-analyzer/wireshark.
+
+  22 Feb 2013; Eray Aslan <eras@gentoo.org> package.mask:
+  Mask =net-mail/dovecot-2.2_beta*
+
+  22 Feb 2013; Dion Moult <moult@gentoo.org> package.mask:
+  Remove dev-libs/libole2 mask as removed from tree.
+
+  22 Feb 2013; Dion Moult <moult@gentoo.org> package.mask:
+  Remove app-admin/webalizer-xtended mask as removed from tree
+
+  22 Feb 2013; Dion Moult <moult@gentoo.org> package.mask:
+  Remove dev-haskell/wash mask as removed from tree.
+
+  21 Feb 2013; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Remove Scintilla license (duplicate of HPND) from MISC-FREE group.
+
+  21 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> license_groups:
+  Replace pngquant with rwpng license in the MISC-FREE group.
+
+  21 Feb 2013; Justin Lecher <jlec@gentoo.org> package.mask:
+  Temporary mask, because compatibility with recent tcl is not proven
+
+  20 Feb 2013; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  www-apache/mod_vhs is gone from tree, remove mask
+
+  20 Feb 2013; Anthony G. Basile <blueness@gentoo.org>
+  hardened/linux/uclibc/mips/package.mask:
+  Unmask recent versions of util-linux and sysvinit on
+  hardened/linux/uclibc/mips
+
+  20 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> license_groups:
+  Put pngquant license to MISC-FREE group.
+
+  20 Feb 2013; Julian Ospald <hasufell@gentoo.org> license_groups:
+  add TeamViewer license to @EULA
+
+  20 Feb 2013; Maxim Koltsov <maksbotan@gentoo.org> package.mask:
+  Unmask sssd-1.9.4-r1
 
   18 Feb 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
   updates/1Q-2013:

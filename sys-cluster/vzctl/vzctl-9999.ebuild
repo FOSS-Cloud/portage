@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/vzctl/vzctl-9999.ebuild,v 1.13 2012/12/13 08:45:38 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/vzctl/vzctl-9999.ebuild,v 1.14 2013/02/22 14:24:39 pinkbyte Exp $
 
 EAPI="5"
 
-inherit bash-completion-r1 autotools git-2 udev toolchain-funcs
+inherit bash-completion-r1 autotools git-2 toolchain-funcs udev
 
 DESCRIPTION="OpenVZ ConTainers control utility"
 HOMEPAGE="http://openvz.org/"
@@ -14,24 +14,26 @@ EGIT_REPO_URI="git://git.openvz.org/pub/${PN}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+ploop +cgroup"
+IUSE="cgroup +ploop"
 
 RDEPEND="
 	net-firewall/iptables
 	sys-apps/ed
-	>=sys-apps/iproute2-3.0
+	>=sys-apps/iproute2-3.3.0
 	sys-fs/vzquota
 	ploop? ( >=sys-cluster/ploop-1.5 )
-	cgroup? ( >=dev-libs/libcgroup-0.37 )"
+	cgroup? ( >=dev-libs/libcgroup-0.37 )
+"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_prepare() {
 	# Set default OSTEMPLATE on gentoo
-	sed -e 's:=redhat-:=gentoo-:' -i etc/dists/default || die
+	sed -i -e 's:=redhat-:=gentoo-:' etc/dists/default || die 'sed on etc/dists/default failed'
+	# Set proper udev directory
+	sed -i -e "s:/lib/udev:$(udev_get_udevdir):" src/lib/dev.c || die 'sed on src/lib/dev.c failed'
 	eautoreconf
-	sed -i -e "s:/lib/udev:$(udev_get_udevdir):" src/lib/dev.c || die
 }
 
 src_configure() {
@@ -67,4 +69,10 @@ pkg_postinst() {
 	ewarn "Please, drop /usr/share/vzctl/scripts/vpsnetclean and"
 	ewarn "/usr/share/vzctl/scripts/vpsreboot from crontab and use"
 	ewarn "/etc/init.d/vzeventd."
+
+	if use cgroup; then
+		ewarn "You have chose to use experimental CGROUP feature"
+		ewarn "please do NOT file bugs to Gentoo bugzilla,"
+		ewarn "use upstream bug tracker instead"
+	fi
 }

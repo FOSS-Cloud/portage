@@ -1,6 +1,27 @@
 # ChangeLog for net-libs/libupnp
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libupnp/ChangeLog,v 1.41 2013/02/09 15:22:34 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libupnp/ChangeLog,v 1.48 2013/02/23 21:59:39 ago Exp $
+
+  23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libupnp-1.6.18.ebuild:
+  Stable for ppc64, wrt bug #454570
+
+  23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libupnp-1.6.18.ebuild:
+  Stable for alpha, wrt bug #454570
+
+  22 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libupnp-1.6.18.ebuild:
+  Stable for arm, wrt bug #454570
+
+  22 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libupnp-1.6.18.ebuild:
+  Stable for ppc, wrt bug #454570
+
+  21 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libupnp-1.6.18.ebuild:
+  Stable for sparc, wrt bug #454570
+
+  20 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libupnp-1.6.18.ebuild:
+  Stable for x86, wrt bug #454570
+
+  20 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libupnp-1.6.18.ebuild:
+  Stable for amd64, wrt bug #454570
 
   09 Feb 2013; Jeroen Roovers <jer@gentoo.org> libupnp-1.6.18.ebuild:
   Stable for HPPA (bug #454570).

@@ -1,6 +1,13 @@
 # ChangeLog for sci-mathematics/gsl-shell
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/gsl-shell/ChangeLog,v 1.7 2013/02/01 12:09:55 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/gsl-shell/ChangeLog,v 1.9 2013/02/27 15:07:24 jlec Exp $
+
+  27 Feb 2013; Justin Lecher <jlec@gentoo.org> gsl-shell-2.2.0.ebuild:
+  Add missing dep on virtual/pkgconfig
+
+  21 Feb 2013; Justin Lecher <jlec@gentoo.org> gsl-shell-2.2.0.ebuild,
+  metadata.xml:
+  Use tc-getPKG_CONFIG from toolchain-funcs.eclass instead of plain pkg-config
 
   01 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gsl-shell-2.2.0.ebuild:
   move media-fonts/freefont-ttf into media-fonts/freefont

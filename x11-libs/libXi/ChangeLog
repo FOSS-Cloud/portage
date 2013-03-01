@@ -1,6 +1,16 @@
 # ChangeLog for x11-libs/libXi
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libXi/ChangeLog,v 1.149 2013/01/20 18:45:59 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libXi/ChangeLog,v 1.151 2013/02/26 15:59:06 mgorny Exp $
+
+*libXi-1.6.2-r1 (26 Feb 2013)
+
+  26 Feb 2013; Michał Górny <mgorny@gentoo.org> +libXi-1.6.2-r1.ebuild,
+  libXi-1.6.99.1.ebuild:
+  Enable multilib.
+
+  22 Feb 2013; Zac Medico <zmedico@gentoo.org> libXi-1.6.2.ebuild,
+  libXi-1.6.99.1.ebuild:
+  Add ~arm-linux keyword.
 
 *libXi-1.6.2 (20 Jan 2013)
 

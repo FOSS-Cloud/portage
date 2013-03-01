@@ -1,9 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/mydns/mydns-1.2.8.31.ebuild,v 1.1 2011/12/04 02:17:25 matsuu Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/mydns/mydns-1.2.8.31.ebuild,v 1.4 2013/02/27 13:47:15 ago Exp $
 
-EAPI="4"
-inherit autotools confutils eutils
+EAPI=5
+
+inherit autotools eutils
 
 DESCRIPTION="A DNS-Server which gets its data from a MySQL-/PostgreSQL-database"
 HOMEPAGE="http://www.mydns.pl/"
@@ -11,7 +12,7 @@ SRC_URI="mirror://sourceforge/mydns-ng/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~hppa ~ia64 ~ppc ~sparc x86"
 IUSE="alias debug nls mysql postgres ssl static status"
 
 RDEPEND="mysql? ( virtual/mysql )
@@ -23,9 +24,7 @@ DEPEND="${RDEPEND}
 	nls? ( >=sys-devel/gettext-0.12 )
 	sys-devel/bison"
 
-pkg_setup() {
-	confutils_require_one mysql postgres
-}
+REQUIRED_USE="^^ ( mysql postgres )"
 
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-1.2.8.27-m4.patch"
@@ -43,7 +42,7 @@ src_configure() {
 		$(use_enable static static-build) \
 		$(use_enable status) \
 		$(use_with ssl openssl) \
-		--without-included-gettext || die
+		--without-included-gettext
 }
 
 src_install() {

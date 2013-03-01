@@ -1,32 +1,40 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/hpl/hpl-2.0-r1.ebuild,v 1.2 2011/02/01 21:44:39 jsbronder Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/hpl/hpl-2.0-r1.ebuild,v 1.3 2013/02/27 15:57:37 jlec Exp $
 
 EAPI=4
-inherit eutils
+
+inherit eutils multilib
 
 DESCRIPTION="A Portable Implementation of the High-Performance Linpack Benchmark for Distributed-Memory Computers"
 HOMEPAGE="http://www.netlib.org/benchmark/hpl/"
 SRC_URI="http://www.netlib.org/benchmark/hpl/hpl-${PV}.tar.gz"
-LICENSE="HPL"
-SLOT="0"
-KEYWORDS="~x86 ~amd64"
 
+SLOT="0"
+LICENSE="HPL"
+KEYWORDS="~x86 ~amd64"
 IUSE="doc"
-DEPEND="virtual/mpi
+
+RDEPEND="
 	virtual/blas
-	virtual/lapack"
-RDEPEND="${DEPEND}"
+	virtual/lapack
+	virtual/mpi"
+DEPEND="${DEPEND}
+	virtual/pkgconfig"
 
 src_prepare() {
-	cp setup/Make.Linux_PII_FBLAS Make.gentoo_hpl_fblas_x86
+	local a=""
+	local locallib="${EPREFIX}/usr/$(get_libdir)/lib"
+	local localblas="$(for i in $($(tc-getPKG_CONFIG) --libs-only-l blas lapack);do a="${a} ${i/-l/${locallib}}.so "; done; echo ${a})"
+
+	cp setup/Make.Linux_PII_FBLAS Make.gentoo_hpl_fblas_x86 || die
 	sed -i \
 		-e "/^TOPdir/s,= .*,= ${S}," \
 		-e '/^HPL_OPTS\>/s,=,= -DHPL_DETAILED_TIMING -DHPL_COPY_L,' \
 		-e '/^ARCH\>/s,= .*,= gentoo_hpl_fblas_x86,' \
 		-e '/^MPdir\>/s,= .*,=,' \
 		-e '/^MPlib\>/s,= .*,=,' \
-		-e "/^LAlib\>/s,= .*,= /usr/$(get_libdir)/libblas.so /usr/$(get_libdir)/liblapack.so," \
+		-e "/^LAlib\>/s,= .*,= ${localblas}," \
 		-e '/^LINKER\>/s,= .*,= mpicc,' \
 		-e '/^CC\>/s,= .*,= mpicc,' \
 		-e "/^LINKFLAGS\>/s|= .*|= ${LDFLAGS}|" \
@@ -34,7 +42,7 @@ src_prepare() {
 }
 
 src_compile() {
-	# parallel make failure â bug #321539
+	# parallel make failure bug #321539
 	HOME=${WORKDIR} emake -j1 arch=gentoo_hpl_fblas_x86
 }
 

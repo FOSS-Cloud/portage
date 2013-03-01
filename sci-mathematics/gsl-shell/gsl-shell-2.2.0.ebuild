@@ -1,27 +1,31 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/gsl-shell/gsl-shell-2.2.0.ebuild,v 1.2 2013/02/01 12:09:55 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/gsl-shell/gsl-shell-2.2.0.ebuild,v 1.4 2013/02/27 15:07:24 jlec Exp $
 
 EAPI=4
-inherit eutils
+
+inherit eutils toolchain-funcs
 
 DESCRIPTION="Lua interactive shell for sci-libs/gsl"
 HOMEPAGE="http://www.nongnu.org/gsl-shell/"
 SRC_URI="http://download.savannah.gnu.org/releases/${PN}/${P}.tar.gz"
-LICENSE="GPL-3"
+
 SLOT="0"
+LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc fox"
 
-DEPEND=">=sci-libs/gsl-1.14
+RDEPEND="
+	>=sci-libs/gsl-1.14
 	virtual/blas
 	>=x11-libs/agg-2.5
 	>=media-libs/freetype-2.4.10
 	sys-libs/readline
 	|| ( media-fonts/ubuntu-font-family media-fonts/freefont media-fonts/dejavu )
-	doc? ( dev-python/sphinx[latex] )
 	fox? ( x11-libs/fox:1.6 )"
-RDEPEND="${DEPEND}"
+DEPEND="${DEPEND}
+	virtual/pkgconfig
+	doc? ( dev-python/sphinx[latex] )"
 
 S="${WORKDIR}"/${PN}
 
@@ -31,7 +35,7 @@ src_prepare() {
 }
 
 src_compile() {
-	local BLAS=`pkg-config --libs blas`
+	local BLAS=$($(tc-getPKG_CONFIG) --libs blas)
 
 	if use fox; then
 		local FOX_INCLUDES=`WANT_FOX=1.6 fox-config --cflags`

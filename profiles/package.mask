@@ -1,5 +1,5 @@
 ####################################################################
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.14483 2013/02/19 03:23:37 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.14515 2013/02/28 15:11:43 jlec Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -31,14 +31,80 @@
 
 #--- END OF EXAMPLES ---
 
+# Ulrich Müller <ulm@gentoo.org> (26 Feb 2013)
+# Declared as obsolete by upstream. Use fortune.el with
+# the zippy file from games-misc/fortune-mod instead.
+# Masked for removal in 30 days, bug #459358.
+app-emacs/yow
+
+# Mike Gilbert <floppym@gentoo.org> (26 Feb 2013)
+# Dev channel releases are only for people who are developers or want more
+# experimental features and accept a more unstable release.
+>=www-client/google-chrome-27
+
+# Michał Górny <mgorny@gentoo.org> (26 Feb 2013)
+# Mask the multilib version of freetype2 and dependencies since
+# the header install location has been changed, and packages not using
+# pkg-config nor freetype-config need be fixed.
+=app-emulation/emul-linux-x86-xlibs-20130224-r1
+=media-libs/fontconfig-2.10.2-r1
+=media-libs/freetype-2.4.11-r1
+=x11-libs/libXft-2.3.1-r1
+
+# Pawel Hajdan jr <phajdan.jr@gentoo.org> (26 Feb 2013)
+# Dev channel releases are only for people who are developers or want more
+# experimental features and accept a more unstable release.
+>=www-client/chromium-27
+
+# Pawel Hajdan jr <phajdan.jr@gentoo.org> (26 Feb 2013)
+# Mask v8 versions used for www-client/chromium dev channel releases.
+>=dev-lang/v8-3.17
+
+# Eray Aslan <eras@gentoo.org> (26 Feb 2013)
+# Mask release candidates
+=net-mail/dovecot-2.2_rc*
+
+# Doug Goldstein <cardoe@gentoo.org> (24 Feb 2013)
+# Working on the next stable patchset
+=app-emulation/qemu-1.2.2-r4
+
+# Markos Chandras <hwoarang@gentoo.org> (24 Feb 2013)
+# Not functional as cia.vc is gone
+# No maintainer, dead upstream, last bump in 2005
+# See #445644. Removal in 30 days
+dev-util/ciabot-svn
+
+# Mike Gilbert <floppym@gentoo.org> (23 Feb 2013)
+# Uses deprecated version of dev-db/sqlite.
+# Removal in 30 days.
+dev-python/pysqlite:0
+
+# Dion Moult <moult@gentoo.org> (23 Feb 2013)
+# Crashing with promises for a next version which never came
+# See bug #457832
+# Masked for removal in 30 days, on 2013-03-23
+net-misc/wxdfast
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Feb 2013)
+# Packages building against it still act funny
+=net-libs/h323plus-1.25.0
+
+# Jeroen Roovers <jer@gentoo.org> (22 Feb 2013)
+# Masked until bug #456788 is fixed.
+=net-analyzer/mtr-0.83
+
+# Jeroen Roovers <jer@gentoo.org> (22 Feb 2013)
+# Development versions of net-analyzer/wireshark
+=net-analyzer/wireshark-1.9*
+
+# Justin Lecher <jlec@gentoo.org> (21 Feb 2013)
+# Temporary mask, because compatibility with recent tcl is not proven
+=dev-tcltk/tcllib-1.15
+
 # Michael Sterrett <mr_bones_@gentoo.org> (18 Feb 2013)
 # Quite dead.  Use games-engines/stratagus instead.
 # Masked for removal on 20130320.
 games-strategy/freecraft
-
-# Eray Aslan <eras@gentoo.org> (18 Feb 2013)
-# Mask beta versions
-=mail-filter/opendkim-2.8.0_beta*
 
 # Davide Pesavento <pesa@gentoo.org> (17 Feb 2013)
 # Mask beta version for testing.
@@ -47,15 +113,6 @@ games-strategy/freecraft
 # Markos Chandras <hwoarang@gentoo.org> (17 Feb 2013)
 # Does not build with libav-0.8
 =media-video/qx11grab-0.4.7
-
-# Doug Goldstein <cardoe@gentoo.org> (16 Feb 2013)
-# For most use cases you can unmask this and use this
-# as there has been ample interested. This however breaks
-# at least one feature fundamental to me.
-# * migration from previous versions is broken and migration
-#   to future versions is broken
-# So this is in the tree for people that want/need it but its masked.
-=app-emulation/qemu-1.4.0
 
 # Rick Farina <zerochaos@gentoo.org> (15 Feb 2013)
 # these firmware packages have been merged into the sys-kernel/linux-firmware
@@ -242,10 +299,6 @@ dev-python/github2
 # Masked for development
 =sys-block/open-iscsi-2.0.873
 
-# Doug Goldstein <cardoe@gentoo.org> (20 Jan 2013)
-# Under development, feel free to test and report back
-=app-emulation/qemu-1.2.2-r100
-
 # Hans de Graaff <graaff@gentoo.org> (20 Jan 2013) Mask
 # dev-lang/ruby-enterprise for removal, bug 453178.  The current
 # versions have minor security issues, the latest versions are masked
@@ -290,16 +343,6 @@ app-misc/secure-delete
 app-misc/ccal
 
 # Pacho Ramos <pacho@gentoo.org>
-# Upstream dead for a long time, broken php support (#356841).
-# Removal in a month.
-www-apache/mod_vhs
-
-# Pacho Ramos <pacho@gentoo.org>
-# Still uses depend.php (#449820), upstream dead for ages and
-# newer versions don't work. Removal in a month.
-www-apps/online-bookmarks
-
-# Pacho Ramos <pacho@gentoo.org>
 # It's for kernel-2.4 only (#450594). Removal in a month.
 sys-apps/i2c
 
@@ -317,20 +360,6 @@ sys-apps/i2c
 # fatal errors in some documents, mask until fixed or TeX Live 2013 is out.
 >=dev-tex/luatex-0.74
 
-# Pawel Hajdan jr <phajdan.jr@gentoo.org> (14 Jan 2013)
-# Dev channel releases are only for people who are developers or want more
-# experimental features and accept a more unstable release.
->=www-client/chromium-26
-
-# Pawel Hajdan jr <phajdan.jr@gentoo.org> (14 Jan 2013)
-# Mask v8 versions used for www-client/chromium dev channel releases.
->=dev-lang/v8-3.16
-
-# Mike Gilbert <floppym@gentoo.org> (13 Jan 2013)
-# Dev channel releases are only for people who are developers or want more
-# experimental features and accept a more unstable release.
->=www-client/google-chrome-26
-
 # Tim Harder <radhermit@gentoo.org> (13 Jan 2013)
 # Masked for testing
 =mail-client/roundcube-0.9*
@@ -338,12 +367,6 @@ sys-apps/i2c
 # Doug Goldstein <cardoe@gentoo.org> (12 Jan 2013)
 # Under development
 =app-emulation/qemu-1.3.0
-
-# Sergey Popov <pinkbyte@gentoo.org> (12 Jan 2013)
-# Does not build(bug #450850), upstream is dead for ages
-# nothing depends on it in tree
-# Removal in 30 days
-dev-libs/libole2
 
 # Jeroen Roovers <jer@gentoo.org> (09 Jan 2013)
 # Testing branch, unstable upstream
@@ -357,7 +380,7 @@ dev-perl/Class-MOP
 
 # Alexander Vershilov <qnikst@gentoo.org> (06 Jan 2013)
 # Requires >=net-fs/samba-4 (bug #450226)
->=sys-auth/sssd-1.9.3
+=sys-auth/sssd-1.9.4
 
 # Sergei Trofimovich <slyfox@gentoo.org> (05 Jan 2013)
 # Masked for testing. Is not compatible with cvsps-2 (bug #450424).
@@ -369,12 +392,6 @@ dev-perl/Class-MOP
 =x11-base/xorg-server-1.13.99*
 =x11-libs/libXi-1.6.99*
 =x11-proto/inputproto-2.2.99*
-
-# Sergei Trofimovich <slyfox@gentoo.org> (01 Jan 2013)
-# Masked for removal (moved to haskell overlay).
-# Fails to build (bug #423763). Needs severe code cleanup
-# for modern ghc.
-dev-haskell/wash
 
 # Sergei Trofimovich <slyfox@gentoo.org> (28 Dec 2012)
 # Masked as needs masked version of wxGTK:2.9:
@@ -402,11 +419,6 @@ dev-haskell/wxhaskell:2.9
 # stable wpa_supplicant sometimes wants madwifi-ng-tools
 #net-wireless/madwifi-ng-tools
 net-wireless/madwifi-ng
-
-# Anthony G. Basile <blueness@gentoo.org> (17 Dec 2012)
-# Masked for removal in 30 days. (17 Jan 2012)
-# This is provided by USE=xtended webalizer, bug #445226
-app-admin/webalizer-xtended
 
 # Michał Górny <mgorny@gentoo.org> (07 Dec 2012)
 # Experimental version disabling XDM-AUTHENTICATION-1 (in favor
@@ -442,9 +454,8 @@ dev-vcs/gitosis-gentoo
 # Masked for testing as too many packages fail.
 # See bug #443230 for tracking the progress
 =media-video/libav-9.1*
+=media-video/libav-9.2*
 ~virtual/ffmpeg-9
-=media-plugins/gst-plugins-libav-1.1*
-~media-plugins/gst-plugins-ffmpeg-0.10.13_p201211
 
 # Joerg Bornkessel <hd_brummy@gentoo.org> (04 Nov 2012)
 # masked for testing, bug #422605
@@ -561,27 +572,13 @@ net-misc/libteam
 >sci-electronics/magic-8
 >sci-electronics/xcircuit-3.8
 
-# Justin Lecher <jlec@gentoo.org> (13 Jun 2012)
-# Justin Lecher <jlec@gentoo.org> (01 Nov 2012)
-# Mask old version numbers
-# Shows newest unstable to users easily
->=sci-biology/ncbi-tools-20080302
->=sci-chemistry/dssp-070831
->=sci-biology/ncbi-tools++-2010.06.15
-
 # Patrick Lauer <patrick@gentoo.org> (06 Jun 2012)
 # Temporarily mask nginx >=1.3 see #411937
 >=www-servers/nginx-1.3
 
-# Markos Chandras <hwoarang@getnoo.org> (27 May 2012)
+# Markos Chandras <hwoarang@gentoo.org> (27 May 2012)
 # Mask alpha release
 =sci-electronics/qelectrotech-0.30_alpha*
-
-# Alexis Ballier <aballier@gentoo.org> (26 May 2012)
-# API/ABI has changed with this release.
-# Mask until the tree is fine.
-# https://bugs.gentoo.org/show_bug.cgi?id=417677
->=media-video/ffmpeg-0.11
 
 # Benda Xu <heroxbd@gentoo.org> (20 May 2012)
 # geant-4.9.5_p01 has a major class declaration change that renders
@@ -903,6 +900,7 @@ dev-ruby/rcsparse
 dev-vcs/fromcvs
 sci-biology/picard
 ~dev-libs/libg15-9999
+~app-doc/devmanual-9999
 
 # Federico Ferri <mescalinum@gentoo.org> (08 Aug 2009)
 # Doesn't build with Tcl 8.5, has several bugs open

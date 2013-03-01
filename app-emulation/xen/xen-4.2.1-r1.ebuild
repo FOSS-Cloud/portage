@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/xen-4.2.1-r1.ebuild,v 1.2 2013/01/31 15:43:53 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/xen-4.2.1-r1.ebuild,v 1.4 2013/02/24 08:23:59 idella4 Exp $
 
 EAPI=5
 
@@ -116,8 +116,5 @@ pkg_postinst() {
 	elog " http://www.gentoo.org/doc/en/xen-guide.xml"
 	elog " http://en.gentoo-wiki.com/wiki/Xen/"
 
-	if use pae; then
-		echo
-		ewarn "This is a PAE build of Xen. It will *only* boot PAE kernels!"
-	fi
+	use pae && ewarn "This is a PAE build of Xen. It will *only* boot PAE kernels!"
 }

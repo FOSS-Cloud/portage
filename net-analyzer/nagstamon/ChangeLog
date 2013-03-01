@@ -1,6 +1,24 @@
 # ChangeLog for net-analyzer/nagstamon
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagstamon/ChangeLog,v 1.34 2012/10/30 20:20:02 idl0r Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagstamon/ChangeLog,v 1.37 2013/02/27 20:44:10 idl0r Exp $
+
+*nagstamon-0.9.10_p20130222 (27 Feb 2013)
+
+  27 Feb 2013; Christian Ruppert <idl0r@gentoo.org>
+  +nagstamon-0.9.10_p20130222.ebuild, +files/nagstamon-0.9.10_p20130222.patch:
+  Version bump
+
+  25 Feb 2013; Christian Ruppert <idl0r@gentoo.org> nagstamon-0.9.9.ebuild,
+  nagstamon-0.9.9-r1.ebuild:
+  Add gnome-base/librsvg dependency, bug 447102
+
+*nagstamon-0.9.9-r1 (25 Feb 2013)
+
+  25 Feb 2013; Christian Ruppert <idl0r@gentoo.org>
+  +files/nagstamon-0.9.9-icinga_results_limitations.patch,
+  +nagstamon-0.9.9-r1.ebuild:
+  Fix Icinga's default result limitations,
+  https://github.com/HenriWahl/Nagstamon/issues/10
 
   30 Oct 2012; Christian Ruppert <idl0r@gentoo.org> -nagstamon-0.9.8.ebuild,
   -files/nagstamon-0.9.5-resources.patch:

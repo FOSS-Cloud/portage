@@ -1,6 +1,28 @@
 # ChangeLog for x11-wm/xpra
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/xpra/ChangeLog,v 1.50 2013/02/18 05:52:04 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/xpra/ChangeLog,v 1.55 2013/02/26 09:01:33 xmw Exp $
+
+*xpra-0.8.6-r1 (26 Feb 2013)
+
+  26 Feb 2013; Michael Weber <xmw@gentoo.org> -xpra-0.8.4.ebuild,
+  -xpra-0.8.5.ebuild, -xpra-0.8.6.ebuild, +xpra-0.8.6-r1.ebuild:
+  Revbump to address x264 libav situation (bug 459218, thanks Oliver
+  Freyermuth). Drop old versions.
+
+  25 Feb 2013; Agostino Sarubbo <ago@gentoo.org> xpra-0.7.8.ebuild:
+  Stable for x86, wrt bug #459110
+
+  25 Feb 2013; Agostino Sarubbo <ago@gentoo.org> xpra-0.7.8.ebuild:
+  Stable for amd64, wrt bug #459110
+
+*xpra-0.8.6 (25 Feb 2013)
+
+  25 Feb 2013; Michael Weber <xmw@gentoo.org> +xpra-0.8.6.ebuild:
+  Version bump
+
+  23 Feb 2013; Michael Weber <xmw@gentoo.org> xpra-0.8.4.ebuild,
+  xpra-0.8.5.ebuild:
+  Apply old-libav.patch for ffmpeg and <libav-9 (thanks Benda Xu, bug 458808)
 
 *xpra-0.8.5 (18 Feb 2013)
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/django/django-9999.ebuild,v 1.17 2013/02/17 18:03:15 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/django/django-9999.ebuild,v 1.18 2013/02/23 21:26:05 floppym Exp $
 
 EAPI=5
 
@@ -67,6 +67,12 @@ python_test() {
 	PYTHONPATH=. \
 	"${PYTHON}" tests/runtests.py --settings=test_sqlite -v1 \
 		|| die "Tests fail with ${EPYTHON}"
+}
+
+src_test() {
+	# Port conflict in django.test.testcases.LiveServerTestCase.
+	# Several other races with temp files.
+	DISTUTILS_NO_PARALLEL_BUILD=1 distutils-r1_src_test
 }
 
 python_install_all() {

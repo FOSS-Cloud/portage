@@ -1,6 +1,16 @@
 # ChangeLog for app-emulation/emul-linux-x86-motif
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-motif/ChangeLog,v 1.15 2012/12/25 19:06:55 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-motif/ChangeLog,v 1.17 2013/02/27 19:37:27 pacho Exp $
+
+  27 Feb 2013; Pacho Ramos <pacho@gentoo.org>
+  -emul-linux-x86-motif-20121028.ebuild:
+  Drop old
+
+*emul-linux-x86-motif-20130224 (25 Feb 2013)
+
+  25 Feb 2013; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-motif-20130224.ebuild:
+  Version bump, drop old
 
   25 Dec 2012; Pacho Ramos <pacho@gentoo.org>
   emul-linux-x86-motif-20121202.ebuild:

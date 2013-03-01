@@ -1,8 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/telnet-bsd/telnet-bsd-1.2-r1.ebuild,v 1.20 2012/07/26 20:18:01 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/telnet-bsd/telnet-bsd-1.2-r1.ebuild,v 1.23 2013/02/28 17:09:38 mschiff Exp $
 
-inherit eutils autotools
+EAPI=5
+inherit eutils autotools toolchain-funcs
 
 DESCRIPTION="Telnet and telnetd ported from OpenBSD with IPv6 support"
 HOMEPAGE="ftp://ftp.suse.com/pub/people/kukuk/ipv6/"
@@ -16,28 +17,26 @@ IUSE="nls xinetd"
 RDEPEND="sys-libs/ncurses"
 DEPEND="${RDEPEND}
 	!net-misc/netkit-telnetd
-	xinetd? ( sys-apps/xinetd )"
+	xinetd? ( sys-apps/xinetd )
+	virtual/pkgconfig"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	epatch "${FILESDIR}"/${P}-fbsd.patch
-
 	eautoreconf
 }
 
-src_compile() {
+src_configure() {
 	# FreeBSD doesn't seem to support PIE neither does hppa
 	if use kernel_FreeBSD || use hppa; then
 		export libc_cv_fpie="no"
 	fi
 
-	econf || die "econf failed"
-	emake || die "emake failed"
+	econf
+	emake CFLAGS="${CFLAGS} $("$(tc-getPKG_CONFIG)" --libs ncurses)"
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "make install failed"
+	emake DESTDIR="${D}" install
 
 	if use xinetd ; then
 		insinto /etc/xinetd.d

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/xen-4.2.0-r1.ebuild,v 1.6 2013/02/04 15:43:23 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/xen-4.2.0-r1.ebuild,v 1.8 2013/02/24 08:23:59 idella4 Exp $
 
 EAPI=5
 
@@ -39,6 +39,7 @@ REQUIRED_USE="
 	"
 pkg_setup() {
 	python-single-r1_pkg_setup
+
 	if [[ -z ${XEN_TARGET_ARCH} ]]; then
 		if use x86 && use amd64; then
 			die "Confusion! Both x86 and amd64 are set in your use flags!"
@@ -108,7 +109,7 @@ src_configure() {
 
 src_compile() {
 	# Send raw LDFLAGS so that --as-needed works
-	emake CC="$(tc-getCC)" LDFLAGS="$(raw-ldflags)" LD="$(tc-getLD)"  -C xen ${myopt}
+	emake CC="$(tc-getCC)" LDFLAGS="$(raw-ldflags)" LD="$(tc-getLD)" -C xen ${myopt}
 }
 
 src_install() {
@@ -116,7 +117,7 @@ src_install() {
 	use debug && myopt="${myopt} debug=y"
 	use pae && myopt="${myopt} pae=y"
 
-	emake LDFLAGS="$(raw-ldflags)" DESTDIR="${ED}" -C xen ${myopt} install
+	emake LDFLAGS="$(raw-ldflags)" DESTDIR="${D}" -C xen ${myopt} install
 }
 
 pkg_postinst() {
@@ -124,8 +125,5 @@ pkg_postinst() {
 	elog " http://www.gentoo.org/doc/en/xen-guide.xml"
 	elog " http://en.gentoo-wiki.com/wiki/Xen/"
 
-	if use pae; then
-		echo
-		ewarn "This is a PAE build of Xen. It will *only* boot PAE kernels!"
-	fi
+	use pae && ewarn "This is a PAE build of Xen. It will *only* boot PAE kernels!"
 }

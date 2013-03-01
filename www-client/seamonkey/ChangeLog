@@ -1,6 +1,33 @@
 # ChangeLog for www-client/seamonkey
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.431 2013/02/18 16:06:02 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.439 2013/02/25 10:14:38 ago Exp $
+
+  25 Feb 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.16.ebuild:
+  Stable for x86, wrt bug #458390
+
+  25 Feb 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.16.ebuild:
+  Stable for amd64, wrt bug #458390
+
+  24 Feb 2013; <anarchy@gentoo.org> seamonkey-2.15.1.ebuild,
+  seamonkey-2.16.ebuild:
+  Fix pax-mark issue for hardened support, bug #459022
+
+  24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.16.ebuild:
+  Accidentally marked stable for amd64 and x86, revert
+
+  24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.16.ebuild:
+  Stable for x86, wrt bug #458390
+
+  24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.16.ebuild:
+  Stable for amd64, wrt bug #458390
+
+  23 Feb 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.16.ebuild:
+  Fixed libpng dependency.
+
+*seamonkey-2.16 (21 Feb 2013)
+
+  21 Feb 2013; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.16.ebuild:
+  Security bump (bug #458390).
 
   18 Feb 2013; Lars Wendler <polynomial-c@gentoo.org>
   seamonkey-2.4.1-r1.ebuild, seamonkey-2.15.1.ebuild, seamonkey-2.15.2.ebuild:

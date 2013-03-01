@@ -1,6 +1,30 @@
 # ChangeLog for media-video/makemkv
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/makemkv/ChangeLog,v 1.13 2012/11/25 18:02:25 mattm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/makemkv/ChangeLog,v 1.18 2013/02/22 12:56:13 mattm Exp $
+
+*makemkv-1.8.0-r1 (22 Feb 2013)
+
+  22 Feb 2013; Matthew Marlowe <mattm@gentoo.org> +makemkv-1.8.0-r1.ebuild,
+  -makemkv-1.7.8.ebuild, -makemkv-1.8.0.ebuild:
+  Hopefully final fix for Bug 439380
+
+  22 Feb 2013; Matthew Marlowe <mattm@gentoo.org> makemkv-1.8.0.ebuild:
+  Minor fix for icon directory.  Continuing to work on Bug 439380.
+
+  22 Feb 2013; Matthew Marlowe <mattm@gentoo.org> makemkv-1.8.0.ebuild:
+  Updated makemkv 1.8.0 ebuild to reflect upstreams change in location of icons
+  for gui.  keywording ~amd64/~x86.
+
+  22 Feb 2013; Matthew Marlowe <mattm@gentoo.org>
+  +files/makemkv-1.8.0-makefile.linux.patch:
+  Duplicating makemkv 1.7.8 patch for 1.8.0, will see how it behaves during
+  testing.
+
+*makemkv-1.8.0 (22 Feb 2013)
+
+  22 Feb 2013; Matthew Marlowe <mattm@gentoo.org> +makemkv-1.8.0.ebuild:
+  Bump for makemkv 1.8.0, temporarily package masked during testing, hope to
+  eventually close out bug #439380
 
 *makemkv-1.7.8 (25 Nov 2012)
 

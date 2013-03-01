@@ -1,9 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/podofo/podofo-0.9.1.ebuild,v 1.10 2012/10/28 02:45:53 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/podofo/podofo-0.9.1.ebuild,v 1.12 2013/02/28 15:03:15 zmedico Exp $
 
 EAPI=2
-inherit cmake-utils flag-o-matic multilib
+inherit cmake-utils flag-o-matic multilib toolchain-funcs
 
 DESCRIPTION="PoDoFo is a C++ library to work with the PDF file format."
 HOMEPAGE="http://sourceforge.net/projects/podofo/"
@@ -23,16 +23,32 @@ RDEPEND="dev-lang/lua
 	media-libs/tiff:0
 	sys-libs/zlib"
 DEPEND="${RDEPEND}
+	virtual/pkgconfig
 	boost? ( dev-util/boost-build )
 	test? ( dev-util/cppunit )"
 
 DOCS="AUTHORS ChangeLog TODO"
 
 src_prepare() {
+	local x sed_args
 
 	sed -i \
 		-e "s:LIBDIRNAME \"lib\":LIBDIRNAME \"$(get_libdir)\":" \
 		CMakeLists.txt || die
+
+	# Use pkg-config to find headers for bug #459404.
+	sed_args=
+	for x in $($(tc-getPKG_CONFIG) --cflags freetype2) ; do
+		[[ ${x} == -I* ]] || continue
+		x=${x#-I}
+		if [[ -f ${x}/ft2build.h ]] ; then
+			sed_args+=" -e s:/usr/include/\\r\$:${x}:"
+		elif [[ -f ${x}/freetype/config/ftheader.h ]] ; then
+			sed_args+=" -e s:/usr/include/freetype2\\r\$:${x}:"
+		fi
+	done
+	[[ -n ${sed_args} ]] && \
+		{ sed -i ${sed_args} cmake/modules/FindFREETYPE.cmake || die; }
 
 	# Bug #439784: Add missing unistd include for close() and unlink().
 	sed -i 's:^#include <stdio.h>$:#include <unistd.h>\n\0:' -i \

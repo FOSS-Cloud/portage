@@ -1,6 +1,27 @@
 # ChangeLog for net-libs/neon
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/neon/ChangeLog,v 1.54 2013/01/01 19:31:48 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/neon/ChangeLog,v 1.58 2013/02/26 13:11:51 jlec Exp $
+
+*neon-0.29.6-r5 (26 Feb 2013)
+
+  26 Feb 2013; Justin Lecher <jlec@gentoo.org> -neon-0.29.6-r4.ebuild,
+  +neon-0.29.6-r5.ebuild, metadata.xml:
+  Add missing linebreak
+
+*neon-0.29.6-r4 (26 Feb 2013)
+
+  26 Feb 2013;  <qnikst@gentoo.org> +neon-0.29.6-r4.ebuild,
+  -neon-0.29.6-r3.ebuild:
+  fix  doc path thanks to Chris Mayo <aklhfex@gmail.com>
+
+*neon-0.29.6-r3 (24 Feb 2013)
+
+  24 Feb 2013;  <qnikst@gentoo.org> +files/neon-0.29.6-doc.patch,
+  +neon-0.29.6-r3.ebuild:
+  fix docs layout, thanks to Chris Mayo (#458628)
+
+  21 Feb 2013; Zac Medico <zmedico@gentoo.org> neon-0.29.6-r2.ebuild:
+  Add ~arm-linux keyword.
 
   01 Jan 2013; Raúl Porcel <armin76@gentoo.org> neon-0.29.6-r2.ebuild:
   arm/ia64/s390/sh stable wrt #448638

@@ -1,6 +1,16 @@
 # ChangeLog for sci-libs/scipy
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/scipy/ChangeLog,v 1.85 2013/02/10 14:27:47 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/scipy/ChangeLog,v 1.87 2013/02/21 22:08:08 jlec Exp $
+
+  21 Feb 2013; Justin Lecher <jlec@gentoo.org> scipy-0.9.0-r1.ebuild,
+  scipy-0.11.0-r1.ebuild, metadata.xml:
+  Use tc-getPKG_CONFIG from toolchain-funcs.eclass instead of plain pkg-config;
+  fix numpy USE-dep
+
+  21 Feb 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  -files/scipy-0.9.0-superlu-4.3.patch, -scipy-0.10.1.ebuild,
+  -scipy-0.11.0.ebuild, metadata.xml, scipy-0.11.0-r1.ebuild:
+  Move to generic pkg-config, removed old
 
   10 Feb 2013; Michał Górny <mgorny@gentoo.org> scipy-0.11.0-r1.ebuild:
   Use distutils_install_for_testing().

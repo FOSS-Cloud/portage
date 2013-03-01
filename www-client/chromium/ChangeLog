@@ -1,6 +1,75 @@
 # ChangeLog for www-client/chromium
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/ChangeLog,v 1.809 2013/02/18 21:43:06 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/ChangeLog,v 1.821 2013/03/01 03:30:15 floppym Exp $
+
+  01 Mar 2013; Mike Gilbert <floppym@gentoo.org> chromium-26.0.1410.19.ebuild:
+  Disable SecurityTest.CallocOverflow for M26, bug 458396.
+
+*chromium-26.0.1410.19 (01 Mar 2013)
+
+  01 Mar 2013; Mike Gilbert <floppym@gentoo.org> +chromium-26.0.1410.19.ebuild,
+  +files/chromium-launcher-r3.sh, -chromium-26.0.1410.5.ebuild,
+  chromium-27.0.1423.0.ebuild, chromium-9999-r1.ebuild, files/chromium.default:
+  Beta channel bump. Modify chromium-launcher to source all files in
+  /etc/chromium, bug 459734.
+
+  01 Mar 2013; Mike Gilbert <floppym@gentoo.org>
+  -files/chromium-alignment-r0.patch, -files/chromium-arm-r0.patch,
+  -files/chromium-bison-2.6-r0.patch, -files/chromium-dbus-glib-r0.patch,
+  -files/chromium-expat-r0.patch, -files/chromium-glib-r0.patch,
+  -files/chromium-gyp-settings-r0.patch,
+  -files/chromium-libyuv-system-libjpeg-r0.patch,
+  -files/chromium-media-no-sse-r0.patch,
+  -files/chromium-revert-jpeg-swizzle-r2.patch,
+  -files/chromium-selinux-r0.patch, -files/chromium-svnversion-r0.patch,
+  -files/chromium-system-icu-r0.patch, -files/chromium-system-nspr-r0.patch,
+  -files/chromium-system-speex-r0.patch, -files/chromium-tcmalloc-r0.patch,
+  -files/chromium-tcmalloc-r1.patch, -files/chromium-unistd-r0.patch,
+  -files/chromium-webkit-zlib-r0.patch, -files/chromium-zlib-r0.patch:
+  Remove obsolete patches.
+
+  28 Feb 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-26.0.1410.5.ebuild, chromium-26.0.1410.12.ebuild,
+  chromium-27.0.1423.0.ebuild:
+  Update jsoncpp dependency, bug #452234.
+
+  27 Feb 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-26.0.1410.12.ebuild, chromium-27.0.1423.0.ebuild,
+  chromium-9999-r1.ebuild:
+  Add QA_FLAGS_IGNORED for Native Client binaries, bug #452066 by Alphat-PC.
+
+*chromium-27.0.1423.0 (27 Feb 2013)
+
+  27 Feb 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-system-ffmpeg-r3.patch, +chromium-27.0.1423.0.ebuild,
+  chromium-9999-r1.ebuild:
+  Dev channel bump.
+
+*chromium-26.0.1410.12 (26 Feb 2013)
+
+  26 Feb 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-system-ffmpeg-r2.patch, -chromium-26.0.1403.0.ebuild,
+  +chromium-26.0.1410.12.ebuild, chromium-9999-r1.ebuild:
+  Dev channel bump. Remove old.
+
+  25 Feb 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-26.0.1410.5.ebuild, chromium-9999-r1.ebuild:
+  Fixes for ARM, bug #372155. Used parts of Vladimir's patch.
+
+  22 Feb 2013; Agostino Sarubbo <ago@gentoo.org> -chromium-24.0.1312.56.ebuild,
+  -chromium-25.0.1364.68.ebuild, -chromium-25.0.1364.84.ebuild:
+  Remove old
+
+  22 Feb 2013; Agostino Sarubbo <ago@gentoo.org> chromium-25.0.1364.97.ebuild:
+  Stable for x86, wrt bug #458644
+
+  22 Feb 2013; Agostino Sarubbo <ago@gentoo.org> chromium-25.0.1364.97.ebuild:
+  Stable for amd64, wrt bug #458644
+
+*chromium-25.0.1364.97 (21 Feb 2013)
+
+  21 Feb 2013; Mike Gilbert <floppym@gentoo.org> +chromium-25.0.1364.97.ebuild:
+  Stable channel bump.
 
 *chromium-26.0.1410.5 (18 Feb 2013)
 

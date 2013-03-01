@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/samba/samba-3.5.21.ebuild,v 1.7 2013/02/18 23:25:24 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/samba/samba-3.5.21.ebuild,v 1.11 2013/02/28 19:57:09 vostorga Exp $
 
 EAPI=4
 
-inherit pam versionator multilib eutils
+inherit pam versionator multilib eutils flag-o-matic
 
 MY_PV=${PV/_/}
 MY_P="${PN}-${MY_PV}"
@@ -15,7 +15,7 @@ SRC_URI="mirror://samba/stable/${P}.tar.gz
 	http://dev.gentoo.org/~dagger/files/smb_traffic_analyzer_v2.diff.bz2"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm hppa ~ia64 ~mips ppc ppc64 ~s390 ~sh ~sparc x86 ~x86-fbsd"
+KEYWORDS="~alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~x86-fbsd"
 IUSE="acl addns ads +aio avahi caps +client cluster cups debug doc examples fam
 	ldap ldb +netapi pam quota +readline selinux +server +smbclient smbsharemodes smbtav2
 	swat syslog winbind"
@@ -131,6 +131,11 @@ src_configure() {
 
 	# Filter out -fPIE
 	[[ ${CHOST} == *-*bsd* ]] && myconf+=" --disable-pie"
+
+	#Allowing alpha/s390/sh to build
+	if use alpha || use s390 || use sh; then
+		replace-flags -O? -O1
+	fi
 
 	# Upstream refuses to make this configurable
 	use caps && export ac_cv_header_sys_capability_h=yes || export ac_cv_header_sys_capability_h=no

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/refmac/refmac-5.6.0119.ebuild,v 1.2 2012/10/19 10:25:51 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/refmac/refmac-5.6.0119.ebuild,v 1.4 2013/02/27 14:40:04 jlec Exp $
 
 EAPI=4
 
@@ -26,7 +26,8 @@ RDEPEND="
 	>sci-libs/monomer-db-1
 	virtual/blas
 	virtual/lapack"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 FORTRAN_STANDARD="77 90"
 
@@ -57,8 +58,8 @@ src_compile() {
 		VERSION="" \
 		XFFLAGS="-fwhole-file" \
 		XCFLAGS="" \
-		LLIBCCP="-lccp4f -lccp4c -lccif $(pkg-config --libs mmdb)" \
-		LLIBLAPACK="$(pkg-config --libs lapack blas)" \
+		LLIBCCP="-lccp4f -lccp4c -lccif $($(tc-getPKG_CONFIG) --libs mmdb)" \
+		LLIBLAPACK="$($(tc-getPKG_CONFIG) --libs lapack blas)" \
 		LLIBOTHERS="${LIBS}"
 }
 
