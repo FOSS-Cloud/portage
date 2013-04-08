@@ -1,6 +1,16 @@
 # ChangeLog for games-strategy/freeciv
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/freeciv/ChangeLog,v 1.143 2013/02/16 22:27:27 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/freeciv/ChangeLog,v 1.146 2013/03/31 17:49:56 ago Exp $
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> freeciv-2.3.4.ebuild:
+  Stable for amd64, wrt bug #463568
+
+  31 Mar 2013; Jeff Horelick <jdhore@gentoo.org> freeciv-2.3.4.ebuild:
+  marked x86 per bug 463568
+
+  10 Mar 2013; Michael Sterrett <mr_bones_@gentoo.org> freeciv-2.3.3.ebuild,
+  freeciv-2.3.4.ebuild:
+  only require a gui toolkit when !dedicated (bug #460378)
 
 *freeciv-2.3.4 (16 Feb 2013)
 

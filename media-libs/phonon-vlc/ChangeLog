@@ -1,6 +1,28 @@
 # ChangeLog for media-libs/phonon-vlc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/phonon-vlc/ChangeLog,v 1.32 2012/11/16 19:59:34 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/phonon-vlc/ChangeLog,v 1.38 2013/03/31 16:58:54 ago Exp $
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> phonon-vlc-0.6.2.ebuild:
+  Stable for x86, wrt bug #462890
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> phonon-vlc-0.6.2.ebuild:
+  Stable for amd64, wrt bug #462890
+
+  17 Mar 2013; Michael Palimaka <kensington@gentoo.org> phonon-vlc-9999.ebuild:
+  Sync live ebuild.
+
+  17 Mar 2013; Michael Palimaka <kensington@gentoo.org> phonon-vlc-0.6.2.ebuild:
+  Fix build with portage-multilib wrt bug #406357.
+
+*phonon-vlc-0.6.2 (04 Mar 2013)
+
+  04 Mar 2013; Michael Palimaka <kensington@gentoo.org>
+  +phonon-vlc-0.6.2.ebuild:
+  Version bump wrt bug #457742.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> phonon-vlc-0.6.0-r1.ebuild,
+  phonon-vlc-0.6.1.ebuild, phonon-vlc-9999.ebuild:
+  Move Qt dependencies to the new category
 
   16 Nov 2012; Agostino Sarubbo <ago@gentoo.org> phonon-vlc-0.6.0-r1.ebuild,
   phonon-vlc-0.6.1.ebuild:

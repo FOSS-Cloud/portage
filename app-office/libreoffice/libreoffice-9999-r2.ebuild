@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-9999-r2.ebuild,v 1.159 2013/01/31 15:36:23 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-9999-r2.ebuild,v 1.168 2013/03/29 09:41:28 scarabeus Exp $
 
 EAPI=5
 
@@ -81,7 +81,6 @@ LO_EXTS="nlpsolver presenter-minimizer scripting-beanshell scripting-javascript 
 # numbertext, typo, validator, watch-window: ^^
 # oooblogger: no homepage or anything
 # Extensions that need extra work:
-# report-builder: missing java packages
 for lo_xt in ${LO_EXTS}; do
 	IUSE+=" libreoffice_extensions_${lo_xt}"
 done
@@ -100,10 +99,11 @@ COMMON_DEPEND="
 	>=app-text/libexttextcat-3.2
 	app-text/liblangtag
 	app-text/libmspub
+	>=app-text/libmwaw-0.1.7
 	app-text/libwpd:0.9[tools]
 	app-text/libwpg:0.2
 	>=app-text/libwps-0.2.2
-	>=app-text/poppler-0.16[xpdf-headers(+),cxx]
+	>=app-text/poppler-0.16:=[xpdf-headers(+),cxx]
 	>=dev-cpp/clucene-2.3.3.4-r2
 	>=dev-cpp/libcmis-0.3.1:0.3
 	dev-db/unixODBC
@@ -199,7 +199,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/cppunit
 	>=dev-util/gperf-3
 	dev-util/intltool
-	dev-util/mdds
+	>=dev-util/mdds-0.7.0
 	virtual/pkgconfig
 	net-misc/npapi-sdk
 	>=sys-apps/findutils-4.4.2
@@ -227,7 +227,6 @@ DEPEND="${COMMON_DEPEND}
 PATCHES=(
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-3.7-system-pyuno.patch"
-	"${FILESDIR}/${PN}-3.7-separate-checks.patch"
 )
 
 REQUIRED_USE="
@@ -313,9 +312,10 @@ src_unpack() {
 
 src_prepare() {
 	# optimization flags
-	export ARCH_FLAGS="${CXXFLAGS}"
-	export LINKFLAGSOPTIMIZE="${LDFLAGS}"
 	export GMAKE_OPTIONS="${MAKEOPTS}"
+	# System python 2.7 enablement:
+	export PYTHON_CFLAGS=$(python_get_CFLAGS)
+	export PYTHON_LIBS=$(python_get_LIBS)
 
 	# patchset
 	if [[ -n ${PATCHSET} ]]; then
@@ -327,8 +327,7 @@ src_prepare() {
 
 	base_src_prepare
 
-	AT_M4DIR="m4"
-	eautoreconf
+	AT_M4DIR="m4" eautoreconf
 	# hack in the autogen.sh
 	touch autogen.lastrun
 
@@ -338,6 +337,19 @@ src_prepare() {
 		-e "s:%libdir%:$(get_libdir):g" \
 		-i pyuno/source/module/uno.py \
 		-i scripting/source/pyprov/officehelper.py || die
+	# sed in the tests
+	sed -i \
+		-e 's#all : build unitcheck#all : build#g' \
+		solenv/gbuild/Module.mk || die
+	sed -i \
+		-e 's#check: dev-install subsequentcheck#check: unitcheck slowcheck dev-install subsequentcheck#g' \
+		-e 's#Makefile.gbuild all slowcheck#Makefile.gbuild all#g' \
+		Makefile.in || die
+
+	if use branding; then
+		# hack...
+		mv -v "${WORKDIR}/branding-intro.png" "${S}/icon-themes/galaxy/brand/intro.png" || die
+	fi
 }
 
 src_configure() {
@@ -376,7 +388,6 @@ src_configure() {
 			--without-system-hsqldb
 			--with-ant-home="${ANT_HOME}"
 			--with-jdk-home=$(java-config --jdk-home 2>/dev/null)
-			--with-java-target-version=$(java-pkg_get-target)
 			--with-jvm-path="${EPREFIX}/usr/$(get_libdir)/"
 		"
 
@@ -397,16 +408,6 @@ src_configure() {
 		fi
 	fi
 
-	if use branding; then
-		# hack...
-		mv -v "${WORKDIR}/branding-intro.png" "${S}/icon-themes/galaxy/brand/intro.png" || die
-	fi
-
-	# System python 2.7 enablement:
-	export PYTHON="${PYTHON}"
-	export PYTHON_CFLAGS=`pkg-config --cflags ${EPYTHON}`
-	export PYTHON_LIBS=`pkg-config --libs ${EPYTHON}`
-
 	# system headers/libs/...: enforce using system packages
 	# --enable-unix-qstart-libpng: use libpng splashscreen that is faster
 	# --enable-cairo: ensure that cairo is always required
@@ -420,10 +421,9 @@ src_configure() {
 	# --disable-rpath: relative runtime path is not desired
 	# --disable-systray: quickstarter does not actually work at all so do not
 	#   promote it
-	# --disable-zenity: disable build icon
 	# --enable-extension-integration: enable any extension integration support
 	# --without-{afms,fonts,myspell-dicts,ppsd}: prevent install of sys pkgs
-	# --disable-ext-report-builder: too much java packages pulled in
+	# --disable-report-builder: too much java packages pulled in without pkgs
 	econf \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}/" \
 		--with-system-headers \
@@ -447,13 +447,12 @@ src_configure() {
 		--disable-fetch-external \
 		--disable-gnome-vfs \
 		--disable-gstreamer-0-10 \
-		--disable-ext-report-builder \
+		--disable-report-builder \
 		--disable-kdeab \
 		--disable-kde \
 		--disable-online-update \
 		--disable-rpath \
 		--disable-systray \
-		--disable-zenity \
 		--with-alloc=$(use jemalloc && echo "jemalloc" || echo "system") \
 		--with-build-version="Gentoo official package" \
 		--enable-extension-integration \
@@ -484,7 +483,7 @@ src_configure() {
 		$(use_enable gtk) \
 		$(use_enable gtk3) \
 		$(use_enable kde kde4) \
-		$(use_enable mysql ext-mysql-connector) \
+		$(use_enable mysql ext-mariadb-connector) \
 		$(use_enable odk) \
 		$(use_enable opengl) \
 		$(use_enable postgres postgresql-sdbc) \

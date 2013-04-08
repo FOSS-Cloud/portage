@@ -1,6 +1,17 @@
 # ChangeLog for app-shells/mksh
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/ChangeLog,v 1.37 2013/02/22 08:42:22 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/ChangeLog,v 1.39 2013/04/07 06:05:24 patrick Exp $
+
+*mksh-44-r1 (07 Apr 2013)
+
+  07 Apr 2013; Patrick Lauer <patrick@gentoo.org> +mksh-44-r1.ebuild,
+  mksh-9999.ebuild:
+  Adding static useflag and klibc dependency as per upstream suggestion
+
+*mksh-44 (06 Mar 2013)
+
+  06 Mar 2013; Patrick Lauer <patrick@gentoo.org> +mksh-44.ebuild:
+  Bump
 
 *mksh-43 (22 Feb 2013)
 *mksh-41c (22 Feb 2013)

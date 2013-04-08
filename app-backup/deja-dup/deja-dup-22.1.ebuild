@@ -1,12 +1,14 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/deja-dup/deja-dup-22.1.ebuild,v 1.6 2012/06/08 11:46:02 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-backup/deja-dup/deja-dup-22.1.ebuild,v 1.8 2013/04/07 14:31:19 jlec Exp $
 
 EAPI=4
 
 GNOME2_LA_PUNT="yes"
 
-inherit eutils gnome2
+VALA_MIN_API_VERSION="0.14"
+
+inherit eutils gnome2 vala
 
 DESCRIPTION="Simple backup tool using duplicity back-end"
 HOMEPAGE="https://launchpad.net/deja-dup/"
@@ -33,13 +35,13 @@ RDEPEND="${COMMON_DEPEND}
 	gnome-base/gvfs[fuse]"
 DEPEND="${COMMON_DEPEND}
 	app-text/yelp-tools
-	dev-lang/vala:0.14
+	$(vala_depend)
 	dev-perl/Locale-gettext
 	virtual/pkgconfig
 	dev-util/intltool
 	sys-devel/gettext"
 
-pkg_setup() {
+src_prepare() {
 	DOCS="NEWS AUTHORS"
 	G2CONF="${G2CONF}
 		$(use_with nautilus)
@@ -47,7 +49,9 @@ pkg_setup() {
 		--without-unity
 		--disable-schemas-compile
 		--disable-static"
-	export VALAC=$(type -p valac-0.14)
+
+	vala_src_prepare
+	gnome2_src_prepare
 }
 
 src_install() {

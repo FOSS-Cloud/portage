@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/gnash/gnash-0.8.10_p20120903.ebuild,v 1.3 2013/02/15 16:04:48 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/gnash/gnash-0.8.10_p20120903.ebuild,v 1.7 2013/03/28 22:06:54 chithanh Exp $
 
 EAPI=4
 CMAKE_REQUIRED="never"
@@ -26,7 +26,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 ppc ~ppc64 ~sparc x86"
 IUSE="X +agg cairo cygnal dbus directfb doc dump egl fbcon +ffmpeg gconf gnome gstreamer gtk harden kde lirc mysql +nls nsplugin opengl openvg python sdl +sdl-sound ssh ssl test vaapi"
 REQUIRED_USE="dump? ( agg ffmpeg )
 	fbcon? ( agg )
@@ -61,6 +61,7 @@ RDEPEND=">=dev-libs/boost-1.41.0
 	)
 	egl? (
 		media-libs/mesa[egl]
+		!x11-apps/mesa-progs[egl]
 	)
 	fbcon? (
 		x11-libs/tslib
@@ -272,7 +273,7 @@ src_install() {
 		popd >& /dev/null
 	fi
 	# Create a symlink in /usr/$(get_libdir)/nsbrowser/plugins to the nsplugin install directory.
-	use nsplugin && inst_plugin /usr/$(get_libdir)/gnash/npapi/libgnashplugin.so \
+	use nsplugin && inst_plugin /usr/$(get_libdir)/gnash/npapi/libgnashplugin.so
 
 	dodoc AUTHORS ChangeLog NEWS README || die "dodoc failed"
 }

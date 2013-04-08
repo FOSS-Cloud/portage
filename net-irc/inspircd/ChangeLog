@@ -1,6 +1,24 @@
 # ChangeLog for net-irc/inspircd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/inspircd/ChangeLog,v 1.70 2013/02/19 22:33:07 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/inspircd/ChangeLog,v 1.75 2013/04/08 10:25:13 nimiux Exp $
+
+*inspircd-2.0.11 (08 Apr 2013)
+
+  08 Apr 2013; Chema Alonso <nimiux@gentoo.org> +inspircd-2.0.11.ebuild,
+  +files/inspircd-2.0.11-fix-path-builds.patch, +files/inspircd-2.0.11-init:
+  Version bump
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.10-r1.ebuild:
+  Stable for x86, wrt bug #463112
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.10-r1.ebuild:
+  Stable for amd64, wrt bug #463112
+
+  17 Mar 2013; Chema Alonso <nimiux@gentoo.org> metadata.xml:
+  Update maintainer info
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
 *inspircd-2.0.10-r1 (19 Feb 2013)
 

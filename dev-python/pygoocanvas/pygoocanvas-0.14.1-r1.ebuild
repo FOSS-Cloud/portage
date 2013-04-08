@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pygoocanvas/pygoocanvas-0.14.1-r1.ebuild,v 1.1 2013/01/12 18:20:35 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pygoocanvas/pygoocanvas-0.14.1-r1.ebuild,v 1.6 2013/04/06 09:10:36 pacho Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 GNOME_TARBALL_SUFFIX="bz2"
-PYTHON_COMPAT=(python2_{5,6,7} )
+PYTHON_COMPAT=(python2_{6,7} )
 
 inherit gnome2 python-r1
 
@@ -15,17 +15,17 @@ HOMEPAGE="http://live.gnome.org/PyGoocanvas"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
-IUSE="examples"
+KEYWORDS="amd64 ppc ~sparc x86"
+IUSE="doc examples"
 
 RDEPEND="
-	>=dev-python/pygobject-2.11.3:2
-	>=dev-python/pygtk-2.10.4:2
-	>=dev-python/pycairo-1.8.4
+	>=dev-python/pygobject-2.11.3:2[${PYTHON_USEDEP}]
+	>=dev-python/pygtk-2.10.4:2[${PYTHON_USEDEP}]
+	>=dev-python/pycairo-1.8.4[${PYTHON_USEDEP}]
 	>=x11-libs/goocanvas-0.14:0
 "
 DEPEND="${RDEPEND}
-	>=dev-util/gtk-doc-am-1.4
+	doc? ( >=dev-util/gtk-doc-1.4 )
 	virtual/pkgconfig
 "
 
@@ -40,7 +40,7 @@ src_configure() {
 	# docs installs gtk-doc and xsltproc is not actually used
 	configure_binding() {
 		ECONF_SOURCE="${S}" gnome2_src_configure \
-			--enable-docs \
+			$(use_enable doc docs) \
 			XSLTPROC=$(type -P true)
 	}
 	python_foreach_impl run_in_build_dir configure_binding

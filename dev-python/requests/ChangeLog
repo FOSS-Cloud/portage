@@ -1,6 +1,28 @@
 # ChangeLog for dev-python/requests
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/requests/ChangeLog,v 1.32 2013/01/11 18:13:15 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/requests/ChangeLog,v 1.36 2013/03/31 07:45:50 radhermit Exp $
+
+*requests-1.2.0 (31 Mar 2013)
+
+  31 Mar 2013; Tim Harder <radhermit@gentoo.org> +requests-1.2.0.ebuild,
+  +files/requests-1.2.0-system-cacerts.patch,
+  +files/requests-1.2.0-system-libs.patch:
+  Version bump.
+
+  28 Mar 2013; Michał Górny <mgorny@gentoo.org> requests-0.14.2-r1.ebuild,
+  requests-1.1.0.ebuild:
+  Clean up global vars in the ebuild. Sync the -r1 backport to the fresh ebuild.
+  Fix byte-compiling being explicitly disabled by the old version (bug #463574).
+
+*requests-0.14.2-r1 (25 Mar 2013)
+
+  25 Mar 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +requests-0.14.2-r1.ebuild:
+  updating requests-0.14.2 to support distutils-r1
+
+  24 Mar 2013; Mike Gilbert <floppym@gentoo.org>
+  -files/requests-1.1.0-workaround-sandbox-bug.patch, requests-1.1.0.ebuild:
+  Remove sandbox workaround.
 
   11 Jan 2013; Tim Harder <radhermit@gentoo.org> requests-1.1.0.ebuild,
   +files/requests-1.1.0-workaround-sandbox-bug.patch:

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/wvstreams/wvstreams-4.6.1-r2.ebuild,v 1.8 2012/08/08 19:41:04 ranger Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/wvstreams/wvstreams-4.6.1-r2.ebuild,v 1.9 2013/03/05 13:34:34 flameeyes Exp $
 
 EAPI=4
 inherit autotools eutils flag-o-matic toolchain-funcs versionator
@@ -25,9 +25,9 @@ RDEPEND="sys-libs/readline
 	sys-libs/zlib
 	dbus? ( >=sys-apps/dbus-1.4.20 )
 	dev-libs/openssl:0
-	pam? ( sys-libs/pam )
-	virtual/c++-tr1-functional"
+	pam? ( sys-libs/pam )"
 DEPEND="${RDEPEND}
+	|| ( >=sys-devel/gcc-4.1 >=dev-libs/boost-1.34.0 )
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 

@@ -1,64 +1,48 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/flask/flask-9999.ebuild,v 1.2 2012/04/10 13:01:00 rafaelmartins Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/flask/flask-9999.ebuild,v 1.3 2013/03/28 03:18:18 floppym Exp $
 
-EAPI="3"
-PYTHON_DEPEND="2:2.5"
-SUPPORT_PYTHON_ABIS="1"
-RESTRICT_PYTHON_ABIS="2.4 3.*"
+EAPI="5"
+PYTHON_COMPAT=( python{2_5,2_6,2_7} pypy{1_9,2_0} )
 
+inherit distutils-r1
+#if LIVE
+inherit git-2
 EGIT_REPO_URI="git://github.com/mitsuhiko/flask.git
 	https://github.com/mitsuhiko/flask.git"
-
-inherit distutils git-2
-
-MY_PN="Flask"
+#endif
 
 DESCRIPTION="A microframework based on Werkzeug, Jinja2 and good intentions"
+MY_PN="Flask"
+MY_P="${MY_PN}-${PV}"
+SRC_URI="mirror://pypi/${MY_P:0:1}/${MY_PN}/${MY_P}.tar.gz"
 HOMEPAGE="http://pypi.python.org/pypi/Flask"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS=""
-IUSE="doc examples test"
+KEYWORDS="~amd64 ~x86"
+IUSE="examples test"
 
-RDEPEND="dev-python/blinker
-	>=dev-python/jinja-2.4
-	dev-python/setuptools
-	>=dev-python/werkzeug-0.6.1"
-DEPEND="${RDEPEND}
-	doc? ( >=dev-python/sphinx-0.6 )"
+RDEPEND="dev-python/blinker[${PYTHON_USEDEP}]
+	>=dev-python/jinja-2.4[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	>=dev-python/werkzeug-0.6.1[${PYTHON_USEDEP}]"
+DEPEND="${RDEPEND}"
 
-src_compile() {
-	distutils_src_compile
+S="${WORKDIR}/${MY_P}"
+#if LIVE
+SRC_URI=
+KEYWORDS=
+#endif
 
-	if use doc; then
-		einfo "Generation of documentation"
-		pushd docs > /dev/null
-		PYTHONPATH=".." emake html || die "Generation of documentation failed"
-		popd > /dev/null
-	fi
+python_test() {
+	"${PYTHON}" run-tests.py || die "Testing failed with ${EPYTHON}"
 }
 
-src_test() {
-	testing() {
-		PYTHONPATH="." "$(PYTHON)" run-tests.py
-	}
-	python_execute_function testing
-}
-
-src_install() {
-	distutils_src_install
-
-	if use doc; then
-		pushd docs/_build/html > /dev/null
-		insinto /usr/share/doc/${PF}/html
-		doins -r [a-z]* _images _static || die "Installation of documentation failed"
-		popd > /dev/null
-	fi
-
+python_install_all() {
 	if use examples; then
 		insinto /usr/share/doc/${PF}
-		doins -r examples || die "Installation of examples failed"
+		doins -r examples
+		docompress -x /usr/share/doc/${PF}/examples
 	fi
 }

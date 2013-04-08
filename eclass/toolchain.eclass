@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain.eclass,v 1.569 2013/02/09 04:34:32 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain.eclass,v 1.580 2013/04/08 06:19:00 vapier Exp $
 #
 # Maintainer: Toolchain Ninjas <toolchain@gentoo.org>
 
@@ -147,15 +147,22 @@ if tc_version_is_at_least 4 ; then
 	in_iuse lto && RDEPEND+=" lto? ( || ( >=dev-libs/elfutils-0.143 dev-libs/libelf ) )"
 fi
 if in_iuse graphite ; then
-	RDEPEND+="
-	    graphite? (
-	        >=dev-libs/cloog-ppl-0.15.10
-	        >=dev-libs/ppl-0.11
-	    )"
+	if tc_version_is_at_least 4.8 ; then
+		RDEPEND+="
+			graphite? (
+				>=dev-libs/cloog-0.17.0
+				>=dev-libs/isl-0.10
+			)"
+	else
+		RDEPEND+="
+			graphite? (
+				>=dev-libs/cloog-ppl-0.15.10
+				>=dev-libs/ppl-0.11
+			)"
+	fi
 fi
 
 DEPEND="${RDEPEND}
-	>=sys-apps/texinfo-4.8
 	>=sys-devel/bison-1.875
 	>=sys-devel/flex-2.5.4
 	test? (
@@ -1084,8 +1091,13 @@ gcc_do_configure() {
 		confgcc+=" $(use_with graphite ppl)"
 		confgcc+=" $(use_with graphite cloog)"
 		if use graphite; then
-			confgcc+=" --disable-ppl-version-check"
-			confgcc+=" --with-cloog-include=/usr/include/cloog-ppl"
+			if tc_version_is_at_least "4.8"; then
+				confgcc+=" --disable-isl-version-check"
+				confgcc+=" --with-cloog"
+			else
+				confgcc+=" --disable-ppl-version-check"
+				confgcc+=" --with-cloog-include=/usr/include/cloog-ppl"
+			fi
 		fi
 	fi
 
@@ -1179,7 +1191,7 @@ gcc_do_configure() {
 	# destructors", but apparently requires glibc.
 	case ${CTARGET} in
 	*-uclibc*)
-		confgcc+=" --disable-__cxa_atexit --enable-target-optspace $(use_enable nptl tls)"
+		confgcc+=" --disable-__cxa_atexit $(use_enable nptl tls)"
 		[[ ${GCCMAJOR}.${GCCMINOR} == 3.3 ]] && confgcc+=" --enable-sjlj-exceptions"
 		if tc_version_is_at_least 3.4 && ! tc_version_is_at_least 4.3 ; then
 			confgcc+=" --enable-clocale=uclibc"
@@ -1214,6 +1226,10 @@ gcc_do_configure() {
 		--with-bugurl=http://bugs.gentoo.org/ \
 		--with-pkgversion="${BRANDING_GCC_PKGVERSION}"
 	set -- ${confgcc} "$@" ${EXTRA_ECONF}
+
+	# Disable gcc info regeneration -- it ships with generated info pages
+	# already.  Our custom version/urls/etc... trigger it.  #464008
+	export gcc_cv_prog_makeinfo_modern=no
 
 	# Do not let the X detection get in our way.  We know things can be found
 	# via system paths, so no need to hardcode things that'll break multilib.
@@ -1277,10 +1293,6 @@ toolchain_death_notice() {
 # Travis Tilley <lv@gentoo.org> (04 Sep 2004)
 #
 gcc_do_make() {
-	# Fix for libtool-portage.patch
-	local OLDS=${S}
-	S=${WORKDIR}/build
-
 	# Set make target to $1 if passed
 	[[ -n $1 ]] && GCC_MAKE_TARGET=$1
 	# default target
@@ -1319,7 +1331,7 @@ gcc_do_make() {
 		BOOT_CFLAGS=${BOOT_CFLAGS-"$(get_abi_CFLAGS ${TARGET_DEFAULT_ABI}) ${CFLAGS}"}
 	fi
 
-	pushd "${WORKDIR}"/build
+	pushd "${WORKDIR}"/build >/dev/null
 
 	emake \
 		LDFLAGS="${LDFLAGS}" \
@@ -1343,11 +1355,12 @@ gcc_do_make() {
 		fi
 	fi
 
-	popd
+	popd >/dev/null
 }
 
 # This is mostly a stub function to be overwritten in an ebuild
 gcc_do_filter_flags() {
+
 	strip-flags
 
 	# In general gcc does not like optimization, and add -O2 where
@@ -1397,9 +1410,13 @@ gcc_do_filter_flags() {
 		;;
 	esac
 
-	# Compile problems with these (bug #6641 among others)...
-	#filter-flags "-fno-exceptions -fomit-frame-pointer -fforce-addr"
-
+	case ${GCC_BRANCH_VER} in
+	4.6)
+		# https://bugs.gentoo.org/411333
+		replace-cpu-flags pentium2 pentium3 pentium3m pentium-m i686
+		;;
+	esac
+	
 	# CFLAGS logic (verified with 3.4.3):
 	# CFLAGS:
 	#	This conflicts when creating a crosscompiler, so set to a sane
@@ -1474,20 +1491,24 @@ toolchain_src_install() {
 
 	cd "${WORKDIR}"/build
 	# Do allow symlinks in private gcc include dir as this can break the build
-	find gcc/include*/ -type l -print0 | xargs -0 rm -f
+	find gcc/include*/ -type l -delete
+	# Copy over the info pages.  We disabled their generation earlier, but the
+	# build system only expects to install out of the build dir, not the source.  #464008
+	mkdir -p gcc/doc
+	cp "${S}"/gcc/doc/*.info* gcc/doc/ || die
 	# Remove generated headers, as they can cause things to break
 	# (ncurses, openssl, etc).
-	for x in $(find gcc/include*/ -name '*.h') ; do
+	while read x ; do
 		grep -q 'It has been auto-edited by fixincludes from' "${x}" \
 			&& rm -f "${x}"
-	done
+	done < <(find gcc/include*/ -name '*.h')
 	# Do the 'make install' from the build directory
 	S=${WORKDIR}/build \
 	emake -j1 DESTDIR="${D}" install || die
 	# Punt some tools which are really only useful while building gcc
 	find "${D}" -name install-tools -prune -type d -exec rm -rf "{}" \;
 	# This one comes with binutils
-	find "${D}" -name libiberty.a -exec rm -f "{}" \;
+	find "${D}" -name libiberty.a -delete
 
 	# Move the libraries to the proper location
 	gcc_movelibs

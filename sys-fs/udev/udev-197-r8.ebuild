@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-197-r8.ebuild,v 1.12 2013/02/23 14:44:53 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-197-r8.ebuild,v 1.16 2013/03/06 20:13:38 armin76 Exp $
 
 EAPI=4
 
@@ -21,7 +21,7 @@ else
 					http://dev.gentoo.org/~williamh/dist/${P}-patches-${patchset}.tar.bz2
 					http://dev.gentoo.org/~ssuominen/${P}-patches-${patchset}.tar.bz2"
 			fi
-	KEYWORDS="alpha amd64 arm ~hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh ~sparc x86"
+	KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 fi
 
 DESCRIPTION="Linux dynamic and persistent device naming support (aka userspace devfs)"
@@ -102,7 +102,7 @@ check_default_rules()
 
 pkg_setup()
 {
-	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD"
+	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD ~EPOLL"
 
 	linux-info_pkg_setup
 

@@ -1,5 +1,13 @@
 # ChangeLog for dev-cpp/gtest
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gtest/ChangeLog,v 1.29 2013/02/28 15:47:14 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gtest/ChangeLog,v 1.31 2013/04/06 07:45:16 tomka Exp $
+
+*gtest-1.6.0-r2 (06 Apr 2013)
+
+  06 Apr 2013; Thomas Kahle <tomka@gentoo.org> +gtest-1.6.0-r2.ebuild:
+  add multilib support, thanks to Karl Lindén (bug 464702)
+
+  29 Mar 2013; Mike Frysinger <vapier@gentoo.org> gtest-1.6.0-r1.ebuild:
+  Remove pointless die with epatch.
 
   28 Feb 2013; Jeroen Roovers <jer@gentoo.org> gtest-1.6.0-r1.ebuild:
   Stable for HPPA (bug #456476).

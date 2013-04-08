@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/digikam/digikam-3.0.0.ebuild,v 1.1 2013/02/09 20:09:43 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/digikam/digikam-3.0.0.ebuild,v 1.5 2013/04/06 10:14:13 dilfridge Exp $
 
 EAPI=5
 
@@ -25,7 +25,7 @@ SRC_URI="mirror://kde/stable/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2
 	handbook? ( FDL-1.2 )"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 SLOT="4"
 IUSE="addressbook debug doc gphoto2 mysql semantic-desktop themedesigner +thumbnails video"
 
@@ -45,12 +45,12 @@ CDEPEND="
 	media-libs/libkgeomap
 	media-libs/liblqr
 	>=media-libs/libpgf-6.12.27
-	media-libs/libpng:=
+	media-libs/libpng:0=
 	media-libs/tiff
 	sci-libs/clapack
 	virtual/jpeg
-	x11-libs/qt-gui:4[qt3support]
-	|| ( x11-libs/qt-sql:4[mysql] x11-libs/qt-sql:4[sqlite] )
+	dev-qt/qtgui:4[qt3support]
+	|| ( dev-qt/qtsql:4[mysql] dev-qt/qtsql:4[sqlite] )
 	addressbook? ( $(add_kdebase_dep kdepimlibs) )
 	gphoto2? ( media-libs/libgphoto2:= )
 	mysql? ( virtual/mysql )

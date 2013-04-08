@@ -1,9 +1,14 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/portage/portage-9999.ebuild,v 1.68 2013/02/06 19:46:46 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/portage/portage-9999.ebuild,v 1.74 2013/04/04 17:45:27 zmedico Exp $
 
 EAPI=3
-inherit git-2 eutils python
+PYTHON_COMPAT=(
+	pypy1_9 pypy2_0
+	python3_1 python3_2 python3_3 python3_4
+	python2_6 python2_7
+)
+inherit git-2 eutils multilib
 
 DESCRIPTION="Portage is the package management and distribution system for Gentoo"
 HOMEPAGE="http://www.gentoo.org/proj/en/portage/index.xml"
@@ -11,6 +16,11 @@ LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
 IUSE="build doc epydoc +ipc linguas_ru pypy2_0 python2 python3 selinux xattr"
+
+for _pyimpl in ${PYTHON_COMPAT[@]} ; do
+	IUSE+=" python_targets_${_pyimpl}"
+done
+unset _pyimpl
 
 # Import of the io module in python-2.6 raises ImportError for the
 # thread module if threading is disabled.
@@ -23,6 +33,17 @@ python_dep_ssl="python3? ( =dev-lang/python-3*[ssl] )
 python_dep="${python_dep_ssl//\[ssl\]}"
 python_dep="${python_dep//,ssl}"
 python_dep="${python_dep//ssl,}"
+
+python_dep="${python_dep}
+	python_targets_pypy1_9? ( dev-python/pypy:1.9 )
+	python_targets_pypy2_0? ( dev-python/pypy:2.0 )
+	python_targets_python2_6? ( dev-lang/python:2.6 )
+	python_targets_python2_7? ( dev-lang/python:2.7 )
+	python_targets_python3_1? ( dev-lang/python:3.1 )
+	python_targets_python3_2? ( dev-lang/python:3.2 )
+	python_targets_python3_3? ( dev-lang/python:3.3 )
+	python_targets_python3_4? ( dev-lang/python:3.4 )
+"
 
 # The pysqlite blocker is for bug #282760.
 # make-3.82 is for bug #455858
@@ -79,8 +100,61 @@ compatible_python_is_selected() {
 }
 
 current_python_has_xattr() {
-	[[ $("${EPREFIX}/usr/bin/python" -c 'import sys ; sys.stdout.write(sys.hexversion >= 0x3030000 and "yes" or "no")') = yes ]] || \
-	"${EPREFIX}/usr/bin/python" -c 'import xattr' 2>/dev/null
+	[[ ${EPYTHON} ]] || die 'No Python implementation set (EPYTHON is null).'
+	local PYTHON=${EPREFIX}/usr/bin/${EPYTHON}
+	[[ $("${PYTHON}" -c 'import sys ; sys.stdout.write(sys.hexversion >= 0x3030000 and "yes" or "no")') = yes ]] || \
+	"${PYTHON}" -c 'import xattr' 2>/dev/null
+}
+
+call_with_python_impl() {
+	[[ ${EPYTHON} ]] || die 'No Python implementation set (EPYTHON is null).'
+	env EPYTHON=${EPYTHON} "$@"
+}
+
+get_python_interpreter() {
+	[ $# -eq 1 ] || die "expected 1 argument, got $#: $*"
+	local impl=$1 python
+	case "${impl}" in
+		python*)
+			python=${impl/_/.}
+			;;
+		pypy*)
+			python=${impl/_/.}
+			python=${python/pypy/pypy-c}
+			;;
+		*)
+			die "Unrecognized python target: ${impl}"
+	esac
+	echo ${python}
+}
+
+get_python_sitedir() {
+	[ $# -eq 1 ] || die "expected 1 argument, got $#: $*"
+	local impl=$1
+	local site_dir=/usr/$(get_libdir)/${impl/_/.}/site-packages
+	[[ -d ${EROOT}${site_dir} ]] || \
+		ewarn "site-packages dir missing for ${impl}: ${EROOT}${site_dir}"
+	echo "${site_dir}"
+}
+
+python_compileall() {
+	[[ ${EPYTHON} ]] || die 'No Python implementation set (EPYTHON is null).'
+	local d=${EPREFIX}$1 PYTHON=${EPREFIX}/usr/bin/${EPYTHON}
+	local d_image=${D}${d#/}
+	[[ -d ${d_image} ]] || die "directory does not exist: ${d_image}"
+	case "${EPYTHON}" in
+		python*)
+			"${PYTHON}" -m compileall -q -f -d "${d}" "${d_image}" || die
+			# Note: Using -OO breaks emaint, since it requires __doc__,
+			# and __doc__ is None when -OO is used.
+			"${PYTHON}" -O -m compileall -q -f -d "${d}" "${d_image}" || die
+			;;
+		pypy*)
+			"${PYTHON}" -m compileall -q -f -d "${d}" "${d_image}" || die
+			;;
+		*)
+			die "Unrecognized EPYTHON value: ${EPYTHON}"
+	esac
 }
 
 pkg_setup() {
@@ -100,8 +174,8 @@ pkg_setup() {
 		! compatible_python_is_selected ; then
 		ewarn "Attempting to select a compatible default python interpreter"
 		local x success=0
-		for x in /usr/bin/python2.* ; do
-			x=${x#/usr/bin/python2.}
+		for x in "${EPREFIX}"/usr/bin/python2.* ; do
+			x=${x#${EPREFIX}/usr/bin/python2.}
 			if [[ $x -ge 6 ]] 2>/dev/null ; then
 				eselect python set python2.$x
 				if compatible_python_is_selected ; then
@@ -117,12 +191,16 @@ pkg_setup() {
 		fi
 	fi
 
+	# We use EPYTHON to designate the active python interpreter,
+	# but we only export when needed, via call_with_python_impl.
+	EPYTHON=python
+	export -n EPYTHON
 	if use python3; then
-		python_set_active_version 3
+		EPYTHON=python3
 	elif use python2; then
-		python_set_active_version 2
+		EPYTHON=python2
 	elif use pypy2_0; then
-		python_set_active_version 2.7-pypy-2.0
+		EPYTHON=pypy-c2.0
 	fi
 }
 
@@ -158,15 +236,23 @@ src_prepare() {
 			|| die "failed to append to make.globals"
 	fi
 
+	local set_shebang=
 	if use python3; then
-		einfo "Converting shebangs for python3..."
-		python_convert_shebangs -r 3 .
+		set_shebang=python3
 	elif use python2; then
-		einfo "Converting shebangs for python2..."
-		python_convert_shebangs -r 2 .
+		set_shebang=python2
 	elif use pypy2_0; then
-		einfo "Converting shebangs for pypy-c2.0..."
-		python_convert_shebangs -r 2.7-pypy-2.0 .
+		set_shebang=pypy-c2.0
+	fi
+	if [[ -n ${set_shebang} ]] ; then
+		einfo "Converting shebangs for ${set_shebang}..."
+		while read -r -d $'\0' ; do
+			local shebang=$(head -n1 "$REPLY")
+			if [[ ${shebang} == "#!/usr/bin/python"* ]] ; then
+				sed -i -e "1s:python:${set_shebang}:" "$REPLY" || \
+					die "sed failed"
+			fi
+		done < <(find . -type f -print0)
 	fi
 
 	if [[ -n ${EPREFIX} ]] ; then
@@ -181,14 +267,13 @@ src_prepare() {
 			die "Failed to patch portage.const.EPREFIX"
 
 		einfo "Prefixing shebangs ..."
-		find . -type f -print0 | \
 		while read -r -d $'\0' ; do
 			local shebang=$(head -n1 "$REPLY")
 			if [[ ${shebang} == "#!"* && ! ${shebang} == "#!${EPREFIX}/"* ]] ; then
 				sed -i -e "1s:.*:#!${EPREFIX}${shebang:2}:" "$REPLY" || \
 					die "sed failed"
 			fi
-		done
+		done < <(find . -type f -print0)
 
 		einfo "Adjusting make.globals ..."
 		sed -e 's|^SYNC=.*|SYNC="rsync://rsync.prefix.freens.org/gentoo-portage-prefix"|' \
@@ -218,11 +303,13 @@ src_prepare() {
 
 src_compile() {
 	if use doc; then
+		call_with_python_impl \
 		emake docbook || die
 	fi
 
 	if use epydoc; then
 		einfo "Generating api docs"
+		call_with_python_impl \
 		emake epydoc || die
 	fi
 }
@@ -232,6 +319,7 @@ src_test() {
 }
 
 src_install() {
+	call_with_python_impl \
 	emake DESTDIR="${D}" \
 		sysconfdir="${EPREFIX}/etc" \
 		prefix="${EPREFIX}/usr" \
@@ -240,12 +328,47 @@ src_install() {
 	# Use dodoc for compression, since the Makefile doesn't do that.
 	dodoc "${S}"/{ChangeLog,NEWS,RELEASE-NOTES} || die
 
-	# Set PYTHONPATH for portage API consumers. This way we don't have
-	# to rely on patched python having the correct path, since it has
-	# been known to incorrectly add /usr/libx32/portage/pym to sys.path.
-	echo "PYTHONPATH=\"${EPREFIX}/usr/lib/portage/pym\"" > \
-		"${T}/05portage" || die
-	doenvd "${T}/05portage"
+	# Allow external portage API consumers to import portage python modules
+	# (this used to be done with PYTHONPATH setting in /etc/env.d).
+	# For each of PYTHON_TARGETS, install a tree of *.py symlinks in
+	# site-packages, and compile with the corresponding interpreter.
+	local impl files mod_dir dest_mod_dir python relative_path x
+	for impl in "${PYTHON_COMPAT[@]}" ; do
+		use "python_targets_${impl}" || continue
+		if use build && [[ ${ROOT} == / &&
+			! -x ${EPREFIX}/usr/bin/$(get_python_interpreter ${impl}) ]] ; then
+			# Tolerate --nodeps at beginning of stage1 for catalyst
+			ewarn "skipping python_targets_${impl}, interpreter not found"
+			continue
+		fi
+		while read -r mod_dir ; do
+			cd "${ED}/usr/lib/portage/pym/${mod_dir}" || die
+			files=$(echo *.py)
+			if [ -z "${files}" ] || [ "${files}" = "*.py" ]; then
+				# __pycache__ directories contain no py files
+				continue
+			fi
+			dest_mod_dir=$(get_python_sitedir ${impl})/${mod_dir}
+			dodir "${dest_mod_dir}" || die
+			relative_path=../../../lib/portage/pym/${mod_dir}
+			x=/${mod_dir}
+			while [ -n "${x}" ] ; do
+				relative_path=../${relative_path}
+				x=${x%/*}
+			done
+			for x in ${files} ; do
+				dosym "${relative_path}/${x}" \
+					"${dest_mod_dir}/${x}" || die
+			done
+		done < <(cd "${ED}"/usr/lib/portage/pym || die ; find * -type d ! -path "portage/tests*")
+		cd "${S}" || die
+		EPYTHON=$(get_python_interpreter ${impl}) \
+		python_compileall "$(get_python_sitedir ${impl})"
+	done
+
+	# Compile /usr/lib/portage/pym with the active interpreter, since portage
+	# internal commands force this directory to the beginning of sys.path.
+	python_compileall /usr/lib/portage/pym
 }
 
 pkg_preinst() {
@@ -276,10 +399,6 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	# Compile all source files recursively. Any orphans
-	# will be identified and removed in postrm.
-	python_mod_optimize /usr/lib/portage/pym
-
 	if $WORLD_MIGRATION_UPGRADE && \
 		grep -q "^@" "${EROOT}/var/lib/portage/world"; then
 		einfo "moving set references from the worldfile into world_sets"
@@ -306,8 +425,4 @@ pkg_postinst() {
 			fi
 		done
 	fi
-}
-
-pkg_postrm() {
-	python_mod_cleanup /usr/lib/portage/pym
 }

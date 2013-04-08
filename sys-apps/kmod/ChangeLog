@@ -1,6 +1,20 @@
 # ChangeLog for sys-apps/kmod
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/ChangeLog,v 1.75 2013/02/23 14:45:34 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/ChangeLog,v 1.80 2013/03/26 08:14:18 ssuominen Exp $
+
+  26 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-12-r1.ebuild,
+  kmod-9999.ebuild:
+  Declare this package as VIRTUAL_MODUTILS=1 for use with linux-mod.eclass wrt
+  #462926
+
+  22 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-12-r1.ebuild,
+  kmod-9999.ebuild:
+  Sanitize upgrade path from sys-apps/module-init-tools by running
+  update_depmod() function from linux-mod.eclass, but skipping it if we are
+  upgrading or the /lib/modules directory with eg. modules.dep is missing.
+
+  06 Mar 2013; Raúl Porcel <armin76@gentoo.org> kmod-12-r1.ebuild:
+  m68k/s390/sh/sparc stable wrt #457568
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> kmod-12-r1.ebuild:
   Stable for alpha, wrt bug #457568

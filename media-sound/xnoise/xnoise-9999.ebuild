@@ -1,9 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/xnoise/xnoise-9999.ebuild,v 1.14 2013/02/23 19:02:29 angelos Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/xnoise/xnoise-9999.ebuild,v 1.16 2013/03/29 20:53:58 angelos Exp $
 
 EAPI=4
-inherit fdo-mime gnome2-utils git-2
+VALA_MIN_API_VERSION=0.18
+
+inherit fdo-mime gnome2-utils git-2 vala
 
 DESCRIPTION="A media player for Gtk+ with a slick GUI, great speed and lots of
 features"
@@ -13,7 +15,7 @@ EGIT_REPO_URI="https://bitbucket.org/shuerhaaken/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+lastfm +lyrics"
+IUSE="ayatana +lastfm +lyrics"
 
 RDEPEND="x11-libs/gtk+:3
 	>=dev-libs/glib-2.30:2
@@ -22,14 +24,15 @@ RDEPEND="x11-libs/gtk+:3
 	media-libs/gst-plugins-base:1.0
 	media-plugins/gst-plugins-meta:1.0
 	dev-db/sqlite:3
-	media-libs/taglib
+	media-libs/libtaginfo
 	x11-libs/cairo
 	x11-libs/libX11
+	ayatana? ( dev-libs/libappindicator:3 )
 	lastfm? ( net-libs/libsoup:2.4 )
 	lyrics? ( net-libs/libsoup:2.4
 		dev-libs/libxml2:2 )"
 DEPEND="${RDEPEND}
-	dev-lang/vala:0.18
+	$(vala_depend)
 	dev-util/intltool
 	virtual/pkgconfig
 	gnome-base/gnome-common:3
@@ -40,11 +43,12 @@ DOCS=( AUTHORS README )
 
 src_prepare() {
 	NOCONFIGURE=yes ./autogen.sh || die
+	vala_src_prepare
 }
 
 src_configure() {
-	VALAC=$(type -p valac-0.18) \
 	econf \
+		$(use_enable ayatana appindicator) \
 		$(use_enable lyrics lyricwiki) \
 		$(use_enable lastfm) \
 		--enable-mpris \
@@ -52,7 +56,6 @@ src_configure() {
 		--enable-mediakeys \
 		$(use_enable lyrics chartlyrics) \
 		$(use_enable lyrics azlyrics) \
-		--disable-ubuntuone \
 		--enable-magnatune
 }
 

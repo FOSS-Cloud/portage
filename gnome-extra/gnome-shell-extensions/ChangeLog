@@ -1,6 +1,20 @@
 # ChangeLog for gnome-extra/gnome-shell-extensions
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/gnome-shell-extensions/ChangeLog,v 1.6 2012/12/26 23:03:58 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/gnome-shell-extensions/ChangeLog,v 1.8 2013/03/29 22:39:03 eva Exp $
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-shell-extensions-3.4.0-r1.ebuild,
+  -files/gnome-shell-extensions-3.4.0-auto-move-windows-removed-crash.patch,
+  -files/gnome-shell-extensions-3.4.0-places-menu-align.patch,
+  -files/gnome-shell-extensions-3.4.0-windowsNavigator-tooltip-crash.patch,
+  gnome-shell-extensions-3.8.0.ebuild:
+  Clean up old revision.
+
+*gnome-shell-extensions-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-shell-extensions-3.8.0.ebuild:
+  Version bump for Gnome 3.8
 
 *gnome-shell-extensions-3.6.2 (26 Dec 2012)
 
@@ -53,4 +67,3 @@
   +files/gnome-shell-extensions-3.2.0-systemMonitor-enable-disable.patch,
   +metadata.xml:
   Add extensions for gnome-base/gnome-shell from the gnome overlay.
-

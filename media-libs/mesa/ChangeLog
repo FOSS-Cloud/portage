@@ -1,6 +1,30 @@
 # ChangeLog for media-libs/mesa
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.462 2013/02/27 06:06:13 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.467 2013/04/05 22:02:10 chithanh Exp $
+
+*mesa-9.2_pre20130404 (05 Apr 2013)
+
+  05 Apr 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2_pre20130404.ebuild:
+  Add new prerelease snapshot with radeon UVD and Gallium3D HUD support.
+
+*mesa-9.1.1 (20 Mar 2013)
+
+  20 Mar 2013; Matt Turner <mattst88@gentoo.org> +mesa-9.1.1.ebuild:
+  Version bump.
+
+  19 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-9.1.ebuild:
+  Add patches for llvm-3.3 compatibility and depend on llvm with r600 shader
+  compiler enabled.
+
+  10 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-9.0.1.ebuild, mesa-9.0.2.ebuild, mesa-9.0.3.ebuild, mesa-9.1.ebuild:
+  mesa-9.0 xorg state tracker does not build against xorg-server-1.14. Add
+  subslot dependency to mesa-9.1.
+
+  06 Mar 2013; Michał Górny <mgorny@gentoo.org> mesa-9.1.ebuild:
+  Migrate to python-r1.
 
   27 Feb 2013; Zac Medico <zmedico@gentoo.org> mesa-9.1.ebuild:
   Add ~arm-linux keyword.

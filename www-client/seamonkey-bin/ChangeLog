@@ -1,6 +1,37 @@
 # ChangeLog for www-client/seamonkey-bin
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey-bin/ChangeLog,v 1.167 2013/02/24 11:32:47 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey-bin/ChangeLog,v 1.174 2013/04/03 01:39:03 jdhore Exp $
+
+*seamonkey-bin-2.17 (03 Apr 2013)
+
+  03 Apr 2013; Jeff Horelick <jdhore@gentoo.org> +seamonkey-bin-2.17.ebuild:
+  Version bump
+
+  15 Mar 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -seamonkey-bin-2.15.ebuild, -seamonkey-bin-2.15.2.ebuild,
+  -seamonkey-bin-2.16.ebuild, -seamonkey-bin-2.16.1.ebuild:
+  Big cleanup requested by ago. All vulnerable versions are now gone.
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.16.2.ebuild:
+  Stable for x86, wrt bug #460818
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.16.2.ebuild:
+  Stable for amd64, wrt bug #460818
+
+*seamonkey-bin-2.16.2 (13 Mar 2013)
+
+  13 Mar 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +seamonkey-bin-2.16.2.ebuild:
+  Security bump (bug #460818).
+
+  09 Mar 2013; Jeff Horelick <jdhore@gentoo.org> -seamonkey-bin-2.14.1.ebuild,
+  -seamonkey-bin-2.14.ebuild, -seamonkey-bin-2.15.1.ebuild:
+  Remove old
+
+*seamonkey-bin-2.16.1 (09 Mar 2013)
+
+  09 Mar 2013; Jeff Horelick <jdhore@gentoo.org> +seamonkey-bin-2.16.1.ebuild:
+  Version bump
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.16.ebuild:
   Stable for x86, wrt bug #458390

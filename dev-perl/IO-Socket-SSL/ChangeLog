@@ -1,6 +1,39 @@
 # ChangeLog for dev-perl/IO-Socket-SSL
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/IO-Socket-SSL/ChangeLog,v 1.185 2013/02/19 16:30:47 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/IO-Socket-SSL/ChangeLog,v 1.196 2013/03/28 22:19:41 ago Exp $
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for ia64, wrt bug #461676
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for alpha, wrt bug #461676
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for sparc, wrt bug #461676
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for arm, wrt bug #461676
+
+  15 Mar 2013; Jeroen Roovers <jer@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for HPPA (bug #461676).
+
+  15 Mar 2013; Agostino Sarubbo <ago@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for sh, wrt bug #461676
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for s390, wrt bug #461676
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for ppc64, wrt bug #461676
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for ppc, wrt bug #461676
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for x86, wrt bug #461676
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> IO-Socket-SSL-1.840.0.ebuild:
+  Stable for amd64, wrt bug #461676
 
 *IO-Socket-SSL-1.840.0 (19 Feb 2013)
 

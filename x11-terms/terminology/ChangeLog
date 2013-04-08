@@ -1,6 +1,14 @@
 # ChangeLog for x11-terms/terminology
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/terminology/ChangeLog,v 1.1 2012/12/19 16:35:13 sera Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-terms/terminology/ChangeLog,v 1.3 2013/03/29 20:12:34 sera Exp $
+
+  29 Mar 2013; Ralph Sennhauser <sera@gentoo.org> terminology-0.3.0.ebuild:
+  Add use dep dbus for media-libs/ethumb. #463514
+
+*terminology-0.3.0 (24 Mar 2013)
+
+  24 Mar 2013; Ralph Sennhauser <sera@gentoo.org> +terminology-0.3.0.ebuild:
+  Version bump.
 
 *terminology-0.2.0 (19 Dec 2012)
 

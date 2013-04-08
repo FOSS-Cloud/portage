@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/hardened-sources/hardened-sources-3.2.37-r2.ebuild,v 1.2 2013/02/12 20:45:23 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/hardened-sources/hardened-sources-3.2.37-r2.ebuild,v 1.5 2013/04/07 06:08:23 blueness Exp $
 
-EAPI="4"
+EAPI="5"
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
@@ -33,12 +33,9 @@ pkg_postinst() {
 	local GRADM_COMPAT="sys-apps/gradm-2.9.1*"
 
 	ewarn
-	ewarn "Hardened Gentoo provides three different predefined grsecurity level:"
-	ewarn "[server], [workstation], and [virtualization].  Those who intend to"
-	ewarn "use one of these predefined grsecurity levels should read the help"
-	ewarn "associated with the level.  Because some options require >=gcc-4.5,"
-	ewarn "users with more, than one version of gcc installed should use gcc-config"
-	ewarn "to select a compatible version."
+	ewarn "Because some options require >=gcc-4.5, users with more than"
+	ewarn "one version of gcc installed should use gcc-config to select"
+	ewarn "a compatible version."
 	ewarn
 	ewarn "Users of grsecurity's RBAC system must ensure they are using"
 	ewarn "${GRADM_COMPAT}, which is compatible with ${PF}."

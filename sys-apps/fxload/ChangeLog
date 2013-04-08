@@ -1,6 +1,27 @@
 # ChangeLog for sys-apps/fxload
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/fxload/ChangeLog,v 1.19 2010/08/03 16:38:34 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/fxload/ChangeLog,v 1.26 2013/03/14 07:45:48 ago Exp $
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fxload-20081013.ebuild:
+  Stable for ia64, wrt bug #460736
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fxload-20081013.ebuild:
+  Stable for ppc64, wrt bug #460736
+
+  12 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fxload-20081013.ebuild:
+  Stable for ppc, wrt bug #460736
+
+  10 Mar 2013; Jeroen Roovers <jer@gentoo.org> fxload-20081013.ebuild:
+  Stable for HPPA (bug #460736).
+
+  10 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fxload-20081013.ebuild:
+  Stable for x86, wrt bug #460736
+
+  10 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fxload-20081013.ebuild:
+  Stable for amd64, wrt bug #460736
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fxload-20081013.ebuild:
+  Stable for sparc, wrt bug #460736
 
   03 Aug 2010; Samuli Suominen <ssuominen@gentoo.org>
   fxload-20081013.ebuild:

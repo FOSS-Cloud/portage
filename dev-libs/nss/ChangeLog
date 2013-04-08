@@ -1,6 +1,23 @@
 # ChangeLog for dev-libs/nss
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.294 2013/02/26 10:17:14 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.298 2013/03/29 22:54:52 vapier Exp $
+
+  29 Mar 2013; Mike Frysinger <vapier@gentoo.org> files/nss-3.14.2-sqlite.patch,
+  nss-3.14.3.ebuild:
+  Drop sqlite patch that is in the 3.14.3 release already.
+
+  29 Mar 2013; Mike Frysinger <vapier@gentoo.org> nss-3.12.11-r1.ebuild,
+  nss-3.13.2.ebuild, nss-3.13.3.ebuild, nss-3.13.4.ebuild, nss-3.13.5-r1.ebuild,
+  nss-3.13.5.ebuild, nss-3.13.6.ebuild, nss-3.14.1.ebuild, nss-3.14.2.ebuild,
+  nss-3.14.3.ebuild, nss-3.14.ebuild:
+  Touch up style slightly.
+
+  28 Mar 2013; Mike Frysinger <vapier@gentoo.org>
+  -files/nss-3.13.1-pkcs11n-header-fix.patch:
+  Drop unused file.
+
+  14 Mar 2013; Mike Frysinger <vapier@gentoo.org> nss-3.14.3.ebuild:
+  Fix nssbits handling when cross-compiling.
 
   26 Feb 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.14.3.ebuild:
   Stable for alpha, wrt bug #455558

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/catalyst/catalyst-9999.ebuild,v 1.25 2013/01/31 15:01:43 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/catalyst/catalyst-9999.ebuild,v 1.27 2013/03/09 02:35:41 mattst88 Exp $
 
 # catalyst-9999         -> latest Git
 # catalyst-2.9999       -> catalyst_2 branch from Git
@@ -40,6 +40,7 @@ DEPEND="app-text/asciidoc"
 RDEPEND="app-arch/lbzip2
 	app-crypt/shash
 	virtual/cdrtools
+	>=sys-boot/syslinux-3.72
 	ccache? ( dev-util/ccache )
 	ia64? ( sys-fs/dosfstools )
 	kernel_linux? ( app-misc/zisofs-tools >=sys-fs/squashfs-tools-2.1 )"
@@ -90,7 +91,7 @@ src_install() {
 	doins files/catalyst.conf files/catalystrc || die "copying configuration"
 	insinto /usr/share/doc/${PF}/examples
 	doins examples/* || die
-	dodoc README ChangeLog AUTHORS
+	dodoc README AUTHORS
 	doman files/catalyst.1 files/catalyst-spec.5
 	# Here is where we actually enable ccache
 	use ccache && \

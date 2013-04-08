@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/ceph/ceph-9999.ebuild,v 1.1 2013/01/14 09:02:08 alexxy Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/ceph/ceph-9999.ebuild,v 1.3 2013/04/04 09:54:36 alexxy Exp $
 
 EAPI=5
 
@@ -16,7 +16,7 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-inherit autotools eutils multilib ${scm_eclass}
+inherit autotools eutils multilib udev ${scm_eclass}
 
 DESCRIPTION="Ceph distributed filesystem"
 HOMEPAGE="http://ceph.com/"
@@ -61,7 +61,6 @@ src_prepare() {
 	sed -e '/testsnaps/d' -i src/Makefile.am || die
 	sed -e "/bin=/ s:lib:$(get_libdir):" "${FILESDIR}"/${PN}.initd \
 		> "${T}"/${PN}.initd || die
-	sed -i -e '/AM_INIT_AUTOMAKE/s:-Werror ::' src/leveldb/configure.ac || die #423755
 	eautoreconf
 }
 
@@ -100,4 +99,8 @@ src_install() {
 
 	newinitd "${T}/${PN}.initd" ${PN}
 	newconfd "${FILESDIR}/${PN}.confd" ${PN}
+
+	#install udev rules
+	udev_dorules udev/50-rbd.rules
+	udev_dorules udev/95-ceph-osd.rules
 }

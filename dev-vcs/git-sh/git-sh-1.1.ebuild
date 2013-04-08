@@ -1,8 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git-sh/git-sh-1.1.ebuild,v 1.2 2011/09/13 21:22:32 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git-sh/git-sh-1.1.ebuild,v 1.3 2013/03/11 16:46:34 jlec Exp $
 
 EAPI=4
+
+inherit vcs-snapshot
 
 DESCRIPTION="A customized bash environment suitable for git work"
 HOMEPAGE="http://github.com/rtomayko/git-sh"
@@ -16,12 +18,10 @@ IUSE=""
 DEPEND=""
 RDEPEND="dev-vcs/git"
 
-S="${WORKDIR}/rtomayko-${PN}-a59681d"
-
 src_prepare() {
 	sed \
 		-e 's/git-completion\.bash //' \
-	   -e 's:/local::' -i Makefile || die "sed failed"
+		-e 's:/local::' -i Makefile || die "sed failed"
 }
 
 pkg_postinst() {

@@ -1,8 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/cppi/cppi-1.17.ebuild,v 1.3 2012/09/28 12:51:04 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/cppi/cppi-1.17.ebuild,v 1.4 2013/03/18 19:57:59 jer Exp $
 
 EAPI=4
+inherit autotools
 
 DESCRIPTION="a cpp directive indenter"
 HOMEPAGE="http://savannah.gnu.org/projects/cppi"
@@ -25,6 +26,9 @@ DEPEND="
 
 DOCS=( AUTHORS ChangeLog NEWS THANKS TODO )
 
+src_prepare() {
+	eautoreconf
+}
 src_configure() {
 	econf $(use_enable nls)
 }

@@ -1,6 +1,48 @@
 # ChangeLog for mail-mta/postfix
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/postfix/ChangeLog,v 1.423 2013/02/28 17:53:43 zx2c4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/postfix/ChangeLog,v 1.430 2013/04/08 09:30:11 eras Exp $
+
+*postfix-2.11_pre20130405 (08 Apr 2013)
+
+  08 Apr 2013; Eray Aslan <eras@gentoo.org> +postfix-2.11_pre20130405.ebuild,
+  -postfix-2.11_pre20130403.ebuild:
+  Version bump
+
+*postfix-2.11_pre20130403 (04 Apr 2013)
+
+  04 Apr 2013; Eray Aslan <eras@gentoo.org> +postfix-2.11_pre20130403.ebuild,
+  -postfix-2.11_pre20130331.ebuild:
+  Version bump
+
+*postfix-2.11_pre20130331 (01 Apr 2013)
+
+  01 Apr 2013; Eray Aslan <eras@gentoo.org> +postfix-2.11_pre20130331.ebuild,
+  -postfix-2.11_pre20130326.ebuild:
+  Version bump
+
+*postfix-2.11_pre20130326 (27 Mar 2013)
+
+  27 Mar 2013; Eray Aslan <eras@gentoo.org> +postfix-2.11_pre20130326.ebuild,
+  -postfix-2.11_pre20130324.ebuild:
+  Version bump
+
+*postfix-2.11_pre20130324 (25 Mar 2013)
+
+  25 Mar 2013; Eray Aslan <eras@gentoo.org> +postfix-2.11_pre20130324.ebuild,
+  -postfix-2.11_pre20130319.ebuild:
+  Version bump
+
+*postfix-2.11_pre20130319 (22 Mar 2013)
+
+  22 Mar 2013; Eray Aslan <eras@gentoo.org> +postfix-2.11_pre20130319.ebuild,
+  -postfix-2.11_pre20130317.ebuild:
+  Version bump
+
+*postfix-2.11_pre20130317 (18 Mar 2013)
+
+  18 Mar 2013; Eray Aslan <eras@gentoo.org> +postfix-2.11_pre20130317.ebuild,
+  -postfix-2.11_pre20130211.ebuild:
+  Version bump
 
   28 Feb 2013; Jason A. Donenfeld <zx2c4@gentoo.org> postfix-2.10.0.ebuild,
   postfix-2.11_pre20130211.ebuild, postfix-2.9.4.ebuild, postfix-2.9.5.ebuild,

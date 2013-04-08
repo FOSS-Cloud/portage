@@ -1,6 +1,41 @@
 # ChangeLog for dev-util/meld
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/meld/ChangeLog,v 1.154 2012/11/25 10:51:59 eva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/meld/ChangeLog,v 1.165 2013/04/01 18:24:28 ago Exp $
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  31 Mar 2013; Alexandre Rostovtsev <tetromino@gentoo.org> meld-1.7.1.ebuild:
+  Fix .desktop file sed.
+
+*meld-1.7.1 (30 Mar 2013)
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> +meld-1.7.1.ebuild:
+  Version bump. Switch to python-single-r1.
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  07 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -meld-1.6.1.ebuild:
+  Clean up old revisions.
 
 *meld-1.7.0 (25 Nov 2012)
 

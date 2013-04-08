@@ -1,6 +1,55 @@
 # ChangeLog for app-arch/libarchive
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/libarchive/ChangeLog,v 1.140 2013/02/22 17:59:47 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/libarchive/ChangeLog,v 1.154 2013/04/05 18:11:17 ago Exp $
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for ppc64, wrt bug #463632
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for ppc, wrt bug #463632
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for s390, wrt bug #463632
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for arm, wrt bug #463632
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for sparc, wrt bug #463632
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for sh, wrt bug #463632
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for alpha, wrt bug #463632
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for ia64, wrt bug #463632
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for x86, wrt bug #463632
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for amd64, wrt bug #463632
+
+  30 Mar 2013; Jeroen Roovers <jer@gentoo.org> libarchive-3.1.2-r1.ebuild:
+  Stable for HPPA (bug #463632).
+
+  30 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> -libarchive-3.1.1.ebuild,
+  -libarchive-3.1.2.ebuild:
+  old
+
+*libarchive-3.1.2-r1 (30 Mar 2013)
+
+  30 Mar 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +libarchive-3.1.2-r1.ebuild, +files/libarchive-3.1.2-CVE-2013-0211.patch:
+  Backport upstream patch for CVE-2013-0211 wrt security #463632 by Agostino
+  Sarubbo
+
+*libarchive-3.1.2 (30 Mar 2013)
+
+  30 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> +libarchive-3.1.2.ebuild:
+  Version bump.
 
   22 Feb 2013; Zac Medico <zmedico@gentoo.org> libarchive-3.1.1.ebuild:
   Add ~arm-linux keyword.

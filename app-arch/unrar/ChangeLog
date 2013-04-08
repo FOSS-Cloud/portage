@@ -1,6 +1,47 @@
 # ChangeLog for app-arch/unrar
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/unrar/ChangeLog,v 1.184 2013/02/17 20:53:56 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/unrar/ChangeLog,v 1.197 2013/03/16 15:35:08 vapier Exp $
+
+  16 Mar 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/unrar-4.2.4-build.patch, unrar-4.2.4.ebuild:
+  Fix parallel build failures #461806 by Mikle Kolyada.
+
+  15 Mar 2013; Jeroen Roovers <jer@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for HPPA (bug #461610).
+
+  15 Mar 2013; Agostino Sarubbo <ago@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for sh, wrt bug #461610
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for s390, wrt bug #461610
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for sparc, wrt bug #461610
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for ia64, wrt bug #461610
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for arm, wrt bug #461610
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for alpha, wrt bug #461610
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for ppc64, wrt bug #461610
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for ppc, wrt bug #461610
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for x86, wrt bug #461610
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> unrar-4.2.4.ebuild:
+  Stable for amd64, wrt bug #461610
+
+  13 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> -unrar-4.1.4-r2.ebuild,
+  -unrar-4.2.1.ebuild, -unrar-4.2.2.ebuild:
+  old
 
   17 Feb 2013; Zac Medico <zmedico@gentoo.org> unrar-4.2.4.ebuild:
   Add ~arm-linux and ~x86-linux keywords.

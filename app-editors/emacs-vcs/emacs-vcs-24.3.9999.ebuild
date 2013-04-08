@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs-vcs/emacs-vcs-24.3.9999.ebuild,v 1.3 2012/12/15 16:50:08 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs-vcs/emacs-vcs-24.3.9999.ebuild,v 1.12 2013/04/06 10:13:39 ulm Exp $
 
 EAPI=5
 
-inherit autotools elisp-common eutils flag-o-matic multilib
+inherit autotools elisp-common eutils flag-o-matic multilib readme.gentoo
 
 if [[ ${PV##*.} = 9999 ]]; then
 	EBZR_PROJECT="emacs"
@@ -16,8 +16,8 @@ if [[ ${PV##*.} = 9999 ]]; then
 	inherit bzr
 	SRC_URI=""
 else
-	SRC_URI="mirror://gentoo/emacs-${PV}.tar.gz
-		mirror://gnu-alpha/emacs/pretest/emacs-${PV}.tar.gz"
+	SRC_URI="mirror://gentoo/emacs-${PV}.tar.xz
+		mirror://gnu-alpha/emacs/pretest/emacs-${PV}.tar.xz"
 	# FULL_VERSION keeps the full version number, which is needed in
 	# order to determine some path information correctly for copy/move
 	# operations later on
@@ -31,12 +31,12 @@ HOMEPAGE="http://www.gnu.org/software/emacs/"
 LICENSE="GPL-3+ FDL-1.3+ BSD HPND MIT W3C unicode PSF-2"
 SLOT="24"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
-IUSE="alsa aqua athena dbus games gconf gif gnutls gpm gsettings gtk +gtk3 gzip-el hesiod imagemagick jpeg kerberos libxml2 m17n-lib motif pax_kernel png selinux sound source svg tiff toolkit-scroll-bars wide-int X Xaw3d xft +xpm"
+IUSE="acl alsa aqua athena dbus games gconf gif gnutls gpm gsettings gtk +gtk3 gzip-el hesiod imagemagick +inotify jpeg kerberos libxml2 livecd m17n-lib motif pax_kernel png selinux sound source svg tiff toolkit-scroll-bars wide-int X Xaw3d xft +xpm"
 REQUIRED_USE="?? ( aqua X )"
 
 RDEPEND="sys-libs/ncurses
 	>=app-admin/eselect-emacs-1.2
-	>=app-emacs/emacs-common-gentoo-1.3[games?,X?]
+	>=app-emacs/emacs-common-gentoo-1.3-r3[games?,X?]
 	net-libs/liblockfile
 	hesiod? ( net-dns/hesiod )
 	kerberos? ( virtual/krb5 )
@@ -44,6 +44,7 @@ RDEPEND="sys-libs/ncurses
 	gpm? ( sys-libs/gpm )
 	dbus? ( sys-apps/dbus )
 	gnutls? ( net-libs/gnutls )
+	acl? ( virtual/acl )
 	libxml2? ( >=dev-libs/libxml2-2.2.0 )
 	selinux? ( sys-libs/libselinux )
 	X? (
@@ -54,7 +55,7 @@ RDEPEND="sys-libs/ncurses
 		gsettings? ( >=dev-libs/glib-2.28.6 )
 		gif? ( media-libs/giflib )
 		jpeg? ( virtual/jpeg )
-		png? ( >=media-libs/libpng-1.4:0 )
+		png? ( >=media-libs/libpng-1.4:0= )
 		svg? ( >=gnome-base/librsvg-2.0 )
 		tiff? ( media-libs/tiff )
 		xpm? ( x11-libs/libXpm )
@@ -73,10 +74,10 @@ RDEPEND="sys-libs/ncurses
 			!gtk3? ( x11-libs/gtk+:2 )
 		)
 		!gtk? (
-			Xaw3d? ( x11-libs/libXaw3d )
-			!Xaw3d? (
-				athena? ( x11-libs/libXaw )
-				!athena? ( motif? ( >=x11-libs/motif-2.3:0 ) )
+			motif? ( >=x11-libs/motif-2.3:0 )
+			!motif? (
+				Xaw3d? ( x11-libs/libXaw3d )
+				!Xaw3d? ( athena? ( x11-libs/libXaw ) )
 			)
 		)
 	)"
@@ -89,6 +90,11 @@ DEPEND="${RDEPEND}
 	X? ( virtual/pkgconfig )
 	gzip-el? ( app-arch/gzip )
 	pax_kernel? ( sys-apps/paxctl )"
+
+if [[ ${PV##*.} = 9999 ]]; then
+	DEPEND="${DEPEND}
+	sys-apps/texinfo"
+fi
 
 EMACS_SUFFIX="${PN/emacs/emacs-${SLOT}}"
 SITEFILE="20${PN}-${SLOT}-gentoo.el"
@@ -140,80 +146,77 @@ src_configure() {
 	if use alsa && ! use sound; then
 		einfo "Although sound USE flag is disabled you chose to have alsa,"
 		einfo "so sound is switched on anyway."
-		myconf="${myconf} --with-sound"
+		myconf+=" --with-sound"
 	else
-		myconf="${myconf} $(use_with sound)"
+		myconf+=" $(use_with sound)"
 	fi
 
 	if use X; then
-		myconf="${myconf} --with-x --without-ns"
-		myconf="${myconf} $(use_with gconf)"
-		myconf="${myconf} $(use_with gsettings)"
-		myconf="${myconf} $(use_with toolkit-scroll-bars)"
-		myconf="${myconf} $(use_with gif) $(use_with jpeg)"
-		myconf="${myconf} $(use_with png) $(use_with svg rsvg)"
-		myconf="${myconf} $(use_with tiff) $(use_with xpm)"
-		myconf="${myconf} $(use_with imagemagick)"
+		myconf+=" --with-x --without-ns"
+		myconf+=" $(use_with gconf)"
+		myconf+=" $(use_with gsettings)"
+		myconf+=" $(use_with toolkit-scroll-bars)"
+		myconf+=" $(use_with gif)"
+		myconf+=" $(use_with jpeg)"
+		myconf+=" $(use_with png)"
+		myconf+=" $(use_with svg rsvg)"
+		myconf+=" $(use_with tiff)"
+		myconf+=" $(use_with xpm)"
+		myconf+=" $(use_with imagemagick)"
 
 		if use xft; then
-			myconf="${myconf} --with-xft"
-			myconf="${myconf} $(use_with m17n-lib libotf)"
-			myconf="${myconf} $(use_with m17n-lib m17n-flt)"
+			myconf+=" --with-xft"
+			myconf+=" $(use_with m17n-lib libotf)"
+			myconf+=" $(use_with m17n-lib m17n-flt)"
 		else
-			myconf="${myconf} --without-xft"
-			myconf="${myconf} --without-libotf --without-m17n-flt"
+			myconf+=" --without-xft"
+			myconf+=" --without-libotf --without-m17n-flt"
 			use m17n-lib && ewarn \
 				"USE flag \"m17n-lib\" has no effect if \"xft\" is not set."
 		fi
 
+		local f
 		if use gtk; then
 			einfo "Configuring to build with GIMP Toolkit (GTK+)"
-			myconf="${myconf} --with-x-toolkit=$(usex gtk3 gtk3 gtk2)"
-			local f
-			for f in athena Xaw3d motif; do
-				use ${f} && ewarn "USE flag \"${f}\" ignored" \
-					"(superseded by \"gtk\")"
+			myconf+=" --with-x-toolkit=$(usex gtk3 gtk3 gtk2)"
+			for f in motif Xaw3d athena; do
+				use ${f} && ewarn \
+					"USE flag \"${f}\" has no effect if \"gtk\" is set."
+			done
+		elif use motif; then
+			einfo "Configuring to build with Motif toolkit"
+			myconf+=" --with-x-toolkit=motif"
+			for f in Xaw3d athena; do
+				use ${f} && ewarn \
+					"USE flag \"${f}\" has no effect if \"motif\" is set."
 			done
 		elif use athena || use Xaw3d; then
 			einfo "Configuring to build with Athena/Lucid toolkit"
-			myconf="${myconf} --with-x-toolkit=lucid $(use_with Xaw3d xaw3d)"
-			use motif && ewarn "USE flag \"motif\" ignored" \
-				"(superseded by \"athena\" or \"Xaw3d\")"
-		elif use motif; then
-			einfo "Configuring to build with Motif toolkit"
-			myconf="${myconf} --with-x-toolkit=motif"
+			myconf+=" --with-x-toolkit=lucid $(use_with Xaw3d xaw3d)"
 		else
 			einfo "Configuring to build with no toolkit"
-			myconf="${myconf} --with-x-toolkit=no"
+			myconf+=" --with-x-toolkit=no"
 		fi
 	elif use aqua; then
-		einfo "Configuring to build with Cocoa support"
-		myconf="${myconf} --with-ns --disable-ns-self-contained"
-		myconf="${myconf} --without-x"
+		einfo "Configuring to build with Nextstep (Cocoa) support"
+		myconf+=" --with-ns --disable-ns-self-contained"
+		myconf+=" --without-x"
 	else
-		myconf="${myconf} --without-x --without-ns"
+		myconf+=" --without-x --without-ns"
 	fi
 
 	# Save version information in the Emacs binary. It will be available
 	# in variable "system-configuration-options".
-	myconf="${myconf} GENTOO_PACKAGE=${CATEGORY}/${PF}"
+	myconf+=" GENTOO_PACKAGE=${CATEGORY}/${PF}"
 	if [[ ${PV##*.} = 9999 ]]; then
-		myconf="${myconf} EBZR_BRANCH=${EBZR_BRANCH} EBZR_REVNO=${EBZR_REVNO}"
+		myconf+=" EBZR_BRANCH=${EBZR_BRANCH} EBZR_REVNO=${EBZR_REVNO}"
 	fi
 
-	# According to configure, this option is only used for GNU/Linux
-	# (x86_64 and s390). For Gentoo Prefix we have to explicitly spell
-	# out the location because $(get_libdir) does not necessarily return
-	# something that matches the host OS's libdir naming (e.g. RHEL).
-	local crtdir=$($(tc-getCC) -print-file-name=crt1.o)
-	crtdir=${crtdir%/*}
-
 	econf \
-		--program-suffix=-${EMACS_SUFFIX} \
-		--program-transform-name="s/emacs-[0-9].*/${EMACS_SUFFIX}/" \
+		--program-suffix="-${EMACS_SUFFIX}" \
+		--program-transform-name="s/^\(emacs\)-[0-9].*-\1/\1/" \
 		--infodir="${EPREFIX}"/usr/share/info/${EMACS_SUFFIX} \
 		--enable-locallisppath="${EPREFIX}/etc/emacs:${EPREFIX}${SITELISP}" \
-		--with-crt-dir="${crtdir}" \
 		--with-gameuser="${GAMES_USER_DED:-games}" \
 		--without-compress-info \
 		$(use_with hesiod) \
@@ -221,6 +224,8 @@ src_configure() {
 		$(use_with gpm) \
 		$(use_with dbus) \
 		$(use_with gnutls) \
+		$(use_with inotify) \
+		$(use_with acl) \
 		$(use_with libxml2 xml2) \
 		$(use_with selinux) \
 		$(use_with wide-int) \
@@ -234,12 +239,6 @@ src_compile() {
 
 src_install () {
 	emake DESTDIR="${D}" NO_BIN_LINK=t install
-
-	# move man pages to the correct place
-	local m
-	for m in "${ED}"/usr/share/man/man1/* ; do
-		mv "${m}" "${m%.1}-${EMACS_SUFFIX}.1" || die "mv man failed"
-	done
 
 	# move info dir to avoid collisions with the dir file generated by portage
 	mv "${ED}"/usr/share/info/${EMACS_SUFFIX}/dir{,.orig} \
@@ -255,22 +254,24 @@ src_install () {
 	# remove unused <version>/site-lisp dir
 	rm -rf "${ED}"/usr/share/emacs/${FULL_VERSION}/site-lisp
 
-	local c=";;"
+	local cdir
 	if use source; then
-		insinto /usr/share/emacs/${FULL_VERSION}/src
+		cdir="/usr/share/emacs/${FULL_VERSION}/src"
+		insinto "${cdir}"
 		# This is not meant to install all the source -- just the
 		# C source you might find via find-function
 		doins src/*.{c,h,m}
-		c=""
+	elif has installsources ${FEATURES}; then
+		cdir="/usr/src/debug/${CATEGORY}/${PF}/${S#"${WORKDIR}/"}/src"
 	fi
 
-	sed 's/^X//' >"${T}/${SITEFILE}" <<-EOF
+	sed -e "${cdir:+#}/^Y/d" -e "s/^[XY]//" >"${T}/${SITEFILE}" <<-EOF
 	X
 	;;; ${PN}-${SLOT} site-lisp configuration
 	X
 	(when (string-match "\\\\\`${FULL_VERSION//./\\\\.}\\\\>" emacs-version)
-	X  ${c}(setq find-function-C-source-directory
-	X  ${c}      "${EPREFIX}/usr/share/emacs/${FULL_VERSION}/src")
+	Y  (setq find-function-C-source-directory
+	Y	"${EPREFIX}${cdir}")
 	X  (let ((path (getenv "INFOPATH"))
 	X	(dir "${EPREFIX}/usr/share/info/${EMACS_SUFFIX}")
 	X	(re "\\\\\`${EPREFIX}/usr/share/info\\\\>"))
@@ -291,9 +292,24 @@ src_install () {
 		rm -rf "${ED}"/Applications/Gentoo/Emacs${EMACS_SUFFIX#emacs}.app
 		mv nextstep/Emacs.app \
 			"${ED}"/Applications/Gentoo/Emacs${EMACS_SUFFIX#emacs}.app || die
-		elog "Emacs${EMACS_SUFFIX#emacs}.app is in ${EPREFIX}/Applications/Gentoo."
-		elog "You may want to copy or symlink it into /Applications by yourself."
 	fi
+
+	DOC_CONTENTS="You can set the version to be started by /usr/bin/emacs
+		through the Emacs eselect module, which also redirects man and info
+		pages. Therefore, several Emacs versions can be installed at the
+		same time. \"man emacs.eselect\" for details.
+		\\n\\nIf you upgrade from Emacs version 24.2 or earlier, then it is
+		strongly recommended that you use app-admin/emacs-updater to rebuild
+		all byte-compiled elisp files of the installed Emacs packages."
+	use X && DOC_CONTENTS+="\\n\\nYou need to install some fonts for Emacs.
+		Installing media-fonts/font-adobe-{75,100}dpi on the X server's
+		machine would satisfy basic Emacs requirements under X11.
+		See also http://www.gentoo.org/proj/en/lisp/emacs/xft.xml
+		for how to enable anti-aliased fonts."
+	use aqua && DOC_CONTENTS+="\\n\\nEmacs${EMACS_SUFFIX#emacs}.app is in
+		\"${EPREFIX}/Applications/Gentoo\". You may want to copy or symlink
+		it into /Applications by yourself."
+	readme.gentoo_create_doc
 }
 
 pkg_preinst() {
@@ -316,25 +332,20 @@ pkg_preinst() {
 
 pkg_postinst() {
 	elisp-site-regen
-	eselect emacs update ifunset
 
-	if use X; then
-		elog "You need to install some fonts for Emacs."
-		elog "Installing media-fonts/font-adobe-{75,100}dpi on the X server's"
-		elog "machine would satisfy basic Emacs requirements under X11."
-		elog "See also http://www.gentoo.org/proj/en/lisp/emacs/xft.xml"
-		elog "for how to enable anti-aliased fonts."
-		elog
+	local pvr
+	for pvr in ${REPLACING_VERSIONS}; do
+		[[ ${pvr%%[-_]*} = 24.[12] ]] && FORCE_PRINT_ELOG=1
+	done
+	readme.gentoo_print_elog
+
+	if use livecd; then
+		# force an update of the emacs symlink for the livecd/dvd,
+		# because some microemacs packages set it with USE=livecd
+		eselect emacs update
+	else
+		eselect emacs update ifunset
 	fi
-
-	elog "You can set the version to be started by /usr/bin/emacs through"
-	elog "the Emacs eselect module, which also redirects man and info pages."
-	elog "Therefore, several Emacs versions can be installed at the same time."
-	elog "\"man emacs.eselect\" for details."
-	elog
-	elog "If you upgrade from Emacs version 24.2 or earlier, then it is"
-	elog "strongly recommended that you use app-admin/emacs-updater to rebuild"
-	elog "all byte-compiled elisp files of the installed Emacs packages."
 }
 
 pkg_postrm() {

@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/gnuradio/gnuradio-9999.ebuild,v 1.3 2012/10/14 23:20:02 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/gnuradio/gnuradio-9999.ebuild,v 1.5 2013/03/12 19:50:12 chithanh Exp $
 
-EAPI=4
+EAPI=5
 PYTHON_DEPEND="2"
 
 inherit base cmake-utils fdo-mime python
@@ -21,12 +21,14 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-IUSE="alsa doc examples fcd filter grc jack oss portaudio qt4 sdl uhd utils wavelet wxwidgets"
+IUSE="alsa doc examples fcd filter grc jack oss performance-counters portaudio qt4 sdl uhd utils wavelet wxwidgets"
 
 # bug #348206
 # comedi? ( >=sci-electronics/comedilib-0.7 )
+# boost-1.52.0 is blacklisted, bug #461578, upstream #513, boost #7669
 RDEPEND=">=dev-lang/orc-0.4.12
 	dev-libs/boost
+	!<=dev-libs/boost-1.52.0-r6:0/1.52
 	dev-python/cheetah
 	dev-util/cppunit
 	sci-libs/fftw:3.0
@@ -48,7 +50,7 @@ RDEPEND=">=dev-lang/orc-0.4.12
 	qt4? (
 		dev-python/PyQt4[X,opengl]
 		dev-python/pyqwt:5
-		x11-libs/qt-gui:4
+		dev-qt/qtgui:4
 	)
 	sdl? ( media-libs/libsdl )
 	uhd? ( >=net-wireless/uhd-3.4.3-r1 )
@@ -103,6 +105,7 @@ src_configure() {
 		$(cmake-utils_use_enable grc GRC) \
 		$(cmake-utils_use_enable jack GR_AUDIO_JACK)
 		$(cmake-utils_use_enable oss GR_AUDIO_OSS)
+		$(cmake-utils_use_enable performance-counters ENABLE_PERFORMANCE_COUNTERS)
 		$(cmake-utils_use_enable portaudio GR_AUDIO_PORTAUDIO)
 		$(cmake-utils_use_enable uhd GR_UHD) \
 		$(cmake-utils_use_enable utils GR_UTILS) \

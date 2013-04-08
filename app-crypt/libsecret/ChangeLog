@@ -1,6 +1,29 @@
 # ChangeLog for app-crypt/libsecret
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/libsecret/ChangeLog,v 1.13 2013/01/28 14:56:10 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/libsecret/ChangeLog,v 1.18 2013/03/31 16:06:16 eva Exp $
+
+*libsecret-0.15 (31 Mar 2013)
+
+  31 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> +libsecret-0.15.ebuild:
+  Version bump.
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> libsecret-0.14.ebuild:
+  Policy fixups, switch to python-any-r1.
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -libsecret-0.11.ebuild:
+  Clean up old revision.
+
+*libsecret-0.14 (05 Mar 2013)
+
+  05 Mar 2013; Nirbheek Chauhan <nirbheek@gentoo.org> +libsecret-0.14.ebuild,
+  -files/libsecret-0.13-fix-secretvalue-get.patch, -libsecret-0.13.ebuild:
+  Bump to 0.14, and remove 0.13
+
+*libsecret-0.13 (02 Mar 2013)
+
+  02 Mar 2013; Nirbheek Chauhan <nirbheek@gentoo.org>
+  +files/libsecret-0.13-fix-secretvalue-get.patch, +libsecret-0.13.ebuild:
+  Bump to 0.13, add a patch from git to fix SecretValue annotations
 
   28 Jan 2013; Alexis Ballier <aballier@gentoo.org> libsecret-0.12.ebuild:
   keyword ~amd64-fbsd

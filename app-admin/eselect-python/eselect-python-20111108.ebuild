@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect-python/eselect-python-20111108.ebuild,v 1.2 2012/04/26 14:53:20 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect-python/eselect-python-20111108.ebuild,v 1.13 2013/04/02 23:08:59 ago Exp $
 
 # Keep the EAPI low here because everything else depends on it.
 # We want to make upgrading simpler.
@@ -12,11 +12,11 @@ if [[ ${PV} == "99999999" ]] ; then
 	inherit autotools subversion
 else
 	SRC_URI="mirror://gentoo/${P}.tar.bz2"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+	KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 ~s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 fi
 
 DESCRIPTION="Eselect module for management of multiple Python versions"
-HOMEPAGE="http://www.gentoo.org"
+HOMEPAGE="http://www.gentoo.org/proj/en/Python/"
 
 LICENSE="GPL-2"
 SLOT="0"

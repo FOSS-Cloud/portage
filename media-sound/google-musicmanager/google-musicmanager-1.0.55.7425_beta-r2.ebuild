@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/google-musicmanager/google-musicmanager-1.0.55.7425_beta-r2.ebuild,v 1.2 2013/03/01 01:19:56 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/google-musicmanager/google-musicmanager-1.0.55.7425_beta-r2.ebuild,v 1.5 2013/03/10 16:30:30 ago Exp $
 
 EAPI=5
 
@@ -16,7 +16,7 @@ SRC_URI="x86? ( ${MY_URL}/${MY_PKG} )
 
 LICENSE="Google-TOS Apache-2.0 MIT LGPL-2.1 gSOAP BSD FDL-1.2 MPL-1.1 openssl ZLIB libtiff"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="log"
 
 RESTRICT="strip mirror"
@@ -36,9 +36,9 @@ RDEPEND="
 	x11-libs/libXi
 	x11-libs/libXrandr
 	x11-libs/libXrender
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4
-	x11-libs/qt-webkit:4
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
+	dev-qt/qtwebkit:4
 	log? ( dev-libs/log4cxx )
 	"
 

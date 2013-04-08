@@ -1,6 +1,21 @@
 # ChangeLog for media-gfx/graphite2
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphite2/ChangeLog,v 1.48 2013/02/27 23:30:23 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphite2/ChangeLog,v 1.52 2013/03/25 07:45:29 scarabeus Exp $
+
+  25 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> -graphite2-1.2.0.ebuild,
+  graphite2-1.2.1.ebuild:
+  Stabilise 1.2.1 on amd64 x86 and ppc. Drop overshadowed.
+
+  09 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> graphite2-1.2.1.ebuild:
+  Restrict to python2 only for tests. Wrt bug#460964.
+
+  06 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> graphite2-1.2.1.ebuild:
+  Update to py-r1. Thanks to Mgorny.
+
+*graphite2-1.2.1 (06 Mar 2013)
+
+  06 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> +graphite2-1.2.1.ebuild:
+  Version bump to latest.
 
   27 Feb 2013; Christoph Junghans <ottxor@gentoo.org> graphite2-1.2.0.ebuild:
   added ~x86-macos, tested by me

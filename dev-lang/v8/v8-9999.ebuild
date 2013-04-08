@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/v8/v8-9999.ebuild,v 1.36 2013/02/18 16:59:00 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/v8/v8-9999.ebuild,v 1.40 2013/04/05 23:05:12 floppym Exp $
 
 EAPI="5"
 PYTHON_COMPAT=( python2_{6,7} )
 
-inherit eutils multilib pax-utils python-any-r1 subversion toolchain-funcs
+inherit eutils multilib multiprocessing pax-utils python-any-r1 subversion toolchain-funcs
 
 DESCRIPTION="Google's open source JavaScript engine"
 HOMEPAGE="http://code.google.com/p/v8"
@@ -14,9 +14,11 @@ LICENSE="BSD"
 
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="readline"
 
-DEPEND="${PYTHON_DEPS}"
+RDEPEND="readline? ( sys-libs/readline:0 )"
+DEPEND="${PYTHON_DEPS}
+	${RDEPEND}"
 
 src_unpack() {
 	subversion_src_unpack
@@ -50,8 +52,11 @@ src_configure() {
 	subversion_wc_info
 	soname_version="${PV}.${ESVN_WC_REVISION}"
 
-	# TODO: Add console=readline option once implemented upstream
-	# http://code.google.com/p/v8/issues/detail?id=1781
+	if use readline; then
+		console=readline
+	else
+		console=dumb
+	fi
 
 	# Generate the real Makefile.
 	emake V=1 \
@@ -60,7 +65,8 @@ src_configure() {
 		soname_version=${soname_version} \
 		snapshot=on \
 		hardfp=${hardfp} \
-		out/Makefile.${myarch} || die
+		console=${console} \
+		out/Makefile.${myarch}
 }
 
 src_compile() {
@@ -73,25 +79,17 @@ src_compile() {
 	)
 
 	# Build mksnapshot so we can pax-mark it.
-	emake "${makeargs[@]}" mksnapshot || die
+	emake "${makeargs[@]}" mksnapshot
 	pax-mark m out/${mytarget}/mksnapshot
 
 	# Build everything else.
-	emake "${makeargs[@]}" || die
-	pax-mark m out/${mytarget}/{cctest,d8,shell} || die
+	emake "${makeargs[@]}"
+	pax-mark m out/${mytarget}/{cctest,d8}
 }
 
 src_test() {
-	local arg testjobs
-	for arg in ${MAKEOPTS}; do
-		case ${arg} in
-			-j*) testjobs=${arg#-j} ;;
-			--jobs=*) testjobs=${arg#--jobs=} ;;
-		esac
-	done
-
 	tools/test-wrapper-gypbuild.py \
-		-j${testjobs:-1} \
+		-j$(makeopts_jobs) \
 		--arch-and-mode=${mytarget} \
 		--no-presubmit \
 		--progress=dots || die
@@ -99,11 +97,11 @@ src_test() {
 
 src_install() {
 	insinto /usr
-	doins -r include || die
+	doins -r include
 
 	if [[ ${CHOST} == *-darwin* ]] ; then
 		# buildsystem is too horrific to get this built correctly
-		mkdir -p out/${mytarget}/lib.target
+		mkdir -p out/${mytarget}/lib.target || die
 		mv out/${mytarget}/libv8.so.${soname_version} \
 			out/${mytarget}/lib.target/libv8$(get_libname ${soname_version}) || die
 		install_name_tool \
@@ -117,10 +115,10 @@ src_install() {
 			out/${mytarget}/d8 || die
 	fi
 
-	dobin out/${mytarget}/d8 || die
+	dobin out/${mytarget}/d8
 
-	dolib out/${mytarget}/lib.target/libv8$(get_libname ${soname_version}) || die
-	dosym libv8$(get_libname ${soname_version}) /usr/$(get_libdir)/libv8$(get_libname) || die
+	dolib out/${mytarget}/lib.target/libv8$(get_libname ${soname_version})
+	dosym libv8$(get_libname ${soname_version}) /usr/$(get_libdir)/libv8$(get_libname)
 
 	dodoc AUTHORS ChangeLog || die
 }

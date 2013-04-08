@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/autotools-multilib.eclass,v 1.12 2013/02/27 21:47:38 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/autotools-multilib.eclass,v 1.15 2013/04/07 16:56:14 mgorny Exp $
 
 # @ECLASS: autotools-multilib.eclass
 # @MAINTAINER:
@@ -53,9 +53,13 @@ autotools-multilib_src_install() {
 	autotools-multilib_secure_install() {
 		autotools-utils_src_install "${@}"
 
+		multilib_prepare_wrappers
 		# Make sure all headers are the same for each ABI.
 		multilib_check_headers
 	}
 
 	multilib_foreach_abi autotools-multilib_secure_install "${@}"
+
+	# merge the wrappers
+	multilib_install_wrappers
 }

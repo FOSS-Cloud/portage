@@ -1,6 +1,60 @@
 # ChangeLog for sys-fs/udisks
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udisks/ChangeLog,v 1.126 2013/02/23 19:51:58 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udisks/ChangeLog,v 1.139 2013/03/31 14:54:48 ago Exp $
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> udisks-1.0.4-r5.ebuild,
+  udisks-2.1.0.ebuild:
+  Stable for sparc, wrt bug #462364
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> udisks-1.0.4-r5.ebuild,
+  udisks-2.1.0.ebuild:
+  Stable for alpha, wrt bug #462364
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> udisks-1.0.4-r5.ebuild,
+  udisks-2.1.0.ebuild:
+  Stable for arm, wrt bug #462364
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> udisks-1.0.4-r5.ebuild,
+  udisks-2.1.0.ebuild:
+  Stable for ppc64, wrt bug #462364
+
+  22 Mar 2013; Agostino Sarubbo <ago@gentoo.org> udisks-1.0.4-r5.ebuild,
+  udisks-2.1.0.ebuild:
+  Stable for ppc, wrt bug #462364
+
+  20 Mar 2013; Agostino Sarubbo <ago@gentoo.org> udisks-1.0.4-r5.ebuild,
+  udisks-2.1.0.ebuild:
+  Stable for x86, wrt bug #462364
+
+  20 Mar 2013; Agostino Sarubbo <ago@gentoo.org> udisks-1.0.4-r5.ebuild,
+  udisks-2.1.0.ebuild:
+  Stable for amd64, wrt bug #462364
+
+  19 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> -udisks-1.0.4-r2.ebuild,
+  -files/udisks-2.0.1-pragma.patch, -udisks-2.0.92.ebuild:
+  old
+
+  19 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> udisks-1.0.4-r4.ebuild:
+  sh stable wrt #427550
+
+  19 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> udisks-2.1.0.ebuild,
+  +files/udisks-2.1.0-ieee1394.patch:
+  Backport post-2.1.0 patch from upstream for properly identifying firewire
+  devices as non-system devices.
+
+*udisks-2.1.0 (18 Mar 2013)
+
+  18 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> +udisks-2.1.0.ebuild:
+  Version bump.
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> udisks-1.0.4-r4.ebuild,
+  udisks-2.0.91.ebuild:
+  Stable for sparc, wrt bug #427550
+
+*udisks-2.0.92 (05 Mar 2013)
+
+  05 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> +udisks-2.0.92.ebuild:
+  Version bump.
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> udisks-1.0.4-r4.ebuild,
   udisks-2.0.91.ebuild:

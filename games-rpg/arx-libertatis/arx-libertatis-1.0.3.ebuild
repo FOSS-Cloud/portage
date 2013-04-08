@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/arx-libertatis/arx-libertatis-1.0.3.ebuild,v 1.4 2013/01/30 19:08:22 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-rpg/arx-libertatis/arx-libertatis-1.0.3.ebuild,v 1.6 2013/03/14 00:56:08 hasufell Exp $
 
 EAPI=4
 
@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/arx/${P}/${P}.tar.xz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="cdinstall demo debug unity-build crash-reporter tools"
+IUSE="debug unity-build crash-reporter tools"
 
 COMMON_DEPEND=">=dev-libs/boost-1.39
 	media-libs/devil[jpeg]
@@ -25,14 +25,12 @@ COMMON_DEPEND=">=dev-libs/boost-1.39
 	virtual/opengl
 	x11-libs/libX11
 	crash-reporter? (
-		x11-libs/qt-core:4[ssl]
-		x11-libs/qt-gui:4
+		dev-qt/qtcore:4[ssl]
+		dev-qt/qtgui:4
 		)"
 RDEPEND="${COMMON_DEPEND}
 	crash-reporter? ( sys-devel/gdb )"
 DEPEND="${COMMON_DEPEND}"
-PDEPEND="cdinstall? ( >=games-rpg/arx-fatalis-data-1.21 )
-	demo? ( games-rpg/arx-fatalis-demo )"
 
 DOCS=( README.md AUTHORS CHANGELOG )
 
@@ -73,16 +71,16 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	einfo "This package only installs the game binary."
-	if ! use cdinstall || ! use demo ; then
-		elog "You need the demo or full game data."
-		elog "See http://wiki.arx-libertatis.org/Getting_the_game_data for more information"
-		elog
-		elog "You might want to enable cdinstall or demo useflag."
-		elog
-		elog "If you have already installed the game or use the STEAM version,"
-		elog "run \"${GAMES_BINDIR}/arx-data-copy /path/to/installed-arx /usr/local/share/games/arx\"."
-	fi
+	elog "optional dependencies:"
+	elog "  games-rpg/arx-fatalis-data (from CD or GOG)"
+	elog "  games-rpg/arx-fatalis-demo (free demo)"
+	elog
+	elog "This package only installs the game binary."
+	elog "You need the demo or full game data. Also see:"
+	elog "http://wiki.arx-libertatis.org/Getting_the_game_data"
+	elog
+	elog "If you have already installed the game or use the STEAM version,"
+	elog "run \"${GAMES_BINDIR}/arx-data-copy /path/to/installed-arx /usr/local/share/games/arx\"."
 
 	games_pkg_postinst
 	gnome2_icon_cache_update

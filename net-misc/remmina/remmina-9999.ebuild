@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/remmina/remmina-9999.ebuild,v 1.26 2012/11/22 03:45:43 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/remmina/remmina-9999.ebuild,v 1.29 2013/04/01 16:14:17 floppym Exp $
 
 EAPI="4"
 
@@ -28,6 +28,7 @@ IUSE="ayatana avahi crypt debug freerdp gnome-keyring nls ssh telepathy vte"
 
 RDEPEND="
 	x11-libs/gtk+:3
+	>=dev-libs/glib-2.31.18:2
 	>=net-libs/libvncserver-0.9.8.2
 	x11-libs/libxkbfile
 	avahi? ( net-dns/avahi[gtk3] )
@@ -49,6 +50,7 @@ RDEPEND+="
 "
 
 DOCS=( README )
+PATCHES=( "${FILESDIR}/remmina-external_tools.patch" )
 
 src_configure() {
 	local mycmakeargs=(
@@ -58,6 +60,7 @@ src_configure() {
 		$(cmake-utils_use_with freerdp FREERDP)
 		$(cmake-utils_use_with gnome-keyring GNOMEKEYRING)
 		$(cmake-utils_use_with nls GETTEXT)
+		$(cmake-utils_use_with nls TRANSLATIONS)
 		$(cmake-utils_use_with ssh LIBSSH)
 		$(cmake-utils_use_with telepathy TELEPATHY)
 		$(cmake-utils_use_with vte VTE)

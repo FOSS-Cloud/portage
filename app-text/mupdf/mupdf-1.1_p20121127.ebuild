@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/mupdf/mupdf-1.1_p20121127.ebuild,v 1.1 2012/11/28 08:14:04 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/mupdf/mupdf-1.1_p20121127.ebuild,v 1.5 2013/03/26 18:16:32 ago Exp $
 
 EAPI=4
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://gentoo/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="amd64 ppc x86 ~amd64-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="X vanilla"
 
 RDEPEND="media-libs/freetype:2
@@ -26,6 +26,7 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-buildsystem.patch
+	epatch "${FILESDIR}"/${P}-desktop-integration.patch
 
 	if ! use vanilla ; then
 		epatch "${FILESDIR}"/${PN}-1.1_rc1-zoom-2.patch

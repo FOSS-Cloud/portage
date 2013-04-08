@@ -1,10 +1,40 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/package.use.mask,v 1.440 2013/02/21 21:55:17 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/package.use.mask,v 1.454 2013/04/04 18:34:22 voyageur Exp $
 
 # This file requires >=portage-2.1.1
 # New entries go on top.
 #
+
+# Bernard Cafarelli <voyageur@gentoo.org> (04 Apr 2013)
+# Broken for now (segmentation fault on play)
+gnustep-apps/cynthiune flac
+
+# Richard Freeman <rich0@gentoo.org> (24 Mar 2013)
+# Dependency is masked for buffer overflows for now
+app-text/yagf cuneiform
+
+# Michael Weber <xmw@gentoo.org> (23 Mar 2013)
+# Does not build.
+=media-libs/oyranos-0.9.4 fltk
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (19 Mar 2013)
+# Depends on llvm-3.3 which is not in ~arch yet
+=media-libs/mesa-9.1* r600-llvm-compiler video_cards_radeonsi
+
+# Christoph Junghans <ottxor@gentoo.org> (10 Mar 2013)
+# log4cxx has known memory leaking issues wrt bug #287697,
+# unmask when log4cxx is fixed and stable.
+media-sound/google-musicmanager log
+
+# Tom Wijsman <TomWij@gentoo.org> (10 Mar 2013)
+# Experimental, masked until it compiles and works.
+media-libs/avidemux-core system-ffmpeg
+
+# Pawel Hajdan jr <phajdan.jr@gentoo.org> (07 Mar 2013)
+# Experimental, breaks WebSQL. Please report sites broken
+# by enabling this flag.
+www-client/chromium system-sqlite
 
 # Justin Lecher <jlec@gentoo.org> (21 Feb 2013)
 # cuda only works on x86 and amd64
@@ -98,10 +128,9 @@ dev-ml/eliom ocamlduce
 >=sys-fs/udev-171 extras
 
 # GNOME <gnome@gentoo.org> (02 Oct 2012)
-# Mask USE="udisks" and use USE="gdu" as the default for <gnome-base/gvfs-1.12.3-r1
-# This allows stabilization without sys-fs/udisks:2 which requires too new udev for now
-# Temporary mask until sys-fs/udisks:2 is stable
-<gnome-base/gvfs-1.12.3-r1 udisks
+# Mask USE="udisks" and use USE="gdu" as the default for <gnome-base/gvfs-1.14;
+# older gvfs releases have problems with recent stable udisks:2 (bug #463792)
+<gnome-base/gvfs-1.14 udisks
 
 # Pawel Hajdan jr <phajdan.jr@gentoo.org> (28 Sep 2012)
 # Causes problems with e.g. NVidia drivers, bug #413637.
@@ -141,11 +170,6 @@ dev-lang/idb eclipse
 # Not fit for production
 www-client/netsurf pdf-writer javascript gstreamer
 
-# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (16 Jul 2012)
-# Needs x11-libs/glamor stable/keyworded first #414295 #440872
-<x11-drivers/xf86-video-intel-2.20 glamor
-=x11-drivers/xf86-video-ati-7* glamor
-
 # Diego Elio Pettenò <flameeyes@gentoo.org> (16 Jul 2012)
 # Stop glibc/uclibc from using iconv in blender
 media-gfx/blender iconv
@@ -157,13 +181,6 @@ app-crypt/johntheripper cuda
 # Mike Gilbert <floppym@gentoo.org> (29 Jun 2012)
 # sys-fs/zfs is not available everywhere.
 sys-boot/grub libzfs
-
-# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (19 Jun 2012)
-# mask wayland flag for stable mesa, #419473
-=media-libs/mesa-8.0.3 wayland
-=media-libs/mesa-8.0.4-r1 wayland
-=media-libs/mesa-9.0 wayland
-=media-libs/mesa-9.0.1 wayland
 
 # Andreas K. Huettel <dilfridge@gentoo.org> (03 Jun 2012)
 # needs libpqxx-3* which is not in the tree anymore
@@ -224,8 +241,8 @@ media-sound/pulseaudio webrtc-aec xen
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (27 Mar 2012)
 # Requires libxkbcommon from the x11 overlay
-dev-cpp/gtkmm wayland
-x11-libs/gtk+ egl wayland
+<dev-cpp/gtkmm-3.7 wayland
+<x11-libs/gtk+-3.7 egl wayland
 
 # Johannes Huber <johu@gentoo.org> (23 Mar 2012)
 # Broken dep upnp, see bug #389833.
@@ -285,8 +302,8 @@ media-video/transcode nuv pic
 # Davide Pesavento <pesa@gentoo.org> (30 Nov 2011)
 # JavaScriptCore JIT is supported only on amd64/arm/x86, so
 # mask USE="jit" here and unmask it in the relevant arch profiles.
-x11-libs/qt-script jit
-x11-libs/qt-webkit jit
+dev-qt/qtscript jit
+dev-qt/qtwebkit jit
 
 # Samuli Suominen <ssuominen@gentoo.org> (25 Nov 2011)
 # Expose USE="suid" for USE="svga" only for x86 users,
@@ -312,11 +329,9 @@ gnome-base/gvfs bluray
 media-tv/tvtime alsa
 
 # Pawel Hajdan jr <phajdan.jr@gentoo.org> (12 Oct 2011)
-# Upstream support not yet ready:
+# Upstream support before 27.x not ready:
 # http://code.google.com/p/chromium/issues/detail?id=32757
-# Feel free to file a Gentoo bug to unmask the flag
-# when above upstream bug is closed.
-www-client/chromium pulseaudio
+<www-client/chromium-27.0.1448.0 pulseaudio
 
 # Nirbheek Chauhan <nirbheek@gentoo.org> (17 Sep 2011)
 # Systemtap is not keyworded on anything except amd64/x86

@@ -1,6 +1,14 @@
 # ChangeLog for dev-haskell/lifted-base
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/lifted-base/ChangeLog,v 1.6 2012/12/23 20:06:36 slyfox Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/lifted-base/ChangeLog,v 1.8 2013/04/02 11:46:05 gienah Exp $
+
+*lifted-base-0.2.0.3 (02 Apr 2013)
+
+  02 Apr 2013; Mark Wright <gienah@gentoo.org> +lifted-base-0.2.0.3.ebuild:
+  Bump lifted-base to 0.2.0.3
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
 *lifted-base-0.2.0.2 (23 Dec 2012)
 

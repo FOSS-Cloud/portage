@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-radius/pecl-radius-1.2.5-r2.ebuild,v 1.1 2013/01/24 22:05:11 mabi Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-radius/pecl-radius-1.2.5-r2.ebuild,v 1.2 2013/03/29 20:51:41 olemarkus Exp $
 
 EAPI=5
 
@@ -8,7 +8,7 @@ PHP_EXT_NAME="radius"
 PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
 
-USE_PHP="php5-3 php5-4"
+USE_PHP="php5-5 php5-3 php5-4"
 
 inherit php-ext-pecl-r2
 

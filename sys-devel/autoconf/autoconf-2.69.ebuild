@@ -1,8 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/autoconf/autoconf-2.69.ebuild,v 1.14 2013/02/19 04:45:38 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/autoconf/autoconf-2.69.ebuild,v 1.16 2013/04/04 22:59:16 vapier Exp $
 
 EAPI="3"
+
+inherit eutils
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="git://git.savannah.gnu.org/${PN}.git
@@ -21,11 +23,10 @@ DESCRIPTION="Used to create autoconfiguration files"
 HOMEPAGE="http://www.gnu.org/software/autoconf/autoconf.html"
 
 LICENSE="GPL-3"
-SLOT="2.5"
-IUSE="emacs"
+SLOT=$(usex multislot "${PV}" "2.5")
+IUSE="emacs multislot"
 
-DEPEND=">=sys-apps/texinfo-4.3
-	>=sys-devel/m4-1.4.16
+DEPEND=">=sys-devel/m4-1.4.16
 	>=dev-lang/perl-5.6"
 RDEPEND="${DEPEND}
 	>=sys-devel/autoconf-wrapper-10"
@@ -35,6 +36,7 @@ src_prepare() {
 	if [[ ${PV} == "9999" ]] ; then
 		autoreconf -f -i || die
 	fi
+	use multislot && find -name Makefile.in -exec sed -i '/^pkgdatadir/s:$:-@VERSION@:' {} +
 }
 
 src_configure() {
@@ -50,4 +52,11 @@ src_install() {
 	emake DESTDIR="${D}" install || die
 	dodoc AUTHORS BUGS NEWS README TODO THANKS \
 		ChangeLog ChangeLog.0 ChangeLog.1 ChangeLog.2
+
+	if use multislot ; then
+		local f
+		for f in "${D}"/usr/share/info/*.info* ; do
+			mv "${f}" "${f/.info/-${SLOT}.info}" || die
+		done
+	fi
 }

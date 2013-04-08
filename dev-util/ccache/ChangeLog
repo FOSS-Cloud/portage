@@ -1,6 +1,16 @@
 # ChangeLog for dev-util/ccache
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/ccache/ChangeLog,v 1.119 2013/02/26 14:44:00 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/ccache/ChangeLog,v 1.122 2013/04/06 18:28:19 vapier Exp $
+
+  06 Apr 2013; Mike Frysinger <vapier@gentoo.org> ccache-3.1.9.ebuild:
+  Only show ccache messages on first emerge #458624 by Pacho Ramos.
+
+  23 Mar 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/ccache-3.1.9-test-gcc-3.8.patch, ccache-3.1.9.ebuild:
+  Add fix from upstream for tests w/gcc-3.8 #461966 by Ryan Hill.
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ccache-3.1.9.ebuild:
+  Stable for sh, wrt bug #457342
 
   26 Feb 2013; Jeroen Roovers <jer@gentoo.org> ccache-3.1.9.ebuild:
   Stable for HPPA (bug #457342).

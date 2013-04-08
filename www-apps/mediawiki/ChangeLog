@@ -1,6 +1,33 @@
 # ChangeLog for www-apps/mediawiki
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.213 2013/01/22 17:24:26 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.219 2013/03/20 03:50:31 radhermit Exp $
+
+  20 Mar 2013; Tim Harder <radhermit@gentoo.org> mediawiki-1.19.4.ebuild,
+  mediawiki-1.20.3.ebuild:
+  Fix sqlite use flag dep (bug #462400 by Arfrever).
+
+  20 Mar 2013; Tim Harder <radhermit@gentoo.org> -mediawiki-1.18.6.ebuild,
+  -mediawiki-1.19.3.ebuild, -mediawiki-1.20.1.ebuild, -mediawiki-1.20.2.ebuild:
+  Remove old.
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.4.ebuild,
+  mediawiki-1.20.3.ebuild:
+  Stable for ppc, wrt bug #460352
+
+  06 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.4.ebuild,
+  mediawiki-1.20.3.ebuild:
+  Stable for x86, wrt bug #460352
+
+  06 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.4.ebuild,
+  mediawiki-1.20.3.ebuild:
+  Stable for amd64, wrt bug #460352
+
+*mediawiki-1.20.3 (05 Mar 2013)
+*mediawiki-1.19.4 (05 Mar 2013)
+
+  05 Mar 2013; Tim Harder <radhermit@gentoo.org> +mediawiki-1.19.4.ebuild,
+  +mediawiki-1.20.3.ebuild:
+  Security bumps (bug #460352).
 
   22 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.20.2.ebuild:
   Stable for x86, wrt bug #451616

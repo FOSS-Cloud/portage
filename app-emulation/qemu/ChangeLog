@@ -1,6 +1,34 @@
 # ChangeLog for app-emulation/qemu
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.198 2013/02/28 16:07:36 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.204 2013/03/28 02:06:23 steev Exp $
+
+  28 Mar 2013; Steev Klimaszewski <steev@gentoo.org> qemu-9999.ebuild:
+  Upstream has changed the qemu configure script, change requested by Cardoe
+  via email
+
+  19 Mar 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.4.0-r1.ebuild:
+  Always ensure the check-report is generated. fixes bug #462010
+
+*qemu-1.4.0-r1 (17 Mar 2013)
+
+  17 Mar 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.4.0-r1.ebuild,
+  metadata.xml:
+  Further work on developing the qemu 1.4.1 stable bump, contains my entire
+  queue + qemu-kvm migration fixes shared with Fedora. Ensure any libraries
+  which maybe installed are installed into /usr/lib64 for 64-bit systems. Add
+  support for libiscsi. Add support for running qemu tests. Also fix bug
+  #459246, and bug #459120.
+
+  12 Mar 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.4.0.ebuild:
+  Add some information on what versions of dependencies we are using to emerge
+  --info
+
+  02 Mar 2013; Doug Goldstein <cardoe@gentoo.org> metadata.xml:
+  Update USE flag description based on confusion from upstream reported bug
+
+  01 Mar 2013; Tiziano Müller <dev-zero@gentoo.org> qemu-1.4.0.ebuild:
+  Don't block spice[smartcard] as libcacard is the real blocker and it doesn't
+  work as planned.
 
   28 Feb 2013; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
   TODO no longer exists in the top level. Items are tracked in the bug tracker

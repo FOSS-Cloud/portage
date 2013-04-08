@@ -1,6 +1,23 @@
 # ChangeLog for dev-ml/type-conv
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/type-conv/ChangeLog,v 1.24 2013/02/25 06:45:38 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/type-conv/ChangeLog,v 1.27 2013/03/23 09:10:19 aballier Exp $
+
+*type-conv-109.14.00 (23 Mar 2013)
+
+  23 Mar 2013; Alexis Ballier <aballier@gentoo.org>
+  +type-conv-109.14.00.ebuild:
+  version bump
+
+*type-conv-109.11.00 (06 Mar 2013)
+
+  06 Mar 2013; Alexis Ballier <aballier@gentoo.org>
+  +type-conv-109.11.00.ebuild:
+  version bump
+
+  02 Mar 2013; Alexis Ballier <aballier@gentoo.org>
+  -type-conv-108.00.01.ebuild, -type-conv-108.07.01.ebuild,
+  -type-conv-109.07.00.ebuild:
+  remove old
 
   25 Feb 2013; Sergei Trofimovich <slyfox@gentoo.org>
   type-conv-109.07.00.ebuild, type-conv-109.08.00.ebuild:

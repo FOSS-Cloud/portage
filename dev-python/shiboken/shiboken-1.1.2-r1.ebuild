@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/shiboken/shiboken-1.1.2-r1.ebuild,v 1.1 2013/02/04 14:00:06 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/shiboken/shiboken-1.1.2-r1.ebuild,v 1.5 2013/03/21 10:48:36 jlec Exp $
 
 EAPI=5
 
@@ -14,22 +14,22 @@ SRC_URI="http://www.pyside.org/files/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm x86 ~amd64-linux ~x86-linux"
 IUSE="test"
 
 RDEPEND="
 	>=dev-libs/libxml2-2.6.32
 	>=dev-libs/libxslt-1.1.19
-	>=x11-libs/qt-core-4.7.0:4
-	>=x11-libs/qt-xmlpatterns-4.7.0:4
+	>=dev-qt/qtcore-4.7.0:4
+	>=dev-qt/qtxmlpatterns-4.7.0:4
 	!dev-python/apiextractor
 	!dev-python/generatorrunner
 "
 DEPEND="${RDEPEND}
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
-		>=x11-libs/qt-gui-4.7.0:4
-		>=x11-libs/qt-test-4.7.0:4
+		>=dev-qt/qtgui-4.7.0:4
+		>=dev-qt/qttest-4.7.0:4
 	)"
 
 DOCS=( AUTHORS ChangeLog )
@@ -52,7 +52,7 @@ src_configure() {
 	configuration() {
 		local mycmakeargs=(
 			-DPYTHON_EXECUTABLE="${PYTHON}"
-			-DPYTHON_SITE_PACKAGES="${EPREFIX}$(python_get_sitedir)"
+			-DPYTHON_SITE_PACKAGES="$(python_get_sitedir)"
 			-DPYTHON_SUFFIX="-${EPYTHON}"
 			$(cmake-utils_use_build test TESTS)
 		)
@@ -60,8 +60,8 @@ src_configure() {
 		if [[ ${EPYTHON} == python3* ]]; then
 			mycmakeargs+=(
 				-DUSE_PYTHON3=ON
-				-DPYTHON3_INCLUDE_DIR="${EPREFIX}$(python_get_includedir)"
-				-DPYTHON3_LIBRARY="${EPREFIX}$(python_get_library_path)"
+				-DPYTHON3_INCLUDE_DIR="$(python_get_includedir)"
+				-DPYTHON3_LIBRARY="$(python_get_library_path)"
 			)
 		fi
 

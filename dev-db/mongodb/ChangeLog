@@ -1,6 +1,46 @@
 # ChangeLog for dev-db/mongodb
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/ChangeLog,v 1.56 2013/02/02 19:04:05 ultrabug Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/ChangeLog,v 1.63 2013/04/05 15:30:29 ultrabug Exp $
+
+*mongodb-2.2.4 (05 Apr 2013)
+
+  05 Apr 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.2.2-r2.ebuild,
+  +mongodb-2.2.4.ebuild:
+  Version 2.2.x bump
+
+*mongodb-2.4.1 (25 Mar 2013)
+
+  25 Mar 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.4.0.ebuild,
+  +mongodb-2.4.1.ebuild:
+  Version bump, drop bugged version, add kerberos support, fix #462606
+
+  21 Mar 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.4.0.ebuild:
+  add missing dep for ssl USE flag
+
+*mongodb-2.4.0 (20 Mar 2013)
+
+  20 Mar 2013; Ultrabug <ultrabug@gentoo.org> +mongodb-2.4.0.ebuild,
+  metadata.xml:
+  Version bump, fix #461466 #421289, add ssl and sharedclient to IUSE
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+*mongodb-2.2.3-r1 (11 Mar 2013)
+*mongodb-2.2.2-r2 (11 Mar 2013)
+
+  11 Mar 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.2.0-r1.ebuild,
+  mongodb-2.2.0-r2.ebuild, -mongodb-2.2.1.ebuild, -mongodb-2.2.2-r1.ebuild,
+  +mongodb-2.2.2-r2.ebuild, -mongodb-2.2.3.ebuild, +mongodb-2.2.3-r1.ebuild,
+  +files/mongodb-2.2-fix-sharedclient.patch,
+  files/mongodb-2.2-fix-x86client.patch:
+  install the mongoclient shared library wrt #460764 for 2.2.x versions thx to
+  Balint SZENTE, drop useless version
+
+  05 Mar 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.0.7-r1.ebuild,
+  mongodb-2.0.7-r2.ebuild, mongodb-2.0.8-r1.ebuild, mongodb-2.0.8-r2.ebuild:
+  install the mongoclient shared library wrt #457694 for 2.0.x versions thx to
+  Balint SZENTE
 
 *mongodb-2.2.3 (02 Feb 2013)
 

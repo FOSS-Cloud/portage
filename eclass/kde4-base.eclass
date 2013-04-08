@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.123 2013/02/07 03:38:33 alexxy Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.125 2013/04/07 17:30:35 kensington Exp $
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
@@ -12,6 +12,9 @@
 #
 # NOTE: KDE 4 ebuilds currently support EAPIs 3, 4, and 5.  This will be
 # reviewed over time as new EAPI versions are approved.
+
+if [[ ${___ECLASS_ONCE_KDE4_BASE} != "recur -_+^+_- spank" ]] ; then
+___ECLASS_ONCE_KDE4_BASE="recur -_+^+_- spank"
 
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @DESCRIPTION:
@@ -106,25 +109,25 @@ unset export_fns
 
 # @ECLASS-VARIABLE: DECLARATIVE_REQUIRED
 # @DESCRIPTION:
-# Is qt-declarative required? Possible values are 'always', 'optional' and 'never'.
+# Is qtdeclarative required? Possible values are 'always', 'optional' and 'never'.
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 DECLARATIVE_REQUIRED="${DECLARATIVE_REQUIRED:-never}"
 
 # @ECLASS-VARIABLE: QTHELP_REQUIRED
 # @DESCRIPTION:
-# Is qt-assistant required? Possible values are 'always', 'optional' and 'never'.
+# Is qthelp required? Possible values are 'always', 'optional' and 'never'.
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 QTHELP_REQUIRED="${QTHELP_REQUIRED:-never}"
 
 # @ECLASS-VARIABLE: OPENGL_REQUIRED
 # @DESCRIPTION:
-# Is qt-opengl required? Possible values are 'always', 'optional' and 'never'.
+# Is qtopengl required? Possible values are 'always', 'optional' and 'never'.
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 OPENGL_REQUIRED="${OPENGL_REQUIRED:-never}"
 
 # @ECLASS-VARIABLE: MULTIMEDIA_REQUIRED
 # @DESCRIPTION:
-# Is qt-multimedia required? Possible values are 'always', 'optional' and 'never'.
+# Is qtmultimedia required? Possible values are 'always', 'optional' and 'never'.
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 MULTIMEDIA_REQUIRED="${MULTIMEDIA_REQUIRED:-never}"
 
@@ -176,7 +179,7 @@ case ${KDEBASE} in
 		# packages that will never be mirrored. (As they only will ever be in
 		# the overlay).
 		case ${PV} in
-			*9999* | 4.?.[6-9]?)
+			*9999* | 4.?.[6-9]? | 4.??.[6-9]?)
 				RESTRICT+=" mirror"
 				;;
 		esac
@@ -190,16 +193,11 @@ esac
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package.
-if version_is_at_least 4.8.50 "${KDE_MINIMAL}"; then
-	# Upstream has added an *undeclared* dependency on Qt 4.8...
-	QT_MINIMAL="${QT_MINIMAL:-4.8.0}"
-else
-	QT_MINIMAL="${QT_MINIMAL:-4.7.4}"
-fi
+QT_MINIMAL="${QT_MINIMAL:-4.8.0}"
 
 # Declarative dependencies
 qtdeclarativedepend="
-	>=x11-libs/qt-declarative-${QT_MINIMAL}:4
+	>=dev-qt/qtdeclarative-${QT_MINIMAL}:4
 "
 case ${DECLARATIVE_REQUIRED} in
 	always)
@@ -215,7 +213,7 @@ unset qtdeclarativedepend
 
 # QtHelp dependencies
 qthelpdepend="
-	>=x11-libs/qt-assistant-${QT_MINIMAL}:4
+	>=dev-qt/qthelp-${QT_MINIMAL}:4
 "
 case ${QTHELP_REQUIRED} in
 	always)
@@ -230,7 +228,7 @@ unset qthelpdepend
 
 # OpenGL dependencies
 qtopengldepend="
-	>=x11-libs/qt-opengl-${QT_MINIMAL}:4
+	>=dev-qt/qtopengl-${QT_MINIMAL}:4
 "
 case ${OPENGL_REQUIRED} in
 	always)
@@ -246,7 +244,7 @@ unset qtopengldepend
 
 # MultiMedia dependencies
 qtmultimediadepend="
-	>=x11-libs/qt-multimedia-${QT_MINIMAL}:4
+	>=dev-qt/qtmultimedia-${QT_MINIMAL}:4
 "
 case ${MULTIMEDIA_REQUIRED} in
 	always)
@@ -280,15 +278,15 @@ unset cppuintdepend
 # Qt accessibility classes are needed in various places, bug 325461
 kdecommondepend="
 	dev-lang/perl
-	>=x11-libs/qt-core-${QT_MINIMAL}:4[qt3support,ssl]
-	>=x11-libs/qt-dbus-${QT_MINIMAL}:4
-	>=x11-libs/qt-gui-${QT_MINIMAL}:4[accessibility,dbus]
-	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[accessibility]
-	>=x11-libs/qt-script-${QT_MINIMAL}:4
-	>=x11-libs/qt-sql-${QT_MINIMAL}:4[qt3support]
-	>=x11-libs/qt-svg-${QT_MINIMAL}:4
-	>=x11-libs/qt-test-${QT_MINIMAL}:4
-	>=x11-libs/qt-webkit-${QT_MINIMAL}:4
+	>=dev-qt/qt3support-${QT_MINIMAL}:4[accessibility]
+	>=dev-qt/qtcore-${QT_MINIMAL}:4[qt3support,ssl]
+	>=dev-qt/qtdbus-${QT_MINIMAL}:4
+	>=dev-qt/qtgui-${QT_MINIMAL}:4[accessibility,dbus]
+	>=dev-qt/qtscript-${QT_MINIMAL}:4
+	>=dev-qt/qtsql-${QT_MINIMAL}:4[qt3support]
+	>=dev-qt/qtsvg-${QT_MINIMAL}:4
+	>=dev-qt/qttest-${QT_MINIMAL}:4
+	>=dev-qt/qtwebkit-${QT_MINIMAL}:4
 	!aqua? (
 		x11-libs/libXext
 		x11-libs/libXt
@@ -375,6 +373,28 @@ case ${KDE_SELINUX_MODULE} in
 	*)
 		IUSE+=" selinux"
 		kdecommondepend+=" selinux? ( sec-policy/selinux-${KDE_SELINUX_MODULE} )"
+		;;
+esac
+
+# These dependencies are added as they are unconditionally required by kde-workspace.
+# They are not necessarily required by individual applications but are pulled in to prevent
+# bugs like bug #444438. This list is subject to change in the future so do not rely on it
+# in ebuilds - always set correct dependencies.
+case ${KMNAME} in
+	kde-workspace)
+		kdedepend+="
+			x11-libs/xcb-util
+			x11-libs/libX11
+			x11-libs/libXcomposite
+			x11-libs/libXcursor
+			x11-libs/libXdamage
+			x11-libs/libXfixes
+			x11-libs/libxkbfile
+			x11-libs/libXrandr
+			x11-libs/libXrender
+		"
+		;;
+	*)
 		;;
 esac
 
@@ -906,3 +926,5 @@ kde4-base_pkg_postrm() {
 	fdo-mime_mime_database_update
 	buildsycoca
 }
+
+fi

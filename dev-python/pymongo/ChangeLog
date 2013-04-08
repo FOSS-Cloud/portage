@@ -1,6 +1,15 @@
 # ChangeLog for dev-python/pymongo
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pymongo/ChangeLog,v 1.18 2013/02/11 13:45:07 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pymongo/ChangeLog,v 1.20 2013/03/25 09:20:07 ultrabug Exp $
+
+*pymongo-2.5 (25 Mar 2013)
+
+  25 Mar 2013; Ultrabug <ultrabug@gentoo.org> -pymongo-2.4.ebuild,
+  -pymongo-2.4.1.ebuild, -pymongo-2.4.2.ebuild, +pymongo-2.5.ebuild:
+  Version bump, drop old
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   11 Feb 2013; Michał Górny <mgorny@gentoo.org> pymongo-2.4.2-r1.ebuild:
   Oops. Remove debugging code from ebuild.

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kernel-2.eclass,v 1.277 2012/06/24 17:52:38 mpagano Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kernel-2.eclass,v 1.281 2013/03/20 16:45:56 tomwij Exp $
 
 # Description: kernel.eclass rewrite for a clean base regarding the 2.6
 #              series of kernel with back-compatibility for 2.4
@@ -121,18 +121,18 @@ handle_genpatches() {
 
 	# for > 3.0 kernels, handle genpatches tarball name
 	# genpatches for 3.0 and 3.0.1 might be named
-	# genpatches-3.0-1.base.tar.bz2 and genpatches-3.0-2.base.tar.bz2
+	# genpatches-3.0-1.base.tar.xz and genpatches-3.0-2.base.tar.xz
 	# respectively.  Handle this.
 
 	for i in ${K_WANT_GENPATCHES} ; do
 	if [[ ${KV_MAJOR} -ge 3 ]]; then
 		if [[ ${#OKV_ARRAY[@]} -ge 3 ]]; then
-			tarball="genpatches-${KV_MAJOR}.${KV_MINOR}-${K_GENPATCHES_VER}.${i}.tar.bz2"
+			tarball="genpatches-${KV_MAJOR}.${KV_MINOR}-${K_GENPATCHES_VER}.${i}.tar.xz"
 		else
-			tarball="genpatches-${KV_MAJOR}.${KV_PATCH}-${K_GENPATCHES_VER}.${i}.tar.bz2"
+			tarball="genpatches-${KV_MAJOR}.${KV_PATCH}-${K_GENPATCHES_VER}.${i}.tar.xz"
 		fi
 	else
-		tarball="genpatches-${OKV}-${K_GENPATCHES_VER}.${i}.tar.bz2"
+		tarball="genpatches-${OKV}-${K_GENPATCHES_VER}.${i}.tar.xz"
 	fi
 	debug-print "genpatches tarball: $tarball"
 	GENPATCHES_URI="${GENPATCHES_URI} mirror://gentoo/${tarball}"
@@ -232,12 +232,12 @@ detect_version() {
 	if [[ ${#OKV_ARRAY[@]} -ge 3 ]] && [[ ${KV_MAJOR} -ge 3 ]]; then
 		# handle non genpatch using sources correctly
 		if [[ -z ${K_WANT_GENPATCHES} && -z ${K_GENPATCHES_VER} && ${KV_PATCH} -gt 0 ]]; then
-			KERNEL_URI="${KERNEL_BASE_URI}/patch-${OKV}.bz2"
-			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV}.bz2"
+			KERNEL_URI="${KERNEL_BASE_URI}/patch-${OKV}.xz"
+			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV}.xz"
 		fi
-		KERNEL_URI="${KERNEL_URI} ${KERNEL_BASE_URI}/linux-${KV_MAJOR}.${KV_MINOR}.tar.bz2"
+		KERNEL_URI="${KERNEL_URI} ${KERNEL_BASE_URI}/linux-${KV_MAJOR}.${KV_MINOR}.tar.xz"
 	else
-		KERNEL_URI="${KERNEL_BASE_URI}/linux-${OKV}.tar.bz2"
+		KERNEL_URI="${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
 	fi
 
 	RELEASE=${CKV/${OKV}}
@@ -291,9 +291,9 @@ detect_version() {
 		else
 			OKV="${KV_MAJOR}.${KV_PATCH}"
 		fi
-		KERNEL_URI="${KERNEL_BASE_URI}/patch-${CKV}.bz2
-					${KERNEL_BASE_URI}/linux-${OKV}.tar.bz2"
-		UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV}.bz2"
+		KERNEL_URI="${KERNEL_BASE_URI}/patch-${CKV}.xz
+					${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
+		UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV}.xz"
 	fi
 
 	# We need to set this using OKV, but we need to set it before we do any
@@ -308,30 +308,30 @@ detect_version() {
 	# for example:
 	#   CKV="2.6.11_rc3_pre2"
 	# will pull:
-	#   linux-2.6.10.tar.bz2 & patch-2.6.11-rc3.bz2 & patch-2.6.11-rc3-git2.bz2
+	#   linux-2.6.10.tar.xz & patch-2.6.11-rc3.xz & patch-2.6.11-rc3-git2.xz
 
 	if [[ ${KV_MAJOR}${KV_MINOR} -eq 26 ]]; then
 
 		if [[ ${RELEASETYPE} == -rc ]] || [[ ${RELEASETYPE} == -pre ]]; then
 			OKV="${KV_MAJOR}.${KV_MINOR}.$((${KV_PATCH} - 1))"
-			KERNEL_URI="${KERNEL_BASE_URI}/testing/patch-${CKV//_/-}.bz2
-						${KERNEL_BASE_URI}/linux-${OKV}.tar.bz2"
-			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV//_/-}.bz2"
+			KERNEL_URI="${KERNEL_BASE_URI}/testing/patch-${CKV//_/-}.xz
+						${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
+			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV//_/-}.xz"
 		fi
 
 		if [[ ${RELEASETYPE} == -git ]]; then
-			KERNEL_URI="${KERNEL_BASE_URI}/snapshots/patch-${OKV}${RELEASE}.bz2
-						${KERNEL_BASE_URI}/linux-${OKV}.tar.bz2"
-			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${OKV}${RELEASE}.bz2"
+			KERNEL_URI="${KERNEL_BASE_URI}/snapshots/patch-${OKV}${RELEASE}.xz
+						${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
+			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${OKV}${RELEASE}.xz"
 		fi
 
 		if [[ ${RELEASETYPE} == -rc-git ]]; then
 			OKV="${KV_MAJOR}.${KV_MINOR}.$((${KV_PATCH} - 1))"
-			KERNEL_URI="${KERNEL_BASE_URI}/snapshots/patch-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}${RELEASE}.bz2
-						${KERNEL_BASE_URI}/testing/patch-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}${RELEASE/-git*}.bz2
-						${KERNEL_BASE_URI}/linux-${OKV}.tar.bz2"
+			KERNEL_URI="${KERNEL_BASE_URI}/snapshots/patch-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}${RELEASE}.xz
+						${KERNEL_BASE_URI}/testing/patch-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}${RELEASE/-git*}.xz
+						${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
 
-			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}${RELEASE/-git*}.bz2 ${DISTDIR}/patch-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}${RELEASE}.bz2"
+			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}${RELEASE/-git*}.xz ${DISTDIR}/patch-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}${RELEASE}.xz"
 		fi
 	else
 		if [[ ${RELEASETYPE} == -rc ]] || [[ ${RELEASETYPE} == -pre ]]; then
@@ -341,15 +341,15 @@ detect_version() {
 				KV_PATCH_ARR=(${KV_PATCH//\./ })
 				OKV="${KV_MAJOR}.$((${KV_PATCH_ARR} - 1))"
 			fi
-			KERNEL_URI="${KERNEL_BASE_URI}/testing/patch-${CKV//_/-}.bz2
-						${KERNEL_BASE_URI}/linux-${OKV}.tar.bz2"
-			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV//_/-}.bz2"
+			KERNEL_URI="${KERNEL_BASE_URI}/testing/patch-${CKV//_/-}.xz
+						${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
+			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV//_/-}.xz"
 		fi
 
 		if [[ ${RELEASETYPE} == -git ]]; then
-			KERNEL_URI="${KERNEL_BASE_URI}/snapshots/patch-${OKV}${RELEASE}.bz2
-						${KERNEL_BASE_URI}/linux-${OKV}.tar.bz2"
-			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${OKV}${RELEASE}.bz2"
+			KERNEL_URI="${KERNEL_BASE_URI}/snapshots/patch-${OKV}${RELEASE}.xz
+						${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
+			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${OKV}${RELEASE}.xz"
 		fi
 
 		if [[ ${RELEASETYPE} == -rc-git ]]; then
@@ -359,11 +359,11 @@ detect_version() {
 				KV_PATCH_ARR=(${KV_PATCH//\./ })
 				OKV="${KV_MAJOR}.$((${KV_PATCH_ARR} - 1))"
 			fi
-			KERNEL_URI="${KERNEL_BASE_URI}/snapshots/patch-${KV_MAJOR}.${KV_PATCH}${RELEASE}.bz2
-						${KERNEL_BASE_URI}/testing/patch-${KV_MAJOR}.${KV_PATCH}${RELEASE/-git*}.bz2
-						${KERNEL_BASE_URI}/linux-${OKV}.tar.bz2"
+			KERNEL_URI="${KERNEL_BASE_URI}/snapshots/patch-${KV_MAJOR}.${KV_PATCH}${RELEASE}.xz
+						${KERNEL_BASE_URI}/testing/patch-${KV_MAJOR}.${KV_PATCH}${RELEASE/-git*}.xz
+						${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
 
-			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${KV_MAJOR}.${KV_PATCH}${RELEASE/-git*}.bz2 ${DISTDIR}/patch-${KV_MAJOR}.${KV_PATCH}${RELEASE}.bz2"
+			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${KV_MAJOR}.${KV_PATCH}${RELEASE/-git*}.xz ${DISTDIR}/patch-${KV_MAJOR}.${KV_PATCH}${RELEASE}.xz"
 		fi
 
 
@@ -416,7 +416,8 @@ if [[ ${ETYPE} == sources ]]; then
 					  >=sys-devel/binutils-2.11.90.0.31 )"
 	RDEPEND="!build? ( >=sys-libs/ncurses-5.2
 					   sys-devel/make 
-					   dev-lang/perl )"
+					   dev-lang/perl
+					   sys-devel/bc )"
 	PDEPEND="!build? ( virtual/dev-manager )"
 
 	SLOT="${PVR}"
@@ -458,6 +459,7 @@ if [[ ${ETYPE} == sources ]]; then
 			DEBLOB_URI="${DEBLOB_HOMEPAGE}/${DEBLOB_URI_PATH}/${DEBLOB_A}"
 			HOMEPAGE="${HOMEPAGE} ${DEBLOB_HOMEPAGE}"
 
+			DEPEND+=" deblob? ( =dev-lang/python-2* )"
 			KERNEL_URI="${KERNEL_URI}
 				deblob? (
 					${DEBLOB_URI}
@@ -550,9 +552,9 @@ universal_unpack() {
 
 	cd "${WORKDIR}"
 	if [[ ${#OKV_ARRAY[@]} -ge 3 ]] && [[ ${KV_MAJOR} -ge 3 ]]; then
-		unpack linux-${KV_MAJOR}.${KV_MINOR}.tar.bz2
+		unpack linux-${KV_MAJOR}.${KV_MINOR}.tar.xz
 	else
-		unpack linux-${OKV}.tar.bz2
+		unpack linux-${OKV}.tar.xz
 	fi
 
 	if [[ -d "linux" ]]; then
@@ -665,9 +667,9 @@ compile_headers_tweak_config() {
 # install functions
 #==============================================================
 install_universal() {
-	#fix silly permissions in tarball
+	# Fix silly permissions in tarball
 	cd "${WORKDIR}"
-	chown -R root:0 * >& /dev/null
+	chown -R 0:0 * >& /dev/null
 	chmod -R a+r-w+X,u+w *
 	cd ${OLDPWD}
 }
@@ -1165,8 +1167,7 @@ kernel-2_src_compile() {
 
 	if [[ $K_DEBLOB_AVAILABLE == 1 ]] && use deblob ; then
 		echo ">>> Running deblob script ..."
-		sh "${T}/${DEBLOB_A}" --force || \
-			die "Deblob script failed to run!!!"
+		EPYTHON="python2" sh "${T}/${DEBLOB_A}" --force || die "Deblob script failed to run!!!"
 	fi
 }
 

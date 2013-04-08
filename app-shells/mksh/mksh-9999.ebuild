@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/mksh-9999.ebuild,v 1.4 2012/12/01 03:12:33 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/mksh-9999.ebuild,v 1.5 2013/04/07 06:05:24 patrick Exp $
 
 EAPI=4
 
@@ -13,9 +13,11 @@ if [[ $PV = 9999 ]]; then
 	ECVS_USER="_anoncvs"
 	ECVS_AUTH="ext"
 	KEYWORDS=""
+	DEPEND="static? ( dev-libs/klibc )"
 else
 	inherit unpacker
-	DEPEND="app-arch/cpio"
+	DEPEND="app-arch/cpio
+		static? ( dev-libs/klibc )"
 	SRC_URI="http://www.mirbsd.org/MirOS/dist/mir/mksh/${PN}-R${PV}.cpio.gz"
 	KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux"
 fi
@@ -24,13 +26,14 @@ DESCRIPTION="MirBSD Korn Shell"
 HOMEPAGE="http://mirbsd.de/mksh"
 LICENSE="BSD"
 SLOT="0"
-IUSE=""
-DEPEND="${DEPEND}"
+IUSE="static"
 RDEPEND=""
 S="${WORKDIR}/${PN}"
 
 src_compile() {
 	tc-export CC
+	# we want to build static with klibc
+	if use static; then unset CC; export CC="/usr/bin/klcc"; export LDSTATIC="-static"; fi
 	export CPPFLAGS="${CPPFLAGS} -DMKSH_DEFAULT_PROFILEDIR=\\\"${EPREFIX}/etc\\\""
 	sh Build.sh -r -c lto || sh Rebuild.sh || die
 }

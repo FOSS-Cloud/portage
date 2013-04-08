@@ -1,17 +1,19 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-12-r1.ebuild,v 1.13 2013/02/23 14:45:34 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-12-r1.ebuild,v 1.18 2013/03/26 08:14:18 ssuominen Exp $
 
 EAPI=4
 
-inherit autotools eutils libtool multilib linux-info
+VIRTUAL_MODUTILS=1
+
+inherit autotools eutils libtool multilib linux-mod
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="git://git.kernel.org/pub/scm/utils/kernel/${PN}/${PN}.git"
 	inherit git-2
 else
 	SRC_URI="mirror://kernel/linux/utils/kernel/kmod/${P}.tar.xz"
-	KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh ~sparc x86"
+	KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 fi
 
 DESCRIPTION="library and tools for managing linux kernel modules"
@@ -95,4 +97,13 @@ src_install()
 
 	insinto /lib/modprobe.d
 	doins "${T}"/usb-load-ehci-first.conf #260139
+}
+
+pkg_postinst() {
+	# Upgrade path from sys-apps/module-init-tools
+	if [[ -d ${ROOT}/lib/modules/${KV_FULL} ]]; then
+		if [[ -z ${REPLACING_VERSIONS} ]]; then
+			update_depmod
+		fi
+	fi
 }

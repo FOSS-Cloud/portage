@@ -1,6 +1,26 @@
 # ChangeLog for dev-python/ipy
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ipy/ChangeLog,v 1.34 2011/06/23 14:51:09 hwoarang Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ipy/ChangeLog,v 1.39 2013/04/06 15:33:37 floppym Exp $
+
+  06 Apr 2013; Mike Gilbert <floppym@gentoo.org> ipy-0.76-r1.ebuild:
+  Use pushd/popd in python_test.
+
+  06 Apr 2013; Mike Gilbert <floppym@gentoo.org> ipy-0.76-r1.ebuild:
+  Simplify python_test a bit.
+
+  06 Apr 2013; Ian Delaney <idella4@gentoo.org> ipy-0.76-r1.ebuild:
+  add die to calls to python
+
+*ipy-0.76-r1 (06 Apr 2013)
+
+  06 Apr 2013; Ian Delaney <idella4@gentoo.org> +ipy-0.76-r1.ebuild:
+  migration revbump, prep'd for bump to -.80 which isn't yet ready (Bug
+  #464176), applied to current maiking ready for eventual bump
+
+*ipy-0.76 (26 Mar 2013)
+
+  26 Mar 2013; Patrick Lauer <patrick@gentoo.org> +ipy-0.76.ebuild:
+  Bump
 
   23 Jun 2011; Markos Chandras <hwoarang@gentoo.org> -ipy-0.74.ebuild:
   Remove old ebuilds. Requested by Arfrever
@@ -142,4 +162,3 @@
   05 Jun 2006; Lukasz Strzygowski <lucass@gentoo.org> +metadata.xml,
   +ipy-0.42.ebuild:
   Initial commit, bug #59037.
-

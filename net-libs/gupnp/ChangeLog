@@ -1,6 +1,36 @@
 # ChangeLog for net-libs/gupnp
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gupnp/ChangeLog,v 1.56 2012/10/28 16:24:21 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gupnp/ChangeLog,v 1.64 2013/04/06 09:28:18 pacho Exp $
+
+*gupnp-0.20.2 (06 Apr 2013)
+
+  06 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gupnp-0.20.2.ebuild,
+  -gupnp-0.18.3.ebuild:
+  Version bump, fix vala deps (#464352 by Viktor Yu. Kovalskiy), drop old.
+
+  04 Apr 2013; Patrick Lauer <patrick@gentoo.org> gupnp-0.20.1.ebuild:
+  Fix vala deps #464352
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gupnp-0.18.4.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gupnp-0.18.4.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -gupnp-0.13.4.ebuild,
+  -gupnp-0.16.1.ebuild, gupnp-0.20.1.ebuild:
+  Clean up old revisions. Review 0.20 ebuild.
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gupnp-0.18.4.ebuild:
+  Stable for ia64, wrt bug #458984
+
+*gupnp-0.20.1 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +gupnp-0.20.1.ebuild:
+  Version bump for Gnome 3.8
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gupnp-0.18.4.ebuild:
+  Stable for x86, wrt bug #458984
 
   28 Oct 2012; Raúl Porcel <armin76@gentoo.org> gupnp-0.18.3.ebuild:
   ia64/sparc stable wrt #427544

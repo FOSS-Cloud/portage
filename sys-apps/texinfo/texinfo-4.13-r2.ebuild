@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/texinfo/texinfo-4.13-r2.ebuild,v 1.1 2012/05/24 02:02:37 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/texinfo/texinfo-4.13-r2.ebuild,v 1.12 2013/04/05 18:13:51 ago Exp $
 
 EAPI="2"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.lzma"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm ~hppa ~ia64 ~m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 IUSE="nls static"
 
 RDEPEND="!=app-text/tetex-2*
@@ -26,11 +26,13 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-xz.patch #269742
 	touch doc/install-info.1 #354589
 	epatch "${FILESDIR}"/${P}-texi2dvi-regexp-range.patch #311885
-	touch doc/{texi2dvi,texi2pdf,pdftexi2dvi}.1 #354589
 	epatch "${FILESDIR}"/${P}-accentenc-test.patch
 	# waiting to be sent upstream for my copyright assignment form to be
 	# ready - Flameeyes
 	epatch "${FILESDIR}"/${P}-docbook.patch
+	epatch "${FILESDIR}"/${P}-tinfo.patch #457556
+	# timestamps must be newer than configure.ac touched by ${P}-tinfo.patch
+	touch doc/{texi2dvi,texi2pdf,pdftexi2dvi}.1 #354589
 }
 
 src_configure() {

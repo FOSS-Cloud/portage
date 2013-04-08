@@ -1,6 +1,75 @@
 # ChangeLog for net-irc/hexchat
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/hexchat/ChangeLog,v 1.21 2013/01/14 07:14:11 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/hexchat/ChangeLog,v 1.39 2013/04/03 18:10:31 hasufell Exp $
+
+*hexchat-2.9.5 (03 Apr 2013)
+
+  03 Apr 2013; Julian Ospald <hasufell@gentoo.org> +hexchat-2.9.5.ebuild,
+  +files/hexchat-2.9.5-cflags.patch, +files/hexchat-2.9.5-gettextize.patch:
+  version bump
+
+*hexchat-2.9.4-r2 (03 Apr 2013)
+
+  03 Apr 2013; Julian Ospald <hasufell@gentoo.org> -hexchat-2.9.4-r1.ebuild,
+  +hexchat-2.9.4-r2.ebuild:
+  fix libnotify useflag, remove threads useflag (does nothing)
+
+  31 Mar 2013; Julian Ospald <hasufell@gentoo.org> hexchat-2.9.4-r1.ebuild:
+  remove -O3 hack wrt #461520
+
+  31 Mar 2013; Julian Ospald <hasufell@gentoo.org>
+  files/hexchat-2.9.4-build.patch:
+  make plugin header installation dependent on plugins
+
+*hexchat-2.9.4-r1 (31 Mar 2013)
+
+  31 Mar 2013; Julian Ospald <hasufell@gentoo.org> +hexchat-2.9.4-r1.ebuild,
+  +files/hexchat-2.9.4-build.patch, metadata.xml:
+  revbump: rework, add theme-manager, fix deps, convert to plugin-<..> syntax,
+  use python-single-r1, fix build system instead of sedding it, use eautoreconf
+  rather than autogen.sh, remove obsolete sed, update icon cache and gconf
+  schemas properly
+
+  31 Mar 2013; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  add myself to metadata.xml
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.4.ebuild:
+  Stable for ia64, wrt bug #459868
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.4.ebuild:
+  Stable for alpha, wrt bug #459868
+
+  09 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> hexchat-2.9.3.ebuild,
+  hexchat-2.9.4.ebuild:
+  Fix building with USE="-gtk" when x11-libs/gtk+:2 is not installed, wrt bug
+  #460758. Thanks to Denis M. <god AT politeia.in> for proposed fixes
+
+  08 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> hexchat-2.9.4.ebuild:
+  Stable on arm, wrt bug #459868
+
+  04 Mar 2013; Jeroen Roovers <jer@gentoo.org> hexchat-2.9.4.ebuild:
+  Stable for HPPA (bug #459868).
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.4.ebuild:
+  Remove tcl support, not supported anymore
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.4.ebuild:
+  Stable for sparc, wrt bug #459868
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.4.ebuild:
+  Stable for ppc64, wrt bug #459868
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.4.ebuild:
+  Inherit flag-o-matic because of replace-flags
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.4.ebuild:
+  Stable for ppc, wrt bug #459868
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.4.ebuild:
+  Stable for x86, wrt bug #459868
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.4.ebuild:
+  Stable for amd64, wrt bug #459868
 
   14 Jan 2013; Lars Wendler <polynomial-c@gentoo.org> hexchat-2.9.3.ebuild,
   hexchat-2.9.4.ebuild:

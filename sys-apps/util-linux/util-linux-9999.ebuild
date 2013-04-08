@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/util-linux/util-linux-9999.ebuild,v 1.39 2013/02/19 03:31:30 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/util-linux/util-linux-9999.ebuild,v 1.43 2013/03/28 17:49:23 vapier Exp $
 
 EAPI="3"
 
@@ -27,7 +27,7 @@ fi
 
 LICENSE="GPL-2 GPL-3 LGPL-2.1 BSD-4 MIT public-domain"
 SLOT="0"
-IUSE="+cramfs crypt ddate ncurses nls old-linux perl selinux slang static-libs udev unicode"
+IUSE="+cramfs crypt ddate ncurses nls old-linux perl selinux slang static-libs +suid test udev unicode"
 
 RDEPEND="!sys-process/schedutils
 	!sys-apps/setarch
@@ -43,6 +43,7 @@ RDEPEND="!sys-process/schedutils
 	udev? ( virtual/udev )"
 DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )
+	test? ( sys-devel/bc )
 	virtual/os-headers"
 
 src_prepare() {
@@ -89,6 +90,8 @@ src_configure() {
 		--disable-su \
 		--disable-wall \
 		--enable-write \
+		$(use_enable suid makeinstall-chown) \
+		$(use_enable suid makeinstall-setuid) \
 		$(use_with selinux) \
 		$(use_with slang) \
 		$(use_enable static-libs static) \
@@ -98,7 +101,7 @@ src_configure() {
 
 src_install() {
 	emake install DESTDIR="${D}" || die
-	dodoc AUTHORS NEWS README* Documentation/{TODO,*.txt}
+	dodoc AUTHORS NEWS README* Documentation/{TODO,*.txt,releases/*}
 
 	# need the libs in /
 	gen_usr_ldscript -a blkid mount uuid

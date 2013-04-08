@@ -1,6 +1,16 @@
 # ChangeLog for app-text/fbreader
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/fbreader/ChangeLog,v 1.33 2013/02/21 13:40:17 grozin Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/fbreader/ChangeLog,v 1.36 2013/03/31 16:19:32 ago Exp $
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fbreader-0.99.4-r1.ebuild:
+  Stable for x86, wrt bug #462890
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fbreader-0.99.4-r1.ebuild:
+  Stable for amd64, wrt bug #462890
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> fbreader-0.99.4-r1.ebuild,
+  fbreader-0.99.4.ebuild:
+  Move Qt dependencies to the new category
 
 *fbreader-0.99.4-r1 (21 Feb 2013)
 

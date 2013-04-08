@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/openmpi/openmpi-1.4.3.ebuild,v 1.17 2012/10/16 18:43:05 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/openmpi/openmpi-1.4.3.ebuild,v 1.18 2013/03/21 04:11:20 alexxy Exp $
 
 EAPI=3
 
@@ -97,6 +97,5 @@ src_install () {
 
 src_test() {
 	# Doesn't work with the default src_test as the dry run (-n) fails.
-	cd "${S}"
 	emake -j1 check || die "emake check failed"
 }

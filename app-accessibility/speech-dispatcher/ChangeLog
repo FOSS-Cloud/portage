@@ -1,6 +1,35 @@
 # ChangeLog for app-accessibility/speech-dispatcher
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/speech-dispatcher/ChangeLog,v 1.81 2013/01/01 11:33:28 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/speech-dispatcher/ChangeLog,v 1.86 2013/04/04 16:09:31 williamh Exp $
+
+*speech-dispatcher-0.8-r2 (04 Apr 2013)
+
+  04 Apr 2013; William Hubbs <williamh@gentoo.org>
+  +speech-dispatcher-0.8-r2.ebuild:
+  Drop unnecessary usage of autotools-utils and add support for
+  static-libs use flag, thanks to Samuli Suominen.
+
+*speech-dispatcher-0.8-r1 (28 Mar 2013)
+
+  28 Mar 2013; Justin Lecher <jlec@gentoo.org> -speech-dispatcher-0.8.ebuild,
+  +speech-dispatcher-0.8-r1.ebuild:
+  Drop pypy support as package only supports py3, #463602
+
+  28 Mar 2013; Justin Lecher <jlec@gentoo.org> speech-dispatcher-0.8.ebuild:
+  Add fix for not wanted maintainer-mode, #463600
+
+*speech-dispatcher-0.8 (27 Mar 2013)
+
+  27 Mar 2013; <neurogeek@gentoo.org> +speech-dispatcher-0.8.ebuild:
+  Version bump. Closes bug #463384. Thanks Pacho.
+
+*speech-dispatcher-0.7.1-r2 (17 Mar 2013)
+
+  17 Mar 2013; Justin Lecher <jlec@gentoo.org>
+  +speech-dispatcher-0.7.1-r2.ebuild, +files/speech-dispatcher-0.7.1-doc.patch,
+  +files/speech-dispatcher-0.7.1-gold.patch,
+  +files/speech-dispatcher-0.7.1-pthread.patch, metadata.xml:
+  Fix linking with gold, #442332; move to new python eclasses, #456978
 
   01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
   speech-dispatcher-0.7.1-r1.ebuild:

@@ -1,6 +1,15 @@
 # ChangeLog for Gentoo/PPC profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ChangeLog,v 1.229 2013/02/17 21:01:58 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ChangeLog,v 1.232 2013/04/02 19:17:20 ago Exp $
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ppc64/package.use.mask:
+  Add net-libs/libkolabxml to the previous mask
+
+  02 Apr 2013; Michael Palimaka <kensington@gentoo.org> ppc64/package.use.mask:
+  Mask kde-base/kdebindings-meta[csharp].
+
+  10 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> ppc64/use.mask:
+  USE opencolorio was renamed to USE colorio
 
   17 Feb 2013; Sergey Popov <pinkbyte@gentoo.org> ppc64/package.use.mask:
   Mask sys-cluster/vzctl[ploop], wrt bug #414531

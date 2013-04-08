@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/gnome-packagekit/gnome-packagekit-3.6.1-r1.ebuild,v 1.1 2012/12/24 00:20:41 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/gnome-packagekit/gnome-packagekit-3.6.1-r1.ebuild,v 1.2 2013/03/30 21:52:58 eva Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="nls systemd test udev"
 
-# FIXME: add PYTHON_USEDEPS on packagekit-base when available
-# gdk-pixbuf ised in gpk-animated-icon
+# FIXME: add PYTHON_USEDEP on packagekit-base when available
+# gdk-pixbuf used in gpk-animated-icon
 # pango used on gpk-common
 RDEPEND="
 	>=dev-libs/glib-2.32:2

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/freecad/freecad-0.12.5284-r2.ebuild,v 1.5 2012/10/19 10:43:17 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/freecad/freecad-0.12.5284-r2.ebuild,v 1.7 2013/03/07 15:54:35 axs Exp $
 
 EAPI=4
 PYTHON_DEPEND=2
@@ -24,7 +24,7 @@ RDEPEND="
 	dev-games/ode
 	dev-libs/boost
 	dev-libs/libf2c
-	dev-libs/xerces-c
+	dev-libs/xerces-c[icu]
 	dev-python/pivy
 	dev-python/PyQt4[svg]
 	media-libs/coin
@@ -33,11 +33,11 @@ RDEPEND="
 	sci-libs/gts
 	sys-libs/zlib
 	virtual/glu
-	x11-libs/qt-gui:4
-	x11-libs/qt-opengl:4
-	x11-libs/qt-svg:4
-	x11-libs/qt-webkit:4
-	x11-libs/qt-xmlpatterns:4"
+	dev-qt/qtgui:4
+	dev-qt/qtopengl:4
+	dev-qt/qtsvg:4
+	dev-qt/qtwebkit:4
+	dev-qt/qtxmlpatterns:4"
 DEPEND="${RDEPEND}
 	>=dev-lang/swig-2.0.4-r1"
 

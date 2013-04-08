@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/weechat/weechat-9999.ebuild,v 1.24 2013/01/21 13:38:17 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/weechat/weechat-9999.ebuild,v 1.26 2013/04/05 10:38:47 scarabeus Exp $
 
 EAPI=5
 
@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 python3_2 python3_3 )
 
 EGIT_REPO_URI="git://git.sv.gnu.org/weechat.git"
 [[ ${PV} == "9999" ]] && GIT_ECLASS="git-2"
-inherit python-single-r1 multilib cmake-utils ${GIT_ECLASS}
+inherit eutils python-single-r1 multilib cmake-utils ${GIT_ECLASS}
 
 DESCRIPTION="Portable and multi-interface IRC client."
 HOMEPAGE="http://weechat.org/"
@@ -78,6 +78,8 @@ src_prepare() {
 				po/CMakeLists.txt || die
 		fi
 	done
+
+	epatch "${FILESDIR}/${PN}-icon.patch"
 }
 
 # alias, rmodifier, xfer
@@ -89,6 +91,7 @@ src_configure() {
 		"-DENABLE_LARGEFILE=ON"
 		"-DENABLE_DEMO=OFF"
 		"-DENABLE_GTK=OFF"
+		"-DPYTHON_EXECUTABLE=${PYTHON}"
 		$(cmake-utils_use_enable nls)
 		$(cmake-utils_use_enable crypt GCRYPT)
 		$(cmake-utils_use_enable spell ASPELL)

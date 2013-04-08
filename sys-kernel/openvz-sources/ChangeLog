@@ -1,6 +1,38 @@
 # ChangeLog for sys-kernel/openvz-sources
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/openvz-sources/ChangeLog,v 1.186 2013/02/16 13:05:22 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/openvz-sources/ChangeLog,v 1.191 2013/04/02 15:05:58 pinkbyte Exp $
+
+*openvz-sources-2.6.32.76.5 (02 Apr 2013)
+
+  02 Apr 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +openvz-sources-2.6.32.76.5.ebuild:
+  Version bump, thanks to Andreis Vinogradovs
+
+  13 Mar 2013; Sergey Popov <pinkbyte@gentoo.org>
+  -openvz-sources-2.6.32.11.1.ebuild, -openvz-sources-2.6.32.62.2.ebuild,
+  -openvz-sources-2.6.32.72.10.ebuild:
+  Remove old versions
+
+*openvz-sources-2.6.32.75.2 (13 Mar 2013)
+
+  13 Mar 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +openvz-sources-2.6.32.75.2.ebuild:
+  Bump to 2.6.32.75.2, thanks to slepnoga
+
+  09 Mar 2013; Tom Wijsman <TomWij@gentoo.org>
+  openvz-sources-2.6.18.028.099.3.ebuild,
+  openvz-sources-2.6.18.028.101.1.ebuild, openvz-sources-2.6.32.11.1.ebuild,
+  openvz-sources-2.6.32.49.6.ebuild, openvz-sources-2.6.32.53.5.ebuild,
+  openvz-sources-2.6.32.62.2.ebuild, openvz-sources-2.6.32.68.8.ebuild,
+  openvz-sources-2.6.32.72.10.ebuild, openvz-sources-2.6.32.74.10.ebuild:
+  EAPI 5. Kernel sources and (gen)patches now use xz instead of bz2. Bug
+  #421721.
+
+*openvz-sources-2.6.32.74.10 (05 Mar 2013)
+
+  05 Mar 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +openvz-sources-2.6.32.74.10.ebuild:
+  Bump to 2.6.32.74.10, thanks to slepnoga
 
   16 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due bug #96436

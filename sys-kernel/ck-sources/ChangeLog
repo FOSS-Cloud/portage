@@ -1,6 +1,33 @@
 # ChangeLog for sys-kernel/ck-sources
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/ck-sources/ChangeLog,v 1.214 2013/02/23 18:27:58 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/ck-sources/ChangeLog,v 1.218 2013/03/18 20:44:58 hwoarang Exp $
+
+  18 Mar 2013; Markos Chandras <hwoarang@gentoo.org> ChangeLog:
+  Version bump. Bug #462190. Thanks to Eric F. GARIOUD
+
+  09 Mar 2013; Tom Wijsman <TomWij@gentoo.org> ck-sources-2.6.38-r3.ebuild,
+  ck-sources-3.4.34.ebuild, ck-sources-3.5.7-r2.ebuild,
+  ck-sources-3.6.11-r1.ebuild, ck-sources-3.7.10.ebuild:
+  EAPI 5. Kernel sources and (gen)patches now use xz instead of bz2. Bug
+  #421721.
+
+  03 Mar 2013; Markos Chandras <hwoarang@gentoo.org>
+  -ck-sources-3.4.9-r1.ebuild:
+  remove old ebuild
+
+*ck-sources-3.7.10 (03 Mar 2013)
+*ck-sources-3.6.11-r1 (03 Mar 2013)
+*ck-sources-3.4.34 (03 Mar 2013)
+*ck-sources-3.5.7-r2 (03 Mar 2013)
+
+  03 Mar 2013; Markos Chandras <hwoarang@gentoo.org> +ck-sources-3.4.34.ebuild,
+  +ck-sources-3.5.7-r2.ebuild, +ck-sources-3.6.11-r1.ebuild,
+  +ck-sources-3.7.10.ebuild, -ck-sources-3.4.18.ebuild,
+  -ck-sources-3.4.23.ebuild, -ck-sources-3.4.32.ebuild,
+  -ck-sources-3.5.7-r1.ebuild, -ck-sources-3.6.11.ebuild,
+  -ck-sources-3.7.9.ebuild:
+  Security bumps/revbumps for #459124. Fixes #459926. Thanks to Eric F. GARIOUD.
+  Removing old ebuilds of the same patch-level
 
 *ck-sources-3.4.32 (23 Feb 2013)
 *ck-sources-3.7.9 (23 Feb 2013)

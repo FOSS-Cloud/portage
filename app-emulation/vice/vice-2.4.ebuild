@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/vice/vice-2.4.ebuild,v 1.4 2013/01/24 14:40:00 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/vice/vice-2.4.ebuild,v 1.7 2013/04/05 21:45:45 ago Exp $
 
 EAPI=5
 inherit autotools eutils toolchain-funcs games
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/vice-emu/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ~ppc ~sparc x86"
 IUSE="Xaw3d alsa gnome nls png readline sdl ipv6 memmap ethernet oss zlib X gif jpeg xv dga xrandr ffmpeg lame pulseaudio"
 
 RDEPEND="
@@ -60,7 +60,8 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-arm.patch \
-		"${FILESDIR}"/${P}-ffmpeg-1.patch
+		"${FILESDIR}"/${P}-ffmpeg-1.patch \
+		"${FILESDIR}"/${P}-buffer.patch
 	sed -i \
 		-e "s:/usr/local/lib/VICE:${GAMES_DATADIR}/${PN}:" \
 		man/vice.1 \

@@ -1,6 +1,6 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/povray/povray-3.7.0_rc3.ebuild,v 1.10 2011/11/17 17:02:27 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/povray/povray-3.7.0_rc3.ebuild,v 1.12 2013/03/05 01:34:02 ottxor Exp $
 
 EAPI="3"
 
@@ -21,7 +21,7 @@ SRC_URI="http://www.povray.org/redirect/www.povray.org/beta/source/${PN}-${MY_PV
 
 LICENSE="povlegal-3.6"
 SLOT="0"
-KEYWORDS="alpha amd64 hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="alpha amd64 hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="debug openexr tiff X"
 
 DEPEND="
@@ -77,6 +77,10 @@ src_configure() {
 	# config files without the following fix:
 	append-flags -DPOVLIBDIR=\\\"${EROOT}usr/share/${PN}\\\"
 	append-flags -DPOVCONFDIR=\\\"${EROOT}etc/${PN}\\\"
+
+	#460238, included in the patch for povray-3.7.0_rc6
+	has_version ">=dev-libs/boost-1.52" && \
+		append-flags "-lboost_system" "-lboost_date_time" "-DTIME_UTC=TIME_UTC_"
 
 	if ! use tiff ; then
 		non_redist_conf="NON_REDISTRIBUTABLE_BUILD=yes"

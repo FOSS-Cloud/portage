@@ -1,6 +1,31 @@
 # ChangeLog for net-misc/vpnc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/vpnc/ChangeLog,v 1.103 2013/02/06 15:25:07 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/vpnc/ChangeLog,v 1.110 2013/04/05 21:48:32 ago Exp $
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for x86, wrt bug #463990
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for arm, wrt bug #463990
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for ppc64, wrt bug #463990
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for ppc, wrt bug #463990
+
+  03 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for amd64, wrt bug #463990
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+*vpnc-0.5.3_p527 (14 Mar 2013)
+
+  14 Mar 2013; Justin Lecher <jlec@gentoo.org> +vpnc-0.5.3_p527.ebuild,
+  metadata.xml:
+  Bump to latest upstream rev, fix resolv.conf handling, #406141; fix test,
+  #442174; add myself as maintainer
 
   06 Feb 2013; Justin Lecher <jlec@gentoo.org> vpnc-0.5.3_p514.ebuild,
   metadata.xml:
@@ -449,4 +474,3 @@
 
   03 Feb 2004; Hanno Boeck <hanno@gentoo.org> vpnc-0.2_pre7.ebuild:
   Free client for Cisco VPN routing software.
-

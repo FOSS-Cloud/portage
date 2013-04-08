@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/qxmpp/qxmpp-9999.ebuild,v 1.12 2013/01/14 16:53:52 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/qxmpp/qxmpp-9999.ebuild,v 1.14 2013/03/11 10:14:05 pinkbyte Exp $
 
 EAPI=5
 
@@ -16,11 +16,11 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug doc test"
 
-RDEPEND="x11-libs/qt-core:4
-	x11-libs/qt-gui:4
+RDEPEND="dev-qt/qtcore:4
+	dev-qt/qtgui:4
 	media-libs/speex"
 DEPEND="${RDEPEND}
-	test? ( x11-libs/qt-test:4 )"
+	test? ( dev-qt/qttest:4 )"
 
 src_prepare(){
 	if ! use doc; then
@@ -44,6 +44,6 @@ src_install() {
 	qt4-r2_src_install
 	if use doc; then
 		# Use proper path for documentation
-		mv "${ED}"/usr/share/doc/${PN} "${ED}"/usr/share/doc/${P} || die "doc mv failed"
+		mv "${ED}"/usr/share/doc/${PN} "${ED}"/usr/share/doc/${PF} || die "doc mv failed"
 	fi
 }

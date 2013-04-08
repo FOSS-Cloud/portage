@@ -1,6 +1,205 @@
 # ChangeLog for www-client/chromium
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/ChangeLog,v 1.821 2013/03/01 03:30:15 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/ChangeLog,v 1.861 2013/04/05 21:44:11 floppym Exp $
+
+  05 Apr 2013; Mike Gilbert <floppym@gentoo.org> chromium-26.0.1410.43.ebuild,
+  chromium-27.0.1453.12.ebuild, chromium-27.0.1453.3.ebuild,
+  chromium-9999-r1.ebuild:
+  Fixup slot-operater deps on libpng.
+
+  05 Apr 2013; Mike Gilbert <floppym@gentoo.org> -chromium-25.0.1364.160.ebuild,
+  -chromium-25.0.1364.172.ebuild, -chromium-26.0.1410.40.ebuild:
+  Remove old.
+
+  04 Apr 2013; Agostino Sarubbo <ago@gentoo.org> chromium-26.0.1410.43.ebuild:
+  Stable for x86, wrt bug #463426
+
+  04 Apr 2013; Agostino Sarubbo <ago@gentoo.org> chromium-26.0.1410.43.ebuild:
+  Stable for amd64, wrt bug #463426
+
+  04 Apr 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-26.0.1410.43.ebuild:
+  Conditional patching is bad. Keep ebuild to be stabilized in good shape. This
+  reverts patrick's change below.
+
+  04 Apr 2013; Patrick Lauer <patrick@gentoo.org> chromium-26.0.1410.43.ebuild:
+  Apply fix for #463550 to all relevant versions
+
+  03 Apr 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  -chromium-26.0.1410.33.ebuild, -chromium-26.0.1410.33-r1.ebuild,
+  chromium-26.0.1410.43.ebuild:
+  Remove dependency on mesa, bug #463430 . Remove old.
+
+*chromium-27.0.1453.12 (03 Apr 2013)
+
+  03 Apr 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-speech-dispatcher-0.8-r0.patch, -chromium-27.0.1448.0.ebuild,
+  +chromium-27.0.1453.12.ebuild, chromium-9999-r1.ebuild:
+  Dev channel bump. Fix build with speech-dispatcher-0.8 (bug #463550 by Denis
+  M. "Phr33d0m"). Remove old.
+
+*chromium-27.0.1453.3 (27 Mar 2013)
+
+  27 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-pnacl-r0.patch, -chromium-27.0.1444.3.ebuild,
+  +chromium-27.0.1453.3.ebuild:
+  Dev channel bump. Remove old.
+
+*chromium-26.0.1410.43 (27 Mar 2013)
+
+  27 Mar 2013; Mike Gilbert <floppym@gentoo.org> +chromium-26.0.1410.43.ebuild:
+  Bump.
+
+*chromium-27.0.1448.0 (23 Mar 2013)
+
+  23 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  -chromium-27.0.1438.7.ebuild, +chromium-27.0.1448.0.ebuild,
+  chromium-9999-r1.ebuild:
+  Dev channel bump. Download a testdata tarball for tests. Optional pulseaudio.
+  Remove old.
+
+*chromium-26.0.1410.40 (22 Mar 2013)
+
+  22 Mar 2013; Mike Gilbert <floppym@gentoo.org> +chromium-26.0.1410.40.ebuild,
+  -chromium-26.0.1410.28.ebuild:
+  Beta channel bump.
+
+*chromium-27.0.1444.3 (19 Mar 2013)
+
+  19 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  -chromium-27.0.1430.0.ebuild, +chromium-27.0.1444.3.ebuild,
+  chromium-9999-r1.ebuild:
+  Dev channel bump. Remove old.
+
+*chromium-26.0.1410.33-r1 (19 Mar 2013)
+
+  19 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +chromium-26.0.1410.33-r1.ebuild:
+  Back to bundled libsrtp (bug #459932 by Andrius Stikonas). USe system libvpx.
+
+  17 Mar 2013; Mike Gilbert <floppym@gentoo.org> files/chromium-launcher-r3.sh:
+  Don't set nullglob since that makes it difficult to pass wildcards in
+  CHROMIUM_FLAGS. Bug 461864.
+
+*chromium-26.0.1410.33 (14 Mar 2013)
+
+  14 Mar 2013; Mike Gilbert <floppym@gentoo.org> +chromium-26.0.1410.33.ebuild,
+  -chromium-26.0.1410.19.ebuild:
+  Beta channel bump.
+
+  14 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-smhasher-r0.patch, chromium-25.0.1364.172.ebuild,
+  chromium-26.0.1410.28.ebuild, chromium-27.0.1438.7.ebuild:
+  Fix build issues with _mm_crc32_u64, bug #459126 by Nuno.
+
+  13 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-26.0.1410.28.ebuild, chromium-27.0.1438.7.ebuild,
+  chromium-9999-r1.ebuild:
+  Fix build with SELinux, bug #460892 by swift.
+
+*chromium-27.0.1438.7 (13 Mar 2013)
+
+  13 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  -chromium-27.0.1425.0.ebuild, +chromium-27.0.1438.7.ebuild,
+  chromium-9999-r1.ebuild:
+  Dev channel bump. Remove old.
+
+*chromium-25.0.1364.172 (13 Mar 2013)
+
+  13 Mar 2013; Mike Gilbert <floppym@gentoo.org> +chromium-25.0.1364.172.ebuild,
+  -chromium-25.0.1364.152.ebuild:
+  Stable channel bump.
+
+*chromium-26.0.1410.28 (11 Mar 2013)
+
+  11 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-system-ffmpeg-r2a.patch, -chromium-26.0.1410.12.ebuild,
+  +chromium-26.0.1410.28.ebuild:
+  Beta channel bump. Update system ffmpeg patch (bug #460846 by floppym).
+  Remove old.
+
+  09 Mar 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/chromium-jsoncpp-path-r0.patch, chromium-26.0.1410.19.ebuild:
+  Backport phajdan's jsoncpp include path patch to M26, bug 452234.
+
+  09 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-25.0.1364.160.ebuild, chromium-26.0.1410.19.ebuild,
+  chromium-27.0.1430.0.ebuild, chromium-9999-r1.ebuild:
+  Revert -mno-sse4 change, it breaks systems (reported by tetromino).
+
+  08 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-25.0.1364.160.ebuild, chromium-26.0.1410.19.ebuild,
+  chromium-27.0.1430.0.ebuild, chromium-9999-r1.ebuild:
+  Work around a compile issue by using -mno-sse4, bug #459126 by Nuno.
+
+  08 Mar 2013; Agostino Sarubbo <ago@gentoo.org> chromium-25.0.1364.160.ebuild:
+  Stable for amd64, wrt bug #460776
+
+  08 Mar 2013; Agostino Sarubbo <ago@gentoo.org> chromium-25.0.1364.160.ebuild:
+  Stable for x86, wrt bug #460776
+
+*chromium-25.0.1364.160 (08 Mar 2013)
+
+  08 Mar 2013; Mike Gilbert <floppym@gentoo.org> +chromium-25.0.1364.160.ebuild,
+  -chromium-25.0.1364.97.ebuild:
+  Stable channel bump.
+
+  07 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-27.0.1430.0.ebuild, chromium-9999-r1.ebuild, metadata.xml:
+  Add experimental system-sqlite flag. Bump required v8 version.
+
+  07 Mar 2013; Mike Gilbert <floppym@gentoo.org> chromium-27.0.1430.0.ebuild,
+  chromium-9999-r1.ebuild:
+  Add slot operators to live ebuild.
+
+  07 Mar 2013; Mike Gilbert <floppym@gentoo.org> chromium-27.0.1430.0.ebuild:
+  Add slot-operators for most library dependencies.
+
+*chromium-27.0.1430.0 (06 Mar 2013)
+
+  06 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  -chromium-27.0.1423.0.ebuild, +chromium-27.0.1430.0.ebuild:
+  Dev channel bump. Remove old.
+
+  06 Mar 2013; Mike Gilbert <floppym@gentoo.org> chromium-25.0.1364.152.ebuild,
+  chromium-26.0.1410.19.ebuild, chromium-27.0.1425.0.ebuild:
+  Add slot operator dep for protobuf.
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> chromium-25.0.1364.152.ebuild:
+  Stable for x86, wrt bug #460318
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> chromium-25.0.1364.152.ebuild:
+  Stable for amd64, wrt bug #460318
+
+  05 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-27.0.1425.0.ebuild, chromium-9999-r1.ebuild:
+  Enable system ffmpeg by default.
+
+*chromium-25.0.1364.152 (04 Mar 2013)
+
+  04 Mar 2013; Mike Gilbert <floppym@gentoo.org> +chromium-25.0.1364.152.ebuild:
+  Stable channel bump. Use bundled libsrtp for bug 459932.
+
+  04 Mar 2013; Mike Gilbert <floppym@gentoo.org> files/chromium-mesa-r0.patch,
+  files/chromium-mesa-r1.patch:
+  Remove CVS keywords from mesa patches. Thanks to Ben Kohler for reporting on
+  bug 455762.
+
+  03 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-mesa-r0.patch, chromium-26.0.1410.19.ebuild,
+  chromium-27.0.1425.0.ebuild, chromium-9999-r1.ebuild,
+  +files/chromium-mesa-r1.patch:
+  Fix build with mesa-9.1, bug #455762 by Anthony Parsons.
+
+  01 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-system-ffmpeg-r4.patch:
+  Add missing patch, reported by Andrei Frunza.
+
+*chromium-27.0.1425.0 (01 Mar 2013)
+
+  01 Mar 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +chromium-27.0.1425.0.ebuild, chromium-9999-r1.ebuild:
+  Dev channel bump. Back to system libvpx.
 
   01 Mar 2013; Mike Gilbert <floppym@gentoo.org> chromium-26.0.1410.19.ebuild:
   Disable SecurityTest.CallocOverflow for M26, bug 458396.

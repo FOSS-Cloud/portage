@@ -1,6 +1,19 @@
 # ChangeLog for net-misc/mirall
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/mirall/ChangeLog,v 1.18 2013/02/28 23:12:22 creffett Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/mirall/ChangeLog,v 1.21 2013/04/02 14:42:15 kensington Exp $
+
+  02 Apr 2013; Michael Palimaka <kensington@gentoo.org> mirall-1.2.1-r1.ebuild:
+  Fix build with USE="doc" wrt bug #463712.
+
+*mirall-1.2.1-r1 (11 Mar 2013)
+
+  11 Mar 2013; Chris Reffett <creffett@gentoo.org> +mirall-1.2.1-r1.ebuild,
+  -mirall-1.2.1.ebuild:
+  Revision bump, move files from /usr/etc/ to /etc/ wrt bug 460760
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> mirall-1.2.0.ebuild,
+  mirall-1.2.1.ebuild:
+  Move Qt dependencies to the new category
 
 *mirall-1.2.1 (28 Feb 2013)
 

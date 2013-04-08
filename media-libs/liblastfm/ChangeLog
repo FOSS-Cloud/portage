@@ -1,6 +1,19 @@
 # ChangeLog for media-libs/liblastfm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/liblastfm/ChangeLog,v 1.18 2012/10/22 19:17:39 johu Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/liblastfm/ChangeLog,v 1.22 2013/03/09 18:09:18 ago Exp $
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> liblastfm-1.0.3.ebuild:
+  Stable for x86, wrt bug #455312
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> liblastfm-1.0.3.ebuild:
+  Stable for amd64, wrt bug #455312
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> liblastfm-1.0.3.ebuild:
+  Stable for ppc, wrt bug #455312
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> liblastfm-0.3.3.ebuild,
+  liblastfm-1.0.2.ebuild, liblastfm-1.0.3.ebuild:
+  Move Qt dependencies to the new category
 
 *liblastfm-1.0.3 (22 Oct 2012)
 

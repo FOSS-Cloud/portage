@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/quassel/quassel-9999.ebuild,v 1.64 2012/07/29 16:05:57 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/quassel/quassel-9999.ebuild,v 1.67 2013/04/07 21:28:23 floppym Exp $
 
 EAPI=4
 
@@ -23,21 +23,21 @@ SLOT="0"
 IUSE="ayatana crypt dbus debug kde monolithic phonon postgres +server +ssl syslog webkit X"
 
 SERVER_RDEPEND="
-	>=x11-libs/qt-script-${QT_MINIMAL}:4
+	>=dev-qt/qtscript-${QT_MINIMAL}:4
 	crypt? (
 		app-crypt/qca:2
 		app-crypt/qca-ossl
 	)
-	!postgres? ( >=x11-libs/qt-sql-${QT_MINIMAL}:4[sqlite] dev-db/sqlite[threadsafe,-secure-delete] )
-	postgres? ( >=x11-libs/qt-sql-${QT_MINIMAL}:4[postgres] )
+	!postgres? ( >=dev-qt/qtsql-${QT_MINIMAL}:4[sqlite] dev-db/sqlite:3[threadsafe(+),-secure-delete] )
+	postgres? ( >=dev-qt/qtsql-${QT_MINIMAL}:4[postgres] )
 	syslog? ( virtual/logger )
 "
 
 GUI_RDEPEND="
-	>=x11-libs/qt-gui-${QT_MINIMAL}:4
+	>=dev-qt/qtgui-${QT_MINIMAL}:4
 	ayatana? ( dev-libs/libindicate-qt )
 	dbus? (
-		>=x11-libs/qt-dbus-${QT_MINIMAL}:4
+		>=dev-qt/qtdbus-${QT_MINIMAL}:4
 		dev-libs/libdbusmenu-qt
 	)
 	kde? (
@@ -45,12 +45,12 @@ GUI_RDEPEND="
 		>=kde-base/oxygen-icons-${KDE_MINIMAL}
 		ayatana? ( kde-misc/plasma-widget-message-indicator )
 	)
-	phonon? ( || ( media-libs/phonon >=x11-libs/qt-phonon-${QT_MINIMAL}:4 ) )
-	webkit? ( >=x11-libs/qt-webkit-${QT_MINIMAL}:4 )
+	phonon? ( || ( media-libs/phonon >=dev-qt/qtphonon-${QT_MINIMAL}:4 ) )
+	webkit? ( >=dev-qt/qtwebkit-${QT_MINIMAL}:4 )
 "
 
 RDEPEND="
-	>=x11-libs/qt-core-${QT_MINIMAL}:4[ssl?]
+	>=dev-qt/qtcore-${QT_MINIMAL}:4[ssl?]
 	monolithic? (
 		${SERVER_RDEPEND}
 		${GUI_RDEPEND}
@@ -113,7 +113,7 @@ src_install() {
 
 	if use server ; then
 		# needs PAX marking wrt bug#346255
-		pax-mark m "${ED}/usr/bin/quasselcore" || die
+		pax-mark m "${ED}/usr/bin/quasselcore"
 
 		# prepare folders in /var/
 		keepdir "${QUASSEL_DIR}"

@@ -1,6 +1,21 @@
 # ChangeLog for net-firewall/shorewall6
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/shorewall6/ChangeLog,v 1.63 2013/02/12 20:27:22 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/shorewall6/ChangeLog,v 1.66 2013/04/05 12:12:28 constanze Exp $
+
+*shorewall6-4.5.15 (05 Apr 2013)
+
+  05 Apr 2013; Constanze Hausner <constanze@gentoo.org>
+  +shorewall6-4.5.15.ebuild:
+  Version Bump see Bug #462490
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+*shorewall6-4.5.11.2-r1 (17 Mar 2013)
+
+  17 Mar 2013; Constanze Hausner <constanze@gentoo.org>
+  +shorewall6-4.5.11.2-r1.ebuild:
+  Changed keepdir to dodir with regard to bug #459316
 
   12 Feb 2013; Agostino Sarubbo <ago@gentoo.org> shorewall6-4.5.8.2-r1.ebuild:
   Stable for sparc, wrt bug #452830

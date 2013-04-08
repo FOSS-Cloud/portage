@@ -1,6 +1,83 @@
 # ChangeLog for net-analyzer/wireshark
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/wireshark/ChangeLog,v 1.454 2013/02/25 19:02:38 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/wireshark/ChangeLog,v 1.470 2013/04/03 19:04:49 jer Exp $
+
+  03 Apr 2013; Jeroen Roovers <jer@gentoo.org> -wireshark-1.9.1.ebuild,
+  metadata.xml, wireshark-1.9.2.ebuild:
+  Make dev-libs/libnl dependency optional (bug #462030).
+
+  02 Apr 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.14.ebuild,
+  wireshark-1.6.14-r1.ebuild, wireshark-1.8.6.ebuild,
+  wireshark-1.8.6-r1.ebuild, wireshark-1.9.1.ebuild, wireshark-1.9.2.ebuild:
+  Remove pointless compiler version check (bug #464118 by SN (Enlik)).
+
+*wireshark-1.9.2 (29 Mar 2013)
+
+  29 Mar 2013; Jeroen Roovers <jer@gentoo.org> +wireshark-1.9.2.ebuild:
+  Version bump.
+
+  18 Mar 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.9.1.ebuild:
+  Depend on net-libs/libpcap[-netlink] to avoid segmentation fault in libnl.
+
+*wireshark-1.9.1 (13 Mar 2013)
+
+  13 Mar 2013; Jeroen Roovers <jer@gentoo.org> -wireshark-1.9.0-r1.ebuild,
+  +wireshark-1.9.1.ebuild:
+  Version bump.
+
+*wireshark-1.9.0-r1 (12 Mar 2013)
+*wireshark-1.8.6-r1 (12 Mar 2013)
+*wireshark-1.6.14-r1 (12 Mar 2013)
+
+  12 Mar 2013; Jeroen Roovers <jer@gentoo.org> +wireshark-1.6.14-r1.ebuild,
+  +wireshark-1.8.6-r1.ebuild, -wireshark-1.9.0.ebuild,
+  +wireshark-1.9.0-r1.ebuild:
+  Fix desktop file in 1.9.0. Migrate to python-single-r1 by Julian Ospald (bug
+  #461436).
+
+  10 Mar 2013; Jeroen Roovers <jer@gentoo.org> -wireshark-1.6.13.ebuild,
+  -wireshark-1.8.5.ebuild:
+  Old.
+
+  08 Mar 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.14.ebuild,
+  wireshark-1.8.6.ebuild:
+  Stable for HPPA (bug #460698).
+
+  07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.14.ebuild,
+  wireshark-1.8.6.ebuild:
+  Stable for ia64, wrt bug #460698
+
+  07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.14.ebuild,
+  wireshark-1.8.6.ebuild:
+  Stable for sparc, wrt bug #460698
+
+  07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.14.ebuild,
+  wireshark-1.8.6.ebuild:
+  Stable for alpha, wrt bug #460698
+
+  07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.14.ebuild,
+  wireshark-1.8.6.ebuild:
+  Stable for ppc64, wrt bug #460698
+
+  07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.14.ebuild,
+  wireshark-1.8.6.ebuild:
+  Stable for ppc, wrt bug #460698
+
+  07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.14.ebuild,
+  wireshark-1.8.6.ebuild:
+  Stable for x86, wrt bug #460698
+
+  07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.14.ebuild,
+  wireshark-1.8.6.ebuild:
+  Stable for amd64, wrt bug #460698
+
+*wireshark-1.8.6 (07 Mar 2013)
+*wireshark-1.6.14 (07 Mar 2013)
+
+  07 Mar 2013; Jeroen Roovers <jer@gentoo.org> -wireshark-1.6.13-r1.ebuild,
+  +wireshark-1.6.14.ebuild, -wireshark-1.8.5-r1.ebuild,
+  +wireshark-1.8.6.ebuild:
+  Version bump (bug #460698).
 
   25 Feb 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.13-r1.ebuild,
   wireshark-1.8.5-r1.ebuild, wireshark-1.9.0.ebuild:

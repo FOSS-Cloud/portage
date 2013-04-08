@@ -1,6 +1,86 @@
 # ChangeLog for app-editors/emacs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/ChangeLog,v 1.542 2013/02/28 15:29:54 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/ChangeLog,v 1.570 2013/04/06 09:23:46 ulm Exp $
+
+*emacs-23.4-r6 (06 Apr 2013)
+
+  06 Apr 2013; Ulrich Müller <ulm@gentoo.org> emacs-21.4-r24.ebuild,
+  emacs-22.3-r10.ebuild, -emacs-23.4-r5.ebuild, +emacs-23.4-r6.ebuild,
+  emacs-24.3-r1.ebuild:
+  Add slot operator to libpng dependency. Update EAPI to 5 where necessary.
+
+  03 Apr 2013; Fabian Groffen <grobian@gentoo.org> emacs-23.4-r5.ebuild,
+  emacs-24.2-r1.ebuild, emacs-24.3-r1.ebuild:
+  Drop ~{sparc,x86}-solaris, segfaults during install
+
+*emacs-24.3-r1 (31 Mar 2013)
+
+  31 Mar 2013; Ulrich Müller <ulm@gentoo.org> -emacs-24.3.ebuild,
+  +emacs-24.3-r1.ebuild:
+  Correct name of installed man pages.
+
+  27 Mar 2013; Ulrich Müller <ulm@gentoo.org> emacs-23.4-r5.ebuild,
+  emacs-24.3.ebuild:
+  Fall back to the installsources dir for find-function-C-source-directory if
+  that feature is enabled.
+
+  19 Mar 2013; Ulrich Müller <ulm@gentoo.org> emacs-23.4-r5.ebuild,
+  emacs-24.3.ebuild:
+  Prefer motif to athena if both USE flags are set.
+
+  18 Mar 2013; Ulrich Müller <ulm@gentoo.org> emacs-18.59-r8.ebuild:
+  The emul-linux-x86 libs are not needed for the x32 ABI.
+
+  11 Mar 2013; Ulrich Müller <ulm@gentoo.org> emacs-24.3.ebuild:
+  Fix build failure with USE=kerberos and app-crypt/heimdal, bug 461370.
+  Thanks to Martin von Gagern for the patch.
+
+*emacs-24.3 (11 Mar 2013)
+
+  11 Mar 2013; Ulrich Müller <ulm@gentoo.org> -emacs-24.3_rc2.ebuild,
+  -emacs-24.3_rc3.ebuild, +emacs-24.3.ebuild:
+  Version bump. Remove release candidates.
+
+  10 Mar 2013; Ulrich Müller <ulm@gentoo.org> -emacs-23.4-r4.ebuild,
+  -emacs-24.2.ebuild, -emacs-24.3_rc1.ebuild:
+  Remove old.
+
+  10 Mar 2013; Agostino Sarubbo <ago@gentoo.org> emacs-23.4-r5.ebuild,
+  emacs-24.2-r1.ebuild:
+  Stable for s390, wrt bug #459666
+
+*emacs-24.3_rc3 (08 Mar 2013)
+
+  08 Mar 2013; Ulrich Müller <ulm@gentoo.org> +emacs-24.3_rc3.ebuild:
+  Version bump.
+
+*emacs-24.3_rc2 (07 Mar 2013)
+
+  07 Mar 2013; Ulrich Müller <ulm@gentoo.org> +emacs-24.3_rc2.ebuild:
+  Version bump.
+
+  06 Mar 2013; Ulrich Müller <ulm@gentoo.org> emacs-24.3_rc1.ebuild:
+  Fix previous commit, REPLACING_VERSIONS is not valid in src_install.
+
+  05 Mar 2013; Ulrich Müller <ulm@gentoo.org> emacs-23.4-r5.ebuild:
+  Use functions from readme.gentoo.eclass instead of elog.
+
+*emacs-24.3_rc1 (05 Mar 2013)
+
+  05 Mar 2013; Ulrich Müller <ulm@gentoo.org> +emacs-24.3_rc1.ebuild:
+  Version bump, release candidate for Emacs 24.3.
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> emacs-23.4-r5.ebuild,
+  emacs-24.2-r1.ebuild:
+  Stable for sh, wrt bug #459666
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> emacs-23.4-r5.ebuild,
+  emacs-24.2-r1.ebuild:
+  Stable for sparc, wrt bug #459666
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> emacs-23.4-r5.ebuild,
+  emacs-24.2-r1.ebuild:
+  Stable for amd64, x86, ia64, arm, alpha, ppc64, and ppc, wrt bug #459666
 
   28 Feb 2013; Jeroen Roovers <jer@gentoo.org> emacs-23.4-r5.ebuild,
   emacs-24.2-r1.ebuild:
@@ -44,7 +124,7 @@
 
   01 Oct 2012; Ulrich Müller <ulm@gentoo.org> emacs-23.4-r4.ebuild,
   emacs-24.1-r1.ebuild, emacs-24.2.ebuild:
-  Don't hardcore ar, but get AR and ARFLAGS from configure, bug 436758.
+  Don't hardcode ar, but get AR and ARFLAGS from configure, bug 436758.
 
   01 Oct 2012; Agostino Sarubbo <ago@gentoo.org> emacs-24.2.ebuild:
   Stable for amd64, wrt bug #436520

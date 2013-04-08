@@ -1,6 +1,68 @@
 # ChangeLog for Gentoo base-profile
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.510 2013/02/27 23:20:53 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.529 2013/04/06 13:20:01 swift Exp $
+
+  06 Apr 2013; Sven Vermeulen <swift@gentoo.org> package.mask:
+  Drop python-selinux from this mask (moved to global mask for removal)
+
+  04 Apr 2013; Bernard Cafarelli <voyageur@gentoo.org> package.use.mask:
+  Mask USE=flac for gnustep-apps/cynthiune
+
+  02 Apr 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask USE=udisks for <gvfs-1.14, thanks to Samuli Suominen (bug #463792).
+
+  28 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Allow wayland with recent gtk+ as libxkbommon is now in tree.
+
+  28 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Drop mesa[wayland] mask now that it is in use.stable.mask
+
+  24 Mar 2013; Richard Freeman <rich0@gentoo.org> package.use.mask:
+  Mask cuneiform use flag due to buffer overflow for now.
+
+  23 Mar 2013; Michael Weber <xmw@gentoo.org> package.use.mask:
+  mask =media-libs/oyranos-0.9.4 fltk for now
+
+  23 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> make.defaults:
+  Enable libreoffice implementation by default for office extensions.
+
+  22 Mar 2013; Zac Medico <zmedico@gentoo.org> use.mask:
+  Mask python_targets_python3_4, since Python 3.4 pre-releases not available in
+  main tree yet.
+
+  19 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Drop glamor mask, add mask for mesa r600-llvm-compiler and radeonsi driver.
+
+  16 Mar 2013; Sven Vermeulen <swift@gentoo.org> package.mask:
+  Add in selinux-abrt package
+
+  16 Mar 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Unmasking system-ffmpeg on media-video/avidemux as it no longer has that.
+
+  16 Mar 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Masking system-ffmpeg on media-libs/avidemux-core until it compiles & works.
+
+  10 Mar 2013; Sven Vermeulen <swift@gentoo.org> package.mask:
+  Adding mask for SELinux backup module
+
+  10 Mar 2013; Christoph Junghans <ottxor@gentoo.org> package.use.mask:
+  Mask media-sound/google-musicmanager log wrt #287697, Comment #12.
+
+  10 Mar 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Masking system-ffmpeg on media-video/avidemux until it compiles and works.
+
+  08 Mar 2013; Davide Pesavento <pesa@gentoo.org> package.use.force:
+  Adjust entry for qt-creator.
+
+  07 Mar 2013; Tim Harder <radhermit@gentoo.org> package.use.force:
+  Add jython2_7 for PYTHON_TARGETS.
+
+  02 Mar 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Use stable-masking only for systemd. Masking it for old profiles is too
+  troublesome (overrides arch-specific masks).
 
   27 Feb 2013; Michał Górny <mgorny@gentoo.org> use.mask:
   Mask x32 ABI in base profile. Unmasked in specific profile.

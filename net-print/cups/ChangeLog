@@ -1,6 +1,48 @@
 # ChangeLog for net-print/cups
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/cups/ChangeLog,v 1.519 2013/02/08 15:27:09 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/cups/ChangeLog,v 1.529 2013/04/01 22:51:09 dilfridge Exp $
+
+  01 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.6.1.ebuild,
+  -cups-1.6.2.ebuild:
+  Clean up
+
+  01 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2-r1.ebuild,
+  cups-9999.ebuild:
+  Remove avahi useflag, use only zeroconf useflag for full avahi interface
+
+*cups-1.6.2-r1 (01 Apr 2013)
+
+  01 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org> +cups-1.6.2-r1.ebuild,
+  +files/cups-1.6.2-statedir.patch, cups-9999.ebuild, +files/cupsd.init.d-r1:
+  Move /var/run/cups to /run/cups, bug 451756
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2.ebuild,
+  cups-9999.ebuild:
+  Fix LINGUAS logic, bug 452896
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.5.2-r4.ebuild,
+  cups-1.5.3.ebuild:
+  Remove non-functional localizations
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.5.2-r4.ebuild:
+  Remove de locale since it is nonfunctional, bug 450220
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2.ebuild,
+  cups-9999.ebuild:
+  EAPI bump to 5, clean up elog messages, (also) bug 440502
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2.ebuild,
+  cups-9999.ebuild:
+  Fix linguas list
+
+*cups-1.6.2 (24 Mar 2013)
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> +cups-1.6.2.ebuild,
+  cups-9999.ebuild:
+  Version bump
+
+  17 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-9999.ebuild:
+  Update keyword list from 1.6.1
 
   08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.1.ebuild:
   Add ~sh, wrt bug #449220

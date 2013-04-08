@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/eiskaltdcpp/eiskaltdcpp-2.2.7.ebuild,v 1.5 2012/09/03 13:25:05 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/eiskaltdcpp/eiskaltdcpp-2.2.7.ebuild,v 1.7 2013/03/11 19:26:35 maksbotan Exp $
 
 EAPI="4"
 
@@ -44,6 +44,7 @@ fi
 
 RDEPEND="
 	app-arch/bzip2
+	>=dev-libs/boost-1.38
 	>=dev-libs/openssl-0.9.8
 	sys-apps/attr
 	sys-devel/gettext
@@ -73,20 +74,21 @@ RDEPEND="
 		libnotify? ( >=x11-libs/libnotify-0.4.1 )
 	)
 	qt4? (
-		>=x11-libs/qt-gui-4.6.0:4[dbus?]
+		>=dev-qt/qtgui-4.6.0:4[dbus?]
 		javascript? (
-			x11-libs/qt-script:4
+			dev-qt/qtscript:4
 			x11-libs/qtscriptgenerator
 		)
 		spell? ( app-text/aspell )
-		sqlite? ( x11-libs/qt-sql:4[sqlite] )
+		sqlite? ( dev-qt/qtsql:4[sqlite] )
 	)
 "
 DEPEND="${RDEPEND}
-	>=dev-libs/boost-1.34.1
 	virtual/pkgconfig
 "
 DOCS="AUTHORS ChangeLog.txt"
+
+PATCHES=( "${FILESDIR}"/${P}-boost-1.50.patch )
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != binary ]]; then

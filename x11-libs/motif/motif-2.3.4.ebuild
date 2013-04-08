@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/motif/motif-2.3.4.ebuild,v 1.10 2013/01/02 00:05:11 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/motif/motif-2.3.4.ebuild,v 1.12 2013/03/18 22:45:04 ulm Exp $
 
 EAPI=4
 

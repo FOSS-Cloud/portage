@@ -1,6 +1,26 @@
 # ChangeLog for net-p2p/qbittorrent
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/qbittorrent/ChangeLog,v 1.205 2013/01/23 19:21:53 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/qbittorrent/ChangeLog,v 1.210 2013/03/31 18:06:06 jdhore Exp $
+
+  31 Mar 2013; Jeff Horelick <jdhore@gentoo.org> qbittorrent-3.0.8.ebuild:
+  marked x86 per bug 460190
+
+*qbittorrent-3.0.9 (18 Mar 2013)
+
+  18 Mar 2013; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.0.9.ebuild:
+  Version bump
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> qbittorrent-3.0.8.ebuild:
+  Stable for amd64, wrt bug #460190
+
+  03 Mar 2013; Markos Chandras <hwoarang@gentoo.org> -qbittorrent-2.9.11.ebuild,
+  -qbittorrent-3.0.5.ebuild, -qbittorrent-3.0.6.ebuild:
+  remove old
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> qbittorrent-2.9.11.ebuild,
+  qbittorrent-2.9.7.ebuild, qbittorrent-3.0.5.ebuild, qbittorrent-3.0.6.ebuild,
+  qbittorrent-3.0.8.ebuild, qbittorrent-9999.ebuild:
+  Move Qt dependencies to the new category
 
 *qbittorrent-3.0.8 (23 Jan 2013)
 

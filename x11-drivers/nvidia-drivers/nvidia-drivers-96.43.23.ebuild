@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/nvidia-drivers-96.43.23.ebuild,v 1.7 2013/02/22 00:37:02 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/nvidia-drivers-96.43.23.ebuild,v 1.12 2013/03/30 17:02:36 jer Exp $
 
 EAPI="2"
 
@@ -17,11 +17,11 @@ SRC_URI="x86? ( ftp://download.nvidia.com/XFree86/Linux-x86/${PV}/${X86_NV_PACKA
 	 amd64? ( ftp://download.nvidia.com/XFree86/Linux-x86_64/${PV}/${AMD64_NV_PACKAGE}-pkg2.run )
 	 x86-fbsd? ( ftp://download.nvidia.com/freebsd/${PV}/${X86_FBSD_NV_PACKAGE}.tar.gz )"
 
-LICENSE="NVIDIA"
+LICENSE="GPL-2 NVIDIA-r1"
 SLOT="0"
 KEYWORDS="-* amd64 x86 ~x86-fbsd"
 IUSE="acpi custom-cflags gtk multilib kernel_linux"
-RESTRICT="strip"
+RESTRICT="bindist mirror strip"
 EMULTILIB_PKG="true"
 
 COMMON="<x11-base/xorg-server-1.12.99
@@ -190,12 +190,14 @@ pkg_setup() {
 	export _POSIX2_VERSION="199209"
 
 	if use kernel_linux && kernel_is ge 3 7 ; then
-		ewarn "Gentoo supports kernel's which are supported by NVIDIA"
+		ewarn "Gentoo supports kernels which are supported by NVIDIA"
 		ewarn "which are limited to the following kernels:"
 		ewarn "<sys-kernel/gentoo-sources-3.7"
 		ewarn "<sys-kernel/vanilla-sources-3.7"
 		ewarn ""
-		ewarn "You are on your own"
+		ewarn "You are free to utilize epatch_user to provide whatever"
+		ewarn "support you feel is appropriate, but will not receive"
+		ewarn "support as a result of those changes."
 	fi
 
 	# Since Nvidia ships 3 different series of drivers, we need to give the user
@@ -285,6 +287,7 @@ src_compile() {
 		MAKE="$(get_bmake)" CFLAGS="-Wno-sign-compare" emake CC="$(tc-getCC)" \
 			LD="$(tc-getLD)" LDFLAGS="$(raw-ldflags)" || die
 	elif use kernel_linux; then
+		BUILD_PARAMS+=" PATCHLEVEL=not4"
 		linux-mod_src_compile
 	fi
 }

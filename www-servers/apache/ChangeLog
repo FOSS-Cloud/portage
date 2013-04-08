@@ -1,6 +1,73 @@
 # ChangeLog for www-servers/apache
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/ChangeLog,v 1.207 2013/02/28 22:17:52 chainsaw Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/ChangeLog,v 1.227 2013/03/25 06:31:40 patrick Exp $
+
+*apache-2.4.4-r3 (25 Mar 2013)
+
+  25 Mar 2013; Patrick Lauer <patrick@gentoo.org> +apache-2.4.4-r3.ebuild,
+  -apache-2.4.4-r2.ebuild, metadata.xml:
+  Enable mod_remoteip #460690
+
+*apache-2.4.4-r2 (25 Mar 2013)
+
+  25 Mar 2013; Patrick Lauer <patrick@gentoo.org> +apache-2.4.4-r2.ebuild,
+  -apache-2.4.4-r1.ebuild, metadata.xml:
+  Enable mod_ratelimit #460410
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> -apache-2.2.22-r1.ebuild,
+  -apache-2.2.23.ebuild, -apache-2.4.3.ebuild:
+  Remove old
+
+  05 Mar 2013; Diego E. Pettenò <flameeyes@gentoo.org> apache-2.4.4.ebuild:
+  QA: Return ebuild to ~arch.
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for sh, wrt bug #438680
+
+  04 Mar 2013; Brent Baude <ranger@gentoo.org> apache-2.4.4.ebuild:
+  Marking apache-2.4.4 ppc for bug 459264
+
+  04 Mar 2013; Jeroen Roovers <jer@gentoo.org> apache-2.4.4.ebuild:
+  Stable for HPPA (bug #459264).
+
+  04 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.4.4.ebuild:
+  Stable for x86, wrt bug #459264
+
+  04 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.4.4.ebuild:
+  Stable for amd64, wrt bug #459264
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for sparc, wrt bug #438680
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for hppa, wrt bug #438680
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for ppc, wrt bug #438680
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for ppc64, wrt bug #438680
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for s390, wrt bug #438680
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for alpha, wrt bug #438680
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for arm, wrt bug #438680
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for ia64, wrt bug #438680
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for x86, wrt bug #438680
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.24.ebuild:
+  Stable for amd64, wrt bug #438680
 
 *apache-2.2.24 (28 Feb 2013)
 

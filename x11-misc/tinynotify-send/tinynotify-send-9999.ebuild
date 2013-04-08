@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/tinynotify-send/tinynotify-send-9999.ebuild,v 1.1 2012/12/15 12:48:13 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/tinynotify-send/tinynotify-send-9999.ebuild,v 1.2 2013/03/19 16:16:25 ssuominen Exp $
 
 EAPI=4
 
@@ -20,11 +20,11 @@ SRC_URI="mirror://bitbucket/mgorny/${PN}/downloads/${P}.tar.bz2"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="symlink"
+IUSE=""
 
-RDEPEND="x11-libs/libtinynotify
-	~x11-libs/libtinynotify-cli-${PV}
-	symlink? ( !x11-libs/libnotify[symlink] )"
+RDEPEND="app-admin/eselect-notify-send
+	x11-libs/libtinynotify
+	~x11-libs/libtinynotify-cli-${PV}"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
@@ -46,8 +46,10 @@ src_configure() {
 	autotools-utils_src_configure
 }
 
-src_install() {
-	autotools-utils_src_install
+pkg_postinst() {
+	eselect notify-send update ifunset
+}
 
-	use symlink && dosym tinynotify-send /usr/bin/notify-send
+pkg_postrm() {
+	eselect notify-send update ifunset
 }

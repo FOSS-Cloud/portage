@@ -1,6 +1,30 @@
 # ChangeLog for net-libs/gnome-online-accounts
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gnome-online-accounts/ChangeLog,v 1.11 2013/02/02 23:02:57 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gnome-online-accounts/ChangeLog,v 1.16 2013/04/01 10:27:19 pacho Exp $
+
+  01 Apr 2013; Pacho Ramos <pacho@gentoo.org>
+  gnome-online-accounts-3.8.0.ebuild:
+  Fix libsoup dep
+
+  31 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  gnome-online-accounts-3.8.0.ebuild:
+  Adapt to libsoup-2.42 dropping gnome USE and splitting (#463702)
+
+*gnome-online-accounts-3.6.3 (30 Mar 2013)
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-online-accounts-3.6.3.ebuild:
+  Version bump, bug #456072.
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-online-accounts-3.4.2.ebuild:
+  Clean up old revision.
+
+*gnome-online-accounts-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-online-accounts-3.8.0.ebuild:
+  Version bump for Gnome 3.8
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
   gnome-online-accounts-3.6.2.ebuild:

@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/ttystatus
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ttystatus/ChangeLog,v 1.6 2012/10/06 23:19:40 mschiff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ttystatus/ChangeLog,v 1.9 2013/03/24 11:49:22 mschiff Exp $
+
+  24 Mar 2013; Marc Schiffbauer <mschiff@gentoo.org> ttystatus-0.22.ebuild:
+  remove superfluous python-r1 inherit
+
+  24 Mar 2013; Marc Schiffbauer <mschiff@gentoo.org> ttystatus-0.22.ebuild:
+  added
+
+*ttystatus-0.22 (24 Mar 2013)
+
+  24 Mar 2013; Marc Schiffbauer <mschiff@gentoo.org> +ttystatus-0.22.ebuild,
+  -ttystatus-0.19.ebuild:
+  Version bump. Drop old version
 
   06 Oct 2012; Marc Schiffbauer <mschiff@gentoo.org> -ttystatus-0.18.ebuild:
   Drop old version.

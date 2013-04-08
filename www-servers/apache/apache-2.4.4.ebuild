@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/apache-2.4.4.ebuild,v 1.1 2013/02/27 06:56:36 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/apache-2.4.4.ebuild,v 1.6 2013/03/05 09:52:06 flameeyes Exp $
 
 EAPI="2"
 

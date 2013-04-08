@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/spideroak-bin/spideroak-bin-4.8.3-r1.ebuild,v 1.1 2013/01/24 04:31:50 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-backup/spideroak-bin/spideroak-bin-4.8.3-r1.ebuild,v 1.3 2013/03/24 17:55:18 blueness Exp $
 
 EAPI="4"
 
-inherit eutils
+inherit eutils unpacker
 
 SRC_URI_BASE="https://spideroak.com/getbuild?platform=ubuntu"
 
@@ -41,15 +41,8 @@ S=${WORKDIR}
 
 QA_PREBUILT="*"
 
-src_unpack() {
-	unpack ${A}
-	unpack ./data.tar.gz
-	rm -f control.tar.gz data.tar.gz debian-binary
-	rm -f usr/share/doc/spideroak/copyright
-}
-
 src_prepare() {
-	use headless && epatch "${FILESDIR}"/${PF}-headless.patch
+	use headless && epatch "${FILESDIR}"/${P}-headless.patch
 
 	# Set RPATH for preserve-libs handling (bug #400979).
 	cd "${S}/opt/SpiderOak/lib" || die

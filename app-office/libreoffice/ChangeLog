@@ -1,6 +1,70 @@
 # ChangeLog for app-office/libreoffice
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/ChangeLog,v 1.442 2013/02/16 13:18:10 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/ChangeLog,v 1.457 2013/04/04 11:41:00 scarabeus Exp $
+
+  04 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.0.2.2.ebuild,
+  libreoffice-4.0.9999.ebuild:
+  Silence repoman.
+
+*libreoffice-4.0.2.2 (04 Apr 2013)
+
+  04 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-4.0.2.2.ebuild,
+  -libreoffice-4.0.0.3.ebuild, -libreoffice-4.0.1.2.ebuild:
+  Bump to released 4.0.2.2.
+
+  29 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.0.9999.ebuild,
+  libreoffice-9999-r2.ebuild:
+  Update the pythoncflags/libs detection with the eclass functions. Put the
+  branding mv call to prepare phase.
+
+  28 Mar 2013; Markus Meier <maekke@gentoo.org> libreoffice-4.0.1.2.ebuild:
+  add ~arm, bug #451464
+
+  18 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Reportbuilder is no longer extension, we should probably bribe java team to
+  package the deps.
+
+  18 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.0.9999.ebuild,
+  libreoffice-9999-r2.ebuild:
+  Fix detecting python cflags and libs until there is nice eclass call for it.
+  Force due to unsynced tree.
+
+  17 Mar 2013; Mark Wright <gienah@gentoo.org>
+  +files/libreoffice-4.0.1.2-boost-1.53.0.patch, libreoffice-4.0.1.2.ebuild:
+  Fix bug 454274 >=app-office/libreoffice-4.0.0.2: fails to build with dev-
+  libs/boost-1.53.0. Thanks to cJ for earlier proposed patch and testing.
+
+  13 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Raise the dep over mdds.
+
+  13 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Rename mysql connector to mariadb per upstream and do not define python var as
+  it is not needed.
+
+  13 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Add dependency over libmwaw.
+
+  12 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  libreoffice-3.6.9999.ebuild, libreoffice-4.0.0.3.ebuild,
+  libreoffice-4.0.1.2.ebuild, libreoffice-4.0.9999.ebuild,
+  libreoffice-9999-r2.ebuild:
+  Add subslot dependency on poppler wherever possible
+
+  09 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.0.1.2.ebuild,
+  libreoffice-4.0.9999.ebuild:
+  Filter flags on 4.0 branch as the cxxflags order is broken and backport from
+  master is too huge. Wrt bug#459378.
+
+*libreoffice-4.0.1.2 (06 Mar 2013)
+
+  06 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-4.0.1.2.ebuild:
+  Add 4.0.1.2.
+
+  05 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  More love for live ebuild.
+
+  04 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Few cleanups in live ebuild to match upstream no longer using dmake.
 
   16 Feb 2013; Mark Wright <gienah@gentoo.org>
   +files/libreoffice-3.6.4.3-boost-1.53.0.patch,

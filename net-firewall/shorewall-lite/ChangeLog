@@ -1,6 +1,33 @@
 # ChangeLog for net-firewall/shorewall-lite
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/shorewall-lite/ChangeLog,v 1.110 2013/02/12 20:27:04 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/shorewall-lite/ChangeLog,v 1.118 2013/04/05 12:12:21 constanze Exp $
+
+*shorewall-lite-4.5.15 (05 Apr 2013)
+
+  05 Apr 2013; Constanze Hausner <constanze@gentoo.org>
+  +shorewall-lite-4.5.15.ebuild:
+  Version Bump see Bug #462490
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> shorewall-lite-4.5.11.2.ebuild:
+  Stable for sparc, wrt bug #461208
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> shorewall-lite-4.5.11.2.ebuild:
+  Stable for alpha, wrt bug #461208
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> shorewall-lite-4.5.11.2.ebuild:
+  Stable for ppc64, wrt bug #461208
+
+  22 Mar 2013; Agostino Sarubbo <ago@gentoo.org> shorewall-lite-4.5.11.2.ebuild:
+  Stable for ppc, wrt bug #461208
+
+  21 Mar 2013; Jeroen Roovers <jer@gentoo.org> shorewall-lite-4.5.11.2.ebuild:
+  Stable for HPPA (bug #461208).
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> shorewall-lite-4.5.11.2.ebuild:
+  Stable for x86, wrt bug #461208
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> shorewall-lite-4.5.11.2.ebuild:
+  Stable for amd64, wrt bug #461208
 
   12 Feb 2013; Agostino Sarubbo <ago@gentoo.org> shorewall-lite-4.5.8.2.ebuild:
   Stable for sparc, wrt bug #452830

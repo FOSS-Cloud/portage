@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-server/postgresql-server-9999.ebuild,v 1.7 2013/02/12 18:22:24 titanofold Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-server/postgresql-server-9999.ebuild,v 1.8 2013/04/04 16:24:14 titanofold Exp $
 
 EAPI="5"
 

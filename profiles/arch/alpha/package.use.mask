@@ -1,6 +1,14 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/package.use.mask,v 1.119 2013/01/31 05:57:08 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/package.use.mask,v 1.123 2013/04/01 12:10:50 eva Exp $
+
+# Gilles Dartiguelongue <eva@gentoo.org> (1 Apr 2013)
+# missing keyword on media-libs/tremor, bug #453200
+media-libs/gst-plugins-base ivorbis
+
+# Julian Ospald <hasufell@gentoo.org> (31 Mar 2013)
+# depends on mono
+>=net-irc/hexchat-2.9.4-r1 theme-manager
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (31 Jan 2013)
 # remove mask when net-libs/libqmi is keyworded here
@@ -20,21 +28,8 @@ gnome-extra/sushi office
 media-libs/phonon gstreamer vlc
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (27 Dec 2012)
-# remove mask when app-text/yelp-tools is keyworded here
->=gnome-extra/zenity-3.6 test
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (27 Dec 2012)
 # remove mask when dev-java/fop is keyworded here
 gnome-extra/libgda reports
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (27 Dec 2012)
-# remove mask when >=app-editors/gedit-3.6 is keyworded here
-dev-util/devhelp gedit
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (27 Dec 2012)
-# remove mask when app-crypt/libsecret is keyworded here
->=gnome-base/gvfs-1.14 gnome-keyring
->=gnome-extra/libgda-5.1 gnome-keyring
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (15 Dec 2012)
 # media-video/coherence not keyworded
@@ -42,7 +37,6 @@ dev-util/devhelp gedit
 
 # Luca Barbato <lu_zero@gentoo.org> (11 Nov 2012)
 # Libav 9 can use fdk-aac
-
 >=media-video/libav-9_beta2 fdk
 
 # Robin H Johnson <robbat2@gentoo.org> (01 Nov 2012)
@@ -51,10 +45,10 @@ dev-util/devhelp gedit
 >=dev-db/mariadb-5.5 tcmalloc jemalloc
 
 # Raúl Porcel <armin76@gentoo.org> (25 Jun 2012)
-# x11-libs/qt-webkit doesn't seem to work
+# dev-qt/qtwebkit doesn't seem to work
 dev-python/PyQt4 webkit
-x11-libs/qt-assistant webkit
-x11-libs/qt-declarative webkit
+dev-qt/qtdeclarative webkit
+dev-qt/qthelp webkit
 net-irc/kvirc webkit
 x11-misc/google-gadgets qt4
 
@@ -80,16 +74,6 @@ gnome-base/gvfs udisks
 # Alexey Shvetsov <alexxy@gentoo.org> (17 Dec 2011)
 # mask use numa for openmpi
 sys-cluster/openmpi openmpi_fabrics_psm openmpi_fabrics_knem openmpi_fabrics_open-mx openmpi_fabrics_ofed openmpi_fabrics_dapl openmpi_rm_slurm openmpi_ofed_features_rdmacm
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (25 Nov 2011)
-# Mask USE flags on gnome-3.2 packages due to missing keywords on deps;
-# bug #390345
->=app-cdr/brasero-3 tracker
-app-text/evince xps
->=dev-libs/folks-0.6 socialweb tracker
->=gnome-base/gnome-menus-3.2 test
->=gnome-base/gnome-panel-3 eds
->=gnome-base/nautilus-3 previewer tracker
 
 # Patrick McLean <chutzpah@gentoo.org> (08 Nov 2011)
 # mask conntrack USE flag for dnsmasq as dep is not keyworded
@@ -121,11 +105,11 @@ sys-apps/hwloc numa
 
 # Pacho Ramos <pacho@gentoo.org> (19 Jul 2011)
 # Missing keywords on dependencies
-app-cdr/brasero dvd vcd
+app-cdr/brasero dvd
 
 # Pacho Ramos <pacho@gentoo.org> (30 Jun 2011)
 # Needed plugins are not keyworded on this arch
-media-plugins/gst-plugins-meta dts libvisual vcd
+media-plugins/gst-plugins-meta dts libvisual
 
 # Pacho Ramos <pacho@gentoo.org> (02 Apr 2011)
 # quvi support is needed to play youtube files now
@@ -159,7 +143,7 @@ x11-misc/rss-glx quesoglc
 games-strategy/freeciv ggz
 
 # Ben de Groot <yngwin@gentoo.org> (16 Jan 2010)
-# qt-multimedia is not keyworded, bug 293671
+# qtmultimedia is not keyworded, bug 293671
 dev-python/PyQt4 multimedia
 
 # Raúl Porcel <armin76@gentoo.org> (07 Jul 2008)

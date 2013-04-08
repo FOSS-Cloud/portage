@@ -1,6 +1,30 @@
 # ChangeLog for app-text/linuxdoc-tools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/linuxdoc-tools/ChangeLog,v 1.18 2012/11/16 09:40:59 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/linuxdoc-tools/ChangeLog,v 1.22 2013/03/22 07:04:38 pinkbyte Exp $
+
+  22 Mar 2013; Sergey Popov <pinkbyte@gentoo.org>
+  -linuxdoc-tools-0.9.68.ebuild, linuxdoc-tools-0.9.68-r1.ebuild:
+  Fix incorrect version string in upstream tarball, wrt bug #442482, add
+  epatch_user. Drop broken ebuild
+
+*linuxdoc-tools-0.9.68-r1 (21 Mar 2013)
+
+  21 Mar 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +linuxdoc-tools-0.9.68-r1.ebuild:
+  Fix incorrect prefix path, that is saved in scripts at install phase, wrt bug
+  #442482. Thanks to Manfred Knick for discovering this issue
+
+  21 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> linuxdoc-tools-0.9.68.ebuild:
+  Move sed for setting proper sgml catalog path to src_prepare, fix tex-related
+  files installation, wrt bug #442482
+
+*linuxdoc-tools-0.9.68 (20 Mar 2013)
+
+  20 Mar 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +linuxdoc-tools-0.9.68.ebuild, +files/linuxdoc-tools-0.9.68-compiler.patch,
+  +files/linuxdoc-tools-0.9.68-letter.patch,
+  +files/linuxdoc-tools-0.9.68-lex.patch:
+  Version bump, wrt bug #287557. Fix building with new lex, wrt bug #442482
 
   16 Nov 2012; Ulrich Müller <ulm@gentoo.org>
   linuxdoc-tools-0.9.21_p11.ebuild:

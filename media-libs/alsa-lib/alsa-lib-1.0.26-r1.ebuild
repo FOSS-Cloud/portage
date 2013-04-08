@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/alsa-lib/alsa-lib-1.0.26-r1.ebuild,v 1.1 2013/02/19 14:15:48 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/alsa-lib/alsa-lib-1.0.26-r1.ebuild,v 1.10 2013/04/05 18:20:36 ago Exp $
 
 EAPI=5
 
@@ -14,7 +14,7 @@ SRC_URI="mirror://alsaproject/lib/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm ~hppa ~ia64 ~mips ppc ppc64 sh sparc x86 ~amd64-linux ~x86-linux"
 IUSE="doc debug alisp python"
 
 RDEPEND="python? ( ${PYTHON_DEPS} )"
@@ -29,7 +29,9 @@ pkg_setup() {
 src_prepare() {
 	epatch "${FILESDIR}"/1.0.25-extraneous-cflags.diff
 	eautoreconf
-	epunt_cxx
+	# if eautoreconf'd with recent autoconf, then epunt_cxx is
+	# unncessary wrt #460974
+#	epunt_cxx
 }
 
 src_configure() {

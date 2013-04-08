@@ -1,6 +1,27 @@
 # ChangeLog for media-libs/clutter-gtk
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter-gtk/ChangeLog,v 1.42 2013/02/10 08:32:14 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter-gtk/ChangeLog,v 1.48 2013/03/29 23:11:10 eva Exp $
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -clutter-gtk-1.0.4.ebuild, clutter-gtk-1.4.4.ebuild:
+  Clean up old revision.
+
+*clutter-gtk-1.4.4 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +clutter-gtk-1.4.4.ebuild:
+  Version bump for Gnome 3.8
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clutter-gtk-1.4.2.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clutter-gtk-1.4.2.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clutter-gtk-1.4.2.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clutter-gtk-1.4.2.ebuild:
+  Stable for amd64, wrt bug #458984
 
   10 Feb 2013; Pacho Ramos <pacho@gentoo.org> -clutter-gtk-0.10.8.ebuild,
   -clutter-gtk-1.4.0.ebuild,

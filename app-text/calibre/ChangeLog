@@ -1,6 +1,44 @@
 # ChangeLog for app-text/calibre
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/ChangeLog,v 1.263 2013/02/27 19:06:57 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/ChangeLog,v 1.270 2013/04/05 16:27:18 zmedico Exp $
+
+*calibre-0.9.26 (05 Apr 2013)
+
+  05 Apr 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.26.ebuild,
+  -calibre-0.9.24.ebuild:
+  0.9.26 version bump.
+
+*calibre-0.9.25 (29 Mar 2013)
+
+  29 Mar 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.25.ebuild,
+  -calibre-0.9.23.ebuild:
+  0.9.25 version bump.
+
+*calibre-0.9.24 (22 Mar 2013)
+
+  22 Mar 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.24.ebuild,
+  -calibre-0.9.22.ebuild:
+  0.9.24 version bump.
+
+*calibre-0.9.23 (15 Mar 2013)
+
+  15 Mar 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.23.ebuild,
+  -calibre-0.9.21.ebuild:
+  0.9.23 version bump.
+
+*calibre-0.9.22 (09 Mar 2013)
+
+  09 Mar 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.22.ebuild:
+  0.9.22 version bump.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> calibre-0.9.20.ebuild,
+  calibre-0.9.21.ebuild:
+  Move Qt dependencies to the new category
+
+*calibre-0.9.21 (01 Mar 2013)
+
+  01 Mar 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.21.ebuild:
+  0.9.21 version bump.
 
   27 Feb 2013; Tomáš Chvátal <scarabeus@gentoo.org> -calibre-0.9.14.ebuild,
   -calibre-0.9.19.ebuild, calibre-0.9.20.ebuild:

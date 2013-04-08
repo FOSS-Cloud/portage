@@ -1,6 +1,31 @@
 # ChangeLog for app-text/mupdf
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/mupdf/ChangeLog,v 1.57 2013/02/28 15:46:00 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/mupdf/ChangeLog,v 1.63 2013/03/26 18:16:32 ago Exp $
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mupdf-1.1_p20121127.ebuild:
+  Stable for ppc, wrt bug #463196
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mupdf-1.1_p20121127.ebuild:
+  Stable for x86, wrt bug #463196
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mupdf-1.1_p20121127.ebuild:
+  Stable for amd64, wrt bug #463196
+
+  25 Mar 2013; Michael Weber <xmw@gentoo.org>
+  files/mupdf-1.1_p20121127-desktop-integration.patch:
+  Fix redundand and obsolete .dekstop keys.
+
+  25 Mar 2013; Michael Weber <xmw@gentoo.org> -mupdf-1.1_p20120816.ebuild,
+  mupdf-1.1_p20121127.ebuild,
+  +files/mupdf-1.1_p20121127-desktop-integration.patch, mupdf-1.2.ebuild,
+  mupdf-9999.ebuild:
+  Drop old, fix desktop integration (bug 444924, thanks Agostino Sarubbo)
+
+*mupdf-1.2 (25 Mar 2013)
+
+  25 Mar 2013; Michael Weber <xmw@gentoo.org>
+  +files/mupdf-1.2-mubusy_rename_fix.patch, +mupdf-1.2.ebuild, mupdf-1.1.ebuild:
+  Version bump
 
   28 Feb 2013; Michael Weber <xmw@gentoo.org>
   files/mupdf-9999-buildsystem.patch:

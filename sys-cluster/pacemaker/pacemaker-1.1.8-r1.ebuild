@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/pacemaker/pacemaker-1.1.8-r1.ebuild,v 1.2 2013/01/24 09:24:49 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/pacemaker/pacemaker-1.1.8-r1.ebuild,v 1.3 2013/03/13 13:48:26 ultrabug Exp $
 
 EAPI=4
 
@@ -61,9 +61,9 @@ src_configure() {
 	local myopts=""
 	if use heartbeat ; then
 		myopts="--without-corosync"
-    else
+	else
 		myopts="--with-ais"
-    fi
+	fi
 	# appends lib to localstatedir automatically
 	econf \
 		--localstatedir=/var \

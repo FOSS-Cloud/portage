@@ -1,6 +1,61 @@
 # ChangeLog for dev-libs/libgee
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgee/ChangeLog,v 1.58 2013/02/19 00:21:58 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgee/ChangeLog,v 1.71 2013/04/01 18:24:02 ago Exp $
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libgee-0.6.7.ebuild,
+  libgee-0.8.4.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libgee-0.6.7.ebuild,
+  libgee-0.8.4.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> libgee-0.8.5.ebuild,
+  libgee-0.10.0.ebuild:
+  Do not depend on vala, it is not used for release tarballs.
+
+*libgee-0.8.5 (30 Mar 2013)
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> +libgee-0.8.5.ebuild:
+  Version bump.
+
+*libgee-0.6.8 (30 Mar 2013)
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> +libgee-0.6.8.ebuild:
+  Version bump.
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgee-0.6.7.ebuild,
+  libgee-0.8.4.ebuild:
+  Stable for ia64, wrt bug #458984
+
+*libgee-0.10.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +libgee-0.10.0.ebuild:
+  Version bump for Gnome 3.8
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgee-0.6.7.ebuild,
+  libgee-0.8.4.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgee-0.6.7.ebuild,
+  libgee-0.8.4.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgee-0.6.7.ebuild,
+  libgee-0.8.4.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgee-0.6.7.ebuild,
+  libgee-0.8.4.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgee-0.6.7.ebuild,
+  libgee-0.8.4.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -libgee-0.6.6.1.ebuild,
+  -libgee-0.8.3.ebuild:
+  Clean up old revisions.
 
 *libgee-0.8.4 (19 Feb 2013)
 

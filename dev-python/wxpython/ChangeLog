@@ -1,6 +1,24 @@
 # ChangeLog for dev-python/wxpython
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/wxpython/ChangeLog,v 1.174 2013/02/06 10:46:39 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/wxpython/ChangeLog,v 1.178 2013/03/26 03:23:52 dirtyepic Exp $
+
+  26 Mar 2013; Ryan Hill <dirtyepic@gentoo.org> wxpython-2.8.12.1-r1.ebuild,
+  +files/wxpython-2.8-no-preservatives-added.patch, wxpython-2.9.3.1.ebuild,
+  wxpython-2.9.4.1-r1.ebuild:
+  Prevent build system from considering preserved libs when checking wxGTK
+  features. (bug #376339).
+
+  19 Mar 2013; Michał Górny <mgorny@gentoo.org> wxpython-2.8.12.1-r1.ebuild,
+  wxpython-2.9.4.1-r1.ebuild:
+  Use separate platlib & purelib build directory, fixes bug #455332.
+
+  04 Mar 2013; Ian Delaney <idella4@gentoo.org>
+  files/wxpython-2.8.12-drop-categories.patch:
+  Correction to patch wrt Bug #457586
+
+  04 Mar 2013; Ian Delaney <idella4@gentoo.org>
+  +files/wxpython-2.8.12-drop-categories.patch, wxpython-2.8.12.1-r1.ebuild:
+  Patch added wrt Bug #457586 by Ago
 
 *wxpython-2.9.4.1-r1 (06 Feb 2013)
 *wxpython-2.8.12.1-r1 (06 Feb 2013)

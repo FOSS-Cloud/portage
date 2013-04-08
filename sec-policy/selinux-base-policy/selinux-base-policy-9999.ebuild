@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sec-policy/selinux-base-policy/selinux-base-policy-9999.ebuild,v 1.2 2012/12/04 20:21:53 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/sec-policy/selinux-base-policy/selinux-base-policy-9999.ebuild,v 1.5 2013/03/29 10:59:47 swift Exp $
 EAPI="4"
 
 inherit eutils git-2
@@ -8,11 +8,11 @@ inherit eutils git-2
 HOMEPAGE="http://www.gentoo.org/proj/en/hardened/selinux/"
 DESCRIPTION="SELinux policy for core modules"
 
-IUSE="unconfined"
+IUSE="+unconfined"
 BASEPOL="9999"
 
-RDEPEND="=sec-policy/selinux-base-9999
-		unconfined? ( sec-policy/selinux-unconfined )"
+RDEPEND="=sec-policy/selinux-base-9999"
+PDEPEND="unconfined? ( sec-policy/selinux-unconfined )"
 DEPEND=""
 EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/hardened-refpolicy.git"
 EGIT_SOURCEDIR="${WORKDIR}/refpolicy"
@@ -26,6 +26,14 @@ S="${WORKDIR}/"
 # Code entirely copied from selinux-eclass (cannot inherit due to dependency on
 # itself), when reworked reinclude it. Only postinstall (where -b base.pp is
 # added) needs to remain then.
+
+pkg_pretend() {
+	for i in ${POLICY_TYPES}; do
+		if [[ "${i}" == "targeted" ]] && ! use unconfined; then
+			die "If you use POLICY_TYPES=targeted, then USE=unconfined is mandatory."
+		fi
+	done
+}
 
 src_prepare() {
 	local modfiles

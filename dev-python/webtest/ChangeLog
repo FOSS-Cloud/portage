@@ -1,6 +1,58 @@
 # ChangeLog for dev-python/webtest
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/webtest/ChangeLog,v 1.44 2013/02/15 19:36:17 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/webtest/ChangeLog,v 1.58 2013/04/03 06:17:20 patrick Exp $
+
+*webtest-2.0.4 (03 Apr 2013)
+
+  03 Apr 2013; Patrick Lauer <patrick@gentoo.org> +webtest-2.0.4.ebuild:
+  Bump
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> webtest-1.4.3.ebuild:
+  Stable for s390, wrt bug #456616
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> webtest-1.4.3.ebuild:
+  Stable for sh, wrt bug #456616
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> webtest-1.4.3.ebuild:
+  Stable for sparc, wrt bug #456616
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> webtest-1.4.3.ebuild:
+  Stable for ia64, wrt bug #456616
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> webtest-1.4.3.ebuild:
+  Stable for arm, wrt bug #456616
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> webtest-1.4.3.ebuild:
+  Stable for ppc64, wrt bug #456616
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> webtest-1.4.3.ebuild:
+  Stable for ppc, wrt bug #456616
+
+*webtest-2.0.3 (26 Mar 2013)
+
+  26 Mar 2013; Patrick Lauer <patrick@gentoo.org> +webtest-2.0.3.ebuild:
+  Bump
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> webtest-1.4.3.ebuild:
+  Stable for x86, wrt bug #456616
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> webtest-1.4.3.ebuild:
+  Stable for amd64, wrt bug #456616
+
+*webtest-2.0.2 (21 Mar 2013)
+
+  21 Mar 2013; Patrick Lauer <patrick@gentoo.org> +webtest-2.0.2.ebuild:
+  Bump, tests disabled as they are totally screwed up
+
+*webtest-1.3.3 (11 Mar 2013)
+
+  11 Mar 2013; Matthew Thode <prometheanfire@gentoo.org> +webtest-1.3.3.ebuild:
+  webtest-1.3.3 needed for sys-cluster/quantum-2012.2.3[test]
+
+*webtest-2.0.1 (10 Mar 2013)
+
+  10 Mar 2013; Ian Delaney <idella4@gentoo.org> +webtest-2.0.1.ebuild:
+  bump
 
 *webtest-1.4.3-r1 (15 Feb 2013)
 

@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/hexchat/hexchat-2.9.4.ebuild,v 1.2 2013/01/14 07:14:11 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/hexchat/hexchat-2.9.4.ebuild,v 1.15 2013/03/09 14:26:07 ago Exp $
 
 EAPI=5
 
-inherit eutils gnome2 multilib
+inherit gnome2 flag-o-matic
 
 DESCRIPTION="Graphical IRC client based on XChat"
 SRC_URI="mirror://github/${PN}/${PN}/${P}.tar.xz"
@@ -12,7 +12,7 @@ HOMEPAGE="http://www.hexchat.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 sparc x86 ~amd64-linux"
 IUSE="dbus fastscroll +gtk ipv6 libnotify libproxy nls ntlm perl +plugins python spell ssl threads"
 
 RDEPEND="dev-libs/glib:2
@@ -40,7 +40,8 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-2.9.1-input-box.patch \
+	epatch \
+		"${FILESDIR}"/${PN}-2.9.1-input-box.patch \
 		"${FILESDIR}"/${PN}-2.9.3-cflags.patch
 
 	# use $libdir/hexchat/plugins as the plugin directory
@@ -49,12 +50,19 @@ src_prepare() {
 			-i configure.ac || die 'sed failed'
 	fi
 
+	# Fix to compile with USE=-gtk when there is no gtk installed
+	if ! use gtk ; then
+		sed -i 's/AM_PATH_GTK_2_0//' configure.ac || die 'sed failed'
+	fi
+
 	mkdir "m4" || die "mkdir failed"
 	./autogen.sh || die "autogen.sh failed"
 }
 
 src_configure() {
-	econf --enable-shm \
+	econf \
+		--disable-tcl \
+		--enable-shm \
 		$(use_enable dbus) \
 		$(use_enable ipv6) \
 		$(use_enable nls) \

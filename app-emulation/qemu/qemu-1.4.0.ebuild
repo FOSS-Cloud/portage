@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.4.0.ebuild,v 1.8 2013/02/28 12:16:33 dev-zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.4.0.ebuild,v 1.10 2013/03/12 20:08:09 cardoe Exp $
 
 EAPI=5
 
@@ -72,8 +72,7 @@ LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	sasl? ( dev-libs/cyrus-sasl[static-libs(+)] )
 	sdl? ( >=media-libs/libsdl-1.2.11[static-libs(+)] )
 	seccomp? ( >=sys-libs/libseccomp-1.0.1[static-libs(+)] )
-	spice? ( >=app-emulation/spice-0.12.0[static-libs(+)]
-		smartcard? ( app-emulation/spice[-smartcard] ) )
+	spice? ( >=app-emulation/spice-0.12.0[static-libs(+)] )
 	tls? ( net-libs/gnutls[static-libs(+)] )
 	uuid? ( >=sys-apps/util-linux-2.16.0[static-libs(+)] )
 	vde? ( net-misc/vde[static-libs(+)] )
@@ -472,4 +471,17 @@ pkg_postinst() {
 
 	elog "The ssl USE flag was renamed to tls, so adjust your USE flags."
 	elog "The nss USE flag was renamed to smartcard, so adjust your USE flags."
+}
+
+pkg_info() {
+	echo "Using:"
+	echo "  $(best_version app-emulation/spice-protocol)"
+	echo "  $(best_version sys-firmware/ipxe)"
+	echo "  $(best_version sys-firmware/seabios)"
+	if has_version sys-firmware/seabios[binary]; then
+		echo "    USE=binary"
+	else
+		echo "    USE=''"
+	fi
+	echo "  $(best_version sys-firmware/vgabios)"
 }

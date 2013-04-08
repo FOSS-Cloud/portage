@@ -1,6 +1,21 @@
 # ChangeLog for dev-php/pecl-memcached
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-memcached/ChangeLog,v 1.8 2012/10/21 09:13:49 maekke Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-memcached/ChangeLog,v 1.11 2013/04/01 20:50:15 swegener Exp $
+
+  01 Apr 2013; Sven Wegener <swegener@gentoo.org>
+  pecl-memcached-2.1.0-r2.ebuild:
+  Newer libmemcached has sasl suport unconditionally enabled.
+
+*pecl-memcached-2.1.0-r2 (28 Mar 2013)
+
+  28 Mar 2013; Ole Markus With <olemarkus@gentoo.org>
+  +pecl-memcached-2.1.0-r2.ebuild, metadata.xml:
+  Adding some extra options to pecl-memcached (Bug 434968 ++)
+
+  05 Mar 2013; Ole Markus With <olemarkus@gentoo.org>
+  -pecl-memcached-2.0.1.ebuild, -pecl-memcached-2.1.0.ebuild,
+  pecl-memcached-1.0.2-r1.ebuild:
+  Removed older ebuilds. EAPI bump
 
   21 Oct 2012; Markus Meier <maekke@gentoo.org> pecl-memcached-2.0.1.ebuild:
   x86 stable, bug #427024

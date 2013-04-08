@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/soprano/soprano-2.9.0.ebuild,v 1.2 2013/02/07 04:12:20 alexxy Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/soprano/soprano-2.9.0.ebuild,v 1.7 2013/04/02 20:56:18 ago Exp $
 
 EAPI=4
 
@@ -10,7 +10,7 @@ if [[ ${PV} == *9999* ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
-	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+	KEYWORDS="amd64 ~arm ppc ppc64 x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 fi
 
 inherit base cmake-utils flag-o-matic ${git_eclass}
@@ -26,8 +26,8 @@ RESTRICT=test
 # bug 281712
 
 COMMON_DEPEND="
-	>=x11-libs/qt-core-4.5.0:4
-	dbus? ( >=x11-libs/qt-dbus-4.5.0:4 )
+	>=dev-qt/qtcore-4.5.0:4
+	dbus? ( >=dev-qt/qtdbus-4.5.0:4 )
 	raptor? ( >=media-libs/raptor-2.0.4:2 )
 	redland? (
 		>=dev-libs/rasqal-0.9.26
@@ -37,7 +37,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
-	test? ( >=x11-libs/qt-test-4.5.0:4 )
+	test? ( >=dev-qt/qttest-4.5.0:4 )
 "
 RDEPEND="${COMMON_DEPEND}
 	virtuoso? ( >=dev-db/virtuoso-server-6.1.6 )

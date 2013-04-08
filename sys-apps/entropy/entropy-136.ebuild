@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/entropy/entropy-136.ebuild,v 1.1 2012/08/24 14:21:57 lxnay Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/entropy/entropy-136.ebuild,v 1.3 2013/03/20 16:25:50 lxnay Exp $
 
-EAPI="3"
+EAPI="4"
 PYTHON_DEPEND="2"
 PYTHON_USE_WITH="sqlite"
 inherit eutils python user
@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 SRC_URI="mirror://sabayon/${CATEGORY}/${P}.tar.bz2"
 
-RDEPEND="dev-db/sqlite[soundex]
+RDEPEND="dev-db/sqlite[soundex(+)]
 	net-misc/rsync
 	sys-apps/diffutils
 	sys-apps/sandbox
@@ -39,6 +39,8 @@ pkg_setup() {
 	# Create unprivileged entropy user
 	enewgroup entropy-nopriv || die "failed to create entropy-nopriv group"
 	enewuser entropy-nopriv -1 -1 -1 entropy-nopriv || die "failed to create entropy-nopriv user"
+
+	python_pkg_setup
 }
 
 src_compile() {

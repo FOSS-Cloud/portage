@@ -1,6 +1,154 @@
 # ChangeLog for sys-kernel/dracut
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.109 2013/02/02 23:12:46 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.117 2013/04/02 14:51:03 aidecoe Exp $
+
+  02 Apr 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +files/025-0000-fix-version-print.patch, dracut-025.ebuild:
+  Backported changes wrt systemd and other cosmetic changes from 026-r2 to 025.
+
+  02 Apr 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +files/026-0000-fix-version-print.patch, dracut-019-r6.ebuild,
+  dracut-022-r6.ebuild, dracut-023-r4.ebuild, dracut-024-r4.ebuild,
+  dracut-025.ebuild, dracut-026.ebuild, dracut-026-r1.ebuild,
+  +dracut-026-r2.ebuild, dracut-027.ebuild:
+  Switch to virtual/udev in older ebuilds.
+
+*dracut-026-r2 (02 Apr 2013)
+
+  02 Apr 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +files/026-0000-fix-version-print.patch, +dracut-026-r2.ebuild:
+  Backporting changes wrt virtual/udev, CONFIG_MODULES and systemd from
+  dracut-027.ebuild.
+
+*dracut-027 (02 Apr 2013)
+
+  02 Apr 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +files/027-0001-dracut-functions.sh-support-for-altern.patch,
+  +files/027-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +dracut-027.ebuild:
+  Version bump.
+
+  Dracut 027 depends on virtual/udev now and no longer needs CONFIG_MODULES in
+  kernel.
+
+  Following changes relates to systemd module only:
+  - at least systemd-199 is required
+  - systemd-bootchart module replaces bootchart module
+  - selinux module is removed if systemd module is installed, because systemd
+    handles selinux setup; the same is for securityfs
+
+  NEWS
+  ~~~~
+  (from announcement on mailing list)
+
+  dracut-027
+  ==========
+  - dracut now has bash-completion
+  - require bash version 4
+  - systemd module now requires systemd >= 199
+  - dracut makes use of native systemd initrd units
+  - added hooks for new-kernel-pkg and kernel-install
+  - hostonly is now default for fedora
+  - comply with the BootLoaderSpec paths
+    http://www.freedesktop.org/wiki/Specifications/BootLoaderSpec
+  - added rescue module
+  - host_fs_types is now a hashmap
+  - new dracut argument "--regenerate-all"
+  - new dracut argument "--noimageifnotneeded"
+  - new man page dracut.bootup
+  - install all host filesystem drivers
+  - use -D_FILE_OFFSET_BITS=64 to build dracut-install
+
+  30 Mar 2013; Mike Gilbert <floppym@gentoo.org> dracut-026-r1.ebuild:
+  Depend on udev or a recent version of systemd.
+
+*dracut-026-r1 (12 Mar 2013)
+
+  12 Mar 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +files/026-0004-lsinitrd.sh-fix-for-default-initrd-not.patch,
+  +files/026-0005-lsinitrd.sh-removed-trailing.patch,
+  +files/026-0006-make-host_fs_types-a-hashmap.patch, +dracut-026-r1.ebuild:
+  Fixed crypt, dmraid and mdraid detection as explained in previous entry:
+
+  > Gentoo release doesn't include a fix to catch all UUIDs (for crypt, dmraid,
+  > mdraid) and not only the first one, because the fix actually breaks
+  > something and LUKS devices aren't detected correctly at build time. If this
+  > fix is fixed it will come in dracut-026-r1 ASAP.
+
+  Moreover lsinitrd script has been fixed.
+
+*dracut-026 (10 Mar 2013)
+
+  10 Mar 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +files/026-0001-dracut-functions.sh-support-for-altern.patch,
+  +files/026-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +files/026-0003-Revert-crypt-dmraid-mdraid-use-for_eac.patch,
+  +dracut-026.ebuild:
+  Version bump.
+
+  Gentoo release doesn't include a fix to catch all UUIDs (for crypt, dmraid,
+  mdraid) and not only the first one, because the fix actually breaks something
+  and LUKS devices aren't detected correctly at build time. If this fix is
+  fixed it will come in dracut-026-r1 ASAP.
+
+  NEWS
+  ~~~~
+  (from announcement on mailing list)
+
+  - introduce /usr/lib/dracut/dracut.conf.d/ drop-in directory
+
+    /usr/lib/dracut/dracut.conf.d/*.conf can be overwritten by the same
+    filenames in /etc/dracut.conf.d.
+
+    Packages should use /usr/lib/dracut/dracut.conf.d rather than
+    /etc/dracut.conf.d for drop-in configuration files.
+
+    /etc/dracut.conf and /etc/dracut.conf.d belong to the system administrator.
+
+  - uses systemd-198 native initrd units
+  - totally rely on the fstab-generator in systemd mode for block devices
+  - dracut systemd now uses dracut.target rather than basic.target
+  - dracut systemd services optimize themselves away
+  - fixed hostonly parameter generation
+  - turn off curl globbing (fixes IPv6)
+  - modify the udev rules on install and not runtime time
+  - enable initramfs building without kernel modules (fixed regression)
+  - in the initqueue/timeout, reset the main loop counter, as we see new udev
+    events or initqueue/work
+  - fixed udev rule installation
+
+  10 Mar 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-025.ebuild:
+  Cosmetic changes.
+
+*dracut-025 (09 Mar 2013)
+
+  09 Mar 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +files/025-0001-dracut-functions.sh-support-for-altern.patch,
+  +files/025-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +files/025-0003-rootfs-block-mount-root.sh-fixup-for-8.patch,
+  +files/025-0004-dracut.sh-reverting-return-value-chang.patch,
+  +files/025-0005-Mount-proc-before-including-dracut-lib.patch,
+  +dracut-025.ebuild:
+  Version bump.
+
+  NEWS
+  ~~~~
+
+  - do not strip signed kernel modules
+  - add sosreport script and generate /run/initramfs/sosreport.txt
+  - make short uuid specification for allow-discards work
+  - turn off RateLimit for the systemd journal
+  - fixed MAC address assignment
+  - add systemd checkisomd5 service
+  - splitout drm kernel modules from plymouth module
+  - add 'swapoff' to initramfs to fix shutdown/reboot
+  - add team device support
+  - add pre-shutdown hook
+  - kill all processes in shutdown and report remaining ones
+  - "--device" changed to "--add-device" and "add_device=" added for conf files
+  - add memory usage trace to different hook points
+  - cope with optional field #7 in /proc/self/mountinfo
+  - lots of small bugfixes
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> dracut-024-r4.ebuild:
   Add ~arm, wrt bug #449220

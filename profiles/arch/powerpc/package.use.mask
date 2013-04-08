@@ -1,6 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/package.use.mask,v 1.162 2013/01/31 05:57:09 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/package.use.mask,v 1.165 2013/03/31 14:27:38 hasufell Exp $
+
+# Julian Ospald <hasufell@gentoo.org> (31 Mar 2013)
+# depends on mono/monodevelop
+>=net-irc/hexchat-2.9.4-r1 theme-manager
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (31 Jan 2013)
 # remove mask when net-libs/libqmi is keyworded here
@@ -48,9 +52,9 @@ net-misc/tor tor-hardening
 net-libs/cyassl aes-ni cyassl-hardening
 
 # Johannes Huber <johu@gentoo.org> (9 Jul 2012)
-# x11-libs/qt-openvg not keyworded correctly.
+# dev-qt/qtopenvg not keyworded correctly.
 # ppc/ppc64 team please validate.
-=x11-libs/qt-demo-4.8* openvg
+=dev-qt/qtdemo-4.8* openvg
 
 # Michael Weber <xmw@gentoo.org> (3 Jun 2012)
 # pymol got stabled (bug 366229) but USE=apbs deps aren't keyworded
@@ -174,10 +178,6 @@ media-tv/mythtv vdpau
 # Brent Baude <ranger@gentoo.org> (14 Jan 2009)
 # # Temporarily masking sql off activerecord
 dev-ruby/activerecord sqlite3
-
-# Brent Baude <ranger@gentoo.org>
-# Masking off video cards and input devices for xorg-1.5.3 stablization
-x11-base/xorg-server input_devices_spaceorb input_devices_mutouch input_devices_hyperpen input_devices_fpit input_devices_dynapro input_devices_calcomp input_devices_summa input_devices_elographics input_devices_citron input_devices_microtouch input_devices_jamstudio input_devices_elo2300 input_devices_penmount input_devices_tek4957 input_devices_dmc input_devices_digitaledge input_devices_palmax input_devices_magellan video_cards_v4l video_cards_cirrus video_cards_voodoo video_cards_sisusb video_cards_s3 video_cards_s3virge
 
 # Brent Baude <ranger@gentoo.org>
 # masking zephyr USE on pidgin

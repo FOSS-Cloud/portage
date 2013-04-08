@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/texmaker/texmaker-3.5.2-r1.ebuild,v 1.1 2013/01/29 18:44:41 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/texmaker/texmaker-3.5.2-r1.ebuild,v 1.6 2013/03/13 11:26:01 ago Exp $
 
 EAPI=4
 
@@ -25,7 +25,7 @@ SRC_URI="http://www.xm1math.net/texmaker/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE=""
 
 S="${WORKDIR}/${MY_P}"
@@ -36,9 +36,9 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	x11-libs/libX11
 	x11-libs/libXext
-	x11-libs/qt-gui:4
-	x11-libs/qt-core:4
-	x11-libs/qt-webkit:4
+	dev-qt/qtgui:4
+	dev-qt/qtcore:4
+	dev-qt/qtwebkit:4
 "
 RDEPEND="${COMMON_DEPEND}
 	virtual/latex-base

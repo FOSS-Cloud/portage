@@ -1,6 +1,16 @@
 # ChangeLog for dev-ml/lwt
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/lwt/ChangeLog,v 1.23 2013/01/13 20:47:29 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/lwt/ChangeLog,v 1.26 2013/03/17 15:50:56 hwoarang Exp $
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+  03 Mar 2013; Alexis Ballier <aballier@gentoo.org> lwt-2.4.3.ebuild:
+  eapi5, define subslot and use slotdeps
+
+  03 Mar 2013; Alexis Ballier <aballier@gentoo.org> -lwt-2.4.0.ebuild,
+  -lwt-2.4.1.ebuild, -lwt-2.4.2.ebuild:
+  remove old
 
 *lwt-2.4.3 (13 Jan 2013)
 

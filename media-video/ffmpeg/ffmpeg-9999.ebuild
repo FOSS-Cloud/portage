@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ffmpeg-9999.ebuild,v 1.116 2013/02/22 19:08:22 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ffmpeg-9999.ebuild,v 1.126 2013/04/04 07:34:43 aballier Exp $
 
 EAPI="4"
 
@@ -29,12 +29,12 @@ if [ "${PV#9999}" = "${PV}" ] ; then
 	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux"
 fi
 IUSE="
-	aac aacplus alsa amr avresample bindist bluray +bzip2 cdio celt
+	aac aacplus alsa amr bindist bluray +bzip2 cdio celt
 	cpudetection debug doc +encode examples faac fdk flite fontconfig frei0r
-	gnutls gsm +hardcoded-tables iec61883 ieee1394 jack jpeg2k libass libcaca
-	libsoxr libv4l modplug mp3 network openal openssl opus oss pic pulseaudio
-	rtmp schroedinger sdl speex static-libs test theora threads truetype twolame
-	v4l vaapi vdpau vorbis vpx X x264 xvid +zlib
+	gnutls gsm +hardcoded-tables +iconv iec61883 ieee1394 jack jpeg2k libass
+	libcaca libsoxr libv4l modplug mp3 network openal openssl opus oss pic
+	pulseaudio rtmp schroedinger sdl speex static-libs test theora threads
+	truetype twolame v4l vaapi vdpau vorbis vpx X x264 xvid +zlib
 	"
 
 # String for CPU features in the useflag[:configure_option] form
@@ -75,6 +75,7 @@ RDEPEND="
 	frei0r? ( media-plugins/frei0r-plugins )
 	gnutls? ( >=net-libs/gnutls-2.12.16 )
 	gsm? ( >=media-sound/gsm-1.0.12-r1 )
+	iconv? ( virtual/libiconv )
 	iec61883? ( media-libs/libiec61883 sys-libs/libraw1394 sys-libs/libavc1394 )
 	ieee1394? ( media-libs/libdc1394 sys-libs/libraw1394 )
 	jack? ( media-sound/jack-audio-connection-kit )
@@ -123,6 +124,7 @@ REQUIRED_USE="bindist? ( encode? ( !faac !aacplus ) !openssl )
 	test? ( encode )"
 
 S=${WORKDIR}/${P/_/-}
+BUILD_DIR=${S}_build
 
 src_prepare() {
 	if [ "${PV%_p*}" != "${PV}" ] ; then # Snapshot
@@ -132,76 +134,71 @@ src_prepare() {
 }
 
 src_configure() {
+	mkdir -p "${BUILD_DIR}"
+	cd "${BUILD_DIR}"
+
 	local myconf="${EXTRA_FFMPEG_CONF}"
-	# Set to --enable-version3 if (L)GPL-3 is required
-	local version3=""
 
-	# enabled by default
-	for i in debug doc network vaapi vdpau zlib; do
-		use ${i} || myconf="${myconf} --disable-${i}"
-	done
-	use bzip2 || myconf="${myconf} --disable-bzlib"
-	use sdl || myconf="${myconf} --disable-ffplay"
-
-	use cpudetection || myconf="${myconf} --disable-runtime-cpudetect"
-	use openssl && myconf="${myconf} --enable-openssl --enable-nonfree"
-	for i in gnutls ; do
-		use $i && myconf="${myconf} --enable-$i"
-	done
+	# options to use as use_enable in the foo[:bar] form.
+	# This will feed configure with $(use_enable foo bar)
+	# or $(use_enable foo foo) if no :bar is set.
+	local ffuse="bzip2:bzlib cpudetection:runtime-cpudetect debug doc
+			     gnutls hardcoded-tables iconv network openssl sdl:ffplay vaapi vdpau zlib"
+	use openssl && myconf="${myconf} --enable-nonfree"
 
 	# Encoders
 	if use encode
 	then
-		use mp3 && myconf="${myconf} --enable-libmp3lame"
-		use aac && { myconf="${myconf} --enable-libvo-aacenc" ; version3=" --enable-version3" ; }
-		use amr && { myconf="${myconf} --enable-libvo-amrwbenc" ; version3=" --enable-version3" ; }
-		for i in theora twolame x264 xvid; do
-			use ${i} && myconf="${myconf} --enable-lib${i}"
+		ffuse="${ffuse} aac:libvo-aacenc amr:libvo-amrwbenc mp3:libmp3lame fdk:libfdk-aac"
+		for i in aacplus faac theora twolame x264 xvid; do
+			ffuse="${ffuse} ${i}:lib${i}"
 		done
-		use aacplus && myconf="${myconf} --enable-libaacplus --enable-nonfree"
-		use faac && myconf="${myconf} --enable-libfaac --enable-nonfree"
-		use fdk && myconf="${myconf} --enable-libfdk-aac --enable-nonfree"
+
+		# Licensing.
+		if use aac || use amr ; then
+			myconf="${myconf} --enable-version3"
+		fi
+		if use aacplus || use faac || use fdk ; then
+			myconf="${myconf} --enable-nonfree"
+		fi
 	else
 		myconf="${myconf} --disable-encoders"
 	fi
 
 	# libavdevice options
-	for i in cdio iec61883 ; do
-		use ${i} && myconf="${myconf} --enable-lib${i}"
-	done
-	use ieee1394 && myconf="${myconf} --enable-libdc1394"
-	use libcaca && myconf="${myconf} --enable-libcaca"
-	use openal && myconf="${myconf} --enable-openal"
+	ffuse="${ffuse}	cdio:libcdio iec61883:libiec61883 ieee1394:libdc1394 libcaca openal"
+
 	# Indevs
 	use v4l || myconf="${myconf} --disable-indev=v4l2"
 	for i in alsa oss jack ; do
 		use ${i} || myconf="${myconf} --disable-indev=${i}"
 	done
-	use X && myconf="${myconf} --enable-x11grab"
-	use pulseaudio && myconf="${myconf} --enable-libpulse"
-	use libv4l && myconf="${myconf} --enable-libv4l2"
+	ffuse="${ffuse}	libv4l:libv4l2 pulseaudio:libpulse X:x11grab"
+
 	# Outdevs
 	for i in alsa oss sdl ; do
 		use ${i} || myconf="${myconf} --disable-outdev=${i}"
 	done
+
 	# libavfilter options
-	for i in frei0r fontconfig libass ; do
-		use ${i} && myconf="${myconf} --enable-${i}"
-	done
-	use truetype && myconf="${myconf} --enable-libfreetype"
-	use flite    && myconf="${myconf} --enable-libflite"
+	ffuse="${ffuse} flite:libflite frei0r fontconfig libass truetype:libfreetype"
+
 	# libswresample options
-	use libsoxr && myconf="${myconf} --enable-libsoxr"
+	ffuse="${ffuse} libsoxr"
 
 	# Threads; we only support pthread for now but ffmpeg supports more
-	use threads && myconf="${myconf} --enable-pthreads"
+	ffuse="${ffuse} threads:pthreads"
 
 	# Decoders
-	use amr && { myconf="${myconf} --enable-libopencore-amrwb --enable-libopencore-amrnb" ; version3=" --enable-version3" ; }
+	ffuse="${ffuse} amr:libopencore-amrwb amr:libopencore-amrnb	jpeg2k:libopenjpeg"
+	use amr && myconf="${myconf} --enable-version3"
 	for i in bluray celt gsm modplug opus rtmp schroedinger speex vorbis vpx; do
-		use ${i} && myconf="${myconf} --enable-lib${i}"
+		ffuse="${ffuse} ${i}:lib${i}"
 	done
-	use jpeg2k && myconf="${myconf} --enable-libopenjpeg"
+
+	for i in ${ffuse} ; do
+		myconf="${myconf} $(use_enable ${i%:*} ${i#*:})"
+	done
 
 	# CPU features
 	for i in ${CPU_FEATURES}; do
@@ -213,6 +210,7 @@ src_configure() {
 		# as the provided asm decidedly is not PIC for x86.
 		use x86 && myconf="${myconf} --disable-asm"
 	fi
+	[[ ${ABI} == "x32" ]] && myconf+=" --disable-asm" #427004
 
 	# Try to get cpu type based on CFLAGS.
 	# Bug #172723
@@ -228,9 +226,9 @@ src_configure() {
 	# Mandatory configuration
 	myconf="
 		--enable-gpl
-		${version3}
 		--enable-postproc
 		--enable-avfilter
+		--enable-avresample
 		--disable-stripping
 		${myconf}"
 
@@ -250,14 +248,7 @@ src_configure() {
 		esac
 	fi
 
-	# avresample support for libav compatibility
-	use avresample && myconf="${myconf} --enable-avresample"
-
-	# Misc stuff
-	use hardcoded-tables && myconf="${myconf} --enable-hardcoded-tables"
-
-	cd "${S}"
-	./configure \
+	"${S}/configure" \
 		--prefix="${EPREFIX}/usr" \
 		--libdir="${EPREFIX}/usr/$(get_libdir)" \
 		--shlibdir="${EPREFIX}/usr/$(get_libdir)" \
@@ -274,6 +265,7 @@ src_configure() {
 }
 
 src_compile() {
+	cd "${BUILD_DIR}"
 	emake V=1
 
 	for i in ${FFTOOLS} ; do
@@ -284,23 +276,26 @@ src_compile() {
 }
 
 src_install() {
+	cd "${BUILD_DIR}"
 	emake V=1 DESTDIR="${D}" install install-man
-
-	dodoc Changelog README CREDITS doc/*.txt doc/APIchanges doc/RELEASE_NOTES
-	use doc && dohtml -r doc/*
-	if use examples ; then
-		insinto "/usr/share/doc/${PF}/examples"
-		doins -r doc/examples/*
-	fi
 
 	for i in ${FFTOOLS} ; do
 		if use fftools_$i ; then
 			dobin tools/$i
 		fi
 	done
+
+	cd "${S}"
+	dodoc Changelog README CREDITS doc/*.txt doc/APIchanges doc/RELEASE_NOTES
+	use doc && dohtml -r doc/*
+	if use examples ; then
+		dodoc -r doc/examples
+		docompress -x /usr/share/doc/${PF}/examples
+	fi
 }
 
 src_test() {
-	LD_LIBRARY_PATH="${S}/libpostproc:${S}/libswscale:${S}/libswresample:${S}/libavcodec:${S}/libavdevice:${S}/libavfilter:${S}/libavformat:${S}/libavutil:${S}/libavresample" \
+	cd "${BUILD_DIR}"
+	LD_LIBRARY_PATH="${BUILD_DIR}/libpostproc:${BUILD_DIR}/libswscale:${BUILD_DIR}/libswresample:${BUILD_DIR}/libavcodec:${BUILD_DIR}/libavdevice:${BUILD_DIR}/libavfilter:${BUILD_DIR}/libavformat:${BUILD_DIR}/libavutil:${BUILD_DIR}/libavresample" \
 		emake V=1 fate
 }

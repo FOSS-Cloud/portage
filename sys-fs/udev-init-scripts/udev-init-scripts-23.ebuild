@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/udev-init-scripts-23.ebuild,v 1.8 2013/02/23 14:45:14 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/udev-init-scripts-23.ebuild,v 1.11 2013/03/10 17:45:38 ssuominen Exp $
 
 EAPI=4
 
@@ -20,7 +20,7 @@ IUSE=""
 
 if [ "${PV}" != "9999" ]; then
 	SRC_URI="http://dev.gentoo.org/~williamh/dist/${P}.tar.bz2"
-	KEYWORDS="alpha amd64 arm ~hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh ~sparc x86"
+	KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 fi
 
 RESTRICT="test"
@@ -44,12 +44,12 @@ pkg_postinst()
 		if [[ -x "${ROOT}"etc/init.d/udev \
 			&& -d "${ROOT}"etc/runlevels/sysinit ]]
 		then
-			ln -s "${ROOT}"etc/init.d/udev "${ROOT}"/etc/runlevels/sysinit/udev
+			ln -s /etc/init.d/udev "${ROOT}"/etc/runlevels/sysinit/udev
 		fi
 		if [[ -x "${ROOT}"etc/init.d/udev-mount \
 			&& -d "${ROOT}"etc/runlevels/sysinit ]]
 		then
-			ln -s "${ROOT}"etc/init.d/udev-mount \
+			ln -s /etc/init.d/udev-mount \
 				"${ROOT}"etc/runlevels/sysinit/udev-mount
 		fi
 	fi

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/gtkwave/gtkwave-3.3.42.ebuild,v 1.2 2013/01/26 20:30:58 tomjbe Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-electronics/gtkwave/gtkwave-3.3.42.ebuild,v 1.3 2013/03/13 14:18:25 xmw Exp $
 
 EAPI="4"
 
@@ -30,13 +30,13 @@ DEPEND="${RDEPEND}
 AT_M4DIR="${S}"
 
 src_prepare(){
-	# do not install doc and examples by default
-	sed -i -e 's/doc examples//' Makefile.in || die
-
 	# fix parallel make
 	epatch "${FILESDIR}"/${PN}-parallel-make.diff
 
 	eautoreconf
+	
+	# do not install doc and examples by default
+	sed -i -e 's/doc examples//' Makefile.in || die
 }
 
 src_configure(){

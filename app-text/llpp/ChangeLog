@@ -1,6 +1,27 @@
 # ChangeLog for app-text/llpp
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/llpp/ChangeLog,v 1.34 2013/02/17 23:13:52 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/llpp/ChangeLog,v 1.40 2013/03/26 18:16:46 ago Exp $
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> llpp-13_p20121123.ebuild:
+  Stable for ppc, wrt bug #463196
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> llpp-13_p20121123.ebuild:
+  Stable for x86, wrt bug #463196
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> llpp-13_p20121123.ebuild:
+  Stable for amd64, wrt bug #463196
+
+  25 Mar 2013; Michael Weber <xmw@gentoo.org> llpp-15.ebuild:
+  switch to fixed tarball.
+
+*llpp-15 (25 Mar 2013)
+
+  25 Mar 2013; Michael Weber <xmw@gentoo.org> +llpp-15.ebuild, llpp-9999.ebuild:
+  Version bump (git tag), adjust live ebuild depends.
+
+  25 Mar 2013; Michael Weber <xmw@gentoo.org> -llpp-13.ebuild,
+  llpp-13_p20121123.ebuild:
+  Drop old, adjust mupdf dependency
 
   17 Feb 2013; Michael Weber <xmw@gentoo.org> llpp-9999.ebuild:
   update live build to include utils.ml

@@ -1,15 +1,15 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/tracker/tracker-9999.ebuild,v 1.56 2013/01/25 22:35:14 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/tracker/tracker-9999.ebuild,v 1.61 2013/04/06 03:06:30 tetromino Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
-PYTHON_DEPEND="2:2.6"
+PYTHON_COMPAT=( python2_{6,7} )
 VALA_MIN_API_VERSION="0.14"
 
 [[ ${PV} = 9999 ]] && inherit autotools git-2
-inherit gnome2 linux-info multilib python vala versionator virtualx
+inherit gnome2 linux-info multilib python-any-r1 vala versionator virtualx
 
 DESCRIPTION="A tagging metadata database, search tool and indexer"
 HOMEPAGE="http://projects.gnome.org/tracker/"
@@ -18,16 +18,15 @@ EGIT_REPO_URI="git://git.gnome.org/${PN}
 [[ ${PV} = 9999 ]] && SRC_URI=""
 
 LICENSE="GPL-2+ LGPL-2.1+"
-SLOT="0"
+SLOT="0/16"
+IUSE="cue doc eds elibc_glibc exif firefox-bookmarks flac gif gsf gstreamer gtk iptc +iso +jpeg laptop libsecret +miner-fs mp3 networkmanager pdf playlist rss test thunderbird +tiff upnp-av +vorbis xine +xml xmp xps" # qt4 strigi
 if [[ ${PV} = 9999 ]]; then
 	KEYWORDS=""
+	IUSE="${IUSE} doc"
 else
-	KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+	IUSE="${IUSE} nautilus"
 fi
-# USE="doc" is managed by eclass.
-IUSE="applet cue doc eds elibc_glibc exif firefox-bookmarks flac flickr gif
-gnome-keyring gsf gstreamer gtk iptc +iso +jpeg laptop +miner-fs mp3 networkmanager pdf playlist rss test thunderbird +tiff upnp-av +vorbis xine +xml xmp xps" # qt4 strigi
-[[ ${PV} = 9999 ]] || IUSE="${IUSE} nautilus"
 
 REQUIRED_USE="
 	^^ ( gstreamer xine )
@@ -36,29 +35,21 @@ REQUIRED_USE="
 	!miner-fs? ( !cue !exif !flac !gif !gsf !iptc !iso !jpeg !mp3 !pdf !playlist !tiff !vorbis !xml !xmp !xps )
 "
 
-# Test suite highly disfunctional, loops forever
-# putting aside for now
-RESTRICT="test"
-
 # According to NEWS, introspection is non-optional
 # glibc-2.12 needed for SCHED_IDLE (see bug #385003)
 RDEPEND="
 	>=app-i18n/enca-1.9
-	>=dev-db/sqlite-3.7.14:=[threadsafe]
-	>=dev-libs/glib-2.28:2
+	>=dev-db/sqlite-3.7.14:=[threadsafe(+)]
+	>=dev-libs/glib-2.35.1:2
 	>=dev-libs/gobject-introspection-0.9.5
 	>=dev-libs/icu-4:=
 	|| (
 		>=media-gfx/imagemagick-5.2.1[png,jpeg=]
 		media-gfx/graphicsmagick[imagemagick,png,jpeg=] )
-	>=media-libs/libpng-1.2:=
+	>=media-libs/libpng-1.2:0=
 	>=x11-libs/pango-1:=
 	sys-apps/util-linux
 
-	applet? (
-		>=gnome-base/gnome-panel-2.91.6
-		>=x11-libs/gdk-pixbuf-2.12:2
-		>=x11-libs/gtk+-3:3 )
 	cue? ( media-libs/libcue )
 	eds? (
 		>=mail-client/evolution-3.3.5:=
@@ -71,20 +62,19 @@ RDEPEND="
 		>=www-client/firefox-4.0
 		>=www-client/firefox-bin-4.0 ) )
 	flac? ( >=media-libs/flac-1.2.1 )
-	flickr? ( net-libs/rest:0.7 )
 	gif? ( media-libs/giflib )
-	gnome-keyring? ( >=gnome-base/gnome-keyring-2.26 )
 	gsf? ( >=gnome-extra/libgsf-1.13 )
 	gstreamer? (
-		>=media-libs/gstreamer-0.10.31:0.10
-		>=media-libs/gst-plugins-base-0.10.31:0.10 )
+		media-libs/gstreamer:1.0
+		media-libs/gst-plugins-base:1.0 )
 	gtk? (
-		>=dev-libs/libgee-0.3:0
+		>=dev-libs/libgee-0.3:0.8
 		>=x11-libs/gtk+-3:3 )
 	iptc? ( media-libs/libiptcdata )
 	iso? ( >=sys-libs/libosinfo-0.0.2:= )
 	jpeg? ( virtual/jpeg:0 )
 	laptop? ( >=sys-power/upower-0.9 )
+	libsecret? ( >=app-crypt/libsecret-0.5 )
 	mp3? (
 		>=media-libs/taglib-1.6
 		gtk? ( x11-libs/gdk-pixbuf:2 ) )
@@ -94,12 +84,12 @@ RDEPEND="
 		>=app-text/poppler-0.16:=[cairo,utils]
 		>=x11-libs/gtk+-2.12:2 )
 	playlist? ( dev-libs/totem-pl-parser )
-	rss? ( net-libs/libgrss )
+	rss? ( >=net-libs/libgrss-0.5 )
 	thunderbird? ( || (
 		>=mail-client/thunderbird-5.0
 		>=mail-client/thunderbird-bin-5.0 ) )
 	tiff? ( media-libs/tiff )
-	upnp-av? ( >=media-libs/gupnp-dlna-0.5 )
+	upnp-av? ( >=media-libs/gupnp-dlna-0.9.4:2.0 )
 	vorbis? ( >=media-libs/libvorbis-0.22 )
 	xine? ( >=media-libs/xine-lib-1 )
 	xml? ( >=dev-libs/libxml2-2.6 )
@@ -108,21 +98,20 @@ RDEPEND="
 	!gstreamer? ( !xine? ( || ( media-video/totem media-video/mplayer ) ) )
 "
 #	strigi? ( >=app-misc/strigi-0.7 )
-#	mp3? ( qt4? (  >=x11-libs/qt-gui-4.7.1:4 ) )
+#	mp3? ( qt4? (  >=dev-qt/qtgui-4.7.1:4 ) )
 DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
 	>=dev-util/gtk-doc-am-1.8
 	>=dev-util/intltool-0.40
 	>=sys-devel/gettext-0.17
 	virtual/pkgconfig
 	gtk? ( >=dev-libs/libgee-0.3 )
-	doc? (
-		app-office/dia
-		media-gfx/graphviz )
 	test? (
 		>=dev-libs/dbus-glib-0.82-r1
 		>=sys-apps/dbus-1.3.1[X] )
 "
 [[ ${PV} = 9999 ]] && DEPEND="${DEPEND}
+	doc? ( media-gfx/graphviz )
 	>=dev-util/gtk-doc-1.8
 	$(vala_depend)
 "
@@ -145,8 +134,7 @@ pkg_setup() {
 	linux-info_pkg_setup
 	inotify_enabled
 
-	python_set_active_version 2
-	python_pkg_setup
+	python-any-r1_pkg_setup
 }
 
 src_unpack() {
@@ -158,10 +146,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Fix functional tests scripts
-	find "${S}" -name "*.pyc" -delete
-	python_convert_shebangs -r 2 tests utils examples
-
 	# Don't run 'firefox --version' or 'thunderbird --version'; it results in
 	# access violations on some setups (bug #385347, #385495).
 	create_version_script "www-client/firefox" "Mozilla Firefox" firefox-version.sh
@@ -196,6 +180,10 @@ src_configure() {
 		myconf="${myconf} --enable-gdkpixbuf"
 	fi
 
+	if [[ ${PV} = 9999 ]]; then
+		myconf="${myconf} $(use_enable doc gtk-doc)"
+	fi
+
 	# unicode-support: libunistring, libicu or glib ?
 	# According to NEWS, introspection is required
 	# FIXME: disabling streamanalyzer for now since tracker-sparql-builder.h
@@ -212,7 +200,6 @@ src_configure() {
 		--enable-tracker-fts \
 		--with-enca \
 		--with-unicode-support=libicu \
-		$(use_enable applet tracker-search-bar) \
 		$(use_enable cue libcue) \
 		$(use_enable eds miner-evolution) \
 		$(use_enable exif libexif) \
@@ -220,16 +207,14 @@ src_configure() {
 		$(use_with firefox-bookmarks firefox-plugin-dir "${EPREFIX}"/usr/$(get_libdir)/firefox/extensions) \
 		FIREFOX="${S}"/firefox-version.sh \
 		$(use_enable flac libflac) \
-		$(use_enable flickr miner-flickr) \
-		$(use_enable gnome-keyring) \
 		$(use_enable gsf libgsf) \
-		$(use_enable gtk tracker-explorer) \
 		$(use_enable gtk tracker-needle) \
 		$(use_enable gtk tracker-preferences) \
 		$(use_enable iptc libiptcdata) \
 		$(use_enable iso libosinfo) \
 		$(use_enable jpeg libjpeg) \
 		$(use_enable laptop upower) \
+		$(use_enable libsecret) \
 		$(use_enable miner-fs) \
 		$(use_enable mp3 taglib) \
 		$(use_enable networkmanager network-manager) \

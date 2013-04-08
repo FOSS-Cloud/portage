@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/spideroak-bin/spideroak-bin-4.5.9941.ebuild,v 1.2 2012/07/26 17:19:26 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-backup/spideroak-bin/spideroak-bin-4.5.9941.ebuild,v 1.4 2013/03/23 19:44:29 vapier Exp $
 
 EAPI="4"
 
-inherit eutils versionator
+inherit eutils versionator unpacker
 
 REV=$(get_version_component_range 3)
 SRC_URI_BASE="https://spideroak.com/directdownload?platform=ubuntulucid"
@@ -44,8 +44,8 @@ RDEPEND="
 		dev-libs/glib:2
 		dev-libs/libpcre
 		media-libs/libpng:1.2
-		x11-libs/qt-core:4
-		x11-libs/qt-gui:4
+		dev-qt/qtcore:4
+		dev-qt/qtgui:4
 		dev-db/sqlite:3
 		net-libs/libssh2
 		sys-libs/zlib
@@ -57,13 +57,6 @@ RDEPEND="
 S=${WORKDIR}
 
 QA_PREBUILT="*"
-
-src_unpack() {
-	unpack ${A}
-	unpack ./data.tar.gz
-	rm -f control.tar.gz data.tar.gz debian-binary
-	rm -f usr/share/doc/spideroak/copyright
-}
 
 src_prepare() {
 	epatch "${FILESDIR}"/opt-path.patch
@@ -81,7 +74,7 @@ src_prepare() {
 	#  libstdc++.so*   => >=sys-devel/gcc-4
 	#  libpcre.so*     => dev-libs/libpcre
 	#  libpng12*       => media-libs/libpng:1.2
-	#  libQt*.so*      => x11-libs/qt-core x11-libs/qt-gui
+	#  libQt*.so*      => dev-qt/qtcore dev-qt/qtgui
 	#  libsqlite3.so*  => dev-db/sqlite:3
 	#  libssh2.so*     => net-libs/libssh2
 	#  libz.so*        => sys-libs/zlib
@@ -131,8 +124,7 @@ src_install() {
 	doins -r etc
 
 	#install the changelog
-	insinto /usr/share/doc/${P}
-	doins usr/share/doc/spideroak/changelog.gz
+	dodoc usr/share/doc/spideroak/changelog.gz
 
 	if ! use headless ; then
 		domenu usr/share/applications/spideroak.desktop

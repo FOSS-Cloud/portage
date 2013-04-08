@@ -1,6 +1,42 @@
 # ChangeLog for x11-drivers/ati-drivers
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ChangeLog,v 1.318 2013/02/18 21:17:44 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ChangeLog,v 1.325 2013/03/19 11:54:39 chithanh Exp $
+
+  19 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ati-drivers-13.1.ebuild, ati-drivers-13.1_pre897.ebuild:
+  Restore stable keywords which were accidentally dropped when syncing
+
+*ati-drivers-13.3_beta2 (19 Mar 2013)
+
+  19 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-13.3_beta2.ebuild, ati-drivers-13.1.ebuild,
+  ati-drivers-13.1_pre897.ebuild, ati-drivers-13.2_beta7.ebuild:
+  Import updates and new beta release from the x11 overlay, ebuilds from Emil
+  Karlson.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+  13 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ati-drivers-13.1_pre897.ebuild:
+  Fix description to more accurately describe supported chipsets.
+
+  11 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -ati-drivers-12.11_beta11.ebuild, -ati-drivers-12.6_beta_pre897.ebuild,
+  -ati-drivers-12.8.ebuild, -files/ati-powermode-opt-path-2.patch:
+  Drop old versions.
+
+  04 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ati-drivers-13.1.ebuild, ati-drivers-13.1_pre897.ebuild,
+  ati-drivers-13.2_beta7.ebuild:
+  Import new beta ebuild from the x11 overlay by Emil Karlson, stabilize 13.1
+  ebuilds.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org>
+  ati-drivers-12.11_beta11.ebuild, ati-drivers-12.6_beta_pre897.ebuild,
+  ati-drivers-12.8.ebuild, ati-drivers-13.1.ebuild,
+  ati-drivers-13.1_pre897.ebuild, ati-drivers-13.2_beta3.ebuild:
+  Move Qt dependencies to the new category
 
   18 Feb 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
   ati-drivers-12.6_beta_pre897.ebuild:

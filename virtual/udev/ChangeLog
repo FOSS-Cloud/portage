@@ -1,6 +1,24 @@
 # ChangeLog for virtual/udev
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/udev/ChangeLog,v 1.32 2013/02/23 14:44:29 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/udev/ChangeLog,v 1.37 2013/03/26 16:27:44 mgorny Exp $
+
+  26 Mar 2013; Michał Górny <mgorny@gentoo.org> udev-197-r2.ebuild:
+  Support systemd with USE=static-libs.
+
+*udev-197-r2 (24 Mar 2013)
+
+  24 Mar 2013; Michał Górny <mgorny@gentoo.org> +udev-197-r2.ebuild,
+  -udev-197-r1.ebuild:
+  Add sys-apps/systemd to the provider list.
+
+  06 Mar 2013; Raúl Porcel <armin76@gentoo.org> udev-197-r1.ebuild:
+  m68k/s390/sh/sparc stable wrt #457568
+
+  02 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> -udev-197.ebuild:
+  old
+
+  01 Mar 2013; Jeroen Roovers <jer@gentoo.org> udev-197-r1.ebuild:
+  Stable for HPPA (bug #457568).
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> udev-197-r1.ebuild:
   Stable for alpha, wrt bug #457568

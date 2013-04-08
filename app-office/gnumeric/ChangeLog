@@ -1,6 +1,35 @@
 # ChangeLog for app-office/gnumeric
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/gnumeric/ChangeLog,v 1.238 2012/12/29 09:37:46 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/gnumeric/ChangeLog,v 1.247 2013/04/01 18:23:27 ago Exp $
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for alpha, wrt bug #458984
+
+*gnumeric-1.12.1 (31 Mar 2013)
+
+  31 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> +gnumeric-1.12.1.ebuild:
+  Version bump.
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -gnumeric-1.12.0.ebuild:
+  Clean up old revisions.
 
 *gnumeric-1.12.0-r1 (29 Dec 2012)
 

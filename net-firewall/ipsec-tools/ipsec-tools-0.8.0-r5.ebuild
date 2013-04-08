@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/ipsec-tools/ipsec-tools-0.8.0-r5.ebuild,v 1.1 2012/09/28 00:45:26 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/ipsec-tools/ipsec-tools-0.8.0-r5.ebuild,v 1.7 2013/03/23 19:15:21 floppym Exp $
 
 EAPI="4"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~mips ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 arm ~mips ppc ppc64 x86"
 IUSE="hybrid idea ipv6 kerberos ldap nat pam rc5 readline selinux stats"
 
 RDEPEND="
@@ -34,7 +34,7 @@ pkg_preinst() {
 		ewarn
 		ewarn "\033[1;33m**************************************************\033[00m"
 		ewarn
-		if ! has_version "net-misc/strongswan" ; then
+		if ! has_version "net-misc/strongswan" && ! has_version "net-misc/openswan"; then
 			ewarn "We found an earlier version of ${PN} installed."
 			ewarn "As of ${PN}-0.8.0-r5, the old configuration file,"
 			ewarn "ipsec.conf, has been changed to ipsec-tools.conf to avoid"
@@ -186,7 +186,6 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-sysctl.patch #425770
 
 	AT_M4DIR="${S}" eautoreconf
-	epunt_cxx
 }
 
 src_configure() {

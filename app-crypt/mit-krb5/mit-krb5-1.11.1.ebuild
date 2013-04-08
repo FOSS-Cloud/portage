@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/mit-krb5/mit-krb5-1.11.1.ebuild,v 1.1 2013/02/22 11:06:01 eras Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/mit-krb5/mit-krb5-1.11.1.ebuild,v 1.13 2013/04/03 07:18:05 eras Exp $
 
 EAPI=5
 
@@ -15,12 +15,12 @@ SRC_URI="http://web.mit.edu/kerberos/dist/krb5/${P_DIR}/${MY_P}-signed.tar"
 
 LICENSE="openafs-krb5-a BSD MIT OPENLDAP BSD-2 HPND BSD-4 ISC RSA CC-BY-SA-3.0 || ( BSD-2 GPL-2+ )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~hppa ~ia64 ~ppc ~x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc x86"
 IUSE="doc +keyutils openldap +pkinit +threads test xinetd"
 
 RDEPEND="!!app-crypt/heimdal
 	>=sys-libs/e2fsprogs-libs-1.41.0
-	dev-libs/libverto
+	|| ( dev-libs/libverto[libev] dev-libs/libverto[libevent] dev-libs/libverto[tevent] )
 	keyutils? ( sys-apps/keyutils )
 	openldap? ( net-nds/openldap )
 	pkinit? ( dev-libs/openssl )

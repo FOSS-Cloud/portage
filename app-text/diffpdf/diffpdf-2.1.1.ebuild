@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/diffpdf/diffpdf-2.1.1.ebuild,v 1.1 2012/09/22 00:08:15 reavertm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/diffpdf/diffpdf-2.1.1.ebuild,v 1.3 2013/03/17 16:00:23 dilfridge Exp $
 
-EAPI="4"
+EAPI=5
 
 inherit qt4-r2 eutils
 
@@ -16,9 +16,9 @@ SLOT="0"
 IUSE=""
 
 DEPEND="
-	>=app-text/poppler-0.12.3[qt4]
-	>=x11-libs/qt-core-4.6:4
-	>=x11-libs/qt-gui-4.6:4
+	app-text/poppler:=[qt4]
+	>=dev-qt/qtcore-4.6:4
+	>=dev-qt/qtgui-4.6:4
 "
 RDEPEND="${DEPEND}"
 
@@ -32,6 +32,6 @@ src_configure() {
 src_install() {
 	qt4-r2_src_install
 
-	dobin diffpdf || die 'dobin failed'
-	doman diffpdf.1 || die 'doman failed'
+	dobin diffpdf
+	doman diffpdf.1
 }
