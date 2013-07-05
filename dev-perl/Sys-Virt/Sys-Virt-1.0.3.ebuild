@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Sys-Virt/Sys-Virt-0.9.11.ebuild,v 1.2 2012/05/04 04:10:56 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Sys-Virt/Sys-Virt-1.0.3.ebuild,v 1.2 2013/03/28 08:31:12 pinkbyte Exp $
 
 EAPI=4
 
 MODULE_AUTHOR=DANBERR
-MODULE_VERSION=0.9.11
+MODULE_VERSION=1.0.3
 inherit perl-module
 
 DESCRIPTION="Sys::Virt provides an API for using the libvirt library from Perl"
@@ -18,6 +18,7 @@ RDEPEND=">=app-emulation/libvirt-${PV}"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	test? (
+		dev-perl/CPAN-Changes
 		dev-perl/Test-Pod
 		dev-perl/Test-Pod-Coverage
 		dev-perl/XML-XPath
