@@ -1,19 +1,14 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gnutls/gnutls-2.12.23.ebuild,v 1.12 2013/03/10 16:19:20 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gnutls/gnutls-2.12.23-r1.ebuild,v 1.13 2013/06/15 22:37:41 alonbl Exp $
 
-EAPI=4
+EAPI=5
 
 inherit autotools libtool eutils versionator
 
 DESCRIPTION="A TLS 1.2 and SSL 3.0 implementation for the GNU project"
 HOMEPAGE="http://www.gnutls.org/"
-
-if [[ "${PV}" == *pre* ]]; then
-	SRC_URI="http://daily.josefsson.org/${P%.*}/${P%.*}-${PV#*pre}.tar.gz"
-else
-	SRC_URI="ftp://ftp.gnutls.org/gcrypt/gnutls/v$(get_version_component_range 1-2)/${P}.tar.bz2"
-fi
+SRC_URI="ftp://ftp.gnutls.org/gcrypt/gnutls/v$(get_version_component_range 1-2)/${P}.tar.bz2"
 
 # LGPL-2.1 for libgnutls library and GPL-3 for libgnutls-extra library.
 LICENSE="GPL-3 LGPL-2.1"
@@ -37,8 +32,6 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )
 	test? ( app-misc/datefudge )"
 
-S="${WORKDIR}/${P%_pre*}"
-
 DOCS=( AUTHORS ChangeLog NEWS README THANKS doc/TODO )
 
 pkg_setup() {
@@ -48,7 +41,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# tests/suite directory is not distributed.
+	# tests/suite directory is not distributed
 	sed -i -e 's|AC_CONFIG_FILES(\[tests/suite/Makefile\])|:|' \
 		configure.ac || die
 
@@ -64,6 +57,8 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-2.12.20-AF_UNIX.patch
 	epatch "${FILESDIR}"/${PN}-2.12.20-libadd.patch
 	epatch "${FILESDIR}"/${PN}-2.12.20-guile-parallelmake.patch
+	epatch "${FILESDIR}"/${PN}-2.12.23-CVE-2013-2116.patch
+	epatch "${FILESDIR}"/${PN}-2.12.23-hppa.patch
 
 	# support user patches
 	epatch_user
@@ -85,8 +80,7 @@ src_configure() {
 	[[ "${VALGRIND_TESTS}" != "1" ]] && myconf+=" --disable-valgrind-tests"
 
 	econf \
-		--htmldir="${EPREFIX}"/usr/share/doc/${P}/html \
-		--disable-silent-rules \
+		--htmldir="${EPREFIX}"/usr/share/doc/${PF}/html \
 		$(use_enable cxx) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable doc gtk-doc-pdf) \
@@ -106,13 +100,14 @@ src_test() {
 		elog
 	fi
 
-	default
+	# parallel testing often fails
+	emake -j1 check
 }
 
 src_install() {
 	default
 
-	find "${ED}" -name '*.la' -exec rm -f {} +
+	prune_libtool_files
 
 	if use doc; then
 		dodoc doc/gnutls.{pdf,ps}
