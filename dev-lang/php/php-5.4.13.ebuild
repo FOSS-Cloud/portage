@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/php/php-5.4.10.ebuild,v 1.1 2013/01/01 13:44:17 olemarkus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/php/php-5.4.13.ebuild,v 1.14 2013/04/28 16:24:59 zmedico Exp $
 
-EAPI=4
+EAPI=5
 
 inherit eutils autotools flag-o-matic versionator depend.apache apache-module db-use libtool
 
@@ -10,7 +10,7 @@ SUHOSIN_VERSION=""
 FPM_VERSION="builtin"
 EXPECTED_TEST_FAILURES=""
 
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 
 function php_get_uri ()
 {
@@ -90,9 +90,6 @@ S="${WORKDIR}/${PHP_P}"
 # We can build the following SAPIs in the given order
 SAPIS="embed cli cgi fpm apache2"
 
-# Gentoo-specific, common features
-IUSE="kolab"
-
 # SAPIs and SAPI-specific USE flags (cli SAPI is default on):
 IUSE="${IUSE}
 	${SAPIS/cli/+cli}
@@ -104,7 +101,7 @@ IUSE="${IUSE} bcmath berkdb bzip2 calendar cdb cjk
 	flatfile ftp gd gdbm gmp +hash +iconv imap inifile
 	intl iodbc ipv6 +json kerberos ldap ldap-sasl libedit mhash
 	mssql mysql mysqlnd mysqli nls
-	oci8-instant-client odbc pcntl pdo +phar pic +posix postgres qdbm
+	oci8-instant-client odbc pcntl pdo +phar +posix postgres qdbm
 	readline recode selinux +session sharedmem
 	+simplexml snmp soap sockets spell sqlite ssl
 	sybase-ct sysvipc tidy +tokenizer truetype unicode wddx
@@ -139,10 +136,9 @@ DEPEND="
 	gmp? ( >=dev-libs/gmp-4.1.2 )
 	iconv? ( virtual/libiconv )
 	imap? ( virtual/imap-c-client[ssl=] )
-	intl? ( dev-libs/icu )
+	intl? ( dev-libs/icu:= )
 	iodbc? ( dev-db/libiodbc )
 	kerberos? ( virtual/krb5 )
-	kolab? ( >=net-libs/c-client-2004g-r1 )
 	ldap? ( >=net-nds/openldap-1.2.11 )
 	ldap-sasl? ( dev-libs/cyrus-sasl >=net-nds/openldap-1.2.11 )
 	libedit? ( || ( sys-freebsd/freebsd-lib dev-libs/libedit ) )
@@ -206,7 +202,6 @@ REQUIRED_USE="
 	xmlreader? ( xml )
 	xsl? ( xml )
 	ldap-sasl? ( ldap )
-	kolab? ( imap )
 	mhash? ( hash )
 	phar? ( hash )
 	mysqlnd? ( || (
@@ -332,9 +327,6 @@ src_prepare() {
 	addpredict /session_mm_cli250.sem
 	addpredict /session_mm_cli0.sem
 
-	# kolab support (support for imap annotations)
-	use kolab && epatch "${WORKDIR}/patches/opt/imap-kolab-annotations.patch"
-
 	# Change PHP branding
 	# Get the alpha/beta/rc version
 	local ver=$(get_version_component_range 4)
@@ -345,6 +337,9 @@ src_prepare() {
 	EPATCH_SOURCE="${WORKDIR}/patches/generic" EPATCH_SUFFIX="patch" \
 		EPATCH_FORCE="yes" \
 		EPATCH_MULTI_MSG="Applying generic patches and fixes from upstream..." epatch
+
+	# Patch for pkg-config-0.28 (Bug 455040)
+	epatch "${FILESDIR}"/missing-openssl-include.patch
 
 	# Patch PHP to show Gentoo as the server platform
 	sed -e 's/PHP_UNAME=`uname -a | xargs`/PHP_UNAME=`uname -s -n -r -v | xargs`/g' \
@@ -558,7 +553,7 @@ src_configure() {
 		$(use_with mssql pdo-dblib )"
 		if use mysqlnd ; then
 	        my_conf+="
-			$(use_with mysql pdo-mysql mysqlnd)"
+			$(use_with mysqlnd pdo-mysql mysqlnd)"
 		else
 	        my_conf+="
 			$(use_with mysql pdo-mysql ${EPREFIX}/usr)"
@@ -587,9 +582,8 @@ src_configure() {
 		$(use_enable session session )"
 	fi
 
-	if use pic ; then
-		my_conf="${my_conf} --with-pic"
-	fi
+	# Use pic for shared modules such as apache2's mod_php
+	my_conf="${my_conf} --with-pic"
 
 	# we use the system copy of pcre
 	# --with-pcre-regex affects ext/pcre
@@ -822,8 +816,8 @@ pkg_postinst() {
 		fi
 	done
 
-	elog "Make sure that PHP_TARGETS in ${EPREFIX}/etc/make.conf includes php${SLOT/./-} in order"
-	elog "to compile extensions for the ${SLOT} ABI"
+	elog "Make sure that PHP_TARGETS in ${EPREFIX}/etc/portage/make.conf includes php${SLOT/./-}"
+	elog "in order to compile extensions for the ${SLOT} ABI"
 	elog
 	if ! use readline && use cli ; then
 		ewarn "Note that in order to use php interactivly, you need to enable"
@@ -832,7 +826,7 @@ pkg_postinst() {
 	elog
 	elog "This ebuild installed a version of php.ini based on php.ini-${PHP_INI_VERSION} version."
 	elog "You can chose which version of php.ini to install by default by setting PHP_INI_VERSION to either"
-	elog "'production' or 'development' in ${EPREFIX}/etc/make.conf"
+	elog "'production' or 'development' in ${EPREFIX}/etc/portage/make.conf"
 	elog "Both versions of php.ini can be found in ${EPREFIX}/usr/share/doc/${PF}"
 
 	elog
