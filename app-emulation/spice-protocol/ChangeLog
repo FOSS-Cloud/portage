@@ -1,6 +1,26 @@
 # ChangeLog for app-emulation/spice-protocol
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/spice-protocol/ChangeLog,v 1.33 2013/02/02 22:22:35 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/spice-protocol/ChangeLog,v 1.38 2013/07/03 15:29:33 dev-zero Exp $
+
+*spice-protocol-0.12.6 (03 Jul 2013)
+
+  03 Jul 2013; Tiziano Müller <dev-zero@gentoo.org>
+  +spice-protocol-0.12.6.ebuild:
+  Version bump.
+
+  04 Jun 2013; Doug Goldstein <cardoe@gentoo.org> -spice-protocol-0.12.2.ebuild:
+  Remove older version
+
+*spice-protocol-0.12.5 (03 Jun 2013)
+
+  03 Jun 2013; Doug Goldstein <cardoe@gentoo.org> +spice-protocol-0.12.5.ebuild:
+  Version bump. Add some VD Agent types and other minor updates.
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> spice-protocol-0.12.3.ebuild:
+  Stable for x86, wrt bug #459746
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> spice-protocol-0.12.3.ebuild:
+  Stable for amd64, wrt bug #459746
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> spice-protocol-0.12.2.ebuild:
   Add ~arm, wrt bug #449220
