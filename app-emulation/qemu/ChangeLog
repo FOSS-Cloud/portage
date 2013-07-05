@@ -1,6 +1,97 @@
 # ChangeLog for app-emulation/qemu
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.198 2013/02/28 16:07:36 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.221 2013/06/25 12:58:44 ago Exp $
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.2.ebuild:
+  Stable for amd64, wrt bug #473426
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.2.ebuild:
+  Stable for x86, wrt bug #473426
+
+  22 Jun 2013; Sergei Trofimovich <slyfox@gentoo.org> qemu-9999.ebuild:
+  Adjust 'dtc' depend to require development snapshot. Add 's390-ccw.img' to
+  list of prebuilts.
+
+  20 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml,
+  qemu-1.4.2.ebuild, qemu-9999.ebuild:
+  Change USE=brltty to the common USE=accessibility #473868.
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.1.ebuild:
+  Stable for x86, wrt bug #466092
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.1.ebuild:
+  Stable for amd64, wrt bug #466092
+
+  31 May 2013; Sergei Trofimovich <slyfox@gentoo.org> qemu-9999.ebuild:
+  Added system target: moxie; user targets: mips64, mips64el, mipsn32,
+  mipsn32el.
+
+  31 May 2013; Sergei Trofimovich <slyfox@gentoo.org> qemu-9999.ebuild:
+  Unbreak live ebuild: tried to apply nonexisting BACKPORTS, --enable-opengl was
+  renamed to --enable-glx.
+
+  30 May 2013; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
+  Updates to the live ebuild
+
+  30 May 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.4.2.ebuild:
+  Add a missing PYTHON_REQUIRED_USE for the conversion to python-r1 eclass.
+
+*qemu-1.4.2 (30 May 2013)
+
+  30 May 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.4.2.ebuild:
+  Version bump. Install more python scripts for debugging purposes with
+  USE=python. Fix man pages not being installed. bug #435534
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.0-r1.ebuild:
+  Stable for amd64, wrt bug #468920
+
+  08 May 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.0-r1.ebuild:
+  Reverted on x86 because it is masked
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.0-r1.ebuild:
+  accidentally keyworded for amd64
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.0-r1.ebuild:
+  Stable for x86, wrt bug #468920
+
+  07 May 2013; Doug Goldstein <cardoe@gentoo.org> -qemu-1.1.1-r1.ebuild,
+  -qemu-1.1.2-r2.ebuild, qemu-1.2.2-r3.ebuild, qemu-1.2.2-r4.ebuild,
+  -qemu-1.3.1.ebuild, -qemu-1.4.0.ebuild, qemu-1.4.0-r1.ebuild,
+  qemu-1.4.1.ebuild, qemu-9999.ebuild:
+  Drop older versions. Fix HOMEPAGE. bug #463364
+
+*qemu-1.4.1 (07 May 2013)
+
+  07 May 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.4.1.ebuild:
+  Version bump.
+
+  28 Mar 2013; Steev Klimaszewski <steev@gentoo.org> qemu-9999.ebuild:
+  Upstream has changed the qemu configure script, change requested by Cardoe
+  via email
+
+  19 Mar 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.4.0-r1.ebuild:
+  Always ensure the check-report is generated. fixes bug #462010
+
+*qemu-1.4.0-r1 (17 Mar 2013)
+
+  17 Mar 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.4.0-r1.ebuild,
+  metadata.xml:
+  Further work on developing the qemu 1.4.1 stable bump, contains my entire
+  queue + qemu-kvm migration fixes shared with Fedora. Ensure any libraries
+  which maybe installed are installed into /usr/lib64 for 64-bit systems. Add
+  support for libiscsi. Add support for running qemu tests. Also fix bug
+  #459246, and bug #459120.
+
+  12 Mar 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.4.0.ebuild:
+  Add some information on what versions of dependencies we are using to emerge
+  --info
+
+  02 Mar 2013; Doug Goldstein <cardoe@gentoo.org> metadata.xml:
+  Update USE flag description based on confusion from upstream reported bug
+
+  01 Mar 2013; Tiziano Müller <dev-zero@gentoo.org> qemu-1.4.0.ebuild:
+  Don't block spice[smartcard] as libcacard is the real blocker and it doesn't
+  work as planned.
 
   28 Feb 2013; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
   TODO no longer exists in the top level. Items are tracked in the bug tracker

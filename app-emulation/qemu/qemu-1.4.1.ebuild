@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.4.0.ebuild,v 1.8 2013/02/28 12:16:33 dev-zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.4.1.ebuild,v 1.4 2013/06/04 12:32:54 ago Exp $
 
 EAPI=5
 
 PYTHON_DEPEND="2:2.4"
 inherit eutils flag-o-matic linux-info toolchain-funcs multilib python \
 	user udev fcaps
-BACKPORTS=ebc00c94
+BACKPORTS=a2231a9d
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://git.qemu.org/qemu.git"
@@ -18,18 +18,19 @@ else
 	SRC_URI="http://wiki.qemu-project.org/download//${P}.tar.bz2
 	${BACKPORTS:+
 		http://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz}"
-	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
+	KEYWORDS="amd64 ~ppc ~ppc64 x86 ~x86-fbsd"
 fi
 
 DESCRIPTION="QEMU + Kernel-based Virtual Machine userland tools"
-HOMEPAGE="http://www.linux-kvm.org"
+HOMEPAGE="http://www.qemu.org http://www.linux-kvm.org"
 
 LICENSE="GPL-2 LGPL-2 BSD-2"
 SLOT="0"
-IUSE="+aio alsa bluetooth brltty +caps +curl debug doc fdt +jpeg kernel_linux \
-kernel_FreeBSD mixemu ncurses opengl +png pulseaudio python rbd sasl +seccomp \
-sdl selinux smartcard spice static static-softmmu static-user systemtap tci \
-+threads tls usbredir +uuid vde +vhost-net virtfs +vnc xattr xen xfs"
+IUSE="+aio alsa bluetooth brltty +caps +curl debug doc fdt iscsi +jpeg \
+kernel_linux kernel_FreeBSD mixemu ncurses opengl +png pulseaudio python \
+rbd sasl +seccomp sdl selinux smartcard spice static static-softmmu \
+static-user systemtap tci test +threads tls usbredir +uuid vde +vhost-net \
+virtfs +vnc xattr xen xfs"
 
 COMMON_TARGETS="i386 x86_64 alpha arm cris m68k microblaze microblazeel mips
 mipsel or32 ppc ppc64 sh4 sh4eb sparc sparc64 s390x unicore32"
@@ -72,8 +73,7 @@ LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	sasl? ( dev-libs/cyrus-sasl[static-libs(+)] )
 	sdl? ( >=media-libs/libsdl-1.2.11[static-libs(+)] )
 	seccomp? ( >=sys-libs/libseccomp-1.0.1[static-libs(+)] )
-	spice? ( >=app-emulation/spice-0.12.0[static-libs(+)]
-		smartcard? ( app-emulation/spice[-smartcard] ) )
+	spice? ( >=app-emulation/spice-0.12.0[static-libs(+)] )
 	tls? ( net-libs/gnutls[static-libs(+)] )
 	uuid? ( >=sys-apps/util-linux-2.16.0[static-libs(+)] )
 	vde? ( net-misc/vde[static-libs(+)] )
@@ -83,19 +83,20 @@ RDEPEND="!static-softmmu? ( ${LIB_DEPEND//\[static-libs(+)]} )
 	!app-emulation/kqemu
 	qemu_softmmu_targets_i386? (
 		sys-firmware/ipxe
-		~sys-firmware/seabios-1.7.2
+		~sys-firmware/seabios-1.7.2.1
 		~sys-firmware/sgabios-0.1_pre8
 		~sys-firmware/vgabios-0.7a
 	)
 	qemu_softmmu_targets_x86_64? (
 		sys-firmware/ipxe
-		~sys-firmware/seabios-1.7.2
+		~sys-firmware/seabios-1.7.2.1
 		~sys-firmware/sgabios-0.1_pre8
 		~sys-firmware/vgabios-0.7a
 	)
 	alsa? ( >=media-libs/alsa-lib-1.0.13 )
 	bluetooth? ( net-wireless/bluez )
 	brltty? ( app-accessibility/brltty )
+	iscsi? ( net-libs/libiscsi )
 	opengl? ( virtual/opengl )
 	pulseaudio? ( media-sound/pulseaudio )
 	python? ( =dev-lang/python-2*[ncurses] )
@@ -112,7 +113,11 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-text/texi2html )
 	kernel_linux? ( >=sys-kernel/linux-headers-2.6.35 )
-	static-softmmu? ( ${LIB_DEPEND} )"
+	static-softmmu? ( ${LIB_DEPEND} )
+	test? (
+		dev-libs/glib[utils]
+		sys-devel/bc
+	)"
 
 STRIP_MASK="/usr/share/qemu/palcode-clipper"
 
@@ -233,10 +238,10 @@ qemu_src_configure() {
 
 	conf_opts="--prefix=/usr"
 	conf_opts+=" --sysconfdir=/etc"
+	conf_opts+=" --libdir=/usr/$(get_libdir)"
 	conf_opts+=" --docdir=/usr/share/doc/${PF}/html"
 	conf_opts+=" --disable-bsd-user"
 	conf_opts+=" --disable-guest-agent"
-	conf_opts+=" --disable-libiscsi"
 	conf_opts+=" --disable-strip"
 	conf_opts+=" --disable-werror"
 	conf_opts+=" --python=python2"
@@ -251,9 +256,16 @@ qemu_src_configure() {
 		conf_opts+=" --enable-linux-user"
 		conf_opts+=" --disable-system"
 		conf_opts+=" --target-list=${user_targets}"
+		conf_opts+=" --disable-blobs"
 		conf_opts+=" --disable-bluez"
+		conf_opts+=" --disable-curses"
+		conf_opts+=" --disable-kvm"
+		conf_opts+=" --disable-libiscsi"
+		conf_opts+=" $(use_enable seccomp)"
 		conf_opts+=" --disable-sdl"
+		conf_opts+=" --disable-smartcard-nss"
 		conf_opts+=" --disable-tools"
+		conf_opts+=" --disable-vde"
 	fi
 
 	if [[ ${buildtype} == "softmmu" ]]; then
@@ -268,6 +280,7 @@ qemu_src_configure() {
 		conf_opts+=" $(use_enable caps cap-ng)"
 		conf_opts+=" $(use_enable curl)"
 		conf_opts+=" $(use_enable fdt)"
+		conf_opts+=" $(use_enable iscsi libiscsi)"
 		conf_opts+=" $(use_enable jpeg vnc-jpeg)"
 		conf_opts+=" $(use_enable kernel_linux kvm)"
 		conf_opts+=" $(use_enable kernel_linux nptl)"
@@ -371,6 +384,12 @@ src_compile() {
 	fi
 }
 
+src_test() {
+	cd "${S}/softmmu-build"
+	emake -j1 check
+	emake -j1 check-report.html
+}
+
 src_install() {
 	if [[ -n ${user_targets} ]]; then
 		cd "${S}/user-build"
@@ -383,6 +402,10 @@ src_install() {
 	if [[ -n ${softmmu_targets} ]]; then
 		cd "${S}/softmmu-build"
 		emake DESTDIR="${ED}" install
+
+		if use test; then
+			dohtml check-report.html
+		fi
 
 		if use kernel_linux; then
 			udev_dorules "${FILESDIR}"/65-kvm.rules
@@ -472,4 +495,17 @@ pkg_postinst() {
 
 	elog "The ssl USE flag was renamed to tls, so adjust your USE flags."
 	elog "The nss USE flag was renamed to smartcard, so adjust your USE flags."
+}
+
+pkg_info() {
+	echo "Using:"
+	echo "  $(best_version app-emulation/spice-protocol)"
+	echo "  $(best_version sys-firmware/ipxe)"
+	echo "  $(best_version sys-firmware/seabios)"
+	if has_version sys-firmware/seabios[binary]; then
+		echo "    USE=binary"
+	else
+		echo "    USE=''"
+	fi
+	echo "  $(best_version sys-firmware/vgabios)"
 }
