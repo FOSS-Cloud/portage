@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/apache-2.4.4-r1.ebuild,v 1.1 2013/02/27 15:49:15 chainsaw Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/apache-2.4.4-r3.ebuild,v 1.5 2013/06/13 01:01:13 floppym Exp $
 
 EAPI="2"
 
@@ -38,9 +38,9 @@ charset_lite cgi cgid dav dav_fs dav_lock dbd deflate dir dumpio
 env expires ext_filter file_cache filter headers ident imagemap include info
 lbmethod_byrequests lbmethod_bytraffic lbmethod_bybusyness lbmethod_heartbeat
 log_config log_forensic logio mime mime_magic negotiation proxy
-proxy_ajp proxy_balancer proxy_connect proxy_ftp proxy_http proxy_scgi proxy_fcgi rewrite
-reqtimeout setenvif slotmem_shm speling socache_shmcb status substitute unique_id userdir usertrack
-unixd version vhost_alias"
+proxy_ajp proxy_balancer proxy_connect proxy_ftp proxy_http proxy_scgi proxy_fcgi
+rewrite ratelimit remoteip reqtimeout setenvif slotmem_shm speling socache_shmcb status substitute
+unique_id userdir usertrack unixd version vhost_alias"
 # The following are also in the source as of this version, but are not available
 # for user selection:
 # bucketeer case_filter case_filter_in echo http isapi optional_fn_export
@@ -113,7 +113,7 @@ MODULE_CRITICAL="
 use ssl && MODULE_CRITICAL+=" socache_shmcb"
 use doc && MODULE_CRITICAL+=" alias negotiation setenvif"
 
-inherit eutils apache-2
+inherit eutils apache-2 systemd
 
 DESCRIPTION="The Apache Web Server."
 HOMEPAGE="http://httpd.apache.org/"
@@ -171,6 +171,14 @@ src_install() {
 	if use ssl; then
 		dodir /var/run/apache_ssl_mutex || die "Failed to mkdir ssl_mutex"
 	fi
+
+	# Note: wait for mod_systemd to be included in the next release,
+	# then apache2.4.service can be used and systemd support controlled
+	# through --enable-systemd
+	systemd_newunit "${FILESDIR}/apache2.2.service" "apache2.service"
+	systemd_dotmpfilesd "${FILESDIR}/apache.conf"
+	#insinto /etc/apache2/modules.d
+	#doins "${FILESDIR}/00_systemd.conf"
 }
 
 pkg_postinst()
