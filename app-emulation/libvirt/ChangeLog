@@ -1,9 +1,177 @@
 # ChangeLog for app-emulation/libvirt
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/ChangeLog,v 1.251 2013/02/25 03:33:51 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/ChangeLog,v 1.289 2013/07/04 12:25:08 ago Exp $
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.0.5.2.ebuild:
+  Stable for x86, wrt bug #475040
+
+*libvirt-1.1.0 (01 Jul 2013)
+
+  01 Jul 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.1.0.ebuild:
+  Version bump
+
+  01 Jul 2013; Doug Goldstein <cardoe@gentoo.org> -libvirt-1.0.6.ebuild:
+  Remove older version
+
+*libvirt-1.0.6-r1 (01 Jul 2013)
+
+  01 Jul 2013; Doug Goldstein <cardoe@gentoo.org>
+  +files/libvirt-1.0.6-CVE-2013-2218.patch,
+  +files/libvirt-1.0.6-virinterface-udev-backend-ro.patch,
+  +libvirt-1.0.6-r1.ebuild:
+  Fix for CVE-2013-2218 and virInterface should work read-only when using udev
+  backend.
+
+  28 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.0.5.2.ebuild:
+  Stable for amd64, wrt bug #475040
+
+*libvirt-1.0.5.2 (13 Jun 2013)
+
+  13 Jun 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.5.2.ebuild:
+  Version bump for a number of stability issues.
+
+  11 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.0.5.1-r3.ebuild:
+  Stable for x86, wrt bug #470096
+
+  11 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.0.5.1-r3.ebuild:
+  Stable for amd64, wrt bug #470096
+
+  09 Jun 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-9999.ebuild:
+  bump initscript version in live build
+
+*libvirt-1.0.5.1-r3 (09 Jun 2013)
+
+  09 Jun 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.5.1-r3.ebuild,
+  -libvirt-1.0.5.1-r2.ebuild:
+  Fix missing symbol from upstream build (bug #472724) and switch to newer init
+  script.
+
+  04 Jun 2013; Doug Goldstein <cardoe@gentoo.org> +files/libvirtd.init-r12,
+  libvirt-1.0.6.ebuild:
+  Add xenconsoled to the after clause in the init script. bug #465702
+
+  04 Jun 2013; Doug Goldstein <cardoe@gentoo.org> -libvirt-1.0.2-r2.ebuild,
+  -libvirt-1.0.4.ebuild:
+  Remove older versions
+
+*libvirt-1.0.6 (04 Jun 2013)
+
+  04 Jun 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.6.ebuild:
+  Version bump. Switch from python eclass to python-single-r1.
+
+  04 Jun 2013; Doug Goldstein <cardoe@gentoo.org> -files/libvirt-1.0.5.1-0001-cg
+  roup-be-robust-against-cgroup-movement-races.patch, -files/libvirt-1.0.5.1-000
+  2-qemu-fix-NBD-migration-to-hosts-with-IPv6-enabled.patch,
+  -libvirt-1.0.5.1-r1.ebuild, -libvirt-1.0.5.1.ebuild:
+  Remove older versions
+
+*libvirt-1.0.5.1-r2 (04 Jun 2013)
+
+  04 Jun 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.5.1-r2.ebuild:
+  Backport fixes to prevent rebooting of all guests when using PCI passthru
+  devices.
+
+*libvirt-1.0.5.1-r1 (28 May 2013)
+
+  28 May 2013; Doug Goldstein <cardoe@gentoo.org> +files/libvirt-1.0.5.1-0001-cg
+  roup-be-robust-against-cgroup-movement-races.patch, +files/libvirt-1.0.5.1-000
+  2-qemu-fix-NBD-migration-to-hosts-with-IPv6-enabled.patch,
+  +libvirt-1.0.5.1-r1.ebuild:
+  Bump to fix cgroup movement race and nbd based migrations on IPv6 enabled
+  hosts.
+
+  28 May 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.5.1.ebuild:
+  Change USE flag default to qemu since that's what most people are using
+  libvirt for.
+
+  28 May 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.5.1.ebuild:
+  Fix path change.
+
+  22 May 2013; Doug Goldstein <cardoe@gentoo.org>
+  -files/libvirt-1.0.5-sanitytest.py, -files/libvirtd.init-r10,
+  -libvirt-1.0.0.ebuild, -libvirt-1.0.3-r1.ebuild, -libvirt-1.0.5.ebuild,
+  libvirt-1.0.3-r2.ebuild, libvirt-1.0.4.ebuild, libvirt-1.0.5.1.ebuild,
+  libvirt-9999.ebuild:
+  More fixes to LXC's kernel requirements. Remove older versions.
+
+  21 May 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.0.ebuild,
+  libvirt-1.0.2-r2.ebuild, libvirt-1.0.3-r1.ebuild, libvirt-1.0.3-r2.ebuild,
+  libvirt-1.0.4.ebuild, libvirt-1.0.5.1.ebuild, libvirt-1.0.5.ebuild:
+  CONFIG_USER_NS from the kernel is not yet used so don't check for it.
+
+  21 May 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.5.1.ebuild:
+  Add support for systemd unit files. bug #459372
+
+*libvirt-1.0.5.1 (21 May 2013)
+
+  21 May 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.5.1.ebuild:
+  Upstream fixes release
+
+  12 May 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.3-r2.ebuild,
+  libvirt-1.0.4.ebuild, libvirt-1.0.5.ebuild, libvirt-9999.ebuild:
+  Update required kernel options for different configs
+
+  10 May 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.0.3-r2.ebuild:
+  Stable for x86, wrt bug #469244
+
+  10 May 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.0.3-r2.ebuild:
+  Stable for amd64, wrt bug #469244
+
+  10 May 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.3-r2.ebuild,
+  libvirt-1.0.4.ebuild, libvirt-1.0.5.ebuild, libvirt-9999.ebuild:
+  Fix up kernel features required for LXC.
+
+*libvirt-1.0.5 (06 May 2013)
+
+  06 May 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.5.ebuild,
+  +files/libvirt-1.0.5-sanitytest.py:
+  Version bump for new upstream release.
+
+*libvirt-1.0.4 (04 Apr 2013)
+
+  04 Apr 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.4.ebuild:
+  Version bump
+
+  23 Mar 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-9999.ebuild:
+  Update the live ebuild with the fixes from recent releases.
+
+  20 Mar 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.3-r2.ebuild:
+  Fix issue with location of sysctl.d file being installed to the correct path.
+
+  20 Mar 2013; Doug Goldstein <cardoe@gentoo.org> -libvirt-1.0.3.ebuild:
+  Remove older version
+
+*libvirt-1.0.3-r2 (20 Mar 2013)
+
+  20 Mar 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.3-r2.ebuild:
+  Patches from the stable queue to fix a number of small outstanding issues and
+  fix bug #455636
+
+  14 Mar 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.3-r1.ebuild:
+  Update tarball because it was missing a patch
+
+*libvirt-1.0.3-r1 (14 Mar 2013)
+
+  14 Mar 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.3-r1.ebuild:
+  Compile together a number of commits to fix user reported issues upstream
+
+  07 Mar 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.2-r2.ebuild:
+  Backport USE=fuse to prevent automagical depend on sys-fs/fuse.
+
+  07 Mar 2013; Doug Goldstein <cardoe@gentoo.org> -libvirt-0.10.2.1.ebuild,
+  -libvirt-0.10.2.2.ebuild, -libvirt-1.0.1.ebuild:
+  Remove older versions
+
+  06 Mar 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.3.ebuild,
+  metadata.xml:
+  Add USE=fuse for LXC containers.
+
+*libvirt-1.0.3 (05 Mar 2013)
+
+  05 Mar 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.3.ebuild:
+  Version bump. virInterface APIs should work better for Gentoo users now.
 
   25 Feb 2013; Doug Goldstein <cardoe@gentoo.org>
   -files/0001-complete-virterror-virerror-name-change.patch,
   -libvirt-1.0.2-r1.ebuild:
   Remove older version
-

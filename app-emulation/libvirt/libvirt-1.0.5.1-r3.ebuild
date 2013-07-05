@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.0.0.ebuild,v 1.6 2013/01/27 00:31:57 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.0.5.1-r3.ebuild,v 1.3 2013/06/11 10:20:17 ago Exp $
 
-EAPI=4
+EAPI=5
 
-#BACKPORTS=85e8c146
+BACKPORTS=b8430867
 AUTOTOOLIZE=yes
 
 MY_P="${P/_rc/-rc}"
@@ -13,7 +13,7 @@ PYTHON_DEPEND="python? 2:2.5"
 #RESTRICT_PYTHON_ABIS="3.*"
 #SUPPORT_PYTHON_ABIS="1"
 
-inherit eutils python user autotools linux-info
+inherit eutils python user autotools linux-info systemd
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-2
@@ -22,11 +22,11 @@ if [[ ${PV} = *9999* ]]; then
 	SRC_URI=""
 	KEYWORDS=""
 else
-	SRC_URI="http://libvirt.org/sources/${MY_P}.tar.gz
-		ftp://libvirt.org/libvirt/${MY_P}.tar.gz
+	SRC_URI="http://libvirt.org/sources/stable_updates/${MY_P}.tar.gz
+		ftp://libvirt.org/libvirt/stable_updates/${MY_P}.tar.gz
 		${BACKPORTS:+
 			http://dev.gentoo.org/~cardoe/distfiles/${MY_P}-${BACKPORTS}.tar.xz}"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 fi
 S="${WORKDIR}/${P%_rc*}"
 
@@ -34,9 +34,10 @@ DESCRIPTION="C toolkit to manipulate virtual machines"
 HOMEPAGE="http://www.libvirt.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="audit avahi +caps firewalld iscsi +libvirtd lvm +lxc +macvtap nfs \
-	nls numa openvz parted pcap phyp policykit python qemu rbd sasl \
-	selinux +udev uml +vepa virtualbox virt-network xen elibc_glibc"
+IUSE="audit avahi +caps firewalld fuse iscsi +libvirtd lvm lxc +macvtap nfs \
+	nls numa openvz parted pcap phyp policykit python +qemu rbd sasl \
+	selinux +udev uml +vepa virtualbox virt-network xen elibc_glibc \
+	systemd"
 REQUIRED_USE="libvirtd? ( || ( lxc openvz qemu uml virtualbox xen ) )
 	lxc? ( caps libvirtd )
 	openvz? ( libvirtd )
@@ -69,6 +70,7 @@ RDEPEND="sys-libs/readline
 	audit? ( sys-process/audit )
 	avahi? ( >=net-dns/avahi-0.6[dbus] )
 	caps? ( sys-libs/libcap-ng )
+	fuse? ( >=sys-fs/fuse-2.8.6 )
 	iscsi? ( sys-block/open-iscsi )
 	lxc? ( sys-power/pm-utils )
 	lvm? ( >=sys-fs/lvm2-2.02.48-r2 )
@@ -114,11 +116,14 @@ LXC_CONFIG_CHECK="
 	~CGROUPS
 	~CGROUP_FREEZER
 	~CGROUP_DEVICE
-	~CPUSETS
 	~CGROUP_CPUACCT
-	~RESOURCE_COUNTERS
 	~CGROUP_SCHED
+	~CGROUP_PERF
 	~BLK_CGROUP
+	~NET_CLS_CGROUP
+	~NETPRIO_CGROUP
+	~CPUSETS
+	~RESOURCE_COUNTERS
 	~NAMESPACES
 	~UTS_NS
 	~IPC_NS
@@ -137,8 +142,11 @@ LXC_CONFIG_CHECK="
 
 VIRTNET_CONFIG_CHECK="
 	~BRIDGE_NF_EBTABLES
+	~BRIDGE_EBT_MARK_T
 	~NETFILTER_ADVANCED
 	~NETFILTER_XT_TARGET_CHECKSUM
+	~NETFILTER_XT_CONNMARK
+	~NETFILTER_XT_MARK
 "
 
 MACVTAP_CONFIG_CHECK="~MACVTAP"
@@ -159,11 +167,11 @@ pkg_setup() {
 	fi
 
 	# Handle specific kernel versions for different features
-	kernel_is lt 3 5 && LXC_CONFIG_CHECK+=" ~USER_NS"
-	kernel_is lt 3 6 && LXC_CONFIG_CHECK+=" ~CGROUP_MEM_RES_CTLR" || \
-						LXC_CONFIG_CHECK+=" ~MEMCG"
+	kernel_is lt 3 6 && LXC_CONFIG_CHECK+=" ~CGROUP_MEM_RES_CTLR"
+	kernel_is ge 3 6 &&	LXC_CONFIG_CHECK+=" ~MEMCG ~MEMCG_SWAP ~MEMCG_KMEM"
 
 	CONFIG_CHECK=""
+	use fuse && CONFIG_CHECK+=" ~FUSE_FS"
 	use lxc && CONFIG_CHECK+="${LXC_CONFIG_CHECK}"
 	use macvtap && CONFIG_CHECK+="${MACVTAP}"
 	use virt-network && CONFIG_CHECK+="${VIRTNET_CONFIG_CHECK}"
@@ -199,7 +207,7 @@ src_prepare() {
 	local iscsi_init=
 	local rbd_init=
 	local firewalld_init=
-	cp "${FILESDIR}/libvirtd.init-r11" "${S}/libvirtd.init"
+	cp "${FILESDIR}/libvirtd.init-r12" "${S}/libvirtd.init"
 	use avahi && avahi_init='avahi-daemon'
 	use iscsi && iscsi_init='iscsid'
 	use rbd && rbd_init='ceph'
@@ -222,8 +230,12 @@ src_configure() {
 
 	## hypervisors on the local host
 	myconf="${myconf} $(use_with xen) $(use_with xen xen-inotify)"
-	myconf="${myconf} $(use_with xen xenapi)"
-	myconf+=" --without-libxl"
+	myconf+=" --without-xenapi"
+	if use xen && has_version ">=app-emulation/xen-tools-4.2.0"; then
+		myconf+=" --with-libxl"
+	else
+		myconf+=" --without-libxl"
+	fi
 	myconf="${myconf} $(use_with openvz)"
 	myconf="${myconf} $(use_with lxc)"
 	if use virtualbox && has_version app-emulation/virtualbox-ose; then
@@ -249,6 +261,7 @@ src_configure() {
 	myconf="${myconf} $(use_with numa numactl)"
 	myconf="${myconf} $(use_with numa numad)"
 	myconf="${myconf} $(use_with selinux)"
+	myconf="${myconf} $(use_with fuse)"
 
 	# udev for device support details
 	myconf="${myconf} $(use_with udev)"
@@ -291,6 +304,9 @@ src_configure() {
 	# locking support
 	myconf="${myconf} --without-sanlock"
 
+	# systemd unit files
+	use systemd && myconf="${myconf} --with-init-script=systemd"
+
 	# this is a nasty trick to work around the problem in bug
 	# #275073. The reason why we don't solve this properly is that
 	# it'll require us to rebuild autotools (and we don't really want
@@ -331,6 +347,7 @@ src_install() {
 		HTML_DIR=/usr/share/doc/${PF}/html \
 		DOCS_DIR=/usr/share/doc/${PF}/python \
 		EXAMPLE_DIR=/usr/share/doc/${PF}/python/examples \
+		SYSTEMD_UNIT_DIR="$(systemd_get_unitdir)" \
 		|| die "emake install failed"
 
 	find "${D}" -name '*.la' -delete || die
@@ -357,11 +374,15 @@ pkg_preinst() {
 	fi
 
 	# Only sysctl files ending in .conf work
-	mv "${D}"/etc/sysctl.d/libvirtd "${D}"/etc/sysctl.d/libvirtd.conf
+	mv "${D}"/usr/lib/sysctl.d/libvirtd.conf "${D}"/etc/sysctl.d/libvirtd.conf
 }
 
 pkg_postinst() {
 	use python && python_mod_optimize libvirt.py
+
+	if [[ -e "${ROOT}"/etc/libvirt/qemu/networks/default.xml ]]; then
+		touch "${ROOT}"/etc/libvirt/qemu/networks/default.xml
+	fi
 
 	# support for dropped privileges
 	if use qemu; then
