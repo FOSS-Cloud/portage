@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.4.2.ebuild,v 1.6 2013/07/19 03:57:50 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.5.1.ebuild,v 1.1 2013/07/19 04:42:15 cardoe Exp $
 
 EAPI=5
 
@@ -8,9 +8,9 @@ PYTHON_COMPAT=( python{2_5,2_6,2_7} )
 PYTHON_REQ_USE="ncurses,readline"
 
 inherit eutils flag-o-matic linux-info toolchain-funcs multilib python-r1 \
-	user udev fcaps
+	user udev fcaps readme.gentoo
 
-BACKPORTS=6b5934f9
+#BACKPORTS=6b5934f9
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://git.qemu.org/qemu.git"
@@ -21,7 +21,7 @@ else
 	SRC_URI="http://wiki.qemu-project.org/download/${P}.tar.bz2
 	${BACKPORTS:+
 		http://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz}"
-	KEYWORDS="amd64 ~ppc ~ppc64 x86 ~x86-fbsd"
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
 fi
 
 DESCRIPTION="QEMU + Kernel-based Virtual Machine userland tools"
@@ -29,16 +29,16 @@ HOMEPAGE="http://www.qemu.org http://www.linux-kvm.org"
 
 LICENSE="GPL-2 LGPL-2 BSD-2"
 SLOT="0"
-IUSE="accessibility +aio alsa bluetooth +caps +curl debug fdt iscsi +jpeg \
+IUSE="accessibility +aio alsa bluetooth +caps +curl debug fdt gtk iscsi +jpeg \
 kernel_linux kernel_FreeBSD mixemu ncurses opengl +png pulseaudio python \
 rbd sasl +seccomp sdl selinux smartcard spice static static-softmmu \
 static-user systemtap tci test +threads tls usbredir +uuid vde +vhost-net \
 virtfs +vnc xattr xen xfs"
 
 COMMON_TARGETS="i386 x86_64 alpha arm cris m68k microblaze microblazeel mips
-mipsel or32 ppc ppc64 sh4 sh4eb sparc sparc64 s390x unicore32"
-IUSE_SOFTMMU_TARGETS="${COMMON_TARGETS} lm32 mips64 mips64el ppcemb xtensa xtensaeb"
-IUSE_USER_TARGETS="${COMMON_TARGETS} armeb ppc64abi32 sparc32plus"
+mipsel mips64 mips64el or32 ppc ppc64 sh4 sh4eb sparc sparc64 s390x unicore32"
+IUSE_SOFTMMU_TARGETS="${COMMON_TARGETS} lm32 moxie ppcemb xtensa xtensaeb"
+IUSE_USER_TARGETS="${COMMON_TARGETS} armeb mipsn32 mipsn32el ppc64abi32 sparc32plus"
 
 # Setup the default SoftMMU targets, while using the loops
 # below to setup the other targets.
@@ -48,17 +48,18 @@ for target in ${IUSE_SOFTMMU_TARGETS}; do
 	IUSE="${IUSE} qemu_softmmu_targets_${target}"
 	REQUIRED_USE="${REQUIRED_USE} qemu_softmmu_targets_${target}"
 done
-REQUIRED_USE="${REQUIRED_USE} )"
 
 for target in ${IUSE_USER_TARGETS}; do
 	IUSE="${IUSE} qemu_user_targets_${target}"
+	REQUIRED_USE="${REQUIRED_USE} qemu_user_targets_${target}"
 done
+REQUIRED_USE="${REQUIRED_USE} )"
 
 # Block USE flag configurations known to not work
 REQUIRED_USE="${REQUIRED_USE}
 	python? ( ${PYTHON_REQUIRED_USE} )
 	static? ( static-softmmu static-user )
-	static-softmmu? ( !alsa !pulseaudio !bluetooth !opengl )
+	static-softmmu? ( !alsa !pulseaudio !bluetooth !opengl !gtk )
 	virtfs? ( xattr )"
 
 # Yep, you need both libcap and libcap-ng since virtfs only uses libcap.
@@ -84,22 +85,25 @@ LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	xattr? ( sys-apps/attr[static-libs(+)] )
 	xfs? ( sys-fs/xfsprogs[static-libs(+)] )"
 RDEPEND="!static-softmmu? ( ${LIB_DEPEND//\[static-libs(+)]} )
-	!app-emulation/kqemu
 	qemu_softmmu_targets_i386? (
-		sys-firmware/ipxe
-		~sys-firmware/seabios-1.7.2.1
+		>=sys-firmware/ipxe-1.0.0_p20130225
+		~sys-firmware/seabios-1.7.2.2
 		~sys-firmware/sgabios-0.1_pre8
 		~sys-firmware/vgabios-0.7a
 	)
 	qemu_softmmu_targets_x86_64? (
-		sys-firmware/ipxe
-		~sys-firmware/seabios-1.7.2.1
+		>=sys-firmware/ipxe-1.0.0_p20130225
+		~sys-firmware/seabios-1.7.2.2
 		~sys-firmware/sgabios-0.1_pre8
 		~sys-firmware/vgabios-0.7a
 	)
+	accessibility? ( app-accessibility/brltty )
 	alsa? ( >=media-libs/alsa-lib-1.0.13 )
 	bluetooth? ( net-wireless/bluez )
-	accessibility? ( app-accessibility/brltty )
+	gtk? (
+		x11-libs/gtk+:3
+		x11-libs/vte:2.90
+	)
 	iscsi? ( net-libs/libiscsi )
 	opengl? ( virtual/opengl )
 	pulseaudio? ( media-sound/pulseaudio )
@@ -131,7 +135,8 @@ QA_PREBUILT="
 	usr/share/qemu/openbios-ppc
 	usr/share/qemu/openbios-sparc64
 	usr/share/qemu/openbios-sparc32
-	usr/share/qemu/palcode-clipper"
+	usr/share/qemu/palcode-clipper
+	usr/share/qemu/s390-ccw.img"
 
 QA_WX_LOAD="usr/bin/qemu-i386
 	usr/bin/qemu-x86_64
@@ -155,6 +160,15 @@ QA_WX_LOAD="usr/bin/qemu-i386
 	usr/bin/qemu-sparc32plus
 	usr/bin/qemu-s390x
 	usr/bin/qemu-unicore32"
+
+DOC_CONTENTS="If you don't have kvm compiled into the kernel, make sure
+you have the kernel module loaded before running kvm. The easiest way to
+ensure that the kernel module is loaded is to load it on boot.\n
+For AMD CPUs the module is called 'kvm-amd'\n
+For Intel CPUs the module is called 'kvm-intel'\n
+Please review /etc/conf.d/modules for how to load these\n\n
+Make sure your user is in the 'kvm' group\n
+Just run 'gpasswd -a <USER> kvm', then have <USER> re-login."
 
 qemu_support_kvm() {
 	if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386 \
@@ -276,6 +290,8 @@ qemu_src_configure() {
 		conf_opts+=" --with-system-pixman"
 		conf_opts+=" --target-list=${softmmu_targets}"
 		conf_opts+=" $(use_enable bluetooth bluez)"
+		conf_opts+=" $(use_enable gtk)"
+		use gtk && conf_opts+=" --with-gtkabi=3.0"
 		conf_opts+=" $(use_enable sdl)"
 		conf_opts+=" $(use_enable aio linux-aio)"
 		conf_opts+=" $(use_enable accessibility brlapi)"
@@ -287,7 +303,7 @@ qemu_src_configure() {
 		conf_opts+=" $(use_enable kernel_linux kvm)"
 		conf_opts+=" $(use_enable kernel_linux nptl)"
 		conf_opts+=" $(use_enable ncurses curses)"
-		conf_opts+=" $(use_enable opengl)"
+		conf_opts+=" $(use_enable opengl glx)"
 		conf_opts+=" $(use_enable png vnc-png)"
 		conf_opts+=" $(use_enable rbd)"
 		conf_opts+=" $(use_enable sasl vnc-sasl)"
@@ -308,7 +324,7 @@ qemu_src_configure() {
 		conf_opts+=" $(use_enable xfs xfsctl)"
 		use mixemu && conf_opts+=" --enable-mixemu"
 		conf_opts+=" --audio-drv-list=${audio_opts}"
-		conf_opts+=" --enable-migration-from-qemu-kvm"
+		#conf_opts+=" --enable-migration-from-qemu-kvm"
 	fi
 
 	conf_opts+=" $(use_enable debug debug-info)"
@@ -445,7 +461,7 @@ src_install() {
 	mv "${ED}/usr/share/doc/${PF}/html/qmp-commands.txt" "${S}/QMP/"
 
 	cd "${S}"
-	dodoc Changelog MAINTAINERS TODO docs/specs/pci-ids.txt
+	dodoc Changelog MAINTAINERS docs/specs/pci-ids.txt
 	newdoc pc-bios/README README.pc-bios
 	dodoc QMP/qmp-commands.txt QMP/qmp-events.txt QMP/qmp-spec.txt
 
@@ -478,29 +494,30 @@ src_install() {
 	# Remove iPXE since we're using the iPXE packaged one
 	rm "${ED}"/usr/share/qemu/pxe-*.rom
 	if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
-		dosym ../ipxe/808610de.rom /usr/share/qemu/pxe-e1000.rom
+		dosym ../ipxe/8086100e.rom /usr/share/qemu/pxe-e1000.rom
 		dosym ../ipxe/80861209.rom /usr/share/qemu/pxe-eepro100.rom
 		dosym ../ipxe/10500940.rom /usr/share/qemu/pxe-ne2k_pci.rom
 		dosym ../ipxe/10222000.rom /usr/share/qemu/pxe-pcnet.rom
 		dosym ../ipxe/10ec8139.rom /usr/share/qemu/pxe-rtl8139.rom
 		dosym ../ipxe/1af41000.rom /usr/share/qemu/pxe-virtio.rom
 	fi
+
+	qemu_support_kvm && readme.gentoo_create_doc
 }
 
 pkg_postinst() {
 	local virtfs_caps=
 
 	if qemu_support_kvm; then
-		elog "If you don't have kvm compiled into the kernel, make sure you have"
-		elog "the kernel module loaded before running kvm. The easiest way to"
-		elog "ensure that the kernel module is loaded is to load it on boot."
-		elog "For AMD CPUs the module is called 'kvm-amd'"
-		elog "For Intel CPUs the module is called 'kvm-intel'"
-		elog "Please review /etc/conf.d/modules for how to load these"
-		elog
-		elog "Make sure your user is in the 'kvm' group"
-		elog "Just run 'gpasswd -a <USER> kvm', then have <USER> re-login."
-		elog
+		readme.gentoo_print_elog
+		ewarn "Migration from qemu-kvm instances and loading qemu-kvm created"
+		ewarn "save states will be removed in the next release (1.6.x)"
+		ewarn
+		ewarn "It is recommended that you migrate any VMs that may be running"
+		ewarn "on qemu-kvm to a host with a newer qemu and regenerate"
+		ewarn "any saved states with a newer qemu."
+		ewarn 
+		ewarn "qemu-kvm was the primary qemu provider in Gentoo through 1.2.x"
 	fi
 
 	virtfs_caps+="cap_chown,cap_dac_override,cap_fowner,cap_fsetid,"
@@ -508,9 +525,6 @@ pkg_postinst() {
 
 	fcaps cap_net_admin /usr/libexec/qemu-bridge-helper
 	use virtfs && fcaps ${virtfs_caps} /usr/bin/virtfs-proxy-helper
-
-	elog "The ssl USE flag was renamed to tls, so adjust your USE flags."
-	elog "The nss USE flag was renamed to smartcard, so adjust your USE flags."
 }
 
 pkg_info() {
