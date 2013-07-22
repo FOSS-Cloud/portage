@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.0.6-r1.ebuild,v 1.1 2013/07/01 14:07:41 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.1.0-r3.ebuild,v 1.1 2013/07/19 20:29:39 cardoe Exp $
 
 EAPI=5
 
-BACKPORTS=9eea7e71
+BACKPORTS=cafcec2f
 AUTOTOOLIZE=yes
 
 MY_P="${P/_rc/-rc}"
@@ -195,9 +195,6 @@ src_prepare() {
 			git hash-object bootstrap.conf
 		) >.git-module-status
 	fi
-
-	epatch "${FILESDIR}/libvirt-1.0.6-CVE-2013-2218.patch"
-	epatch "${FILESDIR}/libvirt-1.0.6-virinterface-udev-backend-ro.patch"
 
 	epatch_user
 
