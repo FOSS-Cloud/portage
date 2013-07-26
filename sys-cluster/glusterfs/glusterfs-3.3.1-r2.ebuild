@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/glusterfs/glusterfs-3.3.0.ebuild,v 1.4 2013/04/03 15:03:44 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/glusterfs/glusterfs-3.3.1-r2.ebuild,v 1.1 2013/04/03 15:03:44 xarthisius Exp $
 
 EAPI=4
 
@@ -11,7 +11,7 @@ inherit autotools-utils elisp-common eutils multilib python versionator
 
 DESCRIPTION="GlusterFS is a powerful network/cluster filesystem"
 HOMEPAGE="http://www.gluster.org/"
-SRC_URI="http://ftp.gluster.com/pub/gluster/${PN}/$(get_version_component_range '1-2')/${PV}/${P}.tar.gz"
+SRC_URI="http://download.gluster.org/pub/gluster/${PN}/$(get_version_component_range '1-2')/${PV}/${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
@@ -29,10 +29,10 @@ DEPEND="${RDEPEND}
 SITEFILE="50${PN}-mode-gentoo.el"
 
 PATCHES=(
-	"${FILESDIR}/${P}-parallel-build.patch"
-	"${FILESDIR}/${P}-docdir.patch"
-	"${FILESDIR}/${P}-silent_rules.patch"
-	"${FILESDIR}/${P}-avoid-version.patch"
+	"${FILESDIR}/${PN}-3.3.0-parallel-build.patch"
+	"${FILESDIR}/${PN}-3.3.0-docdir.patch"
+	"${FILESDIR}/${PN}-3.3.0-silent_rules.patch"
+	"${FILESDIR}/${PN}-3.3.0-avoid-version.patch"
 )
 
 DOCS=( AUTHORS ChangeLog NEWS README THANKS )
@@ -45,6 +45,10 @@ pkg_setup() {
 src_prepare() {
 	sed -e "s/ -ggdb3//g" \
 		-i argp-standalone/configure.ac || die
+	sed -e "s:\$(PYTHON):${PREFIX}/usr/bin/python2:g" \
+		-i xlators/features/marker/utils/src/Makefile.am || die #446330
+	sed -e 's:"/usr/local/libexec/glusterfs:GSYNCD_PREFIX":' \
+		-i xlators/mgmt/glusterd/src/glusterd.c || die #464196
 	autotools-utils_src_prepare
 	cd argp-standalone && eautoreconf
 }
@@ -90,7 +94,7 @@ src_install() {
 		newbin extras/disk_usage_sync.sh ${PN}-disk-usage-sync
 	fi
 
-	newinitd "${FILESDIR}/${PN}.initd" glusterfsd
+	newinitd "${FILESDIR}/${PN}-r1.initd" glusterfsd
 	newinitd "${FILESDIR}/glusterd.initd" glusterd
 	newconfd "${FILESDIR}/${PN}.confd" glusterfsd
 
