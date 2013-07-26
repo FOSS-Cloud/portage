@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/spice/spice-0.12.3.ebuild,v 1.3 2013/06/06 02:34:05 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/spice/spice-0.12.4.ebuild,v 1.1 2013/07/24 14:31:40 cardoe Exp $
 
 EAPI=5
 
@@ -15,7 +15,7 @@ SRC_URI="http://spice-space.org/download/releases/${P}.tar.bz2"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="client gui sasl smartcard static-libs" # static
+IUSE="client sasl smartcard static-libs" # static
 
 RDEPEND=">=x11-libs/pixman-0.17.7
 	>=dev-libs/glib-2.22:2
@@ -27,7 +27,6 @@ RDEPEND=">=x11-libs/pixman-0.17.7
 	sasl? ( dev-libs/cyrus-sasl )
 	smartcard? ( >=app-emulation/libcacard-0.1.2 )
 	client? (
-		gui? ( =dev-games/cegui-0.6*[opengl] )
 		>=x11-libs/libXrandr-1.2
 		x11-libs/libX11
 		x11-libs/libXext
@@ -71,6 +70,8 @@ pkg_setup() {
 src_prepare() {
 	epatch \
 		"${FILESDIR}/0.11.0-gold.patch"
+
+	epatch_user
 }
 
 src_configure() {
@@ -78,9 +79,9 @@ src_configure() {
 		$(use_enable static-libs static) \
 		--disable-tunnel \
 		$(use_enable client) \
-		$(use_enable gui) \
 		$(use_with sasl) \
 		$(use_enable smartcard) \
+		--disable-gui \
 		--disable-static-linkage
 #		$(use_enable static static-linkage) \
 }
@@ -88,12 +89,4 @@ src_configure() {
 src_install() {
 	default
 	use static-libs || prune_libtool_files
-}
-
-pkg_postinst() {
-	if use gui; then
-		ewarn "USE=gui will be removed in the next version."
-		ewarn "Upstream has stated that 'spicy' is deprecated and that you"
-		ewarn "should use 'remote-viewer' from app-emulation/virt-viewer."
-	fi
 }
