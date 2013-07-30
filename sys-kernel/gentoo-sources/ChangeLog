@@ -1,6 +1,109 @@
 # ChangeLog for sys-kernel/gentoo-sources
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1150 2013/07/03 20:44:40 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1165 2013/07/29 17:49:27 mpagano Exp $
+
+*gentoo-sources-3.0.88 (29 Jul 2013)
+
+  29 Jul 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.0.88.ebuild:
+  Linux patch 3.0.88. Support for namespace user.pax.* on tmpfs. Patch to
+  initialize satype in key_notify_policy_flush(). Patch to fix zcache build
+  error. ALPS Touchpad patches: Add PSMOUSE_CMD_RESET_WRAP; Move the protocol
+  information to Documentation for the ALPS Touchpad; Add protocol version
+  field in alps_model_info; Remove assumptions about packet size; Add support
+  for protocol versions 3 and 4; Add documentation for protocol versions 3 and
+  4; Add semi-MT support for v3 protocol and dump raw packet data. ACPI patch
+  to disable Windows 8 compatibility for some Lenovo ThinkPads. fbcondecor
+  console decoration patch.
+
+*gentoo-sources-3.4.55 (29 Jul 2013)
+
+  29 Jul 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.4.55.ebuild:
+  Linux patch 3.4.55. Patch to add support for namespace user.pax.* on tmpfs.
+  Security path to initialize satype in key_notify_policy_flush(). Patch to
+  correct firmware version for bnx2 on mips. Patch for zero copy for infiniband
+  psm userspace driver. Patch to fix build warnings for lpfc when debugfs is
+  not defined. Bug #432604. ACPI patch to disable Windows 8 compatibility for
+  some Lenovo ThinkPads. fbcondecor bootsplash patch
+
+*gentoo-sources-3.10.4 (29 Jul 2013)
+
+  29 Jul 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.10.4.ebuild:
+  Linux version 3.10.4. Support for namespace user.pax.* on tmpfs. Patch to fix
+  brightness control on some thinkpad laptops. Patch for Zero copy for
+  infiniband psm userspace driver. Enable mute led for Thinkpad laptops.Patch
+  to ensure that /dev/root doesn't appear in /proc/mounts when bootint without
+  an initramfs. Bootsplash patch. BFQ support.
+
+*gentoo-sources-3.10.3-r1 (26 Jul 2013)
+
+  26 Jul 2013; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.10.3.ebuild, +gentoo-sources-3.10.3-r1.ebuild:
+  3.10.3 patch incorrectly named. Rename properly. bug #478200
+
+*gentoo-sources-3.10.3 (26 Jul 2013)
+
+  26 Jul 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.10.3.ebuild:
+  Linux patch 3.10.3
+
+  24 Jul 2013; Jeroen Roovers <jer@gentoo.org> gentoo-sources-3.9.11-r1.ebuild:
+  Stable for HPPA (bug #477976).
+
+  24 Jul 2013; Tom Wijsman <TomWij@gentoo.org> -gentoo-sources-3.9.11.ebuild:
+  Drop old broken 3.9.11 revision.
+
+*gentoo-sources-3.10.2 (22 Jul 2013)
+*gentoo-sources-3.4.54 (22 Jul 2013)
+*gentoo-sources-3.9.11-r1 (22 Jul 2013)
+*gentoo-sources-3.0.87 (22 Jul 2013)
+
+  22 Jul 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.0.87.ebuild,
+  +gentoo-sources-3.10.2.ebuild, +gentoo-sources-3.4.54.ebuild,
+  +gentoo-sources-3.9.11-r1.ebuild, -gentoo-sources-3.0.83.ebuild,
+  -gentoo-sources-3.4.50.ebuild:
+  Linux patches 3.0.87, 3.4.54 and 3.10.2. Removed 1600_CVE-2013-4129-bridge-
+  fix-kernel-multicast-timer-BUG.patch from branches 3.8, 3.9 and 3.10 since it
+  was introduced in 3.11-rc1; causing a revision bump to 3.9.11-r1, as we want a
+  revision we can guarantee to be stable. Removed old.
+
+*gentoo-sources-3.9.11 (21 Jul 2013)
+
+  21 Jul 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.9.11.ebuild,
+  -gentoo-sources-3.0.82.ebuild, -gentoo-sources-3.4.49.ebuild,
+  -gentoo-sources-3.7.10-r1.ebuild, -gentoo-sources-3.9.10.ebuild,
+  -gentoo-sources-3.9.6.ebuild, -gentoo-sources-3.9.7.ebuild,
+  -gentoo-sources-3.9.8.ebuild, -gentoo-sources-3.9.9.ebuild:
+  Linux patch 3.9.11; security fixes for CVE-2013-4125 and CVE-2013-4129, see
+  bugs #477464 and #477468 respectively. Removed old.
+
+  21 Jul 2013; Matt Turner <mattst88@gentoo.org> gentoo-sources-3.10.1.ebuild:
+  Added ~mips.
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.8.13.ebuild:
+  Stable for ppc64, wrt bug #469508
+
+*gentoo-sources-3.10.1 (13 Jul 2013)
+*gentoo-sources-3.9.10 (13 Jul 2013)
+*gentoo-sources-3.4.53 (13 Jul 2013)
+
+  13 Jul 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.10.1.ebuild,
+  +gentoo-sources-3.4.53.ebuild, +gentoo-sources-3.9.10.ebuild:
+  Linux patches 3.4.53, 3.9.10 and 3.10.1.
+
+*gentoo-sources-3.0.86 (13 Jul 2013)
+
+  13 Jul 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.0.86.ebuild:
+  Linux patch 3.0.86.
+
+  11 Jul 2013; Michael Pagano <mpagano@gentoo.org>
+  gentoo-sources-3.10.0.ebuild:
+  Add deblob support to 3.10.0
+
+  07 Jul 2013; Raúl Porcel <armin76@gentoo.org> gentoo-sources-3.8.13.ebuild:
+  ia64 stable wrt #469508
 
   03 Jul 2013; Tom Wijsman <TomWij@gentoo.org> -gentoo-sources-3.0.80.ebuild,
   -gentoo-sources-3.0.81.ebuild, -gentoo-sources-3.2.46.ebuild,
