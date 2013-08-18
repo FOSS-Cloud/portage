@@ -1,6 +1,52 @@
 # ChangeLog for app-admin/ulogd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ulogd/ChangeLog,v 1.70 2012/06/16 09:35:06 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ulogd/ChangeLog,v 1.81 2013/04/25 13:55:06 pinkbyte Exp $
+
+  25 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> -files/ulogd-0.98,
+  -ulogd-1.23-r1.ebuild,
+  -files/ulogd-1.23-fix-include-in-libipulog-Makefile.patch,
+  -files/ulogd-1.23-gcc41.patch, -ulogd-1.24-r2.ebuild,
+  -files/ulogd-1.24-syslog-and-logrotate.patch, -files/ulogd:
+  Drop old versions
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ulogd-2.0.2.ebuild:
+  Stable for ppc, wrt bug #466590
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ulogd-2.0.2.ebuild:
+  Stable for x86, wrt bug #466590
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ulogd-2.0.2.ebuild:
+  Stable for amd64, wrt bug #466590
+
+  19 Apr 2013; Christian Ruppert <idl0r@gentoo.org> files/ulogd-2.logrotate:
+  Add "missingok" to the logrotate file to avoid errors about non-existent logs
+
+  23 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> -ulogd-2.0.0_beta4.ebuild:
+  Drop ebuild for beta version
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ulogd-2.0.2.ebuild:
+  Add ~ia64, wrt bug #462480
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ulogd-2.0.2.ebuild:
+  Add ~ppc, wrt bug #450016
+
+  21 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> ulogd-1.23-r1.ebuild,
+  +files/ulogd-1.23-fix-include-in-libipulog-Makefile.patch,
+  ulogd-1.24-r2.ebuild:
+  Fix usage of kernel headers from /usr/src, wrt bug #285376. Thanks to Coacher
+  <itumaykin AT gmail.com> for patch
+
+  20 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> ulogd-2.0.2.ebuild:
+  Fix a typo in sed statement, wrt bug #426868, thanks to Coacher <itumaykin AT
+  gmail.com>
+
+*ulogd-2.0.2 (20 Mar 2013)
+
+  20 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> +ulogd-2.0.2.ebuild,
+  +files/ulogd-2.0.2-automagic.patch, +files/ulogd-2.init,
+  +files/ulogd-2.logrotate, metadata.xml:
+  Version bump, wrt bug #426868, fix bugs #375825 and #375777. Package will be
+  maintained by Coacher <itumaykin AT gmail.com> through proxy maintainers
 
   16 Jun 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Wormo will only take care of bug wrangling.
@@ -304,4 +350,3 @@
   24 May 2002; George Shapovalov <george@gentoo.org> Changelog :
 
   Initial release
-
