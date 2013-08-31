@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/subversion/subversion-1.7.8.ebuild,v 1.3 2013/02/23 15:54:36 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/subversion/subversion-1.7.11.ebuild,v 1.10 2013/08/18 20:52:45 tommy Exp $
 
 EAPI=5
 PYTHON_COMPAT=( python{2_5,2_6,2_7} )
@@ -17,10 +17,10 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="Subversion GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="apache2 berkdb ctypes-python debug doc +dso extras gnome-keyring java kde nls perl python ruby sasl vim-syntax +webdav-neon webdav-serf"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+IUSE="apache2 berkdb ctypes-python debug doc +dso extras gnome-keyring java kde nls perl python ruby sasl test vim-syntax +webdav-neon webdav-serf"
 
-COMMON_DEPEND=">=dev-db/sqlite-3.4
+COMMON_DEPEND=">=dev-db/sqlite-3.4[threadsafe(+)]
 	>=dev-libs/apr-1.3:1
 	>=dev-libs/apr-util-1.3:1
 	dev-libs/expat
@@ -28,10 +28,11 @@ COMMON_DEPEND=">=dev-db/sqlite-3.4
 	berkdb? ( >=sys-libs/db-4.0.14 )
 	ctypes-python? ( ${PYTHON_DEPS} )
 	gnome-keyring? ( dev-libs/glib:2 sys-apps/dbus gnome-base/gnome-keyring )
-	kde? ( sys-apps/dbus x11-libs/qt-core:4 x11-libs/qt-dbus:4 x11-libs/qt-gui:4 >=kde-base/kdelibs-4:4 )
+	kde? ( sys-apps/dbus dev-qt/qtcore:4 dev-qt/qtdbus:4 dev-qt/qtgui:4 >=kde-base/kdelibs-4:4 )
 	perl? ( dev-lang/perl )
 	python? ( ${PYTHON_DEPS} )
-	ruby? ( >=dev-lang/ruby-1.8.2:1.8 )
+	ruby? ( >=dev-lang/ruby-1.8.2:1.8
+		dev-ruby/rubygems[ruby_targets_ruby18] )
 	sasl? ( dev-libs/cyrus-sasl )
 	webdav-neon? ( >=net-libs/neon-0.28 )
 	webdav-serf? ( >=net-libs/serf-0.3.0 )"
@@ -43,7 +44,7 @@ RDEPEND="${COMMON_DEPEND}
 	perl? ( dev-perl/URI )"
 # Note: ctypesgen doesn't need PYTHON_USEDEP, it's used once
 DEPEND="${COMMON_DEPEND}
-	${PYTHON_DEPS}
+	test? ( ${PYTHON_DEPS} )
 	!!<sys-apps/sandbox-1.6
 	ctypes-python? ( dev-python/ctypesgen )
 	doc? ( app-doc/doxygen )
@@ -52,6 +53,11 @@ DEPEND="${COMMON_DEPEND}
 	kde? ( virtual/pkgconfig )
 	nls? ( sys-devel/gettext )
 	webdav-neon? ( virtual/pkgconfig )"
+
+REQUIRED_USE="
+	ctypes-python? ( ${PYTHON_REQUIRED_USE} )
+	python? ( ${PYTHON_REQUIRED_USE} )
+	test? ( ${PYTHON_REQUIRED_USE} )"
 
 want_apache
 
@@ -85,11 +91,6 @@ pkg_setup() {
 	depend.apache_pkg_setup
 
 	java-pkg-opt-2_pkg_setup
-
-	if use ctypes-python || use python; then
-		# for build-time scripts
-		python_export_best
-	fi
 
 	if ! use webdav-neon && ! use webdav-serf; then
 		ewarn "WebDAV support is disabled. You need WebDAV to"
@@ -187,6 +188,11 @@ src_configure() {
 	#compile for x86 on amd64, so workaround this issue again
 	#check newer versions, if this is still/again needed
 	myconf+=" --disable-disallowing-of-undefined-references"
+
+	# for build-time scripts
+	if use ctypes-python || use python || use test; then
+		python_export_best
+	fi
 
 	#force ruby-1.8 for bug 399105
 	#allow overriding Python include directory
