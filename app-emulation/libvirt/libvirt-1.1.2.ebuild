@@ -1,17 +1,17 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.1.1.ebuild,v 1.1 2013/07/30 13:17:51 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.1.2.ebuild,v 1.2 2013/09/05 18:20:53 mgorny Exp $
 
 EAPI=5
 
-#BACKPORTS=cafcec2f
+#BACKPORTS=dfae2d62
 AUTOTOOLIZE=yes
 
 MY_P="${P/_rc/-rc}"
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit eutils python-single-r1 user autotools linux-info systemd
+inherit eutils python-single-r1 user autotools linux-info systemd readme.gentoo
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-2
@@ -112,6 +112,16 @@ DEPEND="${RDEPEND}
 	dev-lang/perl
 	dev-libs/libxslt"
 
+DOC_CONTENTS="For the basic networking support (bridged and routed networks)
+you don't need any extra software. For more complex network modes
+including but not limited to NATed network, you can enable the
+'virt-network' USE flag.\n\n
+If you are using dnsmasq on your system, you will have
+to configure /etc/dnsmasq.conf to enable the following settings:\n\n
+ bind-interfaces\n
+ interface or except-interface\n\n
+Otherwise you might have issues with your existing DNS server."
+
 LXC_CONFIG_CHECK="
 	~CGROUPS
 	~CGROUP_FREEZER
@@ -149,7 +159,9 @@ VIRTNET_CONFIG_CHECK="
 	~NETFILTER_XT_MARK
 "
 
-MACVTAP_CONFIG_CHECK="~MACVTAP"
+MACVTAP_CONFIG_CHECK=" ~MACVTAP"
+
+LVM_CONFIG_CHECK=" ~BLK_DEV_DM ~DM_SNAPSHOT ~DM_MULTIPATH"
 
 pkg_setup() {
 	enewgroup qemu 77
@@ -171,8 +183,9 @@ pkg_setup() {
 
 	CONFIG_CHECK=""
 	use fuse && CONFIG_CHECK+=" ~FUSE_FS"
+	use lvm && CONFIG_CHECK+="${LVM_CONFIG_CHECK}"
 	use lxc && CONFIG_CHECK+="${LXC_CONFIG_CHECK}"
-	use macvtap && CONFIG_CHECK+="${MACVTAP}"
+	use macvtap && CONFIG_CHECK+="${MACVTAP_CONFIG_CHECK}"
 	use virt-network && CONFIG_CHECK+="${VIRTNET_CONFIG_CHECK}"
 	if [[ -n ${CONFIG_CHECK} ]]; then
 		linux-info_pkg_setup
@@ -360,6 +373,8 @@ src_install() {
 	keepdir /var/lib/libvirt/images
 
 	use python && python_optimize
+
+	readme.gentoo_create_doc
 }
 
 pkg_preinst() {
@@ -375,6 +390,7 @@ pkg_preinst() {
 	fi
 
 	# Only sysctl files ending in .conf work
+	dodir /etc/sysctl.d
 	mv "${D}"/usr/lib/sysctl.d/libvirtd.conf "${D}"/etc/sysctl.d/libvirtd.conf
 }
 
@@ -405,20 +421,7 @@ pkg_postinst() {
 	use libvirtd || return 0
 	# From here, only libvirtd-related instructions, be warned!
 
-	elog
-	elog "For the basic networking support (bridged and routed networks)"
-	elog "you don't need any extra software. For more complex network modes"
-	elog "including but not limited to NATed network, you can enable the"
-	elog "'virt-network' USE flag."
-	elog
-	if has_version net-dns/dnsmasq; then
-		ewarn "If you have a DNS server setup on your machine, you will have"
-		ewarn "to configure /etc/dnsmasq.conf to enable the following settings: "
-		ewarn " bind-interfaces"
-		ewarn " interface or except-interface"
-		ewarn
-		ewarn "Otherwise you might have issues with your existing DNS server."
-	fi
+	readme.gentoo_print_elog
 
 	if use caps && use qemu; then
 		elog "libvirt will now start qemu/kvm VMs with non-root privileges."

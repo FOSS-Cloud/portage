@@ -1,19 +1,17 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.0.5.2.ebuild,v 1.3 2013/07/04 12:25:08 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.1.1-r1.ebuild,v 1.5 2013/09/05 18:20:53 mgorny Exp $
 
 EAPI=5
 
-#BACKPORTS=b8430867
+BACKPORTS=864bcb0e
 AUTOTOOLIZE=yes
 
 MY_P="${P/_rc/-rc}"
 
-PYTHON_DEPEND="python? 2:2.5"
-#RESTRICT_PYTHON_ABIS="3.*"
-#SUPPORT_PYTHON_ABIS="1"
+PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit eutils python user autotools linux-info systemd
+inherit eutils python-single-r1 user autotools linux-info systemd
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-2
@@ -22,8 +20,8 @@ if [[ ${PV} = *9999* ]]; then
 	SRC_URI=""
 	KEYWORDS=""
 else
-	SRC_URI="http://libvirt.org/sources/stable_updates/${MY_P}.tar.gz
-		ftp://libvirt.org/libvirt/stable_updates/${MY_P}.tar.gz
+	SRC_URI="http://libvirt.org/sources/${MY_P}.tar.gz
+		ftp://libvirt.org/libvirt/${MY_P}.tar.gz
 		${BACKPORTS:+
 			http://dev.gentoo.org/~cardoe/distfiles/${MY_P}-${BACKPORTS}.tar.xz}"
 	KEYWORDS="amd64 x86"
@@ -47,7 +45,8 @@ REQUIRED_USE="libvirtd? ( || ( lxc openvz qemu uml virtualbox xen ) )
 	virtualbox? ( libvirtd )
 	xen? ( libvirtd )
 	virt-network? ( libvirtd )
-	firewalld? ( virt-network )"
+	firewalld? ( virt-network )
+	python? ( ${PYTHON_REQUIRED_USE} )"
 
 # gettext.sh command is used by the libvirt command wrappers, and it's
 # non-optional, so put it into RDEPEND.
@@ -86,6 +85,7 @@ RDEPEND="sys-libs/readline
 	)
 	pcap? ( >=net-libs/libpcap-1.0.0 )
 	policykit? ( >=sys-auth/polkit-0.9 )
+	python? ( ${PYTHON_DEPS} )
 	qemu? (
 		>=app-emulation/qemu-0.13.0
 		dev-libs/yajl
@@ -109,8 +109,8 @@ RDEPEND="sys-libs/readline
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	app-text/xhtml1
-	dev-libs/libxslt
-	=dev-lang/python-2*"
+	dev-lang/perl
+	dev-libs/libxslt"
 
 LXC_CONFIG_CHECK="
 	~CGROUPS
@@ -149,12 +149,11 @@ VIRTNET_CONFIG_CHECK="
 	~NETFILTER_XT_MARK
 "
 
-MACVTAP_CONFIG_CHECK="~MACVTAP"
+MACVTAP_CONFIG_CHECK=" ~MACVTAP"
+
+LVM_CONFIG_CHECK=" ~BLK_DEV_DM ~DM_SNAPSHOT ~DM_MULTIPATH"
 
 pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-
 	enewgroup qemu 77
 	enewuser qemu 77 -1 -1 qemu kvm
 
@@ -166,14 +165,17 @@ pkg_setup() {
 		gpasswd -a qemu kvm
 	fi
 
+	python-single-r1_pkg_setup
+
 	# Handle specific kernel versions for different features
 	kernel_is lt 3 6 && LXC_CONFIG_CHECK+=" ~CGROUP_MEM_RES_CTLR"
 	kernel_is ge 3 6 &&	LXC_CONFIG_CHECK+=" ~MEMCG ~MEMCG_SWAP ~MEMCG_KMEM"
 
 	CONFIG_CHECK=""
 	use fuse && CONFIG_CHECK+=" ~FUSE_FS"
+	use lvm && CONFIG_CHECK+="${LVM_CONFIG_CHECK}"
 	use lxc && CONFIG_CHECK+="${LXC_CONFIG_CHECK}"
-	use macvtap && CONFIG_CHECK+="${MACVTAP}"
+	use macvtap && CONFIG_CHECK+="${MACVTAP_CONFIG_CHECK}"
 	use virt-network && CONFIG_CHECK+="${VIRTNET_CONFIG_CHECK}"
 	if [[ -n ${CONFIG_CHECK} ]]; then
 		linux-info_pkg_setup
@@ -345,8 +347,8 @@ src_install() {
 	emake install \
 		DESTDIR="${D}" \
 		HTML_DIR=/usr/share/doc/${PF}/html \
-		DOCS_DIR=/usr/share/doc/${PF}/python \
-		EXAMPLE_DIR=/usr/share/doc/${PF}/python/examples \
+		DOCS_DIR=/usr/share/doc/${PF} \
+		EXAMPLE_DIR=/usr/share/doc/${PF}/examples \
 		SYSTEMD_UNIT_DIR="$(systemd_get_unitdir)" \
 		|| die "emake install failed"
 
@@ -359,6 +361,8 @@ src_install() {
 	newconfd "${FILESDIR}/libvirtd.confd-r4" libvirtd || die
 
 	keepdir /var/lib/libvirt/images
+
+	use python && python_optimize
 }
 
 pkg_preinst() {
@@ -374,12 +378,11 @@ pkg_preinst() {
 	fi
 
 	# Only sysctl files ending in .conf work
+	dodir /etc/sysctl.d
 	mv "${D}"/usr/lib/sysctl.d/libvirtd.conf "${D}"/etc/sysctl.d/libvirtd.conf
 }
 
 pkg_postinst() {
-	use python && python_mod_optimize libvirt.py
-
 	if [[ -e "${ROOT}"/etc/libvirt/qemu/networks/default.xml ]]; then
 		touch "${ROOT}"/etc/libvirt/qemu/networks/default.xml
 	fi
@@ -425,8 +428,4 @@ pkg_postinst() {
 		elog "libvirt will now start qemu/kvm VMs with non-root privileges."
 		elog "Ensure any resources your VMs use are accessible by qemu:qemu"
 	fi
-}
-
-pkg_postrm() {
-	use python && python_mod_cleanup libvirt.py
 }
