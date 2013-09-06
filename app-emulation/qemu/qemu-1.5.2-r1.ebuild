@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.5.2-r1.ebuild,v 1.1 2013/08/03 19:47:09 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.5.2-r1.ebuild,v 1.4 2013/09/05 18:20:53 mgorny Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
 PYTHON_REQ_USE="ncurses,readline"
 
 inherit eutils flag-o-matic linux-info toolchain-funcs multilib python-r1 \
@@ -71,7 +71,7 @@ LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	aio? ( dev-libs/libaio[static-libs(+)] )
 	caps? ( sys-libs/libcap-ng[static-libs(+)] )
 	curl? ( >=net-misc/curl-7.15.4[static-libs(+)] )
-	fdt? ( >=sys-apps/dtc-1.2.0[static-libs(+)] )
+	fdt? ( >=sys-apps/dtc-1.2.0[static-libs(+)] <sys-apps/dtc-1.4.0[static-libs(+)] )
 	glusterfs? ( >=sys-cluster/glusterfs-3.4.0[static-libs(+)] )
 	jpeg? ( virtual/jpeg[static-libs(+)] )
 	ncurses? ( sys-libs/ncurses[static-libs(+)] )
@@ -521,7 +521,7 @@ pkg_postinst() {
 		ewarn "It is recommended that you migrate any VMs that may be running"
 		ewarn "on qemu-kvm to a host with a newer qemu and regenerate"
 		ewarn "any saved states with a newer qemu."
-		ewarn 
+		ewarn
 		ewarn "qemu-kvm was the primary qemu provider in Gentoo through 1.2.x"
 	fi
 

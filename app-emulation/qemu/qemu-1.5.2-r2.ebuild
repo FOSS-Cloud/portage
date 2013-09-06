@@ -1,16 +1,16 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.5.2.ebuild,v 1.1 2013/07/27 04:14:19 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.5.2-r2.ebuild,v 1.4 2013/09/05 18:20:53 mgorny Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
 PYTHON_REQ_USE="ncurses,readline"
 
 inherit eutils flag-o-matic linux-info toolchain-funcs multilib python-r1 \
 	user udev fcaps readme.gentoo
 
-BACKPORTS=2d2faaeb
+BACKPORTS=fd9f079c
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://git.qemu.org/qemu.git"
@@ -29,7 +29,8 @@ HOMEPAGE="http://www.qemu.org http://www.linux-kvm.org"
 
 LICENSE="GPL-2 LGPL-2 BSD-2"
 SLOT="0"
-IUSE="accessibility +aio alsa bluetooth +caps +curl debug fdt gtk iscsi +jpeg \
+IUSE="accessibility +aio alsa bluetooth +caps +curl debug fdt glusterfs \
+gtk iscsi +jpeg \
 kernel_linux kernel_FreeBSD mixemu ncurses opengl +png pulseaudio python \
 rbd sasl +seccomp sdl selinux smartcard spice static static-softmmu \
 static-user systemtap tci test +threads tls usbredir +uuid vde +vhost-net \
@@ -70,7 +71,8 @@ LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	aio? ( dev-libs/libaio[static-libs(+)] )
 	caps? ( sys-libs/libcap-ng[static-libs(+)] )
 	curl? ( >=net-misc/curl-7.15.4[static-libs(+)] )
-	fdt? ( >=sys-apps/dtc-1.2.0[static-libs(+)] )
+	fdt? ( >=sys-apps/dtc-1.2.0[static-libs(+)] <sys-apps/dtc-1.4.0[static-libs(+)] )
+	glusterfs? ( >=sys-cluster/glusterfs-3.4.0[static-libs(+)] )
 	jpeg? ( virtual/jpeg[static-libs(+)] )
 	ncurses? ( sys-libs/ncurses[static-libs(+)] )
 	png? ( media-libs/libpng[static-libs(+)] )
@@ -278,6 +280,7 @@ qemu_src_configure() {
 		conf_opts+=" --disable-curses"
 		conf_opts+=" --disable-kvm"
 		conf_opts+=" --disable-libiscsi"
+		conf_opts+=" --disable-glusterfs"
 		conf_opts+=" $(use_enable seccomp)"
 		conf_opts+=" --disable-sdl"
 		conf_opts+=" --disable-smartcard-nss"
@@ -299,6 +302,7 @@ qemu_src_configure() {
 		conf_opts+=" $(use_enable caps cap-ng)"
 		conf_opts+=" $(use_enable curl)"
 		conf_opts+=" $(use_enable fdt)"
+		conf_opts+=" $(use_enable glusterfs)"
 		conf_opts+=" $(use_enable iscsi libiscsi)"
 		conf_opts+=" $(use_enable jpeg vnc-jpeg)"
 		conf_opts+=" $(use_enable kernel_linux kvm)"
@@ -517,7 +521,7 @@ pkg_postinst() {
 		ewarn "It is recommended that you migrate any VMs that may be running"
 		ewarn "on qemu-kvm to a host with a newer qemu and regenerate"
 		ewarn "any saved states with a newer qemu."
-		ewarn 
+		ewarn
 		ewarn "qemu-kvm was the primary qemu provider in Gentoo through 1.2.x"
 	fi
 
