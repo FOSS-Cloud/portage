@@ -1,6 +1,127 @@
 # ChangeLog for sys-kernel/gentoo-sources
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1168 2013/08/06 16:22:30 mpagano Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1186 2013/09/05 22:28:58 tomwij Exp $
+
+  05 Sep 2013; Tom Wijsman <TomWij@gentoo.org> gentoo-sources-3.11.0.ebuild,
+  metadata.xml:
+  Experimental BFQ disk scheduler v6r2 patches added to 3.11. Introduced
+  experimental tarball with experimental USE flag; for more details, see
+  "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
+
+*gentoo-sources-3.11.0 (03 Sep 2013)
+
+  03 Sep 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.11.0.ebuild:
+  Linux 3.11.0. Support for namespace user.pax.* on tmpfs. Enable mic mute led
+  in thinkpads. Zero copy for infiniband psm userspace driver. Disable Windows
+  8 compatibility for some Lenovo ThinkPads. Ensure that /dev/root doesn't
+  appear in /proc/mounts when bootint without an initramfs. fbcondecor patch.
+  Add Gentoo Linux support config settings and defaults.
+
+*gentoo-sources-3.4.60 (31 Aug 2013)
+
+  31 Aug 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.0.94.ebuild, +gentoo-sources-3.4.60.ebuild:
+  Linux patch 3.4.60
+
+*gentoo-sources-3.0.94 (31 Aug 2013)
+
+  31 Aug 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.0.94.ebuild:
+  Linux patch 3.0.94
+
+*gentoo-sources-3.10.10 (30 Aug 2013)
+
+  30 Aug 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.10.10.ebuild:
+  Linux patch 3.10.10.
+
+  27 Aug 2013; Jack Morgan <jmorgan@gentoo.org> gentoo-sources-3.10.7.ebuild:
+  sparc/ppc/ppc64 stable wrt #481522
+
+  21 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> gentoo-sources-3.10.7.ebuild:
+  x86 stable wrt bug #481522
+
+  21 Aug 2013; Tom Wijsman <TomWij@gentoo.org> gentoo-sources-3.10.9.ebuild:
+  Applied BFQ patch to 3.10.9 such that it works again. Emerge that kernel again
+  if you run BFQ. Reported by Robert Förster in bug #481820; this didn't appear
+  broken in my tests, but confirmed fix by jlec on IRC so this was probably some
+  specific scenario.
+
+  21 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> gentoo-sources-3.10.7.ebuild:
+  Stable on amd64, wrt bug #481522
+
+  21 Aug 2013; Raúl Porcel <armin76@gentoo.org> gentoo-sources-3.10.7.ebuild:
+  alpha/arm/ia64/s390/sh stable wrt #481522
+
+*gentoo-sources-3.10.9 (20 Aug 2013)
+
+  20 Aug 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.10.9.ebuild:
+  Linux patch 3.10.9.
+
+*gentoo-sources-3.0.93 (20 Aug 2013)
+
+  20 Aug 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.0.93.ebuild:
+  Linux patch 3.0.93.
+
+*gentoo-sources-3.4.59 (20 Aug 2013)
+*gentoo-sources-3.0.92 (20 Aug 2013)
+*gentoo-sources-3.10.8 (20 Aug 2013)
+
+  20 Aug 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.0.92.ebuild,
+  +gentoo-sources-3.10.8.ebuild, +gentoo-sources-3.4.59.ebuild:
+  Linux patches 3.0.92, 3.4.59 and 3.10.8.
+
+*gentoo-sources-3.9.11-r1 (20 Aug 2013)
+
+  20 Aug 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.9.11-r1.ebuild:
+  Temporarily brought back 3.9.11-r1 under limited architectures for some NVIDIA
+  users, until fixed; for some users, the 3.10 branch does still appear to be
+  problematic due to an "NVRM: os_pci_init_handle: invalid context!" error. For
+  those that seek more upstream support, this is tracked in NVIDIA internal bug
+  id 1341332 (discovered at
+  https://devtalk.nvidia.com/default/topic/567297/linux/linux-3-10-driver-
+  crash/2/). Thanks for Calchan to report on IRC the ongoing problem(s) that
+  some NVIDIA users are experiencing.
+
+  19 Aug 2013; Tom Wijsman <TomWij@gentoo.org> -gentoo-sources-3.9.11-r1.ebuild:
+  Remove 3.9.11-r1 as it is no longer a stable candidate and we people will want
+  to switch to the new stable candidate 3.10.7.
+
+  19 Aug 2013; Jeroen Roovers <jer@gentoo.org> gentoo-sources-3.10.7.ebuild:
+  Stable for HPPA (bug #481522).
+
+  15 Aug 2013; Tom Wijsman <TomWij@gentoo.org> gentoo-sources-3.10.7.ebuild:
+  Removed 2300_USB-mount-extd-inq-cmd-fix.patch from 3.10.7 to avoid
+  inconsistent behavior when trying to apply it twice, as it is already applied
+  upstream in 0ac10bd036f0f3b8ce7ac2390446eab9531c72eb; thanks to Bertrand
+  Jacquin (beber) to report this on the gentoo-kernel ML. Since this fixes a
+  build issue, no revision bump is needed; the removal of the inconsistent
+  behavior does in no way change the behavior of the kernel code.
+
+*gentoo-sources-3.4.58 (15 Aug 2013)
+*gentoo-sources-3.0.91 (15 Aug 2013)
+*gentoo-sources-3.10.7 (15 Aug 2013)
+
+  15 Aug 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.0.91.ebuild,
+  +gentoo-sources-3.10.7.ebuild, +gentoo-sources-3.4.58.ebuild,
+  -gentoo-sources-3.0.87.ebuild, -gentoo-sources-3.10.4.ebuild,
+  -gentoo-sources-3.10.5-r1.ebuild, -gentoo-sources-3.10.6.ebuild,
+  -gentoo-sources-3.4.54.ebuild:
+  Version bumps 3.0.91, 3.4.58 and 3.10.7. Removed old. 3.10.7 is the new stable
+  candidate. Added patches for a Nouveau build fix as well as enabling TMPFS and
+  DEVTMPFS by default; this behavior alongside an experiment with init system
+  configuration, as well as possible more future behavior can be controlled in a
+  new Gentoo Linux menu.
+
+*gentoo-sources-3.0.90 (12 Aug 2013)
+*gentoo-sources-3.4.57 (12 Aug 2013)
+*gentoo-sources-3.10.6 (12 Aug 2013)
+
+  12 Aug 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.0.90.ebuild,
+  +gentoo-sources-3.10.6.ebuild, +gentoo-sources-3.4.57.ebuild,
+  -gentoo-sources-3.10.3-r1.ebuild, -gentoo-sources-3.10.5.ebuild:
+  Linux patches (3.0.89,) 3.0.90, (3.4.56,) 3.4.57 and 3.10.6; missing versions
+  in LTS due to devaway marked in parentheses, dropped old and broken versions.
 
 *gentoo-sources-3.10.5-r1 (06 Aug 2013)
 
