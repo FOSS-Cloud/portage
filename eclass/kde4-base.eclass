@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.123 2013/02/07 03:38:33 alexxy Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.131 2013/08/15 15:36:26 kensington Exp $
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
@@ -10,8 +10,11 @@
 # The kde4-base.eclass provides support for building KDE4 based ebuilds
 # and KDE4 applications.
 #
-# NOTE: KDE 4 ebuilds currently support EAPIs 3, 4, and 5.  This will be
+# NOTE: KDE 4 ebuilds currently support EAPIs 4 and 5.  This will be
 # reviewed over time as new EAPI versions are approved.
+
+if [[ ${___ECLASS_ONCE_KDE4_BASE} != "recur -_+^+_- spank" ]] ; then
+___ECLASS_ONCE_KDE4_BASE="recur -_+^+_- spank"
 
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @DESCRIPTION:
@@ -106,25 +109,25 @@ unset export_fns
 
 # @ECLASS-VARIABLE: DECLARATIVE_REQUIRED
 # @DESCRIPTION:
-# Is qt-declarative required? Possible values are 'always', 'optional' and 'never'.
+# Is qtdeclarative required? Possible values are 'always', 'optional' and 'never'.
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 DECLARATIVE_REQUIRED="${DECLARATIVE_REQUIRED:-never}"
 
 # @ECLASS-VARIABLE: QTHELP_REQUIRED
 # @DESCRIPTION:
-# Is qt-assistant required? Possible values are 'always', 'optional' and 'never'.
+# Is qthelp required? Possible values are 'always', 'optional' and 'never'.
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 QTHELP_REQUIRED="${QTHELP_REQUIRED:-never}"
 
 # @ECLASS-VARIABLE: OPENGL_REQUIRED
 # @DESCRIPTION:
-# Is qt-opengl required? Possible values are 'always', 'optional' and 'never'.
+# Is qtopengl required? Possible values are 'always', 'optional' and 'never'.
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 OPENGL_REQUIRED="${OPENGL_REQUIRED:-never}"
 
 # @ECLASS-VARIABLE: MULTIMEDIA_REQUIRED
 # @DESCRIPTION:
-# Is qt-multimedia required? Possible values are 'always', 'optional' and 'never'.
+# Is qtmultimedia required? Possible values are 'always', 'optional' and 'never'.
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 MULTIMEDIA_REQUIRED="${MULTIMEDIA_REQUIRED:-never}"
 
@@ -176,7 +179,7 @@ case ${KDEBASE} in
 		# packages that will never be mirrored. (As they only will ever be in
 		# the overlay).
 		case ${PV} in
-			*9999* | 4.?.[6-9]?)
+			*9999* | 4.?.[6-9]? | 4.??.[6-9]?)
 				RESTRICT+=" mirror"
 				;;
 		esac
@@ -190,16 +193,11 @@ esac
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package.
-if version_is_at_least 4.8.50 "${KDE_MINIMAL}"; then
-	# Upstream has added an *undeclared* dependency on Qt 4.8...
-	QT_MINIMAL="${QT_MINIMAL:-4.8.0}"
-else
-	QT_MINIMAL="${QT_MINIMAL:-4.7.4}"
-fi
+QT_MINIMAL="${QT_MINIMAL:-4.8.0}"
 
 # Declarative dependencies
 qtdeclarativedepend="
-	>=x11-libs/qt-declarative-${QT_MINIMAL}:4
+	>=dev-qt/qtdeclarative-${QT_MINIMAL}:4
 "
 case ${DECLARATIVE_REQUIRED} in
 	always)
@@ -215,7 +213,7 @@ unset qtdeclarativedepend
 
 # QtHelp dependencies
 qthelpdepend="
-	>=x11-libs/qt-assistant-${QT_MINIMAL}:4
+	>=dev-qt/qthelp-${QT_MINIMAL}:4
 "
 case ${QTHELP_REQUIRED} in
 	always)
@@ -230,7 +228,7 @@ unset qthelpdepend
 
 # OpenGL dependencies
 qtopengldepend="
-	>=x11-libs/qt-opengl-${QT_MINIMAL}:4
+	>=dev-qt/qtopengl-${QT_MINIMAL}:4
 "
 case ${OPENGL_REQUIRED} in
 	always)
@@ -246,7 +244,7 @@ unset qtopengldepend
 
 # MultiMedia dependencies
 qtmultimediadepend="
-	>=x11-libs/qt-multimedia-${QT_MINIMAL}:4
+	>=dev-qt/qtmultimedia-${QT_MINIMAL}:4
 "
 case ${MULTIMEDIA_REQUIRED} in
 	always)
@@ -280,15 +278,18 @@ unset cppuintdepend
 # Qt accessibility classes are needed in various places, bug 325461
 kdecommondepend="
 	dev-lang/perl
-	>=x11-libs/qt-core-${QT_MINIMAL}:4[qt3support,ssl]
-	>=x11-libs/qt-dbus-${QT_MINIMAL}:4
-	>=x11-libs/qt-gui-${QT_MINIMAL}:4[accessibility,dbus]
-	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[accessibility]
-	>=x11-libs/qt-script-${QT_MINIMAL}:4
-	>=x11-libs/qt-sql-${QT_MINIMAL}:4[qt3support]
-	>=x11-libs/qt-svg-${QT_MINIMAL}:4
-	>=x11-libs/qt-test-${QT_MINIMAL}:4
-	>=x11-libs/qt-webkit-${QT_MINIMAL}:4
+	>=dev-qt/qt3support-${QT_MINIMAL}:4[accessibility]
+	>=dev-qt/qtcore-${QT_MINIMAL}:4[qt3support,ssl]
+	>=dev-qt/qtdbus-${QT_MINIMAL}:4
+	|| (
+		( >=dev-qt/qtgui-4.8.5:4[accessibility,dbus(+)] dev-qt/designer:4[-phonon] )
+		<dev-qt/qtgui-4.8.5:4[accessibility,dbus(+)]
+	)
+	>=dev-qt/qtscript-${QT_MINIMAL}:4
+	>=dev-qt/qtsql-${QT_MINIMAL}:4[qt3support]
+	>=dev-qt/qtsvg-${QT_MINIMAL}:4
+	>=dev-qt/qttest-${QT_MINIMAL}:4
+	>=dev-qt/qtwebkit-${QT_MINIMAL}:4
 	!aqua? (
 		x11-libs/libXext
 		x11-libs/libXt
@@ -335,8 +336,8 @@ if [[ ${PN} != oxygen-icons ]]; then
 	kderdepend+=" $(add_kdebase_dep oxygen-icons)"
 fi
 
-# add a dependency over kde-l10n if EAPI4 or better is around
-if [[ ${KDEBASE} != "kde-base" && -n ${KDE_LINGUAS} && ${EAPI:-0} != 3 ]]; then
+# add a dependency over kde-l10n
+if [[ ${KDEBASE} != "kde-base" && -n ${KDE_LINGUAS} ]]; then
 	for _lingua in ${KDE_LINGUAS}; do
 		# if our package has lignuas, pull in kde-l10n with selected lingua enabled,
 		# but only for selected ones.
@@ -422,13 +423,7 @@ _calculate_src_uri() {
 
 	# calculate tarball module name
 	if [[ -n ${KMNAME} ]]; then
-		# fixup kdebase-apps name
-		case ${KMNAME} in
-			kdebase-apps)
-				_kmname="kdebase" ;;
-			*)
-				_kmname="${KMNAME}" ;;
-		esac
+		_kmname="${KMNAME}"
 	else
 		_kmname=${PN}
 	fi
@@ -599,14 +594,10 @@ kde4-base_pkg_setup() {
 	# In theory should be in pkg_pretend but we check it only for kdelibs there
 	# and for others we do just quick scan in pkg_setup because pkg_pretend
 	# executions consume quite some time.
-	# We can only do this for EAPI 4 or later because the MERGE_TYPE variable
-	# is otherwise undefined.
-	if [[ ${EAPI:-0} != 3 ]]; then 
-		if [[ ${MERGE_TYPE} != binary ]]; then
-			[[ $(gcc-major-version) -lt 4 ]] || \
-					( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 3 ]] ) \
-				&& die "Sorry, but gcc-4.3 and earlier wont work for KDE (see bug 354837)."
-		fi
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		[[ $(gcc-major-version) -lt 4 ]] || \
+				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 3 ]] ) \
+			&& die "Sorry, but gcc-4.3 and earlier wont work for KDE (see bug 354837)."
 	fi
 
 	KDEDIR=/usr
@@ -629,7 +620,6 @@ kde4-base_src_unpack() {
 	if [[ ${KDE_BUILD_TYPE} = live ]]; then
 		case ${KDE_SCM} in
 			svn)
-				migrate_store_dir
 				subversion_src_unpack
 				;;
 			git)
@@ -843,9 +833,9 @@ kde4-base_src_install() {
 
 	cmake-utils_src_install
 
-	# In EAPI 4+, we don't want ${PREFIX}/share/doc/HTML to be compressed,
+	# We don't want ${PREFIX}/share/doc/HTML to be compressed,
 	# because then khelpcenter can't find the docs
-	[[ ${EAPI:-0} != 3 && -d ${ED}/${PREFIX}/share/doc/HTML ]] &&
+	[[ -d ${ED}/${PREFIX}/share/doc/HTML ]] &&
 		docompress -x ${PREFIX}/share/doc/HTML
 }
 
@@ -906,3 +896,5 @@ kde4-base_pkg_postrm() {
 	fdo-mime_mime_database_update
 	buildsycoca
 }
+
+fi
