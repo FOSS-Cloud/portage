@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License, v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/use.mask,v 1.105 2013/01/20 10:51:21 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/use.mask,v 1.112 2013/08/22 16:07:41 chithanh Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -sparc
@@ -107,7 +107,6 @@ wicd
 indi
 chm
 ebook
-google-gadgets
 celt
 capi
 lensfun
@@ -170,7 +169,6 @@ ukcid
 # USE-flags from differents origins
 brltty
 cle266
-cmucl
 commercial
 cpufreq
 directfb
@@ -250,8 +248,11 @@ video_cards_nouveau
 # Mask more VIDEO_CARDs added with mesa-8.0
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
+# llvm is not keyworded
+video_cards_radeonsi
 
 # Diego Pettenò <flameeyes@gentoo.org> (6 Dec 2006)
 # Unmask the Sun-specific drivers
@@ -306,8 +307,8 @@ alsa_cards_wavefront
 # if a sub-profile want's it, it can -use.mask it
 multilib
 
-# Ben de Groot <yngwin@gentoo.org> 11 Feb 2009
-# both x11-libs/qt-phonon and media-sound/phonon are unkeyworded
+# Ben de Groot <yngwin@gentoo.org> (11 Feb 2009)
+# Both dev-qt/qtphonon and media-sound/phonon are unkeyworded
 phonon
 
 # Matt Turner <mattst88@gentoo.org) (10 Feb 2012)
@@ -324,3 +325,10 @@ cman
 clvm
 
 -zeitgeist
+
+# nvidia toolkit for binary drivers
+cg
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl

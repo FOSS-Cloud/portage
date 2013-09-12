@@ -1,6 +1,21 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ppc64/package.use.mask,v 1.51 2013/02/17 21:01:58 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ppc64/package.use.mask,v 1.55 2013/05/22 09:25:56 patrick Exp $
+
+# Patrick Lauer <patrick@gentoo.org> (27 May 2013)
+# Mask useflags for stable things depending on systemd
+# as systemd is still ~ppc64
+media-sound/pulseaudio systemd
+sys-auth/polkit systemd
+sys-fs/udisks systemd
+sys-power/upower systemd
+x11-misc/colord systemd
+
+# Michael Palimaka <kensington@gentoo.org> (02 Apr 2013)
+# Requires dev-lang/mono which currently has some issues
+# on ppc64.
+kde-base/kdebindings-meta csharp
+net-libs/libkolabxml csharp
 
 # Sergey Popov <pinkbyte@gentoo.org> (18 Feb 2013)
 # sys-cluster/ploop can not be build on ppc64, bug #447644
@@ -86,8 +101,3 @@ sys-auth/pambase passwdqc
 # Joseph Jezak <josejx@gentoo.org> (12 February 2010)
 # Mask unstable pidgin deps until we can mark them stable (farsight2)
 net-im/pidgin gstreamer
-
-# Joseph Jezak <josejx@gentoo.org> (23 February 2010)
-# Mask webkit flag due to minimal-toc breakage
-x11-misc/google-gadgets	webkit
-

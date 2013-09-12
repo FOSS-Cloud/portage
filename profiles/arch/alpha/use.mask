@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation.
 # Distributed under the terms of the GNU General Public License, v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/use.mask,v 1.81 2013/01/20 16:53:23 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/use.mask,v 1.86 2013/08/22 16:07:39 chithanh Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -alpha
@@ -94,8 +94,8 @@ gts
 # Needs to be tested
 video_cards_nouveau
 
-# Ben de Groot <yngwin@gentoo.org> 11 Feb 2009
-# both x11-libs/qt-phonon and media-sound/phonon are unkeyworded
+# Ben de Groot <yngwin@gentoo.org> (11 Feb 2009)
+# Both dev-qt/qtphonon and media-sound/phonon are unkeyworded
 phonon
 
 # 14 May 2007 Raúl Porcel <armin76@gentoo.org>
@@ -151,8 +151,11 @@ video_cards_vesa
 # Mask more VIDEO_CARDs added with mesa-8.0
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
+# llvm is not keyworded
+video_cards_radeonsi
 
 # dspam and dspam-web use this one
 # We've never supported cyrus-imapd because nobody asked for
@@ -215,3 +218,10 @@ clvm
 
 -zeitgeist
 template_haskell
+
+# nvidia cg toolkit for binary drivers
+cg
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl

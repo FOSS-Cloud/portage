@@ -1,6 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/targets/desktop/gnome/package.use,v 1.15 2013/01/13 10:00:38 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/targets/desktop/gnome/package.use,v 1.19 2013/06/06 05:34:50 tetromino Exp $
+
+# Required for cheese in gnome3
+>=media-libs/gst-plugins-base-1.0 theora
 
 # Required for gnome-base/gnome-2.32 to be merged directly, for
 # gnome-extra/hamster-applet-2.32 and x11-misc/alacarte-0.13
@@ -13,12 +16,15 @@ net-misc/spice-gtk -gstreamer
 # Required by app-accessibility/orca-3
 app-accessibility/speech-dispatcher python
 
-# gtk3 input method plugins required for gnome3
-app-i18n/ibus gtk3
+# gtk3 input method plugins required for gnome3; gnome-shell wants ibus[dconf]
+app-i18n/ibus dconf gtk3
 app-i18n/uim gtk3
 
 # incompatible with >=evolution-data-server-3.6, bug #449138
 dev-vcs/giggle -eds
+
+# Required for webkit-gtk-2
+media-libs/harfbuzz icu
 
 # Pulled in by net-im/telepathy-connection-managers[msn] (via dev-python/papyon
 # and net-voip/telepathy-butterfly)

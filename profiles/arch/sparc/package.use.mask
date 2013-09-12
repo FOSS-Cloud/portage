@@ -1,6 +1,41 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/package.use.mask,v 1.133 2013/02/11 09:21:21 yngwin Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/package.use.mask,v 1.144 2013/08/22 21:09:18 chithanh Exp $
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# dev-libs/jemalloc is not keyworded
+www-plugins/gnash jemalloc
+
+# Pacho Ramos <pacho@gentoo.org> (25 Jul 2013)
+# Missing keywords, bug #444688
+>=gnome-base/gnome-control-center-3.8 cups
+>=gnome-base/gnome-core-apps-3.8 cups
+>=gnome-base/gnome-3.8 cups
+
+# Pacho Ramos <pacho@gentoo.org> (20 Jul 2013)
+# Keywords pending, bug #476710
+>=gnome-base/gnome-extra-apps-3.8 games
+
+# Michael Weber <xmw@gentoo.org> (08 Jul 2013)
+# missing keywords on dev-python/pydns
+net-dns/rbldnsd test
+
+# Patrick Lauer <patrick@gentoo.org> (17 June 2013)
+# Fix per-arch mask of phonon[zeitgeist] #460140
+media-libs/phonon zeitgeist
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (28 May 2013)
+# depends on sys-devel/llvm[video_cards_radeon]
+media-libs/mesa r600-llvm-compiler
+
+# Patrick Lauer <patrick@gentoo.org> (27 May 2013)
+# stable keywords missing on tagpy/coherence
+media-video/totem upnp-av
+media-sound/rhythmbox upnp-av
+
+# Julian Ospald <hasufell@gentoo.org> (31 Mar 2013)
+# depends on mono
+>=net-irc/hexchat-2.9.4-r1 theme-manager
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (31 Jan 2013)
 # remove mask when net-libs/libqmi is keyworded here
@@ -9,12 +44,6 @@ net-misc/modemmanager qmi qmi-newest
 # Alexandre Rostovtsev <tetromino@gentoo.org> (22 Jan 2013)
 # remove mask if/when media-gfx/argyllcms is keywored here.
 x11-misc/colord extra-print-profiles
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (07 Jan 2012)
-# remove when media-libs/libquvi is stable on sparc
-=dev-libs/totem-pl-parser-2.32.6-r1 quvi
-=media-video/mplayer2-2.0_p20120828 quvi
-=media-video/totem-2.32.0-r2 youtube
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (31 Dec 2012)
 # requires firefox, which is not keyworded on sparc
@@ -39,17 +68,17 @@ gnome-extra/libgda reports
 >=dev-db/mariadb-5.5 systemtap tcmalloc jemalloc
 
 # Raúl Porcel <armin76@gentoo.org> (08 Jul 2012)
-# x11-libs/qt-webkit doesn't seem to work
+# dev-qt/qtwebkit doesn't seem to work
 dev-python/PyQt4 webkit
-x11-libs/qt-assistant webkit
-x11-libs/qt-declarative webkit
+dev-qt/qtdeclarative webkit
+dev-qt/qthelp webkit
 
 # Diego Elio Pettenò <flameeyes@gentoo.org> (24 Jun 2012)
 # Requires libpcre with jit
 www-apache/mod_security jit
 
 # Ben de Groot <yngwin@gentoo.org> (14 Jun 2012)
-# Since x11-libs/qt-* will no longer be available for sparc, we need
+# Since dev-qt/qt* will no longer be available for sparc, we need
 # to mask the reverse dependencies
 dev-cpp/eigen examples
 dev-tex/latex-beamer lyx
@@ -159,11 +188,11 @@ dev-libs/soprano virtuoso
 app-admin/system-config-printer-common  policykit
 
 # Ben de Groot <yngwin@gentoo.org> (16 Jan 2010)
-# qt-multimedia is not keyworded, bug 293671
+# qtmultimedia is not keyworded, bug 293671
 dev-python/PyQt4 multimedia
 
 # Ben de Groot <yngwin@gentoo.org> (11 Nov 2009)
-# Requires qt-assistant, which requires qt-webkit, bug 292838
+# Requires qthelp, which requires qtwebkit, bug 292838
 dev-libs/uriparser doc
 media-libs/libxspf doc
 

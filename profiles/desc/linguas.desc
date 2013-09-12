@@ -1,12 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation.
+# Copyright 1999-2013 Gentoo Foundation.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/desc/linguas.desc,v 1.66 2012/09/19 07:32:08 yngwin Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/desc/linguas.desc,v 1.75 2013/08/03 09:40:27 pinkbyte Exp $
 
 # This file contains descriptions of LINGUAS USE_EXPAND flags.
 
 # Keep it sorted.
 
 af - Afrikaans locale
+af_ZA - Afrikaans locale for South Africa
 ak - Akan locale
 am - Amharic locale
 ar - Arabic locale
@@ -46,6 +47,7 @@ ee - Ewe locale
 el - Greek locale
 el_GR - Greek locale
 en - English locale
+en_AU - English locale for Australia
 en_CA - English locale for Canada
 en_GB - English locale for Britain
 en_US - English locale
@@ -69,7 +71,7 @@ fa_IR - Persian locale for Iran
 fi - Finnish locale
 fi_FI - Finnish locale
 fil - Filipino locale
-fo -  Faroese locale
+fo - Faroese locale
 fr - French locale
 fr_CA - French locale for Canada
 fr_FR - French locale for France
@@ -88,6 +90,7 @@ hi_IN - Hindi locale
 hne - Chhattisgarhi locale
 hr - Croatian locale
 hsb - Upper Sorbian locale
+ht - Haitian locale
 hu - Hungarian locale
 hu_HU - Hungarian locale
 hy - Armenian locale
@@ -120,6 +123,7 @@ lo - Lao locale
 lt - Lithuanian locale
 lt_LT - Lithuanian locale
 lv - Latvian locale
+lv_LV - Latvian locale for Latvia
 mai - Maithili locale
 me - Montenegrin (Crnogorski) locale
 mk - Macedonian locale
@@ -130,6 +134,7 @@ mni - Manipuri locale
 mr - Marathi locale
 mr_IN - Marathi locale for India
 ms - Malay locale
+ms_MY - Malay locale for Malaysia
 mt - Maltese locale
 my - Burmese locale
 nan - Min Nan locale
@@ -174,6 +179,7 @@ sh - Serbo-Croatian locale
 sh_YU - Serbo-Croatian locale
 son - Songhai locale
 si - Sinhala locale
+si_LK - Sinhala locale
 sk - Slovak locale
 sk_SK - Slovak locale
 sl - Slovenian locale
@@ -187,6 +193,8 @@ sr@Latn - Serbian (latin) locale
 sr_BA - Serbian locale for Bosnia and Herzegovina
 sr_CS - Serbian locale
 sr_RS - Serbian locale for Serbia
+sr_RS@cyrillic - Serbian (cyrillic) locale for Serbia
+sr_RS@latin - Serbian (latin) locale for Serbia
 ss - Swati locale
 st - Southern Sotho locale
 sv - Swedish locale
@@ -199,7 +207,9 @@ ta_LK - Tamil locale for Sri Lanka
 te - Telugu locale
 te_IN - Telugu locale for India
 tg - Tajik locale
+tg_TJ - Tajik locale Tajikistan
 th - Thai locale
+th_TH - Thai locale Thailand
 ti - Tigrinya locale
 ti_ER - Tigrinya locale for Eritrea
 tk - Turkmen locale

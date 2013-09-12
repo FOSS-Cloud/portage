@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/package.use.mask,v 1.155 2013/02/27 21:58:13 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/package.use.mask,v 1.172 2013/09/01 22:46:24 jdhore Exp $
 
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -18,65 +18,39 @@
 
 #--- END OF EXAMPLES ---
 
-# Michał Górny <mgorny@gentoo.org> (27 Feb 2013)
-# Mask the abi_x86_32 on packages belonging to emul-linux-x86-xlibs
-# until all of them are unmasked. This avoids our users hitting
-# the emul-linux <-> package blocker.
-dev-libs/libpthread-stubs abi_x86_32
-x11-libs/libICE abi_x86_32
-x11-libs/libSM abi_x86_32
-x11-libs/libX11 abi_x86_32
-x11-libs/libXScrnSaver abi_x86_32
-x11-libs/libXau abi_x86_32
-x11-libs/libXaw abi_x86_32
-x11-libs/libXcomposite abi_x86_32
-x11-libs/libXcursor abi_x86_32
-x11-libs/libXdamage abi_x86_32
-x11-libs/libXdmcp abi_x86_32
-x11-libs/libXext abi_x86_32
-x11-libs/libXfixes abi_x86_32
-x11-libs/libXi abi_x86_32
-x11-libs/libXinerama abi_x86_32
-x11-libs/libXmu abi_x86_32
-x11-libs/libXp abi_x86_32
-x11-libs/libXpm abi_x86_32
-x11-libs/libXrandr abi_x86_32
-x11-libs/libXrender abi_x86_32
-x11-libs/libXt abi_x86_32
-x11-libs/libXtst abi_x86_32
-x11-libs/libXv abi_x86_32
-x11-libs/libXvMC abi_x86_32
-x11-libs/libXxf86dga abi_x86_32
-x11-libs/libXxf86vm abi_x86_32
-x11-libs/libpciaccess abi_x86_32
-x11-libs/libvdpau abi_x86_32
-x11-libs/libxcb abi_x86_32
-x11-proto/compositeproto abi_x86_32
-x11-proto/damageproto abi_x86_32
-x11-proto/fixesproto abi_x86_32
-x11-proto/inputproto abi_x86_32
-x11-proto/kbproto abi_x86_32
-x11-proto/printproto abi_x86_32
-x11-proto/randrproto abi_x86_32
-x11-proto/recordproto abi_x86_32
-x11-proto/renderproto abi_x86_32
-x11-proto/scrnsaverproto abi_x86_32
-x11-proto/videoproto abi_x86_32
-x11-proto/xcb-proto abi_x86_32
-x11-proto/xextproto abi_x86_32
-x11-proto/xf86bigfontproto abi_x86_32
-x11-proto/xf86dgaproto abi_x86_32
-x11-proto/xf86vidmodeproto abi_x86_32
-x11-proto/xineramaproto abi_x86_32
-x11-proto/xproto abi_x86_32
+# Jeff Horelick <jdhore@gentoo.org> (1 Sep 2013)
+# Dependency (media-libs/libsidplayfp) only keyworded
+# on x86 and amd64. (masked in base)
+>=media-plugins/audacious-plugins-3.4 -sid
+
+# Tim Harder <radhermit@gentoo.org> (13 Aug 2013)
+# dev-lang/luajit keyworded for amd64 (masked in base) 
+app-editors/vim -luajit
+app-editors/gvim -luajit
+
+# Kacper Kowalik <xarthisius@gentoo.org> (09 Aug 2013)
+# Works on amd64
+sys-apps/hwloc -cuda -gl -opencl
+
+# Michał Górny <mgorny@gentoo.org> (22 Jul 2013)
+# Meaningless on amd64 (it controls the 32-bit x86 JIT).
+dev-python/pypy sse2
+
+# Anthony G. Basile <blueness@gentoo.org> (18 Jun 2013)
+# Works on amd64
+net-libs/cyassl -aes-ni
+
+# Michael Weber <xmw@gentoo.org> (18 Jun 2013)
+# unsatisfied multilib dep on curl[abi_x86_32]
+www-client/netsurf abi_x86_32
+
+# Jeroen Roovers <jer@gentoo.org> (11 Jun 2013)
+# The debug version of www-plugins/adobe-flash is 32-bit only
+www-plugins/adobe-flash debug
 
 # Justin Lecher <jlec@gentoo.org> (21 Feb 2013)
 # cuda only works on x86 and amd64
 sci-libs/cholmod -cuda
-
-# Agostino Sarubbo <ago@gentoo.org> (16 Feb 2012)
-# mask because requires unstable depends not ready for the stabilization
-net-misc/leechcraft-full unstable
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (30 Dec 2012)
 # sys-apps/biosdevname, systemd work on this arch (masked in base)
@@ -114,20 +88,6 @@ app-crypt/johntheripper -cuda
 # sys-fs/zfs is not available everywhere.
 sys-boot/grub -libzfs
 
-# Robert Piasek <dagger@gentoo.org> (26 Apr 2012)
-# Packages with optional systemd support. Masked in base and unmasked on arches
-# where sys-apps/systemd is available.
-# Samuli Suominen <ssuominen@gentoo.org> (07 Sep 2012)
-# Masked again because this was never allowed before systemd is marked stable.
-#sys-auth/polkit -systemd
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (13 Apr 2012)
-# Packages with optional systemd support. Masked in base and unmasked on arches
-# where sys-apps/systemd is available.
-gnome-extra/gnome-screensaver -systemd
-gnome-extra/gnome-system-monitor -systemd
-net-misc/networkmanager -systemd
-
 # Alexandre Rostovtsev <tetromino@gentoo.org> (12 Apr 2012)
 # Temporary mask-in-base, unmask-in-arch for dev-python/mako keywording for
 # gobject-introspection[doctool], bug #411761
@@ -157,9 +117,8 @@ www-client/epiphany -jit
 # Davide Pesavento <pesa@gentoo.org> (30 Nov 2011)
 # JavaScriptCore JIT is supported only on amd64/arm/x86,
 # so it's masked in base profile and unmasked here.
-# Davide Pesavento <pesa@gentoo.org> (26 Jun 2012)
-# Keep it masked for qt-script wrt bug 423141.
-x11-libs/qt-webkit -jit
+dev-qt/qtscript -jit
+dev-qt/qtwebkit -jit
 
 # Samuli Suominen <ssuominen@gentoo.org> (16 Oct 2011)
 # Masked in base, unmask per arch
@@ -184,12 +143,8 @@ dev-lang/path64 assembler
 =sys-cluster/corosync-1.3.0 infiniband
 
 # Markos Chandras <hwoarang@gentoo.org> (10 Jun 2011)
-# Unmask firebird on qt-sql per bug #337451
-x11-libs/qt-sql -firebird
-
-# Jim Ramsay <lack@gentoo.org> (14 May 2011)
-# Mask 'kde' flag for adobe-flash, since the KCM plugin in 10.3 is 32-bit only.
-<www-plugins/adobe-flash-11 kde
+# Unmask firebird on qtsql per bug #337451
+dev-qt/qtsql -firebird
 
 # Markos Chandras <hwoarang@gentoo.org> (03 May 2011)
 # Unmask firebird only for php
@@ -220,17 +175,9 @@ media-libs/mesa -llvm
 # due to lack of atomic ops, bug 325185
 www-client/firefox -ipc
 
-# Tomáš Chvátal <scarabeus@gentoo.org> (4 Apr 2010)$
-# x86 platforms works$
+# Tomáš Chvátal <scarabeus@gentoo.org> (4 Apr 2010)
+# x86 platforms works
 sys-power/pm-utils -video_cards_intel -video_cards_radeon
-
-# Samuli Suominen <ssuominen@gentoo.org> (02 Feb 2009)
-# See bug #346077 for gstreamer
-app-emulation/wine gstreamer
-
-# Andrey Grozin <grozin@gentoo.org> (24 Dec 2009)
-# openmcl (aka clozurecl) is only available on x86 and amd64
-sci-mathematics/maxima -clozurecl
 
 # Mounir Lamouri <volkmar@gentoo.org> (07 Nov 2009)
 # Masked in base, unmak for amd64/x86. Bug 267264
@@ -314,3 +261,7 @@ media-sound/lame mmx
 # Robert Buchholz <rbu@gentoo.org> (16 Aug 2008)
 # masked in base, unmask for x86/amd64
 dev-python/kaa-base -tls
+
+# Samuli Suominen <ssuominen@gentoo.org> (13 Mar 2013)
+# Works with new wine, doesn't work with old wine wrt #461602
+<app-emulation/wine-1.5.25 gstreamer

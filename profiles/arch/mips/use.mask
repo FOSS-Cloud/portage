@@ -1,4 +1,6 @@
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/use.mask,v 1.62 2013/02/06 23:32:20 mattst88 Exp $
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/use.mask,v 1.68 2013/08/22 16:07:40 chithanh Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -mips
@@ -90,7 +92,6 @@ video_cards_sis
 input_devices_acecad
 input_devices_aiptek
 input_devices_calcomp
-input_devices_citron
 input_devices_digitaledge
 input_devices_dmc
 input_devices_dynapro
@@ -138,8 +139,10 @@ video_cards_r100
 video_cards_r200
 video_cards_r300
 video_cards_r600
+video_cards_radeonsi
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
 
@@ -262,7 +265,6 @@ lirc
 trusted
 voodoo3
 smartcard
-emacs
 
 #
 # Anthony G. Basile <blueness@gentoo.org> (18 Jul 2012)
@@ -378,3 +380,7 @@ fluidsynth
 # libdlm and cman are not keyworded
 cman
 clvm
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl

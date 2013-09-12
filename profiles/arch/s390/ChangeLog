@@ -1,6 +1,31 @@
 # ChangeLog for Gentoo/s390 profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/s390/ChangeLog,v 1.64 2013/02/22 00:00:22 robbat2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/s390/ChangeLog,v 1.72 2013/08/22 16:07:40 chithanh Exp $
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask opencl flag due to lack of virtual/opencl keywording.
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.mask:
+  move texlive mask from global to arch profiles, bug #475124
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask r600-llvm-compiler flag for mesa.
+
+  27 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask video_cards_ilo.
+
+  10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  Mask x11-libs/gtk+[colord] because requires too much unstable depends
+
+  03 Mar 2013; Mike Frysinger <vapier@gentoo.org> use.mask:
+  Unmask a bunch of X flags and mask more gnome flags.
+
+  03 Mar 2013; Mike Frysinger <vapier@gentoo.org> use.mask:
+  Mask USE=gtk3 since we do not have GTK keyworded.
+
+  03 Mar 2013; Mike Frysinger <vapier@gentoo.org> use.mask:
+  Unmask jpeg2k/svg/webp #456864 by Sergey Popov.
 
   22 Feb 2013; Robin H. Johnson <robbat2@gentoo.org> package.use.mask:
   tcmalloc does not support s390.

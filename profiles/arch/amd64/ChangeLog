@@ -1,6 +1,63 @@
 # ChangeLog for Gentoo/AMD64 profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/ChangeLog,v 1.213 2013/02/27 23:21:45 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/ChangeLog,v 1.230 2013/09/01 22:46:24 jdhore Exp $
+
+  01 Sep 2013; Jeff Horelick <jdhore@gentoo.org> package.use.mask:
+  unmask sid for >=media-plugins/audacious-plugins-3.4
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Drop obsolete opencl unmask.
+
+  13 Aug 2013; Tim Harder <radhermit@gentoo.org> package.use.mask:
+  Unmask luajit USE flag for app-editors/(g)vim.
+
+  22 Jul 2013; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Mask USE=sse2 on dev-python/pypy since it controls only 32-bit JIT.
+
+  22 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  no-multilib/package.mask:
+  Mask lotus-notes on multilib.
+
+  18 Jun 2013; Michael Weber <xmw@gentoo.org> package.use.mask:
+  masking www-client/netsurf abi_x86_32 due unsatisfied multilib dep on
+  curl[abi_x86_32]
+
+  12 Jun 2013; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Mask USE=debug for www-plugins/adobe-flash (bug #357321).
+
+  09 Jun 2013; Ulrich Müller <ulm@gentoo.org> no-multilib/package.mask:
+  Remove mask for media-libs/realcodecs and media-libs/win32codecs. Packages
+  have been removed.
+
+  08 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
+  Move mask for app-leechcraft/leechcraft-meta[unstable] to base profile
+
+  04 May 2013; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Remove USE=systemd from package.use.mask since the flag is (un)masked
+  globally now.
+
+  04 May 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Mask systemd flag globally, unmask on arches on which systemd is keyworded.
+
+  14 Mar 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Adjust wine's gstreamer mask to cover <wine-1.5.25
+
+  13 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> package.use.mask:
+  Remask USE="gstreamer" for current stable wine wrt #461602
+
+  12 Mar 2013; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Unmask the abi_x86_32 support due to freetype and friends being unmasked.
+
+  12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> package.use.mask:
+  Remove package.use.mask entry for wine[gstreamer] because we have 32bit gst
+  libraries now.
+
+  07 Mar 2013; Tim Harder <radhermit@gentoo.org> use.mask:
+  Unmask jython2_7 for PYTHON_TARGETS.
+
+  03 Mar 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.force,
+  x32/package.use.mask:
+  Update wine to autotools-multilib.eclass
 
   27 Feb 2013; Michał Górny <mgorny@gentoo.org> +x32/use.force,
   +x32/use.mask:

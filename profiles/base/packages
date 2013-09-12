@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation.
+# Copyright 1999-2013 Gentoo Foundation.
 # Distributed under the terms of the GNU General Public License, v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/packages,v 1.63 2012/05/18 00:20:44 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/packages,v 1.65 2013/08/27 07:10:20 ulm Exp $
 
 # Gentoo Base Profile
 
@@ -45,6 +45,8 @@
 *sys-apps/kbd
 # temporary bugfix for #398295
 *sys-apps/less
+# stopgap solution for functions.sh #373219
+*sys-apps/openrc
 #*>=sys-apps/portage-2.0.51.22
 *sys-process/procps
 *sys-process/psmisc
@@ -71,5 +73,6 @@
 *virtual/os-headers
 *virtual/package-manager
 *virtual/pager
+*virtual/service-manager
 *virtual/shadow
 *virtual/ssh

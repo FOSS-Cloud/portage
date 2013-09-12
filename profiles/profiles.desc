@@ -75,18 +75,18 @@ m68k            default/linux/m68k/13.0/desktop/kde             dev
 m68k            default/linux/m68k/13.0/developer               dev
 
 # MIPS Profiles
-mips            default/linux/mips/13.0                                         exp
-mips            default/linux/mips/13.0/n32                                     exp
-mips            default/linux/mips/13.0/n64                                     exp
-mips            default/linux/mips/13.0/multilib                                exp
-mips            default/linux/mips/13.0/multilib/n32                            exp
-mips            default/linux/mips/13.0/multilib/n64                            exp
-mips            default/linux/mips/13.0/mipsel                                  exp
-mips            default/linux/mips/13.0/mipsel/n32                              exp
-mips            default/linux/mips/13.0/mipsel/n64                              exp
-mips            default/linux/mips/13.0/mipsel/multilib                         exp
-mips            default/linux/mips/13.0/mipsel/multilib/n32                     exp
-mips            default/linux/mips/13.0/mipsel/multilib/n64                     exp
+mips            default/linux/mips/13.0                         dev
+mips            default/linux/mips/13.0/n32                     dev
+mips            default/linux/mips/13.0/n64                     exp
+mips            default/linux/mips/13.0/multilib                dev
+mips            default/linux/mips/13.0/multilib/n32            dev
+mips            default/linux/mips/13.0/multilib/n64            exp
+mips            default/linux/mips/13.0/mipsel                  dev
+mips            default/linux/mips/13.0/mipsel/n32              dev
+mips            default/linux/mips/13.0/mipsel/n64              exp
+mips            default/linux/mips/13.0/mipsel/multilib         dev
+mips            default/linux/mips/13.0/mipsel/multilib/n32     dev
+mips            default/linux/mips/13.0/mipsel/multilib/n64     exp
 
 # PPC32 Profiles
 ppc             default/linux/powerpc/ppc32/13.0                stable
@@ -134,18 +134,20 @@ x86             default/linux/x86/13.0/desktop/kde              stable
 x86             default/linux/x86/13.0/developer                stable
 
 # Gentoo/FreeBSD Profiles
-amd64-fbsd	default/bsd/fbsd/amd64/9.0			stable
 amd64-fbsd	default/bsd/fbsd/amd64/9.1			stable
+amd64-fbsd	default/bsd/fbsd/amd64/9.2			dev
 amd64-fbsd	default/bsd/fbsd/amd64/9.1/clang		exp
+amd64-fbsd	default/bsd/fbsd/amd64/9.2/clang		exp
 sparc-fbsd      default/bsd/fbsd/sparc/8.2                      exp
-x86-fbsd	default/bsd/fbsd/x86/9.0			dev
 x86-fbsd	default/bsd/fbsd/x86/9.1			dev
+x86-fbsd	default/bsd/fbsd/x86/9.2			dev
 
 # Hardened Profiles
 amd64		hardened/linux/amd64					stable
 amd64		hardened/linux/amd64/selinux				stable
 amd64		hardened/linux/amd64/no-multilib			stable
 amd64		hardened/linux/amd64/no-multilib/selinux		stable
+amd64		hardened/linux/amd64/x32				dev
 amd64		hardened/linux/uclibc/amd64				dev
 arm		hardened/linux/arm/armv7a				dev
 arm		hardened/linux/uclibc/arm/armv7a			dev
