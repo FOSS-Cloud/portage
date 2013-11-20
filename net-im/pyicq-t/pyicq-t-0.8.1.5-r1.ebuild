@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/pyicq-t/pyicq-t-0.8.1.5-r1.ebuild,v 1.1 2013/03/18 15:55:08 hanno Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-im/pyicq-t/pyicq-t-0.8.1.5-r1.ebuild,v 1.4 2013/08/03 09:45:38 mgorny Exp $
 
 EAPI="5"
 PYTHON_DEPEND="2"
@@ -15,12 +15,12 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="webinterface"
 
 DEPEND="net-im/jabber-base"
 RDEPEND="${DEPEND}
-	>=dev-python/twisted-2.2.0
+	>=dev-python/twisted-core-2.2.0
 	>=dev-python/twisted-words-0.1.0
 	>=dev-python/twisted-web-0.5.0
 	webinterface? ( >=dev-python/nevow-0.4.1 )

@@ -1,6 +1,18 @@
 # ChangeLog for sys-apps/haveged
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/haveged/ChangeLog,v 1.26 2013/02/24 06:41:10 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/haveged/ChangeLog,v 1.29 2013/09/22 06:50:34 ago Exp $
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> haveged-1.7a-r1.ebuild:
+  Stable for x86, wrt bug #480108
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> haveged-1.7a-r1.ebuild:
+  Stable for amd64, wrt bug #480108
+
+*haveged-1.7a-r1 (25 Jul 2013)
+
+  25 Jul 2013; Justin Lecher <jlec@gentoo.org> +haveged-1.7a-r1.ebuild,
+  +files/haveged.conf, +files/service.gentoo:
+  Add systemd support, #478148
 
 *haveged-1.7a (24 Feb 2013)
 

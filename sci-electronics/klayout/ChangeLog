@@ -1,6 +1,31 @@
 # ChangeLog for sci-electronics/klayout
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/klayout/ChangeLog,v 1.15 2013/03/02 23:19:23 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-electronics/klayout/ChangeLog,v 1.20 2013/11/18 10:58:10 chainsaw Exp $
+
+  18 Nov 2013; Tony Vroon <chainsaw@gentoo.org> klayout-0.22.9.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #475308.
+
+*klayout-0.22.9 (13 Oct 2013)
+
+  13 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -klayout-0.22.8.ebuild, +klayout-0.22.9.ebuild:
+  Version bump; remove old
+
+  13 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -klayout-0.20.2.ebuild, -files/klayout-0.20.2-Makefile.conf.linux-gentoo,
+  -files/klayout-0.20.2-configureonly.patch, klayout-0.22.8.ebuild,
+  +files/klayout-0.22.8-noautoruby.patch:
+  Fix build against ruby-1.9 and re-add keywords; remove old
+
+*klayout-0.22.8 (30 Jun 2013)
+
+  30 Jun 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +klayout-0.22.8.ebuild:
+  Version bump; does not build yet, needs further investigation.
+
+  19 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> metadata.xml:
+  Switch to sci-electronics herd
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> klayout-0.20.2.ebuild,
   klayout-0.22.4.ebuild:

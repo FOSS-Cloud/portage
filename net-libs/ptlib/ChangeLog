@@ -1,6 +1,24 @@
 # ChangeLog for net-libs/ptlib
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/ptlib/ChangeLog,v 1.46 2013/04/05 18:11:45 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/ptlib/ChangeLog,v 1.50 2013/10/27 09:45:21 pacho Exp $
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Voip herd is removed: http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+  24 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +files/ptlib-2.12.4-sdl-linking.patch, ptlib-2.12.4.ebuild:
+  Fix building when linking to sdl, the libs were not propagated properly. Wrt
+  bug#474362.
+
+*ptlib-2.12.4 (22 Jun 2013)
+
+  22 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +files/ptlib-2.12.4-respect_cxxflags.patch, +ptlib-2.12.4.ebuild:
+  Version bump to latest ptlib, prep for opal bump needed for libav9.
+
+  16 Apr 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ptlib-2.10.10.ebuild:
+  Guard against TARGET variable, bug #465722.
 
   05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ptlib-2.10.10.ebuild:
   Stable for ppc64, wrt bug #461842

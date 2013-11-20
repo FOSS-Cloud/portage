@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/wine/wine-1.5.27.ebuild,v 1.1 2013/03/31 03:40:03 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/wine/wine-1.5.27.ebuild,v 1.6 2013/10/13 21:10:09 tetromino Exp $
 
 EAPI="5"
 
@@ -48,7 +48,7 @@ REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )
 # or fail due to Xvfb's opengl limitations.
 RESTRICT="test"
 
-RDEPEND="truetype? ( >=media-libs/freetype-2.0.0 media-fonts/corefonts )
+RDEPEND="truetype? ( >=media-libs/freetype-2.0.0 )
 	perl? ( dev-lang/perl dev-perl/XML-Simple )
 	capi? ( net-dialup/capi4k-utils )
 	ncurses? ( >=sys-libs/ncurses-5.2:= )
@@ -61,11 +61,12 @@ RDEPEND="truetype? ( >=media-libs/freetype-2.0.0 media-fonts/corefonts )
 	)
 	gstreamer? ( media-libs/gstreamer:0.10 media-libs/gst-plugins-base:0.10 )
 	X? (
+		x11-libs/libICE
+		x11-libs/libSM
 		x11-libs/libXcursor
 		x11-libs/libXext
 		x11-libs/libXrandr
 		x11-libs/libXi
-		x11-libs/libXmu
 		x11-libs/libXxf86vm
 	)
 	xinerama? ( x11-libs/libXinerama )
@@ -77,7 +78,7 @@ RDEPEND="truetype? ( >=media-libs/freetype-2.0.0 media-fonts/corefonts )
 		virtual/opengl
 	)
 	gsm? ( media-sound/gsm:= )
-	jpeg? ( virtual/jpeg:= )
+	jpeg? ( virtual/jpeg:0= )
 	ldap? ( net-nds/openldap:= )
 	lcms? ( media-libs/lcms:0= )
 	mp3? ( >=media-sound/mpg123-1.5.0 )
@@ -96,7 +97,10 @@ RDEPEND="truetype? ( >=media-libs/freetype-2.0.0 media-fonts/corefonts )
 	xcomposite? ( x11-libs/libXcomposite )
 	amd64? (
 		abi_x86_32? (
-			gstreamer? ( app-emulation/emul-linux-x86-gstplugins )
+			gstreamer? (
+				app-emulation/emul-linux-x86-gstplugins
+				app-emulation/emul-linux-x86-medialibs[development]
+			)
 			truetype? ( >=app-emulation/emul-linux-x86-xlibs-2.1[development] )
 			X? (
 				>=app-emulation/emul-linux-x86-xlibs-2.1[development]
@@ -137,17 +141,32 @@ usr/share/applications/wine-notepad.desktop
 usr/share/applications/wine-uninstaller.desktop
 usr/share/applications/wine-winecfg.desktop"
 
+wine_build_environment_check() {
+	[[ ${MERGE_TYPE} = "binary" ]] && return 0
+
+	if use abi_x86_64 && [[ $(( $(gcc-major-version) * 100 + $(gcc-minor-version) )) -lt 404 ]]; then
+		eerror "You need gcc-4.4+ to build 64-bit wine"
+		eerror
+		return 1
+	fi
+
+	if use abi_x86_32 && use opencl && [[ x$(eselect opencl show 2> /dev/null) = "xintel" ]]; then
+		eerror "You cannot build wine with USE=opencl because intel-ocl-sdk is 64-bit only."
+		eerror "See https://bugs.gentoo.org/487864 for more details."
+		eerror
+		return 1
+	fi
+}
+
+pkg_pretend() {
+	wine_build_environment_check || die
+}
+
+pkg_setup() {
+	wine_build_environment_check || die
+}
+
 src_unpack() {
-	if use abi_x86_64; then
-		[[ $(( $(gcc-major-version) * 100 + $(gcc-minor-version) )) -lt 404 ]] \
-			&& die "you need gcc-4.4+ to build 64bit wine"
-	fi
-
-	if use abi_x86_32 && use opencl; then
-		[[ x$(eselect opencl show) = "xintel" ]] &&
-			die "Cannot build wine[opencl,abi_x86_32]: intel-ocl-sdk is 64-bit only" # 403947
-	fi
-
 	if [[ ${PV} == "9999" ]] ; then
 		git-2_src_unpack
 	else
@@ -242,6 +261,9 @@ src_configure() {
 	)
 
 	[[ ${PV} == "9999" ]] || myeconfargs+=( $(use_with pulseaudio pulse) )
+
+	# Avoid crossdev's i686-pc-linux-gnu-pkg-config if building wine32 on amd64; #472038
+	use amd64 && use abi_x86_32 && tc-export PKG_CONFIG
 
 	multilib_parallel_foreach_abi do_configure
 }

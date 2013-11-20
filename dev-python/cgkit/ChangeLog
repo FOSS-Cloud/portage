@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/cgkit
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/cgkit/ChangeLog,v 1.36 2012/11/08 06:32:24 flameeyes Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/cgkit/ChangeLog,v 1.39 2013/06/06 05:07:44 floppym Exp $
+
+*cgkit-2.0.0 (06 Jun 2013)
+
+  06 Jun 2013; Mike Gilbert <floppym@gentoo.org> +cgkit-2.0.0.ebuild,
+  +files/cgkit-py2k-pillow.patch, +files/cgkit-py3k-pillow.patch:
+  Version bump. Convert to distutils-r1. Enable python3.
+
+  05 Jun 2013; Mike Gilbert <floppym@gentoo.org> metadata.xml:
+  Fix encoding.
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> cgkit-2.0.0_alpha9-r1.ebuild:
+  Whitespace
 
   08 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org>
   -cgkit-2.0.0_alpha9.ebuild:

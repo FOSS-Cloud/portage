@@ -1,6 +1,40 @@
 # ChangeLog for net-analyzer/icinga-web
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/icinga-web/ChangeLog,v 1.9 2013/04/01 19:07:29 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/icinga-web/ChangeLog,v 1.15 2013/11/11 02:48:16 prometheanfire Exp $
+
+*icinga-web-1.10.0 (11 Nov 2013)
+
+  11 Nov 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +icinga-web-1.10.0.ebuild:
+  update of icinga-web
+
+*icinga-web-1.9.1-r1 (12 Sep 2013)
+
+  12 Sep 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +icinga-web-1.9.1-r1.ebuild, -icinga-web-1.9.0.ebuild,
+  -icinga-web-1.9.1.ebuild:
+  fix for a parallel make issue
+
+*icinga-web-1.9.1 (10 Sep 2013)
+
+  10 Sep 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +icinga-web-1.9.1.ebuild:
+  updating icinga from 1.9.0 to 1.9.1 and bumped the eapi as well
+
+  28 Jul 2013; Patrick Lauer <patrick@gentoo.org> -icinga-web-1.7.2.ebuild,
+  -icinga-web-1.8.1.ebuild, -icinga-web-1.8.2.ebuild, -icinga-web-1.8.3.ebuild:
+  QA: Punt old versions with unsatisfiable php deps
+
+  15 May 2013; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  icinga-web-1.9.0.ebuild:
+  [net-analyzer/icinga-web-1.9.0] Update dev-lang/php dep as the xsl use flag
+  was renamed to xslt.
+
+*icinga-web-1.9.0 (09 May 2013)
+
+  09 May 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +icinga-web-1.9.0.ebuild:
+  icinga-web up to 1.9.0 now
 
 *icinga-web-1.8.3 (01 Apr 2013)
 

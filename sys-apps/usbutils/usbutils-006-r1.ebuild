@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/usbutils/usbutils-006-r1.ebuild,v 1.1 2013/03/25 05:46:18 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/usbutils/usbutils-006-r1.ebuild,v 1.14 2013/09/05 09:55:09 vapier Exp $
 
 EAPI=5
 
@@ -14,7 +14,7 @@ SRC_URI="mirror://kernel/linux/utils/usb/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-linux ~arm-linux ~x86-linux"
 IUSE="python zlib"
 
 RDEPEND="virtual/libusb:1=
@@ -31,9 +31,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch \
-		"${FILESDIR}"/${P}-libusbx-1.0.13.patch \
-		"${FILESDIR}"/${P}-stdint.patch
+	epatch "${FILESDIR}"/${P}-stdint.patch
 
 	sed -i -e '/^usbids/s:/usr/share:/usr/share/misc:' lsusb.py || die
 

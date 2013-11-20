@@ -1,6 +1,24 @@
 # ChangeLog for dev-haskell/dataenc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/dataenc/ChangeLog,v 1.34 2013/03/31 10:33:34 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/dataenc/ChangeLog,v 1.38 2013/10/26 09:19:25 gienah Exp $
+
+  26 Oct 2013; Mark Wright <gienah@gentoo.org> dataenc-0.14.0.5-r1.ebuild:
+  The test dependencies package.use.mask'd on those platforms where template-
+  haskell is not yet available.
+
+  26 Oct 2013; Mark Wright <gienah@gentoo.org> dataenc-0.14.0.5-r1.ebuild:
+  Fix bug 488606 template haskell may not be available on some architectures.
+
+*dataenc-0.14.0.5-r1 (19 Oct 2013)
+
+  19 Oct 2013; Mark Wright <gienah@gentoo.org> +dataenc-0.14.0.5-r1.ebuild:
+  Loosen the base dependency in dataenc-0.14.0.5-r1 to allow >=ghc-7.7. Used the
+  repoman --force option as --force the repoman complaints about missing
+  KEYWORDS are only on dependencies that are used in the tests, and dev-haskell
+  /test-framework-th may not build on those architectures
+
+  21 Jul 2013; Christoph Junghans <ottxor@gentoo.org> dataenc-0.14.0.5.ebuild:
+  added ~amd64-linux (tested by me)
 
   31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> dataenc-0.14.0.5.ebuild:
   Stable for sparc, wrt bug #457274

@@ -1,12 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/torque/torque-2.4.16.ebuild,v 1.10 2012/04/25 16:43:11 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/torque/torque-2.4.16.ebuild,v 1.13 2013/06/01 19:49:33 jsbronder Exp $
 
 EAPI=2
+WANT_AUTOMAKE="1.12"
 inherit flag-o-matic eutils linux-info autotools
 
 DESCRIPTION="Resource manager and queuing system based on OpenPBS"
-HOMEPAGE="http://www.adaptivecomputing.com/products/torque.php"
+HOMEPAGE="http://www.adaptivecomputing.com/products/open-source/torque"
 SRC_URI="http://www.adaptivecomputing.com/resources/downloads/${PN}/${P}.tar.gz"
 
 LICENSE="openpbs"
@@ -70,6 +71,10 @@ pkg_setup() {
 }
 
 src_prepare() {
+	# Unused and causes breakage when switching from glibc to tirpc.
+	# https://github.com/adaptivecomputing/torque/pull/148
+	sed -i '/rpc\/rpc\.h/d' src/lib/Libnet/net_client.c || die
+
 	epatch "${FILESDIR}"/0002-fix-implicit-declaration-warnings.patch
 	epatch "${FILESDIR}"/disable-automagic-doc-building-2.4.14.patch
 

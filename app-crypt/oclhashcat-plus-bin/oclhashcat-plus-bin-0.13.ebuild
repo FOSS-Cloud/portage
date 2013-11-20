@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/oclhashcat-plus-bin/oclhashcat-plus-bin-0.13.ebuild,v 1.1 2013/02/03 01:55:07 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/oclhashcat-plus-bin/oclhashcat-plus-bin-0.13.ebuild,v 1.2 2013/04/23 02:36:58 zerochaos Exp $
 
 EAPI=5
 
@@ -34,7 +34,7 @@ QA_PREBUILT="*Hashcat-plus*.bin"
 
 src_install() {
 	dodoc docs/*
-	rm -r *.exe docs || die
+	rm -r *.exe *.cmd docs || die
 	use x86 && rm *Hashcat-plus64*
 	use amd64 && rm *Hashcat-plus32*
 
@@ -97,4 +97,23 @@ src_install() {
 	touch "${ED}"/opt/${PN}/eula.accepted
 	fperms 0660 /opt/${PN}/eula.accepted
 	einfo "oclhashcat-plus can be run as user if you are in the video group"
+}
+
+src_test() {
+	printf "%02x" ${PV#0.} > "${S}"/eula.accepted
+	if use video_cards_nvidia; then
+		if [ ! -w /dev/nvidia0 ]; then
+			einfo "To run these tests, portage likely must be in the video group."
+			einfo "Please run \"passwd -a portage video\" if the tests will fail"
+		fi
+		./cudaExample0.sh || die
+		./cudaExample400.sh || die
+		./cudaExample500.sh || die
+	fi
+	if use video_cards_fglrx; then
+		./oclExample0.sh || die
+		./oclExample400.sh || die
+		./oclExample500.sh || die
+	fi
+	rm "${S}"/eula.accepted
 }

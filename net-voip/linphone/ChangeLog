@@ -1,6 +1,40 @@
 # ChangeLog for net-voip/linphone
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/linphone/ChangeLog,v 1.70 2013/03/06 13:20:30 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-voip/linphone/ChangeLog,v 1.77 2013/10/27 09:56:35 pacho Exp $
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Voip herd is removed: http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+  14 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> linphone-3.4.3-r1.ebuild:
+  Adjust media-libs/mediastreamer dependency, wrt bug #477996
+
+  14 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> linphone-3.5.2.ebuild:
+  Stable on amd64 and x86, wrt bug #486490
+
+  14 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> -linphone-3.4.3.ebuild,
+  linphone-3.4.3-r1.ebuild:
+  Stable keyword for pcc was forgotten, bug #363311. Drop old revision
+
+*linphone-3.6.1 (09 Oct 2013)
+
+  09 Oct 2013; Julian Ospald <hasufell@gentoo.org>
+  -files/linphone-3.1.0-nls.patch, -linphone-3.1.1.ebuild,
+  -files/linphone-3.1.1-external-mstreamer.patch, -linphone-3.2.1-r2.ebuild,
+  -files/linphone-3.2.1-external-mediastreamer.patch,
+  -files/linphone-3.2.1-linphone.desktop.patch,
+  -files/linphone-3.2.1-log-window-crash.patch,
+  -files/linphone-3.2.1-nls.patch,
+  -files/linphone-3.2.99.1-external-mediastreamer.patch,
+  -linphone-3.3.2.ebuild, +linphone-3.6.1.ebuild,
+  +files/linphone-3.6.1-nls.patch, metadata.xml:
+  version bump wrt #478686, remove old
+
+  09 Oct 2013; Julian Ospald <hasufell@gentoo.org> linphone-3.5.2.ebuild:
+  set max dep for net-libs/ortp
+
+  29 Sep 2013; Julian Ospald <hasufell@gentoo.org> linphone-3.5.2.ebuild,
+  +files/linphone-3.5.2-automake-1.13.patch:
+  fix automake-1.13 warnings wrt #468808
 
   06 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
   linphone-3.1.1.ebuild, linphone-3.2.1-r2.ebuild, linphone-3.3.2.ebuild,

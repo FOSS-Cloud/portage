@@ -1,6 +1,38 @@
 # ChangeLog for dev-python/numpy
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/numpy/ChangeLog,v 1.201 2013/03/11 14:11:06 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/numpy/ChangeLog,v 1.209 2013/11/04 01:46:14 mattst88 Exp $
+
+  04 Nov 2013; Matt Turner <mattst88@gentoo.org> numpy-1.7.1.ebuild:
+  alpha stable, bug 487870.
+
+  28 Oct 2013; Markus Meier <maekke@gentoo.org> numpy-1.7.1.ebuild:
+  arm stable, bug #487870
+
+  16 Oct 2013; Jeroen Roovers <jer@gentoo.org> numpy-1.7.1.ebuild:
+  Stable for HPPA (bug #487870).
+
+  14 Oct 2013; Tony Vroon <chainsaw@gentoo.org> numpy-1.7.1.ebuild:
+  Marked stable on AMD64 based on arch tester report by Elijah "Armageddon" El
+  Lazkani in bug #487870.
+
+  17 Sep 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/numpy-1.6.2-distutils.patch, numpy-1.6.2-r2.ebuild:
+  Backport distutils patch for stable
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> numpy-1.6.2-r2.ebuild,
+  numpy-1.7.1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  27 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/numpy-1.7.1-distutils-python33.patch, -numpy-1.7.0.ebuild,
+  numpy-1.7.1.ebuild:
+  Remove trailing spaces from pkg-config calls (bug #444104), fix shared lib
+  extension (upstream patch) for python-3 (bug #470946), remove old
+
+*numpy-1.7.1 (16 Apr 2013)
+
+  16 Apr 2013; Patrick Lauer <patrick@gentoo.org> +numpy-1.7.1.ebuild:
+  Bump, docs are still 1.7.0 until upstream updates
 
   11 Mar 2013; Justin Lecher <jlec@gentoo.org> -numpy-1.6.2.ebuild:
   Drop old

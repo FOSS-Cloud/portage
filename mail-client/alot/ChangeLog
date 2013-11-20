@@ -1,7 +1,60 @@
 # ChangeLog for mail-client/alot
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/alot/ChangeLog,v 1.15 2012/09/10 14:33:36 aidecoe Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/alot/ChangeLog,v 1.19 2013/08/03 09:45:43 mgorny Exp $
 
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> alot-0.3.2.ebuild,
+  alot-0.3.3.ebuild, alot-0.3.4.ebuild, alot-0.3.5.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
+
+*alot-0.3.5 (26 Jul 2013)
+
+  26 Jul 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +alot-0.3.5.ebuild,
+  +files/0.3.5-0001-Use-Unicode-strings-when-dealing-with-.patch:
+  Version bump and EAPI bump. Because of configobj it can be installed only
+  with python2_7 target.
+
+  NEWS
+  ~~~~
+  * full support for PGP/MIME [de|en]cryption and signatures
+  * add missing "unattach" command in envelope buffer
+  * honour 'Mail-Followup-To' header and set if for selected mailinglists
+  * better handling of replies to self-sent messages
+  * make auto_remove_unread configurable
+  * rewrite thread buffer
+  * improved global move commands: first/last line, half-page up/down
+  * tree-based movement in threads (first/last reply, next/previous
+    unfolded/sibling, parent)
+  * fold/unfold messages based on query string in thread mode
+  * respect mailcap commands that expect stdin
+  * Support different libmagic APIs
+  * new hooks called before/aftr buffer open/close/focus
+  * new global repeat command
+
+*alot-0.3.4 (18 Apr 2013)
+
+  18 Apr 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +alot-0.3.4.ebuild:
+  Version bump.
+
+  NEWS
+  ~~~~
+
+  * thread mode: add "tags" pseudo header to message display
+  * case insensitive matching in Addressbook completion
+  * compose: interpret "attach" pseudo header
+  * compose: set initial message tags
+  * envelope: completion for 'From'
+  * reply/forward: more flexible construction of "From" headers (hello
+    plussing!)
+  * thread mode: added bounce command for direct redirection w/o an envelope
+    buffer
+  * thread mode: more robust "pipeto" command
+  * add config option "prefer_plaintext"
+  * prevent multiple 'index locked' notifications
+  * kill some zombies! (#325)
+  * search mode: bulk tagging
+  * less annoying multi-key bindings
+  * add global "move" command for scriptable cursor movement
+  * support for encrypted outgoing mails using PGP/MIME
 
 *alot-0.3.3 (10 Sep 2012)
 

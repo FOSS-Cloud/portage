@@ -1,6 +1,22 @@
 # ChangeLog for virtual/perl-Time-HiRes
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Time-HiRes/ChangeLog,v 1.87 2013/03/02 16:38:22 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Time-HiRes/ChangeLog,v 1.90 2013/09/05 06:55:42 patrick Exp $
+
+  05 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  -perl-Time-HiRes-1.972.500-r2.ebuild, perl-Time-HiRes-1.972.600.ebuild:
+  Restore keywords
+
+*perl-Time-HiRes-1.972.600 (24 Aug 2013)
+
+  24 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +perl-Time-HiRes-1.972.600.ebuild:
+  Bump
+
+*perl-Time-HiRes-1.972.500-r2 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +perl-Time-HiRes-1.972.500-r2.ebuild:
+  Import from perl-experimental overlay
 
   02 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
   perl-Time-HiRes-1.972.500-r1.ebuild:

@@ -1,6 +1,53 @@
 # ChangeLog for www-client/midori
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/midori/ChangeLog,v 1.108 2013/03/31 19:10:56 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/midori/ChangeLog,v 1.118 2013/10/05 08:33:53 ssuominen Exp $
+
+  05 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> -midori-0.5.4.ebuild:
+  old
+
+*midori-0.5.5 (05 Oct 2013)
+
+  05 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> +midori-0.5.5.ebuild:
+  Version bump wrt #486474 by "A. Person". Remove USE="nls" which only avoided
+  sys-devel/gettext dependency despite dev-util/intltool being always required
+  which has sys-devel/gettext as a dependency. Remove USE="gnome" since net-libs
+  /libsoup-gnome is now required always.
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> midori-0.5.4.ebuild:
+  Depend on libsoup-gnome again, clean up old revisions.
+
+  11 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> midori-0.5.4.ebuild:
+  Restore pax marking of /usr/bin/midori because net-libs/webkit-gtk[jit] is
+  broken again wrt #480290 by "A. Person"
+
+  31 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -files/midori-0.4.6-dl.patch, -midori-0.4.6-r1.ebuild, -midori-0.5.2.ebuild:
+  old
+
+*midori-0.5.4 (17 Jul 2013)
+
+  17 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> +midori-0.5.4.ebuild,
+  -midori-9999.ebuild:
+  Version bump. Remove live version because upstream migrated from git to
+  bazaar.
+
+  01 Jun 2013; Samuli Suominen <ssuominen@gentoo.org> -midori-0.5.0.ebuild:
+  old
+
+*midori-0.5.2 (01 Jun 2013)
+
+  01 Jun 2013; Samuli Suominen <ssuominen@gentoo.org> +midori-0.5.2.ebuild,
+  midori-9999.ebuild:
+  Version bump.
+
+  09 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> -midori-0.4.8.ebuild,
+  -files/midori-0.4.8-desktop_file_validation.patch, -midori-0.4.9.ebuild:
+  old
+
+*midori-0.5.0 (09 Apr 2013)
+
+  09 Apr 2013; Christoph Mende <angelos@gentoo.org> +midori-0.5.0.ebuild:
+  Version bump
 
   31 Mar 2013; Pacho Ramos <pacho@gentoo.org> midori-0.4.9.ebuild,
   midori-9999.ebuild:

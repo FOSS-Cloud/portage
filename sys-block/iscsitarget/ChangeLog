@@ -1,6 +1,31 @@
 # ChangeLog for sys-block/iscsitarget
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/iscsitarget/ChangeLog,v 1.42 2013/01/07 20:54:52 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/iscsitarget/ChangeLog,v 1.46 2013/10/03 17:50:56 ryao Exp $
+
+  03 Oct 2013; Richard Yao <ryao@gentoo.org> iscsitarget-0.4.17.ebuild,
+  iscsitarget-1.4.19.ebuild, iscsitarget-1.4.20.2.ebuild,
+  iscsitarget-1.4.20.2_p20130103.ebuild, iscsitarget-1.4.20.2_p20130821.ebuild,
+  iscsitarget-9999.ebuild:
+  Filter ldflags for kernel build system to prevent build failure on ARM (thanks
+  steve) - The kernel already does this on other architectures, but we need to
+  do this for it on ARM to prevent a build failure
+
+  21 Aug 2013; Richard Yao <ryao@gentoo.org>
+  iscsitarget-1.4.20.2_p20130103.ebuild:
+  Stabilize sys-block/iscsitarget-1.4.20.2_p20130103 on amd64, bug #481976
+
+*iscsitarget-1.4.20.2_p20130821 (21 Aug 2013)
+
+  21 Aug 2013; Richard Yao <ryao@gentoo.org>
+  +iscsitarget-1.4.20.2_p20130821.ebuild, iscsitarget-9999.ebuild:
+  New snapshot from upstream. Raises latest supported kernel version from Linux
+  3.6 to 3.11.
+
+  21 Aug 2013; Richard Yao <ryao@gentoo.org>
+  iscsitarget-1.4.20.2_p20130103.ebuild, iscsitarget-9999.ebuild:
+  Fix ESVN_REPO_URI in 9999 ebuild; Apply upstream kernel patches on 9999
+  ebuild; Use epatch_user on 9999 ebuild; Merge back changes from 9999 build to
+  iscsitarget-1.4.20.2_p20130103
 
   07 Jan 2013; Richard Yao <ryao@gentoo.org>
   +files/iscsitarget-1.4.20.2-respect-flags-v2.patch,

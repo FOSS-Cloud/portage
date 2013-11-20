@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/mtr/mtr-0.82.ebuild,v 1.11 2012/05/06 17:44:14 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/mtr/mtr-0.82.ebuild,v 1.13 2013/07/11 14:24:55 jer Exp $
 
 EAPI="4"
 
@@ -23,7 +23,9 @@ DEPEND="${RDEPEND}
 	gtk? ( virtual/pkgconfig )"
 
 src_prepare() {
-	epatch "${FILESDIR}"/0.80-impl-dec.patch
+	epatch \
+		"${FILESDIR}"/0.80-impl-dec.patch \
+		"${FILESDIR}"/${PV}-tinfo.patch
 
 	# Keep this comment and following mv, even in case ebuild does not need
 	# it: kept gtk-2.0.m4 in SRC_URI but you'll have to mv it before autoreconf

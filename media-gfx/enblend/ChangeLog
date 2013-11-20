@@ -1,6 +1,25 @@
 # ChangeLog for media-gfx/enblend
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/enblend/ChangeLog,v 1.51 2013/03/03 17:48:48 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/enblend/ChangeLog,v 1.56 2013/09/09 22:26:33 maekke Exp $
+
+  09 Sep 2013; Markus Meier <maekke@gentoo.org> enblend-4.1.1-r1.ebuild:
+  add slot operator deps for media-libs/openexr and dev-libs/boost
+
+  08 Sep 2013; Markus Meier <maekke@gentoo.org> enblend-4.1.1-r1.ebuild:
+  fix USE=gpu cmake configure argument by Nikoli in bug #484118
+
+*enblend-4.1.1-r1 (06 Sep 2013)
+
+  06 Sep 2013; Markus Meier <maekke@gentoo.org> +enblend-4.1.1-r1.ebuild:
+  add CMake based ebuild, using EAPI=5, should fix bug #476836 and bug #460274
+
+  08 May 2013; Tim Harder <radhermit@gentoo.org> -enblend-4.0.ebuild,
+  -files/enblend-4.0-libpng14.patch, -files/enblend-4.0-libpng15.patch,
+  -enblend-4.1.ebuild:
+  Remove old.
+
+  11 Apr 2013; Vicente Olivert Riera <vincent@gentoo.org> enblend-4.1.1.ebuild:
+  amd64, ppc and x86 stable, wrt bug #465428
 
 *enblend-4.1.1 (03 Mar 2013)
 
@@ -201,4 +220,3 @@
   +enblend-2.1.ebuild:
   First commit, thanks to David Grant <david.grant@telus.net> for the updated
   ebuild
-

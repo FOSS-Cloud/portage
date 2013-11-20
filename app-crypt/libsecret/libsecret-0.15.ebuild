@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/libsecret/libsecret-0.15.ebuild,v 1.1 2013/03/31 16:06:16 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/libsecret/libsecret-0.15.ebuild,v 1.3 2013/10/17 20:36:47 maekke Exp $
 
 EAPI="5"
 PYTHON_COMPAT=( python2_{6,7} )
@@ -16,14 +16,15 @@ LICENSE="LGPL-2.1+ Apache-2.0" # Apache-2.0 license is used for tests only
 SLOT="0"
 IUSE="+crypt debug +introspection test vala"
 REQUIRED_USE="vala? ( introspection )"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd"
+KEYWORDS="~alpha ~amd64 arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd"
 
 COMMON_DEPEND="
 	>=dev-libs/glib-2.32.0:2
 	crypt? ( >=dev-libs/libgcrypt-1.2.2:= )
 	introspection? ( >=dev-libs/gobject-introspection-1.29 )"
-RDEPEND="${COMMON_DEPEND}
-	>=gnome-base/gnome-keyring-3"
+RDEPEND="${COMMON_DEPEND}"
+# Temporarily removed from RDEPEND to allow stabilization:
+#	>=gnome-base/gnome-keyring-3
 # Add ksecrets to RDEPEND when it's added to portage
 DEPEND="${COMMON_DEPEND}
 	dev-libs/libxslt

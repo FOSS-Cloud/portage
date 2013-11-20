@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/matplotlib/matplotlib-1.2.0-r2.ebuild,v 1.8 2013/03/30 13:03:34 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/matplotlib/matplotlib-1.2.0-r2.ebuild,v 1.14 2013/09/12 22:29:33 mgorny Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7,3_1,3_2,3_3} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
 PYTHON_REQ_USE='tk?'
 
 inherit distutils-r1 eutils flag-o-matic
@@ -15,7 +15,7 @@ SRC_URI="mirror://github/${PN}/${PN}/${P}.tar.gz"
 
 IUSE="cairo doc excel examples fltk gtk gtk3 latex qt4 test tk wxwidgets"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 
 # Main license: matplotlib
 # Some modules: BSD
@@ -25,6 +25,7 @@ LICENSE="BitstreamVera BSD matplotlib MIT OFL-1.1"
 
 # #456704 -- a lot of py2-only deps
 PY2_USEDEP=$(python_gen_usedep 'python2*')
+PY32_USEDEP=$(python_gen_usedep python{3_2,3_3})
 COMMON_DEPEND="dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
@@ -33,8 +34,6 @@ COMMON_DEPEND="dev-python/numpy[${PYTHON_USEDEP}]
 	media-libs/freetype:2
 	media-libs/libpng
 	gtk? ( dev-python/pygtk[${PY2_USEDEP}] )
-	gtk3? ( dev-python/pygobject:3[${PYTHON_USEDEP}]
-		x11-libs/gtk+:3[introspection] )
 	wxwidgets? ( dev-python/wxpython:2.8[${PY2_USEDEP}] )"
 
 # internal copy of pycxx highly patched
@@ -44,7 +43,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 	doc? (
 		app-text/dvipng
-		dev-python/imaging[${PY2_USEDEP}]
+		virtual/python-imaging[${PY2_USEDEP},${PY32_USEDEP}]
 		dev-python/ipython
 		dev-python/xlwt[${PY2_USEDEP}]
 		dev-python/sphinx[${PYTHON_USEDEP}]
@@ -56,10 +55,12 @@ DEPEND="${COMMON_DEPEND}
 	test? ( dev-python/nose[${PYTHON_USEDEP}] )"
 
 RDEPEND="${COMMON_DEPEND}
-	virtual/pyparsing[${PYTHON_USEDEP}]
+	dev-python/pyparsing[${PYTHON_USEDEP}]
 	cairo? ( dev-python/pycairo[${PYTHON_USEDEP}] )
 	excel? ( dev-python/xlwt[${PY2_USEDEP}] )
 	fltk? ( dev-python/pyfltk[${PY2_USEDEP}] )
+	gtk3? ( dev-python/pygobject:3[${PYTHON_USEDEP}]
+		x11-libs/gtk+:3[introspection] )
 	latex? (
 		virtual/latex-base
 		app-text/ghostscript-gpl

@@ -1,6 +1,24 @@
 # ChangeLog for dev-ruby/rake
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rake/ChangeLog,v 1.137 2013/01/28 15:16:10 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rake/ChangeLog,v 1.142 2013/09/05 15:46:18 jer Exp $
+
+  05 Sep 2013; Jeroen Roovers <jer@gentoo.org> rake-0.9.6.ebuild:
+  Stable for HPPA (bug #483254).
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> rake-0.9.6.ebuild:
+  Stable for x86, wrt bug #483254
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> rake-0.9.6.ebuild:
+  Stable for amd64, wrt bug #483254
+
+  07 Jul 2013; Hans de Graaff <graaff@gentoo.org> rake-0.9.6.ebuild:
+  Add ruby20 support.
+
+*rake-0.9.6 (23 Jun 2013)
+
+  23 Jun 2013; Hans de Graaff <graaff@gentoo.org> +rake-0.9.6.ebuild:
+  Version bump. Skip failing tests on jruby because these are caused by our own
+  packaging and already present in 0.9.2.2.
 
   28 Jan 2013; Alexis Ballier <aballier@gentoo.org> rake-0.9.2.2.ebuild:
   keyword ~amd64-fbsd

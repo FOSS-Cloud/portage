@@ -1,9 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/mdadm/mdadm-3.2.6-r1.ebuild,v 1.1 2013/02/08 13:45:41 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/mdadm/mdadm-3.2.6-r1.ebuild,v 1.10 2013/09/25 17:30:09 ago Exp $
 
 EAPI="4"
-inherit multilib eutils flag-o-matic toolchain-funcs
+inherit multilib eutils flag-o-matic systemd toolchain-funcs
 
 DESCRIPTION="A useful tool for running RAID systems - it can be used as a replacement for the raidtools"
 HOMEPAGE="http://neil.brown.name/blog/mdadm"
@@ -11,7 +11,7 @@ SRC_URI="mirror://kernel/linux/utils/raid/mdadm/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 hppa ia64 ~mips ppc ppc64 sparc x86"
 IUSE="static"
 
 DEPEND="virtual/pkgconfig"
@@ -61,6 +61,8 @@ src_install() {
 	newconfd "${FILESDIR}"/mdadm.confd mdadm
 	newinitd "${FILESDIR}"/mdraid.rc mdraid
 	newconfd "${FILESDIR}"/mdraid.confd mdraid
+	systemd_dounit "${FILESDIR}/mdadm.service"
+	systemd_newtmpfilesd "${FILESDIR}/mdadm.tmpfiles.conf" mdadm.conf
 }
 
 pkg_preinst() {

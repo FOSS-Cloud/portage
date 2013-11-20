@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-9999-r2.ebuild,v 1.168 2013/03/29 09:41:28 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-9999-r2.ebuild,v 1.202 2013/11/15 14:15:24 scarabeus Exp $
 
 EAPI=5
 
@@ -23,7 +23,7 @@ DEV_URI="
 EXT_URI="http://ooo.itc.hu/oxygenoffice/download/libreoffice"
 ADDONS_URI="http://dev-www.libreoffice.org/src/"
 
-BRANDING="${PN}-branding-gentoo-0.7.tar.xz"
+BRANDING="${PN}-branding-gentoo-0.8.tar.xz"
 # PATCHSET="${P}-patchset-01.tar.xz"
 
 [[ ${PV} == *9999* ]] && SCM_ECLASS="git-2"
@@ -58,7 +58,7 @@ unset DEV_URI
 # Really required addons
 # These are bundles that can't be removed for now due to huge patchsets.
 # If you want them gone, patches are welcome.
-ADDONS_SRC+=" ${ADDONS_URI}/ea91f2fb4212a21d708aced277e6e85a-vigra1.4.0.tar.gz"
+ADDONS_SRC+=" ${ADDONS_URI}/d62650a6f908e85643e557a236ea989c-vigra1.6.0.tar.gz"
 ADDONS_SRC+=" ${ADDONS_URI}/1f24ab1d39f4a51faf22244c94a6203f-xmlsec1-1.2.14.tar.gz" # modifies source code
 ADDONS_SRC+=" java? ( ${ADDONS_URI}/17410483b5b5f267aa18b7e00b65e6e0-hsqldb_1_8_0.zip )"
 ADDONS_SRC+=" libreoffice_extensions_wiki-publisher? ( ${ADDONS_URI}/a7983f859eafb2677d7ff386a023bc40-xsltml_2.1.2.zip )" # no release for 8 years, should we package it?
@@ -71,10 +71,10 @@ unset ADDONS_URI
 unset EXT_URI
 unset ADDONS_SRC
 
-IUSE="bluetooth +branding +cups dbus debug eds gnome gstreamer +gtk
-gtk3 jemalloc kde mysql odk opengl postgres telepathy test +vba +webdav"
+IUSE="bluetooth +branding +cups dbus debug eds firebird gnome gstreamer +gtk
+gtk3 jemalloc kde mysql odk opengl postgres telepathy test +vba vlc +webdav"
 
-LO_EXTS="nlpsolver presenter-minimizer scripting-beanshell scripting-javascript wiki-publisher"
+LO_EXTS="nlpsolver scripting-beanshell scripting-javascript wiki-publisher"
 # Unpackaged separate extensions:
 # diagram: lo has 0.9.5 upstream is weirdly patched 0.9.4 -> wtf?
 # hunart: only on ooo extensions -> fubared download path somewhere on sf
@@ -88,7 +88,8 @@ unset lo_xt
 
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
-[[ ${PV} == *9999* ]] || KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
+[[ ${PV} == *9999* ]] || \
+KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
@@ -97,36 +98,43 @@ COMMON_DEPEND="
 	>=app-text/hunspell-1.3.2-r3
 	app-text/mythes
 	>=app-text/libexttextcat-3.2
+	app-text/libebook
+	app-text/libetonyek
 	app-text/liblangtag
 	app-text/libmspub
-	>=app-text/libmwaw-0.1.7
+	>=app-text/libmwaw-0.2
+	>=app-text/libodfgen-0.0.3
 	app-text/libwpd:0.9[tools]
 	app-text/libwpg:0.2
 	>=app-text/libwps-0.2.2
 	>=app-text/poppler-0.16:=[xpdf-headers(+),cxx]
 	>=dev-cpp/clucene-2.3.3.4-r2
-	>=dev-cpp/libcmis-0.3.1:0.3
+	dev-cpp/libcmis:0.4
 	dev-db/unixODBC
+	>=dev-libs/boost-1.46:=
 	dev-libs/expat
 	>=dev-libs/hyphen-2.7.1
 	>=dev-libs/icu-4.8.1.1:=
-	>=dev-libs/liborcus-0.3
+	>=dev-libs/libatomic_ops-7.2d
+	>=dev-libs/liborcus-0.5.1:=
 	>=dev-libs/nspr-4.8.8
 	>=dev-libs/nss-3.12.9
 	>=dev-lang/perl-5.0
 	>=dev-libs/openssl-1.0.0d
-	>=dev-libs/redland-1.0.14[ssl]
+	>=dev-libs/redland-1.0.16[ssl]
 	media-gfx/graphite2
 	>=media-libs/fontconfig-2.8.0
 	media-libs/freetype:2
+	>=media-libs/harfbuzz-0.9.18:=[icu(+)]
 	media-libs/lcms:2
 	>=media-libs/libpng-1.4
 	>=media-libs/libcdr-0.0.5
+	media-libs/libfreehand
 	media-libs/libvisio
 	>=net-misc/curl-7.21.4
 	net-nds/openldap
 	sci-mathematics/lpsolve
-	virtual/jpeg
+	virtual/jpeg:0
 	>=x11-libs/cairo-1.10.0[X]
 	x11-libs/libXinerama
 	x11-libs/libXrandr
@@ -135,6 +143,7 @@ COMMON_DEPEND="
 	cups? ( net-print/cups )
 	dbus? ( >=dev-libs/dbus-glib-0.92 )
 	eds? ( gnome-extra/evolution-data-server )
+	firebird? ( >=dev-db/firebird-2.5 )
 	gnome? ( gnome-base/gconf:2 )
 	gtk? (
 		x11-libs/gdk-pixbuf[X]
@@ -178,6 +187,7 @@ RDEPEND="${COMMON_DEPEND}
 	media-fonts/liberation-fonts
 	media-fonts/urw-fonts
 	java? ( >=virtual/jre-1.6 )
+	vlc? ( media-video/vlc )
 "
 
 if [[ ${PV} != *9999* ]]; then
@@ -192,14 +202,13 @@ fi
 #        after everything upstream is under gbuild
 #        as dmake execute tests right away
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/boost-1.46
 	>=dev-libs/libxml2-2.7.8
 	dev-libs/libxslt
 	dev-perl/Archive-Zip
 	dev-util/cppunit
 	>=dev-util/gperf-3
 	dev-util/intltool
-	>=dev-util/mdds-0.7.0
+	>=dev-util/mdds-0.9.1:=
 	virtual/pkgconfig
 	net-misc/npapi-sdk
 	>=sys-apps/findutils-4.4.2
@@ -220,7 +229,7 @@ DEPEND="${COMMON_DEPEND}
 		>=virtual/jdk-1.6
 		>=dev-java/ant-core-1.7
 	)
-	odk? ( app-doc/doxygen )
+	odk? ( >=app-doc/doxygen-1.8.4 )
 	test? ( dev-util/cppunit )
 "
 
@@ -230,9 +239,11 @@ PATCHES=(
 )
 
 REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
 	bluetooth? ( dbus )
 	gnome? ( gtk )
 	eds? ( gnome )
+	telepathy? ( gtk )
 	libreoffice_extensions_nlpsolver? ( java )
 	libreoffice_extensions_scripting-beanshell? ( java )
 	libreoffice_extensions_scripting-javascript? ( java )
@@ -256,8 +267,9 @@ pkg_pretend() {
 		fi
 	fi
 
-	# ensure pg version
-	if use postgres; then
+	# Ensure pg version but we have to be sure the pg is installed (first
+	# install on clean system)
+	if use postgres && has_version dev-db/postgresql-base; then
 		 pgslot=$(postgresql-config show)
 		 if [[ ${pgslot//.} < 90 ]] ; then
 			eerror "PostgreSQL slot must be set to 9.0 or higher."
@@ -409,7 +421,6 @@ src_configure() {
 	fi
 
 	# system headers/libs/...: enforce using system packages
-	# --enable-unix-qstart-libpng: use libpng splashscreen that is faster
 	# --enable-cairo: ensure that cairo is always required
 	# --enable-graphite: disabling causes build breakages
 	# --enable-*-link: link to the library rather than just dlopen on runtime
@@ -418,7 +429,6 @@ src_configure() {
 	# --disable-gnome-vfs: old gnome virtual fs support
 	# --disable-kdeab: kde3 adressbook
 	# --disable-kde: kde3 support
-	# --disable-rpath: relative runtime path is not desired
 	# --disable-systray: quickstarter does not actually work at all so do not
 	#   promote it
 	# --enable-extension-integration: enable any extension integration support
@@ -438,7 +448,6 @@ src_configure() {
 		--enable-randr \
 		--enable-randr-link \
 		--enable-release-build \
-		--enable-unix-qstart-libpng \
 		--enable-hardlink-deliver \
 		--disable-ccache \
 		--disable-crashdump \
@@ -451,7 +460,6 @@ src_configure() {
 		--disable-kdeab \
 		--disable-kde \
 		--disable-online-update \
-		--disable-rpath \
 		--disable-systray \
 		--with-alloc=$(use jemalloc && echo "jemalloc" || echo "system") \
 		--with-build-version="Gentoo official package" \
@@ -463,7 +471,6 @@ src_configure() {
 		--with-lang="" \
 		--with-parallelism=${jbs} \
 		--with-system-ucpp \
-		--with-unix-wrapper=libreoffice \
 		--with-vendor="Gentoo Foundation" \
 		--with-x \
 		--without-afms \
@@ -477,9 +484,11 @@ src_configure() {
 		$(use_enable debug) \
 		$(use_enable dbus) \
 		$(use_enable eds evolution2) \
+		$(use_enable firebird firebird-sdbc) \
 		$(use_enable gnome gconf) \
 		$(use_enable gnome gio) \
 		$(use_enable gnome lockdown) \
+		$(use_enable gstreamer) \
 		$(use_enable gtk) \
 		$(use_enable gtk3) \
 		$(use_enable kde kde4) \
@@ -488,8 +497,8 @@ src_configure() {
 		$(use_enable opengl) \
 		$(use_enable postgres postgresql-sdbc) \
 		$(use_enable telepathy) \
-		$(use_enable test linkoo) \
 		$(use_enable vba) \
+		$(use_enable vlc) \
 		$(use_enable webdav neon) \
 		$(use_with java) \
 		$(use_with mysql system-mysql-cppconn) \
@@ -507,7 +516,7 @@ src_compile() {
 		grep "^export" "${S}/config_host.mk" > "${T}/config_host.mk"
 		source "${T}/config_host.mk" 2&> /dev/null
 
-		local path="${SOLARVER}/${INPATH}/res/img"
+		local path="${WORKDIR}/helpcontent2/source/auxiliary/"
 		mkdir -p "${path}" || die
 
 		echo "perl \"${S}/helpcontent2/helpers/create_ilst.pl\" -dir=icon-themes/galaxy/res/helpimg > \"${path}/helpimg.ilst\""
@@ -517,8 +526,11 @@ src_compile() {
 		[[ -s "${path}/helpimg.ilst" ]] || ewarn "The help images list is empty, something is fishy, report a bug."
 	)
 
+	local target
+	use test && target="build" || target="build-nocheck"
+
 	# this is not a proper make script
-	make build || die
+	make ${target} || die
 }
 
 src_test() {
@@ -540,7 +552,7 @@ src_install() {
 	fi
 
 	# symlink the nsplugin to proper location
-	use gtk && inst_plugin /usr/$(get_libdir)/libreoffice/program/libnpsoplugin.so
+	# use gtk && inst_plugin /usr/$(get_libdir)/libreoffice/program/libnpsoplugin.so
 
 	# Hack for offlinehelp, this needs fixing upstream at some point.
 	# It is broken because we send --without-help

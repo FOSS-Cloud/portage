@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/multimode/multimode-9999.ebuild,v 1.3 2012/09/14 18:03:27 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/multimode/multimode-9999.ebuild,v 1.6 2013/09/22 03:41:03 zerochaos Exp $
 
-EAPI=4
+EAPI=5
 PYTHON_DEPEND="2:2.6"
 
 inherit python
@@ -13,7 +13,7 @@ if [[ ${PV} == "9999" ]] ; then
 	KEYWORDS=""
 else
 	SRC_URI="http://www.sbrac.org/files/${PN}-r${PV}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
 DESCRIPTION="multimode radio decoder for rtl-sdr devices using gnuradio"
@@ -25,7 +25,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}
 	=net-wireless/gr-osmosdr-9999
-	=net-wireless/gnuradio-9999
+	=net-wireless/gnuradio-9999:=[utils]
 	=net-wireless/rtl-sdr-9999"
 
 pkg_setup() {

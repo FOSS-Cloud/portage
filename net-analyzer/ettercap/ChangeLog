@@ -1,6 +1,56 @@
 # ChangeLog for net-analyzer/ettercap
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/ettercap/ChangeLog,v 1.128 2013/03/27 10:07:10 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/ettercap/ChangeLog,v 1.141 2013/10/29 22:25:04 chainsaw Exp $
+
+  29 Oct 2013; Tony Vroon <chainsaw@gentoo.org> ettercap-0.8.0-r1.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #487128.
+
+*ettercap-0.8.0-r1 (25 Oct 2013)
+
+  25 Oct 2013; Agostino Sarubbo <ago@gentoo.org> +ettercap-0.8.0-r1.ebuild:
+  Force SSL to on because the entire package, now is based on it; wrt to bug
+  #489226
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.8.0.ebuild,
+  ettercap-9999.ebuild:
+  The sed for the remote_browser stuff is not needed anymore, see https://github
+  .com/Ettercap/ettercap/commit/c00b9ceb2d9e6e9322f961d588278bfff528a400 by
+  Gianfranco Costamagna <costamagnagianfranco@yahoo.it>
+
+*ettercap-0.8.0 (20 Sep 2013)
+
+  20 Sep 2013; Agostino Sarubbo <ago@gentoo.org> +ettercap-0.8.0.ebuild:
+  Version bump to 0.8.0
+
+  26 Aug 2013; Jeroen Roovers <jer@gentoo.org> ettercap-0.7.5.3.ebuild,
+  ettercap-0.7.6.ebuild, ettercap-9999.ebuild:
+  Drop HPPA keywording (bug #475232).
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.6.ebuild:
+  Stable for sparc, wrt bug #475078
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.6.ebuild:
+  Stable for x86, wrt bug #475078
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.6.ebuild:
+  Stable for alpha, wrt bug #475078
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.6.ebuild:
+  Stable for arm, wrt bug #475078
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.6.ebuild:
+  Stable for ppc64, wrt bug #475078
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.6.ebuild:
+  Stable for ppc, wrt bug #475078
+
+  28 Jun 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-0.7.6.ebuild:
+  Stable for amd64, wrt bug #475078
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ettercap-9999.ebuild:
+  Temporary fix for this commit: https://github.com/Ettercap/ettercap/commit/f79
+  ee719cd736901d2bd1b5d896ec890343d9b0b
 
 *ettercap-0.7.6 (27 Mar 2013)
 

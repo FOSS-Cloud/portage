@@ -1,6 +1,45 @@
 # ChangeLog for dev-ruby/kramdown
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/kramdown/ChangeLog,v 1.20 2013/03/12 06:57:57 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/kramdown/ChangeLog,v 1.30 2013/10/30 03:35:55 mrueg Exp $
+
+*kramdown-1.2.0-r1 (30 Oct 2013)
+
+  30 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +kramdown-1.2.0-r1.ebuild:
+  Add ruby20 target.
+
+  05 Oct 2013; Hans de Graaff <graaff@gentoo.org> +kramdown-0.14.2.ebuild:
+  Add back a version that still has jruby in USE_RUBY, fixing bug 486986.
+
+  04 Oct 2013; Manuel Rüger <mrueg@gentoo.org> -kramdown-0.14.2.ebuild,
+  -kramdown-1.0.2.ebuild:
+  Cleanup old.
+
+*kramdown-1.2.0 (03 Sep 2013)
+
+  03 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +kramdown-1.2.0.ebuild:
+  Version bump.
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> kramdown-1.0.2.ebuild:
+  add ~x86, bug #478294
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> kramdown-1.1.0.ebuild:
+  add ~x86, bug #478294
+
+  08 Aug 2013; Markus Meier <maekke@gentoo.org> kramdown-1.1.0.ebuild:
+  add ~arm, bug #477648
+
+*kramdown-1.1.0 (14 Jul 2013)
+
+  14 Jul 2013; Manuel Rüger <mrueg@gentoo.org> +kramdown-1.1.0.ebuild:
+  Version bump
+
+*kramdown-1.0.2 (29 May 2013)
+
+  29 May 2013; Hans de Graaff <graaff@gentoo.org> +kramdown-1.0.2.ebuild:
+  Version bump, thanks to mrueg in the ruby overlay.
+
+  05 May 2013; Hans de Graaff <graaff@gentoo.org> -kramdown-0.14.1.ebuild:
+  Cleanup.
 
 *kramdown-0.14.2 (12 Mar 2013)
 

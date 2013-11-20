@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/heimdal/heimdal-1.5.3.ebuild,v 1.13 2013/03/11 07:38:47 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/heimdal/heimdal-1.5.3.ebuild,v 1.15 2013/06/27 20:40:29 aballier Exp $
 
 EAPI=4
 # PYTHON_BDEPEND="2"
@@ -15,7 +15,7 @@ SRC_URI="http://www.h5l.org/dist/src/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd"
 IUSE="afs +berkdb caps hdb-ldap ipv6 otp +pkinit ssl static-libs threads test X"
 
 RDEPEND="ssl? ( dev-libs/openssl )
@@ -51,6 +51,7 @@ src_prepare() {
 	epatch "${FILESDIR}/heimdal_disable-check-iprop.patch"
 	epatch "${FILESDIR}/heimdal_link_order.patch"
 	epatch "${FILESDIR}/heimdal_missing_symbols.patch"
+	epatch "${FILESDIR}/heimdal_texinfo-5.patch"
 	eautoreconf
 }
 

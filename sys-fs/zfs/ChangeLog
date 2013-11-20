@@ -1,6 +1,80 @@
 # ChangeLog for sys-fs/zfs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs/ChangeLog,v 1.63 2013/03/28 22:19:57 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs/ChangeLog,v 1.76 2013/10/18 16:26:04 ryao Exp $
+
+*zfs-0.6.2-r2 (18 Oct 2013)
+
+  18 Oct 2013; Richard Yao <ryao@gentoo.org> +zfs-0.6.2-r2.ebuild,
+  zfs-0.6.1-r4.ebuild:
+  Update 0.6.2 patchset with sys-fs/zfs-0.6.2-r2: Fixes Gentoo bug #487746;
+  Improved zpool create to treat -O mountpoint and -m the same and stop igoring
+  the mountpoint option when altroot is specified (ported from Illumos)
+
+  14 Oct 2013; Richard Yao <ryao@gentoo.org> zfs-0.6.1-r4.ebuild,
+  zfs-0.6.2-r1.ebuild:
+  Reverse stabilization of sys-fs/zfs-0.6.2-r1 (bug #487746)
+
+  14 Oct 2013; Richard Yao <ryao@gentoo.org> zfs-0.6.1-r4.ebuild,
+  zfs-0.6.2-r1.ebuild:
+  Stabilize sys-fs/zfs-0.6.2-r1 on amd64 (indirectly required by sys-boot/grub:2
+  stabilization)
+
+  11 Oct 2013; Richard Yao <ryao@gentoo.org> zfs-9999.ebuild:
+  Set --with-blkid to avoid sandbox violation; Move new zfs_core library to /
+
+*zfs-0.6.2-r1 (05 Oct 2013)
+
+  05 Oct 2013; Richard Yao <ryao@gentoo.org> +zfs-0.6.2-r1.ebuild:
+  Use libblkid to improve drive detection; Update drive database with additional
+  entries
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> zfs-0.6.2.ebuild,
+  zfs-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  24 Aug 2013; Richard Yao <ryao@gentoo.org> zfs-0.6.2.ebuild, zfs-9999.ebuild:
+  Sync zfs-0.6.2 and zfs-9999 ebuilds
+
+*zfs-0.6.2 (23 Aug 2013)
+
+  23 Aug 2013; Richard Yao <ryao@gentoo.org> +zfs-0.6.2.ebuild:
+  Version bump to 0.6.2
+
+*zfs-0.6.1-r4 (21 Aug 2013)
+
+  21 Aug 2013; Richard Yao <ryao@gentoo.org> +zfs-0.6.1-r4.ebuild,
+  -zfs-0.6.1-r3.ebuild:
+  Add missing systemd eclass inherit
+
+*zfs-0.6.1-r3 (14 Jul 2013)
+
+  14 Jul 2013; Richard Yao <ryao@gentoo.org> +zfs-0.6.1-r3.ebuild,
+  -zfs-0.6.1-r1.ebuild, -zfs-0.6.1-r2.ebuild, -zfs-0.6.1.ebuild,
+  files/zfs.service.in, zfs-9999.ebuild:
+  Add modification to systemd init file: use RemainAfterExit=yes instead of true
+
+*zfs-0.6.1-r2 (14 Jul 2013)
+
+  14 Jul 2013; Richard Yao <ryao@gentoo.org>
+  +files/zfs-0.6.1-avoid-zdb-abort.patch,
+  +files/zfs-0.6.1-fix-gcc-4.8-warning.patch,
+  +files/zfs-0.6.1-fix-zvol-initialization-r1.patch, +files/zfs-init.sh.in,
+  +files/zfs.service.in, +zfs-0.6.1-r2.ebuild, zfs-9999.ebuild:
+  Systemd support (bug #475872); Add python dependency to 9999 ebuild (bug
+  #473788); Asynchronous zvol initialization; GCC 4.8 Compatibility Fix;
+  Miscellaneous zdb fixes
+
+  29 May 2013; Richard Yao <ryao@gentoo.org> zfs-0.6.1-r1.ebuild:
+  Add selinux USE flag
+
+*zfs-0.6.1-r1 (29 May 2013)
+
+  29 May 2013; Richard Yao <ryao@gentoo.org>
+  +files/zfs-0.6.1-gentoo-openrc-dependencies.patch, +zfs-0.6.1-r1.ebuild,
+  metadata.xml:
+  Introduce bash-completion USE flag, fix test-suite and dracut USE flags,
+  correct description for rootfs USE flag and improve zfs OpenRC script for
+  systems with a ZFS rootfs.
 
 *zfs-0.6.1 (28 Mar 2013)
 

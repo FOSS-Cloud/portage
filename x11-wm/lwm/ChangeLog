@@ -1,6 +1,17 @@
 # ChangeLog for x11-wm/lwm
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/lwm/ChangeLog,v 1.25 2011/12/02 22:18:14 hwoarang Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/lwm/ChangeLog,v 1.28 2013/10/19 15:26:28 pacho Exp $
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due desktop-wm removal
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> lwm-1.2.2.ebuild:
+  Stable for ppc, wrt bug #391561
+
+*lwm-1.2.3 (22 Jul 2013)
+
+  22 Jul 2013; Jeroen Roovers <jer@gentoo.org> +lwm-1.2.3.ebuild:
+  Version bump.
 
   02 Dec 2011; Markos Chandras <hwoarang@gentoo.org> lwm-1.2.2.ebuild:
   Stable on amd64 wrt bug #391561

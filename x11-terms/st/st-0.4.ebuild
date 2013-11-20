@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/st/st-0.4.ebuild,v 1.2 2013/04/02 23:33:56 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-terms/st/st-0.4.ebuild,v 1.4 2013/06/17 06:08:43 xmw Exp $
 
 EAPI=5
 
@@ -10,7 +10,7 @@ DESCRIPTION="simple terminal implementation for X"
 HOMEPAGE="http://st.suckless.org/"
 SRC_URI="http://dl.suckless.org/st/${P}.tar.gz"
 
-LICENSE="BSD"
+LICENSE="MIT-with-advertising"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="savedconfig"
@@ -21,6 +21,7 @@ RDEPEND="media-libs/fontconfig
 	x11-libs/libXft"
 DEPEND="${RDEPEND}
 	sys-libs/ncurses
+	virtual/pkgconfig
 	x11-proto/xextproto
 	x11-proto/xproto"
 

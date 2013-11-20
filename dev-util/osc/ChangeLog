@@ -1,6 +1,47 @@
 # ChangeLog for dev-util/osc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/osc/ChangeLog,v 1.14 2013/03/18 10:29:48 miska Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/osc/ChangeLog,v 1.22 2013/11/02 09:10:43 scarabeus Exp $
+
+  02 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org> -osc-0.140.1.ebuild,
+  osc-0.141.0.ebuild, osc-9999.ebuild:
+  Stabilise on amd64 and x86 per previous commit.
+
+*osc-0.141.0 (02 Nov 2013)
+
+  02 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org> +osc-0.141.0.ebuild,
+  osc-9999.ebuild:
+  Version bump to latest to fix crashes with new obs.
+
+  10 Sep 2013; Tomáš Chvátal <scarabeus@gentoo.org> -osc-0.139.1.ebuild,
+  osc-0.140.1.ebuild:
+  Stabilise 0.140 on all archs remove older.
+
+*osc-0.140.1 (24 Jul 2013)
+
+  24 Jul 2013; Michal Hrusecky <miska@gentoo.org> +osc-0.140.1.ebuild,
+  -osc-0.139.2.ebuild, osc-9999.ebuild:
+  version bump to new testing, removing previous testing
+
+  29 May 2013; Michal Hrusecky <miska@gentoo.org> osc-0.139.2.ebuild,
+  osc-9999.ebuild:
+  Using DISTUTILS_SINGLE_IMPL=1 because of rpm
+
+  28 May 2013; Michal Hrusecky <miska@gentoo.org> osc-0.139.2.ebuild,
+  osc-9999.ebuild:
+  Small fixes regarding use of python-r1 eclass
+
+*osc-0.139.2 (27 May 2013)
+
+  27 May 2013; Michal Hrusecky <miska@gentoo.org> osc-0.139.1.ebuild,
+  +osc-0.139.2.ebuild, osc-9999.ebuild,
+  +files/osc-0.139.2-out-of-tree-build.patch:
+  updated to version 0.139.2
+  * migrated to distutils-r1 (little patch needed)
+  broke dependency circle (RDEPEND->PDEPEND)
+
+  04 May 2013; Mike Gilbert <floppym@gentoo.org> osc-0.139.1.ebuild,
+  osc-9999.ebuild:
+  Drop dependency on dev-python/elementtree.
 
   18 Mar 2013; Michal Hrusecky <miska@gentoo.org> -osc-0.137.0.ebuild,
   osc-0.139.1.ebuild:

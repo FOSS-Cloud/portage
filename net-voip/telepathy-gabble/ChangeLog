@@ -1,6 +1,59 @@
 # ChangeLog for net-voip/telepathy-gabble
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/telepathy-gabble/ChangeLog,v 1.114 2013/04/01 18:25:35 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-voip/telepathy-gabble/ChangeLog,v 1.128 2013/10/27 09:57:20 pacho Exp $
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Voip herd is removed: http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+*telepathy-gabble-0.16.7 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +telepathy-gabble-0.16.7.ebuild:
+  Version bump
+
+  13 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -telepathy-gabble-0.16.4.ebuild:
+  Clean up old revision, bug #484402.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> telepathy-gabble-0.16.4.ebuild,
+  telepathy-gabble-0.16.6.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org>
+  telepathy-gabble-0.16.4.ebuild, telepathy-gabble-0.16.6.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-gabble-0.16.6.ebuild:
+  Stable for sparc, wrt bug #471838
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-gabble-0.16.6.ebuild:
+  Stable for ia64, wrt bug #471838
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-gabble-0.16.6.ebuild:
+  Stable for alpha, wrt bug #471838
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-gabble-0.16.6.ebuild:
+  Stable for ppc, wrt bug #471838
+
+  03 Jul 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-gabble-0.16.6.ebuild:
+  Stable for x86, wrt bug #471838
+
+  03 Jul 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-gabble-0.16.6.ebuild:
+  Stable for amd64, wrt bug #471838
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #137506
+
+*telepathy-gabble-0.16.6 (30 May 2013)
+
+  30 May 2013; Pacho Ramos <pacho@gentoo.org> +telepathy-gabble-0.16.6.ebuild:
+  Version bump, drop shebangs conversion because functions starting by _ are
+  meant to be internal and python-any-r1.eclass users shouldn't need it (and
+  looks to not be needed in this case), if needs to be readded and _ function is
+  used, please add a comment explaining the issue.
+
+  10 May 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -telepathy-gabble-0.16.1.ebuild, telepathy-gabble-0.16.4.ebuild:
+  Fix openssl requirements, bug #460456.
 
   01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-gabble-0.16.4.ebuild:
   Stable for sparc, wrt bug #458984

@@ -1,6 +1,47 @@
 # ChangeLog for dev-python/mozrunner
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/mozrunner/ChangeLog,v 1.22 2013/03/21 07:36:42 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/mozrunner/ChangeLog,v 1.30 2013/11/07 06:11:56 patrick Exp $
+
+*mozrunner-5.26 (07 Nov 2013)
+
+  07 Nov 2013; Patrick Lauer <patrick@gentoo.org> +mozrunner-5.26.ebuild:
+  Bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> mozrunner-5.18-r1.ebuild,
+  mozrunner-5.23.ebuild, mozrunner-5.24.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*mozrunner-5.24 (02 Sep 2013)
+
+  02 Sep 2013; Patrick Lauer <patrick@gentoo.org> +mozrunner-5.24.ebuild:
+  Bump
+
+*mozrunner-5.23 (10 Aug 2013)
+
+  10 Aug 2013; Patrick Lauer <patrick@gentoo.org> +mozrunner-5.23.ebuild:
+  Bump
+
+*mozrunner-5.18-r1 (23 Jul 2013)
+
+  23 Jul 2013; Ian Delaney <idella4@gentoo.org> +mozrunner-5.18-r1.ebuild,
+  -mozrunner-2.5.4.ebuild, -mozrunner-5.10.ebuild, -mozrunner-5.12.ebuild,
+  -mozrunner-5.14.ebuild, -mozrunner-5.18.ebuild, -mozrunner-5.2.ebuild:
+  migrate -> distutils-r1, add missing rdep and correct deps, drop some old
+
+*mozrunner-5.18 (19 Jun 2013)
+
+  19 Jun 2013; Patrick Lauer <patrick@gentoo.org> +mozrunner-5.18.ebuild:
+  Bump
+
+*mozrunner-5.17 (13 Jun 2013)
+
+  13 Jun 2013; Patrick Lauer <patrick@gentoo.org> +mozrunner-5.17.ebuild:
+  Bump
+
+*mozrunner-5.16 (03 Jun 2013)
+
+  03 Jun 2013; Patrick Lauer <patrick@gentoo.org> +mozrunner-5.16.ebuild:
+  Bump
 
 *mozrunner-5.15 (21 Mar 2013)
 

@@ -1,6 +1,63 @@
 # ChangeLog for app-admin/ansible
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.13 2013/03/30 16:03:40 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.27 2013/10/11 11:30:57 pinkbyte Exp $
+
+*ansible-1.3.3 (11 Oct 2013)
+
+  11 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.3.3.ebuild,
+  ansible-9999.ebuild:
+  Version bump, wrt bug #486098. Sync live ebuild
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.2.3.ebuild:
+  Stable for x86, wrt bug #482152
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.2.3.ebuild:
+  Stable for amd64, wrt bug #482152
+
+*ansible-1.2.3 (03 Sep 2013)
+
+  03 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.2.3.ebuild,
+  ansible-9999.ebuild:
+  Version bump, wrt bug #482152. Sync live ebuild
+
+  24 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> -ansible-1.0.ebuild,
+  -ansible-1.1.ebuild:
+  Drop vulnerable versions, wrt bug #475602
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.2.1.ebuild:
+  Stable for x86, wrt bug #475602
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.2.1.ebuild:
+  Stable for amd64, wrt bug #475602
+
+*ansible-1.2.1 (16 Jul 2013)
+
+  16 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.2.1.ebuild,
+  ansible-9999.ebuild:
+  Version bump, wrt bug #475602. Remove examples USE-flag due to upstream
+  changes. Sync live ebuild
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.0.ebuild:
+  Stable for x86, wrt bug #471226
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.0.ebuild:
+  Stable for amd64, wrt bug #471226
+
+*ansible-1.1 (25 May 2013)
+
+  25 May 2013; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.1.ebuild:
+  Version bump
+
+  25 May 2013; Sergey Popov <pinkbyte@gentoo.org> ansible-9999.ebuild:
+  Utilize readme.gentoo eclass, add missing die in src_test
+
+  25 May 2013; Sergey Popov <pinkbyte@gentoo.org> -ansible-0.9-r1.ebuild,
+  -files/ansible-0.9-distribution-fix.patch, metadata.xml:
+  Change maintainer, drop old version and deprecated USE flags descriptions
+
+  25 May 2013; Sergey Popov <pinkbyte@gentoo.org> ansible-9999.ebuild:
+  Remove manual installation of ansible modules, wrt bug #470890. Thanks to Jan
+  Pobrislo <ccx AT volny.cz> for discovering this issue
 
   30 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
   Add upstream information, mark USE-flags 'sudo' and 'paramiko' as deprecated,

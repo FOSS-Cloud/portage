@@ -1,6 +1,105 @@
 # ChangeLog for net-dns/bind
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/bind/ChangeLog,v 1.445 2013/04/08 05:41:23 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/bind/ChangeLog,v 1.473 2013/10/13 15:07:21 idl0r Exp $
+
+*bind-9.9.4 (13 Oct 2013)
+*bind-9.8.6 (13 Oct 2013)
+
+  13 Oct 2013; Christian Ruppert <idl0r@gentoo.org> -bind-9.8.5_p2.ebuild,
+  +bind-9.8.6.ebuild, +bind-9.9.4.ebuild, -files/named.conf-r5, metadata.xml:
+  Bump, fixes bug 483754 and bug 485802
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> -bind-9.9.2_p2.ebuild,
+  -files/bind-9.9.2_p1-libxml.patch:
+  Remove old
+
+  12 Aug 2013; Rick Farina <zerochaos@gentoo.org> bind-9.9.3_p2.ebuild:
+  clarify deps as requested by bug 479746
+
+  09 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for arm, wrt bug #478316
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for sh, wrt bug #478316
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for s390, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for x86, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for sparc, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for ppc, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for ppc64, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for ia64, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for amd64, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for alpha, wrt bug #478316
+
+  30 Jul 2013; Jeroen Roovers <jer@gentoo.org> bind-9.9.3_p2.ebuild:
+  Stable for HPPA (bug #478316).
+
+*bind-9.9.3_p2 (29 Jul 2013)
+*bind-9.8.5_p2 (29 Jul 2013)
+
+  29 Jul 2013; Christian Ruppert <idl0r@gentoo.org> -bind-9.8.5_p1.ebuild,
+  +bind-9.8.5_p2.ebuild, -bind-9.9.2_p1.ebuild, -bind-9.9.3_p1.ebuild,
+  +bind-9.9.3_p2.ebuild:
+  Version bumps, cleanup. Fixes CVE-2013-4854
+
+  13 Jul 2013; Pacho Ramos <pacho@gentoo.org> +files/generate-rndc-key.sh,
+  +files/named.conf, +files/named.service, bind-9.9.3_p1.ebuild:
+  Install unit file (#466158)
+
+*bind-9.9.3_p1 (30 Jun 2013)
+*bind-9.8.5_p1 (30 Jun 2013)
+
+  30 Jun 2013; Christian Ruppert <idl0r@gentoo.org> -bind-9.8.4_p2.ebuild,
+  +bind-9.8.5_p1.ebuild, +bind-9.9.3_p1.ebuild:
+  Version bumps, fixes CVE-2013-2266, bug 463497
+
+  14 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for sh, wrt bug #463497
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for s390, wrt bug #463497
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for sparc, wrt bug #463497
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for ia64, wrt bug #463497
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for arm, wrt bug #463497
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for alpha, wrt bug #463497
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for ppc64, wrt bug #463497
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for ppc, wrt bug #463497
+
+  10 Apr 2013; Jeroen Roovers <jer@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for HPPA (bug #463497).
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for x86, wrt bug #463497
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bind-9.9.2_p2.ebuild:
+  Stable for amd64, wrt bug #463497
 
   08 Apr 2013; Ulrich Müller <ulm@gentoo.org> bind-9.8.4_p2.ebuild,
   bind-9.9.2_p1.ebuild, bind-9.9.2_p2.ebuild:

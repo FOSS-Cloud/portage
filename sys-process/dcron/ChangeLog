@@ -1,6 +1,36 @@
 # ChangeLog for sys-process/dcron
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/dcron/ChangeLog,v 1.26 2012/07/01 18:20:07 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-process/dcron/ChangeLog,v 1.35 2013/09/05 05:33:19 vapier Exp $
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> dcron-4.5-r1.ebuild:
+  Mark m68k/ppc64/s390/sh/sparce stable #480118.
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> dcron-4.5-r1.ebuild:
+  Stable for alpha, wrt bug #480118
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> dcron-4.5-r1.ebuild:
+  Stable for ia64, wrt bug #480118
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> dcron-4.5-r1.ebuild:
+  Stable for arm, wrt bug #480118
+
+  19 Aug 2013; Agostino Sarubbo <ago@gentoo.org> dcron-4.5-r1.ebuild:
+  Stable for ppc, wrt bug #480118
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> dcron-4.5-r1.ebuild:
+  Stable for x86, wrt bug #480118
+
+  17 Aug 2013; Jeroen Roovers <jer@gentoo.org> dcron-4.5-r1.ebuild:
+  Stable for HPPA (bug #480118).
+
+  17 Aug 2013; Agostino Sarubbo <ago@gentoo.org> dcron-4.5-r1.ebuild:
+  Stable for amd64, wrt bug #480118
+
+*dcron-4.5-r1 (27 Jul 2013)
+
+  27 Jul 2013; Pacho Ramos <pacho@gentoo.org> +dcron-4.5-r1.ebuild,
+  +files/dcron.service:
+  Install unit file #470754
 
   01 Jul 2012; Raúl Porcel <armin76@gentoo.org> dcron-4.5.ebuild:
   alpha/ia64/m68k/s390/sh/sparc stable wrt #413969

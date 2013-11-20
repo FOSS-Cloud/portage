@@ -1,6 +1,35 @@
 # ChangeLog for app-admin/lib_users
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/lib_users/ChangeLog,v 1.26 2012/10/24 15:57:16 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/lib_users/ChangeLog,v 1.33 2013/08/18 13:28:42 ago Exp $
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> lib_users-0.6.ebuild:
+  Stable for x86, wrt bug #479342
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> lib_users-0.6.ebuild:
+  Stable for ppc, wrt bug #479342
+
+*lib_users-0.6-r1 (09 Aug 2013)
+
+  09 Aug 2013; Justin Lecher <jlec@gentoo.org> lib_users-0.5.ebuild,
+  lib_users-0.6.ebuild, +lib_users-0.6-r1.ebuild, metadata.xml:
+  Bump to python-r1.eclass; add py3.3 support; Clean DESCRIPTION
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> lib_users-0.6.ebuild:
+  Stable for amd64, wrt bug #479342
+
+  01 Aug 2013; Jeroen Roovers <jer@gentoo.org> lib_users-0.6.ebuild:
+  Stable for HPPA (bug #479342).
+
+  01 Aug 2013; Tobias Klausmann <klausman@gentoo.org> lib_users-0.6.ebuild:
+  Revert to python.eclass and stabilize on Alpha.  Since python-r1.eclass
+  provides no python_execute_nosetests() function and coding it myself seems a
+  waste of time, revert to using python.eclass.  Also stabilize on Alpha for bug
+  479342.
+
+*lib_users-0.6 (31 May 2013)
+
+  31 May 2013; Tobias Klausmann <klausman@gentoo.org> +lib_users-0.6.ebuild:
+  Add v0.6 which fixes OpenVZ-style map files (bug 471612)
 
   24 Oct 2012; Jeroen Roovers <jer@gentoo.org> -lib_users-0.3.ebuild:
   Old.

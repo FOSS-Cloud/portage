@@ -1,0 +1,21 @@
+# ChangeLog for games-board/gnome-mahjongg
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-board/gnome-mahjongg/ChangeLog,v 1.4 2013/11/06 20:58:54 pacho Exp $
+
+  06 Nov 2013; Pacho Ramos <pacho@gentoo.org> -gnome-mahjongg-3.8.0.ebuild,
+  gnome-mahjongg-3.8.1.ebuild:
+  x86 keyword, bug #476710
+
+*gnome-mahjongg-3.8.1 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +gnome-mahjongg-3.8.1.ebuild:
+  Version bump
+
+  31 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> gnome-mahjongg-3.8.0.ebuild:
+  Add ~arm keyword, wrt bug #476710
+
+*gnome-mahjongg-3.8.0 (01 Aug 2013)
+
+  01 Aug 2013; Pacho Ramos <pacho@gentoo.org> +gnome-mahjongg-3.8.0.ebuild,
+  +metadata.xml:
+  Add game from old gnome-games (#478880 by Maciej Piechotka)

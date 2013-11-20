@@ -1,6 +1,45 @@
 # ChangeLog for dev-python/pyrex
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyrex/ChangeLog,v 1.95 2013/02/15 09:53:12 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyrex/ChangeLog,v 1.108 2013/10/22 14:21:21 grobian Exp $
+
+  22 Oct 2013; Fabian Groffen <grobian@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Marked ~x64-macos, bug #487670
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Stable for sh, wrt bug #463080
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Stable for s390, wrt bug #463080
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Stable for alpha, wrt bug #463080
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Stable for x86, wrt bug #463080
+
+  10 May 2013; Markus Meier <maekke@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  arm stable, bug #463080
+
+  08 May 2013; Jeroen Roovers <jer@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Stable for HPPA (bug #463080).
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Stable for ppc64, wrt bug #463080
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Stable for ppc, wrt bug #463080
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Stable for sparc, wrt bug #463080
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Stable for ia64, wrt bug #463080
+
+  07 May 2013; Sergey Popov <pinkbyte@gentoo.org> pyrex-0.9.9-r1.ebuild:
+  Stable on amd64, wrt bug #463080
 
 *pyrex-0.9.9-r1 (15 Feb 2013)
 

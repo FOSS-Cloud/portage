@@ -1,6 +1,70 @@
 # ChangeLog for dev-db/postgresql-base
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-base/ChangeLog,v 1.244 2013/04/05 19:23:37 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-base/ChangeLog,v 1.255 2013/11/16 10:35:03 pacho Exp $
+
+  16 Nov 2013; Pacho Ramos <pacho@gentoo.org> postgresql-base-8.4.17-r1.ebuild,
+  postgresql-base-9.0.13-r1.ebuild, postgresql-base-9.1.9-r1.ebuild,
+  postgresql-base-9.2.4-r1.ebuild:
+  amd64 stable, bug #490304
+
+  11 Nov 2013; Jeroen Roovers <jer@gentoo.org>
+  postgresql-base-8.4.17-r1.ebuild, postgresql-base-9.0.13-r1.ebuild,
+  postgresql-base-9.1.9-r1.ebuild, postgresql-base-9.2.4-r1.ebuild:
+  Stable for HPPA (bug #490304).
+
+*postgresql-base-9.2.5 (11 Oct 2013)
+*postgresql-base-9.0.14 (11 Oct 2013)
+*postgresql-base-8.4.18 (11 Oct 2013)
+*postgresql-base-9.1.10 (11 Oct 2013)
+*postgresql-base-9.3.1 (11 Oct 2013)
+
+  11 Oct 2013; Patrick Lauer <patrick@gentoo.org>
+  +postgresql-base-8.4.18.ebuild, +postgresql-base-9.0.14.ebuild,
+  +postgresql-base-9.1.10.ebuild, +postgresql-base-9.2.5.ebuild,
+  +postgresql-base-9.3.1.ebuild:
+  Bump
+
+*postgresql-base-9.3.0-r1 (15 Sep 2013)
+*postgresql-base-9.2.4-r1 (15 Sep 2013)
+*postgresql-base-9.1.9-r1 (15 Sep 2013)
+*postgresql-base-9.0.13-r1 (15 Sep 2013)
+*postgresql-base-8.4.17-r1 (15 Sep 2013)
+
+  15 Sep 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  +postgresql-base-8.4.17-r1.ebuild, +postgresql-base-9.0.13-r1.ebuild,
+  +postgresql-base-9.1.9-r1.ebuild, +postgresql-base-9.2.4-r1.ebuild,
+  +postgresql-base-9.3.0-r1.ebuild, postgresql-base-9999.ebuild:
+  Add Python support for clients and libraries. Fixes bug 392673.
+
+*postgresql-base-9.3.0 (10 Sep 2013)
+
+  10 Sep 2013; Patrick Lauer <patrick@gentoo.org> +postgresql-base-9.3.0.ebuild,
+  -postgresql-base-9.3_beta1.ebuild, -postgresql-base-9.3_beta2.ebuild:
+  Bump
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> postgresql-base-9999.ebuild:
+  Whitespace
+
+  25 Jul 2013; Patrick Lauer <patrick@gentoo.org> postgresql-base-9999.ebuild:
+  Make -9999 compile again
+
+  24 Jul 2013; Patrick Lauer <patrick@gentoo.org> postgresql-base-9999.ebuild:
+  Fixing slot of -9999 ebuild
+
+*postgresql-base-9.3_beta2 (02 Jul 2013)
+
+  02 Jul 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  +postgresql-base-9.3_beta2.ebuild:
+  Version bump.
+
+*postgresql-base-9.3_beta1 (12 Jun 2013)
+
+  12 Jun 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  +postgresql-base-9.3_beta1.ebuild:
+  Version bump.
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unused flag from metadata
 
   05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> -postgresql-base-8.4.16.ebuild,
   -postgresql-base-9.0.12.ebuild, -postgresql-base-9.1.8.ebuild,

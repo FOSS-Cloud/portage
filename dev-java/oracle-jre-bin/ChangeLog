@@ -1,6 +1,57 @@
 # ChangeLog for dev-java/oracle-jre-bin
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/oracle-jre-bin/ChangeLog,v 1.33 2013/03/07 18:45:59 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/oracle-jre-bin/ChangeLog,v 1.45 2013/10/19 19:52:52 ago Exp $
+
+  19 Oct 2013; Agostino Sarubbo <ago@gentoo.org>
+  -oracle-jre-bin-1.7.0.25.ebuild, -oracle-jre-bin-1.7.0.40.ebuild:
+  Remove old
+
+  19 Oct 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.45.ebuild:
+  Stable for x86, wrt bug #488210
+
+  19 Oct 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.45.ebuild:
+  Stable for amd64, wrt bug #488210
+
+*oracle-jre-bin-1.7.0.45 (16 Oct 2013)
+
+  16 Oct 2013; Tom Wijsman <TomWij@gentoo.org> +oracle-jre-bin-1.7.0.45.ebuild:
+  Version bump to 1.7.0.45, fixes bug #488174.
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.40.ebuild:
+  Stable for x86, wrt bug #485528
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.40.ebuild:
+  Stable for amd64, wrt bug #485528
+
+*oracle-jre-bin-1.7.0.40 (14 Sep 2013)
+
+  14 Sep 2013; Tom Wijsman <TomWij@gentoo.org> +oracle-jre-bin-1.7.0.40.ebuild:
+  Version bump to 1.7.0.40. Fixes bug #484716, reported by Chris Torske.
+
+  29 Jun 2013; Tom Wijsman <TomWij@gentoo.org> -oracle-jre-bin-1.7.0.17.ebuild,
+  -oracle-jre-bin-1.7.0.21.ebuild, oracle-jre-bin-1.7.0.25.ebuild:
+  Drop old insecure versions; stabilized 1.7.0.25 after building, testing and
+  running some Java software. Permitted by ago.
+
+  26 Jun 2013; Andreas Schuerch <nativemad@gentoo.org>
+  oracle-jre-bin-1.7.0.25.ebuild:
+  x86 stable, see bug 473980
+
+*oracle-jre-bin-1.7.0.25 (22 Jun 2013)
+
+  22 Jun 2013; Tom Wijsman <TomWij@gentoo.org> +oracle-jre-bin-1.7.0.25.ebuild:
+  Version bump to 1.7.0.25 for security bug #473980 reported by Hypnos, fixes 40
+  CVEs.
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.21.ebuild:
+  Stable for x86, wrt bug #466212
+
+*oracle-jre-bin-1.7.0.21 (17 Apr 2013)
+
+  17 Apr 2013; Ralph Sennhauser <sera@gentoo.org>
+  -oracle-jre-bin-1.7.0.15.ebuild, +oracle-jre-bin-1.7.0.21.ebuild:
+  Security bump. #466212
+  arm has no server vm. #464974
 
   07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.17.ebuild:
   Stable for x86, wrt bug #460360

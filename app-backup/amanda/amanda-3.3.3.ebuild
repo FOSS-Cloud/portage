@@ -1,17 +1,16 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/amanda/amanda-3.3.3.ebuild,v 1.2 2013/02/26 23:00:38 robbat2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-backup/amanda/amanda-3.3.3.ebuild,v 1.8 2013/09/10 06:14:32 idella4 Exp $
 
-EAPI=3
+EAPI=5
 inherit autotools eutils perl-module user systemd
 
-MY_P="${P/_}"
 DESCRIPTION="The Advanced Maryland Automatic Network Disk Archiver"
 HOMEPAGE="http://www.amanda.org/"
 SRC_URI="mirror://sourceforge/amanda/${P}.tar.gz"
 LICENSE="HPND BSD BSD-2 GPL-2+ GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 ppc ppc64 ~sparc x86"
 RDEPEND="sys-libs/readline
 	virtual/awk
 	app-arch/tar
@@ -45,8 +44,6 @@ DEPEND="${RDEPEND}
 	"
 
 IUSE="curl gnuplot ipv6 kerberos minimal nls readline s3 samba systemd xfs"
-
-S="${WORKDIR}/${MY_P}"
 
 MYFILESDIR="${T}/files"
 ENVDIR="/etc/env.d"
@@ -302,8 +299,7 @@ src_install() {
 	source ${TMPENVFILE}
 
 	einfo "Doing stock install"
-	# parallel make install b0rked
-	emake -j1 DESTDIR="${D}" install || die
+	emake DESTDIR="${D}" install || die
 
 	# Build the envdir file
 	# Don't forget this..
@@ -336,13 +332,10 @@ src_install() {
 		insinto /etc/cron.daily
 		newins "${MYFILESDIR}/amanda-cron" amanda
 	fi
-	
-	if use systemd; then
-		einfo "Installing systemd service and socket files for Amanda"
+
+	einfo "Installing systemd service and socket files for Amanda"
 	systemd_dounit "${FILESDIR}"/amanda.socket || die
 	systemd_newunit "${FILESDIR}"/amanda.service 'amanda@.service' || die
-	fi
-
 
 	insinto /etc/amanda
 	einfo "Installing .amandahosts File for ${AMANDA_USER_NAME} user"
@@ -410,7 +403,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	[ ! -f "${TMPENVFILE}" -a "$EMERGE_FROM" == "binary" ] && \
+	[ ! -f "${TMPENVFILE}" -a "$MERGE_TYPE" == "binary" ] && \
 		TMPENVFILE="${ROOT}${ENVDIR}/${ENVDFILE}"
 	[ ! -f "${TMPENVFILE}" ] && die "Variable setting file (${TMPENVFILE}) should exist!"
 	source "${TMPENVFILE}"

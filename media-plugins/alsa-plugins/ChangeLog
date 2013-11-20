@@ -1,6 +1,60 @@
 # ChangeLog for media-plugins/alsa-plugins
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/alsa-plugins/ChangeLog,v 1.165 2013/04/05 18:21:58 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/alsa-plugins/ChangeLog,v 1.179 2013/09/01 18:36:24 ago Exp $
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> alsa-plugins-1.0.27.ebuild:
+  Stable for alpha, wrt bug #473404
+
+  20 Aug 2013; Jeroen Roovers <jer@gentoo.org> alsa-plugins-1.0.27.ebuild:
+  Stable for HPPA (bug #473404).
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> alsa-plugins-1.0.27.ebuild:
+  Stable for ppc, wrt bug #473404
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> alsa-plugins-1.0.27.ebuild:
+  Stable for x86, wrt bug #473404
+
+  07 Aug 2013; Alexis Ballier <aballier@gentoo.org> alsa-plugins-1.0.27.ebuild,
+  +files/alsa-plugins-1.0.27-ffmpeg-version-check.patch:
+  Fix build with ffmpeg 2.0 due to wrong version check. Bug #478084.
+
+  02 Aug 2013; Markus Meier <maekke@gentoo.org> alsa-plugins-1.0.27.ebuild:
+  arm stable, bug #473404
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> alsa-plugins-1.0.27.ebuild:
+  Stable for amd64, wrt bug #473404
+
+  30 Jul 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  01 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  alsa-plugins-1.0.27.ebuild:
+  Call epatch_user wrt #468162 by Doug Goldstein
+
+  01 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -alsa-plugins-1.0.24.ebuild, -alsa-plugins-1.0.25.ebuild,
+  -alsa-plugins-1.0.25-r1.ebuild, -alsa-plugins-1.0.25-r2.ebuild,
+  -files/alsa-plugins-1.0.21-automagic.patch,
+  -files/alsa-plugins-1.0.25-glibc-2.16.patch, -files/pulse.conf,
+  -files/pulse-alsa.conf:
+  old
+
+*alsa-plugins-1.0.27 (01 May 2013)
+
+  01 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +alsa-plugins-1.0.27.ebuild:
+  Version bump.
+
+  23 Apr 2013; Luca Barbato <lu_zero@gentoo.org> alsa-plugins-1.0.26.ebuild,
+  +files/alsa-plugins-1.0.26-libav9.patch:
+  Add libav9 support, patch derived from Ubuntu/Debian, thanks to Jiří
+  Moravec <qjim@volny.cz> for preparing it.
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> alsa-plugins-1.0.26.ebuild:
+  Stable for ia64, wrt bug #463451
+
+  12 Apr 2013; Jeroen Roovers <jer@gentoo.org> alsa-plugins-1.0.26.ebuild:
+  Stable for HPPA (bug #463451).
 
   05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> alsa-plugins-1.0.26.ebuild:
   Stable for ppc64, wrt bug #463451

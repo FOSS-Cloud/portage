@@ -1,6 +1,24 @@
 # ChangeLog for app-admin/mcollective
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/mcollective/ChangeLog,v 1.12 2013/03/25 20:52:59 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/mcollective/ChangeLog,v 1.16 2013/09/22 06:45:03 ago Exp $
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mcollective-2.2.0-r1.ebuild:
+  Stable for x86, wrt bug #459290
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mcollective-2.2.0-r1.ebuild:
+  Stable for amd64, wrt bug #459290
+
+*mcollective-2.2.4 (16 Sep 2013)
+*mcollective-2.2.0-r1 (16 Sep 2013)
+
+  16 Sep 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +mcollective-2.2.0-r1.ebuild, +mcollective-2.2.4.ebuild, metadata.xml:
+  fixes for bug 459290 and verbump to 2.2.4
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> -mcollective-1.0.1.ebuild,
+  -mcollective-1.1.4.ebuild, -mcollective-1.2.1.ebuild,
+  -mcollective-2.0.0.ebuild, metadata.xml:
+  Cleanup due #66351
 
   25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mcollective-2.2.0.ebuild:
   Stable for x86, wrt bug #457214

@@ -1,6 +1,13 @@
 # ChangeLog for net-misc/iputils
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/iputils/ChangeLog,v 1.122 2013/02/08 16:47:03 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/iputils/ChangeLog,v 1.124 2013/10/26 15:33:16 vapier Exp $
+
+  26 Oct 2013; Mike Frysinger <vapier@gentoo.org> iputils-20101006-r2.ebuild,
+  iputils-20121221-r1.ebuild, iputils-20121221.ebuild, iputils-99999999.ebuild:
+  Fix license to reflect source -- BSD-4.
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
 
   08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> iputils-20121221.ebuild:
   Stable for alpha, wrt bug #408183

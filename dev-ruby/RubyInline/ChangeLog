@@ -1,6 +1,50 @@
 # ChangeLog for dev-ruby/RubyInline
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/RubyInline/ChangeLog,v 1.6 2013/02/23 07:14:20 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/RubyInline/ChangeLog,v 1.18 2013/10/09 01:57:12 mrueg Exp $
+
+*RubyInline-3.12.2-r1 (09 Oct 2013)
+
+  09 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +RubyInline-3.12.2-r1.ebuild:
+  Add ruby20 target.
+
+  09 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -RubyInline-3.8.6.ebuild,
+  -files/ruby-inline-3.11.0-gentoo.patch, -files/ruby-inline-3.8.4-gentoo.patch,
+  -files/ruby-inline-3.8.4-ldflags.patch:
+  Cleanup old.
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> RubyInline-3.12.2.ebuild:
+  Stable for sparc, wrt bug #480998
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> RubyInline-3.12.2.ebuild:
+  Stable for ppc64, wrt bug #480998
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> RubyInline-3.12.2.ebuild:
+  Stable for alpha, wrt bug #480998
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> RubyInline-3.12.2.ebuild:
+  Stable for ia64, wrt bug #480998
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> RubyInline-3.12.2.ebuild:
+  Stable for x86, wrt bug #480998
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> RubyInline-3.12.2.ebuild:
+  Stable for ppc, wrt bug #480998
+
+  17 Aug 2013; Agostino Sarubbo <ago@gentoo.org> RubyInline-3.12.2.ebuild:
+  Stable for amd64, wrt bug #480998
+
+  17 Aug 2013; Jeroen Roovers <jer@gentoo.org> RubyInline-3.12.2.ebuild:
+  Stable for HPPA (bug #480998).
+
+  14 Aug 2013; Hans de Graaff <graaff@gentoo.org> -RubyInline-3.11.3.ebuild,
+  -RubyInline-3.11.4.ebuild, -RubyInline-3.12.1.ebuild:
+  Cleanup.
+
+*RubyInline-3.12.2 (27 Apr 2013)
+
+  27 Apr 2013; Hans de Graaff <graaff@gentoo.org> +RubyInline-3.12.2.ebuild,
+  +files/ruby-inline-3.12.2-gentoo.patch:
+  Version bump.
 
 *RubyInline-3.12.1 (23 Feb 2013)
 

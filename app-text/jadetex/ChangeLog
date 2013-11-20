@@ -1,6 +1,34 @@
 # ChangeLog for app-text/jadetex
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/jadetex/ChangeLog,v 1.62 2012/05/09 14:27:46 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/jadetex/ChangeLog,v 1.69 2013/10/02 02:36:28 jer Exp $
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> jadetex-3.13-r6.ebuild:
+  Stable for HPPA (bug #486022).
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jadetex-3.13-r6.ebuild:
+  Stable for x86, wrt bug #486022
+
+  27 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jadetex-3.13-r6.ebuild:
+  Stable for arm, wrt bug #486022
+
+  26 Sep 2013; Chema Alonso <nimiux@gentoo.org> jadetex-3.13-r6.ebuild:
+  Stable for amd64 wrt bug #486022
+
+*jadetex-3.13-r6 (25 Sep 2013)
+
+  25 Sep 2013; Christoph Junghans <ottxor@gentoo.org> +jadetex-3.13-r6.ebuild:
+  EAPI bump (bug #485990)
+
+*jadetex-3.13-r5 (07 Jul 2013)
+
+  07 Jul 2013; Alexis Ballier <aballier@gentoo.org> +jadetex-3.13-r5.ebuild:
+  install texmf files in texmf-site
+
+*jadetex-3.13-r4 (19 Apr 2013)
+
+  19 Apr 2013; Alexis Ballier <aballier@gentoo.org> +jadetex-3.13-r4.ebuild:
+  Install pdfjadetex.ini as it is needed to rebuild the format. Bug #456646 by
+  Ian Abbott.
 
   09 May 2012; Alexis Ballier <aballier@gentoo.org> jadetex-3.13-r3.ebuild:
   keyword ~amd64-fbsd
@@ -209,4 +237,3 @@
 
   Version bump for bugfixes to newest stable.  Also, SRC_URI and HOMEPAGE
   information updated.  Thanks to Geert Bevin in bug #1931 for the update.
-

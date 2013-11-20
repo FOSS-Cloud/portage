@@ -1,6 +1,21 @@
 # ChangeLog for dev-util/diffuse
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/diffuse/ChangeLog,v 1.16 2012/02/24 14:42:27 phajdan.jr Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/diffuse/ChangeLog,v 1.19 2013/07/12 20:02:22 grobian Exp $
+
+  12 Jul 2013; Fabian Groffen <grobian@gentoo.org> diffuse-0.4.7-r1.ebuild:
+  Fix for Prefix, patch by igrek in bug #456720
+
+*diffuse-0.4.7-r1 (01 Jul 2013)
+
+  01 Jul 2013; Andrey Grozin <grozin@gentoo.org> -diffuse-0.4.7.ebuild,
+  +diffuse-0.4.7-r1.ebuild:
+  Fixed #406433 and #475196, many thanks to Julian Ospald <hasufell@gentoo.org>
+
+*diffuse-0.4.7 (15 May 2013)
+
+  15 May 2013; Andrey Grozin <grozin@gentoo.org> -diffuse-0.4.3.ebuild,
+  -diffuse-0.4.4.ebuild, +diffuse-0.4.7.ebuild:
+  Version bump
 
   24 Feb 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> diffuse-0.4.6.ebuild:
   x86 stable wrt bug #404731
@@ -68,4 +83,3 @@
   19 Jul 2009; Andrey Grozin <grozin@gentoo.org> +diffuse-0.3.4.ebuild,
   +metadata.xml:
   Initial import
-

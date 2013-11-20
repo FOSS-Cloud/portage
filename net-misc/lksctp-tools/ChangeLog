@@ -1,6 +1,27 @@
 # ChangeLog for net-misc/lksctp-tools
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/lksctp-tools/ChangeLog,v 1.36 2013/02/24 07:14:59 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/lksctp-tools/ChangeLog,v 1.43 2013/05/25 07:44:59 ago Exp $
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> lksctp-tools-1.0.13.ebuild:
+  Stable for sparc, wrt bug #464468
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> lksctp-tools-1.0.13.ebuild:
+  Stable for x86, wrt bug #464468
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> lksctp-tools-1.0.13.ebuild:
+  Stable for alpha, wrt bug #464468
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> lksctp-tools-1.0.13.ebuild:
+  Stable for ppc64, wrt bug #464468
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> lksctp-tools-1.0.13.ebuild:
+  Stable for ppc, wrt bug #464468
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> lksctp-tools-1.0.13.ebuild:
+  Stable for amd64, wrt bug #464468
+
+  04 May 2013; Mike Frysinger <vapier@gentoo.org> lksctp-tools-1.0.13.ebuild:
+  Fix building with newer automake.
 
 *lksctp-tools-1.0.13 (24 Feb 2013)
 

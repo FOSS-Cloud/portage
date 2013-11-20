@@ -1,6 +1,35 @@
 # ChangeLog for dev-java/swt
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/swt/ChangeLog,v 1.144 2012/07/09 18:33:43 sera Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/swt/ChangeLog,v 1.149 2013/09/21 12:54:36 tomwij Exp $
+
+  21 Sep 2013; Tom Wijsman <TomWij@gentoo.org> swt-4.2-r1.ebuild,
+  swt-4.2-r2.ebuild, swt-4.2.ebuild:
+  Updated download URL to use archive URL, fixes bug #482562 reported by Frank
+  Steinmetzger.
+
+  24 Aug 2013; Ryan Hill <dirtyepic@gentoo.org> swt-3.7.2-r1.ebuild,
+  +files/swt-3.7.2-gio_launch-URI-x86.patch:
+  Fix gio_launch patch on 32bit.
+
+*swt-3.7.2-r1 (21 Aug 2013)
+
+  21 Aug 2013; Ryan Hill <dirtyepic@gentoo.org> +swt-3.7.2-r1.ebuild,
+  +files/swt-3.7.2-gio_launch-URI.patch:
+  Add patch for bug #424151 (gio_launch fails when opening by URI, causing
+  unnecessary dependencies on gnome libs).
+
+*swt-4.2-r2 (15 May 2013)
+
+  15 May 2013; Tom Wijsman <TomWij@gentoo.org> +swt-4.2-r2.ebuild:
+  Revision bump. Define missing g_thread_supported() to be 0, reported by
+  Thev00d00, as per http://git.eclipse.org/c/platform/eclipse.platform.swt.git/c
+  ommit/?id=b76decdda2aff36d926293d1567c3b04f7c91d1c
+
+*swt-4.2-r1 (10 May 2013)
+
+  10 May 2013; Tom Wijsman <TomWij@gentoo.org> +swt-4.2-r1.ebuild:
+  EAPI 5. Revision bump, depend on glib-2.32 and remove deprecated g_thread_init
+  call. Fixes bug #461784.
 
 *swt-4.2 (09 Jul 2012)
 

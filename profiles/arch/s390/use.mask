@@ -121,6 +121,7 @@ video_cards_i128
 video_cards_i740
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 video_cards_intel
 video_cards_mach64
 video_cards_mga
@@ -149,3 +150,10 @@ video_cards_trident
 video_cards_tseng
 video_cards_v4l
 video_cards_vesa
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl
+
+# Unmask once sys-libs/libunwind gets ported & keyworded.
+unwind

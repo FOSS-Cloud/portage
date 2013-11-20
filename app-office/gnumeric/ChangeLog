@@ -1,6 +1,44 @@
 # ChangeLog for app-office/gnumeric
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/gnumeric/ChangeLog,v 1.247 2013/04/01 18:23:27 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/gnumeric/ChangeLog,v 1.254 2013/10/10 19:03:31 pacho Exp $
+
+*gnumeric-1.12.8 (10 Oct 2013)
+
+  10 Oct 2013; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.8.ebuild:
+  Version bump, drop old
+
+  29 Sep 2013; Pacho Ramos <pacho@gentoo.org> -gnumeric-1.12.3.ebuild,
+  -gnumeric-1.12.4.ebuild, -gnumeric-1.12.5.ebuild, gnumeric-1.12.7.ebuild:
+  Fix python handling (#480410 by Maciej Piechotka and mgorny), drop old
+
+*gnumeric-1.12.7 (01 Sep 2013)
+
+  01 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org> +gnumeric-1.12.7.ebuild:
+  Version bump.
+
+*gnumeric-1.12.5 (25 Aug 2013)
+
+  25 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> +gnumeric-1.12.5.ebuild,
+  metadata.xml:
+  Version bump. Add libgda:5 support.
+
+*gnumeric-1.12.4 (20 Jul 2013)
+
+  20 Jul 2013; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.4.ebuild,
+  -gnumeric-1.12.2.ebuild:
+  Version bump, drop old
+
+*gnumeric-1.12.3 (26 Jun 2013)
+
+  26 Jun 2013; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.3.ebuild,
+  -gnumeric-1.12.1.ebuild:
+  Version bump, drop old
+
+*gnumeric-1.12.2 (27 Apr 2013)
+
+  27 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.2.ebuild,
+  -gnumeric-1.10.17.ebuild:
+  Version bump, drop old
 
   01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
   Stable for sparc, wrt bug #458984

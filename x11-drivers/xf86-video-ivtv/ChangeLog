@@ -1,6 +1,24 @@
 # ChangeLog for x11-drivers/xf86-video-ivtv
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-ivtv/ChangeLog,v 1.22 2013/02/27 19:44:27 je_fro Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-ivtv/ChangeLog,v 1.26 2013/10/08 05:06:16 ago Exp $
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-ivtv-1.1.2-r2.ebuild:
+  Stable for x86, wrt bug #475480
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-ivtv-1.1.2-r2.ebuild:
+  Stable for amd64, wrt bug #475480
+
+  27 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  xf86-video-ivtv-1.1.2-r1.ebuild, xf86-video-ivtv-1.1.2.ebuild:
+  Depend on older xorg-server as suggested in bug #461534.
+
+*xf86-video-ivtv-1.1.2-r2 (12 Jul 2013)
+
+  12 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xf86-video-ivtv-1.1.2-r2.ebuild:
+  Fix building against xorg-server-1.14, bug #461534.
 
   27 Feb 2013; Jeff Gardner <je_fro@gentoo.org>
   xf86-video-ivtv-1.1.2-r1.ebuild:
@@ -123,4 +141,3 @@
   +files/ivtv_xdriver-unified.patch, +metadata.xml,
   +xf86-video-ivtvdev-0.10.6.ebuild:
   Initial commit for ivtv xdriver
-

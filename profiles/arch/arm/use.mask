@@ -31,10 +31,6 @@ musepack
 # I've been told xfs is broken on ARM
 xfs
 
-# Mart Raudsepp <leio@gentoo.org>
-# net-misc/networkmanager not keyworded
-networkmanager
-
 # Raúl Porcel <armin76@gentoo.org>
 # Fails to build/work
 openexr
@@ -79,7 +75,6 @@ debug-utils
 schroedinger
 hardened
 frei0r
-google-gadgets
 libvirt
 pdfannotextractor
 prelude
@@ -194,6 +189,7 @@ video_cards_r600
 video_cards_radeonsi
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
 
@@ -219,10 +215,6 @@ audit
 # mask d3d since we don't have wine
 d3d
 
-# Matt Turner <mattst88@gentoo.org) (10 Feb 2012)
-# mask wayland since dev-libs/wayland isn't keyworded
-wayland
-
 # fdk-aac is already keyworded here
 -fdk
 
@@ -236,3 +228,16 @@ cman
 clvm
 
 -zeitgeist
+
+# Michał Górny <mgorny@gentoo.org> (4 May 2013)
+# Unmask systemd since it is keyworded here.
+-systemd
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (10 Nov 2013)
+# sys-devel/llvm is keyworded
+-llvm
+

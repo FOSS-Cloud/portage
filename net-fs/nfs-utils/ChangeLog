@@ -1,6 +1,72 @@
 # ChangeLog for net-fs/nfs-utils
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/nfs-utils/ChangeLog,v 1.214 2013/03/24 21:44:02 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/nfs-utils/ChangeLog,v 1.229 2013/11/09 15:40:00 pacho Exp $
+
+  09 Nov 2013; Pacho Ramos <pacho@gentoo.org> nfs-utils-1.2.7-r1.ebuild:
+  x86 stable, bug #480074
+
+*nfs-utils-1.2.9 (07 Nov 2013)
+
+  07 Nov 2013; Tim Harder <radhermit@gentoo.org> +nfs-utils-1.2.9.ebuild,
+  metadata.xml:
+  Version bump, add default enabled libmount use flag (bug #487962).
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> nfs-utils-1.2.7-r1.ebuild:
+  Stable for ppc, wrt bug #480074
+
+  23 Sep 2013; Jeroen Roovers <jer@gentoo.org> nfs-utils-1.2.7-r1.ebuild:
+  Stable for HPPA (bug #480074).
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> nfs-utils-1.2.7-r1.ebuild:
+  Stable for ppc64, wrt bug #480074
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> nfs-utils-1.2.7-r1.ebuild:
+  Stable for alpha, wrt bug #480074
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> nfs-utils-1.2.7-r1.ebuild:
+  Stable for ia64, wrt bug #480074
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> nfs-utils-1.2.7-r1.ebuild:
+  Stable for amd64, wrt bug #480074
+
+  19 Sep 2013; Markus Meier <maekke@gentoo.org> nfs-utils-1.2.7-r1.ebuild:
+  arm stable, bug #480074
+
+*nfs-utils-1.2.8-r2 (27 Aug 2013)
+
+  27 Aug 2013; Tim Harder <radhermit@gentoo.org> +nfs-utils-1.2.8-r2.ebuild:
+  Add configure flag to use libgssglue for GSS support, fixes rpc.gssd segfault
+  issues (bug #479982 by dnh2000).
+
+  07 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> nfs-utils-1.2.7-r1.ebuild,
+  nfs-utils-1.2.8-r1.ebuild:
+  Adjust dependency on rpcbind so that version with systemd units is pulled in
+  for packages that require it. Fixes #480006 by redneb <redneb@gmx.com>
+
+*nfs-utils-1.2.8-r1 (26 Jul 2013)
+*nfs-utils-1.2.7-r1 (26 Jul 2013)
+
+  26 Jul 2013; Tim Harder <radhermit@gentoo.org> -nfs-utils-1.2.7.ebuild,
+  +nfs-utils-1.2.7-r1.ebuild, -nfs-utils-1.2.8.ebuild,
+  +nfs-utils-1.2.8-r1.ebuild:
+  Remove compiled files bundled in the tarball (fixes bug #478196).
+
+*nfs-utils-1.2.8 (26 Jul 2013)
+
+  26 Jul 2013; Tim Harder <radhermit@gentoo.org> +nfs-utils-1.2.8.ebuild,
+  +files/0001-mountd-Fix-is_subdirectory-again.patch,
+  +files/nfs-utils-1.2.8-cross-build.patch,
+  +files/0001-statd-exit-if-a-statd-is-already-running.patch:
+  Version bump.
+
+  13 Jul 2013; Pacho Ramos <pacho@gentoo.org> +files/nfsd.service,
+  +files/rpc-mountd.service, +files/rpc-statd.service, nfs-utils-1.2.7.ebuild:
+  Install unit file (#468318)
+
+  13 Apr 2013; Mike Frysinger <vapier@gentoo.org> nfs-utils-1.2.6.ebuild,
+  nfs-utils-1.2.7.ebuild:
+  Force sqlite test to work even when cross-compiling #465576 by Dennis
+  Schridde.
 
   24 Mar 2013; Mike Frysinger <vapier@gentoo.org>
   +files/nfs-utils-1.2.7-libio.patch, nfs-utils-1.2.6.ebuild,

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/solar2/solar2-1.10.ebuild,v 1.2 2013/03/22 21:30:57 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-action/solar2/solar2-1.10.ebuild,v 1.5 2013/08/18 00:25:18 hasufell Exp $
 
 # TODO: - unbundle libmono for 64bit
 #       - unbundling libSDL_mixer breaks the game
@@ -19,9 +19,9 @@ SRC_URI="${GAMEBALL} ${ICONFILE}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="bundled-libs"
-RESTRICT="bindist fetch"
+RESTRICT="bindist fetch splitdebug"
 
 MYGAMEDIR=${GAMES_PREFIX_OPT}/${PN}
 QA_PREBUILT="${MYGAMEDIR#/}/lib/*
@@ -67,7 +67,7 @@ src_prepare() {
 			# no mono 32bit libs on amd64 yet
 			rm -v lib/libmad.so* lib/libmikmod.so* lib/libopenal.so* || die
 		else
-			rm -v lib/libmad.so* lib/libmikmod.so* lib/libopenal.so* lib/libmono.so* || die
+			rm -v lib/libmad.so* lib/libmikmod.so* lib/libopenal.so* lib/libmono-2.0.so* || die
 		fi
 	fi
 }

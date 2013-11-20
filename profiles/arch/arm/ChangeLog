@@ -1,6 +1,166 @@
 # ChangeLog for Gentoo/ARM profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/ChangeLog,v 1.227 2013/04/01 10:22:02 heroxbd Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/ChangeLog,v 1.278 2013/11/10 15:47:03 chithanh Exp $
+
+  10 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask, use.mask:
+  Adjust llvm masks in preparation for global llvm USE flag unmasking.
+
+  31 Oct 2013; Benda Xu <heroxbd@gentoo.org> package.use.mask:
+  mask USE gtk and guionly of net-p2p/mldonkey, bug #487722
+
+  21 Oct 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Added bug reference to media-video/mpv luajit mask.
+
+  20 Oct 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Adjusted media-video/mpv luajit USE mask to support future versions.
+
+  16 Oct 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Mask luajit on ~media-video/mpv-0.2.0 because it only has amd64 x86 keywords.
+
+  05 Oct 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask net-misc/tigervnc[java] for all versions, bug #485436
+
+  15 Sep 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask dev-python/ipython[nbconvert], bug #481462
+
+  15 Sep 2013; Johannes Huber <johu@gentoo.org> package.use.mask:
+  Mask use kde-base/solid-runtime[networkmanager], unkeyworded dep
+  kde-misc/networkmanagement.
+
+  06 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
+  Mask USE-flag hdf on dev-perl/PDL
+
+  31 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
+  Remove games USE-flag mask for gnome-base/gnome-extra-apps, bug #476710
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  remove kde-base/kdepim-runtime[facebook] package.use.mask, bug #481088
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  remove kde-base/nepomuk-core[epub] package.use.mask, bug #481092
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  remove dev-db/mysql[systemtap] and dev-db/mariadb[systemtap]
+  package.use.mask, bug #351931
+
+  23 Aug 2013; Michael Weber <xmw@gentoo.org> package.use.mask:
+  Maskung unkeyworded deps of media-gfx/fim
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask opencl flag due to lack of virtual/opencl keywording.
+
+  15 Aug 2013; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  =sys-kernel/gentoo-sources-3.4.58: Broken due to not building patches that
+  upstream slipped through.
+
+  14 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org> package.use.mask:
+  mask ebook support of nepomuk-core until keyworded
+
+  14 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org> package.use.mask:
+  mask facebook support of kdepim-runtime until keyworded
+
+  13 Aug 2013; Markus Meier <maekke@gentoo.org> package.mask:
+  remove texive-2013 mask, as dev-texlive/texlive-langeuropean-2013 is
+  keyworded now, bug #475124
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.mask:
+  move texlive mask from global to arch profiles, bug #475124
+
+  04 Aug 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask app-admin/conky flags with unkeyworded deps for bug #474026
+
+  02 Aug 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask media-libs/libjpeg-turbo[java] for all versions
+
+  30 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
+  Mask some of untested features of media-libs/devil
+
+  23 Jul 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  Add dev-libs/protobuf[java]
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  add =dev-libs/cyrus-sasl-2.1.26-r3 and =dev-libs/cyrus-sasl-2.1.23-r7
+  to the existing mask
+
+  16 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Remove obsolete masks from gnome-3.2 era
+
+  13 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Drop wayland mask as wayland is now keyworded.
+
+  13 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask rdp flag for dev-libs/weston.
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  Remove the version from cups to cover the next stable
+
+  17 Jun 2013; Patrick Lauer <patrick@gentoo.org> package.use.mask:
+  Fix per-arch mask of phonon[zeitgeist] #460140
+
+  16 Jun 2013; Alexandre Rostovtsev <tetromino@gentoo.org> use.mask:
+  Unmask networkmanager USE flag - it has been keyworded since February 2013.
+
+  07 Jun 2013; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Remove versions from libidn USE mask.
+
+  31 May 2013; Patrick Lauer <patrick@gentoo.org> package.use.mask:
+  Masking java useflag for tightvnc to avoid stable keyword problems #469540
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Drop unneeded use.mask entry.
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask r600-llvm-compiler flag for mesa.
+
+  27 May 2013; Andreas K. Huettel <dilfridge@gentoo.org> package.use.mask:
+  Mask firmware loader support of linux-gpib since that is not keyworded yet
+
+  27 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask video_cards_ilo.
+
+  12 May 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  drop media-libs/gst-plugins-base[ivorbis] mask as media-libs/tremor has ~arm
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  Add dev-util/oprofile[java] to the list
+
+  11 May 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask x11-wm/enlightenment[emotion]
+
+  10 May 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask dev-python/ipython[mongodb]
+
+  09 May 2013; Markus Meier <maekke@gentoo.org> package.use.mask:
+  package.use.mask x11-misc/lightdm[razor]
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  Mask dev-libs/libmemcached[tcmalloc] because dev-util/google-perftools is not
+  keyworded for arm
+
+  04 May 2013; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Remove USE=systemd from package.use.mask since the flag is (un)masked
+  globally now.
+
+  04 May 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Mask systemd flag globally, unmask on arches on which systemd is keyworded.
+
+  02 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask r600-llvm-compiler on arm
+
+  29 Apr 2013; Christoph Junghans <ottxor@gentoo.org> package.use.mask:
+  masked mkl for media-gfx/povray
+
+  22 Apr 2013; Bernard Cafarelli <voyageur@gentoo.org> use.mask:
+  x11-misc/google-gadgets removed from tree
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  Remove the version from dev-vcs/subversion
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  Remove the version from dev-tex/tex4ht
 
   01 Apr 2013; Benda Xu <heroxbd@gentoo.org> package.use.mask:
   mask net-misc/unison[gtk] for bug #445055

@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-qt/qtcore/qtcore-4.8.4-r5.ebuild,v 1.1 2013/03/25 08:32:58 pesa Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-qt/qtcore/qtcore-4.8.4-r5.ebuild,v 1.10 2013/08/04 11:45:42 ago Exp $
 
 EAPI=5
 
 inherit qt4-build
 
-DESCRIPTION="The Qt toolkit is a comprehensive C++ application development framework"
+DESCRIPTION="Cross-platform application development framework"
 
 SRC_URI+=" http://dev.gentoo.org/~pesa/patches/${P}-update-defaultNumberingSystem.patch.gz"
 
@@ -14,7 +14,7 @@ SLOT="4"
 if [[ ${QT4_BUILD_TYPE} == live ]]; then
 	KEYWORDS=""
 else
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
+	KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
 fi
 IUSE="+glib iconv icu qt3support ssl"
 
@@ -36,6 +36,7 @@ PATCHES=(
 	"${FILESDIR}/blacklist-mis-issued-Turktrust-certs.patch"
 	"${FILESDIR}/CVE-2013-0254.patch"
 	"${FILESDIR}/fix-call-to-QMetaObject-metaCall-from-updateProperty.patch"
+	"${FILESDIR}/rename-qAbs-function-for-timeval.patch"
 	"${WORKDIR}/${P}-update-defaultNumberingSystem.patch"
 )
 

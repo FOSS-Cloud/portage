@@ -1,6 +1,35 @@
 # ChangeLog for dev-python/pandas
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pandas/ChangeLog,v 1.13 2013/02/07 08:52:22 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pandas/ChangeLog,v 1.20 2013/10/27 08:05:32 mgorny Exp $
+
+  27 Oct 2013; Michał Górny <mgorny@gentoo.org> pandas-0.12.0.ebuild:
+  Remove redundant python_export_best (done by the eclass).
+
+  20 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org> -pandas-0.11.0.ebuild,
+  pandas-0.12.0.ebuild:
+  Removed old, fixed references to dev-python/statsmodels
+
+  15 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org> pandas-0.12.0.ebuild:
+  Adjust documentation dependencies
+
+  12 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org> pandas-0.12.0.ebuild:
+  Fix examples directory when both doc and examples are set
+
+*pandas-0.12.0 (08 Aug 2013)
+
+  08 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org> +pandas-0.12.0.ebuild,
+  -pandas-0.10.0.ebuild, -pandas-0.10.1.ebuild, metadata.xml:
+  Version bump
+
+  04 May 2013; Justin Lecher <jlec@gentoo.org> pandas-0.11.0.ebuild:
+  Add correct python USEDEP strings, thanks mgorny for helping
+
+*pandas-0.11.0 (04 May 2013)
+
+  04 May 2013; Justin Lecher <jlec@gentoo.org> pandas-0.10.1.ebuild,
+  +pandas-0.11.0.ebuild, metadata.xml:
+  Version Bump, #468498; add support for py-3; correct PYTHON_USEDEP usage and
+  subphase functions, use virtualmake for tests
 
   07 Feb 2013; Ian Delaney <idella4@gentoo.org> pandas-0.10.1.ebuild:
   deps added to build docs and a dep deleted to build docs to avoid circular

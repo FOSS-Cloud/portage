@@ -1,64 +1,58 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/x264/x264-9999.ebuild,v 1.6 2013/02/02 00:30:33 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/x264/x264-9999.ebuild,v 1.17 2013/09/22 09:19:28 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 
-if [ "${PV#9999}" != "${PV}" ] ; then
-	V_ECLASS="git-2"
-else
-	V_ECLASS="versionator"
-fi
+inherit flag-o-matic multilib toolchain-funcs eutils multilib-minimal
 
-inherit multilib toolchain-funcs ${V_ECLASS}
-
-if [ "${PV#9999}" = "${PV}" ] ; then
-	MY_P="x264-snapshot-$(get_version_component_range 3)-2245-stable"
-fi
 DESCRIPTION="A free library for encoding X264/AVC streams"
 HOMEPAGE="http://www.videolan.org/developers/x264.html"
-if [ "${PV#9999}" != "${PV}" ] ; then
+if [[ ${PV} == 9999 ]]; then
+	inherit git-2
 	EGIT_REPO_URI="git://git.videolan.org/x264.git"
-	SRC_URI=""
 else
+	inherit versionator
+	MY_P="x264-snapshot-$(get_version_component_range 3)-2245"
 	SRC_URI="http://download.videolan.org/pub/videolan/x264/snapshots/${MY_P}.tar.bz2"
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+	S="${WORKDIR}/${MY_P}"
 fi
+
+SONAME="138"
+SLOT="0/${SONAME}"
 
 LICENSE="GPL-2"
-SLOT="0"
-if [ "${PV#9999}" != "${PV}" ] ; then
-	KEYWORDS=""
-else
-	KEYWORDS="~alpha ~amd64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
-fi
-IUSE="debug +threads pic static-libs"
+IUSE="10bit +interlaced opencl pic static-libs sse +threads"
 
-RDEPEND=""
-ASM_DEP=">=dev-lang/yasm-1"
-DEPEND="
-	amd64? ( ${ASM_DEP} )
-	amd64-fbsd? ( ${ASM_DEP} )
-	x86? ( ${ASM_DEP} )
-	x86-fbsd? ( ${ASM_DEP} )
-"
-if [ "${PV#9999}" = "${PV}" ] ; then
-	S=${WORKDIR}/${MY_P}
-fi
+ASM_DEP=">=dev-lang/yasm-1.2.0"
+DEPEND="abi_x86_32? ( ${ASM_DEP} )
+	abi_x86_64? ( ${ASM_DEP} )
+	opencl? ( dev-lang/perl )"
+RDEPEND="opencl? ( virtual/opencl )
+	abi_x86_32? ( !<=app-emulation/emul-linux-x86-medialibs-20130224-r7
+		!app-emulation/emul-linux-x86-medialibs[-abi_x86_32(-)] )"
+
 DOCS="AUTHORS doc/*.txt"
 
-src_configure() {
+src_prepare() {
+	# Initial support for x32 ABI, bug #420241
+	# Avoid messing too much with CFLAGS.
+	epatch "${FILESDIR}"/x264-cflags.patch
+}
+
+multilib_src_configure() {
 	tc-export CC
+	local asm_conf=""
 
-	local myconf=""
-	use debug && myconf+=" --enable-debug"
-	use static-libs && myconf+=" --enable-static"
-	use threads || myconf+=" --disable-thread"
-
-	if use x86 && use pic; then
-		myconf+=" --disable-asm"
+	if [[ ${ABI} == x86* ]] && use pic || [[ ${ABI} == "x32" ]]; then
+		asm_conf=" --disable-asm"
 	fi
 
-	./configure \
+	# Upstream uses this, see the cflags patch
+	use sse && append-flags "-msse" "-mfpmath=sse"
+
+	"${S}/configure" \
 		--prefix="${EPREFIX}"/usr \
 		--libdir="${EPREFIX}"/usr/$(get_libdir) \
 		--disable-cli \
@@ -69,9 +63,11 @@ src_configure() {
 		--disable-gpac \
 		--enable-pic \
 		--enable-shared \
-		--extra-asflags="${ASFLAGS}" \
-		--extra-cflags="${CFLAGS}" \
-		--extra-ldflags="${LDFLAGS}" \
 		--host="${CHOST}" \
-		${myconf} || die
+		$(usex 10bit "--bit-depth=10" "") \
+		$(usex interlaced "" "--disable-interlaced") \
+		$(usex opencl "" "--disable-opencl") \
+		$(usex static-libs "--enable-static" "") \
+		$(usex threads "" "--disable-thread") \
+		${asm_conf} || die
 }

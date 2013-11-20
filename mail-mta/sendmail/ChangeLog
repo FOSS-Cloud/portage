@@ -1,6 +1,62 @@
 # ChangeLog for mail-mta/sendmail
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/sendmail/ChangeLog,v 1.103 2013/02/28 17:54:43 zx2c4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/sendmail/ChangeLog,v 1.120 2013/11/01 13:48:50 ago Exp $
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.7-r1.ebuild:
+  Stable for x86, wrt bug #485648
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> sendmail-8.14.7-r1.ebuild:
+  amd64 stable, bug #485648
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> sendmail-8.14.7-r1.ebuild:
+  arm stable, bug #485648
+
+  08 Oct 2013; Jeroen Roovers <jer@gentoo.org> sendmail-8.14.7-r1.ebuild:
+  Stable for HPPA (bug #485648).
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.7.ebuild:
+  Stable for sparc, wrt bug #477622
+
+*sendmail-8.14.7-r1 (03 Sep 2013)
+
+  03 Sep 2013; Pacho Ramos <pacho@gentoo.org> +files/sendmail.service,
+  +files/sm-client.service, +sendmail-8.14.7-r1.ebuild:
+  Add unit file (#479524 by CFuga and Graham Murray)
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.7.ebuild:
+  Stable for ia64, wrt bug #477622
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.7.ebuild:
+  Stable for alpha, wrt bug #477622
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.7.ebuild:
+  Stable for x86, wrt bug #477622
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.7.ebuild:
+  Stable for s390, wrt bug #477622
+
+  23 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.7.ebuild:
+  Stable for arm, wrt bug #477622
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.7.ebuild:
+  Stable for ppc64, wrt bug #477622
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.7.ebuild:
+  Stable for ppc, wrt bug #477622
+
+  22 Jul 2013; Jeroen Roovers <jer@gentoo.org> sendmail-8.14.7.ebuild:
+  Stable for HPPA (bug #477622).
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.7.ebuild:
+  Stable for amd64, wrt bug #477622
+
+  09 Jun 2013; Markos Chandras <hwoarang@gentoo.org> sendmail-8.14.7.ebuild:
+  Add ~mips
+
+*sendmail-8.14.7 (23 Apr 2013)
+
+  23 Apr 2013; Tim Harder <radhermit@gentoo.org> +sendmail-8.14.7.ebuild:
+  Version bump.
 
   28 Feb 2013; Jason A. Donenfeld <zx2c4@gentoo.org> sendmail-8.14.4.ebuild,
   sendmail-8.14.5-r1.ebuild, sendmail-8.14.5-r2.ebuild, sendmail-8.14.5.ebuild,

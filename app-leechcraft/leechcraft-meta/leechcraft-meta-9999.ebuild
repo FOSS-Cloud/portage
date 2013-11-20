@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/leechcraft-meta/leechcraft-meta-9999.ebuild,v 1.1 2013/03/09 19:33:00 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/leechcraft-meta/leechcraft-meta-9999.ebuild,v 1.7 2013/08/21 14:40:48 pinkbyte Exp $
 
-EAPI="4"
+EAPI="5"
 
 DESCRIPTION="Metapackage containing all ready-to-use LeechCraft plugins"
 HOMEPAGE="http://leechcraft.org/"
@@ -10,7 +10,7 @@ HOMEPAGE="http://leechcraft.org/"
 SLOT="0"
 KEYWORDS=""
 LICENSE="GPL-3"
-IUSE="kde"
+IUSE="de"
 
 RDEPEND="
 		~app-leechcraft/lc-popishu-${PV}
@@ -23,7 +23,7 @@ RDEPEND="
 		~app-leechcraft/lc-networkmonitor-${PV}
 		~app-leechcraft/lc-azoth-${PV}
 		~app-leechcraft/lc-advancednotifications-${PV}
-		kde? ( ~app-leechcraft/lc-anhero-${PV} )
+		~app-leechcraft/lc-anhero-${PV}
 		~app-leechcraft/lc-auscrie-${PV}
 		~app-leechcraft/lc-core-${PV}
 		~app-leechcraft/lc-cstp-${PV}
@@ -31,7 +31,7 @@ RDEPEND="
 		~app-leechcraft/lc-gacts-${PV}
 		~app-leechcraft/lc-glance-${PV}
 		~app-leechcraft/lc-historyholder-${PV}
-		~app-leechcraft/lc-kinotify-${PV}
+		~virtual/leechcraft-notifier-${PV}
 		~app-leechcraft/lc-knowhow-${PV}
 		~app-leechcraft/lc-lackman-${PV}
 		~app-leechcraft/lc-launchy-${PV}
@@ -58,5 +58,15 @@ RDEPEND="
 		~app-leechcraft/lc-pogooglue-${PV}
 		~app-leechcraft/lc-seekthru-${PV}
 		~app-leechcraft/lc-tpi-${PV}
+		~app-leechcraft/lc-gmailnotifier-${PV}
+		~app-leechcraft/lc-nacheku-${PV}
+		~app-leechcraft/lc-xtazy-${PV}
+		de? (
+			~app-leechcraft/lc-fenet-${PV}
+			~app-leechcraft/lc-kbswitch-${PV}
+			~app-leechcraft/lc-krigstask-${PV}
+			~app-leechcraft/lc-laughty-${PV}
+			~app-leechcraft/lc-mellonetray-${PV}
+		)
 		"
 DEPEND=""

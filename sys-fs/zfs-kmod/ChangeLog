@@ -1,6 +1,85 @@
 # ChangeLog for sys-fs/zfs-kmod
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs-kmod/ChangeLog,v 1.26 2013/03/28 22:19:35 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs-kmod/ChangeLog,v 1.39 2013/10/18 16:25:53 ryao Exp $
+
+*zfs-kmod-0.6.2-r2 (18 Oct 2013)
+
+  18 Oct 2013; Richard Yao <ryao@gentoo.org> +zfs-kmod-0.6.2-r2.ebuild:
+  Update 0.6.2 patchset with sys-fs/zfs-kmod-0.6.2-r2: Fixes memory leak
+  regression introduced by Compressed L2ARC support in 0.6.2 (fix ported from
+  Illumos); Fixes metaslab condensing race regression introduced by 0.6.2 (fix
+  ported from Illumos); Fixes bobj panic (fix ported from Illumos); fixes
+  logging of negative GUIDs to SPA history (fixed ported from Illumos)
+
+  14 Oct 2013; Richard Yao <ryao@gentoo.org> zfs-kmod-0.6.2-r1.ebuild:
+  Reverse stabilization of sys-fs/zfs-kmod-0.6.2-r1 (to avoid confusing users
+  because sys-fs/zfs stabilization was reversed at the last minute because of
+  bug #487746)
+
+  14 Oct 2013; Richard Yao <ryao@gentoo.org> zfs-kmod-0.6.2-r1.ebuild:
+  Stabilize sys-fs/zfs-kmod-0.6.2-r1 on amd64 (indirectly required by sys-
+  boot/grub:2 stabilization)
+
+*zfs-kmod-0.6.2-r1 (05 Oct 2013)
+
+  05 Oct 2013; Richard Yao <ryao@gentoo.org> +zfs-kmod-0.6.2-r1.ebuild:
+  Fixed readdir regressions, fixed mknod return values, fixed compatibility
+  issues with hardened-sources, implement file attribute support (should fix
+  regression with portage's FEATURES=xattr), improved Linux 3.11 compatibility
+  (resolve LZ4 symbol conflicts)
+
+*zfs-kmod-0.6.2 (23 Aug 2013)
+
+  23 Aug 2013; Richard Yao <ryao@gentoo.org> +zfs-kmod-0.6.2.ebuild:
+  Version bump to 0.6.2
+
+  21 Aug 2013; Richard Yao <ryao@gentoo.org> zfs-kmod-0.6.1-r2.ebuild:
+  Drop !USER_NS because !UIDGID_STRICT_TYPE_CHECKS is sufficient
+
+*zfs-kmod-0.6.1-r2 (14 Jul 2013)
+
+  14 Jul 2013; Richard Yao <ryao@gentoo.org>
+  +files/zfs-kmod-0.6.1-fix-arc-read-panic.patch,
+  +files/zfs-kmod-0.6.1-fix-zfs_sb_teardown-NULL-pointer-deref.patch,
+  +files/zfs-kmod-0.6.1-fix-zfsctl_expire_snapshot-deadlock.patch,
+  +files/zfs-kmod-0.6.1-fix-zvol-initialization-r1.patch,
+  +files/zfs-kmod-0.6.1-linux-3.10-compat.patch, +zfs-kmod-0.6.1-r2.ebuild,
+  -files/zfs-kmod-0.6.1-fix-zvol-initialization.patch,
+  -zfs-kmod-0.6.1-r1.ebuild, -zfs-kmod-0.6.1.ebuild:
+  Linux 3.10 support; asynchronous zvol initialization; miscellaneous fixes for
+  panics, deadlocks and NULL pointer dereferences
+
+  29 May 2013; Richard Yao <ryao@gentoo.org> zfs-kmod-0.6.1-r1.ebuild:
+  Add blocker against CONFIG_UIDGID_STRICT_TYPE_CHECKS
+
+  29 May 2013; Richard Yao <ryao@gentoo.org> zfs-kmod-0.6.1-r1.ebuild:
+  Do not permit builds with CONFIG_USER_NS
+
+*zfs-kmod-0.6.1-r1 (28 May 2013)
+
+  28 May 2013; Richard Yao <ryao@gentoo.org>
+  +files/zfs-kmod-0.6.1-fix-getdents.patch,
+  +files/zfs-kmod-0.6.1-fix-txg_quiesce-deadlock.patch,
+  +files/zfs-kmod-0.6.1-fix-xattr-behavior-1.patch,
+  +files/zfs-kmod-0.6.1-fix-xattr-behavior-2.patch,
+  +files/zfs-kmod-0.6.1-fix-zvol-initialization.patch,
+  +zfs-kmod-0.6.1-r1.ebuild:
+  Backport important fixes from upstream HEAD; also includes important zvol
+  initialization fixes (by me) that were sent upstream
+
+  17 Apr 2013; Richard Yao <ryao@gentoo.org> zfs-kmod-9999.ebuild:
+  Remove /usr/src/zfs symlink from 9999 ebuild; sys-cluster/lustre (science
+  overlay) no longer needs it. It will be removed from versioned ebuilds
+  following future revision bumps.
+
+  17 Apr 2013; Richard Yao <ryao@gentoo.org> zfs-kmod-9999.ebuild:
+  Update /usr/src/zfs link to reflect upstream's new location
+
+  17 Apr 2013; Richard Yao <ryao@gentoo.org> zfs-kmod-0.6.0_rc10-r2.ebuild,
+  zfs-kmod-0.6.0_rc11-r3.ebuild, zfs-kmod-0.6.0_rc12-r3.ebuild,
+  zfs-kmod-0.6.0_rc13-r4.ebuild, zfs-kmod-0.6.0_rc14-r5.ebuild,
+  zfs-kmod-0.6.1.ebuild, zfs-kmod-9999.ebuild:
+  Kbuild depends on dev-lang/perl
 
 *zfs-kmod-0.6.1 (28 Mar 2013)
 

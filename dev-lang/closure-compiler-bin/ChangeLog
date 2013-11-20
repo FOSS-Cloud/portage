@@ -1,6 +1,15 @@
 # ChangeLog for dev-lang/closure-compiler-bin
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/closure-compiler-bin/ChangeLog,v 1.3 2013/03/01 06:24:15 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/closure-compiler-bin/ChangeLog,v 1.5 2013/05/15 09:14:00 djc Exp $
+
+  15 May 2013; Dirkjan Ochtman <djc@gentoo.org> metadata.xml:
+  Remove python herd from closure-compiler-bin.
+
+*closure-compiler-bin-20130411 (15 Apr 2013)
+
+  15 Apr 2013; Patrick Lauer <patrick@gentoo.org>
+  +closure-compiler-bin-20130411.ebuild:
+  Bump
 
 *closure-compiler-bin-20130227 (01 Mar 2013)
 

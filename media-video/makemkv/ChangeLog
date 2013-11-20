@@ -1,6 +1,56 @@
 # ChangeLog for media-video/makemkv
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/makemkv/ChangeLog,v 1.19 2013/03/02 22:31:29 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/makemkv/ChangeLog,v 1.27 2013/11/17 03:37:48 mattm Exp $
+
+  17 Nov 2013; Matthew Marlowe <mattm@gentoo.org> makemkv-1.8.6.ebuild:
+  Upstream is reporting issues with makemkv-1.8.6 on Linux:
+  http://www.makemkv.com/forum2/viewtopic.php?f=3&t=7215  Removing keywords
+  until patches are finalized.
+
+*makemkv-1.8.5-r1 (16 Nov 2013)
+*makemkv-1.8.6 (16 Nov 2013)
+
+  16 Nov 2013; Matthew Marlowe <mattm@gentoo.org>
+  +files/makemkv-1.8.6-makefile.linux.patch, +makemkv-1.8.5-r1.ebuild,
+  +makemkv-1.8.6.ebuild, -makemkv-1.8.1-r1.ebuild, -makemkv-1.8.3.ebuild,
+  -makemkv-1.8.4.ebuild, -makemkv-1.8.5.ebuild:
+  Version bump, Fix download path for 1.8.5, Prune legacy ebuilds.
+
+  14 Sep 2013; Matthew Marlowe <mattm@gentoo.org>
+  +files/makemkv-1.8.5-makefile.linux.patch:
+  Update makemkv-1.8.5-makefile.linux.patch
+
+*makemkv-1.8.5 (13 Sep 2013)
+
+  13 Sep 2013; Matthew Marlowe <mattm@gentoo.org> +makemkv-1.8.5.ebuild,
+  makemkv-1.8.4.ebuild:
+  Bump makemkv-1.8.5, bug 484746, thanks to spam-mails-here@gmx.de
+
+*makemkv-1.8.4 (05 Sep 2013)
+
+  05 Sep 2013; Matthew Marlowe <mattm@gentoo.org>
+  +files/makemkv-1.8.4-makefile.linux.patch, +makemkv-1.8.4.ebuild,
+  makemkv-1.8.3.ebuild:
+  Bump for makemkv-1.8.4, Bug 480738, also update for 1.8.3 tarball download
+  url.
+
+*makemkv-1.8.1-r1 (22 Jun 2013)
+*makemkv-1.8.3 (22 Jun 2013)
+
+  22 Jun 2013; Matthew Marlowe <mattm@gentoo.org>
+  +files/makemkv-1.8.3-makefile.linux.patch, +makemkv-1.8.1-r1.ebuild,
+  +makemkv-1.8.3.ebuild, -makemkv-1.8.1.ebuild:
+  Bump for makemkv 1.8.3, update 1.8.1 ebuild to reflect source file url change.
+
+  30 Apr 2013; Matthew Marlowe <mattm@gentoo.org>
+  +files/makemkv-1.8.1-makefile.linux.patch:
+  Updated makefile patch for 1.8.1
+
+*makemkv-1.8.1 (30 Apr 2013)
+
+  30 Apr 2013; Matthew Marlowe <mattm@gentoo.org> +makemkv-1.8.1.ebuild,
+  makemkv-1.8.0-r1.ebuild:
+  Bump for 1.8.1, fix for upstream source download url change for 1.8.0
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> makemkv-1.8.0-r1.ebuild:
   Move Qt dependencies to the new category

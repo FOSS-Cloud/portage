@@ -1,6 +1,57 @@
 # ChangeLog for app-office/calligra-l10n
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/calligra-l10n/ChangeLog,v 1.29 2013/02/20 13:18:52 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/calligra-l10n/ChangeLog,v 1.42 2013/10/18 19:06:51 johu Exp $
+
+*calligra-l10n-2.7.4 (18 Oct 2013)
+
+  18 Oct 2013; Johannes Huber <johu@gentoo.org> +calligra-l10n-2.7.4.ebuild,
+  -calligra-l10n-2.7.3.ebuild:
+  Version bump wrt bug #488424.
+
+*calligra-l10n-2.7.3 (17 Sep 2013)
+
+  17 Sep 2013; Johannes Huber <johu@gentoo.org> +calligra-l10n-2.7.3.ebuild,
+  -calligra-l10n-2.7.2.ebuild:
+  Version bump wrt bug #485072. Remove old.
+
+*calligra-l10n-2.7.2 (14 Sep 2013)
+
+  14 Sep 2013; Johannes Huber <johu@gentoo.org> +calligra-l10n-2.7.2.ebuild:
+  Version bump wrt bug #479530.
+
+  13 Jul 2013; Johannes Huber <johu@gentoo.org> -calligra-l10n-2.6.3.ebuild:
+  Remove old.
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> calligra-l10n-2.6.4.ebuild:
+  Stable for x86, wrt bug #476384
+
+  12 Jul 2013; Agostino Sarubbo <ago@gentoo.org> calligra-l10n-2.6.4.ebuild:
+  Stable for amd64, wrt bug #476384
+
+*calligra-l10n-2.6.4 (06 Jun 2013)
+
+  06 Jun 2013; Johannes Huber <johu@gentoo.org> +calligra-l10n-2.6.4.ebuild:
+  Version bump.
+
+  05 Jun 2013; Johannes Huber <johu@gentoo.org> -calligra-l10n-2.5.3.ebuild:
+  Remove old.
+
+  05 Jun 2013; Agostino Sarubbo <ago@gentoo.org> calligra-l10n-2.6.3.ebuild:
+  Stable for x86, wrt bug #471392
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> calligra-l10n-2.6.3.ebuild:
+  Stable for amd64, wrt bug #471392
+
+  27 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> calligra-l10n-2.6.3.ebuild:
+  Use eapi5 as there is no reason not to.
+
+  27 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> -calligra-l10n-2.5.5.ebuild:
+  Reduce versions to keep only one testing around.
+
+*calligra-l10n-2.6.3 (27 Apr 2013)
+
+  27 Apr 2013; Chris Reffett <creffett@gentoo.org> +calligra-l10n-2.6.3.ebuild:
+  Bump to 2.6.3 wrt bug 448686
 
   20 Feb 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
   calligra-l10n-2.5.5.ebuild:

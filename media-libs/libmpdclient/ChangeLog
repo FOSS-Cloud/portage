@@ -1,6 +1,38 @@
 # ChangeLog for media-libs/libmpdclient
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libmpdclient/ChangeLog,v 1.45 2012/07/29 17:41:29 angelos Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libmpdclient/ChangeLog,v 1.54 2013/10/31 11:19:59 angelos Exp $
+
+*libmpdclient-2.9 (31 Oct 2013)
+
+  31 Oct 2013; Christoph Mende <angelos@gentoo.org> +libmpdclient-2.9.ebuild,
+  -libmpdclient-2.7.ebuild:
+  Version bump, remove old
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libmpdclient-2.8.ebuild:
+  Stable for sparc, wrt bug #469468
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> libmpdclient-2.8.ebuild:
+  Stable for x86, wrt bug #469468
+
+  13 May 2013; Jeroen Roovers <jer@gentoo.org> libmpdclient-2.8.ebuild:
+  Stable for HPPA (bug #469468).
+
+  12 May 2013; Chema Alonso <nimiux@gentoo.org> libmpdclient-2.8.ebuild:
+  Stable for amd64 wrt bug #469468
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> libmpdclient-2.8.ebuild:
+  Stable for ppc64, wrt bug #469468
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> libmpdclient-2.8.ebuild:
+  Stable for ppc, wrt bug #469468
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> libmpdclient-2.8.ebuild:
+  Stable for arm, wrt bug #469468
+
+*libmpdclient-2.8 (10 Apr 2013)
+
+  10 Apr 2013; Christoph Mende <angelos@gentoo.org> +libmpdclient-2.8.ebuild:
+  Version bump
 
   29 Jul 2012; Christoph Mende <angelos@gentoo.org> -libmpdclient-2.4.ebuild,
   -libmpdclient-2.5.ebuild, -libmpdclient-2.6.ebuild:

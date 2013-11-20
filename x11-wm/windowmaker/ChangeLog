@@ -1,6 +1,22 @@
 # ChangeLog for x11-wm/windowmaker
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/windowmaker/ChangeLog,v 1.137 2013/01/10 10:41:46 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/windowmaker/ChangeLog,v 1.140 2013/09/13 23:43:48 voyageur Exp $
+
+*windowmaker-0.95.5 (13 Sep 2013)
+
+  13 Sep 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  +windowmaker-0.95.5.ebuild:
+  Version bump, new feature to add drawers in dock
+
+  27 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  windowmaker-0.95.4-r1.ebuild:
+  keyword ~amd64-fbsd thanks to Yuta SATOH, bug #477644
+
+*windowmaker-0.95.4-r1 (10 Apr 2013)
+
+  10 Apr 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  -windowmaker-0.95.2.ebuild, +windowmaker-0.95.4-r1.ebuild:
+  EAPI bump and libpng slot dependency
 
 *windowmaker-0.95.4 (10 Jan 2013)
 

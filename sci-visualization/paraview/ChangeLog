@@ -1,6 +1,57 @@
 # ChangeLog for sci-visualization/paraview
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/paraview/ChangeLog,v 1.66 2013/03/09 21:34:19 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-visualization/paraview/ChangeLog,v 1.75 2013/08/03 09:45:42 mgorny Exp $
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> paraview-4.0.1.ebuild,
+  paraview-4.0.1-r1.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
+
+*paraview-4.0.1-r1 (29 Jul 2013)
+
+  29 Jul 2013; Julian Ospald <hasufell@gentoo.org> +paraview-4.0.1-r1.ebuild,
+  +files/paraview-4.0.1-Protobuf.patch:
+  use system protobuf, potentially fixing bug 471130
+
+  28 Jul 2013; Julian Ospald <hasufell@gentoo.org> paraview-4.0.1.ebuild:
+  fix build with stable dev-db/mysql wrt #478250
+
+  27 Jul 2013; Julian Ospald <hasufell@gentoo.org> -paraview-3.98.0.ebuild,
+  -paraview-3.98.0-r1.ebuild, -files/paraview-3.98.0-gcc-4.7.patch,
+  -files/paraview-3.98.0-mpi4py.patch, -files/paraview-3.98.0-pvblot.patch,
+  -files/paraview-3.98.0-removesqlite.patch,
+  -files/paraview-3.98.0-vtk-cg-path.patch,
+  -files/paraview-3.98.0-vtknetcd.patch,
+  -files/paraview-3.98.0-xdmf-cstring.patch:
+  remove old
+
+  24 Jul 2013; Julian Ospald <hasufell@gentoo.org> paraview-4.0.1.ebuild:
+  update REQUIRED_USE, fix automagic enabling of qt4, fix building with latest
+  dev-db/mysql wrt #475492
+
+*paraview-4.0.1 (01 Jul 2013)
+
+  01 Jul 2013; Julian Ospald <hasufell@gentoo.org> +paraview-4.0.1.ebuild,
+  +files/paraview-4.0.1-gcc-4.7.patch,
+  +files/paraview-4.0.1-removesqlite.patch,
+  +files/paraview-4.0.1-vtk-cg-path.patch,
+  +files/paraview-4.0.1-vtknetcd.patch,
+  +files/paraview-4.0.1-xdmf-cstring.patch:
+  version bump
+
+  29 May 2013; Justin Lecher <jlec@gentoo.org> paraview-3.98.0.ebuild,
+  paraview-3.98.0-r1.ebuild, metadata.xml:
+  Fix usage of new python r1 eclasses (missing PYTHON_REQUIRED_USE)
+
+  29 May 2013; Julian Ospald <hasufell@gentoo.org> paraview-3.98.0-r1.ebuild,
+  paraview-3.98.0.ebuild:
+  update REQUIRED_USE to include PYTHON_REQUIRED_USE
+
+*paraview-3.98.0-r1 (07 May 2013)
+
+  07 May 2013; Julian Ospald <hasufell@gentoo.org> +paraview-3.98.0-r1.ebuild,
+  metadata.xml:
+  fix install of headers and put it behind development useflag wrt #465258 ;
+  also fix compilation of plugins if all other useflags are disabled
 
   09 Mar 2013; Julian Ospald <hasufell@gentoo.org> paraview-3.98.0.ebuild:
   fix build time failure wrt #460528, fix a few non-fatal typos

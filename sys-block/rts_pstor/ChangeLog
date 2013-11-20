@@ -1,6 +1,18 @@
 # ChangeLog for sys-block/rts_pstor
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/rts_pstor/ChangeLog,v 1.1 2013/02/28 17:48:08 vikraman Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/rts_pstor/ChangeLog,v 1.3 2013/07/03 00:36:45 vikraman Exp $
+
+*rts_pstor-1.10-r2 (03 Jul 2013)
+
+  03 Jul 2013; Vikraman <vikraman@gentoo.org> rts_pstor-1.10-r1.ebuild,
+  +rts_pstor-1.10-r2.ebuild, +files/rts_pstor-linux-3.10.patch:
+  Patch to fix build on linux 3.10
+
+*rts_pstor-1.10-r1 (28 May 2013)
+
+  28 May 2013; Vikraman <vikraman@gentoo.org> +rts_pstor-1.10-r1.ebuild,
+  +files/rts_pstor-linux-3.8.patch:
+  Patch to fix build on linux 3.8, fixes bug #471606
 
 *rts_pstor-1.10 (28 Feb 2013)
 

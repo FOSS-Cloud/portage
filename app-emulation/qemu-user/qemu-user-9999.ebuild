@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu-user/qemu-user-9999.ebuild,v 1.5 2013/02/25 16:35:36 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu-user/qemu-user-9999.ebuild,v 1.9 2013/08/15 08:33:57 pinkbyte Exp $
 
-EAPI=4
+EAPI=5
 
 if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="git://git.qemu.org/qemu.git
@@ -10,13 +10,13 @@ if [[ ${PV} == *9999 ]]; then
 	GIT_ECLASS="git-2"
 fi
 
-inherit eutils base flag-o-matic pax-utils toolchain-funcs ${GIT_ECLASS}
+inherit eutils flag-o-matic pax-utils toolchain-funcs ${GIT_ECLASS}
 
 MY_P=${P/-user/}
 
 if [[ ${PV} != *9999 ]]; then
-SRC_URI="http://wiki.qemu.org/download/${MY_P}-1.tar.bz2
-		 http://dev.gentoo.org/~lu_zero/distfiles/qemu-1.1.0-r1-patches.tar.xz"
+SRC_URI="http://wiki.qemu.org/download/${MY_P}.tar.bz2
+		 http://dev.gentoo.org/~lu_zero/distfiles/qemu-${PVR}-patches.tar.xz"
 KEYWORDS="~amd64 ~ppc ~x86 ~ppc64"
 S="${WORKDIR}/${MY_P}"
 fi
@@ -29,7 +29,7 @@ SLOT="0"
 IUSE=""
 RESTRICT="test"
 
-COMMON_TARGETS="i386 x86_64 alpha arm cris m68k microblaze microblazeel mips mipsel ppc ppc64 sh4 sh4eb sparc sparc64 s390x"
+COMMON_TARGETS="i386 x86_64 alpha arm cris m68k microblaze microblazeel mips mips64 mipsel ppc ppc64 sh4 sh4eb sparc sparc64 s390x"
 IUSE_USER_TARGETS="${COMMON_TARGETS} armeb ppc64abi32 sparc32plus unicore32"
 
 for target in ${IUSE_USER_TARGETS}; do
@@ -62,6 +62,7 @@ QA_WX_LOAD="
 	usr/bin/qemu-static-armeb-binfmt
 	usr/bin/qemu-static-microblaze-binfmt
 	usr/bin/qemu-static-mips-binfmt
+	usr/bin/qemu-static-mips64-binfmt
 	usr/bin/qemu-static-mipsel-binfmt
 	usr/bin/qemu-static-sh4-binfmt
 	usr/bin/qemu-static-s390x-binfmt
@@ -79,8 +80,12 @@ src_prepare() {
 	sed -i 's/^\(C\|OP_C\|HELPER_C\)FLAGS=/\1FLAGS+=/' \
 		Makefile Makefile.target || die
 
-	EPATCH_SOURCE="${WORKDIR}/patches" EPATCH_SUFFIX="patch" \
-	EPATCH_FORCE="yes" epatch
+	if [[ ${PV} != *9999 ]]; then
+		EPATCH_SOURCE="${WORKDIR}/patches" EPATCH_SUFFIX="patch" \
+		EPATCH_FORCE="yes" epatch
+	fi
+
+	epatch_user
 }
 
 src_configure() {
@@ -93,7 +98,7 @@ src_configure() {
 		user_targets="${user_targets} ${target}-linux-user"
 	done
 
-	conf_opts="--enable-linux-user --disable-strip"
+	conf_opts="--enable-linux-user"
 	conf_opts+=" --disable-bsd-user"
 	conf_opts+=" --disable-system"
 	conf_opts+=" --disable-vnc-tls"
@@ -101,14 +106,26 @@ src_configure() {
 	conf_opts+=" --disable-sdl"
 	conf_opts+=" --disable-seccomp"
 	conf_opts+=" --disable-vde"
-	conf_opts+=" --prefix=/usr --disable-bluez --disable-kvm"
+	conf_opts+=" --disable-bluez"
+	conf_opts+=" --disable-kvm"
+	conf_opts+=" --disable-guest-agent"
+	conf_opts+=" --disable-tools"
+	conf_opts+=" --without-pixman"
+	conf_opts+=" --prefix=/usr"
+	conf_opts+=" --sysconfdir=/etc"
+	conf_opts+=" --localstatedir=/run"
 	conf_opts+=" --cc=$(tc-getCC) --host-cc=$(tc-getBUILD_CC)"
-	conf_opts+=" --disable-smartcard --disable-smartcard-nss"
+	conf_opts+=" --disable-smartcard-nss"
 	conf_opts+=" --extra-ldflags=-Wl,-z,execheap"
 	conf_opts+=" --disable-strip --disable-werror"
 	conf_opts+=" --static"
 
 	./configure ${conf_opts} --target-list="${user_targets}" || die "econf failed"
+}
+
+src_compile() {
+	# enable verbose build, bug #444346
+	emake V=1
 }
 
 src_install() {

@@ -1,6 +1,41 @@
 # ChangeLog for dev-libs/libmirage
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libmirage/ChangeLog,v 1.27 2013/02/02 22:03:29 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libmirage/ChangeLog,v 1.35 2013/10/08 16:53:38 tetromino Exp $
+
+  08 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -files/libmirage-2.0.0-gtk-doc.patch:
+  Remove old patch.
+
+*libmirage-2.1.1 (08 Oct 2013)
+
+  08 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -libmirage-2.0.0.ebuild, libmirage-2.1.0.ebuild, +libmirage-2.1.1.ebuild:
+  Version bump. Fix sandbox violation (bug #487304, thanks to Jura). Remove
+  old.
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libmirage-2.1.0.ebuild:
+  Stable for x86, wrt bug #477004
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libmirage-2.1.0.ebuild:
+  Stable for amd64, wrt bug #477004
+
+  29 Jun 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -libmirage-1.5.0-r1.ebuild, -files/libmirage-1.5.0-gtk-doc.patch,
+  -files/libmirage-1.5.0-session-initialize-language.patch:
+  Remove old.
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libmirage-2.0.0.ebuild:
+  Stable for amd64, wrt bug #473538
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libmirage-2.0.0.ebuild:
+  Stable for x86, wrt bug #473538
+
+*libmirage-2.1.0 (17 Jun 2013)
+
+  17 Jun 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +libmirage-2.1.0.ebuild, +files/libmirage-2.1.0-DISABLE_DEPRECATED.patch:
+  Version bump, adds support for hard disk images and Apple .SMI (NDIF) images
+  (bug #472784, thanks to Henrik Stokseth and Rafał Mużyło).
 
   02 Feb 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
   libmirage-2.0.0.ebuild:
@@ -131,4 +166,3 @@
   Dirk Best <fatplumber at gmx dot de>, Marcel Schmedes <sm at kleinreich dot
   de>, Vladi <vladimir.elisseev at gmail dot com>, Ambroz BIzjak <ambro at
   b4ever dot net> and anyone I missed.
-

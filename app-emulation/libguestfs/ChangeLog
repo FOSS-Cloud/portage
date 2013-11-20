@@ -1,6 +1,40 @@
 # ChangeLog for app-emulation/libguestfs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libguestfs/ChangeLog,v 1.27 2013/03/25 12:59:11 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libguestfs/ChangeLog,v 1.31 2013/10/27 12:06:04 maksbotan Exp $
+
+  27 Oct 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +files/1.24/0001_add_gentoo_names_to_configure.patch,
+  +files/1.24/0002_add_gentooway_to_remove_la_files.patch,
+  +files/1.24/0004_add_icoutils_configure_drop_automagic.patch,
+  +files/1.24/0005_enable_gtk_docs_in_broken_autotools-utils-eclass.patch,
+  +files/1.24/0103_disable_php_bindings_makefile.patch:
+  Add missing patches for 1.24, bug #489334.
+
+*libguestfs-1.22.7 (21 Oct 2013)
+*libguestfs-1.24.0 (21 Oct 2013)
+
+  21 Oct 2013; Alexander Vershilov <qnikst@gentoo.org>
+  +libguestfs-1.22.7.ebuild, +libguestfs-1.24.0.ebuild,
+  -libguestfs-1.16.34.ebuild, -libguestfs-1.18.11.ebuild,
+  -libguestfs-1.20.4.ebuild, -libguestfs-1.22.6.ebuild:
+  drop old, add new versions, request by slepnoga
+
+*libguestfs-1.22.6 (01 Oct 2013)
+
+  01 Oct 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +files/1.22/0001_add_gentoo_names_to_configure.patch,
+  +files/1.22/0002_add_gentooway_to_remove_la_files.patch,
+  +files/1.22/0003_add_doc_more_option.patch,
+  +files/1.22/0004_add_icoutils_configure_drop_automagic.patch,
+  +files/1.22/0005_enable_gtk_docs_in_broken_autotools-utils-eclass.patch,
+  +files/1.22/0103_disable_php_bindings_makefile.patch,
+  +libguestfs-1.22.6.ebuild:
+  Bump to 1.22.26, thanks to slepnoga
+
+*libguestfs-1.20.6 (24 Apr 2013)
+
+  24 Apr 2013; Maxim Koltsov <maksbotan@gentoo.org> +libguestfs-1.20.6.ebuild:
+  Bump to 1.20.6, add lua support. Thanks to slepnoga.
 
   25 Mar 2013; Maxim Koltsov <maksbotan@gentoo.org>
   +files/1.20/0001_add_gentoo_names_to_configure.patch,

@@ -1,6 +1,32 @@
 # ChangeLog for dev-python/jsonpickle
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/jsonpickle/ChangeLog,v 1.10 2011/09/09 10:53:14 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/jsonpickle/ChangeLog,v 1.17 2013/09/15 17:23:55 maekke Exp $
+
+  15 Sep 2013; Markus Meier <maekke@gentoo.org> jsonpickle-0.6.1.ebuild:
+  add ~arm, bug #483324
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> jsonpickle-0.4.0-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  02 Sep 2013; Patrick Lauer <patrick@gentoo.org> jsonpickle-0.6.1.ebuild:
+  Whitespace
+
+*jsonpickle-0.6.1 (02 Sep 2013)
+
+  02 Sep 2013; Patrick Lauer <patrick@gentoo.org> +jsonpickle-0.6.1.ebuild:
+  Bump
+
+  23 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> jsonpickle-0.4.0-r1.ebuild:
+  Add ~arm keyword
+
+  23 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> jsonpickle-0.4.0-r1.ebuild:
+  Stable on amd64 and x86, wrt bug #474118
+
+*jsonpickle-0.4.0-r1 (29 Apr 2013)
+
+  29 Apr 2013; Justin Lecher <jlec@gentoo.org> +jsonpickle-0.4.0-r1.ebuild,
+  metadata.xml:
+  Move to new python eclasses
 
   09 Sep 2011; Justin Lecher <jlec@gentoo.org> jsonpickle-0.4.0.ebuild:
   keyworded *-linux, tested by me
@@ -47,4 +73,3 @@
   19 Jun 2009; Tiziano Müller <dev-zero@gentoo.org>
   +jsonpickle-0.2.0.ebuild, +metadata.xml:
   Initial commit (needed as dependency for git-cola).
-

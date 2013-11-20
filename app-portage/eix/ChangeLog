@@ -1,6 +1,103 @@
 # ChangeLog for app-portage/eix
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/eix/ChangeLog,v 1.447 2013/03/28 03:02:10 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/eix/ChangeLog,v 1.470 2013/11/10 13:44:26 axs Exp $
+
+*eix-0.30.0 (10 Nov 2013)
+
+  10 Nov 2013; Ian Stakenvicius <axs@gentoo.org> +eix-0.30.0.ebuild:
+  version bump -- mainly internal changes; clang support no longer requires the
+  use of a use flag.
+
+  13 Oct 2013; Michael Sterrett <mr_bones_@gentoo.org> metadata.xml:
+  remove extra tools flag
+
+*eix-0.29.6 (11 Oct 2013)
+
+  11 Oct 2013; Ian Stakenvicius <axs@gentoo.org> +eix-0.29.6.ebuild,
+  -eix-0.29.4.ebuild:
+  version bump, fixed minor regression in eix-0.29.5
+
+  12 Sep 2013; Ian Stakenvicius <axs@gentoo.org> -eix-0.23.10.ebuild,
+  -eix-0.27.4.ebuild, -eix-0.27.6.ebuild, -eix-0.28.4.ebuild,
+  -eix-0.28.5.ebuild, -eix-0.29.1.ebuild,
+  -files/eix-0.28.4-zsh-completion.patch:
+  remove old
+
+*eix-0.29.4 (10 Sep 2013)
+
+  10 Sep 2013; Ian Stakenvicius <axs@gentoo.org> +eix-0.29.4.ebuild:
+  version bump, fixes bugs 480604, 483392
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eix-0.29.3.ebuild:
+  Stable for sparc, wrt bug #482942
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eix-0.29.3.ebuild:
+  Stable for ppc64, wrt bug #482942
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eix-0.29.3.ebuild:
+  Stable for ppc, wrt bug #482942
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eix-0.29.3.ebuild:
+  Stable for ia64, wrt bug #482942
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eix-0.29.3.ebuild:
+  Stable for alpha, wrt bug #482942
+
+  01 Sep 2013; Jeff Horelick <jdhore@gentoo.org> eix-0.29.3.ebuild:
+  marked x86 per bug 482942
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> eix-0.29.3.ebuild:
+  Stable for arm, wrt bug #482942
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> eix-0.29.3.ebuild:
+  Stable for amd64, wrt bug #482942
+
+  30 Aug 2013; Jeroen Roovers <jer@gentoo.org> eix-0.29.3.ebuild:
+  Stable for HPPA (bug #482942).
+
+  07 Aug 2013; Michael Weber <xmw@gentoo.org> metadata.xml:
+  Add myself as maintainer
+
+*eix-0.29.3 (07 Aug 2013)
+
+  07 Aug 2013; Michael Weber <xmw@gentoo.org> +eix-0.29.3.ebuild:
+  Version bump (bug 479992), fixes bug 478320 and bug 478818, NMU.
+
+*eix-0.29.1 (16 Jul 2013)
+
+  16 Jul 2013; Ian Stakenvicius <axs@gentoo.org> +eix-0.29.1.ebuild,
+  -eix-0.29.0-r1.ebuild:
+  version bump for various bug fixes
+
+  11 Jul 2013; Michael Sterrett <mr_bones_@gentoo.org> eix-0.29.0-r1.ebuild:
+  fix sed command
+
+*eix-0.29.0-r1 (11 Jul 2013)
+
+  11 Jul 2013; Ian Stakenvicius <axs@gentoo.org> +eix-0.29.0-r1.ebuild,
+  -eix-0.29.0.ebuild:
+  revbump to fix bug 475564
+
+  10 Jul 2013; Jeroen Roovers <jer@gentoo.org> eix-0.28.5.ebuild:
+  Stable for HPPA (bug #476396).
+
+*eix-0.29.0 (10 Jul 2013)
+
+  10 Jul 2013; Ian Stakenvicius <axs@gentoo.org> +eix-0.29.0.ebuild:
+  version bump for new release
+
+*eix-0.28.5 (23 May 2013)
+
+  23 May 2013; Ian Stakenvicius <axs@gentoo.org> +eix-0.28.5.ebuild:
+  version bump, adds support for /etc/portage/make.conf and /etc/eixrc being
+  directories
+
+*eix-0.28.4 (16 Apr 2013)
+
+  16 Apr 2013; Ian Stakenvicius <axs@gentoo.org> +eix-0.28.4.ebuild,
+  +files/eix-0.28.4-zsh-completion.patch, -eix-0.28.2.ebuild,
+  -eix-0.28.3.ebuild:
+  version bump, remove old:  update russian translation, fix zsh completion
 
 *eix-0.28.3 (28 Mar 2013)
 

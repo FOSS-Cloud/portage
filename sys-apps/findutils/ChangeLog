@@ -1,6 +1,47 @@
 # ChangeLog for sys-apps/findutils
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/findutils/ChangeLog,v 1.211 2013/02/19 02:58:40 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/findutils/ChangeLog,v 1.221 2013/10/15 09:18:33 polynomial-c Exp $
+
+  15 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> findutils-4.4.2.ebuild,
+  findutils-4.4.2-r1.ebuild, findutils-4.5.8.ebuild, findutils-4.5.9.ebuild,
+  findutils-4.5.10.ebuild, findutils-4.5.10-r1.ebuild, findutils-4.5.11.ebuild,
+  findutils-4.5.12.ebuild:
+  Fixed license according to --version output from all versions in the tree.
+
+  13 Oct 2013; Rick Farina <zerochaos@gentoo.org> findutils-4.5.12.ebuild:
+  fix for bug 487828 from Gregory M. Turner <gmt@be-evil.net>
+
+*findutils-4.5.12 (10 Oct 2013)
+
+  10 Oct 2013; Tony Vroon <chainsaw@gentoo.org> +findutils-4.5.12.ebuild:
+  Version bump, as requested by Lars "Polynomial-C" Wendler in bug #487514.
+  -perm /MODE is no longer disabled when POSIXLY_CORRECT. The deprecated +MODE
+  notation has been fully removed.
+
+  27 Jun 2013; Mike Frysinger <vapier@gentoo.org> findutils-4.5.11.ebuild:
+  Control selinux dep via configure flag.
+
+  19 Jun 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/findutils-4.5.11-unlinkat.patch, findutils-4.5.11.ebuild:
+  fixed prefix build on Darwin (bug #469206, thx to Martin)
+
+  05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  12 May 2013; Mike Frysinger <vapier@gentoo.org> findutils-4.5.11.ebuild:
+  Drop local markings on program_prefix since it is used in multiple funcs
+  #469084 by Christian Bricart.
+
+  09 May 2013; Mike Frysinger <vapier@gentoo.org> findutils-4.5.11.ebuild:
+  Update oldfind removal to include program prefix #469084 by Christian Bricart.
+
+  07 May 2013; Fabian Groffen <grobian@gentoo.org> findutils-4.5.11.ebuild:
+  Fix for Prefix, bug #468786
+
+*findutils-4.5.11 (05 May 2013)
+
+  05 May 2013; Mike Frysinger <vapier@gentoo.org> +findutils-4.5.11.ebuild:
+  Version bump #468654 by Agostino Sarubbo.
 
   19 Feb 2013; Zac Medico <zmedico@gentoo.org> findutils-4.5.10-r1.ebuild:
   Add ~arm-linux keyword.

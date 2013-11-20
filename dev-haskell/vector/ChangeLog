@@ -1,6 +1,25 @@
 # ChangeLog for dev-haskell/vector
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/vector/ChangeLog,v 1.11 2013/03/17 16:09:27 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/vector/ChangeLog,v 1.16 2013/10/19 12:53:20 gienah Exp $
+
+*vector-0.10.9.1 (19 Oct 2013)
+
+  19 Oct 2013; Mark Wright <gienah@gentoo.org> +vector-0.10.9.1.ebuild,
+  metadata.xml:
+  Bump vector to 0.10.9.1
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> vector-0.10.0.1.ebuild:
+  Stable for sparc, wrt bug #480568
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> vector-0.10.0.1.ebuild:
+  Stable for x86, wrt bug #480568
+
+  12 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Correct metadata, wrt bug #480568. Thanks to Tom Wijsman for discovering this
+  issue
+
+  11 Aug 2013; Agostino Sarubbo <ago@gentoo.org> vector-0.10.0.1.ebuild:
+  Stable for amd64, wrt bug #480568
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

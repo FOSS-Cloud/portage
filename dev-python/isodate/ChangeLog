@@ -1,6 +1,28 @@
 # ChangeLog for dev-python/isodate
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/isodate/ChangeLog,v 1.11 2013/02/02 22:28:52 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/isodate/ChangeLog,v 1.18 2013/10/11 17:47:50 maekke Exp $
+
+  11 Oct 2013; Markus Meier <maekke@gentoo.org> isodate-0.4.9-r1.ebuild:
+  arm stable, bug #482056
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> isodate-0.4.9-r1.ebuild:
+  Stable for x86, wrt bug #482056
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> isodate-0.4.9-r1.ebuild:
+  Stable for amd64, wrt bug #482056
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> isodate-0.4.9-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  24 Jun 2013; Ian Delaney <idella4@gentoo.org> -isodate-0.4.8.ebuild,
+  isodate-0.4.9-r1.ebuild:
+  add test phase, pypy support, drop jython, drop old
+
+*isodate-0.4.9-r1 (12 May 2013)
+
+  12 May 2013; Justin Lecher <jlec@gentoo.org> +isodate-0.4.9-r1.ebuild,
+  metadata.xml:
+  Move to new python r1 eclasses
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> isodate-0.4.9.ebuild:
   Add ~arm, wrt bug #449220

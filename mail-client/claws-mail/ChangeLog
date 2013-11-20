@@ -1,6 +1,79 @@
 # ChangeLog for mail-client/claws-mail
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail/ChangeLog,v 1.227 2013/02/11 21:38:59 fauli Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail/ChangeLog,v 1.241 2013/09/05 19:44:49 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> claws-mail-3.9.1-r1.ebuild,
+  claws-mail-3.9.1.ebuild, claws-mail-3.9.2.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> claws-mail-3.9.1.ebuild,
+  claws-mail-3.9.1-r1.ebuild, claws-mail-3.9.2.ebuild:
+  Depend on libsoup-gnome again, clean up old revisions.
+
+*claws-mail-3.9.2 (04 Jul 2013)
+
+  04 Jul 2013; Christian Faulhammer <fauli@gentoo.org>
+  +claws-mail-3.9.2.ebuild:
+  version bump for bug 475364 by CBKe
+
+*claws-mail-3.9.1-r1 (16 May 2013)
+
+  16 May 2013; Christian Faulhammer <fauli@gentoo.org>
+  +claws-mail-3.9.1-r1.ebuild, +files/claws-mail-3.9.1_fix-nntp-segfault.patch:
+  fix segfault with NNTP as reported by Alexander Tsoy on bug 469838
+
+  14 May 2013; Markus Meier <maekke@gentoo.org> claws-mail-3.9.1.ebuild:
+  add ~arm, bug #468984
+
+  13 May 2013; Christian Faulhammer <fauli@gentoo.org> claws-mail-3.9.1.ebuild:
+  Extend REQUIRED_USE to have USE=pgp activated on USE=smime, see bug 469652 by
+  Cédric Jeanneret
+
+  13 May 2013; Christian Faulhammer <fauli@gentoo.org> claws-mail-3.9.1.ebuild:
+  move libnotify usage over to notification, forgotten in last commit
+
+  12 May 2013; Christian Faulhammer <fauli@gentoo.org> claws-mail-3.9.1.ebuild,
+  metadata.xml:
+  rerun autoconf to fix bug 469578 by John Brendler; also split out some
+  functionality of notification plugin and giving it the generic name
+  USE=notification instead of libnotify
+
+  11 May 2013; Christian Faulhammer <fauli@gentoo.org> claws-mail-3.9.1.ebuild:
+  >=net-libs/libsoup-2.42 replace preceeding net-libs/libsoup-gnome versions,
+  reflect this in DEPEND as reported in bug 469446 by Stefan van den Berg
+
+  11 May 2013; Jeroen Roovers <jer@gentoo.org> claws-mail-3.9.1.ebuild:
+  Marked ~hppa (bug #468984).
+
+  10 May 2013; Christian Faulhammer <fauli@gentoo.org> claws-mail-3.9.1.ebuild:
+  fix build for USE=python if Python 3 is main interpreter by pinning to a
+  single Python 2 implementation
+
+  10 May 2013; Christian Faulhammer <fauli@gentoo.org> claws-mail-3.9.1.ebuild,
+  +files/claws-mail-3.9.1_libsoup-check-fix.patch:
+  Make check for libsoup non-mandatory, as provided by Ted Tanberry on bug
+  469014
+
+  08 May 2013; Christian Faulhammer <fauli@gentoo.org> claws-mail-3.9.1.ebuild:
+  split out valgrind part for USE=debug as proposed on bug 468984
+
+*claws-mail-3.9.1 (08 May 2013)
+
+  08 May 2013; Christian Faulhammer <fauli@gentoo.org>
+  +claws-mail-3.9.1.ebuild, metadata.xml:
+  Version bump with some bigger organisational changes:
+
+  - all plugins are integrated now
+
+  - dropped Dillo, GTKHtml2 and Trayicon plugins
+
+  - built all plugins that need no special dependencies
+
+  - use EAPI 5
+
+  - cleaned up dependencies
+
+  - reorganised USE flags (name changes crypt -> pgp e.g.)
 
 *claws-mail-3.9.0-r1 (11 Feb 2013)
 

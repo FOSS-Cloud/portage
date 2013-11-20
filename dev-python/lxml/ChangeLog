@@ -1,6 +1,79 @@
 # ChangeLog for dev-python/lxml
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/lxml/ChangeLog,v 1.153 2013/04/07 00:40:27 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/lxml/ChangeLog,v 1.173 2013/11/07 20:25:32 radhermit Exp $
+
+*lxml-3.2.4 (07 Nov 2013)
+
+  07 Nov 2013; Tim Harder <radhermit@gentoo.org> +lxml-3.2.4.ebuild:
+  Version bump.
+
+  22 Oct 2013; Fabian Groffen <grobian@gentoo.org> lxml-3.2.1.ebuild:
+  Marked ~x64-macos, bug #487670
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> lxml-3.0.1.ebuild,
+  lxml-3.1.0.ebuild, lxml-3.1.1.ebuild, lxml-3.1.2.ebuild, lxml-3.2.0.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> lxml-3.2.1.ebuild:
+  Drop stale conditionals after py3.1 removal.
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lxml-3.2.1.ebuild:
+  Stable for sparc, wrt bug #450174
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lxml-3.2.1.ebuild:
+  Stable for sh, wrt bug #450174
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lxml-3.2.1.ebuild:
+  Stable for s390, wrt bug #450174
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lxml-3.2.1.ebuild:
+  Stable for ppc, wrt bug #450174
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lxml-3.2.1.ebuild:
+  Stable for ia64, wrt bug #450174
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lxml-3.2.1.ebuild:
+  Stable for x86, wrt bug #450174
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lxml-3.2.1.ebuild:
+  Stable for amd64, wrt bug #450174
+
+  04 Jul 2013; Mike Gilbert <floppym@gentoo.org> lxml-3.2.1.ebuild:
+  Do an in-source build to avoid a race condition on creating src/lxml/includes
+  /lxml-version.h, bug 465656.
+
+  22 May 2013; Ian Delaney <idella4@gentoo.org> lxml-3.2.0.ebuild,
+  lxml-3.2.1.ebuild:
+  Return arches in KEYWORDS to 1 line in -3.2.1
+
+  22 May 2013; Mike Gilbert <floppym@gentoo.org> lxml-3.2.0.ebuild:
+  Drop pypy support.
+
+  22 May 2013; Ian Delaney <idella4@gentoo.org> lxml-3.2.0.ebuild,
+  lxml-3.2.1.ebuild:
+  Adjust -3.2.1.ebuild to depend on beautifulsoup-3, beatufulsoup3 added to IUSE
+
+*lxml-3.2.1 (14 May 2013)
+
+  14 May 2013; Tim Harder <radhermit@gentoo.org> +lxml-3.2.1.ebuild:
+  Version bump.
+
+  04 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/lxml-test-elementtree.patch, lxml-3.2.0.ebuild:
+  Fix tests when dev-python/elementtree is installed.
+
+  04 May 2013; Mike Gilbert <floppym@gentoo.org> lxml-3.2.0.ebuild:
+  Restore -fno-strict-aliasing for python2.
+
+*lxml-3.2.0 (28 Apr 2013)
+
+  28 Apr 2013; Tim Harder <radhermit@gentoo.org> +lxml-3.2.0.ebuild:
+  Version bump.
+
+*lxml-3.1.2 (12 Apr 2013)
+
+  12 Apr 2013; Tim Harder <radhermit@gentoo.org> +lxml-3.1.2.ebuild:
+  Version bump.
 
 *lxml-3.1.1 (07 Apr 2013)
 

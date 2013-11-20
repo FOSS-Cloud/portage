@@ -1,6 +1,62 @@
 # ChangeLog for sys-libs/talloc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/talloc/ChangeLog,v 1.45 2013/03/06 10:27:35 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/talloc/ChangeLog,v 1.60 2013/09/13 14:04:51 polynomial-c Exp $
+
+*talloc-2.1.0 (13 Sep 2013)
+
+  13 Sep 2013; Lars Wendler <polynomial-c@gentoo.org> -talloc-2.0.7.ebuild,
+  +talloc-2.1.0.ebuild:
+  Version bump. Removed old.
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> talloc-2.0.8.ebuild:
+  Stable for sparc, wrt bug #466710
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> talloc-2.0.8.ebuild:
+  Stable for ppc64, wrt bug #466710
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> talloc-2.0.8.ebuild:
+  Mark s390/sh stable #466710.
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> talloc-2.0.8.ebuild:
+  Stable for alpha, wrt bug #466710
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> talloc-2.0.8.ebuild:
+  Stable for ia64, wrt bug #466710
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> talloc-2.0.8.ebuild:
+  Stable for ppc, wrt bug #466710
+
+  25 Aug 2013; Markus Meier <maekke@gentoo.org> talloc-2.0.8.ebuild,
+  talloc-2.0.8-r1.ebuild:
+  stabilize correct version for bug #478260
+
+  25 Aug 2013; Markus Meier <maekke@gentoo.org> talloc-2.0.8-r1.ebuild:
+  arm stable, bug #478260
+
+  24 Aug 2013; Jeroen Roovers <jer@gentoo.org> talloc-2.0.8.ebuild:
+  Stable for HPPA (bug #466710).
+
+  07 Aug 2013; Lars Wendler <polynomial-c@gentoo.org> metadata.xml:
+  Removed unused local USE flag description.
+
+  07 Aug 2013; Lars Wendler <polynomial-c@gentoo.org> -talloc-1.3.0.ebuild,
+  -talloc-1.3.1.ebuild, -talloc-2.0.0.ebuild, -talloc-2.0.0-r1.ebuild,
+  -talloc-2.0.1.ebuild, -talloc-2.0.1-r1.ebuild, -talloc-2.0.1-r2.ebuild,
+  -talloc-2.0.5.ebuild, -files/talloc-2.0.0-without-doc.patch,
+  -files/talloc-2.0.1-respect-ldflags.patch:
+  Removed old versions.
+
+*talloc-2.0.8-r1 (30 Jun 2013)
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> +talloc-2.0.8-r1.ebuild,
+  metadata.xml:
+  Bump to new python eclass
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> talloc-2.0.8.ebuild:
+  Stable for x86, wrt bug #466710
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> talloc-2.0.8.ebuild:
+  Stable for amd64, wrt bug #466710
 
   06 Mar 2013; Agostino Sarubbo <ago@gentoo.org> talloc-2.0.7.ebuild:
   Stable for sh, wrt bug #458712

@@ -1,6 +1,18 @@
-# ChangeLog for Gentoo/ia64 profile
+# ChangeLog for Gentoo/m68k profile
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/m68k/ChangeLog,v 1.25 2013/01/23 11:15:03 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/m68k/ChangeLog,v 1.29 2013/09/29 14:30:15 dilfridge Exp $
+
+  29 Sep 2013; Andreas K. Huettel <dilfridge@gentoo.org> make.defaults:
+  m68k goes unstable/testing as per concil decision
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask opencl flag due to lack of virtual/opencl keywording.
+
+  10 Aug 2013; Ulrich Müller <ulm@gentoo.org> package.use.force:
+  P.use.force app-doc/pms binary because of unkeyworded texlive dependency.
+
+  11 Jul 2013; Mikle Kolyada <zlogene@gentoo.org> package.use.mask:
+  P.use.mask dev-perl/Error test due to unkeyworded dependency
 
   23 Jan 2013; Raúl Porcel <armin76@gentoo.org> package.use.mask:
   P.use.mask dev-libs/libpcre jit as it fails to build, unsupported

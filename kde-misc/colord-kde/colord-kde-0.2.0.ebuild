@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/colord-kde/colord-kde-0.2.0.ebuild,v 1.1 2013/03/09 19:05:03 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-misc/colord-kde/colord-kde-0.2.0.ebuild,v 1.2 2013/05/01 18:39:36 johu Exp $
 
 EAPI=5
 
@@ -24,8 +24,8 @@ RDEPEND="${DEPEND}
 "
 
 pkg_postinst() {
-        kde4-base_pkg_postinst
-        if ! has_version "gnome-extra/gnome-color-manager"; then
+	kde4-base_pkg_postinst
+	if ! has_version "gnome-extra/gnome-color-manager"; then
 		elog "You may want to install gnome-extra/gnome-color-manager to add support for"
 		elog "colorhug calibration devices."
 	fi

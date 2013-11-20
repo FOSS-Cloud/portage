@@ -1,6 +1,57 @@
 # ChangeLog for Gentoo/sparc profile
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/ChangeLog,v 1.200 2013/03/12 21:48:25 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/ChangeLog,v 1.216 2013/11/10 15:48:14 chithanh Exp $
+
+  10 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask llvm flag until sys-devel/llvm is keyworded, bug #320221.
+
+  25 Oct 2013; Davide Pesavento <pesa@gentoo.org> package.use.mask:
+  Remove redundant entries (webkit is already use.mask-ed globally on sparc).
+
+  21 Oct 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Added bug reference to media-video/mpv luajit mask.
+
+  20 Oct 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Adjusted media-video/mpv luajit USE mask to support future versions.
+
+  16 Oct 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Mask luajit on ~media-video/mpv-0.2.0 because it only has amd64 x86 keywords.
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask jemalloc flag for gnash
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask opencl flag due to lack of virtual/opencl keywording.
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> +package.mask:
+  move texlive mask from global to arch profiles, bug #475124
+
+  16 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Drop obsolete quvi masks
+
+  08 Jul 2013; Michael Weber <xmw@gentoo.org> package.use.mask:
+  Mask net-dns/rbldnsd test for missing keywords on dev-python/pydns.
+
+  17 Jun 2013; Patrick Lauer <patrick@gentoo.org> package.use.mask:
+  Fix per-arch mask of phonon[zeitgeist] #460140
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask r600-llvm-compiler flag for mesa.
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask video_cards_radeonsi.
+
+  27 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask video_cards_ilo.
+
+  27 May 2013; Patrick Lauer <patrick@gentoo.org> package.use.mask:
+  Masking upnp-av useflag for totem and rhytmbox to work around missing stable
+  keywords on coherence/tagpy
+
+  22 Apr 2013; Bernard Cafarelli <voyageur@gentoo.org> use.mask:
+  x11-misc/google-gadgets removed from tree
 
   12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> use.mask:
   Mask USE="cg" since it is a toolkit for nvidia binary drivers.

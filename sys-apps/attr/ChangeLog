@@ -1,6 +1,53 @@
 # ChangeLog for sys-apps/attr
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/attr/ChangeLog,v 1.145 2013/03/21 15:11:57 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/attr/ChangeLog,v 1.159 2013/10/14 18:20:05 mgorny Exp $
+
+  14 Oct 2013; Michał Górny <mgorny@gentoo.org> attr-2.4.47-r1.ebuild:
+  Explicitly call einstalldocs in multilib_src_install_all() to accomodate bug
+  #483304.
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> attr-2.4.46-r2.ebuild:
+  Mark m68k/sh stable #470570.
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org> attr-2.4.47-r1.ebuild:
+  Add blockers on emul-libs so that it is stacked for baselibs r10
+
+*attr-2.4.47-r1 (10 Aug 2013)
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org> +attr-2.4.47-r1.ebuild:
+  Convert to multilib, bug #479310
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> attr-2.4.46-r2.ebuild:
+  Stable for ppc, wrt bug #470570
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> attr-2.4.46-r2.ebuild:
+  Stable for x86, wrt bug #470570
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> attr-2.4.46-r2.ebuild:
+  Stable for s390, wrt bug #470570
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> attr-2.4.46-r2.ebuild:
+  Stable for ppc64, wrt bug #470570
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> attr-2.4.46-r2.ebuild:
+  Stable for ia64, wrt bug #470570
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> attr-2.4.46-r2.ebuild:
+  Stable for sparc, wrt bug #470570
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> attr-2.4.46-r2.ebuild:
+  Stable for alpha, wrt bug #470570
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> attr-2.4.46-r2.ebuild:
+  Stable for arm, wrt bug #470570
+
+  28 Jul 2013; Chema Alonso <nimiux@gentoo.org> attr-2.4.46-r2.ebuild:
+  Stable for amd64 wrt bug #470570
+
+*attr-2.4.47 (20 May 2013)
+
+  20 May 2013; Mike Frysinger <vapier@gentoo.org> +attr-2.4.47.ebuild:
+  Version bump.
 
   21 Mar 2013; Jeroen Roovers <jer@gentoo.org> attr-2.4.46-r2.ebuild:
   Stable for HPPA (bug #212517).

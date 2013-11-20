@@ -1,6 +1,39 @@
 # ChangeLog for x11-libs/libXvMC
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libXvMC/ChangeLog,v 1.68 2013/02/26 16:13:12 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libXvMC/ChangeLog,v 1.78 2013/10/08 05:08:41 ago Exp $
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libXvMC-1.0.8.ebuild:
+  Stable for x86, wrt bug #475480
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libXvMC-1.0.8.ebuild:
+  Stable for sparc, wrt bug #475480
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libXvMC-1.0.8.ebuild:
+  Stable for ia64, wrt bug #475480
+
+  05 Oct 2013; Markus Meier <maekke@gentoo.org> libXvMC-1.0.8.ebuild:
+  arm stable, bug #475480
+
+  05 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libXvMC-1.0.8.ebuild:
+  Stable for alpha, wrt bug #475480
+
+  04 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libXvMC-1.0.8.ebuild:
+  Stable for ppc64, wrt bug #475480
+
+  03 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libXvMC-1.0.8.ebuild:
+  Stable for ppc, wrt bug #475480
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> libXvMC-1.0.8.ebuild:
+  Stable for HPPA (bug #475480).
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libXvMC-1.0.8.ebuild:
+  Stable for amd64, wrt bug #475480
+
+*libXvMC-1.0.8 (18 Jun 2013)
+
+  18 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +libXvMC-1.0.8.ebuild:
+  Version bump.
 
 *libXvMC-1.0.7-r1 (26 Feb 2013)
 

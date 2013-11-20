@@ -1,6 +1,48 @@
 # ChangeLog for dev-vcs/rcs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/rcs/ChangeLog,v 1.14 2013/02/21 03:51:10 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/rcs/ChangeLog,v 1.27 2013/07/02 11:45:23 titanofold Exp $
+
+  02 Jul 2013; Aaron W. Swenson <titanofold@gentoo.org> -rcs-5.8.ebuild,
+  -files/rcs-5.8-include.patch:
+  Clean out cruft.
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> rcs-5.8.2.ebuild:
+  Stable for sh, wrt bug #472452
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> rcs-5.8.2.ebuild:
+  Stable for s390, wrt bug #472452
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> rcs-5.8.2.ebuild:
+  Stable for sparc, wrt bug #472452
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> rcs-5.8.2.ebuild:
+  Stable for ia64, wrt bug #472452
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> rcs-5.8.2.ebuild:
+  Stable for alpha, wrt bug #472452
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> rcs-5.8.2.ebuild:
+  Stable for amd64, wrt bug #472452
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> rcs-5.8.2.ebuild:
+  Stable for x86, wrt bug #472452
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> rcs-5.8.2.ebuild:
+  Stable for ppc64, wrt bug #472452
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> rcs-5.8.2.ebuild:
+  Stable for ppc, wrt bug #472452
+
+  09 Jun 2013; Markus Meier <maekke@gentoo.org> rcs-5.8.2.ebuild:
+  arm stable, bug #472452
+
+  06 Jun 2013; Jeroen Roovers <jer@gentoo.org> rcs-5.8.2.ebuild:
+  Stable for HPPA (bug #472452).
+
+*rcs-5.8.2 (30 Apr 2013)
+
+  30 Apr 2013; Aaron W. Swenson <titanofold@gentoo.org> +rcs-5.8.2.ebuild:
+  Version bump. Tests work now. (Thanks Paolo Pedroni.) Fixes bug 457074.
 
   21 Feb 2013; Jeroen Roovers <jer@gentoo.org> -rcs-5.7-r3.ebuild,
   rcs-5.8.ebuild:

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ati-drivers-13.1_pre897.ebuild,v 1.6 2013/03/19 11:54:39 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ati-drivers-13.1_pre897.ebuild,v 1.9 2013/06/18 14:00:32 chithanh Exp $
 
 EAPI=5
 
@@ -40,7 +40,16 @@ RDEPEND="
 	virtual/glu
 	multilib? (
 			app-emulation/emul-linux-x86-opengl
-			app-emulation/emul-linux-x86-xlibs
+			|| (
+				(
+					x11-libs/libX11[abi_x86_32]
+					x11-libs/libXext[abi_x86_32]
+					x11-libs/libXinerama[abi_x86_32]
+					x11-libs/libXrandr[abi_x86_32]
+					x11-libs/libXrender[abi_x86_32]
+				)
+				app-emulation/emul-linux-x86-xlibs
+			)
 	)
 	qt4? (
 			x11-libs/libICE
@@ -291,6 +300,11 @@ src_prepare() {
 
 	# Compile fix, https://bugs.gentoo.org/show_bug.cgi?id=454870
 	use pax_kernel && epatch "${FILESDIR}/const-notifier-block.patch"
+
+	# Compile fix for kernel typesafe uid types #469160
+	epatch "${FILESDIR}/typesafe-kuid.diff"
+
+	epatch "${FILESDIR}/linux-3.10-proc.diff"
 
 	cd "${MODULE_DIR}"
 

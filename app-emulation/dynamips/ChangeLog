@@ -1,6 +1,37 @@
 # ChangeLog for app-emulation/dynamips
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/dynamips/ChangeLog,v 1.6 2012/05/05 02:58:28 pva Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/dynamips/ChangeLog,v 1.12 2013/10/20 07:24:02 pinkbyte Exp $
+
+*dynamips-0.2.10 (20 Oct 2013)
+
+  20 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> -dynamips-0.2.8_rc3.ebuild,
+  -dynamips-0.2.8.ebuild, -files/dynamips-0.2.8_rc3-makefile.patch,
+  +dynamips-0.2.10.ebuild, +files/dynamips-0.2.10-makefile.patch:
+  Version bump, drop old
+
+*dynamips-0.2.8-r1 (25 Aug 2013)
+
+  25 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> +dynamips-0.2.8-r1.ebuild:
+  Revision bump: do not link to libelf statically, wrt bug #480940. Thanks to
+  James Cloos for discovering this issue
+
+  25 Aug 2013; Sergey Popov <pinkbyte@gentoo.org>
+  -dynamips-0.2.8_rc2-r1.ebuild, dynamips-0.2.8_rc3.ebuild,
+  dynamips-0.2.8.ebuild, -files/dynamips-0.2.8_rc2-makefile.patch:
+  Fix dependency on dev-libs/elfutils, wrt bug #480940. Drop old revision
+
+  15 Jul 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +files/dynamips-0.2.8-makefile.patch:
+  Add missing makefile patch
+
+*dynamips-0.2.8 (15 Jul 2013)
+
+  15 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> +dynamips-0.2.8.ebuild:
+  Version bump, wrt bug #476708. EAPI 5, enable verbose build, get rid of base
+  eclass, respect compiler
+
+  15 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Add myself as primary maintainer, permission granted by Tony Vroon
 
   05 May 2012; Peter Volkov <pva@gentoo.org> dynamips-0.2.8_rc3.ebuild:
   Update HOMEPAGE.

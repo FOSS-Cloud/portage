@@ -1,0 +1,22 @@
+# ChangeLog for app-backup/bareos
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-backup/bareos/ChangeLog,v 1.3 2013/11/12 09:19:10 mschiff Exp $
+
+*bareos-12.4.5-r1 (12 Nov 2013)
+
+  12 Nov 2013; Marc Schiffbauer <mschiff@gentoo.org> -bareos-12.4.5.ebuild,
+  +bareos-12.4.5-r1.ebuild, files/bareos-dir.initd, files/bareos-fd.initd,
+  files/bareos-sd.initd:
+  revbump: drop superfluous 'need net' from init scripts. See #439092
+
+  30 Oct 2013; Marc Schiffbauer <mschiff@gentoo.org> bareos-12.4.5.ebuild:
+  Fix configure for USE=-sqlite3.
+
+*bareos-12.4.5 (21 Oct 2013)
+
+  21 Oct 2013; Marc Schiffbauer <mschiff@gentoo.org> +bareos-12.4.5.ebuild,
+  +files/bareos-12.4.5-Makefile.patch, +files/bareos-12.4.5-bat-ldflags.patch,
+  +files/bareos-dir.confd, +files/bareos-dir.initd, +files/bareos-fd.confd,
+  +files/bareos-fd.initd, +files/bareos-sd.confd, +files/bareos-sd.initd,
+  +metadata.xml:
+  Initial commit of bareos.

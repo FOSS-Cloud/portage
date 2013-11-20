@@ -1,6 +1,25 @@
 # ChangeLog for media-libs/speex
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/speex/ChangeLog,v 1.100 2012/09/07 22:41:11 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/speex/ChangeLog,v 1.105 2013/07/29 20:13:47 aballier Exp $
+
+  29 Jul 2013; Alexis Ballier <aballier@gentoo.org> speex-1.2_rc1-r2.ebuild:
+  Do not build speexenc/speexdec for non native ABIs and drop now useless
+  MULTILIB_USEDEP on libogg
+
+*speex-1.2_rc1-r2 (28 Jul 2013)
+
+  28 Jul 2013; Alexis Ballier <aballier@gentoo.org> +speex-1.2_rc1-r2.ebuild:
+  go multilib and slat it for medialibs -r4
+
+  06 Jul 2013; Christoph Junghans <ottxor@gentoo.org> speex-1.2_rc1-r1.ebuild:
+  added prefix support
+
+  05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  26 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> speex-1.2_rc1-r1.ebuild:
+  Use AC_CONFIG_HEADERS instead of the obsolete AM_CONFIG_HEADER wrt #467012 by
+  Alphat-PC
 
   07 Sep 2012; Tim Harder <radhermit@gentoo.org> metadata.xml:
   Remove redundant maintainer from metadata.

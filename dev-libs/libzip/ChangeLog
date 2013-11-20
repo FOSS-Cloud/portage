@@ -1,6 +1,52 @@
 # ChangeLog for dev-libs/libzip
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libzip/ChangeLog,v 1.58 2013/04/02 03:28:10 creffett Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libzip/ChangeLog,v 1.72 2013/09/05 14:53:54 kensington Exp $
+
+  05 Sep 2013; Michael Palimaka <kensington@gentoo.org> -libzip-0.11.ebuild:
+  Remove old.
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libzip-0.11.1.ebuild:
+  Stable for ppc64, wrt bug #482912
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libzip-0.11.1.ebuild:
+  Stable for ppc, wrt bug #482912
+
+  01 Sep 2013; Jeff Horelick <jdhore@gentoo.org> libzip-0.11.1.ebuild:
+  marked x86 per bug 482912
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libzip-0.11.1.ebuild:
+  Stable for amd64, wrt bug #482912
+
+  29 Aug 2013; Jeroen Roovers <jer@gentoo.org> libzip-0.11.1.ebuild:
+  Stable for HPPA (bug #482912).
+
+*libzip-0.11.1 (28 Jun 2013)
+
+  28 Jun 2013; Johannes Huber <johu@gentoo.org> +libzip-0.11.1.ebuild:
+  Version bump.
+
+  25 Jun 2013; Johannes Huber <johu@gentoo.org>
+  -files/libzip-0.10-fix_pkgconfig.patch,
+  -files/libzip-0.10.1-fix_decrypt.patch, -libzip-0.10.1-r1.ebuild:
+  Remove old.
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libzip-0.11.ebuild:
+  Stable for amd64, wrt bug #474054
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libzip-0.11.ebuild:
+  Stable for x86, wrt bug #474054
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libzip-0.11.ebuild:
+  Stable for ppc64, wrt bug #474054
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libzip-0.11.ebuild:
+  Stable for ppc, wrt bug #474054
+
+  23 Jun 2013; Jeroen Roovers <jer@gentoo.org> libzip-0.11.ebuild:
+  Stable for HPPA (bug #474054).
+
+  19 May 2013; Alexis Ballier <aballier@gentoo.org> libzip-0.11.ebuild:
+  keyword ~amd64-fbsd, bug #469248
 
 *libzip-0.11 (02 Apr 2013)
 

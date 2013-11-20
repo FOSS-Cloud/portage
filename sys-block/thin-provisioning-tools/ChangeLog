@@ -1,6 +1,65 @@
 # ChangeLog for sys-block/thin-provisioning-tools
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/thin-provisioning-tools/ChangeLog,v 1.17 2013/02/24 17:45:50 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/thin-provisioning-tools/ChangeLog,v 1.28 2013/11/19 05:43:07 patrick Exp $
+
+  19 Nov 2013; Patrick Lauer <patrick@gentoo.org>
+  thin-provisioning-tools-0.2.8-r1.ebuild:
+  Whitespace
+
+*thin-provisioning-tools-0.2.8-r1 (15 Nov 2013)
+
+  15 Nov 2013; Robin H. Johnson <robbat2@gentoo.org>
+  +thin-provisioning-tools-0.2.8-r1.ebuild:
+  Put ruby behind a USE=test dep and add the other testing dependencies as well.
+
+  13 Nov 2013; Chema Alonso <nimiux@gentoo.org>
+  thin-provisioning-tools-0.2.8.ebuild:
+  Stable for amd64 wrt bug #486278
+
+  25 Oct 2013; Jeroen Roovers <jer@gentoo.org>
+  thin-provisioning-tools-0.2.8.ebuild:
+  Stable for HPPA (bug #486278).
+
+  20 Oct 2013; Samuli Suominen <ssuominen@gentoo.org>
+  thin-provisioning-tools-0.2.8.ebuild:
+  Remove now unnecessary GCC 4.7.x check because upstream stopped using
+  --std=c++11 wrt http://github.com/jthornber/thin-provisioning-
+  tools/commit/0029962f200ca4f256de114779bb5fad96836d89
+
+  20 Oct 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -files/thin-provisioning-tools-0.2.1-LDFLAGS.patch,
+  -files/thin-provisioning-tools-0.2.7-LDFLAGS.patch,
+  -thin-provisioning-tools-0.2.1.ebuild, -thin-provisioning-tools-0.2.7.ebuild:
+  old
+
+*thin-provisioning-tools-0.2.8 (20 Oct 2013)
+
+  20 Oct 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +thin-provisioning-tools-0.2.8.ebuild:
+  Version bump. Use || ( ) workaround in ruby slotting for Portage unefficiency
+  wrt #477050 by Michael Palimaka.
+
+*thin-provisioning-tools-0.2.7 (07 Oct 2013)
+
+  07 Oct 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +files/thin-provisioning-tools-0.2.7-LDFLAGS.patch,
+  +thin-provisioning-tools-0.2.7.ebuild:
+  Version bump wrt #486144 by Manuel Rüger
+
+  16 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  thin-provisioning-tools-0.2.1.ebuild:
+  Add gcc version check #476910
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  thin-provisioning-tools-0.2.1.ebuild:
+  Whitespace
+
+*thin-provisioning-tools-0.2.1 (14 Jul 2013)
+
+  14 Jul 2013; Robin H. Johnson <robbat2@gentoo.org>
+  +files/thin-provisioning-tools-0.2.1-LDFLAGS.patch,
+  +thin-provisioning-tools-0.2.1.ebuild:
+  Bump.
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
   thin-provisioning-tools-0.1.5-r1.ebuild:

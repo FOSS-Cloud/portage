@@ -1,6 +1,52 @@
 # ChangeLog for dev-ruby/stomp
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/stomp/ChangeLog,v 1.18 2012/12/09 10:21:24 graaff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/stomp/ChangeLog,v 1.29 2013/11/01 06:31:50 graaff Exp $
+
+*stomp-1.3.1 (01 Nov 2013)
+
+  01 Nov 2013; Hans de Graaff <graaff@gentoo.org> +stomp-1.3.1.ebuild:
+  Version bump. Add ruby20.
+
+  01 Nov 2013; Hans de Graaff <graaff@gentoo.org> -stomp-1.2.14.ebuild:
+  Cleanup.
+
+*stomp-1.2.16 (13 Sep 2013)
+
+  13 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +stomp-1.2.16.ebuild:
+  Version bump.
+
+*stomp-1.2.14 (22 Aug 2013)
+
+  22 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +stomp-1.2.14.ebuild,
+  -stomp-1.2.12.ebuild, -stomp-1.2.13.ebuild, -stomp-1.2.9.ebuild:
+  Version bump. Cleanup old.
+
+*stomp-1.2.13 (18 Aug 2013)
+
+  18 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +stomp-1.2.13.ebuild:
+  Version bump
+
+*stomp-1.2.12 (17 Aug 2013)
+
+  17 Aug 2013; Hans de Graaff <graaff@gentoo.org> +stomp-1.2.12.ebuild:
+  Version bump.
+
+  17 Aug 2013; Hans de Graaff <graaff@gentoo.org> -stomp-1.2.5.ebuild:
+  Cleanup.
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> stomp-1.2.7.ebuild:
+  Stable for x86, wrt bug #466532
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> stomp-1.2.7.ebuild:
+  Stable for amd64, wrt bug #466532
+
+*stomp-1.2.9 (20 Apr 2013)
+
+  20 Apr 2013; Hans de Graaff <graaff@gentoo.org> +stomp-1.2.9.ebuild:
+  Version bump.
+
+  20 Apr 2013; Hans de Graaff <graaff@gentoo.org> -stomp-1.2.6.ebuild:
+  Cleanup.
 
 *stomp-1.2.7 (09 Dec 2012)
 

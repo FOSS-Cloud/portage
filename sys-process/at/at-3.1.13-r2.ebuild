@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/at/at-3.1.13-r2.ebuild,v 1.2 2013/02/27 13:06:29 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/at/at-3.1.13-r2.ebuild,v 1.11 2013/09/14 10:56:55 ago Exp $
 
 EAPI=4
 
-inherit autotools eutils flag-o-matic pam user
+inherit autotools eutils flag-o-matic pam user systemd
 
 DESCRIPTION="Queues jobs for later execution"
 HOMEPAGE="http://packages.qa.debian.org/a/at.html"
@@ -12,7 +12,7 @@ SRC_URI="mirror://debian/pool/main/a/at/${PN}_${PV}.orig.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 ~arm hppa ia64 ~mips ppc ppc64 sparc x86"
 IUSE="pam selinux"
 
 DEPEND="virtual/mta
@@ -68,6 +68,8 @@ src_install() {
 		einfo "Preserving existing .SEQ file (bug #386625)."
 		cp -p "${seq_file}" "${D}"/var/spool/at/atjobs/ || die
 	fi
+
+	systemd_dounit "${FILESDIR}/atd.service"
 }
 
 pkg_postinst() {

@@ -1,6 +1,102 @@
 # ChangeLog for sys-kernel/openvz-sources
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/openvz-sources/ChangeLog,v 1.191 2013/04/02 15:05:58 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/openvz-sources/ChangeLog,v 1.211 2013/11/14 10:09:40 pinkbyte Exp $
+
+*openvz-sources-2.6.32.83.2 (14 Nov 2013)
+
+  14 Nov 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +openvz-sources-2.6.32.83.2.ebuild:
+  Version bump, requested by maintainer
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due vserver removal
+
+  28 Sep 2013; Peter Volkov <pva@gentoo.org> -openvz-sources-2.6.32.79.5.ebuild,
+  -openvz-sources-2.6.32.79.6.ebuild, openvz-sources-2.6.32.81.3.ebuild:
+  x86/amd64 stable, security bug #485890. Drop old.
+
+*openvz-sources-2.6.32.81.3 (25 Sep 2013)
+
+  25 Sep 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +openvz-sources-2.6.32.81.3.ebuild:
+  Version bump, wrt bug #485890
+
+*openvz-sources-2.6.32.79.6 (28 Aug 2013)
+
+  28 Aug 2013; Peter Volkov <pva@gentoo.org>
+  -openvz-sources-2.6.32.78.28.ebuild, -openvz-sources-2.6.32.79.4.ebuild,
+  openvz-sources-2.6.32.79.5.ebuild, +openvz-sources-2.6.32.79.6.ebuild:
+  x86/amd64 stable, security bug #479518 wrt Agostino Sarubbo and slepnoga.
+  Version bump. Drop old.
+
+*openvz-sources-2.6.32.79.5 (08 Aug 2013)
+
+  08 Aug 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +openvz-sources-2.6.32.79.5.ebuild:
+  Version bump, thanks to Andreis Vinogradovs
+
+*openvz-sources-2.6.32.79.4 (02 Aug 2013)
+
+  02 Aug 2013; Alexander Vershilov <qnikst@gentoo.org>
+  +openvz-sources-2.6.32.79.4.ebuild:
+  version bump thanks to slepnoga
+
+  17 Jul 2013; Peter Volkov <pva@gentoo.org>
+  -openvz-sources-2.6.32.76.8.ebuild, openvz-sources-2.6.32.78.28.ebuild:
+  x86/amd64 stable, security bug #475638 and bug #198632. Drop old.
+
+  14 Jul 2013; Alexander Vershilov <qnikst@gentoo.org>
+  -openvz-sources-2.6.32.78.26.ebuild:
+  remove 2.6.78.26 due to security Bug 475638 (thanks to slepnoga)
+
+*openvz-sources-2.6.32.78.28 (13 Jul 2013)
+
+  13 Jul 2013; Mikle Kolyada <zlogene@gentoo.org>
+  +openvz-sources-2.6.32.78.28.ebuild:
+  bump to 2.6.32.78.28, thanks to Andreis Vinogradovs
+
+  13 Jul 2013; Michael Weber <xmw@gentoo.org>
+  -openvz-sources-2.6.32.53.5.ebuild, -openvz-sources-2.6.32.68.8.ebuild,
+  -openvz-sources-2.6.32.74.10.ebuild, -openvz-sources-2.6.32.75.2.ebuild,
+  -openvz-sources-2.6.32.76.5.ebuild:
+  Remove old versions due security issues (bug 469956).
+
+*openvz-sources-2.6.32.78.26 (25 Jun 2013)
+
+  25 Jun 2013; Alexander Vershilov <qnikst@gentoo.org>
+  +openvz-sources-2.6.32.78.26.ebuild:
+  bump up to 2.6.32.78.26
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  29 May 2013; Peter Volkov <pva@gentoo.org> openvz-sources-2.6.32.76.8.ebuild:
+  x86/amd64 stable, bug #198632 and #469956
+
+*openvz-sources-2.6.32.76.8 (19 May 2013)
+
+  19 May 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +openvz-sources-2.6.32.76.8.ebuild:
+  Bump to 2.6.32.76.8: security fix for local root exploit aka CVE-2013-2094
+
+  12 May 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  -openvz-sources-2.6.32.49.6.ebuild:
+  Remove old versions, thanks to slepnoga
+
+  24 Apr 2013; Sergey Popov <pinkbyte@gentoo.org>
+  openvz-sources-2.6.32.68.8.ebuild:
+  Stable on amd64, wrt bug #452078
+
+  24 Apr 2013; Sergey Popov <pinkbyte@gentoo.org>
+  -files/openvz-sources-2.6.32.10.1-cpt_process.c-build.patch,
+  -files/openvz-sources-2.6.32.39-binutils.patch:
+  Drop old unused patches
+
+  14 Apr 2013; Sergey Popov <pinkbyte@gentoo.org>
+  -files/openvz-sources-2.6.18.028.064.7-bridgemac.patch,
+  -openvz-sources-2.6.18.028.099.3.ebuild,
+  -openvz-sources-2.6.18.028.101.1.ebuild:
+  Drop old hard-masked kernels
 
 *openvz-sources-2.6.32.76.5 (02 Apr 2013)
 

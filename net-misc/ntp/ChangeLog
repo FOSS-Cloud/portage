@@ -1,6 +1,63 @@
 # ChangeLog for net-misc/ntp
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/ntp/ChangeLog,v 1.187 2012/11/27 05:07:12 ottxor Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/ntp/ChangeLog,v 1.199 2013/11/19 20:00:56 pacho Exp $
+
+*ntp-4.2.6_p5-r8 (19 Nov 2013)
+
+  19 Nov 2013; Pacho Ramos <pacho@gentoo.org> +ntp-4.2.6_p5-r8.ebuild:
+  Register ntp unit file (#489040 by Kirill Elagin)
+
+  09 Nov 2013; Pacho Ramos <pacho@gentoo.org> ntp-4.2.6_p5-r7.ebuild:
+  x86 stable, bug #480084
+
+  04 Nov 2013; Matt Turner <mattst88@gentoo.org> ntp-4.2.6_p5-r7.ebuild:
+  alpha stable, bug 480084.
+
+*ntp-4.2.6_p5-r7 (11 Oct 2013)
+
+  11 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> -ntp-4.2.6_p5-r6.ebuild,
+  +ntp-4.2.6_p5-r7.ebuild:
+  Revbump to fix installation of sntp init script (problem reported by idl0r in
+  #gentoo-dev). Committed straight to stable.
+
+  10 Oct 2013; Tony Vroon <chainsaw@gentoo.org> ntp-4.2.6_p5-r6.ebuild:
+  Marked stable on AMD64 based on arch tester report by MJJoker in bug #480084.
+
+  09 Oct 2013; Jeroen Roovers <jer@gentoo.org> ntp-4.2.6_p5-r6.ebuild:
+  Stable for HPPA (bug #480084).
+
+  08 Oct 2013; Markus Meier <maekke@gentoo.org> ntp-4.2.6_p5-r6.ebuild:
+  arm stable, bug #480084
+
+*ntp-4.2.6_p5-r6 (16 Sep 2013)
+
+  16 Sep 2013; Pacho Ramos <pacho@gentoo.org> +ntp-4.2.6_p5-r6.ebuild,
+  -ntp-4.2.6_p5-r5.ebuild, files/ntpd.service-r1:
+  Fix ntp-client reference (#485086 by Alexander Tsoy)
+
+*ntp-4.2.6_p5-r5 (15 Sep 2013)
+
+  15 Sep 2013; Pacho Ramos <pacho@gentoo.org> +files/ntpd.service-r1,
+  +files/ntpdate.service, +files/ntpdate.service.conf, +files/sntp.service-r1,
+  +files/sntp.service.conf, +ntp-4.2.6_p5-r5.ebuild, -files/ntp-client.service,
+  -files/ntpd.service, -ntp-4.2.6_p5-r4.ebuild:
+  Fix unit files to not use forking and stop relying in /etc/conf.d files
+
+*ntp-4.2.6_p5-r4 (11 Sep 2013)
+
+  11 Sep 2013; Christoph Junghans <ottxor@gentoo.org> +ntp-4.2.6_p5-r4.ebuild,
+  -ntp-4.2.6_p5-r3.ebuild:
+  fix clash with net-misc/openntpd
+
+  06 Jul 2013; Mike Gilbert <floppym@gentoo.org> files/ntpd.service:
+  Remove ControlGroup attribute, which is unsupported as of systemd-205.
+
+*ntp-4.2.6_p5-r3 (06 Jul 2013)
+
+  06 Jul 2013; Pacho Ramos <pacho@gentoo.org> +files/ntp-client.service,
+  +files/ntpd.service, +files/sntp.confd, +files/sntp.rc, +files/sntp.service,
+  +ntp-4.2.6_p5-r3.ebuild:
+  Install unit file (#454902).
 
 *ntp-4.2.6_p5-r2 (27 Nov 2012)
 

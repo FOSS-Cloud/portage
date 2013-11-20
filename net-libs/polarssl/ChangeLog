@@ -1,6 +1,88 @@
 # ChangeLog for net-libs/polarssl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/polarssl/ChangeLog,v 1.44 2013/03/03 09:37:43 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/polarssl/ChangeLog,v 1.67 2013/11/02 16:42:33 hwoarang Exp $
+
+  02 Nov 2013; Markos Chandras <hwoarang@gentoo.org> polarssl-1.3.0.ebuild:
+  Add ~mips
+
+  14 Oct 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -polarssl-1.2.8.ebuild:
+  Drop old
+
+  14 Oct 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.3.0.ebuild:
+  Stable for ppc, wrt bug #487170
+
+  13 Oct 2013; Jeroen Roovers <jer@gentoo.org> polarssl-1.3.0.ebuild:
+  Stable for HPPA (bug #487170).
+
+  13 Oct 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.3.0.ebuild:
+  Stable for x86, wrt bug #487170
+
+  13 Oct 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  polarssl-1.3.0.ebuild:
+  Fix zlib support in tests, bug 487432
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.3.0.ebuild:
+  Stable for sparc, wrt bug #487170
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.3.0.ebuild:
+  Stable for ppc64, wrt bug #487170
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.3.0.ebuild:
+  Stable for arm, wrt bug #487170
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.3.0.ebuild:
+  Stable for amd64, wrt bug #487170
+
+  07 Oct 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +files/polarssl-cflags.patch:
+  Add missing patch
+
+*polarssl-1.3.0 (07 Oct 2013)
+
+  07 Oct 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +polarssl-1.3.0.ebuild, metadata.xml:
+  Version bump, for bug 487170, bug 483784 and bug 483792
+
+  29 Aug 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -polarssl-1.2.5.ebuild, -files/polarssl-0.14.0-ldflags.patch,
+  -files/polarssl-0.14.0-makefile.patch, -files/polarssl-1.0.0-makefile.patch:
+  Drop old version, cleanup filesdir
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.2.8.ebuild:
+  Stable for sparc, wrt bug #480882
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.2.8.ebuild:
+  Stable for s390, wrt bug #480882
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.2.8.ebuild:
+  Stable for arm, wrt bug #480882
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.2.8.ebuild:
+  Stable for ppc64, wrt bug #480882
+
+  19 Aug 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.2.8.ebuild:
+  Stable for ppc, wrt bug #480882
+
+  17 Aug 2013; Jeroen Roovers <jer@gentoo.org> polarssl-1.2.8.ebuild:
+  Stable for HPPA (bug #480882).
+
+  16 Aug 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.2.8.ebuild:
+  Stable for x86, wrt bug #480882
+
+  16 Aug 2013; Agostino Sarubbo <ago@gentoo.org> polarssl-1.2.8.ebuild:
+  Stable for amd64, wrt bug #480882
+
+  23 Jun 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  polarssl-1.2.8.ebuild:
+  tc-export AR, fixes bug 459280
+
+*polarssl-1.2.8 (23 Jun 2013)
+
+  23 Jun 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -polarssl-1.0.0.ebuild, -polarssl-1.1.3.ebuild, -polarssl-1.2.0.ebuild,
+  +polarssl-1.2.8.ebuild:
+  Version bump, drop old, also fixes bug 473984
 
   03 Mar 2013; Mike Frysinger <vapier@gentoo.org> polarssl-1.2.5.ebuild:
   Add s390 love.

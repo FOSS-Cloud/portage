@@ -1,6 +1,27 @@
 # ChangeLog for dev-vcs/gitolite
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/gitolite/ChangeLog,v 1.31 2013/04/05 06:17:31 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/gitolite/ChangeLog,v 1.36 2013/11/07 07:26:05 radhermit Exp $
+
+  07 Nov 2013; Tim Harder <radhermit@gentoo.org> gitolite-3.5.3.1.ebuild:
+  Re-add versionator eclass (bug #490662).
+
+*gitolite-3.5.3.1 (06 Nov 2013)
+
+  06 Nov 2013; Tim Harder <radhermit@gentoo.org> +gitolite-3.5.3.1.ebuild:
+  Version bump (bug #488986).
+
+*gitolite-3.5.2 (10 Jul 2013)
+
+  10 Jul 2013; Tim Harder <radhermit@gentoo.org> +gitolite-3.5.2.ebuild:
+  Version bump.
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due #66351
+
+*gitolite-3.5.1 (13 Apr 2013)
+
+  13 Apr 2013; Tim Harder <radhermit@gentoo.org> +gitolite-3.5.1.ebuild:
+  Version bump.
 
   05 Apr 2013; Tim Harder <radhermit@gentoo.org> gitolite-2.3.1.ebuild,
   gitolite-3.1.ebuild, gitolite-3.2.ebuild, gitolite-3.3.ebuild,
@@ -146,4 +167,3 @@
   07 Nov 2010; Lance Albertson <ramereth@gentoo.org> +gitolite-1.5.7.ebuild,
   +metadata.xml:
   Initial ebuild
-

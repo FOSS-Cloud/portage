@@ -1,6 +1,104 @@
 # ChangeLog for x11-misc/slim
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/slim/ChangeLog,v 1.105 2013/02/14 15:23:11 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/slim/ChangeLog,v 1.128 2013/10/28 01:31:52 axs Exp $
+
+  28 Oct 2013; Ian Stakenvicius <axs@gentoo.org>
+  +files/slim-1.3.6-fix-slimlock-nopam.patch, slim-1.3.6-r3.ebuild:
+  fixed build system to not try and install slimlock if it wasnt built, bug
+  489610
+
+  25 Oct 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r4.ebuild:
+  arm stable wrt bug #487688
+
+  25 Oct 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r4.ebuild:
+  Stable for x86, wrt bug #487688
+
+  25 Oct 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r4.ebuild:
+  Stable for ppc, wrt bug #487688
+
+  25 Oct 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r4.ebuild:
+  Stable for amd64, wrt bug #487688
+
+*slim-1.3.6-r3 (24 Oct 2013)
+
+  24 Oct 2013; Ian Stakenvicius <axs@gentoo.org> +files/slim-1.3.6-config.diff,
+  +files/slim-1.3.6-session-chooser.patch,
+  +files/slim-1.3.6-systemd-session.patch, +slim-1.3.6-r3.ebuild,
+  -slim-1.3.6-r2.ebuild:
+  fixed regression for session-chooser (bug 489078), changed default session
+  list to be from xsession .desktop files, changed operation of -nodaemon and
+  slim.service to fix systemd session issue after multiple logins
+  (bugs.freedesktop.org/show_bug.cgi?id=62866)
+
+*slim-1.3.6-r2 (23 Oct 2013)
+
+  23 Oct 2013; Ian Stakenvicius <axs@gentoo.org> +slim-1.3.6-r2.ebuild,
+  -slim-1.3.6-r1.ebuild:
+  add pam.d entry for slimlock to fix bug 489010
+
+  23 Oct 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r4.ebuild:
+  Stable for ppc64, wrt bug #487688
+
+*slim-1.3.5-r4 (22 Oct 2013)
+
+  22 Oct 2013; Ian Stakenvicius <axs@gentoo.org>
+  +files/slim-1.3.5-glibc217-crypt.patch, +slim-1.3.5-r4.ebuild:
+  backported security fix for bug 487688
+
+*slim-1.3.6-r1 (17 Oct 2013)
+
+  17 Oct 2013; Ian Stakenvicius <axs@gentoo.org>
+  +files/slim-1.3.6-libslim-cmake-fixes.patch, +slim-1.3.6-r1.ebuild,
+  -files/slim-1.3.6-lib-linking.patch, -slim-1.3.6.ebuild:
+  revbump and patch adjustment for build system to fix bug 488388
+
+*slim-1.3.6 (17 Oct 2013)
+
+  17 Oct 2013; Ian Stakenvicius <axs@gentoo.org>
+  +files/slim-1.3.6-honour-cflags.patch, +files/slim-1.3.6-lib-linking.patch,
+  +files/slim-1.3.6-strip-systemd-unit-install.patch, +slim-1.3.6.ebuild,
+  -slim-1.3.5-r1.ebuild:
+  version bump, remove old
+
+  26 Sep 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r3.ebuild:
+  Stable for arm, wrt bug #484912
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r3.ebuild:
+  Stable for ppc, wrt bug #484912
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r3.ebuild:
+  Stable for ppc64, wrt bug #484912
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r3.ebuild:
+  Stable for x86, wrt bug #484912
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r3.ebuild:
+  Stable for amd64, wrt bug #484912
+
+*slim-1.3.5-r3 (22 Aug 2013)
+
+  22 Aug 2013; Ian Stakenvicius <axs@gentoo.org>
+  +files/slim-1.3.5-disable-ck-for-systemd.patch, +slim-1.3.5-r3.ebuild:
+  if slim is started from its systemd service file then don't let it try to set
+  up a consolekit session
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r2.ebuild:
+  Stable for sparc, wrt bug #475192
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r2.ebuild:
+  Stable for arm, wrt bug #475192
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r2.ebuild:
+  Stable for x86, wrt bug #475192
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r2.ebuild:
+  Stable for amd64, wrt bug #475192
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r2.ebuild:
+  Stable for ppc64, wrt bug #475192
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> slim-1.3.5-r2.ebuild:
+  Stable for ppc, wrt bug #475192
 
 *slim-1.3.5-r2 (14 Feb 2013)
 

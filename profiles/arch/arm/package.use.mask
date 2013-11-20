@@ -1,10 +1,98 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/package.use.mask,v 1.134 2013/04/01 12:10:50 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/package.use.mask,v 1.180 2013/11/10 15:47:03 chithanh Exp $
 
-# Gilles Dartiguelongue <eva@gentoo.org> (1 Apr 2013)
-# missing keyword on media-libs/tremor, bug #453200
-media-libs/gst-plugins-base ivorbis
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (10 Nov 2013)
+# <sys-devel/llvm-3.2 is not keyworded
+=media-libs/mesa-7.10* llvm
+
+# Pacho Ramos <pacho@gentoo.org> (31 Oct 2013)
+# Missing keywords, bug #478254
+gnome-base/gnome classic
+
+# Benda Xu <heroxbd@gentoo.org> (31 Oct 2013)
+# Missing keywords from dev-ml/lablgtk, bug #487722
+net-p2p/mldonkey gtk guionly
+
+# Tom Wijsman <TomWij@gentoo.org> (16 Oct 2013)
+# Mask luajit on ~media-video/mpv-0.2.0 because it only has amd64 x86 keywords. See bug #488318.
+>=media-video/mpv-0.2.0 luajit
+
+# Pacho Ramos <pacho@gentoo.org> (22 Sep 2013)
+# Missing keywords, bug #484734
+media-sound/rhythmbox visualizer
+
+# Markus Meier <maekke@gentoo.org> (15 Sep 2013)
+# Unkeyworded deps, bug #481462
+dev-python/ipython nbconvert
+
+# Johannes Huber <johu@gentoo.org> (15 Sep 2013)
+# Depends on kde-misc/networkmanagement, not keyworded yet.
+kde-base/solid-runtime networkmanager
+
+# Sergey Popov <pinkbyte@gentoo.org> (06 Sep 2013)
+# sci-libs/hdf does not build properly on arm
+dev-perl/PDL	hdf
+
+# Michael Weber <xmw@gentoo.org> (23 Aug 2013)
+# Unkeyworded deps
+media-gfx/fim graphicsmagick svg
+
+# Markus Meier <maekke@gentoo.org> (04 Aug 2013)
+# Unkeyworded deps, bug #474026
+app-admin/conky lua-cairo lua-imlib xmms2 audacious moc
+
+# Sergey Popov <pinkbyte@gentoo.org> (30 Jul 2013)
+# Not tested
+media-libs/devil allegro nvtt
+
+# Agostino Sarubbo <ago@gentoo.org> (23 Jul 2013)
+# java is not stable on arm
+dev-libs/protobuf java
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (13 Jul 2013)
+# requires net-misc/freerdp which is not keyworded on arm
+dev-libs/weston rdp
+
+# Patrick Lauer <patrick@gentoo.org> (17 June 2013)
+# Fix per-arch mask of phonon[zeitgeist] #460140
+media-libs/phonon zeitgeist
+
+# Patrick Lauer <patrick@gentoo.org> (31 May 2013)
+# no stable jdk+java-config
+net-misc/tightvnc java
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (28 May 2013)
+# depends on sys-devel/llvm[video_cards_radeon]
+media-libs/mesa r600-llvm-compiler
+
+# Andreas K. Huettel <dilfridge@gentoo.org> (27 May 2013)
+# Firmware loader not keyworded yet
+sci-libs/linux-gpib firmware
+
+# Christian Ruppert <idl0r@gentoo.org> (13 May 2013)
+# Mask nic3com re bug 454024
+sys-apps/flashrom nic3com
+
+# Markus Meier <maekke@gentoo.org> (11 May 2013)
+# unkeyworded deps for x11-wm/enlightenment
+x11-wm/enlightenment emotion
+
+# Markus Meier <maekke@gentoo.org> (10 May 2013)
+# unkeyworded deps for dev-python/ipython
+dev-python/ipython mongodb
+
+# Markus Meier <maekke@gentoo.org> (09 May 2013)
+# unkeyworded deps for x11-misc/lightdm
+x11-misc/lightdm razor
+
+# Agostino Sarubbo <ago@gentoo.org> (05 May 2013)
+# dev-util/google-perftools is not keyworded for arm
+>=dev-libs/libmemcached-0.50 tcmalloc
+
+# Christoph Junghans <ottxor@gentoo.org> (29 Apr 2013)
+# MKL not available on this arch
+media-gfx/povray mkl
 
 # Benda Xu <heroxbd@gentoo.org> (1 Apr 2013)
 # dev-ml/lablgtk not keyworded
@@ -26,27 +114,27 @@ media-gfx/pstoedit emf
 # Eray Aslan <eras@gentoo.org> (16 Feb 2013)
 # Mask further java flag
 =dev-libs/cyrus-sasl-2.1.25-r4 java
+=dev-libs/cyrus-sasl-2.1.26-r3 java
+=dev-libs/cyrus-sasl-2.1.23-r7 java
 
 # Rick Farina <zerochaos@gentoo.org> (05 Feb 2013)
 # masking all stable packages with java use flag
+dev-util/oprofile java
 =dev-db/qdbm-1.8.78-r1 java
 =dev-libs/beecrypt-4.2.1 java
 =dev-libs/cyrus-sasl-2.1.23-r6 java
 =dev-libs/cyrus-sasl-2.1.25-r3 java
 =dev-libs/xapian-bindings-1.2.12 java
 =dev-libs/xapian-bindings-1.2.12-r1 java
-=dev-tex/tex4ht-20090611_p1038-r1 java
-=dev-vcs/subversion-1.6.17-r7 java
-=dev-vcs/subversion-1.7.7 java
+dev-tex/tex4ht java
+dev-vcs/subversion java
 =media-gfx/graphviz-2.26.3-r3 java
 =media-gfx/graphviz-2.26.3-r4 java
 =media-libs/libcaca-0.99_beta17 java
-=media-libs/libjpeg-turbo-1.2.1 java
-=net-dns/libidn-1.25 java
-=net-dns/libidn-1.26 java
-=net-misc/tigervnc-1.1.0-r7 java
-=net-misc/tigervnc-1.2.0 java
-=net-print/cups-1.5.2-r4 java
+media-libs/libjpeg-turbo java
+net-dns/libidn java
+net-misc/tigervnc java
+net-print/cups java
 =sys-devel/gettext-0.18.1.1-r1 java
 =sys-devel/gettext-0.18.1.1-r3 java
 =sys-devel/gettext-0.18.2 java
@@ -122,11 +210,6 @@ kde-base/perlqt qscintilla qwt
 # mask app-office/libreoffice java extensions
 app-office/libreoffice libreoffice_extensions_scripting-beanshell libreoffice_extensions_scripting-javascript libreoffice_extensions_wiki-publisher
 
-# Robin H Johnson <robbat2@gentoo.org> (01 Nov 2012)
-# MySQL 5.5 wants systemtap
->=dev-db/mysql-5.5 systemtap
->=dev-db/mariadb-5.5 systemtap
-
 # Markus Meier <maekke@gentoo.org> (17 Oct 2012)
 # spidermonkey is broken on arm see bug #420471
 =net-libs/libproxy-0.4.10 spidermonkey
@@ -139,27 +222,9 @@ net-analyzer/wireshark doc-pdf
 # no stable media-video/vlc yet, bug #401313
 media-libs/phonon vlc
 
-# Anthony G. Basile <blueness@gentoo.org> (17 Jul 2012)
-# Only work on amd64/x86
-net-libs/cyassl aes-ni
-
 # Chí-Thanh Christopher Nguyen <chithanh@gentoo.org> (02 Jun 2012)
 # Mask udis86 flag for llvm, which is of limited use outside x86/amd64.
 sys-devel/llvm udis86
-
-# Robert Piasek <dagger@gentoo.org> (26 Apr 2012)
-# Packages with optional systemd support. Masked in base and unmasked on arches
-# where sys-apps/systemd is available.
-# Samuli Suominen <ssuominen@gentoo.org> (07 Sep 2012)
-# Masked again because this was never allowed before systemd is marked stable.
-#sys-auth/polkit -systemd
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (13 Apr 2012)
-# Packages with optional systemd support. Masked in base and unmasked on arches
-# where sys-apps/systemd is available.
-gnome-extra/gnome-screensaver -systemd
-gnome-extra/gnome-system-monitor -systemd
-net-misc/networkmanager -systemd
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (12 Apr 2012)
 # Temporary mask-in-base, unmask-in-arch for dev-python/mako keywording for
@@ -186,15 +251,6 @@ net-misc/tinc vde
 # so it's masked in base profile and unmasked here.
 dev-qt/qtscript -jit
 dev-qt/qtwebkit -jit
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (25 Nov 2011)
-# Mask USE flags on gnome-3.2 packages due to missing keywords on deps;
-# bug #390345
-app-text/evince xps
->=gnome-base/gdm-3 accessibility fprint gnome-shell smartcard
->=gnome-base/gnome-menus-3.2 test
->=gnome-base/gnome-panel-3 eds
->=gnome-base/nautilus-3 previewer
 
 # Patrick McLean <chutzpah@gentoo.org> (08 Nov 2011)
 # mask conntrack USE flag for dnsmasq as dep is not keyworded
@@ -236,10 +292,6 @@ net-libs/libproxy kde
 # Justin Lecher <jlec@gentoo.org> (14 Jen 2011)
 # x11-libs/fltk is not keyworded for arm
 app-misc/nut X
-
-# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (28 Nov 2010)
-# sys-devel/llvm is keyworded on x86
->=media-libs/mesa-8 -llvm
 
 # Nirbheek Chauhan <nirbheek@gentoo.org> (26 Jun 2010)
 # Inter-process communication doesn't work on anything except x86/amd64/arm

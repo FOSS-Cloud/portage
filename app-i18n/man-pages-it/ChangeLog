@@ -1,6 +1,35 @@
 # ChangeLog for app-i18n/man-pages-it
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/man-pages-it/ChangeLog,v 1.14 2012/09/29 14:00:44 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/man-pages-it/ChangeLog,v 1.23 2013/09/05 11:02:06 kensington Exp $
+
+  05 Sep 2013; Michael Palimaka <kensington@gentoo.org>
+  -man-pages-it-2.65.ebuild:
+  Remove old.
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> man-pages-it-2.80-r1.ebuild:
+  Mark m68k/s390/sh/sparce stable #481048.
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-it-2.80-r1.ebuild:
+  Stable for alpha, wrt bug #481048
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-it-2.80-r1.ebuild:
+  Stable for ia64, wrt bug #481048
+
+  25 Aug 2013; Mark Loeser <halcy0n@gentoo.org> man-pages-it-2.80-r1.ebuild:
+  Stable for ppc/ppc64; bug #481048
+
+  16 Aug 2013; Jeroen Roovers <jer@gentoo.org> man-pages-it-2.80-r1.ebuild:
+  Stable for HPPA (bug #481048).
+
+  16 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> man-pages-it-2.80-r1.ebuild:
+  Stable on amd64/arm/x86, wrt bug #481048
+
+*man-pages-it-2.80-r1 (14 Aug 2013)
+
+  14 Aug 2013; Jeroen Roovers <jer@gentoo.org> -man-pages-it-2.80.ebuild,
+  +man-pages-it-2.80-r1.ebuild:
+  Do not install man pages owned by app-arch/dpkg (bug #480970 by Cédric
+  Jeanneret).
 
   29 Sep 2012; Ulrich Müller <ulm@gentoo.org> man-pages-it-2.65.ebuild,
   man-pages-it-2.80.ebuild:
@@ -67,4 +96,3 @@
   17 Jun 2004; Luca Barbato <lu_zero@gentoo.org> +metadata.xml,
   +man-pages-it-0.3.4.ebuild:
   First commit, ebuild provided by Ilya Cassina <ilya.cassina@epfl.ch>
-

@@ -1,6 +1,58 @@
 # ChangeLog for dev-python/sepolgen
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/sepolgen/ChangeLog,v 1.28 2013/03/18 19:45:29 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/sepolgen/ChangeLog,v 1.39 2013/11/04 21:57:10 swift Exp $
+
+*sepolgen-1.2.1 (04 Nov 2013)
+
+  04 Nov 2013; Sven Vermeulen <swift@gentoo.org> +sepolgen-1.2.1.ebuild:
+  New sepolgen release
+
+*sepolgen-1.1.9-r5 (03 Nov 2013)
+
+  03 Nov 2013; Sven Vermeulen <swift@gentoo.org> +sepolgen-1.1.9-r5.ebuild:
+  Adding non-include dir to allow sepolgen-ifgen to function properly
+
+  30 Sep 2013; Sven Vermeulen <swift@gentoo.org> sepolgen-1.1.9-r1.ebuild,
+  sepolgen-1.1.9-r2.ebuild, sepolgen-1.1.9-r3.ebuild, sepolgen-1.1.9-r4.ebuild:
+  Drop selinux-base dependency again, creates circular dep :-( Instead check if
+  file exists and, if not, fall back to POLICY_TYPES content
+
+  25 Sep 2013; Sven Vermeulen <swift@gentoo.org> sepolgen-1.1.9-r2.ebuild,
+  sepolgen-1.1.9-r3.ebuild, sepolgen-1.1.9-r4.ebuild:
+  Adding dep on selinux-base as we need /etc/selinux/config during installation
+
+*sepolgen-1.1.9-r4 (17 Sep 2013)
+
+  17 Sep 2013; Sven Vermeulen <swift@gentoo.org> +sepolgen-1.1.9-r4.ebuild:
+  Fix bug 485178 - Correct SELINUX_DEVEL_PATH to handle semanage and sepolgen-
+  ifgen
+
+*sepolgen-1.1.9-r3 (19 Jul 2013)
+
+  19 Jul 2013; Sven Vermeulen <swift@gentoo.org> +sepolgen-1.1.9-r3.ebuild:
+  Fix bug 467264 - sepolgen tests now succeed; also move to python-r1
+
+  16 Jun 2013; Sven Vermeulen <swift@gentoo.org> sepolgen-1.1.9-r2.ebuild:
+  Stabilize
+
+*sepolgen-1.1.9-r2 (18 May 2013)
+
+  18 May 2013; Sven Vermeulen <swift@gentoo.org> sepolgen-1.1.9-r1.ebuild,
+  +sepolgen-1.1.9-r2.ebuild:
+  Fix bugs 467264 (correct Makefile path), 465846 (fix tests)
+
+*sepolgen-1.1.9-r1 (07 May 2013)
+
+  07 May 2013; Sven Vermeulen <swift@gentoo.org> +sepolgen-1.1.9-r1.ebuild:
+  Fix bug 467264 (default Makefile location)
+
+*sepolgen-1.1.9 (25 Apr 2013)
+
+  25 Apr 2013; Sven Vermeulen <swift@gentoo.org> +sepolgen-1.1.9.ebuild:
+  New upstream release
+
+  11 Apr 2013; Sven Vermeulen <swift@gentoo.org> sepolgen-1.1.8-r1.ebuild:
+  Stabilize
 
 *sepolgen-1.1.8-r1 (18 Mar 2013)
 

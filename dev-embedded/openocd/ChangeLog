@@ -1,6 +1,50 @@
 # ChangeLog for dev-embedded/openocd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/openocd/ChangeLog,v 1.34 2012/11/09 20:28:21 hwoarang Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-embedded/openocd/ChangeLog,v 1.44 2013/09/08 16:35:49 hwoarang Exp $
+
+  08 Sep 2013; Markos Chandras <hwoarang@gentoo.org> openocd-0.6.1.ebuild,
+  openocd-0.7.0-r1.ebuild, openocd-9999.ebuild:
+  Add stlink support to 0.6.1 ebuild per #482162
+
+*openocd-0.7.0-r1 (11 Jun 2013)
+
+  11 Jun 2013; Markos Chandras <hwoarang@gentoo.org> +openocd-0.7.0-r1.ebuild,
+  -openocd-0.7.0.ebuild, openocd-0.6.1.ebuild, openocd-9999.ebuild:
+  Enable the new ftdi interface when using the ftdi useflag. Bug #472622 thanks
+  to Stuart Longland
+
+  27 May 2013; Markos Chandras <hwoarang@gentoo.org> openocd-0.7.0.ebuild:
+  Sync ebuild with 9999. Fixes bug 471382
+
+*openocd-0.7.0 (25 May 2013)
+
+  25 May 2013; Markos Chandras <hwoarang@gentoo.org> +openocd-0.7.0.ebuild,
+  metadata.xml, openocd-0.6.1.ebuild:
+  Version bump. Bug #469592
+
+  24 May 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml,
+  openocd-0.6.1.ebuild, openocd-9999.ebuild:
+  remove redundant second argument for use_enable
+
+  24 May 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml,
+  openocd-0.6.1.ebuild:
+  typo
+
+  24 May 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml,
+  openocd-0.6.1.ebuild, openocd-9999.ebuild:
+  updated 9999 ebuild. Partially fixes #403841. EAPI5, enable most of the
+  adapters by default
+
+  24 May 2013; Markos Chandras <hwoarang@gentoo.org> openocd-9999.ebuild:
+  Switch to new git repo
+
+  24 May 2013; Markos Chandras <hwoarang@gentoo.org> openocd-9999.ebuild:
+  add epatch_user
+
+  23 Apr 2013; Mike Frysinger <vapier@gentoo.org> openocd-0.6.1.ebuild,
+  openocd-9999.ebuild:
+  Clean up the ebuild a bit and fix building against either libftdi-0.x or
+  libftdi-1.x #460916 by Marcin Sporysz.
 
 *openocd-0.6.1 (09 Nov 2012)
 

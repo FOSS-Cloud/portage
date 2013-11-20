@@ -1,6 +1,49 @@
 # ChangeLog for dev-lang/R
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/ChangeLog,v 1.214 2013/04/04 22:10:01 calchan Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/ChangeLog,v 1.224 2013/11/03 20:38:33 mattst88 Exp $
+
+  03 Nov 2013; Matt Turner <mattst88@gentoo.org> R-2.10.1.ebuild,
+  R-2.15.3.ebuild, R-3.0.1-r1.ebuild, R-3.0.1.ebuild, R-3.0.2.ebuild:
+  Dropped alpha keywords, bug 437508.
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> R-3.0.1.ebuild:
+  Stable for x86, wrt bug #437508
+
+  28 Sep 2013; Agostino Sarubbo <ago@gentoo.org> R-3.0.1.ebuild:
+  Stable for amd64, wrt bug #437508
+
+  27 Sep 2013; Patrick Lauer <patrick@gentoo.org> R-3.0.2.ebuild:
+  Fix realpath dependency for #486086
+
+  26 Sep 2013; Jeroen Roovers <jer@gentoo.org> R-3.0.1.ebuild:
+  Stable for HPPA (bug #437508).
+
+*R-3.0.2 (26 Sep 2013)
+
+  26 Sep 2013; Justin Lecher <jlec@gentoo.org> +R-3.0.2.ebuild, metadata.xml:
+  Version BUmp, #486064
+
+*R-3.0.1-r1 (24 Sep 2013)
+
+  24 Sep 2013; Sébastien Fabbro <bicatali@gentoo.org> +R-3.0.1-r1.ebuild,
+  -R-2.15.2-r2.ebuild, -R-2.15.2.ebuild, -R-3.0.0.ebuild,
+  -files/R-2.14.1-tiff.patch, -files/R-2.14.1-warnings-buffer-overflow.patch,
+  -files/R-2.15.2-cairo.patch, R-3.0.1.ebuild, metadata.xml:
+  Use R blas internals to pass tests for stable candidate (it does work with
+  other blas than blas-reference), remove old
+
+  27 Aug 2013; Michael Palimaka <kensington@gentoo.org> R-2.10.1.ebuild,
+  R-2.15.2-r2.ebuild, R-2.15.2.ebuild, R-2.15.3.ebuild, R-3.0.0.ebuild,
+  R-3.0.1.ebuild:
+  Pin virtual/jpeg SLOT to 0.
+
+*R-3.0.1 (23 May 2013)
+
+  23 May 2013; Justin Lecher <jlec@gentoo.org> +R-3.0.1.ebuild:
+  Version Bump, #470858
+
+  10 Apr 2013; Patrick Lauer <patrick@gentoo.org> R-3.0.0.ebuild:
+  Force emake install to -j1 to avoid spurious failures #465352
 
 *R-3.0.0 (04 Apr 2013)
 

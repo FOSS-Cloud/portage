@@ -1,6 +1,264 @@
 # ChangeLog for x11-base/xorg-server
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-base/xorg-server/ChangeLog,v 1.729 2013/03/08 11:00:30 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-base/xorg-server/ChangeLog,v 1.774 2013/11/14 15:13:48 chithanh Exp $
+
+*xorg-server-1.14.99.902 (14 Nov 2013)
+
+  14 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xorg-server-1.14.99.902.ebuild:
+  Bump to prerelease.
+
+*xorg-server-1.14.4 (10 Nov 2013)
+
+  10 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xorg-server-1.14.4.ebuild:
+  Version bump.
+
+  28 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -xorg-server-1.10.6-r2.ebuild, -xorg-server-1.11.4-r2.ebuild,
+  -xorg-server-1.12.4-r1.ebuild, -xorg-server-1.13.4.ebuild,
+  -xorg-server-1.14.1.ebuild, -xorg-server-1.14.2.ebuild,
+  -xorg-server-1.14.3-r1.ebuild, -xorg-server-1.14.3.ebuild,
+  -xorg-server-1.9.5-r2.ebuild:
+  Drop vulnerable versions, security bug #487360.
+
+  22 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r3.ebuild,
+  xorg-server-1.11.4-r3.ebuild, xorg-server-1.12.4-r2.ebuild,
+  xorg-server-1.13.4-r1.ebuild, xorg-server-1.14.3-r2.ebuild,
+  xorg-server-1.9.5-r3.ebuild:
+  Stable for sparc, wrt bug #487360
+
+  22 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r3.ebuild,
+  xorg-server-1.11.4-r3.ebuild, xorg-server-1.12.4-r2.ebuild,
+  xorg-server-1.13.4-r1.ebuild, xorg-server-1.14.3-r2.ebuild,
+  xorg-server-1.9.5-r3.ebuild:
+  Stable for ppc, wrt bug #487360
+
+  21 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r3.ebuild,
+  xorg-server-1.11.4-r3.ebuild, xorg-server-1.12.4-r2.ebuild,
+  xorg-server-1.13.4-r1.ebuild, xorg-server-1.14.3-r2.ebuild,
+  xorg-server-1.9.5-r3.ebuild:
+  Stable for x86, wrt bug #487360
+
+  16 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r3.ebuild,
+  xorg-server-1.11.4-r3.ebuild, xorg-server-1.12.4-r2.ebuild,
+  xorg-server-1.13.4-r1.ebuild, xorg-server-1.14.3-r2.ebuild,
+  xorg-server-1.9.5-r3.ebuild:
+  Stable for ppc64, wrt bug #487360
+
+  15 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r3.ebuild,
+  xorg-server-1.11.4-r3.ebuild, xorg-server-1.12.4-r2.ebuild,
+  xorg-server-1.13.4-r1.ebuild, xorg-server-1.14.3-r2.ebuild,
+  xorg-server-1.9.5-r3.ebuild:
+  Stable for ia64, wrt bug #487360
+
+  14 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r3.ebuild,
+  xorg-server-1.11.4-r3.ebuild, xorg-server-1.12.4-r2.ebuild,
+  xorg-server-1.13.4-r1.ebuild, xorg-server-1.14.3-r2.ebuild,
+  xorg-server-1.9.5-r3.ebuild:
+  Stable for alpha, wrt bug #487360
+
+  13 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r3.ebuild,
+  xorg-server-1.11.4-r3.ebuild, xorg-server-1.12.4-r2.ebuild,
+  xorg-server-1.13.4-r1.ebuild, xorg-server-1.14.3-r2.ebuild,
+  xorg-server-1.9.5-r3.ebuild:
+  Stable for arm, wrt bug #487360
+
+  12 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r3.ebuild,
+  xorg-server-1.11.4-r3.ebuild, xorg-server-1.12.4-r2.ebuild,
+  xorg-server-1.13.4-r1.ebuild, xorg-server-1.14.3-r2.ebuild,
+  xorg-server-1.9.5-r3.ebuild:
+  Stable for amd64, wrt bug #487360
+
+  11 Oct 2013; Jeroen Roovers <jer@gentoo.org> xorg-server-1.9.5-r2.ebuild,
+  xorg-server-1.9.5-r3.ebuild, xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.10.6-r3.ebuild, xorg-server-1.11.4-r2.ebuild,
+  xorg-server-1.11.4-r3.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.12.4-r2.ebuild, xorg-server-1.13.4.ebuild,
+  xorg-server-1.13.4-r1.ebuild, xorg-server-1.14.1.ebuild,
+  xorg-server-1.14.2.ebuild, xorg-server-1.14.3-r2.ebuild:
+  Stable for HPPA (bug #487360).
+
+*xorg-server-1.13.4-r1 (10 Oct 2013)
+*xorg-server-1.10.6-r3 (10 Oct 2013)
+*xorg-server-1.12.4-r2 (10 Oct 2013)
+*xorg-server-1.9.5-r3 (10 Oct 2013)
+*xorg-server-1.14.3-r2 (10 Oct 2013)
+*xorg-server-1.11.4-r3 (10 Oct 2013)
+
+  10 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/xorg-server-1.12-cve-2013-4396.patch,
+  +files/xorg-server-1.9-cve-2013-4396.patch, +xorg-server-1.10.6-r3.ebuild,
+  +xorg-server-1.11.4-r3.ebuild, +xorg-server-1.12.4-r2.ebuild,
+  +xorg-server-1.13.4-r1.ebuild, +xorg-server-1.14.3-r2.ebuild,
+  +xorg-server-1.9.5-r3.ebuild:
+  Apply patch for security bug #487360.
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.14.3.ebuild:
+  Stable for x86, wrt bug #475480
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.14.3.ebuild:
+  Stable for sparc, wrt bug #475480
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.14.3.ebuild:
+  Stable for ia64, wrt bug #475480
+
+  05 Oct 2013; Markus Meier <maekke@gentoo.org> xorg-server-1.14.3.ebuild:
+  arm stable, bug #475480
+
+  05 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.14.3.ebuild:
+  Stable for alpha, wrt bug #475480
+
+  04 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.14.3.ebuild:
+  Stable for ppc64, wrt bug #475480
+
+  03 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.14.3.ebuild:
+  Stable for ppc, wrt bug #475480
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> xorg-server-1.14.3.ebuild:
+  Stable for HPPA (bug #475480).
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.14.3.ebuild:
+  Stable for amd64, wrt bug #475480
+
+*xorg-server-1.14.3-r1 (26 Sep 2013)
+
+  26 Sep 2013; Ian Stakenvicius <axs@gentoo.org> +files/xdm.initd-10,
+  +xorg-server-1.14.3-r1.ebuild:
+  init.d/xdm: fixed PIDFILE paths, added optional per-DM cgroup-cleanup support,
+  and added support for gdm:3
+
+*xorg-server-1.14.3 (15 Sep 2013)
+
+  15 Sep 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xorg-server-1.14.3.ebuild,
+  -files/xorg-server-1.14-kdrive-out-of-bounds-array-access.patch,
+  -xorg-server-1.14.2.902-r1.ebuild, -xorg-server-1.14.2.902.ebuild:
+  Version bump
+
+  12 Sep 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  xorg-server-1.14.2.902-r1.ebuild:
+  Run eautoreconf to avoid maintainer mode, bug #484634.
+
+*xorg-server-1.14.2.902-r1 (11 Sep 2013)
+
+  11 Sep 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/xorg-server-1.12-ia64-fix_inx_outx.patch,
+  +files/xorg-server-1.12-unloadsubmodule.patch,
+  +files/xorg-server-1.14-kdrive-out-of-bounds-array-access.patch,
+  +xorg-server-1.14.2.902-r1.ebuild:
+  Fix building with gcc-4.8 and -O3, bug #472058. Apply patches for ia64, bug
+  #447152.
+
+*xorg-server-1.14.2.902 (23 Aug 2013)
+
+  23 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xorg-server-1.14.2.902.ebuild, -xorg-server-1.14.2.901.ebuild:
+  Bump to new prerelease.
+
+*xorg-server-1.14.2.901 (02 Aug 2013)
+
+  02 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xorg-server-1.14.2.901.ebuild:
+  Bump to new prerelease.
+
+*xorg-server-1.14.2 (25 Jun 2013)
+
+  25 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xorg-server-1.14.2.ebuild, -xorg-server-1.14.1.901.ebuild:
+  Version bump.
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+*xorg-server-1.14.1.901 (02 Jun 2013)
+
+  02 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xorg-server-1.14.1.901.ebuild:
+  Version bump.
+
+  22 Apr 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -files/xdm.confd-3, -files/xdm.initd-3, -files/xdm.initd-5,
+  -files/xdm.initd-8, -files/xorg-server-1.13.0-exa-track-source-pixmaps.patch,
+  -xorg-server-1.10.6-r1.ebuild, -xorg-server-1.11.4-r1.ebuild,
+  -xorg-server-1.12.4.ebuild, -xorg-server-1.13.1.ebuild,
+  -xorg-server-1.13.2.ebuild, -xorg-server-1.13.3.ebuild,
+  -xorg-server-1.14.0.ebuild, -xorg-server-1.9.5-r1.ebuild:
+  Drop vulnerable versions.
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.11.4-r2.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.13.4.ebuild, xorg-server-1.9.5-r2.ebuild:
+  Stable for alpha, wrt bug #466222
+
+  22 Apr 2013; Jeroen Roovers <jer@gentoo.org> xorg-server-1.9.5-r2.ebuild,
+  xorg-server-1.10.6-r2.ebuild, xorg-server-1.11.4-r2.ebuild,
+  xorg-server-1.12.4-r1.ebuild, xorg-server-1.13.4.ebuild:
+  Stable for HPPA (bug #466222).
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.11.4-r2.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.13.4.ebuild, xorg-server-1.9.5-r2.ebuild:
+  Stable for sparc, wrt bug #466222
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.11.4-r2.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.13.4.ebuild, xorg-server-1.9.5-r2.ebuild:
+  Stable for sh, wrt bug #466222
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.11.4-r2.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.13.4.ebuild, xorg-server-1.9.5-r2.ebuild:
+  Stable for s390, wrt bug #466222
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.11.4-r2.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.13.4.ebuild, xorg-server-1.9.5-r2.ebuild:
+  Stable for ppc64, wrt bug #466222
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.11.4-r2.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.13.4.ebuild, xorg-server-1.9.5-r2.ebuild:
+  Stable for ppc, wrt bug #466222
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.11.4-r2.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.13.4.ebuild, xorg-server-1.9.5-r2.ebuild:
+  Stable for ia64, wrt bug #466222
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.11.4-r2.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.13.4.ebuild, xorg-server-1.9.5-r2.ebuild:
+  Stable for arm, wrt bug #466222
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.11.4-r2.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.13.4.ebuild, xorg-server-1.9.5-r2.ebuild:
+  Stable for x86, wrt bug #466222
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xorg-server-1.10.6-r2.ebuild,
+  xorg-server-1.11.4-r2.ebuild, xorg-server-1.12.4-r1.ebuild,
+  xorg-server-1.13.4.ebuild, xorg-server-1.9.5-r2.ebuild:
+  Stable for amd64, wrt bug #466222
+
+  17 Apr 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  xorg-server-1.13.4.ebuild:
+  Change postinstall message for xorg-server-1.13.4 too, bug #460844.
+
+*xorg-server-1.10.6-r2 (17 Apr 2013)
+*xorg-server-1.14.1 (17 Apr 2013)
+*xorg-server-1.13.4 (17 Apr 2013)
+*xorg-server-1.11.4-r2 (17 Apr 2013)
+*xorg-server-1.9.5-r2 (17 Apr 2013)
+*xorg-server-1.12.4-r1 (17 Apr 2013)
+
+  17 Apr 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/xorg-server-1.12-cve-2013-1940.patch,
+  +files/xorg-server-1.9-cve-2013-1940.patch, +xorg-server-1.10.6-r2.ebuild,
+  +xorg-server-1.11.4-r2.ebuild, +xorg-server-1.12.4-r1.ebuild,
+  +xorg-server-1.13.4.ebuild, +xorg-server-1.14.1.ebuild,
+  +xorg-server-1.9.5-r2.ebuild:
+  Bump/patch for security bug #466222.
 
 *xorg-server-1.13.3 (08 Mar 2013)
 

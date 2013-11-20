@@ -1,6 +1,70 @@
 # ChangeLog for app-emulation/virtualbox-modules
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-modules/ChangeLog,v 1.124 2013/03/17 15:22:33 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-modules/ChangeLog,v 1.136 2013/11/17 12:24:37 pacho Exp $
+
+  17 Nov 2013; Pacho Ramos <pacho@gentoo.org> +files/virtualbox.conf,
+  virtualbox-modules-4.3.2.ebuild:
+  Install a modules-load.d file to load modules automatically on systemd
+  (#490988 by Rafal Rzepecki)
+
+*virtualbox-modules-4.3.2 (02 Nov 2013)
+
+  02 Nov 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +virtualbox-modules-4.3.2.ebuild:
+  Version bump (bug #490070).
+
+  20 Oct 2013; Tony Vroon <chainsaw@gentoo.org>
+  virtualbox-modules-4.2.18.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #480044.
+
+*virtualbox-modules-4.3.0 (15 Oct 2013)
+
+  15 Oct 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-modules-4.2.16.ebuild, +virtualbox-modules-4.3.0.ebuild:
+  Version bump. Removed old.
+
+  11 Sep 2013; Lars Wendler <polynomial-c@gentoo.org>
+  files/create_vbox_modules_tarball.sh:
+  Updated tarball creation script to handle _beta and _rc versions properly.
+
+*virtualbox-modules-4.2.18 (08 Sep 2013)
+
+  08 Sep 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-modules-4.2.14.ebuild, +virtualbox-modules-4.2.18.ebuild:
+  Version bump. Removed old.
+
+*virtualbox-modules-4.2.16 (08 Jul 2013)
+
+  08 Jul 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-modules-4.2.12.ebuild, +virtualbox-modules-4.2.16.ebuild:
+  Version bump. Removed old.
+
+*virtualbox-modules-4.2.14 (24 Jun 2013)
+
+  24 Jun 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-modules-4.1.24.ebuild, -virtualbox-modules-4.2.10.ebuild,
+  +virtualbox-modules-4.2.14.ebuild:
+  Version bump. Removed old.
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  virtualbox-modules-4.1.26.ebuild:
+  Stable for x86, wrt bug #469044
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  virtualbox-modules-4.1.26.ebuild:
+  Stable for amd64, wrt bug #469044
+
+*virtualbox-modules-4.2.12 (13 Apr 2013)
+*virtualbox-modules-4.1.26 (13 Apr 2013)
+
+  13 Apr 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +virtualbox-modules-4.1.26.ebuild, -virtualbox-modules-4.2.8.ebuild,
+  +virtualbox-modules-4.2.12.ebuild:
+  Version bump. Removed old.
+
+  09 Apr 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Removing Alessio from metadata
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

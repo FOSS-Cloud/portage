@@ -1,6 +1,35 @@
 # ChangeLog for dev-perl/Exception-Class
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Exception-Class/ChangeLog,v 1.68 2012/11/18 19:36:51 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Exception-Class/ChangeLog,v 1.75 2013/10/13 17:43:31 zlogene Exp $
+
+  13 Oct 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Exception-Class-1.360.0.ebuild:
+  sparc stable wrt bug #449582
+
+  13 Oct 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Exception-Class-1.360.0.ebuild:
+  ppc stable wrt bug #449582
+
+  13 Oct 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Exception-Class-1.360.0.ebuild:
+  ia64 stable wrt bug #449582
+
+  13 Oct 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Exception-Class-1.360.0.ebuild:
+  alpha stable wrt bug #449582
+
+  11 Oct 2013; Sergey Popov <pinkbyte@gentoo.org>
+  Exception-Class-1.360.0.ebuild:
+  Stable on amd64 and x86, wrt bug #449582
+
+  08 Oct 2013; Jeroen Roovers <jer@gentoo.org> Exception-Class-1.360.0.ebuild:
+  Stable for HPPA (bug #449582).
+
+*Exception-Class-1.370.0 (17 Aug 2013)
+
+  17 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +Exception-Class-1.370.0.ebuild:
+  Bump
 
 *Exception-Class-1.360.0 (18 Nov 2012)
 

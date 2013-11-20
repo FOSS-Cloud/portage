@@ -1,6 +1,20 @@
 # ChangeLog for www-client/epiphany
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/epiphany/ChangeLog,v 1.294 2013/03/31 19:26:26 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/epiphany/ChangeLog,v 1.297 2013/07/24 22:09:17 eva Exp $
+
+  24 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org> epiphany-3.8.2.ebuild:
+  Drop unneeded dependencies.
+
+*epiphany-3.8.2 (01 Jun 2013)
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> +epiphany-3.8.2.ebuild,
+  -epiphany-3.8.0.ebuild:
+  Version bump, remove old
+
+*epiphany-3.8.1 (17 Apr 2013)
+
+  17 Apr 2013; Pacho Ramos <pacho@gentoo.org> +epiphany-3.8.1.ebuild:
+  Version bump
 
   31 Mar 2013; Pacho Ramos <pacho@gentoo.org> epiphany-3.8.0.ebuild:
   Fix libsecret dependency, bug #463904 by Chris Mayo

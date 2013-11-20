@@ -1,6 +1,41 @@
 # ChangeLog for dev-haskell/alex
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/alex/ChangeLog,v 1.61 2013/04/02 04:13:22 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/alex/ChangeLog,v 1.71 2013/11/14 18:12:08 slyfox Exp $
+
+*alex-3.1.2 (14 Nov 2013)
+
+  14 Nov 2013; Sergei Trofimovich <slyfox@gentoo.org> +alex-3.1.2.ebuild,
+  -alex-2.3.5.ebuild, -alex-3.0.2.ebuild, -files/alex-2.3.5-ghc-7.2.patch,
+  -files/alex-2.3.5-missing-test.patch:
+  Version bump. Removed old.
+
+  02 Aug 2013; Sergei Trofimovich <slyfox@gentoo.org> alex-3.0.5.ebuild:
+  Fix alex build failure on nonempty HCFLAGS (by hasufell).
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> alex-3.0.5.ebuild:
+  Stable for sparc, wrt bug #472714
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> alex-3.0.5.ebuild:
+  Stable for ia64, wrt bug #472714
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> alex-3.0.5.ebuild:
+  Stable for alpha, wrt bug #472714
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> alex-3.0.5.ebuild:
+  Stable for amd64, wrt bug #472714
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> alex-3.0.5.ebuild:
+  Stable for x86, wrt bug #472714
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> alex-3.0.5.ebuild:
+  Stable for ppc64, wrt bug #472714
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> alex-3.0.5.ebuild:
+  Stable for ppc, wrt bug #472714
+
+  22 Apr 2013; Sergei Trofimovich <slyfox@gentoo.org> alex-3.0.2.ebuild,
+  alex-3.0.5.ebuild:
+  Fixed build failure on big-endian platforms (bug #466778 by Agostino Sarubbo).
 
 *alex-3.0.5 (02 Apr 2013)
 

@@ -1,7 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/default/bsd/package.use.mask,v 1.34 2013/03/02 20:45:52 pesa Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/default/bsd/package.use.mask,v 1.41 2013/10/14 04:53:56 naota Exp $
 
+
+# Naohiro Aota <naota@gentoo.org> (14 Oct 2013)
+# libcap-ng is for Linux only
+net-analyzer/tcpdump drop-root
 
 # Richard Yao <ryao@gentoo.org> (09 Nov 2012)
 # pm-utils is Linux-specific
@@ -38,10 +42,6 @@ sys-apps/help2man nls
 net-im/pidgin networkmanager zephyr
 
 media-video/totem bluetooth
-
-# Mart Raudsepp <leio@gentoo.org> (02 Apr 2008)
-# media-plugins/gst-plugins-mythtv not keyworded
-media-plugins/gst-plugins-meta mythtv
 
 # Alexis Ballier <aballier@gentoo.org> (18 Jul 2008)
 # Requires a linux only library,  bug #226085
@@ -84,9 +84,22 @@ media-libs/xine-lib fusion
 
 # needs udev
 kde-base/kdelibs udisks upower
+media-libs/mesa gbm
+x11-base/xorg-drivers video_cards_radeonsi
+x11-drivers/xf86-video-ati glamor
+x11-drivers/xf86-video-intel glamor
 
 # connman is Linux only
 dev-qt/qtbearer connman
 
 # udisks is linux only (for now?)
 gnome-base/gvfs udisks
+
+# joystick and video_cards_tdfx useflag are linux only #477750
+media-video/mplayer joystick video_cards_tdfx
+
+# linux only
+media-libs/opencv ieee1394 cuda
+
+# depends on networkmanager
+app-misc/geoclue skyhook

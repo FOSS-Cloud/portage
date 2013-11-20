@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/multilib-minimal.eclass,v 1.2 2013/04/07 16:56:14 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/multilib-minimal.eclass,v 1.6 2013/10/20 16:27:24 hasufell Exp $
 
 # @ECLASS: multilib-minimal.eclass
 # @MAINTAINER:
@@ -23,14 +23,14 @@
 # If you need generic install rules, use multilib_src_install_all function.
 
 
-# EAPI=5 is required for meaningful MULTILIB_USEDEP.
+# EAPI=4 is required for meaningful MULTILIB_USEDEP.
 case ${EAPI:-0} in
-	5) ;;
+	4|5) ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
 
-inherit multilib-build
+inherit eutils multilib-build
 
 EXPORT_FUNCTIONS src_configure src_compile src_test src_install
 
@@ -84,10 +84,19 @@ multilib-minimal_src_install() {
 		if declare -f multilib_src_install >/dev/null ; then
 			multilib_src_install
 		else
-			default_src_install	
+			# default_src_install will not work here as it will
+			# break handling of DOCS wrt #468092
+			# so we split up the emake and doc-install part
+			# this is synced with __eapi4_src_install
+			if [[ -f Makefile || -f GNUmakefile || -f makefile ]] ; then
+				emake DESTDIR="${D}" install
+			fi
 		fi
-		multilib_prepare_wrappers
-		multilib_check_headers
+		# Do multilib magic only when >1 ABI is used.
+		if [[ ${#MULTIBUILD_VARIANTS[@]} -gt 1 ]]; then
+			multilib_prepare_wrappers
+			multilib_check_headers
+		fi
 		popd >/dev/null || die
 	}
 	multilib_foreach_abi multilib-minimal_abi_src_install
@@ -95,5 +104,7 @@ multilib-minimal_src_install() {
 
 	if declare -f multilib_src_install_all >/dev/null ; then
 		multilib_src_install_all
+	else
+		einstalldocs
 	fi
 }

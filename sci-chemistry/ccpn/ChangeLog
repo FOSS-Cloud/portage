@@ -1,6 +1,122 @@
 # ChangeLog for sci-chemistry/ccpn
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/ccpn/ChangeLog,v 1.105 2013/03/22 10:38:35 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/ccpn/ChangeLog,v 1.127 2013/11/19 11:38:42 jlec Exp $
+
+*ccpn-2.3.1_p131119 (19 Nov 2013)
+
+  19 Nov 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p131119.ebuild,
+  +files/talosn.patch:
+  Add todays python patches
+
+*ccpn-2.3.1_p131107 (07 Nov 2013)
+
+  07 Nov 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p131107.ebuild:
+  Update Python patches
+
+*ccpn-2.3.1_p131018 (18 Oct 2013)
+
+  18 Oct 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p131018.ebuild:
+  Todays python patches
+
+*ccpn-2.3.1_p131015 (15 Oct 2013)
+
+  15 Oct 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p131015.ebuild:
+  Todays python patches
+
+*ccpn-2.3.1_p131010 (10 Oct 2013)
+
+  10 Oct 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p131010.ebuild:
+  Todays python patches
+
+*ccpn-2.3.1_p131008 (08 Oct 2013)
+
+  08 Oct 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p131008.ebuild:
+  Add latest python patches
+
+*ccpn-2.3.1_p130930 (30 Sep 2013)
+
+  30 Sep 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p130930.ebuild:
+  Todays python patches
+
+*ccpn-2.3.1_p130918 (18 Sep 2013)
+
+  18 Sep 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p130918.ebuild:
+  Add todays python updates
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> ccpn-2.2.2_p130318-r1.ebuild,
+  ccpn-2.2.2_p130318.ebuild, ccpn-2.2.2_p130530.ebuild,
+  ccpn-2.2.2_p130618.ebuild, ccpn-2.2.2_p130705.ebuild, ccpn-2.3.1.ebuild,
+  ccpn-2.3.1_p130813.ebuild, ccpn-2.3.1_p130814.ebuild,
+  ccpn-2.3.1_p130822.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*ccpn-2.3.1_p130822 (22 Aug 2013)
+
+  22 Aug 2013; Justin Lecher <jlec@gentoo.org> -ccpn-2.3.1_p130819.ebuild,
+  +ccpn-2.3.1_p130822.ebuild:
+  Fix patch
+
+  20 Aug 2013; Justin Lecher <jlec@gentoo.org> ChangeLog:
+  Fix checksums
+
+*ccpn-2.3.1_p130819 (19 Aug 2013)
+
+  19 Aug 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p130819.ebuild:
+  Todays python patches
+
+*ccpn-2.3.1_p130814 (14 Aug 2013)
+
+  14 Aug 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p130814.ebuild:
+  Todays python patches
+
+*ccpn-2.3.1_p130813 (13 Aug 2013)
+
+  13 Aug 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.1_p130813.ebuild:
+  Add latest pyhton patches
+
+*ccpn-2.3.1 (08 Aug 2013)
+
+  08 Aug 2013; Justin Lecher <jlec@gentoo.org> -ccpn-2.3.0_p130705.ebuild,
+  -ccpn-2.3.0_p130709.ebuild, -ccpn-2.3.0_p130710.ebuild,
+  -ccpn-2.3.0_p130801.ebuild, +ccpn-2.3.1.ebuild, -files/2.3.0-parallel.patch,
+  +files/2.3.1-parallel.patch:
+  Version Bump, drop broken
+
+*ccpn-2.3.0_p130801 (01 Aug 2013)
+
+  01 Aug 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.0_p130801.ebuild:
+  Use latest upstream tarball and add latest python patches
+
+*ccpn-2.3.0_p130710 (10 Jul 2013)
+
+  10 Jul 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.0_p130710.ebuild:
+  Add latest python patches
+
+*ccpn-2.3.0_p130709 (09 Jul 2013)
+
+  09 Jul 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.3.0_p130709.ebuild:
+  Add latest python patches
+
+*ccpn-2.3.0_p130705 (05 Jul 2013)
+*ccpn-2.2.2_p130705 (05 Jul 2013)
+
+  05 Jul 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.2.2_p130705.ebuild,
+  +ccpn-2.3.0_p130705.ebuild, +files/2.3.0-parallel.patch:
+  Version Bump
+
+*ccpn-2.2.2_p130618 (18 Jun 2013)
+
+  18 Jun 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.2.2_p130618.ebuild:
+  Add latest changes from upstream
+
+*ccpn-2.2.2_p130530 (30 May 2013)
+
+  30 May 2013; Justin Lecher <jlec@gentoo.org> +ccpn-2.2.2_p130530.ebuild:
+  Add latest python patches
+
+  29 May 2013; Justin Lecher <jlec@gentoo.org> ccpn-2.2.2_p130318.ebuild,
+  ccpn-2.2.2_p130318-r1.ebuild:
+  Fix usage of new python r1 eclasses (missing PYTHON_REQUIRED_USE)
 
   22 Mar 2013; Justin Lecher <jlec@gentoo.org> ccpn-2.2.2_p130318-r1.ebuild:
   Cut prefix not suffix
@@ -637,4 +753,3 @@
   +files/dangle, +files/dataShifter, +files/eci, +files/formatConverter,
   +files/pipe2azara, +ccpn-2.1.2.1_p100204.ebuild, +metadata.xml:
   Initial commit
-

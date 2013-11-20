@@ -1,9 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/im-ja/im-ja-1.5-r2.ebuild,v 1.8 2012/07/18 06:34:22 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/im-ja/im-ja-1.5-r2.ebuild,v 1.10 2013/10/09 02:04:16 naota Exp $
 
 EAPI="3"
-inherit autotools gnome2 eutils multilib
+inherit autotools gnome2 gnome2-utils eutils multilib
 
 DESCRIPTION="A Japanese input module for GTK2 and XIM"
 HOMEPAGE="http://im-ja.sourceforge.net/"
@@ -42,19 +42,10 @@ DEPEND="${RDEPEND}
 
 DOCS="AUTHORS README ChangeLog TODO"
 
-update_gtk_immodules() {
-	local GTK2_CONFDIR="/etc/gtk-2.0"
-	has_multilib_profile && GTK2_CONFDIR="${GTK2_CONFDIR}/${CHOST}"
-	mkdir -p "${EPREFIX}${GTK2_CONFDIR}"
-
-	if [ -x "${EPREFIX}/usr/bin/gtk-query-immodules-2.0" ] ; then
-		"${EPREFIX}/usr/bin/gtk-query-immodules-2.0" > "${EPREFIX}${GTK2_CONFDIR}/gtk.immodules"
-	fi
-}
-
 src_prepare() {
 	epatch "${FILESDIR}/${P}-gentoo.patch" \
 		"${FILESDIR}"/${P}-pofiles.patch
+	sed -ie 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/' configure.in || die
 	eautoreconf
 }
 
@@ -83,8 +74,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	update_gtk_immodules
-
+	gnome2_query_immodules_gtk2
 	gnome2_pkg_postinst
 	elog
 	elog "This version of im-ja comes with experimental XIM support."
@@ -97,7 +87,6 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	update_gtk_immodules
-
+	gnome2_query_immodules_gtk2
 	gnome2_pkg_postrm
 }

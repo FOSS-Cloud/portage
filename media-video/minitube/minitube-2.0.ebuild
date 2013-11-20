@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/minitube/minitube-2.0.ebuild,v 1.3 2013/03/02 22:41:33 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/minitube/minitube-2.0.ebuild,v 1.6 2013/06/28 21:16:23 zlogene Exp $
 
 EAPI=5
 PLOCALES="ar ca ca_ES da de_DE el en es es_AR es_ES fi fi_FI fr he_IL hr hu
@@ -14,7 +14,7 @@ SRC_URI="http://flavio.tordini.org/files/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="debug gstreamer kde"
 
 DEPEND=">=dev-qt/qtgui-4.6:4[accessibility,gtkstyle]
@@ -26,6 +26,7 @@ DEPEND=">=dev-qt/qtgui-4.6:4[accessibility,gtkstyle]
 		media-plugins/gst-plugins-ffmpeg:0.10
 		media-plugins/gst-plugins-faac:0.10
 		media-plugins/gst-plugins-faad:0.10
+		media-plugins/gst-plugins-theora
 	)
 "
 RDEPEND="${DEPEND}"

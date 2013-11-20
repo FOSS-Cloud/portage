@@ -1,6 +1,163 @@
 # ChangeLog for app-emulation/emul-linux-x86-baselibs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-baselibs/ChangeLog,v 1.140 2013/03/16 15:18:18 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-baselibs/ChangeLog,v 1.165 2013/11/11 14:16:36 mgorny Exp $
+
+*emul-linux-x86-baselibs-20131008-r4 (11 Nov 2013)
+
+  11 Nov 2013; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20131008-r4.ebuild,
+  -emul-linux-x86-baselibs-20131008-r3.ebuild:
+  Make it possible to satisfy the emul-linux package with virtual/udev-204.
+
+*emul-linux-x86-baselibs-20131008-r3 (26 Oct 2013)
+
+  26 Oct 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20131008-r2.ebuild,
+  +emul-linux-x86-baselibs-20131008-r3.ebuild, files/remove-native:
+  revision bump featuring libpcre multilib conversion.
+
+*emul-linux-x86-baselibs-20131008-r2 (13 Oct 2013)
+
+  13 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +emul-linux-x86-baselibs-20131008-r2.ebuild,
+  -emul-linux-x86-baselibs-20131008-r1.ebuild, files/remove-native:
+  Resolve file collision with dev-libs/gmp-5.1.3-r1.
+
+*emul-linux-x86-baselibs-20131008-r1 (09 Oct 2013)
+
+  09 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -emul-linux-x86-baselibs-20131008.ebuild,
+  +emul-linux-x86-baselibs-20131008-r1.ebuild, files/remove-native:
+  Update remove-native to prevent file collisions (bug #487364, acked by Pacho
+  Ramos).
+
+*emul-linux-x86-baselibs-20131008 (08 Oct 2013)
+
+  08 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-baselibs-20131008.ebuild,
+  -emul-linux-x86-baselibs-20121202.ebuild,
+  -emul-linux-x86-baselibs-20130224-r13.ebuild:
+  Version bump, drop old
+
+  24 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  emul-linux-x86-baselibs-20130224-r13.ebuild:
+  Raise media-libs/tiff dependency to skip non-multilib -r4.
+
+  22 Aug 2013; Michał Górny <mgorny@gentoo.org> metadata.xml:
+  Change maintainer to the multilib project.
+
+  21 Aug 2013; Michał Górny <mgorny@gentoo.org> files/remove-native:
+  Add /usr/lib32/terminfo to the removal list.
+
+*emul-linux-x86-baselibs-20130224-r13 (21 Aug 2013)
+
+  21 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r12.ebuild,
+  +emul-linux-x86-baselibs-20130224-r13.ebuild, files/remove-native:
+  new revision featuring migrated e2fsprogs-libs, ncurses and gpm
+
+*emul-linux-x86-baselibs-20130224-r12 (16 Aug 2013)
+
+  16 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r11.ebuild,
+  +emul-linux-x86-baselibs-20130224-r12.ebuild, files/remove-native:
+  New revision featuring migrated elfutils/libelf.
+
+*emul-linux-x86-baselibs-20130224-r11 (10 Aug 2013)
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r10.ebuild,
+  +emul-linux-x86-baselibs-20130224-r11.ebuild, files/remove-native:
+  new revision featuring lcms:2, libpaper and tiff:3 conversion
+
+*emul-linux-x86-baselibs-20130224-r10 (10 Aug 2013)
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r9.ebuild,
+  +emul-linux-x86-baselibs-20130224-r10.ebuild, files/remove-native:
+  New revision featuring migrated glib, attr and tiff4
+
+  08 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r8.ebuild:
+  old
+
+*emul-linux-x86-baselibs-20130224-r9 (08 Aug 2013)
+
+  08 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +emul-linux-x86-baselibs-20130224-r9.ebuild, files/remove-native:
+  Remove libsystemd-daemon because it's now provided by
+  >=sys-apps/systemd-206-r2 wrt #480274 by "nE0sIghT"
+
+  08 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r7.ebuild:
+  old
+
+*emul-linux-x86-baselibs-20130224-r8 (08 Aug 2013)
+
+  08 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +emul-linux-x86-baselibs-20130224-r8.ebuild, files/remove-native:
+  libusb, libusbx, libusb-compat and udev were converted to the new multilib
+  format.
+
+*emul-linux-x86-baselibs-20130224-r7 (07 Aug 2013)
+
+  07 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r6.ebuild,
+  +emul-linux-x86-baselibs-20130224-r7.ebuild, files/remove-native:
+  new revision featuring migrated expat
+
+  01 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  emul-linux-x86-baselibs-20130224-r6.ebuild:
+  Fix libjpeg dependencies to gain libjpeg-turbo-1.3.0-r2 which has
+  libjpeg.so.62
+
+  01 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r5.ebuild:
+  old
+
+*emul-linux-x86-baselibs-20130224-r6 (01 Aug 2013)
+
+  01 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +emul-linux-x86-baselibs-20130224-r6.ebuild, files/remove-native:
+  Restore libjpeg.so.8 back to emul- temporarily since we are in process of
+  punting whole ABI from gentoo-x86.
+
+*emul-linux-x86-baselibs-20130224-r5 (01 Aug 2013)
+
+  01 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r4.ebuild,
+  +emul-linux-x86-baselibs-20130224-r5.ebuild, files/remove-native:
+  new revision featuring migratied jpeg6b and lib{raw,avc}1394
+
+*emul-linux-x86-baselibs-20130224-r4 (31 Jul 2013)
+
+  31 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r3.ebuild,
+  +emul-linux-x86-baselibs-20130224-r4.ebuild, files/remove-native:
+  New revision featuring libpng12 and libjpegs migration. Also remove
+  libpng15.pc that should not be used.
+
+*emul-linux-x86-baselibs-20130224-r3 (31 Jul 2013)
+
+  31 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r2.ebuild,
+  +emul-linux-x86-baselibs-20130224-r3.ebuild, files/remove-native:
+  new revision featuring multilib llvm
+
+*emul-linux-x86-baselibs-20130224-r2 (30 Jul 2013)
+
+  30 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20130224-r1.ebuild,
+  +emul-linux-x86-baselibs-20130224-r2.ebuild, files/remove-native:
+  new revision featuring migration of libpng, udis86 and libffi. libpng files
+  removed from the bundle are only the .so.pc: newly built packages will use
+  libpng16 while the rest of emul-libs can still work while linked to libpng15.
+
+*emul-linux-x86-baselibs-20130224-r1 (28 Jul 2013)
+
+  28 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  +emul-linux-x86-baselibs-20130224-r1.ebuild, +files/remove-native:
+  New revision that can use multilib enabled zlib and bzip2.
 
   16 Mar 2013; Pacho Ramos <pacho@gentoo.org>
   emul-linux-x86-baselibs-20130224.ebuild:

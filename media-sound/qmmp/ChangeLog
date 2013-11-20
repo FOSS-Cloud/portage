@@ -1,6 +1,47 @@
 # ChangeLog for media-sound/qmmp
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/qmmp/ChangeLog,v 1.111 2013/03/25 21:03:08 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/qmmp/ChangeLog,v 1.120 2013/10/14 19:10:13 hwoarang Exp $
+
+  14 Oct 2013; Markos Chandras <hwoarang@gentoo.org> qmmp-0.7.3.ebuild,
+  qmmp-9999.ebuild:
+  Add missing dev-qt/qtdbus dep for USE=mpris. Bug #487928
+
+*qmmp-0.7.3 (03 Oct 2013)
+
+  03 Oct 2013; Markos Chandras <hwoarang@gentoo.org> +qmmp-0.7.3.ebuild:
+  Version bump. Bug #486850
+
+*qmmp-0.7.2 (29 Aug 2013)
+
+  29 Aug 2013; Markos Chandras <hwoarang@gentoo.org> +qmmp-0.7.2.ebuild,
+  -qmmp-0.6.5.ebuild, -qmmp-0.6.7.ebuild, -qmmp-0.7.0.ebuild:
+  Version bump. Remove old. Bug #482837
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> qmmp-0.7.1.ebuild,
+  qmmp-9999.ebuild:
+  Point to the right HOMEPAGE, the previous link with 'index_en.php' was no
+  longer valid
+
+  18 Jul 2013; Chris Reffett <creffett@gentoo.org> qmmp-0.6.7.ebuild,
+  qmmp-0.6.8.ebuild, qmmp-0.7.0.ebuild, qmmp-0.7.1.ebuild, qmmp-9999.ebuild:
+  Convert base_src_prepare to cmake-utils_src_prepare, bug 475514
+
+*qmmp-0.7.1 (30 Jun 2013)
+
+  30 Jun 2013; Markos Chandras <hwoarang@gentoo.org> +qmmp-0.7.1.ebuild:
+  Version bump. Bug #475162
+
+  27 Apr 2013; Agostino Sarubbo <ago@gentoo.org> qmmp-0.6.8.ebuild:
+  Stable for x86, wrt bug #464554
+
+  27 Apr 2013; Chema Alonso <nimiux@gentoo.org> qmmp-0.6.8.ebuild:
+  Stable for amd64 wrt bug #464554
+
+*qmmp-0.7.0 (20 Apr 2013)
+
+  20 Apr 2013; Markos Chandras <hwoarang@gentoo.org> +qmmp-0.7.0.ebuild,
+  metadata.xml, qmmp-9999.ebuild:
+  Version bump
 
 *qmmp-0.6.8 (25 Mar 2013)
 

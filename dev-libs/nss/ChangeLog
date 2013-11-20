@@ -1,6 +1,108 @@
 # ChangeLog for dev-libs/nss
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.298 2013/03/29 22:54:52 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.323 2013/11/14 11:45:36 polynomial-c Exp $
+
+*nss-3.15.3 (14 Nov 2013)
+
+  14 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> +nss-3.15.3.ebuild:
+  Security bump (bug #491234).
+
+  24 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> -nss-3.14.3.ebuild,
+  -nss-3.15.1-r1.ebuild:
+  Removed vulnerable versions (bug #486114).
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.2.ebuild:
+  Stable for sparc, wrt bug #486114
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.2.ebuild:
+  Stable for ppc64, wrt bug #486114
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.2.ebuild:
+  Stable for arm, wrt bug #486114
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.2.ebuild:
+  Stable for ppc, wrt bug #486114
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.2.ebuild:
+  Stable for alpha, wrt bug #486114
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.2.ebuild:
+  Stable for ia64, wrt bug #486114
+
+  01 Oct 2013; Jeroen Roovers <jer@gentoo.org> nss-3.15.2.ebuild:
+  Stable for HPPA (bug #486114).
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.2.ebuild:
+  Stable for x86, wrt bug #486114
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.2.ebuild:
+  Stable for amd64, wrt bug #486114
+
+*nss-3.15.2 (27 Sep 2013)
+
+  27 Sep 2013; Jory A. Pratt <anarchy@gentoo.org> +nss-3.15.2.ebuild,
+  -nss-3.15.1-r2.ebuild:
+  Security bump, bug #486114
+
+*nss-3.15.1-r2 (26 Sep 2013)
+
+  26 Sep 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/nss-3.15.1-fipstest-warnings.patch, +nss-3.15.1-r2.ebuild:
+  Drop library renaming & symlinking as the SONAME is the plain .so file.
+  Simplify the PRELINK setup.  Fix a build warning with the fipstest code.
+
+  01 Sep 2013; Ian Stakenvicius <axs@gentoo.org> nss-3.15.1-r1.ebuild:
+  Restrict tests to avoid running tests with do not exist, bug 474056
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.1-r1.ebuild:
+  Stable for ppc, wrt bug #479968
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.1-r1.ebuild:
+  Stable for arm, wrt bug #479968
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.1-r1.ebuild:
+  Stable for ppc64, wrt bug #479968
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.1-r1.ebuild:
+  Stable for x86, wrt bug #479968
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nss-3.15.1-r1.ebuild:
+  Stable for amd64, wrt bug #479968
+
+*nss-3.15.1-r1 (11 Aug 2013)
+
+  11 Aug 2013;  <anarchy@gentoo.org> +nss-3.15.1-r1.ebuild, -nss-3.15.1.ebuild,
+  -nss-3.15.ebuild:
+  Fix hardcoded lib64 path, bug #476574
+
+*nss-3.15.1 (24 Jul 2013)
+
+  24 Jul 2013; Lars Wendler <polynomial-c@gentoo.org> +nss-3.15.1.ebuild:
+  Version bump (bug #477960).
+
+  20 Jun 2013; Patrick Lauer <patrick@gentoo.org> nss-3.14.3.ebuild:
+  QA: Add s390 stable keyword as all other stable versions were pruned
+
+  19 Jun 2013; Lars Wendler <polynomial-c@gentoo.org> -nss-3.12.11-r1.ebuild,
+  -nss-3.13.2.ebuild, -nss-3.13.3.ebuild, -nss-3.13.4.ebuild,
+  -nss-3.13.5.ebuild, -nss-3.13.5-r1.ebuild, -nss-3.13.6.ebuild,
+  -nss-3.14.ebuild, -nss-3.14.1.ebuild, -nss-3.14.2.ebuild,
+  -files/nss-3.12.4-solaris-gcc.patch, -files/nss-3.12.5-gentoo-fixups.diff,
+  -files/nss-3.12.11-CVE-2011-3640.patch, -files/nss-3.13.1-solaris-gcc.patch,
+  -files/nss-3.13.5-x32.patch, -files/nss-3.13-gentoo-fixup.patch,
+  -files/nss-3.14.1-gentoo-fixups.patch, -files/nss-3.14.2-sqlite.patch:
+  Removed old versions.
+
+*nss-3.15 (19 Jun 2013)
+
+  19 Jun 2013; Jory A. Pratt <anarchy@gentoo.org>
+  +files/nss-3.15-gentoo-fixup-warnings.patch,
+  +files/nss-3.15-gentoo-fixups.patch, +files/nss-3.15-x32.patch,
+  +nss-3.15.ebuild:
+  Misc bug fixes, http://tinyurl.com/mj9ntpy
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
 
   29 Mar 2013; Mike Frysinger <vapier@gentoo.org> files/nss-3.14.2-sqlite.patch,
   nss-3.14.3.ebuild:

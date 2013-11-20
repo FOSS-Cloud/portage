@@ -1,6 +1,38 @@
 # ChangeLog for x11-themes/gnome-themes-standard
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-themes-standard/ChangeLog,v 1.40 2013/03/28 22:31:29 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-themes-standard/ChangeLog,v 1.46 2013/10/17 20:45:01 maekke Exp $
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org>
+  gnome-themes-standard-3.6.5.ebuild:
+  arm stable, bug #476364
+
+*gnome-themes-standard-3.8.4 (08 Sep 2013)
+
+  08 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-themes-standard-3.8.4.ebuild:
+  Version bump.
+
+*gnome-themes-standard-3.8.3 (28 Jul 2013)
+
+  28 Jul 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-themes-standard-3.8.3.ebuild, -gnome-themes-standard-3.8.1.ebuild:
+  Version bump, drop old
+
+*gnome-themes-standard-3.8.2 (23 Jul 2013)
+
+  23 Jul 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-themes-standard-3.8.2.ebuild:
+  Version bump
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-themes-standard-3.8.0.ebuild, gnome-themes-standard-3.8.1.ebuild:
+  Use dosym like in 3.6 ebuild. Drop old revision.
+
+*gnome-themes-standard-3.8.1 (18 Apr 2013)
+
+  18 Apr 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-themes-standard-3.8.1.ebuild, -gnome-themes-standard-3.6.2.ebuild:
+  Version bump, drop old
 
 *gnome-themes-standard-3.8.0 (28 Mar 2013)
 

@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/pymountboot
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pymountboot/ChangeLog,v 1.8 2012/12/17 19:59:50 mgorny Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pymountboot/ChangeLog,v 1.13 2013/10/14 20:58:51 mgorny Exp $
+
+  14 Oct 2013; Michał Górny <mgorny@gentoo.org> pymountboot-9999.ebuild:
+  Switch to git-r3.
+
+  14 Sep 2013; Mike Gilbert <floppym@gentoo.org> pymountboot-0.2.2.ebuild,
+  pymountboot-9999.ebuild:
+  Add -fno-strict-aliasing for python2.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pymountboot-0.2.1.ebuild,
+  pymountboot-0.2.2.ebuild, pymountboot-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> pymountboot-0.2.2.ebuild,
+  pymountboot-9999.ebuild:
+  Drop removed Python implementations from PYTHON_COMPAT.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> pymountboot-0.2.2.ebuild,
+  pymountboot-9999.ebuild:
+  Enable pypy2.0.
 
   17 Dec 2012; Michał Górny <mgorny@gentoo.org> pymountboot-0.2.1.ebuild,
   pymountboot-0.2.2.ebuild, pymountboot-9999.ebuild:

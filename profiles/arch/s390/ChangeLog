@@ -1,6 +1,25 @@
 # ChangeLog for Gentoo/s390 profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/s390/ChangeLog,v 1.67 2013/03/03 23:10:01 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/s390/ChangeLog,v 1.74 2013/09/29 14:34:29 dilfridge Exp $
+
+  29 Sep 2013; Andreas K. Huettel <dilfridge@gentoo.org> make.defaults:
+  s390 goes unstable/testing as per council decision
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask opencl flag due to lack of virtual/opencl keywording.
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.mask:
+  move texlive mask from global to arch profiles, bug #475124
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask r600-llvm-compiler flag for mesa.
+
+  27 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask video_cards_ilo.
+
+  10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> package.use.mask:
+  Mask x11-libs/gtk+[colord] because requires too much unstable depends
 
   03 Mar 2013; Mike Frysinger <vapier@gentoo.org> use.mask:
   Unmask a bunch of X flags and mask more gnome flags.

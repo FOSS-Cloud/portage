@@ -1,6 +1,22 @@
 # ChangeLog for sys-apps/man-db
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-db/ChangeLog,v 1.46 2013/02/24 18:10:07 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-db/ChangeLog,v 1.50 2013/08/31 06:12:35 naota Exp $
+
+  31 Aug 2013; Naohiro Aota <naota@gentoo.org> man-db-2.6.5.ebuild:
+  Use 0 instead of root group.
+
+*man-db-2.6.5 (09 Jul 2013)
+
+  09 Jul 2013; Tim Harder <radhermit@gentoo.org> +man-db-2.6.5.ebuild:
+  Version bump.
+
+*man-db-2.6.4 (24 Jun 2013)
+
+  24 Jun 2013; Tim Harder <radhermit@gentoo.org> +man-db-2.6.4.ebuild:
+  Version bump, add dep on app-text/po4a if nls is enabled (bug #451622).
+
+  27 Apr 2013; Mike Frysinger <vapier@gentoo.org> man-db-2.6.3-r1.ebuild:
+  Mark m68k stable #455026.
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> man-db-2.6.3-r1.ebuild:
   Stable for sh, wrt bug #455026

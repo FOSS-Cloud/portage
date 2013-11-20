@@ -1,6 +1,52 @@
 # ChangeLog for media-video/gpac
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/gpac/ChangeLog,v 1.103 2012/11/01 18:22:35 flameeyes Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/gpac/ChangeLog,v 1.114 2013/08/14 21:28:09 aballier Exp $
+
+  14 Aug 2013; Alexis Ballier <aballier@gentoo.org> gpac-0.5.0-r1.ebuild,
+  -files/160_all_externalamr.patch:
+  drop the external amr patch since we disable it since ages
+
+*gpac-0.5.0-r1 (14 Aug 2013)
+
+  14 Aug 2013; Alexis Ballier <aballier@gentoo.org> -gpac-0.5.0.ebuild,
+  +gpac-0.5.0-r1.ebuild:
+  revision bump for all the previous changes
+
+  14 Aug 2013; Alexis Ballier <aballier@gentoo.org> gpac-0.5.0.ebuild:
+  Drop wxwidgets useflag since it is disabled upstream
+
+  14 Aug 2013; Alexis Ballier <aballier@gentoo.org> gpac-0.5.0.ebuild,
+  +files/gpac-0.5.0-respect_ldflags.patch:
+  Respect LDFLAGS and fix underlinkage of the pulse module. Ported from bug
+  #331067
+
+  14 Aug 2013; Alexis Ballier <aballier@gentoo.org> gpac-0.5.0.ebuild,
+  +files/gpac-0.5.0-mp42ts.patch:
+  install mp42ts since we build it, bug #459630 by Reuben Martin
+
+  14 Aug 2013; Alexis Ballier <aballier@gentoo.org> gpac-0.5.0.ebuild:
+  Pass extra-cflags to configure instead, bug #449238 by Stef Simoens.
+  Simplifies the ebuild.
+
+  14 Aug 2013; Alexis Ballier <aballier@gentoo.org> gpac-0.5.0.ebuild:
+  factorize some code and sort alphabetically econf args
+
+  14 Aug 2013; Alexis Ballier <aballier@gentoo.org> gpac-0.5.0.ebuild:
+  depend on virtual/glu, bug #466632 by andcycle-gentoo.bugs@andcycle.idv.tw
+
+  07 Aug 2013; Alexis Ballier <aballier@gentoo.org> gpac-0.5.0.ebuild,
+  +files/gpac-0.5.0-ffmpeg2.patch:
+  fix build with ffmpeg2
+
+  22 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +files/gpac-0.5.0-libav9.patch, gpac-0.5.0.ebuild:
+  Fix build with libav9 wrt bug#443424. Even tho the upstream patched it
+  slightly differently they just fixed more deprec. warnings so it does not
+  matter if we use this one or svn revisions.
+
+  13 Jun 2013; Michael Weber <xmw@gentoo.org> gpac-0.4.5-r4.ebuild,
+  gpac-0.4.5-r5.ebuild, gpac-0.5.0.ebuild:
+  Depend on SLOT=0 of media-libs/openjpeg (bug 440086)
 
   01 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org> gpac-0.5.0.ebuild:
   Fix CVS header. Closes bug #440814.

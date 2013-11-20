@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libkolab/libkolab-0.4.1.ebuild,v 1.2 2013/02/23 17:26:52 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libkolab/libkolab-0.4.1.ebuild,v 1.7 2013/05/30 11:48:36 kensington Exp $
 
 EAPI=5
 
@@ -12,14 +12,14 @@ SRC_URI="http://mirror.kolabsys.com/pub/releases/${P}.tar.gz"
 
 LICENSE="LGPL-2+ LGPL-2.1+ LGPL-3+"
 SLOT="4"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ppc ppc64 x86"
 IUSE="php python test"
 
 # Tests fail, last checked 0.4.1
 RESTRICT="test"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop(+)')
 	dev-lang/swig
 	>=net-libs/libkolabxml-0.7.0
 	php? ( dev-lang/php )

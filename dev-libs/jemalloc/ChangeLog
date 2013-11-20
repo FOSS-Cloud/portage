@@ -1,6 +1,30 @@
 # ChangeLog for dev-libs/jemalloc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/jemalloc/ChangeLog,v 1.28 2013/03/24 19:18:31 anarchy Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/jemalloc/ChangeLog,v 1.35 2013/09/24 22:52:47 anarchy Exp $
+
+  24 Sep 2013; Jory A. Pratt <anarchy@gentoo.org>
+  +files/jemalloc-fix-ar-call.patch:
+  Add missing patch to fix ar from being called directly
+
+*jemalloc-3.4.0 (24 Sep 2013)
+
+  24 Sep 2013; Jory A. Pratt <anarchy@gentoo.org> +jemalloc-3.4.0.ebuild:
+  Version bump, bug #482050
+
+  29 Jul 2013; Fabian Groffen <grobian@gentoo.org> jemalloc-3.3.1.ebuild:
+  Fix install on Darwin by Hugh Nowlan, bug #437362
+
+  14 Apr 2013; Agostino Sarubbo <ago@gentoo.org> jemalloc-3.3.1.ebuild:
+  Stable for ppc64, wrt bug #465676
+
+  14 Apr 2013; Agostino Sarubbo <ago@gentoo.org> jemalloc-3.3.1.ebuild:
+  Stable for ppc, wrt bug #465676
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> jemalloc-3.3.1.ebuild:
+  Stable for x86, wrt bug #465676
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> jemalloc-3.3.1.ebuild:
+  Stable for amd64, wrt bug #465676
 
 *jemalloc-3.3.1 (24 Mar 2013)
 

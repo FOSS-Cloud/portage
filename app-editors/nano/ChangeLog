@@ -1,6 +1,50 @@
 # ChangeLog for app-editors/nano
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/nano/ChangeLog,v 1.288 2013/04/02 20:14:20 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/nano/ChangeLog,v 1.302 2013/09/28 11:13:54 vapier Exp $
+
+  28 Sep 2013; Mike Frysinger <vapier@gentoo.org>
+  files/nano-2.3.1-gentoo-nanorc.patch:
+  Match more files in /etc/portage #485602 by Michael Rowell.
+
+  15 Aug 2013; Mike Frysinger <vapier@gentoo.org> nano-2.3.2.ebuild:
+  Mark m68k stable #471406.
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nano-2.3.2.ebuild:
+  Stable for sh, wrt bug #471406
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nano-2.3.2.ebuild:
+  Stable for s390, wrt bug #471406
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nano-2.3.2.ebuild:
+  Stable for sparc, wrt bug #471406
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nano-2.3.2.ebuild:
+  Stable for ia64, wrt bug #471406
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nano-2.3.2.ebuild:
+  Stable for alpha, wrt bug #471406
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nano-2.3.2.ebuild:
+  Stable for ppc64, wrt bug #471406
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nano-2.3.2.ebuild:
+  Stable for ppc, wrt bug #471406
+
+  19 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> nano-2.3.2.ebuild:
+  Stable on x86, wrt bug #471406
+
+  19 Jun 2013; Mikle Kolyada <zlogene@gentoo.org> nano-2.3.2.ebuild:
+  amd64 stable wrt bug #471406
+
+  19 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> nano-2.3.2.ebuild:
+  Stable on arm, wrt bug #471406
+
+  18 Jun 2013; Jeroen Roovers <jer@gentoo.org> nano-2.3.2.ebuild:
+  Stable for HPPA (bug #471406).
+
+  01 May 2013; Mike Frysinger <vapier@gentoo.org> nano-2.3.2.ebuild:
+  Force --with-wordbounds for glibc/uclibc targets so cross-compiles do not end
+  up using *BSD styles on GNU systems #467848 by Dennis Schridde.
 
 *nano-2.3.2 (02 Apr 2013)
 

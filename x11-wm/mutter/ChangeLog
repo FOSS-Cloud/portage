@@ -1,6 +1,47 @@
 # ChangeLog for x11-wm/mutter
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/mutter/ChangeLog,v 1.24 2013/03/31 13:23:41 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/mutter/ChangeLog,v 1.31 2013/07/31 03:34:54 tetromino Exp $
+
+*mutter-3.8.4 (31 Jul 2013)
+
+  31 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -mutter-3.8.3.ebuild, +mutter-3.8.4.ebuild:
+  Version bump, includes the patches from 3.8.3-r1 and two additional bugfixes.
+  Drop old.
+
+*mutter-3.8.3-r1 (28 Jul 2013)
+
+  28 Jul 2013; Pacho Ramos <pacho@gentoo.org> +mutter-3.8.3-r1.ebuild,
+  -mutter-3.8.2.ebuild:
+  Apply upstream fixes from 3.8 branch, also solving some games running slow.
+  Drop old
+
+  24 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org> mutter-3.8.3.ebuild:
+  Raise libXi dependency per configure. gtk-doc-am is not really used by it
+  doesn't hurt if we ever do an eautoreconf or if doc actually starts landing.
+
+*mutter-3.8.3 (09 Jun 2013)
+
+  09 Jun 2013; Pacho Ramos <pacho@gentoo.org> +mutter-3.8.3.ebuild,
+  -mutter-3.8.1.ebuild:
+  Version bump, drop old
+
+*mutter-3.8.2 (15 May 2013)
+
+  15 May 2013; Pacho Ramos <pacho@gentoo.org> +mutter-3.8.2.ebuild:
+  Version bump
+
+  26 Apr 2013; Pacho Ramos <pacho@gentoo.org>
+  -files/mutter-3.4.1-meta_window_move_frame-crash.patch,
+  -files/mutter-3.8.0-build-redefine.patch,
+  -files/mutter-3.8.0-font-crash.patch, -mutter-3.8.0.ebuild,
+  mutter-3.8.1.ebuild:
+  Fix glib dependency, bug #467334 by Pim Vullers; drop old.
+
+*mutter-3.8.1 (20 Apr 2013)
+
+  20 Apr 2013; Pacho Ramos <pacho@gentoo.org> +mutter-3.8.1.ebuild:
+  Version bump
 
   31 Mar 2013; Pacho Ramos <pacho@gentoo.org>
   +files/mutter-3.8.0-build-redefine.patch,

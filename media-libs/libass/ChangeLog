@@ -1,6 +1,33 @@
 # ChangeLog for media-libs/libass
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libass/ChangeLog,v 1.56 2013/01/15 13:19:51 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libass/ChangeLog,v 1.65 2013/07/06 17:08:27 ago Exp $
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libass-0.10.1.ebuild:
+  Stable for alpha, wrt bug #470762
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libass-0.10.1.ebuild:
+  Stable for arm, wrt bug #470762
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libass-0.10.1.ebuild:
+  Stable for ppc64, wrt bug #470762
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libass-0.10.1.ebuild:
+  Stable for sparc, wrt bug #470762
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libass-0.10.1.ebuild:
+  Stable for ia64, wrt bug #470762
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libass-0.10.1.ebuild:
+  Stable for amd64, wrt bug #470762
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libass-0.10.1.ebuild:
+  Stable for x86, wrt bug #470762
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libass-0.10.1.ebuild:
+  Stable for ppc, wrt bug #470762
+
+  19 Jun 2013; Jeroen Roovers <jer@gentoo.org> libass-0.10.1.ebuild:
+  Stable for HPPA (bug #470762).
 
   15 Jan 2013; Alexis Ballier <aballier@gentoo.org> libass-0.10.1.ebuild:
   enable harfbuzz by default, as upstream does, by Nikoli, bug #452210
@@ -206,4 +233,3 @@
   05 Aug 2008; Alexis Ballier <aballier@gentoo.org>
   +files/libass-0.9.5_automagic.patch, +metadata.xml, +libass-0.9.5.ebuild:
   Initial import, ebuild by Juan Aguado <juantxorena@gmail.com>, bug #213559
-

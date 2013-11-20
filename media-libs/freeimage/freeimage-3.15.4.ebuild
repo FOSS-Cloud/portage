@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/freeimage/freeimage-3.15.4.ebuild,v 1.2 2013/03/21 15:48:09 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/freeimage/freeimage-3.15.4.ebuild,v 1.7 2013/09/08 06:34:14 gienah Exp $
 
 EAPI="4"
 
@@ -13,7 +13,8 @@ MY_P=${MY_PN}${MY_PV}
 DESCRIPTION="Image library supporting many formats"
 HOMEPAGE="http://freeimage.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.zip
-	mirror://sourceforge/${PN}/${MY_P}.pdf"
+	mirror://sourceforge/${PN}/${MY_P}.pdf
+	http://dev.gentoo.org/~gienah/2big4tree/media-libs/freeimage/${PN}-3.15.4-libjpeg-turbo.patch.gz"
 
 LICENSE="|| ( GPL-2 FIPL-1.0 )"
 SLOT="0"
@@ -24,7 +25,7 @@ IUSE="jpeg jpeg2k mng openexr png raw static-libs tiff"
 # uses code from it to handle 16bit<->float conversions.
 RDEPEND="sys-libs/zlib
 	jpeg? ( virtual/jpeg )
-	jpeg2k? ( media-libs/openjpeg )
+	jpeg2k? ( media-libs/openjpeg:0 )
 	mng? ( media-libs/libmng )
 	openexr? ( media-libs/openexr )
 	png? ( media-libs/libpng )
@@ -41,6 +42,11 @@ S=${WORKDIR}/${MY_PN}
 
 src_prepare() {
 	cd Source
+	if has_version ">=media-libs/libjpeg-turbo-1.2.1"; then
+		# Patch from Christian Heimes's fork (thanks) https://bitbucket.org/tiran/freeimageturbo
+		epatch "${DISTDIR}"/${PN}-3.15.4-libjpeg-turbo.patch.gz
+		cp LibJPEG/{jpegcomp.h,jpegint.h} . || die
+	fi
 	cp LibJPEG/{transupp.c,transupp.h,jinclude.h} . || die
 	cp LibTIFF4/{tiffiop,tif_dir}.h . || die
 	rm -rf LibPNG LibMNG LibOpenJPEG ZLib OpenEXR LibRawLite LibTIFF4 LibJPEG || die
@@ -66,7 +72,7 @@ src_prepare() {
 		-e "/LibRawLite/d" \
 		-e "/LibMNG/d" \
 		Makefile.srcs fipMakefile.srcs || die
-	epatch "${FILESDIR}"/${PN}-3.15.4-unbundling.patch
+	epatch "${FILESDIR}"/${PN}-3.15.4-{unbundling,raw}.patch
 }
 
 foreach_make() {

@@ -1,6 +1,26 @@
 # ChangeLog for dev-libs/libgit2
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgit2/ChangeLog,v 1.12 2012/05/23 00:51:14 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgit2/ChangeLog,v 1.16 2013/11/16 12:24:07 pacho Exp $
+
+  16 Nov 2013; Pacho Ramos <pacho@gentoo.org> libgit2-0.19.0-r1.ebuild:
+  amd64 stable, bug #488774
+
+*libgit2-0.19.0-r1 (16 Jul 2013)
+
+  16 Jul 2013; Tim Harder <radhermit@gentoo.org> +libgit2-0.19.0-r1.ebuild,
+  +files/libgit2-0.19.0-automagic-libssh2.patch, metadata.xml:
+  Use external library for http-parser and add ssh use flag to control SSH
+  transport support.
+
+*libgit2-0.19.0 (25 Jun 2013)
+
+  25 Jun 2013; Tim Harder <radhermit@gentoo.org> +libgit2-0.19.0.ebuild:
+  Version bump (bug #474756).
+
+*libgit2-0.18.0 (21 Apr 2013)
+
+  21 Apr 2013; Tim Harder <radhermit@gentoo.org> +libgit2-0.18.0.ebuild:
+  Version bump.
 
   23 May 2012; Tim Harder <radhermit@gentoo.org> -libgit2-0.15.0.ebuild:
   Remove old.
@@ -48,4 +68,3 @@
   30 Jun 2011; Tim Harder <radhermit@gentoo.org> +libgit2-0.13.0.ebuild,
   +files/libgit2-0.13.0-system-zlib.patch, +metadata.xml:
   Initial import.
-

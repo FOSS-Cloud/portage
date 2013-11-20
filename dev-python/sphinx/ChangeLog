@@ -1,6 +1,82 @@
 # ChangeLog for dev-python/sphinx
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/sphinx/ChangeLog,v 1.134 2013/02/15 19:07:55 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/sphinx/ChangeLog,v 1.157 2013/09/05 18:46:11 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> sphinx-1.1.3-r5.ebuild,
+  sphinx-1.1.3-r6.ebuild, sphinx-1.1.3-r7.ebuild, sphinx-1.2_pre20130530.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for ppc64, wrt bug #481804
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for sparc, wrt bug #481804
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r6.ebuild:
+  Stable for sparc, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for sh, wrt bug #481804
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r6.ebuild:
+  Stable for sh, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for s390, wrt bug #481804
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r6.ebuild:
+  Stable for s390, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for ia64, wrt bug #481804
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r6.ebuild:
+  Stable for ia64, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r6.ebuild:
+  Stable for alpha, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for alpha, wrt bug #481804
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for ppc, wrt bug #481804
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for arm, wrt bug #481804
+
+  23 Aug 2013; Jeroen Roovers <jer@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for HPPA (bug #481804).
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for x86, wrt bug #481804
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r7.ebuild:
+  Stable for amd64, wrt bug #481804
+
+  15 Aug 2013; Jeroen Roovers <jer@gentoo.org> sphinx-1.1.3-r6.ebuild:
+  Stable for HPPA (bug #477970).
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r6.ebuild:
+  Stable for arm, wrt bug #477970
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r6.ebuild:
+  Stable for ppc64, wrt bug #477970
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r6.ebuild:
+  Stable for ppc, wrt bug #477970
+
+*sphinx-1.2_pre20130530 (01 Jun 2013)
+
+  01 Jun 2013; Kacper Kowalik <xarthisius@gentoo.org>
+  +sphinx-1.2_pre20130530.ebuild:
+  Add snapshot of upstream repository masked by keywords
+
+*sphinx-1.1.3-r7 (23 May 2013)
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org> +sphinx-1.1.3-r7.ebuild:
+  Split the dev-python/jinja dependency in two to allow different slots to
+  satisfy it.
 
   15 Feb 2013; Agostino Sarubbo <ago@gentoo.org> sphinx-1.1.3-r6.ebuild:
   Stable for x86, wrt bug #457156

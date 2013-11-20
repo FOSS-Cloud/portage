@@ -1,6 +1,32 @@
 # ChangeLog for app-admin/ec2-api-tools
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ec2-api-tools/ChangeLog,v 1.17 2013/04/03 00:59:13 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ec2-api-tools/ChangeLog,v 1.21 2013/08/15 15:14:02 tomwij Exp $
+
+*ec2-api-tools-1.6.7.2-r4 (15 Aug 2013)
+
+  15 Aug 2013; Tom Wijsman <TomWij@gentoo.org> +ec2-api-tools-1.6.7.2-r4.ebuild,
+  -ec2-api-tools-1.6.7.2-r3.ebuild:
+  Revision bump. Slotted bcprov dependency. Dropped old / broken revision.
+
+*ec2-api-tools-1.6.7.2-r3 (01 Jun 2013)
+
+  01 Jun 2013; Tom Wijsman <TomWij@gentoo.org> +ec2-api-tools-1.6.7.2-r3.ebuild,
+  -ec2-api-tools-1.6.7.2-r2.ebuild:
+  Revision bump, keyworded again and removed broken revision. Library symlinks
+  were accidentally installed to /, also corrected a remaining EC2_HOME related
+  error...
+
+*ec2-api-tools-1.6.7.2-r2 (31 May 2013)
+
+  31 May 2013; Tom Wijsman <TomWij@gentoo.org> +ec2-api-tools-1.6.7.2-r2.ebuild:
+  Unbundled half of the libraries, the other hal half is missing, committed as
+  unkeyworded since this is a work in progress and breaks a lot of things;
+  reported by robbat2 on IRC, tracked in bug #471942.
+
+*ec2-api-tools-1.6.7.2 (26 Apr 2013)
+
+  26 Apr 2013; Tom Wijsman <TomWij@gentoo.org> +ec2-api-tools-1.6.7.2.ebuild:
+  Version bump to 1.6.7.2. Reported by Cleveland Flowe. Fixes bug #467398.
 
 *ec2-api-tools-1.6.0.1-r1 (03 Apr 2013)
 

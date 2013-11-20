@@ -1,6 +1,35 @@
 # ChangeLog for dev-perl/MIME-Types
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/MIME-Types/ChangeLog,v 1.90 2013/01/19 12:28:21 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/MIME-Types/ChangeLog,v 1.99 2013/08/25 10:18:39 patrick Exp $
+
+*MIME-Types-2.020.0 (25 Aug 2013)
+
+  25 Aug 2013; Patrick Lauer <patrick@gentoo.org> +MIME-Types-2.020.0.ebuild:
+  Bump
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> MIME-Types-1.380.0.ebuild:
+  Stable for sparc, wrt bug #461124
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> MIME-Types-1.380.0.ebuild:
+  Stable for alpha, wrt bug #461124
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> MIME-Types-1.380.0.ebuild:
+  Stable for ia64, wrt bug #461124
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> MIME-Types-1.380.0.ebuild:
+  Stable for hppa, wrt bug #461124
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> MIME-Types-1.380.0.ebuild:
+  Stable for ppc64, wrt bug #461124
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> MIME-Types-1.380.0.ebuild:
+  Stable for ppc, wrt bug #461124
+
+  15 May 2013; Agostino Sarubbo <ago@gentoo.org> MIME-Types-1.380.0.ebuild:
+  Stable for x86, wrt bug #461124
+
+  15 May 2013; Agostino Sarubbo <ago@gentoo.org> MIME-Types-1.380.0.ebuild:
+  Stable for amd64, wrt bug #461124
 
 *MIME-Types-1.380.0 (19 Jan 2013)
 

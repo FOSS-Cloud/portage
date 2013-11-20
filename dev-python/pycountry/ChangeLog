@@ -1,6 +1,69 @@
 # ChangeLog for dev-python/pycountry
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pycountry/ChangeLog,v 1.9 2012/11/07 02:25:07 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pycountry/ChangeLog,v 1.21 2013/10/28 07:03:29 patrick Exp $
+
+*pycountry-1.1 (28 Oct 2013)
+
+  28 Oct 2013; Patrick Lauer <patrick@gentoo.org> +pycountry-1.1.ebuild:
+  Bump
+
+*pycountry-1.0 (12 Sep 2013)
+
+  12 Sep 2013; Patrick Lauer <patrick@gentoo.org> +pycountry-1.0.ebuild:
+  Bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pycountry-0.14.7-r1.ebuild,
+  pycountry-0.14.8.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*pycountry-0.19 (02 Sep 2013)
+
+  02 Sep 2013; Patrick Lauer <patrick@gentoo.org> +pycountry-0.19.ebuild:
+  Bump
+
+*pycountry-0.18 (10 Aug 2013)
+
+  10 Aug 2013; Patrick Lauer <patrick@gentoo.org> +pycountry-0.18.ebuild:
+  Bump
+
+*pycountry-0.17 (21 Jul 2013)
+
+  21 Jul 2013; Tim Harder <radhermit@gentoo.org> +pycountry-0.17.ebuild:
+  Version bump.
+
+*pycountry-0.16 (08 Jul 2013)
+
+  08 Jul 2013; Patrick Lauer <patrick@gentoo.org> +pycountry-0.16.ebuild:
+  Bump
+
+*pycountry-0.15 (29 Jun 2013)
+
+  29 Jun 2013; Ian Delaney <idella4@gentoo.org> +pycountry-0.15 (29 Jun 2013),
+  +files/pycountry-0.15-setup.patch:
+  bump; support for py2.5 dropped by discretion, py[3.1-2] and pypy according 
+  to changes in this version bump ex tox.ini, patch setup.patch to exclude 
+  'optional' plugin type adjuncts to pytest which substitutes nosetests to 
+  run tests, test phase upgraded, fixes Bug #474680  
+
+*pycountry-0.14.8 (18 Jun 2013)
+
+  18 Jun 2013; Tim Harder <radhermit@gentoo.org> +pycountry-0.14.8.ebuild:
+  Version bump.
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  python will maintain this: http://www.gossamer-
+  threads.com/lists/gentoo/dev/273296#273296
+
+*pycountry-0.14.7-r1 (12 Jun 2013)
+
+  12 Jun 2013; Ian Delaney <idella4@gentoo.org> +pycountry-0.14.7-r1.ebuild,
+  -pycountry-0.14.7.ebuild:
+  revbump; migrate -> distutils-r1, remove old, support of all 'impls', add test
+  phase
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> -pycountry-0.14.1.ebuild,
+  -pycountry-0.14.5.ebuild, metadata.xml:
+  Cleanup due bug #151880
 
 *pycountry-0.14.7 (07 Nov 2012)
 
@@ -45,4 +108,3 @@
   16 Aug 2008; Cédric Krier <cedk@gentoo.org> +metadata.xml,
   +pycountry-0.10.ebuild:
   New Ebuild
-

@@ -1,14 +1,14 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libcxxrt/libcxxrt-9999.ebuild,v 1.4 2013/01/31 17:48:20 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libcxxrt/libcxxrt-9999.ebuild,v 1.10 2013/10/14 18:21:46 mgorny Exp $
 
-EAPI=4
+EAPI=5
 
 EGIT_REPO_URI="git://github.com/pathscale/libcxxrt.git"
 
 [ "${PV%9999}" != "${PV}" ] && SCM="git-2" || SCM=""
 
-inherit base flag-o-matic toolchain-funcs portability ${SCM}
+inherit flag-o-matic toolchain-funcs portability ${SCM} multilib-minimal
 
 DESCRIPTION="C++ Runtime from PathScale, FreeBSD and NetBSD."
 HOMEPAGE="https://github.com/pathscale/libcxxrt http://www.pathscale.com/node/265"
@@ -26,44 +26,46 @@ if [ "${PV%9999}" = "${PV}" ] ; then
 else
 	KEYWORDS=""
 fi
-IUSE="static-libs"
+IUSE="libunwind static-libs"
 
-RDEPEND=">=sys-libs/libunwind-1.0.1-r1"
+RDEPEND="libunwind? ( >=sys-libs/libunwind-1.0.1-r1[static-libs?] )"
 DEPEND="${RDEPEND}
 	${DEPEND}"
 
+DOCS=( AUTHORS COPYRIGHT README )
+
 src_prepare() {
-	base_src_prepare
 	cp "${FILESDIR}/Makefile" src/ || die
 	cp "${FILESDIR}/Makefile.test" test/Makefile || die
-	rm -f src/unwind* || die
-	cp -f "${FILESDIR}/unwind.h" src/ || die
+	multilib_copy_sources
 }
 
-src_compile() {
+multilib_src_compile() {
 	# Notes: we build -nodefaultlibs to avoid linking to gcc libs.
-	# libcxxrt needs: dladdr (dlopen_lib), libunwind (or libgcc_s but we build
-	# over libunwind) and the libc.
+	# libcxxrt needs: dladdr (dlopen_lib), libunwind or libgcc_s and the libc.
 	tc-export CC CXX AR
 	append-ldflags "-Wl,-z,defs" # make sure we are not underlinked
-	cd "${S}/src"
-	LIBS="$(dlopen_lib) -lunwind -lc" emake shared
+	cd "${BUILD_DIR}/src"
+	LIBS="$(dlopen_lib) -l$(usex libunwind unwind gcc_s) -lc" emake shared
 	use static-libs && emake static
 }
 
-src_test() {
-	cd "${S}/test"
-	LD_LIBRARY_PATH="${S}/src:${LD_LIBRARY_PATH}" LIBS="-L${S}/src -lcxxrt -lc" emake check
+multilib_src_test() {
+	cd "${BUILD_DIR}/test"
+	LD_LIBRARY_PATH="${BUILD_DIR}/src:${LD_LIBRARY_PATH}" \
+		LIBS="-L${BUILD_DIR}/src -lcxxrt -lc" \
+		emake check
 }
 
-src_install() {
+multilib_src_install() {
 	# TODO: See README. Maybe hide it in a subdir and let only libcxx know about
 	# it. FreeBSD head installs it in /lib
 	dolib.so src/${PN}.so*
 	use static-libs && dolib.a src/${PN}.a
+}
 
+multilib_src_install_all() {
+	einstalldocs
 	insinto /usr/include/libcxxrt/
-	doins src/cxxabi.h
-
-	dodoc AUTHORS COPYRIGHT README
+	doins src/cxxabi.h src/unwind*.h
 }

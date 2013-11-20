@@ -1,6 +1,172 @@
 # ChangeLog for dev-python/setuptools
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/setuptools/ChangeLog,v 1.183 2013/02/21 03:17:10 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/setuptools/ChangeLog,v 1.217 2013/09/24 04:05:28 radhermit Exp $
+
+*setuptools-1.1.6 (24 Sep 2013)
+
+  24 Sep 2013; Tim Harder <radhermit@gentoo.org> +setuptools-1.1.6.ebuild:
+  Version bump.
+
+*setuptools-1.1.5 (16 Sep 2013)
+
+  16 Sep 2013; Tim Harder <radhermit@gentoo.org> +setuptools-1.1.5.ebuild:
+  Version bump.
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> setuptools-0.8-r1.ebuild:
+  Stable for sparc, wrt bug #479980
+
+*setuptools-1.1.3 (06 Sep 2013)
+
+  06 Sep 2013; Tim Harder <radhermit@gentoo.org> +setuptools-1.1.3.ebuild:
+  Version bump.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> setuptools-0.6.30-r1.ebuild,
+  setuptools-0.6.33.ebuild, setuptools-0.6.45-r1.ebuild,
+  setuptools-0.8-r1.ebuild, setuptools-0.9.8-r1.ebuild, setuptools-1.0.ebuild,
+  setuptools-1.1.ebuild, setuptools-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*setuptools-1.1.1 (04 Sep 2013)
+
+  04 Sep 2013; Tim Harder <radhermit@gentoo.org> +setuptools-1.1.1.ebuild:
+  Version bump, dropped masked PYTHON_COMPAT implementations.
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> setuptools-0.8-r1.ebuild:
+  Stable for ia64, wrt bug #479980
+
+*setuptools-1.1 (27 Aug 2013)
+
+  27 Aug 2013; Tim Harder <radhermit@gentoo.org> +setuptools-1.1.ebuild:
+  Version bump.
+
+*setuptools-1.0 (25 Aug 2013)
+
+  25 Aug 2013; Tim Harder <radhermit@gentoo.org> +setuptools-1.0.ebuild:
+  Version bump.
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> setuptools-0.8-r1.ebuild:
+  Stable for x86, wrt bug #479980
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org> setuptools-0.8-r1.ebuild:
+  Stable for alpha, wrt bug #479980
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> setuptools-0.8-r1.ebuild:
+  Stable for ppc64, wrt bug #479980
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> setuptools-0.8-r1.ebuild:
+  Stable for arm, wrt bug #479980
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> setuptools-0.8-r1.ebuild:
+  Stable for ppc, wrt bug #479980
+
+  08 Aug 2013; Michał Górny <mgorny@gentoo.org>
+  -files/setuptools-0.6.40-no-exes.patch,
+  -files/setuptools-0.7.2-test-easy.patch, -setuptools-0.7.2-r1.ebuild,
+  -setuptools-0.7.3.ebuild, -setuptools-0.7.8.ebuild, -setuptools-0.9.6.ebuild,
+  -setuptools-0.9.7.ebuild:
+  Drop most of the old versions.
+
+  08 Aug 2013; Jeroen Roovers <jer@gentoo.org> setuptools-0.8-r1.ebuild:
+  Stable for HPPA (bug #479980).
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> setuptools-0.8-r1.ebuild:
+  Stable for amd64, wrt bug #479980
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> setuptools-0.6.33.ebuild,
+  setuptools-0.6.45-r1.ebuild:
+  Drop removed Python implementations from PYTHON_COMPAT.
+
+*setuptools-0.8-r1 (06 Aug 2013)
+
+  06 Aug 2013; Michał Górny <mgorny@gentoo.org> +setuptools-0.8-r1.ebuild,
+  -setuptools-0.8.ebuild:
+  Backport the python-exec breakage patch to 0.8 stable candidate.
+
+*setuptools-0.9.8-r1 (05 Aug 2013)
+
+  05 Aug 2013; Michał Górny <mgorny@gentoo.org>
+  +files/setuptools-0.9.8-install_scripts-overwrite.patch,
+  +setuptools-0.9.8-r1.ebuild, -setuptools-0.9.8.ebuild:
+  Backport patch fixing python-exec overwrite, bug #468378.
+
+*setuptools-0.9.8 (26 Jul 2013)
+
+  26 Jul 2013; Tim Harder <radhermit@gentoo.org> +setuptools-0.9.8.ebuild:
+  Version bump.
+
+*setuptools-0.9.7 (22 Jul 2013)
+
+  22 Jul 2013; Tim Harder <radhermit@gentoo.org> +setuptools-0.9.7.ebuild:
+  Version bump.
+
+*setuptools-0.9.6 (21 Jul 2013)
+
+  21 Jul 2013; Tim Harder <radhermit@gentoo.org> +setuptools-0.9.6.ebuild,
+  setuptools-9999.ebuild:
+  Version bump.
+
+  06 Jul 2013; Mike Gilbert <floppym@gentoo.org> setuptools-9999.ebuild:
+  Update live ebuild.
+
+  06 Jul 2013; Mike Gilbert <floppym@gentoo.org> setuptools-0.6.30-r1.ebuild,
+  setuptools-0.6.33.ebuild, setuptools-0.6.45-r1.ebuild,
+  setuptools-0.7.2-r1.ebuild, setuptools-0.7.3.ebuild, setuptools-0.7.8.ebuild,
+  setuptools-0.8.ebuild, setuptools-9999.ebuild:
+  Restore ~m68k keyword to all ebuilds.
+
+*setuptools-0.7.8 (06 Jul 2013)
+*setuptools-0.8 (06 Jul 2013)
+
+  06 Jul 2013; Mike Gilbert <floppym@gentoo.org> +setuptools-0.7.8.ebuild,
+  +setuptools-0.8.ebuild:
+  Version bump.
+
+  06 Jul 2013; Mike Gilbert <floppym@gentoo.org> -setuptools-0.6.32.ebuild,
+  -setuptools-0.6.40.ebuild, setuptools-0.6.21.ebuild,
+  setuptools-0.6.30-r1.ebuild, setuptools-0.6.33.ebuild,
+  setuptools-0.6.45-r1.ebuild:
+  Add strong blocker on 0.7 to 0.6.x ebuilds. Remove old.
+
+*setuptools-0.7.3 (18 Jun 2013)
+
+  18 Jun 2013; Mike Gilbert <floppym@gentoo.org> +setuptools-0.7.3.ebuild,
+  setuptools-0.7.2-r1.ebuild:
+  Version bump. Restore DISTRIBUTE_DISABLE_VERSIONED_EASY_INSTALL_SCRIPT
+  variable.
+
+*setuptools-0.7.2-r1 (15 Jun 2013)
+
+  15 Jun 2013; Mike Gilbert <floppym@gentoo.org> +setuptools-0.7.2-r1.ebuild,
+  -setuptools-0.7.2.ebuild:
+  Apply no-exes patch.
+
+*setuptools-0.6.45-r1 (15 Jun 2013)
+
+  15 Jun 2013; Mike Gilbert <floppym@gentoo.org> +setuptools-0.6.45-r1.ebuild,
+  -setuptools-0.6.45.ebuild, files/setuptools-0.6.45-no-exes.patch:
+  Fix no-exes patch.
+
+*setuptools-0.7.2 (14 Jun 2013)
+
+  14 Jun 2013; Ian Delaney <idella4@gentoo.org>
+  +files/setuptools-0.7.2-test-easy.patch, +setuptools-0.7.2.ebuild:
+  bump; switch to setuptools proper rather than distribute, fixes Bug #472808
+
+*setuptools-0.6.45 (13 Jun 2013)
+
+  13 Jun 2013; Patrick Lauer <patrick@gentoo.org>
+  +files/setuptools-0.6.45-no-exes.patch, +setuptools-0.6.45.ebuild:
+  Bump
+
+  24 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/setuptools-0.6.40-no-exes.patch, setuptools-0.6.40.ebuild,
+  setuptools-9999.ebuild:
+  Use a patch to remove the .exe files.
+
+*setuptools-0.6.40 (22 May 2013)
+
+  22 May 2013; Patrick Lauer <patrick@gentoo.org> +setuptools-0.6.40.ebuild:
+  Bump
 
   21 Feb 2013; Zac Medico <zmedico@gentoo.org> setuptools-0.6.33.ebuild:
   Add ~arm-linux keyword.

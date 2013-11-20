@@ -1,6 +1,67 @@
 # ChangeLog for dev-lang/ghc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ghc/ChangeLog,v 1.236 2013/03/28 22:45:39 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/ghc/ChangeLog,v 1.251 2013/09/29 18:22:25 slyfox Exp $
+
+  29 Sep 2013; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.6.3-r1.ebuild:
+  Disable ghci linker hack on x86-hardened (bug #486140 by Anton Kochkov).
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ghc-7.6.3-r1.ebuild:
+  Stable for x86, wrt bug #483462
+
+  10 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ghc-7.6.3-r1.ebuild:
+  Stable for amd64, wrt bug #483462
+
+  09 Sep 2013; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.6.3-r1.ebuild:
+  Add prebuilt binary for alpha/ia64/ppc/ppc64/sparc.
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ghc-7.6.3-r1.ebuild:
+  Stable for amd64, wrt bug #483462
+
+  02 Aug 2013; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.6.3-r1.ebuild:
+  unbreak ghci on 7.6.3-r1 on x86 arch.  libc_nonshared.a contains PIC objects
+  while ghci needs non-PIC. They are in libc.a. Picked that.
+
+*ghc-7.6.3-r1 (01 Aug 2013)
+
+  01 Aug 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/ghc-7.6.3-trac-3333-weak-syms.patch, +ghc-7.6.3-r1.ebuild:
+  Fixed CFLAGS=-Os ghci failure (bug #452442 by Jason Mours). Added weak symbol
+  processing into ghci. Limit maximum parallel job count down to 4 workers (-j1
+  is too slow on mmodern boxes, but -j12 kills the build almost always). Does
+  not eliminate failures completely, but reduces them significantly (bug
+  #456386).
+
+  19 Jul 2013; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.6.3.ebuild:
+  Fix building on systems where libdir differs from the one we have built GHC
+  (it case of bug #476998 it was an amd64-linux). Thanks to tamiko and Christoph
+  Junghans.
+
+*ghc-7.6.3 (01 Jun 2013)
+
+  01 Jun 2013; Sergei Trofimovich <slyfox@gentoo.org> +ghc-7.6.3.ebuild:
+  Version bump. With x86 and amd64 binaries for now.
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ghc-7.4.2.ebuild:
+  Stable for sparc, wrt bug #457780
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ghc-7.4.2.ebuild:
+  Stable for ia64, wrt bug #457780
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ghc-7.4.2.ebuild:
+  Stable for alpha, wrt bug #457780
+
+  14 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ghc-7.4.2.ebuild:
+  Stable for ppc64, wrt bug #457780
+
+  14 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ghc-7.4.2.ebuild:
+  Stable for ppc, wrt bug #457780
+
+  14 Apr 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/ghc-7.6.2-integer-simple-div-mod.patch, ghc-7.4.2.ebuild,
+  ghc-7.6.2.ebuild:
+  Disabled usage of system's libffi workaround on unregisterised arches (fixes
+  bug #463814 by Agostino Sarubbo). Added USE=gmp (using ineteger-simple
+  restores ia64 support).
 
   28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ghc-7.4.2.ebuild:
   Stable for x86, wrt bug #457780

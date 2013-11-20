@@ -1,6 +1,22 @@
 # ChangeLog for app-text/asciidoc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/asciidoc/ChangeLog,v 1.87 2013/02/23 20:36:32 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/asciidoc/ChangeLog,v 1.91 2013/10/13 12:15:24 pacho Exp $
+
+  13 Oct 2013; Pacho Ramos <pacho@gentoo.org> asciidoc-8.6.8-r1.ebuild:
+  Fix REQUIRED_USE as pointed by Nikoli
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> asciidoc-8.6.8-r1.ebuild,
+  asciidoc-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  21 Jul 2013; Pacho Ramos <pacho@gentoo.org> -asciidoc-8.2.6.ebuild,
+  -asciidoc-8.6.7.ebuild, -asciidoc-8.6.8.ebuild, metadata.xml:
+  Cleanup due http://gentoo.2317880.n4.nabble.com/sgml-herd-has-no-maintainers-
+  again-td259655.html
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> asciidoc-8.6.8-r1.ebuild,
+  asciidoc-9999.ebuild:
+  Fix usage of python-r1.eclass
 
   23 Feb 2013; Zac Medico <zmedico@gentoo.org> asciidoc-8.6.8-r1.ebuild,
   asciidoc-9999.ebuild:

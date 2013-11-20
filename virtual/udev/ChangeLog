@@ -1,6 +1,103 @@
 # ChangeLog for virtual/udev
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/udev/ChangeLog,v 1.37 2013/03/26 16:27:44 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/udev/ChangeLog,v 1.60 2013/11/19 09:48:29 ssuominen Exp $
+
+*udev-208 (19 Nov 2013)
+
+  19 Nov 2013; Samuli Suominen <ssuominen@gentoo.org> +udev-208.ebuild:
+  Rename 206-r3 to 208 for clarity; people get confused by Portage output in
+  some race condition w/ blockers.
+
+  13 Nov 2013; Matt Turner <mattst88@gentoo.org> udev-206-r3.ebuild:
+  alpha stable, bug 487340.
+
+  12 Nov 2013; Jeroen Roovers <jer@gentoo.org> udev-206-r3.ebuild:
+  Stable for HPPA (bug #487340).
+
+*udev-204 (11 Nov 2013)
+
+  11 Nov 2013; Michał Górny <mgorny@gentoo.org> +udev-204.ebuild:
+  Add a new virtual for multilib systemd-204. Bump udev/eudev deps to EAPI=5
+  versions to avoid false MULTILIB_USEDEP match.
+
+  08 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> udev-206-r3.ebuild:
+  Revert back to ~hppa wrt #487238
+
+  08 Oct 2013; Jeroen Roovers <jer@gentoo.org> udev-206-r3.ebuild:
+  Stable for HPPA (bug #487238).
+
+*udev-206-r3 (02 Oct 2013)
+
+  02 Oct 2013; Michał Górny <mgorny@gentoo.org> +udev-206-r3.ebuild,
+  -udev-206-r2.ebuild, udev-200.ebuild:
+  Use sub-slot deps on systemd.
+
+  09 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> -udev-206-r1.ebuild,
+  -udev-206.ebuild:
+  old
+
+*udev-206-r2 (09 Aug 2013)
+
+  09 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> +udev-206-r2.ebuild:
+  Remove entire USE="hwdb" which was only controlling the sys-apps/hwids
+  dependency as suggested by WilliamH. Not having sys-apps/hwids installed is
+  not really supported configuration.
+
+  08 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> udev-206-r1.ebuild:
+  Enable USE="hwdb" by default to match upstream behavior.
+
+  07 Aug 2013; Ian Stakenvicius <axs@gentoo.org> udev-206-r1.ebuild:
+  Bump eudev to satisfy the multilib version of the udev virtual
+
+*udev-206-r1 (07 Aug 2013)
+
+  07 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> +udev-206-r1.ebuild:
+  Virtual for the multilib version of udev.
+
+  02 Aug 2013; Anthony G. Basile <blueness@gentoo.org> udev-206.ebuild:
+  Bump from eudev-1.2_beta to eudev-1.2
+
+  31 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> -udev-197-r3.ebuild:
+  old
+
+*udev-197-r3 (29 Jul 2013)
+
+  29 Jul 2013; Patrick Lauer <patrick@gentoo.org> +udev-197-r3.ebuild:
+  QA: Readd udev-197 so that stable amd64 and x86 (and others?) have a
+  resolvable udev
+
+  26 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> -udev-197-r3.ebuild:
+  old
+
+  26 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> udev-200.ebuild:
+  Stabilize for everyone.
+
+  24 Jul 2013; Ian Stakenvicius <axs@gentoo.org> udev-206.ebuild:
+  adjusted eudev dependency to force keymaps on, so that consistency is held
+  with sys-fs/udev-206
+
+*udev-206 (23 Jul 2013)
+
+  23 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> +udev-206.ebuild:
+  Version bump for the new keyboard hwdb.
+
+*udev-200 (06 Jul 2013)
+
+  06 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> +udev-200.ebuild:
+  Revision bump for sys-fs/udev users to avoid confusion in which version the
+  predictable names are enabled by default.
+
+  05 Jul 2013; Michał Górny <mgorny@gentoo.org> udev-197-r3.ebuild:
+  New systemd does no longer support USE=static-libs.
+
+  24 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> -udev-171.ebuild:
+  old
+
+*udev-197-r3 (17 Apr 2013)
+
+  17 Apr 2013; Michał Górny <mgorny@gentoo.org> +udev-197-r3.ebuild,
+  -udev-197-r2.ebuild:
+  USE=keymap has been added to sys-apps/systemd.
 
   26 Mar 2013; Michał Górny <mgorny@gentoo.org> udev-197-r2.ebuild:
   Support systemd with USE=static-libs.

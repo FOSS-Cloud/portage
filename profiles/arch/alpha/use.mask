@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation.
 # Distributed under the terms of the GNU General Public License, v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/use.mask,v 1.83 2013/03/12 21:47:35 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/use.mask,v 1.88 2013/11/13 04:18:20 mattst88 Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -alpha
@@ -64,7 +64,6 @@ rtmp
 vpx
 kde
 quvi
-systemd
 metalink
 tremor
 fdk
@@ -151,8 +150,11 @@ video_cards_vesa
 # Mask more VIDEO_CARDs added with mesa-8.0
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
+# llvm is not keyworded
+video_cards_radeonsi
 
 # dspam and dspam-web use this one
 # We've never supported cyrus-imapd because nobody asked for
@@ -218,3 +220,10 @@ template_haskell
 
 # nvidia cg toolkit for binary drivers
 cg
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl
+
+# Unmask once sys-libs/libunwind gets ported & keyworded.
+unwind

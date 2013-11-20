@@ -1,6 +1,48 @@
 # ChangeLog for x11-drivers/radeon-ucode
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/radeon-ucode/ChangeLog,v 1.26 2013/04/03 11:25:21 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/radeon-ucode/ChangeLog,v 1.34 2013/10/08 05:05:12 ago Exp $
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org> radeon-ucode-20130826.ebuild:
+  Stable for x86, wrt bug #475480
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> radeon-ucode-20130826.ebuild:
+  Stable for amd64, wrt bug #475480
+
+*radeon-ucode-20130826 (08 Sep 2013)
+
+  08 Sep 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +radeon-ucode-20130826.ebuild:
+  Update for new KAVERI firmware, bug #484056.
+
+  30 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -radeon-ucode-20130204.ebuild, -radeon-ucode-20130402.ebuild,
+  -radeon-ucode-20130411.ebuild, -radeon-ucode-20130513.ebuild,
+  -radeon-ucode-20130625.ebuild, radeon-ucode-20130626.ebuild:
+  Stabilize latest ucode, drop some old versions.
+
+*radeon-ucode-20130626 (26 Jun 2013)
+
+  26 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +radeon-ucode-20130626.ebuild:
+  Add more ucode for power management.
+
+*radeon-ucode-20130625 (25 Jun 2013)
+
+  25 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +radeon-ucode-20130625.ebuild:
+  Add ucode for recent hardware and new power management code.
+
+*radeon-ucode-20130513 (14 May 2013)
+
+  14 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +radeon-ucode-20130513.ebuild:
+  Update for latest firmware.
+
+*radeon-ucode-20130411 (28 Apr 2013)
+
+  28 Apr 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +radeon-ucode-20130411.ebuild:
+  Update to latest published ucode files.
 
 *radeon-ucode-20130402 (03 Apr 2013)
 

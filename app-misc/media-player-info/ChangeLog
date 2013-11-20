@@ -1,6 +1,57 @@
 # ChangeLog for app-misc/media-player-info
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/media-player-info/ChangeLog,v 1.23 2012/11/28 17:53:50 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/media-player-info/ChangeLog,v 1.34 2013/11/01 13:51:19 ago Exp $
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> media-player-info-21-r1.ebuild:
+  Stable for x86, wrt bug #486758
+
+  26 Oct 2013; Chema Alonso <nimiux@gentoo.org> media-player-info-21-r1.ebuild:
+  Stable for amd64 wrt bug #486758
+
+*media-player-info-21-r1 (02 Oct 2013)
+
+  02 Oct 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +files/media-player-info-21-udev.patch, +media-player-info-21-r1.ebuild:
+  Fix a problem with missing empty line in the udev rule.
+
+  11 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  media-player-info-21.ebuild:
+  Don't reload the /etc/udev/hwdb.bin when $ROOT isn't set or when it isn't /
+
+  11 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  media-player-info-21.ebuild:
+  Run udevadm control --reload to reload the /etc/udev/hwdb.bin after
+  regenerating it.
+
+  09 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  media-player-info-21.ebuild:
+  If USE="hwdb" is missing from virtual/udev, it's always enabled.
+
+  24 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -media-player-info-18.ebuild, -media-player-info-19.ebuild:
+  old
+
+  24 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  media-player-info-21.ebuild:
+  Forgot to add python dependency.
+
+*media-player-info-21 (24 Jul 2013)
+
+  24 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +media-player-info-21.ebuild:
+  Version bump, fixes build failure in non-utf8 locales (bug #477964, thanks to
+  Taahir Ahmed).
+
+*media-player-info-19 (23 Jul 2013)
+
+  23 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +media-player-info-19.ebuild:
+  Version bump (with udev hwdb support as a new feature)
+
+*media-player-info-18 (20 Jul 2013)
+
+  20 Jul 2013; Pacho Ramos <pacho@gentoo.org> +media-player-info-18.ebuild:
+  Version bump (#477334 by teidakankan)
 
   28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
   -media-player-info-16.ebuild:
@@ -111,4 +162,3 @@
   24 Jan 2010; Gilles Dartiguelongue <eva@gentoo.org>
   +media-player-info-4.ebuild, +metadata.xml:
   Initial ebuild, closes bug #291417. Thanks to Giacomo Perale.
-

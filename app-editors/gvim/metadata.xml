@@ -3,7 +3,8 @@
 <pkgmetadata>
 <herd>vim</herd>
 <use>
-  <flag name='netbeans'>Include netbeans externaleditor integration
-    support</flag>
+  <flag name="luajit">Use <pkg>dev-lang/luajit</pkg> instead of <pkg>dev-lang/lua</pkg></flag>
+  <flag name="netbeans">Include netbeans external editor integration support</flag>
+  <flag name="racket">Enable support for Scheme using <pkg>dev-lang/racket</pkg></flag>
 </use>
 </pkgmetadata>

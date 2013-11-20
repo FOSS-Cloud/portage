@@ -1,6 +1,41 @@
 # ChangeLog for dev-python/twisted-mail
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-mail/ChangeLog,v 1.73 2013/04/08 06:47:18 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-mail/ChangeLog,v 1.83 2013/09/06 16:51:10 ago Exp $
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-mail-12.3.0.ebuild:
+  Stable for sparc, wrt bug #468150
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-mail-12.3.0.ebuild:
+  Stable for ppc64, wrt bug #468150
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-mail-12.3.0.ebuild:
+  Stable for ppc, wrt bug #468150
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-mail-12.3.0.ebuild:
+  Stable for ia64, wrt bug #468150
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-mail-12.3.0.ebuild:
+  Stable for alpha, wrt bug #468150
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-mail-12.3.0.ebuild:
+  Stable for x86, wrt bug #468150
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-mail-12.3.0.ebuild:
+  Stable for amd64, wrt bug #468150
+
+  23 Aug 2013; Jeroen Roovers <jer@gentoo.org> twisted-mail-12.3.0.ebuild:
+  Stable for HPPA (bug #468150).
+
+*twisted-mail-13.0.0-r1 (09 Aug 2013)
+
+  09 Aug 2013; Michał Górny <mgorny@gentoo.org> +twisted-mail-13.0.0-r1.ebuild:
+  Migrate to twisted-r1.
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> twisted-mail-10.2.0.ebuild,
+  twisted-mail-11.0.0.ebuild, twisted-mail-11.1.0.ebuild,
+  twisted-mail-12.0.0.ebuild, twisted-mail-12.2.0.ebuild,
+  twisted-mail-12.3.0.ebuild, twisted-mail-13.0.0.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
 
 *twisted-mail-13.0.0 (08 Apr 2013)
 

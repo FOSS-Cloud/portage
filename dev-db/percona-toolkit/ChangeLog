@@ -1,6 +1,25 @@
 # ChangeLog for dev-db/percona-toolkit
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/percona-toolkit/ChangeLog,v 1.3 2013/01/06 21:33:36 robbat2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/percona-toolkit/ChangeLog,v 1.7 2013/10/17 18:45:08 idl0r Exp $
+
+  17 Oct 2013; Christian Ruppert <idl0r@gentoo.org> metadata.xml:
+  Add myself as maintainer
+
+*percona-toolkit-2.2.4 (12 Oct 2013)
+
+  12 Oct 2013; Christian Ruppert <idl0r@gentoo.org>
+  +percona-toolkit-2.2.4.ebuild:
+  Bump, bug 464872
+
+*percona-toolkit-2.1.7-r1 (10 Sep 2013)
+
+  10 Sep 2013; Ian Delaney <idella4@gentoo.org>
+  +percona-toolkit-2.1.7-r1.ebuild, -percona-toolkit-2.1.1.ebuild,
+  -percona-toolkit-2.1.7.ebuild:
+  revbump -> EAPI 5, remove old
+
+  18 Aug 2013; Wolfram Schlich <wschlich@gentoo.org> metadata.xml:
+  removed myself from metadata.xml
 
 *percona-toolkit-2.1.7 (06 Jan 2013)
 

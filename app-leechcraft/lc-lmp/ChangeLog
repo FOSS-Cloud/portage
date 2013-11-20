@@ -1,6 +1,44 @@
 # ChangeLog for app-leechcraft/lc-lmp
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-lmp/ChangeLog,v 1.1 2013/03/08 22:02:05 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-lmp/ChangeLog,v 1.9 2013/09/24 16:54:44 maksbotan Exp $
+
+  24 Sep 2013; Maxim Koltsov <maksbotan@gentoo.org> lc-lmp-9999.ebuild,
+  metadata.xml:
+  Add libguess dependency and useflag to lc-lmp-9999, thanks to 0xd34df00d
+
+*lc-lmp-0.6.0 (24 Sep 2013)
+
+  24 Sep 2013; Maxim Koltsov <maksbotan@gentoo.org> +lc-lmp-0.6.0.ebuild:
+  Bump LeechCraft to 0.6.0
+
+  16 Aug 2013; Maxim Koltsov <maksbotan@gentoo.org> lc-lmp-9999.ebuild:
+  Drop phonon dependecy and USE flag, add media-libs/gstreamer dependency.
+  Thanks to 0xd34df00d
+
+*lc-lmp-0.5.99 (18 Jul 2013)
+
+  18 Jul 2013; <maks@gentoo.org> +lc-lmp-0.5.99.ebuild:
+  Bump app-leechcraft/lc-lmp to 0.5.99, thanks to 0xd34df00d
+
+*lc-lmp-0.5.98 (03 Jul 2013)
+
+  03 Jul 2013; Maxim Koltsov <maksbotan@gentoo.org> +lc-lmp-0.5.98.ebuild:
+  Bump LeechCraft to 0.5.98, thanks to 0xd34df00d.
+
+*lc-lmp-0.5.97 (11 Jun 2013)
+
+  11 Jun 2013; Maxim Koltsov <maksbotan@gentoo.org> +lc-lmp-0.5.97.ebuild:
+  Bump LeechCraft suite to 0.5.97, thanks to 0xd34df00d.
+
+*lc-lmp-0.5.96 (26 May 2013)
+
+  26 May 2013; Maxim Koltsov <maksbotan@gentoo.org> +lc-lmp-0.5.96.ebuild:
+  Bump LeechCraft suite to 0.5.96, thanks to 0xd34df00d
+
+*lc-lmp-0.5.95 (02 May 2013)
+
+  02 May 2013; Sergey Popov <pinkbyte@gentoo.org> +lc-lmp-0.5.95.ebuild:
+  Bump app-leechcraft/lc-lmp to 0.5.95, thanks to 0xd34df00d
 
 *lc-lmp-9999 (08 Mar 2013)
 *lc-lmp-0.5.90 (08 Mar 2013)

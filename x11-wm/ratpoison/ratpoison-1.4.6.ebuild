@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/ratpoison/ratpoison-1.4.6.ebuild,v 1.1 2013/04/08 10:54:42 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/ratpoison/ratpoison-1.4.6.ebuild,v 1.7 2013/07/17 14:44:34 jer Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="http://savannah.nongnu.org/download/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~ppc ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 hppa ppc sparc x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux"
 IUSE="debug emacs +history +xft"
 
 RDEPEND="
@@ -32,7 +32,6 @@ SITEFILE=50ratpoison-gentoo.el
 DOCS=( AUTHORS ChangeLog NEWS README TODO )
 
 src_prepare() {
-	cd "${S}/contrib"
 	epatch "${FILESDIR}/ratpoison.el-gentoo.patch"
 }
 

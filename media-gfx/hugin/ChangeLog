@@ -1,6 +1,27 @@
 # ChangeLog for media-gfx/hugin
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/hugin/ChangeLog,v 1.129 2013/01/04 10:58:39 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/hugin/ChangeLog,v 1.134 2013/10/28 22:18:52 maekke Exp $
+
+*hugin-2013.0.0 (28 Oct 2013)
+
+  28 Oct 2013; Markus Meier <maekke@gentoo.org> -hugin-2011.4.0-r1.ebuild,
+  -hugin-2013.0.0_rc2.ebuild, +hugin-2013.0.0.ebuild:
+  version bump to 2013.0.0 final version, remove old
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> hugin-2012.0.0.ebuild:
+  Stable for ppc, wrt bug #485440
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> hugin-2012.0.0.ebuild:
+  Stable for x86, wrt bug #485440
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> hugin-2012.0.0.ebuild:
+  Stable for amd64, wrt bug #485440
+
+*hugin-2013.0.0_rc2 (19 Sep 2013)
+
+  19 Sep 2013; Markus Meier <maekke@gentoo.org> +hugin-2013.0.0_rc2.ebuild:
+  version bump: migrate to python-single-r1.eclass and use subslot operator
+  deps
 
   04 Jan 2013; Markus Meier <maekke@gentoo.org>
   -files/hugin-2011.0.0_rc1-libpng15.patch:
@@ -588,4 +609,3 @@
   10 Aug 2005; Mark Loeser <halcy0n@gentoo.org> +metadata.xml,
   +hugin-0.5_rc1.ebuild:
   Initial commit of hugin.  Thanks to everyone on bug #48269
-

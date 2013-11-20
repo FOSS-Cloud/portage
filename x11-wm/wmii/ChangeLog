@@ -1,6 +1,19 @@
 # ChangeLog for x11-wm/wmii
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/wmii/ChangeLog,v 1.43 2012/05/04 08:58:55 jdhore Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/wmii/ChangeLog,v 1.46 2013/10/19 15:42:25 pacho Exp $
+
+*wmii-3.9.2-r4 (19 Oct 2013)
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> +wmii-3.9.2-r4.ebuild,
+  -wmii-3.9.2-r3.ebuild:
+  Build dynamically (#273332)
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> -wmii-3.9.2-r2.ebuild,
+  metadata.xml:
+  Cleanup due desktop-wm removal
+
+  09 Apr 2013; Naohiro Aota <naota@gentoo.org> wmii-3.9.2-r3.ebuild:
+  Add ~x86-fbsd wrt bug #157553
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org> wmii-3.9.2-r2.ebuild,
   wmii-3.9.2-r3.ebuild:
@@ -189,4 +202,3 @@
   Initial commit.
   Package.masked because it's a pre-release snapshot.
   Thanks to Ingo Bormuth, René Nussbaumer in bug #83500.
-

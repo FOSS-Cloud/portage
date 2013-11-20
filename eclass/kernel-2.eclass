@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kernel-2.eclass,v 1.281 2013/03/20 16:45:56 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kernel-2.eclass,v 1.290 2013/11/18 13:19:49 tomwij Exp $
 
 # Description: kernel.eclass rewrite for a clean base regarding the 2.6
 #              series of kernel with back-compatibility for 2.4
@@ -40,7 +40,13 @@
 # K_DEFCONFIG			- Allow specifying a different defconfig target.
 #						  If length zero, defaults to "defconfig".
 # K_WANT_GENPATCHES		- Apply genpatches to kernel source. Provide any
-# 						  combination of "base" and "extras"
+# 						  combination of "base", "extras" or "experimental".
+# K_EXP_GENPATCHES_PULL	- If set, we pull "experimental" regardless of the USE FLAG
+#						  but expect the ebuild maintainer to use K_EXP_GENPATCHES_LIST.
+# K_EXP_GENPATCHES_NOUSE	- If set, no USE flag will be provided for "experimental";
+# 						  as a result the user cannot choose to apply those patches.
+# K_EXP_GENPATCHES_LIST	- A list of patches to pick from "experimental" to apply when
+# 						  the USE flag is unset and K_EXP_GENPATCHES_PULL is set.
 # K_GENPATCHES_VER		- The version of the genpatches tarball(s) to apply.
 #						  A value of "5" would apply genpatches-2.6.12-5 to
 #						  my-sources-2.6.12.ebuild
@@ -68,6 +74,11 @@
 #						  the doc dir
 # UNIPATCH_STRICTORDER	- if this is set places patches into directories of
 #						  order, so they are applied in the order passed
+
+# Changing any other variable in this eclass is not supported; you can request
+# for additional variables to be added by contacting the current maintainer.
+# If you do change them, there is a chance that we will not fix resulting bugs;
+# that of course does not mean we're not willing to help.
 
 inherit eutils toolchain-funcs versionator multilib
 EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
@@ -125,18 +136,32 @@ handle_genpatches() {
 	# respectively.  Handle this.
 
 	for i in ${K_WANT_GENPATCHES} ; do
-	if [[ ${KV_MAJOR} -ge 3 ]]; then
-		if [[ ${#OKV_ARRAY[@]} -ge 3 ]]; then
-			tarball="genpatches-${KV_MAJOR}.${KV_MINOR}-${K_GENPATCHES_VER}.${i}.tar.xz"
+		if [[ ${KV_MAJOR} -ge 3 ]]; then
+			if [[ ${#OKV_ARRAY[@]} -ge 3 ]]; then
+				tarball="genpatches-${KV_MAJOR}.${KV_MINOR}-${K_GENPATCHES_VER}.${i}.tar.xz"
+			else
+				tarball="genpatches-${KV_MAJOR}.${KV_PATCH}-${K_GENPATCHES_VER}.${i}.tar.xz"
+			fi
 		else
-			tarball="genpatches-${KV_MAJOR}.${KV_PATCH}-${K_GENPATCHES_VER}.${i}.tar.xz"
+			tarball="genpatches-${OKV}-${K_GENPATCHES_VER}.${i}.tar.xz"
 		fi
-	else
-		tarball="genpatches-${OKV}-${K_GENPATCHES_VER}.${i}.tar.xz"
-	fi
-	debug-print "genpatches tarball: $tarball"
-	GENPATCHES_URI="${GENPATCHES_URI} mirror://gentoo/${tarball}"
-	UNIPATCH_LIST_GENPATCHES="${UNIPATCH_LIST_GENPATCHES} ${DISTDIR}/${tarball}"
+
+		local use_cond_start="" use_cond_end=""
+
+		if [[ "${i}" == "experimental" && -z ${K_EXP_GENPATCHES_PULL} && -z ${K_EXP_GENPATCHES_NOUSE} ]] ; then
+			use_cond_start="experimental? ( "
+			use_cond_end=" )"
+
+			if use experimental ; then
+				UNIPATCH_LIST_GENPATCHES+=" ${DISTDIR}/${tarball}"
+				debug-print "genpatches tarball: $tarball"
+			fi
+		else
+			UNIPATCH_LIST_GENPATCHES+=" ${DISTDIR}/${tarball}"
+			debug-print "genpatches tarball: $tarball"
+		fi
+
+		GENPATCHES_URI+=" ${use_cond_start}mirror://gentoo/${tarball}${use_cond_end}"
 	done
 }
 
@@ -421,7 +446,7 @@ if [[ ${ETYPE} == sources ]]; then
 	PDEPEND="!build? ( virtual/dev-manager )"
 
 	SLOT="${PVR}"
-	DESCRIPTION="Sources for the ${KV_MAJOR}.${KV_MINOR:-$KV_PATCH} linux kernel"
+	DESCRIPTION="Sources based on the Linux Kernel."
 	IUSE="symlink build"
 
 	# Bug #266157, deblob for libre support
@@ -684,7 +709,6 @@ install_headers() {
 		emake headers_install INSTALL_HDR_PATH="${D}"/${ddir}/.. ${xmakeopts} || die
 
 		# let other packages install some of these headers
-		rm -rf "${D}"/${ddir}/sound #alsa-headers
 		rm -rf "${D}"/${ddir}/scsi  #glibc/uclibc/etc...
 		return 0
 	fi
@@ -736,6 +760,12 @@ install_sources() {
 	fi
 
 	mv ${WORKDIR}/linux* "${D}"/usr/src
+
+	if [[ -n "${UNIPATCH_DOCS}" ]] ; then
+		for i in ${UNIPATCH_DOCS}; do
+			dodoc "${T}"/${i}
+		done
+	fi
 }
 
 # pkg_preinst functions
@@ -804,7 +834,8 @@ postinst_sources() {
 	# optionally display security unsupported message
 	#  Start with why
 	if [[ ${K_SECURITY_UNSUPPORTED} = deblob ]]; then
-		ewarn "Deblobbed kernels are UNSUPPORTED by Gentoo Security."
+		ewarn "Deblobbed kernels may not be up-to-date security-wise"
+		ewarn "as they depend on external scripts."
 	elif [[ -n ${K_SECURITY_UNSUPPORTED} ]]; then
 		ewarn "${PN} is UNSUPPORTED by Gentoo Security."
 	fi
@@ -907,7 +938,7 @@ unipatch() {
 				     xz) PIPE_CMD="xz -dc";;
 				   lzma) PIPE_CMD="lzma -dc";;
 				    bz2) PIPE_CMD="bzip2 -dc";;
-				  patch) PIPE_CMD="cat";;
+				  patch*) PIPE_CMD="cat";;
 				   diff) PIPE_CMD="cat";;
 				 gz|Z|z) PIPE_CMD="gzip -dc";;
 				ZIP|zip) PIPE_CMD="unzip -p";;
@@ -943,6 +974,21 @@ unipatch() {
 					$(${PIPE_CMD} ${i} > ${KPATCH_DIR}/${x}.patch${PATCH_LEVEL}) || die "uncompressing patch failed"
 				fi
 			fi
+		fi
+
+		# If experimental was not chosen by the user, drop experimental patches not in K_EXP_GENPATCHES_LIST.
+		if [[ "${i}" == *"genpatches-"*".experimental."* && -n ${K_EXP_GENPATCHES_PULL} ]] ; then
+			if [[ -z ${K_EXP_GENPATCHES_NOUSE} ]] && use experimental; then
+				continue
+			fi
+
+			local j
+			for j in ${KPATCH_DIR}/*/50*_*.patch*; do
+				for k in ${K_EXP_GENPATCHES_LIST} ; do
+					[[ "$(basename ${j})" == ${k}* ]] && continue 2
+				done
+				UNIPATCH_DROP+=" $(basename ${j})"
+			done
 		fi
 	done
 
@@ -985,12 +1031,12 @@ unipatch() {
 
 			if [ -z "${PATCH_DEPTH}" ]; then PATCH_DEPTH=0; fi
 
-			ebegin "Applying ${i/*\//} (-p${PATCH_DEPTH}+)"
 			while [ ${PATCH_DEPTH} -lt 5 ]; do
 				echo "Attempting Dry-run:" >> ${STDERR_T}
 				echo "cmd: patch -p${PATCH_DEPTH} --no-backup-if-mismatch --dry-run -f < ${i}" >> ${STDERR_T}
 				echo "=======================================================" >> ${STDERR_T}
 				if [ $(patch -p${PATCH_DEPTH} --no-backup-if-mismatch --dry-run -f < ${i} >> ${STDERR_T}) $? -eq 0 ]; then
+					ebegin "Applying ${i/*\//} (-p${PATCH_DEPTH})"
 					echo "Attempting patch:" > ${STDERR_T}
 					echo "cmd: patch -p${PATCH_DEPTH} --no-backup-if-mismatch -f < ${i}" >> ${STDERR_T}
 					echo "=======================================================" >> ${STDERR_T}
@@ -1003,28 +1049,38 @@ unipatch() {
 						eerror "Failed to apply patch ${i/*\//}"
 						eerror "Please attach ${STDERR_T} to any bug you may post."
 						eshopts_pop
-						die "Failed to apply ${i/*\//}"
+						die "Failed to apply ${i/*\//} on patch depth ${PATCH_DEPTH}."
 					fi
 				else
 					PATCH_DEPTH=$((${PATCH_DEPTH} + 1))
 				fi
 			done
 			if [ ${PATCH_DEPTH} -eq 5 ]; then
-				eend 1
+				eerror "Failed to dry-run patch ${i/*\//}"
 				eerror "Please attach ${STDERR_T} to any bug you may post."
 				eshopts_pop
-				die "Unable to dry-run patch."
+				die "Unable to dry-run patch on any patch depth lower than 5."
 			fi
 		done
 	done
 
-	# This is a quick, and kind of nasty hack to deal with UNIPATCH_DOCS which
-	# sit in KPATCH_DIR's. This is handled properly in the unipatch rewrite,
-	# which is why I'm not taking too much time over this.
+	# When genpatches is used, we want to install 0000_README which documents
+	# the patches that were used; such that the user can see them, bug #301478.
+	if [[ ! -z ${K_WANT_GENPATCHES} ]] ; then
+		UNIPATCH_DOCS="${UNIPATCH_DOCS} 0000_README"
+	fi
+
+	# When files listed in UNIPATCH_DOCS are found in KPATCH_DIR's, we copy it
+	# to the temporary directory and remember them in UNIPATCH_DOCS to install
+	# them during the install phase.
 	local tmp
-	for i in ${UNIPATCH_DOCS}; do
-		tmp="${tmp} ${i//*\/}"
-		cp -f ${i} "${T}"/
+	for x in ${KPATCH_DIR}; do
+		for i in ${UNIPATCH_DOCS}; do
+			if [[ -f "${x}/${i}" ]] ; then
+				tmp="${tmp} ${i}"
+				cp -f "${x}/${i}" "${T}"/
+			fi
+		done
 	done
 	UNIPATCH_DOCS="${tmp}"
 
@@ -1152,11 +1208,11 @@ kernel-2_src_unpack() {
 	if [[ -n ${KV_MINOR} &&  ${KV_MAJOR}.${KV_MINOR}.${KV_PATCH} < 2.6.27 ]]
 	then
 		sed -i \
-			-e 's|TOUT	:= .tmp_gas_check|TOUT	:= $(T).tmp_gas_check|' \
+			-e 's|TOUT      := .tmp_gas_check|TOUT  := $(T).tmp_gas_check|' \
 			"${S}"/arch/ppc/Makefile
 	else
 		sed -i \
-			-e 's|TOUT	:= .tmp_gas_check|TOUT	:= $(T).tmp_gas_check|' \
+			-e 's|TOUT      := .tmp_gas_check|TOUT  := $(T).tmp_gas_check|' \
 			"${S}"/arch/powerpc/Makefile
 	fi
 }

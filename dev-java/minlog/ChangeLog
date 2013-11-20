@@ -1,0 +1,12 @@
+# ChangeLog for dev-java/minlog
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/minlog/ChangeLog,v 1.2 2013/09/26 02:29:33 radhermit Exp $
+
+  26 Sep 2013; Tim Harder <radhermit@gentoo.org> minlog-1.2.ebuild:
+  Use correct BSD license.
+
+*minlog-1.2 (11 Sep 2013)
+
+  11 Sep 2013; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +minlog-1.2.ebuild:
+  Added ebuild for minlog-1.2 - Minimal overhead logging for java

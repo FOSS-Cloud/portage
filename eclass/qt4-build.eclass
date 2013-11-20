@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/qt4-build.eclass,v 1.145 2013/04/07 21:14:46 pesa Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/qt4-build.eclass,v 1.154 2013/11/11 19:47:39 pesa Exp $
 
 # @ECLASS: qt4-build.eclass
 # @MAINTAINER:
@@ -10,7 +10,7 @@
 # This eclass contains various functions that are used when building Qt4.
 
 case ${EAPI} in
-	3|4|5)	: ;;
+	4|5)	: ;;
 	*)	die "qt4-build.eclass: unsupported EAPI=${EAPI:-0}" ;;
 esac
 
@@ -18,7 +18,7 @@ inherit eutils flag-o-matic multilib toolchain-funcs versionator
 
 if [[ ${PV} == *9999* ]]; then
 	QT4_BUILD_TYPE="live"
-	inherit git-2
+	inherit git-r3
 else
 	QT4_BUILD_TYPE="release"
 fi
@@ -26,22 +26,25 @@ fi
 HOMEPAGE="http://qt-project.org/ http://qt.digia.com/"
 LICENSE="|| ( LGPL-2.1 GPL-3 )"
 
-MY_PV=${PV/_/-}
-MY_P=qt-everywhere-opensource-src-${MY_PV}
-
 case ${QT4_BUILD_TYPE} in
 	live)
-		EGIT_REPO_URI="git://gitorious.org/qt/qt.git
-			https://git.gitorious.org/qt/qt.git"
+		EGIT_REPO_URI=(
+			"git://gitorious.org/qt/qt.git"
+			"https://git.gitorious.org/qt/qt.git"
+		)
 		EGIT_BRANCH=${PV%.9999}
 		;;
 	release)
-		SRC_URI="http://releases.qt-project.org/qt4/source/${MY_P}.tar.gz"
+		MY_P=qt-everywhere-opensource-src-${PV/_/-}
+		SRC_URI="http://download.qt-project.org/official_releases/qt/${PV%.*}/${PV}/${MY_P}.tar.gz"
+		S=${WORKDIR}/${MY_P}
 		;;
 esac
 
 IUSE="aqua debug pch"
-[[ ${CATEGORY}/${PN} != dev-qt/qtwebkit ]] && IUSE+=" c++0x"
+if ! version_is_at_least 4.8.5; then
+	[[ ${CATEGORY}/${PN} != dev-qt/qtwebkit ]] && IUSE+=" c++0x"
+fi
 [[ ${CATEGORY}/${PN} != dev-qt/qtxmlpatterns ]] && IUSE+=" +exceptions"
 
 DEPEND="virtual/pkgconfig"
@@ -49,22 +52,16 @@ if [[ ${QT4_BUILD_TYPE} == live ]]; then
 	DEPEND+=" dev-lang/perl"
 fi
 
-S=${WORKDIR}/${MY_P}
-
 # @FUNCTION: qt4-build_pkg_setup
 # @DESCRIPTION:
 # Sets up PATH and LD_LIBRARY_PATH.
 qt4-build_pkg_setup() {
-	# Protect users by not allowing downgrades between releases.
-	# Downgrading revisions within the same release should be allowed.
+	# Warn users of possible breakage when downgrading to a previous release.
+	# Downgrading revisions within the same release is safe.
 	if has_version ">${CATEGORY}/${P}-r9999:4"; then
-		if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
-			eerror "    ***  Sanity check to keep you from breaking your system  ***"
-			eerror "Downgrading Qt is completely unsupported and will break your system!"
-			die "aborting to save your system"
-		else
-			ewarn "Downgrading Qt is completely unsupported and will break your system!"
-		fi
+		ewarn
+		ewarn "Downgrading Qt is completely unsupported and can break your system!"
+		ewarn
 	fi
 
 	PATH="${S}/bin${PATH:+:}${PATH}"
@@ -99,26 +96,28 @@ qt4-build_pkg_setup() {
 qt4-build_src_unpack() {
 	setqtenv
 
-	if ! version_is_at_least 4.1 $(gcc-version); then
-		ewarn "Using a GCC version lower than 4.1 is not supported."
+	if ! version_is_at_least 4.4 $(gcc-version); then
+		ewarn
+		ewarn "Using a GCC version lower than 4.4 is not supported."
+		ewarn
 	fi
 
 	if [[ ${CATEGORY}/${PN} == dev-qt/qtwebkit ]]; then
 		eshopts_push -s extglob
 		if is-flagq '-g?(gdb)?([1-9])'; then
-			echo
+			ewarn
 			ewarn "You have enabled debug info (probably have -g or -ggdb in your CFLAGS/CXXFLAGS)."
 			ewarn "You may experience really long compilation times and/or increased memory usage."
 			ewarn "If compilation fails, please try removing -g/-ggdb before reporting a bug."
 			ewarn "For more info check out https://bugs.gentoo.org/307861"
-			echo
+			ewarn
 		fi
 		eshopts_pop
 	fi
 
 	case ${QT4_BUILD_TYPE} in
 		live)
-			git-2_src_unpack
+			git-r3_src_unpack
 			;;
 		release)
 			local tarball="${MY_P}.tar.gz" target= targets=
@@ -152,7 +151,7 @@ qt4-build_src_unpack() {
 # @FUNCTION: qt4-build_src_prepare
 # @DESCRIPTION:
 # Prepare the sources before the configure phase. Strip CFLAGS if necessary, and fix
-# the build system in order to respect CFLAGS/CXXFLAGS/LDFLAGS specified in /etc/make.conf.
+# the build system in order to respect CFLAGS/CXXFLAGS/LDFLAGS specified in make.conf.
 qt4-build_src_prepare() {
 	setqtenv
 
@@ -161,7 +160,7 @@ qt4-build_src_prepare() {
 	fi
 
 	# avoid X11 dependency in non-gui packages
-	local nolibx11_pkgs="qtcore qtdbus qtscript qtsql qttest qtxmlpatterns"
+	local nolibx11_pkgs="qtbearer qtcore qtdbus qtscript qtsql qttest qtxmlpatterns"
 	has ${PN} ${nolibx11_pkgs} && qt_nolibx11
 
 	if use aqua; then
@@ -179,35 +178,25 @@ qt4-build_src_prepare() {
 		symlink_binaries_to_buildtree
 	fi
 
-	if [[ ${CHOST} == *86*-apple-darwin* ]]; then
-		# qmake bus errors with -O2 or -O3 but -O1 works
-		# Bug 373061
-		replace-flags -O[23] -O1
-	fi
-
-	# Bug 178652
-	if [[ $(gcc-major-version) == 3 ]] && use amd64; then
-		ewarn "Appending -fno-gcse to CFLAGS/CXXFLAGS"
-		append-flags -fno-gcse
-	fi
-
 	if use_if_iuse c++0x; then
 		append-cxxflags -std=c++0x
 	fi
 
-	# Unsupported old gcc versions - hardened needs this :(
-	if [[ $(gcc-major-version) -lt 4 ]]; then
-		ewarn "Appending -fno-stack-protector to CXXFLAGS"
-		append-cxxflags -fno-stack-protector
-		# Bug 253127
-		sed -e "/^QMAKE_CFLAGS\t/ s:$: -fno-stack-protector-all:" \
-			-i mkspecs/common/g++.conf || die
-	fi
-
 	# Bug 261632
 	if use ppc64; then
-		ewarn "Appending -mminimal-toc to CFLAGS/CXXFLAGS"
 		append-flags -mminimal-toc
+	fi
+
+	# Bug 373061
+	# qmake bus errors with -O2 or -O3 but -O1 works
+	if [[ ${CHOST} == *86*-apple-darwin* ]]; then
+		replace-flags -O[23] -O1
+	fi
+
+	# Bug 417105
+	# graphite on gcc 4.7 causes miscompilations
+	if [[ $(gcc-version) == "4.7" ]]; then
+		filter-flags -fgraphite-identity
 	fi
 
 	# Respect CC, CXX, {C,CXX,LD}FLAGS in .qmake.cache
@@ -552,8 +541,7 @@ build_directories() {
 			CXX="$(tc-getCXX)" \
 			LINK="$(tc-getCXX)" \
 			RANLIB=":" \
-			STRIP=":" \
-			|| die "emake failed"
+			STRIP=":"
 		popd >/dev/null || die
 	done
 }
@@ -566,7 +554,7 @@ build_directories() {
 install_directories() {
 	for x in "$@"; do
 		pushd "${S}"/${x} >/dev/null || die
-		emake INSTALL_ROOT="${D}" install || die "emake install failed"
+		emake INSTALL_ROOT="${D}" install
 		popd >/dev/null || die
 	done
 }
@@ -597,7 +585,7 @@ install_qconfigs() {
 			[[ -n ${!x} ]] && echo ${x}=${!x} >> "${T}"/${PN}-qconfig.pri
 		done
 		insinto ${QTDATADIR#${EPREFIX}}/mkspecs/gentoo
-		doins "${T}"/${PN}-qconfig.pri || die "installing ${PN}-qconfig.pri failed"
+		doins "${T}"/${PN}-qconfig.pri
 	fi
 
 	if [[ -n ${QCONFIG_DEFINE} ]]; then
@@ -605,7 +593,7 @@ install_qconfigs() {
 			echo "#define ${x}" >> "${T}"/gentoo-${PN}-qconfig.h
 		done
 		insinto ${QTHEADERDIR#${EPREFIX}}/Gentoo
-		doins "${T}"/gentoo-${PN}-qconfig.h || die "installing ${PN}-qconfig.h failed"
+		doins "${T}"/gentoo-${PN}-qconfig.h
 	fi
 }
 
@@ -805,10 +793,9 @@ qt_mkspecs_dir() {
 # @FUNCTION: qt_nolibx11
 # @INTERNAL
 # @DESCRIPTION:
-# Ignore X11 tests for packages that don't need X libraries installed.
+# Skip X11 tests for packages that don't need X libraries installed.
 qt_nolibx11() {
-	sed -i "/unixtests\/compile.test.*config.tests\/x11\/xlib/,/fi$/d" "${S}"/configure ||
-		die "x11 check sed failed"
+	sed -i -e '/^if.*PLATFORM_X11.*CFG_GUI/,/^fi$/d' "${S}"/configure || die
 }
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_install src_test pkg_postrm pkg_postinst

@@ -1,6 +1,78 @@
 # ChangeLog for dev-qt/qt-creator
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-qt/qt-creator/ChangeLog,v 1.6 2013/03/23 07:44:22 pesa Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-qt/qt-creator/ChangeLog,v 1.24 2013/10/23 13:08:04 pesa Exp $
+
+*qt-creator-3.0.0_beta (23 Oct 2013)
+
+  23 Oct 2013; Davide Pesavento <pesa@gentoo.org> +qt-creator-3.0.0_beta.ebuild,
+  metadata.xml:
+  Version bump.
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> qt-creator-2.8.1.ebuild:
+  Stable for x86, wrt bug #486468
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> qt-creator-2.8.1.ebuild:
+  Stable for amd64, wrt bug #486468
+
+  29 Sep 2013; Davide Pesavento <pesa@gentoo.org> -qt-creator-2.5.2.ebuild,
+  -qt-creator-2.7.2.ebuild, -qt-creator-2.8.0.ebuild, metadata.xml:
+  Cleanup old versions.
+
+*qt-creator-2.8.1 (29 Aug 2013)
+
+  29 Aug 2013; Davide Pesavento <pesa@gentoo.org> +qt-creator-2.8.1.ebuild:
+  Version bump.
+
+  15 Aug 2013; Davide Pesavento <pesa@gentoo.org> metadata.xml:
+  Remove hwoarang from metadata, ack'ed by him on IRC.
+
+  15 Aug 2013; Davide Pesavento <pesa@gentoo.org> qt-creator-2.7.0.ebuild,
+  qt-creator-2.7.2.ebuild, qt-creator-2.8.0.ebuild:
+  dev-libs/botan must be built with USE="threads", thanks to Bjoern Thorwirth in
+  bug 480992.
+
+  09 Aug 2013; Michael Weber <xmw@gentoo.org> metadata.xml:
+  global use flag "git"
+
+*qt-creator-2.7.2 (27 Jul 2013)
+*qt-creator-2.8.0 (27 Jul 2013)
+
+  27 Jul 2013; Davide Pesavento <pesa@gentoo.org> +qt-creator-2.7.2.ebuild,
+  +qt-creator-2.8.0.ebuild, -qt-creator-2.6.2.ebuild, -qt-creator-2.7.1.ebuild,
+  -qt-creator-2.8.0_rc.ebuild:
+  Version bump for both 2.7 and 2.8 series.
+
+  27 Jul 2013; Davide Pesavento <pesa@gentoo.org> metadata.xml:
+  Put myself as primary maintainer.
+
+  10 Jul 2013; Davide Pesavento <pesa@gentoo.org> qt-creator-2.8.0_rc.ebuild:
+  Remove bundled qbs (bug 476256).
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> qt-creator-2.7.0.ebuild:
+  Stable for x86, wrt bug #472148
+
+*qt-creator-2.8.0_rc (30 Jun 2013)
+
+  30 Jun 2013; Davide Pesavento <pesa@gentoo.org> +qt-creator-2.8.0_rc.ebuild:
+  Version bump.
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> qt-creator-2.7.0.ebuild:
+  Stable for ppc, wrt bug #472148
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> qt-creator-2.7.0.ebuild:
+  Stable for amd64, wrt bug #472148
+
+*qt-creator-2.7.1 (03 Jun 2013)
+
+  03 Jun 2013; Davide Pesavento <pesa@gentoo.org> +qt-creator-2.7.1.ebuild,
+  qt-creator-2.7.0.ebuild:
+  Version bump, also fixing bug 449992.
+
+  24 Apr 2013; Agostino Sarubbo <ago@gentoo.org> qt-creator-2.7.0.ebuild:
+  Add ~ppc, wrt bug #460762
+
+  08 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> qt-creator-2.7.0.ebuild:
+  Add ~arm keyword, wrt bug #454916
 
 *qt-creator-2.7.0 (23 Mar 2013)
 

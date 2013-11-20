@@ -1,6 +1,100 @@
 # ChangeLog for dev-lang/swi-prolog
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/swi-prolog/ChangeLog,v 1.378 2013/02/26 19:16:16 keri Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/swi-prolog/ChangeLog,v 1.400 2013/08/22 12:20:37 keri Exp $
+
+*swi-prolog-6.5.2 (22 Aug 2013)
+
+  22 Aug 2013; <keri@gentoo.org> +swi-prolog-6.5.2.ebuild:
+  Bump -6.5 development version
+
+  13 Aug 2013; <keri@gentoo.org> -swi-prolog-6.3.18.ebuild,
+  -swi-prolog-6.3.19.ebuild:
+  Remove old -6.3 development versions
+
+*swi-prolog-6.5.1 (13 Aug 2013)
+
+  13 Aug 2013; <keri@gentoo.org> +swi-prolog-6.5.1.ebuild:
+  Bump -6.5 development version
+
+*swi-prolog-6.5.0 (30 Jul 2013)
+
+  30 Jul 2013; <keri@gentoo.org> +swi-prolog-6.5.0.ebuild:
+  Add new -6.5 development version
+
+  30 Jul 2013; <keri@gentoo.org> -swi-prolog-6.2.5.ebuild:
+  Remove old versions
+
+*swi-prolog-6.4.1 (26 Jul 2013)
+
+  26 Jul 2013; <keri@gentoo.org> +swi-prolog-6.4.1.ebuild:
+  Version bump
+
+  18 Jul 2013; <keri@gentoo.org> -swi-prolog-6.3.15.ebuild,
+  -swi-prolog-6.3.16.ebuild, -swi-prolog-6.3.17.ebuild:
+  Remove old development versions
+
+*swi-prolog-6.4.0 (17 Jul 2013)
+
+  17 Jul 2013; <keri@gentoo.org> +swi-prolog-6.4.0.ebuild:
+  Version bump
+
+*swi-prolog-6.3.19 (12 Jul 2013)
+
+  12 Jul 2013; <keri@gentoo.org> +swi-prolog-6.3.19.ebuild:
+  Bump -6.3 development version
+
+*swi-prolog-6.3.18 (04 Jul 2013)
+
+  04 Jul 2013; <keri@gentoo.org> +swi-prolog-6.3.18.ebuild:
+  Bump -6.3 development version
+
+  01 Jul 2013; Fabian Groffen <grobian@gentoo.org> swi-prolog-6.3.17.ebuild:
+  Marked ~ppc-macos, bug #475236
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swi-prolog-6.2.6.ebuild:
+  Stable for amd64, wrt bug #473922
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swi-prolog-6.2.6.ebuild:
+  Stable for x86, wrt bug #473922
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swi-prolog-6.2.6.ebuild:
+  Stable for ppc, wrt bug #473922
+
+*swi-prolog-6.3.17 (19 Jun 2013)
+
+  19 Jun 2013; <keri@gentoo.org> +swi-prolog-6.3.17.ebuild:
+  Bump -6.3 development version
+
+  18 Jun 2013; <keri@gentoo.org> swi-prolog-6.2.6.ebuild:
+  Suppress JPL unit test causing known stack overflow
+
+  17 Jun 2013; <keri@gentoo.org> -swi-prolog-6.3.12.ebuild,
+  -swi-prolog-6.3.13.ebuild, -swi-prolog-6.3.14.ebuild:
+  Remove old development versions
+
+*swi-prolog-6.3.16 (09 Jun 2013)
+
+  09 Jun 2013; <keri@gentoo.org> +swi-prolog-6.3.16.ebuild:
+  Bump -6.3 development version
+
+*swi-prolog-6.3.15 (05 May 2013)
+
+  05 May 2013; <keri@gentoo.org> +swi-prolog-6.3.15.ebuild:
+  Bump -6.3 development version
+
+*swi-prolog-6.3.14 (21 Apr 2013)
+
+  21 Apr 2013; <keri@gentoo.org> +swi-prolog-6.3.14.ebuild:
+  Bump -6.3 development version
+
+  21 Apr 2013; <keri@gentoo.org> -swi-prolog-6.3.9.ebuild,
+  -swi-prolog-6.3.10.ebuild, -swi-prolog-6.3.11.ebuild:
+  Remove old development versions
+
+*swi-prolog-6.3.13 (09 Apr 2013)
+
+  09 Apr 2013; <keri@gentoo.org> +swi-prolog-6.3.13.ebuild:
+  Bump -6.3 development version
 
 *swi-prolog-6.3.12 (26 Feb 2013)
 

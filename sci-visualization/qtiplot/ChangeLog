@@ -1,6 +1,42 @@
 # ChangeLog for sci-visualization/qtiplot
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/qtiplot/ChangeLog,v 1.98 2013/03/02 23:28:36 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-visualization/qtiplot/ChangeLog,v 1.104 2013/11/18 08:05:42 jlec Exp $
+
+  18 Nov 2013; Justin Lecher <jlec@gentoo.org> qtiplot-0.9.8.9-r2.ebuild,
+  +files/qtiplot-0.9.8.9-sip-4.15.patch:
+  Import fix for latest sip from freebsd ports, #490886
+
+  01 Nov 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  qtiplot-0.9.8.9-r2.ebuild, +files/qtiplot-0.9.8.9-private.patch:
+  Add build fix from bug 485940, thanks Vadim Dyadkin
+
+  31 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  qtiplot-0.9.8.9-r2.ebuild:
+  Add subslot dependencies on boost and libpng
+
+  12 Jul 2013; Justin Lecher <jlec@gentoo.org> qtiplot-0.9.8.9-r2.ebuild:
+  Really fix the python problem, #475806
+
+  10 Jul 2013; Justin Lecher <jlec@gentoo.org> qtiplot-0.9.8.9-r2.ebuild:
+  Fix installation with USE=-python, #475806
+
+*qtiplot-0.9.8.9-r2 (04 Jul 2013)
+
+  04 Jul 2013; Justin Lecher <jlec@gentoo.org> +qtiplot-0.9.8.9-r2.ebuild,
+  -files/qtiplot-0.9.7.12-system-QTeXEngine.patch,
+  -files/qtiplot-0.9.7.12-system-gl2ps.patch,
+  -files/qtiplot-0.9.7.12-system-liborigin.patch,
+  -files/qtiplot-0.9.7.14-system-2dplot.patch,
+  -files/qtiplot-0.9.7.14-system-liborigin.patch,
+  -files/qtiplot-0.9.8.2-origin-build-failure.patch,
+  -files/qtiplot-0.9.8.2-syslibs.patch, -files/qtiplot-0.9.8.3-odf.patch,
+  -files/qtiplot-0.9.8.3-origin.patch, -files/qtiplot-0.9.8.3-plot.patch,
+  -files/qtiplot-0.9.8.3-popup.patch, -files/qtiplot-0.9.8.5-tamuanova.patch,
+  -files/qtiplot-0.9.8.6-kde.patch, -files/qtiplot-0.9.8.6-tamuanova.patch,
+  +files/qtiplot-0.9.8.9-adopt_to_alglib3.patch,
+  +files/qtiplot-0.9.8.9-crasher_without_internet.patch,
+  +files/qtiplot-0.9.8.9-set_col_values.patch, metadata.xml:
+  Import various fixes from debian
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> qtiplot-0.9.8.9-r1.ebuild:
   Move Qt dependencies to the new category

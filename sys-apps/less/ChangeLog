@@ -1,6 +1,31 @@
 # ChangeLog for sys-apps/less
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/less/ChangeLog,v 1.172 2013/04/04 17:30:31 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/less/ChangeLog,v 1.178 2013/09/05 09:51:51 vapier Exp $
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> less-457.ebuild:
+  Mark m68k stable #450608.
+
+  06 Aug 2013; Mike Frysinger <vapier@gentoo.org> files/lesspipe.sh:
+  Handle csr/crt files with openssl.
+
+*less-460 (09 Jul 2013)
+
+  09 Jul 2013; Tim Harder <radhermit@gentoo.org> +less-460.ebuild:
+  Version bump.
+
+*less-459 (28 May 2013)
+
+  28 May 2013; Mike Frysinger <vapier@gentoo.org> +less-459.ebuild:
+  Version bump #471400 by Agostino Sarubbo.
+
+  11 May 2013; Markos Chandras <hwoarang@gentoo.org> less-436.ebuild,
+  less-441.ebuild, less-443.ebuild, less-444.ebuild, less-445-r1.ebuild,
+  less-445.ebuild, less-449.ebuild, less-450.ebuild, less-451.ebuild,
+  less-456.ebuild, less-457.ebuild, less-458.ebuild:
+  Replace einfo messages with elog. Bug #448268
+
+  29 Apr 2013; Mike Frysinger <vapier@gentoo.org> files/lesspipe.sh:
+  Add webm/webp formats.
 
 *less-458 (04 Apr 2013)
 

@@ -1,6 +1,70 @@
 # ChangeLog for dev-python/pyopenssl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyopenssl/ChangeLog,v 1.91 2013/02/21 09:28:59 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyopenssl/ChangeLog,v 1.111 2013/10/10 11:41:40 djc Exp $
+
+  10 Oct 2013; Dirkjan Ochtman <djc@gentoo.org> pyopenssl-0.13.1-r1.ebuild:
+  Add comment with upstream bug.
+
+*pyopenssl-0.13.1-r1 (10 Oct 2013)
+
+  10 Oct 2013; Dirkjan Ochtman <djc@gentoo.org> +pyopenssl-0.13.1-r1.ebuild:
+  Remove temporary files after testing (fixes bug 487296).
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13.1.ebuild:
+  Stable for sparc, wrt bug #484032
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13.1.ebuild:
+  Stable for ppc64, wrt bug #484032
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13.1.ebuild:
+  Stable for arm, wrt bug #484032
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13.1.ebuild:
+  Stable for ppc, wrt bug #484032
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13.1.ebuild:
+  Stable for alpha, wrt bug #484032
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13.1.ebuild:
+  Stable for ia64, wrt bug #484032
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> pyopenssl-0.13.1.ebuild:
+  Stable for HPPA (bug #484032).
+
+  02 Oct 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13.1.ebuild:
+  Stable for x86, wrt bug #484032
+
+  02 Oct 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13.1.ebuild:
+  Stable for amd64, wrt bug #484032
+
+*pyopenssl-0.13.1 (12 Sep 2013)
+
+  12 Sep 2013; Patrick Lauer <patrick@gentoo.org> +pyopenssl-0.13.1.ebuild:
+  Bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pyopenssl-0.13-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13-r1.ebuild:
+  Stable for sparc, wrt bug #465198
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13-r1.ebuild:
+  Stable for ia64, wrt bug #465198
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13-r1.ebuild:
+  Stable for alpha, wrt bug #465198
+
+  16 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13-r1.ebuild:
+  Stable for ppc64, wrt bug #465198
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13-r1.ebuild:
+  Stable for ppc, wrt bug #465198
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13-r1.ebuild:
+  Stable for x86, wrt bug #465198
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pyopenssl-0.13-r1.ebuild:
+  Stable for amd64, wrt bug #465198
 
   21 Feb 2013; Michał Górny <mgorny@gentoo.org> pyopenssl-0.13-r1.ebuild:
   Make tests fatal.

@@ -1,6 +1,48 @@
 # ChangeLog for dev-python/reportlab
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/reportlab/ChangeLog,v 1.86 2013/01/22 21:30:43 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/reportlab/ChangeLog,v 1.99 2013/09/25 17:27:36 ago Exp $
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> reportlab-2.6.ebuild:
+  Stable for ppc, wrt bug #484698
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> reportlab-2.6.ebuild:
+  Stable for sparc, wrt bug #484698
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> reportlab-2.6.ebuild:
+  Stable for ppc64, wrt bug #484698
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> reportlab-2.6.ebuild:
+  Stable for alpha, wrt bug #484698
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> reportlab-2.6.ebuild:
+  Stable for x86, wrt bug #484698
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> reportlab-2.6.ebuild:
+  Stable for amd64, wrt bug #484698
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> reportlab-2.6.ebuild:
+  Stable for ia64, wrt bug #484698
+
+  13 Sep 2013; Jeroen Roovers <jer@gentoo.org> reportlab-2.6.ebuild:
+  Stable for HPPA (bug #484780).
+
+  13 Sep 2013; Mike Gilbert <floppym@gentoo.org> reportlab-2.6.ebuild:
+  Use pushd/popd in python_test, bug 484780.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> reportlab-2.6.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  08 Jun 2013; Mike Gilbert <floppym@gentoo.org> reportlab-2.5-r1.ebuild,
+  reportlab-2.5.ebuild, reportlab-2.6.ebuild:
+  Replace dev-python/imaging with virtual/python-imaging.
+
+  08 May 2013; Jan Matejka <yac@gentoo.org> reportlab-2.5-r1.ebuild,
+  reportlab-2.5.ebuild:
+  fixes bug 416269  missing eprefixify on patched setup.py
+
+  29 Apr 2013; Justin Lecher <jlec@gentoo.org> reportlab-2.6.ebuild,
+  files/reportlab-2.4-external_libart_lgpl.patch, metadata.xml:
+  Fix detection of libart header on prefix
 
 *reportlab-2.5 (22 Jan 2013)
 

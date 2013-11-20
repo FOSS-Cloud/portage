@@ -1,11 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/v8/v8-9999.ebuild,v 1.40 2013/04/05 23:05:12 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/v8/v8-9999.ebuild,v 1.48 2013/08/18 03:12:49 steev Exp $
 
 EAPI="5"
 PYTHON_COMPAT=( python2_{6,7} )
 
-inherit eutils multilib multiprocessing pax-utils python-any-r1 subversion toolchain-funcs
+inherit chromium eutils multilib multiprocessing pax-utils python-any-r1 \
+	subversion toolchain-funcs
 
 DESCRIPTION="Google's open source JavaScript engine"
 HOMEPAGE="http://code.google.com/p/v8"
@@ -14,9 +15,10 @@ LICENSE="BSD"
 
 SLOT="0"
 KEYWORDS=""
-IUSE="readline"
+IUSE="icu readline neon"
 
-RDEPEND="readline? ( sys-libs/readline:0 )"
+RDEPEND="icu? ( dev-libs/icu:= )
+	readline? ( sys-libs/readline:0 )"
 DEPEND="${PYTHON_DEPS}
 	${RDEPEND}"
 
@@ -26,72 +28,115 @@ src_unpack() {
 	make dependencies || die
 }
 
+src_prepare() {
+	# Make sure no bundled libraries are used.
+	find third_party -type f \! -iname '*.gyp*' -delete || die
+}
+
 src_configure() {
 	tc-export AR CC CXX RANLIB
 	export LINK=${CXX}
 
-	local hardfp=off
-
-	# Use target arch detection logic from bug #354601.
-	case ${CHOST} in
-		i?86-*) myarch=ia32 ;;
-		x86_64-*)
-			if [[ $ABI = x86 ]] ; then
-				myarch=ia32
-			else
-				myarch=x64
-			fi ;;
-		arm*-hardfloat-*)
-			hardfp=on
-			myarch=arm ;;
-		arm*-*) myarch=arm ;;
-		*) die "Unrecognized CHOST: ${CHOST}"
-	esac
-	mytarget=${myarch}.release
+	local myconf=""
 
 	subversion_wc_info
 	soname_version="${PV}.${ESVN_WC_REVISION}"
 
-	if use readline; then
-		console=readline
-	else
-		console=dumb
-	fi
+	# Always build v8 as a shared library with proper SONAME.
+	myconf+=" -Dcomponent=shared_library -Dsoname_version=${soname_version}"
 
-	# Generate the real Makefile.
-	emake V=1 \
-		library=shared \
-		werror=no \
-		soname_version=${soname_version} \
-		snapshot=on \
-		hardfp=${hardfp} \
-		console=${console} \
-		out/Makefile.${myarch}
+	# Use target arch detection logic from bug #354601.
+	case ${CHOST} in
+		i?86-*)
+			myarch="ia32"
+			myconf+=" -Dv8_target_arch=ia32" ;;
+		x86_64-*)
+			if [[ $ABI = x86 ]] ; then
+				myarch="ia32"
+				myconf+=" -Dv8_target_arch=ia32"
+			else
+				myarch="x64"
+				myconf+=" -Dv8_target_arch=x64"
+			fi ;;
+		arm*-*)
+			myarch="arm"
+			myconf+=" -Dv8_target_arch=arm -Darm_fpu=default"
+			if [[ ${CHOST} == *-hardfloat-* ]] ; then
+				myconf+=" -Dv8_use_arm_eabi_hardfloat=true"
+			else
+				myconf+=" -Dv8_use_arm_eabi_hardfloat=false"
+			fi
+			if [[ ${CHOST} == armv7*-* ]] ; then
+				myconf+=" -Darmv7=1"
+			else
+				myconf+=" -Darmv7=0"
+			fi
+			myconf+=" $(gyp_use neon arm_neon)" ;;
+		mips*)
+			if [[ ${CHOST} == mips*el* ]] ; then
+				myarch="mipsel"
+				myconf+=" -Dv8_target_arch=mipsel"
+			else
+				die "big-endian MIPS is not yet supported"
+			fi
+			if [[ ${CHOST} == *softfloat* ]] ; then
+				myconf+=" -Dv8_use_mips_abi_hardfloat=false"
+			else
+				myconf+=" -Dv8_use_mips_abi_hardfloat=true"
+			fi
+			if [[ ${CHOST} == *loongson* ]] ; then
+				myconf+=" -Dmips_arch_variant=loongson"
+			elif [[ ${CHOST} == mips*64* ]] ; then
+				die "generic MIPS 64bit is not yet supported"
+			elif [[ ${CHOST} == mips*r2* ]] ; then
+				myconf+=" -Dmips_arch_variant=mips32r2"
+			else
+				myconf+=" -Dmips_arch_variant=mips32"
+			fi
+			;;
+		*) die "Unrecognized CHOST: ${CHOST}"
+	esac
+
+	myconf+="
+		$(gyp_use icu v8_enable_i18n_support)
+		$(gyp_use readline console readline dumb)"
+
+	myconf+="
+		-Duse_system_icu=1"
+
+	# Make sure that -Werror doesn't get added to CFLAGS by the build system.
+	# Depending on GCC version the warnings are different and we don't
+	# want the build to fail because of that.
+	myconf+=" -Dwerror="
+
+	EGYP_CHROMIUM_COMMAND=build/gyp_v8 egyp_chromium ${myconf} || die
 }
 
 src_compile() {
 	local makeargs=(
 		-C out
-		-f Makefile.${myarch}
+		builddir="${S}/out/Release"
 		V=1
 		BUILDTYPE=Release
-		builddir="${S}/out/${mytarget}"
 	)
 
 	# Build mksnapshot so we can pax-mark it.
-	emake "${makeargs[@]}" mksnapshot
-	pax-mark m out/${mytarget}/mksnapshot
+	emake "${makeargs[@]}" mksnapshot.${myarch}
+	pax-mark m out/Release/mksnapshot.${myarch}
 
 	# Build everything else.
 	emake "${makeargs[@]}"
-	pax-mark m out/${mytarget}/{cctest,d8}
+	pax-mark m out/Release/{cctest,d8,preparser}
 }
 
 src_test() {
-	tools/test-wrapper-gypbuild.py \
+	LD_LIBRARY_PATH=out/Release/lib.target tools/run-tests.py \
 		-j$(makeopts_jobs) \
-		--arch-and-mode=${mytarget} \
 		--no-presubmit \
+		--outdir=out \
+		--buildbot \
+		--arch=native \
+		--mode=Release \
 		--progress=dots || die
 }
 
@@ -101,24 +146,40 @@ src_install() {
 
 	if [[ ${CHOST} == *-darwin* ]] ; then
 		# buildsystem is too horrific to get this built correctly
-		mkdir -p out/${mytarget}/lib.target || die
-		mv out/${mytarget}/libv8.so.${soname_version} \
-			out/${mytarget}/lib.target/libv8$(get_libname ${soname_version}) || die
+		mkdir -p out/Release/lib.target || die
+		mv out/Release/libv8.so.${soname_version} \
+			out/Release/lib.target/libv8$(get_libname ${soname_version}) || die
 		install_name_tool \
 			-id "${EPREFIX}"/usr/$(get_libdir)/libv8$(get_libname) \
-			out/${mytarget}/lib.target/libv8$(get_libname ${soname_version}) \
+			out/Release/lib.target/libv8$(get_libname ${soname_version}) \
 			|| die
 		install_name_tool \
 			-change \
 			/usr/local/lib/libv8.so.${soname_version} \
 			"${EPREFIX}"/usr/$(get_libdir)/libv8$(get_libname) \
-			out/${mytarget}/d8 || die
+			out/Release/d8 || die
 	fi
 
-	dobin out/${mytarget}/d8
+	dobin out/Release/d8
+	pax-mark m "${ED}usr/bin/d8"
 
-	dolib out/${mytarget}/lib.target/libv8$(get_libname ${soname_version})
+	dolib out/Release/lib.target/libv8$(get_libname ${soname_version})
 	dosym libv8$(get_libname ${soname_version}) /usr/$(get_libdir)/libv8$(get_libname)
 
-	dodoc AUTHORS ChangeLog || die
+	dodoc AUTHORS ChangeLog
+}
+
+# TODO: remove functions below after they are removed from chromium.eclass'
+# EXPORT_FUNCTIONS .
+
+pkg_preinst() {
+	return
+}
+
+pkg_postinst() {
+	return
+}
+
+pkg_postrm() {
+	return
 }

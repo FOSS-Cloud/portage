@@ -1,6 +1,33 @@
 # ChangeLog for dev-perl/Socket6
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Socket6/ChangeLog,v 1.43 2012/06/24 13:00:39 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Socket6/ChangeLog,v 1.52 2013/09/25 17:19:39 ago Exp $
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Socket6-0.230.0.ebuild:
+  Stable for ppc, wrt bug #343555
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Socket6-0.230.0.ebuild:
+  Stable for sparc, wrt bug #343555
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Socket6-0.230.0.ebuild:
+  Stable for ppc64, wrt bug #343555
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Socket6-0.230.0.ebuild:
+  Stable for alpha, wrt bug #343555
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Socket6-0.230.0.ebuild:
+  Stable for ia64, wrt bug #343555
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Socket6-0.230.0.ebuild:
+  Stable for x86, wrt bug #343555
+
+  15 Sep 2013; Markus Meier <maekke@gentoo.org> Socket6-0.230.0.ebuild:
+  arm stable, bug #343555
+
+  15 Sep 2013; Jeroen Roovers <jer@gentoo.org> Socket6-0.230.0.ebuild:
+  Stable for HPPA (bug #343555).
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Socket6-0.230.0.ebuild:
+  Stable for amd64, wrt bug #343555
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

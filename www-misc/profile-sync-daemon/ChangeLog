@@ -1,6 +1,54 @@
 # ChangeLog for www-misc/profile-sync-daemon
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-misc/profile-sync-daemon/ChangeLog,v 1.10 2013/04/02 22:46:01 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-misc/profile-sync-daemon/ChangeLog,v 1.18 2013/11/15 18:54:14 hasufell Exp $
+
+  15 Nov 2013; Julian Ospald <hasufell@gentoo.org>
+  profile-sync-daemon-5.40.1.ebuild:
+  re-add systemd useflag wrt #491300
+
+*profile-sync-daemon-5.40.1 (16 Sep 2013)
+
+  16 Sep 2013; Julian Ospald <hasufell@gentoo.org>
+  +profile-sync-daemon-5.40.1.ebuild:
+  version bump
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  profile-sync-daemon-5.38.2.ebuild:
+  Stable for x86, wrt bug #480780
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  profile-sync-daemon-5.38.2.ebuild:
+  Stable for amd64, wrt bug #480780
+
+*profile-sync-daemon-5.38.2 (29 Jul 2013)
+
+  29 Jul 2013; Julian Ospald <hasufell@gentoo.org>
+  -profile-sync-daemon-5.36.4_p20130721.ebuild,
+  +profile-sync-daemon-5.38.2.ebuild:
+  version bump
+
+*profile-sync-daemon-5.36.4_p20130721 (21 Jul 2013)
+
+  21 Jul 2013; Julian Ospald <hasufell@gentoo.org>
+  -profile-sync-daemon-5.36.ebuild,
+  +profile-sync-daemon-5.36.4_p20130721.ebuild:
+  version bump
+
+*profile-sync-daemon-5.36 (02 Jun 2013)
+
+  02 Jun 2013; Julian Ospald <hasufell@gentoo.org>
+  -profile-sync-daemon-5.34.ebuild,
+  -files/profile-sync-daemon-5.34-initd.patch,
+  +profile-sync-daemon-5.36.ebuild:
+  version bump, remove old
+
+*profile-sync-daemon-5.34 (19 May 2013)
+
+  19 May 2013; Julian Ospald <hasufell@gentoo.org>
+  -profile-sync-daemon-5.21.ebuild, -profile-sync-daemon-5.28.ebuild,
+  -profile-sync-daemon-5.32.1.ebuild, +profile-sync-daemon-5.34.ebuild,
+  +files/profile-sync-daemon-5.34-initd.patch:
+  version bump, remove old
 
 *profile-sync-daemon-5.32.1 (02 Apr 2013)
 
@@ -64,4 +112,3 @@
   19 Sep 2012; Julian Ospald <hasufell@gentoo.org>
   +profile-sync-daemon-3.13.ebuild, +metadata.xml:
   initial import wrt #398431
-

@@ -1,6 +1,24 @@
 # ChangeLog for app-dicts/myspell-de
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-dicts/myspell-de/ChangeLog,v 1.32 2013/01/10 07:58:56 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-dicts/myspell-de/ChangeLog,v 1.36 2013/06/30 21:11:34 ago Exp $
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org>
+  myspell-de-2012.06.17-r1.ebuild:
+  Stable for ppc, wrt bug #474066
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org>
+  myspell-de-2012.06.17-r1.ebuild:
+  Stable for x86, wrt bug #474066
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org>
+  myspell-de-2012.06.17-r1.ebuild:
+  Stable for amd64, wrt bug #474066
+
+*myspell-de-2012.06.17-r1 (04 Jun 2013)
+
+  04 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +myspell-de-2012.06.17-r1.ebuild:
+  Revison bump again to fix bug#447976 bug#430468 and bug#458772.
 
   10 Jan 2013; Tomáš Chvátal <scarabeus@gentoo.org>
   -myspell-de-2012.06.10.ebuild, myspell-de-2012.06.17.ebuild:

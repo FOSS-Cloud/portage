@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-ftp/proftpd/proftpd-1.3.4c.ebuild,v 1.1 2013/04/07 13:48:45 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-ftp/proftpd/proftpd-1.3.4c.ebuild,v 1.10 2013/07/14 17:37:56 ago Exp $
 
 EAPI=4
 inherit eutils multilib systemd
@@ -25,7 +25,7 @@ SRC_URI="ftp://ftp.proftpd.org/distrib/source/${P/_/}.tar.gz
 LICENSE="GPL-2"
 
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ~ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd"
 IUSE="acl authfile ban +caps case clamav copy ctrls deflate diskuse doc dso exec ifsession ifversion ident ipv6
 	kerberos ldap linguas_bg_BG linguas_en_US linguas_fr_FR linguas_it_IT linguas_ja_JP linguas_ko_KR
 	linguas_ru_RU linguas_zh_CN linguas_zh_TW memcache mysql ncurses nls openssl pam +pcre postgres qos radius
@@ -65,6 +65,8 @@ __prepare_module() {
 }
 
 src_prepare() {
+	epatch "${FILESDIR}"/${P}-fix-build-noipv6.patch #465134
+
 	# Skip 'install-conf' / Support LINGUAS
 	sed -i -e "/install-all/s/ install-conf//" Makefile.in
 	sed -i -e "s/^LANGS=.*$/LANGS=${LINGUAS}/" locale/Makefile.in

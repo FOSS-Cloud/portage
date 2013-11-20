@@ -1,36 +1,22 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-server/postgresql-server-9999.ebuild,v 1.8 2013/04/04 16:24:14 titanofold Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-server/postgresql-server-9999.ebuild,v 1.12 2013/09/15 21:20:56 titanofold Exp $
 
 EAPI="5"
 
-PYTHON_COMPAT=( python{2_{5,6,7},3_{1,2,3}} )
+PYTHON_COMPAT=( python{2_{6,7},3_{2,3}} )
 WANT_AUTOMAKE="none"
 
 inherit autotools eutils flag-o-matic multilib pam prefix python-single-r1 user versionator base git-2
 
 KEYWORDS=""
 
-SLOT="9.3"
+SLOT="9.4"
 
 EGIT_REPO_URI="git://git.postgresql.org/git/postgresql.git"
 
 SRC_URI="http://dev.gentoo.org/~titanofold/postgresql-initscript-2.4.tbz2
-	http://dev.gentoo.org/~titanofold/postgresql-patches-9.2beta2.tbz2"
-
-# Comment the following six lines when not a beta or rc.
-#MY_PV="${PV//_}"
-#MY_FILE_PV="${SLOT}$(get_version_component_range 4)"
-#S="${WORKDIR}/postgresql-${MY_FILE_PV}"
-#SRC_URI="mirror://postgresql/source/v${MY_PV}/postgresql-${MY_FILE_PV}.tar.bz2
-#		 http://dev.gentoo.org/~titanofold/postgresql-patches-${MY_FILE_PV}.tbz2
-#		 http://dev.gentoo.org/~titanofold/postgresql-initscript-2.3.tbz2"
-
-# Comment the following four lines when a beta or rc.
-#S="${WORKDIR}/postgresql-${PV}"
-#SRC_URI="mirror://postgresql/source/v${PV}/postgresql-${PV}.tar.bz2
-#		 http://dev.gentoo.org/~titanofold/postgresql-patches-${PV}.tbz2
-#		 http://dev.gentoo.org/~titanofold/postgresql-initscript-2.1.tbz2"
+	http://dev.gentoo.org/~titanofold/postgresql-patches-9.3-r1.tbz2"
 
 LICENSE="POSTGRESQL GPL-2"
 DESCRIPTION="PostgreSQL server"
@@ -53,18 +39,20 @@ wanted_languages() {
 	echo -n ${enable_langs}
 }
 
-RDEPEND="~dev-db/postgresql-base-${PV}:${SLOT}[kerberos?,pam?,pg_legacytimestamp=,nls=]
-	perl? ( >=dev-lang/perl-5.8 )
-	python? ( ${PYTHON_DEPS} )
-	selinux? ( sec-policy/selinux-postgresql )
-	tcl? ( >=dev-lang/tcl-8 )
-	uuid? ( dev-libs/ossp-uuid )
-	xml? ( dev-libs/libxml2 dev-libs/libxslt )"
-DEPEND="${RDEPEND}
-	sys-devel/flex
-	xml? ( virtual/pkgconfig )"
-#PDEPEND="doc? ( ~dev-db/postgresql-docs-${PV} )"
+RDEPEND="
+~dev-db/postgresql-base-${PV}:${SLOT}[kerberos?,pam?,pg_legacytimestamp=,python=,nls=]
+perl? ( >=dev-lang/perl-5.8 )
+python? ( ${PYTHON_DEPS} )
+selinux? ( sec-policy/selinux-postgresql )
+tcl? ( >=dev-lang/tcl-8 )
+uuid? ( dev-libs/ossp-uuid )
+xml? ( dev-libs/libxml2 dev-libs/libxslt )
+"
 
+DEPEND="${RDEPEND}
+sys-devel/flex
+xml? ( virtual/pkgconfig )
+"
 src_unpack() {
 	base_src_unpack
 	git-2_src_unpack
@@ -78,6 +66,9 @@ pkg_setup() {
 }
 
 src_prepare() {
+	# silly version changes
+	sed -i -e 's/2012/2013/' -e 's/9.3beta2/9.4devel/' "${WORKDIR}/autoconf.patch" || die
+
 	epatch "${WORKDIR}/autoconf.patch" \
 		"${WORKDIR}/bool.patch" \
 		"${WORKDIR}/server.patch"
@@ -118,7 +109,6 @@ src_configure() {
 	# eval is needed to get along with pg_config quotation of space-rich entities.
 	eval econf "$(${PO}/usr/$(get_libdir)/postgresql-${SLOT}/bin/pg_config --configure)" \
 		$(use_with perl) \
-		$(use_with python) \
 		$(use_with tcl) \
 		$(use_with xml libxml) \
 		$(use_with xml libxslt) \
@@ -165,6 +155,8 @@ src_install() {
 		keepdir /run/postgresql
 		fperms 0770 /run/postgresql
 	fi
+	# collides with -base
+	rm "${ED}/usr/$(get_libdir)/postgresql-${SLOT}/$(get_libdir)/libpgcommon.a"
 }
 
 pkg_postinst() {

@@ -1,6 +1,37 @@
 # ChangeLog for media-libs/opus
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/opus/ChangeLog,v 1.22 2013/02/23 09:41:18 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/opus/ChangeLog,v 1.31 2013/08/28 12:06:56 ago Exp $
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.2-r2.ebuild:
+  Stable for alpha, wrt bug #446720
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.2-r2.ebuild:
+  Stable for ppc, wrt bug #446720
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.2-r2.ebuild:
+  Stable for arm, wrt bug #446720
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.2-r2.ebuild:
+  Stable for ppc64, wrt bug #446720
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.2.ebuild:
+  Stable for x86, wrt bug #446720
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.2.ebuild:
+  Stable for amd64, wrt bug #446720
+
+  23 Aug 2013; Jeroen Roovers <jer@gentoo.org> opus-1.0.2-r2.ebuild:
+  Stable for HPPA (bug #446720).
+
+*opus-1.0.3 (08 Aug 2013)
+
+  08 Aug 2013; Alexis Ballier <aballier@gentoo.org> +opus-1.0.3.ebuild:
+  version bump
+
+*opus-1.0.2-r2 (08 May 2013)
+
+  08 May 2013; Alexis Ballier <aballier@gentoo.org> +opus-1.0.2-r2.ebuild:
+  Add multilib support by Karl Lindén, bug #468564
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> opus-1.0.1.ebuild:
   Stable for sparc, wrt bug #458188

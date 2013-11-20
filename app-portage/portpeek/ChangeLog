@@ -1,6 +1,53 @@
 # ChangeLog for app-portage/portpeek
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/portpeek/ChangeLog,v 1.164 2013/03/08 23:27:59 mpagano Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/portpeek/ChangeLog,v 1.176 2013/10/13 07:22:14 pacho Exp $
+
+  13 Oct 2013; Pacho Ramos <pacho@gentoo.org> portpeek-2.1.9.ebuild:
+  Also compatible with python3_3
+
+  26 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> portpeek-2.1.9.ebuild:
+  sparc stable wrt bug #482090
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> portpeek-2.1.9.ebuild:
+  Stable for ppc, wrt bug #482090
+
+  25 Aug 2013; Michael Pagano <mpagano@gentoo.org> -portpeek-2.0.24.ebuild,
+  -portpeek-2.1.8.ebuild:
+  Remove old versions
+
+  23 Aug 2013; Justin Lecher <jlec@gentoo.org> portpeek-2.1.9.ebuild,
+  metadata.xml:
+  Correctly use python eclasses, allow parallel installation for different py
+  ABIs
+
+  23 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> portpeek-2.1.9.ebuild:
+  Stable on amd64 and x86, wrt bug #482090
+
+  23 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> portpeek-2.1.9.ebuild:
+  Stable on arm, wrt bug #482090
+
+  29 Jul 2013; Michael Pagano <mpagano@gentoo.org> portpeek-2.0.24.ebuild,
+  portpeek-2.0.25.ebuild:
+  Bump EAPI and correctly inherit new python eclass
+
+*portpeek-2.1.9 (29 Jul 2013)
+
+  29 Jul 2013; Michael Pagano <mpagano@gentoo.org> -portpeek-2.1.7.ebuild,
+  +portpeek-2.1.9.ebuild:
+  Drop old version. 2.1.9 includes reworked use flag handling and a chance to
+  wildcard lines to behave more like tilde lines
+
+  20 Jun 2013; Michael Pagano <mpagano@gentoo.org> portpeek-2.1.8.ebuild:
+  Remove 3.3 from supported python versions for 2.1.8
+
+  13 Jun 2013; Michael Pagano <mpagano@gentoo.org> portpeek-2.1.8.ebuild:
+  Update 2.1.8 with eclass bump and new python variable and inherit
+
+*portpeek-2.1.8 (11 Jun 2013)
+
+  11 Jun 2013; Michael Pagano <mpagano@gentoo.org> -portpeek-2.1.6.ebuild,
+  +portpeek-2.1.8.ebuild:
+  Fix pattern match. Bump version
 
   08 Mar 2013; Michael Pagano <mpagano@gentoo.org> portpeek-2.1.7.ebuild:
   Fix dependencies

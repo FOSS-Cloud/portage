@@ -1,6 +1,38 @@
 # ChangeLog for dev-haskell/xhtml
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/xhtml/ChangeLog,v 1.25 2012/09/12 15:26:23 qnikst Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/xhtml/ChangeLog,v 1.35 2013/09/05 19:23:51 ago Exp $
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xhtml-3000.2.1.ebuild:
+  Stable for x86, wrt bug #480570
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xhtml-3000.2.1.ebuild:
+  Stable for ppc, wrt bug #480570
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xhtml-3000.2.1.ebuild:
+  Stable for alpha, wrt bug #480570
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> xhtml-3000.2.1.ebuild:
+  Stable for amd64, wrt bug #480570
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> xhtml-3000.2.1.ebuild:
+  Stable for ia64, wrt bug #480570
+
+  18 Jun 2013; Sergei Trofimovich <slyfox@gentoo.org> -xhtml-2006.9.13.ebuild,
+  -xhtml-3000.0.2.1.ebuild, -xhtml-3000.0.2.ebuild, -xhtml-3000.2.0.4.ebuild,
+  -xhtml-3000.2.0.5.ebuild:
+  Drop old.
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xhtml-3000.2.0.1.ebuild:
+  Stable for sparc, wrt bug #457780
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xhtml-3000.2.0.1.ebuild:
+  Stable for ia64, wrt bug #457780
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xhtml-3000.2.0.1.ebuild:
+  Stable for alpha, wrt bug #457780
+
+  14 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xhtml-3000.2.0.1.ebuild:
+  Stable for ppc, wrt bug #457780
 
   12 Sep 2012; Alexander Vershilov <qnikst@gentoo.org> xhtml-3000.0.2.1.ebuild,
   xhtml-3000.2.0.1.ebuild, xhtml-3000.2.0.4.ebuild, xhtml-3000.2.0.5.ebuild,

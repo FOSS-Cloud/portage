@@ -1,6 +1,65 @@
 # ChangeLog for net-misc/stunnel
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/stunnel/ChangeLog,v 1.133 2013/02/25 21:36:59 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/stunnel/ChangeLog,v 1.149 2013/08/06 12:35:26 ago Exp $
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> stunnel-4.56-r1.ebuild:
+  Stable for s390, wrt bug #460278
+
+  02 Aug 2013; Ulrich Müller <ulm@gentoo.org> +stunnel-3.26.ebuild,
+  +files/stunnel-3.26-gentoo.diff:
+  Restore ebuild for 3.x branch (again), see bug 193770 why this is still
+  useful. Update ebuild to EAPI 5.
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> stunnel-4.56-r1.ebuild:
+  Stable for sparc, wrt bug #460278
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> stunnel-4.56-r1.ebuild:
+  Stable for ia64, wrt bug #460278
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> stunnel-4.56-r1.ebuild:
+  Stable for arm, wrt bug #460278
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> stunnel-4.56-r1.ebuild:
+  Stable for alpha, wrt bug #460278
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> stunnel-4.56-r1.ebuild:
+  Stable for ppc64, wrt bug #460278
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> stunnel-4.56-r1.ebuild:
+  Stable for ppc, wrt bug #460278
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> stunnel-4.56-r1.ebuild:
+  Stable for x86, wrt bug #460278
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> stunnel-4.56-r1.ebuild:
+  Stable for amd64, wrt bug #460278
+
+  13 Jul 2013; Jeroen Roovers <jer@gentoo.org> stunnel-4.56-r1.ebuild:
+  Stable for HPPA (bug #460278).
+
+*stunnel-4.56-r1 (13 Jul 2013)
+
+  13 Jul 2013; Anthony G. Basile <blueness@gentoo.org> +stunnel-4.56-r1.ebuild,
+  -stunnel-4.56.ebuild:
+  Rev bump since enabled fibs caused runtime errors, bug #476674
+
+  13 Jul 2013; Anthony G. Basile <blueness@gentoo.org> stunnel-4.56.ebuild:
+  Force disable fips support, bug #476674
+
+*stunnel-4.56 (16 Jun 2013)
+
+  16 Jun 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/stunnel-4.56-listen-queue.patch,
+  +files/stunnel-4.56-xforwarded-for.patch, +stunnel-4.56.ebuild,
+  files/stunnel.initd-start-stop-daemon:
+  Version bump, security bug #460278
+
+  16 Jun 2013; Anthony G. Basile <blueness@gentoo.org> metadata.xml:
+  Add myself as maintainer
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> -files/stunnel-3.26-gentoo.diff,
+  -stunnel-3.26.ebuild, -stunnel-4.44-r1.ebuild, metadata.xml:
+  Cleanup due #66351
 
   25 Feb 2013; Zac Medico <zmedico@gentoo.org> stunnel-4.54.ebuild:
   Add ~arm-linux keyword.

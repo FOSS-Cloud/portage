@@ -1,6 +1,21 @@
 # ChangeLog for dev-libs/libdbusmenu
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libdbusmenu/ChangeLog,v 1.22 2012/10/30 07:22:29 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libdbusmenu/ChangeLog,v 1.27 2013/07/06 22:30:23 xmw Exp $
+
+  06 Jul 2013; Michael Weber <xmw@gentoo.org> libdbusmenu-0.6.2.ebuild:
+  Depend on gtk+ introspection (bug 475938).
+
+  17 May 2013; Jeroen Roovers <jer@gentoo.org> libdbusmenu-0.6.2.ebuild:
+  Marked ~hppa (bug #468984).
+
+  17 May 2013; Anthony G. Basile <blueness@gentoo.org> libdbusmenu-0.6.2.ebuild:
+  Keyword ~mips
+
+  14 May 2013; Markus Meier <maekke@gentoo.org> libdbusmenu-0.6.2.ebuild:
+  add ~arm, bug #468984
+
+  26 Apr 2013; Pacho Ramos <pacho@gentoo.org> libdbusmenu-0.6.2.ebuild:
+  Migrate to vala.eclass, bug #467390
 
   30 Oct 2012; Samuli Suominen <ssuominen@gentoo.org> libdbusmenu-0.6.2.ebuild:
   Stop using testsuite because upstream is now using valgrind which randomly

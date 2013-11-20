@@ -1,6 +1,34 @@
 # ChangeLog for sys-process/at
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/at/ChangeLog,v 1.45 2013/02/27 13:06:29 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/at/ChangeLog,v 1.54 2013/09/14 10:56:55 ago Exp $
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> at-3.1.13-r2.ebuild:
+  Stable for alpha, wrt bug #480116
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> at-3.1.13-r2.ebuild:
+  Stable for x86, wrt bug #480116
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> at-3.1.13-r2.ebuild:
+  Stable for ia64, wrt bug #480116
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> at-3.1.13-r2.ebuild:
+  Stable for ppc64, wrt bug #480116
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> at-3.1.13-r2.ebuild:
+  Stable for ppc, wrt bug #480116
+
+  08 Sep 2013; Agostino Sarubbo <ago@gentoo.org> at-3.1.13-r2.ebuild:
+  Stable for amd64, wrt bug #480116
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> at-3.1.13-r2.ebuild:
+  Stable for sparc, wrt bug #480116
+
+  06 Sep 2013; Jeroen Roovers <jer@gentoo.org> at-3.1.13-r2.ebuild:
+  Stable for HPPA (bug #480116).
+
+  13 Jul 2013; Pacho Ramos <pacho@gentoo.org> +files/atd.service,
+  at-3.1.13-r2.ebuild:
+  Install unit file (#471126)
 
   27 Feb 2013; Lars Wendler <polynomial-c@gentoo.org>
   -files/at-3.1.10.1-Makefile.patch, -at-3.1.10.2-r1.ebuild,

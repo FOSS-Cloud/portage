@@ -1,6 +1,65 @@
 # ChangeLog for net-misc/putty
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/putty/ChangeLog,v 1.70 2012/08/23 14:43:37 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/putty/ChangeLog,v 1.86 2013/09/15 15:57:32 jer Exp $
+
+  15 Sep 2013; Jeroen Roovers <jer@gentoo.org> putty-0.63.ebuild:
+  Stable for HPPA too.
+
+*putty-0.63-r1 (04 Sep 2013)
+
+  04 Sep 2013; Tiziano Müller <dev-zero@gentoo.org> +putty-0.63-r1.ebuild,
+  metadata.xml:
+  Add +gtk USE flag to permit building CLI tools only (bug #482816).
+
+  08 Aug 2013; Jeroen Roovers <jer@gentoo.org> -putty-0.62.ebuild,
+  -files/putty.xpm:
+  Old.
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> putty-0.63.ebuild:
+  Stable for x86, wrt bug #479872
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> putty-0.63.ebuild:
+  Stable for ppc, wrt bug #479872
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> putty-0.63.ebuild:
+  Stable for alpha, wrt bug #479872
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> putty-0.63.ebuild:
+  Stable for sparc, wrt bug #479872
+
+  07 Aug 2013; Jeroen Roovers <jer@gentoo.org> -putty-0.62.20130805.ebuild:
+  Old.
+
+  07 Aug 2013; Jeroen Roovers <jer@gentoo.org> putty-0.63.ebuild:
+  Stable for AMD64 (bug #479872).
+
+*putty-0.63 (07 Aug 2013)
+
+  07 Aug 2013; Jeroen Roovers <jer@gentoo.org> +putty-0.63.ebuild:
+  Version bump (bug #479872).
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> putty-0.62.20130805.ebuild:
+  Stable for amd64, wrt bug #479872
+
+  06 Aug 2013; Jeroen Roovers <jer@gentoo.org> putty-0.62.20130805.ebuild:
+  Marked ~hppa too.
+
+*putty-0.62.20130805 (05 Aug 2013)
+
+  05 Aug 2013; Jeroen Roovers <jer@gentoo.org> -putty-0.62.20120823.ebuild,
+  -putty-0.62.20120823-r1.ebuild, +putty-0.62.20130805.ebuild:
+  Version bump (bug #479872).
+
+  29 Jun 2013; Jeroen Roovers <jer@gentoo.org> putty-0.62.20120823-r1.ebuild:
+  Package new icons separately (bug #473022).
+
+*putty-0.62.20120823-r1 (28 Jun 2013)
+
+  28 Jun 2013; Jeroen Roovers <jer@gentoo.org> +putty-0.62.20120823-r1.ebuild:
+  Install icons in different sizes by Pacho Ramos (bug #473022).
+
+  10 Jun 2013; Jeroen Roovers <jer@gentoo.org> putty-0.62.20120823.ebuild:
+  Fix sed script.
 
 *putty-0.62.20120823 (23 Aug 2012)
 
@@ -271,4 +330,3 @@
 
   03 Jun 2003; Tavis Ormandy <taviso@gentoo.org> putty-20030603.ebuild:
   Initial import, gtk+ port of windows ssh client.
-

@@ -1,6 +1,48 @@
 # ChangeLog for games-strategy/openra
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/openra/ChangeLog,v 1.12 2013/03/17 17:35:03 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/openra/ChangeLog,v 1.23 2013/09/23 18:56:43 hasufell Exp $
+
+*openra-20130915 (23 Sep 2013)
+
+  23 Sep 2013; Julian Ospald <hasufell@gentoo.org> +openra-20130915.ebuild,
+  +files/openra-20130915-make.patch:
+  version bump
+
+  05 Jul 2013; Julian Ospald <hasufell@gentoo.org>
+  files/openra-20130514-makefile.patch:
+  fix non-fatal bug (crash when clicking on CREDITS), no revbump
+
+  04 Jul 2013; Julian Ospald <hasufell@gentoo.org> -openra-20130514.ebuild:
+  remove old
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> openra-20130514-r1.ebuild:
+  Stable for x86, wrt bug #475670
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> openra-20130514-r1.ebuild:
+  Stable for amd64, wrt bug #475670
+
+*openra-20130514-r1 (03 Jul 2013)
+
+  03 Jul 2013; Julian Ospald <hasufell@gentoo.org> +openra-20130514-r1.ebuild,
+  +files/openra-20130514-makefile.patch:
+  fix broken d2k mod caused by incomplete install rule
+
+  29 Jun 2013; Julian Ospald <hasufell@gentoo.org> openra-20130514.ebuild:
+  don't build stuff in src_install
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> openra-20130514.ebuild:
+  Stable for amd64, wrt bug #474390
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> openra-20130514.ebuild:
+  Stable for x86, wrt bug #474390
+
+  23 Jun 2013; Julian Ospald <hasufell@gentoo.org> openra-20130514.ebuild:
+  migrate to mono-env
+
+*openra-20130514 (13 May 2013)
+
+  13 May 2013; Julian Ospald <hasufell@gentoo.org> +openra-20130514.ebuild:
+  version bump
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

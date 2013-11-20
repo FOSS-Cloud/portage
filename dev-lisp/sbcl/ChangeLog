@@ -1,6 +1,47 @@
 # ChangeLog for dev-lisp/sbcl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lisp/sbcl/ChangeLog,v 1.187 2013/03/17 15:15:46 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lisp/sbcl/ChangeLog,v 1.195 2013/10/14 09:37:36 grozin Exp $
+
+*sbcl-1.1.12 (14 Oct 2013)
+
+  14 Oct 2013; Andrey Grozin <grozin@gentoo.org> +sbcl-1.1.12.ebuild:
+  Version bump
+
+*sbcl-1.1.11 (12 Sep 2013)
+
+  12 Sep 2013; Andrey Grozin <grozin@gentoo.org> -sbcl-1.1.6-r4.ebuild,
+  -sbcl-1.1.7.ebuild, -sbcl-1.1.8.ebuild, -sbcl-1.1.9.ebuild,
+  +sbcl-1.1.11.ebuild, -files/1.1.6-fix-svref.patch:
+  Version bump, now texinfo-5 compatible (closing #467148). Cleaning old.
+
+*sbcl-1.1.10 (09 Aug 2013)
+
+  09 Aug 2013; Andrey Grozin <grozin@gentoo.org> +sbcl-1.1.10.ebuild:
+  Version bump
+
+*sbcl-1.1.9 (24 Jul 2013)
+
+  24 Jul 2013; Andrey Grozin <grozin@gentoo.org> +sbcl-1.1.9.ebuild:
+  Version bump
+
+*sbcl-1.1.8 (18 Jun 2013)
+
+  18 Jun 2013; Andrey Grozin <grozin@gentoo.org> +sbcl-1.1.8.ebuild:
+  Version bump
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unused flag from metadata
+
+*sbcl-1.1.7 (01 May 2013)
+
+  01 May 2013; Andrey Grozin <grozin@gentoo.org> +sbcl-1.1.7.ebuild:
+  Version bump
+
+*sbcl-1.1.6-r4 (20 Apr 2013)
+
+  20 Apr 2013; Andrey Grozin <grozin@gentoo.org> -sbcl-1.1.3.ebuild,
+  -sbcl-1.1.5.ebuild, +sbcl-1.1.6-r4.ebuild, +files/1.1.6-fix-svref.patch:
+  Version bump from the lisp overlay (pmasked)
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

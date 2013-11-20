@@ -1,6 +1,93 @@
 # ChangeLog for app-office/libreoffice-bin
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice-bin/ChangeLog,v 1.103 2013/04/01 17:54:08 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice-bin/ChangeLog,v 1.124 2013/11/04 21:07:27 dilfridge Exp $
+
+  04 Nov 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  libreoffice-bin-4.1.2.3.ebuild, libreoffice-bin-4.1.3.2.ebuild:
+  Fix libpng dependency
+
+*libreoffice-bin-4.1.3.2 (02 Nov 2013)
+
+  02 Nov 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libreoffice-bin-4.0.4.2.ebuild, +libreoffice-bin-4.1.3.2.ebuild:
+  Version bump; remove old
+
+  31 Oct 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  libreoffice-bin-4.1.2.3.ebuild:
+  Restrict the version of langpack even more.
+
+  31 Oct 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  libreoffice-bin-4.1.2.3.ebuild:
+  Fix pdepend on proper lang pack. Force due to un-update cvs tree.
+
+  30 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  libreoffice-bin-4.1.2.3.ebuild:
+  Fix harfbuzz version, bug 489636
+
+  27 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-bin-4.1.2.3.ebuild:
+  Stable for x86, wrt bug #489566
+
+  27 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-bin-4.1.2.3.ebuild:
+  Stable for amd64, wrt bug #489566
+
+  27 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  libreoffice-bin-4.1.2.3.ebuild:
+  Fix dependency specification
+
+*libreoffice-bin-4.1.2.3 (27 Oct 2013)
+
+  27 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libreoffice-bin-4.1.2.3.ebuild:
+  Version bump
+
+  16 Sep 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  libreoffice-bin-4.0.4.2.ebuild:
+  Fix boost version, otherwise we get in trouble
+
+  05 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  libreoffice-bin-4.0.4.2.ebuild:
+  Force stable version of jpeg libraries, bug 479752
+
+  28 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libreoffice-bin-3.6.6.2.ebuild:
+  Remove old
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-bin-4.0.4.2.ebuild:
+  Stable for x86, wrt bug #477532
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-bin-4.0.4.2.ebuild:
+  Stable for amd64, wrt bug #477532
+
+  27 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  libreoffice-bin-4.0.4.2.ebuild:
+  Make cups mandatory, bug 478364
+
+*libreoffice-bin-4.0.4.2 (20 Jul 2013)
+
+  20 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libreoffice-bin-4.0.4.2.ebuild:
+  Version bump
+
+  30 May 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  -libreoffice-bin-3.6.4.3.ebuild:
+  Drop old libreoffice keep only one 3.6 version.
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-bin-3.6.6.2.ebuild:
+  Stable for x86, wrt bug #470988
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-bin-3.6.6.2.ebuild:
+  Stable for amd64, wrt bug #470988
+
+*libreoffice-bin-3.6.6.2 (20 May 2013)
+
+  20 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libreoffice-bin-3.6.6.2.ebuild:
+  Version bump
+
+  11 Apr 2013; Samuli Suominen <ssuominen@gentoo.org>
+  libreoffice-bin-3.6.4.3.ebuild:
+  Fix libpng dependency to pull in libpng15.so.15 wrt #465484 by Martin von
+  Gagern
 
   01 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org>
   libreoffice-bin-3.6.4.3.ebuild:

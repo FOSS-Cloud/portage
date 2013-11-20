@@ -1,6 +1,32 @@
 # ChangeLog for net-misc/memcached
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/memcached/ChangeLog,v 1.123 2012/12/23 18:05:21 robbat2 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/memcached/ChangeLog,v 1.130 2013/11/06 03:20:26 patrick Exp $
+
+  06 Nov 2013; Patrick Lauer <patrick@gentoo.org> memcached-1.1.12-r3.ebuild,
+  memcached-1.1.13-r2.ebuild, memcached-1.1.13-r3.ebuild,
+  memcached-1.2.1-r2.ebuild:
+  Shorten description, make repoman happier
+
+  03 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> metadata.xml:
+  adding myself to the list of maintainers
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> memcached-1.4.13-r1.ebuild:
+  Stable for x86, wrt bug #485644
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> memcached-1.4.13-r1.ebuild:
+  amd64 stable, bug #485644
+
+  18 Oct 2013; Markus Meier <maekke@gentoo.org> memcached-1.4.13-r1.ebuild:
+  arm stable, bug #485644
+
+  10 Oct 2013; Jeroen Roovers <jer@gentoo.org> memcached-1.4.13-r1.ebuild:
+  Stable for HPPA (bug #485644).
+
+*memcached-1.4.13-r1 (31 Aug 2013)
+
+  31 Aug 2013; Pacho Ramos <pacho@gentoo.org> +files/memcached.service,
+  +memcached-1.4.13-r1.ebuild:
+  Add unit file (#395209 by Maksim 'max_posedon' Melnikau)
 
   23 Dec 2012; Robin H. Johnson <robbat2@gentoo.org> files/1.3.3/init:
   Fix bashisms in init.d/memcached.

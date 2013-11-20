@@ -1,16 +1,16 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-common-gentoo/emacs-common-gentoo-1.3-r3.ebuild,v 1.9 2013/03/10 21:42:27 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-common-gentoo/emacs-common-gentoo-1.3-r3.ebuild,v 1.13 2013/11/16 12:50:51 ulm Exp $
 
 EAPI=4
 
 inherit elisp-common eutils fdo-mime gnome2-utils readme.gentoo user
 
 DESCRIPTION="Common files needed by all GNU Emacs versions"
-HOMEPAGE="http://www.gentoo.org/proj/en/lisp/emacs/"
-SRC_URI="mirror://gentoo/${P}.tar.gz"
+HOMEPAGE="http://wiki.gentoo.org/wiki/Project:Emacs"
+SRC_URI="http://dev.gentoo.org/~ulm/emacs/${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE="games X"

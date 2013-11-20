@@ -1,6 +1,381 @@
 # ChangeLog for sys-kernel/dracut
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.117 2013/04/02 14:51:03 aidecoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.139 2013/11/18 19:10:48 aidecoe Exp $
+
+  18 Nov 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-034-r1.ebuild,
+  +files/034-0007-dracut.sh-also-mkdir-run-lock-which-is.patch,
+  +files/034-0008-dracut.sh-no-need-to-make-subdirs-in-r.patch,
+  +files/034-0009-lvm-install-thin-utils-for-non-hostonl.patch,
+  +files/034-0010-module-setup.sh-add-comments-for-dracu.patch,
+  +files/034-0011-lvm-fix-thin-recognition.patch,
+  +files/034-0012-lvm-always-install-thin-utils-for-lvm.patch:
+  Fixed bug #487324 (redundant dirs) and bug #490098 (thin provisioning).
+
+  27 Oct 2013; Sven Vermeulen <swift@gentoo.org> dracut-026-r2.ebuild,
+  dracut-027-r3.ebuild, dracut-029.ebuild, dracut-030.ebuild,
+  dracut-031-r1.ebuild, dracut-033-r3.ebuild, dracut-034.ebuild,
+  dracut-034-r1.ebuild:
+  Fix bug #489080 - Depend on sec-policy/selinux-dracut if USE=selinux
+
+*dracut-034-r1 (16 Oct 2013)
+
+  16 Oct 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-034-r1.ebuild,
+  +files/034-0006-resume-fix-swap-detection-in-hostonly.patch:
+  Fixed bug #487322 (resume support in hostonly mode) and bug #486516
+  (redundant inclusion of libs from lib32 directory).
+
+  Thanks to Alexander Tsoy <alexander@tsoy.me> for patch for bug #486516.
+
+  08 Oct 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-031.ebuild:
+  Removed old revision of 031.
+
+  08 Oct 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-033.ebuild,
+  -dracut-033-r1.ebuild, -dracut-033-r2.ebuild:
+  Removed old revisions of 033.
+
+*dracut-034 (08 Oct 2013)
+
+  08 Oct 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-034.ebuild,
+  +files/034-0001-dracut.sh-do-not-bail-out-if-kernel-mo.patch,
+  +files/034-0002-dracut-functions.sh-support-for-altern.patch,
+  +files/034-0003-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +files/034-0004-Use-the-same-paths-in-dracut.sh-as-tho.patch,
+  +files/034-0005-Install-dracut-install-into-libexec-di.patch:
+  Version bump.
+
+  NEWS
+  ~~~~
+  - do not run dhcp on parts of assembled network interfaces (bond, bridge)
+  - add option to turn on/off prelinking
+     --prelink, --noprelink
+     do_prelink=[yes|no]
+  - add ACPI table overriding
+  - do not log to syslog/kmsg/journal for UID != 0
+  - lvm/mdraid: Fix LVM on MD activation
+  - bcache module removed (now in bcache-tools upstream)
+  - mdadm: also install configs from /etc/mdadm.conf.d
+  - fixes for mdadm-3.2.6+
+  - mkinitrd: better compat support for SUSE
+  - fcoe: add FCoE UEFI boot device support
+  - rootfs-block: add support for the rootfallback= kernel cmdline option
+
+*dracut-033-r3 (06 Oct 2013)
+
+  06 Oct 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-033-r3.ebuild,
+  +files/033-0005-dracut.sh-harden-host_modalias-reading.patch,
+  +files/033-0006-ifup-do-not-dhcp-on-network-interface-.patch,
+  +files/033-0007-lvm-mdraid-Fix-LVM-on-MD-activation.patch,
+  +files/033-0008-mdraid-module-setup.sh-install-configs.patch,
+  +files/033-0009-mdraid-module-setup.sh-fixes-for-mdadm.patch:
+  Applied patches with bug fixes wrt mdraid and lvm.
+
+  It fixes bug #486344, bug #485748, possible bug on PPC and bug related to
+  net-bonding.
+
+  Thanks to Alexander Tsoy <alexander@tsoy.me> for some of these patches and
+  generally for help.
+
+*dracut-033-r2 (02 Oct 2013)
+
+  02 Oct 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-033-r2.ebuild,
+  +files/033-0003-Use-the-same-paths-in-dracut.sh-as-tho.patch,
+  +files/033-0004-Install-dracut-install-into-libexec-di.patch:
+  Fixes bug #485204 and bug #485218.
+
+  Thanks to Alexander Tsoy <alexander@tsoy.me> for suggestions on bug #485204.
+
+  Thanks to  Steven Newbury <s_j_newbury@yahoo.co.uk> for good suggestions on
+  bug #485218.  Patch installing dracut-install to /usr/libexec has been
+  submitted upstream.
+
+  28 Sep 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-033-r1.ebuild:
+  Removed dead 'optimization' flag from IUSE.
+
+*dracut-033-r1 (25 Sep 2013)
+
+  25 Sep 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-033-r1.ebuild:
+  Dropped optimization flag, because it is no longer an option. dracut-install
+  binary is installed into libdir, therefore it was required to set target lib
+  directory according to multilib rules.
+
+  It fixes bug #485218 and bug #485202.
+
+*dracut-033 (14 Sep 2013)
+
+  14 Sep 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-026-r2.ebuild,
+  dracut-027-r3.ebuild, dracut-029.ebuild, dracut-030.ebuild,
+  dracut-031.ebuild, dracut-031-r1.ebuild, +dracut-033.ebuild,
+  +files/033-0001-dracut-functions.sh-support-for-altern.patch,
+  +files/033-0002-gentoo.conf-let-udevdir-be-handled-by-.patch:
+  Version bump. Added dash module back and it can be installed optionally. bash
+  is a module too, now and can be disable at initramfs build time.
+
+  NEWS
+  ~~~~
+  dracut-033
+  ==========
+  - improved hostonly device recognition
+  - improved hostonly module recognition
+  - add dracut.css for dracut.html
+  - do not install udev rules from /etc in generic mode
+  - fixed LABEL= parsing for swap devices
+  - fixed iBFT network setup
+  - url-lib.sh: handle 0-size files with curl
+  - dracut.asc: document debugging dracut on shutdown
+  - if rd.md=0, use dmraid for imsm and ddf
+  - skip empty dracut modules
+  - removed caching of kernel cmdline
+  - fixed iso-scan, if the loop device driver is a kernel module
+  - bcache: support new blkid
+  - fixed ifup udev rules
+  - ifup with dhcp, if no "ip=" specified for the interface
+  
+  dracut-032
+  ==========
+  - add parameter --print-cmdline
+      This prints the kernel command line parameters for the current disk
+      layout.
+      $ dracut --print-cmdline
+      rd.luks.uuid=luks-e68c8906-6542-4a26-83c4-91b4dd9f0471
+      rd.lvm.lv=debian/root rd.lvm.lv=debian/usr root=/dev/mapper/debian-root
+      rootflags=rw,relatime,errors=remount-ro,user_xattr,barrier=1,data=ordered
+      rootfstype=ext4
+  - dracut.sh: add --persistent-policy option and persistent_policy conf option
+      --persistent-policy <policy>:
+          Use <policy> to address disks and partitions.
+          <policy> can be any directory name found in /dev/disk.
+          E.g. "by-uuid", "by-label"
+  - dracut now creates the initramfs without udevadm
+    that means the udev database does not have to populated
+    and the initramfs can be built in a chroot with
+    /sys /dev /proc mounted
+  - renamed dracut_install() to inst_multiple() for consistent naming
+  - if $libdirs is unset, fall back to ld.so.cache paths
+  - always assemble /usr device in initramfs
+  - bash module added (disable it, if you really want dash)
+  - continue to boot, if the main loop times out, in systemd mode
+  - removed inst*() shell pure versions, dracut-install binary is in charge now
+  - fixed ifcfg file generation for vlan
+  - do not include adjtime and localtime anymore
+  - install vt102 terminfo
+    dracut_install() is still there for backwards compat
+  - do not strip files in FIPS mode
+  - fixed iBFT interface configuration
+  - fs-lib: install fsck and fsck.ext*
+  - shutdown: fixed killall_proc_mountpoint()
+  - network: also wait for ethernet interfaces to setup
+  - fixed checking for FIPS mode
+
+  13 Aug 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-026-r2.ebuild,
+  dracut-027-r3.ebuild, dracut-029.ebuild, dracut-030.ebuild,
+  dracut-031.ebuild, dracut-031-r1.ebuild:
+  Update mdadm dependency version to conform upstream dracut.spec. Fixes bug
+  #479544.
+
+*dracut-031-r1 (05 Aug 2013)
+
+  05 Aug 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-031-r1.ebuild,
+  +files/031-0003-Revert-base-setup-correct-system-time-.patch:
+  Added patch reverting addition of hwclock. Fixes bug #479828.
+
+*dracut-031 (03 Aug 2013)
+
+  03 Aug 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-031.ebuild,
+  +files/031-0001-dracut-functions.sh-support-for-altern.patch,
+  +files/031-0002-gentoo.conf-let-udevdir-be-handled-by-.patch:
+  Version bump.
+
+  NEWS
+  ~~~~
+  - do not include the resume dracut module in hostonly mode,
+    if no swap is present
+  - don't warn twice about omitted modules
+  - use systemd-cat for logging on systemd systems, if logfile is unset
+  - fixed PARTUUID parsing
+  - support kernel module signing keys
+  - do not install the usrmount dracut module in hostonly mode,
+    if /sbin/init does not live in /usr
+  - add debian udev rule files
+  - add support for bcache
+  - network: handle bootif style interfaces
+    e.g. ip=77-77-6f-6f-64-73:dhcp
+  - add support for kmod static devnodes
+  - add vlan support for iBFT
+
+*dracut-030 (25 Jul 2013)
+
+  25 Jul 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-030.ebuild,
+  +files/030-0001-dracut-functions.sh-support-for-altern.patch,
+  +files/030-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +files/030-0003-LatArCyrHeb-16-as-a-default-i18n-font-.patch:
+  Version bump. dash dependency is dropped as well as the module which is no
+  longer supported.
+
+  NEWS
+  ~~~~
+  (from Dracut NEWS file)
+  - support new persistent network interface names
+  - fix findmnt calls, prevents hang on stale NFS mounts
+  - add systemd.slice and slice.target units
+  - major shell cleanup
+  - support root=PARTLABEL= and root=PARTUUID=
+  - terminfo: only install l/linux v/vt100 and v/vt220
+  - unset all LC_* and LANG, 10% faster
+  - fixed dependency loop for dracut-cmdline.service
+  - do not wait_for_dev for the root devices
+  - do not wait_for_dev for devices, if dracut-initqueue is not needed
+  - support early microcode loading with --early-microcode
+  - dmraid, let dmraid setup its own partitions
+  - sosreport renamed to rdsosreport
+
+  23 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> dracut-026-r2.ebuild,
+  dracut-027-r3.ebuild, dracut-029.ebuild:
+  Remove non-existing sys-apps/module-init-tools from dependencies in favour of
+  sys-apps/kmod.
+
+  06 Jul 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-027-r3.ebuild,
+  dracut-029.ebuild:
+  Use get_bashcompdir() of bash-completion-r1 eclass.
+
+  23 Jun 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-014-r3.ebuild,
+  -dracut-018-r3.ebuild, -dracut-019-r6.ebuild, -dracut-022-r6.ebuild,
+  -dracut-023-r4.ebuild, -dracut-024-r4.ebuild, -dracut-025.ebuild,
+  -dracut-026.ebuild, -dracut-026-r1.ebuild, -dracut-027.ebuild,
+  -dracut-027-r1.ebuild, -dracut-027-r2.ebuild,
+  -files/025-0000-fix-version-print.patch,
+  -files/019-0001-90multipath-added-kpartx.rules-multipa.patch,
+  -files/024-0001-Fallback-to-external-blkid-and-path_id.patch,
+  -files/023-0001-dracut-functions.sh-find_binary-path-s.patch,
+  -files/025-0001-dracut-functions.sh-support-for-altern.patch,
+  -files/022-0001-qemu-module-setup.sh-provide-alternati.patch,
+  -files/023-0002-90crypt-call-systemd-commands-only-if-.patch,
+  -files/019-0002-Avoid-annonying-warnings-when-pkg-conf.patch,
+  -files/022-0002-Makefile-use-implicit-rules-for-instal.patch,
+  -files/024-0002-dracut-functions.sh-fixed-inst_rules-s.patch,
+  -files/025-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  -files/019-0003-99shutdown-remove-no-wall-argument-for.patch,
+  -files/023-0003-Fallback-to-external-blkid-and-path_id.patch,
+  -files/024-0003-dracut-functions.sh-support-for-altern.patch,
+  -files/022-0003-kernel-modules-module-setup.sh-just-op.patch,
+  -files/025-0003-rootfs-block-mount-root.sh-fixup-for-8.patch,
+  -files/022-0004-90multipath-added-kpartx.rules-multipa.patch,
+  -files/019-0004-dracut.sh-do-not-copy-var-run-and-var-.patch,
+  -files/025-0004-dracut.sh-reverting-return-value-chang.patch,
+  -files/024-0004-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  -files/025-0005-Mount-proc-before-including-dracut-lib.patch,
+  -files/019-0005-dracut.sh-create-relative-symlinks-for.patch,
+  -files/022-0005-gentoo.conf-set-udevdir.patch,
+  -files/022-0006-Config-file-for-systemd-on-Gentoo.patch,
+  -files/022-0007-Remove-obsolete-gentoo-conf-file.patch,
+  -files/022-0008-95rootfs-block-fix-left-fsck-rel.-chec.patch,
+  -files/022-0009-98usrmount-use-rw-and-ro-options-inste.patch,
+  -files/022-0010-98usrmount-print-mount-options.patch,
+  -files/022-0011-dracut-lib-new-functions-listlist-and-.patch,
+  -files/022-0012-apply-ro-and-rw-options-from-cmdline-t.patch,
+  -files/022-0013-ro_mnt-option-at-build-time-to-force-r.patch,
+  -files/dracut-014-multipath-udev-rules.patch,
+  -files/022-0014-parse-root-opts-first-check-for-ro-lat.patch,
+  -files/dracut-014-usrmount-fsck-fix.patch,
+  -files/022-0015-gentoo.conf-enable-ro_mnt.patch,
+  -files/022-0016-dracut.sh-test-if-we-can-lazy-resolve-.patch,
+  -files/022-0017-99shutdown-remove-no-wall-argument-for.patch,
+  -files/022-0018-dracut.sh-do-not-copy-var-run-and-var-.patch,
+  -files/dracut-018-lsinitrd-support-symlinks.patch,
+  -files/dracut-018-multipath-udev-rules.patch,
+  -files/022-0019-dracut.sh-create-relative-symlinks-for.patch:
+  Remove old versions (prior to 026) and old revisions of 026 and 027.
+
+*dracut-029 (23 Jun 2013)
+
+  23 Jun 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-029.ebuild,
+  +files/029-0001-dracut-functions.sh-support-for-altern.patch,
+  +files/029-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +files/029-0003-LatArCyrHeb-16-as-a-default-i18n-font-.patch:
+  Version bump.
+
+  NEWS
+  ~~~~
+  (from Dracut NEWS file)
+
+  dracut-029
+  ==========
+  - wait for IPv6 autoconfiguration
+  - i18n: make the default font configurable
+  - proper handle "rd.break" in systemd mode before switch-root
+  - systemd: make unit files symlinks
+  - build without dash requirement
+  - add dracut-shutdown.service.8 manpage
+  - handle MACs for "ip="
+    "ip=77-77-6f-6f-64-73:dhcp"
+  - don't explode when mixing BOOTIF and ip=
+  - 90lvm/module-setup.sh: redirect error message of lvs to /dev/null
+
+  dracut-028
+  ==========
+  - full integration of crypto devs in systemd logic
+  - support for bridge over team and vlan tagged team
+  - support multiple bonding interfaces
+  - new kernel command line param "rd.action_on_fail"
+    to control the emergency action
+  - support for bridge over a vlan tagged interface
+  - support for "iso-scan/filename" kernel parameter
+  - lsinitrd got some love and does not use "file" anymore
+  - fixed issue with noexec mounted tmp dirs
+  - FIPS mode fixed
+  - dracut_install got some love
+  - fixed some /usr mounting problems
+  - ifcfg dracut module got some love and fixes
+  - default installed font is now latarcyrheb-sun16
+  - new parameters rd.live.dir and rd.live.squashimg
+  - lvm: add tools for thin provisioning
+  - also install non-hwcap libs
+  - setup correct system time and time zone in initrd
+  - s390: fixed cms setup
+  - add systemd-udevd persistent network interface naming
+
+*dracut-027-r3 (20 May 2013)
+
+  20 May 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-027-r2.ebuild,
+  +dracut-027-r3.ebuild:
+  Bashcomp fixes wrt bug #469892.
+
+  Thanks to Alexander Tsoy <alexander@tsoy.me> for patch:
+  https://bugs.gentoo.org/attachment.cgi?id=348338
+
+  Which bashcomp related part has been applied slightly modified.
+
+*dracut-027-r2 (19 May 2013)
+
+  19 May 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-027-r2.ebuild:
+  Fixes bug #467754:
+
+  - Install systemd units into correct location.
+  - Fix installation of bash-completion script. It used to be installed in two
+  locations.
+
+  Thanks to Alexander Tsoy <alexander@tsoy.me> for patch:
+  https://bugs.gentoo.org/attachment.cgi?id=348338
+
+  Which has been applied slightly modified.
+
+*dracut-027-r1 (18 Apr 2013)
+
+  18 Apr 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +files/027-0003-Do-not-call-plymouth-with-full-path.patch,
+  +files/027-0004-plymouth-plymouth-pretrigger.sh-fixup-.patch,
+  +dracut-027-r1.ebuild:
+  Rev-bump. Fixes bug #465518.
+
+  Thanks to Enrico Tagliavini <enrico.tagliavini@gmail.com> for report and
+  handling it and to Harald Hoyer for fixing it.
+
+  09 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> dracut-014-r3.ebuild,
+  dracut-018-r3.ebuild, dracut-019-r6.ebuild, dracut-022-r6.ebuild,
+  dracut-023-r4.ebuild, dracut-024-r4.ebuild, dracut-025.ebuild,
+  dracut-026.ebuild, dracut-026-r1.ebuild, dracut-026-r2.ebuild,
+  dracut-027.ebuild:
+  Remove sys-fs/device-mapper from || () syntax in favour of sys-fs/lvm2 wrt
+  #461382
 
   02 Apr 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
   +files/025-0000-fix-version-print.patch, dracut-025.ebuild:

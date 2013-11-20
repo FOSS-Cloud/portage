@@ -1,6 +1,144 @@
 # ChangeLog for media-libs/alsa-lib
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/alsa-lib/ChangeLog,v 1.346 2013/04/05 18:20:36 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/alsa-lib/ChangeLog,v 1.379 2013/09/01 18:36:03 ago Exp $
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> alsa-lib-1.0.27.1.ebuild:
+  Stable for alpha, wrt bug #473404
+
+  20 Aug 2013; Jeroen Roovers <jer@gentoo.org> alsa-lib-1.0.27.1.ebuild:
+  Stable for HPPA (bug #473404).
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> alsa-lib-1.0.27.1.ebuild:
+  Stable for ppc, wrt bug #473404
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> alsa-lib-1.0.27.1.ebuild:
+  Stable for x86, wrt bug #473404
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> alsa-lib-1.0.27.1.ebuild:
+  Stable for ppc64, wrt bug #473404
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> alsa-lib-1.0.27.1.ebuild:
+  Stable for ia64, wrt bug #473404
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> alsa-lib-1.0.27.1.ebuild:
+  Stable for sparc, wrt bug #473404
+
+  02 Aug 2013; Markus Meier <maekke@gentoo.org> alsa-lib-1.0.27.1.ebuild:
+  arm stable, bug #473404
+
+  30 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> alsa-lib-1.0.27.1.ebuild:
+  Restore missing use_enable for python.
+
+  30 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> alsa-lib-1.0.27.1.ebuild,
+  alsa-lib-1.0.27.2.ebuild:
+  Force use of correct python-config wrt #478802 by Frank Krömmelbein
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> alsa-lib-1.0.27.1.ebuild:
+  Stable for amd64, wrt bug #473404
+
+  30 Jul 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  use /a instead of /o with cpe
+
+  30 Jul 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Update CPE tag to latest upstream naming.
+
+  19 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> alsa-lib-1.0.27.1.ebuild,
+  alsa-lib-1.0.27.1-r1.ebuild, +files/alsa-lib-1.0.27.1-rewind.patch:
+  Backport upstream patch from 1.0.27.2 to stabilization target 1.0.27.1 wrt
+  #477282#c3
+
+*alsa-lib-1.0.27.2 (18 Jul 2013)
+
+  18 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +alsa-lib-1.0.27.2.ebuild:
+  Version bump wrt #477282 by Naohiro Aota and Rafał Mużyło
+
+  15 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -alsa-lib-1.0.27-r2.ebuild, -alsa-lib-1.0.27-r3.ebuild,
+  -files/alsa-lib-1.0.27-dlclose.patch, -files/alsa-lib-1.0.27-inline.patch,
+  -files/alsa-lib-1.0.27-inline-2.patch, -files/alsa-lib-1.0.27-kernel.patch,
+  -files/alsa-lib-1.0.27-pcm.patch:
+  old
+
+*alsa-lib-1.0.27.1-r1 (15 Jul 2013)
+
+  15 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> alsa-lib-1.0.27.1.ebuild,
+  +alsa-lib-1.0.27.1-r1.ebuild:
+  Create special -r0 for stabilization wrt #473404#c3 without
+  multilib-minimal.eclass
+
+  15 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  alsa-lib-1.0.26-r1.ebuild:
+  Backport media-sound/alsa-headers dependency dropping wrt #468712
+
+  26 Jun 2013; Alexis Ballier <aballier@gentoo.org> alsa-lib-1.0.27-r3.ebuild,
+  alsa-lib-1.0.27.1.ebuild:
+  update emul-linux blockers
+
+  05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+*alsa-lib-1.0.27.1 (27 May 2013)
+
+  27 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +alsa-lib-1.0.27.1.ebuild:
+  Version bump.
+
+  06 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -alsa-lib-1.0.27-r1.ebuild:
+  old
+
+  06 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  alsa-lib-1.0.27-r2.ebuild, alsa-lib-1.0.27-r3.ebuild:
+  Remove unnecessary media-sound/alsa-headers DEPEND since 1.0.27 builds fine
+  without it wrt #468712
+
+*alsa-lib-1.0.27-r3 (03 May 2013)
+
+  03 May 2013; Michał Górny <mgorny@gentoo.org> +alsa-lib-1.0.27-r3.ebuild:
+  Convert to multilib, wrt bug #463750.
+
+*alsa-lib-1.0.27-r2 (03 May 2013)
+
+  03 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +alsa-lib-1.0.27-r2.ebuild, +files/alsa-lib-1.0.27-inline.patch,
+  +files/alsa-lib-1.0.27-inline-2.patch, +files/alsa-lib-1.0.27-kernel.patch,
+  +files/alsa-lib-1.0.27-pcm.patch:
+  Import four more upstream patches wrt #468402 by "Duncan"
+
+  02 May 2013; Samuli Suominen <ssuominen@gentoo.org> -alsa-lib-1.0.27.ebuild:
+  old
+
+*alsa-lib-1.0.27-r1 (02 May 2013)
+
+  02 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +alsa-lib-1.0.27-r1.ebuild, +files/alsa-lib-1.0.27-dlclose.patch:
+  Upstream patch for "Fix doubly call of dlclose() in dlobj caching code" as
+  noted by galtgendo at Freenode
+
+  01 May 2013; Samuli Suominen <ssuominen@gentoo.org> alsa-lib-1.0.27.ebuild:
+  Call epatch_user wrt #468162 by Doug Goldstein
+
+  01 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -alsa-lib-1.0.24.1.ebuild, -alsa-lib-1.0.25-r1.ebuild,
+  -alsa-lib-1.0.26.ebuild, -alsa-lib-1.0.26-r2.ebuild,
+  -files/1.0.26-r2.types-fix.diff:
+  old
+
+*alsa-lib-1.0.27 (01 May 2013)
+
+  01 May 2013; Samuli Suominen <ssuominen@gentoo.org> +alsa-lib-1.0.27.ebuild:
+  Version bump.
+
+  25 Apr 2013; Samuli Suominen <ssuominen@gentoo.org>
+  alsa-lib-1.0.26-r2.ebuild:
+  Use AC_CONFIG_HEADERS instead of AM_CONFIG_HEADER wrt #466980 by Alphat-PC
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> alsa-lib-1.0.26-r1.ebuild:
+  Stable for ia64, wrt bug #463451
+
+  12 Apr 2013; Jeroen Roovers <jer@gentoo.org> alsa-lib-1.0.26-r1.ebuild:
+  Stable for HPPA (bug #463451).
 
   05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> alsa-lib-1.0.26-r1.ebuild:
   Stable for ppc64, wrt bug #463451

@@ -1,6 +1,103 @@
 # ChangeLog for app-text/texlive-core
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/texlive-core/ChangeLog,v 1.185 2013/02/19 15:13:33 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/texlive-core/ChangeLog,v 1.213 2013/09/11 17:40:11 aballier Exp $
+
+  11 Sep 2013; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2013-r1.ebuild:
+  bump dvipsk/ps2pkm deps, bug #482728
+
+  11 Sep 2013; Christoph Junghans <ottxor@gentoo.org>
+  texlive-core-2013-r1.ebuild:
+  added prefix support (bug #484140)
+
+*texlive-core-2013-r1 (27 Aug 2013)
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> -texlive-core-2013.ebuild,
+  +texlive-core-2013-r1.ebuild:
+  revision bump to push recent changes
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> texlive-core-2013.ebuild:
+  handle KanjiMaps too when stripping updmap.cfg, bug #481130
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> texlive-core-2013.ebuild:
+  tests work these days even if they do not have a good coverage, enable them
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> texlive-core-2013.ebuild:
+  block pre-2013 texlive-basic, bug #482530
+
+  14 Aug 2013; Alexis Ballier <aballier@gentoo.org> texlive-core-2013.ebuild:
+  Depend on harfbuzz[icu], bug #481054 by Mikael Magnusson
+
+  05 Jul 2013; Tobias Klausmann <klausman@gentoo.org> texlive-core-2013.ebuild:
+  Keyworded on alpha, bug #475124
+
+  03 Jul 2013; Alexis Ballier <aballier@gentoo.org> texlive-core-2013.ebuild:
+  Force grep -H behavior since we rely on this. Might fix bug #475626.
+
+  03 Jul 2013; Alexis Ballier <aballier@gentoo.org> texlive-core-2013.ebuild:
+  Bump kpathsea dep to be sure texmf-update has been installed from there
+
+  02 Jul 2013; Alexis Ballier <aballier@gentoo.org> texlive-core-2013.ebuild:
+  bump cairo and pixman deps here too
+
+*texlive-core-2013 (28 Jun 2013)
+
+  28 Jun 2013; Alexis Ballier <aballier@gentoo.org> +texlive-core-2013.ebuild:
+  Bump to TeX Live 2013
+
+  30 May 2013; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2012-r1.ebuild:
+  tc-export RANLIB too, by Michael Mair-Keimberger (iamnr3), bug #465746
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for sh, wrt bug #449298
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for s390, wrt bug #449298
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for sparc, wrt bug #449298
+
+  21 Apr 2013; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2012-r1.ebuild:
+  Fix bundled icu build on sparc, bug #466700. Patch ported from icu upstream.
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for arm, wrt bug #449298
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for alpha, wrt bug #449298
+
+  19 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for ia64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for ppc64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for ppc, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for x86, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for amd64, wrt bug #449298
+
+  18 Apr 2013; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2012-r1.ebuild:
+  Trivial patch to increase one temporary buffer size to avoid FORTIFY_SOURCE
+  warnings. Bug #465748
+
+  17 Apr 2013; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2012-r1.ebuild:
+  add slot dep on poppler too
+
+  17 Apr 2013; Jeroen Roovers <jer@gentoo.org> texlive-core-2012-r1.ebuild:
+  Stable for HPPA (bug #449298).
+
+  12 Apr 2013; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2012-r1.ebuild:
+  EAPI 5, slot dep on libpng, create build dir in src_unpack
 
 *texlive-core-2012-r1 (18 Feb 2013)
 
@@ -846,4 +943,3 @@
   +files/2007/texlive-core-2007-mpware.patch, +files/texmf-update,
   +metadata.xml, +texlive-core-2007.ebuild:
   Initial import
-

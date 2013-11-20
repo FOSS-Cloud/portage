@@ -1,6 +1,61 @@
 # ChangeLog for app-emulation/open-vm-tools-kmod
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/open-vm-tools-kmod/ChangeLog,v 1.31 2013/03/15 19:48:53 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/open-vm-tools-kmod/ChangeLog,v 1.42 2013/10/22 22:21:05 floppym Exp $
+
+  22 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  open-vm-tools-kmod-2013.09.16.1328054.ebuild,
+  open-vm-tools-kmod-9.4.0.1280544.ebuild:
+  vmhgfs does not compile with CONFIG_UIDGID_STRICT_TYPE_CHECKS, bug 474636.
+
+  21 Oct 2013; Mike Gilbert <floppym@gentoo.org> +files/vmhgfs-linux-3.11.patch,
+  open-vm-tools-kmod-2013.09.16.1328054.ebuild:
+  Add patch to fix vmhgfs in linux-3.11, bug 488648.
+
+*open-vm-tools-kmod-9.4.0.1280544 (19 Oct 2013)
+
+  19 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +open-vm-tools-kmod-9.4.0.1280544.ebuild:
+  Add latest upstream stable version.
+
+  19 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  open-vm-tools-kmod-2013.09.16.1328054.ebuild:
+  Move module logic to pkg_setup and add checks for mainline config options.
+
+  19 Oct 2013; Mike Gilbert <floppym@gentoo.org> +files/60-vmware.rules,
+  -open-vm-tools-kmod-2012.10.14.874563.ebuild,
+  -open-vm-tools-kmod-2012.12.26.958366.ebuild,
+  -open-vm-tools-kmod-8.8.2.590212-r1.ebuild,
+  -open-vm-tools-kmod-9.2.2.893683.ebuild,
+  open-vm-tools-kmod-2013.09.16.1328054.ebuild:
+  Move udev rules file to FILESDIR and install with udev.eclass. Remove old
+  ebuilds.
+
+*open-vm-tools-kmod-2013.09.16.1328054 (19 Oct 2013)
+
+  19 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +open-vm-tools-kmod-2013.09.16.1328054.ebuild:
+  Version bump. Exclude modules based on kernel version; thanks to Tomas Mozes
+  for the idea.
+
+  24 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  open-vm-tools-kmod-2013.04.16.1098359.ebuild:
+  Fix patch name.
+
+  24 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/1098359-vmblock-3.10.0.patch,
+  open-vm-tools-kmod-2013.04.16.1098359.ebuild:
+  Add patch from vmware-modules to fix vmblock under linux-3.10, bug 482256 by
+  Serge.
+
+*open-vm-tools-kmod-2013.04.16.1098359 (22 Jun 2013)
+
+  22 Jun 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +open-vm-tools-kmod-2013.04.16.1098359.ebuild, +files/putname.patch:
+  Version bump (bug #471104 by Dustin C. Hatch). Fixes bug #460224 by Toei Rei.
+  Patch by William Cooke.
+
+  16 Jun 2013; Vadim Kuznetsov <vadimk@gentoo.org> metadata.xml:
+  dropped myself as a maintainer. maintainer needed
 
   15 Mar 2013; Mike Gilbert <floppym@gentoo.org>
   open-vm-tools-kmod-2012.12.26.958366.ebuild:
@@ -8,7 +63,7 @@
 
 *open-vm-tools-kmod-2012.12.26.958366 (20 Jan 2013)
 
-  20 Jan 2013; Vadim Kuznetsov vadimk@gentoo.org
+  20 Jan 2013; Vadim Kuznetsov <vadimk@gentoo.org>
   +open-vm-tools-kmod-2012.12.26.958366.ebuild,
   -open-vm-tools-kmod-2012.05.21.724730.ebuild:
   version bump
@@ -16,7 +71,7 @@
 *open-vm-tools-kmod-9.2.2.893683 (09 Dec 2012)
 *open-vm-tools-kmod-2012.10.14.874563 (09 Dec 2012)
 
-  09 Dec 2012; Vadim Kuznetsov vadimk@gentoo.org +files/frozen.patch,
+  09 Dec 2012; Vadim Kuznetsov <vadimk@gentoo.org> +files/frozen.patch,
   +open-vm-tools-kmod-2012.10.14.874563.ebuild,
   +open-vm-tools-kmod-9.2.2.893683.ebuild,
   -open-vm-tools-kmod-2012.03.13.651368-r1.ebuild:
@@ -24,11 +79,11 @@
 
 *open-vm-tools-kmod-2012.05.21.724730 (02 Jun 2012)
 
-  02 Jun 2012; Vadim Kuznetsov vadimk@gentoo.org
+  02 Jun 2012; Vadim Kuznetsov <vadimk@gentoo.org>
   +open-vm-tools-kmod-2012.05.21.724730.ebuild:
   version bump
 
-  02 Jun 2012; Vadim Kuznetsov vadimk@gentoo.org
+  02 Jun 2012; Vadim Kuznetsov <vadimk@gentoo.org>
   -open-vm-tools-kmod-2011.11.20.535097.ebuild:
   clean up
 
@@ -40,7 +95,7 @@
 *open-vm-tools-kmod-2012.03.13.651368-r1 (26 Mar 2012)
 *open-vm-tools-kmod-8.8.2.590212-r1 (26 Mar 2012)
 
-  26 Mar 2012; Vadim Kuznetsov vadimk@gentoo.org
+  26 Mar 2012; Vadim Kuznetsov <vadimk@gentoo.org>
   +open-vm-tools-kmod-2012.03.13.651368-r1.ebuild,
   +open-vm-tools-kmod-8.8.2.590212-r1.ebuild,
   -open-vm-tools-kmod-2012.03.13.651368.ebuild,
@@ -194,6 +249,6 @@
 
 *open-vm-tools-kmod-0.0.20091015.201664 (29 Oct 2009)
 
-  29 Oct 2009; Vadim Kuznetsov vadimk@gentoo.org
+  29 Oct 2009; Vadim Kuznetsov <vadimk@gentoo.org>
   +open-vm-tools-kmod-0.0.20091015.201664.ebuild, +metadata.xml:
   open-vm-tools kernel modules.

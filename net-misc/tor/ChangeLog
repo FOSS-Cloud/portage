@@ -1,6 +1,74 @@
 # ChangeLog for net-misc/tor
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/tor/ChangeLog,v 1.377 2013/03/12 12:30:48 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/tor/ChangeLog,v 1.390 2013/11/17 16:10:28 blueness Exp $
+
+*tor-0.2.4.18_rc (17 Nov 2013)
+
+  17 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +tor-0.2.4.18_rc.ebuild:
+  Version bump 2.4 branch
+
+*tor-0.2.5.1_alpha-r2 (28 Oct 2013)
+*tor-0.2.4.17_rc-r1 (28 Oct 2013)
+
+  28 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +files/README.gentoo,
+  +tor-0.2.4.17_rc-r1.ebuild, +tor-0.2.5.1_alpha-r2.ebuild,
+  -tor-0.2.4.17_rc.ebuild, -tor-0.2.5.1_alpha-r1.ebuild,
+  -tor-0.2.5.1_alpha.ebuild:
+  Use readme.gentoo.eclass to limit elog, bug #489678
+
+  28 Oct 2013; Anthony G. Basile <blueness@gentoo.org> -tor-0.2.4.16_rc.ebuild:
+  Remove older RC
+
+*tor-0.2.5.1_alpha-r1 (28 Oct 2013)
+
+  28 Oct 2013; Pacho Ramos <pacho@gentoo.org> +files/tor.service,
+  +tor-0.2.5.1_alpha-r1.ebuild:
+  Add unit file (#488426 by Emery Hemingway)
+
+*tor-0.2.5.1_alpha (02 Oct 2013)
+
+  02 Oct 2013; Anthony G. Basile <blueness@gentoo.org>
+  +tor-0.2.5.1_alpha.ebuild:
+  Version bump new alpha branch 0.2.5.x
+
+*tor-0.2.4.17_rc (05 Sep 2013)
+
+  05 Sep 2013; Anthony G. Basile <blueness@gentoo.org> +tor-0.2.4.17_rc.ebuild:
+  Version bump RC
+
+*tor-0.2.4.16_rc (11 Aug 2013)
+
+  11 Aug 2013; Anthony G. Basile <blueness@gentoo.org> +tor-0.2.4.16_rc.ebuild,
+  -tor-0.2.4.14_alpha.ebuild:
+  Version bump 2.4 branch, remove older unstable
+
+  06 Jul 2013; Anthony G. Basile <blueness@gentoo.org>
+  tor-0.2.4.14_alpha.ebuild, tor-0.2.4.15_rc.ebuild:
+  Depend on dev-libs/libevent[ssl] when USE=bufferevents, bug #475756
+
+*tor-0.2.4.15_rc (04 Jul 2013)
+
+  04 Jul 2013; Anthony G. Basile <blueness@gentoo.org> +tor-0.2.4.15_rc.ebuild,
+  -tor-0.2.4.13_alpha.ebuild:
+  Version bump alpha, remove older
+
+*tor-0.2.4.14_alpha (19 Jun 2013)
+
+  19 Jun 2013; Anthony G. Basile <blueness@gentoo.org>
+  +tor-0.2.4.14_alpha.ebuild, -tor-0.2.4.12_alpha.ebuild:
+  Version bump alpha and drop older
+
+*tor-0.2.4.13_alpha (15 Jun 2013)
+
+  15 Jun 2013; Anthony G. Basile <blueness@gentoo.org>
+  +tor-0.2.4.13_alpha.ebuild, -tor-0.2.4.11_alpha.ebuild, metadata.xml:
+  Version bump alpha and drop older
+
+*tor-0.2.4.12_alpha (19 Apr 2013)
+
+  19 Apr 2013; Anthony G. Basile <blueness@gentoo.org>
+  +tor-0.2.4.12_alpha.ebuild:
+  Version bump alpha
 
 *tor-0.2.4.11_alpha (12 Mar 2013)
 

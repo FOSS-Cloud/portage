@@ -1,6 +1,52 @@
 # ChangeLog for media-libs/libkface
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libkface/ChangeLog,v 1.31 2013/03/31 16:58:40 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libkface/ChangeLog,v 1.41 2013/10/12 16:49:32 dilfridge Exp $
+
+*libkface-3.5.0 (12 Oct 2013)
+
+  12 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libkface-3.3.0.ebuild, +libkface-3.5.0.ebuild:
+  Version bump; remove old
+
+*libkface-3.4.0 (06 Sep 2013)
+
+  06 Sep 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libkface-3.4.0.ebuild:
+  Version bump
+
+*libkface-3.3.0 (07 Aug 2013)
+
+  07 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libkface-3.3.0.ebuild:
+  Version bump
+
+  06 Aug 2013; Michael Palimaka <kensington@gentoo.org> -libkface-3.0.0.ebuild,
+  -libkface-3.1.0.ebuild:
+  Remove old.
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libkface-3.2.0.ebuild:
+  Stable for x86, wrt bug #473942
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libkface-3.2.0.ebuild:
+  Stable for amd64, wrt bug #473942
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> libkface-3.1.0.ebuild:
+  Stable for x86, wrt bug #470506
+
+  19 May 2013; Agostino Sarubbo <ago@gentoo.org> libkface-3.1.0.ebuild:
+  Stable for amd64, wrt bug #470506
+
+*libkface-3.2.0 (18 May 2013)
+
+  18 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libkface-3.2.0_beta2.ebuild, +libkface-3.2.0.ebuild:
+  Version bump
+
+*libkface-3.2.0_beta2 (11 May 2013)
+
+  11 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libkface-2.9.0.ebuild, +libkface-3.2.0_beta2.ebuild:
+  Add beta version (without keywords)
 
   31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libkface-3.0.0.ebuild:
   Stable for x86, wrt bug #462890

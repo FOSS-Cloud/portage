@@ -1,6 +1,40 @@
 # ChangeLog for net-misc/tigervnc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/tigervnc/ChangeLog,v 1.157 2013/01/15 15:45:02 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/tigervnc/ChangeLog,v 1.166 2013/11/15 18:58:48 josejx Exp $
+
+  15 Nov 2013; Joseph Jezak <josejx@gentoo.org> tigervnc-1.2.80_p5065.ebuild:
+  Marked ppc/ppc64 stable for bug #485436.
+
+*tigervnc-1.3.0 (12 Oct 2013)
+
+  12 Oct 2013; Raúl Porcel <armin76@gentoo.org> -tigervnc-1.1.0-r7.ebuild,
+  +tigervnc-1.3.0.ebuild:
+  Version bump wrt #486800, remove old
+
+  12 Oct 2013; Jeroen Roovers <jer@gentoo.org> tigervnc-1.1.0-r7.ebuild,
+  tigervnc-1.2.0.ebuild:
+  Drop HPPA keywording (bug #487716).
+
+  05 Oct 2013; Markus Meier <maekke@gentoo.org> tigervnc-1.2.80_p5065.ebuild:
+  arm stable, bug #485436
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> tigervnc-1.2.80_p5065.ebuild:
+  Stable for HPPA (bug #485436).
+
+  21 Sep 2013; Jeroen Roovers <jer@gentoo.org> tigervnc-1.2.80_p5065.ebuild:
+  Set minimal FLTK version (bug #483668).
+
+  10 Sep 2013; Patrick Lauer <patrick@gentoo.org> tigervnc-1.2.80_p5065.ebuild:
+  Whitespace
+
+  27 Aug 2013; Michael Palimaka <kensington@gentoo.org>
+  tigervnc-1.1.0-r7.ebuild, tigervnc-1.2.0.ebuild, tigervnc-1.2.80_p5065.ebuild:
+  Pin virtual/jpeg SLOT to 0.
+
+*tigervnc-1.2.80_p5065 (07 Jul 2013)
+
+  07 Jul 2013; Raúl Porcel <armin76@gentoo.org> +tigervnc-1.2.80_p5065.ebuild:
+  Version bump and support Xorg-server-1.14.2 wrt bug #473518
 
   15 Jan 2013; Raúl Porcel <armin76@gentoo.org> tigervnc-1.1.0-r7.ebuild:
   Use xorg-server-1.12.4

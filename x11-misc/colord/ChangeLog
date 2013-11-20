@@ -1,6 +1,29 @@
 # ChangeLog for x11-misc/colord
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/colord/ChangeLog,v 1.61 2013/04/01 17:56:11 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/colord/ChangeLog,v 1.66 2013/09/08 19:50:07 tetromino Exp $
+
+  08 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  colord-0.1.28.ebuild, colord-0.1.31.ebuild, colord-0.1.34.ebuild,
+  colord-1.0.3.ebuild:
+  USE=gusb requires USE=udev (bug #482276, thanks to Cengiz Gunay).
+
+*colord-1.0.3 (25 Aug 2013)
+
+  25 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> +colord-1.0.3.ebuild:
+  Version bump, bug #480916.
+
+*colord-0.1.34 (30 Jun 2013)
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org> +colord-0.1.34.ebuild:
+  Version bump.
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org> colord-0.1.31.ebuild:
+  Add missing sane support, fix gtk-doc support per team policy, fix glib
+  dependency.
+
+  10 May 2013; Gilles Dartiguelongue <eva@gentoo.org> -colord-0.1.26.ebuild,
+  -colord-0.1.26-r1.ebuild:
+  Clean up old revisions.
 
   01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> colord-0.1.28.ebuild:
   Stable for alpha, wrt bug #458984

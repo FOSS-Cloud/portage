@@ -1,6 +1,39 @@
 # ChangeLog for dev-python/snakeoil
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/snakeoil/ChangeLog,v 1.56 2012/10/18 12:18:50 ferringb Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/snakeoil/ChangeLog,v 1.65 2013/10/30 19:21:36 mgorny Exp $
+
+  30 Oct 2013; Michał Górny <mgorny@gentoo.org> snakeoil-0.5.2.ebuild:
+  Update the dep to use dev-lang/python-exec.
+
+  26 Sep 2013; Julian Ospald <hasufell@gentoo.org> snakeoil-9999.ebuild:
+  fix fetching (server does not support shallow clients)
+
+*snakeoil-0.5.3 (26 Sep 2013)
+
+  26 Sep 2013; Tim Harder <radhermit@gentoo.org> +snakeoil-0.5.3.ebuild,
+  snakeoil-9999.ebuild, metadata.xml:
+  Version bump, update live ebuild, and make myself primary maintainer.
+
+  26 Sep 2013; Michał Górny <mgorny@gentoo.org> snakeoil-9999.ebuild:
+  Remove the python-exec:2 blocker since the issue has been fixed in git.
+
+  26 Sep 2013; Michał Górny <mgorny@gentoo.org> snakeoil-0.5.2.ebuild,
+  snakeoil-9999.ebuild:
+  Block python-exec:2 since snakeoil requires dev-python/sphinx wrapped the old
+  way.
+
+  27 Aug 2013; Tim Harder <radhermit@gentoo.org> snakeoil-9999.ebuild:
+  Convert to distutils-r1 (patch by mgorny).
+
+  17 Jun 2013; Tim Harder <radhermit@gentoo.org> metadata.xml:
+  Add myself as a maintainer.
+
+  16 Jun 2013; Brian Dolbec <dolsen@gentoo.org> metadata.xml:
+  Add myself as maintainer
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> -snakeoil-0.5.1.ebuild,
+  metadata.xml:
+  Cleanup due #122207
 
   18 Oct 2012; Brian Harring <ferringb@gentoo.org> snakeoil-9999.ebuild:
   Specify the versions of python snakeoil 9999 supports.

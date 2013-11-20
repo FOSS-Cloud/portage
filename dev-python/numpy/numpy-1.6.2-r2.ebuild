@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/numpy/numpy-1.6.2-r2.ebuild,v 1.16 2013/03/10 16:20:27 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/numpy/numpy-1.6.2-r2.ebuild,v 1.18 2013/09/17 05:46:07 bicatali Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7,3_1,3_2} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2} )
 
 FORTRAN_NEEDED=lapack
 
@@ -63,7 +63,8 @@ pc_libs() {
 python_prepare_all() {
 	epatch \
 		"${FILESDIR}"/${PN}-1.6.1-atlas.patch \
-		"${FILESDIR}"/${P}-test-pareto.patch
+		"${FILESDIR}"/${PN}-1.6.2-distutils.patch \
+		"${FILESDIR}"/${PN}-1.6.2-test-pareto.patch
 
 	if use lapack; then
 		append-ldflags "$($(tc-getPKG_CONFIG) --libs-only-other cblas lapack)"

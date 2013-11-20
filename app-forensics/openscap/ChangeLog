@@ -1,6 +1,25 @@
 # ChangeLog for app-forensics/openscap
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-forensics/openscap/ChangeLog,v 1.22 2013/03/04 19:09:51 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-forensics/openscap/ChangeLog,v 1.25 2013/09/26 08:19:06 swift Exp $
+
+*openscap-9999 (26 Sep 2013)
+
+  26 Sep 2013; Sven Vermeulen <swift@gentoo.org> +openscap-9999.ebuild:
+  Add live ebuild for openscap
+
+*openscap-0.9.12 (19 Sep 2013)
+
+  19 Sep 2013; Markos Chandras <hwoarang@gentoo.org> +openscap-0.9.12.ebuild,
+  metadata.xml:
+  Version bump. Fixes bug #485392. Thanks to Corentin LABBE and Sven Vermeulen
+
+*openscap-0.9.8 (18 Jun 2013)
+
+  18 Jun 2013; Michael Weber <xmw@gentoo.org> +openscap-0.9.8.ebuild,
+  -files/openscap-0.7.1-sql-fix.patch, -files/openscap-0.9.3-policy.patch,
+  -files/test_probes_interface.patch, -files/test_probes_process.patch,
+  -openscap-0.9.1.ebuild, -openscap-0.9.3-r1.ebuild, -openscap-0.9.3.ebuild:
+  Version bump by Corentin LABBE via email.
 
 *openscap-0.9.4.1 (04 Mar 2013)
 

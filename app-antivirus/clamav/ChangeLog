@@ -1,6 +1,64 @@
 # ChangeLog for app-antivirus/clamav
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-antivirus/clamav/ChangeLog,v 1.454 2013/04/02 10:55:04 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-antivirus/clamav/ChangeLog,v 1.467 2013/10/09 11:28:32 xarthisius Exp $
+
+  09 Oct 2013; Kacper Kowalik <xarthisius@gentoo.org> clamav-0.97.7.ebuild,
+  clamav-0.97.8-r2.ebuild, clamav-0.97.8.ebuild, clamav-0.98.ebuild:
+  Fix typo in -mminimal-toc wrt #487414 by Agostino Sarubbo <ago@gentoo.org>
+
+  05 Oct 2013; Jeroen Roovers <jer@gentoo.org> clamav-0.98.ebuild:
+  Stable for HPPA (bug #470090).
+
+  05 Oct 2013; Jeroen Roovers <jer@gentoo.org> clamav-0.98.ebuild:
+  Disable fanotify support (until it is fixed, bug #487016).
+
+  03 Oct 2013; Eray Aslan <eras@gentoo.org> clamav-0.98.ebuild:
+  Fix config file move - bug #486624
+
+  28 Sep 2013; Chema Alonso <nimiux@gentoo.org> clamav-0.97.8-r2.ebuild:
+  Stable for amd64 wrt bug #480038
+
+  28 Sep 2013; Jeroen Roovers <jer@gentoo.org> clamav-0.97.8-r2.ebuild:
+  Stable for HPPA (bug #480038).
+
+*clamav-0.98 (27 Sep 2013)
+
+  27 Sep 2013; Eray Aslan <eras@gentoo.org> +clamav-0.98.ebuild,
+  +files/clamd.conf-r1, +files/clamd.initd-r6:
+  Version bump - bug #485728. Use ionice in init script - bug #469484. Add
+  database update notice for first time clamav usage - bug #483284.
+
+*clamav-0.97.8-r2 (08 Sep 2013)
+
+  08 Sep 2013; Pacho Ramos <pacho@gentoo.org> +clamav-0.97.8-r2.ebuild,
+  +files/freshclamd.service, -clamav-0.97.8-r1.ebuild:
+  Install a service for freshclamd (#477540 by Harris Landgarten)
+
+*clamav-0.97.8-r1 (06 Jul 2013)
+
+  06 Jul 2013; Pacho Ramos <pacho@gentoo.org> +clamav-0.97.8-r1.ebuild,
+  +files/clamav-milter.service, +files/clamd.service, +files/clamd_at.service,
+  +files/tmpfiles.d/clamav.conf:
+  Add unit files (#475858, thanks to Tim Harder for his help)
+
+  12 Jun 2013; Tim Harder <radhermit@gentoo.org> clamav-0.97.7.ebuild,
+  clamav-0.97.8.ebuild:
+  Properly apply patches from FILESDIR using epatch (bug #472788).
+
+  12 Jun 2013; Tim Harder <radhermit@gentoo.org> -clamav-0.97.5-r1.ebuild,
+  -clamav-0.97.6.ebuild, -clamav-0.97.6-r1.ebuild, -clamav-0.97.6-r2.ebuild,
+  -clamav-0.97.6-r3.ebuild, -clamav-0.97.7-r1.ebuild, -clamav-0.97.7-r2.ebuild,
+  -files/clamd.initd, -files/clamd.initd-r1, -files/clamd.initd-r2,
+  -files/clamd.initd-r4:
+  Remove old.
+
+*clamav-0.97.8 (23 Apr 2013)
+
+  23 Apr 2013; <lordvan@gentoo.org> +clamav-0.97.8.ebuild:
+  new version
+
+  16 Apr 2013; Eray Aslan <eras@gentoo.org> files/clamd.initd-r5:
+  Check pid file directory before starting freshclam - bug #333783
 
   02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> clamav-0.97.7.ebuild:
   Stable for sparc, wrt bug #462278

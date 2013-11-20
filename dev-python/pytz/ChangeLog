@@ -1,6 +1,95 @@
 # ChangeLog for dev-python/pytz
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pytz/ChangeLog,v 1.133 2013/01/13 21:27:35 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pytz/ChangeLog,v 1.160 2013/09/07 22:08:39 radhermit Exp $
+
+*pytz-2013d (07 Sep 2013)
+
+  07 Sep 2013; Tim Harder <radhermit@gentoo.org> +pytz-2013d.ebuild:
+  Version bump.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pytz-2012j.ebuild,
+  pytz-2013b.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> pytz-2012j.ebuild,
+  pytz-2013b.ebuild:
+  Drop removed Python implementations from PYTHON_COMPAT.
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2013b.ebuild:
+  Stable for sh, wrt bug #472860
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2013b.ebuild:
+  Stable for s390, wrt bug #472860
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2013b.ebuild:
+  Stable for sparc, wrt bug #472860
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2013b.ebuild:
+  Stable for arm, wrt bug #472860
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2013b.ebuild:
+  Stable for ia64, wrt bug #472860
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2013b.ebuild:
+  Stable for alpha, wrt bug #472860
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2013b.ebuild:
+  Stable for amd64, wrt bug #472860
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2013b.ebuild:
+  Stable for x86, wrt bug #472860
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2013b.ebuild:
+  Stable for ppc64, wrt bug #472860
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2013b.ebuild:
+  Stable for ppc, wrt bug #472860
+
+  10 Jun 2013; Jeroen Roovers <jer@gentoo.org> pytz-2013b.ebuild:
+  Stable for HPPA (bug #472860).
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2012j.ebuild:
+  Stable for s390, wrt bug #461164
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2012j.ebuild:
+  Stable for x86, wrt bug #461164
+
+  08 May 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2012j.ebuild:
+  Stable for sh, wrt bug #461164
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2012j.ebuild:
+  Stable for ppc64, wrt bug #461164
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2012j.ebuild:
+  Stable for ppc, wrt bug #461164
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2012j.ebuild:
+  Stable for sparc, wrt bug #461164
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2012j.ebuild:
+  Stable for ia64, wrt bug #461164
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2012j.ebuild:
+  Stable for alpha, wrt bug #461164
+
+  05 May 2013; Jeroen Roovers <jer@gentoo.org> pytz-2012j.ebuild:
+  Stable for HPPA (bug #461164).
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2012j.ebuild:
+  Stable for arm, wrt bug #461164
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> pytz-2012j.ebuild:
+  Stable for amd64, wrt bug #461164
+
+*pytz-2013b (03 May 2013)
+
+  03 May 2013; Dirkjan Ochtman <djc@gentoo.org> +pytz-2013b.ebuild:
+  Version bump pytz to 2013b.
+
+  03 May 2013; Dirkjan Ochtman <djc@gentoo.org> -pytz-2011e.ebuild,
+  -pytz-2012d.ebuild, -pytz-2012f.ebuild, -pytz-2012g.ebuild,
+  -pytz-2012h-r1.ebuild, -pytz-2012h.ebuild:
+  Remove old versions of pytz.
 
   13 Jan 2013; Michał Górny <mgorny@gentoo.org> pytz-2012j.ebuild:
   Enable pypy2.0.

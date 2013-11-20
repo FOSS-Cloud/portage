@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-base/xfce4-session/xfce4-session-4.10.0-r1.ebuild,v 1.2 2012/11/28 12:30:33 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/xfce-base/xfce4-session/xfce4-session-4.10.0-r1.ebuild,v 1.12 2013/08/21 14:30:54 ssuominen Exp $
 
 EAPI=5
 inherit xfconf
@@ -11,7 +11,7 @@ SRC_URI="mirror://xfce/src/xfce/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~x86-solaris"
 IUSE="consolekit debug gnome-keyring policykit udev +xscreensaver"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.98
@@ -27,7 +27,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.98
 RDEPEND="${COMMON_DEPEND}
 	x11-apps/xrdb
 	x11-misc/xdg-user-dirs
-	consolekit? ( || ( sys-auth/consolekit >=sys-apps/systemd-40 ) )
+	consolekit? ( sys-auth/consolekit )
 	policykit? ( >=sys-auth/polkit-0.104-r1 )
 	udev? ( >=sys-power/upower-0.9.15 )
 	xscreensaver? ( || (

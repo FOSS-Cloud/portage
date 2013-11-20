@@ -1,6 +1,44 @@
 # ChangeLog for net-misc/tinc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/tinc/ChangeLog,v 1.39 2013/03/05 02:41:34 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/tinc/ChangeLog,v 1.46 2013/10/19 15:58:57 blueness Exp $
+
+*tinc-1.0.23 (19 Oct 2013)
+
+  19 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +tinc-1.0.23.ebuild,
+  -tinc-1.0.21.ebuild, -tinc-1.0.22.ebuild:
+  Version bump
+
+  01 Sep 2013; Anthony G. Basile <blueness@gentoo.org> files/tincd,
+  files/tincd.lo:
+  Fix quotes in openrc script, bug #481640
+
+*tinc-1.0.22-r2 (31 Aug 2013)
+
+  31 Aug 2013; Anthony G. Basile <blueness@gentoo.org> +tinc-1.0.22-r2.ebuild,
+  -tinc-1.0.22-r1.ebuild, files/tincd_at.service:
+  Fix systemd unit file, bug #479596
+
+*tinc-1.0.22-r1 (30 Aug 2013)
+
+  30 Aug 2013; Anthony G. Basile <blueness@gentoo.org> +files/tincd_at.service,
+  +tinc-1.0.22-r1.ebuild:
+  Add systemd unit file, bug #479596
+
+*tinc-1.0.22 (13 Aug 2013)
+
+  13 Aug 2013; Anthony G. Basile <blueness@gentoo.org> +tinc-1.0.22.ebuild:
+  Version bump
+
+  24 Apr 2013; Anthony G. Basile <blueness@gentoo.org> +files/tincd,
+  +files/tincd.conf, +files/tincd.lo, -files/tincd.1, -files/tincd.conf.1,
+  -files/tincd.lo.1, -tinc-1.0.19.ebuild, -tinc-1.0.20.ebuild,
+  tinc-1.0.21.ebuild:
+  Remove older exploitables and name cleanup, bug #466904
+
+*tinc-1.0.21 (23 Apr 2013)
+
+  23 Apr 2013; Anthony G. Basile <blueness@gentoo.org> +tinc-1.0.21.ebuild:
+  Version bump
 
   05 Mar 2013; Anthony G. Basile <blueness@gentoo.org>
   -files/fix-ac-arg-enable.patch, -tinc-1.0.18.ebuild:

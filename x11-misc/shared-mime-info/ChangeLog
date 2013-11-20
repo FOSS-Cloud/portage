@@ -1,6 +1,31 @@
 # ChangeLog for x11-misc/shared-mime-info
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/shared-mime-info/ChangeLog,v 1.195 2013/02/21 18:00:32 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/shared-mime-info/ChangeLog,v 1.200 2013/11/12 20:33:24 haubi Exp $
+
+  12 Nov 2013; Michael Haubenwallner <haubi@gentoo.org>
+  shared-mime-info-1.2-r1.ebuild:
+  Add ~ppc-aix keyword.
+
+*shared-mime-info-1.2-r1 (06 Nov 2013)
+
+  06 Nov 2013; Pacho Ramos <pacho@gentoo.org> +shared-mime-info-1.2-r1.ebuild,
+  -shared-mime-info-1.2.ebuild:
+  Ensure people get fix for bug #487504
+
+  11 Oct 2013; Samuli Suominen <ssuominen@gentoo.org>
+  shared-mime-info-1.2.ebuild:
+  Disable use of fdatasync() due to severe time regression wrt #487504 by Nikos
+  Chantziaras
+
+  11 Oct 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +files/shared-mime-info-1.2-g_type_init.patch, shared-mime-info-1.2.ebuild:
+  Backport upstream patch for calling g_type_init() only when appropiate.
+
+*shared-mime-info-1.2 (07 Oct 2013)
+
+  07 Oct 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +shared-mime-info-1.2.ebuild:
+  Version bump.
 
   21 Feb 2013; Zac Medico <zmedico@gentoo.org> shared-mime-info-1.1.ebuild:
   Add ~arm-linux keyword.

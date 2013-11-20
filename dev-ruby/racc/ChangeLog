@@ -1,6 +1,27 @@
 # ChangeLog for dev-ruby/racc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/racc/ChangeLog,v 1.93 2013/01/28 15:15:18 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/racc/ChangeLog,v 1.99 2013/10/23 05:53:11 graaff Exp $
+
+*racc-1.4.10 (23 Oct 2013)
+
+  23 Oct 2013; Hans de Graaff <graaff@gentoo.org> +racc-1.4.10.ebuild:
+  Version bump. Compiled version no longer compatible with ruby18.
+
+  05 Sep 2013; Jeroen Roovers <jer@gentoo.org> racc-1.4.9.ebuild:
+  Stable for HPPA (bug #483254).
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> racc-1.4.9.ebuild:
+  Stable for x86, wrt bug #483254
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> racc-1.4.9.ebuild:
+  Stable for amd64, wrt bug #483254
+
+  21 Jul 2013; Hans de Graaff <graaff@gentoo.org> -racc-1.4.6.ebuild,
+  -racc-1.4.6-r1.ebuild:
+  Cleanup.
+
+  07 Jul 2013; Hans de Graaff <graaff@gentoo.org> racc-1.4.9.ebuild:
+  Add ruby20 support.
 
   28 Jan 2013; Alexis Ballier <aballier@gentoo.org> racc-1.4.9.ebuild:
   keyword ~amd64-fbsd

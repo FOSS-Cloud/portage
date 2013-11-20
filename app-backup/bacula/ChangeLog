@@ -1,6 +1,29 @@
 # ChangeLog for app-backup/bacula
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/bacula/ChangeLog,v 1.154 2013/03/14 07:42:06 tomjbe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-backup/bacula/ChangeLog,v 1.161 2013/05/20 14:20:50 jer Exp $
+
+  20 May 2013; Jeroen Roovers <jer@gentoo.org> bacula-5.0.3-r3.ebuild,
+  bacula-5.2.12.ebuild, bacula-5.2.13.ebuild:
+  Remove HPPA keywording (bug #409229).
+
+  01 May 2013; Thomas Beierlein <tomjbe@gentoo.org> bacula-5.2.13.ebuild:
+  Fix logrotate config file (bug 258187, comment #4). Thanks Ortwin.
+
+  23 Apr 2013; Thomas Beierlein <tomjbe@gentoo.org> bacula-5.2.13.ebuild:
+  Fix desktop file category (bug #466688). Use CXXFLAGS instead CFLAGS (bug
+  466694). Thanks ago for reporting
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bacula-5.2.13.ebuild:
+  Stable for sparc, wrt bug #466636
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bacula-5.2.13.ebuild:
+  Stable for ppc, wrt bug #466636
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bacula-5.2.13.ebuild:
+  Stable for x86, wrt bug #466636
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bacula-5.2.13.ebuild:
+  Stable for amd64, wrt bug #466636
 
 *bacula-5.2.13 (14 Mar 2013)
 

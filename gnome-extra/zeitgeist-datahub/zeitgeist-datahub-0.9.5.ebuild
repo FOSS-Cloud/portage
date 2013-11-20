@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/zeitgeist-datahub/zeitgeist-datahub-0.9.5.ebuild,v 1.8 2013/04/07 14:47:29 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/zeitgeist-datahub/zeitgeist-datahub-0.9.5.ebuild,v 1.10 2013/04/24 06:48:21 jlec Exp $
 
 EAPI=4
 
@@ -20,6 +20,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="download telepathy"
 
 CDEPEND="
+	!>=gnome-extra/zeitgeist-0.9.12
 	dev-libs/libzeitgeist
 	>=dev-libs/json-glib-0.14.0
 	dev-libs/glib:2
@@ -27,7 +28,7 @@ CDEPEND="
 	telepathy? ( >=net-libs/telepathy-glib-0.18.0 )"
 RDEPEND="${CDEPEND}"
 DEPEND="${CDEPEND}
-	${vala_depend}
+	$(vala_depend)
 	virtual/pkgconfig"
 PDEPEND="gnome-extra/zeitgeist"
 

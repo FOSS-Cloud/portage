@@ -1,6 +1,28 @@
 # ChangeLog for dev-ruby/ruby-ldap
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-ldap/ChangeLog,v 1.57 2012/11/06 17:25:24 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-ldap/ChangeLog,v 1.62 2013/11/11 15:27:06 mrueg Exp $
+
+  11 Nov 2013; Manuel Rüger <mrueg@gentoo.org> -ruby-ldap-0.9.13.ebuild,
+  -ruby-ldap-0.9.15.ebuild:
+  Cleanup old.
+
+*ruby-ldap-0.9.16 (24 Sep 2013)
+
+  24 Sep 2013; Hans de Graaff <graaff@gentoo.org> +ruby-ldap-0.9.16.ebuild:
+  Version bump.
+
+*ruby-ldap-0.9.15 (06 Sep 2013)
+
+  06 Sep 2013; Hans de Graaff <graaff@gentoo.org> +ruby-ldap-0.9.15.ebuild:
+  Version bump.
+
+*ruby-ldap-0.9.13 (06 Jun 2013)
+
+  06 Jun 2013; Hans de Graaff <graaff@gentoo.org> +ruby-ldap-0.9.13.ebuild:
+  Version bump.
+
+  06 Jun 2013; Hans de Graaff <graaff@gentoo.org> -ruby-ldap-0.9.9-r1.ebuild:
+  Cleanup.
 
   06 Nov 2012; Jeroen Roovers <jer@gentoo.org> ruby-ldap-0.9.12.ebuild:
   Stable for HPPA (bug #422841).

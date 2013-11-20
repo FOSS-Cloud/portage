@@ -1,6 +1,30 @@
 # ChangeLog for dev-php/adodb
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/adodb/ChangeLog,v 1.131 2013/04/03 21:47:12 mabi Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-php/adodb/ChangeLog,v 1.139 2013/08/07 13:32:05 ago Exp $
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> adodb-5.18.ebuild:
+  Stable for x86, wrt bug #470438
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> adodb-5.18.ebuild:
+  Stable for ppc64, wrt bug #470438
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> adodb-5.18.ebuild:
+  Stable for ia64, wrt bug #470438
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> adodb-5.18.ebuild:
+  Stable for sparc, wrt bug #470438
+
+  31 Jul 2013; Jeroen Roovers <jer@gentoo.org> adodb-5.18.ebuild:
+  Stable for HPPA (bug #470438).
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> adodb-5.18.ebuild:
+  Stable for alpha, wrt bug #470438
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> adodb-5.18.ebuild:
+  Stable for ppc, wrt bug #470438
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> adodb-5.18.ebuild:
+  Stable for amd64, wrt bug #470438
 
   03 Apr 2013; Matti Bickel <mabi@gentoo.org> adodb-5.18.ebuild:
   much nicer way of installing required files, thanks to floppym for the idea

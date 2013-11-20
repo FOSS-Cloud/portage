@@ -1,0 +1,12 @@
+# ChangeLog for virtual/pywcs
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/pywcs/ChangeLog,v 1.2 2013/04/24 21:16:06 bicatali Exp $
+
+  24 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org> pywcs-0.ebuild:
+  Propagate use dependencies
+
+*pywcs-0 (24 Apr 2013)
+
+  24 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org> +metadata.xml,
+  +pywcs-0.ebuild:
+  Initial import

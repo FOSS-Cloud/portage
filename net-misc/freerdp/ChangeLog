@@ -1,6 +1,64 @@
 # ChangeLog for net-misc/freerdp
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/freerdp/ChangeLog,v 1.41 2012/12/04 15:36:53 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/freerdp/ChangeLog,v 1.53 2013/11/11 16:32:17 floppym Exp $
+
+  11 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  freerdp-1.1.0_beta1_p20130710.ebuild, freerdp-9999.1.ebuild:
+  Move DirectFB dep up a level, bug 490846.
+
+  14 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  freerdp-1.1.0_beta1_p20130710.ebuild:
+  Add ~ppc/~ppc64 wrt to bug #481090
+
+*freerdp-1.1.0_beta1_p20130710 (14 Jul 2013)
+
+  14 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +freerdp-1.1.0_beta1_p20130710.ebuild, freerdp-1.1.0_alpha20121004-r1.ebuild,
+  freerdp-9999.1.ebuild:
+  Add another snapshot.
+
+*freerdp-1.1.0_alpha20121004-r1 (14 Jul 2013)
+
+  14 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +freerdp-1.1.0_alpha20121004-r1.ebuild:
+  Restore the previous stable ebuild as well.
+
+*freerdp-1.0.1_p20120318 (14 Jul 2013)
+
+  14 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +freerdp-1.0.1_p20120318.ebuild:
+  Restore old ebuild to satisfy dependency for net-libs/libguac-client-rdp.
+
+  14 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/freerdp-1.1.0_beta1-avx.patch, freerdp-1.1.0_beta1.ebuild:
+  Fix build with -mavx, bug 476798 by Mirko Guenther.
+
+  14 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  -freerdp-1.0.1_p20120318.ebuild, -freerdp-1.1.0_alpha20121004-r1.ebuild:
+  Remove old for security bug 476440.
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> freerdp-1.1.0_beta1.ebuild:
+  Stable for x86, wrt bug #476440
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> freerdp-1.1.0_beta1.ebuild:
+  Stable for amd64, wrt bug #476440
+
+*freerdp-1.1.0_beta1_p20130605 (10 Jun 2013)
+
+  10 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +freerdp-1.1.0_beta1_p20130605.ebuild, freerdp-9999.1.ebuild, metadata.xml:
+  Add a snapshot from git master.
+
+*freerdp-1.1.0_beta1 (09 Jun 2013)
+
+  09 Jun 2013; Mike Gilbert <floppym@gentoo.org> +freerdp-1.1.0_beta1.ebuild:
+  Version bump.
+
+*freerdp-1.1.0_alpha20121004-r1 (09 Jun 2013)
+
+  09 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +freerdp-1.1.0_alpha20121004-r1.ebuild, -freerdp-1.1.0_pre20121004-r1.ebuild:
+  Rename 1.1.0_pre20121004 to 1.1.0_alpha20121004.
 
   04 Dec 2012; <ago@gentoo.org> freerdp-1.1.0_pre20121004-r1.ebuild:
   Stable for x86, wrt bug #442212

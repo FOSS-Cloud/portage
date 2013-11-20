@@ -1,6 +1,25 @@
 # ChangeLog for app-i18n/librime
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/librime/ChangeLog,v 1.6 2013/02/05 10:25:33 yngwin Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/librime/ChangeLog,v 1.12 2013/09/02 08:06:22 ago Exp $
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> librime-0.9.9.ebuild:
+  Stable for x86, wrt bug #479718
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> librime-0.9.8.ebuild:
+  Stable for x86, wrt bug #479286
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> librime-0.9.9.ebuild:
+  Stable for amd64, wrt bug #479718
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> librime-0.9.8.ebuild:
+  Stable for amd64, wrt bug #479286
+
+  29 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> -librime-0.9.7.ebuild,
+  -files/librime-data-option.patch:
+  Drop old files by maintainer's request, wrt bug #478024
+
+  25 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> librime-0.9.9.ebuild:
+  QA: utilize default src_prepare from cmake-utils eclass
 
 *librime-0.9.8 (05 Feb 2013)
 

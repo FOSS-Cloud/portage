@@ -1,6 +1,36 @@
 # ChangeLog for dev-libs/libgweather
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgweather/ChangeLog,v 1.92 2013/04/07 09:40:16 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgweather/ChangeLog,v 1.98 2013/10/26 19:36:58 pacho Exp $
+
+*libgweather-3.8.3 (26 Oct 2013)
+
+  26 Oct 2013; Pacho Ramos <pacho@gentoo.org> +libgweather-3.8.3.ebuild:
+  Version bump
+
+  01 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +libgweather-3.6.2.ebuild:
+  Re-add libgweather-3.6.2; it's needed for gnome-applets-3.6,
+  evolution-data-server-3.6, etc. (bug #483084, thanks to lluixhi).
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -libgweather-3.6.2.ebuild, -libgweather-3.8.1.ebuild,
+  libgweather-3.8.2.ebuild:
+  Clean up old revisions and deprecated comments.
+
+  25 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org> libgweather-3.8.2.ebuild:
+  Raise gtk-doc-am dependency per configure. changelog & configure states that
+  it is not using libsoup-gnome at all anymore.
+
+*libgweather-3.8.2 (13 May 2013)
+
+  13 May 2013; Pacho Ramos <pacho@gentoo.org> +libgweather-3.8.2.ebuild:
+  Version bump
+
+*libgweather-3.8.1 (20 Apr 2013)
+
+  20 Apr 2013; Pacho Ramos <pacho@gentoo.org> +libgweather-3.8.1.ebuild,
+  -libgweather-3.8.0.ebuild:
+  Version bump, drop old
 
   07 Apr 2013; Pacho Ramos <pacho@gentoo.org> libgweather-3.8.0.ebuild:
   Fix libsoup deps

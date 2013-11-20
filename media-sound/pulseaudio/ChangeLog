@@ -1,6 +1,40 @@
 # ChangeLog for media-sound/pulseaudio
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/ChangeLog,v 1.299 2013/03/14 07:10:11 ford_prefect Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/ChangeLog,v 1.306 2013/10/09 13:56:59 jer Exp $
+
+  09 Oct 2013; Jeroen Roovers <jer@gentoo.org> pulseaudio-4.0.ebuild:
+  Stable for HPPA (bug #477662).
+
+  09 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> pulseaudio-2.1-r1.ebuild,
+  pulseaudio-3.0-r1.ebuild, pulseaudio-3.0.ebuild, pulseaudio-4.0.ebuild,
+  pulseaudio-9999.ebuild:
+  If USE="hwdb" is missing from virtual/udev, it's always enabled.
+
+*pulseaudio-4.0 (03 Jun 2013)
+
+  03 Jun 2013; Arun Raghavan <ford_prefect@gentoo.org> +pulseaudio-4.0.ebuild,
+  pulseaudio-9999.ebuild:
+  Bump to 4.0 finel release, drop RC2.
+
+  01 May 2013; Arun Raghavan <ford_prefect@gentoo.org>
+  pulseaudio-2.1-r1.ebuild, pulseaudio-3.0.ebuild:
+  Restrict json-c version in older ebuilds since they are incompatible with
+  current unstable json-c 0.11.
+
+  01 May 2013; Arun Raghavan <ford_prefect@gentoo.org>
+  -pulseaudio-1.1-r1.ebuild:
+  Drop old version
+
+*pulseaudio-3.0-r1 (27 Apr 2013)
+
+  27 Apr 2013; Arun Raghavan <ford_prefect@gentoo.org>
+  +pulseaudio-3.0-r1.ebuild, +files/pulseaudio-3.0-json-c-fix.patch:
+  Fix compilation with json-c 0.11 (bug #467280).
+
+  10 Apr 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  pulseaudio-1.1-r1.ebuild, pulseaudio-2.1-r1.ebuild, pulseaudio-3.0.ebuild,
+  pulseaudio-9999.ebuild:
+  Update to EAPI=5, wrt bug #437906
 
   14 Mar 2013; Arun Raghavan <ford_prefect@gentoo.org> pulseaudio-9999.ebuild:
   git master replaced gtk-2 with gtk-3 support. Adapt live ebuild for this.

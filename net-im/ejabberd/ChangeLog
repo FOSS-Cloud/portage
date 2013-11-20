@@ -1,6 +1,33 @@
 # ChangeLog for net-im/ejabberd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/ejabberd/ChangeLog,v 1.115 2013/04/05 09:03:34 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-im/ejabberd/ChangeLog,v 1.122 2013/11/01 13:48:58 ago Exp $
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> ejabberd-2.1.13-r1.ebuild:
+  Stable for x86, wrt bug #486292
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> ejabberd-2.1.13-r1.ebuild:
+  amd64 stable, bug #486292
+
+*ejabberd-2.1.13-r1 (08 Sep 2013)
+
+  08 Sep 2013; Pacho Ramos <pacho@gentoo.org> +ejabberd-2.1.13-r1.ebuild,
+  +files/ejabberd.service, +files/ejabberd.tmpfiles.conf:
+  Add unit file (#482444 by Andrius Štikonas)
+
+*ejabberd-2.1.13 (10 Jul 2013)
+
+  10 Jul 2013; Tim Harder <radhermit@gentoo.org> +ejabberd-2.1.13.ebuild,
+  +files/ejabberd.logrotate:
+  Version bump, add logrotate file (bug #473122 by cyberbat).
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> ejabberd-2.1.12.ebuild:
+  Stable for x86, wrt bug #468728
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> ejabberd-2.1.12.ebuild:
+  Stable for ppc, wrt bug #468728
+
+  09 May 2013; Chema Alonso <nimiux@gentoo.org> ejabberd-2.1.12.ebuild:
+  Stable for amd64 wrt bug #468728
 
 *ejabberd-2.1.12 (05 Apr 2013)
 
@@ -572,4 +599,3 @@
   +files/ejabberdctl, +files/inetrc, +ejabberd-0.7.5.ebuild:
   Initial import. This is masked for a reason :) if you have problems bug #63472
   is your friend.
-

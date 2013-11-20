@@ -1,6 +1,46 @@
 # ChangeLog for net-irc/telepathy-idle
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/telepathy-idle/ChangeLog,v 1.51 2013/04/01 18:25:22 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/telepathy-idle/ChangeLog,v 1.62 2013/09/05 19:44:51 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> telepathy-idle-0.1.16.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  29 Aug 2013; Pacho Ramos <pacho@gentoo.org> -telepathy-idle-0.1.14.ebuild,
+  -telepathy-idle-0.1.15.ebuild:
+  Drop old
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-idle-0.1.16.ebuild:
+  Stable for sparc, wrt bug #467934
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-idle-0.1.16.ebuild:
+  Stable for ia64, wrt bug #467934
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-idle-0.1.16.ebuild:
+  Stable for alpha, wrt bug #467934
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-idle-0.1.16.ebuild:
+  Stable for arm, wrt bug #467934
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-idle-0.1.16.ebuild:
+  Stable for ppc, wrt bug #467934
+
+  02 May 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-idle-0.1.16.ebuild:
+  Stable for x86, wrt bug #467934
+
+  02 May 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-idle-0.1.16.ebuild:
+  Stable for amd64, wrt bug #467934
+
+*telepathy-idle-0.1.16 (01 May 2013)
+
+  01 May 2013; Pacho Ramos <pacho@gentoo.org> +telepathy-idle-0.1.16.ebuild:
+  Version bump
+
+*telepathy-idle-0.1.15 (24 Apr 2013)
+
+  24 Apr 2013; Pacho Ramos <pacho@gentoo.org> +telepathy-idle-0.1.15.ebuild,
+  -files/telepathy-idle-0.1.12-parallel-make.patch,
+  -telepathy-idle-0.1.11.ebuild, -telepathy-idle-0.1.12.ebuild:
+  Version bump, drop old
 
   01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-idle-0.1.14.ebuild:
   Stable for sparc, wrt bug #458984

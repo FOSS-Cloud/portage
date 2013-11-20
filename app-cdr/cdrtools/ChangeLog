@@ -1,6 +1,71 @@
 # ChangeLog for app-cdr/cdrtools
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdrtools/ChangeLog,v 1.304 2013/03/04 19:31:23 billie Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdrtools/ChangeLog,v 1.317 2013/10/20 20:20:07 maekke Exp $
+
+  20 Oct 2013; Markus Meier <maekke@gentoo.org> cdrtools-3.01_alpha17.ebuild:
+  arm stable, bug #486318
+
+  14 Oct 2013; Daniel Pielmeier <billie@gentoo.org>
+  -cdrtools-3.01_alpha17-r1.ebuild,
+  -files/cdrtools-3.01_alpha17-capabilities.patch:
+  Remove old.
+
+*cdrtools-3.01_alpha18 (14 Oct 2013)
+
+  14 Oct 2013; Daniel Pielmeier <billie@gentoo.org>
+  +cdrtools-3.01_alpha18.ebuild:
+  Version bump.
+
+*cdrtools-3.01_alpha17-r1 (12 Oct 2013)
+
+  12 Oct 2013; Daniel Pielmeier <billie@gentoo.org>
+  +cdrtools-3.01_alpha17-r1.ebuild,
+  +files/cdrtools-3.01_alpha17-capabilities.patch:
+  Revision bump. Adding a patch by me and Jörg Schilling to fix bug #480666.
+  Thanks to Thomas Maguin for the report and Jörg Schilling for debugging this
+  issue.
+
+  09 Oct 2013; Jeroen Roovers <jer@gentoo.org> cdrtools-3.01_alpha17.ebuild:
+  Stable for HPPA (bug #486318).
+
+  07 Oct 2013; Daniel Pielmeier <billie@gentoo.org> metadata.xml:
+  Add upstream.
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cdrtools-3.01_alpha17.ebuild:
+  Stable for x86, wrt bug #486318
+
+  28 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cdrtools-3.01_alpha17.ebuild:
+  Stable for amd64, wrt bug #486318
+
+  28 Sep 2013; Daniel Pielmeier <billie@gentoo.org>
+  -cdrtools-3.01_alpha15.ebuild, -cdrtools-3.01_alpha16.ebuild:
+  Remove old.
+
+  06 Sep 2013; Daniel Pielmeier <billie@gentoo.org>
+  -cdrtools-3.01_alpha15.ebuild:
+  Remove old.
+
+*cdrtools-3.01_alpha17 (06 Sep 2013)
+
+  06 Sep 2013; Daniel Pielmeier <billie@gentoo.org>
+  +cdrtools-3.01_alpha17.ebuild:
+  Version bump.
+
+*cdrtools-3.01_alpha16 (21 Jul 2013)
+
+  21 Jul 2013; Daniel Pielmeier <billie@gentoo.org>
+  +cdrtools-3.01_alpha16.ebuild:
+  Version bump.
+
+  05 Jul 2013; Daniel Pielmeier <billie@gentoo.org>
+  -cdrtools-3.01_alpha13.ebuild:
+  Remove old.
+
+*cdrtools-3.01_alpha15 (07 Jun 2013)
+
+  07 Jun 2013; Daniel Pielmeier <billie@gentoo.org>
+  +cdrtools-3.01_alpha15.ebuild:
+  Version bump.
 
   04 Mar 2013; Daniel Pielmeier <billie@gentoo.org>
   -cdrtools-3.01_alpha12.ebuild:

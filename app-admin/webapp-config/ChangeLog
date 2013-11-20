@@ -1,6 +1,61 @@
 # ChangeLog for app-admin/webapp-config
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/webapp-config/ChangeLog,v 1.87 2013/03/17 15:27:18 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/webapp-config/ChangeLog,v 1.99 2013/11/01 00:36:25 twitch153 Exp $
+
+*webapp-config-1.52 (01 Nov 2013)
+
+  01 Nov 2013; Devan Franchini <twitch153@gentoo.org>
+  +webapp-config-1.52.ebuild:
+  Version bump, webapp-config 1.52
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> webapp-config-1.50.19-r1.ebuild,
+  webapp-config-1.51-r1.ebuild, webapp-config-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  30 Aug 2013; Anthony G. Basile <blueness@gentoo.org> metadata.xml:
+  Remove proxy-maintainers herd because twitch153 became a developer
+
+  25 Aug 2013; twitch153 metadata.xml:
+  metadata.xml: Corrects email address for twitch153, bug#482210
+
+*webapp-config-1.51-r1 (06 Aug 2013)
+
+  06 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/webapp-config-1.51-fix-indentation.patch,
+  +webapp-config-1.51-r1.ebuild, -webapp-config-1.51.ebuild:
+  Fix indentation, bug #479884
+
+  04 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  webapp-config-1.51.ebuild, webapp-config-9999.ebuild:
+  Add python-3.3 to PYTHON_COMPAT
+
+  03 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  webapp-config-1.51.ebuild, webapp-config-9999.ebuild:
+  Add python3, re-introduce fix for bug #474968
+
+  03 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  webapp-config-1.50.19-r1.ebuild:
+  Fix QA notice: add distutils-r1_python_install_all
+
+  03 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  -webapp-config-1.50.18.ebuild, -webapp-config-1.50.19.ebuild:
+  Remove older unstable versions
+
+*webapp-config-1.51 (03 Aug 2013)
+
+  03 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  +webapp-config-1.51.ebuild, webapp-config-9999.ebuild:
+  Version bump
+
+  05 Jul 2013; Anthony G. Basile <blueness@gentoo.org>
+  webapp-config-9999.ebuild:
+  Add intelligent dependency on portage to -9999
+
+*webapp-config-1.50.19-r1 (05 Jul 2013)
+
+  05 Jul 2013; Anthony G. Basile <blueness@gentoo.org>
+  +webapp-config-1.50.19-r1.ebuild, metadata.xml:
+  Propagete python_targets dependencies to sys-apps/portage, bug #474968
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

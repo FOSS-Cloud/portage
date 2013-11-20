@@ -1,6 +1,26 @@
 # ChangeLog for x11-misc/piedock
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/piedock/ChangeLog,v 1.19 2013/03/02 23:50:51 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/piedock/ChangeLog,v 1.23 2013/10/20 23:16:29 jer Exp $
+
+*piedock-1.6.3 (20 Oct 2013)
+
+  20 Oct 2013; Jeroen Roovers <jer@gentoo.org> +piedock-1.6.3.ebuild,
+  -piedock-1.6.0.ebuild, -piedock-1.6.1.ebuild:
+  Version bump.
+
+  06 Jun 2013; Jeroen Roovers <jer@gentoo.org> piedock-1.6.2.ebuild,
+  +files/piedock-1.6.2-mem.patch:
+  Fix building against media-libs/libpng-1.6* (bug #471460).
+
+*piedock-1.6.2 (03 Jun 2013)
+
+  03 Jun 2013; Jeroen Roovers <jer@gentoo.org> +piedock-1.6.2.ebuild:
+  Version bump by Markus Fisch (bug #471460).
+
+  01 Jun 2013; Samuli Suominen <ssuominen@gentoo.org> piedock-1.6.1.ebuild,
+  +files/piedock-1.6.1-mem.patch:
+  Fix building with libpng16 which doesn't implicitly pull in string.h through
+  png.h anymore wrt #471460 by F. Delente
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> piedock-1.6.1.ebuild:
   Move Qt dependencies to the new category

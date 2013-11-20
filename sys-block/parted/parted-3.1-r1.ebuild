@@ -1,10 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/parted/parted-3.1-r1.ebuild,v 1.4 2012/12/16 19:32:29 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/parted/parted-3.1-r1.ebuild,v 1.16 2013/08/06 13:12:43 ago Exp $
 
 EAPI="4"
-
-WANT_AUTOMAKE="1.11"
 
 inherit autotools eutils
 
@@ -14,7 +12,7 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 ~sh sparc x86"
 IUSE="+debug device-mapper nls readline selinux static-libs test"
 
 # specific version for gettext needed
@@ -25,7 +23,7 @@ RDEPEND="
 	nls? ( >=sys-devel/gettext-0.12.1-r2 )
 	readline? ( >=sys-libs/readline-5.2 )
 	selinux? ( sys-libs/libselinux )
-	device-mapper? ( || ( >=sys-fs/lvm2-2.02.45 sys-fs/device-mapper ) )
+	device-mapper? ( >=sys-fs/lvm2-2.02.45 )
 "
 DEPEND="
 	${RDEPEND}
@@ -54,13 +52,14 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		$(use_with readline) \
-		$(use_enable nls) \
 		$(use_enable debug) \
-		$(use_enable selinux) \
 		$(use_enable device-mapper) \
+		$(use_enable nls) \
+		$(use_enable selinux) \
 		$(use_enable static-libs static) \
-		--disable-rpath
+		$(use_with readline) \
+		--disable-rpath \
+		--disable-silent-rules
 }
 
 src_test() {

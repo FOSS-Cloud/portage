@@ -1,6 +1,36 @@
 # ChangeLog for media-gfx/graphicsmagick
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphicsmagick/ChangeLog,v 1.110 2013/04/08 03:52:13 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphicsmagick/ChangeLog,v 1.119 2013/08/03 07:47:35 ago Exp $
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> graphicsmagick-1.3.18.ebuild:
+  Stable for sparc, wrt bug #477606
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> graphicsmagick-1.3.18.ebuild:
+  Stable for alpha, wrt bug #477606
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> graphicsmagick-1.3.18.ebuild:
+  Stable for x86, wrt bug #477606
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> graphicsmagick-1.3.18.ebuild:
+  Stable for ppc64, wrt bug #477606
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> graphicsmagick-1.3.18.ebuild:
+  Stable for ppc, wrt bug #477606
+
+  21 Jul 2013; Jeroen Roovers <jer@gentoo.org> graphicsmagick-1.3.18.ebuild:
+  Stable for HPPA (bug #477606).
+
+  21 Jul 2013; Jeroen Roovers <jer@gentoo.org> graphicsmagick-1.3.18.ebuild,
+  +files/graphicsmagick-1.3.18-powerpc.patch:
+  Fix building on HPPA (bug #438608).
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> graphicsmagick-1.3.18.ebuild:
+  Stable for amd64, wrt bug #477606
+
+  08 Apr 2013; Tim Harder <radhermit@gentoo.org> graphicsmagick-1.3.18.ebuild,
+  files/graphicsmagick-1.3.18-freetype.patch:
+  Update freetype cross-compile patch to drop eautoreconf usage (fixes bug
+  #465122).
 
 *graphicsmagick-1.3.18 (08 Apr 2013)
 

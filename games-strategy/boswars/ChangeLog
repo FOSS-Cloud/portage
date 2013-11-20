@@ -1,6 +1,24 @@
 # ChangeLog for games-strategy/boswars
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/boswars/ChangeLog,v 1.20 2012/10/12 02:29:29 mr_bones_ Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/boswars/ChangeLog,v 1.24 2013/11/13 11:14:33 chainsaw Exp $
+
+  13 Nov 2013; Tony Vroon <chainsaw@gentoo.org> boswars-2.7-r1.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #490710.
+
+  11 Aug 2013; Michael Sterrett <mr_bones_@gentoo.org> -boswars-2.7.ebuild:
+  old
+
+*boswars-2.7-r1 (29 Jul 2013)
+
+  29 Jul 2013; Julian Ospald <hasufell@gentoo.org> +boswars-2.7-r1.ebuild:
+  fix broken png images wrt #475764
+
+*boswars-2.7 (24 Jun 2013)
+
+  24 Jun 2013; Michael Sterrett <mr_bones_@gentoo.org> +boswars-2.7.ebuild,
+  +files/boswars-2.7-gentoo.patch, +files/boswars-2.7-scons-blows.patch:
+  version bump
 
   12 Oct 2012; Michael Sterrett <mr_bones_@gentoo.org> boswars-2.6.1.ebuild:
   slot dep for libpng; tidy

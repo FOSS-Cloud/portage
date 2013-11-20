@@ -1,6 +1,53 @@
 # ChangeLog for dev-python/autopep8
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/autopep8/ChangeLog,v 1.29 2013/03/11 06:20:27 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/autopep8/ChangeLog,v 1.38 2013/11/16 09:36:04 xarthisius Exp $
+
+*autopep8-0.9.6 (16 Nov 2013)
+
+  16 Nov 2013; Kacper Kowalik <xarthisius@gentoo.org> +autopep8-0.9.6.ebuild,
+  -autopep8-0.9.4.ebuild:
+  Version bump, drop old
+
+*autopep8-0.9.5 (23 Oct 2013)
+
+  23 Oct 2013; Kacper Kowalik <xarthisius@gentoo.org> +autopep8-0.9.5.ebuild,
+  -autopep8-0.9.3.ebuild:
+  Version bump, drop old
+
+*autopep8-0.9.4 (09 Sep 2013)
+
+  09 Sep 2013; Kacper Kowalik <xarthisius@gentoo.org> +autopep8-0.9.4.ebuild,
+  -autopep8-0.9.2.ebuild:
+  Version bump, drop old
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> autopep8-0.9.2.ebuild,
+  autopep8-0.9.3.ebuild, autopep8-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*autopep8-0.9.3 (25 Aug 2013)
+
+  25 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> +autopep8-0.9.3.ebuild:
+  Version bump
+
+  18 Jul 2013; Kacper Kowalik <xarthisius@gentoo.org> autopep8-9999.ebuild:
+  update pep8 dependency in live version
+
+*autopep8-0.9.2 (18 Jul 2013)
+
+  18 Jul 2013; Kacper Kowalik <xarthisius@gentoo.org> +autopep8-0.9.2.ebuild,
+  -autopep8-0.8.7.ebuild, -autopep8-0.9.1.ebuild, -autopep8-0.9.ebuild:
+  Version bump, drop old
+
+*autopep8-0.9.1 (13 Jun 2013)
+
+  13 Jun 2013; Patrick Lauer <patrick@gentoo.org> +autopep8-0.9.1.ebuild:
+  Bump
+
+*autopep8-0.9 (13 May 2013)
+
+  13 May 2013; Kacper Kowalik <xarthisius@gentoo.org> +autopep8-0.9.ebuild,
+  -autopep8-0.8.6-r1.ebuild, autopep8-9999.ebuild:
+  Version bump, drop old
 
 *autopep8-0.8.7 (11 Mar 2013)
 

@@ -1,6 +1,76 @@
 # ChangeLog for net-fs/openafs-kernel
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/openafs-kernel/ChangeLog,v 1.147 2013/03/24 04:24:42 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/openafs-kernel/ChangeLog,v 1.162 2013/10/15 19:11:13 hasufell Exp $
+
+  15 Oct 2013; Julian Ospald <hasufell@gentoo.org>
+  openafs-kernel-1.6.5-r2.ebuild:
+  add epatch_user as per user request from johnfg
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> openafs-kernel-1.6.5-r1.ebuild:
+  Stable for sparc, wrt bug #478296
+
+*openafs-kernel-1.6.5-r2 (05 Sep 2013)
+
+  05 Sep 2013; Ian Stakenvicius <axs@gentoo.org>
+  +files/openafs-1.6.5-kernel-3.11-1.patch,
+  +files/openafs-1.6.5-kernel-3.11-2.patch, +openafs-kernel-1.6.5-r2.ebuild:
+  committed revbump with patches to support 3.11 kernels, thanks to johnfg_
+
+  03 Sep 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  openafs-kernel-1.6.5-r1.ebuild:
+  amd64, x86 stable. bug #478296
+
+  30 Aug 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  openafs-kernel-1.6.5-r1.ebuild:
+  direct ar calling and verbose build log fixed
+
+*openafs-kernel-1.6.2-r1 (29 Aug 2013)
+
+  29 Aug 2013; Ian Stakenvicius <axs@gentoo.org>
+  +openafs-kernel-1.6.2-r1.ebuild, -openafs-kernel-1.6.2.ebuild,
+  -openafs-kernel-1.6.5.ebuild:
+  put back autotools commands and eclass for stable ebuild also; revbumped to be
+  sure nobody keeps a potentially broken version installed; removed old
+
+*openafs-kernel-1.6.5-r1 (29 Aug 2013)
+
+  29 Aug 2013; Ian Stakenvicius <axs@gentoo.org>
+  +openafs-kernel-1.6.5-r1.ebuild:
+  fixed src_prepare so that autotools commands are actually executed; installed
+  output changed so ebuild was bumped
+
+  29 Aug 2013; Ian Stakenvicius <axs@gentoo.org> openafs-kernel-1.6.2.ebuild:
+  fixed one more erroneous 'linux_kernel' use, missed by last commit
+
+  29 Aug 2013; Ian Stakenvicius <axs@gentoo.org> openafs-kernel-1.6.2.ebuild,
+  openafs-kernel-1.6.5.ebuild:
+  fixed erroneous 'linux_kernel' for proper 'kernel_linux' in ebuilds, thanks to
+  vincent- and iamben
+
+  27 Aug 2013; Tom Wijsman <TomWij@gentoo.org> openafs-kernel-1.6.2.ebuild,
+  openafs-kernel-1.6.5.ebuild:
+  Drop autotools eclass because none of its functions are used.
+
+*openafs-kernel-1.6.5 (27 Aug 2013)
+
+  27 Aug 2013; Tom Wijsman <TomWij@gentoo.org> +openafs-kernel-1.6.5.ebuild:
+  Version bump to 1.6.5. Fixes bug #478498 which fixes security bug #478296,
+  security bug #478282, bug #472184, bug #469992, bug #463477 and bug #460494.
+  Proxied commit for Andrej Filipcic.
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  -openafs-kernel-1.4.14.1.ebuild, -openafs-kernel-1.6.1-r2.ebuild,
+  -openafs-kernel-1.6.1.ebuild, -openafs-kernel-1.6.2_pre3.ebuild:
+  Remove old
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> openafs-kernel-1.6.2.ebuild:
+  Stable for sparc, wrt bug #460494
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> openafs-kernel-1.6.2.ebuild:
+  Stable for x86, wrt bug #460494
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> openafs-kernel-1.6.2.ebuild:
+  Stable for amd64, wrt bug #460494
 
 *openafs-kernel-1.6.2 (24 Mar 2013)
 

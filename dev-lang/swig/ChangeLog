@@ -1,6 +1,58 @@
 # ChangeLog for dev-lang/swig
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/swig/ChangeLog,v 1.196 2013/03/01 12:36:44 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/swig/ChangeLog,v 1.211 2013/09/27 19:36:37 radhermit Exp $
+
+*swig-2.0.11 (27 Sep 2013)
+
+  27 Sep 2013; Tim Harder <radhermit@gentoo.org> +swig-2.0.11.ebuild:
+  Version bump.
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for sh, wrt bug #473488
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for s390, wrt bug #473488
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for sparc, wrt bug #473488
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for arm, wrt bug #473488
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for ia64, wrt bug #473488
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for alpha, wrt bug #473488
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for amd64, wrt bug #473488
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for x86, wrt bug #473488
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for ppc64, wrt bug #473488
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for ppc, wrt bug #473488
+
+  17 Jun 2013; Jeroen Roovers <jer@gentoo.org> swig-1.3.40-r2.ebuild:
+  Stable for HPPA (bug #473488).
+
+*swig-2.0.10 (30 May 2013)
+
+  30 May 2013; Tim Harder <radhermit@gentoo.org> +swig-2.0.10.ebuild:
+  Version bump.
+
+  06 May 2013; Sven Vermeulen <swift@gentoo.org> swig-1.3.40-r2.ebuild:
+  Fix bug #468394 - File collision with ccache-swig files
+
+*swig-1.3.40-r2 (22 Apr 2013)
+
+  22 Apr 2013; Sven Vermeulen <swift@gentoo.org> +swig-1.3.40-r2.ebuild:
+  Making swig-1.3.x SLOTed, allowing for multiple swig installations next to
+  each other. Needed for proper dependency handling of setools and apse
 
   01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> swig-2.0.9.ebuild:
   Stable for sh, wrt bug #456834

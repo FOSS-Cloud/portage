@@ -1,6 +1,16 @@
 # ChangeLog for x11-wm/xmonad
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/xmonad/ChangeLog,v 1.32 2013/01/05 17:47:52 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/xmonad/ChangeLog,v 1.35 2013/07/29 05:28:36 ago Exp $
+
+  29 Jul 2013; Agostino Sarubbo <ago@gentoo.org> xmonad-0.11-r1.ebuild:
+  Stable for x86, wrt bug #478288
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> xmonad-0.11-r1.ebuild:
+  Stable for amd64, wrt bug #478288
+
+  11 May 2013; Sergei Trofimovich <slyfox@gentoo.org> xmonad-0.10.ebuild:
+  Added missing depend on 'dev-haskell/extensible-exceptions' (bug #468502 by
+  ghdebhekei3n at yopmail.com).
 
 *xmonad-0.11-r1 (05 Jan 2013)
 

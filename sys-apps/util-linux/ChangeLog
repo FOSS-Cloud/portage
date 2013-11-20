@@ -1,6 +1,79 @@
 # ChangeLog for sys-apps/util-linux
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/util-linux/ChangeLog,v 1.426 2013/03/28 17:49:23 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/util-linux/ChangeLog,v 1.442 2013/11/09 11:37:14 polynomial-c Exp $
+
+  09 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> util-linux-9999.ebuild:
+  Fixed unconditional call of python-single-r1_pkg_setup (bug #490778) in live
+  ebuild as well.
+
+  09 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> util-linux-2.24.ebuild:
+  Fixed unconditional call of python-single-r1_pkg_setup (bug #490778).
+
+  29 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> util-linux-2.24.ebuild,
+  util-linux-9999.ebuild:
+  Moved 2.24 ebuild to EAPI-5. Synced 9999 ebuild with 2.24 version.
+
+*util-linux-2.24 (28 Oct 2013)
+
+  28 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> +util-linux-2.24.ebuild:
+  Version bump (bug #489342).
+
+*util-linux-2.23.2-r2 (29 Sep 2013)
+
+  29 Sep 2013; Mike Frysinger <vapier@gentoo.org> +util-linux-2.23.2-r2.ebuild:
+  Re-disable USE=tty-helpers by default and add an elog #483798 by Allen Parker.
+
+  29 Sep 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml,
+  util-linux-2.23.2-r1.ebuild:
+  Add USE=pam to control runuser #485486 by Denis Kaganovich.
+
+*util-linux-2.23.2-r1 (05 Sep 2013)
+
+  05 Sep 2013; Robin H. Johnson <robbat2@gentoo.org>
+  +util-linux-2.23.2-r1.ebuild:
+  Make USE=tty-helpers enabled by default, to match sysvinit that had those
+  utilities always available.
+
+  07 Aug 2013; Tim Harder <radhermit@gentoo.org> util-linux-9999.ebuild:
+  Update live ebuild.
+
+*util-linux-2.23.2 (07 Aug 2013)
+
+  07 Aug 2013; Tim Harder <radhermit@gentoo.org> +util-linux-2.23.2.ebuild:
+  Version bump (bug #479846).
+
+  16 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> util-linux-2.23.1.ebuild,
+  util-linux-9999.ebuild:
+  Use get_bashcompdir from bash-completion-r1.eclass because complectionsdir=
+  is not static.
+
+*util-linux-2.23.1 (11 Jun 2013)
+
+  11 Jun 2013; Tony Vroon <chainsaw@gentoo.org> +util-linux-2.23.1.ebuild:
+  Version bump, as requested by Samuli Suominen in bug #472342. To confirm,
+  this has the commits to fix the losetup offset bug reported by Andreas
+  Klauer.
+
+  05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  02 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #328951
+
+  08 May 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml,
+  util-linux-2.23.ebuild, util-linux-9999.ebuild:
+  Add USE=caps to control `setpriv` #469102 by Arfrever Frehtes Taifersar
+  Arahesis.
+
+  04 May 2013; Samuli Suominen <ssuominen@gentoo.org> util-linux-2.23.ebuild:
+  Block version of app-shells/bash-completion with conflicting "rtcwake"
+  completion wrt #468544
+
+*util-linux-2.23 (04 May 2013)
+
+  04 May 2013; Mike Frysinger <vapier@gentoo.org> +util-linux-2.23.ebuild,
+  metadata.xml:
+  Version bump #468144 by Samuli Suominen.
 
   28 Mar 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml,
   util-linux-2.22.2.ebuild, util-linux-9999.ebuild:

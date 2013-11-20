@@ -1,6 +1,72 @@
 # ChangeLog for media-libs/x264
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/x264/ChangeLog,v 1.85 2013/02/04 13:05:08 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/x264/ChangeLog,v 1.100 2013/09/22 09:19:28 ssuominen Exp $
+
+  22 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> x264-0.0.20130912.ebuild,
+  x264-9999.ebuild:
+  20130912 snapshot and current git uses .so.138 instead of .so.135 wrt #484892
+  by Arfrever Frehtes Taifersar Arahesis
+
+*x264-0.0.20130912 (13 Sep 2013)
+
+  13 Sep 2013; Luca Barbato <lu_zero@gentoo.org> x264-0.0.20130731.ebuild,
+  files/x264-cflags.patch, +files/x264-0.0.20130731-cflags.patch,
+  +x264-0.0.20130912.ebuild:
+  Version bump, cflags patch updated
+
+  12 Aug 2013; Alexis Ballier <aballier@gentoo.org> x264-0.0.20130731.ebuild,
+  x264-9999.ebuild, metadata.xml:
+  Add opencl useflag and disable it on snapshot
+
+  12 Aug 2013; Alexis Ballier <aballier@gentoo.org> x264-0.0.20130731.ebuild,
+  x264-9999.ebuild:
+  fix static-libs inverted logic
+
+*x264-0.0.20130731 (01 Aug 2013)
+
+  01 Aug 2013; Alexis Ballier <aballier@gentoo.org> +x264-0.0.20130731.ebuild:
+  new snapshot with the accumulated fixes
+
+  01 Aug 2013; Alexis Ballier <aballier@gentoo.org> x264-9999.ebuild:
+  Go multilib and stack for for medialibs r8
+
+  01 Aug 2013; Alexis Ballier <aballier@gentoo.org> x264-9999.ebuild,
+  +files/x264-cflags.patch:
+  Do not mess too much with CFLAGS. Should fix bug #413661 and bug #351219.
+
+  01 Aug 2013; Alexis Ballier <aballier@gentoo.org> x264-9999.ebuild:
+  drop custom-cflags useflag, bug #473816
+
+  01 Aug 2013; Alexis Ballier <aballier@gentoo.org> x264-9999.ebuild:
+  inherit eutils for the x32 patch
+
+  01 Aug 2013; Alexis Ballier <aballier@gentoo.org> x264-9999.ebuild:
+  Give a subslot even to -9999 and update soname
+
+  26 Jun 2013; Patrick McLean <chutzpah@gentoo.org> x264-0.0.20130506.ebuild,
+  x264-9999.ebuild:
+  Remove QA_TEXTREL to unhide the fact the the library has textrels. Switch
+  9999 to master rather than stable branch (bug #474430).
+
+  19 Jun 2013; Patrick McLean <chutz@gentoo.org> x264-0.0.20130506.ebuild,
+  x264-9999.ebuild:
+  Remove the debug USE flag as all it does is add -g to the CFLAGS (bug
+  #473814). Re-add the amd64-fbsd yasm dependency (bug #473798).
+
+  19 Jun 2013; Jeroen Roovers <jer@gentoo.org> x264-0.0.20120707.ebuild:
+  Stable for HPPA too.
+
+*x264-0.0.20130506 (18 Jun 2013)
+
+  18 Jun 2013; Patrick McLean <chutz@gentoo.org> -x264-0.0.20110426.ebuild,
+  +x264-0.0.20130506.ebuild, x264-9999.ebuild, metadata.xml:
+  Version bump (bug #473726). Refactor ebuild to be much less verbose, add
+  subslot on soname, use usex rather than myconf. Drop 0.0.20110426 since it
+  uses an old EAPI.
+
+  16 Apr 2013; Patrick McLean <chutz@gentoo.org> x264-0.0.20120707.ebuild,
+  +files/x264-0.0.20120707-gcc48.patch:
+  Add patch from upstream to fix crashes when compiled with gcc 4.8
 
   04 Feb 2013; Agostino Sarubbo <ago@gentoo.org> x264-0.0.20120707.ebuild:
   revert to ~arm, it was stabilized for a mistake

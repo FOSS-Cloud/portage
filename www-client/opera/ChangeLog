@@ -1,6 +1,35 @@
 # ChangeLog for www-client/opera
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/opera/ChangeLog,v 1.811 2013/04/05 16:09:08 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/opera/ChangeLog,v 1.819 2013/08/10 14:43:28 jer Exp $
+
+  10 Aug 2013; Jeroen Roovers <jer@gentoo.org> opera-12.16_p1860.ebuild,
+  opera-12.16_p1860-r1.ebuild:
+  Remove unneeded sys-apps/util-linux dependency (bug #477594).
+
+*opera-12.16_p1860-r1 (10 Aug 2013)
+
+  10 Aug 2013; Jeroen Roovers <jer@gentoo.org> +opera-12.16_p1860-r1.ebuild:
+  Add ~amd64-fbsd by Yuta SATOH (bug #477594).
+
+  06 Jul 2013; Jeroen Roovers <jer@gentoo.org> -opera-12.15_p1748.ebuild:
+  Old.
+
+  05 Jul 2013; Agostino Sarubbo <ago@gentoo.org> opera-12.16_p1860.ebuild:
+  Stable for x86, wrt bug #475832
+
+  05 Jul 2013; Agostino Sarubbo <ago@gentoo.org> opera-12.16_p1860.ebuild:
+  Stable for amd64, wrt bug #475832
+
+  05 Jul 2013; Jeroen Roovers <jer@gentoo.org> opera-12.16_p1860.ebuild:
+  No x11-libs/gtk+:3 in this release by toogle (bug #475822).
+
+*opera-12.16_p1860 (04 Jul 2013)
+
+  04 Jul 2013; Jeroen Roovers <jer@gentoo.org> +opera-12.16_p1860.ebuild:
+  Version bump.
+
+  09 May 2013; Jeroen Roovers <jer@gentoo.org> opera-12.15_p1748.ebuild:
+  Add x11-misc/xdg-utils to RDEPEND (bug #469142 by Dave Kemper).
 
   05 Apr 2013; Jeroen Roovers <jer@gentoo.org> -opera-12.14_p1738.ebuild:
   Old.

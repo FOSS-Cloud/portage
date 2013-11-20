@@ -1,18 +1,18 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/gopenmol/gopenmol-3.00-r2.ebuild,v 1.5 2012/04/02 06:06:41 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/gopenmol/gopenmol-3.00-r2.ebuild,v 1.6 2013/07/04 15:51:59 jlec Exp $
 
 EAPI=4
 
 PYTHON_DEPEND="2"
 
-inherit eutils multilib prefix python
+inherit eutils multilib python
 
 DESCRIPTION="Tool for the visualization and analysis of molecular structures"
 HOMEPAGE="http://www.csc.fi/gopenmol/"
 SRC_URI="${HOMEPAGE}/distribute/${P}-linux.tar.gz"
 
-LICENSE="as-is"
+LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
@@ -30,6 +30,8 @@ RDEPEND="
 	x11-libs/libXmu
 	x11-libs/libXxf86vm"
 DEPEND="${RDEPEND}"
+
+RESTRICT="mirror"
 
 S="${WORKDIR}/gOpenMol-${PV}/src"
 

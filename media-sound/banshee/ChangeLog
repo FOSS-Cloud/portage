@@ -1,6 +1,29 @@
 # ChangeLog for media-sound/banshee
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/banshee/ChangeLog,v 1.163 2013/03/31 18:59:18 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/banshee/ChangeLog,v 1.169 2013/10/12 12:12:44 pacho Exp $
+
+  12 Oct 2013; Pacho Ramos <pacho@gentoo.org> -banshee-2.6.0.ebuild,
+  banshee-2.6.1.ebuild:
+  Drop old and unneeded dep
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> banshee-2.6.0.ebuild,
+  banshee-2.6.1.ebuild:
+  Depend on libsoup-gnome again, clean up old revisions.
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> banshee-2.6.1.ebuild:
+  Stable for x86, wrt bug #480592
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> banshee-2.6.1.ebuild:
+  Stable for amd64, wrt bug #480592
+
+  15 Jun 2013; Pacho Ramos <pacho@gentoo.org> banshee-2.6.0.ebuild,
+  banshee-2.6.1.ebuild, metadata.xml:
+  Drop boo support (#435684)
+
+*banshee-2.6.1 (17 Apr 2013)
+
+  17 Apr 2013; Pacho Ramos <pacho@gentoo.org> +banshee-2.6.1.ebuild:
+  Version bump, drop -ggdb (#458632 by Ago)
 
   31 Mar 2013; Pacho Ramos <pacho@gentoo.org> -banshee-2.2.1.ebuild,
   -banshee-2.4.1.ebuild, -files/banshee-1.7.4-make-webkit-optional.patch,

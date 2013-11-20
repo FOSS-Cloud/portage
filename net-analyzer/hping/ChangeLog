@@ -1,6 +1,33 @@
 # ChangeLog for net-analyzer/hping
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/hping/ChangeLog,v 1.58 2012/03/02 17:45:39 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/hping/ChangeLog,v 1.63 2013/11/12 00:16:46 jer Exp $
+
+  12 Nov 2013; Jeroen Roovers <jer@gentoo.org> hping-3_pre20051105-r5.ebuild:
+  Use usex.
+
+  11 Nov 2013; Jeroen Roovers <jer@gentoo.org>
+  files/hping-3_pre20051105-tclsh-proper-escaping.patch:
+  Clean up patch.
+
+*hping-3_pre20051105-r5 (11 Nov 2013)
+
+  11 Nov 2013; Sergey Popov <pinkbyte@gentoo.org>
+  -hping-3_pre20051105-r4.ebuild, +hping-3_pre20051105-r5.ebuild,
+  +files/hping-3_pre20051105-tclsh-proper-escaping.patch:
+  Revision bump: fix escaping in configure script wrt bug #486664. Drop old
+  revision
+
+  01 Oct 2013; Jeroen Roovers <jer@gentoo.org> files/bytesex.h.patch:
+  Clean up one more patch.
+
+*hping-3_pre20051105-r4 (01 Oct 2013)
+
+  01 Oct 2013; Jeroen Roovers <jer@gentoo.org> +hping-3_pre20051105-r4.ebuild,
+  files/hping-3_pre20051105-ldflags.patch,
+  files/hping-3_pre20051105-libtcl.patch,
+  files/hping-3_pre20051105-scan-overflow.patch,
+  files/hping-3_pre20051105-tcl.patch, files/hping-3_pre20051105.patch:
+  Clean up patches. Add dev-lang/tcl-8.6 support (maybe bug #486664).
 
   02 Mar 2012; Jeroen Roovers <jer@gentoo.org> -hping-2.0.0_rc3-r1.ebuild,
   -hping-2.0.0_rc3-r2.ebuild, -files/hping-2.0.0_rc3-gentoo.patch,

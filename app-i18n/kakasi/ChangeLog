@@ -1,6 +1,24 @@
 # ChangeLog for app-i18n/kakasi
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/kakasi/ChangeLog,v 1.18 2011/12/18 20:12:27 phajdan.jr Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/kakasi/ChangeLog,v 1.24 2013/09/06 18:34:12 ago Exp $
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> kakasi-2.3.4-r1.ebuild:
+  Stable for sparc, wrt bug #479598
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org> kakasi-2.3.4-r1.ebuild:
+  Stable for alpha, wrt bug #479598
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> kakasi-2.3.4-r1.ebuild:
+  Stable for ppc, wrt bug #479598
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> kakasi-2.3.4-r1.ebuild:
+  Stable for ppc64, wrt bug #479598
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org> kakasi-2.3.4-r1.ebuild:
+  ia64 stable
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org> kakasi-2.3.4-r1.ebuild:
+  update to EAPI 5
 
   18 Dec 2011; Pawel Hajdan jr <phajdan.jr@gentoo.org> kakasi-2.3.4-r1.ebuild:
   x86 stable wrt bug #393695
@@ -56,4 +74,3 @@
   30 Apr 2003; Robert Coie <rac@gentoo.org> kakasi-2.3.4.ebuild:
   Initial import, based on ebuild submitted by Henry So, Jr. <henryso@panix.com>
   in bug #19808
-

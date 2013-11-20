@@ -1,6 +1,30 @@
 # ChangeLog for net-dns/noip-updater
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/noip-updater/ChangeLog,v 1.40 2011/08/20 13:20:33 polynomial-c Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-dns/noip-updater/ChangeLog,v 1.47 2013/09/23 19:15:59 ago Exp $
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> noip-updater-2.1.9-r1.ebuild:
+  Stable for sparc, wrt bug #485138
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> noip-updater-2.1.9-r1.ebuild:
+  Stable for ppc64, wrt bug #485138
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> noip-updater-2.1.9-r1.ebuild:
+  Stable for alpha, wrt bug #485138
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> noip-updater-2.1.9-r1.ebuild:
+  Stable for x86, wrt bug #485138
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> noip-updater-2.1.9-r1.ebuild:
+  Stable for amd64, wrt bug #485138
+
+*noip-updater-2.1.9-r1 (31 Aug 2013)
+
+  31 Aug 2013; Pacho Ramos <pacho@gentoo.org> +files/noip.service,
+  +noip-updater-2.1.9-r1.ebuild:
+  Add unit file (#481490 by Galym Kerimbekov)
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> noip-updater-2.1.9.ebuild:
+  add ~arm, bug #479860
 
   20 Aug 2011; Lars Wendler <polynomial-c@gentoo.org> files/noip2.start:
   non-maintainer commit: Removed --oknodo from init script. Thanks to Marcin
@@ -170,4 +194,3 @@
 
   New package -- client to upgrade your noip.com DNS entry.  Provided by: 
   Low Zhen Lin <lowzl@hotmail.com> in bug #9745
-

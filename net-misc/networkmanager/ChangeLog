@@ -1,6 +1,105 @@
 # ChangeLog for net-misc/networkmanager
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager/ChangeLog,v 1.169 2013/03/28 17:56:17 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager/ChangeLog,v 1.187 2013/11/15 19:40:09 pacho Exp $
+
+  15 Nov 2013; Pacho Ramos <pacho@gentoo.org> -networkmanager-0.9.8.4.ebuild,
+  -networkmanager-0.9.8.6.ebuild, networkmanager-0.9.8.8.ebuild:
+  Fix grep invocation (#491284 by Rodolphe Rocca), drop old.
+
+  12 Oct 2013; Mike Auty <ikelos@gentoo.org> networkmanager-0.9.8.6.ebuild,
+  networkmanager-0.9.8.8.ebuild, metadata.xml:
+  Clarify the wifi USE flag description and fix minor syntax issue in recent
+  ebuilds.
+
+  10 Oct 2013; Pacho Ramos <pacho@gentoo.org> networkmanager-0.9.8.8.ebuild:
+  Add a wifi USE flag to pull in wpa_supplicant only for that case (#473180 by
+  Marien Zwart)
+
+*networkmanager-0.9.8.8 (10 Oct 2013)
+
+  10 Oct 2013; Pacho Ramos <pacho@gentoo.org> +networkmanager-0.9.8.8.ebuild:
+  Version bump
+
+  06 Oct 2013; Pacho Ramos <pacho@gentoo.org> networkmanager-0.9.8.6.ebuild:
+  Add a warning for people having a NetworkManager.conf that loads ifnet plugin
+  preserved for some reason (#485658#c10 by Dennis Schridde)
+
+*networkmanager-0.9.8.6 (05 Oct 2013)
+
+  05 Oct 2013; Pacho Ramos <pacho@gentoo.org> +networkmanager-0.9.8.6.ebuild,
+  -networkmanager-0.9.6.4-r1.ebuild, -networkmanager-0.9.8.2-r3.ebuild:
+  Version bump, use keyfile plugin instead of ifnet for systemd to prevent
+  collisions and problems like bug #485658
+
+  01 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  networkmanager-0.9.6.4.ebuild, networkmanager-0.9.6.4-r1.ebuild,
+  networkmanager-0.9.8.2-r3.ebuild, networkmanager-0.9.8.4.ebuild:
+  Depend on dnsmasq[dhcp] for connection sharing (bug #475760, thanks to
+  Ronald).
+
+*networkmanager-0.9.8.4 (15 Sep 2013)
+
+  15 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -networkmanager-0.9.8.2.ebuild, -networkmanager-0.9.8.2-r2.ebuild,
+  +networkmanager-0.9.8.4.ebuild, -files/10-openrc-status-r2,
+  +files/networkmanager-0.9.8.4-pre-sleep.patch:
+  Version bump, lots of bugs fixed. "systemctl enable NetworkManager" now
+  properly enables NetworkManager-dispatcher (bug #477086). Drop old.
+
+  25 Jul 2013; Pacho Ramos <pacho@gentoo.org> networkmanager-0.9.8.2-r3.ebuild:
+  Refix completion dir using eclass (#477820 by Alexander Tsoy and poncho)
+
+  19 Jul 2013; Jonathan Callen <abcd@gentoo.org>
+  networkmanager-0.9.8.2-r3.ebuild:
+  Fix the deps for >=dhcpcd-6 support
+
+*networkmanager-0.9.8.2-r3 (19 Jul 2013)
+
+  19 Jul 2013; Jonathan Callen <abcd@gentoo.org>
+  +files/networkmanager-0.9.8.2-allow-new-dhcpcd.patch,
+  +networkmanager-0.9.8.2-r3.ebuild, networkmanager-0.9.8.2-r2.ebuild:
+  Add missing eutils inherits; add patch and bump to allow building against
+  dhcpcd 6.x (previously silently failed to use dhcpcd, but still compiled and
+  installed)
+
+*networkmanager-0.9.8.2-r2 (15 Jul 2013)
+
+  15 Jul 2013; Pacho Ramos <pacho@gentoo.org> +networkmanager-0.9.8.2-r2.ebuild,
+  -files/0001-core-runtime-detect-logind-and-ConsoleKit-3.patch,
+  -networkmanager-0.9.8.2-r1.ebuild:
+  Revision bump dropping runtime detect of logind as we won't be able to support
+  logind without systemd being running, and this keeps us more close to upstream
+  (preventing us from hitting any hypothetical problems that could arise from it
+  until accepted by upstream). Also force dhcpcd < 6 until upstream confirms
+  updating configure check is enough to properly work with newer versions.
+
+  14 Jul 2013; Pacho Ramos <pacho@gentoo.org> networkmanager-0.9.8.2-r1.ebuild:
+  Add missing eautoreconf call
+
+  14 Jul 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/0001-core-runtime-detect-logind-and-ConsoleKit-3.patch:
+  Add missing patch (thanks to shiznix for reporting via IRC)
+
+*networkmanager-0.9.8.2-r1 (13 Jul 2013)
+
+  13 Jul 2013; Pacho Ramos <pacho@gentoo.org> +files/10-openrc-status-r4,
+  +networkmanager-0.9.8.2-r1.ebuild:
+  Inherit some changes from systemd-love to make it more systemd friendly
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> -networkmanager-0.9.8.0.ebuild,
+  -networkmanager-9999.ebuild, metadata.xml:
+  Drop old, gnome team will take this, drop live version as they are maintained
+  in gnome-overlay in general.
+
+*networkmanager-0.9.8.2 (10 Jun 2013)
+
+  10 Jun 2013; Pacho Ramos <pacho@gentoo.org> +networkmanager-0.9.8.2.ebuild,
+  -networkmanager-0.9.4.0-r6.ebuild, -networkmanager-0.9.7.995.ebuild:
+  Version bump, drop old
+
+  18 May 2013; Pacho Ramos <pacho@gentoo.org> networkmanager-0.9.8.0.ebuild:
+  Add some fixes to the ebuild and fix bash-completion locations (#465100 by
+  poncho)
 
 *networkmanager-0.9.8.0 (28 Mar 2013)
 

@@ -1,6 +1,36 @@
 # ChangeLog for dev-python/pyasn1
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyasn1/ChangeLog,v 1.57 2013/04/02 13:24:02 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyasn1/ChangeLog,v 1.65 2013/11/04 00:56:46 mattst88 Exp $
+
+  04 Nov 2013; Matt Turner <mattst88@gentoo.org> pyasn1-0.1.7.ebuild:
+  alpha stable, bug 474194.
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> pyasn1-0.1.7.ebuild:
+  arm stable, bug #474194
+
+  16 Oct 2013; Jeroen Roovers <jer@gentoo.org> pyasn1-0.1.7.ebuild:
+  Stable for HPPA (bug #474194).
+
+  14 Oct 2013; Tony Vroon <chainsaw@gentoo.org> pyasn1-0.1.7.ebuild:
+  Marked stable on AMD64 based on arch tester report by Elijah "Armageddon" El
+  Lazkani in bug #474194.
+
+  13 Oct 2013; Pacho Ramos <pacho@gentoo.org> pyasn1-0.1.7.ebuild:
+  Also compatible with python3_3
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pyasn1-0.1.6.ebuild,
+  pyasn1-0.1.7.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  10 Aug 2013; Mike Gilbert <floppym@gentoo.org> -pyasn1-0.0.13.ebuild,
+  -pyasn1-0.0.13_beta.ebuild, -pyasn1-0.1.2.ebuild, -pyasn1-0.1.3.ebuild,
+  -pyasn1-0.1.4.ebuild:
+  Remove old versions.
+
+*pyasn1-0.1.7 (08 May 2013)
+
+  08 May 2013; Patrick Lauer <patrick@gentoo.org> +pyasn1-0.1.7.ebuild:
+  Bump
 
   02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pyasn1-0.1.6.ebuild:
   Stable for s390, wrt bug #457330

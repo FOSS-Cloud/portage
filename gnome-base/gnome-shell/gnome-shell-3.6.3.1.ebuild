@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-shell/gnome-shell-3.6.3.1.ebuild,v 1.1 2013/02/20 23:26:01 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-shell/gnome-shell-3.6.3.1.ebuild,v 1.4 2013/06/02 00:03:11 abcd Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -113,6 +113,8 @@ DEPEND="${COMMON_DEPEND}
 # libmozjs.so is picked up from /usr/lib while compiling, so block at build-time
 # https://bugs.gentoo.org/show_bug.cgi?id=360413
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 src_prepare() {
 	# Fix automagic gnome-bluetooth dep, bug #398145
 	epatch "${FILESDIR}/${PN}-3.5.x-bluetooth-flag.patch"
@@ -147,6 +149,11 @@ src_install() {
 		pax-mark mr "${ED}usr/bin/gnome-shell"
 	elif has_version '>=dev-lang/spidermonkey-1.8.7[jit]'; then
 		pax-mark m "${ED}usr/bin/gnome-shell"
+	fi
+	# Required for gnome-shell on hardened/PaX #457146 and #457194
+	# PaX EMUTRAMP need to be on
+	if has_version '>=dev-libs/libffi-3.0.13[pax_kernel]'; then
+		pax-mark E "${ED}usr/bin/gnome-shell"
 	fi
 }
 

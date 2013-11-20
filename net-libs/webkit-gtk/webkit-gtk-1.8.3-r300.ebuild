@@ -1,11 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/webkit-gtk-1.8.3-r300.ebuild,v 1.10 2013/01/01 19:25:56 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/webkit-gtk-1.8.3-r300.ebuild,v 1.14 2013/10/10 23:43:20 tetromino Exp $
 
 EAPI="4"
 
-# Don't define PYTHON_DEPEND: python only needed at build time
-inherit autotools check-reqs eutils flag-o-matic gnome2-utils pax-utils python virtualx
+PYTHON_COMPAT=( python{2_6,2_7} )
+
+inherit autotools check-reqs eutils flag-o-matic gnome2-utils pax-utils python-any-r1 virtualx
 
 MY_P="webkit-${PV}"
 DESCRIPTION="Open source web browser engine"
@@ -53,8 +54,8 @@ RDEPEND="
 "
 # paxctl needed for bug #407085
 DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
 	dev-lang/perl
-	=dev-lang/python-2*
 	sys-devel/bison
 	>=sys-devel/flex-2.5.33
 	sys-devel/gettext
@@ -64,6 +65,8 @@ DEPEND="${RDEPEND}
 	doc? ( >=dev-util/gtk-doc-1.10 )
 	introspection? ( jit? ( sys-apps/paxctl ) )
 	test? (
+		dev-lang/python:2.7
+		dev-python/pygobject:3[python_targets_python2_7]
 		x11-themes/hicolor-icon-theme
 		jit? ( sys-apps/paxctl ) )
 	webkit2? ( app-accessibility/at-spi2-core )
@@ -75,15 +78,19 @@ S="${WORKDIR}/${MY_P}"
 CHECKREQS_DISK_BUILD="18G" # and even this might not be enough, bug #417307
 
 pkg_pretend() {
-	if [[ ${MERGE_TYPE} != "binary" ]] && is-flagq "-g*" ; then
+	nvidia_check || die #463960
+
+	if [[ ${MERGE_TYPE} != "binary" ]] && is-flagq "-g*" && ! is-flagq "-g*0" ; then
 		einfo "Checking for sufficient disk space to build ${PN} with debugging CFLAGS"
 		check-reqs_pkg_pretend
 	fi
 }
 
 pkg_setup() {
+	nvidia_check || die #463960
+
 	# Check whether any of the debugging flags is enabled
-	if [[ ${MERGE_TYPE} != "binary" ]] && is-flagq "-g*" ; then
+	if [[ ${MERGE_TYPE} != "binary" ]] && is-flagq "-g*" && ! is-flagq "-g*0" ; then
 		if is-flagq "-ggdb" && [[ ${WEBKIT_GTK_GGDB} != "yes" ]]; then
 			replace-flags -ggdb -g
 			ewarn "Replacing \"-ggdb\" with \"-g\" in your CFLAGS."
@@ -100,9 +107,8 @@ pkg_setup() {
 		einfo "(-ggdb vs -g1) and enabled features."
 		check-reqs_pkg_setup
 	fi
-	# Needed for CodeGeneratorInspector.py
-	python_set_active_version 2
-	python_pkg_setup
+
+	[[ ${MERGE_TYPE} = "binary" ]] || python-any-r1_pkg_setup
 }
 
 src_prepare() {
@@ -267,4 +273,21 @@ src_install() {
 
 	# Prevents crashes on PaX systems
 	use jit && pax-mark m "${ED}usr/bin/jsc-3"
+}
+
+nvidia_check() {
+	if [[ ${MERGE_TYPE} != "binary" ]] &&
+	   use introspection &&
+	   has_version '=x11-drivers/nvidia-drivers-325*' &&
+	   [[ $(eselect opengl show 2> /dev/null) = "nvidia" ]]
+	then
+		eerror "${PN} freezes while compiling if x11-drivers/nvidia-drivers-325.* is"
+		eerror "used as the system OpenGL library."
+		eerror "You can either update to >=nvidia-drivers-331.13, or temporarily select"
+		eerror "Mesa as the system OpenGL library:"
+		eerror " # eselect opengl set xorg-x11"
+		eerror "See https://bugs.gentoo.org/463960 for more details."
+		eerror
+		return 1
+	fi
 }

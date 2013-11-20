@@ -1,6 +1,103 @@
 # ChangeLog for dev-ruby/minitest
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/minitest/ChangeLog,v 1.104 2013/04/05 20:29:45 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/minitest/ChangeLog,v 1.131 2013/09/23 07:04:29 mrueg Exp $
+
+*minitest-5.0.8 (23 Sep 2013)
+
+  23 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +minitest-5.0.8.ebuild:
+  Version bump.
+
+*minitest-4.7.4-r1 (10 Sep 2013)
+
+  10 Sep 2013; Hans de Graaff <graaff@gentoo.org> +minitest-4.7.4-r1.ebuild,
+  minitest-5.0.7.ebuild:
+  Add ruby20 support for both slots.
+
+  09 Sep 2013; Manuel Rüger <mrueg@gentoo.org> minitest-5.0.7.ebuild:
+  Fix sed-calls for jruby.
+
+*minitest-5.0.7 (07 Sep 2013)
+
+  07 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +minitest-5.0.7.ebuild:
+  Version bump.
+
+  18 Aug 2013; Hans de Graaff <graaff@gentoo.org> minitest-5.0.6.ebuild:
+  Move minitest 5.x to a separate slot because rails will depend on a specific
+  major version now.
+
+  18 Aug 2013; Hans de Graaff <graaff@gentoo.org> -minitest-4.5.0.ebuild,
+  -minitest-4.7.0.ebuild, -minitest-5.0.3.ebuild:
+  Cleanup.
+
+  17 Jul 2013; Hans de Graaff <graaff@gentoo.org> minitest-5.0.6.ebuild:
+  Drop ruby18 blocker since the problem cannot be reproduced. Add missing hoe
+  dependency for FEATURES=test.
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for sh, wrt bug #472904
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for s390, wrt bug #472904
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for sparc, wrt bug #472904
+
+*minitest-5.0.6 (29 Jun 2013)
+
+  29 Jun 2013; Hans de Graaff <graaff@gentoo.org> +minitest-5.0.6.ebuild:
+  Version bump. Add back jruby support.
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for arm, wrt bug #472904
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for ia64, wrt bug #472904
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for alpha, wrt bug #472904
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for amd64, wrt bug #472904
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for x86, wrt bug #472904
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for ppc64, wrt bug #472904
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for ppc, wrt bug #472904
+
+  10 Jun 2013; Jeroen Roovers <jer@gentoo.org> minitest-4.7.4.ebuild:
+  Stable for HPPA (bug #472904).
+
+*minitest-5.0.3 (31 May 2013)
+
+  31 May 2013; Diego E. Pettenò <flameeyes@gentoo.org> +minitest-5.0.3.ebuild:
+  Version bump, drop support for jruby for now.
+
+*minitest-4.7.4 (07 May 2013)
+
+  07 May 2013; Hans de Graaff <graaff@gentoo.org> +minitest-4.7.4.ebuild:
+  Version bump.
+
+  14 Apr 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.5.0.ebuild:
+  Stable for sh, wrt bug #464512
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.5.0.ebuild:
+  Stable for s390, wrt bug #464512
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.5.0.ebuild:
+  Stable for sparc, wrt bug #464512
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.5.0.ebuild:
+  Stable for ia64, wrt bug #464512
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.5.0.ebuild:
+  Stable for alpha, wrt bug #464512
+
+  10 Apr 2013; Jeroen Roovers <jer@gentoo.org> minitest-4.5.0.ebuild:
+  Stable for HPPA (bug #464512).
 
   05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> minitest-4.5.0.ebuild:
   Stable for arm, wrt bug #464512

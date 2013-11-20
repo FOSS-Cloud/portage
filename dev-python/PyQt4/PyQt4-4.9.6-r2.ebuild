@@ -1,9 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/PyQt4/PyQt4-4.9.6-r2.ebuild,v 1.13 2013/03/11 17:51:00 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/PyQt4/PyQt4-4.9.6-r2.ebuild,v 1.20 2013/10/31 13:47:01 mgorny Exp $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_5,2_6,2_7,3_1,3_2,3_3} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
 
 inherit eutils qt4-r2 python-r1 toolchain-funcs
 
@@ -40,14 +40,16 @@ QT_PV="4.8.0:4"
 
 RDEPEND="
 	${PYTHON_DEPS}
+	dev-lang/python-exec:0[${PYTHON_USEDEP}]
 	>=dev-python/sip-4.14.2:=[${PYTHON_USEDEP}]
 	>=dev-qt/qtcore-${QT_PV}
 	X? (
-		>=dev-qt/qtgui-${QT_PV}[dbus?]
+		>=dev-qt/qtgui-${QT_PV}[dbus(+)?]
+		|| ( dev-qt/designer:4 <dev-qt/qtgui-4.8.5:4 )
 		>=dev-qt/qttest-${QT_PV}
 	)
 	dbus? (
-		>=dev-python/dbus-python-0.80
+		>=dev-python/dbus-python-0.80[${PYTHON_USEDEP}]
 		>=dev-qt/qtdbus-${QT_PV}
 	)
 	declarative? ( >=dev-qt/qtdeclarative-${QT_PV} )

@@ -1,6 +1,42 @@
 # ChangeLog for dev-ruby/tzinfo
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/tzinfo/ChangeLog,v 1.114 2013/04/05 18:23:48 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/tzinfo/ChangeLog,v 1.122 2013/11/05 19:29:14 graaff Exp $
+
+*tzinfo-0.3.37-r1 (05 Nov 2013)
+
+  05 Nov 2013; Hans de Graaff <graaff@gentoo.org> +tzinfo-0.3.37-r1.ebuild:
+  Revision bump to add ruby20.
+
+  24 Oct 2013; Tony Vroon <chainsaw@gentoo.org> tzinfo-0.3.37.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #487180.
+
+  13 Oct 2013; Markus Meier <maekke@gentoo.org> tzinfo-1.1.0.ebuild:
+  add ~arm, bug #487178
+
+  07 Oct 2013; Jeroen Roovers <jer@gentoo.org> tzinfo-1.1.0.ebuild:
+  Marked ~hppa (bug #487178).
+
+*tzinfo-1.1.0 (07 Oct 2013)
+
+  07 Oct 2013; Hans de Graaff <graaff@gentoo.org> -tzinfo-1.0.1.ebuild,
+  +tzinfo-1.1.0.ebuild:
+  Version bump. Drop all arches except amd64 for new thread_safe dependency,
+  bug 487178. Move into a separate slot because most dependencies expect this.
+
+*tzinfo-1.0.1 (26 Aug 2013)
+
+  26 Aug 2013; Hans de Graaff <graaff@gentoo.org> +tzinfo-1.0.1.ebuild:
+  Version bump. tzinfo now uses the system timezone data from
+  sys-libs/timezone-data.
+
+*tzinfo-0.3.37 (21 Apr 2013)
+
+  21 Apr 2013; Hans de Graaff <graaff@gentoo.org> +tzinfo-0.3.37.ebuild:
+  Version bump.
+
+  21 Apr 2013; Hans de Graaff <graaff@gentoo.org> -tzinfo-0.3.33.ebuild:
+  Cleanup.
 
   05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> tzinfo-0.3.35.ebuild:
   Stable for ppc64, wrt bug #464366

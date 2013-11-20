@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/texlive-core/texlive-core-2012-r1.ebuild,v 1.1 2013/02/19 15:13:33 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/texlive-core/texlive-core-2012-r1.ebuild,v 1.17 2013/05/30 16:32:17 aballier Exp $
 
-EAPI=3
+EAPI=5
 
 #TL_UPSTREAM_PATCHLEVEL="1"
-PATCHLEVEL="37"
+PATCHLEVEL="39"
 TL_SOURCE_VERSION=20120701
 
 inherit eutils flag-o-matic toolchain-funcs libtool texlive-common
@@ -64,7 +64,7 @@ for i in ${TL_CORE_EXTRA_SRC_MODULES}; do
 done
 SRC_URI="${SRC_URI} )"
 
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="cjk X doc source tk xetex"
 
 MODULAR_X_DEPEND="X? (
@@ -86,8 +86,8 @@ COMMON_DEPEND="${MODULAR_X_DEPEND}
 	!<dev-texlive/texlive-metapost-2011
 	!app-text/dvibook
 	sys-libs/zlib
-	>=media-libs/libpng-1.2.43-r2:0
-	>=app-text/poppler-0.12.3-r3
+	>=media-libs/libpng-1.2.43-r2:0=
+	>=app-text/poppler-0.12.3-r3:=
 	xetex? (
 		app-text/teckit
 		media-libs/fontconfig
@@ -117,8 +117,12 @@ PDEPEND=">=dev-tex/luatex-0.70"
 S="${WORKDIR}/${P}_build"
 B="${WORKDIR}/${MY_PV}"
 
-src_prepare() {
+src_unpack() {
+	unpack ${A}
 	mkdir -p "${S}" || die "failed to create build dir"
+}
+
+src_prepare() {
 	mv "${WORKDIR}"/texmf* "${B}" || die "failed to move texmf files"
 
 	cd "${B}"
@@ -141,7 +145,7 @@ src_configure() {
 	# that don't have the same alphabetical order than ascii. Bug #242430
 	# So we set LC_ALL to C in order to avoid problems.
 	export LC_ALL=C
-	tc-export CC CXX AR
+	tc-export CC CXX AR RANLIB
 	ECONF_SOURCE="${B}" \
 		econf -C \
 		--bindir=/usr/bin \

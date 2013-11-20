@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/ggnfs/ggnfs-0.77.1-r2.ebuild,v 1.2 2013/03/10 08:58:02 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/ggnfs/ggnfs-0.77.1-r2.ebuild,v 1.4 2013/07/05 04:18:28 patrick Exp $
 
 EAPI=5
 
@@ -13,7 +13,8 @@ HOMEPAGE="https://github.com/radii/ggnfs"
 SRC_URI="
 	http://dev.gentooexperimental.org/~dreeevil/${P}.zip
 	http://stuff.mit.edu/afs/sipb/project/pari-gp/ggnfs/Linux/src/def-par.txt
-	http://stuff.mit.edu/afs/sipb/project/pari-gp/ggnfs/Linux/src/def-nm-params.txt"
+	http://stuff.mit.edu/afs/sipb/project/pari-gp/ggnfs/Linux/src/def-nm-params.txt
+	http://gentooexperimental.org/~patrick/ggnfs-doc.pdf"
 
 SLOT="0"
 LICENSE="GPL-2"
@@ -26,17 +27,6 @@ RDEPEND="${DEPEND}
 	!sci-mathematics/cado-nfs" # file collisions, fixable
 
 S=${WORKDIR}/${PN}-master
-
-pkg_setup() {
-	einfo "There are several internal tuning options"
-	einfo "Please export ARCH being on of the following"
-	einfo "	prescott"
-	einfo "	pentium2"
-	einfo "	pentium4"
-	einfo "if your cpu is of that type"
-
-	[[ -z ${ARCH} ]] && export ARCH=generic
-}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-gentoo.patch
@@ -73,4 +63,5 @@ src_install() {
 	docompress -x "/usr/share/doc/${PN}/def-par.txt"
 	docompress -x "/usr/share/doc/${PN}/def-nm-params.txt"
 	# TODO: docs? File collisions?
+	cp ${DISTDIR}/ggnfs-doc.pdf "${D}/usr/share/doc/${PN}" || die
 }

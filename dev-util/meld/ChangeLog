@@ -1,6 +1,46 @@
 # ChangeLog for dev-util/meld
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/meld/ChangeLog,v 1.165 2013/04/01 18:24:28 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/meld/ChangeLog,v 1.172 2013/10/18 16:56:05 pacho Exp $
+
+*meld-1.8.2 (18 Oct 2013)
+
+  18 Oct 2013; Pacho Ramos <pacho@gentoo.org> +meld-1.8.2.ebuild,
+  -meld-1.8.0.ebuild:
+  Version bump, drop old
+
+*meld-1.8.1 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +meld-1.8.1.ebuild,
+  -meld-1.7.4.ebuild, -meld-1.7.5.ebuild:
+  Version bump, drop old
+
+*meld-1.8.0 (15 Sep 2013)
+
+  15 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org> -meld-1.7.3.ebuild,
+  +meld-1.8.0.ebuild:
+  Version bump. Cleanup old revision.
+
+*meld-1.7.5 (01 Sep 2013)
+
+  01 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org> +meld-1.7.5.ebuild:
+  Version bump.
+
+*meld-1.7.4 (28 Jul 2013)
+
+  28 Jul 2013; Pacho Ramos <pacho@gentoo.org> +meld-1.7.4.ebuild,
+  -meld-1.7.2.ebuild:
+  Version bump, drop old
+
+*meld-1.7.3 (03 Jun 2013)
+
+  03 Jun 2013; Pacho Ramos <pacho@gentoo.org> +meld-1.7.3.ebuild,
+  -meld-1.6.0.ebuild, -meld-1.7.1.ebuild:
+  Version bump, drop old
+
+*meld-1.7.2 (22 Apr 2013)
+
+  22 Apr 2013; Pacho Ramos <pacho@gentoo.org> +meld-1.7.2.ebuild:
+  Version bump
 
   01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
   Stable for sparc, wrt bug #458984

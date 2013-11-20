@@ -1,6 +1,34 @@
 # ChangeLog for dev-python/tlslite
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/tlslite/ChangeLog,v 1.17 2013/01/20 12:19:59 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/tlslite/ChangeLog,v 1.25 2013/09/05 18:47:17 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> tlslite-0.4.3-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tlslite-0.4.3-r1.ebuild:
+  Stable for x86, wrt bug #470466
+
+  24 Jul 2013; Agostino Sarubbo <ago@gentoo.org> tlslite-0.4.3-r1.ebuild:
+  Stable for amd64, wrt bug #470466
+
+  22 Jul 2013; Dirkjan Ochtman <djc@gentoo.org> metadata.xml:
+  Add python herd.
+
+  21 Jul 2013; Pacho Ramos <pacho@gentoo.org>
+  -files/tlslite-0.3.8-python25.diff, -tlslite-0.3.8-r2.ebuild,
+  -tlslite-0.4.0.ebuild, -tlslite-0.4.1.ebuild, metadata.xml:
+  Cleanup due #92799
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> tlslite-0.4.3.ebuild:
+  Stable for x86, wrt bug #461166
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> tlslite-0.4.3.ebuild:
+  Stable for amd64, wrt bug #461166
+
+*tlslite-0.4.3-r1 (18 Apr 2013)
+
+  18 Apr 2013; Ian Delaney <idella4@gentoo.org> +tlslite-0.4.3-r1.ebuild:
+  migration -> distutils-r1
 
 *tlslite-0.4.3 (20 Jan 2013)
 

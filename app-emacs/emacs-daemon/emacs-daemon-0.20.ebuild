@@ -1,18 +1,18 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-daemon/emacs-daemon-0.20.ebuild,v 1.1 2013/03/23 22:08:32 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-daemon/emacs-daemon-0.20.ebuild,v 1.14 2013/08/09 06:18:11 ulm Exp $
 
 EAPI=5
 
 inherit elisp
 
 DESCRIPTION="Gentoo support for Emacs running as a server in the background"
-HOMEPAGE="http://www.gentoo.org/proj/en/lisp/emacs/"
+HOMEPAGE="http://wiki.gentoo.org/wiki/Project:Emacs"
 SRC_URI="mirror://gentoo/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~x86-fbsd"
 
 DEPEND=">=virtual/emacs-23"
 RDEPEND="${DEPEND}"

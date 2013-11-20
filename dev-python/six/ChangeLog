@@ -1,6 +1,62 @@
 # ChangeLog for dev-python/six
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/six/ChangeLog,v 1.17 2013/03/24 18:23:44 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/six/ChangeLog,v 1.33 2013/10/21 12:03:48 grobian Exp $
+
+  21 Oct 2013; Fabian Groffen <grobian@gentoo.org> six-1.4.1.ebuild,
+  six-9999.ebuild:
+  Marked ~x64-macos, bug #486818
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> six-1.2.0-r1.ebuild,
+  six-1.3.0.ebuild, six-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*six-1.4.1 (04 Sep 2013)
+
+  04 Sep 2013; Tim Harder <radhermit@gentoo.org> +six-1.4.1.ebuild:
+  Version bump.
+
+*six-1.4.0 (01 Sep 2013)
+
+  01 Sep 2013; Tim Harder <radhermit@gentoo.org> +six-1.4.0.ebuild:
+  Version bump.
+
+  25 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> six-1.3.0.ebuild:
+  Add ~mips keyword, wrt bug #461346
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> six-1.2.0-r1.ebuild,
+  six-1.3.0.ebuild, six-9999.ebuild:
+  Drop removed Python implementations from PYTHON_COMPAT.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> six-9999.ebuild:
+  Enable pypy2.0.
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> six-1.3.0.ebuild:
+  Stable for alpha, wrt bug #469994
+
+  27 Jun 2013; Alexis Ballier <aballier@gentoo.org> six-1.3.0.ebuild,
+  six-9999.ebuild:
+  keyword ~amd64-fbsd, bug #473666
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> six-1.3.0.ebuild:
+  Stable for ppc64, wrt bug #469994
+
+  22 May 2013; Agostino Sarubbo <ago@gentoo.org> six-1.3.0.ebuild:
+  Stable for ia64, wrt bug #469994
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> six-1.3.0.ebuild:
+  Stable for arm, wrt bug #469994
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> six-1.3.0.ebuild:
+  Stable for ppc, wrt bug #469994
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> six-1.3.0.ebuild:
+  Stable for x86, wrt bug #469994
+
+  19 May 2013; Agostino Sarubbo <ago@gentoo.org> six-1.3.0.ebuild:
+  Stable for amd64, wrt bug #469994
+
+  17 May 2013; Jeroen Roovers <jer@gentoo.org> six-1.3.0.ebuild:
+  Stable for HPPA (bug #469994).
 
 *six-1.3.0 (24 Mar 2013)
 

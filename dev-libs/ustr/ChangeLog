@@ -1,6 +1,22 @@
 # ChangeLog for dev-libs/ustr
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/ustr/ChangeLog,v 1.7 2011/02/12 14:50:24 arfrever Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/ustr/ChangeLog,v 1.10 2013/11/09 14:54:14 hwoarang Exp $
+
+*ustr-1.0.4-r3 (09 Nov 2013)
+
+  09 Nov 2013; Markos Chandras <hwoarang@gentoo.org> +ustr-1.0.4-r3.ebuild,
+  metadata.xml:
+  Fix installation path. Patch by Sven Eden <Yamakuzure@gmx.net> who will also
+  be the maintainer
+
+*ustr-1.0.4-r2 (13 Oct 2013)
+
+  13 Oct 2013; Jeroen Roovers <jer@gentoo.org> +ustr-1.0.4-r2.ebuild:
+  Respect AR/CC/CFLAGS, build verbosely (in src_test() as well). Remove
+  unneeded die().
+
+  12 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due #237340
 
   12 Feb 2011; Arfrever Frehtes Taifersar Arahesis <arfrever@gentoo.org>
   -ustr-1.0.4.ebuild:
@@ -29,4 +45,3 @@
   03 Oct 2008; Chris PeBenito <pebenito@gentoo.org> +metadata.xml,
   +ustr-1.0.4.ebuild:
   Initial commit.
-

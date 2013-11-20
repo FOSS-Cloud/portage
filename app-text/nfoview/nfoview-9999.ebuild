@@ -1,6 +1,6 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/nfoview/nfoview-9999.ebuild,v 1.11 2011/12/06 06:42:20 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/nfoview/nfoview-9999.ebuild,v 1.12 2013/04/21 03:22:48 vapier Exp $
 
 EAPI=3
 
@@ -16,7 +16,7 @@ if [[ ${PV} == "9999" ]] ; then
 	SRC_URI=""
 	#KEYWORDS=""
 else
-	SRC_URI="http://download.gna.org/nfoview/1.10/${P}.tar.gz"
+	SRC_URI="http://download.gna.org/nfoview/${PV:0:4}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 

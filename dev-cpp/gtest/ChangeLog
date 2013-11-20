@@ -1,5 +1,19 @@
 # ChangeLog for dev-cpp/gtest
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gtest/ChangeLog,v 1.31 2013/04/06 07:45:16 tomka Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gtest/ChangeLog,v 1.35 2013/11/06 09:57:53 tomka Exp $
+
+*gtest-1.7.0 (06 Nov 2013)
+
+  06 Nov 2013; Thomas Kahle <tomka@gentoo.org> +gtest-1.7.0.ebuild:
+  bump to 1.7.0
+
+  19 Oct 2013; Mike Frysinger <vapier@gentoo.org> gtest-1.6.0-r2.ebuild:
+  Add m68k keywords.
+
+  16 Aug 2013; Michał Górny <mgorny@gentoo.org> gtest-1.6.0-r2.ebuild:
+  Convert to python-any-r1.
+
+  19 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> gtest-1.6.0-r2.ebuild:
+  Keyword amd64-linux and x86-linux
 
 *gtest-1.6.0-r2 (06 Apr 2013)
 

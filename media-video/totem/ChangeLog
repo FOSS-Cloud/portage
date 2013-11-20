@@ -1,6 +1,37 @@
 # ChangeLog for media-video/totem
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/totem/ChangeLog,v 1.358 2013/03/29 23:24:08 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/totem/ChangeLog,v 1.364 2013/09/01 19:18:50 pacho Exp $
+
+  01 Sep 2013; Pacho Ramos <pacho@gentoo.org> totem-3.8.2-r1.ebuild:
+  Prevent pylint usage by tests, bug #482538
+
+*totem-3.8.2-r1 (14 Jul 2013)
+
+  14 Jul 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/totem-3.8.2-vimeo-compat.patch, +totem-3.8.2-r1.ebuild,
+  -totem-3.8.0.ebuild, -totem-3.8.2.ebuild:
+  Apply upstream patch to be compatible with vimeo videos, pass configure
+  options properly (#475878 by Mark R. Pariente), USE grilo needs grilo-plugins
+  (#475886 by Mark R. Pariente, confirmed by me and seen in Fedora .spec), drop
+  old and broken versions.
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org> totem-3.8.2.ebuild:
+  Apply team policy for configure and update gtk+ dependency per libgd
+  requirements.
+
+  02 Jun 2013; Jonathan Callen <abcd@gentoo.org> totem-3.6.3-r1.ebuild,
+  totem-3.8.0.ebuild, totem-3.8.2.ebuild:
+  Fix build with USE="-python", PYTHON_TARGETS="", and PYTHON_SINGLE_TARGET="";
+  ensure that when USE=python, PYTHON_TARGETS and PYTHON_SINGLE_TARGET are set
+  appropriately
+
+*totem-3.8.2 (14 May 2013)
+
+  14 May 2013; Pacho Ramos <pacho@gentoo.org> +totem-3.8.2.ebuild:
+  Version bump
+
+  12 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove obsolete useflag from metadata.xml
 
   29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -totem-3.4.3.ebuild:
   Clean up old revision.

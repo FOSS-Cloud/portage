@@ -1,6 +1,20 @@
 # ChangeLog for games-simulation/singularity
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-simulation/singularity/ChangeLog,v 1.21 2013/02/07 22:16:13 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-simulation/singularity/ChangeLog,v 1.25 2013/09/05 19:44:45 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> singularity-0.30c-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  29 Jun 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  singularity-0.30c-r1.ebuild, singularity-0.30c.ebuild:
+  Added missing 'dev-python/numpy' RDEPEND (noticed by hasufell).
+
+*singularity-0.30c-r1 (29 Jun 2013)
+
+  29 Jun 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +singularity-0.30c-r1.ebuild, singularity-0.30c.ebuild:
+  Ported to python-single-r1 (used funnyboat-1.5-r1 as an example). Added
+  workaround to stable ebuild to run python2 (bug #381809 by Chris Mayo).
 
   07 Feb 2013; Ulrich Müller <ulm@gentoo.org> singularity-0.30c.ebuild:
   Move Creative Commons licenses to shorter names.

@@ -1,6 +1,15 @@
 # ChangeLog for sys-libs/pam
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/pam/ChangeLog,v 1.329 2013/03/01 12:37:41 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/pam/ChangeLog,v 1.331 2013/09/12 08:34:08 flameeyes Exp $
+
+*pam-1.1.7 (12 Sep 2013)
+
+  12 Sep 2013; Diego E. Pettenò <flameeyes@gentoo.org> +pam-1.1.7.ebuild,
+  -pam-1.1.6-r4.ebuild:
+  Version bump.
+
+  05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
 
   01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> pam-1.1.6-r2.ebuild:
   Stable for sh, wrt bug #454664

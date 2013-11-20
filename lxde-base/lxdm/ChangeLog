@@ -1,6 +1,33 @@
 # ChangeLog for lxde-base/lxdm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxdm/ChangeLog,v 1.20 2012/08/14 17:39:47 vostorga Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxdm/ChangeLog,v 1.26 2013/09/14 10:03:16 ago Exp $
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lxdm-0.4.1-r7.ebuild:
+  Stable for x86, wrt bug #480056
+
+  08 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lxdm-0.4.1-r7.ebuild:
+  Stable for amd64, wrt bug #480056
+
+  04 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  lxdm-0.4.1-r7.ebuild:
+  Keyword ~ppc
+
+  07 May 2013; Victor Ostorga lxdm-0.4.1-r7.ebuild:
+  Updating elog message
+
+*lxdm-0.4.1-r7 (05 May 2013)
+
+  05 May 2013; Fabio Erculiani <lxnay@gentoo.org> -lxdm-0.4.1-r6.ebuild,
+  +lxdm-0.4.1-r7.ebuild, +files/lxdm-0.4.1-fix-pam-100-cpu.patch:
+  the new pam config needs a patch to avoid 100% cpu usage by lxdm-binary. See:
+  https://bugs.launchpad.net/ubuntu/+source/lxdm/+bug/922363
+
+*lxdm-0.4.1-r6 (03 May 2013)
+
+  03 May 2013; Fabio Erculiani <lxnay@gentoo.org> +lxdm-0.4.1-r6.ebuild,
+  +files/lxdm-0.4.1-pam-use-system-local-login.patch:
+  revision bump, fix pam module as per bug #422495. This makes pam_systemd.so
+  back working
 
   14 Aug 2012; Víctor Ostorga <vostorga@gentoo.org> lxdm-0.4.1-r5.ebuild,
   +files/lxdm-0.4.1-selinux-support.patch:

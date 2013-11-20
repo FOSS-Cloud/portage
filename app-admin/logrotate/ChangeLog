@@ -1,6 +1,117 @@
 # ChangeLog for app-admin/logrotate
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/logrotate/ChangeLog,v 1.138 2013/01/01 19:29:18 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/logrotate/ChangeLog,v 1.161 2013/10/26 16:53:38 nimiux Exp $
+
+  26 Oct 2013; Chema Alonso <nimiux@gentoo.org> -logrotate-3.8.5.ebuild,
+  -files/logrotate-3.8.5-atomic-create.patch,
+  -files/logrotate-3.8.5-datehack.patch, -files/logrotate-3.8.5-fbsd.patch,
+  -files/logrotate-3.8.5-ignore-hidden.patch,
+  -files/logrotate-3.8.5-noasprintf.patch:
+  Drop old
+
+*logrotate-3.8.7 (26 Oct 2013)
+
+  26 Oct 2013; Chema Alonso <nimiux@gentoo.org> +logrotate-3.8.7.ebuild,
+  +files/logrotate-3.8.7-atomic-create.patch,
+  +files/logrotate-3.8.7-datehack.patch, +files/logrotate-3.8.7-fbsd.patch,
+  +files/logrotate-3.8.7-ignore-hidden.patch,
+  +files/logrotate-3.8.7-noasprintf.patch:
+  Version bump
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> logrotate-3.8.6.ebuild:
+  Stable for HPPA (bug #485886).
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.6.ebuild:
+  Stable for x86, wrt bug #485886
+
+  28 Sep 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.6.ebuild:
+  Stable for amd64, wrt bug #485886
+
+  27 Sep 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.6.ebuild:
+  Stable for arm, wrt bug #485886
+
+  13 Aug 2013; Chema Alonso <nimiux@gentoo.org> -logrotate-3.8.3.ebuild,
+  -files/logrotate-3.8.3-atomic-create.patch,
+  -files/logrotate-3.8.3-datehack.patch, -files/logrotate-3.8.3-fbsd.patch,
+  -files/logrotate-3.8.3-fix-acl-tests.patch,
+  -files/logrotate-3.8.3-ignore-hidden.patch,
+  -files/logrotate-3.8.3-noasprintf.patch:
+  Drop old
+
+*logrotate-3.8.6 (13 Aug 2013)
+
+  13 Aug 2013; Chema Alonso <nimiux@gentoo.org> +logrotate-3.8.6.ebuild,
+  +files/logrotate-3.8.6-atomic-create.patch,
+  +files/logrotate-3.8.6-datehack.patch, +files/logrotate-3.8.6-fbsd.patch,
+  +files/logrotate-3.8.6-ignore-hidden.patch,
+  +files/logrotate-3.8.6-noasprintf.patch:
+  Version bump
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.4.ebuild:
+  Stable for sh, wrt bug #472868
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.4.ebuild:
+  Stable for s390, wrt bug #472868
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.4.ebuild:
+  Stable for sparc, wrt bug #472868
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.4.ebuild:
+  Stable for arm, wrt bug #472868
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.4.ebuild:
+  Stable for ia64, wrt bug #472868
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.4.ebuild:
+  Stable for alpha, wrt bug #472868
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.4.ebuild:
+  Stable for ppc64, wrt bug #472868
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.4.ebuild:
+  Stable for ppc, wrt bug #472868
+
+  18 Jun 2013; Chema Alonso <nimiux@gentoo.org> logrotate-3.8.3.ebuild,
+  logrotate-3.8.4.ebuild, logrotate-3.8.5.ebuild:
+  Add ~amd64-fbsd keyword wrt bug 473540
+
+*logrotate-3.8.5 (18 Jun 2013)
+
+  18 Jun 2013; Chema Alonso <nimiux@gentoo.org> +logrotate-3.8.5.ebuild,
+  +files/logrotate-3.8.5-atomic-create.patch,
+  +files/logrotate-3.8.5-datehack.patch, +files/logrotate-3.8.5-fbsd.patch,
+  +files/logrotate-3.8.5-ignore-hidden.patch,
+  +files/logrotate-3.8.5-noasprintf.patch:
+  Revision bump
+
+  18 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> logrotate-3.8.4.ebuild:
+  Stable on amd64 and x86, wrt bug #472868
+
+  10 Jun 2013; Jeroen Roovers <jer@gentoo.org> logrotate-3.8.4.ebuild:
+  Stable for HPPA (bug #472868).
+
+  18 May 2013; Chema Alonso <nimiux@gentoo.org> files/logrotate.conf:
+  Load all common settings before including specific files. Bug 469908 by Hank
+  Leininger
+
+  10 May 2013; Chema Alonso <nimiux@gentoo.org>
+  -files/logrotate-3.7.7-datehack.patch,
+  -files/logrotate-3.8.0-atomic-create.patch,
+  -files/logrotate-3.8.0-fbsd.patch,
+  -files/logrotate-3.8.0-ignore-hidden.patch, -logrotate-3.8.1.ebuild,
+  -files/logrotate-3.8.1-noasprintf.patch, -logrotate-3.8.2.ebuild,
+  -files/logrotate-3.8.2-atomic-create.patch,
+  -files/logrotate-3.8.2-fbsd.patch:
+  Clean old
+
+*logrotate-3.8.4 (10 May 2013)
+
+  10 May 2013; Chema Alonso <nimiux@gentoo.org> +logrotate-3.8.4.ebuild,
+  +files/logrotate-3.8.4-atomic-create.patch,
+  +files/logrotate-3.8.4-datehack.patch, +files/logrotate-3.8.4-fbsd.patch,
+  +files/logrotate-3.8.4-ignore-hidden.patch,
+  +files/logrotate-3.8.4-noasprintf.patch, files/logrotate.conf:
+  Revision bump
 
   01 Jan 2013; Raúl Porcel <armin76@gentoo.org> logrotate-3.8.3.ebuild:
   s390/sh stable wrt #447510

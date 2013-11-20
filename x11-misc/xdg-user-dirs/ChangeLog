@@ -1,6 +1,40 @@
 # ChangeLog for x11-misc/xdg-user-dirs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdg-user-dirs/ChangeLog,v 1.28 2012/05/19 12:09:43 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdg-user-dirs/ChangeLog,v 1.37 2013/09/30 17:15:52 ago Exp $
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xdg-user-dirs-0.15.ebuild:
+  Stable for x86, wrt bug #485578
+
+  27 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xdg-user-dirs-0.15.ebuild:
+  Stable for arm, wrt bug #485578
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xdg-user-dirs-0.15.ebuild:
+  Stable for ppc, wrt bug #485578
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xdg-user-dirs-0.15.ebuild:
+  Stable for sparc, wrt bug #485578
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xdg-user-dirs-0.15.ebuild:
+  Stable for alpha, wrt bug #485578
+
+  23 Sep 2013; Jeroen Roovers <jer@gentoo.org> xdg-user-dirs-0.15.ebuild:
+  Stable for HPPA (bug #485578).
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xdg-user-dirs-0.15.ebuild:
+  Stable for amd64, wrt bug #485578
+
+*xdg-user-dirs-0.15 (27 Jun 2013)
+
+  27 Jun 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +xdg-user-dirs-0.15.ebuild:
+  Version bump. Remove pointless USE="nls" and -strndup-nls.patch because
+  the package's purpose is exactly that -- localization:
+  http://bugs.freedesktop.org/show_bug.cgi?id=38279#c1
+
+  26 Apr 2013; Samuli Suominen <ssuominen@gentoo.org>
+  xdg-user-dirs-0.14.ebuild:
+  Use AC_CONFIG_HEADERS instead of AM_CONFIG_HEADER for automake-1.13
+  compability wrt #467032 by Alphat-PC
 
   19 May 2012; Anthony G. Basile <blueness@gentoo.org>
   xdg-user-dirs-0.14.ebuild:
@@ -110,4 +144,3 @@
   27 Jul 2008; Gilles Dartiguelongue <eva@gentoo.org> +metadata.xml,
   +xdg-user-dirs-0.10.ebuild:
   initial ebuild, thanks goes to suka, fix bug #220112.
-

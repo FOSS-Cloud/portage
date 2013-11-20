@@ -1,6 +1,31 @@
 # ChangeLog for net-analyzer/nmbscan
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nmbscan/ChangeLog,v 1.14 2013/03/04 00:19:05 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nmbscan/ChangeLog,v 1.22 2013/09/05 10:51:53 kensington Exp $
+
+  05 Sep 2013; Michael Palimaka <kensington@gentoo.org>
+  -files/nmbscan-1.2.4-head.diff, -nmbscan-1.2.4.ebuild:
+  Remove old.
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> nmbscan-1.2.5.ebuild:
+  Mark s390 stable #392831.
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nmbscan-1.2.5.ebuild:
+  Stable for ia64, wrt bug #392831
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nmbscan-1.2.5.ebuild:
+  Stable for sparc, wrt bug #392831
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nmbscan-1.2.5.ebuild:
+  Stable for arm, wrt bug #392831
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nmbscan-1.2.5.ebuild:
+  Stable for alpha, wrt bug #392831
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nmbscan-1.2.5.ebuild:
+  Stable for ppc64, wrt bug #392831
+
+  09 Jul 2013; Jeroen Roovers <jer@gentoo.org> nmbscan-1.2.5.ebuild:
+  Stable for HPPA (bug #392831).
 
   04 Mar 2013; Christoph Junghans <ottxor@gentoo.org> nmbscan-1.2.4.ebuild,
   nmbscan-1.2.5.ebuild:

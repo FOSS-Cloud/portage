@@ -1,6 +1,53 @@
 # ChangeLog for app-admin/metalog
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/metalog/ChangeLog,v 1.105 2012/08/20 02:52:02 vapier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/metalog/ChangeLog,v 1.119 2013/11/01 13:49:49 ago Exp $
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> metalog-3-r1.ebuild:
+  Stable for x86, wrt bug #486310
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> metalog-3-r1.ebuild:
+  amd64 stable, bug #486310
+
+  18 Oct 2013; Markus Meier <maekke@gentoo.org> metalog-3-r1.ebuild:
+  arm stable, bug #486310
+
+  16 Oct 2013; Jeroen Roovers <jer@gentoo.org> metalog-3-r1.ebuild:
+  Stable for HPPA (bug #486310).
+
+*metalog-3-r1 (21 Sep 2013)
+
+  21 Sep 2013; Pacho Ramos <pacho@gentoo.org> +files/metalog.service-r1,
+  +metalog-3-r1.ebuild:
+  Fix unit file (#481290 by Sven E.)
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> metalog-3.ebuild:
+  Mark ppc64/s390/sh/sparc stable #477668.
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> metalog-3.ebuild:
+  Stable for alpha, wrt bug #477668
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> metalog-3.ebuild:
+  Stable for ia64, wrt bug #477668
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> metalog-3.ebuild:
+  arm stable, bug #477668
+
+  20 Aug 2013; Jeroen Roovers <jer@gentoo.org> metalog-3.ebuild:
+  Stable for HPPA (bug #477668).
+
+  19 Aug 2013; Agostino Sarubbo <ago@gentoo.org> metalog-3.ebuild:
+  Stable for ppc, wrt bug #477668
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> metalog-3.ebuild:
+  Stable for x86, wrt bug #477668
+
+  17 Aug 2013; Agostino Sarubbo <ago@gentoo.org> metalog-3.ebuild:
+  Stable for amd64, wrt bug #477668
+
+  20 May 2013; Fabio Erculiani <lxnay@gentoo.org> metalog-3.ebuild,
+  +files/metalog.service:
+  add systemd unit on behalf of the systemd team, fix bug #465984, overriding
+  unresponsive maintainer
 
   20 Aug 2012; Mike Frysinger <vapier@gentoo.org> metalog-3.ebuild:
   Pull in pkg-config #431908 by Hans.

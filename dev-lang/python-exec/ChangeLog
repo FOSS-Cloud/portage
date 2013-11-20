@@ -1,0 +1,29 @@
+# ChangeLog for dev-lang/python-exec
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/python-exec/ChangeLog,v 1.5 2013/11/19 03:38:53 jer Exp $
+
+  19 Nov 2013; Jeroen Roovers <jer@gentoo.org> python-exec-2.0.1.ebuild:
+  Stable for HPPA (bug #491420).
+
+*python-exec-2.0.1 (16 Nov 2013)
+
+  16 Nov 2013; Michał Górny <mgorny@gentoo.org> +python-exec-2.0.1.ebuild:
+  Version bump. Fix unitialized memory access, bug #491410.
+
+  15 Nov 2013; Robin H. Johnson <robbat2@gentoo.org> python-exec-0.3.1.ebuild,
+  python-exec-0.9999.ebuild, python-exec-2.0.ebuild, python-exec-2.9999.ebuild:
+  Use PDEPEND to fix python-exec dep for all users, acked by ZeroChaos & mgorny
+  in #gentoo-dev.
+
+  09 Nov 2013; Pacho Ramos <pacho@gentoo.org> python-exec-2.0.ebuild:
+  amd64 stable, bug #488682
+
+*python-exec-0.9999 (30 Oct 2013)
+*python-exec-2.9999 (30 Oct 2013)
+*python-exec-0.3.1 (30 Oct 2013)
+*python-exec-2.0 (30 Oct 2013)
+
+  30 Oct 2013; Michał Górny <mgorny@gentoo.org> +metadata.xml,
+  +python-exec-0.3.1.ebuild, +python-exec-0.9999.ebuild,
+  +python-exec-2.0.ebuild, +python-exec-2.9999.ebuild:
+  Move the real ebuilds of dev-python/python-exec to dev-lang/python-exec.

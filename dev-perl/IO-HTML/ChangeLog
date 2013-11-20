@@ -1,6 +1,15 @@
 # ChangeLog for dev-perl/IO-HTML
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/IO-HTML/ChangeLog,v 1.8 2013/02/19 03:48:19 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/IO-HTML/ChangeLog,v 1.11 2013/07/30 17:12:33 grobian Exp $
+
+  30 Jul 2013; Fabian Groffen <grobian@gentoo.org> IO-HTML-0.40.0.ebuild:
+  Re-add Prefix keywords, bug #437532
+
+  30 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> IO-HTML-0.40.0.ebuild:
+  Add ~amd64-linux keyword, wrt bug #437532
+
+  11 May 2013; Matt Turner <mattst88@gentoo.org> IO-HTML-0.40.0.ebuild:
+  Added ~mips, bug 437532.
 
   19 Feb 2013; Zac Medico <zmedico@gentoo.org> IO-HTML-0.40.0.ebuild:
   Add ~arm-linux + ~x86-linux keywords.

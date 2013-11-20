@@ -1,6 +1,39 @@
 # ChangeLog for www-client/surf
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/surf/ChangeLog,v 1.27 2013/04/08 11:57:06 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/surf/ChangeLog,v 1.35 2013/11/01 14:53:54 jer Exp $
+
+  01 Nov 2013; Jeroen Roovers <jer@gentoo.org> -surf-0.6.ebuild:
+  Old.
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> surf-0.6-r1.ebuild:
+  Stable for x86, wrt bug #486964
+
+  06 Oct 2013; Chema Alonso <nimiux@gentoo.org> surf-0.6-r1.ebuild:
+  Stable for amd64 wrt bug #486964
+
+  04 Oct 2013; Jeroen Roovers <jer@gentoo.org> surf-0.6-r1.ebuild,
+  surf-9999.ebuild, files/surf-0.6-gentoo.patch, +files/surf-9999-gentoo.patch:
+  Sync 0.6-r1 changes. Clean up 0.6-r1 some more.
+
+  04 Oct 2013; Jeroen Roovers <jer@gentoo.org> surf-0.6-r1.ebuild:
+  Determine REPLACING_VERSIONS to conditionally call ewarn.
+
+  04 Oct 2013; Jeroen Roovers <jer@gentoo.org> surf-0.6-r1.ebuild,
+  +files/surf-0.6-gentoo.patch:
+  Fix underlinking (bug #486912). Roll a patch out of the sed scripts. Set
+  PKG_CONFIG for cross-compile fun.
+
+*surf-9999 (12 Sep 2013)
+
+  12 Sep 2013; Jeroen Roovers <jer@gentoo.org> surf-0.6-r1.ebuild,
+  +surf-9999.ebuild:
+  Add live ebuild. Fix elog messages about runtime dependencies (bug #481700 by
+  Ari Malinen).
+
+*surf-0.6-r1 (12 Sep 2013)
+
+  12 Sep 2013; Jeroen Roovers <jer@gentoo.org> +surf-0.6-r1.ebuild:
+  Add epatch_user, remove xterm dependency (bug #481700 by Ari Malinen).
 
   08 Apr 2013; Jeroen Roovers <jer@gentoo.org> -surf-0.5.ebuild:
   Old.

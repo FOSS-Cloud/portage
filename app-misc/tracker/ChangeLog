@@ -1,6 +1,48 @@
 # ChangeLog for app-misc/tracker
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/tracker/ChangeLog,v 1.152 2013/04/06 03:06:30 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/tracker/ChangeLog,v 1.161 2013/11/10 11:06:26 pacho Exp $
+
+*tracker-0.16.3 (10 Nov 2013)
+
+  10 Nov 2013; Pacho Ramos <pacho@gentoo.org> +tracker-0.16.3.ebuild,
+  -tracker-0.14.5.ebuild, -tracker-0.16.1.ebuild, metadata.xml:
+  Version bump, drop old, this is being only maintained by gnome team for a long
+  time.
+
+*tracker-0.16.2 (01 Aug 2013)
+
+  01 Aug 2013; Pacho Ramos <pacho@gentoo.org> +tracker-0.16.2.ebuild,
+  -tracker-9999.ebuild:
+  Version bump, drop old
+
+  14 May 2013; Gilles Dartiguelongue <eva@gentoo.org> tracker-0.14.5.ebuild,
+  -tracker-0.16.0.ebuild, tracker-0.16.1.ebuild:
+  Move vala_depend to DEPEND, add missing libgif configure switch (kill
+  automagic), uncomment test workaround which was reported upstream.
+
+  05 May 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.16.1.ebuild:
+  Really use vala.eclass (reported by Ewgeny B via mail)
+
+  03 May 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.16.1.ebuild:
+  Update tests handling
+
+  02 May 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.14.5.ebuild:
+  Run eautoreconf also for 0.14 (#367975#c49)
+
+*tracker-0.16.1 (01 May 2013)
+
+  01 May 2013; Pacho Ramos <pacho@gentoo.org> +tracker-0.16.1.ebuild:
+  Version bump
+
+  28 Apr 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.16.0.ebuild:
+  Add an eautoreconf call to prevent compilation problems caused by upstream
+  refusing to use upstream libtool and using patched Debian one instead
+  (#367975)
+
+  09 Apr 2013; Gilles Dartiguelongue <eva@gentoo.org> -tracker-0.14.4.ebuild,
+  tracker-0.14.5.ebuild, tracker-0.16.0.ebuild, tracker-9999.ebuild:
+  Clean up live bits from non-live ebuilds. Raise totem-pl-parser dependency,
+  bug #461220. Use slotted libgrss. Clean up old revision.
 
   06 Apr 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
   tracker-0.14.4.ebuild, tracker-0.14.5.ebuild, tracker-0.16.0.ebuild,

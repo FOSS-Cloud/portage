@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udisks/udisks-1.0.4-r5.ebuild,v 1.8 2013/03/31 14:54:48 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udisks/udisks-1.0.4-r5.ebuild,v 1.12 2013/08/09 19:17:15 ssuominen Exp $
 
 EAPI=5
 inherit eutils bash-completion-r1 linux-info udev
@@ -11,7 +11,7 @@ SRC_URI="http://hal.freedesktop.org/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm ~ia64 ~mips ppc ppc64 ~sh sparc x86"
+KEYWORDS="alpha amd64 arm ia64 ~mips ppc ppc64 sh sparc x86"
 IUSE="debug nls remote-access selinux"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.100
@@ -22,7 +22,7 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.100
 	>=sys-apps/sg3_utils-1.27.20090411
 	>=sys-block/parted-3
 	>=sys-fs/lvm2-2.02.66
-	>=virtual/udev-197[gudev,hwdb]
+	>=virtual/udev-197[gudev,hwdb(+)]
 	selinux? ( sec-policy/selinux-devicekit )"
 # util-linux -> mount, umount, swapon, swapoff (see also #403073)
 RDEPEND="${COMMON_DEPEND}
@@ -39,8 +39,8 @@ pkg_setup() {
 	# Listing only major arch's here to avoid tracking kernel's defconfig
 	if use amd64 || use arm || use ppc || use ppc64 || use x86; then
 		CONFIG_CHECK="~!IDE" #319829
-		CONFIG_CHECK+=" ~USB_SUSPEND" #331065
 		CONFIG_CHECK+=" ~NLS_UTF8" #425562
+		kernel_is lt 3 10 && CONFIG_CHECK+=" ~USB_SUSPEND" #331065, #477278
 		linux-info_pkg_setup
 	fi
 }

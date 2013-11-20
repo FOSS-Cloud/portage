@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-firmware/linux-firmware-99999999.ebuild,v 1.22 2013/02/11 20:16:17 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-firmware/linux-firmware-99999999.ebuild,v 1.30 2013/09/05 05:46:37 vapier Exp $
 
 EAPI=5
 inherit savedconfig
@@ -12,7 +12,7 @@ if [[ ${PV} == 99999999* ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="mirror://gentoo/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~ia64 ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 fi
 
 DESCRIPTION="Linux firmware files"
@@ -24,10 +24,11 @@ IUSE="savedconfig"
 
 DEPEND=""
 RDEPEND="!savedconfig? (
-		!media-sound/alsa-firmware[alsa_cards_korg1212]
-		!media-sound/alsa-firmware[alsa_cards_maestro3]
-		!media-sound/alsa-firmware[alsa_cards_sb16]
-		!media-sound/alsa-firmware[alsa_cards_ymfpci]
+		!sys-firmware/alsa-firmware[alsa_cards_ca0132]
+		!sys-firmware/alsa-firmware[alsa_cards_korg1212]
+		!sys-firmware/alsa-firmware[alsa_cards_maestro3]
+		!sys-firmware/alsa-firmware[alsa_cards_sb16]
+		!sys-firmware/alsa-firmware[alsa_cards_ymfpci]
 		!media-tv/cx18-firmware
 		!<sys-firmware/ivtv-firmware-20080701-r1
 		!media-tv/linuxtv-dvb-firmware[dvb_cards_cx231xx]
@@ -38,11 +39,12 @@ RDEPEND="!savedconfig? (
 		!net-wireless/ar9271-firmware
 		!net-wireless/i2400m-fw
 		!net-wireless/libertas-firmware
-		!net-wireless/rt61-firmware
+		!sys-firmware/rt61-firmware
 		!net-wireless/rt73-firmware
 		!net-wireless/rt2860-firmware
 		!net-wireless/rt2870-firmware
 		!sys-block/qla-fc-firmware
+		!sys-firmware/amd-ucode
 		!sys-firmware/iwl1000-ucode
 		!sys-firmware/iwl2000-ucode
 		!sys-firmware/iwl2030-ucode

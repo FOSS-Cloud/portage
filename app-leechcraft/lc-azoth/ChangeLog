@@ -1,6 +1,62 @@
 # ChangeLog for app-leechcraft/lc-azoth
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-azoth/ChangeLog,v 1.1 2013/03/08 21:55:25 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-azoth/ChangeLog,v 1.14 2013/09/25 11:10:59 pinkbyte Exp $
+
+  25 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> lc-azoth-9999.ebuild,
+  metadata.xml:
+  Add USE-flag and dependency for Twitter plugin, minor dependency corrections,
+  thanks to 0xd34df00d
+
+  24 Sep 2013; Maxim Koltsov <maksbotan@gentoo.org> lc-azoth-0.5.90.ebuild,
+  lc-azoth-0.5.99.ebuild, lc-azoth-0.6.0.ebuild, lc-azoth-9999.ebuild:
+  Fix double qtmultimedia dependency, add qjson dependency
+
+*lc-azoth-0.6.0 (24 Sep 2013)
+
+  24 Sep 2013; Maxim Koltsov <maksbotan@gentoo.org> +lc-azoth-0.6.0.ebuild:
+  Bump LeechCraft to 0.6.0
+
+  10 Aug 2013; Maxim Koltsov <maksbotan@gentoo.org> lc-azoth-9999.ebuild,
+  metadata.xml:
+  Add murm use flag to 9999, thanks to 0xd34df00d
+
+  19 Jul 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove redundant useflag descriptions
+
+*lc-azoth-0.5.99 (18 Jul 2013)
+
+  18 Jul 2013; <maks@gentoo.org> +lc-azoth-0.5.99.ebuild:
+  Bump app-leechcraft/lc-azoth to 0.5.99, thanks to 0xd34df00d
+
+*lc-azoth-0.5.98 (03 Jul 2013)
+
+  03 Jul 2013; Maxim Koltsov <maksbotan@gentoo.org> +lc-azoth-0.5.98.ebuild:
+  Bump LeechCraft to 0.5.98, thanks to 0xd34df00d.
+
+*lc-azoth-0.5.97 (11 Jun 2013)
+
+  11 Jun 2013; Maxim Koltsov <maksbotan@gentoo.org> +lc-azoth-0.5.97.ebuild:
+  Bump LeechCraft suite to 0.5.97, thanks to 0xd34df00d.
+
+*lc-azoth-0.5.96 (26 May 2013)
+
+  26 May 2013; Maxim Koltsov <maksbotan@gentoo.org> +lc-azoth-0.5.96.ebuild:
+  Bump LeechCraft suite to 0.5.96, thanks to 0xd34df00d
+
+  08 May 2013; Maxim Koltsov <maksbotan@gentoo.org> lc-azoth-9999.ebuild:
+  Add lc-xtazy dependency to 9999
+
+*lc-azoth-0.5.95 (02 May 2013)
+
+  02 May 2013; Sergey Popov <pinkbyte@gentoo.org> +lc-azoth-0.5.95.ebuild:
+  Bump app-leechcraft/lc-azoth to 0.5.95, thanks to 0xd34df00d
+
+  14 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> lc-azoth-9999.ebuild:
+  Correct doxygen dependency - add USE 'dot'
+
+  14 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> lc-azoth-9999.ebuild:
+  Bump EAPI to 5, add documentation building and installing, thanks to
+  0xd34df00d
 
 *lc-azoth-9999 (08 Mar 2013)
 *lc-azoth-0.5.90 (08 Mar 2013)

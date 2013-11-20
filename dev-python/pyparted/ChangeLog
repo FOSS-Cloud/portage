@@ -1,6 +1,17 @@
 # ChangeLog for dev-python/pyparted
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyparted/ChangeLog,v 1.74 2012/12/31 18:00:19 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyparted/ChangeLog,v 1.77 2013/07/16 19:11:42 williamh Exp $
+
+  16 Jul 2013; William Hubbs <williamh@gentoo.org> pyparted-3.10.ebuild:
+  drop support for python 3.1 and 3.2, thanks to Patrick McLean.
+
+  14 Jun 2013; Patrick McLean <chutz@gentoo.org> pyparted-3.10.ebuild:
+  Add python3_3 to PYTHON_COMPAT.
+
+*pyparted-3.10 (13 Jun 2013)
+
+  13 Jun 2013; Jeroen Roovers <jer@gentoo.org> +pyparted-3.10.ebuild:
+  Version bump. Migrate to distutils-r1.
 
 *pyparted-3.9 (31 Dec 2012)
 
@@ -280,4 +291,3 @@
 
   23 Apr 2004; Nathaniel McCallum <npmccallum@gentoo.org> :
   new ebuild
-

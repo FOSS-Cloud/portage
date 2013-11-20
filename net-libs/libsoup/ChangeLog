@@ -1,6 +1,48 @@
 # ChangeLog for net-libs/libsoup
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup/ChangeLog,v 1.303 2013/04/07 09:36:55 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup/ChangeLog,v 1.312 2013/11/15 20:13:27 pacho Exp $
+
+*libsoup-2.42.3.1 (15 Nov 2013)
+
+  15 Nov 2013; Pacho Ramos <pacho@gentoo.org> +libsoup-2.42.3.1.ebuild:
+  Version bump
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> libsoup-2.40.3.ebuild:
+  arm stable, bug #476364
+
+  12 Oct 2013; Pacho Ramos <pacho@gentoo.org> -libsoup-2.42.1.ebuild,
+  -libsoup-2.42.2.ebuild:
+  Drop old
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> libsoup-2.40.3.ebuild,
+  libsoup-2.42.1.ebuild, libsoup-2.42.2-r1.ebuild, libsoup-2.42.2.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*libsoup-2.42.2-r1 (29 Aug 2013)
+
+  29 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +libsoup-2.42.2-r1.ebuild:
+  Version bump. Re-split libsoup for easier upgrade path, etc.
+
+  03 May 2013; Zac Medico <zmedico@gentoo.org> libsoup-2.42.1.ebuild,
+  libsoup-2.42.2.ebuild:
+  Move libsoup-gnome blocker to RDEPEND for file collisions reported in bug
+  #468274.
+
+*libsoup-2.42.2 (25 Apr 2013)
+
+  25 Apr 2013; Pacho Ramos <pacho@gentoo.org> +libsoup-2.42.2.ebuild,
+  -libsoup-2.42.0.ebuild:
+  Version bump, drop old
+
+  18 Apr 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/libsoup-2.42.1-ipv6-tests.patch, libsoup-2.42.1.ebuild:
+  Skip ipv6 tests when no ipv6 support is built
+
+*libsoup-2.42.1 (17 Apr 2013)
+
+  17 Apr 2013; Pacho Ramos <pacho@gentoo.org> +libsoup-2.42.1.ebuild:
+  Version bump
 
   07 Apr 2013; Pacho Ramos <pacho@gentoo.org> libsoup-2.42.0.ebuild:
   Fix gnome2_src_configure invocation (#464722#c1 by Rafal Muzylo)

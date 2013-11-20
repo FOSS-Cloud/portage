@@ -1,6 +1,44 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/package.use.mask,v 1.123 2013/04/01 12:10:50 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/package.use.mask,v 1.141 2013/11/13 19:33:29 pacho Exp $
+
+# Pacho Ramos <pacho@gentoo.org> (13 Nov 2013)
+# Missing keywords, bug #478254
+>=gnome-base/gnome-3.8 classic
+
+# Mark Wright <gienah@gentoo.org> (26 Oct 2013)
+# template-haskell not yet available
+dev-haskell/dataenc test
+
+# Tom Wijsman <TomWij@gentoo.org> (16 Oct 2013)
+# Mask luajit on ~media-video/mpv-0.2.0 because it only has amd64 x86 keywords. See bug #488318.
+>=media-video/mpv-0.2.0 luajit
+
+# Pacho Ramos <pacho@gentoo.org> (01 Sep 2013)
+# CONFIG_AUDITSYSCALL=y is not implemented, bug #438368
+sys-apps/systemd pam
+sys-auth/consolekit pam
+sys-auth/pambase consolekit
+
+# Pacho Ramos <pacho@gentoo.org> (20 Jul 2013)
+# Keywords pending, bug #476710
+>=gnome-base/gnome-extra-apps-3.8 games
+
+# William Hubbs <williamh@gentoo.org> (22 Jun 2013)
+# dev-python/cython is not keyworded for alpha
+>=app-accessibility/brltty-4.5 python
+
+# Patrick Lauer <patrick@gentoo.org> (17 Jun 2013)
+# Fix per-arch mask of phonon[zeitgeist] #460140
+media-libs/phonon zeitgeist
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (28 May 2013)
+# depends on sys-devel/llvm[video_cards_radeon]
+media-libs/mesa r600-llvm-compiler
+
+# Dirkjan Ochtman <djc@gentoo.org> (3 May 2013)
+# depends on net-libs/polarssl
+>=net-misc/openvpn-2.3.1 polarssl
 
 # Gilles Dartiguelongue <eva@gentoo.org> (1 Apr 2013)
 # missing keyword on media-libs/tremor, bug #453200
@@ -47,10 +85,11 @@ gnome-extra/libgda reports
 # Raúl Porcel <armin76@gentoo.org> (25 Jun 2012)
 # dev-qt/qtwebkit doesn't seem to work
 dev-python/PyQt4 webkit
+dev-qt/assistant webkit
+dev-qt/designer webkit
 dev-qt/qtdeclarative webkit
 dev-qt/qthelp webkit
 net-irc/kvirc webkit
-x11-misc/google-gadgets qt4
 
 # Raúl Porcel <armin76@gentoo.org> (28 May 2012)
 # Needs x11-misc/lightdm(which also requires some other deps)

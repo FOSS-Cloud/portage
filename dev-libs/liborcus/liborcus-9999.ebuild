@@ -1,38 +1,35 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/liborcus/liborcus-9999.ebuild,v 1.7 2013/01/15 08:42:58 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/liborcus/liborcus-9999.ebuild,v 1.9 2013/07/10 07:46:58 scarabeus Exp $
 
 EAPI=5
 
 EGIT_REPO_URI="git://gitorious.org/orcus/orcus.git"
 
-[[ ${PV} == 9999 ]] && GITECLASS="git-2"
-inherit autotools ${GITECLASS}
+[[ ${PV} == 9999 ]] && GITECLASS="git-2 autotools"
+inherit eutils ${GITECLASS}
 unset GITECLASS
 
 DESCRIPTION="Standalone file import filter library for spreadsheet documents"
 HOMEPAGE="http://gitorious.org/orcus/pages/Home"
-[[ ${PV} == 9999 ]] || SRC_URI="http://kohei.us/files/orcus/src/${P/-/_}.tar.bz2"
+[[ ${PV} == 9999 ]] || SRC_URI="http://kohei.us/files/orcus/src/${P}.tar.bz2"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/0.5"
 [[ ${PV} == 9999 ]] || \
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~arm ~ppc ~x86"
 IUSE="static-libs"
 
 RDEPEND="
-	>=dev-libs/boost-1.51.0
-	>=dev-libs/libixion-0.6
-	dev-libs/libzip
+	>=dev-libs/boost-1.51.0:=
+	>=dev-libs/libixion-0.5.0:=
 "
 DEPEND="${RDEPEND}
-	>=dev-util/mdds-0.6.0
+	>=dev-util/mdds-0.7.1
 "
 
-S="${WORKDIR}/${P/-/_}"
-
 src_prepare() {
-	eautoreconf
+	[[ ${PV} == 9999 ]] && eautoreconf
 }
 
 src_configure() {
@@ -44,5 +41,5 @@ src_configure() {
 src_install() {
 	default
 
-	find "${ED}" -name '*.la' -exec rm -f {} +
+	prune_libtool_files --all
 }

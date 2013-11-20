@@ -1,6 +1,44 @@
 # ChangeLog for sci-chemistry/coot
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/coot/ChangeLog,v 1.54 2012/10/06 16:19:58 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/coot/ChangeLog,v 1.63 2013/09/19 08:09:52 jlec Exp $
+
+*coot-0.7.2 (19 Sep 2013)
+
+  19 Sep 2013; Justin Lecher <jlec@gentoo.org> +coot-0.7.2.ebuild:
+  Version Bump
+
+  18 Sep 2013; Justin Lecher <jlec@gentoo.org> coot-0.7.ebuild,
+  coot-0.7.1-r1.ebuild:
+  Drop unneccessary shebang magic, #484972
+
+  18 Sep 2013; Justin Lecher <jlec@gentoo.org> -coot-0.6.2.ebuild,
+  -coot-0.6.2-r1.ebuild:
+  Drop old
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> coot-0.7.ebuild:
+  Stable for x86, wrt bug #477166
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> coot-0.7.ebuild:
+  Stable for amd64, wrt bug #477166
+
+*coot-0.7.1-r1 (28 Aug 2013)
+
+  28 Aug 2013; Justin Lecher <jlec@gentoo.org> -coot-0.7.1.ebuild,
+  +coot-0.7.1-r1.ebuild:
+  Install missing syminfo, #482734
+
+  27 Aug 2013; Justin Lecher <jlec@gentoo.org> coot-0.7.1.ebuild:
+  Reenable test
+
+*coot-0.7.1 (26 Aug 2013)
+
+  26 Aug 2013; Justin Lecher <jlec@gentoo.org> coot-0.6.2.ebuild,
+  coot-0.6.2-r1.ebuild, coot-0.7.ebuild, +coot-0.7.1.ebuild:
+  Version BUmp, #482278; bump to new python-r1 eclasses
+
+  29 May 2013; Justin Lecher <jlec@gentoo.org> coot-0.6.2.ebuild,
+  coot-0.6.2-r1.ebuild, coot-0.7.ebuild, metadata.xml:
+  Drop version restriction from clipper dep
 
 *coot-0.7 (06 Oct 2012)
 
@@ -238,4 +276,3 @@
   +coot-0.1.2_pre1.ebuild:
   Add the Crystallographic Object-Oriented Toolkit for model building,
   completion and validation.
-

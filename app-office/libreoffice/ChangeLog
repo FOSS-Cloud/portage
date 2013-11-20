@@ -1,6 +1,291 @@
 # ChangeLog for app-office/libreoffice
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/ChangeLog,v 1.457 2013/04/04 11:41:00 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/ChangeLog,v 1.523 2013/11/15 14:15:24 scarabeus Exp $
+
+  15 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Fixup hickup about the helpfile generating (hopefully).
+
+  15 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.1.2.3.ebuild,
+  libreoffice-4.1.3.2.ebuild, libreoffice-4.1.9999.ebuild,
+  libreoffice-9999-r2.ebuild:
+  Resort mwaw deps to require proper versions.
+
+  15 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Add dep over libebook.
+
+  08 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Update libodfgen dependency.
+
+  01 Nov 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -files/generate_libreoffice_package.sh:
+  Move build scripts to https://gitorious.org/gentoo-stuff/lo-bin-build
+
+  01 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  One more new dependency.
+
+  01 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Add new dependency for libfreehand.
+
+  31 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  files/generate_libreoffice_package.sh:
+  Adapt build script for new machine
+
+*libreoffice-4.1.3.2 (31 Oct 2013)
+
+  31 Oct 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-4.1.3.2.ebuild,
+  -files/libreoffice-4.1.0.4-neon-build.patch,
+  -files/libreoffice-4.1.2.2-idfattrib.patch, -libreoffice-4.0.5.2.ebuild,
+  -libreoffice-4.0.9999.ebuild, -libreoffice-4.1.2.2-r1.ebuild:
+  Version bump to 4.1.3.2 and cleanup older. Force due to unsynced cvs tree.
+
+  27 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-4.1.2.3.ebuild:
+  Stable for x86, wrt bug #486204
+
+  23 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  files/generate_libreoffice_package.sh:
+  Minor updates to build script
+
+  20 Oct 2013; Tony Vroon <chainsaw@gentoo.org> libreoffice-4.1.2.3.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #486204.
+
+*libreoffice-4.1.2.3 (04 Oct 2013)
+
+  04 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libreoffice-4.1.2.3.ebuild:
+  Version bump
+
+*libreoffice-4.1.2.2-r1 (27 Sep 2013)
+
+  27 Sep 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libreoffice-4.1.2.2.ebuild, +libreoffice-4.1.2.2-r1.ebuild,
+  +files/libreoffice-4.1.2.2-idfattrib.patch:
+  Revbump for annoying localc bug 485862, new stable candidate
+
+*libreoffice-4.1.2.2 (23 Sep 2013)
+
+  23 Sep 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-4.1.2.2.ebuild,
+  -libreoffice-4.1.1.2.ebuild:
+  Version bump to 4.1.2.2, this is our stable candidate.
+
+  20 Sep 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  libreoffice-4.1.9999.ebuild, libreoffice-9999-r2.ebuild:
+  Update branding with design from Denis M., bug 456666. Thanks!!!
+
+  16 Sep 2013; Rick Farina <zerochaos@gentoo.org> libreoffice-4.0.4.2.ebuild:
+  fixing subslot dep on boost per bug 485066, all blame goes to zerochaos
+
+  16 Sep 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.0.5.2.ebuild:
+  Disable nsplugin here too.
+
+  16 Sep 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.0.4.2.ebuild,
+  libreoffice-4.0.5.2.ebuild, libreoffice-4.0.9999.ebuild,
+  libreoffice-4.1.1.2.ebuild, libreoffice-4.1.9999.ebuild,
+  libreoffice-9999-r2.ebuild:
+  Add missing gstreamer useflagswitch, thanks Nikoli for spotting.
+
+  15 Sep 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  libreoffice-4.0.9999.ebuild, libreoffice-4.1.1.2.ebuild,
+  libreoffice-4.1.9999.ebuild, libreoffice-9999-r2.ebuild:
+  Disable nsplugin as it mostly kills the browser or crashes. bug#415259 and
+  bug#482314.
+
+  10 Sep 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild,
+  metadata.xml:
+  Introduce vlc useflag for the vlc integration.
+
+  03 Sep 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Bump harfbuzz requirement.
+
+*libreoffice-4.0.5.2 (30 Aug 2013)
+*libreoffice-4.1.1.2 (30 Aug 2013)
+
+  30 Aug 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-4.0.5.2.ebuild,
+  +libreoffice-4.1.1.2.ebuild, -libreoffice-4.1.0.4.ebuild,
+  files/libreoffice-4.1.0.4-neon-build.patch, libreoffice-4.1.9999.ebuild,
+  libreoffice-9999-r2.ebuild:
+  Version bump to 4.0.5.2 and 4.1.1.2.
+
+  27 Aug 2013; Michael Palimaka <kensington@gentoo.org>
+  libreoffice-4.0.4.2.ebuild, libreoffice-4.0.9999.ebuild,
+  libreoffice-4.1.0.4.ebuild, libreoffice-4.1.9999.ebuild,
+  libreoffice-9999-r2.ebuild:
+  Pin virtual/jpeg SLOT to 0.
+
+  13 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +files/libreoffice-4.1.0.4-neon-build.patch, libreoffice-4.1.0.4.ebuild:
+  Build fix for neon-0.30 #479604
+
+  09 Aug 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Raise the dep on cmis.
+
+  29 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Use firebird configure switch.
+
+  29 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.1.0.4.ebuild,
+  libreoffice-4.1.9999.ebuild, libreoffice-9999-r2.ebuild:
+  Raise redland dependency wrt bug#478486.
+
+*libreoffice-4.1.0.4 (25 Jul 2013)
+
+  25 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-4.1.0.4.ebuild,
+  -libreoffice-4.1.0.2.ebuild:
+  Version bump to 4.1 final. People will hate me for all those rebuilds in this
+  heat.
+
+  16 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Add dependency over libatomic_ops (firebird dep seems).
+
+  16 Jul 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag descriptions from metadata.xml
+
+  14 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  files/generate_libreoffice_package.sh:
+  Add workaround for bug 473974
+
+  13 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  files/generate_libreoffice_package.sh:
+  Minor adaptions to build script
+
+*libreoffice-4.1.0.2 (11 Jul 2013)
+
+  11 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-4.1.0.2.ebuild,
+  -files/libreoffice-3.6-separate-checks.patch,
+  -files/libreoffice-3.6-system-pyuno.patch,
+  -files/libreoffice-4.0.0.3-boost-1.53.0.patch,
+  -files/libreoffice-4.0.1.2-boost-1.53.0.patch, -libreoffice-3.6.6.2.ebuild,
+  -libreoffice-4.1.0.1.ebuild:
+  Version bump to 4.1.0.2 remove 4.1older and 3.6.x series.
+
+  10 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  -libreoffice-3.6.9999.ebuild, libreoffice-4.0.9999.ebuild,
+  libreoffice-4.1.9999.ebuild, libreoffice-9999-r2.ebuild:
+  Use subslot dep over boost and remove live eubild for 3.6 series.
+
+  09 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  disable-rpath is gone.
+
+  08 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Update vigra dependency.
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-4.0.4.2.ebuild:
+  Stable for ppc, wrt bug #474066
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> libreoffice-3.6.6.2.ebuild,
+  libreoffice-3.6.9999.ebuild, libreoffice-4.0.4.2.ebuild,
+  libreoffice-4.0.9999.ebuild, libreoffice-4.1.0.1.ebuild,
+  libreoffice-4.1.9999.ebuild, libreoffice-9999-r2.ebuild, metadata.xml:
+  Fix usage of python-r1.eclass
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-4.0.4.2.ebuild:
+  Stable for x86, wrt bug #474066
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-4.0.4.2.ebuild:
+  Stable for amd64, wrt bug #474066
+
+  26 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.1.0.1.ebuild,
+  libreoffice-4.1.9999.ebuild:
+  Restrict the mdds version to 0.8 series as 0.9 broke it. Wrt bug#474710.
+
+  24 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Depend on mdds-0.9.0.
+
+  23 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.1.0.1.ebuild,
+  libreoffice-4.1.9999.ebuild, libreoffice-9999-r2.ebuild:
+  Depend on harfbuzz with icu (when useflag is around).
+
+*libreoffice-4.1.0.1 (23 Jun 2013)
+
+  23 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-4.1.0.1.ebuild:
+  Bump to 4.1 rc1 for testing.
+
+  23 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.0.4.2.ebuild,
+  libreoffice-4.0.9999.ebuild, libreoffice-4.1.9999.ebuild,
+  libreoffice-9999-r2.ebuild:
+  Fix +telepathy -gtk build. Don't have the time to fix configure upstream. Wrt
+  bug#461514.
+
+*libreoffice-4.0.4.2 (20 Jun 2013)
+
+  20 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-4.0.4.2.ebuild,
+  -libreoffice-4.0.3.3.ebuild, libreoffice-4.0.9999.ebuild,
+  libreoffice-4.1.9999.ebuild, libreoffice-9999-r2.ebuild:
+  Version bump to 4.0.4.2. Fixes bug#473806 and bug#473848. Drop 4.0.3.
+
+  04 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Raise dependency over doxygen package.
+
+  30 May 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  -files/libreoffice-3.6.4.3-boost-1.53.0.patch, -libreoffice-3.6.4.3.ebuild:
+  Drop old libreoffice keep only one 3.6 version.
+
+  27 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.1.9999.ebuild,
+  libreoffice-9999-r2.ebuild:
+  Fix typo.
+
+*libreoffice-4.1.9999 (22 May 2013)
+
+  22 May 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +libreoffice-4.1.9999.ebuild:
+  Add live ebuild for 4.1 branch.
+
+  21 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Few obvious cleanups before branching, removed options/updated deps, etc.
+
+  19 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  files/generate_libreoffice_package.sh:
+  Update script
+
+  11 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-3.6.4.3.ebuild,
+  libreoffice-3.6.6.2.ebuild, libreoffice-3.6.9999.ebuild,
+  libreoffice-4.0.3.3.ebuild, libreoffice-4.0.9999.ebuild:
+  Older versions require old mdds due to incompatible api change. Wrt
+  bug#469318.
+
+  09 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Require latest mdds.
+
+  08 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Drop removed option. It defaults to what we want now.
+
+*libreoffice-4.0.3.3 (06 May 2013)
+
+  06 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-4.0.3.3.ebuild,
+  -libreoffice-4.0.2.2.ebuild:
+  Version bump to 4.0.3.
+
+  06 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Depend on libodfgen.
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-3.6.6.2.ebuild:
+  Stable for ppc, wrt bug #467460
+
+  01 May 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-3.6.6.2.ebuild:
+  Stable for x86, wrt bug #467460
+
+  29 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-3.6.4.3.ebuild,
+  libreoffice-3.6.6.2.ebuild, libreoffice-3.6.9999.ebuild,
+  libreoffice-4.0.2.2.ebuild, libreoffice-4.0.9999.ebuild,
+  libreoffice-9999-r2.ebuild:
+  Move KEYWORDS on another line to avoid ekeyword failure
+
+  29 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libreoffice-3.6.6.2.ebuild:
+  Stable for amd64, wrt bug #467460
+
+  26 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.0.9999.ebuild:
+  Remove gtk3 useflag from 4.0 build so people do not fill bugs about it.
+
+  24 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-9999-r2.ebuild:
+  Enable harfbuzz build instead of using ICU LE, without switch.
+
+  19 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.0.2.2.ebuild,
+  libreoffice-4.0.9999.ebuild, libreoffice-9999-r2.ebuild:
+  Update orcus deps to reflect reality.
+
+*libreoffice-3.6.6.2 (09 Apr 2013)
+
+  09 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libreoffice-3.6.6.2.ebuild:
+  Version bump to 3.6.6 release.
 
   04 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> libreoffice-4.0.2.2.ebuild,
   libreoffice-4.0.9999.ebuild:

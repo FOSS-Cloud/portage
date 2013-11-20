@@ -1,6 +1,40 @@
 # ChangeLog for x11-wm/i3
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/i3/ChangeLog,v 1.30 2013/03/19 08:53:16 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/i3/ChangeLog,v 1.40 2013/10/10 09:38:25 xarthisius Exp $
+
+  10 Oct 2013; Kacper Kowalik <xarthisius@gentoo.org> metadata.xml:
+  Drop desktop-wm from metadata.xml
+
+  22 Sep 2013; Kacper Kowalik <xarthisius@gentoo.org> -i3-4.5.1.ebuild:
+  Drop old
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> i3-4.6.ebuild:
+  Stable for x86, wrt bug #484964
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> i3-4.6.ebuild:
+  Stable for amd64, wrt bug #484964
+
+  02 Sep 2013; Kacper Kowalik <xarthisius@gentoo.org> -i3-4.2.ebuild:
+  drop old
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> i3-4.5.1.ebuild:
+  Stable for x86, wrt bug #446952
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> i3-4.5.1.ebuild:
+  Stable for amd64, wrt bug #446952
+
+  08 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org>
+  +files/i3-4.6-missing_include.patch, i3-4.6.ebuild:
+  Add missing include wrt #480272 by Jeroen Roovers <jer@gentoo.org>
+
+*i3-4.6 (07 Aug 2013)
+
+  07 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> +i3-4.6.ebuild,
+  -i3-4.4.ebuild:
+  Version bump, drop old
+
+  30 May 2013; Kacper Kowalik <xarthisius@gentoo.org> i3-4.5.1.ebuild:
+  Add epatch_user() wrt #471716 by René 'Necoro' Neumann <gentoo@necoro.eu>
 
 *i3-4.5.1 (19 Mar 2013)
 

@@ -1,6 +1,64 @@
 # ChangeLog for app-admin/eselect-postgresql
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect-postgresql/ChangeLog,v 1.28 2012/05/12 18:14:45 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect-postgresql/ChangeLog,v 1.41 2013/09/10 18:01:55 maekke Exp $
+
+  10 Sep 2013; Markus Meier <maekke@gentoo.org>
+  eselect-postgresql-1.2.0.ebuild:
+  arm stable, bug #483416
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  eselect-postgresql-1.2.0.ebuild:
+  Stable for sparc, wrt bug #483416
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  eselect-postgresql-1.2.0.ebuild:
+  Stable for x86, wrt bug #483416
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  eselect-postgresql-1.2.0.ebuild:
+  Stable for ppc64, wrt bug #483416
+
+  04 Sep 2013; Jeroen Roovers <jer@gentoo.org> eselect-postgresql-1.2.0.ebuild:
+  Stable for HPPA (bug #483416).
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  eselect-postgresql-1.2.0.ebuild:
+  Stable for ppc, wrt bug #483416
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  eselect-postgresql-1.2.0.ebuild:
+  Stable for ia64, wrt bug #483416
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  eselect-postgresql-1.2.0.ebuild:
+  Stable for amd64, wrt bug #483416
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  eselect-postgresql-1.2.0.ebuild:
+  Stable for alpha, wrt bug #483416
+
+  18 Aug 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  -eselect-postgresql-1.1.2.ebuild:
+  Remove non-candidate for stable.
+
+*eselect-postgresql-1.2.0 (29 Jul 2013)
+
+  29 Jul 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  +eselect-postgresql-1.2.0.ebuild:
+  Add x32 support. Now only reports slots with pg_config to avoid false
+  positives.
+
+*eselect-postgresql-1.1.2 (16 Jun 2013)
+
+  16 Jun 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  -eselect-postgresql-1.1.1.ebuild, +eselect-postgresql-1.1.2.ebuild:
+  Fix bug 471866. Remove broken version.
+
+*eselect-postgresql-1.1.1 (09 May 2013)
+
+  09 May 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  +eselect-postgresql-1.1.1.ebuild:
+  Version bump. Fix bug 321114.
 
   12 May 2012; Alexis Ballier <aballier@gentoo.org>
   eselect-postgresql-1.0.10.ebuild:
@@ -156,4 +214,3 @@
   19 Mar 2008; Tiziano Müller <dev-zero@gentoo.org>
   eselect-postgresql-0.2.ebuild:
   Added quotes
-

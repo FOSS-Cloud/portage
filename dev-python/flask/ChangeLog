@@ -1,6 +1,43 @@
 # ChangeLog for dev-python/flask
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/flask/ChangeLog,v 1.17 2013/03/28 03:18:19 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/flask/ChangeLog,v 1.25 2013/08/16 09:07:32 idella4 Exp $
+
+*flask-0.10.1-r1 (16 Aug 2013)
+
+  16 Aug 2013; Ian Delaney <idella4@gentoo.org>
+  +files/flask-0.10.1-is_package.patch, +flask-0.10.1-r1.ebuild:
+  revbump; Re-set test phase, patch from upstream (issues/487) impacting flask-
+  script
+
+  27 Jun 2013; Mike Gilbert <floppym@gentoo.org> flask-9999.ebuild:
+  Ditto live ebuild.
+
+  27 Jun 2013; Mike Gilbert <floppym@gentoo.org> flask-0.10.1.ebuild:
+  Simplify jinja dependency.
+
+  27 Jun 2013; Mike Gilbert <floppym@gentoo.org> -files/docbuild.patch:
+  Remove unused patch.
+
+*flask-0.10.1 (16 Jun 2013)
+
+  16 Jun 2013; Tim Harder <radhermit@gentoo.org> -flask-0.9-r1.ebuild,
+  -flask-0.9-r2.ebuild, +flask-0.10.1.ebuild, flask-9999.ebuild:
+  Version bump, update live ebuild, and remove old. Drop python2_5 and pypy
+  support due to missing deps and restrict tests.
+
+  08 Jun 2013; Ian Delaney <idella4@gentoo.org> +files/docbuild.patch,
+  flask-0.9-r2.ebuild:
+  drop unused IUSE test, add IUSE doc and doc build & dep sphinx, patch for
+  docbuild avoiding un-needed d'load of objects.inv files
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org> flask-9999.ebuild:
+  Update live ebuild.
+
+*flask-0.9-r2 (23 May 2013)
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org> +flask-0.9-r2.ebuild:
+  Split the dev-python/jinja dependency in two to allow different slots to
+  satisfy it.
 
 *flask-0.9-r1 (28 Mar 2013)
 

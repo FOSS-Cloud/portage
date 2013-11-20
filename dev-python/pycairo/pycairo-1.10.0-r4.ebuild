@@ -1,9 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pycairo/pycairo-1.10.0-r4.ebuild,v 1.15 2013/04/02 23:07:20 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pycairo/pycairo-1.10.0-r4.ebuild,v 1.18 2013/09/05 18:46:22 mgorny Exp $
 
 EAPI="5"
-PYTHON_COMPAT=( python2_{6,7} python3_{1,2,3} )
+PYTHON_COMPAT=( python2_{6,7} python3_{2,3} )
 
 inherit eutils python-r1 waf-utils
 
@@ -19,11 +19,13 @@ SRC_URI="http://cairographics.org/releases/py2cairo-${PYCAIRO_PYTHON2_VERSION}.t
 # || ( LGPL-2.1 MPL-1.1 ) for pycairo 1.8.10.
 LICENSE="LGPL-3 || ( LGPL-2.1 MPL-1.1 )"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="doc examples +svg test xcb"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 # Note: xpyb is used as the C header, not Python modules
-RDEPEND="
+RDEPEND="${PYTHON_DEPS}
 	>=x11-libs/cairo-1.10.0[svg?,xcb?]
 	xcb? ( x11-libs/xpyb )
 "

@@ -1,6 +1,115 @@
 # ChangeLog for media-video/libav
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/libav/ChangeLog,v 1.147 2013/04/05 10:48:46 lu_zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/libav/ChangeLog,v 1.171 2013/11/03 14:56:42 lu_zero Exp $
+
+*libav-0.8.9-r1 (03 Nov 2013)
+
+  03 Nov 2013; Luca Barbato <lu_zero@gentoo.org> +libav-0.8.9-r1.ebuild:
+  p.masked multilib-ready ebuild
+
+*libav-0.8.9 (03 Nov 2013)
+
+  03 Nov 2013; Luca Barbato <lu_zero@gentoo.org> +libav-0.8.9.ebuild:
+  New security update
+
+*libav-0.8.8 (02 Nov 2013)
+
+  02 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libav-0.8.8.ebuild:
+  Add libav 0.8.8 as it was forgotten to be bumped.
+
+*libav-9.10 (16 Oct 2013)
+
+  16 Oct 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libav-9.10.ebuild,
+  -libav-9.8.ebuild, -libav-9.9.ebuild:
+  Version bump to 9.10 release and drop sec-vulnerable releases.
+
+*libav-9.9 (13 Sep 2013)
+
+  13 Sep 2013; Luca Barbato <lu_zero@gentoo.org> +libav-9.9.ebuild:
+  Version Bump
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> libav-9.8.ebuild,
+  libav-9.9999.ebuild, libav-9999.ebuild:
+  Only block ffmpeg:0, other slots are for binary compatibility and will have
+  proper blockers.
+
+*libav-9.8 (27 Jul 2013)
+
+  27 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libav-9.8.ebuild,
+  -libav-9.7.ebuild:
+  Version bump to 9.8, punt out 9.7.
+
+  10 Jul 2013; Luca Barbato <lu_zero@gentoo.org> libav-0.8.7.ebuild,
+  libav-0.8.9999.ebuild, libav-9.7.ebuild, libav-9.9999.ebuild,
+  libav-9999.ebuild:
+  Add subslot support for x264, thanks to Nikoli for the patch
+
+  23 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> libav-9.7.ebuild,
+  libav-9.9999.ebuild, libav-9999.ebuild:
+  Drop no longer workaround for march=native. Fixes bug#458768.
+
+  23 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> libav-0.8.7.ebuild,
+  libav-0.8.9999.ebuild:
+  Apply again the cdparanoia patchset for both release and git version so it
+  won't get lost again. Wrt bug#470872.
+
+*libav-9.7 (17 Jun 2013)
+
+  17 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libav-9.7.ebuild,
+  -libav-0.8.5.ebuild, -libav-0.8.6.ebuild, -libav-9.6.ebuild:
+  Version bump to 9.7 and remove overshadowed versions.
+
+  13 Jun 2013; Michael Weber <xmw@gentoo.org> libav-0.8.5.ebuild,
+  libav-0.8.6.ebuild, libav-0.8.7.ebuild, libav-0.8.9999.ebuild,
+  libav-9.6.ebuild, libav-9.9999.ebuild, libav-9999.ebuild:
+  Depend on SLOT=0 of media-libs/openjpeg (bug 440086)
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> libav-0.8.7.ebuild:
+  Stable for ppc, wrt bug #470734
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libav-0.8.7.ebuild:
+  Stable for ppc64, wrt bug #470734
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libav-0.8.7.ebuild:
+  Stable for ia64, wrt bug #470734
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libav-0.8.7.ebuild:
+  Stable for arm, wrt bug #470734
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libav-0.8.7.ebuild:
+  Stable for alpha, wrt bug #470734
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libav-0.8.7.ebuild:
+  Stable for sparc, wrt bug #470734
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> libav-0.8.7.ebuild:
+  Stable for x86, wrt bug #470734
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> libav-0.8.7.ebuild:
+  Stable for amd64, wrt bug #470734
+
+  22 May 2013; Agostino Sarubbo <ago@gentoo.org> libav-0.8.7.ebuild:
+  Move KEYWORDS on another line because of ekeyword's failure
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> libav-0.8.7.ebuild:
+  Stable for HPPA (bug #470734).
+
+*libav-9.6 (20 May 2013)
+*libav-0.8.7 (20 May 2013)
+
+  20 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libav-0.8.7.ebuild,
+  +libav-9.6.ebuild, -libav-9.5.ebuild:
+  Version bump to latest releases. Drop older masked version.
+
+*libav-9.5 (22 Apr 2013)
+
+  22 Apr 2013; Luca Barbato <lu_zero@gentoo.org> -libav-9.4.ebuild,
+  +libav-9.5.ebuild:
+  New version
+
+  20 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> -libav-0.8.4.ebuild,
+  -libav-9.2.ebuild, -libav-9.3.ebuild:
+  Remove overshadowed versions.
 
   05 Apr 2013; Luca Barbato <lu_zero@gentoo.org> libav-9.4.ebuild,
   libav-9.9999.ebuild, libav-9999.ebuild, metadata.xml:

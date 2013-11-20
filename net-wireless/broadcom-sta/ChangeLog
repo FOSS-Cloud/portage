@@ -1,6 +1,70 @@
 # ChangeLog for net-wireless/broadcom-sta
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/broadcom-sta/ChangeLog,v 1.47 2013/03/08 04:59:30 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/broadcom-sta/ChangeLog,v 1.55 2013/10/16 01:07:10 tomwij Exp $
+
+*broadcom-sta-6.30.223.141 (16 Oct 2013)
+
+  16 Oct 2013; Tom Wijsman <TomWij@gentoo.org>
+  +broadcom-sta-6.30.223.141.ebuild,
+  +files/broadcom-sta-6.30.223.141-eth-to-wlan.patch,
+  +files/broadcom-sta-6.30.223.141-gcc.patch,
+  +files/broadcom-sta-6.30.223.141-license.patch,
+  +files/broadcom-sta-6.30.223.141-linux-recent.patch,
+  +files/broadcom-sta-6.30.223.141-makefile.patch:
+  Version bump to 6.30.223.141; proxied commit for M. B. (tomboy64), fixes bug
+  #484676.
+
+  16 Sep 2013; Sergey Popov <pinkbyte@gentoo.org>
+  -broadcom-sta-5.100.82.112-r2.ebuild,
+  -files/broadcom-sta-5.100.82.112-linux-3.2.patch:
+  Drop last stable version, leaving the whole package in ~arch, wrt bug #484530
+
+*broadcom-sta-6.30.223.30-r2 (23 Aug 2013)
+
+  23 Aug 2013; Sergey Popov <pinkbyte@gentoo.org>
+  -broadcom-sta-6.30.223.30.ebuild, -broadcom-sta-6.30.223.30-r1.ebuild,
+  +broadcom-sta-6.30.223.30-r2.ebuild,
+  +files/broadcom-sta-6.30.223.30-linux-3.10.0.patch:
+  Revision bump: add support for 3.10 kernels, wrt bug #477372. Patch submitted
+  by Constantine Kozlov <tempor.demonius AT gmail.com>. Drop old revisions
+
+  12 May 2013; Sergey Popov <pinkbyte@gentoo.org>
+  broadcom-sta-5.100.82.112-r2.ebuild:
+  Add '-*' to KEYWORDS, as package ships blobs that can not be used on other
+  arches
+
+*broadcom-sta-5.100.82.112-r3 (12 May 2013)
+
+  12 May 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +broadcom-sta-5.100.82.112-r3.ebuild,
+  +files/broadcom-sta-5.100.82.112-linux-3.2-with-multicast.patch,
+  +files/broadcom-sta-5.100.82.112-linux-3.4.patch,
+  +files/broadcom-sta-5.100.82.112-linux-3.6.patch,
+  +files/broadcom-sta-5.100.82.112-linux-3.8.patch,
+  +files/broadcom-sta-5.100.82.112-linux-3.9.patch,
+  +files/broadcom-sta-5.100.82.112-remove-rssi-errors.patch:
+  Revision bump: add compatibility with more kernel versions, wrt bugs #437898
+  and #468388, thanks to M. B. <tomboy64 AT sina.cn>
+
+  12 May 2013; Sergey Popov <pinkbyte@gentoo.org>
+  broadcom-sta-6.30.223.30-r1.ebuild:
+  Remove incorrect explicit call to linux-info_pkg_setup
+
+*broadcom-sta-6.30.223.30-r1 (12 May 2013)
+
+  12 May 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +broadcom-sta-6.30.223.30-r1.ebuild,
+  +files/broadcom-sta-6.30.223.30-linux-3.9.0.patch:
+  Revision bump: fix CONFIG_CHECK, add compatibility patch for kernel 3.9.
+  Fixes bugs #468398 and #469458
+
+*broadcom-sta-6.30.223.30 (01 May 2013)
+
+  01 May 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +broadcom-sta-6.30.223.30.ebuild,
+  +files/broadcom-sta-6.30.223.30-makefile.patch, metadata.xml:
+  Version bump, wrt bug #438622. Ebuild by M. B. <tomboy64 AT sina.cn>, who
+  will maintain this package through proxy maintainers
 
   08 Mar 2013; Sergey Popov <pinkbyte@gentoo.org>
   broadcom-sta-5.100.82.112-r2.ebuild:

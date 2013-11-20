@@ -1,6 +1,42 @@
 # ChangeLog for app-admin/eselect-sh
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect-sh/ChangeLog,v 1.16 2013/01/13 18:36:03 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect-sh/ChangeLog,v 1.28 2013/09/29 14:44:52 mgorny Exp $
+
+  29 Sep 2013; Michał Górny <mgorny@gentoo.org> -eselect-sh-0.3.ebuild:
+  Drop old.
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for sh, wrt bug #470288
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for alpha, wrt bug #470288
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for sparc, wrt bug #470288
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for ppc64, wrt bug #470288
+
+  22 May 2013; Agostino Sarubbo <ago@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for ia64, wrt bug #470288
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for HPPA (bug #470288).
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for s390, wrt bug #470288
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for arm, wrt bug #470288
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for ppc, wrt bug #470288
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for x86, wrt bug #470288
+
+  19 May 2013; Agostino Sarubbo <ago@gentoo.org> eselect-sh-0.4.ebuild:
+  Stable for amd64, wrt bug #470288
 
   13 Jan 2013; Michał Górny <mgorny@gentoo.org> eselect-sh-0.4.ebuild:
   Use common eselect homepage hoping it will help users to use it.

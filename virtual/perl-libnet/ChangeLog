@@ -1,6 +1,24 @@
 # ChangeLog for virtual/perl-libnet
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-libnet/ChangeLog,v 1.41 2013/02/18 23:24:39 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-libnet/ChangeLog,v 1.45 2013/09/05 06:57:52 patrick Exp $
+
+  05 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  -perl-libnet-1.220.0-r2.ebuild, perl-libnet-1.230.0.ebuild:
+  Restore keywords
+
+*perl-libnet-1.230.0 (24 Aug 2013)
+
+  24 Aug 2013; Patrick Lauer <patrick@gentoo.org> +perl-libnet-1.230.0.ebuild:
+  Bump
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> +files/maintainer_notes.txt:
+  Adding maintainer notes from perl-exp overlay
+
+*perl-libnet-1.220.0-r2 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +perl-libnet-1.220.0-r2.ebuild:
+  Import from perl-experimental overlay
 
   18 Feb 2013; Zac Medico <zmedico@gentoo.org> perl-libnet-1.220.0-r1.ebuild:
   Add ~arm-linux keyword.

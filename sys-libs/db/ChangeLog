@@ -1,6 +1,36 @@
 # ChangeLog for sys-libs/db
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/db/ChangeLog,v 1.334 2012/11/25 19:23:39 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/db/ChangeLog,v 1.341 2013/09/23 19:21:24 ago Exp $
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> db-4.8.30.ebuild:
+  Stable for sparc, wrt bug #483184
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> db-4.8.30.ebuild:
+  Stable for ppc64, wrt bug #483184
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> db-4.8.30.ebuild:
+  Stable for alpha, wrt bug #483184
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> db-4.8.30.ebuild:
+  Stable for ia64, wrt bug #483184
+
+  30 Aug 2013; Jeroen Roovers <jer@gentoo.org> db-4.8.30.ebuild:
+  Stable for HPPA too.
+
+*db-6.0.20-r1 (10 Jul 2013)
+
+  10 Jul 2013; Robin H. Johnson <robbat2@gentoo.org> +db-6.0.20-r1.ebuild,
+  +files/db-6.0.20-test-link.patch, db-5.2.42.ebuild, db-5.3.21.ebuild:
+  Maintainer bump per #gentoo-infra discussion of July 4th. Patch massively
+  reduces storage requirement for running tests, but they still have two
+  failures: "repmgr_start:invalid argument"; "FAIL: condition {[stat_field $env
+  rep_stat \"Startup complete\"]}".
+
+*db-6.0.20 (10 Jul 2013)
+
+  10 Jul 2013; Lars Wendler <polynomial-c@gentoo.org> +db-6.0.20.ebuild,
+  +files/db-6.0.19-sqlite-configure-path.patch:
+  Non-maintainer commit: Version bump (bug #474602).
 
   25 Nov 2012; Ulrich Müller <ulm@gentoo.org> db-1.85-r3.ebuild,
   db-3.2.9_p2.ebuild, db-4.2.52_p5.ebuild, db-4.2.52_p5-r1.ebuild,

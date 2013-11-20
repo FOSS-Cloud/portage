@@ -1,6 +1,20 @@
 # ChangeLog for dev-python/argh
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/argh/ChangeLog,v 1.11 2013/03/18 09:16:18 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/argh/ChangeLog,v 1.14 2013/09/05 18:46:08 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> argh-0.23.0-r1.ebuild,
+  argh-0.23.1.ebuild, argh-0.23.2.ebuild, argh-0.23.3.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*argh-0.23.3 (02 Sep 2013)
+
+  02 Sep 2013; Patrick Lauer <patrick@gentoo.org> +argh-0.23.3.ebuild:
+  Bump
+
+*argh-0.23.2 (13 Jun 2013)
+
+  13 Jun 2013; Patrick Lauer <patrick@gentoo.org> +argh-0.23.2.ebuild:
+  Bump
 
   18 Mar 2013; Kacper Kowalik <xarthisius@gentoo.org> -argh-0.15.1.ebuild,
   -argh-0.16.0.ebuild, -argh-0.17.2.ebuild:

@@ -1,6 +1,41 @@
 # ChangeLog for net-analyzer/munin
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/munin/ChangeLog,v 1.140 2013/03/23 22:02:25 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/munin/ChangeLog,v 1.148 2013/11/16 09:49:44 pacho Exp $
+
+  16 Nov 2013; Pacho Ramos <pacho@gentoo.org> munin-2.0.14-r1.ebuild:
+  x86 stable, bug #478770
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> munin-2.0.14-r1.ebuild:
+  Stable for ppc, wrt bug #478770
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> munin-2.0.14-r1.ebuild:
+  Stable for amd64, wrt bug #478770
+
+  21 Sep 2013; Pacho Ramos <pacho@gentoo.org> munin-2.0.14-r1.ebuild:
+  Add missing dependency on dev-perl/Net-DNS (#478356 by Michael Weber)
+
+*munin-2.0.14-r1 (31 Aug 2013)
+
+  31 Aug 2013; Pacho Ramos <pacho@gentoo.org> +files/munin-async.service,
+  +files/munin-graph.service, +files/munin-graph.socket,
+  +files/munin-html.service, +files/munin-html.socket,
+  +files/munin-node.service, +munin-2.0.14-r1.ebuild:
+  Add unit files (#478164 by Justin Lecher)
+
+  11 Jun 2013; Markus Meier <maekke@gentoo.org> munin-2.0.14.ebuild:
+  add ~arm, bug #446958
+
+*munin-2.0.14 (23 May 2013)
+
+  23 May 2013; Diego E. Pettenò <flameeyes@gentoo.org> +munin-2.0.14.ebuild,
+  -munin-2.0.13.ebuild:
+  Version bump.
+
+*munin-2.0.13 (28 Apr 2013)
+
+  28 Apr 2013; Diego E. Pettenò <flameeyes@gentoo.org> +munin-2.0.13.ebuild,
+  -munin-2.0.12.ebuild:
+  Version bump; remove old.
 
 *munin-2.0.12 (23 Mar 2013)
 

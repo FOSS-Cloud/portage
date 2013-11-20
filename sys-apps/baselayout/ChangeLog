@@ -1,6 +1,55 @@
 # ChangeLog for sys-apps/baselayout
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/baselayout/ChangeLog,v 1.530 2012/10/13 19:18:18 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/baselayout/ChangeLog,v 1.546 2013/10/14 19:16:47 williamh Exp $
+
+  14 Oct 2013; William Hubbs <williamh@gentoo.org> -baselayout-2.1-r1.ebuild:
+  remove old version
+
+  27 Jul 2013; William Hubbs <williamh@gentoo.org> baselayout-2.2.ebuild:
+  drop pdepend on openrc for bug #409385 since it is now part of @system via
+  virtual/service-manager.
+
+  26 Jul 2013; William Hubbs <williamh@gentoo.org> baselayout-2.2.ebuild:
+  Three months into the stabilization process and after attempting to get the
+  m68k team to respond with a status, I am stabilizing since there are no m68k
+  specific changes. See bug #455872.
+
+  19 Jul 2013; William Hubbs <williamh@gentoo.org> -baselayout-2.0.3.ebuild,
+  -baselayout-2.1.ebuild:
+  remove old unstable versions
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> baselayout-2.2.ebuild:
+  Stable for s390, wrt bug #455872
+
+  01 May 2013; Agostino Sarubbo <ago@gentoo.org> baselayout-2.2.ebuild:
+  Stable for sh, wrt bug #455872
+
+  26 Apr 2013; Agostino Sarubbo <ago@gentoo.org> baselayout-2.2.ebuild:
+  Stable for sparc, wrt bug #455872
+
+  23 Apr 2013; Jeroen Roovers <jer@gentoo.org> baselayout-2.2.ebuild:
+  Stable for HPPA (bug #455872).
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> baselayout-2.2.ebuild:
+  Stable for alpha, wrt bug #455872
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> baselayout-2.2.ebuild:
+  Stable for arm, wrt bug #455872
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> baselayout-2.2.ebuild:
+  Stable for ia64, wrt bug #455872
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> baselayout-2.2.ebuild:
+  Stable for ppc, wrt bug #455872
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> baselayout-2.2.ebuild:
+  Stable for ppc64, wrt bug #455872
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> baselayout-2.2.ebuild:
+  Stable for x86, wrt bug #455872
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> baselayout-2.2.ebuild:
+  Stable for amd64, wrt bug #455872
 
   13 Oct 2012; Alexis Ballier <aballier@gentoo.org> baselayout-2.2.ebuild:
   Do not die for "non-standard" mutlilib setups on FreeBSD since that is what
@@ -15,9 +64,6 @@
 
   20 Aug 2012; Mike Frysinger <vapier@gentoo.org> +baselayout-2.2.ebuild:
   Version bump #419465 by Yuta SATOH.
-
-# See the rc-scripts ChangeLog in subversion for release info:
-# http://sources.gentoo.org/viewcvs.py/*checkout*/baselayout/trunk/ChangeLog
 
   17 Jun 2012; Raúl Porcel <armin76@gentoo.org> baselayout-2.1-r1.ebuild:
   alpha/ia64/m68k/s390/sh/sparc stable wrt #416655

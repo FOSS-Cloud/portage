@@ -1,6 +1,33 @@
 # ChangeLog for dev-ruby/rails
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rails/ChangeLog,v 1.269 2013/04/01 14:53:27 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rails/ChangeLog,v 1.275 2013/11/10 14:40:38 graaff Exp $
+
+  10 Nov 2013; Hans de Graaff <graaff@gentoo.org> -rails-3.2.13.ebuild,
+  -rails-3.2.14.ebuild:
+  Cleanup.
+
+*rails-3.2.15 (17 Oct 2013)
+
+  17 Oct 2013; Hans de Graaff <graaff@gentoo.org> +rails-3.2.15.ebuild:
+  Version bump for security bug 488298.
+
+  13 Oct 2013; Markus Meier <maekke@gentoo.org> rails-4.0.0.ebuild:
+  add ~arm, bug #487206
+
+*rails-4.0.0 (07 Oct 2013)
+
+  07 Oct 2013; Hans de Graaff <graaff@gentoo.org> +rails-4.0.0.ebuild:
+  Version bump for Rails 4. Dropped keywords in bug 487206.
+
+*rails-3.2.14 (17 Aug 2013)
+
+  17 Aug 2013; Hans de Graaff <graaff@gentoo.org> +rails-3.2.14.ebuild:
+  Version bump.
+
+  27 Apr 2013; Hans de Graaff <graaff@gentoo.org> -rails-2.3.16.ebuild,
+  -rails-2.3.17.ebuild, -rails-3.1.10.ebuild, -rails-3.1.11.ebuild,
+  -rails-3.2.11.ebuild, -rails-3.2.12.ebuild:
+  Cleanup.
 
   01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rails-2.3.18.ebuild:
   Stable for ppc64, wrt bug #462452

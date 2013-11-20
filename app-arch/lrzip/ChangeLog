@@ -1,6 +1,29 @@
 # ChangeLog for app-arch/lrzip
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/lrzip/ChangeLog,v 1.22 2012/12/17 18:27:01 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/lrzip/ChangeLog,v 1.29 2013/11/01 17:45:41 ago Exp $
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> lrzip-0.614.ebuild:
+  Stable for amd64, wrt bug #458184
+
+  26 Oct 2013; Jeroen Roovers <jer@gentoo.org> lrzip-0.614.ebuild:
+  Stable for HPPA (bug #458184).
+
+*lrzip-0.616 (26 Oct 2013)
+
+  26 Oct 2013; Ben de Groot <yngwin@gentoo.org> +lrzip-0.616.ebuild:
+  version bump
+
+  17 Aug 2013; Matt Turner <mattst88@gentoo.org> lrzip-0.614.ebuild:
+  Added ~mips, bug 468854.
+
+  19 May 2013; Alexis Ballier <aballier@gentoo.org> lrzip-0.614.ebuild:
+  keyword ~amd64-fbsd, bug #468854
+
+  11 May 2013; Markus Meier <maekke@gentoo.org> lrzip-0.614.ebuild:
+  add ~arm, bug #468854
+
+  07 May 2013; Naohiro Aota <naota@gentoo.org> lrzip-0.614.ebuild:
+  Add ~x86-fbsd wrt #468854
 
   17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> lrzip-0.614.ebuild:
   Add ~ppc64, wrt bug #442188

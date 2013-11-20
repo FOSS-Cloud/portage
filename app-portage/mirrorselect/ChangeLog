@@ -1,6 +1,50 @@
 # ChangeLog for app-portage/mirrorselect
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/mirrorselect/ChangeLog,v 1.117 2012/12/16 06:31:59 dolsen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/mirrorselect/ChangeLog,v 1.130 2013/10/17 07:13:37 dolsen Exp $
+
+  17 Oct 2013; Brian Dolbec <dolsen@gentoo.org> mirrorselect-2.2.0.1.ebuild,
+  mirrorselect-9999.ebuild:
+  Fix Q/A warning for missed distutils-r1_python_prepare_all() and (-9999 only)
+  distutils-r1_pkg_postinst()
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> mirrorselect-2.2.0.1.ebuild:
+  Mark m68k/s390/sh stable #459884.
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> mirrorselect-2.2.0.1.ebuild:
+  Stable for ia64, wrt bug #459884
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> mirrorselect-2.2.0.1.ebuild:
+  Stable for sparc, wrt bug #459884
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mirrorselect-2.2.0.1.ebuild:
+  Stable for alpha, wrt bug #459884
+
+  13 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> mirrorselect-2.2.0.1.ebuild:
+  Stable on arm, wrt bug #459884
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mirrorselect-2.2.0.1.ebuild:
+  Stable for x86, wrt bug #459884
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mirrorselect-2.2.0.1.ebuild:
+  Stable for ppc64, wrt bug #459884
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mirrorselect-2.2.0.1.ebuild:
+  Stable for ppc, wrt bug #459884
+
+  17 Jun 2013; Mikle Kolyada <zlogene@gentoo.org> mirrorselect-2.2.0.1.ebuild:
+  amd64 stable wrt bug #459884
+
+  17 Jun 2013; Jeroen Roovers <jer@gentoo.org> mirrorselect-2.2.0.1.ebuild:
+  Stable for HPPA (bug #459884).
+
+  16 Jun 2013; Brian Dolbec <dolsen@gentoo.org> mirrorselect-2.2.0.1.ebuild,
+  mirrorselect-9999.ebuild:
+  Migrate to distutils-r1, fix bad header on 2.2.0.1.
+
+*mirrorselect-2.2.0.1 (16 Jun 2013)
+
+  16 Jun 2013; Brian Dolbec <dolsen@gentoo.org> +mirrorselect-2.2.0.1.ebuild:
+  Bump to 2.2.0.1 with the manpage corrections, bug 459884.
 
   16 Dec 2012; Brian Dolbec <dolsen@gentoo.org>
   files/2.2.0-Ignore-inaccessible-fsmirrors.patch:

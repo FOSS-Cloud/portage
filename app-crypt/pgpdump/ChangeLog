@@ -1,6 +1,22 @@
 # ChangeLog for app-crypt/pgpdump
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/pgpdump/ChangeLog,v 1.25 2013/02/10 17:27:57 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/pgpdump/ChangeLog,v 1.28 2013/11/02 18:52:10 nimiux Exp $
+
+  02 Nov 2013; Chema Alonso <nimiux@gentoo.org> pgpdump-0.28-r1.ebuild:
+  Stable for amd64 wrt bug #488408
+
+*pgpdump-0.28-r1 (10 Aug 2013)
+
+  10 Aug 2013; Manuel Rüger <mrueg@gentoo.org>
+  +files/pgpdump-0.28-respect-ldflags.patch, +pgpdump-0.28-r1.ebuild,
+  -pgpdump-0.28.ebuild:
+  Respect LDFLAGS. Fixes bug #480538
+
+*pgpdump-0.28 (10 Aug 2013)
+
+  10 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +pgpdump-0.28.ebuild,
+  metadata.xml:
+  Version bump. Add myself as maintainer. Fixes bug #480524.
 
   10 Feb 2013; Michael Palimaka <kensington@gentoo.org> -pgpdump-0.26.ebuild:
   Remove old.

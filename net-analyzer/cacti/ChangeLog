@@ -1,6 +1,50 @@
 # ChangeLog for net-analyzer/cacti
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/cacti/ChangeLog,v 1.189 2013/02/16 12:46:12 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/cacti/ChangeLog,v 1.198 2013/09/14 10:40:06 ago Exp $
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cacti-0.8.8b-r2.ebuild:
+  Stable for sparc, wrt bug #482424
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cacti-0.8.8b-r2.ebuild:
+  Stable for alpha, wrt bug #482424
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cacti-0.8.8b-r2.ebuild:
+  Stable for x86, wrt bug #482424
+
+  13 Sep 2013; Jeroen Roovers <jer@gentoo.org> cacti-0.8.8b-r2.ebuild:
+  Stable for HPPA (bug #482424).
+
+  11 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cacti-0.8.8b-r2.ebuild:
+  Stable for amd64, wrt bug #482424
+
+*cacti-0.8.8b-r2 (11 Sep 2013)
+
+  11 Sep 2013; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +cacti-0.8.8b-r2.ebuild, +files/cacti-0.8.8b_empty_comment.patch:
+  Patch to address a regression on preview mode on 0.8.8b -
+  http://forums.cacti.net/viewtopic.php?f=21&t=50645 Thanks to Reuben Farrelly
+  for the pointer on bug 482424.
+
+*cacti-0.8.8b-r1 (27 Aug 2013)
+
+  27 Aug 2013; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +cacti-0.8.8b-r1.ebuild, +files/cacti-r7420.patch:
+  Bring cacti from my overlay. Do a revision bump to add a patch to address
+  bugs.cacti.net/view.php?id=2383 . Fixes bug 482424 (CVE-2013-5588,
+  CVE-2013-5589).
+
+*cacti-0.8.8b (25 Aug 2013)
+
+  25 Aug 2013; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +cacti-0.8.8b.ebuild:
+  Add cacti-0.8.8b from my overlay - fixes bug 480196 (security bump).
+
+*cacti-0.8.8a (27 Apr 2013)
+
+  27 Apr 2013; Peter Volkov <pva@gentoo.org> +cacti-0.8.8a.ebuild,
+  -cacti-0.8.7g.ebuild, -cacti-0.8.7h.ebuild:
+  Version bump, thank guys in bug #414419. php-5.4 compatibility repoted in
+  #438630 is here. Drop old.
 
   16 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due bug #96436

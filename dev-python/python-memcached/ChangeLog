@@ -1,6 +1,45 @@
 # ChangeLog for dev-python/python-memcached
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-memcached/ChangeLog,v 1.23 2012/01/08 07:00:30 patrick Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-memcached/ChangeLog,v 1.31 2013/10/22 14:23:40 grobian Exp $
+
+  22 Oct 2013; Fabian Groffen <grobian@gentoo.org>
+  python-memcached-1.53-r1.ebuild:
+  Marked ~x64-macos, bug #487670
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> python-memcached-1.48-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*python-memcached-1.53-r1 (11 Aug 2013)
+
+  11 Aug 2013; Michał Górny <mgorny@gentoo.org>
+  +python-memcached-1.53-r1.ebuild:
+  Migrate to distutils-r1. Disable broken tests.
+
+*python-memcached-1.53 (08 Jul 2013)
+
+  08 Jul 2013; Patrick Lauer <patrick@gentoo.org> +python-memcached-1.53.ebuild:
+  Bump
+
+*python-memcached-1.52 (19 Jun 2013)
+
+  19 Jun 2013; Patrick Lauer <patrick@gentoo.org> +python-memcached-1.52.ebuild:
+  Bump
+
+*python-memcached-1.51 (28 May 2013)
+
+  28 May 2013; Patrick Lauer <patrick@gentoo.org> +python-memcached-1.51.ebuild:
+  Bump
+
+*python-memcached-1.48-r1 (22 May 2013)
+
+  22 May 2013; Ian Delaney <idella4@gentoo.org>
+  +python-memcached-1.48-r1.ebuild:
+  revbump, migrate -> distutils-r1, closes Bug #469856 by kensington
+
+*python-memcached-1.50 (22 May 2013)
+
+  22 May 2013; Patrick Lauer <patrick@gentoo.org> +python-memcached-1.50.ebuild:
+  Bump
 
 *python-memcached-1.48 (08 Jan 2012)
 
@@ -101,4 +140,3 @@
   24 Oct 2007; Robin H. Johnson <robbat2@gentoo.org> +metadata.xml,
   +python-memcached-1.40.ebuild:
   Initial commit. Ebuild by Robin H. Johnson <robbat2@gentoo.org>.
-

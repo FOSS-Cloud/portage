@@ -1,6 +1,33 @@
 # ChangeLog for net-irc/weechat
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/weechat/ChangeLog,v 1.129 2013/04/05 10:42:16 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/weechat/ChangeLog,v 1.135 2013/10/29 17:12:48 scarabeus Exp $
+
+*weechat-0.4.2 (29 Oct 2013)
+
+  29 Oct 2013; Tomáš Chvátal <scarabeus@gentoo.org> +weechat-0.4.2.ebuild:
+  Version bump to 0.4.2 wrt bug#489744.
+
+  27 Jul 2013; Alexis Ballier <aballier@gentoo.org> weechat-0.4.1.ebuild,
+  weechat-9999.ebuild:
+  keyword ~amd64-fbsd thanks to Yuta SATOH, bug #477644
+
+  08 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> -files/weechat-icon.patch,
+  -weechat-0.4.0.ebuild, weechat-0.4.1.ebuild:
+  Stabilise 0.4.1 on x86 ppc and amd64. Drop older. Drop unused patch.
+
+*weechat-0.4.1 (23 May 2013)
+
+  23 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> +weechat-0.4.1.ebuild:
+  Version bump to 0.4.1. Fixes bug#470974.
+
+  14 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> weechat-9999.ebuild:
+  Fix various deps and use switches wrt bug#469188. Thanks to tomboy64 for the
+  patch.
+
+  11 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> files/weechat-icon.patch,
+  weechat-9999.ebuild:
+  Remove patch from live ebuild. Already applied differently. Update 0.4 patch
+  wrt bug#453464.
 
   05 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> -weechat-0.3.9.2.ebuild,
   weechat-0.4.0.ebuild:

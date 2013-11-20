@@ -1,6 +1,14 @@
 # ChangeLog for sys-apps/grep
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/grep/ChangeLog,v 1.125 2013/02/21 18:52:58 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/grep/ChangeLog,v 1.127 2013/10/27 07:21:05 radhermit Exp $
+
+*grep-2.15 (27 Oct 2013)
+
+  27 Oct 2013; Tim Harder <radhermit@gentoo.org> +grep-2.15.ebuild:
+  Version bump.
+
+  05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
 
   21 Feb 2013; Zac Medico <zmedico@gentoo.org> grep-2.9.ebuild:
   Add ~arm-linux keyword.

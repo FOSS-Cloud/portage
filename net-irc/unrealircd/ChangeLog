@@ -1,6 +1,36 @@
 # ChangeLog for net-irc/unrealircd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/unrealircd/ChangeLog,v 1.103 2013/03/27 04:22:44 binki Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/unrealircd/ChangeLog,v 1.110 2013/11/18 17:06:50 binki Exp $
+
+  18 Nov 2013; Nathan Phillip Brink <binki@gentoo.org>
+  unrealircd-3.2.10-r1.ebuild, unrealircd-3.2.10.1.ebuild,
+  unrealircd-3.2.9.ebuild:
+  Remove RDEPEND on old net-misc/curl[ares] useflag (renamed to net-
+  misc/curl[adns]).
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> unrealircd-3.2.10.1.ebuild:
+  Stable for ppc, wrt bug #476342
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> unrealircd-3.2.10.1.ebuild:
+  Stable for x86, wrt bug #476342
+
+  10 Jul 2013; Chema Alonso <nimiux@gentoo.org> unrealircd-3.2.10.1.ebuild:
+  Stable for amd64 wrt bug #476342
+
+  22 May 2013; Lars Wendler <polynomial-c@gentoo.org>
+  unrealircd-3.2.10.1.ebuild:
+  Non-maintainer commit: Fixed path to sources (${S})
+
+*unrealircd-3.2.10.1 (22 May 2013)
+
+  22 May 2013; Nathan Phillip Brink <binki@gentoo.org>
+  +unrealircd-3.2.10.1.ebuild:
+  Bump to unrealircd-3.2.10.1.
+
+  11 May 2013; Nathan Phillip Brink <binki@gentoo.org>
+  unrealircd-3.2.10-r1.ebuild, unrealircd-3.2.9.ebuild:
+  Support >=net-misc/curl-7.29.0-r1’s adns useflag which replaces its ares
+  useflag, reported by kisak.
 
   27 Mar 2013; Nathan Phillip Brink <binki@gentoo.org> metadata.xml:
   Add jdhore to metadata.xml as a maintainer.

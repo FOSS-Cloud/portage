@@ -1,6 +1,30 @@
 # ChangeLog for media-libs/freeimage
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/freeimage/ChangeLog,v 1.26 2013/03/21 15:48:09 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/freeimage/ChangeLog,v 1.31 2013/09/08 06:34:14 gienah Exp $
+
+  08 Sep 2013; Mark Wright <gienah@gentoo.org>
+  -files/freeimage-3.15.4-libjpeg-turbo.patch.gz, freeimage-3.15.4.ebuild:
+  Thanks to radhermit for advising I need to move the patch to dev.gentoo.org/~
+
+  08 Sep 2013; Mark Wright <gienah@gentoo.org>
+  files/freeimage-3.15.4-libjpeg-turbo.patch.gz, freeimage-3.15.4.ebuild:
+  The fix for libjpeg-turbo is only applied when libjpeg-turbo is installed.
+
+  08 Sep 2013; Mark Wright <gienah@gentoo.org>
+  +files/freeimage-3.15.4-libjpeg-turbo.patch.gz, freeimage-3.15.4.ebuild:
+  Thanks to Christian Heimes for porting freeimage to use libjpeg-turbo,
+  freeimage-3.15.4-libjpeg-turbo.patch.gz is from Christian's fork at
+  https://bitbucket.org/tiran/freeimageturbo. Fixes bug 479476. Thanks to
+  Aleksander for reporting, Samuli Suominen, SpanKY for comments on how it
+  should be fixed.
+
+  13 Jun 2013; Michael Weber <xmw@gentoo.org> freeimage-3.15.3-r2.ebuild,
+  freeimage-3.15.3.ebuild, freeimage-3.15.4.ebuild:
+  Depend on SLOT=0 of media-libs/openjpeg (bug 440086)
+
+  28 May 2013; Julian Ospald <hasufell@gentoo.org> freeimage-3.15.4.ebuild,
+  +files/freeimage-3.15.4-raw.patch:
+  fix building with raw useflag enabled wrt #458516
 
   21 Mar 2013; Sébastien Fabbro <bicatali@gentoo.org> freeimage-3.15.4.ebuild:
   Keyword amd64-linux and x86-linux

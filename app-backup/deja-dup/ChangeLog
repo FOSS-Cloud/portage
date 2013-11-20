@@ -1,6 +1,35 @@
 # ChangeLog for app-backup/deja-dup
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/deja-dup/ChangeLog,v 1.32 2013/04/07 14:31:19 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-backup/deja-dup/ChangeLog,v 1.38 2013/11/19 20:32:46 jlec Exp $
+
+*deja-dup-29.1-r1 (19 Nov 2013)
+
+  19 Nov 2013; Justin Lecher <jlec@gentoo.org> -deja-dup-29.1.ebuild,
+  +deja-dup-29.1-r1.ebuild:
+  Fix RPATH usage, #491674
+
+  19 Nov 2013; Justin Lecher <jlec@gentoo.org> deja-dup-29.1.ebuild:
+  Set vala max version, #491586
+
+*deja-dup-29.1 (17 Nov 2013)
+
+  17 Nov 2013; Justin Lecher <jlec@gentoo.org> +deja-dup-29.1.ebuild,
+  +files/deja-dup-29.1-cmake-backport-1.patch,
+  +files/deja-dup-29.1-cmake-backport-2.patch:
+  Version BUmp
+
+*deja-dup-28.0 (25 Sep 2013)
+
+  25 Sep 2013; Justin Lecher <jlec@gentoo.org> +deja-dup-28.0.ebuild:
+  Version Bump
+
+  18 Sep 2013; Justin Lecher <jlec@gentoo.org> deja-dup-27.3.1.ebuild:
+  Add missing runtime dep on dconf, #483520
+
+*deja-dup-27.3.1 (20 Jun 2013)
+
+  20 Jun 2013; Justin Lecher <jlec@gentoo.org> +deja-dup-27.3.1.ebuild:
+  Version Bump
 
   07 Apr 2013; Justin Lecher <jlec@gentoo.org> deja-dup-22.1.ebuild:
   Add missing eclass phase functions calls

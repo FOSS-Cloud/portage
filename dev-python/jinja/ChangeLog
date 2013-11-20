@@ -1,6 +1,146 @@
 # ChangeLog for dev-python/jinja
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/jinja/ChangeLog,v 1.63 2013/02/02 22:01:27 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/jinja/ChangeLog,v 1.105 2013/09/05 18:46:28 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> jinja-2.6-r1.ebuild,
+  jinja-2.6-r100.ebuild, jinja-2.6-r2.ebuild, jinja-2.7.1.ebuild,
+  jinja-2.7.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r1.ebuild:
+  Stable for sparc, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r1.ebuild:
+  Stable for sh, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r1.ebuild:
+  Stable for s390, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r1.ebuild:
+  Stable for ia64, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r1.ebuild:
+  Stable for alpha, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for ppc64, wrt bug #481800
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.ebuild:
+  Stable for sparc, wrt bug #480092
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for sparc, wrt bug #481800
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.ebuild:
+  Stable for sh, wrt bug #480092
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for sh, wrt bug #481800
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.ebuild:
+  Stable for s390, wrt bug #480092
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for s390, wrt bug #481800
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.ebuild:
+  Stable for ia64, wrt bug #480092
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for ia64, wrt bug #481800
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.ebuild:
+  Stable for alpha, wrt bug #480092
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for alpha, wrt bug #481800
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for ppc, wrt bug #481800
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.ebuild:
+  Stable for arm, wrt bug #480092
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for arm, wrt bug #481800
+
+  23 Aug 2013; Jeroen Roovers <jer@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for HPPA (bug #481800).
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for x86, wrt bug #481800
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r100.ebuild:
+  Stable for amd64, wrt bug #481800
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.ebuild:
+  Stable for x86, wrt bug #480092
+
+  15 Aug 2013; Jeroen Roovers <jer@gentoo.org> jinja-2.6-r1.ebuild:
+  Stable for HPPA (bug #477970).
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r1.ebuild:
+  Stable for arm, wrt bug #477970
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.ebuild:
+  Stable for ppc64, wrt bug #480092
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.ebuild:
+  Stable for ppc, wrt bug #480092
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.ebuild:
+  Stable for amd64, wrt bug #480092
+
+  07 Aug 2013; Jeroen Roovers <jer@gentoo.org> jinja-2.7.ebuild:
+  Stable for HPPA (bug #480092).
+
+*jinja-2.7.1 (07 Aug 2013)
+
+  07 Aug 2013; Dirkjan Ochtman <djc@gentoo.org> +jinja-2.7.1.ebuild:
+  Version bump jinja to 2.7.1.
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r1.ebuild:
+  Stable for ppc64, wrt bug #477970
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r1.ebuild:
+  Stable for ppc, wrt bug #477970
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org> jinja-2.7.ebuild:
+  Only build docs if USE=doc is set.
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org> +files/jinja-2.7-docs.patch,
+  jinja-2.7.ebuild:
+  Fix error building docs, bug 470856.
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org> jinja-2.7.ebuild:
+  Simplify docs build.
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org>
+  files/jinja-2.6-python3.3.patch, jinja-2.6-r2.ebuild:
+  Cleanup python3.3 patch based on feedback from Arfrever.
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org> jinja-2.6-r100.ebuild:
+  Don't apply python3.3 patch.
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org> jinja-2.6-r100.ebuild:
+  Don't install the vim syntax files in the compat ebuild.
+
+*jinja-2.6-r100 (23 May 2013)
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org> +jinja-2.6-r100.ebuild:
+  Create 'compat' slot for packages requiring python 2.5, 3.1, or 3.2, which
+  >=jinja-2.7 does not support.
+
+*jinja-2.7 (20 May 2013)
+
+  20 May 2013; Dirkjan Ochtman <djc@gentoo.org> +jinja-2.7.ebuild:
+  Version bump jinja to 2.7.
+
+*jinja-2.6-r2 (28 Apr 2013)
+
+  28 Apr 2013; Patrick McLean <chutzpah@gentoo.org> +jinja-2.6-r2.ebuild,
+  +files/jinja-2.6-python3.3.patch:
+  Revision bump, add patch to improve python 3.3 support (fixes bug #451928).
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> jinja-2.6-r1.ebuild:
   Stable for x86, wrt bug #454314

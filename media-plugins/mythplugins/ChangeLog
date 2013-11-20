@@ -1,6 +1,60 @@
 # ChangeLog for media-plugins/mythplugins
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/mythplugins/ChangeLog,v 1.13 2013/04/03 12:42:15 rich0 Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/mythplugins/ChangeLog,v 1.23 2013/10/26 02:02:47 rich0 Exp $
+
+  26 Oct 2013; Richard Freeman <rich0@gentoo.org>
+  mythplugins-0.26.0_p20130922.ebuild:
+  amd64 stable
+
+*mythplugins-0.27_p20130924 (28 Sep 2013)
+
+  28 Sep 2013; Richard Freeman <rich0@gentoo.org>
+  +mythplugins-0.27_p20130924.ebuild:
+  Major upstream 0.27 release.
+
+*mythplugins-0.26.0_p20130922 (23 Sep 2013)
+
+  23 Sep 2013; Richard Freeman <rich0@gentoo.org>
+  +mythplugins-0.26.0_p20130922.ebuild:
+  New patch set.
+
+  03 Aug 2013; Richard Freeman <rich0@gentoo.org>
+  -mythplugins-0.26.0_p20130121.ebuild, -mythplugins-0.26.0_p20130207.ebuild:
+  Drop old versions.
+
+*mythplugins-0.26.0_p20130729 (03 Aug 2013)
+
+  03 Aug 2013; Richard Freeman <rich0@gentoo.org>
+  +mythplugins-0.26.0_p20130729.ebuild:
+  New patch set.
+
+  03 Aug 2013; Richard Freeman <rich0@gentoo.org>
+  mythplugins-0.26.0_p20130630.ebuild:
+  amd64 stable
+
+*mythplugins-0.26.0_p20130630 (03 Jul 2013)
+
+  03 Jul 2013; Richard Freeman <rich0@gentoo.org>
+  +mythplugins-0.26.0_p20130630.ebuild:
+  Update patchset, EAPI, bug 475368.
+
+*mythplugins-0.26.0_p20130526 (09 Jun 2013)
+
+  09 Jun 2013; Richard Freeman <rich0@gentoo.org>
+  +mythplugins-0.26.0_p20130526.ebuild:
+  Update patch set.
+
+*mythplugins-0.25.3_p20130422 (05 May 2013)
+
+  05 May 2013; Doug Goldstein <cardoe@gentoo.org>
+  +mythplugins-0.25.3_p20130422.ebuild:
+  Bump to match MythTV 0.25.3 20130422
+
+*mythplugins-0.26.0_p20130419 (01 May 2013)
+
+  01 May 2013; Richard Freeman <rich0@gentoo.org>
+  +mythplugins-0.26.0_p20130419.ebuild:
+  New patchset.
 
   03 Apr 2013; Richard Freeman <rich0@gentoo.org>
   mythplugins-0.26.0_p20130322.ebuild, metadata.xml:

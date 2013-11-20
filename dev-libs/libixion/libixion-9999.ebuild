@@ -1,31 +1,32 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libixion/libixion-9999.ebuild,v 1.1 2012/09/02 16:50:38 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libixion/libixion-9999.ebuild,v 1.5 2013/07/10 07:49:25 scarabeus Exp $
 
-EAPI=4
+EAPI=5
 
 EGIT_REPO_URI="git://gitorious.org/ixion/ixion.git"
 
-[[ ${PV} == 9999 ]] && GITECLASS="git-2"
-inherit autotools ${GITECLASS}
+[[ ${PV} == 9999 ]] && GITECLASS="git-2 autotools"
+inherit eutils ${GITECLASS}
 unset GITECLASS
 
 DESCRIPTION="General purpose formula parser & interpreter"
 HOMEPAGE="http://gitorious.org/ixion/pages/Home"
-[[ ${PV} == 9999 ]] || SRC_URI="http://kohei.us/files/ixion/src/${P/-/_}.tar.bz2"
+[[ ${PV} == 9999 ]] || SRC_URI="http://kohei.us/files/ixion/src/${P}.tar.bz2"
 
 LICENSE="MIT"
-SLOT="0"
-[[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~x86"
+SLOT="0/0.5"
+[[ ${PV} == 9999 ]] || \
+KEYWORDS="~amd64 ~arm ~ppc ~x86"
 IUSE="static-libs"
 
-DEPEND="dev-util/mdds"
-RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${P/-/_}"
+RDEPEND="dev-libs/boost:="
+DEPEND="${RDEPEND}
+	>=dev-util/mdds-0.7.1:=
+"
 
 src_prepare() {
-	eautoreconf
+	[[ ${PV} == 9999 ]] && eautoreconf
 }
 
 src_configure() {
@@ -36,5 +37,5 @@ src_configure() {
 src_install() {
 	default
 
-	find "${ED}" -name '*.la' -exec rm -f {} +
+	prune_libtool_files --all
 }

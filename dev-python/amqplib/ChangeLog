@@ -1,6 +1,16 @@
 # ChangeLog for dev-python/amqplib
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/amqplib/ChangeLog,v 1.4 2013/01/19 20:13:07 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/amqplib/ChangeLog,v 1.6 2013/09/05 18:46:11 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> amqplib-0.6.1-r1.ebuild,
+  amqplib-1.0.2-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*amqplib-0.6.1-r1 (16 May 2013)
+
+  16 May 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +amqplib-0.6.1-r1.ebuild:
+  updating amqplib-0.6.1 to r1 for proper quantum support
 
 *amqplib-1.0.2-r1 (19 Jan 2013)
 

@@ -1,6 +1,24 @@
 # ChangeLog for app-misc/tomboy
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/tomboy/ChangeLog,v 1.140 2012/12/24 13:15:38 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/tomboy/ChangeLog,v 1.145 2013/08/26 16:57:30 ago Exp $
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tomboy-1.14.1.ebuild:
+  Stable for ppc, wrt bug #480596
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tomboy-1.14.1.ebuild:
+  Stable for x86, wrt bug #480596
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tomboy-1.14.1.ebuild:
+  Stable for amd64, wrt bug #480596
+
+*tomboy-1.14.1 (13 May 2013)
+
+  13 May 2013; Pacho Ramos <pacho@gentoo.org> +tomboy-1.14.1.ebuild:
+  Version bump
+
+  30 Apr 2013; Justin Lecher <jlec@gentoo.org> tomboy-1.12.2.ebuild,
+  metadata.xml:
+  Fix deprecated use of AM_CONFIG_HEADER
 
 *tomboy-1.12.2 (24 Dec 2012)
 

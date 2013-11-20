@@ -1,6 +1,56 @@
 # ChangeLog for net-dns/dnsmasq
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/dnsmasq/ChangeLog,v 1.232 2013/01/15 01:05:50 chutzpah Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/dnsmasq/ChangeLog,v 1.246 2013/10/25 18:23:51 chutzpah Exp $
+
+*dnsmasq-2.67 (25 Oct 2013)
+
+  25 Oct 2013; Patrick McLean <chutzpah@gentoo.org> -dnsmasq-2.63.ebuild,
+  -dnsmasq-2.63-r1.ebuild, -dnsmasq-2.65.ebuild, +dnsmasq-2.67.ebuild:
+  Version bump, clean out older versions.
+
+  16 Aug 2013; Sven Vermeulen <swift@gentoo.org> dnsmasq-2.63-r1.ebuild,
+  dnsmasq-2.63.ebuild, dnsmasq-2.65.ebuild, dnsmasq-2.66.ebuild:
+  Adding dependency on selinux-dnsmasq if USE=selinux is set
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for sh, wrt bug #453170
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for s390, wrt bug #453170
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for sparc, wrt bug #453170
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for ppc, wrt bug #453170
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for ppc64, wrt bug #453170
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for ia64, wrt bug #453170
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for arm, wrt bug #453170
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for alpha, wrt bug #453170
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for x86, wrt bug #453170
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for amd64, wrt bug #453170
+
+  10 May 2013; Jeroen Roovers <jer@gentoo.org> dnsmasq-2.66.ebuild:
+  Stable for HPPA (bug #453170).
+
+*dnsmasq-2.66 (19 Apr 2013)
+
+  19 Apr 2013; Patrick McLean <chutz@gentoo.org> +dnsmasq-2.66.ebuild,
+  +files/dnsmasq-2.66-dhcp-option-zero.patch, metadata.xml:
+  Version bump, add USE flag for new dns authorative support, add upstream
+  patch to support dhcp option zero.
 
 *dnsmasq-2.65 (15 Jan 2013)
 

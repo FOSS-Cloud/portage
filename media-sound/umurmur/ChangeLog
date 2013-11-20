@@ -1,0 +1,23 @@
+# ChangeLog for media-sound/umurmur
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/umurmur/ChangeLog,v 1.5 2013/10/26 22:04:02 pacho Exp $
+
+  26 Oct 2013; Pacho Ramos <pacho@gentoo.org> umurmur-0.2.13.ebuild:
+  Use readme.gentoo.eclass to not show elog messages every time (#488138)
+
+  06 Oct 2013; Chema Alonso <nimiux@gentoo.org> umurmur-0.2.13.ebuild:
+  Stable for amd64 wrt bug #486872
+
+  03 Oct 2013; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  update metadata.xml, punt inactive herd
+
+  06 Sep 2013; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  update metadata.xml
+
+*umurmur-0.2.13 (20 Jun 2013)
+
+  20 Jun 2013; Lars Wendler <polynomial-c@gentoo.org> +umurmur-0.2.13.ebuild,
+  +files/umurmur.conf, +files/umurmurd.confd, +files/umurmurd.initd,
+  +metadata.xml:
+  Initial commit. This fixes bug #371773 reported by Hans Nieser who also
+  contributed various files to the bug.

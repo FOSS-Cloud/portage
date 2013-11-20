@@ -1,6 +1,55 @@
 # ChangeLog for x11-wm/enlightenment
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/enlightenment/ChangeLog,v 1.181 2013/01/31 19:19:06 tommy Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/enlightenment/ChangeLog,v 1.190 2013/11/13 22:29:07 tommy Exp $
+
+*enlightenment-0.17.5 (13 Nov 2013)
+
+  13 Nov 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +enlightenment-0.17.5.ebuild, -enlightenment-0.17.4.ebuild,
+  -enlightenment-0.17.5_pre2.ebuild:
+  Version bump for enlightenment-0.17.5, drop 0.17.4 and pre-release
+
+*enlightenment-0.17.5_pre2 (04 Oct 2013)
+
+  04 Oct 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +enlightenment-0.17.5_pre2.ebuild, -enlightenment-0.17.5_pre1.ebuild:
+  New pre-release, drop old
+
+  28 Sep 2013; Mike Frysinger <vapier@gentoo.org> enlightenment-0.17.3.ebuild,
+  enlightenment-0.17.4.ebuild, enlightenment-0.17.5_pre1.ebuild:
+  Update eina[mempool-chained-pool] USE flag after renaming #486390 by Patrick
+  Lauer.
+
+*enlightenment-0.17.5_pre1 (15 Sep 2013)
+
+  15 Sep 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +enlightenment-0.17.5_pre1.ebuild, -enlightenment-0.17.2.1.ebuild:
+  Add pre-release for testing
+
+*enlightenment-1.0.13 (28 Aug 2013)
+
+  28 Aug 2013; Mike Frysinger <vapier@gentoo.org> +enlightenment-1.0.13.ebuild:
+  Version bump #466744 by pavel sanda.
+
+*enlightenment-0.17.4 (28 Aug 2013)
+
+  28 Aug 2013; Mike Frysinger <vapier@gentoo.org> +enlightenment-0.17.4.ebuild:
+  Version bump #479850 by Valery.
+
+*enlightenment-0.17.3 (20 May 2013)
+
+  20 May 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -enlightenment-0.17.1.ebuild, +enlightenment-0.17.3.ebuild:
+  Version bump for enlightenment:0.17, drop old
+
+  11 May 2013; Markus Meier <maekke@gentoo.org> enlightenment-0.17.2.1.ebuild:
+  add ~arm, bug #456736
+
+*enlightenment-0.17.2.1 (11 Apr 2013)
+
+  11 Apr 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +enlightenment-0.17.2.1.ebuild, -enlightenment-0.17.0.ebuild:
+  Version bump, drop old
 
 *enlightenment-0.17.1 (31 Jan 2013)
 

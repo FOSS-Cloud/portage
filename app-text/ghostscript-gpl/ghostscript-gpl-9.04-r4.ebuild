@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/ghostscript-gpl/ghostscript-gpl-9.04-r4.ebuild,v 1.8 2012/06/02 08:08:27 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/ghostscript-gpl/ghostscript-gpl-9.04-r4.ebuild,v 1.10 2013/10/22 15:42:47 dilfridge Exp $
 
 EAPI=3
 
@@ -19,7 +19,7 @@ SRC_URI="
 
 LICENSE="GPL-3 CPL-1.0"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~sparc-fbsd ~x86-fbsd"
 IUSE="bindist cups dbus djvu gtk idn jpeg2k static-libs X"
 
 COMMON_DEPEND="
@@ -30,7 +30,7 @@ COMMON_DEPEND="
 	media-libs/libpng:0
 	media-libs/tiff:0
 	>=sys-libs/zlib-1.2.3
-	virtual/jpeg
+	virtual/jpeg:0
 	!bindist? ( djvu? ( app-text/djvu ) )
 	cups? ( >=net-print/cups-1.3.8 )
 	dbus? ( sys-apps/dbus )

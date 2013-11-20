@@ -1,6 +1,44 @@
 # ChangeLog for lxde-base/lxsession
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxsession/ChangeLog,v 1.40 2013/02/23 02:35:05 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxsession/ChangeLog,v 1.50 2013/10/23 09:53:44 nullishzero Exp $
+
+*lxsession-0.4.9.2-r1 (23 Oct 2013)
+
+  23 Oct 2013; Pavel Kazakov <nullishzero@gentoo.org>
+  +lxsession-0.4.9.2-r1.ebuild:
+  Add run-time dependency on sys-apps/lsb-release (required by lxsession-
+  logout).
+
+  23 Oct 2013; Pavel Kazakov <nullishzero@gentoo.org> lxsession-0.4.9.2.ebuild:
+  Add dependency on sys-auth/polkit; bug #488054
+
+  17 Oct 2013; Markos Chandras <hwoarang@gentoo.org> lxsession-0.4.9.2.ebuild:
+  Add missing dependency to dev-libs/dbus-glib
+
+  17 Oct 2013; Pavel Kazakov <nullishzero@gentoo.org>
+  files/lxsession-0.4.9.2-makefile.patch:
+  Add upstream link to patch
+
+  17 Oct 2013; Pavel Kazakov <nullishzero@gentoo.org> lxsession-0.4.9.2.ebuild:
+  Add inherit eutils
+
+  17 Oct 2013; Pavel Kazakov <nullishzero@gentoo.org>
+  +files/lxsession-0.4.9.2-makefile.patch, lxsession-0.4.9.2.ebuild:
+  Add patch for bug #488082; patch thanks to Jacob Godserv.
+
+  08 Oct 2013; Markos Chandras <hwoarang@gentoo.org> lxsession-0.4.9.2.ebuild:
+  Add missing dev-libs/libgee:0 dependency thanks to Viktor Yu. Kovalskiy. Bug
+  #487312
+
+*lxsession-0.4.9.2 (07 Oct 2013)
+
+  07 Oct 2013; Markos Chandras <hwoarang@gentoo.org> +lxsession-0.4.9.2.ebuild:
+  Version bump
+
+  23 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> lxsession-0.4.6.1.ebuild,
+  metadata.xml:
+  Rename USE="udev" to USE="dbus upower" separating restart/shutdown vs.
+  hibernate/suspend into their own flags wrt #438478 by Dominique Michel
 
   23 Feb 2013; Zac Medico <zmedico@gentoo.org> lxsession-0.4.6.1.ebuild:
   Add ~arm-linux and ~x86-linux keywords.

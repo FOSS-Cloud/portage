@@ -1,6 +1,59 @@
-# ChangeLog for app-leechcraft/leechraft-meta
+# ChangeLog for app-leechcraft/leechcraft-meta
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/leechcraft-meta/ChangeLog,v 1.1 2013/03/09 19:33:00 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/leechcraft-meta/ChangeLog,v 1.13 2013/09/24 15:54:29 maksbotan Exp $
+
+*leechcraft-meta-0.6.0 (24 Sep 2013)
+
+  24 Sep 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-meta-0.6.0.ebuild:
+  Bump LeechCraft to 0.6.0
+
+  21 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> leechcraft-meta-9999.ebuild,
+  metadata.xml:
+  Add useflag that pulling dependencies, needed to use LeechCraft as Desktop
+  Environment, thanks to 0xd34df00d
+
+*leechcraft-meta-0.5.99 (18 Jul 2013)
+
+  18 Jul 2013; <maks@gentoo.org> +leechcraft-meta-0.5.99.ebuild:
+  Bump app-leechcraft/leechcraft-meta to 0.5.99, thanks to 0xd34df00d
+
+*leechcraft-meta-0.5.98 (03 Jul 2013)
+
+  03 Jul 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-meta-0.5.98.ebuild:
+  Bump LeechCraft to 0.5.98, thanks to 0xd34df00d.
+
+  17 Jun 2013; Maxim Koltsov <maksbotan@gentoo.org> leechcraft-meta-9999.ebuild:
+  Drop kde USE flag, thanks to 0xd34df00d.
+
+*leechcraft-meta-0.5.97 (11 Jun 2013)
+
+  11 Jun 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-meta-0.5.97.ebuild:
+  Bump LeechCraft suite to 0.5.97, thanks to 0xd34df00d.
+
+  29 May 2013; Sergey Popov <pinkbyte@gentoo.org>
+  leechcraft-meta-0.5.96.ebuild, leechcraft-meta-9999.ebuild:
+  Replace lc-kinotify dependency with virtual one
+
+*leechcraft-meta-0.5.96 (26 May 2013)
+
+  26 May 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-meta-0.5.96.ebuild:
+  Bump LeechCraft suite to 0.5.96, thanks to 0xd34df00d
+
+  08 May 2013; Maxim Koltsov <maksbotan@gentoo.org> leechcraft-meta-9999.ebuild:
+  Add lc-xtazy dependency to 9999
+
+*leechcraft-meta-0.5.95 (02 May 2013)
+
+  02 May 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +leechcraft-meta-0.5.95.ebuild:
+  Bump app-leechcraft/leechcraft-meta to 0.5.95, thanks to 0xd34df00d
+
+  02 May 2013; Sergey Popov <pinkbyte@gentoo.org> leechcraft-meta-9999.ebuild:
+  Add lc-gmailnotifier, lc-nacheku and lc-kbswitch
 
 *leechraft-meta-9999 (08 Mar 2013)
 *leechraft-meta-0.5.90-r1 (08 Mar 2013)

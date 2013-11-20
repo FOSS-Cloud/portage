@@ -1,7 +1,65 @@
-
 # ChangeLog for net-proxy/tinyproxy
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/tinyproxy/ChangeLog,v 1.39 2012/11/21 15:52:31 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/tinyproxy/ChangeLog,v 1.54 2013/10/10 23:25:16 tomwij Exp $
+
+  10 Oct 2013; Tom Wijsman <TomWij@gentoo.org> -tinyproxy-1.8.3-r1.ebuild,
+  -tinyproxy-1.8.3-r2.ebuild, -tinyproxy-1.8.3.ebuild:
+  Cleanup of old ebuilds for security bug #432046.
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> tinyproxy-1.8.3-r3.ebuild:
+  Stable for sparc, wrt bug #432046
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> tinyproxy-1.8.3-r3.ebuild:
+  Stable for ppc, wrt bug #432046
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> tinyproxy-1.8.3-r3.ebuild:
+  Stable for alpha, wrt bug #432046
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> tinyproxy-1.8.3-r3.ebuild:
+  Stable for ia64, wrt bug #432046
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> tinyproxy-1.8.3-r3.ebuild:
+  Stable for x86, wrt bug #432046
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> tinyproxy-1.8.3-r3.ebuild:
+  Stable for amd64, wrt bug #432046
+
+  01 Sep 2013; Tom Wijsman <TomWij@gentoo.org>
+  +files/tinyproxy-1.8.3-r2-DoS-Prevention.patch,
+  -files/tinyproxy-1.8.3-DoS-Prevention.patch, tinyproxy-1.8.3-r2.ebuild,
+  tinyproxy-1.8.3-r3.ebuild:
+  Put back patch revision to denote with which ebuild revision it was
+  introduced, that makes tracking easy. Tested whether all versions properly
+  build again.
+
+  31 Aug 2013; Jeroen Roovers <jer@gentoo.org> tinyproxy-1.8.3-r3.ebuild:
+  Fix PF usage for init script.
+
+  31 Aug 2013; Jeroen Roovers <jer@gentoo.org> tinyproxy-1.8.3-r2.ebuild,
+  tinyproxy-1.8.3-r3.ebuild, +files/tinyproxy-1.8.3-DoS-Prevention.patch,
+  -files/tinyproxy-1.8.3-r2-DoS-Prevention.patch:
+  Fix patch name (Gentoo revisions do not make sense).
+
+*tinyproxy-1.8.3-r3 (31 Aug 2013)
+
+  31 Aug 2013; Pacho Ramos <pacho@gentoo.org> +files/tinyproxy.service,
+  +files/tinyproxy.tmpfiles.conf, +tinyproxy-1.8.3-r3.ebuild:
+  Add unit file (#480242 by Charles Nérot)
+
+  30 May 2013; Tom Wijsman <TomWij@gentoo.org> ChangeLog,
+  +tinyproxy-1.8.3-r2.ebuild, +files/tinyproxy-1.8.3-r2.initd,
+  +files/tinyproxy-1.8.3-r2-DoS-Prevention.patch:
+  Use /run instead of /var/run, fixes bug #444167. Apply DoS Prevention
+  patches, temporary fixes for bug #432046. Fix ChangeLog issues; there was an
+  empty log message above header by flameeyes and an empty message by jer.
+
+  29 May 2013; Diego E. Pettenò <flameeyes@gentoo.org>
+  +files/tinyproxy-1.8.3.initd, +tinyproxy-1.8.3-r1.ebuild:
+  Cleanup ebuild, use REQUIRED_USE, always install docs, improve init script so
+  that now it actually works.
+
+  24 Apr 2013; Jeroen Roovers <jer@gentoo.org> tinyproxy-1.8.3.ebuild:
+  Disable silent make rules. Fix building with automake-1.13.
 
   21 Nov 2012; Jeroen Roovers <jer@gentoo.org> tinyproxy-1.8.3.ebuild:
   Remove subdir requirement in default pid config.

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/poppler/poppler-0.22.2-r2.ebuild,v 1.12 2013/04/02 13:21:01 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/poppler/poppler-0.22.2-r2.ebuild,v 1.15 2013/08/27 16:01:38 kensington Exp $
 
 EAPI=5
 
@@ -28,8 +28,8 @@ COMMON_DEPEND="
 		introspection? ( >=dev-libs/gobject-introspection-1.32.1 )
 	)
 	curl? ( net-misc/curl )
-	jpeg? ( virtual/jpeg )
-	jpeg2k? ( media-libs/openjpeg )
+	jpeg? ( virtual/jpeg:0 )
+	jpeg2k? ( media-libs/openjpeg:0 )
 	lcms? ( media-libs/lcms:2 )
 	png? ( >=media-libs/libpng-1.4:0 )
 	qt4? (
@@ -101,11 +101,4 @@ src_install() {
 		insinto /usr/share/gtk-doc/html/poppler
 		doins -r "${S}"/glib/reference/html/*
 	fi
-}
-
-pkg_postinst() {
-	ewarn "After upgrading app-text/poppler you may need to reinstall packages"
-	ewarn "linking to it. For EAPI=5 subslot-capable packages this may be done"
-	ewarn "automatically. Anyway, if you're not a portage-2.2_rc user, you're advised"
-	ewarn "to run revdep-rebuild."
 }

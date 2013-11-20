@@ -1,6 +1,34 @@
 # ChangeLog for sys-apps/bleachbit
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/bleachbit/ChangeLog,v 1.8 2013/04/01 08:51:09 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/bleachbit/ChangeLog,v 1.16 2013/09/27 17:06:07 dastergon Exp $
+
+  27 Sep 2013; Pavlos Ratis <dastergon@gentoo.org> metadata.xml:
+  add myself as a maintainer
+
+  05 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> bleachbit-0.9.6.ebuild:
+  Stable on x86, wrt bug #483440
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> bleachbit-0.9.6.ebuild:
+  Stable for amd64, wrt bug #483440
+
+*bleachbit-0.9.6 (03 Aug 2013)
+
+  03 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> +bleachbit-0.9.6.ebuild:
+  Version bump, wrt bug #475966. Some cleanups, utilize l10n eclass for proper
+  locale support
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> bleachbit-0.9.5.ebuild:
+  Stable for x86, wrt bug #469354
+
+  12 May 2013; Chema Alonso <nimiux@gentoo.org> bleachbit-0.9.5.ebuild:
+  Stable for amd64 wrt bug #469354
+
+  10 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> -bleachbit-0.9.4.ebuild:
+  Drop old version
+
+  10 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> bleachbit-0.9.5.ebuild:
+  Choose correct Python implementation during package building, wrt bug
+  #465254. Thanks to Chris <blackstar86 AT gmx.net> for discovering this issue
 
   01 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> bleachbit-0.9.4.ebuild,
   bleachbit-0.9.5.ebuild:

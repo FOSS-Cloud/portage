@@ -1,10 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/protobuf/protobuf-2.5.0.ebuild,v 1.1 2013/03/05 05:21:45 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/protobuf/protobuf-2.5.0.ebuild,v 1.5 2013/09/06 18:03:17 radhermit Exp $
 
 EAPI=5
 JAVA_PKG_IUSE="source"
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
+DISTUTILS_OPTIONAL=1
 
 inherit autotools eutils distutils-r1 java-pkg-opt-2 elisp-common
 
@@ -14,17 +15,23 @@ SRC_URI="http://protobuf.googlecode.com/files/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0/8" # subslot = soname major version
-KEYWORDS="~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~arm-linux ~x64-macos ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~arm-linux ~x86-linux ~x64-macos x86-macos"
 IUSE="emacs examples java python static-libs vim-syntax"
 
-DEPEND="java? ( >=virtual/jdk-1.5 )
-	emacs? ( virtual/emacs )"
-RDEPEND="java? ( >=virtual/jre-1.5 )
-	emacs? ( virtual/emacs )"
+CDEPEND="emacs? ( virtual/emacs )
+	python? ( ${PYTHON_DEPS} )"
+DEPEND="${CDEPEND}
+	java? ( >=virtual/jdk-1.5 )
+	python? ( dev-python/setuptools[${PYTHON_USEDEP}] )"
+RDEPEND="${CDEPEND}
+	java? ( >=virtual/jre-1.5 )"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-2.3.0-asneeded-2.patch
-	eautoreconf
+	if [[ ${CHOST} != *-darwin* ]] ; then
+		# breaks Darwin, bug #472514
+		epatch "${FILESDIR}"/${PN}-2.3.0-asneeded-2.patch
+		eautoreconf
+	fi
 
 	if use python; then
 		cd python && distutils-r1_src_prepare

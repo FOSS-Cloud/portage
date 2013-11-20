@@ -1,6 +1,28 @@
 # ChangeLog for sys-libs/libmath++
-# Copyright 2002-2008 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libmath++/ChangeLog,v 1.13 2008/04/20 21:51:02 flameeyes Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libmath++/ChangeLog,v 1.19 2013/09/23 08:43:00 pinkbyte Exp $
+
+  23 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> -libmath++-0.0.4.ebuild:
+  Drop old revision, leaving s390 as unstable only
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libmath++-0.0.4-r1.ebuild:
+  Stable for ppc, wrt bug #480694
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libmath++-0.0.4-r1.ebuild:
+  Stable for x86, wrt bug #480694
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libmath++-0.0.4-r1.ebuild:
+  Stable for amd64, wrt bug #480694
+
+  22 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> libmath++-0.0.4-r1.ebuild:
+  Force in-source build, wrt bug #474098. Thanks to Jason Mours for discovering
+  this issue
+
+*libmath++-0.0.4-r1 (19 Jun 2013)
+
+  19 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> +libmath++-0.0.4-r1.ebuild:
+  Revision bump: EAPI 5, utilize autotools-utils eclass, add compatibility with
+  automake 1.13, wrt bug #471950
 
   20 Apr 2008; Diego Pettenò <flameeyes@gentoo.org> libmath++-0.0.4.ebuild:
   Run eautoreconf in src_unpack phase, bug #207479.
@@ -37,4 +59,3 @@
 
   1 Aug 2002; J. Alberto Suárez López <bass@gentoo.org> libmath++-0.0.3.ebuild
   First relase 
-

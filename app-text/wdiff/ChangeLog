@@ -1,6 +1,46 @@
 # ChangeLog for app-text/wdiff
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/wdiff/ChangeLog,v 1.81 2013/03/09 16:45:47 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/wdiff/ChangeLog,v 1.94 2013/10/10 09:59:31 jlec Exp $
+
+  10 Oct 2013; Justin Lecher <jlec@gentoo.org> -wdiff-1.1.2.ebuild:
+  Drop old
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for sh, wrt bug #470342
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for x86, wrt bug #470342
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for alpha, wrt bug #470342
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for sparc, wrt bug #470342
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for ppc64, wrt bug #470342
+
+  22 May 2013; Agostino Sarubbo <ago@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for ia64, wrt bug #470342
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for HPPA (bug #470342).
+
+  21 May 2013; Justin Lecher <jlec@gentoo.org> wdiff-1.2.1.ebuild,
+  metadata.xml:
+  Add missing dep on sys-libs/ncurses, #470342
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for s390, wrt bug #470342
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for arm, wrt bug #470342
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for ppc, wrt bug #470342
+
+  20 May 2013; Chema Alonso <nimiux@gentoo.org> wdiff-1.2.1.ebuild:
+  Stable for amd64 wrt bug #470342
 
 *wdiff-1.2.1 (09 Mar 2013)
 

@@ -1,6 +1,16 @@
 # ChangeLog for dev-python/pyenchant
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyenchant/ChangeLog,v 1.43 2011/02/13 18:15:00 arfrever Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyenchant/ChangeLog,v 1.45 2013/07/06 00:56:03 floppym Exp $
+
+  06 Jul 2013; Mike Gilbert <floppym@gentoo.org> +files/pyenchant-setup.patch,
+  pyenchant-1.6.5-r1.ebuild, pyenchant-1.6.5.ebuild:
+  Prevent distribute bootstrap. Resolves error with setuptools-0.7, bug 475290.
+
+*pyenchant-1.6.5-r1 (29 Jun 2013)
+
+  29 Jun 2013; Justin Lecher <jlec@gentoo.org> pyenchant-1.6.5.ebuild,
+  +pyenchant-1.6.5-r1.ebuild, metadata.xml:
+  Bump to distutils-r1.eclass
 
   13 Feb 2011; Arfrever Frehtes Taifersar Arahesis <arfrever@gentoo.org>
   -pyenchant-1.6.2.ebuild, -pyenchant-1.6.3.ebuild, -pyenchant-1.6.4.ebuild:
@@ -163,4 +173,3 @@
   +pyenchant-1.1.5.ebuild:
   New package, based on an ebuild from Ryan Kelly (ryan-gentoo@rfk.id.au).
   Closes bug #85959.
-

@@ -1,6 +1,32 @@
 # ChangeLog for dev-qt/qtdemo
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-qt/qtdemo/ChangeLog,v 1.2 2013/03/03 04:12:38 yngwin Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-qt/qtdemo/ChangeLog,v 1.9 2013/11/04 21:43:12 ago Exp $
+
+  04 Nov 2013; Agostino Sarubbo <ago@gentoo.org> qtdemo-4.8.5-r1.ebuild:
+  Stable for ppc64, wrt bug #488536
+
+  04 Nov 2013; Agostino Sarubbo <ago@gentoo.org> qtdemo-4.8.5-r1.ebuild:
+  Stable for ppc, wrt bug #488536
+
+  03 Nov 2013; Agostino Sarubbo <ago@gentoo.org> qtdemo-4.8.5-r1.ebuild:
+  Stable for x86, wrt bug #488536
+
+  03 Nov 2013; Agostino Sarubbo <ago@gentoo.org> qtdemo-4.8.5-r1.ebuild:
+  Stable for amd64, wrt bug #488536
+
+*qtdemo-4.8.5-r1 (25 Jul 2013)
+
+  25 Jul 2013; Davide Pesavento <pesa@gentoo.org> +qtdemo-4.8.5-r1.ebuild,
+  -qtdemo-4.8.5.ebuild, metadata.xml:
+  Fix bugs #477652 and #477862.
+
+*qtdemo-4.8.5 (09 Jul 2013)
+
+  09 Jul 2013; Davide Pesavento <pesa@gentoo.org> +qtdemo-4.8.5.ebuild:
+  Version bump.
+
+  08 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> qtdemo-4.8.4.ebuild:
+  Add ~arm keyword, wrt bug #454916
 
   31 Dec 2012; Davide Pesavento <pesa@gentoo.org> metadata.xml:
   Cleanup metadata.

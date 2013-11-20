@@ -1,6 +1,17 @@
 # ChangeLog for dev-lang/yasm
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/yasm/ChangeLog,v 1.59 2013/01/15 17:31:52 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/yasm/ChangeLog,v 1.62 2013/06/30 15:09:42 jlec Exp $
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> yasm-1.2.0-r1.ebuild,
+  yasm-9999.ebuild, metadata.xml:
+  Fix usage of python-r1.eclass
+
+  11 May 2013; Samuli Suominen <ssuominen@gentoo.org> yasm-1.2.0-r1.ebuild,
+  yasm-9999.ebuild:
+  Disable automagic app-text/xmlto usage to prevent manpages from getting
+  rebuilt unnecessarily wrt #459940 by Anton Kochkov
+  Pull in app-text/xmlto and app-text/docbook-xml-dtd:4.1.2 when required
+  Use python-r1.eclass instead of the obsolete python.eclass
 
 *yasm-1.2.0-r1 (15 Jan 2013)
 

@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/conky/conky-1.9.0-r2.ebuild,v 1.7 2013/02/12 20:21:44 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/conky/conky-1.9.0-r2.ebuild,v 1.10 2013/09/28 09:35:46 billie Exp $
 
 EAPI=5
 
-inherit eutils
+inherit autotools eutils libtool
 
 DESCRIPTION="An advanced, highly configurable system monitor for X"
 HOMEPAGE="http://conky.sourceforge.net/"
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3 BSD LGPL-2.1 MIT"
 SLOT="0"
-KEYWORDS="alpha amd64 ppc ppc64 sparc x86"
+KEYWORDS="alpha amd64 ~arm ppc ppc64 sparc x86"
 IUSE="apcupsd audacious curl debug eve hddtemp imlib iostats lua lua-cairo lua-imlib math moc mpd nano-syntax ncurses nvidia +portmon rss thinkpad truetype vim-syntax weather-metar weather-xoap wifi X xmms2"
 
 DEPEND_COMMON="
@@ -63,6 +63,10 @@ src_prepare() {
 		"${FILESDIR}/${P}-ncurses.patch" \
 		"${FILESDIR}/${P}-lines-fix.patch" \
 		"${FILESDIR}/${P}-update-when-message-count-decreases.patch"
+
+	# Allow user patches #478482
+	# Only run autotools if user patched something
+	epatch_user && eautoreconf || elibtoolize
 }
 
 src_configure() {
@@ -105,7 +109,7 @@ src_configure() {
 src_install() {
 	default
 
-	dohtml doc/{config_settings.html,docs.html,lua.html,variables.html}
+	dohtml doc/*.html
 
 	if use vim-syntax; then
 		insinto /usr/share/vim/vimfiles/ftdetect
@@ -123,7 +127,7 @@ src_install() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "You can find sample configurations at ${ROOT%/}/usr/share/doc/${PF}."
+		elog "You can find sample configurations at ${ROOT%/}/etc/conky."
 		elog "To customize, copy to ~/.conkyrc and edit it to your liking."
 		elog
 		elog "There are pretty html docs available at the conky homepage"

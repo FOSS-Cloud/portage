@@ -1,6 +1,57 @@
 # ChangeLog for x11-libs/vte
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/vte/ChangeLog,v 1.361 2013/04/07 21:38:13 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/vte/ChangeLog,v 1.372 2013/10/24 13:28:36 jer Exp $
+
+  24 Oct 2013; Jeroen Roovers <jer@gentoo.org> vte-0.28.2-r206.ebuild,
+  vte-0.34.7.ebuild:
+  Stable for HPPA (bug #476364).
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> vte-0.34.7.ebuild:
+  arm stable, bug #476364
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> vte-0.28.2-r206.ebuild:
+  arm stable, bug #476364
+
+*vte-0.34.9 (15 Oct 2013)
+
+  15 Oct 2013; Pacho Ramos <pacho@gentoo.org> +vte-0.34.9.ebuild:
+  Version bump
+
+*vte-0.34.8 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +vte-0.34.8.ebuild,
+  -vte-0.34.6.ebuild:
+  Version bump, drop old
+
+*vte-0.34.7 (08 Jul 2013)
+
+  08 Jul 2013; Pacho Ramos <pacho@gentoo.org> +vte-0.34.7.ebuild,
+  -vte-0.34.5.ebuild:
+  Version bump, drop old
+
+*vte-0.34.6 (10 Jun 2013)
+
+  10 Jun 2013; Pacho Ramos <pacho@gentoo.org> +vte-0.34.6.ebuild,
+  -vte-0.34.4.ebuild:
+  Version bump, drop old
+
+*vte-0.34.5 (13 May 2013)
+
+  13 May 2013; Pacho Ramos <pacho@gentoo.org> +vte-0.34.5.ebuild,
+  -vte-0.34.3.ebuild:
+  Version bump, drop old
+
+*vte-0.34.4 (25 Apr 2013)
+
+  25 Apr 2013; Pacho Ramos <pacho@gentoo.org> +vte-0.34.4.ebuild,
+  -vte-0.32.2.ebuild:
+  Version bump, drop old
+
+  10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vte-0.34.2.ebuild:
+  Stable for hppa, wrt bug #458984
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vte-0.34.2.ebuild:
+  Stable for sh, wrt bug #458984
 
 *vte-0.28.2-r206 (07 Apr 2013)
 

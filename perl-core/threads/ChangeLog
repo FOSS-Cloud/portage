@@ -1,6 +1,22 @@
 # ChangeLog for perl-core/threads
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/threads/ChangeLog,v 1.10 2012/06/24 15:39:04 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/threads/ChangeLog,v 1.13 2013/10/28 05:09:49 patrick Exp $
+
+*threads-1.890.0 (28 Oct 2013)
+
+  28 Oct 2013; Patrick Lauer <patrick@gentoo.org> +threads-1.890.0.ebuild:
+  Bump
+
+  25 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> -threads-1.75.ebuild,
+  -threads-1.76.ebuild, -threads-1.77.ebuild, -threads-1.79.ebuild,
+  -threads-1.81.ebuild, -threads-1.820.ebuild, -threads-1.830.0.ebuild,
+  -threads-1.850.0.ebuild:
+  drop old
+
+*threads-1.870.0 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> +threads-1.870.0.ebuild:
+  Bump
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

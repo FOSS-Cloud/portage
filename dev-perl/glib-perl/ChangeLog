@@ -1,6 +1,41 @@
 # ChangeLog for dev-perl/glib-perl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/glib-perl/ChangeLog,v 1.152 2013/01/21 17:35:36 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/glib-perl/ChangeLog,v 1.163 2013/08/17 14:26:28 patrick Exp $
+
+*glib-perl-1.301.0 (17 Aug 2013)
+
+  17 Aug 2013; Patrick Lauer <patrick@gentoo.org> +glib-perl-1.301.0.ebuild:
+  Bump
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> glib-perl-1.280.0.ebuild:
+  Stable for sh, wrt bug #461146
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> glib-perl-1.280.0.ebuild:
+  Stable for sparc, wrt bug #461146
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> glib-perl-1.280.0.ebuild:
+  Stable for alpha, wrt bug #461146
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> glib-perl-1.280.0.ebuild:
+  Stable for ia64, wrt bug #461146
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> glib-perl-1.280.0.ebuild:
+  Stable for hppa, wrt bug #461146
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> glib-perl-1.280.0.ebuild:
+  Stable for arm, wrt bug #461146
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> glib-perl-1.280.0.ebuild:
+  Stable for ppc64, wrt bug #461146
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> glib-perl-1.280.0.ebuild:
+  Stable for ppc, wrt bug #461146
+
+  15 May 2013; Agostino Sarubbo <ago@gentoo.org> glib-perl-1.280.0.ebuild:
+  Stable for x86, wrt bug #461146
+
+  15 May 2013; Agostino Sarubbo <ago@gentoo.org> glib-perl-1.280.0.ebuild:
+  Stable for amd64, wrt bug #461146
 
 *glib-perl-1.280.0 (21 Jan 2013)
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/polkit-0.110.ebuild,v 1.13 2013/03/19 20:35:29 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/polkit-0.110.ebuild,v 1.15 2013/09/10 16:16:24 ssuominen Exp $
 
 EAPI=5
 inherit eutils multilib pam pax-utils systemd user
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="alpha amd64 arm ia64 ~mips ppc ppc64 s390 sh sparc x86"
 IUSE="examples gtk +introspection kde nls pam selinux systemd"
 
-RDEPEND=">=dev-lang/spidermonkey-1.8.5-r1[-debug]
+RDEPEND=">=dev-lang/spidermonkey-1.8.5-r1:0=[-debug]
 	>=dev-libs/glib-2.32
 	>=dev-libs/expat-2
 	introspection? ( >=dev-libs/gobject-introspection-1 )
@@ -36,10 +36,6 @@ PDEPEND="
 		lxde-base/lxpolkit
 		) )
 	kde? ( sys-auth/polkit-kde-agent )
-	pam? (
-		systemd? ( sys-auth/pambase[systemd] )
-		!systemd? ( sys-auth/pambase[consolekit] )
-		)
 	!systemd? ( >=sys-auth/consolekit-0.4.5_p2012[policykit] )"
 
 QA_MULTILIB_PATHS="

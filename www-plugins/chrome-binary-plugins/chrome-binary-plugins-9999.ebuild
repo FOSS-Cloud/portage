@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/chrome-binary-plugins/chrome-binary-plugins-9999.ebuild,v 1.7 2013/03/19 23:06:23 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/chrome-binary-plugins/chrome-binary-plugins-9999.ebuild,v 1.10 2013/11/16 20:13:30 floppym Exp $
 
 EAPI=4
 
@@ -12,11 +12,11 @@ SLOT="unstable"
 URI_BASE="https://dl.google.com/linux/direct/"
 URI_BASE_NAME="google-chrome-${SLOT}_current_"
 SRC_URI="" # URI is left blank on live ebuild
-RESTRICT="bindist mirror strip"
 
 LICENSE="google-chrome"
 KEYWORDS="" # KEYWORDS is also left blank on live ebuild
 IUSE="+flash +pdf"
+RESTRICT="bindist mirror strip"
 
 RDEPEND="www-client/chromium"
 
@@ -27,9 +27,7 @@ for x in 0 beta stable unstable; do
 done
 
 S="${WORKDIR}/opt/google/chrome"
-
-QA_FLAGS_IGNORED="/usr/$(get_libdir)/chromium-browser/PepperFlash/libpepflashplayer.so
-				  /usr/$(get_libdir)/chromium-browser/libpdf.so"
+QA_PREBUILT="*"
 
 src_unpack() {
 	# We have to do this inside of here, since it's a live ebuild. :-(
@@ -66,15 +64,4 @@ src_install() {
 		insinto /etc/chromium/
 		doins pepper-flash
 	fi
-}
-
-pkg_postinst() {
-	use flash || return
-
-	einfo
-	einfo "To enable Flash for Chromium, source	${ROOT}etc/chromium/pepper-flash"
-	einfo "inside ${ROOT}etc/chromium/default. You may run this as root:"
-	einfo
-	einfo "  # echo . ${ROOT}etc/chromium/pepper-flash >> ${ROOT}etc/chromium/default"
-	einfo
 }

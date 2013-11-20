@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/conntrack-tools/conntrack-tools-1.2.2-r1.ebuild,v 1.2 2012/09/06 15:33:01 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/conntrack-tools/conntrack-tools-1.2.2-r1.ebuild,v 1.6 2013/04/25 15:42:24 jer Exp $
 
 EAPI="4"
 
@@ -12,7 +12,7 @@ SRC_URI="http://www.netfilter.org/projects/conntrack-tools/files/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~x86"
+KEYWORDS="amd64 hppa x86"
 IUSE="doc"
 
 RDEPEND="
@@ -51,6 +51,9 @@ pkg_setup() {
 			"are not set when one at least should be."
 }
 
+src_configure() {
+	econf --disable-silent-rules
+}
 src_compile() {
 	default
 	use doc && emake -C doc/manual

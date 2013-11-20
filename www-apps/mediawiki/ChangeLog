@@ -1,6 +1,133 @@
 # ChangeLog for www-apps/mediawiki
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.219 2013/03/20 03:50:31 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.247 2013/11/15 09:33:34 radhermit Exp $
+
+*mediawiki-1.21.3 (15 Nov 2013)
+*mediawiki-1.20.8 (15 Nov 2013)
+*mediawiki-1.19.9 (15 Nov 2013)
+
+  15 Nov 2013; Tim Harder <radhermit@gentoo.org> +mediawiki-1.19.9.ebuild,
+  +mediawiki-1.20.8.ebuild, +mediawiki-1.21.3.ebuild:
+  Security bumps (bug #491278).
+
+  15 Sep 2013; Markus Meier <maekke@gentoo.org> mediawiki-1.21.2.ebuild:
+  add ~arm, bug #377135
+
+  05 Sep 2013; Tim Harder <radhermit@gentoo.org> -mediawiki-1.19.7.ebuild,
+  -mediawiki-1.20.6.ebuild, -mediawiki-1.21.1.ebuild:
+  Remove old.
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.8.ebuild,
+  mediawiki-1.20.7.ebuild, mediawiki-1.21.2.ebuild:
+  Stable for amd64, wrt bug #483594
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.8.ebuild,
+  mediawiki-1.20.7.ebuild:
+  Stable for ppc, wrt bug #483594
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.8.ebuild,
+  mediawiki-1.20.7.ebuild, mediawiki-1.21.2.ebuild:
+  Stable for x86, wrt bug #483594
+
+*mediawiki-1.21.2 (04 Sep 2013)
+*mediawiki-1.20.7 (04 Sep 2013)
+*mediawiki-1.19.8 (04 Sep 2013)
+
+  04 Sep 2013; Tim Harder <radhermit@gentoo.org> +mediawiki-1.19.8.ebuild,
+  +mediawiki-1.20.7.ebuild, +mediawiki-1.21.2.ebuild:
+  Security bumps.
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.21.1.ebuild:
+  Stable for x86, wrt bug #477618
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.21.1.ebuild:
+  Stable for ppc, wrt bug #477618
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.21.1.ebuild:
+  Stable for amd64, wrt bug #477618
+
+  03 Jun 2013; Tim Harder <radhermit@gentoo.org> -mediawiki-1.19.6.ebuild,
+  -mediawiki-1.20.5.ebuild, -mediawiki-1.21.0.ebuild:
+  Remove old.
+
+*mediawiki-1.21.1 (03 Jun 2013)
+
+  03 Jun 2013; Tim Harder <radhermit@gentoo.org> +mediawiki-1.21.1.ebuild:
+  Version bump.
+
+*mediawiki-1.21.0 (30 May 2013)
+
+  30 May 2013; Tim Harder <radhermit@gentoo.org> +mediawiki-1.21.0.ebuild:
+  Version bump.
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.7.ebuild,
+  mediawiki-1.20.6.ebuild:
+  Stable for ppc, wrt bug #471140
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.7.ebuild,
+  mediawiki-1.20.6.ebuild:
+  Stable for x86, wrt bug #471140
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.7.ebuild,
+  mediawiki-1.20.6.ebuild:
+  Stable for amd64, wrt bug #471140
+
+*mediawiki-1.20.6 (25 May 2013)
+*mediawiki-1.19.7 (25 May 2013)
+
+  25 May 2013; Tim Harder <radhermit@gentoo.org> +mediawiki-1.19.7.ebuild,
+  +mediawiki-1.20.6.ebuild:
+  Security bumps (bug #471140).
+
+  16 May 2013; Tim Harder <radhermit@gentoo.org> mediawiki-1.19.6.ebuild,
+  mediawiki-1.20.5.ebuild:
+  Simplify check for previous installs.
+
+  16 May 2013; Tim Harder <radhermit@gentoo.org> -mediawiki-1.19.5.ebuild,
+  -mediawiki-1.20.4.ebuild:
+  Remove old.
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.6.ebuild,
+  mediawiki-1.20.5.ebuild:
+  Stable for ppc, wrt bug #468110
+
+  02 May 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.6.ebuild,
+  mediawiki-1.20.5.ebuild:
+  Stable for x86, wrt bug #468110
+
+  02 May 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.6.ebuild,
+  mediawiki-1.20.5.ebuild:
+  Stable for amd64, wrt bug #468110
+
+*mediawiki-1.20.5 (01 May 2013)
+*mediawiki-1.19.6 (01 May 2013)
+
+  01 May 2013; Tim Harder <radhermit@gentoo.org> +mediawiki-1.19.6.ebuild,
+  +mediawiki-1.20.5.ebuild:
+  Security bumps (bug #468110).
+
+  17 Apr 2013; Agostino Sarubbo <ago@gentoo.org> -mediawiki-1.19.4.ebuild,
+  -mediawiki-1.20.3.ebuild:
+  Remove old
+
+  17 Apr 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.5.ebuild,
+  mediawiki-1.20.4.ebuild:
+  Stable for ppc, wrt bug #466124
+
+  17 Apr 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.5.ebuild,
+  mediawiki-1.20.4.ebuild:
+  Stable for x86, wrt bug #466124
+
+  17 Apr 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.5.ebuild,
+  mediawiki-1.20.4.ebuild:
+  Stable for amd64, wrt bug #466124
+
+*mediawiki-1.20.4 (17 Apr 2013)
+*mediawiki-1.19.5 (17 Apr 2013)
+
+  17 Apr 2013; Tim Harder <radhermit@gentoo.org> +mediawiki-1.19.5.ebuild,
+  +mediawiki-1.20.4.ebuild:
+  Security bumps (bug #466124).
 
   20 Mar 2013; Tim Harder <radhermit@gentoo.org> mediawiki-1.19.4.ebuild,
   mediawiki-1.20.3.ebuild:

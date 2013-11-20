@@ -1,6 +1,14 @@
 # ChangeLog for virtual/opengl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/opengl/ChangeLog,v 1.20 2013/03/03 10:13:32 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/opengl/ChangeLog,v 1.22 2013/09/21 20:12:48 mgorny Exp $
+
+  21 Sep 2013; Michał Górny <mgorny@gentoo.org> opengl-7.0-r1.ebuild:
+  Remove MULTILIB_USEDEP on opengl-apple.
+
+*opengl-7.0-r1 (21 Sep 2013)
+
+  21 Sep 2013; Michał Górny <mgorny@gentoo.org> +opengl-7.0-r1.ebuild:
+  Convert to multilib.
 
   03 Mar 2013; Mike Frysinger <vapier@gentoo.org> opengl-7.0.ebuild:
   Add s390 lovin.

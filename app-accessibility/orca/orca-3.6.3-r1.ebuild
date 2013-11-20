@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/orca/orca-3.6.3-r1.ebuild,v 1.8 2013/02/07 21:13:53 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/orca/orca-3.6.3-r1.ebuild,v 1.10 2013/06/08 23:03:14 zmedico Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -17,6 +17,7 @@ LICENSE="LGPL-2.1+ CC-BY-SA-3.0"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
 IUSE=""
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # liblouis is not in portage yet
 # it is used to provide contracted braille support
@@ -31,11 +32,11 @@ COMMON_DEPEND="
 	${PYTHON_DEPS}
 "
 RDEPEND="${COMMON_DEPEND}
-	app-accessibility/speech-dispatcher[python]
+	app-accessibility/speech-dispatcher[python,${PYTHON_USEDEP}]
 	dev-libs/atk[introspection]
 	dev-python/pyatspi[${PYTHON_USEDEP}]
-	dev-python/pycairo
-	dev-python/setproctitle
+	dev-python/pycairo[${PYTHON_USEDEP}]
+	dev-python/setproctitle[${PYTHON_USEDEP}]
 	x11-libs/libwnck:3[introspection]
 	x11-libs/pango[introspection]
 "
@@ -69,10 +70,4 @@ src_install() {
 		python_doscript src/orca/orca
 	}
 	python_foreach_impl run_in_build_dir installing
-}
-
-run_in_build_dir() {
-	pushd "${BUILD_DIR}" > /dev/null || die
-	"$@"
-	popd > /dev/null
 }

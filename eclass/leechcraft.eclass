@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/leechcraft.eclass,v 1.8 2013/03/09 19:52:38 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/leechcraft.eclass,v 1.12 2013/09/24 15:39:43 maksbotan Exp $
 #
 # @ECLASS: leechcraft.eclass
 # @MAINTAINER:
@@ -22,8 +22,8 @@
 # Only EAPI >1 supported
 
 case ${EAPI:-0} in
-	2|3|4|5) ;;
-	0|1) die "EAPI not supported, bug ebuild mantainer" ;;
+	4|5) ;;
+	0|1|2|3) die "EAPI not supported, bug ebuild mantainer" ;;
 	*) die "Unknown EAPI, bug eclass maintainers" ;;
 esac
 
@@ -35,19 +35,18 @@ if [[ ${PV} == 9999 ]]; then
 
 	inherit git-2
 else
-	local suffix
-	if version_is_at_least 0.4.95; then
-		DEPEND="app-arch/xz-utils"
-		suffix="xz"
-	else
-		suffix="bz2"
-	fi
-	SRC_URI="mirror://sourceforge/leechcraft/leechcraft-${PV}.tar.${suffix}"
+	DEPEND="app-arch/xz-utils"
+	SRC_URI="mirror://sourceforge/leechcraft/leechcraft-${PV}.tar.xz
+		http://dist.leechcraft.org/LeechCraft/${PV}/leechcraft-${PV}.tar.xz"
 	S="${WORKDIR}/leechcraft-${PV}"
 fi
 
 HOMEPAGE="http://leechcraft.org/"
-LICENSE="GPL-3"
+if version_is_at_least 0.5.95; then
+	LICENSE="Boost-1.0"
+else
+	LICENSE="GPL-3"
+fi
 
 # @ECLASS-VARIABLE: LEECHCRAFT_PLUGIN_CATEGORY
 # @DEFAULT_UNSET

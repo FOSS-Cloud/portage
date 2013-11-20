@@ -1,6 +1,68 @@
 # ChangeLog for mail-mta/nullmailer
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/nullmailer/ChangeLog,v 1.65 2013/02/28 17:52:54 zx2c4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/nullmailer/ChangeLog,v 1.78 2013/11/02 11:38:12 jlec Exp $
+
+  02 Nov 2013; Justin Lecher <jlec@gentoo.org> -nullmailer-1.11-r2.ebuild,
+  -nullmailer-1.11-r3.ebuild:
+  Drop old
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> nullmailer-1.13-r2.ebuild:
+  Stable for x86, wrt bug #480060
+
+  20 Oct 2013; Pacho Ramos <pacho@gentoo.org> nullmailer-1.13-r2.ebuild:
+  amd64 stable, bug #480060
+
+  25 Sep 2013; Justin Lecher <jlec@gentoo.org> nullmailer-1.11-r2.ebuild,
+  nullmailer-1.11-r3.ebuild, nullmailer-1.13-r2.ebuild:
+  Fix incompatibilities with some automake versions, #478312
+
+*nullmailer-1.13-r2 (25 Sep 2013)
+
+  25 Sep 2013; Justin Lecher <jlec@gentoo.org> -nullmailer-1.11.ebuild,
+  -nullmailer-1.11-r1.ebuild, nullmailer-1.11-r2.ebuild,
+  nullmailer-1.11-r3.ebuild, -nullmailer-1.13.ebuild,
+  -nullmailer-1.13-r1.ebuild, +nullmailer-1.13-r2.ebuild,
+  +files/init.d-nullmailer-r3:
+  Drop old vulnerable versions, #480376; respect AR, #480394; make paludis
+  happy, #462846 thanks Thomas Witt for the patch; fix broken openrc
+  initscript, #480354
+
+  25 Sep 2013; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Add myself as maintainer
+
+*nullmailer-1.11-r3 (08 Sep 2013)
+
+  08 Sep 2013; Pacho Ramos <pacho@gentoo.org> +nullmailer-1.11-r3.ebuild:
+  Backport service file to 1.11.x to allow faster stabilization as 1.13 has some
+  regressions now (#480354)
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nullmailer-1.11-r2.ebuild:
+  Stable for x86, wrt bug #480376
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nullmailer-1.11-r2.ebuild:
+  Stable for ppc, wrt bug #480376
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nullmailer-1.11-r2.ebuild:
+  Stable for amd64, wrt bug #480376
+
+*nullmailer-1.11-r2 (09 Aug 2013)
+
+  09 Aug 2013; Robin H. Johnson <robbat2@gentoo.org> +nullmailer-1.11-r2.ebuild,
+  nullmailer-1.13-r1.ebuild:
+  Bump to fix security bug #480376, /etc/nullmailer/remotes world-readable
+  (backport to stable)
+
+*nullmailer-1.13-r1 (09 Aug 2013)
+
+  09 Aug 2013; Robin H. Johnson <robbat2@gentoo.org> +nullmailer-1.13-r1.ebuild:
+  Bump to fix security bug #480376, /etc/nullmailer/remotes world-readable
+
+*nullmailer-1.13 (25 Jul 2013)
+
+  25 Jul 2013; Justin Lecher <jlec@gentoo.org> +nullmailer-1.13.ebuild,
+  +files/remotes.sample-1.13, +files/nullmailer.service, metadata.xml:
+  Version BUmp, #468152; Add support for systemd, #478166; fix wron
+  documentation, #475908
 
   28 Feb 2013; Jason A. Donenfeld <zx2c4@gentoo.org> nullmailer-1.11-r1.ebuild,
   nullmailer-1.11.ebuild:

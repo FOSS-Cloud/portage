@@ -1,6 +1,53 @@
 # ChangeLog for net-print/foomatic-db-ppds
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/foomatic-db-ppds/ChangeLog,v 1.32 2012/08/31 11:38:23 dilfridge Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-print/foomatic-db-ppds/ChangeLog,v 1.43 2013/09/05 12:49:48 mrueg Exp $
+
+  05 Sep 2013; Manuel Rüger <mrueg@gentoo.org>
+  -files/Makefile.in-20070508.patch, -foomatic-db-ppds-4.0.20110506.ebuild,
+  -foomatic-db-ppds-4.0.20120117-r1.ebuild:
+  Cleanup old.
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org>
+  foomatic-db-ppds-4.0.20120831.ebuild:
+  Mark s390/sh/sparc stable #442442.
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-ppds-4.0.20120831.ebuild:
+  Stable for ia64, wrt bug #442442
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-ppds-4.0.20120831.ebuild:
+  Stable for x86, wrt bug #442442
+
+  17 Aug 2013; Jeroen Roovers <jer@gentoo.org>
+  foomatic-db-ppds-4.0.20120831.ebuild:
+  Stable for HPPA (bug #442442).
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-ppds-4.0.20120831.ebuild:
+  Stable for alpha, wrt bug #442442
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-ppds-4.0.20120831.ebuild:
+  Stable for ppc64, wrt bug #442442
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-ppds-4.0.20120831.ebuild:
+  Stable for ppc, wrt bug #442442
+
+  09 Aug 2013; Markus Meier <maekke@gentoo.org>
+  foomatic-db-ppds-4.0.20120831.ebuild:
+  arm stable, bug #442442
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-ppds-4.0.20120831.ebuild:
+  Stable for amd64, wrt bug #442442
+
+*foomatic-db-ppds-4.0.20130805 (05 Aug 2013)
+
+  05 Aug 2013; Manuel Rüger <mrueg@gentoo.org>
+  +foomatic-db-ppds-4.0.20130805.ebuild:
+  Version bump
 
 *foomatic-db-ppds-4.0.20120831 (31 Aug 2012)
 
@@ -160,4 +207,3 @@
   04 Jun 2006; Stefan Schweizer <genstef@gentoo.org> +metadata.xml,
   +foomatic-db-ppds-20060601.ebuild:
   Split up foomatic-db
-

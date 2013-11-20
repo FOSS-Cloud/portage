@@ -1,6 +1,74 @@
 # ChangeLog for app-emulation/virtualbox-bin
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-bin/ChangeLog,v 1.151 2013/03/17 15:23:57 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-bin/ChangeLog,v 1.164 2013/11/02 15:12:13 polynomial-c Exp $
+
+*virtualbox-bin-4.3.2 (02 Nov 2013)
+
+  02 Nov 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +virtualbox-bin-4.3.2.ebuild:
+  Version bump (bug #490070).
+
+  16 Oct 2013; Lars Wendler <polynomial-c@gentoo.org>
+  virtualbox-bin-4.1.26.ebuild, virtualbox-bin-4.2.18.ebuild,
+  virtualbox-bin-4.3.0.ebuild:
+  Removed duplicate IUSE entry and references to no longer available
+  python-2.5. Thanks to Arfrever for reporting this in IRC.
+
+*virtualbox-bin-4.3.0 (15 Oct 2013)
+
+  15 Oct 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-bin-4.2.16.ebuild, +virtualbox-bin-4.3.0.ebuild:
+  Version bump. Removed old.
+
+  19 Sep 2013; Lars Wendler <polynomial-c@gentoo.org>
+  virtualbox-bin-4.2.18.ebuild:
+  Upstream once again changed their tarballs. Thanks to Paul Goller for
+  reporting this in bug #485424.
+
+*virtualbox-bin-4.2.18 (08 Sep 2013)
+
+  08 Sep 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-bin-4.2.14.ebuild, +virtualbox-bin-4.2.18.ebuild:
+  Version bump. Removed old.
+
+*virtualbox-bin-4.2.16 (08 Jul 2013)
+
+  08 Jul 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-bin-4.2.12.ebuild, +virtualbox-bin-4.2.16.ebuild:
+  Version bump. Removed old.
+
+*virtualbox-bin-4.2.14 (24 Jun 2013)
+
+  24 Jun 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-bin-4.1.24-r1.ebuild, -virtualbox-bin-4.2.10.ebuild,
+  +virtualbox-bin-4.2.14.ebuild:
+  Version bump. Removed old.
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> virtualbox-bin-4.1.26.ebuild:
+  Stable for x86, wrt bug #469044
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> virtualbox-bin-4.1.26.ebuild:
+  Stable for amd64, wrt bug #469044
+
+  06 May 2013; Markos Chandras <hwoarang@gentoo.org>
+  virtualbox-bin-4.2.10.ebuild, virtualbox-bin-4.2.12.ebuild:
+  Restore json-c depends per https://bugs.gentoo.org/show_bug.cgi?id=467310#c4
+
+  28 Apr 2013; Markos Chandras <hwoarang@gentoo.org>
+  virtualbox-bin-4.2.10.ebuild, virtualbox-bin-4.2.12.ebuild:
+  Add dev-libs/json-c to RDEPEND and restrict v0.11 since the library name
+  changed. Bug #467310
+
+*virtualbox-bin-4.2.12 (13 Apr 2013)
+*virtualbox-bin-4.1.26 (13 Apr 2013)
+
+  13 Apr 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +virtualbox-bin-4.1.26.ebuild, -virtualbox-bin-4.2.8.ebuild,
+  +virtualbox-bin-4.2.12.ebuild:
+  Version bump. Removed old.
+
+  09 Apr 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Removing Alessio from metadata
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

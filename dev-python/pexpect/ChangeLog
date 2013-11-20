@@ -1,6 +1,27 @@
 # ChangeLog for dev-python/pexpect
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pexpect/ChangeLog,v 1.54 2012/12/20 22:33:47 mgorny Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pexpect/ChangeLog,v 1.60 2013/11/17 04:08:34 prometheanfire Exp $
+
+  17 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> pexpect-3.0.ebuild:
+  adding ~amd64-fbsd and ~hppa, forgot :D
+
+  17 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> pexpect-2.4-r1.ebuild,
+  pexpect-3.0.ebuild:
+  adding pexpect 3.0
+
+  16 Nov 2013; Michał Górny <mgorny@gentoo.org> pexpect-3.0.ebuild:
+  Remove pypy support since it does not work anymore, bug #491404.
+
+*pexpect-3.0 (11 Nov 2013)
+
+  11 Nov 2013; Tim Harder <radhermit@gentoo.org> +pexpect-3.0.ebuild:
+  Version bump.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pexpect-2.4-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  24 Jun 2013; Ian Delaney <idella4@gentoo.org> pexpect-2.4-r1.ebuild:
+  update ebuild
 
 *pexpect-2.4-r1 (20 Dec 2012)
 

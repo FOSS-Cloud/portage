@@ -1,6 +1,27 @@
 # ChangeLog for dev-ruby/ruby-glib2
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-glib2/ChangeLog,v 1.102 2012/12/26 06:37:01 graaff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-glib2/ChangeLog,v 1.108 2013/09/05 12:35:14 ago Exp $
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ruby-glib2-1.1.8.ebuild:
+  Stable for ppc64, wrt bug #480974
+
+  17 Aug 2013; Agostino Sarubbo <ago@gentoo.org> ruby-glib2-1.1.8.ebuild:
+  Stable for ppc, wrt bug #480974
+
+  17 Aug 2013; Agostino Sarubbo <ago@gentoo.org> ruby-glib2-1.1.8.ebuild:
+  Stable for x86, wrt bug #480974
+
+  17 Aug 2013; Agostino Sarubbo <ago@gentoo.org> ruby-glib2-1.1.8.ebuild:
+  Stable for amd64, wrt bug #480974
+
+  14 Aug 2013; Hans de Graaff <graaff@gentoo.org> -ruby-glib2-1.0.3.ebuild,
+  -ruby-glib2-1.1.4.ebuild, -ruby-glib2-1.1.5.ebuild, -ruby-glib2-1.1.6.ebuild:
+  Cleanup.
+
+*ruby-glib2-1.2.6 (04 May 2013)
+
+  04 May 2013; Naohiro Aota <naota@gentoo.org> +ruby-glib2-1.2.6.ebuild:
+  version bump
 
 *ruby-glib2-1.1.8 (26 Dec 2012)
 
@@ -411,4 +432,3 @@
   06 Aug 2003; Aron Griffis <agriffis@gentoo.org> metadata.xml,
   ruby-glib2-0.5.0.ebuild:
   New ebuild based on ruby-gnome2.eclass to satisfy bug 23067
-

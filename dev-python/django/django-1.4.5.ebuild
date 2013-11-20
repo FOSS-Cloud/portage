@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/django/django-1.4.5.ebuild,v 1.3 2013/02/24 12:14:41 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/django/django-1.4.5.ebuild,v 1.5 2013/09/05 18:46:06 mgorny Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
 PYTHON_REQ_USE='sqlite?'
 
 inherit bash-completion-r1 distutils-r1 versionator webapp
@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="amd64 ~ia64 ~ppc ~ppc64 ~sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
 IUSE="doc mysql postgres sqlite test"
 
-RDEPEND="dev-python/imaging[${PYTHON_USEDEP}]
+RDEPEND="virtual/python-imaging[${PYTHON_USEDEP}]
 	postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )
 	mysql? ( >=dev-python/mysql-python-1.2.3[${PYTHON_USEDEP}] )"
 DEPEND="${RDEPEND}

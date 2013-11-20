@@ -1,15 +1,15 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/install-mask/install-mask-9999.ebuild,v 1.2 2012/12/17 20:02:40 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/install-mask/install-mask-9999.ebuild,v 1.6 2013/10/14 20:36:05 mgorny Exp $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7,3_1,3_2,3_3} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
 
 inherit distutils-r1
 
 #if LIVE
 EGIT_REPO_URI="http://bitbucket.org/mgorny/${PN}.git"
-inherit git-2
+inherit git-r3
 #endif
 
 DESCRIPTION="Handle INSTALL_MASK setting in make.conf"
@@ -21,10 +21,16 @@ SLOT="0"
 KEYWORDS="~amd64 ~mips ~x86 ~amd64-fbsd ~x86-fbsd"
 IUSE=""
 
-RDEPEND="app-portage/flaggie[${PYTHON_USEDEP}]
-	dev-python/lxml[${PYTHON_USEDEP}]"
+RDEPEND="app-portage/flaggie[${PYTHON_USEDEP}]"
 #if LIVE
 
 KEYWORDS=
 SRC_URI=
 #endif
+
+python_install_all() {
+	distutils-r1_python_install_all
+
+	insinto /usr/share/portage/config/sets
+	newins sets.conf ${PN}.conf
+}

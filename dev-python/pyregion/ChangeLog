@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/pyregion
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyregion/ChangeLog,v 1.5 2012/02/23 03:44:06 patrick Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyregion/ChangeLog,v 1.9 2013/09/12 22:32:27 mgorny Exp $
+
+  12 Sep 2013; Michał Górny <mgorny@gentoo.org> pyregion-1.1.1.ebuild:
+  Replace virtual/pyparsing dep with dev-python/pyparsing. The split versions
+  were removed and all in-tree versions support all impls now.
+
+  18 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> pyregion-1.1.1.ebuild:
+  Move to virtual/pyparsing
+
+*pyregion-1.1.1 (13 May 2013)
+
+  13 May 2013; Kacper Kowalik <xarthisius@gentoo.org> +pyregion-1.1.1.ebuild,
+  -pyregion-1.0.1.ebuild, -pyregion-1.1.ebuild:
+  Version bump, drop old
+
+*pyregion-1.1 (25 Apr 2013)
+
+  25 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org> +pyregion-1.1.ebuild,
+  -pyregion-1.0.ebuild, metadata.xml:
+  Version bump
 
   23 Feb 2012; Patrick Lauer <patrick@gentoo.org> pyregion-1.0.1.ebuild,
   pyregion-1.0.ebuild:
@@ -23,4 +42,3 @@
   12 Oct 2010; Sébastien Fabbro <bicatali@gentoo.org> +pyregion-1.0.ebuild,
   +metadata.xml:
   Initial import
-

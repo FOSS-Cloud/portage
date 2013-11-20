@@ -1,6 +1,35 @@
 # ChangeLog for dev-libs/Ice
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/Ice/ChangeLog,v 1.20 2012/12/10 07:21:04 polynomial-c Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/Ice/ChangeLog,v 1.26 2013/10/11 08:01:53 polynomial-c Exp $
+
+*Ice-3.5.1 (11 Oct 2013)
+
+  11 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> +Ice-3.5.1.ebuild:
+  Version bump.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> Ice-3.5.0-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  30 Jul 2013; Lars Wendler <polynomial-c@gentoo.org> Ice-3.5.0-r1.ebuild:
+  Non-maintainer commit: Don't use pkg_setup() from ruby-ng eclass.
+
+*Ice-3.5.0-r1 (30 Jul 2013)
+
+  30 Jul 2013; Lars Wendler <polynomial-c@gentoo.org> Ice-3.4.2.ebuild,
+  -Ice-3.4.2-r1.ebuild, -Ice-3.5.0.ebuild, +Ice-3.5.0-r1.ebuild:
+  Non-maintainer commit: Converted ebuild to python-r1 eclass. Thanks to mgorny
+  for his expensive work with the conversion. Changed dependencies to not use
+  >=sys-libs/db-6.0 due to upstream not supporting this version because of
+  license issues (bug #476378). Removed old.
+
+  12 Jun 2013; Lars Wendler <polynomial-c@gentoo.org> Ice-3.5.0.ebuild:
+  Fixed installation with "doc" USE flag being enabled. Thanks to Martin von
+  Gagern for reporting this in bug #473106.
+
+*Ice-3.5.0 (05 Jun 2013)
+
+  05 Jun 2013; Lars Wendler <polynomial-c@gentoo.org> +Ice-3.5.0.ebuild:
+  Non-maintainer commit: Version bump.
 
   10 Dec 2012; Lars Wendler <polynomial-c@gentoo.org> Ice-3.4.2-r1.ebuild:
   Fixed dependency on openssl.

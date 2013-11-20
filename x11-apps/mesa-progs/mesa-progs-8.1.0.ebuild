@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-apps/mesa-progs/mesa-progs-8.1.0.ebuild,v 1.3 2013/04/03 13:12:19 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-apps/mesa-progs/mesa-progs-8.1.0.ebuild,v 1.13 2013/10/08 05:02:43 ago Exp $
 
 EAPI=5
 
@@ -26,17 +26,19 @@ fi
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux"
 IUSE="egl gles1 gles2"
 
 COMMON_DEPEND="
+	egl? ( media-libs/glew )
+	gles1? ( media-libs/glew )
+	gles2? ( media-libs/glew )
 	media-libs/mesa[egl?,gles1?,gles2?]
 	virtual/opengl
 	x11-libs/libX11"
 # glew and glu are only needed by the configure script when building.
 # They are not actually required by the installed programs.
 DEPEND="${COMMON_DEPEND}
-	media-libs/glew
 	virtual/glu
 	x11-proto/xproto"
 # old gnash installs eglinfo too, bug #463654

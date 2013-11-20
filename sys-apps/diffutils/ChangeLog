@@ -1,6 +1,36 @@
 # ChangeLog for sys-apps/diffutils
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/diffutils/ChangeLog,v 1.80 2013/04/04 18:17:48 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/diffutils/ChangeLog,v 1.91 2013/09/05 09:50:41 vapier Exp $
+
+  29 Aug 2013; Jeroen Roovers <jer@gentoo.org> diffutils-3.3.ebuild:
+  Stable for HPPA (bug #477570).
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for x86, wrt bug #477570
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for s390, wrt bug #477570
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for ia64, wrt bug #477570
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for sparc, wrt bug #477570
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for alpha, wrt bug #477570
+
+  23 Jul 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for arm, wrt bug #477570
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for ppc64, wrt bug #477570
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for ppc, wrt bug #477570
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for amd64, wrt bug #477570
 
   04 Apr 2013; Mike Frysinger <vapier@gentoo.org> diffutils-3.3.ebuild:
   Hack around bad upstream packaging w/gettext #464604 by Arfrever Frehtes

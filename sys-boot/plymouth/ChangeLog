@@ -1,6 +1,49 @@
 # ChangeLog for sys-boot/plymouth
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/plymouth/ChangeLog,v 1.33 2013/03/10 19:41:38 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/plymouth/ChangeLog,v 1.43 2013/10/20 07:41:42 pacho Exp $
+
+  20 Oct 2013; Pacho Ramos <pacho@gentoo.org> plymouth-0.8.8-r4.ebuild:
+  amd64 stable, bug #487674
+
+  17 Oct 2013; Pacho Ramos <pacho@gentoo.org> -plymouth-0.8.8-r1.ebuild,
+  -plymouth-0.8.8-r3.ebuild, metadata.xml:
+  Drop old
+
+*plymouth-0.8.8-r4 (16 Oct 2013)
+
+  16 Oct 2013; Pacho Ramos <pacho@gentoo.org> +plymouth-0.8.8-r4.ebuild:
+  systemd USE flag is not needed (#487674#c9 by Enrico Tagliavini)
+
+*plymouth-0.8.8-r3 (13 Oct 2013)
+
+  13 Oct 2013; Pacho Ramos <pacho@gentoo.org> +plymouth-0.8.8-r3.ebuild,
+  -plymouth-0.8.3-r5.ebuild, -plymouth-0.8.4.ebuild, -plymouth-0.8.8-r2.ebuild,
+  -plymouth-0.8.8.ebuild:
+  Install compat symlinks as some rdeps need them, drop old
+
+  12 Oct 2013; Pacho Ramos <pacho@gentoo.org> plymouth-0.8.8-r2.ebuild:
+  Fix install with static-libs (#487756 by Andrius Štikonas)
+
+*plymouth-0.8.8-r2 (11 Oct 2013)
+
+  11 Oct 2013; Pacho Ramos <pacho@gentoo.org> +plymouth-0.8.8-r2.ebuild:
+  Move things to /usr (#485034 by Kirill Elagin and fix by Enrico Tagliavini),
+  this also causes to rhgb-compat-link to be dropped due it pointing to old
+  location, use readme.gentoo.eclass, move to eapi5, move the openrc vs systemd
+  blocker behind 'systemd' USE flag to prevent people enabling it globally from
+  getting systemd blocked.
+
+  31 Jul 2013; Maxim Koltsov <maksbotan@gentoo.org> plymouth-0.8.8-r1.ebuild:
+  Fix "!has_version: command not found", bug #478668.
+
+  20 Jul 2013;  <maksbotan@gentoo.org> plymouth-0.8.8-r1.ebuild:
+  Drop dracut dependency, add ewarn about dracut or genkernel, bug 476936.
+  Thanks to Enrico Tagliavini.
+
+*plymouth-0.8.8-r1 (11 Apr 2013)
+
+  11 Apr 2013; Maxim Koltsov <maksbotan@gentoo.org> +plymouth-0.8.8-r1.ebuild:
+  Drop nouveau use flag, bug #428146. Thanks to Enrico Tagliavini.
 
 *plymouth-0.8.8 (10 Mar 2013)
 

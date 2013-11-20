@@ -1,6 +1,22 @@
 # ChangeLog for games-board/pychess
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/pychess/ChangeLog,v 1.23 2013/01/16 15:09:19 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-board/pychess/ChangeLog,v 1.27 2013/10/22 18:30:42 hasufell Exp $
+
+  22 Oct 2013; Julian Ospald <hasufell@gentoo.org> pychess-0.10.1-r2.ebuild:
+  update deps with PYTHON_USEDEP
+
+*pychess-0.10.1-r2 (22 Oct 2013)
+
+  22 Oct 2013; Julian Ospald <hasufell@gentoo.org> +pychess-0.10.1-r2.ebuild,
+  +files/pychess-0.10.1-python.patch:
+  fix engine detection when python3 is eselected wrt #487706
+
+  22 May 2013; Patrick Lauer <patrick@gentoo.org> -pychess-0.10.1.ebuild:
+  Remove old version with broken dependencies
+
+  14 May 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  pychess-0.10.1-r1.ebuild:
+  amd64 x86 : stable, bug #469288
 
   16 Jan 2013; Julian Ospald <hasufell@gentoo.org> pychess-0.10.1-r1.ebuild:
   fix deps wrt #452142
@@ -90,4 +106,3 @@
   21 Feb 2008; Michael Sterrett <mr_bones_@gentoo.org> +metadata.xml,
   +pychess-0.8.ebuild:
   initial commit - ebuild submitted by Tim Harder via bug #161494
-

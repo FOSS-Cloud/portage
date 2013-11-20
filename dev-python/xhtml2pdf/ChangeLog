@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/xhtml2pdf
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/xhtml2pdf/ChangeLog,v 1.8 2013/04/02 04:49:24 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/xhtml2pdf/ChangeLog,v 1.11 2013/06/18 07:32:30 radhermit Exp $
+
+  18 Jun 2013; Tim Harder <radhermit@gentoo.org> -xhtml2pdf-0.0.5.ebuild:
+  Remove old.
+
+*xhtml2pdf-0.0.5-r1 (18 Jun 2013)
+
+  18 Jun 2013; Tim Harder <radhermit@gentoo.org> +xhtml2pdf-0.0.5-r1.ebuild:
+  Revbump, migrate to distutils-r1.
+
+  09 Jun 2013; Mike Gilbert <floppym@gentoo.org> -xhtml2pdf-0.0.3.ebuild,
+  -xhtml2pdf-0.0.4.ebuild, xhtml2pdf-0.0.5.ebuild:
+  Depend on virtual/python-imaging. Remove old.
 
 *xhtml2pdf-0.0.5 (02 Apr 2013)
 

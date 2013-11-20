@@ -1,13 +1,14 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/trojita/trojita-9999.ebuild,v 1.16 2013/04/07 13:59:47 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/trojita/trojita-9999.ebuild,v 1.20 2013/10/04 11:38:32 ago Exp $
 
-EAPI=4
+EAPI=5
 
-QT_REQUIRED="4.6.0"
+QT_REQUIRED="4.8.0"
 EGIT_REPO_URI="git://anongit.kde.org/${PN}.git"
 [[ ${PV} == "9999" ]] && GIT_ECLASS="git-2"
-inherit qt4-r2 virtualx ${GIT_ECLASS}
+
+inherit cmake-utils virtualx ${GIT_ECLASS}
 
 DESCRIPTION="A Qt IMAP e-mail client"
 HOMEPAGE="http://trojita.flaska.net/"
@@ -17,7 +18,7 @@ if [[ ${PV} == "9999" ]]; then
 else
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 	KEYWORDS="~amd64 ~ppc ~x86"
-	MY_LANGS="bs cs de es et ga gl hu ia lt nl pl pt pt_BR sk sv tr uk zh_CN zh_TW"
+	MY_LANGS="bs cs da de el es et fr ga gl hu ia lt mr nl pl pt pt_BR ro sk sv tr ug uk zh_CN zh_TW"
 fi
 
 LICENSE="|| ( GPL-2 GPL-3 )"
@@ -40,11 +41,13 @@ DEPEND="${RDEPEND}
 	)
 "
 
+DOCS="README LICENSE"
+
 src_configure() {
-	local myopts=""
-	use debug && myopts="$myopts CONFIG+=debug"
-	use test || myopts="$myopts CONFIG+=disable_tests"
-	use zlib || myopts="$myopts CONFIG+=disable_zlib"
+	local mycmakeargs=(
+		$(cmake-utils_use_with test TESTS)
+		$(cmake-utils_use_with zlib ZLIB)
+	)
 	if [[ ${MY_LANGS} ]]; then
 		rm po/trojita_common_x-test.po
 		for x in po/*.po; do
@@ -54,9 +57,13 @@ src_configure() {
 		done
 	fi
 
-	eqmake4 PREFIX=/usr $myopts
+	# the build system is taking a look at `git describe ... --dirty` and
+	# gentoo's modifications to CMakeLists.txt break these
+	sed -i "s/--dirty//" "${S}/cmake/TrojitaVersion.cmake" || die "Cannot fix the version check"
+
+	cmake-utils_src_configure
 }
 
 src_test() {
-	Xemake test
+	VIRTUALX_COMMAND=cmake-utils_src_test virtualmake
 }

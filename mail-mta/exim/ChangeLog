@@ -1,6 +1,121 @@
 # ChangeLog for mail-mta/exim
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/exim/ChangeLog,v 1.244 2013/03/23 18:00:38 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/exim/ChangeLog,v 1.269 2013/11/01 19:55:09 grobian Exp $
+
+  01 Nov 2013; Fabian Groffen <grobian@gentoo.org> exim-4.82.ebuild,
+  metadata.xml:
+  Make support for PKCS#11 optional with USE=gnutls, cleanup some legacy code
+
+  30 Oct 2013; Jeroen Roovers <jer@gentoo.org> exim-4.82.ebuild:
+  Marked ~hppa (bug #489676).
+
+*exim-4.82 (28 Oct 2013)
+
+  28 Oct 2013; Fabian Groffen <grobian@gentoo.org> -exim-4.82_rc5.ebuild,
+  +exim-4.82.ebuild:
+  Version bump to 4.82,
+  https://lists.exim.org/lurker/message/20131028.143255.65ebff96.en.html
+
+  27 Oct 2013; Fabian Groffen <grobian@gentoo.org>
+  +files/exim_482_dsn_1_3.patch, exim-4.82_rc5.ebuild:
+  Add dsn patch that applies, but needs testing, bug #489242
+
+*exim-4.82_rc5 (24 Oct 2013)
+
+  24 Oct 2013; Fabian Groffen <grobian@gentoo.org> +exim-4.82_rc5.ebuild,
+  -exim-4.82_rc4.ebuild:
+  Bump to 4.82_RC5 (actual sources/commit that was meant for RC4)
+
+*exim-4.82_rc4 (22 Oct 2013)
+
+  22 Oct 2013; Fabian Groffen <grobian@gentoo.org> +exim-4.82_rc4.ebuild,
+  -exim-4.82_rc3.ebuild:
+  Bump to 4.82_RC4
+
+*exim-4.82_rc3 (10 Oct 2013)
+
+  10 Oct 2013; Fabian Groffen <grobian@gentoo.org> +exim-4.82_rc3.ebuild,
+  -exim-4.82_rc2.ebuild:
+  Bump to 4.82_RC3
+
+*exim-4.80.1-r3 (08 Oct 2013)
+
+  08 Oct 2013; Fabian Groffen <grobian@gentoo.org> +exim-4.80.1-r3.ebuild,
+  +files/exim.rc8, exim-4.82_rc2.ebuild:
+  Change init-file for /var/run to /run, bug #455346
+
+*exim-4.82_rc2 (03 Oct 2013)
+
+  03 Oct 2013; Fabian Groffen <grobian@gentoo.org> +exim-4.82_rc2.ebuild,
+  -exim-4.82_rc1.ebuild:
+  Bump to 4.82_RC2
+
+  01 Oct 2013; Fabian Groffen <grobian@gentoo.org> exim-4.82_rc1.ebuild:
+  Refine gnutls dependency to gnutls[pkcs11] thanks bes
+
+*exim-4.82_rc1 (30 Sep 2013)
+
+  30 Sep 2013; Fabian Groffen <grobian@gentoo.org> +exim-4.82_rc1.ebuild,
+  +files/exim-4.82-makefile-freebsd.patch, metadata.xml:
+  First release candidate for Exim 4.82 with DMARC support
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> exim-4.80.1-r2.ebuild:
+  Stable for ppc, wrt bug #480058
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> exim-4.80.1-r2.ebuild:
+  Stable for sparc, wrt bug #480058
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> exim-4.80.1-r2.ebuild:
+  Stable for ppc64, wrt bug #480058
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> exim-4.80.1-r2.ebuild:
+  Stable for alpha, wrt bug #480058
+
+  23 Sep 2013; Jeroen Roovers <jer@gentoo.org> exim-4.80.1-r2.ebuild:
+  Stable for HPPA (bug #480058).
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> exim-4.80.1-r2.ebuild:
+  Stable for ia64, wrt bug #480058
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> exim-4.80.1-r2.ebuild:
+  Stable for x86, wrt bug #480058
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> exim-4.80.1-r2.ebuild:
+  Stable for amd64, wrt bug #480058
+
+  18 Aug 2013; Fabian Groffen <grobian@gentoo.org> -exim-4.80.1-r1.ebuild,
+  exim-4.80.1-r2.ebuild, exim-4.80.1.ebuild:
+  Fix saslauth compatability, patch by Malte Starostik in bug #478304, drup
+  superseeded version
+
+*exim-4.80.1-r2 (27 Jul 2013)
+
+  27 Jul 2013; Pacho Ramos <pacho@gentoo.org> +exim-4.80.1-r2.ebuild,
+  +files/exim-submission.socket, +files/exim-submission_at.service,
+  +files/exim.service, +files/exim.socket, +files/exim_at.service:
+  Install unit file #470754 by Alexander Tsoy
+
+  23 Jul 2013; Fabian Groffen <grobian@gentoo.org> exim-4.80.1-r1.ebuild,
+  exim-4.80.1.ebuild:
+  Fix/improve locating MySQL and PostgreSQL libraries, patch by Alexander Tsoy
+  in bug #477792
+
+  23 Jul 2013; Fabian Groffen <grobian@gentoo.org> files/exim.logrotate:
+  Remove now useless sharedscripts from logrotate, thanks Alexander Tsoy
+
+  23 Jul 2013; Fabian Groffen <grobian@gentoo.org> exim-4.80.1-r1.ebuild:
+  Fix header installation, not bumping due to no current consumers
+
+*exim-4.80.1-r1 (22 Jul 2013)
+
+  22 Jul 2013; Fabian Groffen <grobian@gentoo.org> +exim-4.80.1-r1.ebuild,
+  files/exim.logrotate:
+  Move pid-file to /run, bug #455346
+  Drop unnecessary (and sometimes errors producing) postrotate SIGHUP, thanks
+  Alexander Tsoy, bug #477748
+  Add dlfunc USE-flag to allow external dlfunc libraries to be compiled,
+  based on patch by Marcin Mirosław, bug #436406
+  Bump to EAPI4 to use REQUIRED_USE for spf and srs USE-flags, bug #447418
 
   23 Mar 2013; Fabian Groffen <grobian@gentoo.org> exim-4.80.1.ebuild:
   Set sensible default for relay_from_hosts when IPv6 is enabled, bug #448314

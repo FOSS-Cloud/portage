@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.64 2013/04/07 17:33:18 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.67 2013/08/15 15:10:05 kensington Exp $
 
 inherit versionator
 
@@ -17,9 +17,9 @@ ___ECLASS_ONCE_KDE4_FUNCTIONS="recur -_+^+_- spank"
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
-# Currently kde4 eclasses support EAPI 3 and 4.
+# Currently kde4 eclasses support EAPI 4 and 5.
 case ${EAPI:-0} in
-	3|4|5) : ;;
+	4|5) : ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
@@ -61,9 +61,6 @@ if [[ ${KDE_BUILD_TYPE} == live ]]; then
 		;;
 		kdebase-runtime)
 			EGIT_REPONAME=${EGIT_REPONAME:=kde-runtime}
-		;;
-		kdebase-apps)
-			EGIT_REPONAME=${EGIT_REPONAME:=kde-baseapps}
 		;;
 	esac
 fi
@@ -219,60 +216,6 @@ enable_selected_doc_linguas() {
 
 	done
 	[[ -n "${linguas}" ]] && einfo "Enabling handbook translations:${linguas}"
-}
-
-# @FUNCTION: migrate_store_dir
-# @DESCRIPTION:
-# Universal store dir migration
-# * performs split of kdebase to kdebase-apps when needed
-# * moves playground/extragear kde4-base-style to toplevel dir
-migrate_store_dir() {
-	if [[ ${KDE_SCM} != svn ]]; then
-		die "migrate_store_dir() only makes sense for subversion"
-	fi
-
-	local cleandir="${ESVN_STORE_DIR}/KDE"
-
-	if [[ -d ${cleandir} ]]; then
-		ewarn "'${cleandir}' has been found. Moving contents to new location."
-		addwrite "${ESVN_STORE_DIR}"
-		# Split kdebase
-		local module
-		if pushd "${cleandir}"/kdebase/kdebase > /dev/null; then
-			for module in `find . -maxdepth 1 -type d -name [a-z0-9]\*`; do
-				module="${module#./}"
-				mkdir -p "${ESVN_STORE_DIR}/kdebase-${module}" && mv -f "${module}" "${ESVN_STORE_DIR}/kdebase-${module}" || \
-					die "Failed to move to '${ESVN_STORE_DIR}/kdebase-${module}'."
-			done
-			popd > /dev/null
-			rm -fr "${cleandir}/kdebase" || \
-				die "Failed to remove ${cleandir}/kdebase. You need to remove it manually."
-		fi
-		# Move the rest
-		local pkg
-		for pkg in "${cleandir}"/*; do
-			mv -f "${pkg}" "${ESVN_STORE_DIR}"/ || eerror "Failed to move '${pkg}'"
-		done
-		rmdir "${cleandir}" || die "Could not move obsolete KDE store dir.  Please move '${cleandir}' contents to appropriate location (possibly ${ESVN_STORE_DIR}) and manually remove '${cleandir}' in order to continue."
-	fi
-
-	if ! has kde4-meta ${INHERITED}; then
-		case ${KMNAME} in
-			extragear*|playground*)
-				local scmlocalpath="${ESVN_STORE_DIR}"/"${KMNAME}"/"${PN}"
-				if [[ -d "${scmlocalpath}" ]]; then
-					local destdir="${ESVN_STORE_DIR}"/"${ESVN_PROJECT}"/"`basename "${ESVN_REPO_URI}"`"
-					ewarn "'${scmlocalpath}' has been found."
-					ewarn "Moving contents to new location: ${destdir}"
-					addwrite "${ESVN_STORE_DIR}"
-					mkdir -p "${ESVN_STORE_DIR}"/"${ESVN_PROJECT}" && mv -f "${scmlocalpath}" "${destdir}" \
-						|| die "Failed to move to '${scmlocalpath}'"
-					# Try cleaning empty directories
-					rmdir "`dirname "${scmlocalpath}"`" 2> /dev/null
-				fi
-				;;
-		esac
-	fi
 }
 
 # Functions handling KMLOADLIBS and KMSAVELIBS

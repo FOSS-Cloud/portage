@@ -1,6 +1,63 @@
 # ChangeLog for dev-python/sqlalchemy
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/sqlalchemy/ChangeLog,v 1.99 2013/03/19 03:06:24 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/sqlalchemy/ChangeLog,v 1.112 2013/10/31 05:12:26 floppym Exp $
+
+  31 Oct 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.7.9-r1.ebuild:
+  Remove backslash from KEYWORDS.
+
+  31 Oct 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.7.10.ebuild:
+  Remove backslash from KEYWORDS.
+
+*sqlalchemy-0.8.2-r1 (31 Oct 2013)
+
+  31 Oct 2013; Mike Gilbert <floppym@gentoo.org> +sqlalchemy-0.8.2-r1.ebuild,
+  sqlalchemy-0.8.2.ebuild:
+  Revbump for previous change.
+
+  31 Oct 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.8.2.ebuild:
+  Rearrange python_test to avoid calling 2to3 on source tree twice, bug 489518.
+  As a side effect, we can disable in-source builds.
+
+  30 Sep 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.7.10.ebuild:
+  Call distutils-r1_python_install_all
+
+*sqlalchemy-0.7.9-r1 (11 Sep 2013)
+
+  11 Sep 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +sqlalchemy-0.7.9-r1.ebuild:
+  revbump of sqlalchemy-0.7.9 to r1 for distutils-r1 support
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> sqlalchemy-0.8.0.ebuild,
+  sqlalchemy-0.8.1.ebuild, sqlalchemy-0.8.2.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  02 Sep 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.8.2.ebuild:
+  Cleanup python_test.
+
+  02 Sep 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.8.2.ebuild:
+  Fix -fno-strict-aliasing.
+
+*sqlalchemy-0.8.2 (08 Jul 2013)
+
+  08 Jul 2013; Patrick Lauer <patrick@gentoo.org> +sqlalchemy-0.8.2.ebuild:
+  Bump
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> sqlalchemy-0.8.1.ebuild:
+  Whitespace
+
+*sqlalchemy-0.8.1 (02 May 2013)
+
+  02 May 2013; Ian Delaney <idella4@gentoo.org>
+  +files/sqlalchemy-0.8.1-pypy-fixtests.patch, +sqlalchemy-0.8.1.ebuild:
+  bump
+
+  30 Apr 2013; Ian Delaney <idella4@gentoo.org> sqlalchemy-0.7.10.ebuild,
+  sqlalchemy-0.8.0.ebuild:
+  0.7.10, correct install phase. 0.8.0; Add py3, pypy support in exchange of
+  dropping IUSE firebird mssql mysql postgres, dep list adjusted accordingly,
+  -fno-strict-aliasing set excluded for py3, python_test adjusted accordingly,
+  install phase reduced using vars, postinst added offsetting dropping use flags
+  & informing user via elog && has_version
 
   19 Mar 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.8.0.ebuild:
   Fixup deps and python_install_all function. Enable parallel build, but disable

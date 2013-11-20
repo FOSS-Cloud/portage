@@ -1,15 +1,15 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/portage/portage-2.1.6.7_p1.ebuild,v 1.6 2013/03/22 20:15:28 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/portage/portage-2.1.6.7_p1.ebuild,v 1.10 2013/07/01 02:24:59 zmedico Exp $
 
-inherit eutils multilib python
+inherit eutils multilib
 
 DESCRIPTION="Portage is the package management and distribution system for Gentoo"
 HOMEPAGE="http://www.gentoo.org/proj/en/portage/index.xml"
 LICENSE="GPL-2"
 KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86-fbsd"
 SLOT="0"
-IUSE="build doc epydoc less selinux linguas_pl"
+IUSE="build doc epydoc less linguas_pl"
 
 python_dep=">=dev-lang/python-2.4 <dev-lang/python-3"
 
@@ -26,7 +26,6 @@ RDEPEND="${python_dep}
 	elibc_glibc? ( >=sys-apps/sandbox-1.2.17 !mips? ( >=sys-apps/sandbox-1.2.18.1-r2 ) )
 	elibc_uclibc? ( >=sys-apps/sandbox-1.2.17 !mips? ( >=sys-apps/sandbox-1.2.18.1-r2 ) )
 	>=app-misc/pax-utils-0.1.17
-	selinux? ( >=dev-python/python-selinux-2.16 )
 	!>=dev-util/debugedit-4.4.6-r2"
 PDEPEND="
 	!build? (
@@ -205,6 +204,9 @@ src_install() {
 
 	dodir /etc/portage
 	keepdir /etc/portage
+
+	/usr/bin/python -m compileall -q -f -d "${portage_base}/pym" "${D%/}${portage_base}/pym" || die
+	/usr/bin/python -O -m compileall -q -f -d "${portage_base}/pym" "${D%/}${portage_base}/pym" || die
 }
 
 pkg_preinst() {
@@ -218,10 +220,6 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	# Compile all source files recursively. Any orphans
-	# will be identified and removed in postrm.
-	python_mod_optimize /usr/$(get_libdir)/portage/pym
-
 	local warning_shown=0
 	if [ $DOWNGRADE_FROM_2_2 = 0 ] ; then
 		ewarn
@@ -256,8 +254,4 @@ pkg_postinst() {
 	if [ $warning_shown = 1 ] ; then
 		ewarn # for symmetry
 	fi
-}
-
-pkg_postrm() {
-	python_mod_cleanup /usr/$(get_libdir)/portage/pym
 }

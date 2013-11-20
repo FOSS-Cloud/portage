@@ -1,10 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/webkit-gtk-1.10.2-r300.ebuild,v 1.5 2013/01/29 12:36:39 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/webkit-gtk-1.10.2-r300.ebuild,v 1.15 2013/10/17 20:52:17 maekke Exp $
 
 EAPI="5"
 
-inherit autotools check-reqs eutils flag-o-matic gnome2-utils pax-utils virtualx
+PYTHON_COMPAT=( python{2_6,2_7} )
+
+inherit autotools check-reqs eutils flag-o-matic gnome2-utils pax-utils python-any-r1 virtualx
 
 MY_P="webkitgtk-${PV}"
 DESCRIPTION="Open source web browser engine"
@@ -13,7 +15,7 @@ SRC_URI="http://www.webkitgtk.org/releases/${MY_P}.tar.xz"
 
 LICENSE="LGPL-2+ BSD"
 SLOT="3"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~x86-macos"
+KEYWORDS="~alpha ~amd64 arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~x86-macos"
 IUSE="aqua coverage debug +geoloc +gstreamer +introspection +jit spell +webgl"
 # bugs 372493, 416331
 REQUIRED_USE="introspection? ( geoloc gstreamer )"
@@ -25,7 +27,7 @@ REQUIRED_USE="introspection? ( geoloc gstreamer )"
 RDEPEND="
 	dev-libs/libxml2:2
 	dev-libs/libxslt
-	virtual/jpeg:=
+	virtual/jpeg:0=
 	>=media-libs/libpng-1.4:0=
 	>=x11-libs/cairo-1.10:=
 	>=dev-libs/glib-2.32:2
@@ -50,10 +52,12 @@ RDEPEND="
 "
 # paxctl needed for bug #407085
 DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
 	dev-lang/perl
-	=dev-lang/python-2*
-	|| ( virtual/rubygems[ruby_targets_ruby19]
-	     virtual/rubygems[ruby_targets_ruby18] )
+	|| (
+		virtual/rubygems[ruby_targets_ruby20]
+		virtual/rubygems[ruby_targets_ruby19]
+		virtual/rubygems[ruby_targets_ruby18] )
 	app-accessibility/at-spi2-core
 	>=dev-util/gtk-doc-am-1.10
 	dev-util/gperf
@@ -65,6 +69,8 @@ DEPEND="${RDEPEND}
 
 	introspection? ( jit? ( sys-apps/paxctl ) )
 	test? (
+		dev-lang/python:2.7
+		dev-python/pygobject:3[python_targets_python2_7]
 		x11-themes/hicolor-icon-theme
 		jit? ( sys-apps/paxctl ) )
 "
@@ -75,15 +81,19 @@ S="${WORKDIR}/${MY_P}"
 CHECKREQS_DISK_BUILD="18G" # and even this might not be enough, bug #417307
 
 pkg_pretend() {
-	if [[ ${MERGE_TYPE} != "binary" ]] && is-flagq "-g*" ; then
+	nvidia_check || die #463960
+
+	if [[ ${MERGE_TYPE} != "binary" ]] && is-flagq "-g*" && ! is-flagq "-g*0" ; then
 		einfo "Checking for sufficient disk space to build ${PN} with debugging CFLAGS"
 		check-reqs_pkg_pretend
 	fi
 }
 
 pkg_setup() {
+	nvidia_check || die #463960
+
 	# Check whether any of the debugging flags is enabled
-	if [[ ${MERGE_TYPE} != "binary" ]] && is-flagq "-g*" ; then
+	if [[ ${MERGE_TYPE} != "binary" ]] && is-flagq "-g*" && ! is-flagq "-g*0" ; then
 		if is-flagq "-ggdb" && [[ ${WEBKIT_GTK_GGDB} != "yes" ]]; then
 			replace-flags -ggdb -g
 			ewarn "Replacing \"-ggdb\" with \"-g\" in your CFLAGS."
@@ -100,6 +110,8 @@ pkg_setup() {
 		einfo "(-ggdb vs -g1) and enabled features."
 		check-reqs_pkg_setup
 	fi
+
+	[[ ${MERGE_TYPE} = "binary" ]] || python-any-r1_pkg_setup
 }
 
 src_prepare() {
@@ -131,12 +143,20 @@ src_prepare() {
 	# mimehandling test sometimes fails under Xvfb (works fine manually)
 	# datasource test needs a network connection and intermittently fails with icedtea-web
 	# webplugindatabase intermittently fails with icedtea-web
+	# testWebContextGetPlugins calls Programs/WebKitPluginProcess which fails unless webkit-gtk-${PV} is already installed
+	# TestWebKitAPI/TestWebKit2 seems to fail if webkit-gtk-${PV} is not already installed and/or if opengl cannot be initialized
 	sed -e '/Programs\/unittests\/testwebinspector/ d' \
 		-e '/Programs\/unittests\/testkeyevents/ d' \
 		-e '/Programs\/unittests\/testmimehandling/ d' \
 		-e '/Programs\/unittests\/testwebdatasource/ d' \
 		-e '/Programs\/unittests\/testwebplugindatabase/ d' \
 		-i Source/WebKit/gtk/GNUmakefile.am || die
+
+	sed -e '/PluginsTest::add.*testWebContextGetPlugins/ d' \
+		-i Source/WebKit2/UIProcess/API/gtk/tests/TestWebKitWebContext.cpp || die
+
+	sed -e 's#\(SkippedTest("TestWebKitAPI/TestWebKit2"\).*#\1, None, "skipped by ebuild"),#' \
+		-i Tools/Scripts/run-gtk-tests || die
 
 	if ! use gstreamer; then
 		# webkit2's TestWebKitWebView requires <video> support
@@ -159,8 +179,19 @@ src_prepare() {
 	# https://bugs.gentoo.org/show_bug.cgi?id=449220#c17
 	epatch "${FILESDIR}/${PN}-1.10.2-wifexited.patch"
 
+	# patch for gcc 4.8, to disable COMPILE_ASSERT warnings; fixed in 2.0.x
+	# https://bugs.webkit.org/show_bug.cgi?id=113147
+	epatch "${FILESDIR}/${P}-gcc-4.8.patch"
+
+	# patch for -lrt underlinking issue, bug #458164; fixed in 2.0.x
+	epatch "${FILESDIR}/${P}-librt.patch"
+
 	# Respect CC, otherwise fails on prefix #395875
 	tc-export CC
+
+	# AM_PROG_CC_STDC is obsolete with sys-devel/automake-1.13.1, #467244
+	sed -i -e 's/AM_PROG_CC_STDC/AM_PROG_CC/g' aclocal.m4 || die
+	sed -i -e '/AM_PROG_CC_STDC/d' configure.ac || die
 
 	# Prevent maintainer mode from being triggered during make
 	AT_M4DIR=Source/autotools eautoreconf
@@ -199,11 +230,12 @@ src_configure() {
 		--enable-accelerated-compositing
 		--enable-dependency-tracking
 		--disable-gtk-doc
-		PYTHON=$(type -P python2)
 		"$(usex aqua "--with-font-backend=pango --with-target=quartz" "")
 		# Aqua support in gtk3 is untested
 
-	if has_version "virtual/rubygems[ruby_targets_ruby19]"; then
+	if has_version "virtual/rubygems[ruby_targets_ruby20]"; then
+		myconf="${myconf} RUBY=$(type -P ruby20)"
+	elif has_version "virtual/rubygems[ruby_targets_ruby19]"; then
 		myconf="${myconf} RUBY=$(type -P ruby19)"
 	else
 		myconf="${myconf} RUBY=$(type -P ruby18)"
@@ -243,4 +275,21 @@ src_install() {
 
 	# Prevents crashes on PaX systems
 	use jit && pax-mark m "${ED}usr/bin/jsc-3"
+}
+
+nvidia_check() {
+	if [[ ${MERGE_TYPE} != "binary" ]] &&
+	   use introspection &&
+	   has_version '=x11-drivers/nvidia-drivers-325*' &&
+	   [[ $(eselect opengl show 2> /dev/null) = "nvidia" ]]
+	then
+		eerror "${PN} freezes while compiling if x11-drivers/nvidia-drivers-325.* is"
+		eerror "used as the system OpenGL library."
+		eerror "You can either update to >=nvidia-drivers-331.13, or temporarily select"
+		eerror "Mesa as the system OpenGL library:"
+		eerror " # eselect opengl set xorg-x11"
+		eerror "See https://bugs.gentoo.org/463960 for more details."
+		eerror
+		return 1
+	fi
 }

@@ -1,6 +1,28 @@
 # ChangeLog for net-misc/wicd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/wicd/ChangeLog,v 1.138 2013/03/14 03:08:15 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/wicd/ChangeLog,v 1.144 2013/10/11 12:31:45 tomka Exp $
+
+  11 Oct 2013; Thomas Kahle <tomka@gentoo.org> wicd-1.7.2.4-r3.ebuild:
+  use readme.gentoo eclass (bug 487552)
+
+  10 Oct 2013; Pacho Ramos <pacho@gentoo.org> wicd-1.7.2.4-r3.ebuild:
+  Adapt elog messages to systemd
+
+  03 Aug 2013; Thomas Kahle <tomka@gentoo.org> wicd-1.7.2.4-r3.ebuild:
+  add warning about missing wireless extensions (bug 479590), remove nonworking
+  translations
+
+  05 Jul 2013; Maxim Koltsov <maksbotan@gentoo.org> wicd-1.7.2.4-r3.ebuild:
+  Depend on slot 2 of pygobject, wicd directly import 'gobject' module
+
+*wicd-1.7.2.4-r3 (24 Jun 2013)
+
+  24 Jun 2013; Thomas Kahle <tomka@gentoo.org>
+  +files/wicd-1.7.2.4-fix-desktop-categories.patch, +wicd-1.7.2.4-r3.ebuild:
+  bump to eapi5 and distutils-r1 (bugs 469910, 473772)
+
+  02 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #328951
 
   14 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> wicd-1.7.2.4-r2.ebuild:
   Check for sys-auth/consolekit instead of sys-auth/pambase[consolekit] since

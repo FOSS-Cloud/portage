@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/R-2.10.1.ebuild,v 1.19 2013/02/19 12:31:48 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/R-2.10.1.ebuild,v 1.21 2013/11/03 20:38:33 mattst88 Exp $
 
 EAPI=2
 
@@ -14,7 +14,7 @@ SRC_URI="
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="alpha amd64 hppa ia64 ppc ppc64 sparc x86 ~x86-fbsd"
+KEYWORDS="amd64 hppa ia64 ppc ppc64 sparc x86 ~x86-fbsd"
 
 IUSE="bash-completion cairo doc java jpeg lapack minimal nls perl png readline threads tk X"
 
@@ -27,7 +27,7 @@ CDEPEND="
 	cairo? (
 		x11-libs/cairo[X]
 		>=x11-libs/pango-1.20[X] )
-	jpeg? ( virtual/jpeg )
+	jpeg? ( virtual/jpeg:0 )
 	lapack? ( virtual/lapack )
 	perl? ( dev-lang/perl )
 	png? ( media-libs/libpng )

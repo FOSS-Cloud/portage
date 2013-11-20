@@ -1,6 +1,23 @@
 # ChangeLog for sci-mathematics/coq
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/coq/ChangeLog,v 1.77 2013/03/05 16:44:07 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/coq/ChangeLog,v 1.81 2013/08/19 15:06:15 aballier Exp $
+
+  19 Aug 2013; Alexis Ballier <aballier@gentoo.org> coq-8.4_p1.ebuild,
+  coq-8.4_p2.ebuild:
+  eapi5 and add := dep on ocaml pacakges
+
+  19 Aug 2013; Alexis Ballier <aballier@gentoo.org> -coq-8.3_p2.ebuild,
+  -coq-8.3_p3.ebuild, -coq-8.3_p4.ebuild, -coq-8.4.ebuild,
+  -files/coq-8.4-lablgtk216.patch, -files/lablgtk216.patch:
+  remove old
+
+*coq-8.4_p2 (03 Aug 2013)
+
+  03 Aug 2013; Mark Wright <gienah@gentoo.org> +coq-8.4_p2.ebuild:
+  Bump coq to 8.4pl2 / coq-8.4_p2.
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> coq-8.4_p1.ebuild:
+  Stable for x86, wrt bug #460136
 
   05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> coq-8.4_p1.ebuild:
   Stable for amd64, wrt bug #460136

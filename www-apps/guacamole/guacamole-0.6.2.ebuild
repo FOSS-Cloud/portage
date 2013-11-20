@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/guacamole/guacamole-0.6.2.ebuild,v 1.2 2012/11/11 01:08:21 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/guacamole/guacamole-0.6.2.ebuild,v 1.5 2013/08/14 11:31:47 patrick Exp $
 
 EAPI=4
 
@@ -26,9 +26,9 @@ RDEPEND="${DEPEND}
 	rdesktop? ( net-libs/libguac-client-rdp )"
 
 src_compile() {
-    	mkdir ${HOME}/.m2
-	cat /usr/share/maven-bin-2.2/conf/settings.xml | sed -e 's:<!-- localRepo:localRepo:g' \
-	-e 's:/path/to/local/repo:'${HOME}/.m2':g' >${S}/settings.xml
+	mkdir ${HOME}/.m2
+	cat /usr/share/`readlink /usr/bin/mvn | sed 's:mvn:maven-bin:'`/conf/settings.xml | \
+	sed -e 's:/path/to/local/repo:'${HOME}/.m2':g' -e 's:<!-- localRepo::' >${S}/settings.xml
 	mvn-2.2 -s ${S}/settings.xml compile war:war
 }
 

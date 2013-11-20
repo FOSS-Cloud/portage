@@ -1,6 +1,40 @@
 # ChangeLog for app-editors/nedit
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/nedit/ChangeLog,v 1.67 2012/10/24 18:58:01 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/nedit/ChangeLog,v 1.75 2013/07/04 14:51:23 kensington Exp $
+
+  04 Jul 2013; Michael Palimaka <kensington@gentoo.org>
+  -files/nedit-5.5-argbvisuals.patch, -files/nedit-5.5-motif23.patch,
+  -files/nedit-5.5-off-by-one.patch, -nedit-5.5-r1.ebuild,
+  -nedit-5.5_p20110116-r1.ebuild:
+  Remove old.
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nedit-5.5_p20110116-r2.ebuild:
+  Stable for x86, wrt bug #474482
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nedit-5.5_p20110116-r2.ebuild:
+  Stable for sparc, wrt bug #474482
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nedit-5.5_p20110116-r2.ebuild:
+  Stable for alpha, wrt bug #474482
+
+  25 Jun 2013; Chema Alonso <nimiux@gentoo.org> nedit-5.5_p20110116-r2.ebuild:
+  Stable for amd64 wrt bug #474482
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nedit-5.5_p20110116-r2.ebuild:
+  Stable for ppc, wrt bug #474482
+
+*nedit-5.5_p20110116-r2 (23 Jun 2013)
+
+  23 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> -nedit-5.5_p20110116.ebuild,
+  +nedit-5.5_p20110116-r2.ebuild:
+  Revision bump: EAPI 5, epatch_user, correct dependencies. Drop old
+
+*nedit-5.5_p20110116-r1 (15 May 2013)
+
+  15 May 2013; Michael Weber <xmw@gentoo.org> +files/nedit.svg,
+  +nedit-5.5_p20110116-r1.ebuild:
+  Add desktop file and iocon (thanks johnny99, bug 296942). Respect AR (bug
+  468172)
 
   24 Oct 2012; Ulrich Müller <ulm@gentoo.org> nedit-5.5-r1.ebuild,
   nedit-5.5_p20110116.ebuild:

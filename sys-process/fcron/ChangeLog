@@ -1,6 +1,36 @@
 # ChangeLog for sys-process/fcron
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/fcron/ChangeLog,v 1.110 2013/03/24 14:06:20 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/fcron/ChangeLog,v 1.117 2013/10/08 17:30:57 maekke Exp $
+
+  08 Oct 2013; Markus Meier <maekke@gentoo.org> fcron-3.1.2-r2.ebuild:
+  arm stable, bug #480120
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> fcron-3.1.2-r2.ebuild:
+  Stable for HPPA (bug #480120).
+
+  30 Sep 2013; Rick Farina <zerochaos@gentoo.org> fcron-3.1.2-r2.ebuild,
+  metadata.xml:
+  add optional mta support, fixes build failure bug 484630 and related bug
+  481600
+
+  28 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fcron-3.1.2-r2.ebuild:
+  Stable for amd64, wrt bug #480120
+
+*fcron-3.1.2-r2 (26 Aug 2013)
+
+  26 Aug 2013; Pacho Ramos <pacho@gentoo.org> +fcron-3.1.2-r2.ebuild,
+  -fcron-3.1.2-r1.ebuild:
+  Look for files in right dir (#477928 by emil karlson, Navid Zamani and Dustin
+  C. Hatch).
+
+*fcron-3.1.2-r1 (20 Jul 2013)
+
+  20 Jul 2013; Pacho Ramos <pacho@gentoo.org> +fcron-3.1.2-r1.ebuild,
+  -fcron-3.1.2.ebuild:
+  Fix unit file installation (#393503#c19 by emil karlson)
+
+  13 Jul 2013; Pacho Ramos <pacho@gentoo.org> fcron-3.1.2.ebuild:
+  Install unit file (#393503)
 
 *fcron-3.1.2 (24 Mar 2013)
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/grepmail/grepmail-5.30.33-r1.ebuild,v 1.4 2012/02/05 18:07:20 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/grepmail/grepmail-5.30.33-r1.ebuild,v 1.5 2013/09/03 12:09:52 idella4 Exp $
 
 inherit versionator perl-module
 

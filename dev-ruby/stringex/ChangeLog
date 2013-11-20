@@ -1,6 +1,44 @@
 # ChangeLog for dev-ruby/stringex
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/stringex/ChangeLog,v 1.8 2012/12/05 07:15:11 graaff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/stringex/ChangeLog,v 1.17 2013/10/25 09:05:58 graaff Exp $
+
+  25 Oct 2013; Hans de Graaff <graaff@gentoo.org> stringex-2.0.8.ebuild:
+  Add ruby20, but skip the rails tests and dependencies for now so we can
+  resolve circular dependencies first.
+
+  10 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -stringex-2.0.7.ebuild:
+  Cleanup old.
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> stringex-2.0.8.ebuild:
+  add ~x86, bug #478294
+
+*stringex-2.0.8 (17 Aug 2013)
+
+  17 Aug 2013; Hans de Graaff <graaff@gentoo.org> +stringex-2.0.8.ebuild:
+  Version bump.
+
+  17 Aug 2013; Hans de Graaff <graaff@gentoo.org> -stringex-1.4.0.ebuild:
+  Cleanup.
+
+  08 Aug 2013; Markus Meier <maekke@gentoo.org> stringex-2.0.7.ebuild:
+  add ~arm, bug #477648
+
+*stringex-2.0.7 (31 Jul 2013)
+
+  31 Jul 2013; Manuel Rüger <mrueg@gentoo.org> +stringex-2.0.7.ebuild,
+  -stringex-2.0.6.ebuild:
+  Version bump
+
+*stringex-2.0.6 (25 Jul 2013)
+
+  25 Jul 2013; Manuel Rüger <mrueg@gentoo.org> +stringex-2.0.6.ebuild,
+  -stringex-2.0.5.ebuild:
+  Version bump, cleanup old
+
+*stringex-2.0.5 (18 Jul 2013)
+
+  18 Jul 2013; Manuel Rüger <mrueg@gentoo.org> +stringex-2.0.5.ebuild:
+  Version bump
 
 *stringex-1.5.1 (05 Dec 2012)
 

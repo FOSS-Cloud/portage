@@ -1,6 +1,14 @@
 # ChangeLog for x11-misc/xssstate
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xssstate/ChangeLog,v 1.5 2013/01/07 02:35:58 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xssstate/ChangeLog,v 1.7 2013/07/19 13:27:31 jer Exp $
+
+  19 Jul 2013; Jeroen Roovers <jer@gentoo.org> -xssstate-1.0.20130103.ebuild:
+  Old.
+
+*xssstate-1.1 (05 Jun 2013)
+
+  05 Jun 2013; Jeroen Roovers <jer@gentoo.org> +xssstate-1.1.ebuild:
+  Version bump.
 
   07 Jan 2013;  <jd@gentoo.org> xssstate-1.0.20130103.ebuild:
   Keyword ~x86

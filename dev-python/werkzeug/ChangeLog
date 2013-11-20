@@ -1,6 +1,55 @@
 # ChangeLog for dev-python/werkzeug
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/werkzeug/ChangeLog,v 1.37 2013/03/19 16:43:30 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/werkzeug/ChangeLog,v 1.50 2013/11/04 13:23:34 djc Exp $
+
+  04 Nov 2013; Dirkjan Ochtman <djc@gentoo.org> -werkzeug-0.8.2.ebuild,
+  -werkzeug-0.8.3.ebuild, -werkzeug-0.9.1.ebuild, -werkzeug-0.9.2.ebuild:
+  Remove old versions of werkzeug.
+
+  22 Oct 2013; Fabian Groffen <grobian@gentoo.org> werkzeug-0.9.4.ebuild:
+  Marked ~x64-macos, bug #487670
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> werkzeug-0.9.3.ebuild:
+  Stable for x86, wrt bug #482540
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> werkzeug-0.9.1.ebuild,
+  werkzeug-0.9.2.ebuild, werkzeug-0.9.3.ebuild, werkzeug-0.9.4.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> werkzeug-0.9.3.ebuild:
+  Stable for ppc, wrt bug #482540
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> werkzeug-0.9.3.ebuild:
+  Stable for amd64, wrt bug #482540
+
+*werkzeug-0.9.4 (26 Aug 2013)
+
+  26 Aug 2013; Dirkjan Ochtman <djc@gentoo.org> +werkzeug-0.9.4.ebuild:
+  Version bump werkzeug to 0.9.4.
+
+  27 Jul 2013; Dirkjan Ochtman <djc@gentoo.org> werkzeug-0.9.3.ebuild:
+  Update Manifest for Werkzeug-0.9.3.tar.gz (bug 478202).
+
+*werkzeug-0.9.3 (25 Jul 2013)
+
+  25 Jul 2013; Dirkjan Ochtman <djc@gentoo.org> +werkzeug-0.9.3.ebuild:
+  Version bump werkzeug to 0.9.3.
+
+*werkzeug-0.9.2 (25 Jul 2013)
+
+  25 Jul 2013; Patrick Lauer <patrick@gentoo.org> +werkzeug-0.9.2.ebuild:
+  Bump
+
+  27 Jun 2013; Mike Gilbert <floppym@gentoo.org> werkzeug-0.9.1.ebuild:
+  Drop lxml test dep and enable pypy, thanks Arfrever.
+
+  16 Jun 2013; Tim Harder <radhermit@gentoo.org> -werkzeug-0.8.3-r1.ebuild:
+  Remove old.
+
+*werkzeug-0.9.1 (16 Jun 2013)
+
+  16 Jun 2013; Tim Harder <radhermit@gentoo.org> +werkzeug-0.9.1.ebuild:
+  Version bump.
 
 *werkzeug-0.8.3-r1 (19 Mar 2013)
 

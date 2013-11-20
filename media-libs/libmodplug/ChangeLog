@@ -1,6 +1,15 @@
 # ChangeLog for media-libs/libmodplug
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libmodplug/ChangeLog,v 1.75 2012/05/15 13:12:50 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libmodplug/ChangeLog,v 1.77 2013/06/26 17:57:35 aballier Exp $
+
+  26 Jun 2013; Alexis Ballier <aballier@gentoo.org>
+  libmodplug-0.8.8.4-r1.ebuild:
+  update emul-linux-x86-soundlibs blocker
+
+*libmodplug-0.8.8.4-r1 (07 May 2013)
+
+  07 May 2013; Michał Górny <mgorny@gentoo.org> +libmodplug-0.8.8.4-r1.ebuild:
+  Convert to multilib wrt bug #468312.
 
   15 May 2012; Alexis Ballier <aballier@gentoo.org> libmodplug-0.8.8.4.ebuild:
   keyword ~amd64-fbsd
@@ -285,4 +294,3 @@
 
   10 Nov 2004; Tony Vroon <chainsaw@gentoo.org> +libmodplug-0.7.ebuild:
   Initial import, ebuild submitted by Bruce Guenter <bruceg@em.ca> in bug #70470.
-

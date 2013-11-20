@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/procps/procps-3.3.4.ebuild,v 1.15 2013/03/16 15:08:39 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/procps/procps-3.3.4.ebuild,v 1.17 2013/06/27 21:36:02 vapier Exp $
 
 EAPI="4"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://debian/pool/main/p/${PN}/${PN}_${PV}.orig.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-linux ~ia64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-linux ~ia64-linux ~x86-linux"
 IUSE="+ncurses nls static-libs unicode"
 
 RDEPEND="ncurses? ( >=sys-libs/ncurses-5.2-r2[unicode?] )"
@@ -25,7 +25,7 @@ RESTRICT="test" # Fixed in 3.3.6, see bug #404389
 
 src_configure() {
 	econf \
-		--exec-prefix="${EPREFIX}/" \
+		--exec-prefix="${EPREFIX}" \
 		--docdir='$(datarootdir)'/doc/${PF} \
 		$(use_with ncurses) \
 		$(use_enable nls) \

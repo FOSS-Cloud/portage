@@ -1,6 +1,53 @@
 # ChangeLog for dev-libs/nettle
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/nettle/ChangeLog,v 1.88 2013/03/15 15:25:17 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/nettle/ChangeLog,v 1.102 2013/08/06 13:07:05 ago Exp $
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nettle-2.7.1.ebuild:
+  Stable for s390, wrt bug #477612
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nettle-2.7.1.ebuild:
+  Stable for ia64, wrt bug #477612
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nettle-2.7.1.ebuild:
+  Stable for sparc, wrt bug #477612
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nettle-2.7.1.ebuild:
+  Stable for alpha, wrt bug #477612
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nettle-2.7.1.ebuild:
+  Stable for x86, wrt bug #477612
+
+  23 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nettle-2.7.1.ebuild:
+  Stable for arm, wrt bug #477612
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nettle-2.7.1.ebuild:
+  Stable for ppc64, wrt bug #477612
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nettle-2.7.1.ebuild:
+  Stable for ppc, wrt bug #477612
+
+  22 Jul 2013; Jeroen Roovers <jer@gentoo.org> nettle-2.7.1.ebuild:
+  Stable for HPPA (bug #477612).
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nettle-2.7.1.ebuild:
+  Stable for amd64, wrt bug #477612
+
+*nettle-2.7.1 (05 Jun 2013)
+
+  05 Jun 2013; Tim Harder <radhermit@gentoo.org> +nettle-2.7.1.ebuild:
+  Version bump.
+
+  27 May 2013; Fabian Groffen <grobian@gentoo.org> nettle-2.7.ebuild:
+  Use prefixed libdir, bug #471298
+
+  11 May 2013; Alon Bar-Lev <alonbl@gentoo.org> nettle-2.7.ebuild:
+  Fix libdir location, per bug#468810, thanks to Anthony Basile
+
+*nettle-2.7 (27 Apr 2013)
+
+  27 Apr 2013; Tim Harder <radhermit@gentoo.org> +nettle-2.7.ebuild,
+  +files/nettle-2.7-shared.patch:
+  Version bump (bug #467468), add neon use flag.
 
   15 Mar 2013; Jeroen Roovers <jer@gentoo.org> nettle-2.6.ebuild:
   Stable for HPPA (bug #461104).

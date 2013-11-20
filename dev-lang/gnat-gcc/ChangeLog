@@ -1,6 +1,40 @@
 # ChangeLog for dev-lang/gnat-gcc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/gnat-gcc/ChangeLog,v 1.55 2012/09/26 13:40:52 george Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/gnat-gcc/ChangeLog,v 1.65 2013/11/20 06:39:32 nerdboy Exp $
+
+  20 Nov 2013; Steve Arnold <nerdboy@gentoo.org> gnat-gcc-4.6.4.ebuild:
+  Adding openmp USE flag for updated gnatbuild.eclass.
+
+*gnat-gcc-4.6.4 (14 Nov 2013)
+
+  14 Nov 2013; Steve Arnold <nerdboy@gentoo.org> +gnat-gcc-4.6.4.ebuild,
+  metadata.xml:
+  Adding new 4.6.4 version to go with updated gnatbuild.eclass (arm 
+  updates to come later). Yay, I'm still alive...
+
+  08 Oct 2013; George Shapovalov <george@gentoo.org> gnat-gcc-4.4.7.ebuild:
+  propagating texinfo fix to 4.4, should resolve #484794
+
+  03 Aug 2013; George Shapovalov <george@gentoo.org> gnat-gcc-4.3.5.ebuild,
+  gnat-gcc-4.3.6.ebuild:
+  adding ~ppc to fixed versions, as per #479582
+
+  02 Aug 2013; George Shapovalov <george@gentoo.org> +files/patches/4.3/01-siginfo.patch:
+  added patch fixing linux-unwind.h problem - #468112. Thanks to Alexander
+  Vershilov (qnikst) for submitted patch
+
+  02 Aug 2013; George Shapovalov <george@gentoo.org>
+  -files/patches/51_all_gcc-3.4-libiberty-pic.patch,
+  -files/patches/74_all_sh-pr24836.patch:
+  removing stale patches
+
+  02 Aug 2013; George Shapovalov <george@gentoo.org> -gnat-gcc-4.3.2.ebuild,
+  -gnat-gcc-4.3.3.ebuild:
+  removed stale versions
+
+  02 Aug 2013;  George Shapovalov <george@gentoo.org> gnat-gcc-3.4.6.ebuild,
+  gnat-gcc-4.3.5.ebuild, gnat-gcc-4.3.6.ebuild:
+  old gcc does not play kindly with new texinfo. Fixing #468108
 
 *gnat-gcc-4.5.4 (26 Sep 2012)
 

@@ -1,8 +1,7 @@
 # PPC Specific use flags
 #
-# Masking out llvm
-llvm
-clang
+#Klibc does not work
+klibc
 
 # These flags should only be used for ppc
 -ppcsha1
@@ -20,7 +19,6 @@ acpi
 avi
 lm_sensors
 rar
-cmucl
 hdf
 fmod
 i8x0
@@ -152,6 +150,7 @@ video_cards_vesa
 # Mask more VIDEO_CARDs added with mesa-8.0
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
 
@@ -191,10 +190,6 @@ d3d
 # mask wayland since dev-libs/wayland isn't keyworded
 wayland
 
-# Kacper Kowalik <xarthisius@gentoo.org> (25 Apr 2012)
-# sys-apps/systemd is not tested on ppc*
-systemd
-
 # Julian Ospald <hasufell@gentoo.org> (25 Apr 2012)
 # Masked because nvidia-texture-tools is not (tested) for PowerPC
 nvtt
@@ -209,3 +204,7 @@ clvm
 
 # for gnome 3.6 keywording
 -zeitgeist
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl

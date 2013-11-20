@@ -1,6 +1,20 @@
 # ChangeLog for media-video/noad
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/noad/ChangeLog,v 1.56 2013/04/04 10:49:11 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/noad/ChangeLog,v 1.60 2013/05/14 09:38:01 ago Exp $
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> noad-0.7.3-r1.ebuild:
+  Stable for x86, wrt bug #464564
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> noad-0.7.3-r1.ebuild:
+  Stable for amd64, wrt bug #464564
+
+  01 May 2013; Samuli Suominen <ssuominen@gentoo.org> noad-0.7.3-r1.ebuild:
+  Remove pointless subslot operator from media-gfx/imagemagick dependency
+  because it's meant only for dev-ruby/rmagick.
+
+  25 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> noad-0.7.3-r1.ebuild:
+  Fix building with media-gfx/imagemagick >= 6.8 wrt #467134. Fix building with
+  recent media-video/ffmpeg (missing -lavutil linkage)
 
   04 Apr 2013; Alexis Ballier <aballier@gentoo.org>
   +files/patches-0.7.x/noad-0.7.3-ffmpeg_detection.diff:
@@ -308,4 +322,3 @@
   +files/reccmds.noad.conf, +files/vdraddon.noad, +metadata.xml,
   +noad-0.6.0-r2.ebuild:
   initial ebuild; older Versions on Gentoo.de Overlay
-

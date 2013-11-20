@@ -1,6 +1,45 @@
 # ChangeLog for media-sound/spotify
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/spotify/ChangeLog,v 1.15 2013/03/23 19:59:15 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/spotify/ChangeLog,v 1.22 2013/10/29 07:00:19 prometheanfire Exp $
+
+*spotify-0.9.4.183-r1 (29 Oct 2013)
+
+  29 Oct 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.9.4.183-r1.ebuild, -spotify-0.9.4.183.ebuild:
+  fix for bug 488812
+
+*spotify-0.9.4.183 (13 Oct 2013)
+
+  13 Oct 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.9.4.183.ebuild, -spotify-0.9.1.55.ebuild:
+  finally updating spotify, should be better now...
+
+  01 Oct 2013; Matthew Thode <prometheanfire@gentoo.org>
+  spotify-0.9.1.55.ebuild:
+  fix for bug 486094
+
+*spotify-0.9.1.55 (21 Jul 2013)
+
+  21 Jul 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.9.1.55.ebuild, -spotify-0.9.0.133-r1.ebuild,
+  -spotify-0.9.0.133.ebuild:
+  bumping spotify for bug 474010, wish upstream were not slow
+
+*spotify-0.9.0.133-r1 (10 Jun 2013)
+
+  10 Jun 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.9.0.133-r1.ebuild:
+  updating spotify to give it icon/desktop support for bug 472840
+
+  06 May 2013; Matthew Thode <prometheanfire@gentoo.org>
+  -spotify-0.8.8.323-r1.ebuild, -spotify-0.8.8.323-r2.ebuild:
+  removed old (unavailable) versions of spotify
+
+*spotify-0.9.0.133 (03 May 2013)
+
+  03 May 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.9.0.133.ebuild:
+  updating spotify for new release
 
   23 Mar 2013; Mike Frysinger <vapier@gentoo.org> spotify-0.8.8.323-r1.ebuild,
   spotify-0.8.8.323-r2.ebuild:

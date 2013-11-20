@@ -1,6 +1,49 @@
 # ChangeLog for sys-power/cpufrequtils
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/cpufrequtils/ChangeLog,v 1.71 2013/02/18 09:31:44 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-power/cpufrequtils/ChangeLog,v 1.81 2013/08/03 07:29:55 ago Exp $
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cpufrequtils-008-r4.ebuild:
+  Stable for sparc, wrt bug #474312
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cpufrequtils-008-r4.ebuild:
+  Stable for ppc64, wrt bug #474312
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cpufrequtils-008-r4.ebuild:
+  Stable for ppc, wrt bug #474312
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cpufrequtils-008-r4.ebuild:
+  Stable for ia64, wrt bug #474312
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cpufrequtils-008-r4.ebuild:
+  Stable for arm, wrt bug #474312
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cpufrequtils-008-r4.ebuild:
+  Stable for x86, wrt bug #474312
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cpufrequtils-008-r4.ebuild:
+  Stable for amd64, wrt bug #474312
+
+*cpufrequtils-008-r4 (09 May 2013)
+
+  09 May 2013; Fabio Erculiani <lxnay@gentoo.org> -cpufrequtils-008-r3.ebuild,
+  +cpufrequtils-008-r4.ebuild, files/cpufrequtils-change.sh:
+  fix cpufrequtils-change.sh usage when the default interpreter is not bash,
+  fixes bug #469218
+
+*cpufrequtils-008-r3 (06 May 2013)
+
+  06 May 2013; Fabio Erculiani <lxnay@gentoo.org> -cpufrequtils-008-r2.ebuild,
+  +cpufrequtils-008-r3.ebuild, files/cpufrequtils-init.d-007,
+  files/cpufrequtils.service, files/cpufrequtils-change.sh:
+  fix usage with systemd when SYSFS_OPTS is not set
+
+*cpufrequtils-008-r2 (21 Apr 2013)
+
+  21 Apr 2013; Fabio Erculiani <lxnay@gentoo.org>
+  +files/cpufrequtils-init.d-007, +cpufrequtils-008-r2.ebuild,
+  +files/cpufrequtils.service, +files/cpufrequtils-change.sh:
+  add systemd support, create a new helper script
+  /usr/libexec/cpufrequtils-change.sh, close bug #466472
 
   18 Feb 2013; Zac Medico <zmedico@gentoo.org> cpufrequtils-008-r1.ebuild:
   Add ~arm-linux keyword.

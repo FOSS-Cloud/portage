@@ -1,6 +1,14 @@
 # ChangeLog for dev-ruby/cmdparse
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/cmdparse/ChangeLog,v 1.27 2012/10/05 18:11:28 ranger Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/cmdparse/ChangeLog,v 1.29 2013/10/06 12:01:22 mrueg Exp $
+
+*cmdparse-2.0.5-r1 (06 Oct 2013)
+
+  06 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +cmdparse-2.0.5-r1.ebuild:
+  Add ruby20 target.
+
+  05 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -cmdparse-2.0.2-r1.ebuild:
+  Cleanup old.
 
   05 Oct 2012; Brent Baude <ranger@gentoo.org> cmdparse-2.0.5.ebuild:
   Marking cmdparse-2.0.5 ppc64 for bug 429962

@@ -1,6 +1,66 @@
 # ChangeLog for media-sound/ardour
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/ardour/ChangeLog,v 1.112 2013/03/20 20:28:16 nativemad Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/ardour/ChangeLog,v 1.124 2013/11/08 12:34:31 nativemad Exp $
+
+*ardour-3.5.74 (08 Nov 2013)
+
+  08 Nov 2013; Andreas Schuerch <nativemad@gentoo.org>
+  +files/ardour-3.5.7-syslibs.patch, ardour-3.5.14.ebuild,
+  +ardour-3.5.74.ebuild, ardour-9999.ebuild:
+  Added a dep on higher lv2 version - Thanks Martin Erdtmann in bug 490186. The
+  git-2 eclass is now only used in 9999. Also 3.5.74 bump.
+
+  05 Nov 2013; Andreas Schuerch <nativemad@gentoo.org> ardour-3.5.14.ebuild,
+  ardour-9999.ebuild:
+  Added app-arch/unzip do the deps. see bug 484674. Thanks Samuli.
+
+  05 Nov 2013; Andreas Schuerch <nativemad@gentoo.org> ardour-3.5.14.ebuild,
+  ardour-9999.ebuild:
+  Moved the versioned build to the github zip instead of using git directly.
+  See bug 484674
+
+*ardour-3.5.14 (28 Oct 2013)
+
+  28 Oct 2013; Andreas Schuerch <nativemad@gentoo.org> +ardour-3.5.14.ebuild,
+  +files/ardour-3.5-syslibs.patch, ardour-9999.ebuild:
+  bump to 3.5.14. Thanks Alexey McSakoff for the ebuilds and the updated patch.
+  See Bug 488934
+
+*ardour-9999 (10 Sep 2013)
+*ardour-3.4 (10 Sep 2013)
+
+  10 Sep 2013; Andreas Schuerch <nativemad@gentoo.org> +ardour-3.4.ebuild,
+  +ardour-9999.ebuild:
+  Moved to git and added ebuilds for 3.4 and 9999
+
+  27 Jul 2013; Andreas Schuerch <nativemad@gentoo.org> ardour-3.3-r1.ebuild:
+  removed the unused patch. See bug 478046. Thanks knasan. I had a bad day...
+
+  25 Jul 2013; Andreas Schuerch <nativemad@gentoo.org> ardour-3.3-r1.ebuild:
+  Removed the curl useflag for now. See bug 478046. Thanks Mike Limansky for
+  reporting.
+
+*ardour-3.3-r1 (24 Jul 2013)
+
+  24 Jul 2013; Andreas Schuerch <nativemad@gentoo.org> +ardour-3.3-r1.ebuild:
+  added -r1 due to wrong configdir. see bug 477924
+
+*ardour-3.3 (22 Jul 2013)
+
+  22 Jul 2013; Andreas Schuerch <nativemad@gentoo.org> +ardour-3.3.ebuild:
+  new ebuild for Ardour 3.3
+
+*ardour-3.2 (25 Jun 2013)
+
+  25 Jun 2013; Andreas Schuerch <nativemad@gentoo.org> +ardour-3.2.ebuild,
+  +files/ardour-3.2-syslibs.patch:
+  new ebuild for Ardour 3.2
+
+  09 Apr 2013; Andreas Schuerch <nativemad@gentoo.org> ardour-3.0.ebuild:
+  removed jobs statement and unused tests. Thanks Samuli in Bug 465132
+
+  08 Apr 2013; Andreas Schuerch <nativemad@gentoo.org> ardour-3.0.ebuild:
+  Corrected the makeopts variable output for the jobs flag. See Bug 465132.
 
   20 Mar 2013; Andreas Schuerch <nativemad@gentoo.org> ardour-3.0.ebuild:
   added taglib and doxygens use of dot as deps. See Bug 462342 and 462464.
@@ -519,4 +579,3 @@
 
   27 Jun 2003; robh <robh@gentoo.org> ardour-0.9_beta1.ebuild:
   Initial version.
-

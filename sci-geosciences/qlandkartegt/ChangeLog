@@ -1,6 +1,33 @@
 # ChangeLog for sci-geosciences/qlandkartegt
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/qlandkartegt/ChangeLog,v 1.19 2013/03/02 23:22:10 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/qlandkartegt/ChangeLog,v 1.25 2013/10/23 19:18:06 hanno Exp $
+
+  23 Oct 2013; Hanno Boeck <hanno@gentoo.org> metadata.xml:
+  Remove myself as maintainer, now maintained by sci-geosciences herd.
+
+  23 Oct 2013; Justin Lecher <jlec@gentoo.org> qlandkartegt-1.7.5.ebuild:
+  Fix license
+
+*qlandkartegt-1.7.5 (23 Oct 2013)
+
+  23 Oct 2013; Justin Lecher <jlec@gentoo.org> +qlandkartegt-1.7.5.ebuild:
+  Version Bump, #489094
+
+  01 Oct 2013; Davide Pesavento <pesa@gentoo.org> qlandkartegt-1.4.2.ebuild,
+  qlandkartegt-1.5.1.ebuild, qlandkartegt-1.6.0.ebuild,
+  qlandkartegt-1.7.0.ebuild:
+  Properly fix qtgui/qtdbus deps wrt bug 484190.
+
+  10 Jul 2013; Patrick Lauer <patrick@gentoo.org> qlandkartegt-1.4.2.ebuild,
+  qlandkartegt-1.5.1.ebuild, qlandkartegt-1.6.0.ebuild,
+  qlandkartegt-1.7.0.ebuild:
+  Fixing qtgui deps for qt-4.8.5
+
+*qlandkartegt-1.7.0 (07 May 2013)
+
+  07 May 2013; Justin Lecher <jlec@gentoo.org> +qlandkartegt-1.7.0.ebuild,
+  metadata.xml:
+  Version Bump, #462810
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> qlandkartegt-1.4.2.ebuild,
   qlandkartegt-1.5.1.ebuild, qlandkartegt-1.6.0.ebuild:

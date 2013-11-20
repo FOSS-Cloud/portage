@@ -1,6 +1,57 @@
 # ChangeLog for dev-util/anjuta
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/anjuta/ChangeLog,v 1.155 2013/03/28 17:00:13 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/anjuta/ChangeLog,v 1.168 2013/09/07 10:27:49 eva Exp $
+
+  07 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org> anjuta-3.8.4.ebuild:
+  Add missing configure switch.
+
+  24 Aug 2013; Patrick Lauer <patrick@gentoo.org> anjuta-3.8.4.ebuild:
+  QA: Remove stable keywords until dependencies catch up
+
+  23 Aug 2013; Pacho Ramos <pacho@gentoo.org> -anjuta-3.8.3.ebuild,
+  anjuta-3.8.4.ebuild:
+  Fix DEPEND as we are running eautoreconf (#481386 by Peter Stuge), drop old.
+
+  28 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org> anjuta-3.8.4.ebuild,
+  +files/anjuta-3.8.4-librt.patch:
+  Fix underlinking failure with gold (bug #468620, thanks to Justin Lecher).
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> anjuta-3.6.2-r1.ebuild,
+  anjuta-3.8.3.ebuild, anjuta-3.8.4.ebuild, metadata.xml:
+  Fix usage of python-r1.eclass
+
+*anjuta-3.8.4 (04 Jun 2013)
+
+  04 Jun 2013; Pacho Ramos <pacho@gentoo.org> +anjuta-3.8.4.ebuild,
+  -anjuta-3.8.1.ebuild, -files/anjuta-3.8.1-vala-0.20.patch:
+  Version bump, drop old
+
+*anjuta-3.8.3 (21 May 2013)
+
+  21 May 2013; Pacho Ramos <pacho@gentoo.org> +anjuta-3.8.3.ebuild:
+  Version bump, drop old
+
+  26 Apr 2013; Pacho Ramos <pacho@gentoo.org> -anjuta-3.4.3.ebuild:
+  Drop old
+
+*anjuta-3.8.1 (16 Apr 2013)
+
+  16 Apr 2013; Pacho Ramos <pacho@gentoo.org> +anjuta-3.8.1.ebuild,
+  +files/anjuta-3.8.1-vala-0.20.patch, -anjuta-3.8.0.ebuild,
+  anjuta-3.6.2-r1.ebuild:
+  Version bump, drop old
+
+  14 Apr 2013; Agostino Sarubbo <ago@gentoo.org> anjuta-3.6.2-r1.ebuild:
+  Stable for ppc, wrt bug #463660
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> anjuta-3.6.2-r1.ebuild:
+  Stable for sparc, wrt bug #463660
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> anjuta-3.6.2-r1.ebuild:
+  Stable for amd64, wrt bug #463660
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> anjuta-3.6.2-r1.ebuild:
+  Stable for x86, wrt bug #463660
 
 *anjuta-3.8.0 (28 Mar 2013)
 

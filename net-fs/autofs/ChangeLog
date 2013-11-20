@@ -1,6 +1,126 @@
 # ChangeLog for net-fs/autofs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/autofs/ChangeLog,v 1.147 2013/03/25 19:27:27 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/autofs/ChangeLog,v 1.172 2013/11/10 15:53:29 tomwij Exp $
+
+  10 Nov 2013; Tom Wijsman <TomWij@gentoo.org> -autofs-4.1.4-r1.ebuild,
+  -autofs-5.0.4-r5.ebuild, -autofs-5.0.6-r3.ebuild, -autofs-5.0.6-r4.ebuild,
+  -autofs-5.0.6-r5.ebuild, -autofs-5.0.7-r1.ebuild, -autofs-5.0.7-r2.ebuild,
+  -autofs-5.0.7.ebuild, -autofs-9999.ebuild,
+  -files/autofs-4.1.4-clean-up-maps.patch,
+  -files/autofs-4.1.4-fix-install-ldap-samples-and-maps.patch,
+  -files/autofs-4.1.4-fix-man-pages.patch, -files/autofs-4.1.4-init.patch,
+  -files/autofs-4.1.4-respect-user-flags-and-fix-asneeded.patch,
+  -files/autofs-5.0.4-user-ldflags-and-as-needed-v2.patch,
+  -files/autofs-5.0.4-user-ldflags-and-as-needed.patch, -files/autofs-5.0.5-add-
+  missing-endif-HAVE_SASL-in-modules-lookup_ldap.c.patch,
+  -files/autofs-5.0.5-fix-building-without-ldap.patch,
+  -files/autofs-5.0.6-ipv6_name_lookup_regression.patch,
+  -files/autofs-5.0.6-respect-user-flags-and-fix-asneeded-r2.patch,
+  -files/autofs-5.0.6-respect-user-flags-and-fix-asneeded.patch,
+  -files/autofs-5.0.7-mount-sloppy.patch, -files/autofs.rc12,
+  -files/autofs.rc13, -files/autofs5.rc1:
+  Remove old versions, proxied commit for Dennis 'dlan' Lan; fixes bug #478020.
+
+*autofs-5.0.8-r1 (24 Oct 2013)
+
+  24 Oct 2013; Justin Lecher <jlec@gentoo.org> -autofs-5.0.8.ebuild,
+  +autofs-5.0.8-r1.ebuild, +files/autofs-5.0.8-ldap-wo-sasl.patch:
+  Backport fix for ldap without sasl, #489128
+
+  23 Oct 2013; Patrick Lauer <patrick@gentoo.org> autofs-5.0.8.ebuild:
+  Whitespace
+
+*autofs-5.0.8 (21 Oct 2013)
+
+  21 Oct 2013; Ben de Groot <yngwin@gentoo.org> +autofs-5.0.8.ebuild:
+  Version bump, bug #488330
+
+  26 Sep 2013; Agostino Sarubbo <ago@gentoo.org> autofs-5.0.7-r4.ebuild:
+  Stable for arm, wrt bug #483652
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> autofs-5.0.7-r4.ebuild:
+  Stable for alpha, wrt bug #483652
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> autofs-5.0.7-r4.ebuild:
+  Stable for x86, wrt bug #483652
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> autofs-5.0.7-r4.ebuild:
+  Stable for ia64, wrt bug #483652
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> autofs-5.0.7-r4.ebuild:
+  Stable for ppc, wrt bug #483652
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> autofs-5.0.7-r4.ebuild:
+  Stable for sparc, wrt bug #483652
+
+  06 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> autofs-5.0.7-r4.ebuild:
+  Respect AR and RANLIB, wrt bug #483716. Thanks to Agostino Sarubbo for
+  discovering this issue and Dennis Lan for provided patch
+
+  05 Sep 2013; Jeroen Roovers <jer@gentoo.org> autofs-5.0.7-r4.ebuild:
+  Stable for HPPA (bug #483652).
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> autofs-5.0.7-r4.ebuild:
+  Stable for amd64, wrt bug #483652
+
+  22 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> autofs-5.0.7-r4.ebuild:
+  Add missing inherit to systemd eclass
+
+*autofs-5.0.7-r4 (22 Aug 2013)
+
+  22 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> -autofs-5.0.7-r3.ebuild,
+  +autofs-5.0.7-r4.ebuild:
+  Revision bump: add systemd support, wrt bug #479492. Thanks to Charles Nérot
+  <charles AT nerot.com> for discovering this issue and Dennis Lan <dennis.yxun
+  AT gmail.com> for all necessary fixes. Drop old revision
+
+  08 Aug 2013; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Fix USE description for libtirpc
+
+*autofs-5.0.7-r3 (30 Jul 2013)
+
+  30 Jul 2013; Maxim Koltsov <maksbotan@gentoo.org> +autofs-5.0.7-r3.ebuild,
+  +files/autofs-5.0.7-libtirpc-link.patch,
+  +files/autofs-5.0.7-parallel-make.patch,
+  +files/autofs-5.0.7-respect-user-flags-and-fix-asneeded-r3.patch,
+  autofs-9999.ebuild:
+  1) fix broken libtirpc link error, bug #464120 2) fix occational parallel
+  build error 3) fix duplicated user_patch 4) fix dmalloc deps. Thanks to Dennis
+  'dlan' Lan.
+
+  22 Jul 2013; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Drop Dustin from metadata.xml, make Dennis (dlan) Lan primary maintainer;
+  sorted and clarified / extended descriptions.
+
+  13 Jun 2013; Robin H. Johnson <robbat2@gentoo.org> autofs-9999.ebuild:
+  Remove forced mount-locking for live ebuild.
+
+*autofs-9999 (12 Jun 2013)
+*autofs-5.0.7-r2 (12 Jun 2013)
+
+  12 Jun 2013; Robin H. Johnson <robbat2@gentoo.org> +autofs-5.0.7-r2.ebuild,
+  +autofs-9999.ebuild, +files/autofs-5.0.7-sasl-def.patch, metadata.xml:
+  Update, now with proxy maintenance.
+
+  06 May 2013; Justin Lecher <jlec@gentoo.org> autofs-5.0.7-r1.ebuild,
+  +files/autofs-5.0.7-add-missing-endif-HAVE_SASL-in-modules-lookup_ldap.c.patc
+  h:
+  Add missing if statements for non-sasl ldap, #468606
+
+  05 May 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Update e-mail address
+
+  04 May 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/autofs-5.0.7-mount-sloppy.patch, autofs-5.0.7-r1.ebuild:
+  Disable mount sloppy test since it violates the sandbox #453778 by Konstantin
+  Münning.
+
+*autofs-5.0.7-r1 (03 May 2013)
+
+  03 May 2013; Justin Lecher <jlec@gentoo.org> +autofs-5.0.7-r1.ebuild,
+  metadata.xml:
+  add latest upstream patches, needed for correct connection with LDAP based
+  automounts, #463770
 
 *autofs-5.0.7 (25 Mar 2013)
 

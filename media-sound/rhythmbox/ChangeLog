@@ -1,6 +1,66 @@
 # ChangeLog for media-sound/rhythmbox
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/rhythmbox/ChangeLog,v 1.240 2013/03/31 19:02:20 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/rhythmbox/ChangeLog,v 1.250 2013/10/30 18:18:59 pacho Exp $
+
+  30 Oct 2013; Pacho Ramos <pacho@gentoo.org> rhythmbox-3.0.1.ebuild:
+  mako doesn't need beaker and, then, python-3.3 support can be added (also
+  default to it in preparation of python-3.3 stabilization (#474128) that is
+  needed for other gnome related packages
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  -files/rhythmbox-3.0-daap-schema.patch,
+  -files/rhythmbox-3.0-gdbus-return-value.patch,
+  -files/rhythmbox-3.0-rbzeitgeist-python3.patch, -rhythmbox-3.0-r1.ebuild,
+  rhythmbox-3.0.1.ebuild:
+  Let people emerge this by default (#472932), reconsider when it starts to
+  support another implementation. Drop old.
+
+*rhythmbox-3.0.1 (15 Oct 2013)
+
+  15 Oct 2013; Pacho Ramos <pacho@gentoo.org> +rhythmbox-3.0.1.ebuild,
+  -rhythmbox-2.99.1.ebuild, metadata.xml:
+  Version bump
+
+  22 Sep 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/rhythmbox-3.0-daap-schema.patch, rhythmbox-3.0-r1.ebuild:
+  Fix daap schema (#485514 by David King), gtk-doc handling, missing
+  REQUIRED_USE
+
+  15 Sep 2013; Nirbheek Chauhan <nirbheek@gentoo.org> rhythmbox-3.0-r1.ebuild:
+  Use python-single-r1 like 2.99.1, and remove support for python3_3 (beaker
+  doesn't support it yet)
+
+*rhythmbox-3.0-r1 (13 Sep 2013)
+
+  13 Sep 2013; Nirbheek Chauhan <nirbheek@gentoo.org>
+  +files/rhythmbox-3.0-gdbus-return-value.patch,
+  +files/rhythmbox-3.0-rbzeitgeist-python3.patch, +rhythmbox-3.0-r1.ebuild,
+  -rhythmbox-3.0.ebuild:
+  Fix a hang (reported by pva), fix deps, and port a plugin to Python 3
+
+*rhythmbox-3.0 (13 Sep 2013)
+
+  13 Sep 2013; Nirbheek Chauhan <nirbheek@gentoo.org> +rhythmbox-3.0.ebuild,
+  metadata.xml:
+  Bump to 3.0
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  rhythmbox-0.12.8-r1.ebuild, rhythmbox-2.99.1.ebuild:
+  Depend on libsoup-gnome again, clean up old revisions.
+
+  21 Jul 2013; Pacho Ramos <pacho@gentoo.org>
+  -files/rhythmbox-2.95-fix-db-dbus-interface.patch,
+  -files/rhythmbox-2.95-port-im-status-plugin.patch,
+  -files/rhythmbox-2.95-port-rb-set-rating-py-example.patch,
+  -rhythmbox-0.13.3.ebuild, -rhythmbox-2.97.ebuild, -rhythmbox-2.98.ebuild,
+  metadata.xml:
+  drop old
+
+*rhythmbox-2.99.1 (22 Apr 2013)
+
+  22 Apr 2013; Pacho Ramos <pacho@gentoo.org> +rhythmbox-2.99.1.ebuild,
+  metadata.xml:
+  Version bump
 
   31 Mar 2013; Pacho Ramos <pacho@gentoo.org> rhythmbox-0.12.8-r1.ebuild,
   rhythmbox-0.13.3.ebuild, rhythmbox-2.97.ebuild, rhythmbox-2.98.ebuild:

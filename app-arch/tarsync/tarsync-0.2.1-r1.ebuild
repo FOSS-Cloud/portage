@@ -1,30 +1,29 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/tarsync/tarsync-0.2.1-r1.ebuild,v 1.1 2010/08/11 08:30:41 ferringb Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/tarsync/tarsync-0.2.1-r1.ebuild,v 1.6 2013/06/25 12:48:39 ago Exp $
 
-EAPI=2
+EAPI=5
+
+inherit eutils toolchain-funcs
+
 DESCRIPTION="Delta compression suite for using/generating binary patches"
-HOMEPAGE="http://gentooexperimental.org/~ferringb/tarsync/"
+HOMEPAGE="http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/app-arch/tarsync/tarsync-0.2.1-r1.ebuild?view=markup"
 SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
-SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~hppa ~ppc ~x86 ~amd64"
+SLOT="0"
+KEYWORDS="amd64 ~hppa ppc x86"
 IUSE=""
-
-S="${WORKDIR}/${PN}"
 
 DEPEND=">=dev-util/diffball-0.7"
 RDEPEND="${DEPEND}"
 
+S=${WORKDIR}/${PN}
+
+pkg_setup() {
+	tc-export CC
+}
+
 src_prepare() {
-	sed -i -e 's:gcc \$(CFLAGS):gcc \$(CFLAGS) $(LDFLAGS):' Makefile || die "failed sed'ing to enable LDFLAGS"
-}
-
-src_compile() {
-	emake || die "emake failed"
-}
-
-src_install() {
-	make DESTDIR="${D}" install || die "failed installing"
+	epatch "${FILESDIR}"/${P}-make.patch
 }

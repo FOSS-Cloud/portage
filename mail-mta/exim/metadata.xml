@@ -24,6 +24,9 @@
 			domain name is the supplied query</flag>
 		<flag name='dovecot-sasl'>Adds support for Dovecot's
 			authentication</flag>
+		<flag name='dlfunc'>Install local_scan.h header to compile separate
+			dlfunc libraries</flag>
+		<flag name='dmarc'>Adds support for DMARC</flag>
 		<flag name='dsn'>Adds support for Delivery Status Notifications
 			(DSN)</flag>
 		<flag name='exiscan-acl'>Patch providing support for content
@@ -32,6 +35,7 @@
 		<flag name='mbx'>Adds support for UW's mbx format</flag>
 		<flag name='spf'>Adds support for Sender Policy Framework</flag>
 		<flag name='srs'>Adds support for Sender Rewriting Scheme</flag>
+		<flag name='pkcs11'>Require pkcs11 support in <pkg>net-libs/gnutls</pkg> with USE=gnutls</flag>
 	</use>
 	<upstream>
 		<bugs-to>http://bugs.exim.org/</bugs-to>

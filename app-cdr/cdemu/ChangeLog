@@ -1,6 +1,53 @@
 # ChangeLog for app-cdr/cdemu
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdemu/ChangeLog,v 1.37 2013/01/28 00:22:41 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdemu/ChangeLog,v 1.46 2013/10/08 16:52:20 tetromino Exp $
+
+*cdemu-2.1.1 (08 Oct 2013)
+
+  08 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org> -cdemu-2.0.0.ebuild,
+  -cdemu-2.1.0.ebuild, +cdemu-2.1.1.ebuild,
+  -files/cdemu-2.0.0-bash-completion-dir.patch:
+  Version bump. Remove old.
+
+  08 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org> -cdemu-2.0.0.ebuild,
+  -cdemu-2.1.0.ebuild, -files/cdemu-2.0.0-bash-completion-dir.patch:
+  Remove old.
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cdemu-2.1.0-r2.ebuild:
+  Stable for x86, wrt bug #477004
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cdemu-2.1.0-r2.ebuild:
+  Stable for amd64, wrt bug #477004
+
+*cdemu-2.1.0-r2 (19 Jul 2013)
+
+  19 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +cdemu-2.1.0-r2.ebuild, -cdemu-2.1.0-r1.ebuild,
+  files/cdemu-2.1.0-bash-completion-dir.patch:
+  Fix completion filename for bash-completion-2.1-r1 (bug #477378, thanks to
+  Alexander Tsoy).
+
+*cdemu-2.1.0-r1 (19 Jul 2013)
+
+  19 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +cdemu-2.1.0-r1.ebuild, +files/cdemu-2.1.0-bash-completion-dir.patch:
+  Do not use a hard-coded completion directory to fix compatibility with
+  bash-completion-2.1-r1 (bug #477378, thanks to Michał Górny).
+
+  29 Jun 2013; Alexandre Rostovtsev <tetromino@gentoo.org> -cdemu-1.5.0.ebuild,
+  -files/cdemu-1.5.0-man-paragraph.patch:
+  Remove old.
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> cdemu-2.0.0.ebuild:
+  Stable for amd64, wrt bug #473538
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> cdemu-2.0.0.ebuild:
+  Stable for x86, wrt bug #473538
+
+*cdemu-2.1.0 (17 Jun 2013)
+
+  17 Jun 2013; Alexandre Rostovtsev <tetromino@gentoo.org> +cdemu-2.1.0.ebuild:
+  Version bump (bug #472784, thanks to Henrik Stokseth and Rafał Mużyło).
 
 *cdemu-2.0.0 (28 Jan 2013)
 

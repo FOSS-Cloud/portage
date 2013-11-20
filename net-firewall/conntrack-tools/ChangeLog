@@ -1,6 +1,64 @@
 # ChangeLog for net-firewall/conntrack-tools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/conntrack-tools/ChangeLog,v 1.53 2012/10/29 12:36:43 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/conntrack-tools/ChangeLog,v 1.68 2013/10/02 02:51:01 jer Exp $
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> conntrack-tools-1.4.2.ebuild:
+  Stable for HPPA (bug #474858).
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> conntrack-tools-1.4.2.ebuild:
+  Stable for x86, wrt bug #474858
+
+  28 Sep 2013; Agostino Sarubbo <ago@gentoo.org> conntrack-tools-1.4.2.ebuild:
+  Stable for amd64, wrt bug #474858
+
+*conntrack-tools-1.4.2 (20 Aug 2013)
+
+  20 Aug 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +conntrack-tools-1.4.2.ebuild, +files/conntrackd.confd-r2,
+  +files/conntrackd.initd-r3:
+  Version bump: drop redundant src_configure, fix path to lock directory, wrt
+  bug #474858. Thanks to Jeroen Roovers for discovering this issue
+
+  26 Jun 2013; Jeroen Roovers <jer@gentoo.org> conntrack-tools-1.4.1.ebuild:
+  Stable for HPPA (bug #474268).
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> conntrack-tools-1.4.1.ebuild:
+  Stable for amd64, wrt bug #474268
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> conntrack-tools-1.4.1.ebuild:
+  Stable for x86, wrt bug #474268
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #151880
+
+  25 Apr 2013; Jeroen Roovers <jer@gentoo.org> -conntrack-tools-1.0.0.ebuild,
+  -conntrack-tools-1.0.1.ebuild, -conntrack-tools-1.4.0.ebuild,
+  conntrack-tools-1.2.2-r1.ebuild, conntrack-tools-1.4.1.ebuild:
+  Build verbosely (bug #467218).
+
+  25 Apr 2013; Jeroen Roovers <jer@gentoo.org> conntrack-tools-1.2.2-r1.ebuild:
+  Stable for HPPA (bug #451316).
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  conntrack-tools-1.2.2-r1.ebuild:
+  Stable for x86, wrt bug #451316
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  conntrack-tools-1.2.2-r1.ebuild:
+  Stable for amd64, wrt bug #451316
+
+  25 Apr 2013; Jeroen Roovers <jer@gentoo.org>
+  +files/conntrack-tools-0.9.14-include.patch, conntrack-tools-0.9.14.ebuild:
+  Include stdio.h for bug #451316.
+
+  25 Apr 2013; Jeroen Roovers <jer@gentoo.org> conntrack-tools-1.4.1.ebuild,
+  +files/conntrack-tools-1.4.1-version.patch:
+  Fix libnetfilter_conntrack version check.
+
+*conntrack-tools-1.4.1 (25 Apr 2013)
+
+  25 Apr 2013; Jeroen Roovers <jer@gentoo.org> +conntrack-tools-1.4.1.ebuild:
+  Version bump (bug #466736 by Olipro).
 
   29 Oct 2012; Jeroen Roovers <jer@gentoo.org> conntrack-tools-1.4.0.ebuild:
   Marked ~hppa (bug #440108).
@@ -254,4 +312,3 @@
   29 Jul 2007; Cédric Krier <cedk@gentoo.org> +files/conntrackd.confd,
   +files/conntrackd.initd, +metadata.xml, +conntrack-tools-0.9.5.ebuild:
   New ebuild, thanks to Olivier Huber, Natanael Copa
-

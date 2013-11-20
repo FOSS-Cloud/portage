@@ -1,6 +1,51 @@
 # ChangeLog for sys-firmware/seabios
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-firmware/seabios/ChangeLog,v 1.13 2013/03/17 03:14:42 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-firmware/seabios/ChangeLog,v 1.24 2013/09/14 10:04:38 ago Exp $
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> seabios-1.7.2.2.ebuild:
+  Stable for x86, wrt bug #484686
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> seabios-1.7.2.2.ebuild:
+  Stable for amd64, wrt bug #484686
+
+  27 Aug 2013; Doug Goldstein <cardoe@gentoo.org> seabios-1.7.3.ebuild:
+  Attempt to utilize toolchain functions rather than having it use the defaults.
+
+*seabios-1.7.3 (20 Aug 2013)
+
+  20 Aug 2013; Doug Goldstein <cardoe@gentoo.org> +seabios-1.7.3.ebuild,
+  seabios-1.7.2.2.ebuild:
+  Add initial SeaBIOS 1.7.3
+
+  28 Jul 2013; Jonathan Callen <jcallen@gentoo.org> seabios-1.7.2.2.ebuild:
+  Add missing python dependency, switch to using python-any-r1 as it is usually
+  more appropriate when the package does not install anything that would depend
+  on python at runtime.
+
+*seabios-1.7.2.2 (05 Jul 2013)
+
+  05 Jul 2013; Doug Goldstein <cardoe@gentoo.org> +seabios-1.7.2.2.ebuild:
+  Version bump. Switch to python-single-r1 from python eclass. Use QEMU's pre-
+  built binary to supply the 'upstream' pre-built binary since upstream has not
+  provided one for this version.
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> seabios-1.7.2.1.ebuild:
+  Stable for x86, wrt bug #466092
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> seabios-1.7.2.1.ebuild:
+  Stable for amd64, wrt bug #466092
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> seabios-1.7.2.ebuild:
+  Stable for x86, wrt bug #468918
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> seabios-1.7.2.ebuild:
+  Stable for amd64, wrt bug #468918
+
+*seabios-1.7.2.1 (07 May 2013)
+
+  07 May 2013; Doug Goldstein <cardoe@gentoo.org> +seabios-1.7.2.1.ebuild:
+  Version bump. I generated the tarball from the git tag. The bios.bin file is
+  from qemu 1.4.1.
 
   17 Mar 2013; Doug Goldstein <cardoe@gentoo.org> seabios-1.7.1.ebuild,
   seabios-1.7.2.ebuild:

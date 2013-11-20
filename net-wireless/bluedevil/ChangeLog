@@ -1,6 +1,37 @@
 # ChangeLog for net-wireless/bluedevil
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/bluedevil/ChangeLog,v 1.38 2013/04/02 20:56:56 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/bluedevil/ChangeLog,v 1.46 2013/09/04 12:30:44 mrueg Exp $
+
+*bluedevil-1.3.2 (04 Sep 2013)
+
+  04 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +bluedevil-1.3.2.ebuild:
+  Version bump.
+
+  09 Jun 2013; Johannes Huber <johu@gentoo.org> -bluedevil-1.3.ebuild,
+  -files/bluedevil-1.2.4-desktop.patch:
+  Remove old.
+
+  08 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.1.ebuild:
+  Stable for ppc64, wrt bug #471392
+
+  06 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.1.ebuild:
+  Stable for ppc, wrt bug #471392
+
+  05 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.1.ebuild:
+  Stable for x86, wrt bug #471392
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.1.ebuild:
+  Stable for amd64, wrt bug #471392
+
+  21 Apr 2013; Johannes Huber <johu@gentoo.org> bluedevil-1.3.1.ebuild:
+  Raise deps on net-libs/libbluedevil to fix build on mixed stable/testing
+  systems by Manuel Rüger <gentoo@rueg.eu>.
+
+*bluedevil-1.3.1 (20 Apr 2013)
+
+  20 Apr 2013; Johannes Huber <johu@gentoo.org> +bluedevil-1.3.1.ebuild,
+  -bluedevil-1.2.4.ebuild:
+  Version bump by Manuel Rüger <gentoo@rueg.eu> +me. Remove old.
 
   02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.ebuild:
   Stable for ppc64, wrt bug #462890

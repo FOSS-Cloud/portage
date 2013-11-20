@@ -1,6 +1,25 @@
 # ChangeLog for net-libs/pjsip
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/pjsip/ChangeLog,v 1.10 2013/01/13 11:23:36 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/pjsip/ChangeLog,v 1.14 2013/06/17 07:19:34 pinkbyte Exp $
+
+*pjsip-2.1-r1 (17 Jun 2013)
+
+  17 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> +pjsip-2.1-r1.ebuild,
+  +files/pjsip-2.1-new-ffmpeg-workaround.patch:
+  Revision bump: EAPI 5, epatch_user, fix building with new ffmpeg/libav, wrt
+  bug #469582
+
+  17 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> pjsip-2.1.ebuild:
+  Fix automagic dependency on ffmpeg
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> -pjsip-1.12.ebuild,
+  -pjsip-1.6.ebuild, -pjsip-1.8.10.ebuild, metadata.xml:
+  Cleanup due #200380
+
+*pjsip-2.1 (04 May 2013)
+
+  04 May 2013; <elvanor@gentoo.org> +pjsip-2.1.ebuild:
+  Version bump to 2.1.
 
   13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> pjsip-1.14.ebuild:
   Stable for x86, wrt bug #448278

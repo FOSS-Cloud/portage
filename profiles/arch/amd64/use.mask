@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/use.mask,v 1.48 2013/03/07 20:53:32 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/use.mask,v 1.51 2013/08/22 16:10:39 chithanh Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -amd64
@@ -33,10 +33,6 @@
 # 2011/12/22 - Alexis Ballier <aballier@gentoo.org>
 # Unmask vdpau as its supported here
 -vdpau
-
-# 2011/07/11 - Samuli Suominen <ssuominen@gentoo.org>
-# Unmask amd64/x86 only opencl support for nvidia-cuda-toolkit
--opencl
 
 # 2011/07/01 - Alexey Shvetsov <alexxy@gentoo.org>
 # Infiniband stuff works here
@@ -158,11 +154,6 @@ video_cards_i740
 video_cards_newport
 video_cards_nsc
 
-# 2005/09/19 - Olivier Fisette <ribosome@gentoo.org>
-# cmucl is not available on amd64. Masking to keep "sci-mathematics/maxima"
-# happy.
-cmucl
-
 # 2004/10/06 - Jeremy Huddleston <eradicator@gentoo.org>
 # sys-cluster/pvm won't build
 pvm
@@ -186,5 +177,13 @@ capslib
 # Unmask the multilib flags for this arch.
 -abi_x86_32
 -abi_x86_64
+
+# Andrey Grozin <grozin@gentoo.org> (1 May 2013)
+# available on amd64
+-clozurecl
+
+# Michał Górny <mgorny@gentoo.org> (4 May 2013)
+# Unmask systemd since it is keyworded here.
+-systemd
 
 # NOT NECESSARY - SECTION

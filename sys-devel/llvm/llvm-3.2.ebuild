@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-3.2.ebuild,v 1.6 2013/02/27 06:02:15 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-3.2.ebuild,v 1.9 2013/09/05 19:08:49 mgorny Exp $
 
 EAPI=5
 
 # pypy gives me around 1700 unresolved tests due to open file limit
 # being exceeded. probably GC does not close them fast enough.
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
 
 inherit eutils flag-o-matic multilib python-any-r1 toolchain-funcs pax-utils
 
@@ -16,7 +16,7 @@ SRC_URI="http://llvm.org/releases/${PV}/${P}.src.tar.gz
 	!doc? ( http://dev.gentoo.org/~voyageur/distfiles/${P}-manpages.tar.bz2 )"
 
 LICENSE="UoI-NCSA"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos"
 IUSE="debug doc gold +libffi multitarget ocaml test udis86 vim-syntax"
 
@@ -151,9 +151,9 @@ src_compile() {
 	emake VERBOSE=1 KEEP_SYMBOLS=1 REQUIRES_RTTI=1
 
 	if use doc; then
-		emake -C docs -f Makefile.sphinx man html
+		emake -C docs -f Makefile.sphinx man
+		emake -C docs -f Makefile.sphinx html
 	fi
-	#	emake -C docs -f Makefile.sphinx html
 
 	pax-mark m Release/bin/lli
 	if use test; then

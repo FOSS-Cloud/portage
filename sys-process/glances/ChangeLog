@@ -1,6 +1,40 @@
 # ChangeLog for sys-process/glances
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/glances/ChangeLog,v 1.5 2013/02/02 18:07:40 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/glances/ChangeLog,v 1.12 2013/11/16 09:33:29 xarthisius Exp $
+
+*glances-1.7.2 (16 Nov 2013)
+
+  16 Nov 2013; Kacper Kowalik <xarthisius@gentoo.org> +glances-1.7.2.ebuild,
+  -glances-1.7.ebuild:
+  Version bump, drop old
+
+*glances-1.7.1 (26 Aug 2013)
+
+  26 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> +glances-1.7.1.ebuild,
+  -glances-1.6.1.ebuild, glances-1.7.ebuild:
+  Version bump, drop old
+
+*glances-1.7 (12 Aug 2013)
+
+  12 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org> +glances-1.7.ebuild,
+  metadata.xml:
+  Version bump
+
+  08 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> glances-1.6.1.ebuild:
+  Add ~arm keyword, wrt bug #477832
+
+  07 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org> glances-1.6.1.ebuild:
+  Keyword amd64-linux and x86-linux
+
+  10 Jul 2013; Kacper Kowalik <xarthisius@gentoo.org> glances-1.6.1.ebuild:
+  Add python3.x to PYTHON_COMPAT wrt #475986 by CBke <cb@linux.be>
+
+*glances-1.6.1 (20 May 2013)
+
+  20 May 2013; Kacper Kowalik <xarthisius@gentoo.org> +glances-1.6.1.ebuild,
+  -glances-1.6.ebuild:
+  Version bump, depend properly on python[ncurses] wrt bug 460068 by Albert W.
+  Hopkins <marduk@python.net>, check for required kernel options. Drop old
 
   02 Feb 2013; Kacper Kowalik <xarthisius@gentoo.org> glances-1.6.ebuild:
   Add missing RDEP=DEP

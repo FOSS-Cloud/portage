@@ -1,6 +1,41 @@
 # ChangeLog for sys-apps/usb_modeswitch
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/usb_modeswitch/ChangeLog,v 1.43 2013/02/12 19:35:06 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/usb_modeswitch/ChangeLog,v 1.50 2013/09/10 06:36:35 ssuominen Exp $
+
+*usb_modeswitch-2.0.1_p20130807 (10 Sep 2013)
+
+  10 Sep 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +usb_modeswitch-2.0.1_p20130807.ebuild:
+  Version bump; major version number change because of the libusb-0 -> libusb-1
+  switch.
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  usb_modeswitch-1.2.6_p20130610.ebuild:
+  Stable for x86, wrt bug #480710
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org>
+  usb_modeswitch-1.2.6_p20130610.ebuild:
+  arm stable, bug #480710
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  usb_modeswitch-1.2.6_p20130610.ebuild:
+  Stable for amd64, wrt bug #480710
+
+*usb_modeswitch-1.2.7_p20130807 (12 Aug 2013)
+
+  12 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +usb_modeswitch-1.2.7_p20130807.ebuild:
+  Version bump.
+
+  04 Aug 2013; Markus Meier <maekke@gentoo.org>
+  usb_modeswitch-1.2.6_p20130610.ebuild:
+  add ~arm, bug #474626
+
+*usb_modeswitch-1.2.6_p20130610 (24 Jun 2013)
+
+  24 Jun 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +usb_modeswitch-1.2.6_p20130610.ebuild, metadata.xml:
+  Version bump; introduce USE="jimtcl" wrt #409587 by Christian Faulhammer
 
   12 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
   usb_modeswitch-1.2.5_p20121109.ebuild:

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/akonadi/akonadi-4.4.11.1.ebuild,v 1.8 2013/02/23 15:53:35 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/akonadi/akonadi-4.4.11.1.ebuild,v 1.12 2013/10/10 05:26:49 creffett Exp $
 
 EAPI=4
 
@@ -8,13 +8,14 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta data"
+HOMEPAGE="http://pim.kde.org/akonadi"
 KEYWORDS="amd64 ppc ~ppc64 x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
 	>=app-office/akonadi-server-1.3.1
-	$(add_kdebase_dep kdelibs 'semantic-desktop' 4.6)
-	$(add_kdebase_dep kdepimlibs 'semantic-desktop' 4.6)
+	$(add_kdebase_dep kdelibs 'semantic-desktop(+)' 4.6)
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop(+)' 4.6)
 	$(add_kdebase_dep libkdepim)
 "
 RDEPEND="${DEPEND}

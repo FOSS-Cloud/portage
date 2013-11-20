@@ -1,6 +1,60 @@
 # ChangeLog for games-engines/renpy
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-engines/renpy/ChangeLog,v 1.9 2013/04/01 12:42:09 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-engines/renpy/ChangeLog,v 1.21 2013/11/10 20:27:02 hasufell Exp $
+
+*renpy-6.16.1 (10 Nov 2013)
+
+  10 Nov 2013; Julian Ospald <hasufell@gentoo.org>
+  +files/renpy-6.16.1-multiple-abi.patch, +renpy-6.16.1.ebuild:
+  version bump
+
+  30 Oct 2013; Michał Górny <mgorny@gentoo.org> renpy-6.14.1-r1.ebuild,
+  renpy-6.15.4.ebuild, renpy-6.15.7.ebuild, renpy-6.16.0.ebuild:
+  Update the dep to use dev-lang/python-exec.
+
+*renpy-6.16.0 (26 Oct 2013)
+
+  26 Oct 2013; Julian Ospald <hasufell@gentoo.org> +renpy-6.16.0.ebuild,
+  +files/renpy-6.16.0-multiple-abi.patch:
+  version bump
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> renpy-6.15.7.ebuild:
+  Stable for x86, wrt bug #480786
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org> renpy-6.15.7.ebuild:
+  Stable for amd64, wrt bug #480786
+
+*renpy-6.15.7 (27 Jun 2013)
+
+  27 Jun 2013; Julian Ospald <hasufell@gentoo.org> -renpy-6.15.5.ebuild,
+  -files/renpy-6.15.5-multiple-abi.patch, +renpy-6.15.7.ebuild,
+  +files/renpy-6.15.7-multiple-abi.patch:
+  version bump, remove old
+
+*renpy-6.15.5 (05 Jun 2013)
+
+  05 Jun 2013; Julian Ospald <hasufell@gentoo.org> -renpy-6.15.3.ebuild,
+  -files/renpy-6.15.3-multiple-abi.patch, +renpy-6.15.5.ebuild,
+  +files/renpy-6.15.5-multiple-abi.patch:
+  version bump, remove old
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> renpy-6.14.1-r1.ebuild:
+  Stable for x86, wrt bug #470726
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> renpy-6.14.1-r1.ebuild:
+  Stable for amd64, wrt bug #470726
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> renpy-6.15.4.ebuild:
+  Stable for x86, wrt bug #469952
+
+  17 May 2013; Agostino Sarubbo <ago@gentoo.org> renpy-6.15.4.ebuild:
+  Stable for amd64, wrt bug #469952
+
+*renpy-6.15.4 (19 Apr 2013)
+
+  19 Apr 2013; Julian Ospald <hasufell@gentoo.org> +renpy-6.15.4.ebuild,
+  +files/renpy-6.15.4-multiple-abi.patch:
+  version bump
 
   01 Apr 2013; Julian Ospald <hasufell@gentoo.org> -renpy-6.15.2.ebuild,
   -files/renpy-6.15.2-multiple-abi.patch:

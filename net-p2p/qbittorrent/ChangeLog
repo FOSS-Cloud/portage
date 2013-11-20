@@ -1,6 +1,44 @@
 # ChangeLog for net-p2p/qbittorrent
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/qbittorrent/ChangeLog,v 1.210 2013/03/31 18:06:06 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/qbittorrent/ChangeLog,v 1.219 2013/11/17 12:23:56 hwoarang Exp $
+
+*qbittorrent-3.1.2 (11 Nov 2013)
+
+  11 Nov 2013; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.2.ebuild:
+  Version bump. Bug #490934
+
+*qbittorrent-3.1.0 (16 Oct 2013)
+
+  16 Oct 2013; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.0.ebuild,
+  metadata.xml:
+  Version bump
+
+*qbittorrent-3.0.11-r1 (13 Oct 2013)
+
+  13 Oct 2013; Markos Chandras <hwoarang@gentoo.org>
+  +qbittorrent-3.0.11-r1.ebuild, qbittorrent-9999.ebuild:
+  Use system qtsingleapplication per #487522 thanks to Nikoli
+
+  27 Sep 2013; Markos Chandras <hwoarang@gentoo.org> -qbittorrent-3.0.8.ebuild,
+  -qbittorrent-3.0.9.ebuild:
+  remove old
+
+  06 Sep 2013; Markos Chandras <hwoarang@gentoo.org> qbittorrent-3.0.11.ebuild:
+  amd64/x86 stable
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> qbittorrent-3.0.11.ebuild,
+  qbittorrent-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*qbittorrent-3.0.11 (31 Jul 2013)
+
+  31 Jul 2013; Ben de Groot <yngwin@gentoo.org> +qbittorrent-3.0.11.ebuild,
+  qbittorrent-9999.ebuild:
+  Version bump, implementing latest eapi, python-r1.eclass, no longer slotted
+  boost, and general cleanup; with thanks to contributors in bug #478840
+
+  17 Jul 2013; Markus Meier <maekke@gentoo.org> qbittorrent-3.0.9.ebuild:
+  add ~arm, bug #473472
 
   31 Mar 2013; Jeff Horelick <jdhore@gentoo.org> qbittorrent-3.0.8.ebuild:
   marked x86 per bug 460190

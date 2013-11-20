@@ -1,6 +1,26 @@
 # ChangeLog for dev-python/pytables
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pytables/ChangeLog,v 1.43 2013/02/28 10:04:29 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pytables/ChangeLog,v 1.47 2013/07/01 16:13:49 xarthisius Exp $
+
+  01 Jul 2013; Kacper Kowalik <xarthisius@gentoo.org> -pytables-2.4.0-r1.ebuild,
+  -pytables-2.4.0.ebuild:
+  Drop old
+
+  01 Jul 2013; Justin Lecher <jlec@gentoo.org> pytables-2.4.0-r1.ebuild,
+  pytables-3.0.0.ebuild, metadata.xml:
+  Correct use of python eclass, #475062
+
+*pytables-3.0.0 (18 Jun 2013)
+
+  18 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> +pytables-3.0.0.ebuild,
+  metadata.xml:
+  Version bump
+
+*pytables-2.4.0-r1 (04 May 2013)
+
+  04 May 2013; Justin Lecher <jlec@gentoo.org> +pytables-2.4.0-r1.ebuild,
+  metadata.xml:
+  Converted to new python r1 eclasses
 
   28 Feb 2013; Kacper Kowalik <xarthisius@gentoo.org> -pytables-2.3.1.ebuild,
   pytables-2.4.0.ebuild:

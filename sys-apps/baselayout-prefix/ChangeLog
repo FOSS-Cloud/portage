@@ -1,6 +1,54 @@
 # ChangeLog for sys-apps/baselayout-prefix
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/baselayout-prefix/ChangeLog,v 1.23 2013/02/07 20:27:49 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/baselayout-prefix/ChangeLog,v 1.34 2013/10/29 21:00:57 haubi Exp $
+
+  29 Oct 2013; Michael Haubenwallner <haubi@gentoo.org>
+  -files/einfo-1.0.3-checkfuncs-aix.patch,
+  +files/einfo-1.0.4-termcap-check.patch, baselayout-prefix-2.2-r3.ebuild:
+  Fix termcap check and conditional.
+
+  27 Oct 2013; Fabian Groffen <grobian@gentoo.org>
+  -baselayout-prefix-2.2-r2.ebuild, baselayout-prefix-2.2-r3.ebuild:
+  Fix build on platforms with strlcpy/strlcat
+
+  23 Oct 2013; Michael Haubenwallner <haubi@gentoo.org>
+  +files/einfo-1.0.3-checkfuncs-aix.patch, baselayout-prefix-2.2-r3.ebuild:
+  Add generic AIX port, lacks strlcpy/strlcat/vsyslog funcs.
+
+*baselayout-prefix-2.2-r3 (22 Oct 2013)
+
+  22 Oct 2013; Michael Haubenwallner <haubi@gentoo.org>
+  +baselayout-prefix-2.2-r3.ebuild:
+  Still need elibtoolize, if only for exotic Prefix platforms.
+
+  17 Oct 2013; Michael Haubenwallner <haubi@gentoo.org>
+  baselayout-prefix-2.2-r2.ebuild:
+  POSIX specifies <termios.h>, AIX lacks <sys/termios.h>, fixed in OpenRC.
+
+  25 Sep 2013; Rick Farina <zerochaos@gentoo.org>
+  baselayout-prefix-2.2-r2.ebuild:
+  adding arm keywords
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  baselayout-prefix-1.12.14-r1.ebuild:
+  Whitespace
+
+  08 May 2013; Fabian Groffen <grobian@gentoo.org>
+  baselayout-prefix-2.2-r2.ebuild:
+  Fix stupid mistake, causing the ebuild to die if the host doesn't provide
+  /usr/share/man, bug #468304#c5
+
+  07 May 2013; Fabian Groffen <grobian@gentoo.org>
+  baselayout-prefix-2.2-r2.ebuild:
+  Don't hardcode a possibly incorrect shell, bug #468304#c3
+
+  06 May 2013; Fabian Groffen <grobian@gentoo.org>
+  baselayout-prefix-2.2-r2.ebuild:
+  Bump einfo version for Solaris 10 fixes
+
+  05 May 2013; Fabian Groffen <grobian@gentoo.org>
+  baselayout-prefix-2.2-r2.ebuild:
+  Bump einfo tar for Solaris fixes
 
 *baselayout-prefix-2.2-r2 (07 Feb 2013)
 

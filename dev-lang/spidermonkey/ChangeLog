@@ -1,6 +1,65 @@
 # ChangeLog for dev-lang/spidermonkey
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/ChangeLog,v 1.115 2013/03/31 14:54:32 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/ChangeLog,v 1.128 2013/09/14 10:01:29 ago Exp $
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  spidermonkey-1.8.2.15-r2.ebuild:
+  Stable for x86, wrt bug #480392
+
+  10 Sep 2013; Markus Meier <maekke@gentoo.org>
+  spidermonkey-1.8.2.15-r2.ebuild:
+  arm stable, bug #480392
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  spidermonkey-1.8.2.15-r2.ebuild:
+  Stable for ppc64, wrt bug #480392
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  spidermonkey-1.8.2.15-r2.ebuild:
+  Stable for ppc, wrt bug #480392
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org>
+  spidermonkey-1.8.2.15-r2.ebuild:
+  Stable for alpha, wrt bug #480392
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  spidermonkey-1.8.2.15-r2.ebuild:
+  Stable for amd64, wrt bug #480392
+
+  30 Aug 2013; Ian Stakenvicius <axs@gentoo.org> metadata.xml,
+  spidermonkey-1.8.5-r4.ebuild:
+  added x64-macos keyword and extra dep (bug 464654); pax-marked tests so they
+  finish on hardened (bug 415791)
+
+*spidermonkey-17.0.0-r1 (10 Aug 2013)
+
+  10 Aug 2013; Ian Stakenvicius <axs@gentoo.org>
+  +files/spidermonkey-17-js-config-shebang.patch,
+  +spidermonkey-17.0.0-r1.ebuild, -spidermonkey-17.0.0.ebuild:
+  fixed improper pax-marking, and patched build system to keep it from stripping
+  shebang from js-config
+
+  08 Aug 2013; Ian Stakenvicius <axs@gentoo.org> -spidermonkey-1.8.5-r1.ebuild,
+  -spidermonkey-1.8.5-r2.ebuild, -spidermonkey-1.8.5-r3.ebuild,
+  -spidermonkey-1.8.7-r2.ebuild, -spidermonkey-1.8.7.ebuild,
+  spidermonkey-1.8.2.15-r2.ebuild, spidermonkey-1.8.5-r4.ebuild,
+  spidermonkey-1.8.7-r3.ebuild, spidermonkey-17.0.0.ebuild:
+  Slotted spidermonkey-17, all newer versions of spidermonkey will now be
+  slotted; converted most ebuilds to python-any-r1; dropped old versions of
+  1.8.5 and 1.8.7
+
+*spidermonkey-17.0.0 (02 Aug 2013)
+
+  02 Aug 2013; Ian Stakenvicius <axs@gentoo.org> +spidermonkey-17.0.0.ebuild,
+  metadata.xml:
+  version bump, currently masked, see bug 463924
+
+  08 Jun 2013; Jory A. Pratt <anarchy@gentoo.org> spidermonkey-1.8.5-r4.ebuild,
+  +files/spidermonkey-1.8.5-isfinite.patch:
+  Add uclibc support, bug #431560
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> spidermonkey-1.8.5-r4.ebuild:
+  Stable for s390, wrt bug #461508
 
   31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> spidermonkey-1.8.5-r4.ebuild:
   Stable for sparc, wrt bug #461508

@@ -1,6 +1,20 @@
 # ChangeLog for dev-perl/Test-Output
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Test-Output/ChangeLog,v 1.21 2012/12/31 16:57:03 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Test-Output/ChangeLog,v 1.25 2013/07/08 10:06:55 vincent Exp $
+
+  08 Jul 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  Test-Output-1.10.0.ebuild:
+  ppc stable. bug #475834
+
+  08 Jul 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  Test-Output-0.16.ebuild, Test-Output-1.10.0.ebuild:
+  ppc64 stable. bug #449576
+
+  05 Jul 2013; Agostino Sarubbo <ago@gentoo.org> Test-Output-1.10.0.ebuild:
+  Stable for x86, wrt bug #475834
+
+  05 Jul 2013; Agostino Sarubbo <ago@gentoo.org> Test-Output-1.10.0.ebuild:
+  Stable for amd64, wrt bug #475834
 
   31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> Test-Output-1.10.0.ebuild:
   Add ~ppc64, wrt bug #403413

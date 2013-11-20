@@ -1,6 +1,46 @@
 # ChangeLog for app-admin/emacs-updater
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/emacs-updater/ChangeLog,v 1.67 2013/04/03 16:33:02 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/emacs-updater/ChangeLog,v 1.80 2013/07/14 14:50:54 ulm Exp $
+
+  14 Jul 2013; Ulrich Müller <ulm@gentoo.org> emacs-updater-1.13.ebuild:
+  Update HOMEPAGE.
+
+  02 Jun 2013; Ulrich Müller <ulm@gentoo.org> -emacs-updater-1.9.ebuild,
+  -emacs-updater-1.12.ebuild:
+  Remove old.
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for sh, wrt bug #469878
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for sparc, wrt bug #469878
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for s390, wrt bug #469878
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for alpha, wrt bug #469878
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for ia64, wrt bug #469878
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for arm, wrt bug #469878
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for ppc64, wrt bug #469878
+
+  16 May 2013; Jeroen Roovers <jer@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for HPPA (bug #469878).
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for ppc, wrt bug #469878
+
+  15 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for x86, wrt bug #469878
+
+  15 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-updater-1.13.ebuild:
+  Stable for amd64, wrt bug #469878
 
   03 Apr 2013; Fabian Groffen <grobian@gentoo.org> emacs-updater-1.13.ebuild:
   Marked ~x64-macos, bug #419199

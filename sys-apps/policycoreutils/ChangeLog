@@ -1,6 +1,74 @@
 # ChangeLog for sys-apps/policycoreutils
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/policycoreutils/ChangeLog,v 1.113 2013/03/20 08:29:09 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/policycoreutils/ChangeLog,v 1.126 2013/11/04 21:55:40 swift Exp $
+
+*policycoreutils-2.2.1-r1 (04 Nov 2013)
+
+  04 Nov 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.2.1-r1.ebuild:
+  New policycoreutils release
+
+  04 Nov 2013; Sven Vermeulen <swift@gentoo.org>
+  policycoreutils-2.1.14-r4.ebuild:
+  Stabilize
+
+*policycoreutils-2.1.14-r4 (13 Aug 2013)
+
+  13 Aug 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.14-r4.ebuild:
+  Document setfiles in rlpkg, improve selocal resilience
+
+  07 Jul 2013; Sven Vermeulen <swift@gentoo.org>
+  -policycoreutils-2.1.10-r5.ebuild:
+  Summer cleaning
+
+*policycoreutils-2.1.14-r3 (07 Jul 2013)
+
+  07 Jul 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.14-r3.ebuild:
+  Switch to python-r1 eclass, add in mcstrans (bug #472912)
+
+  16 Jun 2013; Sven Vermeulen <swift@gentoo.org>
+  policycoreutils-2.1.14-r2.ebuild:
+  Stabilization
+
+  10 May 2013; Sven Vermeulen <swift@gentoo.org> metadata.xml:
+  Add in CPE data for policycoreutils, historical CVEs use redhat as
+  application vendor
+
+*policycoreutils-2.1.14-r2 (07 May 2013)
+
+  07 May 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.14-r2.ebuild:
+  Fix bugs 467268 (yum bindings), 468832 (key error), 468830 (mls range
+  dependency)
+
+*policycoreutils-2.1.14-r1 (25 Apr 2013)
+
+  25 Apr 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.14-r1.ebuild:
+  New upstream release
+
+*policycoreutils-2.1.13-r11 (19 Apr 2013)
+
+  19 Apr 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.13-r11.ebuild:
+  Add selocal command to policycoreutils
+
+*policycoreutils-2.1.13-r10 (16 Apr 2013)
+
+  16 Apr 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.13-r10.ebuild:
+  Fix bugs #463222 (newrole O_RDWR) and #464808 (hardcoded python3.1 in rlpkg)
+
+  16 Apr 2013; Sven Vermeulen <swift@gentoo.org>
+  -policycoreutils-2.1.10-r1.ebuild, -policycoreutils-2.1.10-r3.ebuild,
+  -policycoreutils-2.1.10-r4.ebuild, -policycoreutils-2.1.10.ebuild:
+  Some cleanup (older release unstables)
+
+  16 Apr 2013; Sven Vermeulen <swift@gentoo.org>
+  policycoreutils-2.1.13-r9.ebuild:
+  Stabilize policycoreutils-2.1.13-r9
 
 *policycoreutils-2.1.13-r9 (19 Mar 2013)
 

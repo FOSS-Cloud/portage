@@ -1,6 +1,23 @@
 # ChangeLog for net-misc/networkmanager-vpnc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager-vpnc/ChangeLog,v 1.30 2013/04/07 15:23:35 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager-vpnc/ChangeLog,v 1.33 2013/09/16 01:25:43 tetromino Exp $
+
+*networkmanager-vpnc-0.9.8.6 (16 Sep 2013)
+
+  16 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  networkmanager-vpnc-0.9.6.0.ebuild, networkmanager-vpnc-0.9.8.2.ebuild,
+  +networkmanager-vpnc-0.9.8.6.ebuild:
+  Version bump, update license.
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org>
+  -networkmanager-vpnc-0.9.8.0.ebuild, metadata.xml:
+  Drop old, gnome team will take this
+
+*networkmanager-vpnc-0.9.8.2 (10 Jun 2013)
+
+  10 Jun 2013; Pacho Ramos <pacho@gentoo.org>
+  +networkmanager-vpnc-0.9.8.2.ebuild, -networkmanager-vpnc-0.9.4.0.ebuild:
+  Version bump, drop old
 
 *networkmanager-vpnc-0.9.8.0 (07 Apr 2013)
 

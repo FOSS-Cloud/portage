@@ -1,6 +1,69 @@
 # ChangeLog for dev-python/matplotlib
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/matplotlib/ChangeLog,v 1.144 2013/03/30 13:03:34 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/matplotlib/ChangeLog,v 1.159 2013/11/06 07:06:04 hwoarang Exp $
+
+  06 Nov 2013; Markos Chandras <hwoarang@gentoo.org> matplotlib-1.3.0.ebuild:
+  Add ~mips
+
+  25 Sep 2013; Kacper Kowalik <xarthisius@gentoo.org>
+  +files/matplotlib-1.3.0-setup_without_X11.patch, matplotlib-1.3.0.ebuild:
+  Backport upstream changes that allows to build matplotlib when X11 is not
+  available. Fixes #481564 by Ian Delaney <idella4@gentoo.org>. Thanks to MarisN
+  <maris.gis@gmail.com> and Bodo Graumann <mail@bodograumann.de> for finding and
+  testing the patch respectively
+
+  22 Sep 2013; Benda Xu <heroxbd@gentoo.org> matplotlib-1.3.0.ebuild:
+  set basedir into Prefix for headers and libraries, bug 481684. Credits to
+  Steven.
+
+  12 Sep 2013; Michał Górny <mgorny@gentoo.org> matplotlib-1.1.1.ebuild,
+  matplotlib-1.2.0-r2.ebuild, matplotlib-1.2.1.ebuild, matplotlib-1.3.0.ebuild:
+  Replace virtual/pyparsing dep with dev-python/pyparsing. The split versions
+  were removed and all in-tree versions support all impls now.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> matplotlib-1.2.0-r2.ebuild,
+  matplotlib-1.2.1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  23 Aug 2013; Benda Xu <heroxbd@gentoo.org> matplotlib-1.3.0.ebuild:
+  matplotlib is now compatible with wxpython-2.9, drop 2.8 dependence.
+
+*matplotlib-1.3.0 (17 Aug 2013)
+
+  17 Aug 2013; Mike Gilbert <floppym@gentoo.org> +matplotlib-1.3.0.ebuild:
+  Version bump, bug 479970. Thanks to Bertrand Jacquin and Ian Delaney.
+
+  09 Jun 2013; Mike Gilbert <floppym@gentoo.org> matplotlib-1.2.0-r2.ebuild,
+  matplotlib-1.2.1.ebuild:
+  Depend on imaging for python3.2+.
+
+  09 Jun 2013; Mike Gilbert <floppym@gentoo.org> matplotlib-1.1.1.ebuild,
+  matplotlib-1.2.0-r2.ebuild, matplotlib-1.2.1.ebuild:
+  Depend on virtual/python-imaging.
+
+  11 May 2013; Mike Gilbert <floppym@gentoo.org> matplotlib-1.2.1.ebuild:
+  Apply the arm keyword to the newest version as well.
+
+  10 May 2013; Markus Meier <maekke@gentoo.org> matplotlib-1.2.0-r2.ebuild:
+  add ~arm, bug #452764
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unused flag description from metadata
+
+*matplotlib-1.2.1 (25 Apr 2013)
+
+  25 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org> +matplotlib-1.2.1.ebuild,
+  -files/matplotlib-1.0.1-libpng15.patch, -files/matplotlib-1.0.1-linux3.patch,
+  -files/matplotlib-1.0.1-sphinx.patch, -matplotlib-1.0.1-r1.ebuild,
+  -matplotlib-1.1.0.ebuild, -matplotlib-1.2.0-r1.ebuild,
+  -matplotlib-1.2.0.ebuild:
+  Version bump
+
+  22 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org> metadata.xml:
+  Added remote-id for upstream tracking
+
+  12 Apr 2013; Mike Gilbert <floppym@gentoo.org> matplotlib-1.2.0-r2.ebuild:
+  Move gtk3 deps to RDEPEND; we don't care about it at build time.
 
   30 Mar 2013; Mike Gilbert <floppym@gentoo.org> matplotlib-1.2.0-r2.ebuild:
   Quote patterns for python_gen_usedep.

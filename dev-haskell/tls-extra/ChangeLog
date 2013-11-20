@@ -1,0 +1,25 @@
+# ChangeLog for dev-haskell/tls-extra
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/tls-extra/ChangeLog,v 1.4 2013/11/05 11:38:41 chainsaw Exp $
+
+  05 Nov 2013; Tony Vroon <chainsaw@gentoo.org> tls-extra-0.6.5-r1.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #488750.
+
+*tls-extra-0.6.5-r1 (29 Sep 2013)
+
+  29 Sep 2013; Mark Wright <gienah@gentoo.org> +tls-extra-0.6.5-r1.ebuild:
+  Loosen pem dependency in tls-extra-0.6.5-r1
+
+*tls-extra-0.6.5 (13 Sep 2013)
+
+  13 Sep 2013; Mark Wright <gienah@gentoo.org> +tls-extra-0.6.5.ebuild:
+  Bump tls-extra to 0.6.5
+
+*tls-extra-0.6.1 (26 Aug 2013)
+*tls-extra-0.6.3 (26 Aug 2013)
+*tls-extra-0.6.4 (26 Aug 2013)
+
+  26 Aug 2013; Alexander Vershilov <qnikst@gentoo.org> +metadata.xml,
+  +tls-extra-0.6.1.ebuild, +tls-extra-0.6.3.ebuild, +tls-extra-0.6.4.ebuild:
+  dev-haskell/tls-extra: initial layout

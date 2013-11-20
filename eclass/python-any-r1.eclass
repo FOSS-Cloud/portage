@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/python-any-r1.eclass,v 1.7 2013/04/07 17:02:52 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/python-any-r1.eclass,v 1.16 2013/10/22 15:16:56 mgorny Exp $
 
 # @ECLASS: python-any-r1
 # @MAINTAINER:
@@ -19,6 +19,14 @@
 # string on any of the supported Python implementations. It also exports
 # pkg_setup() which finds the best supported implementation and sets it
 # as the active one.
+#
+# Optionally, you can define a python_check_deps() function. It will
+# be called by the eclass with EPYTHON set to each matching Python
+# implementation and it is expected to check whether the implementation
+# fulfills the package requirements. You can use the locally exported
+# PYTHON_USEDEP to check USE-dependencies of relevant packages. It
+# should return a true value (0) if the Python implementation fulfills
+# the requirements, a false value (non-zero) otherwise.
 #
 # Please note that python-any-r1 will always inherit python-utils-r1
 # as well. Thus, all the functions defined there can be used in the
@@ -106,44 +114,120 @@ fi
 # @CODE
 
 _python_build_set_globals() {
-	local usestr
+	local usestr i PYTHON_PKG_DEP
 	[[ ${PYTHON_REQ_USE} ]] && usestr="[${PYTHON_REQ_USE}]"
 
-	PYTHON_DEPS=
-	local i
-	for i in "${_PYTHON_ALL_IMPLS[@]}"; do
-		if has "${i}" "${PYTHON_COMPAT[@]}"
-		then
-			local d
-			case ${i} in
-				python*)
-					d='dev-lang/python';;
-				jython*)
-					d='dev-java/jython';;
-				pypy*)
-					d='dev-python/pypy';;
-				*)
-					die "Invalid implementation: ${i}"
-			esac
+	# check for invalid PYTHON_COMPAT
+	for i in "${PYTHON_COMPAT[@]}"; do
+		# the function simply dies on invalid impl
+		_python_impl_supported "${i}"
+	done
 
-			local v=${i##*[a-z]}
-			PYTHON_DEPS="${d}:${v/_/.}${usestr} ${PYTHON_DEPS}"
-		fi
+	PYTHON_DEPS=
+	for i in "${_PYTHON_ALL_IMPLS[@]}"; do
+		has "${i}" "${PYTHON_COMPAT[@]}" || continue
+
+		python_export "${i}" PYTHON_PKG_DEP
+
+		PYTHON_DEPS="${PYTHON_PKG_DEP} ${PYTHON_DEPS}"
 	done
 	PYTHON_DEPS="|| ( ${PYTHON_DEPS})"
 }
 _python_build_set_globals
+
+# @ECLASS-VARIABLE: PYTHON_USEDEP
+# @DESCRIPTION:
+# An eclass-generated USE-dependency string for the currently tested
+# implementation. It is set locally for python_check_deps() call.
+#
+# The generate USE-flag list is compatible with packages using python-r1,
+# python-single-r1 and python-distutils-ng eclasses. It must not be used
+# on packages using python.eclass.
+#
+# Example use:
+# @CODE
+# python_check_deps() {
+#	has_version "dev-python/foo[${PYTHON_USEDEP}]"
+# }
+# @CODE
+#
+# Example value:
+# @CODE
+# python_targets_python2_7(-)?,python_single_target_python2_7(+)?
+# @CODE
+
+# @FUNCTION: python_gen_any_dep
+# @USAGE: <dependency-block>
+# @DESCRIPTION:
+# Generate an any-of dependency that enforces a version match between
+# the Python interpreter and Python packages. <dependency-block> needs
+# to list one or more dependencies with verbatim '${PYTHON_USEDEP}'
+# references (quoted!) that will get expanded inside the function.
+#
+# This should be used along with an appropriate python_check_deps()
+# that checks which of the any-of blocks were matched.
+#
+# Example use:
+# @CODE
+# DEPEND="$(python_gen_any_dep '
+#	dev-python/foo[${PYTHON_USEDEP}]
+#	|| ( dev-python/bar[${PYTHON_USEDEP}]
+#		dev-python/baz[${PYTHON_USEDEP}] )')"
+#
+# python_check_deps() {
+#	has_version "dev-python/foo[${PYTHON_USEDEP}]" \
+#		&& { has_version "dev-python/bar[${PYTHON_USEDEP}]" \
+#			|| has_version "dev-python/baz[${PYTHON_USEDEP}]"; }
+# }
+# @CODE
+#
+# Example value:
+# @CODE
+# || (
+#	(
+#		dev-lang/python:2.7
+#		dev-python/foo[python_targets_python2_7(-)?,python_single_target_python2_7(+)?]
+#		|| ( dev-python/bar[python_targets_python2_7(-)?,python_single_target_python2_7(+)?]
+#			dev-python/baz[python_targets_python2_7(-)?,python_single_target_python2_7(+)?] )
+#	)
+#	(
+#		dev-lang/python:2.6
+#		dev-python/foo[python_targets_python2_6(-)?,python_single_target_python2_6(+)?]
+#		|| ( dev-python/bar[python_targets_python2_6(-)?,python_single_target_python2_6(+)?]
+#			dev-python/baz[python_targets_python2_6(-)?,python_single_target_python2_6(+)?] )
+#	)
+# )
+# @CODE
+python_gen_any_dep() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local depstr=${1}
+	[[ ${depstr} ]] || die "No dependency string provided"
+
+	local PYTHON_PKG_DEP out=
+	for i in "${_PYTHON_ALL_IMPLS[@]}"; do
+		has "${i}" "${PYTHON_COMPAT[@]}" || continue
+
+		local PYTHON_USEDEP="python_targets_${i}(-),python_single_target_${i}(+)"
+		python_export "${i}" PYTHON_PKG_DEP
+
+		local i_depstr=${depstr//\$\{PYTHON_USEDEP\}/${PYTHON_USEDEP}}
+		out="( ${PYTHON_PKG_DEP} ${i_depstr} ) ${out}"
+	done
+	echo "|| ( ${out})"
+}
 
 # @FUNCTION: _python_EPYTHON_supported
 # @USAGE: <epython>
 # @INTERNAL
 # @DESCRIPTION:
 # Check whether the specified implementation is supported by package
-# (specified in PYTHON_COMPAT).
+# (specified in PYTHON_COMPAT). Calls python_check_deps() if declared.
 _python_EPYTHON_supported() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local i=${1/./_}
+	local EPYTHON=${1}
+	local i=${EPYTHON/./_}
 
 	case "${i}" in
 		python*|jython*)
@@ -158,24 +242,37 @@ _python_EPYTHON_supported() {
 	esac
 
 	if has "${i}" "${PYTHON_COMPAT[@]}"; then
-		return 0
+		local PYTHON_PKG_DEP
+		python_export "${i}" PYTHON_PKG_DEP
+		if ROOT=/ has_version "${PYTHON_PKG_DEP}"; then
+			if declare -f python_check_deps >/dev/null; then
+				local PYTHON_USEDEP="python_targets_${i}(-),python_single_target_${i}(+)"
+				python_check_deps
+				return ${?}
+			fi
+
+			return 0
+		fi
 	elif ! has "${i}" "${_PYTHON_ALL_IMPLS[@]}"; then
 		ewarn "Invalid EPYTHON: ${EPYTHON}"
 	fi
 	return 1
 }
 
-# @FUNCTION: python-any-r1_pkg_setup
+# @FUNCTION: python_setup
 # @DESCRIPTION:
 # Determine what the best installed (and supported) Python
-# implementation is and set EPYTHON and PYTHON accordingly.
-python-any-r1_pkg_setup() {
+# implementation is, and set the Python build environment up for it.
+#
+# This function will call python_check_deps() if defined.
+python_setup() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	# first, try ${EPYTHON}... maybe it's good enough for us.
 	if [[ ${EPYTHON} ]]; then
 		if _python_EPYTHON_supported "${EPYTHON}"; then
 			python_export EPYTHON PYTHON
+			python_wrapper_setup
 			return
 		fi
 	fi
@@ -190,6 +287,7 @@ python-any-r1_pkg_setup() {
 			break
 		elif _python_EPYTHON_supported "${i}"; then
 			python_export "${i}" EPYTHON PYTHON
+			python_wrapper_setup
 			return
 		fi
 	done
@@ -202,14 +300,31 @@ python-any-r1_pkg_setup() {
 		fi
 	done
 
-	local PYTHON_PKG_DEP
 	for i in "${rev_impls[@]}"; do
-		python_export "${i}" PYTHON_PKG_DEP EPYTHON PYTHON
-		if ROOT=/ has_version "${PYTHON_PKG_DEP}"; then
-			python_wrapper_setup "${T}"
+		python_export "${i}" EPYTHON PYTHON
+		if _python_EPYTHON_supported "${EPYTHON}"; then
+			python_wrapper_setup
 			return
 		fi
 	done
+
+	eerror "No Python implementation found for the build. This is usually"
+	eerror "a bug in the ebuild. Please report it to bugs.gentoo.org"
+	eerror "along with the build log."
+	echo
+	die "No supported Python implementation installed."
+}
+
+# @FUNCTION: python-any-r1_pkg_setup
+# @DESCRIPTION:
+# Runs python_setup during from-source installs.
+#
+# In a binary package installs is a no-op. If you need Python in pkg_*
+# phases of a binary package, call python_setup directly.
+python-any-r1_pkg_setup() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	[[ ${MERGE_TYPE} != binary ]] && python_setup
 }
 
 _PYTHON_ANY_R1=1

@@ -1,6 +1,23 @@
 # ChangeLog for sci-chemistry/pymol
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol/ChangeLog,v 1.100 2013/03/25 07:55:32 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol/ChangeLog,v 1.103 2013/07/16 09:12:21 jlec Exp $
+
+*pymol-1.6.0.0-r2 (16 Jul 2013)
+
+  16 Jul 2013; Justin Lecher <jlec@gentoo.org> +pymol-1.6.0.0-r2.ebuild,
+  +files/pymol-1.6.0.0-stereo.patch:
+  Backport fix for stereo flickering
+
+*pymol-1.6.0.0-r1 (18 Jun 2013)
+
+  18 Jun 2013; Justin Lecher <jlec@gentoo.org> +pymol-1.6.0.0-r1.ebuild,
+  +files/pymol-1.6.0.0-bg_rgb.patch, +files/pymol-1.6.0.0-labels.patch:
+  Add backports of upstream bugfixes
+
+*pymol-1.6.0.0 (12 Jun 2013)
+
+  12 Jun 2013; Justin Lecher <jlec@gentoo.org> +pymol-1.6.0.0.ebuild:
+  Version Bump
 
 *pymol-1.6.0_rc1 (25 Mar 2013)
 

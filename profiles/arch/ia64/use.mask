@@ -52,6 +52,7 @@ upnp
 systemd
 webm
 fdk
+valgrind
 
 # Stuff we don't want
 antlr
@@ -171,8 +172,11 @@ video_cards_intel
 # Mask more VIDEO_CARDs added with mesa-8.0
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
+# llvm is not keyworded
+video_cards_radeonsi
 
 # Diego Pettenò <flameeyes@gentoo.org> (6 Dec 2006)
 # Mask ALSA drivers for ISA cards
@@ -243,3 +247,11 @@ template_haskell
 
 # toolkit for nvidia binary drivers
 cg
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (10 Nov 2013)
+# sys-devel/llvm s not keyworded, bug #320221
+llvm

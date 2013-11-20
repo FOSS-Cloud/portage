@@ -1,21 +1,21 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/xbmc-9999.ebuild,v 1.139 2013/04/01 06:35:52 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/xbmc-9999.ebuild,v 1.151 2013/09/05 05:06:56 vapier Exp $
 
-EAPI="4"
+EAPI="5"
 
 # Does not work with py3 here
 # It might work with py:2.5 but I didn't test that
-PYTHON_DEPEND="2:2.6"
-PYTHON_USE_WITH=sqlite
+PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_REQ_USE="sqlite"
 
-inherit eutils python multiprocessing autotools
+inherit eutils python-single-r1 multiprocessing autotools
 
 case ${PV} in
 9999)
 	EGIT_REPO_URI="git://github.com/xbmc/xbmc.git"
 	inherit git-2
-	SRC_URI="!java? ( mirror://gentoo/${P}-20121224-generated-addons.tar.xz )"
+	SRC_URI="!java? ( mirror://gentoo/${P}-20130413-generated-addons.tar.xz )"
 	;;
 *_alpha*|*_beta*|*_rc*)
 	MY_PV="Frodo_${PV#*_}"
@@ -40,15 +40,16 @@ IUSE="airplay alsa altivec avahi bluetooth bluray caps cec css debug +fishbmc gl
 REQUIRED_USE="
 	pvr? ( mysql )
 	rsxs? ( X )
+	X? ( sdl )
 	xrandr? ( X )
 "
 
-COMMON_DEPEND="app-arch/bzip2
+COMMON_DEPEND="${PYTHON_DEPS}
+	app-arch/bzip2
 	app-arch/unzip
 	app-arch/zip
 	app-i18n/enca
 	airplay? ( app-pda/libplist )
-	>=dev-lang/python-2.4
 	dev-libs/boost
 	dev-libs/fribidi
 	dev-libs/libcdio[-minimal]
@@ -57,7 +58,7 @@ COMMON_DEPEND="app-arch/bzip2
 	>=dev-libs/lzo-2.04
 	dev-libs/tinyxml[stl]
 	dev-libs/yajl
-	dev-python/simplejson
+	dev-python/simplejson[${PYTHON_USEDEP}]
 	media-fonts/corefonts
 	media-fonts/roboto
 	media-libs/alsa-lib
@@ -90,13 +91,12 @@ COMMON_DEPEND="app-arch/bzip2
 	media-libs/tiff
 	pulseaudio? ( media-sound/pulseaudio )
 	media-sound/wavpack
-	|| ( media-libs/libpostproc <media-video/libav-0.8.2-r1 media-video/ffmpeg )
-	>=virtual/ffmpeg-0.6[encode]
+	|| ( >=media-video/ffmpeg-1.2.1:0=[encode] ( media-libs/libpostproc >=media-video/libav-10_alpha:=[encode] ) )
 	rtmp? ( media-video/rtmpdump )
 	avahi? ( net-dns/avahi )
 	nfs? ( net-fs/libnfs )
 	webserver? ( net-libs/libmicrohttpd[messages] )
-	sftp? ( net-libs/libssh )
+	sftp? ( net-libs/libssh[sftp] )
 	net-misc/curl
 	samba? ( >=net-fs/samba-3.4.6[smbclient] )
 	bluetooth? ( net-wireless/bluez )
@@ -114,7 +114,7 @@ COMMON_DEPEND="app-arch/bzip2
 	vaapi? ( x11-libs/libva[opengl] )
 	vdpau? (
 		|| ( x11-libs/libvdpau >=x11-drivers/nvidia-drivers-180.51 )
-		virtual/ffmpeg[vdpau]
+		|| ( >=media-video/ffmpeg-1.2.1:0=[vdpau] >=media-video/libav-10_alpha:=[vdpau] )
 	)
 	X? (
 		x11-apps/xdpyinfo
@@ -137,8 +137,14 @@ DEPEND="${COMMON_DEPEND}
 S=${WORKDIR}/${MY_P}
 
 pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
+	python-single-r1_pkg_setup
+
+	if has_version 'media-video/libav' ; then
+		ewarn "Building ${PN} against media-video/libav is not supported upstream."
+		ewarn "It requires building a (small) wrapper library with some code"
+		ewarn "from media-video/ffmpeg."
+		ewarn "If you experience issues, please try with media-video/ffmpeg."
+	fi
 }
 
 src_unpack() {
@@ -207,6 +213,7 @@ src_configure() {
 		--disable-ccache \
 		--disable-optimizations \
 		--enable-external-libraries \
+		$(has_version 'media-video/libav' && echo "--enable-libav-compat") \
 		--enable-gl \
 		$(use_enable airplay) \
 		$(use_enable avahi) \
@@ -250,7 +257,17 @@ src_install() {
 	domenu tools/Linux/xbmc.desktop
 	newicon tools/Linux/xbmc-48x48.png xbmc.png
 
-	# punt simplejson bundle, we use the system one anyway
+	# Remove optional addons (platform specific and disabled by USE flag).
+	local disabled_addons=(
+		repository.pvr-{android,ios,osx{32,64},win32}.xbmc.org
+		visualization.dxspectrum
+	)
+	use fishbmc  || disabled_addons+=( visualization.fishbmc )
+	use projectm || disabled_addons+=( visualization.{milkdrop,projectm} )
+	use rsxs     || disabled_addons+=( screensaver.rsxs.{euphoria,plasma,solarwinds} )
+	rm -rf "${disabled_addons[@]/#/${ED}/usr/share/xbmc/addons/}"
+
+	# Punt simplejson bundle, we use the system one anyway.
 	rm -rf "${ED}"/usr/share/xbmc/addons/script.module.simplejson/lib
 	# Remove fonconfig settings that are used only on MacOSX.
 	# Can't be patched upstream because they just find all files and install
@@ -268,9 +285,8 @@ src_install() {
 	dosym /usr/share/fonts/roboto/Roboto-Bold.ttf \
 		/usr/share/xbmc/addons/skin.confluence/fonts/Roboto-Bold.ttf
 
-	insinto "$(python_get_sitedir)" #309885
-	doins tools/EventClients/lib/python/xbmcclient.py || die
-	newbin "tools/EventClients/Clients/XBMC Send/xbmc-send.py" xbmc-send || die
+	python_domodule tools/EventClients/lib/python/xbmcclient.py
+	python_newscript "tools/EventClients/Clients/XBMC Send/xbmc-send.py" xbmc-send
 }
 
 pkg_postinst() {

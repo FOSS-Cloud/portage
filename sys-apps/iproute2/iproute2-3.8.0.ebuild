@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/iproute2/iproute2-3.8.0.ebuild,v 1.1 2013/02/28 19:19:37 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/iproute2/iproute2-3.8.0.ebuild,v 1.14 2013/05/04 05:09:02 vapier Exp $
 
 EAPI="4"
 
@@ -11,7 +11,7 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-2
 else
 	SRC_URI="mirror://kernel/linux/utils/net/${PN}/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+	KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 ~sh sparc x86"
 fi
 
 DESCRIPTION="kernel routing and traffic control utilities"
@@ -35,6 +35,7 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-3.1.0-mtu.patch #291907
+	epatch "${FILESDIR}"/${P}-old-mount-libc.patch #468120
 	use ipv6 || epatch "${FILESDIR}"/${PN}-3.1.0-no-ipv6.patch #326849
 
 	sed -i \
@@ -93,12 +94,18 @@ src_install() {
 		ARPDDIR="${EPREFIX}"/var/lib/arpd \
 		install
 
+	rm "${ED}"/usr/share/doc/${PF}/*.{sgml,tex} || die #455988
+
 	dodir /bin
 	mv "${ED}"/{s,}bin/ip || die #330115
 
 	dolib.a lib/libnetlink.a
 	insinto /usr/include
 	doins include/libnetlink.h
+	# This local header pulls in a lot of linux headers it
+	# doesn't directly need.  Delete this header that requires
+	# linux-headers-3.8 until that goes stable.  #467716
+	sed -i '/linux\/netconf.h/d' "${ED}"/usr/include/libnetlink.h || die
 
 	if use berkdb ; then
 		dodir /var/lib/arpd

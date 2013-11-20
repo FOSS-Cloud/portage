@@ -1,6 +1,60 @@
 # ChangeLog for net-irc/inspircd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/inspircd/ChangeLog,v 1.75 2013/04/08 10:25:13 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/inspircd/ChangeLog,v 1.88 2013/10/14 17:54:01 chainsaw Exp $
+
+  14 Oct 2013; Tony Vroon <chainsaw@gentoo.org> inspircd-2.0.14.ebuild:
+  Marked stable on AMD64 based on arch tester report by Elijah "Armageddon" El
+  Lazkani in bug #487044.
+
+*inspircd-2.0.14 (31 Aug 2013)
+
+  31 Aug 2013; Chema Alonso <nimiux@gentoo.org> +inspircd-2.0.14.ebuild,
+  +files/inspircd-2.0.14-fix-path-builds.patch, +files/inspircd-2.0.14-init:
+  Version bump
+
+  31 Aug 2013; Chema Alonso <nimiux@gentoo.org> -inspircd-2.0.11.ebuild,
+  -files/inspircd-2.0.11-fix-path-builds.patch, -files/inspircd-2.0.11-init,
+  -inspircd-2.0.12.ebuild, -files/inspircd-2.0.12-fix-path-builds.patch,
+  -files/inspircd-2.0.12-init:
+  Drop old
+
+  28 Aug 2013; Chema Alonso <nimiux@gentoo.org> inspircd-2.0.13.ebuild:
+  Fix USE flags wrt bug #481612 by El Goretto
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.13.ebuild:
+  Stable for x86, wrt bug #476066
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.13.ebuild:
+  Stable for amd64, wrt bug #476066
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.12.ebuild:
+  Stable for amd64, wrt bug #473018
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.12.ebuild:
+  Stable for x86, wrt bug #473018
+
+*inspircd-2.0.13 (06 Jun 2013)
+
+  06 Jun 2013; Chema Alonso <nimiux@gentoo.org> +inspircd-2.0.13.ebuild,
+  +files/inspircd-2.0.13-fix-path-builds.patch, +files/inspircd-2.0.13-init:
+  Revision bump
+
+  11 May 2013; Chema Alonso <nimiux@gentoo.org> -inspircd-2.0.10.ebuild,
+  -inspircd-2.0.10-r1.ebuild, -files/inspircd-2.0.10-fix-path-builds.patch,
+  -files/inspircd-2.0.10-init:
+  Clean old
+
+*inspircd-2.0.12 (11 May 2013)
+
+  11 May 2013; Chema Alonso <nimiux@gentoo.org> +inspircd-2.0.12.ebuild,
+  +files/inspircd-2.0.12-fix-path-builds.patch, +files/inspircd-2.0.12-init:
+  Revision bump
+
+  10 May 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.11.ebuild:
+  Stable for x86, wrt bug #469200
+
+  10 May 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.11.ebuild:
+  Stable for amd64, wrt bug #469200
 
 *inspircd-2.0.11 (08 Apr 2013)
 

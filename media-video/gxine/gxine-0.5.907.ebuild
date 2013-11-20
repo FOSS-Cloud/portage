@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/gxine/gxine-0.5.907.ebuild,v 1.8 2012/12/11 14:43:50 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/gxine/gxine-0.5.907.ebuild,v 1.10 2013/09/13 16:57:04 axs Exp $
 
 EAPI=5
 inherit autotools eutils fdo-mime gnome2-utils multilib nsplugins
@@ -17,7 +17,7 @@ IUSE="gnome-screensaver linguas_cs linguas_de lirc nls nsplugin udev +xcb xinera
 COMMON_DEPEND=">=media-libs/xine-lib-1.1.20
 	x11-libs/gtk+:2
 	>=dev-libs/glib-2
-	>=dev-lang/spidermonkey-1.8.2.15
+	>=dev-lang/spidermonkey-1.8.2.15:0
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXrender
@@ -40,7 +40,7 @@ src_prepare() {
 	# ld: cannot find -ljs
 	sed -i -e '/JS_LIBS="`spidermonkey_locate_lib/s:js:mozjs:' m4/_js.m4 || die
 
-	if has_version '>=dev-lang/spidermonkey-1.8.7'; then
+	if has_version '~dev-lang/spidermonkey-1.8.7'; then
 		sed -i -e 's:mozjs185:mozjs187:' m4/_js.m4 || die #422983
 	fi
 

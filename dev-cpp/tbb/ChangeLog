@@ -1,6 +1,40 @@
 # ChangeLog for dev-cpp/tbb
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/tbb/ChangeLog,v 1.37 2013/02/23 10:45:21 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/tbb/ChangeLog,v 1.44 2013/11/12 22:17:14 bicatali Exp $
+
+*tbb-4.2.20131003 (12 Nov 2013)
+
+  12 Nov 2013; Sébastien Fabbro <bicatali@gentoo.org> +tbb-4.2.20131003.ebuild:
+  Version bump
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> tbb-4.1.20130613.ebuild:
+  Fix shared lib installation on FreeBSD.
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> tbb-4.1.20130613.ebuild:
+  keyword ~amd64-fbsd
+
+*tbb-4.1.20130613 (25 Jun 2013)
+
+  25 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> +tbb-4.1.20130613.ebuild,
+  metadata.xml:
+  Version bump. ppc patch applied upstream
+
+*tbb-4.1.20121003-r1 (02 May 2013)
+
+  02 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +tbb-4.1.20121003-r1.ebuild, -tbb-4.1.20121003.ebuild:
+  Backport needs a revbump to take effect
+
+  02 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  tbb-4.1.20121003.ebuild, -tbb-4.1.20130116.ebuild,
+  tbb-4.1.20130116-r1.ebuild:
+  Backport build fix to stable (bug 462130), restore keywords, remove old
+
+*tbb-4.1.20130116-r1 (01 May 2013)
+
+  01 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +tbb-4.1.20130116-r1.ebuild:
+  Try to fix bug 462130, where arch is mis-detected based on kernel
 
   23 Feb 2013; Justin Lecher <jlec@gentoo.org> -tbb-4.0.297.ebuild,
   metadata.xml:

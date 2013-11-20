@@ -1,6 +1,54 @@
 # ChangeLog for net-dns/bind-tools
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/bind-tools/ChangeLog,v 1.235 2013/03/29 13:05:51 idl0r Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/bind-tools/ChangeLog,v 1.249 2013/10/13 14:06:04 idl0r Exp $
+
+*bind-tools-9.9.4 (13 Oct 2013)
+
+  13 Oct 2013; Christian Ruppert <idl0r@gentoo.org> +bind-tools-9.9.4.ebuild:
+  Bump
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> -bind-tools-9.9.2.ebuild:
+  Remove old
+
+  09 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for arm, wrt bug #478316
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for sh, wrt bug #478316
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for s390, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for x86, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for sparc, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for ppc, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for ppc64, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for ia64, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for amd64, wrt bug #478316
+
+  01 Aug 2013; Agostino Sarubbo <ago@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for alpha, wrt bug #478316
+
+  30 Jul 2013; Jeroen Roovers <jer@gentoo.org> bind-tools-9.9.3_p2.ebuild:
+  Stable for HPPA (bug #478316).
+
+*bind-tools-9.9.3_p2 (30 Jul 2013)
+
+  30 Jul 2013; Christian Ruppert <idl0r@gentoo.org>
+  -bind-tools-9.9.1_p2.ebuild, -bind-tools-9.9.1_p4.ebuild,
+  -bind-tools-9.9.2_p2.ebuild, +bind-tools-9.9.3_p2.ebuild:
+  Version bump. Cleanup.
 
 *bind-tools-9.9.2_p2 (29 Mar 2013)
 

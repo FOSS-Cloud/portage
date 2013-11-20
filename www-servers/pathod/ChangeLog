@@ -1,0 +1,22 @@
+# ChangeLog for www-servers/pathod
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-servers/pathod/ChangeLog,v 1.4 2013/06/23 22:29:02 radhermit Exp $
+
+  23 Jun 2013; Tim Harder <radhermit@gentoo.org> pathod-0.9.ebuild,
+  pathod-0.9.1.ebuild:
+  Update HOMEPAGE.
+
+  17 Jun 2013; Tim Harder <radhermit@gentoo.org> pathod-0.9.1.ebuild:
+  Fix netlib dep version.
+
+*pathod-0.9.1 (17 Jun 2013)
+
+  17 Jun 2013; Tim Harder <radhermit@gentoo.org> +pathod-0.9.1.ebuild:
+  Version bump.
+
+*pathod-0.9 (16 May 2013)
+
+  16 May 2013; Tim Harder <radhermit@gentoo.org> +pathod-0.9.ebuild,
+  +metadata.xml:
+  Initial import.
+

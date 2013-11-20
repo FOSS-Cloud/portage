@@ -1,6 +1,79 @@
 # ChangeLog for app-doc/doxygen
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-doc/doxygen/ChangeLog,v 1.238 2013/03/02 19:19:54 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-doc/doxygen/ChangeLog,v 1.257 2013/11/06 07:50:09 xarthisius Exp $
+
+  06 Nov 2013; Kacper Kowalik <xarthisius@gentoo.org> doxygen-1.8.5.ebuild:
+  Remove obsolete bit fixing DESTDIR for doxywizard. Fixes bug #490298 by Dennis
+  Schridde <devurandom@gmx.net>
+
+*doxygen-1.8.5 (03 Nov 2013)
+
+  03 Nov 2013; Kacper Kowalik <xarthisius@gentoo.org> +doxygen-1.8.5.ebuild:
+  Version bump. Fixes #490124 by David Hallas <david@cgp.dk>
+
+  01 Nov 2013; Markos Chandras <hwoarang@gentoo.org> doxygen-1.8.4-r2.ebuild:
+  Add ~mips per #444688
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> doxygen-1.8.3.1.ebuild,
+  doxygen-1.8.4-r2.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  10 Aug 2013; Mark Loeser <halcy0n@gentoo.org> doxygen-1.7.6.1.ebuild,
+  doxygen-1.8.3.1.ebuild, doxygen-1.8.4-r2.ebuild:
+  Revert workaround for ppc64 now that we have gcc-4.6; bug #263641
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> doxygen-1.8.3.1.ebuild:
+  Stable for x86, wrt bug #471692
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> doxygen-1.8.3.1.ebuild:
+  Stable for s390, wrt bug #471692
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> doxygen-1.8.3.1.ebuild:
+  Stable for sparc, wrt bug #471692
+
+*doxygen-1.8.4-r2 (26 Jun 2013)
+
+  26 Jun 2013; Kacper Kowalik <xarthisius@gentoo.org> +doxygen-1.8.4-r2.ebuild,
+  +files/doxygen-1.8.4-infinite_loop.patch, -doxygen-1.8.4-r1.ebuild,
+  -doxygen-1.8.4.ebuild:
+  Apply upstream patch for fixing infinite loop wrt #474716 by Marien Zwart
+  <marienz@gentoo.org>. Drop old
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> doxygen-1.8.3.1.ebuild:
+  Stable for ia64, wrt bug #471692
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> doxygen-1.8.3.1.ebuild:
+  Stable for alpha, wrt bug #471692
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> doxygen-1.8.3.1.ebuild:
+  Stable for ppc64, wrt bug #471692
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> doxygen-1.8.3.1.ebuild:
+  Stable for ppc, wrt bug #471692
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> doxygen-1.8.3.1.ebuild:
+  Stable for sh, wrt bug #471692
+
+*doxygen-1.8.4-r1 (04 Jun 2013)
+
+  04 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> +doxygen-1.8.4-r1.ebuild,
+  +files/doxygen-1.8.4-libreoffice.patch:
+  Revbump 1.8.4 due to broken libo doc generating. Patch already applied
+  upstream and will be in next version.
+
+  03 Jun 2013; Jeroen Roovers <jer@gentoo.org> doxygen-1.8.3.1.ebuild:
+  Stable for HPPA (bug #471692).
+
+  02 Jun 2013; Chema Alonso <nimiux@gentoo.org> doxygen-1.8.3.1.ebuild:
+  Stable for amd64 wrt bug #471692
+
+  02 Jun 2013; Markus Meier <maekke@gentoo.org> doxygen-1.8.3.1.ebuild:
+  arm stable, bug #471692
+
+*doxygen-1.8.4 (19 May 2013)
+
+  19 May 2013; Kacper Kowalik <xarthisius@gentoo.org> +doxygen-1.8.4.ebuild:
+  Version bump
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> doxygen-1.5.8-r1.ebuild,
   doxygen-1.7.6.1.ebuild, doxygen-1.8.3.1.ebuild:

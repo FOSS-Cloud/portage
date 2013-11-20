@@ -1,6 +1,58 @@
 # ChangeLog for net-misc/electrum
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/electrum/ChangeLog,v 1.6 2013/03/25 07:45:57 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/electrum/ChangeLog,v 1.17 2013/11/13 12:54:16 blueness Exp $
+
+*electrum-1.9.4 (13 Nov 2013)
+
+  13 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +electrum-1.9.4.ebuild:
+  Version bump
+
+*electrum-1.9.3 (12 Nov 2013)
+
+  12 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +electrum-1.9.3.ebuild,
+  -electrum-1.9.2.ebuild:
+  Version bump
+
+  06 Nov 2013; Anthony G. Basile <blueness@gentoo.org> -electrum-1.7.3.ebuild,
+  -electrum-1.8.ebuild, -electrum-1.9.ebuild:
+  Remove older unstable
+
+*electrum-1.9.2 (06 Nov 2013)
+
+  06 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +electrum-1.9.2.ebuild:
+  Version bump
+
+*electrum-1.9 (05 Nov 2013)
+
+  05 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +electrum-1.9.ebuild:
+  Version bump
+
+*electrum-1.8.1 (14 Aug 2013)
+
+  14 Aug 2013; Anthony G. Basile <blueness@gentoo.org> +electrum-1.8.1.ebuild:
+  Version bump, bug #480976
+
+*electrum-1.8 (02 Jun 2013)
+
+  02 Jun 2013; Anthony G. Basile <blueness@gentoo.org> +electrum-1.8.ebuild:
+  Version bump
+
+  15 May 2013; Anthony G. Basile <blueness@gentoo.org> ChangeLog:
+  Fix failed gpg signing of Manifest
+
+  15 May 2013; Anthony G. Basile <blueness@gentoo.org> -electrum-1.0.ebuild,
+  -electrum-1.6.2.ebuild, -electrum-1.7.2.ebuild, -electrum-1.7.ebuild:
+  Remove older unstable
+
+*electrum-1.7.4 (15 May 2013)
+
+  15 May 2013; Anthony G. Basile <blueness@gentoo.org> +electrum-1.7.4.ebuild:
+  Version bump
+
+*electrum-1.7.3 (14 Apr 2013)
+
+  14 Apr 2013; Anthony G. Basile <blueness@gentoo.org> +electrum-1.7.3.ebuild:
+  Version bump
 
 *electrum-1.7.2 (25 Mar 2013)
 

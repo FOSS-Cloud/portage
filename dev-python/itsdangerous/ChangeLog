@@ -1,0 +1,21 @@
+# ChangeLog for dev-python/itsdangerous
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/itsdangerous/ChangeLog,v 1.4 2013/09/05 18:46:11 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> itsdangerous-0.21.ebuild,
+  itsdangerous-0.22.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*itsdangerous-0.22 (17 Jul 2013)
+
+  17 Jul 2013; Tim Harder <radhermit@gentoo.org> +itsdangerous-0.22.ebuild:
+  Version bump.
+
+  27 Jun 2013; Mike Gilbert <floppym@gentoo.org> itsdangerous-0.21.ebuild:
+  Depend on setuptools.
+
+*itsdangerous-0.21 (14 Jun 2013)
+
+  14 Jun 2013; Rafael G. Martins <rafaelmartins@gentoo.org>
+  +itsdangerous-0.21.ebuild, +metadata.xml:
+  Initial commit. Dependency for dev-python/flask

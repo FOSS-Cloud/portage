@@ -1,6 +1,40 @@
 # ChangeLog for net-libs/libnet
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libnet/ChangeLog,v 1.101 2013/03/27 20:28:17 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libnet/ChangeLog,v 1.111 2013/04/22 18:10:26 jer Exp $
+
+  22 Apr 2013; Jeroen Roovers <jer@gentoo.org> -libnet-1.0.2a-r4.ebuild:
+  Old.
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libnet-1.0.2a-r5.ebuild:
+  Stable for sparc, wrt bug #444242
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libnet-1.0.2a-r5.ebuild:
+  Stable for arm, wrt bug #444242
+
+  19 Apr 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  libnet-1.0.2a-r5.ebuild:
+  ppc and ppc64 stable, wrt bug #444242
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libnet-1.0.2a-r5.ebuild:
+  Stable for alpha, wrt bug #444242
+
+  17 Apr 2013; Jeroen Roovers <jer@gentoo.org> libnet-1.0.2a-r5.ebuild:
+  Respect AR/RANLIB (bug #466202).
+
+  17 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libnet-1.0.2a-r5.ebuild:
+  Stable for x86, wrt bug #444242
+
+  17 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libnet-1.0.2a-r5.ebuild:
+  Stable for amd64, wrt bug #444242
+
+  16 Apr 2013; Jeroen Roovers <jer@gentoo.org> libnet-1.0.2a-r5.ebuild:
+  Stable for HPPA (bug #444242).
+
+*libnet-1.2_rc2 (10 Apr 2013)
+
+  10 Apr 2013; Jeroen Roovers <jer@gentoo.org> +libnet-1.2_rc2.ebuild,
+  -libnet-1.2_rc1-r1.ebuild, files/libnet-1.2-rc.patch:
+  Version bump.
 
 *libnet-1.2_rc1-r1 (27 Mar 2013)
 

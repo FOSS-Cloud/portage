@@ -1,6 +1,49 @@
 # ChangeLog for sys-fs/cryptsetup
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/cryptsetup/ChangeLog,v 1.148 2013/01/21 21:00:18 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/cryptsetup/ChangeLog,v 1.158 2013/11/19 11:20:53 nimiux Exp $
+
+  19 Nov 2013; Chema Alonso <nimiux@gentoo.org> cryptsetup-1.6.2.ebuild:
+  Stable for amd64 wrt bug #487652
+
+  09 Nov 2013; Jeroen Roovers <jer@gentoo.org> cryptsetup-1.6.2.ebuild:
+  Stable for HPPA (bug #487652).
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> cryptsetup-1.6.1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*cryptsetup-1.6.2 (14 Aug 2013)
+
+  14 Aug 2013; Tim Harder <radhermit@gentoo.org> +cryptsetup-1.6.2.ebuild:
+  Version bump.
+
+  14 Aug 2013; Tim Harder <radhermit@gentoo.org> metadata.xml:
+  Simplify USE flag descriptions.
+
+  06 Aug 2013; Ian Stakenvicius <axs@gentoo.org>
+  +files/cryptsetup-1.6.1-openssl-static.patch, cryptsetup-1.6.1.ebuild:
+  fixed compilation error when USE='openssl static', bug 472692; dropped
+  IUSE=selinux as there is no direct dep, selinux support comes from
+  libdevmapper via sys-fs/lvm2[selinux]
+
+  04 Jun 2013; Diego E. Pettenò <flameeyes@gentoo.org> cryptsetup-1.6.1.ebuild:
+  Fix broken dependencies.
+
+  04 Jun 2013; Tim Harder <radhermit@gentoo.org> cryptsetup-1.6.1.ebuild:
+  Drop -caps use dep from libgcrypt to fix dep tree (and libgcrypt now has
+  capabilities disabled by default).
+
+*cryptsetup-1.6.1 (04 Jun 2013)
+
+  04 Jun 2013; Tim Harder <radhermit@gentoo.org> +cryptsetup-1.6.1.ebuild,
+  metadata.xml:
+  Version bump (bug #464610 by Manuel Rüger), convert to python-single-r1, add
+  support for choosing a crypto backend (gcrypt, kernel, nettle, or openssl),
+  remove old postinst warning, and only show postinst logs on new installs.
+
+  09 Apr 2013; Samuli Suominen <ssuominen@gentoo.org>
+  cryptsetup-1.0.6-r2.ebuild:
+  Remove sys-fs/device-mapper from || () syntax in favour of sys-fs/lvm2 wrt
+  #461382
 
   21 Jan 2013; Mike Frysinger <vapier@gentoo.org> cryptsetup-1.4.3.ebuild,
   cryptsetup-1.5.1.ebuild, cryptsetup-1.6.0.ebuild:

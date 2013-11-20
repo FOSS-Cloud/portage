@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/johntheripper/johntheripper-1.7.9-r1.ebuild,v 1.4 2012/04/07 20:36:41 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/johntheripper/johntheripper-1.7.9-r1.ebuild,v 1.6 2013/07/02 02:11:48 jsbronder Exp $
 
 EAPI="4"
 
@@ -152,7 +152,9 @@ src_compile() {
 	use openmp && OMP="-fopenmp"
 
 	CPP="$(tc-getCXX)" CC="$(tc-getCC)" AS="$(tc-getCC)" LD="$(tc-getCC)"
-	use mpi && CPP=mpicxx CC=mpicc AS=mpicc LD=mpicc
+	if use mpi; then
+		CPP=mpicxx CC=mpicc AS=mpicc LD=mpicc
+	fi
 
 	emake -C src/ \
 		CPP="${CPP}" CC="${CC}" AS="${AS}" LD="${LD}" \

@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/pyxdg
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyxdg/ChangeLog,v 1.112 2013/02/21 13:35:47 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyxdg/ChangeLog,v 1.118 2013/10/12 18:47:08 hwoarang Exp $
+
+  12 Oct 2013; Markos Chandras <hwoarang@gentoo.org> pyxdg-0.25.ebuild:
+  Add ~mips
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pyxdg-0.25.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> pyxdg-0.25.ebuild:
+  Drop removed Python implementations from PYTHON_COMPAT.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> pyxdg-0.25.ebuild:
+  Enable pypy2.0.
+
+  14 May 2013; Gilles Dartiguelongue <eva@gentoo.org> pyxdg-0.25.ebuild:
+  Add python3.3 to the list of supported python version, required for
+  speech-dispatcher.
+
+  06 May 2013; Jan Matejka <yac@gentoo.org> pyxdg-0.25.ebuild:
+  fixes 461356
 
   21 Feb 2013; Agostino Sarubbo <ago@gentoo.org> pyxdg-0.25.ebuild:
   Stable for ia64, wrt bug #457334

@@ -1,6 +1,49 @@
 # ChangeLog for net-libs/gtk-vnc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gtk-vnc/ChangeLog,v 1.105 2013/03/30 17:44:17 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gtk-vnc/ChangeLog,v 1.117 2013/09/28 20:21:26 pacho Exp $
+
+*gtk-vnc-0.5.3 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +gtk-vnc-0.5.3.ebuild,
+  -gtk-vnc-0.5.1.ebuild:
+  Version bump, drop old
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gtk-vnc-0.5.2.ebuild:
+  Stable for sparc, wrt bug #480150
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gtk-vnc-0.5.2.ebuild:
+  Stable for ppc64, wrt bug #480150
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gtk-vnc-0.5.2.ebuild:
+  Stable for alpha, wrt bug #480150
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gtk-vnc-0.5.2.ebuild:
+  Stable for ia64, wrt bug #480150
+
+  19 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gtk-vnc-0.5.2.ebuild:
+  Stable for ppc, wrt bug #480150
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gtk-vnc-0.5.2.ebuild:
+  Stable for x86, wrt bug #480150
+
+  10 Aug 2013; Doug Goldstein <cardoe@gentoo.org> metadata.xml:
+  Add the virtualization herd as a co-maintainer
+
+  10 Aug 2013; Doug Goldstein <cardoe@gentoo.org> -gtk-vnc-0.5.0-r1.ebuild,
+  gtk-vnc-0.5.2.ebuild:
+  Remove older version and enable USE=gtk3 to be on by default from 0.5.2 and
+  on.
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gtk-vnc-0.5.2.ebuild:
+  Stable for amd64, wrt bug #480150
+
+  01 Jun 2013; Jonathan Callen <abcd@gentoo.org> gtk-vnc-0.5.2.ebuild:
+  Fix build with USE=-python and empty PYTHON_TARGETS; force non-empty
+  PYTHON_TARGETS for USE=python
+
+  24 Apr 2013; Justin Lecher <jlec@gentoo.org> gtk-vnc-0.5.2.ebuild,
+  metadata.xml:
+  vala_depend is a function not a variable
 
   30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -gtk-vnc-0.5.1-r1.ebuild:
   Drop 0.5.1-r1, it has no point since 0.5.2 was commited with even better

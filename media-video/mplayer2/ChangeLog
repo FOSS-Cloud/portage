@@ -1,6 +1,92 @@
 # ChangeLog for media-video/mplayer2
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/ChangeLog,v 1.90 2013/03/17 16:04:58 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/ChangeLog,v 1.113 2013/10/19 19:39:40 tomwij Exp $
+
+  19 Oct 2013; Tom Wijsman <TomWij@gentoo.org> mplayer2-9999.ebuild:
+  Added REQUIRED_USE entry as the libass USE flag now needs iconv to be enabled,
+  proxied commit for Nikoli; fixes bug #488604, reported by adel_blakdeath.
+
+  13 Oct 2013; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Updated Nikoli's e-mail address for easier automatic assignment.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org>
+  mplayer2-2.0_p20130428-r1.ebuild, mplayer2-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  mplayer2-2.0_p20130126.ebuild, mplayer2-2.0_p20130428-r1.ebuild,
+  mplayer2-9999.ebuild:
+  depend on ffmpeg:0
+
+  10 Jul 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag descriptions from metadata.xml
+
+*mplayer2-2.0_p20130428-r1 (09 Jul 2013)
+
+  09 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +mplayer2-2.0_p20130428-r1.ebuild, -mplayer2-2.0_p20120828.ebuild,
+  -mplayer2-2.0_p20130428.ebuild, mplayer2-9999.ebuild:
+  Touchups and love from Nikoli. Remove overshadowed ebuilds.
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mplayer2-2.0_p20130126.ebuild:
+  Stable for ppc64, wrt bug #473220
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mplayer2-2.0_p20130126.ebuild:
+  Stable for sparc, wrt bug #473220
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mplayer2-2.0_p20130126.ebuild:
+  Stable for arm, wrt bug #473220
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mplayer2-2.0_p20130126.ebuild:
+  Stable for ia64, wrt bug #473220
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mplayer2-2.0_p20130126.ebuild:
+  Stable for alpha, wrt bug #473220
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mplayer2-2.0_p20130126.ebuild:
+  Stable for amd64, wrt bug #473220
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mplayer2-2.0_p20130126.ebuild:
+  Stable for x86, wrt bug #473220
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mplayer2-2.0_p20130126.ebuild:
+  Stable for ppc, wrt bug #473220
+
+  14 Jun 2013; Jeroen Roovers <jer@gentoo.org> mplayer2-2.0_p20130126.ebuild:
+  Stable for HPPA (bug #473220).
+
+  13 Jun 2013; Ulrich Müller <ulm@gentoo.org> -mplayer2-2.0_p20120309.ebuild,
+  mplayer2-2.0_p20120828.ebuild, -mplayer2-2.0_p20121108.ebuild,
+  -mplayer2-2.0_p20121128.ebuild, mplayer2-2.0_p20130126.ebuild,
+  mplayer2-2.0_p20130428.ebuild, mplayer2-9999.ebuild,
+  -files/mplayer2-2.0_p20121128-cdio-api-fixes.patch, metadata.xml:
+  Remove real USE flag, as discussed with Nikoli, bug 473206.
+  Disable all binary codecs, remove old; proxy commit for Nikoli.
+
+  16 May 2013; Ulrich Müller <ulm@gentoo.org> mplayer2-2.0_p20120309.ebuild,
+  mplayer2-2.0_p20120828.ebuild, mplayer2-2.0_p20121108.ebuild,
+  mplayer2-2.0_p20121128.ebuild, mplayer2-2.0_p20130126.ebuild,
+  mplayer2-2.0_p20130428.ebuild, mplayer2-9999.ebuild:
+  Remove win32codecs USE flag, bug 468406.
+
+*mplayer2-2.0_p20130428 (16 May 2013)
+
+  16 May 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +mplayer2-2.0_p20130428.ebuild:
+  Add 2.0_p20130428.ebuild snapshot, thanks to Nikoli
+
+  27 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> mplayer2-9999.ebuild:
+  Move the ebuild to python-r1 eclasses. Sync with mpv ebuild. Patch by Nikoli.
+
+  16 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Remove redundant maintainer field for media-video
+
+  16 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> mplayer2-9999.ebuild:
+  Adjust ffmpeg dependency in live ebuild by maintainer's request
+
+  16 Apr 2013; Sergey Popov <pinkbyte@gentoo.org>
+  mplayer2-2.0_p20130126.ebuild, mplayer2-9999.ebuild:
+  Adjust cdio dependency by maintainer's request
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

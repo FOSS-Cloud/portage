@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/gnat-gcc/gnat-gcc-4.3.6.ebuild,v 1.3 2012/02/14 12:31:28 george Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/gnat-gcc/gnat-gcc-4.3.6.ebuild,v 1.5 2013/08/03 04:58:50 george Exp $
 
 inherit gnatbuild
 
@@ -15,11 +15,11 @@ IUSE=""
 SRC_URI="ftp://gcc.gnu.org/pub/gcc/releases/gcc-${PV}/gcc-core-${PV}.tar.bz2
 	ftp://gcc.gnu.org/pub/gcc/releases/gcc-${PV}/gcc-ada-${PV}.tar.bz2
 	amd64? ( http://dev.gentoo.org/~george/src/gnatboot-${SLOT}-amd64.tar.bz2 )
-	x86?   ( http://dev.gentoo.org/~george/src/gnatboot-${SLOT}-i686.tar.bz2 )"
+	x86?   ( http://dev.gentoo.org/~george/src/gnatboot-${SLOT}-i686.tar.bz2 )
+	ppc?   ( http://dev.gentoo.org/~george/src/gnatboot-4.1-ppc.tar.bz2 )"
 #	sparc? ( mirror://gentoo/gnatboot-${BOOT_SLOT}-sparc.tar.bz2 )
-#	ppc?   ( mirror://gentoo/gnatboot-${BOOT_SLOT}-ppc.tar.bz2 )
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 
 # starting with 4.3.0 gnat needs these libs
 RDEPEND=">=dev-libs/mpfr-2.3.1
@@ -28,6 +28,7 @@ RDEPEND=">=dev-libs/mpfr-2.3.1
 	>=sys-libs/ncurses-5.2-r2"
 
 DEPEND="${RDEPEND}
+	<sys-apps/texinfo-5.1
 	>=sys-devel/bison-1.875
 	>=sys-libs/glibc-2.8
 	>=sys-devel/binutils-2.15.94"

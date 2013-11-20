@@ -1,6 +1,63 @@
 # ChangeLog for dev-ruby/yard
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/yard/ChangeLog,v 1.48 2013/01/15 06:14:36 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/yard/ChangeLog,v 1.60 2013/11/03 04:00:22 mrueg Exp $
+
+*yard-0.8.7.3 (03 Nov 2013)
+
+  03 Nov 2013; Manuel Rüger <mrueg@gentoo.org> +yard-0.8.7.3.ebuild:
+  Version bump.
+
+  24 Oct 2013; Jeroen Roovers <jer@gentoo.org> yard-0.8.7.2.ebuild:
+  Stable for HPPA (bug #488914).
+
+  21 Oct 2013; Hans de Graaff <graaff@gentoo.org> -yard-0.8.7.ebuild,
+  -yard-0.8.7.1.ebuild:
+  Cleanup.
+
+*yard-0.8.7.2-r1 (20 Oct 2013)
+
+  20 Oct 2013; Hans de Graaff <graaff@gentoo.org> +yard-0.8.7.2-r1.ebuild:
+  Add ruby20. Update ruby-gettext test dependency to work with recent
+  ruby-gettext versions and avoid dependency hell for ruby20. Add missing test
+  dependency on rack. Drop alpha,ia64,ppc64,sparc keywords due to bug 465948.
+
+*yard-0.8.7.2 (19 Sep 2013)
+
+  19 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +yard-0.8.7.2.ebuild:
+  Version bump.
+
+*yard-0.8.7.1 (13 Sep 2013)
+
+  13 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +yard-0.8.7.1.ebuild:
+  Version bump.
+
+  10 Sep 2013; Manuel Rüger <mrueg@gentoo.org>
+  -files/yard-0.6.4-config-file-feature.patch, -files/yard-0.6.4-yaml.patch,
+  -yard-0.8.6.2.ebuild:
+  Cleanup old.
+
+  31 Jul 2013; Manuel Rüger <mrueg@gentoo.org> yard-0.8.7.ebuild:
+  Drop dependency on <rspec-2.14, as tests are working again with rspec-
+  mocks-2.14.2
+
+*yard-0.8.7 (27 Jul 2013)
+
+  27 Jul 2013; Manuel Rüger <mrueg@gentoo.org> +yard-0.8.7.ebuild,
+  -yard-0.8.6.1.ebuild:
+  Version bump, tests fail with >=rspec-2.14, so depend on <2.14, Drop old
+
+*yard-0.8.6.2 (10 Jul 2013)
+
+  10 Jul 2013; Manuel Rüger <mrueg@gentoo.org> +yard-0.8.6.2.ebuild:
+  Version bump
+
+*yard-0.8.6.1 (24 Apr 2013)
+
+  24 Apr 2013; Hans de Graaff <graaff@gentoo.org> +yard-0.8.6.1.ebuild:
+  Version bump.
+
+  24 Apr 2013; Hans de Graaff <graaff@gentoo.org> -yard-0.8.2.1.ebuild:
+  Cleanup.
 
   15 Jan 2013; Rick Farina <zerochaos@gentoo.org> yard-0.8.3.ebuild:
   adding ~arm keywords to net-analyzer/metasploit rdeps

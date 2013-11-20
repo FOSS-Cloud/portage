@@ -1,6 +1,62 @@
 # ChangeLog for sci-libs/fftw
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/fftw/ChangeLog,v 1.139 2013/03/10 18:47:22 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/fftw/ChangeLog,v 1.155 2013/10/21 13:29:10 grobian Exp $
+
+  21 Oct 2013; Fabian Groffen <grobian@gentoo.org> fftw-3.3.3-r3.ebuild:
+  Marked ~x64-macos, bug #486818
+
+  26 Sep 2013; Christoph Junghans <ottxor@gentoo.org> -fftw-3.2.2-r2.ebuild,
+  -fftw-3.2.2.ebuild, -fftw-3.3.3-r1.ebuild, -fftw-3.3.3.ebuild,
+  -files/fftw-3.2.1-as-needed.patch, -files/fftw-3.2.2-pc-threads.patch,
+  metadata.xml:
+  removed old (bug #478608)
+
+  26 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fftw-3.3.3-r2.ebuild:
+  Stable for arm, wrt bug #477182
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fftw-3.3.3-r2.ebuild:
+  Stable for ppc, wrt bug #477182
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fftw-3.3.3-r2.ebuild:
+  Stable for sparc, wrt bug #477182
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fftw-3.3.3-r2.ebuild:
+  Stable for ppc64, wrt bug #477182
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fftw-3.3.3-r2.ebuild:
+  Stable for alpha, wrt bug #477182
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fftw-3.3.3-r2.ebuild:
+  Stable for ia64, wrt bug #477182
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fftw-3.3.3-r2.ebuild:
+  Stable for x86, wrt bug #477182
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fftw-3.3.3-r2.ebuild:
+  Stable for amd64, wrt bug #477182
+
+*fftw-3.3.3-r3 (17 Sep 2013)
+
+  17 Sep 2013; Christoph Junghans <ottxor@gentoo.org> +fftw-3.3.3-r3.ebuild:
+  added version without REQUIRED_USE
+
+  09 Sep 2013; Jeroen Roovers <jer@gentoo.org> fftw-3.3.3-r2.ebuild:
+  Stable for HPPA (bug #477182).
+
+  27 Jun 2013; Alexis Ballier <aballier@gentoo.org> fftw-3.3.3-r1.ebuild,
+  fftw-3.3.3-r2.ebuild:
+  fix emul-linux blocker
+
+  03 May 2013; Justin Lecher <jlec@gentoo.org> fftw-2.1.5-r8.ebuild:
+  Fix obsolete macros to work with automake-1.13, #468456
+
+  01 May 2013; Justin Lecher <jlec@gentoo.org> fftw-3.3.3-r1.ebuild,
+  fftw-3.3.3-r2.ebuild:
+  Fix blocker of incompatible emul package versions, thanks mgorny
+
+  17 Apr 2013; Justin Lecher <jlec@gentoo.org> fftw-2.1.5-r8.ebuild,
+  +files/fftw-2.1.5-texinfo5.1.patch:
+  Add compatibility patch with sys-apps/texinfo-5.1, #464208
 
 *fftw-3.3.3-r2 (10 Mar 2013)
 

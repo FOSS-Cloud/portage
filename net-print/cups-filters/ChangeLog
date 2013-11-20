@@ -1,6 +1,152 @@
 # ChangeLog for net-print/cups-filters
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/cups-filters/ChangeLog,v 1.54 2013/04/06 10:20:47 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/cups-filters/ChangeLog,v 1.88 2013/11/19 18:53:22 grobian Exp $
+
+  19 Nov 2013; Fabian Groffen <grobian@gentoo.org> cups-filters-1.0.41.ebuild:
+  Marked ~m68k-mint, bug #491080
+
+  04 Nov 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  cups-filters-1.0.36-r1.ebuild, cups-filters-1.0.36-r2.ebuild,
+  +files/cups-filters-1.0.36-parallel.patch:
+  Fix parallel build, bug 490218. Newer versions already contain this change.
+
+*cups-filters-1.0.41 (04 Nov 2013)
+
+  04 Nov 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +cups-filters-1.0.41.ebuild, cups-filters-9999.ebuild:
+  Version bump
+
+  03 Nov 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.36-r1.ebuild:
+  Stable for ppc64, wrt bug #489720
+
+  03 Nov 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.36-r1.ebuild:
+  Stable for ppc, wrt bug #489720
+
+  03 Nov 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.36-r1.ebuild:
+  Stable for arm, wrt bug #489720
+
+  03 Nov 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.36-r1.ebuild:
+  Stable for alpha, wrt bug #489720
+
+  02 Nov 2013; Jeroen Roovers <jer@gentoo.org> cups-filters-1.0.36-r1.ebuild:
+  Stable for HPPA (bug #489802).
+
+  31 Oct 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.36-r1.ebuild:
+  Stable for x86, wrt bug #489720
+
+  31 Oct 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.36-r1.ebuild:
+  Stable for amd64, wrt bug #489720
+
+  27 Aug 2013; Michael Palimaka <kensington@gentoo.org>
+  cups-filters-1.0.34-r1.ebuild, cups-filters-1.0.36-r1.ebuild,
+  cups-filters-1.0.36-r2.ebuild, cups-filters-9999.ebuild:
+  Pin virtual/jpeg SLOT to 0.
+
+  24 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  cups-filters-1.0.34-r1.ebuild, +cups-filters-1.0.36-r1.ebuild:
+  Restore 1.0.36-r1 for stabilization, improve dependencies
+
+*cups-filters-1.0.36-r2 (23 Aug 2013)
+
+  23 Aug 2013; Timo Gurr <tgurr@gentoo.org> -cups-filters-1.0.35.ebuild,
+  -cups-filters-1.0.36-r1.ebuild, +cups-filters-1.0.36-r2.ebuild,
+  cups-filters-9999.ebuild:
+  Remove temporary workaround for bug #480942.
+
+*cups-filters-1.0.36-r1 (14 Aug 2013)
+
+  14 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +cups-filters-1.0.36-r1.ebuild, -cups-filters-1.0.36.ebuild,
+  cups-filters-9999.ebuild:
+  Add temporary workaround for bug 480942
+
+*cups-filters-1.0.36 (13 Aug 2013)
+
+  13 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -cups-filters-1.0.35-r1.ebuild, -files/cups-filters-1.0.35-poppler24.patch,
+  +cups-filters-1.0.36.ebuild:
+  Version bump; remove old
+
+*cups-filters-1.0.35-r1 (11 Aug 2013)
+
+  11 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  cups-filters-1.0.34-r1.ebuild, cups-filters-1.0.35.ebuild,
+  +cups-filters-1.0.35-r1.ebuild, +files/cups-filters-1.0.35-poppler24.patch,
+  cups-filters-9999.ebuild:
+  Backport patch for poppler-0.24; specify dep on maximal poppler-0.22 for
+  stable version; add nonsensically dropped s390
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.34-r1.ebuild:
+  Stable for s390, wrt bug #442926
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.34-r1.ebuild:
+  Stable for sparc, wrt bug #442926
+
+  07 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  cups-filters-1.0.34-r1.ebuild, cups-filters-1.0.35.ebuild,
+  cups-filters-9999.ebuild:
+  Need avahi with dbus support, bug 476074
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.34-r1.ebuild:
+  Stable for ia64, wrt bug #442926
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.34-r1.ebuild:
+  Stable for arm, wrt bug #442926
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.34-r1.ebuild:
+  Stable for alpha, wrt bug #442926
+
+*cups-filters-1.0.35 (05 Jul 2013)
+
+  05 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +cups-filters-1.0.35.ebuild, cups-filters-9999.ebuild:
+  Version bump; qpdf subslot dependency
+
+  05 Jul 2013; Jeroen Roovers <jer@gentoo.org> cups-filters-1.0.34-r1.ebuild:
+  Stable for HPPA (bug #442926).
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.34-r1.ebuild:
+  Stable for ppc64, wrt bug #442926
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.34-r1.ebuild:
+  Stable for ppc, wrt bug #442926
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.34-r1.ebuild:
+  Stable for x86, wrt bug #442926
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> cups-filters-1.0.34-r1.ebuild:
+  Stable for amd64, wrt bug #442926
+
+  26 Jun 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -files/cups-filters-1.0.29-openrc.patch, -cups-filters-1.0.30-r1.ebuild,
+  -files/cups-filters-1.0.30-noavahi.patch, -cups-filters-1.0.34.ebuild:
+  Clean up
+
+*cups-filters-1.0.34-r1 (15 May 2013)
+
+  15 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +cups-filters-1.0.34-r1.ebuild, +cups-filters-9999.ebuild,
+  -cups-filters-9999-r1.ebuild:
+  Make init scripts only depend on avahi if it is really used, bug 469930. In
+  addition, please repeat after me: We do not do revbumps in live ebuilds...
+
+*cups-filters-1.0.34 (11 May 2013)
+
+  11 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -files/cups-filters-1.0.29-poppler-0.22.patch, -cups-filters-1.0.30.ebuild,
+  +cups-filters-1.0.34.ebuild, cups-filters-9999-r1.ebuild:
+  Version bump; remove old
+
+*cups-filters-1.0.30-r1 (11 May 2013)
+
+  11 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +cups-filters-1.0.30-r1.ebuild, cups-filters-9999-r1.ebuild,
+  +files/cups-browsed.service, files/cups-browsed.init.d:
+  Bugfixes in ebuild and init script and addition systemd unit file, all from
+  systemd-love overlay thanks to lxnay
+
+  25 Apr 2013; Patrick Lauer <patrick@gentoo.org> cups-filters-1.0.30.ebuild:
+  Apply automake fix #466412
 
   06 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org>
   cups-filters-1.0.30.ebuild, cups-filters-9999-r1.ebuild:

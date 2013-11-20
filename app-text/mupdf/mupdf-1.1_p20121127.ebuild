@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/mupdf/mupdf-1.1_p20121127.ebuild,v 1.5 2013/03/26 18:16:32 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/mupdf/mupdf-1.1_p20121127.ebuild,v 1.7 2013/06/07 22:52:15 xmw Exp $
 
 EAPI=4
 
@@ -17,7 +17,7 @@ IUSE="X vanilla"
 
 RDEPEND="media-libs/freetype:2
 	media-libs/jbig2dec
-	>=media-libs/openjpeg-1.5
+	>=media-libs/openjpeg-1.5:0
 	virtual/jpeg
 	X? ( x11-libs/libX11
 		x11-libs/libXext )"
@@ -25,8 +25,9 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-buildsystem.patch
-	epatch "${FILESDIR}"/${P}-desktop-integration.patch
+	epatch \
+		 "${FILESDIR}"/${P}-buildsystem.patch \
+		"${FILESDIR}"/${P}-desktop-integration.patch
 
 	if ! use vanilla ; then
 		epatch "${FILESDIR}"/${PN}-1.1_rc1-zoom-2.patch

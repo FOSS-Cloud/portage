@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/eduke32/eduke32-20130317.3572-r1.ebuild,v 1.1 2013/03/20 00:50:49 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-fps/eduke32/eduke32-20130317.3572-r1.ebuild,v 1.3 2013/04/11 14:16:54 hasufell Exp $
 
 # TODO/FIXME:
 # lunatic broken
@@ -49,7 +49,7 @@ RDEPEND="media-libs/flac
 	gtk? ( x11-libs/gtk+:2 )
 	opengl? ( virtual/glu
 		virtual/opengl )
-	png? ( media-libs/libpng:0
+	png? ( media-libs/libpng:0=
 		sys-libs/zlib )
 	vpx? ( media-libs/libvpx )"
 DEPEND="${RDEPEND}
@@ -82,7 +82,8 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-QA.patch
+	epatch "${FILESDIR}"/${P}-QA.patch \
+		"${FILESDIR}"/${P}-libpng-1.6.patch
 
 	# Point eduke32 to data files in shared duke3d folder.
 	# Multiple search paths can be defined, so that with the default configuration as of
@@ -101,7 +102,9 @@ src_prepare() {
 
 src_compile() {
 	local MY_OPTS=(
+		AS=$(type -P nasm)
 		ARCH=
+		SYSARCH=
 		LTO=0
 		PRETTY_OUTPUT=0
 		RELEASE=1

@@ -1,6 +1,14 @@
 # ChangeLog for media-libs/jbig2dec
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/jbig2dec/ChangeLog,v 1.32 2013/03/03 08:37:45 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/jbig2dec/ChangeLog,v 1.34 2013/11/03 02:22:57 chithanh Exp $
+
+  03 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  jbig2dec-0.11-r1.ebuild:
+  Keyword ~sparc-solaris
+
+  24 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> jbig2dec-0.11-r1.ebuild:
+  Use subslot operator for the libpng dependency. Use AC_CONFIG_HEADERS instead
+  of AM_CONFIG_HEADER wrt #466998 by Alphat-PC and Tobias B.
 
   03 Mar 2013; Mike Frysinger <vapier@gentoo.org> jbig2dec-0.11-r1.ebuild:
   Add s390 love.

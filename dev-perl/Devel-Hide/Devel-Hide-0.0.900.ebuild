@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Devel-Hide/Devel-Hide-0.0.900.ebuild,v 1.1 2013/02/09 12:55:28 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Devel-Hide/Devel-Hide-0.0.900.ebuild,v 1.3 2013/09/08 15:03:30 pinkbyte Exp $
 
 EAPI=5
 
@@ -11,7 +11,7 @@ inherit perl-module
 DESCRIPTION="Forces the unavailability of specified Perl modules (for testing)"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~ppc ~x86"
 IUSE="test"
 
 DEPEND="

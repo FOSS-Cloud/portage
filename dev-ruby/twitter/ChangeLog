@@ -1,6 +1,32 @@
 # ChangeLog for dev-ruby/twitter
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/twitter/ChangeLog,v 1.30 2012/12/11 07:17:12 graaff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/twitter/ChangeLog,v 1.36 2013/11/11 11:17:26 mrueg Exp $
+
+  11 Nov 2013; Manuel Rüger <mrueg@gentoo.org> -twitter-3.7.0.ebuild,
+  -twitter-4.8.0.ebuild:
+  Cleanup old.
+
+*twitter-4.8.1 (22 Aug 2013)
+
+  22 Aug 2013; Hans de Graaff <graaff@gentoo.org> +twitter-4.8.1.ebuild:
+  Version bump.
+
+  22 Aug 2013; Hans de Graaff <graaff@gentoo.org> -twitter-4.4.1.ebuild,
+  -twitter-4.6.2.ebuild:
+  Cleanup.
+
+*twitter-4.8.0 (12 Jun 2013)
+
+  12 Jun 2013; Hans de Graaff <graaff@gentoo.org> +twitter-4.8.0.ebuild:
+  Version bump.
+
+*twitter-4.6.2 (21 Apr 2013)
+
+  21 Apr 2013; Hans de Graaff <graaff@gentoo.org> +twitter-4.6.2.ebuild:
+  Version bump.
+
+  21 Apr 2013; Hans de Graaff <graaff@gentoo.org> -twitter-2.5.0.ebuild:
+  Cleanup.
 
 *twitter-4.4.1 (11 Dec 2012)
 
@@ -141,4 +167,3 @@
   14 Jul 2007; Joshua Nichols <nichoj@gentoo.org> +metadata.xml,
   +twitter-0.1.1.ebuild:
   Initial commit.
-

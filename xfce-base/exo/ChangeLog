@@ -1,6 +1,39 @@
 # ChangeLog for xfce-base/exo
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-base/exo/ChangeLog,v 1.89 2012/12/27 14:45:04 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/xfce-base/exo/ChangeLog,v 1.100 2013/05/05 17:04:20 ssuominen Exp $
+
+  05 May 2013; Samuli Suominen <ssuominen@gentoo.org> -exo-0.8.0.ebuild:
+  old
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> exo-0.10.2.ebuild:
+  Stable for sparc, wrt bug #465286
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> exo-0.10.2.ebuild:
+  Stable for ia64, wrt bug #465286
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> exo-0.10.2.ebuild:
+  Stable for arm, wrt bug #465286
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> exo-0.10.2.ebuild:
+  Stable for alpha, wrt bug #465286
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> exo-0.10.2.ebuild:
+  Stable for ppc64, wrt bug #465286
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> exo-0.10.2.ebuild:
+  Stable for ppc, wrt bug #465286
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> exo-0.10.2.ebuild:
+  Stable for x86, wrt bug #465286
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> exo-0.10.2.ebuild:
+  Stable for amd64, wrt bug #465286
+
+  10 Apr 2013; Jeroen Roovers <jer@gentoo.org> exo-0.10.2.ebuild:
+  Stable for HPPA (bug #465286).
+
+  09 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> -exo-0.10.1.ebuild:
+  old
 
 *exo-0.10.2 (27 Dec 2012)
 
@@ -336,4 +369,3 @@
   +exo-0.3.101-r1.ebuild, +files/exo-0.3.101-iocharset.patch,
   +exo-0.3.102-r1.ebuild, +files/exo-0.3.102-eject.patch:
   Move from xfce-extra category.
-

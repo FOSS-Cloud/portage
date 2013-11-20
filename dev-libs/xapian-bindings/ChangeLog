@@ -1,6 +1,45 @@
 # ChangeLog for dev-libs/xapian-bindings
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/xapian-bindings/ChangeLog,v 1.61 2013/03/23 12:39:47 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/xapian-bindings/ChangeLog,v 1.72 2013/09/03 13:34:28 ago Exp $
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xapian-bindings-1.2.14.ebuild:
+  Stable for ia64, wrt bug #470402
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xapian-bindings-1.2.14.ebuild:
+  Stable for alpha, wrt bug #470402
+
+  11 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  xapian-bindings-1.3.1.ebuild:
+  Remove useless sed, thanks Arfrever
+
+*xapian-bindings-1.3.1 (10 Aug 2013)
+
+  10 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  +xapian-bindings-1.3.1.ebuild:
+  Version bump with php and mono masked
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> xapian-bindings-1.2.14.ebuild:
+  Stable for ppc64, wrt bug #470402
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> xapian-bindings-1.2.14.ebuild:
+  Stable for arm, wrt bug #470402
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> xapian-bindings-1.2.14.ebuild:
+  Stable for ppc, wrt bug #470402
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> xapian-bindings-1.2.14.ebuild:
+  Stable for x86, wrt bug #470402
+
+  19 May 2013; Agostino Sarubbo <ago@gentoo.org> xapian-bindings-1.2.14.ebuild:
+  Stable for amd64, wrt bug #470402
+
+  11 Apr 2013; Anthony G. Basile <blueness@gentoo.org>
+  -files/fix-LUA_LIB-envvar.patch:
+  Remove LUA lib path fix that went upstream
+
+  11 Apr 2013; Anthony G. Basile <blueness@gentoo.org>
+  -xapian-bindings-1.2.12-r1.ebuild, -xapian-bindings-1.2.12.ebuild:
+  Drop older stable
 
   23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> xapian-bindings-1.2.13.ebuild:
   Stable for arm, wrt bug #461108

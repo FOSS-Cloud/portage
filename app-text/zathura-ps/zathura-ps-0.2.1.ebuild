@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/zathura-ps/zathura-ps-0.2.1.ebuild,v 1.1 2013/01/27 21:59:16 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/zathura-ps/zathura-ps-0.2.1.ebuild,v 1.4 2013/08/14 11:13:10 heroxbd Exp $
 
 EAPI=5
 inherit toolchain-funcs
@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 RDEPEND=">=app-text/libspectre-0.2.6
-	>=app-text/zathura-0.2.2
+	>=app-text/zathura-0.2.0
 	>=dev-libs/girara-0.1.5:2
 	>=dev-libs/glib-2
 	x11-libs/cairo"
@@ -24,6 +24,7 @@ DEPEND="${RDEPEND}
 
 pkg_setup() {
 	myzathuraconf=(
+		PREFIX="${EPREFIX}"/usr
 		CC="$(tc-getCC)"
 		LD="$(tc-getLD)"
 		VERBOSE=1

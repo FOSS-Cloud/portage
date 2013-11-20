@@ -1,6 +1,57 @@
 # ChangeLog for media-radio/xlog
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/xlog/ChangeLog,v 1.26 2013/03/23 17:23:54 tomjbe Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-radio/xlog/ChangeLog,v 1.39 2013/11/20 13:34:26 tomjbe Exp $
+
+*xlog-2.0.11 (20 Nov 2013)
+
+  20 Nov 2013; Thomas Beierlein <tomjbe@gentoo.org> +xlog-2.0.11.ebuild:
+  Version bump
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xlog-2.0.10.ebuild:
+  Stable for x86, wrt bug #484808
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xlog-2.0.10.ebuild:
+  Stable for amd64, wrt bug #484808
+
+*xlog-2.0.10 (26 Jul 2013)
+
+  26 Jul 2013; Thomas Beierlein <tomjbe@gentoo.org> +xlog-2.0.10.ebuild:
+  Version bump
+
+  05 Jul 2013; Thomas Beierlein <tomjbe@gentoo.org> -xlog-2.0.5.ebuild,
+  -xlog-2.0.6.ebuild, -xlog-2.0.7.ebuild, -files/xlog-2.0.7-cabrillo.patch:
+  drop old
+
+  30 Jun 2013; Thomas Beierlein <tomjbe@gentoo.org> xlog-2.0.8.ebuild:
+  Respect AR (bug #475322). Thanks ago.
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> xlog-2.0.8.ebuild:
+  Stable for x86, wrt bug #475208
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> xlog-2.0.8.ebuild:
+  Stable for amd64, wrt bug #475208
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> xlog-2.0.7.ebuild:
+  Stable for x86, wrt bug #470518
+
+*xlog-2.0.8 (24 May 2013)
+
+  24 May 2013; Thomas Beierlein <tomjbe@gentoo.org> +xlog-2.0.8.ebuild:
+  Version bump
+
+  24 May 2013; Thomas Beierlein <tomjbe@gentoo.org> xlog-2.0.7.ebuild,
+  +files/xlog-2.0.7-cabrillo.patch, +files/xlog-2.0.7-desktop.patch:
+  Fix QA warnings in .desktop file. Fix cabrillo import function.
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> xlog-2.0.7.ebuild:
+  Stable for amd64, wrt bug #470518
+
+*xlog-2.0.7 (18 Apr 2013)
+
+  18 Apr 2013; Thomas Beierlein <tomjbe@gentoo.org>
+  -files/xlog-2.0.1-adif.patch, -files/xlog-2.0.2-qsl.patch,
+  +xlog-2.0.7.ebuild:
+  Version bump. remove old patch files
 
 *xlog-2.0.6 (23 Mar 2013)
 
@@ -69,4 +120,3 @@
   +files/xlog-1.9-desktop-update.patch, +files/xlog-2.0.1-adif.patch,
   +files/xlog-2.0.2-qsl.patch, +xlog-2.0.3.ebuild, +metadata.xml:
   Moved back from sunrise. See bug #174930
-

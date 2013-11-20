@@ -1,6 +1,72 @@
 # ChangeLog for mail-client/evolution
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/evolution/ChangeLog,v 1.392 2013/03/31 18:50:53 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/evolution/ChangeLog,v 1.406 2013/11/18 20:06:38 pacho Exp $
+
+  18 Nov 2013; Pacho Ramos <pacho@gentoo.org> -evolution-3.6.4.ebuild,
+  -evolution-3.8.4-r1.ebuild, -files/evolution-3.3.91-spamassassin-paths.patch,
+  -files/evolution-3.8.4-pop3-removal.patch:
+  Drop old
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> evolution-3.6.4.ebuild,
+  -evolution-3.8.4.ebuild, evolution-3.8.4-r1.ebuild, evolution-3.8.5.ebuild:
+  Depend on libsoup-gnome again, clean up old revisions.
+
+*evolution-3.8.5 (25 Aug 2013)
+
+  25 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> +evolution-3.8.5.ebuild:
+  Version bump.
+
+  17 Aug 2013; Pacho Ramos <pacho@gentoo.org> evolution-3.8.4-r1.ebuild:
+  No gnome-extra/evolution-exchange is compatible with evo-3.8
+
+*evolution-3.8.4-r1 (09 Aug 2013)
+
+  09 Aug 2013; Pacho Ramos <pacho@gentoo.org> +evolution-3.8.4-r1.ebuild,
+  +files/evolution-3.8.4-pop3-removal.patch, -evolution-3.8.3.ebuild:
+  Fix 'Old POP3 mails can be removed before getting them, upstream bug #705446',
+  drop old
+
+  04 Aug 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  evolution-3.8.3.ebuild, evolution-3.8.4.ebuild:
+  Pin geocode-glib dependency to 0.99.0 (bug #479458).
+
+  28 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org> evolution-3.6.4.ebuild,
+  evolution-3.8.4.ebuild:
+  Fix dependencies. Depend on gst-1 only to avoid automagic.
+
+*evolution-3.8.4 (23 Jul 2013)
+
+  23 Jul 2013; Pacho Ramos <pacho@gentoo.org> +evolution-3.8.4.ebuild,
+  -evolution-3.8.2.ebuild:
+  Version bump, drop old
+
+  21 Jul 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  connman is a global USE flag now
+
+  15 Jun 2013; Pacho Ramos <pacho@gentoo.org> evolution-3.8.3.ebuild:
+  eautoreconf is needed (#473354 by Helmut Jarausch)
+
+*evolution-3.8.3 (15 Jun 2013)
+
+  15 Jun 2013; Pacho Ramos <pacho@gentoo.org> +evolution-3.8.3.ebuild,
+  -evolution-3.8.1.ebuild:
+  Version bump, drop old
+
+*evolution-3.8.2 (12 May 2013)
+
+  12 May 2013; Pacho Ramos <pacho@gentoo.org> +evolution-3.8.2.ebuild,
+  -evolution-3.6.3.ebuild, -evolution-3.8.0.ebuild:
+  Version bump, drop old
+
+*evolution-3.8.1 (14 Apr 2013)
+
+  14 Apr 2013; Pacho Ramos <pacho@gentoo.org> +evolution-3.8.1.ebuild:
+  Version bump
+
+  11 Apr 2013; Pacho Ramos <pacho@gentoo.org> evolution-3.6.3.ebuild,
+  evolution-3.6.4.ebuild, evolution-3.8.0.ebuild:
+  3.6.2-r1 was keyworded on arm, but later versions dropped it again by error
+  leading to repoman failure with gnome-base/gnome-extra-apps
 
   31 Mar 2013; Pacho Ramos <pacho@gentoo.org> evolution-3.8.0.ebuild:
   Adapt to libsoup-2.42 dropping gnome USE and splitting (#463702)

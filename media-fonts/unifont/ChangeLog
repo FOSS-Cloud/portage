@@ -1,6 +1,24 @@
 # ChangeLog for media-fonts/unifont
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-fonts/unifont/ChangeLog,v 1.37 2012/01/08 04:30:18 dirtyepic Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-fonts/unifont/ChangeLog,v 1.41 2013/11/04 20:48:35 floppym Exp $
+
+  04 Nov 2013; Mike Gilbert <floppym@gentoo.org> unifont-6.3.20131006.ebuild,
+  unifont-6.3.20131020.ebuild:
+  Add build-time dep on x11-apps/bdftppcf.
+
+  04 Nov 2013; Mike Gilbert <floppym@gentoo.org> unifont-6.3.20131020.ebuild:
+  Fix SRC_URI.
+
+*unifont-6.3.20131020 (02 Nov 2013)
+
+  02 Nov 2013; Mike Gilbert <floppym@gentoo.org> +unifont-6.3.20131020.ebuild:
+  Version bump.
+
+*unifont-6.3.20131006 (21 Oct 2013)
+
+  21 Oct 2013; Mike Gilbert <floppym@gentoo.org> +unifont-6.3.20131006.ebuild,
+  metadata.xml:
+  Version bump; hard masked because of bug 488642.
 
   08 Jan 2012; Ryan Hill <dirtyepic@gentoo.org> -unifont-1.0-r4.ebuild,
   unifont-5.1.20080914.ebuild:
@@ -131,4 +149,3 @@
   03 Oct 2003; Mamoru KOMACHI <usata@gentoo.org> unifont-1.0.ebuild:
   Initial import. Ebuild submitted by Zhen Lin <lowzl@hotmail.com>
   See Bug #27700
-

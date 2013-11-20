@@ -1,6 +1,30 @@
 # ChangeLog for media-sound/mumble
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/mumble/ChangeLog,v 1.38 2013/03/02 21:58:06 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/mumble/ChangeLog,v 1.44 2013/11/17 23:59:11 tgurr Exp $
+
+  17 Nov 2013; Timo Gurr <tgurr@gentoo.org> -mumble-1.2.3-r2.ebuild,
+  -files/mumble-1.2.3-fix-cert-validation.patch,
+  -files/mumble-1.2.3-set-file-permissions.patch:
+  Remove old.
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Voip herd is removed: http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mumble-1.2.4.ebuild:
+  Stable for x86, wrt bug #476266
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mumble-1.2.4.ebuild:
+  Stable for amd64, wrt bug #476266
+
+  07 Jun 2013; Timo Gurr <tgurr@gentoo.org> mumble-1.2.4.ebuild,
+  +files/mumble-1.2.4-speech-dispatcher.patch:
+  Fix building with speech-dispatcher >=0.8 wrt bug #472366.
+
+*mumble-1.2.4 (04 Jun 2013)
+
+  04 Jun 2013; Timo Gurr <tgurr@gentoo.org> -mumble-1.2.4_beta1.ebuild,
+  +mumble-1.2.4.ebuild:
+  Version bump, remove old. Fixes bug #396479,#445960,#472182
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> mumble-1.2.3-r2.ebuild,
   mumble-1.2.4_beta1.ebuild:

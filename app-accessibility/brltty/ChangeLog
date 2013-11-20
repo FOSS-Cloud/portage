@@ -1,6 +1,62 @@
 # ChangeLog for app-accessibility/brltty
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/brltty/ChangeLog,v 1.126 2012/12/11 14:46:38 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/brltty/ChangeLog,v 1.137 2013/11/17 13:24:31 teiresias Exp $
+
+*brltty-4.5-r3 (16 Nov 2013)
+
+  16 Nov 2013; Christopher Brannon <teiresias@gentoo.org>
+  -brltty-4.5-r2.ebuild, +brltty-4.5-r3.ebuild:
+  Use subslots for icu dependency. See bug #455900.
+
+  23 Sep 2013; Christopher Brannon <teiresias@gentoo.org> brltty-4.5-r2.ebuild,
+  +files/brltty-4.5-respect-AR.patch:
+  Respect $AR and $LD.
+  Closes bug #483738 and bug #483752.
+
+*brltty-4.5-r2 (23 Aug 2013)
+
+  23 Aug 2013; Christopher Brannon <teiresias@gentoo.org>
+  -brltty-4.5-r1.ebuild, +brltty-4.5-r2.ebuild,
+  +files/brltty-4.5-range-checking-and-array-bounds.patch:
+  Add a patch to fix range-checking and array out-of-bounds access issues.
+  The patch comes from upstream's svn repository, so it can go away on the
+  next release. Fixes bug #481802.
+
+  21 Aug 2013; William Hubbs <williamh@gentoo.org> metadata.xml:
+  Assign maintainership to Chris.
+
+  20 Aug 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/brltty-4.5-fix-mk4build-cross.patch, brltty-4.5-r1.ebuild:
+  Fix path var collisions when cross-compiling.
+
+*brltty-4.5-r1 (20 Aug 2013)
+
+  20 Aug 2013; Christopher Brannon <teiresias@gentoo.org> -brltty-4.5.ebuild,
+  +brltty-4.5-r1.ebuild, +files/brltty-4.5-udev.patch:
+  Fix bug #478658. Two of brltty's udev rules were conflicting with
+  rules for USB-to-serial converters. These are now commented out, per
+  the suggestion on the brltty mailing list.
+
+  20 Aug 2013; Mike Frysinger <vapier@gentoo.org> files/brltty.rc:
+  Fix excessive indent.
+
+  07 Aug 2013; Christopher Brannon <teiresias@gentoo.org> brltty-4.5.ebuild:
+  brltty 4.5 builds with parallel make.
+  We can remove the -j1 and close bug #340903.
+
+  22 Jun 2013; William Hubbs <williamh@gentoo.org> brltty-4.5.ebuild,
+  files/brltty.rc:
+  uncomment keywords, migrate to eapi 5, update init script and fix python
+  dependency (brltty 4.5 uses cython instead of pyrex).
+
+*brltty-4.5 (21 Jun 2013)
+
+  21 Jun 2013; Mike Frysinger <vapier@gentoo.org> +brltty-4.5.ebuild,
+  +files/brltty-4.5-fix-ldflags.patch:
+  Version bump.
+
+  18 Jun 2013; Mike Frysinger <vapier@gentoo.org> brltty-4.2-r1.ebuild:
+  Add arm love.
 
   11 Dec 2012; Samuli Suominen <ssuominen@gentoo.org> brltty-4.2.ebuild,
   brltty-4.2-r1.ebuild:
@@ -454,4 +510,3 @@
   New package to enable Braille tty's. Package was requested in bug #22895 by
   Sabahattin Gucukoglu <mail@sabahattin-gucukoglu.com>, and the ebuild submitted
   in bug #40334 by Diego Garcia <diego@envigo.net>
-

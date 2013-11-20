@@ -1,6 +1,89 @@
 # ChangeLog for net-libs/serf
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/serf/ChangeLog,v 1.85 2013/02/23 22:38:54 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/serf/ChangeLog,v 1.110 2013/10/19 17:37:05 floppym Exp $
+
+  19 Oct 2013; Mike Gilbert <floppym@gentoo.org> serf-1.3.2.ebuild:
+  Restore s390 and sh keywords.
+
+*serf-1.3.2 (17 Oct 2013)
+
+  17 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/serf-1.3.2-disable_linking_against_unneeded_libraries.patch,
+  +serf-1.3.2.ebuild:
+  Version bump. Ebuild and patch by Arfrever.
+
+  17 Oct 2013; Mike Gilbert <floppym@gentoo.org> -serf-0.7.2.ebuild,
+  -serf-1.1.1.ebuild, -serf-1.2.0.ebuild:
+  Remove per Arfrever.
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.1.ebuild:
+  Stable for sparc, wrt bug #479586
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.1.ebuild:
+  Stable for x86, wrt bug #479586
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.1.ebuild:
+  Stable for alpha, wrt bug #479586
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.1.ebuild:
+  Stable for ppc, wrt bug #479586
+
+  07 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> serf-1.2.1.ebuild:
+  Stable on arm, wrt bug #479586
+
+  06 Aug 2013; Jeroen Roovers <jer@gentoo.org> serf-1.2.1.ebuild:
+  Stable for HPPA (bug #479586).
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.1.ebuild:
+  Stable for ppc64, wrt bug #479586
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.1.ebuild:
+  Stable for ia64, wrt bug #479586
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.1.ebuild:
+  Stable for amd64, wrt bug #479586
+
+*serf-1.2.1 (03 Jun 2013)
+
+  03 Jun 2013; Mike Gilbert <floppym@gentoo.org> +serf-1.2.1.ebuild:
+  Version bump. Ebuild by Arfrever.
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.0.ebuild:
+  Stable for s390, wrt bug #468220
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.0.ebuild:
+  Stable for x86, wrt bug #468220
+
+  08 May 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.0.ebuild:
+  Stable for sh, wrt bug #468220
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.0.ebuild:
+  Stable for ppc64, wrt bug #468220
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.0.ebuild:
+  Stable for sparc, wrt bug #468220
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.0.ebuild:
+  Stable for ia64, wrt bug #468220
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.0.ebuild:
+  Stable for alpha, wrt bug #468220
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.0.ebuild:
+  Stable for arm, wrt bug #468220
+
+  03 May 2013; Jeroen Roovers <jer@gentoo.org> serf-1.2.0.ebuild:
+  Stable for HPPA (bug #468220).
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.0.ebuild:
+  Stable for ppc, wrt bug #468220
+
+  02 May 2013; Agostino Sarubbo <ago@gentoo.org> serf-1.2.0.ebuild:
+  Stable for amd64, wrt bug #468220
+
+  02 May 2013; Mike Gilbert <floppym@gentoo.org> -serf-1.0.0.ebuild,
+  -serf-1.0.1.ebuild, -serf-1.0.3.ebuild, -serf-1.1.0.ebuild:
+  Remove old per Arferver.
 
 *serf-1.2.0 (23 Feb 2013)
 

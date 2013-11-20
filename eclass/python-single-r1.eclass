@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/python-single-r1.eclass,v 1.16 2013/04/07 17:02:52 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/python-single-r1.eclass,v 1.24 2013/10/30 19:14:02 mgorny Exp $
 
 # @ECLASS: python-single-r1
 # @MAINTAINER:
@@ -31,12 +31,11 @@
 # http://www.gentoo.org/proj/en/Python/python-r1/dev-guide.xml
 
 case "${EAPI:-0}" in
-	0|1|2|3|4)
+	0|1|2|3)
 		die "Unsupported EAPI=${EAPI:-0} (too old) for ${ECLASS}"
 		;;
-	5)
-		# EAPI=5 is required for meaningful USE default deps
-		# on USE_EXPAND flags
+	4|5)
+		# EAPI=4 is required for USE default deps on USE_EXPAND flags
 		;;
 	*)
 		die "Unsupported EAPI=${EAPI} (unknown) for ${ECLASS}"
@@ -82,6 +81,8 @@ fi
 # for all implementations in PYTHON_COMPAT, so it may be necessary to
 # use USE defaults.
 #
+# This should be set before calling `inherit'.
+#
 # Example:
 # @CODE
 # PYTHON_REQ_USE="gdbm,ncurses(-)?"
@@ -108,7 +109,7 @@ fi
 #
 # Example value:
 # @CODE
-# dev-python/python-exec
+# dev-lang/python-exec:=
 # python_single_target_python2_6? ( dev-lang/python:2.6[gdbm] )
 # python_single_target_python2_7? ( dev-lang/python:2.7[gdbm] )
 # @CODE
@@ -133,6 +134,27 @@ fi
 # python_targets_python2_7(-)?,python_single_target_python2_7(+)?
 # @CODE
 
+# @ECLASS-VARIABLE: PYTHON_REQUIRED_USE
+# @DESCRIPTION:
+# This is an eclass-generated required-use expression which ensures the following:
+# 1. Exactly one PYTHON_SINGLE_TARGET value has been enabled.
+# 2. The selected PYTHON_SINGLE_TARGET value is enabled in PYTHON_TARGETS.
+#
+# This expression should be utilized in an ebuild by including it in
+# REQUIRED_USE, optionally behind a use flag.
+#
+# Example use:
+# @CODE
+# REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+# @CODE
+#
+# Example value:
+# @CODE
+# python_single_target_python2_6? ( python_targets_python2_6 )
+# python_single_target_python2_7? ( python_targets_python2_7 )
+# ^^ ( python_single_target_python2_6 python_single_target_python2_7 )
+# @CODE
+
 _python_single_set_globals() {
 	local impls=()
 
@@ -144,7 +166,7 @@ _python_single_set_globals() {
 		# The chosen targets need to be in PYTHON_TARGETS as well.
 		# This is in order to enforce correct dependencies on packages
 		# supporting multiple implementations.
-		#REQUIRED_USE+=" python_single_target_${i}? ( python_targets_${i} )"
+		PYTHON_REQUIRED_USE+=" python_single_target_${i}? ( python_targets_${i} )"
 
 		python_export "${i}" PYTHON_PKG_DEP
 		PYTHON_DEPS+="python_single_target_${i}? ( ${PYTHON_PKG_DEP} ) "
@@ -163,22 +185,28 @@ _python_single_set_globals() {
 	optflags+=,${flags[@]/%/(+)?}
 
 	IUSE="${flags_mt[*]} ${flags[*]}"
-	#REQUIRED_USE="|| ( ${flags_mt[*]} ) ^^ ( ${flags[*]} )"
+	PYTHON_REQUIRED_USE+=" ^^ ( ${flags[*]} )"
 	PYTHON_USEDEP=${optflags// /,}
 
 	# 1) well, python-exec would suffice as an RDEP
 	# but no point in making this overcomplex, BDEP doesn't hurt anyone
 	# 2) python-exec should be built with all targets forced anyway
 	# but if new targets were added, we may need to force a rebuild
-	PYTHON_DEPS+="dev-python/python-exec[${PYTHON_USEDEP}]"
+	# 3) use whichever python-exec slot installed in EAPI 5. For EAPI 4,
+	# just fix :2 since := deps are not supported.
+	if [[ ${EAPI} != 4 ]]; then
+		PYTHON_DEPS+="dev-lang/python-exec:=[${PYTHON_USEDEP}]"
+	else
+		PYTHON_DEPS+="dev-lang/python-exec:2[${PYTHON_USEDEP}]"
+	fi
 }
 _python_single_set_globals
 
-# @FUNCTION: python-single-r1_pkg_setup
+# @FUNCTION: python_setup
 # @DESCRIPTION:
-# Determine what the selected Python implementation is and set EPYTHON
-# and PYTHON accordingly.
-python-single-r1_pkg_setup() {
+# Determine what the selected Python implementation is and set
+# the Python build environment up for it.
+python_setup() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	unset EPYTHON
@@ -207,7 +235,7 @@ python-single-r1_pkg_setup() {
 			fi
 
 			python_export "${impl}" EPYTHON PYTHON
-			python_wrapper_setup "${T}"
+			python_wrapper_setup
 		fi
 	done
 
@@ -220,6 +248,15 @@ python-single-r1_pkg_setup() {
 		echo
 		die "No supported Python implementation in PYTHON_SINGLE_TARGET."
 	fi
+}
+
+# @FUNCTION: python-single-r1_pkg_setup
+# @DESCRIPTION:
+# Runs python_setup.
+python-single-r1_pkg_setup() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	python_setup
 }
 
 # @FUNCTION: python_fix_shebang

@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/speech-dispatcher/speech-dispatcher-0.8-r2.ebuild,v 1.1 2013/04/04 16:09:31 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/speech-dispatcher/speech-dispatcher-0.8-r2.ebuild,v 1.14 2013/08/29 19:49:47 ago Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python3_2 )
+PYTHON_COMPAT=( python3_2 python3_3 )
 
 inherit eutils python-r1
 
@@ -14,10 +14,14 @@ SRC_URI="http://www.freebsoft.org/pub/projects/speechd/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux"
 IUSE="alsa ao +espeak flite nas pulseaudio python static-libs"
 
-RDEPEND=">=dev-libs/glib-2.28:2
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
+COMMON_DEPEND="python? ( ${PYTHON_DEPS} )
+	>=dev-libs/dotconf-1.3
+	>=dev-libs/glib-2.28:2
 	>=media-libs/libsndfile-1.0.2
 	alsa? ( media-libs/alsa-lib )
 	ao? ( media-libs/libao )
@@ -25,10 +29,10 @@ RDEPEND=">=dev-libs/glib-2.28:2
 	flite? ( app-accessibility/flite )
 	nas? ( media-libs/nas )
 	pulseaudio? ( media-sound/pulseaudio )"
-DEPEND="${RDEPEND}
-	>=dev-libs/dotconf-1.3
+DEPEND="${COMMON_DEPEND}
 	>=dev-util/intltool-0.40.0
 	virtual/pkgconfig"
+	RDEPEND="${COMMON_DEPEND}"
 
 src_configure() {
 	local myeconfargs=(

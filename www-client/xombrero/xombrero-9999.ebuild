@@ -1,10 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/xombrero/xombrero-9999.ebuild,v 1.1 2013/01/31 00:25:39 rafaelmartins Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/xombrero/xombrero-9999.ebuild,v 1.3 2013/10/20 19:11:42 ago Exp $
 
-EAPI="4"
+EAPI="5"
 
-GIT_ECLASS=
 if [[ ${PV} = *9999* ]]; then
 	GIT_ECLASS=git-2
 fi
@@ -14,11 +13,11 @@ inherit eutils fdo-mime toolchain-funcs ${GIT_ECLASS}
 DESCRIPTION="A minimalist web browser with sophisticated security features designed-in"
 HOMEPAGE="http://opensource.conformal.com/wiki/xombrero"
 
-KEYWORDS=""
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://opensource.conformal.com/${PN}.git
 		https://opensource.conformal.com/git/${PN}.git"
 	EGIT_SOURCEDIR="${WORKDIR}/${P}"
+	KEYWORDS=""
 else
 	SRC_URI="http://opensource.conformal.com/snapshots/${PN}/${P}.tgz"
 	KEYWORDS="~amd64 ~x86"
@@ -63,6 +62,7 @@ src_prepare() {
 	sed -i \
 		"s#Icon=#Icon=/usr/share/${PN}/#" \
 		../xombrero.desktop || die 'sed ../xombrero.desktop failed.'
+	sed -i "s:Application;::" ../xombrero.desktop || die
 }
 
 src_compile() {

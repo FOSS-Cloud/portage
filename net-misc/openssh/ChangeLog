@@ -1,6 +1,105 @@
 # ChangeLog for net-misc/openssh
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openssh/ChangeLog,v 1.469 2013/04/04 21:58:05 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openssh/ChangeLog,v 1.488 2013/11/09 23:08:03 radhermit Exp $
+
+  09 Nov 2013; Tim Harder <radhermit@gentoo.org> -openssh-6.4_p1.ebuild:
+  Remove insecure version due to improperly using the 6.3_p1 tarball.
+
+*openssh-6.4_p1-r1 (09 Nov 2013)
+
+  09 Nov 2013; Tim Harder <radhermit@gentoo.org> +openssh-6.4_p1-r1.ebuild,
+  +files/openssh-6.4_p1-x509-glue.patch:
+  Update x509 patch.
+
+*openssh-6.4_p1 (09 Nov 2013)
+
+  09 Nov 2013; Robin H. Johnson <robbat2@gentoo.org> +openssh-6.4_p1.ebuild:
+  Add real OpenSSH-6.4p1 release (nearly identical to 6.3, just with the AES-GCM
+  fix).
+
+  08 Nov 2013; Tim Harder <radhermit@gentoo.org> -openssh-6.2_p2-r3.ebuild,
+  -openssh-6.2_p2-r4.ebuild:
+  Remove insecure versions.
+
+*openssh-6.2_p2-r5 (08 Nov 2013)
+
+  08 Nov 2013; Tim Harder <radhermit@gentoo.org> +openssh-6.2_p2-r5.ebuild:
+  Apply AES-GCM cipher patch for the 6.2 series (bug #490728).
+
+  08 Nov 2013; Tim Harder <radhermit@gentoo.org> -openssh-6.3_p1.ebuild:
+  Remove insecure version.
+
+*openssh-6.3_p1-r1 (08 Nov 2013)
+
+  08 Nov 2013; Tim Harder <radhermit@gentoo.org> +openssh-6.3_p1-r1.ebuild,
+  +files/openssh-6.3_p1-aes-gcm.patch:
+  Apply patch to fix a memory corruption vulnerability with the AES-GCM cipher
+  (bug #490728).
+
+*openssh-6.3_p1 (05 Nov 2013)
+
+  05 Nov 2013; Tim Harder <radhermit@gentoo.org> +openssh-6.3_p1.ebuild,
+  +files/openssh-6.3_p1-x509-glue.patch,
+  +files/openssh-6.3_p1-x509-hpn14v2-glue.patch:
+  Version bump (bug #488482).
+
+*openssh-6.2_p2-r4 (15 Aug 2013)
+
+  15 Aug 2013; Tim Harder <radhermit@gentoo.org> +openssh-6.2_p2-r4.ebuild,
+  +files/openssh-6.2_p2-x509-hpn14v1-glue.patch:
+  Update to hpn14v1 patch that fixes the multi-threaded AES-CTR cipher when the
+  process forks to the background or when using the rlimit sandbox.
+
+*openssh-6.2_p2-r3 (21 Jul 2013)
+
+  21 Jul 2013; Tim Harder <radhermit@gentoo.org> -openssh-6.2_p2-r2.ebuild,
+  +openssh-6.2_p2-r3.ebuild:
+  Fix hpn support when pseudo-tty allocation is disabled (bug #477506).
+
+  18 Jul 2013; Tim Harder <radhermit@gentoo.org> -openssh-6.0_p1.ebuild,
+  -openssh-6.1_p1.ebuild, -openssh-6.2_p2.ebuild, -openssh-6.2_p2-r1.ebuild,
+  -files/openssh-5.2_p1-autoconf.patch, -files/openssh-5.2_p1-gsskex-fix.patch,
+  -files/openssh-5.2_p1-x509-hpn-glue.patch,
+  -files/openssh-5.6_p1-x509-hpn-glue.patch,
+  -files/openssh-5.7_p1-x509-hpn-glue.patch,
+  -files/openssh-5.8_p1-selinux.patch:
+  Remove old.
+
+*openssh-6.2_p2-r2 (18 Jul 2013)
+
+  18 Jul 2013; Tim Harder <radhermit@gentoo.org> +openssh-6.2_p2-r2.ebuild:
+  Fix xauth path (bug #477304 by Tobias Klausmann) and move into ~arch.
+
+  27 Jun 2013; Tim Harder <radhermit@gentoo.org> Manifest:
+  Update ldap patch to fix segfault issue.
+
+*openssh-6.2_p2-r1 (27 Jun 2013)
+
+  27 Jun 2013; Tim Harder <radhermit@gentoo.org> +openssh-6.2_p2-r1.ebuild:
+  Revision bump, add ldap and hpn support.
+
+*openssh-6.2_p2 (24 Jun 2013)
+
+  24 Jun 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/openssh-6.2_p2-x509-glue.patch,
+  +files/openssh-6.2_p2-x509-hpn-glue.patch, +openssh-6.2_p2.ebuild,
+  -files/openssh-6.2_p1-x509-glue.patch,
+  -files/openssh-6.2_p1-x509-hpn-glue.patch, -openssh-6.2_p1.ebuild:
+  Version bump #470222 by Jason A. Donenfeld.
+
+  23 Jun 2013; Mike Frysinger <vapier@gentoo.org> openssh-6.2_p1.ebuild:
+  Move into ~arch w/hpn disabled as it randomly hangs.
+
+  19 Jun 2013; Mike Frysinger <vapier@gentoo.org> openssh-5.9_p1-r4.ebuild,
+  openssh-6.0_p1-r1.ebuild, openssh-6.1_p1-r1.ebuild, openssh-6.2_p1.ebuild:
+  Call epatch_user #473004 by Jan Pobrislo.
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  24 Apr 2013; Mike Frysinger <vapier@gentoo.org> files/sshd.rc6.4:
+  Use new -A flag with ssh-keygen to take care of generating all the right keys
+  #457026 by Mike Gilbert.
 
   04 Apr 2013; Mike Gilbert <floppym@gentoo.org> files/sshd.service:
   Add ExecStartPre=/usr/bin/ssh-keygen -A to sshd.service. Bug 457026.

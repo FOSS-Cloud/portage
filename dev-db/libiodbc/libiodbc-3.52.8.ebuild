@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/libiodbc/libiodbc-3.52.8.ebuild,v 1.1 2013/01/08 22:17:03 mabi Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/libiodbc/libiodbc-3.52.8.ebuild,v 1.2 2013/04/09 12:17:41 olemarkus Exp $
 
 EAPI="5"
 
@@ -63,7 +63,4 @@ src_install() {
 	newins debian/iodbc.lintian-overrides iodbc
 	newins debian/libiodbc2.lintian-overrides libiodbc2
 
-	# Remove rpaths to fix insecure RUNPATHS - bug 421603
-	chrpath --delete "${D}"/usr/bin/iodbctest
-	chrpath --delete "${D}"/usr/bin/iodbctestw
 }

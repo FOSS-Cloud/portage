@@ -1,6 +1,257 @@
 # ChangeLog for dev-lang/v8
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/v8/ChangeLog,v 1.300 2013/04/05 23:05:12 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/v8/ChangeLog,v 1.352 2013/11/09 23:58:38 phajdan.jr Exp $
+
+  09 Nov 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.18.5.14.ebuild:
+  Remove old.
+
+  16 Oct 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.20.17.15.ebuild:
+  Stable for x86, wrt bug #488148
+
+  16 Oct 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.20.17.15.ebuild:
+  Stable for amd64, wrt bug #488148
+
+*v8-3.20.17.15 (16 Oct 2013)
+
+  16 Oct 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.20.17.15.ebuild,
+  -v8-3.19.18.18.ebuild, -v8-3.20.17.12.ebuild:
+  Stable channel bump.
+
+  02 Oct 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.20.17.13.ebuild:
+  Stable for x86, wrt bug #486742
+
+  02 Oct 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.20.17.13.ebuild:
+  Stable for amd64, wrt bug #486742
+
+*v8-3.20.17.13 (02 Oct 2013)
+
+  02 Oct 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.20.17.13.ebuild,
+  -v8-3.20.17.7.ebuild:
+  Stable channel bump.
+
+*v8-3.20.17.12 (28 Sep 2013)
+
+  28 Sep 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.20.17.12.ebuild,
+  -v8-3.20.17.2.ebuild, -v8-3.20.17.6.ebuild:
+  Beta channel bump.
+
+*v8-3.21.12.1 (20 Sep 2013)
+
+  20 Sep 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.21.4.ebuild,
+  +v8-3.21.12.1.ebuild:
+  Dev channel bump. Remove old.
+
+*v8-3.20.17.7 (14 Sep 2013)
+
+  14 Sep 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.20.17.7.ebuild:
+  Beta channel bump.
+
+*v8-3.20.17.6 (12 Sep 2013)
+
+  12 Sep 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.20.17.6.ebuild,
+  -v8-3.20.15.5.ebuild, -v8-3.20.17.1.ebuild:
+  Beta channel bump.
+
+*v8-3.21.10.1 (10 Sep 2013)
+
+  10 Sep 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.21.10.1.ebuild:
+  Dev channel bump.
+
+*v8-3.20.17.2 (02 Sep 2013)
+
+  02 Sep 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.20.17.2.ebuild,
+  -v8-3.20.12.1.ebuild:
+  Beta channel bump.
+
+*v8-3.21.4 (31 Aug 2013)
+
+  31 Aug 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.21.4.ebuild:
+  Dev channel bump.
+
+*v8-3.20.17.1 (23 Aug 2013)
+
+  23 Aug 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.20.17.1.ebuild:
+  Bump.
+
+  21 Aug 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.19.18.19.ebuild:
+  Stable for x86, wrt bug #481990
+
+  21 Aug 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.19.18.19.ebuild:
+  Stable for amd64, wrt bug #481990
+
+  18 Aug 2013; Steev Klimaszewski <steev@gentoo.org> v8-3.18.5.14.ebuild,
+  v8-3.19.18.18.ebuild, v8-3.19.18.19.ebuild, v8-3.20.12.1.ebuild,
+  v8-3.20.15.5.ebuild, v8-9999.ebuild:
+  v8: Add default to arm_fpu so that build doesn't fail when mfpu=(anything but
+  neon)
+
+*v8-3.19.18.19 (18 Aug 2013)
+
+  18 Aug 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.19.18.19.ebuild,
+  -v8-3.19.18.9.ebuild:
+  Beta channel bump.
+
+*v8-3.20.15.5 (17 Aug 2013)
+
+  17 Aug 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.20.8.2.ebuild,
+  +v8-3.20.15.5.ebuild:
+  Dev channel bump. Remove old.
+
+*v8-3.20.12.1 (13 Aug 2013)
+
+  13 Aug 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.20.6.ebuild,
+  +v8-3.20.12.1.ebuild:
+  Dev channel bump. Remove old.
+
+  11 Aug 2013; Mike Gilbert <floppym@gentoo.org> -v8-3.18.5.5.ebuild,
+  -v8-3.18.5.8.ebuild, -v8-3.18.5.9.ebuild:
+  Remove old.
+
+*v8-3.19.18.18 (09 Aug 2013)
+
+  09 Aug 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.19.18.18.ebuild,
+  -v8-3.19.18.4.ebuild:
+  Beta channel bump.
+
+  31 Jul 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.18.5.14.ebuild:
+  Stable for x86, wrt bug #479048
+
+  31 Jul 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.18.5.14.ebuild:
+  Stable for amd64, wrt bug #479048
+
+*v8-3.20.8.2 (31 Jul 2013)
+
+  31 Jul 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.20.8.2.ebuild,
+  v8-9999.ebuild:
+  Dev channel bump. New icu USE flag.
+
+*v8-3.18.5.14 (31 Jul 2013)
+
+  31 Jul 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.18.5.14.ebuild,
+  -v8-3.17.6.14.ebuild:
+  Stable channel bump.
+
+*v8-3.20.6 (25 Jul 2013)
+
+  25 Jul 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.20.6.ebuild:
+  Dev channel bump.
+
+  10 Jul 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.18.5.9.ebuild:
+  Stable for x86, wrt bug #476344
+
+  10 Jul 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.18.5.9.ebuild:
+  Stable for amd64, wrt bug #476344
+
+*v8-3.19.18.9 (10 Jul 2013)
+
+  10 Jul 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.19.18.9.ebuild,
+  -v8-3.19.17.ebuild, v8-9999.ebuild:
+  Dev channel bump. Add build support for mips, bug 476272; patch by Manuel
+  Lauss.
+
+*v8-3.18.5.9 (29 Jun 2013)
+
+  29 Jun 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.18.5.9.ebuild:
+  Beta channel bump.
+
+*v8-3.19.18.4 (26 Jun 2013)
+
+  26 Jun 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.19.6.1.ebuild,
+  +v8-3.19.18.4.ebuild:
+  Dev channel bump. Remove old.
+
+*v8-3.19.17 (20 Jun 2013)
+
+  20 Jun 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.19.3.1.ebuild,
+  +v8-3.19.17.ebuild:
+  Dev channel bump. Remove old.
+
+*v8-3.18.5.8 (07 Jun 2013)
+
+  07 Jun 2013; Mike Gilbert <floppym@gentoo.org> +v8-3.18.5.8.ebuild,
+  -v8-3.18.5.2.ebuild:
+  Beta channel bump.
+
+*v8-3.19.6.1 (29 May 2013)
+
+  29 May 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.19.6.1.ebuild:
+  Dev channel bump.
+
+*v8-3.19.3.1 (25 May 2013)
+
+  25 May 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.19.3.1.ebuild:
+  Dev channel bump.
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> -v8-3.16.14.9-r1.ebuild,
+  -v8-3.17.15.3.ebuild, -v8-3.17.16.2.ebuild:
+  Remove old
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.17.6.14.ebuild:
+  Stable for x86, wrt bug #470920
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> v8-3.17.6.14.ebuild:
+  Stable for amd64, wrt bug #470920
+
+*v8-3.17.6.14 (23 May 2013)
+
+  23 May 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.17.6.14.ebuild:
+  Stable channel bump (security bug #470920). v8 has been rolled to an earlier
+  version by upstream, and we follow that for stable ebuilds.
+
+*v8-3.18.5.5 (21 May 2013)
+
+  21 May 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.18.5.1.ebuild,
+  +v8-3.18.5.5.ebuild:
+  Dev channel bump. Remove old.
+
+*v8-3.18.5.2 (08 May 2013)
+
+  08 May 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.18.3.2.ebuild,
+  +v8-3.18.5.2.ebuild:
+  Dev channel bump. Remove old.
+
+*v8-3.18.5.1 (03 May 2013)
+
+  03 May 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.18.1.ebuild,
+  +v8-3.18.5.1.ebuild:
+  Dev channel bump. Remove old.
+
+*v8-3.18.3.2 (01 May 2013)
+
+  01 May 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.18.3.2.ebuild:
+  Dev channel bump.
+
+  29 Apr 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> v8-3.18.1.ebuild,
+  v8-9999.ebuild:
+  Fix build on hardened systems, bug #466928 and patch by Alphat-PC.
+
+  27 Apr 2013; Fabian Groffen <grobian@gentoo.org> v8-3.17.16.2.ebuild,
+  v8-3.18.1.ebuild:
+  Fix build (actually allowing to actually start on it) for Darwin
+
+*v8-3.18.1 (23 Apr 2013)
+
+  23 Apr 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> +v8-3.18.1.ebuild,
+  v8-9999.ebuild:
+  Dev channel bump.
+
+  18 Apr 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> v8-3.17.16.2.ebuild,
+  v8-9999.ebuild:
+  Apply ARM fixes, bug #462200 + patch by Matt Whitlock.
+
+*v8-3.17.16.2 (16 Apr 2013)
+
+  16 Apr 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -v8-3.17.9.ebuild,
+  +v8-3.17.16.2.ebuild:
+  Dev channel bump. Remove old.
+
+  10 Apr 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> v8-3.17.15.3.ebuild,
+  v8-9999.ebuild:
+  Convert the build system to be closer to upstream buildbot and chromium.
+
+  09 Apr 2013; Mike Gilbert <floppym@gentoo.org> v8-3.16.14.9-r1.ebuild,
+  v8-3.17.15.3.ebuild, v8-9999.ebuild:
+  Call pax-mark after installation per gentoo-dev discussion.
 
   05 Apr 2013; Mike Gilbert <floppym@gentoo.org> v8-9999.ebuild:
   Ditto for live ebuild.

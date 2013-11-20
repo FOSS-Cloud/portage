@@ -1,6 +1,59 @@
 # ChangeLog for app-shells/gentoo-bashcomp
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/gentoo-bashcomp/ChangeLog,v 1.54 2012/10/24 04:34:01 dirtyepic Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-shells/gentoo-bashcomp/ChangeLog,v 1.67 2013/09/05 06:01:01 vapier Exp $
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org>
+  gentoo-bashcomp-20121024.ebuild:
+  Mark s390/sh/sparc stable #479724.
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  gentoo-bashcomp-20121024.ebuild:
+  Stable for ia64, wrt bug #479724
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  gentoo-bashcomp-20121024.ebuild:
+  Stable for x86, wrt bug #479724
+
+  14 Aug 2013; Fabian Groffen <grobian@gentoo.org>
+  gentoo-bashcomp-20130804.ebuild:
+  Fix for Prefix, bug #480278
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  gentoo-bashcomp-20121024.ebuild:
+  Stable for alpha, wrt bug #479724
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  gentoo-bashcomp-20121024.ebuild:
+  Stable for ppc64, wrt bug #479724
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  gentoo-bashcomp-20121024.ebuild:
+  Stable for arm, wrt bug #479724
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  gentoo-bashcomp-20121024.ebuild:
+  Stable for ppc, wrt bug #479724
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  gentoo-bashcomp-20121024.ebuild:
+  Stable for amd64, wrt bug #479724
+
+  06 Aug 2013; Jeroen Roovers <jer@gentoo.org> gentoo-bashcomp-20121024.ebuild:
+  Stable for HPPA (bug #479724).
+
+  04 Aug 2013; Ryan Hill <dirtyepic@gentoo.org>
+  gentoo-bashcomp-20130804.ebuild:
+  Use the right distfile this time.
+
+*gentoo-bashcomp-20130804 (04 Aug 2013)
+
+  04 Aug 2013; Ryan Hill <dirtyepic@gentoo.org>
+  -gentoo-bashcomp-20101217.ebuild, +gentoo-bashcomp-20130804.ebuild:
+  Version bump. Fixes bug #477024 (fixes for bash-completion-2.1, patches by
+  Alexander Tsoy) and bug #478444 (add repos.conf support).
+
+  17 Jun 2013; Ryan Hill <dirtyepic@gentoo.org> metadata.xml:
+  Add myself as maintainer.
 
 *gentoo-bashcomp-20121024 (24 Oct 2012)
 

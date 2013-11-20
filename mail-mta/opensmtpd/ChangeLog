@@ -1,6 +1,169 @@
 # ChangeLog for mail-mta/opensmtpd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/opensmtpd/ChangeLog,v 1.6 2013/03/17 22:19:43 zx2c4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/opensmtpd/ChangeLog,v 1.34 2013/11/20 05:16:56 zx2c4 Exp $
+
+  20 Nov 2013; Jason A. Donenfeld <zx2c4@gentoo.org> files/smtpd.initd:
+  Let the init script know about the pid file so it can report the status
+  correctly. This fixes bug #491160
+
+*opensmtpd-5.3.3.201311182347_p1 (20 Nov 2013)
+
+  20 Nov 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201311182347_p1.ebuild,
+  -opensmtpd-5.3.3.201310281424_p1.ebuild:
+  Snapshot bump. This one is similar to the next release/stable version.
+
+*opensmtpd-5.3.3.201310281424_p1 (29 Oct 2013)
+
+  29 Oct 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201310281424_p1.ebuild,
+  -opensmtpd-5.3.3.201310241356_p1.ebuild:
+  Snapshot bump.
+
+*opensmtpd-5.3.3.201310241356_p1 (25 Oct 2013)
+
+  25 Oct 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201310241356_p1.ebuild,
+  -opensmtpd-5.3.3.201310081839_p1.ebuild:
+  Version bump. OpenSMTPD cannot be considered stable anymore either.
+
+*opensmtpd-5.3.3.201310081839_p1 (08 Oct 2013)
+
+  08 Oct 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201310081839_p1.ebuild,
+  -opensmtpd-5.3.3.201309261726_p1.ebuild:
+  Bump snapshot.
+
+  28 Sep 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  -opensmtpd-5.3.3_p1-r1.ebuild, opensmtpd-5.3.3.201309261726_p1.ebuild:
+  The latest real release is pretty unstable compared to this particular
+  snapshot, so stabilize the snapshot and punt the ancient release.
+
+*opensmtpd-5.3.3.201309261726_p1 (28 Sep 2013)
+
+  28 Sep 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201309261726_p1.ebuild,
+  -opensmtpd-5.3.3.201309251624_p1.ebuild:
+  Bump snapshot to fix segfault.
+
+*opensmtpd-5.3.3.201309251624_p1 (26 Sep 2013)
+
+  26 Sep 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201309251624_p1.ebuild,
+  -opensmtpd-5.3.3.201309201537_p1.ebuild:
+  Snapshot bump.
+
+  21 Sep 2013; Jason A. Donenfeld <zx2c4@gentoo.org> -opensmtpd-5.3.3_p1.ebuild,
+  opensmtpd-5.3.3_p1-r1.ebuild:
+  Stabilize the systemd ebuild for bug #484914.
+
+*opensmtpd-5.3.3.201309201537_p1 (20 Sep 2013)
+
+  20 Sep 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201309201537_p1.ebuild,
+  -opensmtpd-5.3.3.201308201232_p1.ebuild:
+  Snapshot bump.
+
+*opensmtpd-5.3.3_p1-r1 (30 Aug 2013)
+
+  30 Aug 2013; Pacho Ramos <pacho@gentoo.org> +files/smtpd.service,
+  +files/smtpd.socket, +opensmtpd-5.3.3_p1-r1.ebuild,
+  opensmtpd-5.3.3.201308201232_p1.ebuild:
+  Add unit file (#470662 by Agostino Sarubbo)
+
+*opensmtpd-5.3.3.201308201232_p1 (26 Aug 2013)
+
+  26 Aug 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201308201232_p1.ebuild,
+  -opensmtpd-5.3.3.201307311702_p1.ebuild:
+  Snapshot bump.
+
+*opensmtpd-5.3.3.201307311702_p1 (19 Aug 2013)
+
+  19 Aug 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201307311702_p1.ebuild,
+  -opensmtpd-5.3.3.201307121003_p1.ebuild:
+  Bump snapshot.
+
+*opensmtpd-5.3.3.201307121003_p1 (12 Jul 2013)
+
+  12 Jul 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201307121003_p1.ebuild,
+  -opensmtpd-5.3.3.201306271531_p1.ebuild:
+  Bump snapshot.
+
+*opensmtpd-5.3.3.201306271531_p1 (01 Jul 2013)
+
+  01 Jul 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.3.201306271531_p1.ebuild, -files/build-warnings-snapshot.patch,
+  -opensmtpd-5.3.3.201306071637_p1.ebuild:
+  Bump snapshot.
+
+*opensmtpd-5.3.3.201306071637_p1 (10 Jun 2013)
+
+  10 Jun 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +files/build-warnings-snapshot.patch, +opensmtpd-5.3.3.201306071637_p1.ebuild,
+  -opensmtpd-5.3.2.201305241932_p1.ebuild:
+  Snapshot version bump.
+
+*opensmtpd-5.3.3_p1 (05 Jun 2013)
+
+  05 Jun 2013; Jason A. Donenfeld <zx2c4@gentoo.org> +opensmtpd-5.3.3_p1.ebuild,
+  -opensmtpd-5.3.2_p1-r1.ebuild:
+  Version bump.
+
+  27 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org> metadata.xml,
+  opensmtpd-5.3.2.201305241932_p1.ebuild, opensmtpd-5.3.2_p1-r1.ebuild:
+  smtpctl can pretend to be sendmail
+
+*opensmtpd-5.3.2.201305241932_p1 (24 May 2013)
+
+  24 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.2.201305241932_p1.ebuild, opensmtpd-5.3.2_p1-r1.ebuild:
+  Stabilize released version and add testing snapshot.
+
+*opensmtpd-5.3.2_p1-r1 (19 May 2013)
+
+  19 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.2_p1-r1.ebuild, -opensmtpd-5.3.2_p1.ebuild,
+  files/build-warnings.patch:
+  Now compiles without strict aliasing rules.
+
+  18 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org> opensmtpd-5.3.2_p1.ebuild:
+  Change to correct directory.
+
+  18 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  -opensmtpd-5.3.1.201305171950_p1.ebuild, -opensmtpd-5.3.1_p1.ebuild:
+  Remove old versions.
+
+*opensmtpd-5.3.2_p1 (18 May 2013)
+
+  18 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org> +opensmtpd-5.3.2_p1.ebuild:
+  Bump version.
+
+  18 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  opensmtpd-5.3.1.201305171950_p1.ebuild, opensmtpd-5.3.1_p1.ebuild:
+  Correct cvs issue.
+
+  18 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  opensmtpd-5.3.1.201305171950_p1.ebuild:
+  Add epatch_user for custom patches.
+
+  18 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  opensmtpd-5.3.1.201305171950_p1.ebuild, opensmtpd-5.3.1_p1.ebuild:
+  Basic QA on source folder.
+
+*opensmtpd-5.3.1.201305171950_p1 (18 May 2013)
+
+  18 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +opensmtpd-5.3.1.201305171950_p1.ebuild, opensmtpd-5.3.1_p1.ebuild:
+  Latest snapshot that fixes SSL DoS.
+
+*opensmtpd-5.3.1_p1 (22 Apr 2013)
+
+  22 Apr 2013; Jason A. Donenfeld <zx2c4@gentoo.org> +opensmtpd-5.3.1_p1.ebuild,
+  -opensmtpd-5.3_p1.ebuild:
+  Version bump.
 
   17 Mar 2013; Jason A. Donenfeld <zx2c4@gentoo.org> opensmtpd-5.3_p1.ebuild:
   Add optional sqlite support.

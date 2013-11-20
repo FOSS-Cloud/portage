@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/gnuradio/gnuradio-9999.ebuild,v 1.5 2013/03/12 19:50:12 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/gnuradio/gnuradio-9999.ebuild,v 1.9 2013/11/18 15:49:30 zerochaos Exp $
 
 EAPI=5
 PYTHON_DEPEND="2"
@@ -10,7 +10,7 @@ inherit base cmake-utils fdo-mime python
 DESCRIPTION="Toolkit that provides signal processing blocks to implement software radios"
 HOMEPAGE="http://gnuradio.org/"
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="0/${PV}"
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="http://gnuradio.org/git/gnuradio.git"
@@ -18,7 +18,7 @@ if [[ ${PV} == "9999" ]] ; then
 	KEYWORDS=""
 else
 	SRC_URI="http://gnuradio.org/releases/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
 IUSE="alsa doc examples fcd filter grc jack oss performance-counters portaudio qt4 sdl uhd utils wavelet wxwidgets"
@@ -27,7 +27,7 @@ IUSE="alsa doc examples fcd filter grc jack oss performance-counters portaudio q
 # comedi? ( >=sci-electronics/comedilib-0.7 )
 # boost-1.52.0 is blacklisted, bug #461578, upstream #513, boost #7669
 RDEPEND=">=dev-lang/orc-0.4.12
-	dev-libs/boost
+	dev-libs/boost:0=
 	!<=dev-libs/boost-1.52.0-r6:0/1.52
 	dev-python/cheetah
 	dev-util/cppunit
@@ -114,9 +114,9 @@ src_configure() {
 		$(cmake-utils_use_enable qt4 GR_QTGUI) \
 		$(cmake-utils_use_enable sdl GR_VIDEO_SDL) \
 		-DENABLE_GR_CORE=ON
-		-DQWT_INCLUDE_DIRS="${EPREFIX}"/usr/include/qwt5
 		-DSYSCONFDIR="${EPREFIX}"/etc
 	)
+	use qt4 && mycmakeargs+=( -DQWT_INCLUDE_DIRS="${EPREFIX}"/usr/include/qwt5 )
 	cmake-utils_src_configure
 }
 

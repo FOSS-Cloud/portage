@@ -1,6 +1,49 @@
 # ChangeLog for media-sound/abcm2ps
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/abcm2ps/ChangeLog,v 1.75 2013/03/23 09:42:31 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/abcm2ps/ChangeLog,v 1.84 2013/11/12 09:29:33 radhermit Exp $
+
+*abcm2ps-7.6.7 (12 Nov 2013)
+
+  12 Nov 2013; Tim Harder <radhermit@gentoo.org> +abcm2ps-7.6.7.ebuild:
+  Version bump.
+
+*abcm2ps-7.6.3 (27 Oct 2013)
+
+  27 Oct 2013; Tim Harder <radhermit@gentoo.org> +abcm2ps-7.6.3.ebuild:
+  Version bump.
+
+  16 Sep 2013; Tim Harder <radhermit@gentoo.org> -abcm2ps-7.5.2.ebuild,
+  -abcm2ps-7.5.4.ebuild, -abcm2ps-7.5.5.ebuild, -abcm2ps-7.5.7.ebuild:
+  Remove old.
+
+*abcm2ps-7.6.0 (16 Sep 2013)
+
+  16 Sep 2013; Tim Harder <radhermit@gentoo.org> +abcm2ps-7.6.0.ebuild:
+  Version bump.
+
+*abcm2ps-7.5.8 (16 Aug 2013)
+
+  16 Aug 2013; Tim Harder <radhermit@gentoo.org> +abcm2ps-7.5.8.ebuild:
+  Version bump.
+
+*abcm2ps-7.5.7 (16 Jul 2013)
+
+  16 Jul 2013; Tim Harder <radhermit@gentoo.org> +abcm2ps-7.5.7.ebuild:
+  Version bump.
+
+*abcm2ps-7.5.5 (15 Jun 2013)
+
+  15 Jun 2013; Tim Harder <radhermit@gentoo.org> +abcm2ps-7.5.5.ebuild:
+  Version bump.
+
+*abcm2ps-7.5.4 (29 May 2013)
+
+  29 May 2013; Tim Harder <radhermit@gentoo.org> +abcm2ps-7.5.4.ebuild:
+  Version bump.
+
+  29 Apr 2013; Tim Harder <radhermit@gentoo.org> -abcm2ps-7.3.4.ebuild,
+  -abcm2ps-7.4.0.ebuild, -abcm2ps-7.5.0.ebuild:
+  Remove old.
 
 *abcm2ps-7.5.2 (23 Mar 2013)
 

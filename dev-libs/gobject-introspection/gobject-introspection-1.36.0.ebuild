@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/gobject-introspection/gobject-introspection-1.36.0.ebuild,v 1.3 2013/04/07 09:49:52 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/gobject-introspection/gobject-introspection-1.36.0.ebuild,v 1.5 2013/07/27 17:12:33 eva Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -17,19 +17,21 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 IUSE="cairo doctool test"
+REQUIRED_USE="test? ( cairo )"
 
-RDEPEND=">=dev-libs/gobject-introspection-common-${PV}
+RDEPEND="
+	>=dev-libs/gobject-introspection-common-${PV}
 	>=dev-libs/glib-2.36:2
 	doctool? ( dev-python/mako )
-	virtual/libffi:="
-
+	virtual/libffi:=
+	!<dev-lang/vala-0.20.0
+"
 # Wants real bison, not virtual/yacc
 DEPEND="${RDEPEND}
 	>=dev-util/gtk-doc-am-1.15
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
-	!<dev-lang/vala-0.20.0
 "
 # PDEPEND to avoid circular dependencies, bug #391213
 PDEPEND="cairo? ( x11-libs/cairo[glib] )"

@@ -1,9 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/ranger/ranger-9999.ebuild,v 1.4 2013/03/02 06:41:49 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/ranger/ranger-9999.ebuild,v 1.6 2013/09/05 18:23:05 mgorny Exp $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7,3_1,3_2,3_3} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
 PYTHON_REQ_USE="ncurses"
 
 inherit distutils-r1
@@ -24,7 +24,7 @@ SLOT="0"
 RDEPEND="virtual/pager"
 
 pkg_postinst() {
-	if ! has_version ${CATEGORY}/${PN} ; then
+	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog "Ranger has many optional dependencies to support enhanced file previews."
 		elog "See the README or homepage for more details."
 	fi

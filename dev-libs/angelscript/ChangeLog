@@ -1,6 +1,36 @@
 # ChangeLog for dev-libs/angelscript
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/angelscript/ChangeLog,v 1.6 2013/04/01 12:57:50 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/angelscript/ChangeLog,v 1.11 2013/11/03 16:15:54 hasufell Exp $
+
+*angelscript-2.28.0 (03 Nov 2013)
+
+  03 Nov 2013; Julian Ospald <hasufell@gentoo.org> +angelscript-2.28.0.ebuild:
+  version bump
+
+*angelscript-2.27.1 (18 Aug 2013)
+
+  18 Aug 2013; Julian Ospald <hasufell@gentoo.org> -angelscript-2.25.2.ebuild,
+  -files/angelscript-2.25.2-QA.patch, -angelscript-2.26.0.ebuild,
+  -files/angelscript-2.26.0-QA.patch, -angelscript-2.26.1.ebuild,
+  -files/angelscript-2.26.1-QA.patch, -angelscript-2.26.2.ebuild,
+  -angelscript-2.26.2-r1.ebuild, +angelscript-2.27.1.ebuild:
+  version bump, remove old
+
+*angelscript-2.27.0 (29 Jul 2013)
+
+  29 Jul 2013; Julian Ospald <hasufell@gentoo.org> +angelscript-2.27.0.ebuild:
+  version bump
+
+*angelscript-2.26.3 (10 May 2013)
+
+  10 May 2013; Julian Ospald <hasufell@gentoo.org> +angelscript-2.26.3.ebuild:
+  version bump
+
+*angelscript-2.26.2-r1 (04 May 2013)
+
+  04 May 2013; Julian Ospald <hasufell@gentoo.org>
+  +angelscript-2.26.2-r1.ebuild:
+  add multilib support
 
 *angelscript-2.26.2 (01 Apr 2013)
 
@@ -30,4 +60,3 @@
   18 Jan 2013; Julian Ospald <hasufell@gentoo.org> +angelscript-2.25.2.ebuild,
   +files/angelscript-2.25.2-QA.patch, +metadata.xml:
   initial import wrt #122061
-

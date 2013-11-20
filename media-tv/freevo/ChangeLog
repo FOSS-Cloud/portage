@@ -1,6 +1,20 @@
 # ChangeLog for media-tv/freevo
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/freevo/ChangeLog,v 1.77 2013/03/22 23:08:21 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/freevo/ChangeLog,v 1.81 2013/08/03 09:45:47 mgorny Exp $
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> freevo-1.7.6.1.ebuild,
+  freevo-1.9.0.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
+
+  09 Jun 2013; Mike Gilbert <floppym@gentoo.org> freevo-1.7.6.1.ebuild,
+  freevo-1.9.0.ebuild:
+  Depend on virtual/python-imaging.
+
+  04 May 2013; Mike Gilbert <floppym@gentoo.org> freevo-1.7.6.1.ebuild:
+  Add PYTHON_USE_WITH=xml.
+
+  04 May 2013; Mike Gilbert <floppym@gentoo.org> freevo-1.7.6.1.ebuild:
+  Drop dependency on dev-python/elementtree.
 
   22 Mar 2013; Markos Chandras <hwoarang@gentoo.org> freevo-1.7.6.1.ebuild,
   freevo-1.9.0.ebuild, metadata.xml:

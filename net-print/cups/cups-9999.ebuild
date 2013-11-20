@@ -1,23 +1,29 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/cups/cups-9999.ebuild,v 1.28 2013/04/01 22:49:57 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/cups/cups-9999.ebuild,v 1.45 2013/10/30 21:48:47 dilfridge Exp $
 
 EAPI=5
 
-PYTHON_DEPEND="python? 2:2.5"
+PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit autotools base fdo-mime gnome2-utils flag-o-matic linux-info multilib pam python user versionator java-pkg-opt-2 systemd
+inherit autotools base fdo-mime gnome2-utils flag-o-matic linux-info \
+	multilib pam python-single-r1 user versionator java-pkg-opt-2 systemd
 
-MY_P=${P/_beta/b}
-MY_PV=${PV/_beta/b}
+MY_P=${P/_rc/rc}
+MY_P=${MY_P/_beta/b}
+MY_PV=${PV/_rc/rc}
+MY_PV=${MY_PV/_beta/b}
 
-if [[ "${PV}" != "9999" ]]; then
-	SRC_URI="mirror://easysw/${PN}/${MY_PV}/${MY_P}-source.tar.bz2"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
-else
-	inherit subversion
-	ESVN_REPO_URI="http://svn.easysw.com/public/cups/trunk"
+if [[ ${PV} == *9999 ]]; then
+	inherit git-2
+	EGIT_REPO_URI="http://www.cups.org/cups.git"
+	if [[ ${PV} != 9999 ]]; then
+		EGIT_BRANCH=branch-${PV/.9999}
+	fi
 	KEYWORDS=""
+else
+	SRC_URI="http://www.cups.org/software/${MY_PV}/${MY_P}-source.tar.bz2"
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
 fi
 
 DESCRIPTION="The Common Unix Printing System"
@@ -25,10 +31,10 @@ HOMEPAGE="http://www.cups.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="acl dbus debug +filters gnutls java kerberos pam
-	python selinux +ssl static-libs systemd +threads usb X xinetd zeroconf"
+IUSE="acl dbus debug +filters gnutls java kerberos lprng-compat pam
+	python selinux +ssl static-libs +threads usb X xinetd zeroconf"
 
-LANGS="ca es fr ja ru"
+LANGS="ca es fr it ja ru"
 for X in ${LANGS} ; do
 	IUSE="${IUSE} +linguas_${X}"
 done
@@ -44,7 +50,9 @@ RDEPEND="
 	dbus? ( sys-apps/dbus )
 	java? ( >=virtual/jre-1.6 )
 	kerberos? ( virtual/krb5 )
+	!lprng-compat? ( !net-print/lprng )
 	pam? ( virtual/pam )
+	python? ( ${PYTHON_DEPS} )
 	selinux? ( sec-policy/selinux-cups )
 	ssl? (
 		gnutls? (
@@ -53,8 +61,7 @@ RDEPEND="
 		)
 		!gnutls? ( >=dev-libs/openssl-0.9.8g )
 	)
-	systemd? ( sys-apps/systemd )
-	usb? ( virtual/libusb:0 )
+	usb? ( virtual/libusb:1 )
 	X? ( x11-misc/xdg-utils )
 	xinetd? ( sys-apps/xinetd )
 	zeroconf? ( net-dns/avahi )
@@ -71,7 +78,8 @@ PDEPEND="
 	filters? ( net-print/foomatic-filters )
 "
 
-REQUIRED_USE="gnutls? ( ssl )"
+REQUIRED_USE="gnutls? ( ssl )
+	python? ( ${PYTHON_REQUIRED_USE} )"
 
 # upstream includes an interactive test which is a nono for gentoo
 RESTRICT="test"
@@ -82,8 +90,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.6.0-dont-compress-manpages.patch"
 	"${FILESDIR}/${PN}-1.6.0-fix-install-perms.patch"
 	"${FILESDIR}/${PN}-1.4.4-nostrip.patch"
-	"${FILESDIR}/${PN}-1.5.0-systemd-socket.patch"		# systemd support
-	"${FILESDIR}/${PN}-1.6.2-statedir.patch"
+	"${FILESDIR}/${PN}-1.5.0-systemd-socket-2.patch"	# systemd support
 )
 
 pkg_setup() {
@@ -91,11 +98,7 @@ pkg_setup() {
 	enewuser lp -1 -1 -1 lp
 	enewgroup lpadmin 106
 
-	# python 3 is no-go
-	if use python; then
-		python_set_active_version 2
-		python_pkg_setup
-	fi
+	use python && python-single-r1_pkg_setup
 
 	if use kernel_linux; then
 		linux-info_pkg_setup
@@ -160,11 +163,12 @@ src_configure() {
 	fi
 
 	econf \
-		--libdir=/usr/$(get_libdir) \
-		--localstatedir=/var \
+		--libdir="${EPREFIX}"/usr/$(get_libdir) \
+		--localstatedir="${EPREFIX}"/var \
+		--with-rundir="${EPREFIX}"/run/cups \
 		--with-cups-user=lp \
 		--with-cups-group=lp \
-		--with-docdir=/usr/share/cups/html \
+		--with-docdir="${EPREFIX}"/usr/share/cups/html \
 		--with-languages="${LINGUAS}" \
 		--with-system-groups=lpadmin \
 		$(use_enable acl) \
@@ -181,17 +185,17 @@ src_configure() {
 		$(use_with java) \
 		--without-perl \
 		--without-php \
-		$(use_with python) \
+		$(use_with python python "${PYTHON}") \
 		$(use_with xinetd xinetd /etc/xinetd.d) \
 		--enable-libpaper \
-		$(use_with systemd systemdsystemunitdir "$(systemd_get_unitdir)") \
+		--with-systemdsystemunitdir="$(systemd_get_unitdir)" \
 		${myconf}
 
 	# install in /usr/libexec always, instead of using /usr/lib/cups, as that
 	# makes more sense when facing multilib support.
-	sed -i -e 's:SERVERBIN.*:SERVERBIN = "$(BUILDROOT)"/usr/libexec/cups:' Makedefs || die
-	sed -i -e 's:#define CUPS_SERVERBIN.*:#define CUPS_SERVERBIN "/usr/libexec/cups":' config.h || die
-	sed -i -e 's:cups_serverbin=.*:cups_serverbin=/usr/libexec/cups:' cups-config || die
+	sed -i -e "s:SERVERBIN.*:SERVERBIN = \"\$\(BUILDROOT\)${EPREFIX}/usr/libexec/cups\":" Makedefs || die
+	sed -i -e "s:#define CUPS_SERVERBIN.*:#define CUPS_SERVERBIN \"${EPREFIX}/usr/libexec/cups\":" config.h || die
+	sed -i -e "s:cups_serverbin=.*:cups_serverbin=\"${EPREFIX}/usr/libexec/cups\":" cups-config || die
 }
 
 src_install() {
@@ -245,11 +249,22 @@ src_install() {
 	use X || rm -r "${ED}"/usr/share/applications
 
 	# create /etc/cups/client.conf, bug #196967 and #266678
-	echo "ServerName /run/cups/cups.sock" >> "${ED}"/etc/cups/client.conf
+	echo "ServerName ${EPREFIX}/run/cups/cups.sock" >> "${ED}"/etc/cups/client.conf
 
 	# the following files are now provided by cups-filters:
 	rm -r "${ED}"/usr/share/cups/banners || die
 	rm -r "${ED}"/usr/share/cups/data/testprint || die
+
+	# for the special case of running lprng and cups together, bug 467226
+	if use lprng-compat ; then
+		rm -fv "${ED}"/usr/bin/{lp*,cancel}
+		rm -fv "${ED}"/usr/sbin/lp*
+		rm -fv "${ED}"/usr/share/man/man1/{lp*,cancel*}
+		rm -fv "${ED}"/usr/share/man/man8/lp*
+		ewarn "Not installing lp... binaries, since the lprng-compat useflag is set."
+		ewarn "Unless you plan to install an exotic server setup, you most likely"
+		ewarn "do not want this. Disable the useflag then and all will be fine."
+	fi
 }
 
 pkg_preinst() {
@@ -277,12 +292,13 @@ pkg_postinst() {
 		elog "the location manually, or run cups-browsed from net-print/cups-filters"
 		elog "which re-adds that functionality as a separate daemon."
 		echo
-	elif [[ "${REPLACING_VERSIONS}" ]] && [[ "${REPLACING_VERSIONS}" < "1.6.2" ]]; then
-		echo
-		elog "Starting with net-print/cups-filters-1.0.30, that package provides"
-		elog "a daemon cups-browsed which implements printer discovery via the"
-		elog "Cups-1.5 protocol. Not much tested so far though."
-		echo
+	fi
+
+	if [[ "${REPLACING_VERSIONS}" == "1.6.2-r4" ]]; then
+		ewarn
+		ewarn "You are upgrading from the broken version net-print/cups-1.6.2-r4."
+		ewarn "Please rebuild net-print/cups-filters now to make sure everything is OK."
+		ewarn
 	fi
 }
 

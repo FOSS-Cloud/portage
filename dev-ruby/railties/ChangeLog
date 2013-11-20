@@ -1,6 +1,40 @@
 # ChangeLog for dev-ruby/railties
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/railties/ChangeLog,v 1.54 2013/03/31 07:44:46 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/railties/ChangeLog,v 1.62 2013/11/10 14:41:22 graaff Exp $
+
+  10 Nov 2013; Hans de Graaff <graaff@gentoo.org> -railties-3.2.13.ebuild,
+  -railties-3.2.13-r1.ebuild, -railties-3.2.14.ebuild:
+  Cleanup.
+
+*railties-3.2.15 (17 Oct 2013)
+
+  17 Oct 2013; Hans de Graaff <graaff@gentoo.org> +railties-3.2.15.ebuild:
+  Version bump for security bug 488298.
+
+  13 Oct 2013; Markus Meier <maekke@gentoo.org> railties-4.0.0.ebuild:
+  add ~arm, bug #487206
+
+*railties-4.0.0 (07 Oct 2013)
+
+  07 Oct 2013; Hans de Graaff <graaff@gentoo.org> +railties-4.0.0.ebuild:
+  Version bump for Rails 4. Dropped keywords in bug 487206.
+
+*railties-3.2.14 (17 Aug 2013)
+
+  17 Aug 2013; Hans de Graaff <graaff@gentoo.org> +railties-3.2.14.ebuild:
+  Version bump.
+
+  04 Jun 2013; Hans de Graaff <graaff@gentoo.org> railties-3.2.13-r1.ebuild:
+  Only install guides with USE=doc.
+
+*railties-3.2.13-r1 (04 Jun 2013)
+
+  04 Jun 2013; Hans de Graaff <graaff@gentoo.org> +railties-3.2.13-r1.ebuild:
+  Allow rdoc 4.x. Actually install guides.
+
+  27 Apr 2013; Hans de Graaff <graaff@gentoo.org> -railties-3.1.10.ebuild,
+  -railties-3.1.11.ebuild, -railties-3.2.11.ebuild, -railties-3.2.12.ebuild:
+  Cleanup.
 
 *railties-3.2.13 (31 Mar 2013)
 

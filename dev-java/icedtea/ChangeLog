@@ -1,6 +1,80 @@
 # ChangeLog for dev-java/icedtea
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea/ChangeLog,v 1.94 2013/03/17 15:26:36 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea/ChangeLog,v 1.109 2013/11/11 07:09:43 caster Exp $
+
+  11 Nov 2013; Vlastimil Babka <caster@gentoo.org> icedtea-7.2.4.3.ebuild:
+  Depend on the newly introduced icedtea7 flag for icedtea-web:0
+
+  30 Oct 2013; Vlastimil Babka <caster@gentoo.org> icedtea-7.2.4.3.ebuild:
+  Bump lcms dep to >=2.5 due to configure checks. Thanks to 'nacon' for
+  reporting on IRC.
+
+  27 Oct 2013; Vlastimil Babka <caster@gentoo.org> icedtea-7.2.4.3.ebuild:
+  Allow switching to the new shared icedtea-web:0
+
+*icedtea-7.2.4.3 (27 Oct 2013)
+
+  27 Oct 2013; Vlastimil Babka <caster@gentoo.org> +icedtea-7.2.4.3.ebuild:
+  Version bump, security bug #489570. Icedtea-6 allowed again for building.
+  USE=jbootstrap no longer default, disabling leads to much faster builds.
+
+  09 Sep 2013; Rick Farina <zerochaos@gentoo.org> -icedtea-7.2.3.8.ebuild,
+  -icedtea-7.2.3.9.ebuild:
+  removing insecure ebuilds per bug https://bugs.gentoo.org/477210
+
+*icedtea-7.2.3.12 (09 Sep 2013)
+
+  09 Sep 2013; Rick Farina <zerochaos@gentoo.org> +icedtea-7.2.3.12.ebuild,
+  metadata.xml:
+  pulling new icedtea from overlay into main tree in the hopes of getting
+  functional arm support
+
+  27 Aug 2013; Michael Palimaka <kensington@gentoo.org> icedtea-6.1.12.4.ebuild,
+  icedtea-6.1.12.5.ebuild, icedtea-6.1.12.6.ebuild, icedtea-7.2.3.8.ebuild,
+  icedtea-7.2.3.9.ebuild, icedtea-7.2.4.1.ebuild:
+  Pin virtual/jpeg SLOT to 0.
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> icedtea-7.2.3.9.ebuild:
+  Whitespace
+
+  23 Jul 2013; Vlastimil Babka <caster@gentoo.org> icedtea-6.1.12.6.ebuild,
+  icedtea-7.2.4.1.ebuild:
+  Depend on >=icedtea-web-1.3.2 to prevent breakage, see
+  http://blog.fuseyism.com/index.php/2013/06/19/imminent-icedtea-web-breakage/
+
+  22 Jul 2013; Tom Wijsman <TomWij@gentoo.org> icedtea-7.2.4.1.ebuild,
+  metadata.xml:
+  Check for at least 9G of build space, current version is close to 8G without
+  debug information and LTO.
+
+*icedtea-6.1.12.6 (20 Jul 2013)
+
+  20 Jul 2013; Tom Wijsman <TomWij@gentoo.org> +icedtea-6.1.12.6.ebuild,
+  metadata.xml:
+  Version bump to 6.1.12.6.
+
+*icedtea-7.2.4.1 (20 Jul 2013)
+
+  20 Jul 2013; Tom Wijsman <TomWij@gentoo.org> +icedtea-7.2.4.1.ebuild:
+  Version bump to 7.2.4.1, I plan to do the 6.1.12.6 bump tomorrow; fixes bug
+  #477210, reported by wbrana. Removed zero hotspot tarball fetch due to
+  http://icedtea.classpath.org/hg/release/icedtea7-2.4/rev/08d655f1631e
+
+  01 Jun 2013; Ralph Sennhauser <sera@gentoo.org> icedtea-7.2.3.9.ebuild:
+  Add ant-core dep, we aren't using the java-ant-2.eclass, reported by genstorm
+
+*icedtea-7.2.3.9 (28 May 2013)
+
+  28 May 2013; Ralph Sennhauser <sera@gentoo.org> +icedtea-7.2.3.9.ebuild:
+  Security bump #466822
+  Drop ant deps, the eclass ensures package requirements. 466558
+  Rename tarballs #439140
+  This version doesn't build with icedtea 6
+
+*icedtea-6.1.12.5 (22 May 2013)
+
+  22 May 2013; Vlastimil Babka <caster@gentoo.org> +icedtea-6.1.12.5.ebuild:
+  Version bump, security bug #466822.
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

@@ -1,6 +1,53 @@
 # ChangeLog for sys-libs/freeipmi
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/freeipmi/ChangeLog,v 1.68 2013/03/24 07:38:57 pva Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/freeipmi/ChangeLog,v 1.77 2013/09/12 07:32:40 flameeyes Exp $
+
+*freeipmi-1.3.2 (12 Sep 2013)
+
+  12 Sep 2013; Diego E. Pettenò <flameeyes@gentoo.org> +freeipmi-1.3.2.ebuild:
+  Version bump.
+
+  22 Aug 2013; Diego E. Pettenò <flameeyes@gentoo.org>
+  -freeipmi-1.3.0_beta0.ebuild:
+  Remove beta.
+
+*freeipmi-1.3.1 (22 Aug 2013)
+
+  22 Aug 2013; Diego E. Pettenò <flameeyes@gentoo.org> +freeipmi-1.3.1.ebuild:
+  Version bump.
+
+*freeipmi-1.2.9 (17 Jul 2013)
+
+  17 Jul 2013; Diego E. Pettenò <flameeyes@gentoo.org> +freeipmi-1.2.9.ebuild:
+  Version bump.
+
+*freeipmi-1.2.8 (25 Jun 2013)
+
+  25 Jun 2013; Diego E. Pettenò <flameeyes@gentoo.org> +freeipmi-1.2.8.ebuild,
+  -freeipmi-1.2.6.ebuild, -freeipmi-1.2.7.ebuild:
+  Version bump; cleanup old.
+
+*freeipmi-1.3.0_beta0 (31 May 2013)
+
+  31 May 2013; Diego E. Pettenò <flameeyes@gentoo.org>
+  +freeipmi-1.3.0_beta0.ebuild:
+  Version bump to latest beta.
+
+*freeipmi-1.2.7 (20 May 2013)
+
+  20 May 2013; Diego E. Pettenò <flameeyes@gentoo.org> +freeipmi-1.2.7.ebuild,
+  -files/freeipmi-1.1.6-thresholds.patch,
+  -files/freeipmi-1.2.5-out-of-source-build.patch, -files/ipmidetectd.initd.3,
+  -freeipmi-1.1.7.ebuild, -freeipmi-1.2.5.ebuild:
+  Version bump.
+
+  06 May 2013; Peter Volkov <pva@gentoo.org> freeipmi-1.2.6.ebuild:
+  Fix build failure with automake-1.13, bug #468200 wrt Matt McAdoo.
+
+*freeipmi-1.2.6 (30 Apr 2013)
+
+  30 Apr 2013; Diego E. Pettenò <flameeyes@gentoo.org> +freeipmi-1.2.6.ebuild:
+  Version bump.
 
   24 Mar 2013; Peter Volkov <pva@gentoo.org>
   +files/freeipmi-1.2.5-out-of-source-build.patch, freeipmi-1.2.5.ebuild:

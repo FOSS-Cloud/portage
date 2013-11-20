@@ -1,6 +1,69 @@
 # ChangeLog for net-p2p/freenet
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/freenet/ChangeLog,v 1.167 2013/04/05 21:30:39 tommy Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/freenet/ChangeLog,v 1.178 2013/09/18 12:49:27 tommy Exp $
+
+*freenet-0.7.5_p1456 (18 Sep 2013)
+
+  18 Sep 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +freenet-0.7.5_p1456.ebuild:
+  Version bump
+
+  07 Sep 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  freenet-0.7.5_p1455.ebuild:
+  Drop useless mv
+
+  07 Sep 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  freenet-0.7.5_p1455.ebuild:
+  Raise version requirement for bcprov to 1.49, fixes bug 483322
+
+*freenet-0.7.5_p1455 (01 Sep 2013)
+
+  01 Sep 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +freenet-0.7.5_p1455.ebuild:
+  Version bump
+
+*freenet-0.7.5_p1453 (23 Aug 2013)
+
+  23 Aug 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +freenet-0.7.5_p1453.ebuild, -freenet-0.7.5_p1450.ebuild:
+  Version bump, drop old
+
+*freenet-0.7.5_p1452 (21 Aug 2013)
+
+  21 Aug 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +freenet-0.7.5_p1452.ebuild:
+  Version bump
+
+*freenet-0.7.5_p1450 (03 Aug 2013)
+
+  03 Aug 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -freenet-0.7.5_p1447.ebuild, -freenet-0.7.5_p1449.ebuild,
+  +freenet-0.7.5_p1450.ebuild:
+  Version bump, drop old
+
+*freenet-0.7.5_p1449 (21 Jul 2013)
+
+  21 Jul 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -freenet-0.7.5_p1444.ebuild, +freenet-0.7.5_p1449.ebuild:
+  Version bump, drop old
+
+*freenet-0.7.5_p1447 (11 Jul 2013)
+
+  11 Jul 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +freenet-0.7.5_p1447.ebuild, -freenet-0.7.5_p1442.ebuild:
+  Version bump, drop old
+
+*freenet-0.7.5_p1444 (24 May 2013)
+
+  24 May 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +freenet-0.7.5_p1444.ebuild:
+  Version bump
+
+*freenet-0.7.5_p1442 (21 May 2013)
+
+  21 May 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -freenet-0.7.5_p1440.ebuild, +freenet-0.7.5_p1442.ebuild:
+  Version bump, drop old
 
 *freenet-0.7.5_p1440 (05 Apr 2013)
 

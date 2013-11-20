@@ -1,6 +1,73 @@
 # ChangeLog for sys-kernel/spl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/ChangeLog,v 1.51 2013/03/28 22:19:21 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/ChangeLog,v 1.65 2013/10/14 14:36:59 ryao Exp $
+
+  14 Oct 2013; Richard Yao <ryao@gentoo.org> spl-0.6.2-r1.ebuild:
+  Reverse stabilization of sys-kernel/spl-0.6.2-r1 (to avoid confusing users
+  because sys-fs/zfs stabilization was reversed at the last minute because of
+  bug #487746)
+
+  14 Oct 2013; Richard Yao <ryao@gentoo.org> spl-0.6.2-r1.ebuild:
+  Stabilize sys-kernel/spl-0.6.2-r1 on amd64 (indirectly required by sys-
+  boot/grub:2 stabilization)
+
+*spl-0.6.2-r1 (05 Oct 2013)
+
+  05 Oct 2013; Richard Yao <ryao@gentoo.org> +spl-0.6.2-r1.ebuild:
+  Improved 3.11 compatibility
+
+*spl-0.6.2 (23 Aug 2013)
+
+  23 Aug 2013; Richard Yao <ryao@gentoo.org> +spl-0.6.2.ebuild:
+  Version bump to 0.6.2
+
+  21 Aug 2013; Richard Yao <ryao@gentoo.org> spl-0.6.1-r3.ebuild:
+  Drop !USER_NS because !UIDGID_STRICT_TYPE_CHECKS is sufficient
+
+*spl-0.6.1-r3 (14 Jul 2013)
+
+  14 Jul 2013; Richard Yao <ryao@gentoo.org> +files/spl-0.6.1-builtin-fix.patch,
+  +files/spl-0.6.1-linux-3.10-compat.patch, +spl-0.6.1-r3.ebuild,
+  -spl-0.6.1-r1.ebuild, -spl-0.6.1-r2.ebuild, -spl-0.6.1.ebuild:
+  Linux 3.10 compatibility; Fix kernel builtin support
+
+  29 May 2013; Richard Yao <ryao@gentoo.org> spl-0.6.1-r2.ebuild,
+  spl-0.6.1.ebuild:
+  Add blocker against CONFIG_UIDGID_STRICT_TYPE_CHECKS
+
+  29 May 2013; Richard Yao <ryao@gentoo.org> spl-0.6.1-r2.ebuild,
+  spl-0.6.1.ebuild:
+  Do not permit builds with CONFIG_USER_NS
+
+  29 May 2013; Richard Yao <ryao@gentoo.org> spl-0.6.1-r2.ebuild,
+  spl-0.6.1.ebuild:
+  Fix typo in ebuild
+
+*spl-0.6.1-r2 (28 May 2013)
+
+  28 May 2013; Richard Yao <ryao@gentoo.org> +files/spl-0.6.1-fix-delay.patch,
+  +spl-0.6.1-r2.ebuild, spl-0.6.1.ebuild:
+  Fix delay()
+
+*spl-0.6.1-r1 (25 Apr 2013)
+
+  25 Apr 2013; Richard Yao <ryao@gentoo.org>
+  +files/spl-0.6.1-constify-ctl_table.patch, +spl-0.6.1-r1.ebuild,
+  spl-0.6.1.ebuild:
+  Patch 3.8 and later kernels for hardened compatibility, bug #463012
+
+  17 Apr 2013; Richard Yao <ryao@gentoo.org> spl-9999.ebuild:
+  Remove /usr/src/spl symlink from 9999 ebuild. sys-cluster/lustre (science
+  overlay) no longer needs it. It will be removed from versioned ebuilds
+  following future revision bumps.
+
+  17 Apr 2013; Richard Yao <ryao@gentoo.org> spl-9999.ebuild:
+  Update /usr/src/spl link to reflect upstream's new location
+
+  17 Apr 2013; Richard Yao <ryao@gentoo.org> spl-0.6.0_rc10.ebuild,
+  spl-0.6.0_rc11-r2.ebuild, spl-0.6.0_rc12-r1.ebuild, spl-0.6.0_rc13-r2.ebuild,
+  spl-0.6.0_rc14-r3.ebuild, spl-0.6.1.ebuild, spl-9999.ebuild:
+  Kbuild depends on dev-lang/perl
 
 *spl-0.6.1 (28 Mar 2013)
 

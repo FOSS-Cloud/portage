@@ -1,6 +1,31 @@
 # ChangeLog for dev-python/python-novaclient
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-novaclient/ChangeLog,v 1.9 2013/04/03 16:06:27 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-novaclient/ChangeLog,v 1.13 2013/10/24 14:24:40 prometheanfire Exp $
+
+*python-novaclient-2.15.0 (24 Oct 2013)
+
+  24 Oct 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +python-novaclient-2.15.0.ebuild:
+  added testing to 2.15.0 takes forever, but works
+
+*python-novaclient-2.14.1 (11 Aug 2013)
+
+  11 Aug 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +python-novaclient-2.14.1.ebuild, -python-novaclient-2.10.0-r1.ebuild,
+  -python-novaclient-2.13.0.ebuild:
+  updating python-novaclient
+
+*python-novaclient-2.13.0-r1 (31 May 2013)
+
+  31 May 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +python-novaclient-2.13.0-r1.ebuild:
+  updating python-keystoneclient deps to be fully distutils-r1 and update the
+  requests dep to be more in line with reality
+
+  03 May 2013; Matthew Thode <prometheanfire@gentoo.org>
+  python-novaclient-2.10.0-r1.ebuild, python-novaclient-2.11.1-r1.ebuild,
+  python-novaclient-2.13.0.ebuild, python-novaclient-9999.ebuild:
+  removing the non-existant python 2.5 support
 
 *python-novaclient-2.13.0 (03 Apr 2013)
 

@@ -1,6 +1,60 @@
 # ChangeLog for net-misc/openvswitch
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openvswitch/ChangeLog,v 1.4 2012/07/18 08:41:29 dev-zero Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openvswitch/ChangeLog,v 1.15 2013/11/18 03:08:16 prometheanfire Exp $
+
+  18 Nov 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +files/ovsdb-server_conf2, openvswitch-2.0.0.ebuild:
+  fixing bug 491238
+
+*openvswitch-2.0.0 (11 Nov 2013)
+
+  11 Nov 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +openvswitch-2.0.0.ebuild:
+  update of openvsiwtch to 2.0.0
+
+  14 Sep 2013; Matthew Thode <prometheanfire@gentoo.org>
+  openvswitch-1.11.0.ebuild:
+  fixes ovs-1.11.0 build failure
+
+  12 Sep 2013; Matthew Thode <prometheanfire@gentoo.org> metadata.xml:
+  formally adding myself as a maintainer
+
+*openvswitch-1.11.0 (12 Sep 2013)
+
+  12 Sep 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +openvswitch-1.11.0.ebuild:
+  why not add 1.11.0 at the same time
+
+*openvswitch-1.9.0-r1 (12 Sep 2013)
+
+  12 Sep 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +openvswitch-1.9.0-r1.ebuild:
+  fully up to date with distutils-r1 and fixing bug 469500
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> openvswitch-1.9.0.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
+
+  15 Jul 2013; Matthew Thode <prometheanfire@gentoo.org>
+  openvswitch-1.9.0.ebuild:
+  adding ~x86 to openvswitch
+
+  09 Apr 2013; Tiziano Müller <dev-zero@gentoo.org> openvswitch-1.9.0.ebuild:
+  Fixing minorsyn's
+
+  09 Apr 2013; Tiziano Müller <dev-zero@gentoo.org> -files/ovs-controller,
+  -files/ovs-vswitchd, -files/ovsdb-server, -openvswitch-1.6.1-r2.ebuild:
+  Drop old vulnerable version (bug #431744/CVE-2012-3449).
+
+*openvswitch-1.9.0 (08 Apr 2013)
+
+  08 Apr 2013; Tiziano Müller <dev-zero@gentoo.org> +files/ovs-controller-r1,
+  +files/ovs-vswitchd-r1, +files/ovsdb-server-r1, +openvswitch-1.9.0.ebuild:
+  Version bump to 1.9.0 (bug #443558). Configuration database moved to
+  /var/lib/openvswitch (which is a solution for bug #438862). initscript-rewrite
+  to follow new declarative style and fixed bug #447630. Moved PKI to
+  /etc/ssl/openvswitch and make sure the directory has sane permissions (Bug
+  #431744). Added modules USE flag to build the openvswitch and brcompat kernel
+  modules.
 
 *openvswitch-1.6.1-r2 (18 Jul 2012)
 

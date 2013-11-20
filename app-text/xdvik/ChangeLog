@@ -1,6 +1,51 @@
 # ChangeLog for app-text/xdvik
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/xdvik/ChangeLog,v 1.92 2013/03/03 23:09:17 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/xdvik/ChangeLog,v 1.105 2013/05/18 00:17:33 aballier Exp $
+
+*xdvik-22.86 (18 May 2013)
+
+  18 May 2013; Alexis Ballier <aballier@gentoo.org> +xdvik-22.86.ebuild:
+  version bump
+
+  17 May 2013; Alexis Ballier <aballier@gentoo.org> -xdvik-22.84.16.ebuild,
+  -files/xdvik-22.84.16-cvararg.patch,
+  -files/xdvik-22.84.16-kpathsea_version.patch,
+  -files/xdvik-22.84.16-open-mode.patch,
+  -files/xdvik-22.84.16-parallel_make.patch:
+  remove old
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for sh, wrt bug #449298
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for s390, wrt bug #449298
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for sparc, wrt bug #449298
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for arm, wrt bug #449298
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for alpha, wrt bug #449298
+
+  19 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for ia64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for ppc64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for ppc, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for x86, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for amd64, wrt bug #449298
+
+  17 Apr 2013; Jeroen Roovers <jer@gentoo.org> xdvik-22.85-r1.ebuild:
+  Stable for HPPA (bug #449298).
 
   03 Mar 2013; Mike Frysinger <vapier@gentoo.org> xdvik-22.84.16.ebuild,
   xdvik-22.85-r1.ebuild:

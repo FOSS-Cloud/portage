@@ -1,6 +1,61 @@
 # ChangeLog for dev-python/wxpython
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/wxpython/ChangeLog,v 1.178 2013/03/26 03:23:52 dirtyepic Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/wxpython/ChangeLog,v 1.193 2013/10/30 19:22:40 mgorny Exp $
+
+  30 Oct 2013; Michał Górny <mgorny@gentoo.org> wxpython-2.8.12.1-r1.ebuild,
+  wxpython-2.8.12.1-r2.ebuild, wxpython-2.9.4.1-r1.ebuild,
+  wxpython-2.9.4.1-r2.ebuild:
+  Update the dep to use dev-lang/python-exec.
+
+*wxpython-2.9.4.1-r2 (23 Oct 2013)
+*wxpython-2.8.12.1-r2 (23 Oct 2013)
+
+  23 Oct 2013; Michał Górny <mgorny@gentoo.org> +wxpython-2.8.12.1-r2.ebuild,
+  +wxpython-2.9.4.1-r2.ebuild:
+  Support python-exec:2.
+
+  06 Oct 2013; Ryan Hill <dirtyepic@gentoo.org> wxpython-2.8.12.1.ebuild:
+  Drop to ~sh.
+
+  17 Sep 2013; Michał Górny <mgorny@gentoo.org> wxpython-2.8.12.1-r1.ebuild,
+  wxpython-2.9.4.1-r1.ebuild:
+  Force python-exec:0 since the ebuild does hackery on top of script wrapping.
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> wxpython-2.8.12.1-r1.ebuild:
+  Stable for sparc, wrt bug #477480
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> wxpython-2.8.12.1-r1.ebuild:
+  Stable for ppc64, wrt bug #477480
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> wxpython-2.8.12.1-r1.ebuild:
+  Stable for alpha, wrt bug #477480
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> wxpython-2.8.12.1-r1.ebuild:
+  Stable for ia64, wrt bug #477480
+
+  25 Aug 2013; Markus Meier <maekke@gentoo.org> wxpython-2.8.12.1-r1.ebuild:
+  arm stable, bug #477480
+
+  19 Aug 2013; Agostino Sarubbo <ago@gentoo.org> wxpython-2.8.12.1-r1.ebuild:
+  Stable for ppc, wrt bug #477480
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> wxpython-2.8.12.1-r1.ebuild:
+  Stable for x86, wrt bug #477480
+
+  15 Aug 2013; Jeroen Roovers <jer@gentoo.org> wxpython-2.8.12.1-r1.ebuild:
+  Stable for HPPA (bug #477480).
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org> wxpython-2.8.12.1-r1.ebuild:
+  Stable for amd64, wrt bug #477480
+
+  22 Apr 2013; Michał Górny <mgorny@gentoo.org>
+  +files/wxpython-2.8.12.1-disable-egging-mode.patch,
+  wxpython-2.8.12.1-r1.ebuild, wxpython-2.9.4.1-r1.ebuild:
+  Fix alternating install design by the egg_info command. Fixes bug #466302.
+
+  10 Apr 2013; Ryan Hill <dirtyepic@gentoo.org> wxpython-2.8.12.1-r1.ebuild,
+  -wxpython-2.9.4.1.ebuild, wxpython-2.9.4.1-r1.ebuild:
+  Add slot operator to libpng dep.
 
   26 Mar 2013; Ryan Hill <dirtyepic@gentoo.org> wxpython-2.8.12.1-r1.ebuild,
   +files/wxpython-2.8-no-preservatives-added.patch, wxpython-2.9.3.1.ebuild,

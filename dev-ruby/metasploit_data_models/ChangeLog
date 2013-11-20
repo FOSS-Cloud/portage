@@ -1,6 +1,52 @@
 # ChangeLog for dev-ruby/metasploit_data_models
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/metasploit_data_models/ChangeLog,v 1.12 2013/03/08 17:49:43 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/metasploit_data_models/ChangeLog,v 1.20 2013/08/19 18:07:15 zerochaos Exp $
+
+*metasploit_data_models-0.16.6 (19 Aug 2013)
+
+  19 Aug 2013; Rick Farina <zerochaos@gentoo.org>
+  +metasploit_data_models-0.16.6.ebuild:
+  bump
+
+*metasploit_data_models-0.16.5 (18 Jul 2013)
+
+  18 Jul 2013; Hans de Graaff <graaff@gentoo.org>
+  +metasploit_data_models-0.16.5.ebuild:
+  Version bump.
+
+*metasploit_data_models-0.16.1 (21 Jun 2013)
+
+  21 Jun 2013; Rick Farina <zerochaos@gentoo.org>
+  +metasploit_data_models-0.16.1.ebuild:
+  bumpy
+
+  20 May 2013; Rick Farina <zerochaos@gentoo.org>
+  metasploit_data_models-0.14.3.ebuild:
+  import changes made by graff which I missed on the bump
+
+*metasploit_data_models-0.14.3 (20 May 2013)
+
+  20 May 2013; Rick Farina <zerochaos@gentoo.org>
+  +metasploit_data_models-0.14.3.ebuild:
+  version bump for metasploit
+
+*metasploit_data_models-0.6.16 (06 May 2013)
+
+  06 May 2013; Hans de Graaff <graaff@gentoo.org>
+  +metasploit_data_models-0.6.16.ebuild:
+  Version bump. Use eclass support to install additional files.
+
+*metasploit_data_models-0.6.14 (11 Apr 2013)
+
+  11 Apr 2013; Rick Farina <zerochaos@gentoo.org>
+  +metasploit_data_models-0.6.14.ebuild:
+  bump
+
+*metasploit_data_models-0.6.4 (08 Apr 2013)
+
+  08 Apr 2013; Rick Farina <zerochaos@gentoo.org>
+  +metasploit_data_models-0.6.4.ebuild:
+  bump as requested by bug 465152
 
 *metasploit_data_models-0.6.1 (08 Mar 2013)
 

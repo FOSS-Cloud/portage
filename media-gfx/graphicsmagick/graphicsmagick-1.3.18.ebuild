@@ -1,9 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphicsmagick/graphicsmagick-1.3.18.ebuild,v 1.1 2013/04/08 03:52:13 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphicsmagick/graphicsmagick-1.3.18.ebuild,v 1.10 2013/08/03 07:47:35 ago Exp $
 
 EAPI=5
-inherit toolchain-funcs eutils autotools
+inherit toolchain-funcs eutils
 
 MY_P=${P/graphicsm/GraphicsM}
 
@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="alpha amd64 hppa ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="bzip2 cxx debug fpx imagemagick jbig jpeg jpeg2k lcms lzma modules openmp perl png postscript q16 q32 static-libs svg threads tiff truetype wmf X zlib"
 
 RDEPEND=">=sys-devel/libtool-2.2.6b
@@ -46,7 +46,7 @@ S=${WORKDIR}/${MY_P}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-1.3.18-freetype.patch
-	eautoreconf
+	epatch "${FILESDIR}"/${PN}-1.3.18-powerpc.patch
 }
 
 src_configure() {

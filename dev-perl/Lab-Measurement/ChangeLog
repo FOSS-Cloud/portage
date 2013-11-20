@@ -1,6 +1,34 @@
 # ChangeLog for dev-perl/Lab-Measurement
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Lab-Measurement/ChangeLog,v 1.11 2013/03/27 23:08:31 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Lab-Measurement/ChangeLog,v 1.16 2013/10/19 18:31:56 dilfridge Exp $
+
+*Lab-Measurement-3.200.0 (19 Oct 2013)
+
+  19 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +Lab-Measurement-3.200.0.ebuild:
+  Version bump
+
+  07 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  Lab-Measurement-9999.ebuild:
+  Update live ebuild dependencies
+
+*Lab-Measurement-3.110.0 (04 Sep 2013)
+
+  04 Sep 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -Lab-Measurement-3.00.ebuild, -Lab-Measurement-3.10.ebuild,
+  -Lab-Measurement-3.11.ebuild, +Lab-Measurement-3.110.0.ebuild,
+  Lab-Measurement-9999.ebuild:
+  EAPI bump, use canonical Gentoo perl module versions
+
+  10 Jun 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  Lab-Measurement-9999.ebuild, metadata.xml:
+  Update live ebuild
+
+*Lab-Measurement-3.11 (13 May 2013)
+
+  13 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +Lab-Measurement-3.11.ebuild:
+  Version bump
 
   27 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org>
   Lab-Measurement-9999.ebuild:

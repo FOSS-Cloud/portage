@@ -1,6 +1,68 @@
 # ChangeLog for dev-python/pymongo
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pymongo/ChangeLog,v 1.20 2013/03/25 09:20:07 ultrabug Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pymongo/ChangeLog,v 1.33 2013/11/16 11:07:53 pacho Exp $
+
+  16 Nov 2013; Pacho Ramos <pacho@gentoo.org> pymongo-2.6.3.ebuild:
+  amd64 stable, bug #488742
+
+*pymongo-2.6.3 (17 Oct 2013)
+
+  17 Oct 2013; Ultrabug <ultrabug@gentoo.org> -pymongo-2.6.1.ebuild,
+  +pymongo-2.6.3.ebuild:
+  version bump, drop old
+
+*pymongo-2.6.2 (09 Sep 2013)
+
+  09 Sep 2013; Ultrabug <ultrabug@gentoo.org> +pymongo-2.6.2.ebuild:
+  version bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pymongo-2.5.2.ebuild,
+  pymongo-2.6.1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*pymongo-2.6.1 (05 Sep 2013)
+
+  05 Sep 2013; Ultrabug <ultrabug@gentoo.org> -pymongo-2.6.ebuild,
+  +pymongo-2.6.1.ebuild:
+  version bump, drop bugged
+
+*pymongo-2.6 (21 Aug 2013)
+
+  21 Aug 2013; Ultrabug <ultrabug@gentoo.org> -pymongo-2.4.2-r1.ebuild,
+  +pymongo-2.6.ebuild:
+  version bump, drop old
+
+*pymongo-2.5.2 (02 Jun 2013)
+
+  02 Jun 2013; Ultrabug <ultrabug@gentoo.org> -pymongo-2.3.ebuild,
+  -pymongo-2.5.ebuild, -pymongo-2.5.1.ebuild, +pymongo-2.5.2.ebuild:
+  fix #472046 wrt #472034, drop old
+
+  28 May 2013; Ian Delaney <idella4@gentoo.org>
+  +files/pymongo-2.5.1-greenlet.patch, pymongo-2.5.1.ebuild, pymongo-2.5.ebuild:
+  patch to fix test in py2
+
+  27 May 2013; Ian Delaney <idella4@gentoo.org> pymongo-2.5.1.ebuild,
+  pymongo-2.5.ebuild:
+  Adjustment to test pahse from maintainer jbergstroem, fixes Bug #463310 by
+  Patrick
+
+  26 May 2013; Ian Delaney <idella4@gentoo.org> pymongo-2.5.1.ebuild,
+  pymongo-2.5.ebuild:
+  return --bind_ip to starting mongod, disable 1 test conditionally confirmed
+  from upstream, rm pkg_postinst recommend from jbergstroem wrt Bug #463310
+
+  26 May 2013; Ian Delaney <idella4@gentoo.org> pymongo-2.5.1.ebuild,
+  pymongo-2.5.ebuild:
+  add py3.1 support, fix to test phase
+
+  24 May 2013; Ian Delaney <idella4@gentoo.org> pymongo-2.5.1.ebuild:
+  Add py3 support, adjust test phase accordingly
+
+*pymongo-2.5.1 (24 May 2013)
+
+  24 May 2013; Patrick Lauer <patrick@gentoo.org> +pymongo-2.5.1.ebuild:
+  Bump
 
 *pymongo-2.5 (25 Mar 2013)
 

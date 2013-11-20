@@ -1,6 +1,26 @@
 # ChangeLog for app-admin/keepass
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/keepass/ChangeLog,v 1.6 2013/03/04 17:32:10 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/keepass/ChangeLog,v 1.11 2013/11/12 13:50:30 kensington Exp $
+
+*keepass-2.24 (12 Nov 2013)
+
+  12 Nov 2013; Michael Palimaka <kensington@gentoo.org> +keepass-2.24.ebuild,
+  -keepass-2.21.ebuild, -keepass-2.22.ebuild:
+  Version bump wrt bug #490818. Remove old.
+
+*keepass-2.23 (23 Oct 2013)
+
+  23 Oct 2013; Tom Wijsman <TomWij@gentoo.org> +keepass-2.23.ebuild,
+  metadata.xml:
+  Version bump to 2.23, fixes bug #472764 and bug #486936. Still has an
+  unhandled exception when closing the window that still needs to be resolved,
+  see bug #489120. Proxied commit for Alessandro Di Federico.
+
+*keepass-2.22 (09 Apr 2013)
+
+  09 Apr 2013; Michael Palimaka <kensington@gentoo.org> +keepass-2.22.ebuild,
+  -keepass-2.20.1.ebuild:
+  Version bump wrt bug #465098. Remove old.
 
   04 Mar 2013; Michael Palimaka <kensington@gentoo.org> metadata.xml:
   Add proxy-maintainers as backup herd.

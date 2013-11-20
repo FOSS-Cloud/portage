@@ -1,6 +1,174 @@
 # ChangeLog for app-emulation/qemu
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.204 2013/03/28 02:06:23 steev Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.243 2013/10/21 02:13:33 cardoe Exp $
+
+*qemu-1.6.1 (21 Oct 2013)
+
+  21 Oct 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.6.1.ebuild,
+  metadata.xml:
+  Version bump. Fixes CVE-2013-4377 (bug #486352). Fix automagic depend on
+  libssh2 (bug #487918). Fix automagic depend on libusbx (bug #487810)
+
+*qemu-1.6.0-r1 (17 Sep 2013)
+
+  17 Sep 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.6.0-r1.ebuild:
+  Initial work on the 1.6.x stable patch queue.
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.5.3.ebuild:
+  Stable for amd64, wrt bug #483760
+
+  06 Sep 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.6.0.ebuild:
+  arm, microblaze, ppc, and ppc64 softmmu targets require USE=fdt, patch from
+  Mike Gilbert <floppym@gentoo.org> fixes bug #482878
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> qemu-1.4.2.ebuild,
+  qemu-1.5.2-r1.ebuild, qemu-1.5.2-r2.ebuild, qemu-1.5.3.ebuild,
+  qemu-1.6.0.ebuild, qemu-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*qemu-1.5.3 (27 Aug 2013)
+
+  27 Aug 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.5.3.ebuild:
+  Version bump
+
+  19 Aug 2013; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
+  SeaBIOS/VGABios/sgabios are not meant to be a versioned depend for the live
+  ebuild. bug #481594
+
+  19 Aug 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.5.2-r1.ebuild,
+  qemu-1.5.2-r2.ebuild, qemu-1.6.0.ebuild:
+  Fix dependency on sys-apps/dtc due to internal copy of fdt_env.h in QEMU
+  sources. bug #480680
+
+  17 Aug 2013; Sergei Trofimovich <slyfox@gentoo.org> qemu-9999.ebuild:
+  Conditionalize '--enable-migration-from-qemu-kvm' (not an upstream option).
+
+*qemu-1.6.0 (16 Aug 2013)
+
+  16 Aug 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.6.0.ebuild,
+  qemu-9999.ebuild:
+  Version bump
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml,
+  qemu-1.5.2-r1.ebuild, qemu-1.5.2-r2.ebuild:
+  Remove unneded useflag description, fix repoman whitespace warnings
+
+  14 Aug 2013; Doug Goldstein <cardoe@gentoo.org> -qemu-1.5.2.ebuild:
+  Remove older version
+
+*qemu-1.5.2-r2 (14 Aug 2013)
+
+  14 Aug 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.5.2-r2.ebuild,
+  -qemu-1.4.1.ebuild, -qemu-1.4.2-r1.ebuild:
+  Bump the stable patchset.
+
+  04 Aug 2013; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
+  Fix libseccomp depend for master. bug #479562
+
+*qemu-1.5.2-r1 (03 Aug 2013)
+
+  03 Aug 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.5.2-r1.ebuild,
+  metadata.xml:
+  Version bump to include my tested stable patchset. Add support for GlusterFS,
+  bug #468726
+
+*qemu-1.5.2 (27 Jul 2013)
+
+  27 Jul 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.5.2.ebuild,
+  -qemu-1.5.1.ebuild:
+  Version bump and start of the Gentoo patchset.
+
+  27 Jul 2013; Doug Goldstein <cardoe@gentoo.org>
+  -files/qemu-1.2.0-cflags.patch, -files/qemu-binfmt.initd, -files/qemu-kvm,
+  -qemu-1.2.2-r2.ebuild, -qemu-1.2.2-r3.ebuild, -qemu-1.2.2-r4.ebuild,
+  -qemu-1.4.0-r1.ebuild:
+  Cull old versions and old files from the tree
+
+  27 Jul 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.4.2-r1.ebuild:
+  Fix static-user builds needing to depend on glib with USE=static-libs. bug
+  #478138
+
+*qemu-1.4.2-r1 (27 Jul 2013)
+
+  27 Jul 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.4.2-r1.ebuild:
+  Fix qxl rom size from old migrations. Fix rtl8139 large copies on Windows. Fix
+  large copy and pastes with SPICE. Fix inability to disable all softmmu targets
+  (bug #466806). Utilize readme.eclass. Other misc cleanups from 1.5.x ebuild.
+
+  26 Jul 2013; Sergei Trofimovich <slyfox@gentoo.org> qemu-9999.ebuild:
+  Fix configure phase. NPTL is not a user-configurable feature anymore.
+
+*qemu-1.5.1 (19 Jul 2013)
+
+  19 Jul 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.5.1.ebuild:
+  Really need to get started on qemu 1.5.x
+
+  19 Jul 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.4.2.ebuild:
+  Swore this already was committed but I guess not. Fix depends for generating
+  the man pages and documentation. bug #477106
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.2.ebuild:
+  Stable for amd64, wrt bug #473426
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.2.ebuild:
+  Stable for x86, wrt bug #473426
+
+  22 Jun 2013; Sergei Trofimovich <slyfox@gentoo.org> qemu-9999.ebuild:
+  Adjust 'dtc' depend to require development snapshot. Add 's390-ccw.img' to
+  list of prebuilts.
+
+  20 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml,
+  qemu-1.4.2.ebuild, qemu-9999.ebuild:
+  Change USE=brltty to the common USE=accessibility #473868.
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.1.ebuild:
+  Stable for x86, wrt bug #466092
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.1.ebuild:
+  Stable for amd64, wrt bug #466092
+
+  31 May 2013; Sergei Trofimovich <slyfox@gentoo.org> qemu-9999.ebuild:
+  Added system target: moxie; user targets: mips64, mips64el, mipsn32,
+  mipsn32el.
+
+  31 May 2013; Sergei Trofimovich <slyfox@gentoo.org> qemu-9999.ebuild:
+  Unbreak live ebuild: tried to apply nonexisting BACKPORTS, --enable-opengl was
+  renamed to --enable-glx.
+
+  30 May 2013; Doug Goldstein <cardoe@gentoo.org> qemu-9999.ebuild:
+  Updates to the live ebuild
+
+  30 May 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.4.2.ebuild:
+  Add a missing PYTHON_REQUIRED_USE for the conversion to python-r1 eclass.
+
+*qemu-1.4.2 (30 May 2013)
+
+  30 May 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.4.2.ebuild:
+  Version bump. Install more python scripts for debugging purposes with
+  USE=python. Fix man pages not being installed. bug #435534
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.0-r1.ebuild:
+  Stable for amd64, wrt bug #468920
+
+  08 May 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.0-r1.ebuild:
+  Reverted on x86 because it is masked
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.0-r1.ebuild:
+  accidentally keyworded for amd64
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.4.0-r1.ebuild:
+  Stable for x86, wrt bug #468920
+
+  07 May 2013; Doug Goldstein <cardoe@gentoo.org> -qemu-1.1.1-r1.ebuild,
+  -qemu-1.1.2-r2.ebuild, qemu-1.2.2-r3.ebuild, qemu-1.2.2-r4.ebuild,
+  -qemu-1.3.1.ebuild, -qemu-1.4.0.ebuild, qemu-1.4.0-r1.ebuild,
+  qemu-1.4.1.ebuild, qemu-9999.ebuild:
+  Drop older versions. Fix HOMEPAGE. bug #463364
+
+*qemu-1.4.1 (07 May 2013)
+
+  07 May 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.4.1.ebuild:
+  Version bump.
 
   28 Mar 2013; Steev Klimaszewski <steev@gentoo.org> qemu-9999.ebuild:
   Upstream has changed the qemu configure script, change requested by Cardoe

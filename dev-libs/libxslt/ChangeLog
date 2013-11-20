@@ -1,6 +1,19 @@
 # ChangeLog for dev-libs/libxslt
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libxslt/ChangeLog,v 1.269 2013/04/01 18:24:08 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libxslt/ChangeLog,v 1.273 2013/09/05 18:29:52 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> libxslt-1.1.28-r1.ebuild,
+  metadata.xml:
+  Fix usage of python-r1.eclass
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for s390, wrt bug #458984
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for sh, wrt bug #458984
 
   01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
   Stable for sparc, wrt bug #458984

@@ -1,6 +1,36 @@
 # ChangeLog for media-gfx/graphite2
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphite2/ChangeLog,v 1.52 2013/03/25 07:45:29 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphite2/ChangeLog,v 1.62 2013/10/12 21:53:33 hwoarang Exp $
+
+  12 Oct 2013; Markos Chandras <hwoarang@gentoo.org> graphite2-1.2.1.ebuild:
+  Add ~mips
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> graphite2-1.2.1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> graphite2-1.2.1.ebuild:
+  Stable for alpha, wrt bug #470762
+
+  04 Jul 2013; Fabian Groffen <grobian@gentoo.org> graphite2-1.2.1.ebuild:
+  Marked ~ppc-macos, tested by DIZ
+
+  03 Jul 2013; Fabian Groffen <grobian@gentoo.org> graphite2-1.2.1.ebuild:
+  Fix compilation on PowerPC/Darwin, bug #450512
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> graphite2-1.2.1.ebuild:
+  Stable for arm, wrt bug #470762
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> graphite2-1.2.1.ebuild:
+  Stable for ppc64, wrt bug #470762
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> graphite2-1.2.1.ebuild:
+  Stable for sparc, wrt bug #470762
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> graphite2-1.2.1.ebuild:
+  Stable for ia64, wrt bug #470762
+
+  19 Jun 2013; Jeroen Roovers <jer@gentoo.org> graphite2-1.2.1.ebuild:
+  Stable for HPPA (bug #470762).
 
   25 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> -graphite2-1.2.0.ebuild,
   graphite2-1.2.1.ebuild:

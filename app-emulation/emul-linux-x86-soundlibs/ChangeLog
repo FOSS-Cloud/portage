@@ -1,6 +1,114 @@
 # ChangeLog for app-emulation/emul-linux-x86-soundlibs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-soundlibs/ChangeLog,v 1.91 2013/03/16 15:23:55 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-soundlibs/ChangeLog,v 1.108 2013/10/09 07:13:03 tetromino Exp $
+
+*emul-linux-x86-soundlibs-20131008-r1 (09 Oct 2013)
+
+  09 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -emul-linux-x86-soundlibs-20131008.ebuild,
+  +emul-linux-x86-soundlibs-20131008-r1.ebuild:
+  Revbump since installed file set changed.
+
+  09 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org> files/remove-native:
+  Update remove-native to prevent file collision with mpg123 and fftw:3.0 (bug
+  #487374, acked by Pacho Ramos)
+
+*emul-linux-x86-soundlibs-20131008 (08 Oct 2013)
+
+  08 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-soundlibs-20131008.ebuild,
+  -emul-linux-x86-soundlibs-20121202.ebuild,
+  -emul-linux-x86-soundlibs-20130224-r10.ebuild:
+  Version bump, drop old
+
+  22 Aug 2013; Michał Górny <mgorny@gentoo.org> metadata.xml:
+  Change maintainer to the Gentoo multilib project.
+
+*emul-linux-x86-soundlibs-20130224-r10 (30 Jul 2013)
+
+  30 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-soundlibs-20130224-r9.ebuild,
+  +emul-linux-x86-soundlibs-20130224-r10.ebuild, files/remove-native:
+  new revision featuring migrated mpg123
+
+*emul-linux-x86-soundlibs-20130224-r9 (30 Jul 2013)
+
+  30 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-soundlibs-20130224-r8.ebuild,
+  +emul-linux-x86-soundlibs-20130224-r9.ebuild, files/remove-native:
+  new revision featuring portaudio migration
+
+*emul-linux-x86-soundlibs-20130224-r8 (29 Jul 2013)
+
+  29 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-soundlibs-20130224-r7.ebuild,
+  +emul-linux-x86-soundlibs-20130224-r8.ebuild, files/remove-native:
+  new revision featuring jack migration
+
+*emul-linux-x86-soundlibs-20130224-r7 (29 Jul 2013)
+
+  29 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-soundlibs-20130224-r6.ebuild,
+  +emul-linux-x86-soundlibs-20130224-r7.ebuild, files/remove-native:
+  New revision featuring migrated libsndfile, libsamplerate and twolame
+
+*emul-linux-x86-soundlibs-20130224-r6 (28 Jul 2013)
+
+  28 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-soundlibs-20130224-r5.ebuild,
+  +emul-linux-x86-soundlibs-20130224-r6.ebuild, files/remove-native:
+  new revision featuring migrated musepack-tools
+
+*emul-linux-x86-soundlibs-20130224-r5 (28 Jul 2013)
+
+  28 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-soundlibs-20130224-r4.ebuild,
+  +emul-linux-x86-soundlibs-20130224-r5.ebuild, files/remove-native:
+  new revision removing wavpack and cdparanoia
+
+  15 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  emul-linux-x86-soundlibs-20130224-r4.ebuild:
+  Raised alsa-lib dependency to -r1 because -r0 was reverted to without
+  multilib-minimal.eclass for stabilization.
+
+*emul-linux-x86-soundlibs-20130224-r4 (27 Jun 2013)
+
+  27 Jun 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-soundlibs-20130224-r3.ebuild,
+  +emul-linux-x86-soundlibs-20130224-r4.ebuild, files/remove-native:
+  remove libmikmod and alsaequal with abi_x86_32 and depend on their multilib
+  migrated counterparts; thnow what is left to migrate is a bit harder I think.
+
+*emul-linux-x86-soundlibs-20130224-r3 (27 Jun 2013)
+
+  27 Jun 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-soundlibs-20130224-r2.ebuild,
+  +emul-linux-x86-soundlibs-20130224-r3.ebuild, files/remove-native:
+  remove fftw and the ladspa plugins with abi_x86_32
+
+  26 Jun 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-soundlibs-20130224-r1.ebuild,
+  emul-linux-x86-soundlibs-20130224-r2.ebuild,
+  -files/remove-native-20130224-r2, files/remove-native:
+  keep the same remove-native file that will be updated in place as Pacho
+  suggested; ebuilds will have to be revbumped and the old revision removed at
+  the same time so that we can write proper blockers.
+
+*emul-linux-x86-soundlibs-20130224-r2 (26 Jun 2013)
+
+  26 Jun 2013; Alexis Ballier <aballier@gentoo.org>
+  +emul-linux-x86-soundlibs-20130224-r2.ebuild,
+  +files/remove-native-20130224-r2:
+  new revision making use of webrtc-audio-processing, alsa-lib, flac and
+  audiofile multilib ebuilds.
+
+*emul-linux-x86-soundlibs-20130224-r1 (26 Jun 2013)
+
+  26 Jun 2013; Alexis Ballier <aballier@gentoo.org>
+  +emul-linux-x86-soundlibs-20130224-r1.ebuild, +files/remove-native:
+  Use multilib migrated libmodplug, libogg, libvorbis and gsm when abi_x86_32
+  is set. Others have been migrated but I will need to review them more
+  carefuly.
 
   16 Mar 2013; Pacho Ramos <pacho@gentoo.org>
   emul-linux-x86-soundlibs-20130224.ebuild:

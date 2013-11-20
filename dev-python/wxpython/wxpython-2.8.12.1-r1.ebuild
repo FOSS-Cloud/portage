@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/wxpython/wxpython-2.8.12.1-r1.ebuild,v 1.4 2013/03/26 03:23:52 dirtyepic Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/wxpython/wxpython-2.8.12.1-r1.ebuild,v 1.17 2013/10/30 19:22:40 mgorny Exp $
 
 EAPI=5
 
@@ -20,14 +20,14 @@ SRC_URI="mirror://sourceforge/wxpython/${MY_P}.tar.bz2
 
 LICENSE="wxWinLL-3"
 SLOT="2.8"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="cairo doc examples opengl"
 
 RDEPEND="
 	>=x11-libs/wxGTK-${PV}:${WX_GTK_VER}[opengl?,tiff,X]
 	dev-libs/glib:2
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	media-libs/libpng:0
+	media-libs/libpng:0=
 	media-libs/tiff:0
 	virtual/jpeg
 	x11-libs/gtk+:2
@@ -36,6 +36,7 @@ RDEPEND="
 	opengl?	( dev-python/pyopengl[${PYTHON_USEDEP}] )"
 
 DEPEND="${RDEPEND}
+	dev-lang/python-exec:0[${PYTHON_USEDEP}]
 	virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_P}/wxPython"
@@ -44,6 +45,9 @@ DOC_S="${WORKDIR}/wxPython-${PV}"
 # The hacky build system seems to be broken with out-of-source builds,
 # and installs 'wx' package globally.
 DISTUTILS_IN_SOURCE_BUILD=1
+
+# Force python-exec:0 due to the hackery in the ebuild, bug #484420.
+_PYTHON_WANT_PYTHON_EXEC2=0
 
 python_prepare_all() {
 	sed -i "s:cflags.append('-O3'):pass:" config.py || die "sed failed"
@@ -66,6 +70,8 @@ python_prepare_all() {
 		"${FILESDIR}"/${PN}-2.8.12-drop-editra.patch
 		"${FILESDIR}"/${PN}-2.8.12-drop-categories.patch
 		"${FILESDIR}"/${PN}-2.8-no-preservatives-added.patch
+		# fix handling egg_info command
+		"${FILESDIR}"/${PN}-2.8.12.1-disable-egging-mode.patch
 	)
 
 	distutils-r1_python_prepare_all

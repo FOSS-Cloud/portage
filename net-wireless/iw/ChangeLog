@@ -1,6 +1,35 @@
 # ChangeLog for net-wireless/iw
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/iw/ChangeLog,v 1.63 2013/02/08 16:06:16 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/iw/ChangeLog,v 1.70 2013/10/13 14:42:13 zerochaos Exp $
+
+*iw-3.11 (13 Oct 2013)
+
+  13 Oct 2013; Rick Farina <zerochaos@gentoo.org> +iw-3.11.ebuild:
+  version bump
+
+*iw-3.10-r1 (01 Sep 2013)
+
+  01 Sep 2013; <gurligebis@gentoo.org> -iw-3.3.ebuild, -iw-3.7.ebuild,
+  -iw-3.8.ebuild, +iw-3.10-r1.ebuild, -files/iw-3.2_libnl-3x-compile.diff,
+  +files/iw-3.10-versioncheck.patch:
+  Adding workaround for .git directory in parent folder, fixing bug #482334
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> iw-3.10.ebuild:
+  Stable for arm, wrt bug #474290
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> iw-3.10.ebuild:
+  Stable for amd64, wrt bug #474290
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> iw-3.10.ebuild:
+  Stable for x86, wrt bug #474290
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> iw-3.10.ebuild:
+  Stable for ppc, wrt bug #474290
+
+*iw-3.10 (04 May 2013)
+
+  04 May 2013; Rick Farina <zerochaos@gentoo.org> +iw-3.10.ebuild:
+  bump
 
   08 Feb 2013; Rick Farina <zerochaos@gentoo.org> iw-3.7.ebuild, iw-3.8.ebuild:
   fix installation when ROOT!=/ wrt bug 455808

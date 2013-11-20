@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/gimp/gimp-9999.ebuild,v 1.49 2013/02/22 21:15:05 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/gimp/gimp-9999.ebuild,v 1.51 2013/07/24 03:34:02 ottxor Exp $
 
 EAPI="3"
 PYTHON_DEPEND="python? 2:2.5"
 
-inherit git-2 eutils gnome2 fdo-mime multilib python
+inherit git-2 autotools eutils gnome2 fdo-mime multilib python
 
 EGIT_REPO_URI="git://git.gnome.org/gimp"
 
@@ -17,7 +17,7 @@ LICENSE="GPL-3 LGPL-3"
 SLOT="2"
 KEYWORDS=""
 
-IUSE="alsa aalib altivec bzip2 curl dbus debug doc exif gnome postscript jpeg jpeg2k lcms mmx mng pdf png python smp sse svg tiff udev webkit wmf xpm"
+IUSE="alsa aalib altivec aqua bzip2 curl dbus debug doc exif gnome postscript jpeg jpeg2k lcms mmx mng pdf png python smp sse svg tiff udev webkit wmf xpm"
 
 RDEPEND=">=dev-libs/glib-2.30.2:2
 	>=dev-libs/atk-2.2.0
@@ -71,7 +71,7 @@ DOCS="AUTHORS ChangeLog* HACKING NEWS README*"
 
 pkg_setup() {
 	G2CONF="--enable-default-binary \
-		--with-x \
+		$(use_with !aqua x) \
 		$(use_with aalib aa) \
 		$(use_with alsa) \
 		$(use_enable altivec) \
@@ -119,6 +119,11 @@ src_prepare() {
 	    myconf="${myconf} --disable-gtk-doc"
 	fi
 	./autogen.sh ${myconf} || die
+
+	# Fix "libtoolize --force" of autogen.sh (bug #476626)
+	rm install-sh ltmain.sh || die
+	_elibtoolize --copy --install || die
+
 	gnome2_src_prepare
 }
 

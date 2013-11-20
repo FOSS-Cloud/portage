@@ -1,6 +1,70 @@
 # ChangeLog for sys-apps/busybox
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/busybox/ChangeLog,v 1.344 2013/03/03 01:42:59 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/busybox/ChangeLog,v 1.362 2013/09/29 00:55:52 vapier Exp $
+
+  29 Sep 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/busybox-1.21.1-trylink-only-prefix-libs-with-l.patch,
+  busybox-1.21.1.ebuild:
+  Fix static linking against selinux #484560 by thaehaid.
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for sh, wrt bug #461372
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for s390, wrt bug #461372
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for sparc, wrt bug #461372
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for ppc64, wrt bug #461372
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for arm, wrt bug #461372
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for alpha, wrt bug #461372
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for x86, wrt bug #461372
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for ia64, wrt bug #461372
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for ppc, wrt bug #461372
+
+  12 Sep 2013; Jeroen Roovers <jer@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for HPPA (bug #461372).
+
+  12 Sep 2013; Mike Frysinger <vapier@gentoo.org>
+  -files/busybox-1.19.3-getty.patch, -files/busybox-1.19.3-kernel-nfs.patch,
+  -files/busybox-1.19.3-modinfo.patch, -files/busybox-1.20.0-buildsys.patch,
+  -files/busybox-1.20.0-getty.patch, -files/busybox-1.20.0-lineedit.patch,
+  -files/busybox-1.20.0-sed.patch:
+  Drop unused patches too.
+
+  11 Sep 2013; Agostino Sarubbo <ago@gentoo.org> busybox-1.21.0.ebuild:
+  Stable for amd64, wrt bug #461372
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> -busybox-1.19.3-r1.ebuild,
+  -busybox-1.20.0.ebuild, -busybox-1.20.1.ebuild:
+  Remove old
+
+  20 Aug 2013; Guy Martin <gmsoft@gentoo.org> busybox-1.20.2.ebuild:
+  hppa stable wrt bug #434224
+
+*busybox-1.21.1 (17 Aug 2013)
+
+  17 Aug 2013; Mike Frysinger <vapier@gentoo.org> +busybox-1.21.1.ebuild:
+  Version bump #477718 by teidakankan.
+
+  17 Aug 2013; Mike Frysinger <vapier@gentoo.org> files/ginit.c:
+  Fix applet setup #479940 by Matt Whitlock.
+
+  27 Apr 2013; Mike Frysinger <vapier@gentoo.org> files/watchdog.initd:
+  Drop provide watchdog since no other init.d actually depends on this #461818
+  by Serguei I. Ivantsov.
 
   03 Mar 2013; Mike Frysinger <vapier@gentoo.org>
   +files/busybox-1.21.0-platform.patch, +files/busybox-1.21.0-xz.patch,

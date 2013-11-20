@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/mantissa/mantissa-0.7.0.ebuild,v 1.7 2012/10/17 09:34:54 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/mantissa/mantissa-0.7.0.ebuild,v 1.9 2013/08/03 09:45:49 mgorny Exp $
 
 EAPI="3"
 PYTHON_DEPEND="2"
@@ -29,10 +29,10 @@ IUSE=""
 
 DEPEND=">=dev-python/axiom-0.5.7
 	>=dev-python/cssutils-0.9.5.1
-	>=dev-python/imaging-1.1.6
+	virtual/python-imaging
 	>=dev-python/nevow-0.9.5
 	>=dev-python/pytz-2005m
-	>=dev-python/twisted-8.0.1
+	>=dev-python/twisted-core-8.0.1
 	dev-python/twisted-mail
 	>=dev-python/vertex-0.2.0"
 RDEPEND="${DEPEND}"

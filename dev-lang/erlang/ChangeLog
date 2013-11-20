@@ -1,6 +1,59 @@
 # ChangeLog for dev-lang/erlang
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/erlang/ChangeLog,v 1.233 2013/01/20 10:22:24 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/erlang/ChangeLog,v 1.246 2013/11/16 08:54:30 dirtyepic Exp $
+
+  16 Nov 2013; Ryan Hill <dirtyepic@gentoo.org> erlang-15.2.3.1.ebuild,
+  erlang-16.ebuild, erlang-16.1.ebuild, erlang-16.1-r1.ebuild,
+  erlang-16.2.ebuild:
+  Add a USE dep instead of calling wxwidgets_pkg_setup.
+
+  04 Nov 2013; Dirkjan Ochtman <djc@gentoo.org> erlang-16.1-r1.ebuild,
+  erlang-16.2.ebuild:
+  Properly use autotools, fix tinfo for 16.1-r1 (bug 475800).
+
+*erlang-16.2 (04 Nov 2013)
+
+  04 Nov 2013; Dirkjan Ochtman <djc@gentoo.org> +erlang-16.2.ebuild,
+  +files/16.2-tinfo.patch:
+  Version bump erlang to 16.2 (R16B02).
+
+*erlang-16.1-r1 (08 Sep 2013)
+
+  08 Sep 2013; Pacho Ramos <pacho@gentoo.org> +erlang-16.1-r1.ebuild:
+  Change unit file installation (#482446#c5)
+
+  26 Aug 2013; Dirkjan Ochtman <djc@gentoo.org> -erlang-15.2.2.ebuild,
+  -erlang-15.2.ebuild:
+  Remove old versions.
+
+*erlang-16.1 (26 Aug 2013)
+
+  26 Aug 2013; Dirkjan Ochtman <djc@gentoo.org> +erlang-16.1.ebuild,
+  +files/epmd.service:
+  Version bump to 16.1, include epmd.service (fixes 482446, 474778).
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> erlang-15.2.3.1.ebuild:
+  Stable for ppc64, wrt bug #468374
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> erlang-15.2.3.1.ebuild:
+  Stable for sparc, wrt bug #468374
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> erlang-15.2.3.1.ebuild:
+  Stable for alpha, wrt bug #468374
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> erlang-15.2.3.1.ebuild:
+  Stable for ppc, wrt bug #468374
+
+*erlang-16 (03 May 2013)
+
+  03 May 2013; Dirkjan Ochtman <djc@gentoo.org> +erlang-16.ebuild:
+  Version bump erlang to 16.
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> erlang-15.2.3.1.ebuild:
+  Stable for x86, wrt bug #468374
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> erlang-15.2.3.1.ebuild:
+  Stable for amd64, wrt bug #468374
 
   20 Jan 2013; Agostino Sarubbo <ago@gentoo.org> erlang-15.2.2.ebuild:
   Stable for alpha, wrt bug #449416

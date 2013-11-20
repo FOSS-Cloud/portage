@@ -1,6 +1,93 @@
 # ChangeLog for dev-python/virtualenv
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/virtualenv/ChangeLog,v 1.83 2013/03/26 04:08:39 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/virtualenv/ChangeLog,v 1.107 2013/11/19 09:44:22 chainsaw Exp $
+
+  19 Nov 2013; Tony Vroon <chainsaw@gentoo.org> virtualenv-1.10.1.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #490816.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> virtualenv-1.10-r1.ebuild,
+  virtualenv-1.9.1-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Stable for sparc, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Stable for sh, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Stable for s390, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Stable for ia64, wrt bug #477970
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Stable for alpha, wrt bug #477970
+
+  26 Aug 2013; Mike Gilbert <floppym@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Convert DOCS to an array, bug 482230.
+
+  25 Aug 2013; Johann Schmitz <ercpe@gentoo.org> virtualenv-1.10-r1.ebuild,
+  virtualenv-1.10.1.ebuild:
+  Fixed DOCS variable wrt #482360
+
+  21 Aug 2013; Justin Lecher <jlec@gentoo.org> virtualenv-1.10-r1.ebuild,
+  virtualenv-1.10.1.ebuild:
+  Add missing call of distutils-r1_python_install_all
+
+  21 Aug 2013; Justin Lecher <jlec@gentoo.org> virtualenv-1.9.1-r1.ebuild,
+  metadata.xml:
+  Add missing call of distutils-r1_python_install_all
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Stable for arm, wrt bug #477970
+
+*virtualenv-1.10.1 (08 Aug 2013)
+
+  08 Aug 2013; Tim Harder <radhermit@gentoo.org> -virtualenv-1.7.1.2-r1.ebuild,
+  -virtualenv-1.10.ebuild, +virtualenv-1.10.1.ebuild:
+  Version bump and remove old.
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Stable for x86, wrt bug #477970
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Stable for ppc64, wrt bug #477970
+
+*virtualenv-1.10-r1 (02 Aug 2013)
+
+  02 Aug 2013; Mike Gilbert <floppym@gentoo.org> +virtualenv-1.10-r1.ebuild,
+  virtualenv-1.10.ebuild:
+  Restore virtualenv-1.8.2-no-versioned-script.patch.
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Stable for ppc, wrt bug #477970
+
+  24 Jul 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Stable for amd64, wrt bug #477970
+
+  24 Jul 2013; Dirkjan Ochtman <djc@gentoo.org> -virtualenv-1.8.2.ebuild,
+  -virtualenv-1.8.4.ebuild, -virtualenv-1.9.1.ebuild:
+  Remove old versions.
+
+  24 Jul 2013; Dirkjan Ochtman <djc@gentoo.org> virtualenv-1.10.ebuild:
+  Remove unused patches.
+
+*virtualenv-1.10 (24 Jul 2013)
+
+  24 Jul 2013; Dirkjan Ochtman <djc@gentoo.org> +virtualenv-1.10.ebuild:
+  Version bump virtualenv to 1.10.
+
+  04 Jun 2013; Tim Harder <radhermit@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Use multiline PATCHES array and drop unnecessary directory argument for
+  tests.
+
+  04 Jun 2013; Tim Harder <radhermit@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  Add python3.3 support.
+
+  09 May 2013; Markus Meier <maekke@gentoo.org> virtualenv-1.9.1-r1.ebuild:
+  add ~arm, bug #462506
 
   26 Mar 2013; Patrick Lauer <patrick@gentoo.org> virtualenv-1.9.1-r1.ebuild:
   Add missing test dep

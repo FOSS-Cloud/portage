@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pygobject/pygobject-2.28.6-r53.ebuild,v 1.11 2013/04/01 18:24:17 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pygobject/pygobject-2.28.6-r53.ebuild,v 1.17 2013/10/31 13:48:14 mgorny Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -14,14 +14,16 @@ HOMEPAGE="http://www.pygtk.org/"
 
 LICENSE="LGPL-2.1+"
 SLOT="2"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="examples libffi test"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND=">=dev-libs/glib-2.24.0:2
 	libffi? ( virtual/libffi:= )
 	${PYTHON_DEPS}
 "
 DEPEND="${COMMON_DEPEND}
+	dev-lang/python-exec:0
 	dev-util/gtk-doc-am
 	virtual/pkgconfig
 	test? (
@@ -30,6 +32,9 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<dev-python/pygtk-2.23"
+
+# disable python-exec:2 support, bug #484406
+_PYTHON_WANT_PYTHON_EXEC2=0
 
 src_prepare() {
 	# Fix FHS compliance, see upstream bug #535524
@@ -50,6 +55,11 @@ src_prepare() {
 	# Fix warning spam
 	epatch "${FILESDIR}/${P}-set_qdata.patch"
 	epatch "${FILESDIR}/${P}-gio-types-2.32.patch"
+
+	sed -i \
+		-e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' \
+		-e 's:AM_PROG_CC_STDC:AC_PROG_CC:' \
+		configure.ac || die
 
 	eautoreconf
 	gnome2_src_prepare

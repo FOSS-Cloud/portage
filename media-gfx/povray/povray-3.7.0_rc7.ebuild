@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/povray/povray-3.7.0_rc7.ebuild,v 1.1 2013/03/14 07:53:14 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/povray/povray-3.7.0_rc7.ebuild,v 1.4 2013/10/21 12:25:41 grobian Exp $
 
 EAPI=5
 
@@ -23,11 +23,11 @@ SRC_URI="http://www.povray.org/redirect/www.povray.org/beta/source/${PN}-${MY_PV
 
 LICENSE="povlegal-3.6"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~mips ~ppc ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="debug mkl openexr tiff X"
 
 DEPEND="
-	>=dev-libs/boost-1.50.0[threads(+)]
+	>=dev-libs/boost-1.50.0:=[threads(+)]
 	media-libs/libpng:0
 	sys-libs/zlib
 	virtual/jpeg

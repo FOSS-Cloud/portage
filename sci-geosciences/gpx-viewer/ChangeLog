@@ -1,6 +1,13 @@
 # ChangeLog for sci-geosciences/gpx-viewer
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gpx-viewer/ChangeLog,v 1.3 2013/04/07 16:47:42 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gpx-viewer/ChangeLog,v 1.5 2013/09/18 18:48:18 jlec Exp $
+
+  18 Sep 2013; Justin Lecher <jlec@gentoo.org> gpx-viewer-0.3.0.ebuild,
+  +files/gpx-viewer-0.3.0-autopoint.patch:
+  Add fix for autopoint usage, #484992
+
+  24 Apr 2013; Justin Lecher <jlec@gentoo.org> gpx-viewer-0.3.0.ebuild:
+  vala_depend is a function not a variable
 
   07 Apr 2013; Justin Lecher <jlec@gentoo.org> gpx-viewer-0.3.0.ebuild,
   metadata.xml:

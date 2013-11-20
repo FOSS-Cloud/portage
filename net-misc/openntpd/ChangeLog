@@ -1,6 +1,78 @@
 # ChangeLog for net-misc/openntpd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openntpd/ChangeLog,v 1.77 2013/03/11 07:39:14 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openntpd/ChangeLog,v 1.93 2013/11/19 04:50:55 ottxor Exp $
+
+*openntpd-20080406-r5 (19 Nov 2013)
+
+  19 Nov 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/openntpd.logrotate-20080406-r5, +openntpd-20080406-r5.ebuild:
+  bring back syslog support (bug #491134)
+
+  05 Nov 2013; Chema Alonso <nimiux@gentoo.org> openntpd-20080406-r4.ebuild:
+  Stable for amd64 wrt bug #488946
+
+  04 Nov 2013; Matt Turner <mattst88@gentoo.org> openntpd-20080406-r4.ebuild:
+  alpha stable, bug 488946.
+
+  24 Oct 2013; Jeroen Roovers <jer@gentoo.org> openntpd-20080406-r4.ebuild:
+  Stable for HPPA (bug #488946).
+
+  21 Oct 2013; Christoph Junghans <ottxor@gentoo.org>
+  openntpd-20080406-r4.ebuild:
+  fixed a typo
+
+*openntpd-20080406-r4 (21 Oct 2013)
+
+  21 Oct 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/openntpd.init.d-20080406-r4, +openntpd-20080406-r4.ebuild:
+  move log file (bug #477714#c10)
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> openntpd-20080406-r3.ebuild:
+  Stable for HPPA (bug #477714).
+
+  28 Sep 2013; Christoph Junghans <ottxor@gentoo.org>
+  openntpd-20080406-r3.ebuild:
+  fix 1st time install (bug #477714#c7, thx to calchan)
+
+  27 Sep 2013; Agostino Sarubbo <ago@gentoo.org> openntpd-20080406-r3.ebuild:
+  Stable for arm, wrt bug #477714
+
+  07 Sep 2013; Christoph Junghans <ottxor@gentoo.org>
+  -openntpd-3.9_p1-r4.ebuild:
+  remove old
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> openntpd-20080406.ebuild:
+  Mark s390 stable #457454.
+
+  25 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> openntpd-20080406.ebuild:
+  sparc stable wrt bug #457454
+
+  25 Aug 2013; Christoph Junghans <ottxor@gentoo.org>
+  -files/openntpd.conf.d-3.9_p1-r2, -files/openntpd.rc-3.9_p1-r2,
+  -openntpd-3.9_p1-r3.ebuild, -openntpd-3.9_p1-r5.ebuild:
+  remove old
+
+*openntpd-20080406-r3 (25 Aug 2013)
+
+  25 Aug 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/openntpd.conf.d-20080406-r3, +files/openntpd.init.d-20080406-r3,
+  +files/openntpd.service-20080406-r3, +openntpd-20080406-r3.ebuild,
+  -files/openntpd.init.d-20080406-r1, -files/openntpd.init.d-20080406-r2,
+  -openntpd-20080406-r2.ebuild:
+  added systemd unit files (bug #471610)
+
+*openntpd-20080406-r2 (20 Aug 2013)
+
+  20 Aug 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/openntpd.init.d-20080406-r2, +openntpd-20080406-r2.ebuild,
+  -openntpd-20080406-r1.ebuild:
+  use /run instead of /var/run (bug #479714#c1)
+
+*openntpd-20080406-r1 (22 Jun 2013)
+
+  22 Jun 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/openntpd.init.d-20080406-r1, +openntpd-20080406-r1.ebuild:
+  fix slow boot sequence (bug #464174)
 
   11 Mar 2013; Agostino Sarubbo <ago@gentoo.org> openntpd-20080406.ebuild:
   Stable for sh, wrt bug #457454

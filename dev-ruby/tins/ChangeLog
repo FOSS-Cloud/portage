@@ -1,6 +1,78 @@
 # ChangeLog for dev-ruby/tins
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/tins/ChangeLog,v 1.13 2012/10/16 13:33:22 graaff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/tins/ChangeLog,v 1.29 2013/11/13 14:43:16 mrueg Exp $
+
+*tins-0.13.1 (13 Nov 2013)
+
+  13 Nov 2013; Manuel Rüger <mrueg@gentoo.org> +tins-0.13.1.ebuild:
+  Version bump
+
+*tins-0.13.0 (09 Nov 2013)
+
+  09 Nov 2013; Manuel Rüger <mrueg@gentoo.org> +tins-0.13.0.ebuild:
+  Version bump.
+
+  02 Nov 2013; Manuel Rüger <mrueg@gentoo.org> -tins-0.10.0.ebuild,
+  -tins-0.11.0.ebuild, -tins-0.9.0.ebuild:
+  Cleanup old.
+
+*tins-0.12.0 (19 Oct 2013)
+
+  19 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +tins-0.12.0.ebuild:
+  Version bump.
+
+*tins-0.11.0-r1 (04 Oct 2013)
+
+  04 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +tins-0.11.0-r1.ebuild:
+  Add ruby20 target.
+
+*tins-0.11.0 (01 Oct 2013)
+
+  01 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +tins-0.11.0.ebuild,
+  -tins-0.8.3.ebuild:
+  Version bump. Cleanup old.
+
+*tins-0.10.0 (22 Sep 2013)
+
+  22 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +tins-0.10.0.ebuild:
+  Version bump.
+
+  03 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -tins-0.7.2.ebuild,
+  -tins-0.7.4.ebuild:
+  Cleanup.
+
+*tins-0.9.0 (21 Aug 2013)
+
+  21 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +tins-0.9.0.ebuild:
+  Version bump
+
+*tins-0.8.3 (08 Aug 2013)
+
+  08 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +tins-0.8.3.ebuild:
+  Version bump
+
+*tins-0.7.4 (13 May 2013)
+
+  13 May 2013; Hans de Graaff <graaff@gentoo.org> +tins-0.7.4.ebuild:
+  Version bump.
+
+  13 May 2013; Hans de Graaff <graaff@gentoo.org> -tins-0.3.14.ebuild:
+  Cleanup.
+
+  01 May 2013; Agostino Sarubbo <ago@gentoo.org> tins-0.6.0.ebuild:
+  Stable for x86, wrt bug #466618
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> tins-0.6.0.ebuild:
+  Stable for ppc64, wrt bug #466618
+
+*tins-0.7.2 (21 Apr 2013)
+
+  21 Apr 2013; Hans de Graaff <graaff@gentoo.org> +tins-0.7.2.ebuild:
+  Version bump.
+
+  21 Apr 2013; Hans de Graaff <graaff@gentoo.org> -tins-0.4.3.ebuild,
+  -tins-0.5.5.ebuild:
+  Cleanup.
 
 *tins-0.6.0 (16 Oct 2012)
 

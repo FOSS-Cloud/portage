@@ -1,6 +1,52 @@
 # ChangeLog for dev-db/redis
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/redis/ChangeLog,v 1.59 2013/03/17 15:20:53 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/redis/ChangeLog,v 1.70 2013/10/21 06:55:24 djc Exp $
+
+*redis-2.6.16 (21 Oct 2013)
+
+  21 Oct 2013; Dirkjan Ochtman <djc@gentoo.org> +redis-2.6.16.ebuild:
+  Version bump redis to 2.6.16 (bug 483828).
+
+*redis-2.6.15-r1 (15 Oct 2013)
+
+  15 Oct 2013; Pacho Ramos <pacho@gentoo.org> +files/redis.service,
+  +files/redis.tmpfiles, +redis-2.6.15-r1.ebuild:
+  Add unit file (#488114 by Julien Sanchez)
+
+  26 Aug 2013; Dirkjan Ochtman <djc@gentoo.org> -redis-2.4.10.ebuild,
+  -redis-2.4.18.ebuild:
+  Clean out redis-2.4.*.
+
+*redis-2.6.15 (26 Aug 2013)
+
+  26 Aug 2013; Dirkjan Ochtman <djc@gentoo.org> +files/redis.initd-3,
+  +redis-2.6.15.ebuild:
+  Version bump redis to 2.6.15 (fixes 472968, 478536).
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> redis-2.6.13.ebuild:
+  Stable for x86, wrt bug #472854
+
+  18 Jun 2013; Chema Alonso <nimiux@gentoo.org> redis-2.6.13.ebuild:
+  Stable for amd64 wrt bug #472854
+
+  06 May 2013; Dirkjan Ochtman <djc@gentoo.org> +files/redis.initd-2,
+  redis-2.6.13.ebuild:
+  Update init script for redis-2.6.13 (thanks to jbergstroem).
+
+  03 May 2013; Dirkjan Ochtman <djc@gentoo.org> -redis-2.6.7.ebuild,
+  -redis-2.6.8.ebuild:
+  Remove old versions.
+
+*redis-2.6.13 (03 May 2013)
+
+  03 May 2013; Dirkjan Ochtman <djc@gentoo.org> +redis-2.6.13.ebuild:
+  Version bump redis to 2.6.13 (bug 457002).
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org> redis-2.6.9.ebuild:
+  Stable for x86, wrt bug #466934
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org> redis-2.6.9.ebuild:
+  Stable for amd64, wrt bug #466934
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

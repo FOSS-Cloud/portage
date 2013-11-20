@@ -1,10 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/spidermonkey-1.8.5-r4.ebuild,v 1.16 2013/03/31 14:54:32 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/spidermonkey-1.8.5-r4.ebuild,v 1.20 2013/08/30 17:28:21 axs Exp $
 
 EAPI="5"
 WANT_AUTOCONF="2.1"
-inherit autotools eutils toolchain-funcs multilib python versionator pax-utils
+PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_REQ_USE="threads"
+inherit autotools eutils toolchain-funcs multilib python-any-r1 versionator pax-utils
 
 MY_PN="js"
 TARBALL_PV="$(replace_all_version_separators '' $(get_version_component_range 1-3))"
@@ -16,22 +18,21 @@ SRC_URI="https://ftp.mozilla.org/pub/mozilla.org/js/${TARBALL_P}.tar.gz"
 
 LICENSE="NPL-1.1"
 SLOT="0/mozjs185"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x64-macos"
 IUSE="debug minimal static-libs test"
 
 S="${WORKDIR}/${MY_P}"
 BUILDDIR="${S}/js/src"
 
-RDEPEND=">=dev-libs/nspr-4.7.0"
+RDEPEND=">=dev-libs/nspr-4.7.0
+	x64-macos? ( dev-libs/jemalloc )"
 DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
 	app-arch/zip
-	=dev-lang/python-2*[threads]
 	virtual/pkgconfig"
 
 pkg_setup(){
 	if [[ ${MERGE_TYPE} != "binary" ]]; then
-		python_set_active_version 2
-		python_pkg_setup
 		export LC_ALL="C"
 	fi
 }
@@ -53,6 +54,8 @@ src_prepare() {
 	# https://bugs.gentoo.org/show_bug.cgi?id=441934
 	epatch "${FILESDIR}"/${PN}-1.8.5-ia64-fix.patch
 	epatch "${FILESDIR}"/${PN}-1.8.5-ia64-static-strings.patch
+	# https://bugs.gentoo.org/show_bug.cgi?id=431560
+	epatch "${FILESDIR}"/${PN}-1.8.5-isfinite.patch
 
 	epatch_user
 
@@ -65,7 +68,7 @@ src_configure() {
 
 	CC="$(tc-getCC)" CXX="$(tc-getCXX)" \
 	AR="$(tc-getAR)" RANLIB="$(tc-getRANLIB)" \
-	LD="$(tc-getLD)" PYTHON="$(PYTHON)" \
+	LD="$(tc-getLD)" \
 	econf \
 		${myopts} \
 		--enable-jemalloc \
@@ -107,6 +110,8 @@ src_compile() {
 
 src_test() {
 	cd "${BUILDDIR}/jsapi-tests" || die
+	# for bug 415791
+	pax-mark mr jsapi-tests
 	emake check
 }
 

@@ -1,6 +1,90 @@
 # ChangeLog for dev-libs/libgcrypt
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgcrypt/ChangeLog,v 1.167 2013/03/19 03:36:02 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgcrypt/ChangeLog,v 1.192 2013/08/08 12:37:17 ago Exp $
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for sh, wrt bug #478184
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for sparc, wrt bug #478184
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.2-r1.ebuild:
+  Stable for s390, wrt bug #475674
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for s390, wrt bug #478184
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for ppc64, wrt bug #478184
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for ia64, wrt bug #478184
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.2-r1.ebuild:
+  Stable for sparc, wrt bug #475674
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for alpha, wrt bug #478184
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for arm, wrt bug #478184
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for ppc, wrt bug #478184
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for x86, wrt bug #478184
+
+  27 Jul 2013; Jeroen Roovers <jer@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for HPPA (bug #478184).
+
+  26 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
+  Stable for amd64, wrt bug #478184
+
+*libgcrypt-1.5.3 (25 Jul 2013)
+
+  25 Jul 2013; Tim Harder <radhermit@gentoo.org> +libgcrypt-1.5.3.ebuild:
+  Security bump (bug #478184).
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.2-r1.ebuild:
+  Stable for ia64, wrt bug #475674
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.2-r1.ebuild:
+  Stable for arm, wrt bug #475674
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.2-r1.ebuild:
+  Stable for alpha, wrt bug #475674
+
+  06 Jul 2013; Jeroen Roovers <jer@gentoo.org> libgcrypt-1.5.2-r1.ebuild:
+  Stable for HPPA (bug #475674).
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.2-r1.ebuild:
+  Stable for ppc64, wrt bug #475674
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.2-r1.ebuild:
+  Stable for ppc, wrt bug #475674
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.2-r1.ebuild:
+  Stable for x86, wrt bug #475674
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.2-r1.ebuild:
+  Stable for amd64, wrt bug #475674
+
+*libgcrypt-1.5.2-r1 (04 Jun 2013)
+
+  04 Jun 2013; Tim Harder <radhermit@gentoo.org> -libgcrypt-1.5.2.ebuild,
+  +libgcrypt-1.5.2-r1.ebuild:
+  Revbump and remove old. Drop caps use flag and disable capabilities due to
+  various applications requiring privileges after libgcrypt drops them (bug
+  #468616) and use the autotools-utils eclass.
+
+*libgcrypt-1.5.2 (27 Apr 2013)
+
+  27 Apr 2013; Tim Harder <radhermit@gentoo.org> +libgcrypt-1.5.2.ebuild:
+  Version bump (bug #467466), add caps use flag.
+
+  25 Apr 2013; Tim Harder <radhermit@gentoo.org> libgcrypt-1.5.1.ebuild:
+  Fix autoreconf failures with automake-1.13 (bug #466938).
 
 *libgcrypt-1.5.1 (19 Mar 2013)
 

@@ -1,6 +1,36 @@
 # ChangeLog for dev-python/subunit
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/subunit/ChangeLog,v 1.23 2013/03/03 10:46:20 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/subunit/ChangeLog,v 1.32 2013/11/14 06:15:20 mattst88 Exp $
+
+  14 Nov 2013; Matt Turner <mattst88@gentoo.org> subunit-0.0.15.ebuild:
+  Added ~alpha, bug 468270.
+
+  27 Oct 2013; Matthew Thode <prometheanfire@gentoo.org> subunit-0.0.15.ebuild:
+  fix the src_uri, again, the new one wasn't providing the correct files...
+
+  25 Oct 2013; Matthew Thode <prometheanfire@gentoo.org> subunit-0.0.15.ebuild:
+  fix for bad src_uri
+
+*subunit-0.0.15 (24 Oct 2013)
+
+  24 Oct 2013; Matthew Thode <prometheanfire@gentoo.org> +subunit-0.0.15.ebuild:
+  update of subunit to 0.0.15 and added support for normal python-r1
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> subunit-0.0.10-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  17 Jun 2013; Ian Delaney <idella4@gentoo.org> +files/shell-tests.patch,
+  subunit-0.0.10-r1.ebuild:
+  add missing (pypy support and test phase) and matching patch
+
+  19 Apr 2013; Michał Górny <mgorny@gentoo.org> subunit-0.0.10-r1.ebuild:
+  Switch to python-single-r1 since Python is only used internally by the
+  package.
+
+*subunit-0.0.10-r1 (19 Apr 2013)
+
+  19 Apr 2013; Michał Górny <mgorny@gentoo.org> +subunit-0.0.10-r1.ebuild:
+  Migrate to python-r1.
 
   03 Mar 2013; Mike Frysinger <vapier@gentoo.org> subunit-0.0.10.ebuild,
   subunit-0.0.6.ebuild, subunit-0.0.8.ebuild, subunit-0.0.9.ebuild:

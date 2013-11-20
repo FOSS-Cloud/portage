@@ -1,6 +1,29 @@
 # ChangeLog for x11-libs/libfm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libfm/ChangeLog,v 1.84 2012/12/23 14:40:40 hwoarang Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libfm/ChangeLog,v 1.89 2013/11/17 11:51:31 hwoarang Exp $
+
+  17 Nov 2013; Markos Chandras <hwoarang@gentoo.org> libfm-9999.ebuild:
+  Block lxde-base/lxshortcut to avoid file collisions
+
+*libfm-1.1.2.2 (07 Oct 2013)
+
+  07 Oct 2013; Markos Chandras <hwoarang@gentoo.org> +libfm-1.1.2.2.ebuild:
+  Version bump
+
+  17 Aug 2013; Markos Chandras <hwoarang@gentoo.org> -libfm-1.0.1.ebuild,
+  -libfm-1.0.2.ebuild, -libfm-1.0.ebuild, -libfm-1.1.0.ebuild:
+  Remove old ebuilds
+
+*libfm-1.1.2 (17 Aug 2013)
+
+  17 Aug 2013; Markos Chandras <hwoarang@gentoo.org> +libfm-1.1.2.ebuild:
+  Version bump
+
+*libfm-1.1.0-r1 (28 Apr 2013)
+
+  28 Apr 2013; Markos Chandras <hwoarang@gentoo.org> +libfm-1.1.0-r1.ebuild,
+  libfm-9999.ebuild:
+  rebump to EAPI5 to use subslot deps
 
   23 Dec 2012; Markos Chandras <hwoarang@gentoo.org> libfm-9999.ebuild:
   Rework broken symlink logic once again

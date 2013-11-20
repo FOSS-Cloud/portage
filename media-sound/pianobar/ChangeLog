@@ -1,6 +1,29 @@
 # ChangeLog for media-sound/pianobar
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/pianobar/ChangeLog,v 1.28 2012/12/02 11:42:07 radhermit Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/pianobar/ChangeLog,v 1.32 2013/09/20 20:31:59 radhermit Exp $
+
+*pianobar-2013.09.15 (20 Sep 2013)
+
+  20 Sep 2013; Tim Harder <radhermit@gentoo.org> +pianobar-2013.09.15.ebuild,
+  pianobar-9999.ebuild:
+  Version bump, use verbose build, and update live ebuild to git-r3 and run
+  tests for it.
+
+*pianobar-2013.05.19 (25 May 2013)
+
+  25 May 2013; Tim Harder <radhermit@gentoo.org> +pianobar-2013.05.19.ebuild,
+  +files/pianobar-2013.05.19-tests.patch, pianobar-9999.ebuild:
+  Version bump.
+
+  28 Apr 2013; Tim Harder <radhermit@gentoo.org> -pianobar-2012.12.01.ebuild:
+  Remove old.
+
+*pianobar-2012.12.01-r1 (28 Apr 2013)
+
+  28 Apr 2013; Markos Chandras <hwoarang@gentoo.org>
+  pianobar-2012.12.01.ebuild, +pianobar-2012.12.01-r1.ebuild,
+  +files/pianobar-2012.12.01-json-c-0.11.patch:
+  revbump to fix building with new json-c-0.11
 
   02 Dec 2012; Tim Harder <radhermit@gentoo.org> metadata.xml:
   Drop sound herd from metadata.

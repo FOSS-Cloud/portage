@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/xine-lib-1.2.1-r1.ebuild,v 1.13 2012/12/24 07:49:17 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/xine-lib-1.2.1-r1.ebuild,v 1.16 2013/09/25 08:05:54 ssuominen Exp $
 
 EAPI=4
 
@@ -19,12 +19,12 @@ HOMEPAGE="http://xine.sourceforge.net/"
 
 LICENSE="GPL-2"
 SLOT="1"
-IUSE="a52 aac aalib +alsa altivec bluray +css directfb dts dvb dxr3 fbcon flac fusion gtk imagemagick ipv6 jack libcaca mad +mmap mng modplug musepack nls opengl oss pulseaudio real samba sdl speex theora truetype v4l vcd vdpau vdr vidix +vis vorbis wavpack win32codecs +X +xcb xinerama +xv xvmc"
+IUSE="a52 aac aalib +alsa altivec bluray +css directfb dts dvb dxr3 fbcon flac fusion gtk imagemagick ipv6 jack libcaca mad +mmap mng modplug musepack nls opengl oss pulseaudio samba sdl speex theora truetype v4l vcd vdpau vdr vidix +vis vorbis wavpack +X +xcb xinerama +xv xvmc"
 
 RDEPEND="dev-libs/libxdg-basedir
 	media-libs/libdvdnav
 	sys-libs/zlib
-	|| ( media-video/ffmpeg media-libs/libpostproc <media-video/libav-0.8.2-r1 )
+	|| ( media-video/ffmpeg:0 media-libs/libpostproc <media-video/libav-0.8.2-r1 )
 	virtual/ffmpeg
 	virtual/libiconv
 	a52? ( media-libs/a52dec )
@@ -52,12 +52,7 @@ RDEPEND="dev-libs/libxdg-basedir
 		virtual/opengl
 		)
 	pulseaudio? ( media-sound/pulseaudio )
-	real? (
-		amd64? ( media-libs/amd64codecs )
-		x86? ( media-libs/win32codecs )
-		x86-fbsd? ( media-libs/win32codecs )
-		)
-	samba? ( net-fs/samba )
+	samba? ( <net-fs/samba-4 )
 	sdl? ( media-libs/libsdl )
 	speex? (
 		media-libs/libogg
@@ -82,7 +77,6 @@ RDEPEND="dev-libs/libxdg-basedir
 		media-libs/libvorbis
 		)
 	wavpack? ( media-sound/wavpack )
-	win32codecs? ( media-libs/win32codecs )
 	X? (
 		x11-libs/libX11
 		x11-libs/libXext
@@ -167,8 +161,8 @@ src_configure() {
 		$(use_enable modplug) \
 		$(use_enable musepack) \
 		$(use_enable mng) \
-		$(use_enable real real-codecs) \
-		$(use_enable win32codecs w32dll) \
+		--disable-real-codecs \
+		--disable-w32dll \
 		$(use_with truetype freetype) $(use_with truetype fontconfig) \
 		$(use_with X x) \
 		$(use_with alsa) \

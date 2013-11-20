@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/Djblets/Djblets-0.6.22.ebuild,v 1.2 2013/01/14 04:50:46 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/Djblets/Djblets-0.6.22.ebuild,v 1.4 2013/06/09 16:59:24 floppym Exp $
 
 EAPI=4
 PYTHON_DEPEND="2:2.6"
@@ -19,7 +19,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="dev-python/django
-	dev-python/imaging"
+	virtual/python-imaging"
 DEPEND="${RDEPEND}
 	test? ( dev-python/django-pipeline
 		dev-python/django-evolution
@@ -48,7 +48,7 @@ src_install() {
 
 	local msg="Remove un-needed tests and also avoid file collisions"
 	rmTests() {
-		rm -rf ${ED}/$(python_get_sitedir)/tests/ || die
+		rm -rf "${ED}"/$(python_get_sitedir)/tests/ || die
 	}
 	einfo $msg
 	einfo ""

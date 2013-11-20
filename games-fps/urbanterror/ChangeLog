@@ -1,6 +1,69 @@
 # ChangeLog for games-fps/urbanterror
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/urbanterror/ChangeLog,v 1.22 2013/04/07 15:20:24 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-fps/urbanterror/ChangeLog,v 1.36 2013/09/28 13:58:52 hasufell Exp $
+
+*urbanterror-4.2.015 (28 Sep 2013)
+
+  28 Sep 2013; Julian Ospald <hasufell@gentoo.org> +urbanterror-4.2.015.ebuild,
+  +files/urbanterror-4.2.015-build.patch:
+  version bump
+
+  27 Sep 2013; Julian Ospald <hasufell@gentoo.org>
+  -files/urbanterror-4.2.012-build.patch,
+  -files/urbanterror-4.2.013-build.patch, -urbanterror-4.2.012.ebuild,
+  -urbanterror-4.2.013-r1.ebuild:
+  remove old (keep 4.1.1 since some servers still use it)
+
+  01 Sep 2013; Julian Ospald <hasufell@gentoo.org> urbanterror-4.1.1.ebuild:
+  update license information
+
+  01 Sep 2013; Julian Ospald <hasufell@gentoo.org> urbanterror-4.1.1.ebuild:
+  add mirror restriction, update license information
+
+  01 Sep 2013; Julian Ospald <hasufell@gentoo.org> urbanterror-4.2.012.ebuild,
+  urbanterror-4.2.013-r1.ebuild, urbanterror-4.2.014.ebuild:
+  update license information wrt #481650
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> urbanterror-4.2.014.ebuild:
+  Stable for x86, wrt bug #480784
+
+  13 Aug 2013; Chema Alonso <nimiux@gentoo.org> urbanterror-4.2.014.ebuild:
+  Stable for amd64 wrt bug #480784
+
+*urbanterror-4.2.014 (15 Jul 2013)
+
+  15 Jul 2013; Julian Ospald <hasufell@gentoo.org> -urbanterror-4.2.009.ebuild,
+  -files/urbanterror-4.2.009-build.patch, +urbanterror-4.2.014.ebuild,
+  +files/urbanterror-4.2.014-build.patch:
+  version bump
+
+*urbanterror-4.2.013-r1 (09 Jul 2013)
+
+  09 Jul 2013; Julian Ospald <hasufell@gentoo.org> -urbanterror-4.2.013.ebuild,
+  +urbanterror-4.2.013-r1.ebuild, files/urbanterror-4.2.013-build.patch:
+  revbump to update the game engine
+
+  04 Jul 2013; Julian Ospald <hasufell@gentoo.org> urbanterror-4.2.013.ebuild:
+  update check-reqs wrt #475766
+
+*urbanterror-4.2.013 (04 Jul 2013)
+
+  04 Jul 2013; Julian Ospald <hasufell@gentoo.org> +urbanterror-4.2.013.ebuild,
+  +files/urbanterror-4.2.013-build.patch:
+  version bump
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> urbanterror-4.2.012.ebuild:
+  Stable for amd64, wrt bug #474448
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> urbanterror-4.2.012.ebuild:
+  Stable for x86, wrt bug #474448
+
+*urbanterror-4.2.012 (24 Apr 2013)
+
+  24 Apr 2013; Julian Ospald <hasufell@gentoo.org> -urbanterror-4.2.011.ebuild,
+  -files/urbanterror-4.2.011-build.patch, +urbanterror-4.2.012.ebuild,
+  +files/urbanterror-4.2.012-build.patch:
+  version bump wrt #466728
 
 *urbanterror-4.2.011 (07 Apr 2013)
 

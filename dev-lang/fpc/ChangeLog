@@ -1,6 +1,34 @@
 # ChangeLog for dev-lang/fpc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/fpc/ChangeLog,v 1.58 2012/07/09 21:29:15 ulm Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/fpc/ChangeLog,v 1.66 2013/10/26 23:21:20 hasufell Exp $
+
+  26 Oct 2013; Julian Ospald <hasufell@gentoo.org> fpc-2.6.2.ebuild:
+  stable on x86 wrt #478690
+
+  06 Sep 2013; Tim Harder <radhermit@gentoo.org> fpc-2.6.2.ebuild:
+  Update sparc bootstrap compiler (bug #483980).
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fpc-2.6.2.ebuild:
+  Stable for ppc, wrt bug #478690
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> fpc-2.6.2.ebuild:
+  Stable for amd64, wrt bug #478690
+
+  30 Jul 2013; Tim Harder <radhermit@gentoo.org> fpc-2.6.2.ebuild:
+  Respect AS (bug #478792).
+
+  29 Jul 2013; Julian Ospald <hasufell@gentoo.org> fpc-2.6.2.ebuild:
+  die hard on gnu gold linker wrt #475210
+
+*fpc-2.6.0-r1 (26 Jun 2013)
+
+  26 Jun 2013; Julian Ospald <hasufell@gentoo.org> +fpc-2.6.0-r1.ebuild:
+  revbump: backport fix for configuration files, use EAPI=5
+
+*fpc-2.6.2 (26 Jun 2013)
+
+  26 Jun 2013; Tim Harder <radhermit@gentoo.org> +fpc-2.6.2.ebuild:
+  Version bump, fix configuration files (bug #416641).
 
   09 Jul 2012; Ulrich Müller <ulm@gentoo.org> fpc-2.2.0-r1.ebuild,
   fpc-2.2.0.ebuild, fpc-2.2.2-r1.ebuild, fpc-2.2.4-r2.ebuild, fpc-2.4.0.ebuild,

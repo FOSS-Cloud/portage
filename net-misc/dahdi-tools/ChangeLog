@@ -1,6 +1,17 @@
 # ChangeLog for net-misc/dahdi-tools
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi-tools/ChangeLog,v 1.24 2013/03/18 10:19:55 chainsaw Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi-tools/ChangeLog,v 1.27 2013/10/27 09:50:05 pacho Exp $
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Voip herd is removed: http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+  08 May 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  -dahdi-tools-2.5.0.ebuild, -dahdi-tools-2.6.1.ebuild:
+  removing old ebuilds
+
+  08 May 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  dahdi-tools-2.6.2.ebuild:
+  amd64 x86 stable, bug #469024
 
 *dahdi-tools-2.6.2 (18 Mar 2013)
 
@@ -131,4 +142,3 @@
   but HPEC functionality removed as the decision logic is not portable to
   X86 architectures and looks fragile. Failed to build with --as-needed,
   fixed and patch submitted as upstream Digium bug #14638.
-

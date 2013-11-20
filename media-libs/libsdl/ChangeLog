@@ -1,6 +1,47 @@
 # ChangeLog for media-libs/libsdl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libsdl/ChangeLog,v 1.200 2012/10/21 16:39:45 mr_bones_ Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libsdl/ChangeLog,v 1.211 2013/09/26 17:28:03 ago Exp $
+
+  26 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libsdl-1.2.15-r4.ebuild:
+  Stable for arm, wrt bug #485316
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libsdl-1.2.15-r4.ebuild:
+  Stable for ppc, wrt bug #485316
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libsdl-1.2.15-r4.ebuild:
+  Stable for sparc, wrt bug #485316
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libsdl-1.2.15-r4.ebuild:
+  Stable for ppc64, wrt bug #485316
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libsdl-1.2.15-r4.ebuild:
+  Stable for alpha, wrt bug #485316
+
+  23 Sep 2013; Jeroen Roovers <jer@gentoo.org> libsdl-1.2.15-r4.ebuild:
+  Stable for HPPA (bug #485316).
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libsdl-1.2.15-r4.ebuild:
+  Stable for x86, wrt bug #485316
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libsdl-1.2.15-r4.ebuild:
+  Stable for amd64, wrt bug #485316
+
+  04 Jun 2013; Michael Sterrett <mr_bones_@gentoo.org> libsdl-1.2.15-r4.ebuild:
+  no base eclass, thanks
+
+*libsdl-1.2.15-r4 (02 Jun 2013)
+
+  02 Jun 2013; Tony Vroon <chainsaw@gentoo.org> +libsdl-1.2.15-r4.ebuild,
+  +files/libsdl-1.2.15-const-xdata32.patch:
+  Patch by Azamat H. Hackimov to address build failures against recent libX11,
+  closes bug #471300.
+
+*libsdl-1.2.15-r3 (10 May 2013)
+
+  10 May 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/libsdl-1.2.15-gamma.patch, +libsdl-1.2.15-r3.ebuild,
+  files/libsdl-1.2.15-joystick.patch, files/libsdl-1.2.15-resizing.patch:
+  add patch from Petr Pisar to fix setting gamma (bug #449692)
 
   21 Oct 2012; Michael Sterrett <mr_bones_@gentoo.org> -libsdl-1.2.15.ebuild:
   old

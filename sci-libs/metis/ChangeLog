@@ -1,6 +1,27 @@
 # ChangeLog for sci-libs/metis
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/metis/ChangeLog,v 1.30 2012/10/16 20:39:01 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/metis/ChangeLog,v 1.34 2013/10/14 13:50:38 jlec Exp $
+
+  14 Oct 2013; Justin Lecher <jlec@gentoo.org> metis-5.1.0-r1.ebuild,
+  +files/metis-5.1.0-datatype.patch, +files/metis-5.1.0-multilib.patch,
+  +files/metis-5.1.0-shared-GKlib.patch:
+  Import patches from fedora and add test phase
+
+*metis-5.1.0-r1 (14 Oct 2013)
+
+  14 Oct 2013; Justin Lecher <jlec@gentoo.org> -metis-5.1.0.ebuild,
+  +metis-5.1.0-r1.ebuild:
+  Install missing pkg_config file
+
+*metis-5.1.0 (14 Oct 2013)
+
+  14 Oct 2013; Justin Lecher <jlec@gentoo.org> +metis-5.1.0.ebuild,
+  metadata.xml:
+  Version BUmp
+
+  18 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  metis-4.0.3.ebuild:
+  Keyword ~arm.
 
   16 Oct 2012; Justin Lecher <jlec@gentoo.org> metis-4.0.1-r1.ebuild,
   metis-4.0.3.ebuild, metadata.xml:

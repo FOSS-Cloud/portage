@@ -1,6 +1,30 @@
 # ChangeLog for net-news/newsbeuter
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-news/newsbeuter/ChangeLog,v 1.42 2013/03/20 03:22:23 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-news/newsbeuter/ChangeLog,v 1.49 2013/11/14 10:42:01 nimiux Exp $
+
+  14 Nov 2013; Chema Alonso <nimiux@gentoo.org> newsbeuter-2.7.ebuild:
+  Stable for amd64 wrt bug #490526
+
+*newsbeuter-2.7 (07 Sep 2013)
+
+  07 Sep 2013; Tim Harder <radhermit@gentoo.org> +newsbeuter-2.7.ebuild:
+  Version bump (fixes bug #475410).
+
+  01 Jul 2013; Tim Harder <radhermit@gentoo.org> newsbeuter-2.6.ebuild:
+  Simplify sed line.
+
+  01 Jul 2013; Tim Harder <radhermit@gentoo.org> newsbeuter-2.6.ebuild:
+  Respect AR and RANLIB (bug #475320).
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> newsbeuter-2.6.ebuild:
+  Stable for x86, wrt bug #475296
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> newsbeuter-2.6.ebuild:
+  Stable for amd64, wrt bug #475296
+
+  30 Apr 2013; Tim Harder <radhermit@gentoo.org> newsbeuter-2.6.ebuild,
+  +files/newsbeuter-2.6-json-c.patch:
+  Fix build with >=json-c-0.11 (bug #467354, patch by eroen).
 
 *newsbeuter-2.6 (20 Mar 2013)
 

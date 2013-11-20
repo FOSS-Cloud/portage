@@ -1,6 +1,23 @@
 # ChangeLog for dev-ml/cryptokit
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/cryptokit/ChangeLog,v 1.20 2013/03/02 18:36:45 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/cryptokit/ChangeLog,v 1.25 2013/08/26 17:05:54 aballier Exp $
+
+  26 Aug 2013; Alexis Ballier <aballier@gentoo.org> -cryptokit-1.6.ebuild:
+  remove old
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cryptokit-1.7.ebuild:
+  Stable for ppc, wrt bug #481636
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cryptokit-1.7.ebuild:
+  Stable for x86, wrt bug #481636
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cryptokit-1.7.ebuild:
+  Stable for amd64, wrt bug #481636
+
+*cryptokit-1.7 (19 Jun 2013)
+
+  19 Jun 2013; Alexis Ballier <aballier@gentoo.org> +cryptokit-1.7.ebuild:
+  version bump
 
   02 Mar 2013; Alexis Ballier <aballier@gentoo.org> cryptokit-1.6.ebuild:
   eapi5 and define subslot

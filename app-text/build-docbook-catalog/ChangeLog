@@ -1,6 +1,31 @@
 # ChangeLog for app-text/build-docbook-catalog
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/build-docbook-catalog/ChangeLog,v 1.39 2013/02/07 15:22:04 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/build-docbook-catalog/ChangeLog,v 1.44 2013/11/15 19:54:16 ottxor Exp $
+
+  15 Nov 2013; Christoph Junghans <ottxor@gentoo.org>
+  build-docbook-catalog-1.20.ebuild:
+  fixed installation on prefix (related bug #490754)
+
+  30 Sep 2013; Christoph Junghans <ottxor@gentoo.org>
+  build-docbook-catalog-1.20.ebuild:
+  removed unneeded eutils inherit
+
+*build-docbook-catalog-1.20 (30 Sep 2013)
+
+  30 Sep 2013; Christoph Junghans <ottxor@gentoo.org>
+  +build-docbook-catalog-1.20.ebuild:
+  version bump
+
+*build-docbook-catalog-1.19.1-r1 (11 Sep 2013)
+
+  11 Sep 2013; Christoph Junghans <ottxor@gentoo.org>
+  +build-docbook-catalog-1.19.1-r1.ebuild,
+  +files/build-docbook-catalog-1.19.1-no-flock.patch:
+  added prefix support
+
+  21 Jul 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due http://gentoo.2317880.n4.nabble.com/sgml-herd-has-no-maintainers-
+  again-td259655.html
 
   07 Feb 2013; Alexis Ballier <aballier@gentoo.org>
   build-docbook-catalog-1.19.1.ebuild:

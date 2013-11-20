@@ -1,6 +1,19 @@
 # ChangeLog for dev-python/gevent
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/gevent/ChangeLog,v 1.10 2013/02/14 06:17:26 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/gevent/ChangeLog,v 1.13 2013/09/27 07:47:28 radhermit Exp $
+
+*gevent-1.0_rc3 (27 Sep 2013)
+
+  27 Sep 2013; Tim Harder <radhermit@gentoo.org> +gevent-1.0_rc3.ebuild:
+  Version bump.
+
+  11 Jul 2013; Vicente Olivert Riera <vincent@gentoo.org> gevent-1.0_rc2.ebuild:
+  ppc, ppc64 keywords added, bug 467248
+
+*gevent-0.13.8 (22 May 2013)
+
+  22 May 2013; Tim Harder <radhermit@gentoo.org> +gevent-0.13.8.ebuild:
+  Version bump and migrate to distutils-r1.
 
 *gevent-1.0_rc2 (14 Feb 2013)
 

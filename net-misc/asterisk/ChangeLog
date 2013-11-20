@@ -1,6 +1,81 @@
 # ChangeLog for net-misc/asterisk
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/asterisk/ChangeLog,v 1.451 2013/03/30 13:13:13 chainsaw Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/asterisk/ChangeLog,v 1.463 2013/10/30 10:35:05 chainsaw Exp $
+
+*asterisk-11.6.0-r1 (30 Oct 2013)
+
+  30 Oct 2013; Tony Vroon <chainsaw@gentoo.org> +asterisk-11.6.0-r1.ebuild:
+  A useful response to the debug USE-flag, as suggested by Kerin Millar and
+  implemented by Jaco Kroon. Closes bug #346959.
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Voip herd is removed: http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+*asterisk-1.8.24.0 (22 Oct 2013)
+
+  22 Oct 2013; Tony Vroon <chainsaw@gentoo.org> +asterisk-1.8.24.0.ebuild:
+  Version bump.
+
+*asterisk-11.6.0 (22 Oct 2013)
+
+  22 Oct 2013; Tony Vroon <chainsaw@gentoo.org> +asterisk-11.6.0.ebuild:
+  Version bump. Features improved NAT support and plugs a memory leak in the
+  logger.
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> -asterisk-1.8.20.2.ebuild,
+  -asterisk-11.2.2.ebuild:
+  Remove old
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> asterisk-1.8.23.1.ebuild,
+  asterisk-11.5.1.ebuild:
+  Stable for x86, wrt bug #482776
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> asterisk-1.8.23.1.ebuild,
+  asterisk-11.5.1.ebuild:
+  Stable for amd64, wrt bug #482776
+
+*asterisk-11.5.1 (28 Aug 2013)
+*asterisk-1.8.23.1 (28 Aug 2013)
+
+  28 Aug 2013; Tony Vroon <chainsaw@gentoo.org> -asterisk-1.8.22.0.ebuild,
+  -asterisk-1.8.23.0.ebuild, +asterisk-1.8.23.1.ebuild,
+  -asterisk-11.4.0.ebuild, -asterisk-11.5.0.ebuild, +asterisk-11.5.1.ebuild,
+  +files/1.8.0/asterisk.initd7:
+  Security upgrades for AST-2013-004 & AST-2013-005 on both branches.
+  Behavioral improvements for G729 VAD, closes bug #480928. Add missed
+  ownership checks to init script, closes bug #482688. Both by Jaco Kroon.
+  Removed all insecure non-stable ebuilds.
+
+  31 Jul 2013; Tony Vroon <chainsaw@gentoo.org> asterisk-1.8.20.2.ebuild,
+  -asterisk-1.8.21.0.ebuild, asterisk-1.8.22.0.ebuild,
+  asterisk-1.8.23.0.ebuild, asterisk-11.2.2.ebuild, -asterisk-11.3.0.ebuild,
+  asterisk-11.4.0.ebuild, asterisk-11.5.0.ebuild:
+  Make our inability to co-exist with net-libs/pjsip explicit to avoid any
+  build failures. Closes bug #47812 by Steven Lai. Removed older non-stable
+  builds on both branches.
+
+*asterisk-11.5.0 (23 Jul 2013)
+*asterisk-1.8.23.0 (23 Jul 2013)
+
+  23 Jul 2013; Tony Vroon <chainsaw@gentoo.org> +asterisk-1.8.23.0.ebuild,
+  +asterisk-11.5.0.ebuild, +files/1.8.0/asterisk.initd6:
+  Bugfix releases on both branches. Completely revised init script by Jaco
+  Kroon that supports running multiple Asterisk instances on a single host,
+  closes bug #473224.
+
+*asterisk-1.8.22.0 (20 May 2013)
+
+  20 May 2013; Tony Vroon <chainsaw@gentoo.org> +asterisk-1.8.22.0.ebuild:
+  One of the last bugfix releases on the 1.8 branch. You need to migrate to 11.
+  And soon.
+
+*asterisk-11.4.0 (20 May 2013)
+
+  20 May 2013; Tony Vroon <chainsaw@gentoo.org> +asterisk-11.4.0.ebuild:
+  In a refreshing change of heart, upstream now care about parallel build
+  failures. Drop our relevant two downstream patches. Fixes a
+  res_timing_pthread deadlock, an FD leak in the web server and more SRTP
+  decryption/white noise issues.
 
   30 Mar 2013; Tony Vroon <chainsaw@gentoo.org> -asterisk-1.8.20.1.ebuild,
   -asterisk-11.2.1.ebuild:

@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/xpra/xpra-0.8.8.ebuild,v 1.1 2013/03/13 08:40:51 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/xpra/xpra-0.8.8.ebuild,v 1.5 2013/09/05 19:44:49 mgorny Exp $
 
 EAPI=5
 
 #dev-python/pygobject and dev-python/pygtk do not support python3
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
 inherit distutils-r1 eutils
 
 DESCRIPTION="X Persistent Remote Apps (xpra) and Partitioning WM (parti) based on wimpiggy"
@@ -14,7 +14,7 @@ SRC_URI="http://xpra.org/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 IUSE="+clipboard +rencode server vpx webp x264"
 
 # x264/old-libav.path situation see bug 459218
@@ -30,7 +30,7 @@ COMMON_DEPEND="dev-python/pygobject:2
 		virtual/ffmpeg )
 	webp? ( media-libs/libwebp )
 	x264? ( media-libs/x264
-		|| ( >=media-video/ffmpeg-1.0.4 media-video/libav )
+		|| ( >=media-video/ffmpeg-1.0.4:0 media-video/libav )
 		virtual/ffmpeg )"
 
 RDEPEND="${COMMON_DEPEND}

@@ -1,6 +1,57 @@
 # ChangeLog for app-arch/file-roller
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/file-roller/ChangeLog,v 1.318 2013/03/28 16:17:09 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/file-roller/ChangeLog,v 1.326 2013/10/26 19:09:33 pacho Exp $
+
+*file-roller-3.8.4-r2 (26 Oct 2013)
+
+  26 Oct 2013; Pacho Ramos <pacho@gentoo.org> +file-roller-3.8.4-r2.ebuild,
+  +files/file-roller-3.8.4-extract-failure.patch,
+  +files/file-roller-3.8.4-ignore-errors.patch,
+  +files/file-roller-3.8.4-modifications-time.patch,
+  -file-roller-3.8.4-r1.ebuild, -file-roller-3.8.4.ebuild:
+  Apply upstream patches fixing some problems when unpacking (#489074 by Philipp
+  Leonhardt), drop old.
+
+*file-roller-3.8.4-r1 (09 Sep 2013)
+
+  09 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +file-roller-3.8.4-r1.ebuild, +files/file-roller-3.8.4-rar-5.patch:
+  Add support for rar-5 and unrar-5 (bug #483722).
+
+  27 Aug 2013; Pacho Ramos <pacho@gentoo.org> -file-roller-3.6.3.ebuild,
+  -file-roller-3.6.4.ebuild, -file-roller-3.8.2.ebuild,
+  -file-roller-3.8.3.ebuild, -files/3.1.2-packages.match:
+  Drop old
+
+*file-roller-3.8.4 (25 Aug 2013)
+
+  25 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +file-roller-3.8.4.ebuild:
+  Version bump.
+
+*file-roller-3.6.4 (15 Jul 2013)
+
+  15 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +file-roller-3.6.4.ebuild:
+  Version bump, fixes path traversal vulnerability (bug #476766, CVE-2013-4668,
+  thanks to Agostino Sarubbo).
+
+*file-roller-3.8.3 (02 Jul 2013)
+
+  02 Jul 2013; Pacho Ramos <pacho@gentoo.org> +file-roller-3.8.3.ebuild,
+  -file-roller-3.8.1.ebuild:
+  Version bump, drop old
+
+*file-roller-3.8.2 (13 May 2013)
+
+  13 May 2013; Pacho Ramos <pacho@gentoo.org> +file-roller-3.8.2.ebuild,
+  -file-roller-3.8.0.ebuild:
+  Version bump, drop old
+
+*file-roller-3.8.1 (17 Apr 2013)
+
+  17 Apr 2013; Pacho Ramos <pacho@gentoo.org> +file-roller-3.8.1.ebuild:
+  Version bump
 
 *file-roller-3.8.0 (28 Mar 2013)
 

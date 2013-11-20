@@ -1,6 +1,57 @@
 # ChangeLog for app-text/dvisvgm
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/dvisvgm/ChangeLog,v 1.41 2013/03/10 10:13:24 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/dvisvgm/ChangeLog,v 1.55 2013/09/05 05:25:39 vapier Exp $
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> dvisvgm-1.2.1.ebuild,
+  dvisvgm-1.3.ebuild, dvisvgm-1.4.ebuild:
+  Restore s390/sh keywords #390671.
+
+*dvisvgm-1.4 (27 Aug 2013)
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> +dvisvgm-1.4.ebuild:
+  version bump
+
+*dvisvgm-1.3 (17 May 2013)
+
+  17 May 2013; Alexis Ballier <aballier@gentoo.org> +dvisvgm-1.3.ebuild:
+  version bump
+
+  17 May 2013; Alexis Ballier <aballier@gentoo.org> -dvisvgm-1.0.11.ebuild,
+  -dvisvgm-1.0.12.ebuild, -dvisvgm-1.1.ebuild, -dvisvgm-1.2.ebuild,
+  -files/dvisvgm-1.2-external_potrace.patch:
+  remove old
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> dvisvgm-1.2.1.ebuild:
+  Stable for sparc, wrt bug #449298
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> dvisvgm-1.2.1.ebuild:
+  Stable for arm, wrt bug #449298
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> dvisvgm-1.2.1.ebuild:
+  Stable for alpha, wrt bug #449298
+
+  19 Apr 2013; Agostino Sarubbo <ago@gentoo.org> dvisvgm-1.2.1.ebuild:
+  Stable for ia64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> dvisvgm-1.2.1.ebuild:
+  Stable for ppc64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> dvisvgm-1.2.1.ebuild:
+  Stable for ppc, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> dvisvgm-1.2.1.ebuild:
+  Stable for x86, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> dvisvgm-1.2.1.ebuild:
+  Stable for amd64, wrt bug #449298
+
+  17 Apr 2013; Jeroen Roovers <jer@gentoo.org> dvisvgm-1.2.1.ebuild:
+  Stable for HPPA (bug #449298).
+
+*dvisvgm-1.2.1 (10 Apr 2013)
+
+  10 Apr 2013; Alexis Ballier <aballier@gentoo.org> +dvisvgm-1.2.1.ebuild:
+  version bump
 
 *dvisvgm-1.2 (10 Mar 2013)
 

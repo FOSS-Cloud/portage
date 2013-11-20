@@ -1,6 +1,38 @@
 # ChangeLog for dev-python/pygame
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pygame/ChangeLog,v 1.92 2013/02/26 00:03:23 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pygame/ChangeLog,v 1.100 2013/09/05 18:46:31 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org>
+  pygame-1.9.2_pre20120101-r2.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  pygame-1.9.2_pre20120101-r2.ebuild:
+  Stable for sparc, wrt bug #469732
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  pygame-1.9.2_pre20120101-r2.ebuild:
+  Stable for alpha, wrt bug #469732
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  pygame-1.9.2_pre20120101-r2.ebuild:
+  Stable for ia64, wrt bug #469732
+
+  17 May 2013; Jeroen Roovers <jer@gentoo.org>
+  pygame-1.9.2_pre20120101-r2.ebuild:
+  Stable for HPPA (bug #469732).
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  pygame-1.9.2_pre20120101-r2.ebuild:
+  Stable for ppc, wrt bug #469732
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  pygame-1.9.2_pre20120101-r2.ebuild:
+  Stable for x86, wrt bug #469732
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  pygame-1.9.2_pre20120101-r2.ebuild:
+  Stable for amd64, wrt bug #469732
 
 *pygame-1.9.2_pre20120101-r2 (26 Feb 2013)
 

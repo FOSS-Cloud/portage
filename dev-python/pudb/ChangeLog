@@ -1,6 +1,36 @@
 # ChangeLog for dev-python/pudb
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pudb/ChangeLog,v 1.13 2013/03/18 09:04:26 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pudb/ChangeLog,v 1.19 2013/09/12 08:20:36 patrick Exp $
+
+*pudb-2013.3.6 (12 Sep 2013)
+
+  12 Sep 2013; Patrick Lauer <patrick@gentoo.org> +pudb-2013.3.6.ebuild:
+  Bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pudb-2012.3-r1.ebuild,
+  pudb-2013.1.ebuild, pudb-2013.2.ebuild, pudb-2013.3.2.ebuild,
+  pudb-2013.3.3.ebuild, pudb-2013.3.4.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*pudb-2013.3.4 (22 Jul 2013)
+
+  22 Jul 2013; Patrick Lauer <patrick@gentoo.org> +pudb-2013.3.4.ebuild:
+  Bump
+
+*pudb-2013.3.3 (08 Jul 2013)
+
+  08 Jul 2013; Patrick Lauer <patrick@gentoo.org> +pudb-2013.3.3.ebuild:
+  Bump
+
+*pudb-2013.3.2 (19 Jun 2013)
+
+  19 Jun 2013; Patrick Lauer <patrick@gentoo.org> +pudb-2013.3.2.ebuild:
+  Bump
+
+*pudb-2013.2 (01 Jun 2013)
+
+  01 Jun 2013; Tim Harder <radhermit@gentoo.org> +pudb-2013.2.ebuild:
+  Version bump.
 
 *pudb-2013.1 (18 Mar 2013)
 

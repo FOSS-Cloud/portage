@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/sakura/sakura-3.0.4.ebuild,v 1.4 2013/02/25 09:56:41 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-terms/sakura/sakura-3.0.4.ebuild,v 1.5 2013/07/09 12:02:22 jer Exp $
 
 EAPI=4
 inherit cmake-utils
@@ -38,5 +38,5 @@ src_prepare() {
 		fi
 	done
 
-	base_src_prepare
+	cmake-utils_src_prepare
 }

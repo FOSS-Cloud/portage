@@ -1,6 +1,13 @@
 # ChangeLog for net-dialup/speedtouch-usb
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/speedtouch-usb/ChangeLog,v 1.9 2012/06/16 14:10:22 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/speedtouch-usb/ChangeLog,v 1.11 2013/11/06 03:52:16 patrick Exp $
+
+  06 Nov 2013; Patrick Lauer <patrick@gentoo.org>
+  speedtouch-usb-3.0.1.2-r3.ebuild:
+  Shorten description, make repoman happier
+
+  14 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> files/README:
+  Remove stale links on unofficial gentoo wiki, bug #482124
 
   16 Jun 2012; Pacho Ramos <pacho@gentoo.org> speedtouch-usb-3.0.1.2-r3.ebuild:
   Update PPPoE instructions.
@@ -48,4 +55,3 @@
   +files/speedtch.usermap, +metadata.xml, +speedtouch-usb-3.0.1.2.ebuild:
   Initial import from bug #110665. Credits goes to Paul Bredbury
   <brebs@sent.com>.
-

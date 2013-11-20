@@ -1,6 +1,152 @@
 # ChangeLog for www-servers/nginx
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/nginx/ChangeLog,v 1.345 2013/03/31 01:55:20 robbat2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/nginx/ChangeLog,v 1.370 2013/11/19 21:11:46 dev-zero Exp $
+
+*nginx-1.5.7 (19 Nov 2013)
+*nginx-1.4.4 (19 Nov 2013)
+
+  19 Nov 2013; Tiziano Müller <dev-zero@gentoo.org> +nginx-1.4.4.ebuild,
+  +nginx-1.5.7.ebuild:
+  Version bump for security bug #490558 (CVE-2013-4547), also fix bug #490558 by
+  passing pcre-jit and lua USE flags as options to the mod_security standalone
+  build script.
+
+*nginx-1.5.6 (24 Oct 2013)
+
+  24 Oct 2013; Tiziano Müller <dev-zero@gentoo.org> +nginx-1.5.6.ebuild,
+  -nginx-1.4.1-r2.ebuild, -nginx-1.4.1-r3.ebuild, -nginx-1.4.1-r4.ebuild,
+  nginx-1.4.3.ebuild:
+  Version bump for nginx mainline/development version branch (bug #472524,
+  thanks to jbergstroem for the havily lifting). Drop syslog patch for now since
+  it fails to apply to nginx-1.5.x. Drop the http_push module completely since
+  upstream is dead, use http_push_stream instead. Drop obsolete verisons.
+
+*nginx-1.4.3 (17 Oct 2013)
+
+  17 Oct 2013; Tiziano Müller <dev-zero@gentoo.org> +nginx-1.4.3.ebuild,
+  -nginx-1.4.2-r1.ebuild, -nginx-1.4.2.ebuild, metadata.xml:
+  Version bump (bug #472524), also updated the following modules (thanks to
+  jbergstroem): syslog-module (0.25), devel-kit (0.2.19), lua (0.9.0), rtmp
+  (1.0.5). Added jbergstroem as co-maintainer.
+
+*nginx-1.4.2-r1 (01 Oct 2013)
+
+  01 Oct 2013; Tiziano Müller <dev-zero@gentoo.org> +nginx-1.4.2-r1.ebuild:
+  Add push_stream module (bug #471754), warn only about permissions if the nginx
+  user can not access it (refinement for bug #473036), do not install config
+  files/keepdir for unused modules (bug #473864, thanks to jbergstroem).
+
+*nginx-1.4.2 (27 Sep 2013)
+
+  27 Sep 2013; Tiziano Müller <dev-zero@gentoo.org>
+  +files/modsecurity-2.7.5-include-paths.patch, +nginx-1.4.2.ebuild:
+  Version bump for stable nginx branch (bug #472524), also update the following
+  modules to latest: headers_more, fancyindex (fixes bug #478402), auth_pam,
+  upstream_check, naxsi, rtmp. Add new modules: echo (bug #471314), modsecurity
+  (bug #484370). Building metrics requires stub_status (bug #480952). Warn the
+  user to check the ownership on the log directory (bug #473036, may be improved
+  by checking the permissions explicitly).
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> nginx-1.4.1-r5.ebuild:
+  Stable for x86, wrt bug #476688
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> nginx-1.4.1-r5.ebuild:
+  Stable for amd64, wrt bug #476688
+
+  20 Jun 2013; Benedikt Böhm <hollow@gentoo.org> metadata.xml:
+  remove myself from maintainers
+
+  02 Jun 2013; Naohiro Aota <naota@gentoo.org> nginx-1.4.1-r5.ebuild:
+  Use group id 0 instead of group name root, which is not portable. #462214
+
+*nginx-1.4.1-r5 (23 May 2013)
+
+  23 May 2013; Tiziano Müller <dev-zero@gentoo.org> +nginx-1.4.1-r5.ebuild,
+  metadata.xml:
+  Set permissions for /var/lib/nginx/tmp to 0750 instead of 0700 to avoid a
+  problem with SELinux. Add 3rd-party modules rtmp (bug #427194), dav-ext (bug
+  #442610). Bump fancyindex (bug #470824, usptream moved to Github).
+
+  14 May 2013; Tiziano Müller <dev-zero@gentoo.org> nginx-1.4.1-r4.ebuild:
+  Fix pcre dependency for naxsi by using a REQUIRED_USE.
+
+*nginx-1.4.1-r4 (14 May 2013)
+
+  14 May 2013; Tiziano Müller <dev-zero@gentoo.org> +nginx-1.4.1-r4.ebuild:
+  Add support for naxsi (bug #397587).
+
+*nginx-1.4.1-r3 (14 May 2013)
+
+  14 May 2013; Tiziano Müller <dev-zero@gentoo.org> +files/nginx.service-r1,
+  +nginx-1.4.1-r3.ebuild, -files/nginx.initd, -files/nginx.initd-r1,
+  -files/nginx.tmpfiles, -files/nginx.tmpfiles-r1:
+  Fix systemd unit due to removed tmpfiles (bug #469784). Remove left-overs from
+  old-version-cleanup.
+
+  13 May 2013; Agostino Sarubbo <ago@gentoo.org> -nginx-1.2.6-r1.ebuild,
+  -nginx-1.2.8.ebuild, -nginx-1.4.1-r1.ebuild, -nginx-1.4.1.ebuild:
+  Remove old
+
+  13 May 2013; Agostino Sarubbo <ago@gentoo.org> nginx-1.4.1-r2.ebuild:
+  Stable for x86, wrt bug #468870
+
+  13 May 2013; Agostino Sarubbo <ago@gentoo.org> nginx-1.4.1-r2.ebuild:
+  Stable for amd64, wrt bug #468870
+
+  13 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org> nginx-1.4.1-r2.ebuild:
+  Use epatch_user to allow custom patches from users.
+
+*nginx-1.4.1-r2 (13 May 2013)
+
+  13 May 2013; Tiziano Müller <dev-zero@gentoo.org>
+  +files/nginx-1.4.1-fix-perl-install-path.patch, +files/nginx.initd-r2,
+  +nginx-1.4.1-r2.ebuild:
+  Set permissions for log- and tmp-dir in ebuild only, including a one-time
+  postinst-fix for bug #469094, resp. bug #458726. Moved the tmp-dirs to
+  /var/lib/nginx/tmp and set the nginx-homedir to /var/lib/nginx (following the
+  other distros here). Fix perl-module installation to use /usr instead of
+  /usr/local for PREFIX.
+
+  11 May 2013; Markus Meier <maekke@gentoo.org> nginx-1.4.1-r1.ebuild:
+  add ~arm, bug #456752
+
+*nginx-1.4.1-r1 (08 May 2013)
+
+  08 May 2013; Tiziano Müller <dev-zero@gentoo.org> +files/nginx.initd-r1,
+  +files/nginx.tmpfiles-r1, +nginx-1.4.1-r1.ebuild, -nginx-1.4.0-r1.ebuild,
+  -nginx-1.4.0.ebuild:
+  Drop vulnerable versions, fix bug #458726 again for /var/tmp/nginx and
+  stricter default permissions for /var/log/nginx.
+
+*nginx-1.4.1 (08 May 2013)
+
+  08 May 2013; Tiziano Müller <dev-zero@gentoo.org> +nginx-1.4.1.ebuild:
+  Version bump for bug #468870, added gunzip flag (bug #468770), bumped
+  devel_kit to 0.2.18, headers_more to 0.20, slowfs_cache to 1.10.
+
+*nginx-1.4.0-r1 (02 May 2013)
+
+  02 May 2013; Benedikt Böhm <hollow@gentoo.org> +nginx-1.4.0-r1.ebuild,
+  files/nginx.logrotate:
+  fix lua module compatibility; add check_upstream and metrics module
+
+*nginx-1.4.0 (25 Apr 2013)
+
+  25 Apr 2013; Benedikt Böhm <hollow@gentoo.org> nginx-1.2.8.ebuild,
+  -nginx-1.3.11.ebuild, -nginx-1.3.15.ebuild, -nginx-1.3.16.ebuild,
+  +nginx-1.4.0.ebuild, +files/nginx.service, +files/nginx.tmpfiles,
+  files/nginx.initd:
+  version bump. fixes #446734, #462214, #467106, #466526, #466246
+
+*nginx-1.3.16 (19 Apr 2013)
+
+  19 Apr 2013; Patrick Lauer <patrick@gentoo.org> +nginx-1.3.16.ebuild:
+  Bump for #456224
+
+*nginx-1.2.8 (19 Apr 2013)
+
+  19 Apr 2013; Patrick Lauer <patrick@gentoo.org> +nginx-1.2.8.ebuild:
+  Bump to 1.2.8 #456224
 
 *nginx-1.3.15 (31 Mar 2013)
 

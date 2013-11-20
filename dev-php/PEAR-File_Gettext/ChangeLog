@@ -1,6 +1,30 @@
 # ChangeLog for dev-php/PEAR-File_Gettext
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/PEAR-File_Gettext/ChangeLog,v 1.30 2013/03/24 21:02:31 mabi Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-php/PEAR-File_Gettext/ChangeLog,v 1.38 2013/08/07 13:22:33 ago Exp $
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> PEAR-File_Gettext-0.4.2.ebuild:
+  Stable for x86, wrt bug #470426
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> PEAR-File_Gettext-0.4.2.ebuild:
+  Stable for ppc64, wrt bug #470426
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> PEAR-File_Gettext-0.4.2.ebuild:
+  Stable for ia64, wrt bug #470426
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> PEAR-File_Gettext-0.4.2.ebuild:
+  Stable for sparc, wrt bug #470426
+
+  31 Jul 2013; Jeroen Roovers <jer@gentoo.org> PEAR-File_Gettext-0.4.2.ebuild:
+  Stable for HPPA (bug #470426).
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> PEAR-File_Gettext-0.4.2.ebuild:
+  Stable for alpha, wrt bug #470426
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> PEAR-File_Gettext-0.4.2.ebuild:
+  Stable for ppc, wrt bug #470426
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> PEAR-File_Gettext-0.4.2.ebuild:
+  Stable for amd64, wrt bug #470426
 
 *PEAR-File_Gettext-0.4.2 (24 Mar 2013)
 

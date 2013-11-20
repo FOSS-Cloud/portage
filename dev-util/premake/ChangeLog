@@ -1,6 +1,31 @@
 # ChangeLog for dev-util/premake
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/premake/ChangeLog,v 1.10 2013/01/03 09:21:30 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/premake/ChangeLog,v 1.16 2013/06/06 01:10:03 titanofold Exp $
+
+  06 Jun 2013; Aaron W. Swenson <titanofold@gentoo.org> -premake-3.5.ebuild,
+  -premake-4.3.ebuild:
+  Clean out non-slotted ebuilds.
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> premake-4.3-r1.ebuild:
+  Stable for ppc, wrt bug #468862
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> premake-4.3-r1.ebuild:
+  Fix inherit
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> premake-3.7.ebuild,
+  premake-4.3-r1.ebuild:
+  Stable for x86, wrt bug #468862
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> premake-3.7.ebuild,
+  premake-4.3-r1.ebuild:
+  Stable for amd64, wrt bug #468862
+
+*premake-4.3-r1 (09 Apr 2013)
+*premake-3.7 (09 Apr 2013)
+
+  09 Apr 2013; Aaron W. Swenson <titanofold@gentoo.org> +premake-3.7.ebuild,
+  +premake-4.3-r1.ebuild:
+  Version bump. Now slotted, thanks to Dominique Michel. Fixes bug 435744.
 
   03 Jan 2013; Agostino Sarubbo <ago@gentoo.org> premake-4.3.ebuild:
   Add ~ppc, wrt bug #449956

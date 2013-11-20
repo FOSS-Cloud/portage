@@ -1,6 +1,20 @@
 # ChangeLog for gnustep-apps/zipper
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnustep-apps/zipper/ChangeLog,v 1.21 2012/09/23 07:52:35 phajdan.jr Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnustep-apps/zipper/ChangeLog,v 1.25 2013/06/29 18:31:32 ago Exp $
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> zipper-1.5.ebuild:
+  Stable for ppc, wrt bug #474220
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> zipper-1.5.ebuild:
+  Stable for amd64, wrt bug #474220
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> zipper-1.5.ebuild:
+  Stable for x86, wrt bug #474220
+
+*zipper-1.5 (24 Apr 2013)
+
+  24 Apr 2013; Bernard Cafarelli <voyageur@gentoo.org> +zipper-1.5.ebuild:
+  Version bump, supports new formats. Clean post install message
 
   23 Sep 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> zipper-1.4.ebuild:
   x86 stable wrt bug #429082
@@ -78,4 +92,3 @@
   14 Nov 2004; Armando Di Cianno <fafhrd@gentoo.org> +metadata.xml,
   +zipper-0.9.ebuild:
   Orignal package import; keyworded for ~ppc
-

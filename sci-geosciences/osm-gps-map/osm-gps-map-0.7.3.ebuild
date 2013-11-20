@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/osm-gps-map/osm-gps-map-0.7.3.ebuild,v 1.3 2013/04/03 07:01:44 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/osm-gps-map/osm-gps-map-0.7.3.ebuild,v 1.6 2013/05/29 16:29:05 jlec Exp $
 
 EAPI=5
 
@@ -19,27 +19,29 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+introspection python"
 
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
 RDEPEND="
-	>=dev-libs/glib-2.16.0
-	>=net-libs/libsoup-2.4.0
+	>=dev-libs/glib-2.16.0:2
+	>=net-libs/libsoup-2.4.0:2.4
 	>=x11-libs/cairo-1.6.0
 	>=x11-libs/gtk+-2.14.0:2[introspection?]
-	x11-libs/gdk-pixbuf[introspection?]
+	x11-libs/gdk-pixbuf:2[introspection?]
 	introspection? ( dev-libs/gobject-introspection )
 	python? ( ${PYTHON_DEPS}
-		dev-python/pygtk[${PYTHON_USEDEP}]
+		dev-python/pygtk:2[${PYTHON_USEDEP}]
 		dev-python/pygobject:2[${PYTHON_USEDEP}]
 	)
 "
 DEPEND="${RDEPEND}
 	dev-util/gtk-doc-am
-	gnome-base/gnome-common
+	gnome-base/gnome-common:3
 	virtual/pkgconfig"
 
 PYTHON_S="${WORKDIR}/python-osmgpsmap-${PV}"
 
 src_configure() {
-	#configure script does not accept quoted EPREFIX...
+	# Configure script does not accept quoted EPREFIX...
 	gnome2_src_configure \
 		$(use_enable introspection) \
 		--docdir=/usr/share/doc/${PF} \
@@ -54,14 +56,16 @@ src_prepare() {
 
 	gnome2_src_prepare
 
-	cd "${PYTHON_S}" || die
-	epatch "${FILESDIR}/${P}-fix-python-setup.py.patch"
+	if use python ; then
+		cd "${PYTHON_S}" || die
+		epatch "${FILESDIR}/${P}-fix-python-setup.py.patch"
+	fi
 }
 
 src_compile() {
 	gnome2_src_compile
 
-	if use python; then
+	if use python ; then
 		cd "${PYTHON_S}" || die
 		CFLAGS="${CFLAGS} -I\"${S}\"/src" LDFLAGS="${LDFLAGS} -L\"${S}\"/src/.libs" distutils-r1_src_compile
 	fi
@@ -70,7 +74,7 @@ src_compile() {
 src_install() {
 	gnome2_src_install
 
-	if use python; then
+	if use python ; then
 		cd "${PYTHON_S}" || die
 		distutils-r1_src_install
 	fi

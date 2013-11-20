@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/avidemux-core/avidemux-core-2.6.2-r1.ebuild,v 1.1 2013/03/20 13:58:02 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/avidemux-core/avidemux-core-2.6.2-r1.ebuild,v 1.6 2013/08/11 21:42:55 aballier Exp $
 
 EAPI="5"
 
@@ -12,7 +12,7 @@ MY_PN="${PN/-core/}"
 MY_P="${MY_PN}_${PV}"
 
 DESCRIPTION="Core libraries for a video editor designed for simple cutting, filtering and encoding tasks."
-HOMEPAGE="http://fixounet.free.fr/${MY_PN}"
+HOMEPAGE="http://fixounet.free.fr/avidemux"
 SRC_URI="mirror://sourceforge/${MY_PN}/${PV}/${MY_P}.tar.gz"
 
 # Multiple licenses because of all the bundled stuff.
@@ -21,8 +21,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="aften a52 alsa amr debug dts fontconfig jack lame libsamplerate mmx oss nls sdl -system-ffmpeg vorbis truetype xvid x264 xv"
 
 RDEPEND="
-	!<media-video/avidemux-2.6.2-r1
-	>=dev-lang/spidermonkey-1.5-r2
+	!<media-video/avidemux-2.6.2-r1:${SLOT}
+	>=dev-lang/spidermonkey-1.5-r2:0
 	dev-libs/libxml2
 	media-libs/libpng
 	virtual/libiconv
@@ -37,9 +37,9 @@ RDEPEND="
 	)
 	lame? ( media-sound/lame )
 	sdl? ( media-libs/libsdl )
-	system-ffmpeg? ( >=media-video/ffmpeg-1.0[aac,cpudetection,mp3,theora] )
+	system-ffmpeg? ( >=media-video/ffmpeg-1.0:0[aac,cpudetection,mp3,theora] )
 	truetype? ( >=media-libs/freetype-2.1.5 )
-	x264? ( media-libs/x264 )
+	x264? ( media-libs/x264:= )
 	xv? ( x11-libs/libXv )
 	xvid? ( media-libs/xvid )
 	vorbis? ( media-libs/libvorbis )

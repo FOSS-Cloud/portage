@@ -1,6 +1,25 @@
 # ChangeLog for sys-fs/fuse
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse/ChangeLog,v 1.184 2013/03/15 15:38:29 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse/ChangeLog,v 1.189 2013/10/25 13:49:38 jer Exp $
+
+  25 Oct 2013; Jeroen Roovers <jer@gentoo.org> fuse-2.9.3.ebuild:
+  Stable for HPPA (bug #489102).
+
+  19 Oct 2013; Mike Frysinger <vapier@gentoo.org> fuse-2.9.3.ebuild:
+  Add m68k/mips/s390/sh love.
+
+  21 Jul 2013; Tim Harder <radhermit@gentoo.org> -fuse-2.8.6.ebuild,
+  -fuse-2.8.7.ebuild, -fuse-2.9.0.ebuild, -fuse-2.9.1.ebuild,
+  -fuse-2.9.1-r1.ebuild:
+  Remove old.
+
+*fuse-2.9.3 (21 Jul 2013)
+
+  21 Jul 2013; Tim Harder <radhermit@gentoo.org> +fuse-2.9.3.ebuild:
+  Version bump, add examples use flag.
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
 
   15 Mar 2013; Jeroen Roovers <jer@gentoo.org> fuse-2.9.2.ebuild:
   Stable for HPPA (bug #460564).

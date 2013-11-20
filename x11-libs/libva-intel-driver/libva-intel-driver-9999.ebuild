@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-intel-driver/libva-intel-driver-9999.ebuild,v 1.7 2013/03/26 16:36:03 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-intel-driver/libva-intel-driver-9999.ebuild,v 1.9 2013/06/26 19:06:32 aballier Exp $
 
 EAPI="3"
 
@@ -29,11 +29,11 @@ if [ "${PV%9999}" = "${PV}" ] ; then
 else
 	KEYWORDS=""
 fi
-IUSE="wayland X"
+IUSE="+drm wayland X"
 
-RDEPEND=">=x11-libs/libva-1.1.0[X?,wayland?]
+RDEPEND=">=x11-libs/libva-1.2.0[X?,wayland?,drm?]
 	!<x11-libs/libva-1.0.15[video_cards_intel]
-	>=x11-libs/libdrm-2.4.23[video_cards_intel]
+	>=x11-libs/libdrm-2.4.45[video_cards_intel]
 	wayland? ( media-libs/mesa[egl] >=dev-libs/wayland-1 )"
 
 DEPEND="${RDEPEND}
@@ -46,6 +46,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		--disable-silent-rules \
+		$(use_enable drm) \
 		$(use_enable wayland) \
 		$(use_enable X x11)
 }

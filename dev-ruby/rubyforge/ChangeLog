@@ -1,6 +1,17 @@
 # ChangeLog for dev-ruby/rubyforge
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rubyforge/ChangeLog,v 1.96 2013/01/28 15:16:36 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rubyforge/ChangeLog,v 1.99 2013/11/09 16:01:04 jer Exp $
+
+  09 Nov 2013; Jeroen Roovers <jer@gentoo.org> rubyforge-2.0.4-r3.ebuild:
+  Stable for HPPA (bug #490180).
+
+*rubyforge-2.0.4-r3 (10 Sep 2013)
+
+  10 Sep 2013; Hans de Graaff <graaff@gentoo.org> +rubyforge-2.0.4-r3.ebuild:
+  Revision bump to add ruby20.
+
+  04 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -rubyforge-2.0.4-r1.ebuild:
+  Cleanup old.
 
   28 Jan 2013; Alexis Ballier <aballier@gentoo.org> rubyforge-2.0.4-r2.ebuild:
   keyword ~amd64-fbsd
@@ -357,4 +368,3 @@
   03 Dec 2006; Nguyễn Thái Ngọc Duy <pclouds@gentoo.org> +metadata.xml,
   +rubyforge-0.3.0.ebuild:
   Added rubyforge, part of #147065. Ebuild by Guillaume Benny <guillaume.benny@sympatico.ca>
-

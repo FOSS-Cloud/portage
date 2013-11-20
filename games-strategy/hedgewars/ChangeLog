@@ -1,6 +1,32 @@
 # ChangeLog for games-strategy/hedgewars
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/hedgewars/ChangeLog,v 1.50 2013/03/02 21:22:01 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/hedgewars/ChangeLog,v 1.55 2013/11/13 11:23:50 chainsaw Exp $
+
+  13 Nov 2013; Tony Vroon <chainsaw@gentoo.org> hedgewars-0.9.19.3.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #490650.
+
+*hedgewars-0.9.19.3 (11 Sep 2013)
+
+  11 Sep 2013; Julian Ospald <hasufell@gentoo.org> +hedgewars-0.9.19.3.ebuild:
+  version bump
+
+  03 Jun 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  hedgewars-0.9.19-r1.ebuild:
+  update DESCRIPTION to match upstream's
+
+*hedgewars-0.9.19-r1 (31 May 2013)
+
+  31 May 2013; Julian Ospald <hasufell@gentoo.org> -hedgewars-0.9.19.ebuild,
+  +hedgewars-0.9.19-r1.ebuild,
+  +files/hedgewars-0.9.19-de_translation_fix.patch,
+  +files/hedgewars-0.9.19-missionmap.patch:
+  revbump, fix missionmaps and de translation
+
+*hedgewars-0.9.19 (31 May 2013)
+
+  31 May 2013; Julian Ospald <hasufell@gentoo.org> +hedgewars-0.9.19.ebuild:
+  version bump
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> hedgewars-0.9.18-r1.ebuild:
   Move Qt dependencies to the new category

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/missingh/missingh-1.2.0.0.ebuild,v 1.4 2013/03/25 20:44:55 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/missingh/missingh-1.2.0.0.ebuild,v 1.6 2013/07/27 21:16:54 slyfox Exp $
 
 EAPI=5
 
@@ -18,7 +18,7 @@ SRC_URI="mirror://hackage/packages/archive/${MY_PN}/${PV}/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~sparc x86"
+KEYWORDS="amd64 ~sparc x86 ~amd64-linux"
 IUSE="test"
 
 # testpack dependency is a workaround for cabal-1.8 bug, which pulls
@@ -35,7 +35,7 @@ DEPEND=">=dev-haskell/cabal-1.2.3
 		virtual/libiconv
 		${RDEPEND}
 		test? ( dev-haskell/testpack[profile?]
-			dev-haskell/quickcheck:1[profile?]
+			dev-haskell/quickcheck[profile?]
 			dev-haskell/hunit[profile?] )"
 
 # libiconv is needed for the trick below to make it compile with ghc-6.12
@@ -43,6 +43,8 @@ DEPEND=">=dev-haskell/cabal-1.2.3
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
+	CABAL_FILE=${MY_PN}.cabal cabal_chdeps \
+		'QuickCheck >= 1.0 && <2.0' 'QuickCheck'
 	# (non-ASCII non-UTF-8 source breaks hscolour)
 	cd src/System/Time
 	mv ParseDate.hs ParseDate.hs.ISO-8859-1

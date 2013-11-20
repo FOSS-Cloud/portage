@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License, v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/use.mask,v 1.107 2013/03/12 21:48:25 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/use.mask,v 1.114 2013/11/10 15:48:14 chithanh Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -sparc
@@ -107,7 +107,6 @@ wicd
 indi
 chm
 ebook
-google-gadgets
 celt
 capi
 lensfun
@@ -170,7 +169,6 @@ ukcid
 # USE-flags from differents origins
 brltty
 cle266
-cmucl
 commercial
 cpufreq
 directfb
@@ -250,8 +248,11 @@ video_cards_nouveau
 # Mask more VIDEO_CARDs added with mesa-8.0
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
+# llvm is not keyworded
+video_cards_radeonsi
 
 # Diego Pettenò <flameeyes@gentoo.org> (6 Dec 2006)
 # Unmask the Sun-specific drivers
@@ -327,3 +328,14 @@ clvm
 
 # nvidia toolkit for binary drivers
 cg
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl
+
+# Unmask once sys-libs/libunwind gets ported & keyworded.
+unwind
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (10 Nov 2013)
+# sys-devel/llvm is not keyworded, bug #320221
+llvm

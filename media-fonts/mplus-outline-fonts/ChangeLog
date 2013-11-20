@@ -1,6 +1,85 @@
 # ChangeLog for media-fonts/mplus-outline-fonts
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-fonts/mplus-outline-fonts/ChangeLog,v 1.37 2012/10/08 10:01:49 hattya Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-fonts/mplus-outline-fonts/ChangeLog,v 1.55 2013/10/24 14:36:37 hattya Exp $
+
+  24 Oct 2013; Akinori Hattori <hattya@gentoo.org>
+  mplus-outline-fonts-0_pre056.ebuild:
+  ia64 stable
+
+  24 Oct 2013; Akinori Hattori <hattya@gentoo.org>
+  mplus-outline-fonts-0_pre056.ebuild:
+  amd64 stable
+
+  24 Oct 2013; Akinori Hattori <hattya@gentoo.org>
+  mplus-outline-fonts-0_pre056.ebuild:
+  x86 stable
+
+  24 Oct 2013; Akinori Hattori <hattya@gentoo.org>
+  -mplus-outline-fonts-0_pre030-r1.ebuild:
+  remove old ebuild
+
+*mplus-outline-fonts-0_pre057 (24 Oct 2013)
+
+  24 Oct 2013; Akinori Hattori <hattya@gentoo.org>
+  +mplus-outline-fonts-0_pre057.ebuild:
+  new upstream release
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  mplus-outline-fonts-0_pre055.ebuild:
+  Stable for ppc, wrt bug #479592
+
+  06 Aug 2013; Jeroen Roovers <jer@gentoo.org>
+  mplus-outline-fonts-0_pre055.ebuild:
+  Stable for HPPA (bug #479592).
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org>
+  mplus-outline-fonts-0_pre055.ebuild, mplus-outline-fonts-0_pre056.ebuild:
+  update to EAPI 5
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org>
+  -mplus-outline-fonts-0_pre052.ebuild:
+  remove old ebuild
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org>
+  mplus-outline-fonts-0_pre055.ebuild:
+  ia64 stable
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org>
+  mplus-outline-fonts-0_pre055.ebuild:
+  amd64 stable
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org>
+  mplus-outline-fonts-0_pre055.ebuild:
+  x86 stable
+
+*mplus-outline-fonts-0_pre056 (03 Aug 2013)
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org>
+  +mplus-outline-fonts-0_pre056.ebuild:
+  new upstream release
+
+  23 May 2013; Akinori Hattori <hattya@gentoo.org>
+  mplus-outline-fonts-0_pre052.ebuild:
+  ia64 stable
+
+  23 May 2013; Akinori Hattori <hattya@gentoo.org>
+  mplus-outline-fonts-0_pre052.ebuild:
+  amd64 stable
+
+  23 May 2013; Akinori Hattori <hattya@gentoo.org>
+  mplus-outline-fonts-0_pre052.ebuild:
+  x86 stable
+
+  23 May 2013; Akinori Hattori <hattya@gentoo.org>
+  -mplus-outline-fonts-0_pre040.ebuild, -mplus-outline-fonts-0_pre043-r1.ebuild,
+  -mplus-outline-fonts-0_pre043.ebuild, -mplus-outline-fonts-0_pre046.ebuild:
+  remove old ebuilds
+
+*mplus-outline-fonts-0_pre055 (23 May 2013)
+
+  23 May 2013; Akinori Hattori <hattya@gentoo.org>
+  +mplus-outline-fonts-0_pre055.ebuild:
+  new upstream release
 
 *mplus-outline-fonts-0_pre052 (08 Oct 2012)
 

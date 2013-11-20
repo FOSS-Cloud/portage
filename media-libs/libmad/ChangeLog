@@ -1,6 +1,14 @@
 # ChangeLog for media-libs/libmad
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libmad/ChangeLog,v 1.72 2013/03/12 19:33:57 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libmad/ChangeLog,v 1.74 2013/07/28 22:02:45 aballier Exp $
+
+*libmad-0.15.1b-r8 (28 Jul 2013)
+
+  28 Jul 2013; Alexis Ballier <aballier@gentoo.org> +libmad-0.15.1b-r8.ebuild:
+  go multilib and slat it for medialibs -r4
+
+  25 Apr 2013; Tim Harder <radhermit@gentoo.org> libmad-0.15.1b-r7.ebuild:
+  Fix autoreconf failures with automake-1.13 (bug #467002).
 
   12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> libmad-0.15.1b-r7.ebuild:
   Remove useless use of epunt_cxx wrt #460976 by Roman Žilka

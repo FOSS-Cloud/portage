@@ -1,6 +1,20 @@
 # ChangeLog for sys-apps/irqbalance
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/irqbalance/ChangeLog,v 1.54 2013/01/31 23:07:31 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/irqbalance/ChangeLog,v 1.58 2013/07/27 22:23:58 ago Exp $
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> irqbalance-1.0.6.ebuild:
+  Stable for x86, wrt bug #477566
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> irqbalance-1.0.6.ebuild:
+  Stable for ppc, wrt bug #477566
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> irqbalance-1.0.6.ebuild:
+  Stable for amd64, wrt bug #477566
+
+*irqbalance-1.0.6 (15 Jun 2013)
+
+  15 Jun 2013; Tim Harder <radhermit@gentoo.org> +irqbalance-1.0.6.ebuild:
+  Version bump.
 
   31 Jan 2013; Agostino Sarubbo <ago@gentoo.org> irqbalance-1.0.5-r1.ebuild:
   Stable for ppc, wrt bug #454026

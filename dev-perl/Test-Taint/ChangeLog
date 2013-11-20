@@ -1,6 +1,30 @@
 # ChangeLog for dev-perl/Test-Taint
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Test-Taint/ChangeLog,v 1.25 2013/01/13 13:32:35 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Test-Taint/ChangeLog,v 1.33 2013/09/14 15:05:23 zlogene Exp $
+
+  14 Sep 2013; Mikle Kolyada <zlogene@gentoo.org> Test-Taint-1.60.0.ebuild:
+  spatc stable wrt bug #449620
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Test-Taint-1.60.0.ebuild:
+  Stable for alpha, wrt bug #449620
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Test-Taint-1.60.0.ebuild:
+  Stable for x86, wrt bug #449620
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Test-Taint-1.60.0.ebuild:
+  Stable for ia64, wrt bug #449620
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Test-Taint-1.60.0.ebuild:
+  Stable for ppc64, wrt bug #449620
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Test-Taint-1.60.0.ebuild:
+  Stable for ppc, wrt bug #449620
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> Test-Taint-1.60.0.ebuild:
+  Stable for amd64, wrt bug #449620
+
+  10 Sep 2013; Jeroen Roovers <jer@gentoo.org> Test-Taint-1.60.0.ebuild:
+  Stable for HPPA (bug #449620).
 
   13 Jan 2013; Markus Meier <maekke@gentoo.org> Test-Taint-1.60.0.ebuild:
   add ~arm, bug #449762

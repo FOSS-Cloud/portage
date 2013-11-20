@@ -1,6 +1,30 @@
 # ChangeLog for app-vim/python-mode
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-vim/python-mode/ChangeLog,v 1.5 2012/11/12 10:07:46 xarthisius Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-vim/python-mode/ChangeLog,v 1.9 2013/09/12 02:38:29 radhermit Exp $
+
+*python-mode-0.6.18-r3 (12 Sep 2013)
+
+  12 Sep 2013; Tim Harder <radhermit@gentoo.org> +python-mode-0.6.18-r3.ebuild,
+  +files/python-mode-0.6.18-dont-add-cwd-to-syspath.patch:
+  Don't add the current working directory to syspath, fixes arbitrary code
+  execution issue (patch by chutzpah).
+
+*python-mode-0.6.18-r2 (04 Jul 2013)
+
+  04 Jul 2013; Kacper Kowalik <xarthisius@gentoo.org>
+  +python-mode-0.6.18-r2.ebuild, -python-mode-0.6.18-r1.ebuild:
+  Use bundled rope wrt #475686 by neumond <knifeslaughter@gmail.com>
+
+*python-mode-0.6.18-r1 (30 Jun 2013)
+
+  30 Jun 2013; Kacper Kowalik <xarthisius@gentoo.org>
+  +python-mode-0.6.18-r1.ebuild, -python-mode-0.6.18.ebuild:
+  Debundle most of the dependencies
+
+*python-mode-0.6.18 (28 May 2013)
+
+  28 May 2013; Tim Harder <radhermit@gentoo.org> +python-mode-0.6.18.ebuild:
+  Version bump.
 
 *python-mode-0.6.10 (12 Nov 2012)
 

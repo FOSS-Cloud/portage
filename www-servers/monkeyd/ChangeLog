@@ -1,6 +1,67 @@
 # ChangeLog for www-servers/monkeyd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/monkeyd/ChangeLog,v 1.51 2013/01/05 21:47:02 blueness Exp $
+# Copyright 1999- Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-servers/monkeyd/ChangeLog,v 1.66 2013/10/17 00:31:13 blueness Exp $
+
+*monkeyd-1.3.0 (17 Oct 2013)
+
+  17 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +monkeyd-1.3.0.ebuild:
+  Version bump
+
+  23 Sep 2013; Anthony G. Basile <blueness@gentoo.org> -monkeyd-1.1.1.ebuild,
+  -monkeyd-1.2.1.ebuild, monkeyd-1.2.2.ebuild:
+  Remove older versions
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> monkeyd-1.2.2.ebuild:
+  Stable for arm, wrt bug #471906
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> monkeyd-1.2.2.ebuild:
+  Stable for ppc64, wrt bug #471906
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> monkeyd-1.2.2.ebuild:
+  Stable for ppc, wrt bug #471906
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> monkeyd-1.2.2.ebuild:
+  Stable for x86, wrt bug #471906
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> monkeyd-1.2.2.ebuild:
+  Stable for amd64, wrt bug #471906
+
+*monkeyd-1.2.2 (22 Jun 2013)
+
+  22 Jun 2013; Anthony G. Basile <blueness@gentoo.org> +monkeyd-1.2.2.ebuild:
+  Version bump, bug #472644
+
+*monkeyd-1.2.1 (06 Jun 2013)
+
+  06 Jun 2013; Anthony G. Basile <blueness@gentoo.org> +monkeyd-1.2.1.ebuild,
+  -files/monkeyd-fix-DoS-headers-parser.patch, -monkeyd-1.2.0-r1.ebuild:
+  Upstream bump to fix potencial DoS bug in headers parser, bug #472400,
+  CVE-2013-3843
+
+*monkeyd-1.2.0-r1 (05 Jun 2013)
+
+  05 Jun 2013; Anthony G. Basile <blueness@gentoo.org> +monkeyd-1.2.0-r1.ebuild,
+  -monkeyd-1.2.0.ebuild:
+  Rev bump 1.2.0 to force the last fix down to the users
+
+  05 Jun 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/monkeyd-fix-DoS-headers-parser.patch, monkeyd-1.2.0.ebuild:
+  Fix DoS bug on headers parser, bug #472400, CVE-2013-3843
+
+  02 Jun 2013; Anthony G. Basile <blueness@gentoo.org> monkeyd-1.2.0.ebuild:
+  Almost everyone will need liana, so turn it on by default
+
+  ; Anthony G. Basile <blueness@gentoo.org> monkeyd-1.2.0.ebuild:
+  ssl is broken on monkeyd-1.2.0, so we'll turn it off for now
+
+  ; Anthony G. Basile <blueness@gentoo.org> metadata.xml, monkeyd-1.2.0.ebuild:
+  Incorporate suggestions from gentoo-dev ML, thanks mgorny
+
+*monkeyd-1.2.0 (28 May 2013)
+
+  28 May 2013; Anthony G. Basile <blueness@gentoo.org> +monkeyd-1.2.0.ebuild,
+  metadata.xml:
+  Version bump
 
   05 Jan 2013; Anthony G. Basile <blueness@gentoo.org> -monkeyd-1.0.1-r1.ebuild,
   -monkeyd-1.0.1.ebuild, monkeyd-1.1.1.ebuild:

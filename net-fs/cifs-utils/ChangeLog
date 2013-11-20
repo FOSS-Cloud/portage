@@ -1,6 +1,74 @@
 # ChangeLog for net-fs/cifs-utils
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/cifs-utils/ChangeLog,v 1.56 2013/04/05 20:29:15 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/cifs-utils/ChangeLog,v 1.71 2013/11/15 23:53:27 zerochaos Exp $
+
+  15 Nov 2013; Rick Farina <zerochaos@gentoo.org> cifs-utils-6.1-r1.ebuild,
+  cifs-utils-6.2.ebuild:
+  acl use flag is default from profiles/releases/make.defaults and requires ads
+  use flag
+
+  22 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> cifs-utils-5.9-r1.ebuild,
+  cifs-utils-6.0.ebuild, cifs-utils-6.1-r1.ebuild, cifs-utils-6.2.ebuild,
+  metadata.xml:
+  Removed "upcall" USE flag as it provides the same features like "ads" USE
+  flag.
+
+  20 Oct 2013; Markus Meier <maekke@gentoo.org> cifs-utils-6.1-r1.ebuild:
+  arm stable, bug #486312
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> cifs-utils-6.1-r1.ebuild:
+  amd64 stable, bug #486312
+
+  16 Oct 2013; Jeroen Roovers <jer@gentoo.org> cifs-utils-6.1-r1.ebuild:
+  Stable for HPPA (bug #486312).
+
+*cifs-utils-6.2 (07 Oct 2013)
+
+  07 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> -cifs-utils-6.1.ebuild,
+  +cifs-utils-6.2.ebuild:
+  Version bump. Removed old.
+
+*cifs-utils-6.1-r1 (21 Sep 2013)
+
+  21 Sep 2013; Pacho Ramos <pacho@gentoo.org> +cifs-utils-6.1-r1.ebuild,
+  +files/cifs-utils-6.1-hardcoded-path.patch:
+  Do not rely on hardcoded path to systemd-ask-password, bug #478538 by Dennis
+  Lichtenthäler
+
+*cifs-utils-6.1 (10 Jul 2013)
+
+  10 Jul 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -cifs-utils-5.6-r1.ebuild, -cifs-utils-5.8-r1.ebuild,
+  -cifs-utils-6.0-r1.ebuild, +cifs-utils-6.1.ebuild:
+  Non-maintainer commit: Version bump. Removed old. Really fixed bug #466364
+  this time.
+
+*cifs-utils-6.0-r1 (22 Apr 2013)
+
+  22 Apr 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +cifs-utils-6.0-r1.ebuild:
+  Revbump to EAPI-5. Added a patch by Torsten Kurbad to default enable
+  libcap-ng and some additionaly tweaks in the ebuild (bug #466364). Reworked
+  USE flag logic. Now "caps" USE flag controls both caps implementations and
+  "caps-ng" is the switch between one of them.
+
+  14 Apr 2013; Agostino Sarubbo <ago@gentoo.org> cifs-utils-5.9-r1.ebuild:
+  Stable for sh, wrt bug #464356
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> cifs-utils-5.9-r1.ebuild:
+  Stable for s390, wrt bug #464356
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> cifs-utils-5.9-r1.ebuild:
+  Stable for sparc, wrt bug #464356
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> cifs-utils-5.9-r1.ebuild:
+  Stable for ia64, wrt bug #464356
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> cifs-utils-5.9-r1.ebuild:
+  Stable for alpha, wrt bug #464356
+
+  10 Apr 2013; Jeroen Roovers <jer@gentoo.org> cifs-utils-5.9-r1.ebuild:
+  Stable for HPPA (bug #464356).
 
   05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> cifs-utils-5.9-r1.ebuild:
   Stable for arm, wrt bug #464356

@@ -1,6 +1,40 @@
 # ChangeLog for dev-ruby/test-unit
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/test-unit/ChangeLog,v 1.76 2013/01/23 07:30:28 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/test-unit/ChangeLog,v 1.86 2013/08/31 06:23:31 graaff Exp $
+
+*test-unit-2.5.5-r1 (31 Aug 2013)
+
+  31 Aug 2013; Hans de Graaff <graaff@gentoo.org> +test-unit-2.5.5-r1.ebuild:
+  Add a ruby20 bootstrap revision without yard dependency for ruby20.
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> test-unit-1.2.3.ebuild:
+  Stable for sparc, wrt bug #472910
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-unit-1.2.3.ebuild:
+  Stable for alpha, wrt bug #472910
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-unit-1.2.3.ebuild:
+  Stable for ppc64, wrt bug #472910
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-unit-1.2.3.ebuild:
+  Stable for ppc, wrt bug #472910
+
+*test-unit-2.5.5 (09 Jul 2013)
+
+  09 Jul 2013; Hans de Graaff <graaff@gentoo.org> +test-unit-2.5.5.ebuild:
+  Version bump.
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-unit-1.2.3.ebuild:
+  Stable for ia64, wrt bug #472910
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-unit-1.2.3.ebuild:
+  Stable for amd64, wrt bug #472910
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-unit-1.2.3.ebuild:
+  Stable for x86, wrt bug #472910
+
+  10 Jun 2013; Jeroen Roovers <jer@gentoo.org> test-unit-1.2.3.ebuild:
+  Stable for HPPA (bug #472910).
 
   23 Jan 2013; Hans de Graaff <graaff@gentoo.org> -test-unit-2.5.1-r1.ebuild,
   -test-unit-2.5.2.ebuild:

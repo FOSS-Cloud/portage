@@ -1,6 +1,58 @@
 # ChangeLog for sys-kernel/ck-sources
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/ck-sources/ChangeLog,v 1.218 2013/03/18 20:44:58 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/ck-sources/ChangeLog,v 1.225 2013/11/18 18:11:50 tomwij Exp $
+
+*ck-sources-3.10.17 (18 Nov 2013)
+*ck-sources-3.9.11-r1 (18 Nov 2013)
+
+  18 Nov 2013; Tom Wijsman <TomWij@gentoo.org> +ck-sources-3.10.17.ebuild,
+  +ck-sources-3.9.11-r1.ebuild:
+  Version bumps 3.9.11-r1 (3.9 branch, genpatches rev 17, 3.9-ck1 patchset
+  including bfs-430) and 3.10.17 (3.10 branch, genpatches rev 24, 3.10-ck1
+  patchset including bfs-440), proxied commit for Eric F. GARIOUD.
+
+*ck-sources-3.4.68 (15 Nov 2013)
+
+  15 Nov 2013; Markos Chandras <hwoarang@gentoo.org> +ck-sources-3.4.68.ebuild:
+  Version bump. Thanks to Eric F. GARIOUD <eric-f.garioud@wanadoo.fr>. Bug
+  #491262
+
+*ck-sources-3.4.54 (23 Jul 2013)
+*ck-sources-3.9.11 (23 Jul 2013)
+
+  23 Jul 2013; Tom Wijsman <TomWij@gentoo.org> +ck-sources-3.4.54.ebuild,
+  +ck-sources-3.9.11.ebuild, -ck-sources-3.4.34.ebuild,
+  -ck-sources-3.8.11.ebuild:
+  Version bumps: Added 3.4.54 and 3.9.11. Dropped 3.4.34 and 3.8.11. Proxied
+  commit for Eric F. GARIOUD, fixes bug #477916.
+
+*ck-sources-3.9.7 (25 Jun 2013)
+
+  25 Jun 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +files/ck-sources-3.9-virt_cpu_accounting_gen-aCOSwt_P7.patch,
+  +ck-sources-3.9.7.ebuild:
+  Version bump, wrt bug #472842, thanks to Eric F. GARIOUD <eric-f.garioud AT
+  wanadoo.fr>
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+*ck-sources-3.9.2 (15 May 2013)
+*ck-sources-3.8.13 (15 May 2013)
+
+  15 May 2013; Markos Chandras <hwoarang@gentoo.org> +ck-sources-3.8.13.ebuild,
+  +ck-sources-3.9.2.ebuild, -ck-sources-3.8.3.ebuild:
+  Version bump thanks to Eric F. GARIOUD <eric-f.garioud@wanadoo.fr>. Remove
+  old. Bug #469686
+
+*ck-sources-3.8.11 (06 May 2013)
+*ck-sources-3.4.43 (06 May 2013)
+
+  06 May 2013; Markos Chandras <hwoarang@gentoo.org> +ck-sources-3.4.43.ebuild,
+  +ck-sources-3.8.11.ebuild, -ck-sources-3.6.11-r1.ebuild,
+  -ck-sources-3.7.10.ebuild:
+  Version bump thanks to Eric F. GARIOUD <eric-f.garioud@wanadoo.fr>. Remove
+  old. bug #468572
 
   18 Mar 2013; Markos Chandras <hwoarang@gentoo.org> ChangeLog:
   Version bump. Bug #462190. Thanks to Eric F. GARIOUD

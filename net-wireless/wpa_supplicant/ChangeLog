@@ -1,6 +1,32 @@
 # ChangeLog for net-wireless/wpa_supplicant
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/wpa_supplicant/ChangeLog,v 1.197 2013/03/02 23:13:01 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/wpa_supplicant/ChangeLog,v 1.203 2013/10/17 20:55:57 maekke Exp $
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> wpa_supplicant-2.0-r2.ebuild:
+  arm stable, bug #486008
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> wpa_supplicant-2.0-r2.ebuild:
+  Stable for x86, wrt bug #486008
+
+  28 Sep 2013; Agostino Sarubbo <ago@gentoo.org> wpa_supplicant-2.0-r2.ebuild:
+  Stable for amd64, wrt bug #486008
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+*wpa_supplicant-2.0-r2 (19 May 2013)
+
+  19 May 2013; <gurligebis@gentoo.org> -wpa_supplicant-2.0-r1.ebuild,
+  +wpa_supplicant-2.0-r2.ebuild,
+  +files/wpa_supplicant-2.0-fix-undefined-reference-to-random_get_bytes.patch:
+  Adding patch to fix missing symbox in libeap, fixing bug #470038
+
+*wpa_supplicant-2.0-r1 (28 Apr 2013)
+
+  28 Apr 2013; <gurligebis@gentoo.org> -wpa_supplicant-1.1.ebuild,
+  -wpa_supplicant-2.0.ebuild, +wpa_supplicant-2.0-r1.ebuild, metadata.xml:
+  Removing old version and making smartcard support optional, fixing bug
+  #462548
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org>
   wpa_supplicant-0.7.3-r5.ebuild, wpa_supplicant-1.1.ebuild,

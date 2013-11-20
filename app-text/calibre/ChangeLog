@@ -1,6 +1,196 @@
 # ChangeLog for app-text/calibre
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/ChangeLog,v 1.270 2013/04/05 16:27:18 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/ChangeLog,v 1.306 2013/10/18 11:32:23 zmedico Exp $
+
+*calibre-1.7 (18 Oct 2013)
+
+  18 Oct 2013; Zac Medico <zmedico@gentoo.org> +calibre-1.7.ebuild,
+  -calibre-1.4.ebuild:
+  1.7 version bump.
+
+*calibre-1.5 (07 Oct 2013)
+
+  07 Oct 2013; Zac Medico <zmedico@gentoo.org> +calibre-1.5.ebuild:
+  1.5 version bump. This fixes bug #470212 (unbundle non-free prs500 fonts).
+
+*calibre-1.4 (20 Sep 2013)
+
+  20 Sep 2013; Zac Medico <zmedico@gentoo.org> +calibre-1.4.ebuild,
+  -calibre-1.3.ebuild:
+  1.4 version bump.
+
+*calibre-1.3 (13 Sep 2013)
+
+  13 Sep 2013; Zac Medico <zmedico@gentoo.org> +calibre-1.3.ebuild,
+  -calibre-1.1.ebuild:
+  1.3 version bump.
+
+  08 Sep 2013; Tomáš Chvátal <scarabeus@gentoo.org> -calibre-0.9.42.ebuild,
+  -calibre-0.9.44.ebuild, calibre-1.2.ebuild:
+  Stabilise 1.2 on amd64 and x86 punt few older.
+
+*calibre-1.2 (06 Sep 2013)
+
+  06 Sep 2013; Zac Medico <zmedico@gentoo.org> +calibre-1.2.ebuild,
+  -calibre-1.0.ebuild:
+  1.2 version bump.
+
+*calibre-1.1 (30 Aug 2013)
+
+  30 Aug 2013; Zac Medico <zmedico@gentoo.org> +calibre-1.1.ebuild:
+  1.1 version bump.
+
+  25 Aug 2013; Zac Medico <zmedico@gentoo.org> calibre-1.0.ebuild:
+  Add dev-python/apsw dep for bug #482294.
+
+*calibre-1.0 (23 Aug 2013)
+
+  23 Aug 2013; Zac Medico <zmedico@gentoo.org> +calibre-1.0.ebuild,
+  -calibre-0.9.43.ebuild:
+  1.0 version bump.
+
+*calibre-0.9.44 (17 Aug 2013)
+
+  17 Aug 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.44.ebuild:
+  0.9.44 version bump.
+
+*calibre-0.9.43 (10 Aug 2013)
+
+  10 Aug 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.43.ebuild:
+  0.9.43 version bump.
+
+  09 Aug 2013; Tomáš Chvátal <scarabeus@gentoo.org> -calibre-0.9.27.ebuild,
+  -calibre-0.9.41.ebuild, calibre-0.9.42.ebuild:
+  Stabilise 0.9.42 on x86 and amd64. Remove older.
+
+*calibre-0.9.42 (02 Aug 2013)
+
+  02 Aug 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.42.ebuild,
+  -calibre-0.9.40.ebuild:
+  0.9.42 version bump.
+
+*calibre-0.9.41 (28 Jul 2013)
+
+  28 Jul 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.41.ebuild,
+  -calibre-0.9.39.ebuild:
+  0.9.41 version bump.
+
+*calibre-0.9.40 (21 Jul 2013)
+
+  21 Jul 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.40.ebuild,
+  -calibre-0.9.38.ebuild:
+  0.9.40 version bump.
+
+*calibre-0.9.39 (12 Jul 2013)
+
+  12 Jul 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.39.ebuild,
+  -calibre-0.9.37.ebuild:
+  0.9.39 version bump.
+
+*calibre-0.9.38 (06 Jul 2013)
+
+  06 Jul 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.38.ebuild,
+  -calibre-0.9.36.ebuild:
+  0.9.38 version bump.
+
+*calibre-0.9.37 (28 Jun 2013)
+
+  28 Jun 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.37.ebuild,
+  -calibre-0.9.35.ebuild:
+  0.9.37 version bump.
+
+*calibre-0.9.36 (21 Jun 2013)
+
+  21 Jun 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.36.ebuild,
+  -calibre-0.9.34-r1.ebuild, -files/calibre-pillow.patch:
+  0.9.36 version bump.
+
+*calibre-0.9.35 (14 Jun 2013)
+
+  14 Jun 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.35.ebuild,
+  -calibre-0.9.33.ebuild:
+  0.9.35 version bump.
+
+  09 Jun 2013; Zac Medico <zmedico@gentoo.org> calibre-0.9.27.ebuild,
+  calibre-0.9.33.ebuild, calibre-0.9.34-r1.ebuild:
+  Bug #472690 - Avoid sandbox violation for /dev/dri/card0.
+
+*calibre-0.9.34-r1 (08 Jun 2013)
+
+  08 Jun 2013; Mike Gilbert <floppym@gentoo.org> +calibre-0.9.34-r1.ebuild,
+  +files/calibre-pillow.patch, -calibre-0.9.34.ebuild, calibre-0.9.27.ebuild,
+  calibre-0.9.33.ebuild:
+  Fix PIL import for Pillow compat. Revert imaging dep change in ebuild which do
+  not apply this fix.
+
+*calibre-0.9.34 (07 Jun 2013)
+
+  07 Jun 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.34.ebuild,
+  -calibre-0.9.32.ebuild:
+  0.9.34 version bump.
+
+  05 Jun 2013; Zac Medico <zmedico@gentoo.org> calibre-0.9.27.ebuild,
+  calibre-0.9.32.ebuild, calibre-0.9.33.ebuild:
+  Use virtual/python-imaging for bug #472386.
+
+*calibre-0.9.33 (31 May 2013)
+
+  31 May 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.33.ebuild,
+  -calibre-0.9.31.ebuild:
+  0.9.33 version bump.
+
+*calibre-0.9.32 (24 May 2013)
+
+  24 May 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.32.ebuild,
+  -calibre-0.9.30.ebuild:
+  0.9.32 version bump.
+
+  18 May 2013; Zac Medico <zmedico@gentoo.org> calibre-0.9.27.ebuild,
+  calibre-0.9.30.ebuild, calibre-0.9.31.ebuild:
+  Restrict mirror due non-free prs500 fonts (bug #470212).
+
+  18 May 2013; Zac Medico <zmedico@gentoo.org> calibre-0.9.27.ebuild,
+  calibre-0.9.30.ebuild, calibre-0.9.31.ebuild:
+  Update LICENSE and remove non-free prs500 fonts for bug #470212.
+
+*calibre-0.9.31 (17 May 2013)
+
+  17 May 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.31.ebuild,
+  -calibre-0.9.29.ebuild:
+  0.9.31 version bump.
+
+*calibre-0.9.30 (12 May 2013)
+
+  12 May 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.30.ebuild,
+  -calibre-0.9.28.ebuild:
+  0.9.30 version bump.
+
+  05 May 2013; Zac Medico <zmedico@gentoo.org> calibre-0.9.27.ebuild:
+  Migrate off of python.eclass.
+
+*calibre-0.9.29 (05 May 2013)
+
+  05 May 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.29.ebuild:
+  0.9.29 version bump.
+
+*calibre-0.9.28 (27 Apr 2013)
+
+  27 Apr 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.28.ebuild:
+  0.9.28 version bump and migrate off of python.eclass.
+
+  23 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> -calibre-0.9.20.ebuild,
+  -calibre-0.9.26.ebuild, calibre-0.9.27.ebuild:
+  Stabilise latest on amd64 and x86. Drop older versions.
+
+  17 Apr 2013; Zac Medico <zmedico@gentoo.org> calibre-0.9.20.ebuild,
+  calibre-0.9.26.ebuild, calibre-0.9.27.ebuild:
+  Add tc-export CC CXX, for bug #465860.
+
+*calibre-0.9.27 (12 Apr 2013)
+
+  12 Apr 2013; Zac Medico <zmedico@gentoo.org> +calibre-0.9.27.ebuild,
+  -calibre-0.9.25.ebuild:
+  0.9.27 version bump.
 
 *calibre-0.9.26 (05 Apr 2013)
 

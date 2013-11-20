@@ -1,6 +1,44 @@
 # ChangeLog for dev-libs/ecore
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/ecore/ChangeLog,v 1.16 2013/04/02 08:59:48 tommy Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/ecore/ChangeLog,v 1.23 2013/11/12 18:14:05 tommy Exp $
+
+*ecore-1.7.9 (12 Nov 2013)
+
+  12 Nov 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> +ecore-1.7.9.ebuild,
+  -ecore-1.7.7.ebuild, -ecore-1.7.9_pre2.ebuild:
+  Version bump, drop old, drop pre-release
+
+*ecore-1.7.9_pre2 (04 Oct 2013)
+
+  04 Oct 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +ecore-1.7.9_pre2.ebuild, -ecore-1.7.9_pre1.ebuild:
+  New pre-release, drop old
+
+*ecore-1.7.9_pre1 (17 Sep 2013)
+
+  17 Sep 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +ecore-1.7.9_pre1.ebuild:
+  Add testing version for bug 462732 to test
+
+*ecore-1.7.8 (06 Aug 2013)
+
+  06 Aug 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> +ecore-1.7.8.ebuild:
+  Version bump
+
+*ecore-1.7.7 (20 May 2013)
+
+  20 May 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> +ecore-1.7.7.ebuild,
+  -ecore-1.7.5-r1.ebuild, -ecore-1.7.6.ebuild:
+  Version bump, drop old
+
+  24 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ecore-1.7.6.ebuild:
+  Add ~ppc, wrt bug #462050
+
+*ecore-1.7.6 (08 Apr 2013)
+
+  08 Apr 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> +ecore-1.7.6.ebuild,
+  -ecore-1.7.4.ebuild, -ecore-1.7.5.ebuild:
+  Version bump, drop old
 
 *ecore-1.7.5-r1 (02 Apr 2013)
 

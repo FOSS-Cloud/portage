@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>lack@gentoo.org</email>
-		<name>Jim Ramsay</name>
-	</maintainer>
-	<herd>desktop-wm</herd>
+<herd>proxy-maintainers</herd>
+<maintainer>
+	<email>pchrist@gentoo.org</email>
+	<name>Panagiotis Christopoulos</name>
+</maintainer>
+<maintainer>
+	<email>dlcampbell@gmx.com</email>
+	<name>Daniel Campbell</name>
+	<description>Mantainer. Assign bugs to him</description>
+</maintainer>
 	<longdescription><![CDATA[
 		Fluxbox is yet another windowmanager for X. Originally based upon the
 		Blackbox 0.61.1 code, Fluxbox has been extended to include a new tabbed
@@ -16,8 +21,6 @@
 	<use>
 		<flag name='slit'>Enables the fluxbox slit (or dock)</flag>
 		<flag name='toolbar'>Enables the fluxbox toolbar</flag>
-		<flag name='newmousefocus'>Patches the focus model to the upcoming 1.1.2
-			model, which adds a new 'StrictMouseFocus' mode</flag>
 		<flag name='bidi'>Enable bidirectional language support with
 			<pkg>dev-libs/fribidi</pkg></flag>
 	</use>

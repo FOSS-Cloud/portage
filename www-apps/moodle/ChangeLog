@@ -1,6 +1,59 @@
 # ChangeLog for www-apps/moodle
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/moodle/ChangeLog,v 1.41 2013/03/26 12:11:04 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/moodle/ChangeLog,v 1.50 2013/11/12 13:07:05 blueness Exp $
+
+  12 Nov 2013; Anthony G. Basile <blueness@gentoo.org> -moodle-2.3.9.ebuild,
+  -moodle-2.4.6.ebuild, -moodle-2.5.2.ebuild:
+  Remove older versions
+
+*moodle-2.5.3 (10 Nov 2013)
+*moodle-2.4.7 (10 Nov 2013)
+*moodle-2.3.10 (10 Nov 2013)
+
+  10 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +moodle-2.3.10.ebuild,
+  +moodle-2.4.7.ebuild, +moodle-2.5.3.ebuild:
+  Version bumps
+
+  10 Sep 2013; Anthony G. Basile <blueness@gentoo.org> -moodle-2.3.8.ebuild,
+  -moodle-2.4.5.ebuild, -moodle-2.5.1.ebuild:
+  Remove vulnerable versions, bug #484492
+
+*moodle-2.3.9 (08 Sep 2013)
+*moodle-2.5.2 (08 Sep 2013)
+*moodle-2.4.6 (08 Sep 2013)
+
+  08 Sep 2013; Anthony G. Basile <blueness@gentoo.org> +moodle-2.3.9.ebuild,
+  +moodle-2.4.6.ebuild, +moodle-2.5.2.ebuild, -moodle-2.2.11.ebuild:
+  Version bumps, remove deprecated 2.2 branch
+
+  28 Jul 2013; Anthony G. Basile <blueness@gentoo.org> moodle-2.5.1.ebuild:
+  Fix dependence on php, bug #478186
+
+  28 Jul 2013; Anthony G. Basile <blueness@gentoo.org> -moodle-2.2.10.ebuild,
+  -moodle-2.3.7.ebuild, -moodle-2.4.4.ebuild, -moodle-2.5.ebuild:
+  Remove older vulnerable versions
+
+*moodle-2.3.8 (07 Jul 2013)
+*moodle-2.4.5 (07 Jul 2013)
+*moodle-2.2.11 (07 Jul 2013)
+*moodle-2.5.1 (07 Jul 2013)
+
+  07 Jul 2013; Anthony G. Basile <blueness@gentoo.org> +moodle-2.2.11.ebuild,
+  +moodle-2.3.8.ebuild, +moodle-2.4.5.ebuild, +moodle-2.5.1.ebuild:
+  Version bumps
+
+  01 Jul 2013; Anthony G. Basile <blueness@gentoo.org> -moodle-2.2.9.ebuild,
+  -moodle-2.3.6.ebuild, -moodle-2.4.3.ebuild:
+  Remove vulnerable versions, bug #470904
+
+*moodle-2.2.10 (14 May 2013)
+*moodle-2.4.4 (14 May 2013)
+*moodle-2.5 (14 May 2013)
+*moodle-2.3.7 (14 May 2013)
+
+  14 May 2013; Anthony G. Basile <blueness@gentoo.org> +moodle-2.2.10.ebuild,
+  +moodle-2.3.7.ebuild, +moodle-2.4.4.ebuild, +moodle-2.5.ebuild:
+  Version bumps
 
   26 Mar 2013; Anthony G. Basile <blueness@gentoo.org> -moodle-2.2.7.ebuild,
   -moodle-2.3.4.ebuild, -moodle-2.4.1.ebuild:

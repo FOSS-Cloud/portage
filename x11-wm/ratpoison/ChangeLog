@@ -1,6 +1,39 @@
 # ChangeLog for x11-wm/ratpoison
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/ratpoison/ChangeLog,v 1.84 2013/04/08 10:54:42 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/ratpoison/ChangeLog,v 1.94 2013/10/19 15:29:24 pacho Exp $
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due desktop-wm removal
+
+  10 Oct 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Maintainership.
+
+  17 Jul 2013; Jeroen Roovers <jer@gentoo.org> ratpoison-1.4.6.ebuild,
+  files/ratpoison.el-gentoo.patch:
+  Fix path in patch, do not cd in src_prepare().
+
+  11 Jun 2013; Jeroen Roovers <jer@gentoo.org>
+  -files/ratpoison-1.4.4-glibc210.patch, -files/ratpoison-1.4.5-asneeded.patch,
+  -files/ratpoisonrc, -ratpoison-1.4.5.ebuild:
+  Old.
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> ratpoison-1.4.6.ebuild:
+  Stable for sparc, wrt bug #469680
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> ratpoison-1.4.6.ebuild:
+  Stable for ppc, wrt bug #469680
+
+  14 May 2013; Jeroen Roovers <jer@gentoo.org> ratpoison-1.4.6.ebuild:
+  Stable for HPPA (bug #469680).
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> ratpoison-1.4.6.ebuild:
+  Stable for x86, wrt bug #469680
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> ratpoison-1.4.6.ebuild:
+  Stable for amd64, wrt bug #469680
+
+  24 Apr 2013; Jeroen Roovers <jer@gentoo.org> ratpoison-1.4.5.ebuild:
+  Fix building with automake-1.13.
 
 *ratpoison-1.4.6 (08 Apr 2013)
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-9999.ebuild,v 1.58 2013/04/05 10:48:46 lu_zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-9999.ebuild,v 1.62 2013/08/11 23:17:55 aballier Exp $
 
 EAPI=5
 
@@ -43,7 +43,7 @@ done
 TOOLS="aviocat graph2dot ismindex pktdumper qt-faststart trasher"
 
 RDEPEND="
-	!media-video/ffmpeg
+	!media-video/ffmpeg:0
 	alsa? ( media-libs/alsa-lib )
 	amr? ( media-libs/opencore-amr )
 	bzip2? ( app-arch/bzip2 )
@@ -64,7 +64,7 @@ RDEPEND="
 			media-libs/libogg
 		)
 		vorbis? ( media-libs/libvorbis media-libs/libogg )
-		x264? ( >=media-libs/x264-0.0.20111017 )
+		x264? ( >=media-libs/x264-0.0.20111017:= )
 		xvid? ( >=media-libs/xvid-1.1.0 )
 	)
 	frei0r? ( media-plugins/frei0r-plugins )
@@ -74,7 +74,7 @@ RDEPEND="
 		sys-libs/libraw1394
 	)
 	jack? ( media-sound/jack-audio-connection-kit )
-	jpeg2k? ( >=media-libs/openjpeg-1.3-r2 )
+	jpeg2k? ( >=media-libs/openjpeg-1.3-r2:0 )
 	opus? ( media-libs/opus )
 	pulseaudio? ( media-sound/pulseaudio )
 	rtmp? ( >=media-video/rtmpdump-2.2f )
@@ -226,17 +226,6 @@ src_configure() {
 
 	# Option to force building pic
 	use pic && myconf+=" --enable-pic"
-
-	# Try to get cpu type based on CFLAGS.
-	# Bug #172723
-	# We need to do this so that features of that CPU will be better used
-	# If they contain an unknown CPU it will not hurt since configure
-	# will just ignore it.
-	for i in $(get-flag march) $(get-flag mcpu) $(get-flag mtune) ; do
-		[[ "${i}" == "native" ]] && i="host" # bug #273421
-		myconf+=" --cpu=${i}"
-		break
-	done
 
 	# cross compile support
 	if tc-is-cross-compiler ; then

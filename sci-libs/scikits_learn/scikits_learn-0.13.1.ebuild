@@ -1,10 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/scikits_learn/scikits_learn-0.13.1.ebuild,v 1.1 2013/03/03 07:39:23 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/scikits_learn/scikits_learn-0.13.1.ebuild,v 1.4 2013/09/18 10:55:51 jlec Exp $
 
 EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
+DISTUTILS_NO_PARALLEL_BUILD=true
 
 inherit distutils-r1 multilib flag-o-matic
 
@@ -41,6 +42,7 @@ python_prepare_all() {
 
 	# scikits-learn now uses the horrible numpy.distutils automagic
 	export SCIPY_FCONFIG="config_fc --noopt --noarch"
+	distutils-r1_python_prepare_all
 }
 
 python_compile() {
@@ -66,9 +68,10 @@ python_test() {
 	use doc && return
 	esetup.py \
 		install --root="${T}/test-${EPYTHON}" \
-		--no-compile ${SCIPY_FCONFIG} || die
-	cd "${T}/test-${EPYTHON}/$(python_get_sitedir)" || die
-	PYTHONPATH=. nosetests-${EPYTHON} sklearn --exe || die
+		--no-compile ${SCIPY_FCONFIG}
+	pushd "${T}/test-${EPYTHON}/$(python_get_sitedir)" || die > /dev/null
+	nosetests -v sklearn --exe || die
+	popd > /dev/null
 }
 
 python_install() {
@@ -77,7 +80,10 @@ python_install() {
 
 python_install_all() {
 	find "${S}" -name \*LICENSE.txt -delete
-	insinto /usr/share/doc/${PF}
-	use doc && dohtml -r doc/_build/html
-	use examples && doins -r examples
+	use doc && HTML_DOCS=( doc/_build/html/. )
+	distutils-r1_python_install_all
+	if use examples; then
+		insinto /usr/share/doc/${PF}
+		doins -r examples
+	fi
 }

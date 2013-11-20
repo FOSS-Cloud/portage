@@ -1,6 +1,44 @@
 # ChangeLog for Gentoo/x86-fbsd profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64-fbsd/ChangeLog,v 1.38 2013/04/07 19:41:52 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64-fbsd/ChangeLog,v 1.49 2013/09/05 10:08:25 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> use.mask:
+  Python 2.5 and 3.1 were removed from the tree.
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask,
+  todo/package.use.mask:
+  move devhelp usemask to the proper place
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask,
+  todo/package.use.mask:
+  move gvfs usemasks to the proper file
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask opencl flag due to lack of virtual/opencl keywording.
+
+  16 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  remove useless gvfs[gnome-keyring] mask
+
+  16 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  unmask nepomuk-core[epub], bug #481092
+
+  14 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org> package.use.mask:
+  mask ebook support of nepomuk-core until keyworded
+
+  09 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.use.force:
+  force abi_x86_32 on the rest of system packages too
+
+  09 Aug 2013; Alexis Ballier <aballier@gentoo.org> +package.use.force:
+  force abi_x86_32 on fbsd-lib, in preparation for migrating it to the multilib
+  eclasses
+
+  27 Jul 2013; Alexis Ballier <aballier@gentoo.org> make.defaults, use.force,
+  use.mask:
+  add support for multilib eclasses, bug #475294 by Yuta SATOH
+
+  08 Jul 2013; Alexis Ballier <aballier@gentoo.org> make.defaults:
+  Add CFLAGS and LDFLAGS so that gcc finds the needed files and libraries when
+  doing multilib.
 
   07 Apr 2013; Michael Palimaka <kensington@gentoo.org> -package.mask:
   Unmask KDE SC 4.10.0 since it is no longer in the tree.

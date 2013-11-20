@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pycuda/pycuda-2012.1.ebuild,v 1.1 2013/01/15 15:25:13 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pycuda/pycuda-2012.1.ebuild,v 1.2 2013/07/07 19:15:38 jlec Exp $
 
 EAPI=5
 
@@ -18,24 +18,24 @@ KEYWORDS="~amd64 ~x86"
 IUSE="examples opengl test"
 
 RDEPEND="
-	dev-libs/boost[python]
-	dev-python/decorator
-	dev-python/mako
-	dev-python/numpy
-	>=dev-python/pytools-2011.2
+	dev-libs/boost[python,${PYTHON_USEDEP}]
+	dev-python/decorator[${PYTHON_USEDEP}]
+	dev-python/mako[${PYTHON_USEDEP}]
+	dev-python/numpy[${PYTHON_USEDEP}]
+	>=dev-python/pytools-2011.2[${PYTHON_USEDEP}]
 	dev-util/nvidia-cuda-toolkit
 	x11-drivers/nvidia-drivers
 	opengl? ( virtual/opengl )"
 DEPEND="${RDEPEND}
 	test? (
-		dev-python/mako
+		dev-python/mako[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}] )"
 
 # We need write acccess /dev/nvidia0 and /dev/nvidiactl and the portage
 # user is (usually) not in the video group
 RESTRICT="userpriv"
 
-src_prepare() {
+python_prepare_all() {
 	cuda_sanitize
 	sed \
 		-e "s:'--preprocess':\'--preprocess\', \'--compiler-bindir=$(cuda_gccdir)\':g" \
@@ -43,29 +43,29 @@ src_prepare() {
 		-e "s:/usr/include/pycuda:${S}/src/cuda:g" \
 		-i pycuda/compiler.py || die
 
-	distutils-r1_src_prepare
+	touch siteconf.py || die
+
+	distutils-r1_python_prepare_all
 }
 
-src_compile() {
+python_configure() {
 	local myopts=()
 	use opengl && myopts+=( --cuda-enable-gl )
 
-	compilation() {
-		[[ -e ./siteconf.py ]] && rm -f ./siteconf.py
-		"${EPYTHON}" configure.py \
-			--boost-inc-dir="${EPREFIX}/usr/include" \
-			--boost-lib-dir="${EPREFIX}/usr/$(get_libdir)" \
-			--boost-python-libname=boost_python-$(echo ${EPYTHON} | sed 's/python//')-mt \
-			--boost-thread-libname=boost_thread-mt \
-			--cuda-root="${EPREFIX}/opt/cuda" \
-			--cudadrv-lib-dir="${EPREFIX}/usr/$(get_libdir)" \
-			--cudart-lib-dir="${EPREFIX}/opt/cuda/$(get_libdir)" \
-			--cuda-inc-dir="${EPREFIX}/opt/cuda/include" \
-			--no-use-shipped-boost \
-			"${myopts[@]}"
-			distutils-r1_python_compile
-	}
-	python_foreach_impl compilation
+	mkdir "${BUILD_DIR}" || die
+	cd "${BUILD_DIR}" || die
+	[[ -e ./siteconf.py ]] && rm -f ./siteconf.py
+	"${EPYTHON}" "${S}"/configure.py \
+		--boost-inc-dir="${EPREFIX}/usr/include" \
+		--boost-lib-dir="${EPREFIX}/usr/$(get_libdir)" \
+		--boost-python-libname=boost_python-$(echo ${EPYTHON} | sed 's/python//')-mt \
+		--boost-thread-libname=boost_thread-mt \
+		--cuda-root="${EPREFIX}/opt/cuda" \
+		--cudadrv-lib-dir="${EPREFIX}/usr/$(get_libdir)" \
+		--cudart-lib-dir="${EPREFIX}/opt/cuda/$(get_libdir)" \
+		--cuda-inc-dir="${EPREFIX}/opt/cuda/include" \
+		--no-use-shipped-boost \
+		"${myopts[@]}"
 }
 
 src_test() {
@@ -78,8 +78,8 @@ src_test() {
 	distutils-r1_src_test
 }
 
-src_install() {
-	distutils-r1_src_install
+python_install_all() {
+	distutils-r1_python_install_all
 
 	if use examples; then
 		insinto /usr/share/doc/${PF}

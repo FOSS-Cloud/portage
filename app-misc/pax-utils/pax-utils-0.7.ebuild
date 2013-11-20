@@ -1,6 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/pax-utils/pax-utils-0.7.ebuild,v 1.1 2013/04/07 21:04:00 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/pax-utils/pax-utils-0.7.ebuild,v 1.5 2013/11/09 17:24:22 pacho Exp $
+
+EAPI=4
 
 inherit eutils toolchain-funcs unpacker
 
@@ -12,7 +14,7 @@ SRC_URI="mirror://gentoo/pax-utils-${PV}.tar.xz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="~alpha amd64 ~arm hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 IUSE="caps python"
 #RESTRICT="mirror"
 
@@ -25,7 +27,7 @@ _emake() {
 	emake \
 		USE_CAP=$(usex caps) \
 		USE_PYTHON=$(usex python) \
-		"$@" || die
+		"$@"
 }
 
 src_compile() {
@@ -37,6 +39,5 @@ src_test() {
 }
 
 src_install() {
-	_emake DESTDIR="${D}" PKGDOCDIR='$(DOCDIR)'/${PF} install
-	prepalldocs
+	_emake DESTDIR="${ED}" PKGDOCDIR='$(DOCDIR)'/${PF} install
 }

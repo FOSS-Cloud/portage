@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/gts/gts-20111025-r1.ebuild,v 1.5 2012/10/18 21:46:06 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/gts/gts-20111025-r1.ebuild,v 1.6 2013/07/10 09:32:16 jlec Exp $
 
 EAPI=4
 
@@ -8,16 +8,17 @@ AUTOTOOLS_AUTORECONF=1
 inherit autotools-utils fortran-2
 
 DESCRIPTION="GNU Triangulated Surface Library"
-LICENSE="LGPL-2"
 HOMEPAGE="http://gts.sourceforge.net/"
 SRC_URI="http://dev.gentoo.org/~bicatali/distfiles/${P}.tar.gz"
 
 SLOT="0"
+LICENSE="LGPL-2"
 KEYWORDS="~amd64 ~hppa ~ppc ~x86"
 IUSE="doc examples static-libs test"
 
 RDEPEND="dev-libs/glib:2"
 DEPEND="${RDEPEND}
+	dev-util/gtk-doc
 	virtual/pkgconfig
 	test? ( media-libs/netpbm )"
 

@@ -1,6 +1,66 @@
 # ChangeLog for net-print/foomatic-db-engine
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/foomatic-db-engine/ChangeLog,v 1.56 2012/03/09 01:23:39 dilfridge Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-print/foomatic-db-engine/ChangeLog,v 1.71 2013/10/20 20:24:18 maekke Exp $
+
+  20 Oct 2013; Markus Meier <maekke@gentoo.org>
+  foomatic-db-engine-4.0.9.ebuild:
+  arm stable, bug #486892
+
+  13 Oct 2013; Chema Alonso <nimiux@gentoo.org>
+  foomatic-db-engine-4.0.9.ebuild:
+  Stable for amd64 wrt bug #486892
+
+  10 Oct 2013; Jeroen Roovers <jer@gentoo.org> foomatic-db-engine-4.0.9.ebuild:
+  Stable for HPPA (bug #486892).
+
+  05 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -files/4.0.3-perl-module.patch,
+  -files/4.0.3-respect-ldflag.patch, -files/perl-module-3.0.1.diff,
+  -files/perl-module-3.0.20070508.diff, -foomatic-db-engine-4.0.7.ebuild:
+  Cleanup old.
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org>
+  foomatic-db-engine-4.0.8.ebuild:
+  Mark s390/sh/sparc stable #442442.
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-engine-4.0.8.ebuild:
+  Stable for ia64, wrt bug #442442
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-engine-4.0.8.ebuild:
+  Stable for x86, wrt bug #442442
+
+  17 Aug 2013; Jeroen Roovers <jer@gentoo.org> foomatic-db-engine-4.0.8.ebuild:
+  Stable for HPPA (bug #442442).
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-engine-4.0.8.ebuild:
+  Stable for alpha, wrt bug #442442
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-engine-4.0.8.ebuild:
+  Stable for ppc64, wrt bug #442442
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-engine-4.0.8.ebuild:
+  Stable for ppc, wrt bug #442442
+
+  09 Aug 2013; Markus Meier <maekke@gentoo.org>
+  foomatic-db-engine-4.0.8.ebuild:
+  arm stable, bug #442442
+
+  08 Aug 2013; Manuel Rüger <mrueg@gentoo.org> foomatic-db-engine-4.0.7.ebuild,
+  foomatic-db-engine-4.0.8.ebuild:
+  Add missing dependency on net-print/cups. Fixes bug #480156
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-db-engine-4.0.8.ebuild:
+  Stable for amd64, wrt bug #442442
+
+*foomatic-db-engine-4.0.9 (02 Aug 2013)
+
+  02 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +foomatic-db-engine-4.0.9.ebuild:
+  Non-maintainer commit wrt bug #469124
 
   09 Mar 2012; Andreas K. Huettel <dilfridge@gentoo.org>
   -foomatic-db-engine-3.0.20060720.ebuild:
@@ -256,4 +316,3 @@
 
   16 Jul 2003; Heinrich Wendel <lanius@gentoo.org> files/perl-module.diff:
   initial release
-

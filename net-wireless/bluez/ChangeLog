@@ -1,6 +1,52 @@
 # ChangeLog for net-wireless/bluez
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/bluez/ChangeLog,v 1.159 2013/02/12 19:32:03 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/bluez/ChangeLog,v 1.172 2013/11/09 16:16:51 pacho Exp $
+
+  09 Nov 2013; Pacho Ramos <pacho@gentoo.org> bluez-4.101-r7.ebuild:
+  amd64 stable, bug #487748
+
+  28 Oct 2013; Jeroen Roovers <jer@gentoo.org> bluez-4.101-r7.ebuild:
+  Stable for HPPA (bug #487748).
+
+  06 Oct 2013; Pacho Ramos <pacho@gentoo.org> bluez-4.101-r7.ebuild:
+  Make autoreconf work with latest automake (#487042 by Arfrever Frehtes
+  Taifersar Arahesis)
+
+*bluez-4.101-r7 (03 Oct 2013)
+
+  03 Oct 2013; Pacho Ramos <pacho@gentoo.org> +bluez-4.101-r7.ebuild:
+  Apply Fedora patches including fixes and backports for bluez-4
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r6.ebuild:
+  Stable for ppc, wrt bug #481828
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r6.ebuild:
+  Stable for ppc64, wrt bug #481828
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r6.ebuild:
+  Stable for x86, wrt bug #481828
+
+  17 Sep 2013; Jeroen Roovers <jer@gentoo.org> bluez-4.101-r6.ebuild:
+  Stable for HPPA (bug #481828).
+
+  15 Sep 2013; Markus Meier <maekke@gentoo.org> bluez-4.101-r6.ebuild:
+  arm stable, bug #481828
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r6.ebuild:
+  Stable for amd64, wrt bug #481828
+
+*bluez-4.101-r6 (20 Aug 2013)
+
+  20 Aug 2013; Pacho Ramos <pacho@gentoo.org> +bluez-4.101-r6.ebuild:
+  Stop reverting commit as current kernels in the tree need (#481496 by
+  Alexander Tsoy), simplify consolekit/systemd/plugdev handling
+
+  30 Jul 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> bluez-4.101-r5.ebuild,
+  metadata.xml:
+  Fix usage of python-r1.eclass
 
   12 Feb 2013; Pacho Ramos <pacho@gentoo.org> -bluez-4.101-r4.ebuild,
   -bluez-4.99.ebuild, -files/bluetooth-conf.d, -files/bluetooth-init.d,

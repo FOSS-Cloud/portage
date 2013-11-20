@@ -1,6 +1,33 @@
 # ChangeLog for games-util/nml
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-util/nml/ChangeLog,v 1.14 2013/02/25 12:16:39 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-util/nml/ChangeLog,v 1.21 2013/11/12 03:18:29 mr_bones_ Exp $
+
+  12 Nov 2013; Michael Sterrett <mr_bones_@gentoo.org> -nml-0.2.3.ebuild,
+  -nml-0.2.4-r1.ebuild:
+  old
+
+  16 Sep 2013; Michael Sterrett <mr_bones_@gentoo.org> nml-0.2.4-r2.ebuild:
+  virtual/python-imaging -> dev-python/pillow[zlib,] since the virtual is going
+  away (bug #484938)
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> nml-0.2.4-r1.ebuild,
+  nml-0.2.4-r2.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nml-0.2.4-r2.ebuild:
+  Stable for x86, wrt bug #478806
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nml-0.2.4-r2.ebuild:
+  Stable for amd64, wrt bug #478806
+
+*nml-0.2.4-r2 (30 Jul 2013)
+
+  30 Jul 2013; Julian Ospald <hasufell@gentoo.org> +nml-0.2.4-r2.ebuild:
+  revbump wrt #477448, don't overwrite distutils-r1_src_prepare
+
+  20 Jul 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/nml-0.2.4-pillow.patch, nml-0.2.4-r1.ebuild:
+  use virtual/python-imaging with patch from Jakob Kummerow (bug #471516)
 
   25 Feb 2013; Agostino Sarubbo <ago@gentoo.org> nml-0.2.4-r1.ebuild:
   Stable for x86, wrt bug #458240

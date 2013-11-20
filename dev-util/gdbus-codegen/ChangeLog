@@ -1,6 +1,101 @@
 # ChangeLog for dev-util/gdbus-codegen
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/gdbus-codegen/ChangeLog,v 1.45 2013/03/29 14:13:29 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/gdbus-codegen/ChangeLog,v 1.67 2013/11/14 04:56:43 mattst88 Exp $
+
+  14 Nov 2013; Matt Turner <mattst88@gentoo.org> gdbus-codegen-2.34.3-r1.ebuild:
+  alpha stable, bug 476364.
+
+  24 Oct 2013; Jeroen Roovers <jer@gentoo.org> gdbus-codegen-2.34.3-r1.ebuild:
+  Stable for HPPA (bug #476364).
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> gdbus-codegen-2.34.3-r1.ebuild:
+  arm stable, bug #476364
+
+  29 Sep 2013; Michał Górny <mgorny@gentoo.org> -gdbus-codegen-2.32.4.ebuild:
+  Drop old.
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gdbus-codegen-2.32.4-r1.ebuild:
+  Stable for sparc, wrt bug #479506
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> gdbus-codegen-2.32.4-r1.ebuild,
+  gdbus-codegen-2.32.4-r2.ebuild, gdbus-codegen-2.32.4.ebuild,
+  gdbus-codegen-2.34.3-r1.ebuild, gdbus-codegen-2.34.3.ebuild,
+  gdbus-codegen-2.36.4-r1.ebuild, gdbus-codegen-2.36.4.ebuild:
+  Remove Python 2.5 and 3.1 support.
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gdbus-codegen-2.32.4-r1.ebuild:
+  Stable for alpha, wrt bug #479506
+
+*gdbus-codegen-2.36.4-r1 (01 Sep 2013)
+*gdbus-codegen-2.34.3-r1 (01 Sep 2013)
+*gdbus-codegen-2.32.4-r2 (01 Sep 2013)
+
+  01 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +gdbus-codegen-2.32.4-r2.ebuild, +gdbus-codegen-2.34.3-r1.ebuild,
+  -gdbus-codegen-2.36.3.ebuild, +gdbus-codegen-2.36.4-r1.ebuild,
+  +files/gdbus-codegen-2.36.4-input-encoding.patch:
+  Do not open input files as build-environment encoding text when using python3
+  as the python interpreter (bug #483060, thanks to Fernando V. (likewhoa)).
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gdbus-codegen-2.32.4-r1.ebuild:
+  Stable for ia64, wrt bug #479506
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gdbus-codegen-2.32.4-r1.ebuild:
+  Stable for x86, wrt bug #479506
+
+  16 Aug 2013; Jeroen Roovers <jer@gentoo.org> gdbus-codegen-2.32.4-r1.ebuild:
+  Stable for HPPA (bug #479506).
+
+*gdbus-codegen-2.36.4 (16 Aug 2013)
+
+  16 Aug 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -gdbus-codegen-2.36.2.ebuild, +gdbus-codegen-2.36.4.ebuild:
+  Version bump, remove old.
+
+  15 Aug 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gdbus-codegen-2.34.3.ebuild:
+  Don't patch twice (bug #481142, thanks to Patrick Lauer).
+
+  14 Aug 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gdbus-codegen-2.32.4-r1.ebuild, gdbus-codegen-2.34.3.ebuild,
+  gdbus-codegen-2.36.2.ebuild, gdbus-codegen-2.36.3.ebuild:
+  Silence distutils-r1 QA warnings (bug #481052, thanks to Michael Palimaka
+  (kensington)).
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gdbus-codegen-2.32.4-r1.ebuild:
+  Stable for ppc64, wrt bug #479506
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gdbus-codegen-2.32.4-r1.ebuild:
+  Stable for ppc, wrt bug #479506
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gdbus-codegen-2.32.4-r1.ebuild:
+  Stable for amd64, wrt bug #479506
+
+  09 Aug 2013; Markus Meier <maekke@gentoo.org> gdbus-codegen-2.32.4-r1.ebuild:
+  arm stable, bug #479506
+
+*gdbus-codegen-2.32.4-r1 (02 Aug 2013)
+
+  02 Aug 2013; Michał Górny <mgorny@gentoo.org> +gdbus-codegen-2.32.4-r1.ebuild:
+  Backport the distutils-r1 conversion.
+
+*gdbus-codegen-2.36.3 (10 Jun 2013)
+
+  10 Jun 2013; Pacho Ramos <pacho@gentoo.org> +gdbus-codegen-2.36.3.ebuild,
+  -gdbus-codegen-2.36.1.ebuild:
+  Version bump, drop old
+
+*gdbus-codegen-2.36.2 (14 May 2013)
+
+  14 May 2013; Pacho Ramos <pacho@gentoo.org> +gdbus-codegen-2.36.2.ebuild,
+  -gdbus-codegen-2.36.0.ebuild:
+  Version bump, drop old
+
+*gdbus-codegen-2.36.1 (23 Apr 2013)
+
+  23 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gdbus-codegen-2.36.1.ebuild,
+  -gdbus-codegen-2.30.3.ebuild, -gdbus-codegen-2.34.2.ebuild:
+  Version bump, drop old
 
   29 Mar 2013; Pacho Ramos <pacho@gentoo.org>
   +files/gdbus-codegen-2.36.0-sitedir.patch, gdbus-codegen-2.36.0.ebuild:

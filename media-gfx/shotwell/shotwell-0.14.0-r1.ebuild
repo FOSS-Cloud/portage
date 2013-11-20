@@ -1,11 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/shotwell/shotwell-0.14.0-r1.ebuild,v 1.1 2013/03/21 16:39:47 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/shotwell/shotwell-0.14.0-r1.ebuild,v 1.4 2013/10/04 22:12:48 tetromino Exp $
 
 EAPI=5
 
 GCONF_DEBUG="no"
 VALA_MIN_API_VERSION="0.18"
+VALA_MAX_API_VERSION="0.20"
 
 inherit eutils gnome2 multilib toolchain-funcs vala versionator
 
@@ -33,6 +34,7 @@ RDEPEND="
 	>=dev-libs/json-glib-0.7.6
 	>=dev-libs/libgee-0.5.0:0
 	>=dev-libs/libxml2-2.6.32:2
+	gnome-base/dconf
 	>=media-libs/gexiv2-0.4.90
 	media-libs/gst-plugins-base:1.0
 	media-libs/gst-plugins-good:1.0
@@ -40,7 +42,7 @@ RDEPEND="
 	media-libs/lcms:2
 	>=media-libs/libexif-0.6.16
 	>=media-libs/libgphoto2-2.4.2:=
-	>=media-libs/libraw-0.14.0
+	>=media-libs/libraw-0.14.0:=
 	>=net-libs/libsoup-2.26.0:2.4
 	net-libs/rest:0.7
 	net-libs/webkit-gtk:3

@@ -1,6 +1,63 @@
 # ChangeLog for dev-java/oracle-jdk-bin
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/oracle-jdk-bin/ChangeLog,v 1.34 2013/03/07 18:45:53 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/oracle-jdk-bin/ChangeLog,v 1.47 2013/10/27 09:56:15 tomwij Exp $
+
+  27 Oct 2013; Tom Wijsman <TomWij@gentoo.org> oracle-jdk-bin-1.7.0.45.ebuild:
+  Bump samples tarball version number; reported by TheMadMan, permitted by ago.
+
+  19 Oct 2013; Agostino Sarubbo <ago@gentoo.org>
+  -oracle-jdk-bin-1.7.0.25.ebuild, -oracle-jdk-bin-1.7.0.40.ebuild:
+  Remove old
+
+  19 Oct 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jdk-bin-1.7.0.45.ebuild:
+  Stable for x86, wrt bug #488210
+
+  19 Oct 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jdk-bin-1.7.0.45.ebuild:
+  Stable for amd64, wrt bug #488210
+
+*oracle-jdk-bin-1.7.0.45 (16 Oct 2013)
+
+  16 Oct 2013; Tom Wijsman <TomWij@gentoo.org> +oracle-jdk-bin-1.7.0.45.ebuild:
+  Version bump to 1.7.0.45, fixes bug #488174.
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jdk-bin-1.7.0.40.ebuild:
+  Stable for x86, wrt bug #485528
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jdk-bin-1.7.0.40.ebuild:
+  Stable for amd64, wrt bug #485528
+
+*oracle-jdk-bin-1.7.0.40 (11 Sep 2013)
+
+  11 Sep 2013; Tom Wijsman <TomWij@gentoo.org> +oracle-jdk-bin-1.7.0.40.ebuild:
+  Version bump to 1.7.0.40, fixes bug #484568; ARM now has soft and hard float
+  support.
+
+  29 Jun 2013; Tom Wijsman <TomWij@gentoo.org> -oracle-jdk-bin-1.7.0.17.ebuild,
+  -oracle-jdk-bin-1.7.0.21.ebuild, oracle-jdk-bin-1.7.0.25.ebuild:
+  Drop old insecure versions; stabilized 1.7.0.25 after building, testing and
+  running some Java software. Permitted by ago.
+
+  26 Jun 2013; Andreas Schuerch <nativemad@gentoo.org>
+  oracle-jdk-bin-1.7.0.25.ebuild:
+  x86 stable, see bug 473980
+
+*oracle-jdk-bin-1.7.0.25 (22 Jun 2013)
+
+  22 Jun 2013; Tom Wijsman <TomWij@gentoo.org> +oracle-jdk-bin-1.7.0.25.ebuild,
+  oracle-jdk-bin-1.7.0.17.ebuild, oracle-jdk-bin-1.7.0.21.ebuild:
+  Version bump to 1.7.0.25 for security bug #473980 reported by Hypnos, fixes 40
+  CVEs.
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jdk-bin-1.7.0.21.ebuild:
+  Stable for x86, wrt bug #466212
+
+*oracle-jdk-bin-1.7.0.21 (17 Apr 2013)
+
+  17 Apr 2013; Ralph Sennhauser <sera@gentoo.org>
+  -oracle-jdk-bin-1.7.0.10.ebuild, -oracle-jdk-bin-1.7.0.15.ebuild,
+  +oracle-jdk-bin-1.7.0.21.ebuild:
+  Security bump. #466212
+  arm has no server vm. #464974
 
   07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> oracle-jdk-bin-1.7.0.17.ebuild:
   Stable for x86, wrt bug #460360

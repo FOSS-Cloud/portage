@@ -1,6 +1,35 @@
 # ChangeLog for media-libs/libmikmod
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libmikmod/ChangeLog,v 1.106 2013/03/16 10:57:30 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libmikmod/ChangeLog,v 1.112 2013/10/26 07:21:43 aballier Exp $
+
+*libmikmod-3.3.3 (26 Oct 2013)
+
+  26 Oct 2013; Alexis Ballier <aballier@gentoo.org> +libmikmod-3.3.3.ebuild:
+  version bump
+
+*libmikmod-3.3.2 (11 Oct 2013)
+
+  11 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> +libmikmod-3.3.2.ebuild:
+  Version bump; with temporarily disabled openal, sdl and sdl2 support because
+  they haven't been converted to the new multilib format yet.
+
+  27 Jun 2013; Alexis Ballier <aballier@gentoo.org> libmikmod-3.2.0-r1.ebuild:
+  Hardcode Libs in the .pc file since libmikmod-config is really broken: it
+  gives -L/usr/lib64 as soon as it exists...
+
+  27 Jun 2013; Alexis Ballier <aballier@gentoo.org> libmikmod-3.2.0-r1.ebuild:
+  add a blocker on emul-linux-soundlibs
+
+  27 Jun 2013; Alexis Ballier <aballier@gentoo.org> libmikmod-3.2.0-r1.ebuild:
+  Add missing MULTILIB_USEDEP on alsa-lib. Add altivec, debug and threads
+  useflags. Disable dlopening its libraries and link to them instead: We have
+  tools to detect breakage in case its linked, it is more complicated with
+  dlopen.
+
+  03 May 2013; Samuli Suominen <ssuominen@gentoo.org> libmikmod-3.2.0.ebuild,
+  libmikmod-3.2.0-r1.ebuild:
+  Use AC_CONFIG_HEADERS instead of AM_CONFIG_HEADER for automake-1.13
+  compability wrt #468212 by Ulenrich
 
   16 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> metadata.xml:
   Remove unused USE description "raw" (raw file format)

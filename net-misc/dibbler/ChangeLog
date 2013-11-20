@@ -1,6 +1,29 @@
 # ChangeLog for net-misc/dibbler
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dibbler/ChangeLog,v 1.17 2013/04/05 13:59:31 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dibbler/ChangeLog,v 1.23 2013/11/09 15:30:14 pacho Exp $
+
+  09 Nov 2013; Pacho Ramos <pacho@gentoo.org> dibbler-0.8.3-r1.ebuild:
+  x86 stable, bug #477168
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> dibbler-0.8.3-r1.ebuild:
+  Stable for amd64, wrt bug #477168
+
+  18 Sep 2013; Jeroen Roovers <jer@gentoo.org> dibbler-0.8.3-r1.ebuild:
+  Stable for HPPA (bug #477168).
+
+  14 Sep 2013; Pacho Ramos <pacho@gentoo.org> dibbler-0.8.3-r1.ebuild:
+  Fix deps #484908 by Aballier
+
+*dibbler-0.8.3-r1 (14 Sep 2013)
+
+  14 Sep 2013; Pacho Ramos <pacho@gentoo.org> +dibbler-0.8.3-r1.ebuild,
+  +files/dibbler-client.service, -dibbler-0.8.0.ebuild, -dibbler-0.8.2.ebuild,
+  -dibbler-0.8.3.ebuild, -files/dibbler-0.8.2-gcc47.patch,
+  -files/dibbler-gcc-4.1.patch:
+  Install unit file, drop old
+
+  13 Sep 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  drop to maintainer-needed
 
 *dibbler-0.8.3 (05 Apr 2013)
 

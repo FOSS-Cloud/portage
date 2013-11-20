@@ -140,8 +140,10 @@ video_cards_r100
 video_cards_r200
 video_cards_r300
 video_cards_r600
+video_cards_radeonsi
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
 
@@ -172,3 +174,10 @@ wayland
 # libdlm and cman are not keyworded
 cman
 clvm
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl
+
+# Unmask once sys-libs/libunwind gets keyworded.
+unwind

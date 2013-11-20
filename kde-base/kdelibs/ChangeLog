@@ -1,6 +1,225 @@
 # ChangeLog for kde-base/kdelibs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/ChangeLog,v 1.908 2013/04/06 00:04:34 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/ChangeLog,v 1.957 2013/11/05 22:22:57 dilfridge Exp $
+
+*kdelibs-4.11.3 (05 Nov 2013)
+
+  05 Nov 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +kdelibs-4.11.3.ebuild:
+  Version bump KDE SC 4.11.3
+
+  10 Oct 2013; Chris Reffett <creffett@gentoo.org>
+  files/kdelibs-4.10.0-udisks.patch,
+  files/kdelibs-4.3.80-kdeui_util_kkeyserver_mac.patch,
+  files/kdelibs-4.4.90-xslt.patch, files/kdelibs-4.6.2-armlinking.patch,
+  files/kdelibs-4.6.3-no_suid_kdeinit.patch,
+  files/kdelibs-4.7.96-mimetypes.patch, files/kdelibs-4.8.1-norpath.patch,
+  files/kdelibs-4.9.3-werror.patch:
+  Restore kdepim 4.4.11.1, accidentally removed when removing kde 4.11.1
+
+  10 Oct 2013; Chris Reffett <creffett@gentoo.org> -kdelibs-4.11.1.ebuild,
+  files/kdelibs-4.10.0-udisks.patch,
+  files/kdelibs-4.3.80-kdeui_util_kkeyserver_mac.patch,
+  files/kdelibs-4.4.90-xslt.patch, files/kdelibs-4.6.2-armlinking.patch,
+  files/kdelibs-4.6.3-no_suid_kdeinit.patch,
+  files/kdelibs-4.7.96-mimetypes.patch, files/kdelibs-4.8.1-norpath.patch,
+  files/kdelibs-4.9.3-werror.patch:
+  Drop KDE SC 4.11.1
+
+  09 Oct 2013; Chris Reffett <creffett@gentoo.org>
+  files/kdelibs-4.10.0-udisks.patch,
+  files/kdelibs-4.3.80-kdeui_util_kkeyserver_mac.patch,
+  files/kdelibs-4.4.90-xslt.patch, files/kdelibs-4.6.2-armlinking.patch,
+  files/kdelibs-4.6.3-no_suid_kdeinit.patch,
+  files/kdelibs-4.7.96-mimetypes.patch, files/kdelibs-4.8.1-norpath.patch,
+  files/kdelibs-4.9.3-werror.patch:
+  Version bump KDE SC 4.11.2
+
+*kdelibs-4.11.2-r1 (08 Oct 2013)
+
+  08 Oct 2013; Chris Reffett <creffett@gentoo.org> +kdelibs-4.11.2-r1.ebuild:
+  Version bump KDE SC 4.11.2
+
+  05 Sep 2013; Michael Palimaka <kensington@gentoo.org>
+  +files/kdelibs-4.11.1-jpeg-9.patch, kdelibs-4.11.1.ebuild:
+  Backport patch from upstream fixing build with jpeg-9, wrt bug #483348.
+
+  03 Sep 2013; Chris Reffett <creffett@gentoo.org> -kdelibs-4.11.0-r1.ebuild,
+  -kdelibs-4.11.0.ebuild, files/kdelibs-4.10.0-udisks.patch,
+  files/kdelibs-4.3.80-kdeui_util_kkeyserver_mac.patch,
+  files/kdelibs-4.4.90-xslt.patch, files/kdelibs-4.6.2-armlinking.patch,
+  files/kdelibs-4.6.3-no_suid_kdeinit.patch,
+  files/kdelibs-4.7.96-mimetypes.patch, files/kdelibs-4.8.1-norpath.patch,
+  files/kdelibs-4.9.3-werror.patch:
+  Drop KDE 4.11.0
+
+*kdelibs-4.11.1 (03 Sep 2013)
+
+  03 Sep 2013; Chris Reffett <creffett@gentoo.org> +kdelibs-4.11.1.ebuild,
+  files/kdelibs-4.10.0-udisks.patch,
+  files/kdelibs-4.3.80-kdeui_util_kkeyserver_mac.patch,
+  files/kdelibs-4.4.90-xslt.patch, files/kdelibs-4.6.2-armlinking.patch,
+  files/kdelibs-4.6.3-no_suid_kdeinit.patch,
+  files/kdelibs-4.7.96-mimetypes.patch, files/kdelibs-4.8.1-norpath.patch,
+  files/kdelibs-4.9.3-werror.patch:
+  Bump KDE to 4.1.1
+
+*kdelibs-4.11.0-r1 (25 Aug 2013)
+
+  25 Aug 2013; Michael Palimaka <kensington@gentoo.org>
+  +files/kdelibs-4.11.0-themecrash.patch, +kdelibs-4.11.0-r1.ebuild:
+  Backport patch from upstream fixing a crash.
+
+*kdelibs-4.11.0 (14 Aug 2013)
+
+  14 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +kdelibs-4.11.0.ebuild:
+  Version bump KDE SC 4.11.0
+
+  06 Aug 2013; Michael Palimaka <kensington@gentoo.org>
+  kdelibs-4.10.5-r1.ebuild:
+  Pin virtual/jpeg SLOT to 0.
+
+  02 Aug 2013; Johannes Huber <johu@gentoo.org> -kdelibs-4.10.4.ebuild:
+  Remove KDE SC 4.10.4
+
+  02 Aug 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.5-r1.ebuild:
+  Stable for ppc64, wrt to bug #477634
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.5-r1.ebuild:
+  Stable for ppc, wrt to bug #477634
+
+  29 Jul 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.5-r1.ebuild:
+  Stable for x86, wrt to bug #477634
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.5-r1.ebuild:
+  Stable for amd64, wrt to bug #477634
+
+  25 Jul 2013; Johannes Huber <johu@gentoo.org> -kdelibs-4.10.5.ebuild:
+  Remove old.
+
+*kdelibs-4.10.5-r1 (22 Jul 2013)
+
+  22 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +files/kdelibs-4.10.5-home.patch, +kdelibs-4.10.5-r1.ebuild:
+  Backport fix for bug 451454
+
+*kdelibs-4.10.5 (02 Jul 2013)
+
+  02 Jul 2013; Johannes Huber <johu@gentoo.org> +kdelibs-4.10.5.ebuild:
+  Version bump KDE SC 4.10.5
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> -kdelibs-4.10.3-r2.ebuild:
+  Remove old
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.4.ebuild:
+  Stable for ppc64, wrt to bug #473942
+
+  01 Jul 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.4.ebuild:
+  Stable for ppc, wrt to bug #473942
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.4.ebuild:
+  Stable for x86, wrt to bug #473942
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.4.ebuild:
+  Stable for amd64, wrt to bug #473942
+
+  08 Jun 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +files/kdelibs-4.10.2-security-url-dont-show-password.patch:
+  Restore missing patch, bug 472694
+
+  08 Jun 2013; Agostino Sarubbo <ago@gentoo.org>
+  -files/kdelibs-4.10.2-security-url-dont-show-password.patch,
+  -kdelibs-4.10.2-r1.ebuild:
+  Remove old
+
+  08 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.3-r2.ebuild:
+  Stable for ppc64, wrt to bug #471392
+
+  06 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.3-r2.ebuild:
+  Stable for ppc, wrt to bug #471392
+
+  05 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.3-r2.ebuild:
+  Stable for x86, wrt to bug #471392
+
+*kdelibs-4.10.4 (04 Jun 2013)
+
+  04 Jun 2013; Johannes Huber <johu@gentoo.org> +kdelibs-4.10.4.ebuild:
+  Version bump KDE SC 4.10.4
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.3-r2.ebuild:
+  Stable for amd64, wrt to bug #471392
+
+  23 May 2013; Johannes Huber <johu@gentoo.org> kdelibs-4.10.2-r1.ebuild,
+  kdelibs-4.10.3-r2.ebuild:
+  Drop obsolete einfo wrt bug #468002.
+
+*kdelibs-4.10.3-r2 (12 May 2013)
+
+  12 May 2013; Johannes Huber <johu@gentoo.org>
+  +files/kdelibs-4.10.3-dialog-quit-crash.patch, +kdelibs-4.10.3-r2.ebuild,
+  -kdelibs-4.10.3-r1.ebuild:
+  Backport upstream patch which fixes crashes on dialog quit spotted by Egor Y.
+  Egorov <egorov_egor@bk.ru> wrt bug #469334.
+
+  12 May 2013; Johannes Huber <johu@gentoo.org> kdelibs-4.10.2-r1.ebuild,
+  kdelibs-4.10.3-r1.ebuild:
+  Update zeroconf info by BobbyK <bobbykent32@hotmail.com> wrt bug #469448.
+
+  10 May 2013; Michael Palimaka <kensington@gentoo.org>
+  -files/kdelibs-4.10.1-giflib5.patch:
+  Remove unused patch.
+
+  09 May 2013; Agostino Sarubbo <ago@gentoo.org> -kdelibs-4.10.2.ebuild:
+  Remove old
+
+  09 May 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.2-r1.ebuild:
+  Stable for ppc64, wrt bug #469140
+
+  09 May 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.2-r1.ebuild:
+  Stable for ppc, wrt bug #469140
+
+  09 May 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.2-r1.ebuild:
+  Stable for x86, wrt bug #469140
+
+  09 May 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.2-r1.ebuild:
+  Stable for amd64, wrt bug #469140
+
+  09 May 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -kdelibs-4.10.3.ebuild:
+  Remove old
+
+*kdelibs-4.10.2-r1 (09 May 2013)
+*kdelibs-4.10.3-r1 (09 May 2013)
+
+  09 May 2013; Johannes Huber <johu@gentoo.org>
+  +files/kdelibs-4.10.2-security-url-dont-show-password.patch,
+  +kdelibs-4.10.2-r1.ebuild, +kdelibs-4.10.3-r1.ebuild:
+  Revision bump. Upstream security fix to not show passwords contained in HTTP
+  URLs in error messages via packagers ml.
+
+  08 May 2013; Johannes Huber <johu@gentoo.org> metadata.xml:
+  Cleanup unused USE description.
+
+*kdelibs-4.10.3 (06 May 2013)
+
+  06 May 2013; Johannes Huber <johu@gentoo.org> +kdelibs-4.10.3.ebuild:
+  Version bump KDE SC 4.10.3
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> -kdelibs-4.10.1-r1.ebuild:
+  Remove old
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.2.ebuild:
+  Stable for ppc64, wrt to bug #466074
+
+  01 May 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.2.ebuild:
+  Stable for ppc, wrt to bug #466074
+
+  30 Apr 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.2.ebuild:
+  Stable for x86, wrt to bug #466074
+
+  29 Apr 2013; Agostino Sarubbo <ago@gentoo.org> kdelibs-4.10.2.ebuild:
+  Stable for amd64, wrt to bug #466074
 
 *kdelibs-4.10.2 (05 Apr 2013)
 

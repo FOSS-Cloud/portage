@@ -1,6 +1,23 @@
 # ChangeLog for app-arch/bzip2
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/bzip2/ChangeLog,v 1.104 2012/05/17 04:36:15 vapier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/bzip2/ChangeLog,v 1.108 2013/07/28 14:04:19 aballier Exp $
+
+  28 Jul 2013; Alexis Ballier <aballier@gentoo.org> bzip2-1.0.6-r4.ebuild:
+  Fix blocker on emul-libs
+
+  02 Jul 2013; Mike Frysinger <vapier@gentoo.org> bzip2-1.0.6-r4.ebuild,
+  files/bzip2-1.0.4-man-links.patch:
+  Move `ln` update to the patch rather than sed-ing it after the fact #475334 by
+  Yuta SATOH.
+
+*bzip2-1.0.6-r4 (23 Jun 2013)
+
+  23 Jun 2013; Pacho Ramos <pacho@gentoo.org> +bzip2-1.0.6-r4.ebuild:
+  Add ebuild supporting native multilib (#457134, thanks to mgorny and vapier
+  for their help)
+
+  05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
 
   17 May 2012; Mike Frysinger <vapier@gentoo.org>
   +files/bzip2-1.0.6-mingw.patch, bzip2-1.0.6-r3.ebuild:

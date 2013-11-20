@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/googleearth/googleearth-6.2.2.6613.ebuild,v 1.6 2013/03/02 23:20:37 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/googleearth/googleearth-6.2.2.6613.ebuild,v 1.8 2013/08/06 13:25:38 ulm Exp $
 
 EAPI="4"
 
@@ -23,7 +23,7 @@ IUSE="mdns-bundled +qt-bundled"
 GCC_NEEDED="4.2"
 QA_PREBUILT="*"
 
-RDEPEND="|| ( >=sys-devel/gcc-${GCC_NEEDED}[cxx] >=sys-devel/gcc-${GCC_NEEDED}[-nocxx] )
+RDEPEND=">=sys-devel/gcc-${GCC_NEEDED}[cxx]
 	x86? (
 		media-libs/fontconfig
 		media-libs/freetype
@@ -48,7 +48,21 @@ RDEPEND="|| ( >=sys-devel/gcc-${GCC_NEEDED}[cxx] >=sys-devel/gcc-${GCC_NEEDED}[-
 		!mdns-bundled? ( sys-auth/nss-mdns )
 	)
 	amd64? (
-		>=app-emulation/emul-linux-x86-xlibs-20081109
+		|| (
+			(
+				media-libs/fontconfig[abi_x86_32]
+				media-libs/freetype[abi_x86_32]
+				x11-libs/libICE[abi_x86_32]
+				x11-libs/libSM[abi_x86_32]
+				x11-libs/libX11[abi_x86_32]
+				x11-libs/libXi[abi_x86_32]
+				x11-libs/libXext[abi_x86_32]
+				x11-libs/libXrender[abi_x86_32]
+				x11-libs/libXau[abi_x86_32]
+				x11-libs/libXdmcp[abi_x86_32]
+			)
+			>=app-emulation/emul-linux-x86-xlibs-20081109
+		)
 		>=app-emulation/emul-linux-x86-baselibs-20081109
 		app-emulation/emul-linux-x86-opengl
 		!qt-bundled? (

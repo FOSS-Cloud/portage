@@ -1,6 +1,32 @@
 # ChangeLog for dev-haskell/test-framework
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/test-framework/ChangeLog,v 1.22 2013/04/02 12:57:44 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/test-framework/ChangeLog,v 1.30 2013/10/19 09:55:56 gienah Exp $
+
+*test-framework-0.8.0.3 (19 Oct 2013)
+
+  19 Oct 2013; Mark Wright <gienah@gentoo.org> +test-framework-0.8.0.3.ebuild:
+  Bump test-framework to 0.8.0.3
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> test-framework-0.8.ebuild:
+  Stable for sparc, wrt bug #472802
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-framework-0.8.ebuild:
+  Stable for ia64, wrt bug #472802
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-framework-0.8.ebuild:
+  Stable for alpha, wrt bug #472802
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-framework-0.8.ebuild:
+  Stable for ppc64, wrt bug #472802
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-framework-0.8.ebuild:
+  Stable for x86, wrt bug #472802
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> test-framework-0.8.ebuild:
+  Stable for amd64, wrt bug #472802
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> test-framework-0.8.ebuild:
+  Stable for ppc, wrt bug #472802
 
 *test-framework-0.8 (02 Apr 2013)
 

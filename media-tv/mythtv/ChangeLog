@@ -1,6 +1,83 @@
 # ChangeLog for media-tv/mythtv
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/mythtv/ChangeLog,v 1.393 2013/04/01 15:09:25 rich0 Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/mythtv/ChangeLog,v 1.409 2013/10/26 02:01:30 rich0 Exp $
+
+  26 Oct 2013; Richard Freeman <rich0@gentoo.org>
+  mythtv-0.26.0_p20130922.ebuild:
+  amd64 stable
+
+  24 Oct 2013; Patrick Lauer <patrick@gentoo.org> mythtv-0.27_p20130924.ebuild:
+  Whitespace
+
+  23 Oct 2013; Richard Freeman <rich0@gentoo.org> mythtv-0.27_p20130924.ebuild,
+  +files/mythbackend.service:
+  Add systemd unit - 482714 - thanks to Stefan G. Weichinger for testing/etc.
+
+  10 Oct 2013; Richard Freeman <rich0@gentoo.org> mythtv-0.27_p20130924.ebuild:
+  Fix vaapi configuration - 487442.
+
+  10 Oct 2013; Doug Goldstein <cardoe@gentoo.org> metadata.xml:
+  Remove my maintainer line since I'm on the herd alias and even though it says
+  to not CC the maintainer it still happens so just removing myself to prevent
+  the double e-mails.
+
+*mythtv-0.27_p20130924 (28 Sep 2013)
+
+  28 Sep 2013; Richard Freeman <rich0@gentoo.org>
+  +mythtv-0.27_p20130924.ebuild, +files/libdir-27.patch:
+  Major upstream 0.27 release.
+
+*mythtv-0.26.0_p20130922 (23 Sep 2013)
+
+  23 Sep 2013; Richard Freeman <rich0@gentoo.org>
+  +mythtv-0.26.0_p20130922.ebuild:
+  New patch set.
+
+  03 Aug 2013; Richard Freeman <rich0@gentoo.org>
+  -mythtv-0.26.0_p20121107.ebuild, -mythtv-0.26.0_p20121221.ebuild,
+  -mythtv-0.26.0_p20130121.ebuild, -mythtv-0.26.0_p20130207.ebuild:
+  Drop old versions.
+
+*mythtv-0.26.0_p20130729 (03 Aug 2013)
+
+  03 Aug 2013; Richard Freeman <rich0@gentoo.org>
+  +mythtv-0.26.0_p20130729.ebuild:
+  New patch set.
+
+  03 Aug 2013; Richard Freeman <rich0@gentoo.org>
+  mythtv-0.26.0_p20130630.ebuild:
+  amd64 stable
+
+*mythtv-0.26.0_p20130630 (03 Jul 2013)
+
+  03 Jul 2013; Richard Freeman <rich0@gentoo.org>
+  +mythtv-0.26.0_p20130630.ebuild:
+  Update patchset.
+
+  14 Jun 2013; Richard Freeman <rich0@gentoo.org> Manifest:
+  Update manifest - patch set changed - 472896.
+
+  10 Jun 2013; Richard Freeman <rich0@gentoo.org>
+  mythtv-0.26.0_p20130526.ebuild:
+  Fix binary patch for 472896, implement subslot op deps.
+
+*mythtv-0.26.0_p20130526 (09 Jun 2013)
+
+  09 Jun 2013; Richard Freeman <rich0@gentoo.org>
+  +mythtv-0.26.0_p20130526.ebuild:
+  Update patch set.
+
+*mythtv-0.25.3_p20130422 (05 May 2013)
+
+  05 May 2013; Doug Goldstein <cardoe@gentoo.org>
+  +mythtv-0.25.3_p20130422.ebuild:
+  Bump for latest upstream fixes.
+
+*mythtv-0.26.0_p20130419 (01 May 2013)
+
+  01 May 2013; Richard Freeman <rich0@gentoo.org>
+  +mythtv-0.26.0_p20130419.ebuild:
+  New patchset.
 
   01 Apr 2013; Richard Freeman <rich0@gentoo.org> Manifest:
   Update manifest - patch set changed - 463828.

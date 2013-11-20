@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/gkrellm/gkrellm-2.3.5-r2.ebuild,v 1.1 2012/12/22 18:32:52 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/gkrellm/gkrellm-2.3.5-r2.ebuild,v 1.11 2013/09/06 18:34:00 ago Exp $
 
 EAPI=4
 
-inherit eutils multilib toolchain-funcs user
+inherit eutils multilib toolchain-funcs user systemd
 
 DESCRIPTION="Single process stack of various system monitors"
 HOMEPAGE="http://www.gkrellm.net/"
@@ -12,7 +12,7 @@ SRC_URI="http://members.dslextreme.com/users/billw/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="2"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="hddtemp gnutls lm_sensors nls ssl ntlm X kernel_FreeBSD"
 
 RDEPEND="dev-libs/glib:2
@@ -113,6 +113,8 @@ src_install() {
 
 	doinitd "${FILESDIR}"/gkrellmd || die "doinitd failed"
 	newconfd "${FILESDIR}"/gkrellmd.conf gkrellmd || die "newconfd failed"
+
+	systemd_dounit "${FILESDIR}"/gkrellmd.service
 
 	insinto /etc
 	doins server/gkrellmd.conf || die "doins failed"

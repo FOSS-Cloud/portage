@@ -1,6 +1,46 @@
 # ChangeLog for dev-python/unittest2
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/unittest2/ChangeLog,v 1.25 2013/01/28 13:35:57 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/unittest2/ChangeLog,v 1.37 2013/10/05 14:51:33 mgorny Exp $
+
+*unittest2-0.5.1-r2 (05 Oct 2013)
+
+  05 Oct 2013; Michał Górny <mgorny@gentoo.org> +unittest2-0.5.1-r2.ebuild,
+  -unittest2-0.5.1.ebuild:
+  Fix not applying anti-versioning patch for py3 & py3.3 test failure (bug
+  #450762). Drop old.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Stable for x86, wrt bug #477360
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Stable for s390, wrt bug #477360
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Stable for ia64, wrt bug #477360
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Stable for sparc, wrt bug #477360
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Stable for alpha, wrt bug #477360
+
+  23 Jul 2013; Agostino Sarubbo <ago@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Stable for arm, wrt bug #477360
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Stable for ppc64, wrt bug #477360
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Stable for ppc, wrt bug #477360
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Stable for amd64, wrt bug #477360
+
+  19 Jul 2013; Jeroen Roovers <jer@gentoo.org> unittest2-0.5.1-r1.ebuild:
+  Stable for HPPA (bug #477360).
 
   28 Jan 2013; Alexis Ballier <aballier@gentoo.org> unittest2-0.5.1-r1.ebuild:
   keyword ~amd64-fbsd, bug #453136

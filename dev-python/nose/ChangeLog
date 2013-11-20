@@ -1,6 +1,69 @@
 # ChangeLog for dev-python/nose
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/nose/ChangeLog,v 1.102 2013/03/02 12:40:32 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/nose/ChangeLog,v 1.120 2013/09/05 18:46:18 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> nose-1.1.2-r1.ebuild,
+  nose-1.2.1.ebuild, nose-1.2.1_p2012.ebuild, nose-1.3.0.ebuild,
+  nose-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  18 Aug 2013; Michał Górny <mgorny@gentoo.org> nose-1.3.0.ebuild,
+  nose-9999.ebuild:
+  Re-use distutils-r1_python_install_all.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> nose-1.1.2-r1.ebuild,
+  nose-1.2.1.ebuild, nose-1.2.1_p2012.ebuild, nose-9999.ebuild:
+  Drop removed Python implementations from PYTHON_COMPAT.
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> nose-1.1.2.ebuild,
+  nose-1.1.2-r1.ebuild, nose-1.2.1.ebuild, nose-1.2.1_p2012.ebuild,
+  nose-1.3.0.ebuild, nose-9999.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.3.0.ebuild:
+  Stable for sh, wrt bug #473672
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.3.0.ebuild:
+  Stable for s390, wrt bug #473672
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.3.0.ebuild:
+  Stable for sparc, wrt bug #473672
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.3.0.ebuild:
+  Stable for arm, wrt bug #473672
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.3.0.ebuild:
+  Stable for ia64, wrt bug #473672
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.3.0.ebuild:
+  Stable for alpha, wrt bug #473672
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.3.0.ebuild:
+  Stable for amd64, wrt bug #473672
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.3.0.ebuild:
+  Stable for x86, wrt bug #473672
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.3.0.ebuild:
+  Stable for ppc64, wrt bug #473672
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nose-1.3.0.ebuild:
+  Stable for ppc, wrt bug #473672
+
+  18 Jun 2013; Jeroen Roovers <jer@gentoo.org> nose-1.3.0.ebuild:
+  Stable for HPPA (bug #473672).
+
+  18 Jun 2013; Ian Delaney <idella4@gentoo.org> nose-1.1.2-r1.ebuild,
+  nose-1.3.0.ebuild:
+  drop pypy1_8
+
+  24 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org> nose-1.3.0.ebuild:
+  Added python-3.3 compat
+
+*nose-1.3.0 (16 Apr 2013)
+
+  16 Apr 2013; Patrick Lauer <patrick@gentoo.org> +nose-1.3.0.ebuild:
+  Bump
 
   02 Mar 2013; Ian Delaney <idella4@gentoo.org>
   +files/nose-1.2.1-skiptest.patch, nose-1.1.2-r1.ebuild, nose-1.2.1.ebuild,

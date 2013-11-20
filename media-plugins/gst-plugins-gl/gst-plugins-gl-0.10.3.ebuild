@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-gl/gst-plugins-gl-0.10.3.ebuild,v 1.2 2013/04/06 03:14:27 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-gl/gst-plugins-gl-0.10.3.ebuild,v 1.5 2013/10/11 05:18:31 ago Exp $
 
 EAPI="5"
 GST_TARBALL_SUFFIX="gz"
@@ -12,7 +12,7 @@ HOMEPAGE="http://gstreamer.freedesktop.org/"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="libvisual"
 
 RDEPEND="
@@ -22,6 +22,7 @@ RDEPEND="
 	>=media-libs/gst-plugins-base-0.10.35:0.10
 	virtual/glu
 	virtual/opengl
+	x11-libs/libSM
 	libvisual? ( >=media-libs/libvisual-0.4 )
 "
 DEPEND="${RDEPEND}

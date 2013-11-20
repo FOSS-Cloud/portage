@@ -1,6 +1,18 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/use.mask,v 1.71 2013/03/21 15:12:48 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/use.mask,v 1.77 2013/11/10 22:53:56 chithanh Exp $
 # DON'T TOUCH THIS FILE. Instead, file a bug and assign it to <hppa@gentoo.org>.
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (10 Nov 2013)
+# sys-devel/llvm is not keyworded, bug #320221
+llvm
+
+# Jeroen Roovers <jer@gentoo.org> (22 Aug 2013)
+# No known OpenCL providers (bug #482096)
+opencl
+
+# Jeroen Roovers <jer@gentoo.org> (19 Jun 2013)
+# media-libs/x264 works
+-x264
 
 # Samuli Suominen <ssuominen@gentoo.org> (12 Mar 2013)
 # NVIDIA Cg toolkit for binary drivers
@@ -59,10 +71,6 @@ facedetect
 # No support for CUDA on HPPA
 cuda
 
-# Jeroen Roovers <jer@gentoo.org> (25 Mar 2011)
-# webm needs yasm/libvpx
-webm
-
 # Samuli Suominen <ssuominen@gentoo.org> (25 Dec 2010)
 # This will need stable gnome-base/gvfs.
 thunar
@@ -87,15 +95,6 @@ gnome-keyring
 # Masked because of missing gnome-base/gnome-panel
 # dependency (bug #324511)
 applet
-
-# Jeroen Roovers <jer@gentoo.org> (19 Jul 2010)
-# New media-libs/schroedinger depends on dev-lang/orc
-# which is not currently ready yet (bug #316553)
-schroedinger
-
-# Jeroen Roovers <jer@gentoo.org> (10 Jul 2010)
-# libvpx is not ready for HPPA
-vpx
 
 # Jeroen Roovers <jer@gentoo.org> (10 Jul 2010)
 # No known hardware support for video decoding
@@ -207,6 +206,7 @@ video_cards_i128
 video_cards_i740
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 video_cards_intel
 video_cards_mach64
 video_cards_mga

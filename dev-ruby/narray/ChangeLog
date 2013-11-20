@@ -1,6 +1,26 @@
 # ChangeLog for dev-ruby/narray
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/narray/ChangeLog,v 1.56 2012/11/07 05:12:28 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/narray/ChangeLog,v 1.61 2013/11/11 12:46:45 mrueg Exp $
+
+  11 Nov 2013; Manuel Rüger <mrueg@gentoo.org> -narray-0.6.0.8.ebuild:
+  Cleanup old.
+
+*narray-0.6.0.8-r1 (04 Oct 2013)
+
+  04 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +narray-0.6.0.8-r1.ebuild:
+  Add ruby20 target.
+
+  11 Aug 2013; Hans de Graaff <graaff@gentoo.org> -narray-0.6.0.1.ebuild:
+  Cleanup.
+
+  25 Jul 2013; Manuel Rüger <mrueg@gentoo.org> narray-0.6.0.8.ebuild:
+  Fix SRC_URI
+
+*narray-0.6.0.8 (25 Jul 2013)
+
+  25 Jul 2013; Manuel Rüger <mrueg@gentoo.org>
+  +files/narray-0.6.0.8-fix-tests.patch, +narray-0.6.0.8.ebuild:
+  Version bump
 
   07 Nov 2012; Jeroen Roovers <jer@gentoo.org> narray-0.6.0.1-r2.ebuild:
   Stable for HPPA (bug #434486).

@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/pygit2
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pygit2/ChangeLog,v 1.16 2013/01/06 08:36:39 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pygit2/ChangeLog,v 1.20 2013/10/18 09:47:36 radhermit Exp $
+
+*pygit2-0.19.1 (18 Oct 2013)
+
+  18 Oct 2013; Tim Harder <radhermit@gentoo.org> +pygit2-0.19.1.ebuild:
+  Version bump.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pygit2-0.17.3-r1.ebuild,
+  pygit2-0.18.1.ebuild, pygit2-0.19.0.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*pygit2-0.19.0 (16 Jul 2013)
+
+  16 Jul 2013; Tim Harder <radhermit@gentoo.org> +pygit2-0.19.0.ebuild:
+  Version bump.
+
+*pygit2-0.18.1 (21 Apr 2013)
+
+  21 Apr 2013; Tim Harder <radhermit@gentoo.org> +pygit2-0.18.1.ebuild:
+  Version bump.
 
 *pygit2-0.17.3-r1 (06 Jan 2013)
 
@@ -73,4 +92,3 @@
   18 Aug 2011; Tim Harder <radhermit@gentoo.org> +pygit2-0.14.0.ebuild,
   +files/pygit2-0.14.0-fix-write.patch, +metadata.xml:
   Initial import
-

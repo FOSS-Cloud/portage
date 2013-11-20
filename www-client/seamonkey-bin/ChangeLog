@@ -1,6 +1,69 @@
 # ChangeLog for www-client/seamonkey-bin
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey-bin/ChangeLog,v 1.174 2013/04/03 01:39:03 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey-bin/ChangeLog,v 1.189 2013/10/31 01:00:16 jdhore Exp $
+
+*seamonkey-bin-2.22 (31 Oct 2013)
+
+  31 Oct 2013; Jeff Horelick <jdhore@gentoo.org> +seamonkey-bin-2.22.ebuild:
+  Version bump
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.21.ebuild:
+  Stable for x86, wrt bug #485258
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.21.ebuild:
+  Stable for amd64, wrt bug #485258
+
+*seamonkey-bin-2.21 (18 Sep 2013)
+
+  18 Sep 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +seamonkey-bin-2.21.ebuild:
+  Security bump (bug #485258).
+
+  13 Aug 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -seamonkey-bin-2.17.ebuild, -seamonkey-bin-2.17.1.ebuild,
+  -seamonkey-bin-2.19.ebuild:
+  Removed old (vulnerable) versions.
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.20-r1.ebuild:
+  Stable for x86, wrt bug #479968
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.20-r1.ebuild:
+  Stable for amd64, wrt bug #479968
+
+*seamonkey-bin-2.20-r1 (12 Aug 2013)
+
+  12 Aug 2013; Ian Stakenvicius <axs@gentoo.org> +seamonkey-bin-2.20-r1.ebuild,
+  -seamonkey-bin-2.20.ebuild:
+  fixed icon installation for desktops, bug 478192
+
+*seamonkey-bin-2.20 (10 Aug 2013)
+
+  10 Aug 2013;  <anarchy@gentoo.org> +seamonkey-bin-2.20.ebuild:
+  Security bump, bug #479968
+
+*seamonkey-bin-2.19 (03 Jul 2013)
+
+  03 Jul 2013; Jeff Horelick <jdhore@gentoo.org> +seamonkey-bin-2.19.ebuild:
+  Version bump
+
+*seamonkey-bin-2.17.1 (07 May 2013)
+
+  07 May 2013; Jeff Horelick <jdhore@gentoo.org> +seamonkey-bin-2.17.1.ebuild:
+  Version bump
+
+  07 May 2013; Jeff Horelick <jdhore@gentoo.org> -seamonkey-bin-2.16.2.ebuild,
+  seamonkey-bin-2.17.ebuild:
+  Fix icon installation
+
+  11 Apr 2013; Jeff Horelick <jdhore@gentoo.org> -files/icon/seamonkey-bin.png,
+  seamonkey-bin-2.16.2.ebuild, seamonkey-bin-2.17.ebuild:
+  Remove binary icon, use icon from tarball instead
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.17.ebuild:
+  Stable for x86, wrt bug #464226
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.17.ebuild:
+  Stable for amd64, wrt bug #464226
 
 *seamonkey-bin-2.17 (03 Apr 2013)
 

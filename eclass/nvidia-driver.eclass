@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/nvidia-driver.eclass,v 1.19 2013/04/08 06:44:05 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/nvidia-driver.eclass,v 1.23 2013/10/12 15:12:59 jer Exp $
 
 # @ECLASS: nvidia-driver.eclass
 # @MAINTAINER:
@@ -12,12 +12,30 @@
 # Provide useful messages for nvidia-drivers based on currently installed Nvidia
 # card. It inherits versionator.
 
-inherit versionator
+inherit readme.gentoo versionator
 
 DEPEND="sys-apps/pciutils"
 
+# Variables for readme.gentoo.eclass:
+DISABLE_AUTOFORMATTING="yes"
+DOC_CONTENTS="You must be in the video group to use the NVIDIA device
+For more info, read the docs at
+http://www.gentoo.org/doc/en/nvidia-guide.xml#doc_chap3_sect6
+
+This ebuild installs a kernel module and X driver. Both must
+match explicitly in their version. This means, if you restart
+X, you must modprobe -r nvidia before starting it back up
+
+To use the NVIDIA GLX, run \"eselect opengl set nvidia\"
+
+To use the NVIDIA CUDA/OpenCL, run \"eselect opencl set nvidia\"
+
+NVIDIA has requested that any bug reports submitted have the
+output of nvidia-bug-report.sh included.
+"
+
 # the data below is derived from
-# http://us.download.nvidia.com/XFree86/Linux-x86_64/177.13/README/appendix-a.html
+# http://us.download.nvidia.com/XFree86/Linux-x86_64/319.12/README/supportedchips.html
 
 drv_96xx="0110 0111 0112 0113 0170 0171 0172 0173 0174 0175 0176 0177 0178 \
 0179 017a 017c 017d 0181 0182 0183 0185 0188 018a 018b 018c 01a0 01f0 0200 \
@@ -35,11 +53,10 @@ drv_304x="0040 0041 0042 0043 0044 0045 0046 0047 0048 004e 0090 0091 0092 \
 00f2 00f3 00f4 00f5 00f6 00f8 00f9 0140 0141 0142 0143 0144 0145 0146 0147 \
 0148 0149 014a 014c 014d 014e 014f 0160 0161 0162 0163 0164 0165 0166 0167 \
 0168 0169 016a 01d0 01d1 01d2 01d3 01d6 01d7 01d8 01da 01db 01dc 01dd 01de \
-01de 01df 0211 0212 0215 0218 0221 0222 0240 0241 0242 0244 0245 0247 0290 \
-0291 0292 0293 0294 0295 0297 0298 0299 029a 029b 029c 029d 029e 029f 02e0 \
-02e1 02e2 02e3 02e4 038b 0390 0391 0392 0393 0394 0395 0397 0398 0399 039c \
-039e 03d0 03d1 03d2 03d5 03d6 0531 0533 053a 053b 053e 07e0 07e1 07e2 07e3 \
-07e5"
+01df 0211 0212 0215 0218 0221 0222 0240 0241 0242 0244 0245 0247 0290 0291 \
+0292 0293 0294 0295 0297 0298 0299 029a 029b 029c 029d 029e 029f 02e0 02e1 \
+02e2 02e3 02e4 038b 0390 0391 0392 0393 0394 0395 0397 0398 0399 039c 039e \
+03d0 03d1 03d2 03d5 03d6 0531 0533 053a 053b 053e 07e0 07e1 07e2 07e3 07e5"
 
 mask_96xx=">=x11-drivers/nvidia-drivers-97.0.0"
 mask_71xx=">=x11-drivers/nvidia-drivers-72.0.0"
@@ -50,7 +67,10 @@ mask_304x=">=x11-drivers/nvidia-drivers-305.0.0"
 # @DESCRIPTION:
 # Retrieve the PCI device ID for each Nvidia video card you have
 nvidia-driver-get-card() {
-	local NVIDIA_CARD="$(/usr/sbin/lspci -d 10de: -n | awk -F'[: ]' '/ 0300: /{print $6}')"
+	local NVIDIA_CARD=$(
+		[ -x /usr/sbin/lspci ] && /usr/sbin/lspci -d 10de: -n \
+			| awk -F'[: ]' '/ 0300: /{print $6}'
+	)
 
 	if [ -n "$NVIDIA_CARD" ]; then
 		echo "$NVIDIA_CARD"

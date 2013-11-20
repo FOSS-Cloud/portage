@@ -1,6 +1,24 @@
 # ChangeLog for net-misc/x2goclient
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/x2goclient/ChangeLog,v 1.19 2013/03/27 13:20:42 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/x2goclient/ChangeLog,v 1.23 2013/10/21 09:15:07 voyageur Exp $
+
+  21 Oct 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  x2goclient-4.0.1.0.ebuild, x2goclient-4.0.1.1.ebuild:
+  Require >=net-libs/libssh-0.6.0_rc1 in ~arch and add warning in arch, fixing
+  bug #482548
+
+*x2goclient-4.0.1.1 (11 Sep 2013)
+
+  11 Sep 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  -x2goclient-3.99.2.2.ebuild, -x2goclient-4.0.0.1.ebuild,
+  -x2goclient-4.0.0.4.ebuild, +x2goclient-4.0.1.1.ebuild:
+  Version bump, remove old versions
+
+  11 Jun 2013; Agostino Sarubbo <ago@gentoo.org> x2goclient-4.0.1.0.ebuild:
+  Stable for x86, wrt bug #472582
+
+  11 Jun 2013; Agostino Sarubbo <ago@gentoo.org> x2goclient-4.0.1.0.ebuild:
+  Stable for amd64, wrt bug #472582
 
 *x2goclient-4.0.1.0 (27 Mar 2013)
 

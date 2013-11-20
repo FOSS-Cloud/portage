@@ -1,6 +1,69 @@
 # ChangeLog for x11-libs/fox
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/fox/ChangeLog,v 1.161 2012/12/23 13:18:20 mabi Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/fox/ChangeLog,v 1.177 2013/11/13 21:40:03 mabi Exp $
+
+*fox-1.7.43 (13 Nov 2013)
+
+  13 Nov 2013; Matti Bickel <mabi@gentoo.org> +fox-1.7.43.ebuild,
+  -fox-1.7.40.ebuild, -fox-1.7.41.ebuild:
+  version bump; remove old
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> fox-1.6.49.ebuild:
+  Stable for amd64, wrt bug #487034
+
+  29 Oct 2013; Anthony G. Basile <blueness@gentoo.org> fox-1.7.40.ebuild,
+  fox-1.7.41.ebuild, fox-1.7.42.ebuild:
+  Keyword ~arm
+
+  10 Oct 2013; Jeroen Roovers <jer@gentoo.org> fox-1.6.49.ebuild:
+  Stable for HPPA (bug #487034).
+
+*fox-1.7.42 (05 Oct 2013)
+
+  05 Oct 2013; Matti Bickel <mabi@gentoo.org> +fox-1.7.42.ebuild:
+  version bump
+
+*fox-1.7.41 (13 Sep 2013)
+
+  13 Sep 2013; Matti Bickel <mabi@gentoo.org> +fox-1.7.41.ebuild,
+  -fox-1.7.37.ebuild, -fox-1.7.39.ebuild:
+  version bump
+
+*fox-1.7.40 (26 Aug 2013)
+
+  26 Aug 2013; Patrick Lauer <patrick@gentoo.org> +fox-1.7.40.ebuild:
+  Bump
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> fox-1.6.45.ebuild:
+  Stable for sparc, wrt bug #475654
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> fox-1.6.45.ebuild:
+  Stable for ia64, wrt bug #475654
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> fox-1.6.45.ebuild:
+  Stable for alpha, wrt bug #475654
+
+  05 Jul 2013; Jeroen Roovers <jer@gentoo.org> fox-1.6.45.ebuild:
+  Stable for HPPA (bug #475654).
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> fox-1.6.45.ebuild:
+  Stable for ppc64, wrt bug #475654
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> fox-1.6.45.ebuild:
+  Stable for ppc, wrt bug #475654
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> fox-1.6.45.ebuild:
+  Stable for x86, wrt bug #475654
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> fox-1.6.45.ebuild:
+  Stable for amd64, wrt bug #475654
+
+*fox-1.6.49 (03 Jul 2013)
+*fox-1.7.39 (03 Jul 2013)
+
+  03 Jul 2013; Matti Bickel <mabi@gentoo.org> +fox-1.6.49.ebuild,
+  +fox-1.7.39.ebuild, -fox-1.7.32.ebuild, -fox-1.7.33.ebuild:
+  version bump, remove outdated dev builds
 
   23 Dec 2012; Matti Bickel <mabi@gentoo.org> fox-1.6.40.ebuild,
   fox-1.6.45.ebuild:

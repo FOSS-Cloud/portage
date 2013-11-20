@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/liboauth/liboauth-1.0.1.ebuild,v 1.1 2013/03/09 13:51:23 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/liboauth/liboauth-1.0.1.ebuild,v 1.11 2013/09/07 20:15:51 ago Exp $
 
 EAPI=5
 
@@ -12,9 +12,10 @@ SRC_URI="mirror://sourceforge/project/${PN}/${P}.tar.gz"
 
 LICENSE="|| ( GPL-2 MIT )"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x64-macos"
+KEYWORDS="alpha amd64 arm ~hppa ia64 ppc ppc64 sparc x86 ~x64-macos"
 IUSE="curl doc bindist +nss"
 
+PATCHES=( "${FILESDIR}"/${P}-doxygen-out-of-tree.patch )
 REQUIRED_USE="bindist? ( nss )"
 
 CDEPEND="
@@ -56,14 +57,14 @@ src_compile() {
 	if use doc ; then
 		# make sure fonts are found
 		export DOTFONTPATH="${EPREFIX}"/usr/share/fonts/freefont-ttf
-		emake dox
+		autotools-utils_src_compile dox
 	fi
 }
 
 DOCS=( AUTHORS ChangeLog LICENSE.OpenSSL README )
 
 src_install() {
-	use doc && HTML_DOCS=("${BUILD_DIR}"/doc/html)
+	use doc && HTML_DOCS=("${BUILD_DIR}"/doc/html/)
 
 	autotools-utils_src_install
 }

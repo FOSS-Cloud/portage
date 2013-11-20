@@ -1,6 +1,45 @@
 # ChangeLog for media-libs/xine-lib
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/ChangeLog,v 1.691 2013/01/18 09:54:17 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/ChangeLog,v 1.700 2013/09/28 19:49:51 ago Exp $
+
+  28 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xine-lib-1.2.3.ebuild:
+  Stable for amd64, wrt bug #451350
+
+  28 Sep 2013; Jeroen Roovers <jer@gentoo.org> xine-lib-1.2.3.ebuild:
+  Stable for HPPA (bug #451350).
+
+  25 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> xine-lib-1.2.4.ebuild,
+  xine-lib-1.2.9999.ebuild:
+  Remove forced -O0 to -O3 from configure using sed in late src_prepare()
+
+  25 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> xine-lib-1.2.1-r1.ebuild,
+  xine-lib-1.2.2.ebuild, xine-lib-1.2.3.ebuild:
+  Force <sys-fs/samba-4 for <media-libs/xine-lib-1.2.4 wrt #453532 by Rafał
+  Mużyło
+
+*xine-lib-1.2.4 (25 Sep 2013)
+
+  25 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> +xine-lib-1.2.4.ebuild:
+  Version bump.
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> xine-lib-1.2.3.ebuild,
+  xine-lib-1.2.9999.ebuild:
+  keyword ~amd64-fbsd
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> xine-lib-1.2.1-r1.ebuild,
+  xine-lib-1.2.2.ebuild, xine-lib-1.2.3.ebuild, xine-lib-1.2.9999.ebuild:
+  depend on slot 0 for ffmpeg
+
+*xine-lib-1.2.3 (10 Jun 2013)
+
+  10 Jun 2013; Samuli Suominen <ssuominen@gentoo.org> +xine-lib-1.2.3.ebuild,
+  xine-lib-1.2.9999.ebuild, +files/accel_vaapi.h, metadata.xml:
+  Version bump wrt #471846 by "teidakankan"
+
+  16 May 2013; Ulrich Müller <ulm@gentoo.org> xine-lib-1.2.1-r1.ebuild,
+  xine-lib-1.2.2.ebuild, xine-lib-1.2.9999.ebuild, metadata.xml:
+  Remove real and win32codecs USE flags, because dependencies have been
+  last-rited, bug 468406.
 
   18 Jan 2013; Agostino Sarubbo <ago@gentoo.org> xine-lib-1.2.2.ebuild:
   Stable for x86, wrt bug #451350

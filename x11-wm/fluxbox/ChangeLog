@@ -1,6 +1,35 @@
 # ChangeLog for x11-wm/fluxbox
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/fluxbox/ChangeLog,v 1.307 2013/03/19 12:42:54 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/fluxbox/ChangeLog,v 1.314 2013/10/20 20:53:56 hwoarang Exp $
+
+  20 Oct 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add Daniel Campbell <dlcampbell@gmx.com> as maintainer
+
+  19 Oct 2013; Panagiotis Christopoulos <pchrist@gentoo.org> metadata.xml:
+  fix typo in email
+
+  19 Oct 2013; Panagiotis Christopoulos <pchrist@gentoo.org> metadata.xml:
+  Add myself to metadata.xml
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due desktop-wm removal
+
+  30 Jun 2013; Kacper Kowalik <xarthisius@gentoo.org> metadata.xml:
+  Remove unused local USE-description
+
+  30 Jun 2013; Kacper Kowalik <xarthisius@gentoo.org>
+  -files/1.0.0/gcc-4.3.patch, -files/1.0.0/generate-menu.patch,
+  -files/1.0.0/gentoo_style_location.patch,
+  -files/1.1.0.1/gentoo_style_location.patch, -files/fbsetbg-quiet-1.1.1.patch,
+  -files/fluxbox-1.0.0-interix.patch, -files/fluxbox-1.1.1-multiscreen.patch,
+  -files/fluxbox-1.3.1-gcc46.patch, -files/macrocmd-crash-1.1.1.patch,
+  -files/mousefocus-1.1.1-r2.patch, -files/mousefocus-1.1.1.patch,
+  -files/strictmousefocus-1.1.1.patch, -fluxbox-1.1.1-r3.ebuild,
+  -fluxbox-1.3.1.ebuild, -fluxbox-1.3.3.ebuild:
+  Drop old, obsoletes bug #464898 by Vicente Olivert Riera <vincent@gentoo.org>
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #144305
 
 *fluxbox-1.3.5 (19 Mar 2013)
 

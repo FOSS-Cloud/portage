@@ -1,6 +1,56 @@
 # ChangeLog for dev-perl/DateTime-TimeZone
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/DateTime-TimeZone/ChangeLog,v 1.213 2013/04/02 13:20:33 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/DateTime-TimeZone/ChangeLog,v 1.225 2013/08/17 13:00:12 patrick Exp $
+
+*DateTime-TimeZone-1.600.0 (17 Aug 2013)
+
+  17 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +DateTime-TimeZone-1.600.0.ebuild:
+  Bump
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  DateTime-TimeZone-1.580.0.ebuild:
+  Stable for s390, wrt bug #470406
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  DateTime-TimeZone-1.580.0.ebuild:
+  Stable for ppc64, wrt bug #470406
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  DateTime-TimeZone-1.580.0.ebuild:
+  Stable for ia64, wrt bug #470406
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  DateTime-TimeZone-1.580.0.ebuild:
+  Stable for sparc, wrt bug #470406
+
+  02 Aug 2013; Mikle Kolyada <zlogene@gentoo.org>
+  DateTime-TimeZone-1.580.0.ebuild:
+  x86 stable wrt bug #470406
+
+  31 Jul 2013; Jeroen Roovers <jer@gentoo.org>
+  DateTime-TimeZone-1.580.0.ebuild:
+  Stable for HPPA (bug #470406).
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org>
+  DateTime-TimeZone-1.580.0.ebuild:
+  Stable for alpha, wrt bug #470406
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org>
+  DateTime-TimeZone-1.580.0.ebuild:
+  Stable for arm, wrt bug #470406
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org>
+  DateTime-TimeZone-1.580.0.ebuild:
+  Stable for ppc, wrt bug #470406
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org>
+  DateTime-TimeZone-1.580.0.ebuild:
+  Stable for amd64, wrt bug #470406
+
+  16 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  DateTime-TimeZone-1.560.0.ebuild:
+  Stable for ppc64, wrt bug #456568
 
   02 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
   DateTime-TimeZone-1.560.0.ebuild:

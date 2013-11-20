@@ -1,6 +1,44 @@
 # ChangeLog for sys-devel/gdb
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gdb/ChangeLog,v 1.238 2013/02/21 16:08:27 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/gdb/ChangeLog,v 1.247 2013/11/20 08:15:35 vapier Exp $
+
+  20 Nov 2013; Mike Frysinger <vapier@gentoo.org> gdb-7.3.1-r1.ebuild,
+  gdb-7.3.1.ebuild, gdb-7.3.ebuild, gdb-7.4.1.ebuild, gdb-7.4.ebuild,
+  gdb-7.5.1.ebuild, gdb-7.5.ebuild, gdb-7.6.1.ebuild, gdb-7.6.ebuild,
+  gdb-9999.ebuild:
+  Update gdb git repo #490566 by octoploid.
+
+  29 Sep 2013; Mike Frysinger <vapier@gentoo.org> gdb-7.6.1.ebuild:
+  Add fix from upstream for building btrace on older systems #473522 by William
+  Throwe.
+
+  15 Sep 2013; Fabian Groffen <grobian@gentoo.org> gdb-7.6.1.ebuild,
+  gdb-9999.ebuild:
+  Fix configure on Darwin by using our own provided python-config iso gdb-
+  provided copy
+
+*gdb-7.6.1 (03 Sep 2013)
+
+  03 Sep 2013; Mike Frysinger <vapier@gentoo.org> +gdb-7.6.1.ebuild:
+  Version bump.
+
+  15 Aug 2013; Mike Frysinger <vapier@gentoo.org> gdb-7.5.1.ebuild:
+  Mark m68k stable #457796.
+
+  15 Aug 2013; Mike Frysinger <vapier@gentoo.org> gdb-7.6.ebuild:
+  Redo cpuid patch to work with older versions of patch (and not require up-to-
+  date git format support) #477276 by Another Mortal.
+
+  23 Jun 2013; Mike Frysinger <vapier@gentoo.org> gdb-7.6.ebuild:
+  Apply fix from upstream for cpuid on x86 on hardened systems #467806.
+
+*gdb-7.6 (26 Apr 2013)
+
+  26 Apr 2013; Mike Frysinger <vapier@gentoo.org> +gdb-7.6.ebuild:
+  Version bump.
+
+  12 Apr 2013; Jeroen Roovers <jer@gentoo.org> gdb-7.5.1.ebuild:
+  Stable for HPPA (bug #457796).
 
   21 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gdb-7.5.1.ebuild:
   Stable for sparc, wrt bug #457796

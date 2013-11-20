@@ -1,6 +1,37 @@
 # ChangeLog for dev-java/java-sdk-docs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/java-sdk-docs/ChangeLog,v 1.89 2013/03/10 12:07:03 sera Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/java-sdk-docs/ChangeLog,v 1.95 2013/10/19 05:29:42 tomwij Exp $
+
+*java-sdk-docs-1.7.0.45 (19 Oct 2013)
+
+  19 Oct 2013; Tom Wijsman <TomWij@gentoo.org> +java-sdk-docs-1.7.0.45.ebuild:
+  Version bump to 1.7.0.45, fixes bug #67266 where Navid Zamani has reported
+  this.
+
+*java-sdk-docs-1.7.0.40-r1 (19 Sep 2013)
+
+  19 Sep 2013; Tom Wijsman <TomWij@gentoo.org>
+  +java-sdk-docs-1.7.0.40-r1.ebuild, -java-sdk-docs-1.7.0.40.ebuild:
+  Revision bump to 1.7.0.40-r1 for bug #67266, checksum change reported by
+  Ortwin Glueck.
+
+*java-sdk-docs-1.7.0.40 (18 Sep 2013)
+
+  18 Sep 2013; Tom Wijsman <TomWij@gentoo.org> +java-sdk-docs-1.7.0.40.ebuild:
+  Version bump to 1.7.0.40 for bug #67266, bump reported by Simon Gander.
+
+  29 Jun 2013; Tom Wijsman <TomWij@gentoo.org> java-sdk-docs-1.7.0.25.ebuild:
+  Stabilized 1.7.0.25 for oracle-jdk-bin and oracle-jre-bin. Permitted by ago.
+
+*java-sdk-docs-1.7.0.25 (22 Jun 2013)
+
+  22 Jun 2013; Tom Wijsman <TomWij@gentoo.org> +java-sdk-docs-1.7.0.25.ebuild:
+  Version bump to 1.7.0.25 for bug #67266, bump reported by Will W.
+
+*java-sdk-docs-1.7.0.21 (10 May 2013)
+
+  10 May 2013; Tom Wijsman <TomWij@gentoo.org> +java-sdk-docs-1.7.0.21.ebuild:
+  Version bump to 1.7.0.21. Fixes bug #468084 reported by Sven Müller (musv).
 
 *java-sdk-docs-1.7.0.17 (10 Mar 2013)
 

@@ -1,6 +1,15 @@
 # ChangeLog for media-gfx/povray
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/povray/ChangeLog,v 1.145 2013/03/14 07:53:14 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/povray/ChangeLog,v 1.148 2013/10/21 12:25:41 grobian Exp $
+
+  21 Oct 2013; Fabian Groffen <grobian@gentoo.org> povray-3.7.0_rc7.ebuild:
+  Marked ~x64-macos, bug #486818
+
+  09 Jul 2013; Justin Lecher <jlec@gentoo.org> povray-3.7.0_rc7.ebuild:
+  Add subslot for boost
+
+  29 Apr 2013; Christoph Junghans <ottxor@gentoo.org> povray-3.7.0_rc7.ebuild:
+  added ~arm (tested by me)
 
 *povray-3.7.0_rc7 (14 Mar 2013)
 

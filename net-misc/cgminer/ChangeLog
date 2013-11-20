@@ -1,3 +1,114 @@
+# ChangeLog for net-misc/cgminer
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/cgminer/ChangeLog,v 1.51 2013/11/16 15:51:05 blueness Exp $
+
+*cgminer-3.8.2 (16 Nov 2013)
+
+  16 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.8.2.ebuild,
+  cgminer-3.8.1.ebuild:
+  Version bump
+
+  13 Nov 2013; Anthony G. Basile <blueness@gentoo.org> cgminer-3.8.1.ebuild:
+  Remove ADL_SDK, bug #491026 comment 9
+
+  12 Nov 2013; Anthony G. Basile <blueness@gentoo.org> cgminer-3.8.1.ebuild:
+  Keyword ~arm, bug #491026 comment 2
+
+*cgminer-3.8.1 (12 Nov 2013)
+
+  12 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.8.1.ebuild,
+  cgminer-3.7.2.ebuild:
+  Version bump, bug #491026, thanks Sarah White <kuzetsa@gmail.com>
+
+*cgminer-3.7.2 (05 Nov 2013)
+
+  05 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.7.2.ebuild,
+  cgminer-3.6.6.ebuild, metadata.xml:
+  Version bump
+
+*cgminer-3.6.6 (26 Oct 2013)
+
+  26 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.6.6.ebuild,
+  -cgminer-3.6.4.ebuild:
+  Version bump, remove older
+
+*cgminer-3.6.4 (18 Oct 2013)
+
+  18 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.6.4.ebuild,
+  -cgminer-3.6.2.ebuild:
+  Version bump again
+
+*cgminer-3.6.2 (17 Oct 2013)
+
+  17 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.6.2.ebuild,
+  -cgminer-3.3.3.ebuild, -cgminer-3.3.4.ebuild, -cgminer-3.4.2.ebuild,
+  -cgminer-3.6.1.ebuild:
+  Version bump, remove older
+
+*cgminer-3.6.1 (15 Oct 2013)
+
+  15 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.6.1.ebuild,
+  cgminer-3.5.0.ebuild, metadata.xml:
+  Version bump
+
+*cgminer-3.5.0 (01 Oct 2013)
+
+  01 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.5.0.ebuild,
+  cgminer-3.4.3.ebuild:
+  Version bump
+
+*cgminer-3.4.3 (14 Sep 2013)
+
+  14 Sep 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.4.3.ebuild,
+  cgminer-3.4.2.ebuild:
+  Version bump
+
+*cgminer-3.4.2 (03 Sep 2013)
+
+  03 Sep 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.4.2.ebuild,
+  -cgminer-3.4.1.ebuild:
+  Version bump, remove older buggy version
+
+*cgminer-3.4.1 (02 Sep 2013)
+
+  02 Sep 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.4.1.ebuild,
+  cgminer-3.3.4.ebuild:
+  Version bump
+
+  14 Aug 2013; Anthony G. Basile <blueness@gentoo.org> -cgminer-3.3.0.ebuild,
+  -cgminer-3.3.1.ebuild, -cgminer-3.3.2.ebuild:
+  Remove older unstable versions
+
+*cgminer-3.3.4 (14 Aug 2013)
+
+  14 Aug 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.3.4.ebuild,
+  cgminer-3.3.3.ebuild:
+  Version bump
+
+*cgminer-3.3.3 (13 Aug 2013)
+*cgminer-3.3.2 (13 Aug 2013)
+
+  13 Aug 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.3.2.ebuild,
+  +cgminer-3.3.3.ebuild, cgminer-3.3.0.ebuild, cgminer-3.3.1.ebuild:
+  Version bumps
+
+  10 Jul 2013; Anthony G. Basile <blueness@gentoo.org> metadata.xml:
+  Add myself as proxy maintainer
+
+*cgminer-3.3.1 (04 Jul 2013)
+
+  04 Jul 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.3.1.ebuild:
+  Version bump, switch SRC_URI to archive
+
+*cgminer-3.3.0 (03 Jul 2013)
+
+  03 Jul 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.3.0.ebuild,
+  -cgminer-2.3.4.ebuild, -cgminer-2.3.5.ebuild, -cgminer-2.3.6.ebuild,
+  -cgminer-2.4.0.ebuild, -cgminer-2.4.1.ebuild, -cgminer-2.4.2-r1.ebuild,
+  -cgminer-2.4.3-r1.ebuild, -cgminer-2.4.4.ebuild, -cgminer-2.5.0.ebuild,
+  -cgminer-2.6.3.ebuild, -cgminer-2.6.4.ebuild, -cgminer-2.7.1.ebuild,
+  -cgminer-2.7.4.ebuild, metadata.xml:
+  Version bump and remove ancient versions, bug #442254
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

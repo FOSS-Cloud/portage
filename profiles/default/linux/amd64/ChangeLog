@@ -1,6 +1,20 @@
 # ChangeLog for the default/linux/amd64 profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/default/linux/amd64/ChangeLog,v 1.5 2013/02/09 10:52:37 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/default/linux/amd64/ChangeLog,v 1.9 2013/11/16 19:10:38 mgorny Exp $
+
+  16 Nov 2013; Michał Górny <mgorny@gentoo.org> 13.0/package.use.stable.mask:
+  Un-stable-mask all Python impls on python-exec. We are forcing them anyway,
+  and users are having issues due to un-masking them manually.
+
+  03 Oct 2013; Matt Turner <mattst88@gentoo.org> 13.0/package.use.stable.mask:
+  Drop unneeded libtxc_dxtn abi_x86_32 stable use mask.
+
+  24 Sep 2013; Michał Górny <mgorny@gentoo.org> 13.0/package.use.stable.mask:
+  Add missing abi_x86_32 masks as reported by Patrick Lauer.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> 13.0/use.mask,
+  13.0/use.stable.mask:
+  PyPy 1.9 is going masked for removal. Bug #480070.
 
   09 Feb 2013; Andreas K. Huettel <dilfridge@gentoo.org> +10.0/deprecated,
   +10.0/desktop/deprecated, +10.0/desktop/gnome/deprecated,

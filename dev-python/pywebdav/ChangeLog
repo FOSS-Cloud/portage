@@ -1,6 +1,20 @@
 # ChangeLog for dev-python/pywebdav
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pywebdav/ChangeLog,v 1.17 2012/05/05 11:02:52 cedk Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pywebdav/ChangeLog,v 1.20 2013/10/10 16:31:38 mgorny Exp $
+
+*pywebdav-0.9.8-r1 (10 Oct 2013)
+
+  10 Oct 2013; Michał Górny <mgorny@gentoo.org> +pywebdav-0.9.8-r1.ebuild:
+  Convert to distutils-r1. Thanks for Dennis Lan for the initial patch, bug
+  #487508.
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  python will maintain this: http://www.gossamer-
+  threads.com/lists/gentoo/dev/273296#273296
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> -pywebdav-0.9.4.1.ebuild,
+  metadata.xml:
+  Cleanup due bug #151880
 
 *pywebdav-0.9.8 (05 May 2012)
 
@@ -76,4 +90,3 @@
   14 Feb 2008; Cédric Krier <cedk@gentoo.org> +metadata.xml,
   +pywebdav-0.6.ebuild:
   New ebuild
-

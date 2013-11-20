@@ -1,6 +1,47 @@
 # ChangeLog for dev-libs/liborcus
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/liborcus/ChangeLog,v 1.13 2013/03/28 16:45:21 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/liborcus/ChangeLog,v 1.24 2013/10/27 12:05:27 ago Exp $
+
+  27 Oct 2013; Agostino Sarubbo <ago@gentoo.org> liborcus-0.5.1.ebuild:
+  Stable for x86, wrt bug #486204
+
+  20 Oct 2013; Tony Vroon <chainsaw@gentoo.org> liborcus-0.5.1.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #486204.
+
+  10 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> liborcus-0.3.0.ebuild,
+  liborcus-0.5.1.ebuild, liborcus-9999.ebuild:
+  Use subslot deps on boost.
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> liborcus-0.3.0.ebuild:
+  Stable for ppc, wrt bug #474066
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> liborcus-0.3.0.ebuild:
+  Stable for x86, wrt bug #474066
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> liborcus-0.3.0.ebuild:
+  Stable for amd64, wrt bug #474066
+
+  21 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> liborcus-0.3.0.ebuild:
+  Subslot on boost and lower the dep so we can stabilize.
+
+  27 May 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +files/liborcus-0.5.1-mdds.patch, liborcus-0.5.1.ebuild:
+  Fix up build under latest mdds.
+
+  26 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> liborcus-0.3.0.ebuild,
+  liborcus-0.5.1.ebuild:
+  Fix the autoreconf crash wrt bug#466964. Fixed also in git.
+
+  23 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +files/liborcus-0.5.1-linking.patch, liborcus-0.5.1.ebuild:
+  Fix linking trouble wrt bug#466604.
+
+*liborcus-0.5.1 (19 Apr 2013)
+
+  19 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> +liborcus-0.5.1.ebuild,
+  liborcus-9999.ebuild:
+  Version bump to latest.
 
   28 Mar 2013; Markus Meier <maekke@gentoo.org> liborcus-0.3.0.ebuild:
   add ~arm, bug #451464

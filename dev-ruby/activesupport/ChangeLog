@@ -1,6 +1,43 @@
 # ChangeLog for dev-ruby/activesupport
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activesupport/ChangeLog,v 1.227 2013/04/01 14:52:26 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activesupport/ChangeLog,v 1.236 2013/11/10 14:45:22 graaff Exp $
+
+  10 Nov 2013; Hans de Graaff <graaff@gentoo.org> -activesupport-3.2.13.ebuild,
+  -activesupport-3.2.14.ebuild:
+  Cleanup.
+
+*activesupport-3.2.15 (17 Oct 2013)
+
+  17 Oct 2013; Hans de Graaff <graaff@gentoo.org> +activesupport-3.2.15.ebuild:
+  Version bump for security bug 488298.
+
+  13 Oct 2013; Markus Meier <maekke@gentoo.org> activesupport-4.0.0.ebuild:
+  add ~arm, bug #487206
+
+  13 Oct 2013; Hans de Graaff <graaff@gentoo.org> activesupport-4.0.0.ebuild:
+  Slot tzinfo dependency to match the gemspec.
+
+  12 Oct 2013; Jeroen Roovers <jer@gentoo.org> activesupport-4.0.0.ebuild:
+  Revert.
+
+  12 Oct 2013; Jeroen Roovers <jer@gentoo.org> activesupport-4.0.0.ebuild:
+  Marked ~hppa (bug #487206).
+
+*activesupport-4.0.0 (07 Oct 2013)
+
+  07 Oct 2013; Hans de Graaff <graaff@gentoo.org> +activesupport-4.0.0.ebuild:
+  Version bump for Rails 4. Dropped keywords in bug 487206.
+
+*activesupport-3.2.14 (17 Aug 2013)
+
+  17 Aug 2013; Hans de Graaff <graaff@gentoo.org> +activesupport-3.2.14.ebuild:
+  Version bump.
+
+  27 Apr 2013; Hans de Graaff <graaff@gentoo.org> -activesupport-2.3.16.ebuild,
+  -activesupport-2.3.17.ebuild, -activesupport-3.1.10.ebuild,
+  -activesupport-3.1.11.ebuild, -activesupport-3.2.11.ebuild,
+  -activesupport-3.2.12.ebuild:
+  Cleanup.
 
   01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> activesupport-2.3.18.ebuild:
   Stable for ppc64, wrt bug #462452

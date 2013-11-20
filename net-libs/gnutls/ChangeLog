@@ -1,6 +1,130 @@
 # ChangeLog for net-libs/gnutls
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gnutls/ChangeLog,v 1.424 2013/03/27 06:17:27 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gnutls/ChangeLog,v 1.454 2013/11/09 21:28:46 radhermit Exp $
+
+*gnutls-3.2.6 (09 Nov 2013)
+
+  09 Nov 2013; Tim Harder <radhermit@gentoo.org> +gnutls-3.2.6.ebuild:
+  Version bump.
+
+  28 Oct 2013; Alon Bar-Lev <alonbl@gentoo.org> -gnutls-3.2.3.ebuild:
+  Remove old ebuild, bug#489262
+
+  28 Oct 2013; Alon Bar-Lev <alonbl@gentoo.org> -gnutls-3.2.4.ebuild:
+  Remove old ebuild, bug#489262
+
+*gnutls-3.2.5 (24 Oct 2013)
+
+  24 Oct 2013; Alon Bar-Lev <alonbl@gentoo.org> +files/gnutls-3.2.5-build.patch,
+  +gnutls-3.2.5.ebuild:
+  Version bump, bug#489262
+
+  22 Oct 2013; Fabian Groffen <grobian@gentoo.org> gnutls-3.2.4.ebuild:
+  Add patch from upstream to fix compilation on Darwin, bug #488498
+
+  22 Sep 2013; Chris Reffett <creffett@gentoo.org> -gnutls-2.12.20.ebuild:
+  Drop affected version wrt bug 455560
+
+  01 Sep 2013; Tim Harder <radhermit@gentoo.org> -gnutls-2.12.23.ebuild,
+  -gnutls-3.1.10.ebuild, -gnutls-3.1.11.ebuild, -gnutls-3.2.1-r1.ebuild,
+  -files/gnutls-3.2.1-build-gmp-1.patch, -files/gnutls-3.2.1-build-gmp-2.patch,
+  -files/gnutls-3.2.1-build-gmp-3.patch:
+  Remove old.
+
+*gnutls-3.2.4 (01 Sep 2013)
+
+  01 Sep 2013; Tim Harder <radhermit@gentoo.org> +gnutls-3.2.4.ebuild:
+  Version bump.
+
+*gnutls-3.2.3 (31 Jul 2013)
+
+  31 Jul 2013; Tim Harder <radhermit@gentoo.org> +gnutls-3.2.3.ebuild:
+  Version bump.
+
+  17 Jun 2013; Alon Bar-Lev <alonbl@gentoo.org> files/gnutls-2.12.23-hppa.patch:
+  fix hppa build issue, bug#471914, again... there is duplicate file
+
+  15 Jun 2013; Alon Bar-Lev <alonbl@gentoo.org>
+  +files/gnutls-2.12.23-hppa.patch, gnutls-2.12.23-r1.ebuild:
+  fix hppa build issue, bug#471914
+
+  11 Jun 2013; Agostino Sarubbo <ago@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  Stable for sh, wrt bug #471788
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  Stable for s390, wrt bug #471788
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  Stable for ppc64, wrt bug #471788
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  Stable for sparc, wrt bug #471788
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  Stable for ppc, wrt bug #471788
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  Stable for ia64, wrt bug #471788
+
+  09 Jun 2013; Markus Meier <maekke@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  arm stable, bug #471788
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  Stable for x86, wrt bug #471788
+
+*gnutls-3.2.1-r1 (03 Jun 2013)
+
+  03 Jun 2013; Alon Bar-Lev <alonbl@gentoo.org>
+  +files/gnutls-3.2.1-build-gmp-1.patch, +files/gnutls-3.2.1-build-gmp-2.patch,
+  +files/gnutls-3.2.1-build-gmp-3.patch, +gnutls-3.2.1-r1.ebuild,
+  -files/gnutls-3.2.1-build-gmp.patch, -gnutls-3.2.1.ebuild:
+  backport patches from upstream related to bug#472056, should solve bug#472196
+
+  02 Jun 2013; Richard Freeman <rich0@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  amd64 stable - 471788
+
+  02 Jun 2013; Alon Bar-Lev <alonbl@gentoo.org>
+  +files/gnutls-3.2.1-build-gmp.patch, gnutls-3.2.1.ebuild:
+  link explicitly against gmp, bug#472056
+
+*gnutls-3.2.1 (01 Jun 2013)
+
+  01 Jun 2013; Alon Bar-Lev <alonbl@gentoo.org> +gnutls-3.2.1.ebuild,
+  -gnutls-3.2.0.ebuild:
+  Version bump, fixes bug#459964
+
+  31 May 2013; Jeroen Roovers <jer@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  Stable for HPPA (bug #471788).
+
+  31 May 2013; Tobias Klausmann <klausman@gentoo.org> gnutls-2.12.23-r1.ebuild:
+  Stable on alpha, bug #471788
+
+*gnutls-2.12.23-r1 (30 May 2013)
+
+  30 May 2013; Tim Harder <radhermit@gentoo.org> +gnutls-2.12.23-r1.ebuild,
+  gnutls-3.1.10.ebuild, gnutls-3.1.11.ebuild, gnutls-3.2.0.ebuild,
+  +files/gnutls-2.12.23-CVE-2013-2116.patch:
+  Revision bump to fix CVE-2013-2116 (bug #471788), drop redundant
+  --disable-silent-rules econf option for EAPI 5 ebuilds, and run tests
+  serially since they often fail in parallel.
+
+  22 May 2013; Tim Harder <radhermit@gentoo.org> gnutls-3.2.0.ebuild:
+  Update nettle dep (bug #471022).
+
+  22 May 2013; Tim Harder <radhermit@gentoo.org> gnutls-3.1.10.ebuild,
+  gnutls-3.1.11.ebuild, gnutls-3.2.0.ebuild:
+  Drop m68k keyword until dev-libs/nettle is keyworded.
+
+  22 May 2013; Tim Harder <radhermit@gentoo.org> -gnutls-3.1.8.ebuild,
+  -gnutls-3.1.9-r1.ebuild:
+  Remove old.
+
+*gnutls-3.2.0 (22 May 2013)
+*gnutls-3.1.11 (22 May 2013)
+
+  22 May 2013; Tim Harder <radhermit@gentoo.org> +gnutls-3.1.11.ebuild,
+  +gnutls-3.2.0.ebuild:
+  Version bumps (bug #470698).
 
 *gnutls-3.1.10 (27 Mar 2013)
 

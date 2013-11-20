@@ -1,6 +1,25 @@
 # ChangeLog for app-crypt/seahorse
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/seahorse/ChangeLog,v 1.165 2013/03/28 16:29:29 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/seahorse/ChangeLog,v 1.169 2013/08/30 21:15:12 eva Exp $
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> -seahorse-3.6.3.ebuild,
+  -seahorse-3.8.1.ebuild:
+  Clean up old revisions.
+
+*seahorse-3.8.2 (14 May 2013)
+
+  14 May 2013; Pacho Ramos <pacho@gentoo.org> +seahorse-3.8.2.ebuild,
+  -seahorse-3.8.0.ebuild, seahorse-3.8.1.ebuild:
+  Version bump, drop old
+
+  21 Apr 2013; Pacho Ramos <pacho@gentoo.org> seahorse-3.8.1.ebuild:
+  Fix trailing whitespace causing ITSTOOL to be unset (#466610 by Arfrever
+  Frehtes Taifersar Arahesis)
+
+*seahorse-3.8.1 (19 Apr 2013)
+
+  19 Apr 2013; Pacho Ramos <pacho@gentoo.org> +seahorse-3.8.1.ebuild:
+  Version bump
 
 *seahorse-3.8.0 (28 Mar 2013)
 

@@ -1,6 +1,44 @@
 # ChangeLog for dev-db/postgis
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgis/ChangeLog,v 1.79 2013/04/07 09:58:52 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/postgis/ChangeLog,v 1.87 2013/11/11 07:23:59 patrick Exp $
+
+*postgis-2.1.1 (11 Nov 2013)
+
+  11 Nov 2013; Patrick Lauer <patrick@gentoo.org> +postgis-2.1.1.ebuild:
+  Bump
+
+  23 Aug 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  +files/postgis-2.0-arflags.patch:
+  Add AR flags patch.
+
+  23 Aug 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  +files/postgis-2.1-ldflags.patch:
+  Add LDFALGS patch for 2.1. Fixes bug 482014.
+
+*postgis-2.1.0 (18 Aug 2013)
+
+  18 Aug 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  -postgis-2.1.0_beta3.ebuild, +postgis-2.1.0.ebuild,
+  files/postgis-2.1-pkgconfig-json.patch:
+  Version bump and fix bug 464386 and bug 477810.
+
+*postgis-2.1.0_beta3 (26 Jun 2013)
+
+  26 Jun 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  +postgis-2.1.0_beta3.ebuild, +files/postgis-2.1-pkgconfig-json.patch:
+  Version bump. Fixes bug 470050.
+
+  28 Apr 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  -postgis-1.3.6-r1.ebuild, -postgis-1.4.2-r1.ebuild, -postgis-1.5.3-r1.ebuild,
+  -postgis-1.5.5.ebuild, -postgis-2.0.0.ebuild, -postgis-2.0.1.ebuild,
+  -postgis-2.0.2-r2.ebuild:
+  Cleaning out cruft.
+
+  26 Apr 2013; Agostino Sarubbo <ago@gentoo.org> postgis-2.0.3.ebuild:
+  Stable for ppc, wrt bug #457958
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> postgis-2.0.3.ebuild:
+  Stable for x86, wrt bug #457958
 
   07 Apr 2013; Agostino Sarubbo <ago@gentoo.org> postgis-2.0.3.ebuild:
   Stable for amd64, wrt bug #457958
@@ -242,7 +280,7 @@
 
   06 Jan 2007; <djay@gentoo.org> metadata.xml, +postgis-1.1.6.ebuild,
   +postgis-1.2.0.ebuild:
-  Adding postgis-1.1.6 and postgis-1.2.0 ebuilds. Special thanks to 
+  Adding postgis-1.1.6 and postgis-1.2.0 ebuilds. Special thanks to
   dev-zero for his help.
 
   17 Dec 2006; Tobias Scherbaum <dertobi123@gentoo.org>

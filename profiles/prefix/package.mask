@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/prefix/package.mask,v 1.114 2012/11/10 09:14:39 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/prefix/package.mask,v 1.118 2013/09/05 18:09:57 mgorny Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked.  This file is for
@@ -22,8 +22,8 @@
 =sys-apps/coreutils-8.20
 
 # Benda Xu <heroxbd@gentoo.org> (07 Aug 2012)
-# mask new revision for testing out openrc. bug #415895. 
->=sys-apps/baselayout-prefix-1.12.14-r1
+# mask revision for testing out openrc. bug #415895. 
+=sys-apps/baselayout-prefix-1.12.14-r1
 
 # Fabian Groffen <grobian@gentoo.org> (01 Aug 2012)
 # Causes spurious errors due to considering some small files being
@@ -71,14 +71,6 @@ www-apps/trac
 # for upstream to sanitise their code (or someone else to do it, since
 # many people are affected: uClibc, BSD, ...)
 =sys-fs/e2fsprogs-1.41.14
-
-# Jeremy Olexa <darkside@gentoo.org> (21 Aug 2009)
-# python-3 will most certainly cause problems if it ever gets unleashed without
-# a look over from a prefix dev. (not me) ;)
-# Additionally mask packages requiring it
-dev-lang/python:3.0
-dev-lang/python:3.1
-=dev-python/beautifulsoup-3.1.0.1-r1
 
 # Jeremy Olexa <darkside@gentoo.org> (30 Jun 2009)
 # The PAM auth system just will not work in Gentoo Prefix, instead the host auth

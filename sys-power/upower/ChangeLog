@@ -1,6 +1,57 @@
 # ChangeLog for sys-power/upower
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/upower/ChangeLog,v 1.115 2013/03/31 09:57:18 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-power/upower/ChangeLog,v 1.130 2013/10/19 20:34:42 ssuominen Exp $
+
+*upower-0.9.23 (19 Oct 2013)
+
+  19 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> +upower-0.9.23.ebuild:
+  Version bump.
+
+  08 Oct 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -files/upower-0.9.20-hidraw_with_udev-196.patch, -upower-0.9.20-r2.ebuild,
+  metadata.xml:
+  old
+
+*upower-0.9.22 (08 Oct 2013)
+
+  08 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> +upower-0.9.22.ebuild:
+  Version bump.
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> upower-0.9.21.ebuild:
+  Stable for sparc, wrt bug #482248
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> upower-0.9.21.ebuild:
+  Stable for x86, wrt bug #482248
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> upower-0.9.21.ebuild:
+  Stable for ppc64, wrt bug #482248
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> upower-0.9.21.ebuild:
+  Stable for ppc, wrt bug #482248
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> upower-0.9.21.ebuild:
+  Stable for ia64, wrt bug #482248
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> upower-0.9.21.ebuild:
+  Stable for alpha, wrt bug #482248
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> upower-0.9.21.ebuild:
+  Stable for arm, wrt bug #482248
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> upower-0.9.21.ebuild:
+  Stable for amd64, wrt bug #482248
+
+  27 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> -upower-0.9.19.ebuild:
+  old
+
+*upower-0.9.21 (27 Jul 2013)
+
+  27 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> +upower-0.9.21.ebuild:
+  Version bump.
+
+  11 May 2013; Samuli Suominen <ssuominen@gentoo.org> upower-0.9.19.ebuild,
+  upower-0.9.20-r2.ebuild:
+  Use subslot operator for the libplist and libimobiledevice dependencies.
 
   31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> upower-0.9.20-r2.ebuild:
   Stable for sparc, wrt bug #462648

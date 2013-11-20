@@ -1,6 +1,139 @@
 # ChangeLog for media-libs/tiff
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/tiff/ChangeLog,v 1.221 2013/02/18 22:41:23 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/tiff/ChangeLog,v 1.255 2013/10/26 08:19:22 mgorny Exp $
+
+  26 Oct 2013; Michał Górny <mgorny@gentoo.org> tiff-3.9.7-r1.ebuild:
+  Override multilib_src_install_all() not to install docs rather than removing
+  them post-install.
+
+  29 Sep 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -files/tiff-4.0.2-CVE-2012-3401.patch, -files/tiff-4.0.2-bigendian.patch,
+  -tiff-4.0.2-r1.ebuild:
+  old
+
+  28 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -files/tiff-3.9.5-CVE-2012-1173.patch, -tiff-3.9.5-r3.ebuild,
+  -tiff-4.0.3-r1.ebuild, -tiff-4.0.3-r2.ebuild, -tiff-4.0.3-r3.ebuild,
+  -tiff-4.0.3.ebuild, tiff-4.0.2-r1.ebuild:
+  old
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for sparc, wrt bug #480466
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for sh, wrt bug #480466
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for s390, wrt bug #480466
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for ia64, wrt bug #480466
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for alpha, wrt bug #480466
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for ppc, wrt bug #480466
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for arm, wrt bug #480466
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for ppc64, wrt bug #480466
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for x86, wrt bug #480466
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for amd64, wrt bug #480466
+
+  23 Aug 2013; Jeroen Roovers <jer@gentoo.org> tiff-4.0.3-r4.ebuild:
+  Stable for HPPA (bug #480466).
+
+*tiff-4.0.3-r4 (23 Aug 2013)
+*tiff-4.0.3-r5 (23 Aug 2013)
+
+  23 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +files/tiff-4.0.3-CVE-2013-4231.patch, +files/tiff-4.0.3-CVE-2013-4232.patch,
+  +tiff-4.0.3-r4.ebuild, +tiff-4.0.3-r5.ebuild:
+  Fix for CVE-2013-4231 (and CVE-2013-4232) from upstream. See security bug
+  #480466. The -r4 is for stabilization without multilib-minimal.eclass usage.
+
+  19 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> tiff-3.9.7-r1.ebuild:
+  Remove content of /usr/share in src_install() instead of setting empty DOCS=
+  which is breaking paludis and is supposedly against PMS too wrt #481642
+
+  13 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> tiff-3.9.7-r1.ebuild:
+  Set empty DOCS to avoid any useless documentation from being installed as this
+  is binary-only SLOT.
+
+*tiff-3.9.7-r1 (10 Aug 2013)
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org> +tiff-3.9.7-r1.ebuild:
+  Convert to multilib and stack it for baselib r11
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org> tiff-4.0.3-r3.ebuild:
+  Add blockers on emul-libs so that it is stacked for baselibs r10
+
+*tiff-4.0.3-r3 (10 Aug 2013)
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org> +tiff-4.0.3-r3.ebuild:
+  Convert to multilib, bug #459820
+
+  05 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> tiff-4.0.3-r2.ebuild:
+  Pull in correct SLOT of libjpeg for headers.
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r2.ebuild:
+  Stable for s390, wrt bug #468334
+
+  08 May 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r2.ebuild:
+  Stable for sh, wrt bug #468334
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r2.ebuild:
+  Stable for sparc, wrt bug #468334
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r2.ebuild:
+  Stable for ia64, wrt bug #468334
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r2.ebuild:
+  Stable for alpha, wrt bug #468334
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> tiff-4.0.3-r2.ebuild:
+  Stable for arm, wrt bug #468334
+
+  04 May 2013; Jeroen Roovers <jer@gentoo.org> tiff-3.9.7.ebuild,
+  tiff-4.0.3-r2.ebuild:
+  Stable for HPPA (bug #468334).
+
+  03 May 2013; Samuli Suominen <ssuominen@gentoo.org> tiff-3.9.7.ebuild,
+  +files/tiff-3.9.7-CVE-2012-4447.patch, +files/tiff-3.9.7-CVE-2012-4564.patch,
+  +files/tiff-3.9.7-CVE-2012-5581.patch,
+  +files/tiff-3.9.7-printdir-width.patch,
+  +files/tiff-3.9.7-tiffinfo-exif.patch:
+  Import Fedora 17 security patchset for the compability SLOT.
+
+  03 May 2013; Vicente Olivert Riera <vincent@gentoo.org> tiff-3.9.7.ebuild,
+  tiff-4.0.3-r2.ebuild:
+  ppc and ppc64 stable, wrt bug #468334
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> tiff-3.9.7.ebuild,
+  tiff-4.0.3-r2.ebuild:
+  Stable for x86, wrt bug #468334
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> tiff-3.9.7.ebuild,
+  tiff-4.0.3-r2.ebuild:
+  Stable for amd64, wrt bug #468334
+
+*tiff-4.0.3-r2 (03 May 2013)
+*tiff-3.9.7 (03 May 2013)
+
+  03 May 2013; Samuli Suominen <ssuominen@gentoo.org> +tiff-3.9.7.ebuild,
+  +tiff-4.0.3-r2.ebuild, +files/tiff-4.0.3-CVE-2012-4447.patch,
+  +files/tiff-4.0.3-CVE-2012-4564.patch, +files/tiff-4.0.3-CVE-2013-1960.patch,
+  +files/tiff-4.0.3-CVE-2013-1961.patch, +files/tiff-4.0.3-libjpeg-turbo.patch:
+  Fix multiple security bugs #440154 (CVE-2012-4447), #440944 (CVE-2012-4564)
+  and #468334 (CVE-2013-1960 and CVE-2013-1961)
+  Thanks to Agostino Sarubbo for reporting
 
   18 Feb 2013; Zac Medico <zmedico@gentoo.org> tiff-4.0.3-r1.ebuild:
   Add ~arm-linux keyword.

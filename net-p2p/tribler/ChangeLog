@@ -1,6 +1,22 @@
 # ChangeLog for net-p2p/tribler
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/tribler/ChangeLog,v 1.46 2013/03/23 19:46:34 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/tribler/ChangeLog,v 1.49 2013/08/11 22:59:17 aballier Exp $
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> tribler-6.0.3.ebuild,
+  tribler-6.1.0.ebuild, tribler-6.2.0.ebuild:
+  depend on ffmpeg:0
+
+*tribler-6.2.0 (02 Aug 2013)
+
+  02 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/tribler-6.2.0-fix-desktop.patch, +tribler-6.2.0.ebuild:
+  Version bump
+
+*tribler-6.1.0 (10 May 2013)
+
+  10 May 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/tribler-6.1.0-fix-desktop.patch, +tribler-6.1.0.ebuild:
+  Version bump, bug #469168
 
   23 Mar 2013; Mike Frysinger <vapier@gentoo.org> tribler-6.0.3.ebuild:
   Convert to unpacker eclass for .deb unpacking.

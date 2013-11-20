@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-news/newsbeuter/newsbeuter-2.6.ebuild,v 1.1 2013/03/20 03:22:23 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-news/newsbeuter/newsbeuter-2.6.ebuild,v 1.6 2013/07/01 07:30:28 radhermit Exp $
 
 EAPI="5"
 
-inherit toolchain-funcs
+inherit toolchain-funcs eutils
 
 DESCRIPTION="A RSS/Atom feed reader for the text console"
 HOMEPAGE="http://www.newsbeuter.org/index.html"
@@ -12,7 +12,7 @@ SRC_URI="http://www.${PN}.org/downloads/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE="test"
 
 RDEPEND=">=dev-db/sqlite-3.5:3
@@ -34,14 +34,16 @@ DEPEND="${RDEPEND}
 RESTRICT="test"
 
 src_prepare() {
-	sed -i \
-		-e "s:-ggdb:${CXXFLAGS}:" \
-		-e "s:^CXX=.*:CXX=$(tc-getCXX):" \
-		Makefile
+	sed -i 's:-ggdb::' Makefile || die
+	epatch "${FILESDIR}"/${P}-json-c.patch
 }
 
 src_configure() {
 	./config.sh || die
+}
+
+src_compile() {
+	emake CXX="$(tc-getCXX)" AR="$(tc-getAR)" RANLIB="$(tc-getRANLIB)"
 }
 
 src_test() {

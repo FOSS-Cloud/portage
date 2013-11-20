@@ -1,6 +1,23 @@
 # ChangeLog for www-plugins/gnash
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/gnash/ChangeLog,v 1.96 2013/03/28 22:06:54 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/gnash/ChangeLog,v 1.99 2013/10/22 13:08:36 chithanh Exp $
+
+*gnash-0.8.10_p20131019 (22 Oct 2013)
+
+  22 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +gnash-0.8.10_p20131019.ebuild:
+  New snapshot.
+
+*gnash-0.8.10_p20130822 (22 Aug 2013)
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/gnash-0.8.11-gettext-macro.patch, +gnash-0.8.10_p20130822.ebuild,
+  metadata.xml:
+  New snapshot. Adds ffmpeg-2.0 support, bug #480672.
+
+  10 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  gnash-0.8.10_p20120903-r1.ebuild:
+  Use subslot dependencies for boost.
 
 *gnash-0.8.10_p20120903-r1 (28 Mar 2013)
 

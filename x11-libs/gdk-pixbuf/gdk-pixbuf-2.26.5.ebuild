@@ -1,24 +1,24 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/gdk-pixbuf/gdk-pixbuf-2.26.5.ebuild,v 1.5 2013/03/03 09:02:31 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/gdk-pixbuf/gdk-pixbuf-2.26.5.ebuild,v 1.10 2013/11/14 05:46:07 mattst88 Exp $
 
 EAPI="5"
 
-inherit eutils gnome.org multilib libtool
+inherit eutils gnome.org gnome2-utils multilib libtool
 
 DESCRIPTION="Image loading library for GTK+"
 HOMEPAGE="http://www.gtk.org/"
 
 LICENSE="LGPL-2+"
 SLOT="2"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha ~amd64 arm hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="+X debug +introspection jpeg jpeg2k tiff test"
 
 COMMON_DEPEND="
 	>=dev-libs/glib-2.34.0:2
 	>=media-libs/libpng-1.4:0=
 	introspection? ( >=dev-libs/gobject-introspection-0.9.3 )
-	jpeg? ( virtual/jpeg:= )
+	jpeg? ( virtual/jpeg:0= )
 	jpeg2k? ( media-libs/jasper:= )
 	tiff? ( >=media-libs/tiff-3.9.2:0= )
 	X? ( x11-libs/libX11 )"
@@ -63,23 +63,25 @@ src_install() {
 	prune_libtool_files --modules
 }
 
+pkg_preinst() {
+	gnome2_gdk_pixbuf_savelist
+}
+
 pkg_postinst() {
 	# causes segfault if set, see bug 375615
 	unset __GL_NO_DSO_FINALIZER
 
-	tmp_file=$(mktemp -t tmp_gdk_pixbuf_ebuild.XXXXXXXXXX)
-	# be atomic!
-	gdk-pixbuf-query-loaders > "${tmp_file}"
-	if [ "${?}" = "0" ]; then
-		cat "${tmp_file}" > "${EROOT}usr/$(get_libdir)/gdk-pixbuf-2.0/2.10.0/loaders.cache"
-	else
-		ewarn "Cannot update loaders.cache, gdk-pixbuf-query-loaders failed to run"
-	fi
-	rm "${tmp_file}"
+	gnome2_gdk_pixbuf_update
 
 	if [ -e "${EROOT}"usr/lib/gtk-2.0/2.*/loaders ]; then
 		elog "You need to rebuild ebuilds that installed into" "${EROOT}"usr/lib/gtk-2.0/2.*/loaders
 		elog "to do that you can use qfile from portage-utils:"
 		elog "emerge -va1 \$(qfile -qC ${EPREFIX}/usr/lib/gtk-2.0/2.*/loaders)"
+	fi
+}
+
+pkg_postrm() {
+	if [[ -z ${REPLACED_BY_VERSIONS} ]]; then
+		rm -f "${EROOT}"usr/$(get_libdir)/${PN}-2.0/2.10.0/loaders.cache
 	fi
 }

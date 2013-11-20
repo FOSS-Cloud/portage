@@ -1,6 +1,107 @@
 # ChangeLog for media-tv/xbmc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/ChangeLog,v 1.177 2013/04/01 06:35:52 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/ChangeLog,v 1.197 2013/11/10 17:21:41 grobian Exp $
+
+  10 Nov 2013; Fabian Groffen <grobian@gentoo.org>
+  +files/xbmc-12.1-nomythtv.patch, files/xbmc-9999-nomythtv.patch,
+  xbmc-12.1-r1.ebuild, xbmc-12.2-r1.ebuild:
+  Updated nomythtv patch for current git sources, by hal in bug #488494
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> xbmc-12.1-r1.ebuild,
+  xbmc-12.2-r1.ebuild, xbmc-9999.ebuild:
+  Require USE=sftp be set in libssh when we pull it in #483144 by Hendrik v.
+  Raven.
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> xbmc-11.0.ebuild,
+  xbmc-12.1-r1.ebuild, xbmc-12.2-r1.ebuild, xbmc-9999.ebuild:
+  depend on ffmpeg:0
+
+  07 Aug 2013; Alexis Ballier <aballier@gentoo.org> xbmc-9999.ebuild:
+  Add working libav support. It requires libav git master or 10. Add a warning
+  when building against libav to reflect the state of such support. Add := deps
+  on libav and ffmpeg.
+
+  20 Jul 2013; Alexis Ballier <aballier@gentoo.org> xbmc-9999.ebuild:
+  Fix vdpau deps again: It requires either ffmpeg-1.2.1 or a post-libav9
+  release.
+
+  06 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  -files/xbmc-12.0-system-projectm.patch,
+  -files/xbmc-13.0-system-projectm.patch, xbmc-12.1-r1.ebuild,
+  xbmc-12.2-r1.ebuild, xbmc-9999.ebuild:
+  Remove the unbundling of projectM seems like 2.1 again does not work well even
+  after fixed underlinking (now it just crashes the xbmc with pretty trace).
+
+  06 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  files/xbmc-12.0-system-projectm.patch, files/xbmc-13.0-system-projectm.patch:
+  Ensure libprojectM is linked on projectM extension. Still crashes tho with 2.1
+  more investigation needed. Force due to unsynced cvs.
+
+  05 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  -files/xbmc-11.0-libav-r1.patch, -xbmc-11.0-r1.ebuild, -xbmc-12.0.ebuild,
+  -xbmc-12.1.ebuild, -xbmc-12.2.ebuild:
+  Reduce versions a bit, no need to have 6 around. Force due non-updated cvs
+  tree.
+
+  27 Jun 2013; Agostino Sarubbo <ago@gentoo.org> xbmc-12.2-r1.ebuild:
+  Stable for x86, wrt bug #464552
+
+  27 Jun 2013; Agostino Sarubbo <ago@gentoo.org> xbmc-12.2-r1.ebuild:
+  Stable for amd64, wrt bug #464552
+
+  17 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> xbmc-12.2-r1.ebuild:
+  Reduce the postproc || dep to be bit faster.
+
+  14 Jun 2013; Alexis Ballier <aballier@gentoo.org> xbmc-9999.ebuild:
+  vdpau requires a recent ffmpeg version so depend on virtual/ffmpeg-9 in that
+  case
+
+*xbmc-12.2-r1 (13 Jun 2013)
+
+  13 Jun 2013; Alexis Ballier <aballier@gentoo.org> +xbmc-12.2-r1.ebuild:
+  Backport some FFmpeg related fixes from master.
+  Fixes bugs #466718, #463588 and should improve libav compatibility.
+
+  24 May 2013; Alexis Ballier <aballier@gentoo.org> xbmc-9999.ebuild:
+  Fix ffmpeg deps: upstream recommends ffmpeg so this one shall come first in
+  the || dep. xbmc doesnt even compile against libav, meaning the dep is in
+  theory wrong but left there in case someone eventually gets upstream to fix
+  it. Do not depend on virtual/ffmpeg which is not finegrained enough here (and
+  also rather useless because of the libpostproc dep) since ffmpeg releases
+  more often than libav these days and virtual/ffmpeg-9 depends on a masked
+  ffmpeg version while xbmc only requires ffmpeg-1 which is unmasked.
+
+*xbmc-12.2 (23 May 2013)
+
+  23 May 2013; Mike Frysinger <vapier@gentoo.org> +xbmc-12.2.ebuild,
+  xbmc-9999.ebuild:
+  Version bump #468518 by Anthony Ryan.
+
+  24 Apr 2013; Mike Frysinger <vapier@gentoo.org>
+  files/xbmc-13.0-system-projectm.patch:
+  Fix typos in projectm patch #466746 by candrews.
+
+  23 Apr 2013; Mike Frysinger <vapier@gentoo.org> xbmc-12.1-r1.ebuild,
+  xbmc-9999.ebuild:
+  Have USE=X require USE=sdl #466584 by Tomáš Chvátal.
+
+*xbmc-12.1-r1 (20 Apr 2013)
+
+  20 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +files/xbmc-12.0-system-projectm.patch,
+  +files/xbmc-13.0-system-projectm.patch, +xbmc-12.1-r1.ebuild,
+  xbmc-9999.ebuild:
+  Update to python-single-r1 wrt bug#458682. Apply projectm unbundle patch.
+  Apply libav patchset provided by Anton Khirnov to 12.1-r1 ebuild and remove
+  keywords as it depends on too new ffmpeg/libav with this. (the patchset still
+  needs few touchups before submitting to master/9999 ebuild)
+
+  13 Apr 2013; Mike Frysinger <vapier@gentoo.org> files/generate.sh,
+  xbmc-9999.ebuild:
+  Refresh generated python interfaces #464048 by Marcel Unbehaun.
+
+  13 Apr 2013; Mike Frysinger <vapier@gentoo.org> xbmc-9999.ebuild:
+  Patch by hal to punt unused addons #465108.
 
   01 Apr 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml,
   xbmc-12.1.ebuild, xbmc-9999.ebuild:

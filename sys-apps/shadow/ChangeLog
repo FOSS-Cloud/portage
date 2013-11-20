@@ -1,6 +1,42 @@
 # ChangeLog for sys-apps/shadow
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/shadow/ChangeLog,v 1.278 2013/03/12 14:19:37 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/shadow/ChangeLog,v 1.290 2013/09/15 19:11:22 vapier Exp $
+
+  15 Sep 2013; Mike Frysinger <vapier@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Add ttymxc{2,3} #484834 by Steev Klimaszewski.
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Mark m68k/s390/sh stable #454388.
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for sparc, wrt bug #454388
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for ia64, wrt bug #454388
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for arm, wrt bug #454388
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for alpha, wrt bug #454388
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for ppc64, wrt bug #454388
+
+  01 Jul 2013; Jeroen Roovers <jer@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for HPPA (bug #454388).
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for ppc, wrt bug #454388
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for x86, wrt bug #454388
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for amd64, wrt bug #454388
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
 
   12 Mar 2013; Mike Frysinger <vapier@gentoo.org> shadow-4.1.4.3.ebuild,
   shadow-4.1.5-r1.ebuild, shadow-4.1.5-r2.ebuild, shadow-4.1.5.1.ebuild,

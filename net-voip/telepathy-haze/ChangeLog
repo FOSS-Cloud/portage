@@ -1,6 +1,38 @@
 # ChangeLog for net-voip/telepathy-haze
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/telepathy-haze/ChangeLog,v 1.38 2013/03/30 17:10:44 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-voip/telepathy-haze/ChangeLog,v 1.45 2013/10/27 09:57:40 pacho Exp $
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> -telepathy-haze-0.7.1.ebuild,
+  metadata.xml:
+  Cleanup due voip herd removal:
+  http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+*telepathy-haze-0.8.0 (04 Oct 2013)
+
+  04 Oct 2013; Pacho Ramos <pacho@gentoo.org> +telepathy-haze-0.8.0.ebuild,
+  -files/001-handle_purple_account_request_password.patch,
+  -files/002-fix_resource_leakage.patch,
+  -files/003-fix_more_resource_leaks.patch, -telepathy-haze-0.7.0.ebuild:
+  Version bump, drop old
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> telepathy-haze-0.7.1.ebuild:
+  Add missing PYTHON_DEPS
+
+*telepathy-haze-0.7.1 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +telepathy-haze-0.7.1.ebuild:
+  Version bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> telepathy-haze-0.7.0.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*telepathy-haze-0.7.0 (21 Apr 2013)
+
+  21 Apr 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/001-handle_purple_account_request_password.patch,
+  +files/002-fix_resource_leakage.patch,
+  +files/003-fix_more_resource_leaks.patch, +telepathy-haze-0.7.0.ebuild:
+  Version bump, bug #466256 by Andreas Mielke
 
   30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
   -telepathy-haze-0.5.0.ebuild:

@@ -1,9 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/boost/boost-1.53.0.ebuild,v 1.1 2013/02/04 20:19:54 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/boost/boost-1.53.0.ebuild,v 1.8 2013/11/14 09:47:42 pinkbyte Exp $
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_5,2_6,2_7,3_1,3_2,3_3} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
 
 inherit eutils flag-o-matic multilib multiprocessing python-r1 toolchain-funcs versionator
 
@@ -16,19 +16,21 @@ SRC_URI="mirror://sourceforge/boost/${MY_P}.tar.bz2"
 LICENSE="Boost-1.0"
 MAJOR_V="$(get_version_component_range 1-2)"
 SLOT="0/${MAJOR_V}"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~amd64-linux ~x86-fbsd ~x86-linux"
 IUSE="debug doc icu +nls mpi python static-libs +threads tools"
 
 RDEPEND="icu? ( >=dev-libs/icu-3.6:= )
 	!icu? ( virtual/libiconv )
 	mpi? ( || ( sys-cluster/openmpi[cxx] sys-cluster/mpich2[cxx,threads] ) )
 	python? ( ${PYTHON_DEPS} )
+	app-arch/bzip2
 	sys-libs/zlib
 	!app-admin/eselect-boost"
 DEPEND="${RDEPEND}
 	=dev-util/boost-build-${MAJOR_V}*"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-S=${WORKDIR}/${MY_P}
+S="${WORKDIR}/${MY_P}"
 
 create_user-config.jam() {
 	local compiler compiler_version compiler_executable
@@ -68,6 +70,8 @@ src_prepare() {
 		"${FILESDIR}/${PN}-1.48.0-disable_libboost_python3.patch" \
 		"${FILESDIR}/${PN}-1.48.0-python_linking.patch" \
 		"${FILESDIR}/${PN}-1.48.0-disable_icu_rpath.patch"
+	epatch	"${FILESDIR}/${PN}-1.53.0-library_status.patch" # bug 459112
+	epatch	"${FILESDIR}/${PN}-1.53.0-glibc-2.18-compat.patch" # bug 482372
 
 	# Avoid a patch for now
 	for file in libs/context/src/asm/*.S; do
@@ -92,6 +96,15 @@ src_configure() {
 		# We need to add the prefix, and in two cases this exceeds, so prepare
 		# for the largest possible space allocation.
 		append-ldflags -Wl,-headerpad_max_install_names
+	elif [[ ${CHOST} == *-winnt* ]]; then
+		compiler=parity
+		if [[ $($(tc-getCXX) -v) == *trunk* ]]; then
+			compilerVersion=trunk
+		else
+			compilerVersion=$($(tc-getCXX) -v | sed '1q' \
+				| sed -e 's,\([a-z]*\) \([0-9]\.[0-9]\.[0-9][^ \t]*\) .*,\2,')
+		fi
+		compilerExecutable=$(tc-getCXX)
 	fi
 
 	# bug 298489
@@ -102,13 +115,15 @@ src_configure() {
 	# Do _not_ use C++11 yet, make sure to force GNU C++ 98 standard.
 	append-cxxflags -std=gnu++98
 
-	use icu && OPTIONS+=" -sICU_PATH=/usr"
+	use icu && OPTIONS+=" -sICU_PATH=${EPREFIX}/usr"
 	use icu || OPTIONS+=" --disable-icu boost.locale.icu=off"
 	use mpi || OPTIONS+=" --without-mpi"
 	use python || OPTIONS+=" --without-python"
 	use nls || OPTIONS+=" --without-locale"
 
-	OPTIONS+=" pch=off --boost-build=/usr/share/boost-build --prefix=\"${D}usr\" --layout=system threading=$(usex threads multi single) link=$(usex static-libs shared,static shared) --without-context"
+	OPTIONS+=" pch=off --boost-build=${EPREFIX}/usr/share/boost-build --prefix=\"${ED}usr\" --layout=system threading=$(usex threads multi single) link=$(usex static-libs shared,static shared) --without-context"
+
+	[[ ${CHOST} == *-winnt* ]] && OPTIONS+=" -sNO_BZIP2=1"
 }
 
 src_compile() {
@@ -190,8 +205,8 @@ src_install () {
 		fi
 
 		ejam ${OPTIONS} \
-			--includedir="${D}usr/include" \
-			--libdir="${D}usr/$(get_libdir)" \
+			--includedir="${ED}usr/include" \
+			--libdir="${ED}usr/$(get_libdir)" \
 			$(use python && echo --python-buildid=${EPYTHON#python}) \
 			install || die "Installation of Boost libraries failed"
 
@@ -202,8 +217,9 @@ src_install () {
 			# https://svn.boost.org/trac/boost/ticket/2838
 			if use mpi; then
 				local moddir=$(python_get_sitedir)/boost
-				dodir "${moddir}"
-				mv "${D}usr/$(get_libdir)/mpi.so" "${D}${moddir}" || die
+				# moddir already includes eprefix
+				mkdir -p "${D}${moddir}" || die
+				mv "${ED}usr/$(get_libdir)/mpi.so" "${D}${moddir}" || die
 				cat << EOF > "${D}${moddir}/__init__.py" || die
 import sys
 if sys.platform.startswith('linux'):
@@ -229,14 +245,14 @@ EOF
 	fi
 
 	if ! use python; then
-		rm -r "${D}"/usr/include/boost/python* || die
+		rm -r "${ED}"/usr/include/boost/python* || die
 	fi
 
 	if ! use nls; then
-		rm -r "${D}"/usr/include/boost/locale || die
+		rm -r "${ED}"/usr/include/boost/locale || die
 	fi
 
-	rm -r "${D}"/usr/include/boost/context || die
+	rm -r "${ED}"/usr/include/boost/context || die
 
 	if use doc; then
 		find libs/*/* -iname "test" -or -iname "src" | xargs rm -rf
@@ -256,7 +272,7 @@ EOF
 		dosym /usr/include/boost /usr/share/doc/${PF}/html/boost
 	fi
 
-	pushd "${D}usr/$(get_libdir)" > /dev/null || die
+	pushd "${ED}usr/$(get_libdir)" > /dev/null || die
 
 	local ext=$(get_libname)
 	if use threads; then

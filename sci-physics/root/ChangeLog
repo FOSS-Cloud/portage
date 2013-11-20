@@ -1,6 +1,66 @@
 # ChangeLog for sci-physics/root
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-physics/root/ChangeLog,v 1.115 2013/03/17 15:53:28 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-physics/root/ChangeLog,v 1.124 2013/10/29 17:00:37 bicatali Exp $
+
+  15 Oct 2013; Andrew Savchenko <bircoph@gmail.com> -root-5.34.10.ebuild,
+  -root-5.34.10-r1.ebuild, root-5.34.10-r2.ebuild, root-9999.ebuild,
+  -files/root-5.32.00-nobyte-compile.patch, -files/root-9999-cling.patch:
+  Remove old versions and unused patches. WIP on live ebuild.
+
+*root-5.34.10-r2 (07 Oct 2013)
+
+  07 Oct 2013; Andrew Savchenko <bircoph@gmail.com> +root-5.34.10-r2.ebuild,
+  metadata.xml:
+  Add minimal USE flag for minimal and gminimal configurations. Use
+  nohouwto to remove useless messages.
+
+*root-5.34.10-r1 (06 Oct 2013)
+
+  06 Oct 2013; Andrew Savchenko <bircoph@gmail.com> +root-5.34.10-r1.ebuild:
+  Properly use c++0x and oracle deps.
+
+*root-5.34.10 (04 Oct 2013)
+
+  04 Oct 2013; Andrew Savchenko <bircoph@gmail.com> -root-5.34.09.ebuild,
+  +root-5.34.10.ebuild:
+  Version bump per bug 486620 (changes by Oliver Freyermuth).
+  Remove old.
+	
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> root-5.34.09.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  03 Jul 2013; Michael Weber <xmw@gentoo.org> -root-5.34.07.ebuild,
+  -root-5.34.08.ebuild:
+  Remove old version of 5.34 series, as requested by Andrew Savchenko.
+
+*root-5.34.09 (29 Jun 2013)
+
+  29 Jun 2013; Michael Weber <xmw@gentoo.org> +root-5.34.09.ebuild:
+  Version bump by Andrew Savchenko, imported from science overlay.
+
+  11 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> root-5.34.08.ebuild:
+  Fixed installation of doc with the new metric flag (bug #472974)
+
+*root-5.34.08 (10 Jun 2013)
+
+  10 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> +root-5.34.08.ebuild,
+  -root-5.34.05.ebuild, metadata.xml:
+  Version bump from Andrew Savchenko. Added metric use flag for choosing the
+  default documentation paper size
+
+  28 May 2013; Andrew Savchenko <bircoph@gmail.com> +root-5.34.07.ebuild:
+  Fix build with USE="postgres": Gentoo doesn't provide
+  /usr/include/postgresql symlink anymore.
+
+  29 May 2013; Justin Lecher <jlec@gentoo.org> root-5.34.07.ebuild,
+  metadata.xml:
+  Fix usage of new python r1 eclasses (missing PYTHON_REQUIRED_USE,
+  PYTHON_DEPS)
+
+*root-5.34.07 (23 May 2013)
+
+  23 May 2013; Sébastien Fabbro <bicatali@gentoo.org> +root-5.34.07.ebuild:
+  Version bump. Switch to EAPI5. Switch to python-r1 eclass. Fixed desktop file.
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

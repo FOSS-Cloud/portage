@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/redland/redland-1.0.16.ebuild,v 1.5 2013/04/05 20:31:51 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/redland/redland-1.0.16.ebuild,v 1.7 2013/05/02 15:12:38 hasufell Exp $
 
 EAPI=4
 inherit libtool
@@ -11,7 +11,7 @@ SRC_URI="http://download.librdf.org/source/${P}.tar.gz"
 
 LICENSE="Apache-2.0 GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~hppa ~ia64 ppc ppc64 ~sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~alpha amd64 arm hppa ~ia64 ppc ppc64 ~sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos"
 IUSE="berkdb iodbc mysql odbc postgres sqlite ssl static-libs +xml"
 
 # NOTE: libtool is required for libltdl at runtime
@@ -73,8 +73,10 @@ src_install() {
 	dohtml {FAQS,NEWS,README,RELEASE,TODO}.html
 	find "${ED}" -name '*.la' -exec sed -i -e "/^dependency_libs/s:=.*:='':" {} +
 
-	# fix stupid addition of LDFLAGS to libs
-	sed -i \
-		-e "s:${LDFLAGS} ::g" \
-		"${ED}"/usr/$(get_libdir)/pkgconfig/redland.pc || die
+	# !!! REMOVE THIS ON VERSION BUMP, see bug 468298 for proper fix !!!
+	if [[ -n ${LDFLAGS} ]] ; then
+		sed -i \
+			-e "s:${LDFLAGS} ::g" \
+			"${ED}"/usr/$(get_libdir)/pkgconfig/redland.pc || die
+	fi
 }

@@ -1,6 +1,26 @@
 # ChangeLog for dev-python/Djblets
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/Djblets/ChangeLog,v 1.15 2013/01/14 04:50:46 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/Djblets/ChangeLog,v 1.20 2013/06/24 15:21:20 idella4 Exp $
+
+  24 Jun 2013; Ian Delaney <idella4@gentoo.org> Djblets-0.7.15.ebuild:
+  correction to dep
+
+*Djblets-0.7.15 (15 Jun 2013)
+
+  15 Jun 2013; Ian Delaney <idella4@gentoo.org> +Djblets-0.7.15.ebuild,
+  +files/exclude-tests.patch, Djblets-0.6.22.ebuild, Djblets-0.7.14.ebuild:
+  revbump, migrate -> distutils-r1, bump, patch to exclude tests from install,
+  add all req'd deps, closes Bug No.s 470990 473088"
+
+  09 Jun 2013; Mike Gilbert <floppym@gentoo.org> Djblets-0.6.22.ebuild,
+  Djblets-0.7.14.ebuild:
+  Depend on virtual/python-imaging.
+
+*Djblets-0.7.14 (10 May 2013)
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> +Djblets-0.7.14.ebuild,
+  -Djblets-0.7.ebuild, Djblets-0.6.22.ebuild:
+  Bump and minor cleanups
 
   14 Jan 2013; Ian Delaney <idella4@gentoo.org> +files/sample.rss,
   Djblets-0.6.22.ebuild:

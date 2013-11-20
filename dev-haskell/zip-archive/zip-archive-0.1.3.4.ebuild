@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/zip-archive/zip-archive-0.1.3.4.ebuild,v 1.1 2013/04/02 13:03:25 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/zip-archive/zip-archive-0.1.3.4.ebuild,v 1.9 2013/08/07 13:33:56 ago Exp $
 
 EAPI=5
 
@@ -15,7 +15,7 @@ SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86 ~x86-fbsd"
 IUSE="executable"
 
 RDEPEND=">=dev-haskell/binary-0.5:=[profile?]
@@ -27,6 +27,7 @@ RDEPEND=">=dev-haskell/binary-0.5:=[profile?]
 DEPEND="${RDEPEND}
 		>=dev-haskell/cabal-1.10
 		test? ( dev-haskell/hunit
+			app-arch/zip
 		)"
 
 src_configure() {

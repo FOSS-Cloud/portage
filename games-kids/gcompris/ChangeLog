@@ -1,6 +1,24 @@
 # ChangeLog for games-kids/gcompris
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-kids/gcompris/ChangeLog,v 1.92 2013/02/01 00:18:59 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-kids/gcompris/ChangeLog,v 1.96 2013/11/12 16:26:08 mr_bones_ Exp $
+
+*gcompris-13.11 (12 Nov 2013)
+
+  12 Nov 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/gcompris-13.11-build.patch, +gcompris-13.11.ebuild:
+  version bump
+
+*gcompris-12.11-r1 (26 Oct 2013)
+
+  26 Oct 2013; Julian Ospald <hasufell@gentoo.org> +gcompris-12.11-r1.ebuild:
+  migrate to python-single-r1
+
+  26 Oct 2013; Julian Ospald <hasufell@gentoo.org> gcompris-12.11.ebuild,
+  +files/gcompris-12.11-underlinking.patch:
+  fix underlinking wrt #488964
+
+  04 Jul 2013; Michael Sterrett <mr_bones_@gentoo.org> gcompris-12.11.ebuild:
+  add slot to libsdl dep
 
   01 Feb 2013; Michael Sterrett <mr_bones_@gentoo.org> metadata.xml:
   metadata cleanup

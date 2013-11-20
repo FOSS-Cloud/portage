@@ -1,6 +1,20 @@
 # ChangeLog for dev-python/ttfquery
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ttfquery/ChangeLog,v 1.13 2012/08/24 08:12:05 xmw Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ttfquery/ChangeLog,v 1.17 2013/09/05 18:46:57 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> ttfquery-1.0.5-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> ttfquery-1.0.5-r1.ebuild:
+  Stable for x86, wrt bug #470470
+
+  19 May 2013; Agostino Sarubbo <ago@gentoo.org> ttfquery-1.0.5-r1.ebuild:
+  Stable for amd64, wrt bug #470470
+
+*ttfquery-1.0.5-r1 (11 Apr 2013)
+
+  11 Apr 2013; Ian Delaney <idella4@gentoo.org> +ttfquery-1.0.5-r1.ebuild:
+  revbump, migration to distutils-r1
 
   24 Aug 2012; Michael Weber <xmw@gentoo.org> ttfquery-1.0.5.ebuild:
   add ~ppc keyword (bug 413815)

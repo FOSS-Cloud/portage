@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/apbs/apbs-1.3-r3.ebuild,v 1.3 2013/02/27 14:06:26 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/apbs/apbs-1.3-r3.ebuild,v 1.5 2013/05/02 15:16:35 jlec Exp $
 
 EAPI=4
 
@@ -11,8 +11,8 @@ inherit autotools-utils eutils fortran-2 python toolchain-funcs versionator
 MY_PV=$(get_version_component_range 1-3)
 MY_P="${PN}-${MY_PV}"
 
-DESCRIPTION="For evaluation of electrostatic properties of nanoscale biomolecular systems"
-HOMEPAGE="http://apbs.sourceforge.net/"
+DESCRIPTION="Evaluation of electrostatic properties of nanoscale biomolecular systems"
+HOMEPAGE="http://www.poissonboltzmann.org/apbs/"
 SRC_URI="mirror://sourceforge/${PN}/${P}-source.tar.gz"
 
 SLOT="0"
@@ -72,6 +72,12 @@ src_prepare() {
 	sed \
 		-e 's:noinst_PROGRAMS:bin_PROGRAMS:g' \
 		-i tools/*/Makefile.am || die
+
+	sed \
+		-e "s:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:g" \
+		-e "s:AM_PROG_CC_STDC:AC_PROG_CC:g" \
+		-i configure.ac || die
+
 	AT_NOELIBTOOLIZE=yes eautoreconf
 }
 

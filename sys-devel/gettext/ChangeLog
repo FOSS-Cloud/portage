@@ -1,6 +1,25 @@
 # ChangeLog for sys-devel/gettext
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gettext/ChangeLog,v 1.220 2013/04/02 23:09:50 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/gettext/ChangeLog,v 1.224 2013/10/25 12:51:26 polynomial-c Exp $
+
+*gettext-0.18.3.1-r1 (25 Oct 2013)
+
+  25 Oct 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +gettext-0.18.3.1-r1.ebuild,
+  +files/gettext-0.18.3.1-use_m4_fallback_dir.patch:
+  Fixed autopoint installation to / when no m4dir was found (bug #487794).
+  Raised ebuild to EAPI-5. Switched to mono-env eclass.
+
+*gettext-0.18.3.1 (25 Aug 2013)
+
+  25 Aug 2013; Mike Frysinger <vapier@gentoo.org> +gettext-0.18.3.1.ebuild:
+  Version bump.
+
+  27 Apr 2013; Mike Frysinger <vapier@gentoo.org> gettext-0.18.2.ebuild:
+  Mark m68k stable #460792.
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gettext-0.18.2.ebuild:
+  Stable for s390, wrt bug #460792
 
   02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gettext-0.18.2.ebuild:
   Stable for hppa, wrt bug #460792

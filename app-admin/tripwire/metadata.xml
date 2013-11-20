@@ -12,7 +12,7 @@
 		administrators of corrupted or tampered files, so damage control
 		measures can be taken in a timely manner.
 	</longdescription>
-	<longdescription lang="en">
+	<longdescription lang="es">
 		Tripwire es una herramienta que ayuda a los administradores y
 		usuarios en la monitorización de los cambios en un conjunto de
 		ficheros. Se utiliza particularmente en los ficheros de sistema
@@ -22,6 +22,9 @@
 		que se pueden adoptar medidas de control de forma periódica.
 	</longdescription>
 	<use>
+		<flag name="tools">Installs app-admin/mktwpol, providing scripts
+		for the installation/setup of tripwire, including generating the
+		tripwire policy file and maintenance of the tripwire database</flag>
 		<flag name="ssl">Adds support for Secure Socket Layer connections</flag>
 		<flag name="static">Builds the package statically</flag>
 	</use>

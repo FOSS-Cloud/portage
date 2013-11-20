@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/wxpython/wxpython-2.9.4.1-r1.ebuild,v 1.3 2013/03/26 03:23:52 dirtyepic Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/wxpython/wxpython-2.9.4.1-r1.ebuild,v 1.7 2013/10/30 19:22:40 mgorny Exp $
 
 EAPI=5
 
@@ -26,7 +26,7 @@ RDEPEND="
 	>=x11-libs/wxGTK-${PV}:${WX_GTK_VER}[opengl?,tiff,X]
 	dev-libs/glib:2
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	media-libs/libpng:0
+	media-libs/libpng:0=
 	media-libs/tiff:0
 	virtual/jpeg
 	x11-libs/gtk+:2
@@ -35,6 +35,7 @@ RDEPEND="
 	opengl?	( dev-python/pyopengl[${PYTHON_USEDEP}] )"
 
 DEPEND="${RDEPEND}
+	dev-lang/python-exec:0[${PYTHON_USEDEP}]
 	virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_PN}-2.9.4.0/wxPython"
@@ -43,6 +44,9 @@ DOC_S="${WORKDIR}/wxPython-2.9.4.0"
 # The hacky build system seems to be broken with out-of-source builds,
 # and installs 'wx' package globally.
 DISTUTILS_IN_SOURCE_BUILD=1
+
+# Force python-exec:0 due to the hackery in the ebuild, bug #484420.
+_PYTHON_WANT_PYTHON_EXEC2=0
 
 python_prepare_all() {
 	sed -i "s:cflags.append('-O3'):pass:" config.py || die "sed failed"
@@ -61,6 +65,8 @@ python_prepare_all() {
 		# drop editra - we have it as a separate package now
 		"${FILESDIR}"/${PN}-2.8.11-drop-editra.patch
 		"${FILESDIR}"/${PN}-2.8-no-preservatives-added.patch
+		# fix handling egg_info command
+		"${FILESDIR}"/${PN}-2.8.12.1-disable-egging-mode.patch
 	)
 
 	distutils-r1_python_prepare_all

@@ -1,6 +1,34 @@
 # ChangeLog for gnome-extra/zeitgeist-datasources
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/zeitgeist-datasources/ChangeLog,v 1.13 2013/04/07 14:58:18 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/zeitgeist-datasources/ChangeLog,v 1.19 2013/11/01 16:55:47 jlec Exp $
+
+  01 Nov 2013; Justin Lecher <jlec@gentoo.org>
+  zeitgeist-datasources-0.8.1.ebuild, metadata.xml:
+  Add chromium support back
+
+  27 Oct 2013; Justin Lecher <jlec@gentoo.org>
+  -zeitgeist-datasources-0.8.0.1.ebuild, zeitgeist-datasources-0.8.1.ebuild,
+  metadata.xml:
+  Drop old, fix dep for telepathy python support, #489554
+
+  08 Sep 2013; Pacho Ramos <pacho@gentoo.org>
+  zeitgeist-datasources-0.8.1.ebuild:
+  Rekeyword as offending flag causing the drop is now masked (#468030)
+
+  29 May 2013; Justin Lecher <jlec@gentoo.org>
+  zeitgeist-datasources-0.8.1.ebuild:
+  Fix usage of new python r1 eclasses (missing PYTHON_REQUIRED_USE)
+
+*zeitgeist-datasources-0.8.1 (30 Apr 2013)
+
+  30 Apr 2013; Justin Lecher <jlec@gentoo.org>
+  zeitgeist-datasources-0.8.0.1.ebuild, +zeitgeist-datasources-0.8.1.ebuild,
+  metadata.xml:
+  vala_depend is a function not a variable; Version Bump
+
+  18 Apr 2013; Justin Lecher <jlec@gentoo.org>
+  zeitgeist-datasources-0.8.0.1.ebuild:
+  Add sane fix for bzr icon file collistion, #465918
 
   07 Apr 2013; Justin Lecher <jlec@gentoo.org>
   zeitgeist-datasources-0.8.0.1.ebuild, metadata.xml:

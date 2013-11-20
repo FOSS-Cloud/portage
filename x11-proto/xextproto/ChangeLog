@@ -1,6 +1,38 @@
 # ChangeLog for x11-proto/xextproto
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-proto/xextproto/ChangeLog,v 1.90 2013/02/25 21:41:43 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-proto/xextproto/ChangeLog,v 1.100 2013/11/09 05:23:31 mattst88 Exp $
+
+*xextproto-7.2.99.901 (09 Nov 2013)
+
+  09 Nov 2013; Matt Turner <mattst88@gentoo.org> +xextproto-7.2.99.901.ebuild:
+  Version bump to 7.2.99.901.
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xextproto-7.2.1-r1.ebuild:
+  Stable for x86, wrt bug #475480
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xextproto-7.2.1-r1.ebuild:
+  Stable for sparc, wrt bug #475480
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xextproto-7.2.1-r1.ebuild:
+  Stable for ia64, wrt bug #475480
+
+  05 Oct 2013; Markus Meier <maekke@gentoo.org> xextproto-7.2.1-r1.ebuild:
+  arm stable, bug #475480
+
+  05 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xextproto-7.2.1-r1.ebuild:
+  Stable for alpha, wrt bug #475480
+
+  04 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xextproto-7.2.1-r1.ebuild:
+  Stable for ppc64, wrt bug #475480
+
+  03 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xextproto-7.2.1-r1.ebuild:
+  Stable for ppc, wrt bug #475480
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> xextproto-7.2.1-r1.ebuild:
+  Stable for HPPA (bug #475480).
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xextproto-7.2.1-r1.ebuild:
+  Stable for amd64, wrt bug #475480
 
 *xextproto-7.2.1-r1 (25 Feb 2013)
 

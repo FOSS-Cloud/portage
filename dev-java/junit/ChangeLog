@@ -1,6 +1,34 @@
 # ChangeLog for dev-java/junit
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/junit/ChangeLog,v 1.75 2013/02/05 06:48:08 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/junit/ChangeLog,v 1.84 2013/10/20 16:32:37 ago Exp $
+
+  20 Oct 2013; Agostino Sarubbo <ago@gentoo.org> junit-4.11.ebuild:
+  Stable for ppc64, wrt bug #476958
+
+  20 Oct 2013; Agostino Sarubbo <ago@gentoo.org> junit-4.11.ebuild:
+  Stable for ppc, wrt bug #476958
+
+  20 Oct 2013; Agostino Sarubbo <ago@gentoo.org> junit-4.11.ebuild:
+  Stable for x86, wrt bug #476958
+
+  20 Oct 2013; Agostino Sarubbo <ago@gentoo.org> junit-4.11.ebuild:
+  Stable for amd64, wrt bug #476958
+
+  20 Oct 2013; Agostino Sarubbo <ago@gentoo.org> junit-4.11.ebuild:
+  Correct the keyword declaration
+
+  27 Jun 2013; Alexis Ballier <aballier@gentoo.org> junit-4.11.ebuild:
+  keyword ~amd64-fbsd, bug #473430
+
+*junit-4.11 (15 Jun 2013)
+
+  15 Jun 2013; Tom Wijsman <TomWij@gentoo.org>
+  +files/junit-4.11-do-not-unpack-hamcrest-sources.patch, +junit-4.11.ebuild:
+  Version bump to 4.11, needed for newer version of reverse dependency ant-
+  testutil which is needed on its own turn for revdeps like spring-framework.
+
+  14 Jun 2013; Alexis Ballier <aballier@gentoo.org> junit-4.10.ebuild:
+  keyword ~amd64-fbsd
 
   05 Feb 2013; Rick Farina <zerochaos@gentoo.org> junit-4.10.ebuild,
   junit-4.8.2-r1.ebuild:

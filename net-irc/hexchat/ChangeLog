@@ -1,6 +1,170 @@
 # ChangeLog for net-irc/hexchat
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/hexchat/ChangeLog,v 1.39 2013/04/03 18:10:31 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/hexchat/ChangeLog,v 1.83 2013/10/26 22:18:52 hasufell Exp $
+
+*hexchat-2.9.6.1-r1 (26 Oct 2013)
+
+  26 Oct 2013; Julian Ospald <hasufell@gentoo.org> +hexchat-2.9.6.1-r1.ebuild,
+  +files/hexchat-2.9.6.1-sasl.patch:
+  revbump backport sasl fix for inspircd
+
+  05 Oct 2013; Julian Ospald <hasufell@gentoo.org> hexchat-9999.ebuild:
+  update live ebuild
+
+  29 Sep 2013; Julian Ospald <hasufell@gentoo.org> hexchat-9999.ebuild:
+  update live ebuild
+
+*hexchat-2.9.6.1 (15 Sep 2013)
+
+  15 Sep 2013; Julian Ospald <hasufell@gentoo.org> +hexchat-2.9.6.1.ebuild,
+  -hexchat-2.9.6.ebuild:
+  version bump
+
+  15 Sep 2013; Julian Ospald <hasufell@gentoo.org> hexchat-2.9.6.ebuild:
+  use ${P} in SRC_URI
+
+  14 Sep 2013; Julian Ospald <hasufell@gentoo.org> hexchat-2.9.5-r1.ebuild,
+  hexchat-2.9.6.ebuild, hexchat-9999.ebuild:
+  add optional dependencies
+
+  12 Sep 2013; Julian Ospald <hasufell@gentoo.org> hexchat-2.9.6.ebuild,
+  hexchat-9999.ebuild:
+  add reference to x11-plugins/hexchat-javascript in pkg_postinst
+
+*hexchat-2.9.6 (11 Sep 2013)
+
+  11 Sep 2013; Julian Ospald <hasufell@gentoo.org>
+  -hexchat-2.9.5_p20130525.ebuild, +hexchat-2.9.6.ebuild:
+  version bump, remove old
+
+  11 Sep 2013; Julian Ospald <hasufell@gentoo.org> -hexchat-2.9.5.ebuild,
+  hexchat-2.9.5-r1.ebuild, hexchat-2.9.5_p20130525.ebuild, hexchat-9999.ebuild:
+  fix openssl dep, remove old
+
+  11 Sep 2013; Julian Ospald <hasufell@gentoo.org> hexchat-9999.ebuild:
+  use minimal flags
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> hexchat-2.9.5-r1.ebuild,
+  hexchat-2.9.5.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  01 Sep 2013; Julian Ospald <hasufell@gentoo.org> hexchat-9999.ebuild:
+  update live ebuild
+
+  01 Sep 2013; Julian Ospald <hasufell@gentoo.org> hexchat-9999.ebuild:
+  update live ebuild
+
+  28 Aug 2013; Julian Ospald <hasufell@gentoo.org> hexchat-9999.ebuild:
+  update live ebuild
+
+  27 Aug 2013; Julian Ospald <hasufell@gentoo.org> hexchat-9999.ebuild,
+  metadata.xml:
+  update live-ebuild
+
+*hexchat-9999 (26 Aug 2013)
+
+  26 Aug 2013; Julian Ospald <hasufell@gentoo.org> +hexchat-9999.ebuild:
+  add live ebuild
+
+  25 Jul 2013; Manuel Rüger <mrueg@gentoo.org> metadata.xml:
+  Update name in metadata.xml as requested by Denis M. (Phr33d0m)
+
+  11 Jul 2013; Julian Ospald <hasufell@gentoo.org> hexchat-2.9.5.ebuild,
+  hexchat-2.9.5-r1.ebuild, hexchat-2.9.5_p20130525.ebuild:
+  update homepage
+
+  08 Jul 2013; Julian Ospald <hasufell@gentoo.org> -hexchat-2.9.3.ebuild,
+  -files/hexchat-2.9.3-cflags.patch, -files/hexchat-2.9.3-nogtk.patch,
+  -hexchat-2.9.4.ebuild, -hexchat-2.9.4-r2.ebuild,
+  -files/hexchat-2.9.4-build.patch:
+  remove old
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5-r1.ebuild:
+  Stable for ia64, wrt bug #474434
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5-r1.ebuild:
+  Stable for ppc64, wrt bug #474434
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5-r1.ebuild:
+  Stable for ppc, wrt bug #474434
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5-r1.ebuild:
+  Stable for sparc, wrt bug #474434
+
+  27 Jun 2013; Julian Ospald <hasufell@gentoo.org>
+  hexchat-2.9.5_p20130525.ebuild:
+  improve elog
+
+  26 Jun 2013; Sergey Popov <pinkbyte@gentoo.org>
+  hexchat-2.9.5_p20130525.ebuild:
+  Add epatch_user in src_prepare
+
+  26 Jun 2013; Jeroen Roovers <jer@gentoo.org> hexchat-2.9.5-r1.ebuild:
+  Stable for HPPA (bug #474434).
+
+  26 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> hexchat-2.9.5-r1.ebuild:
+  Stable on arm, wrt bug #474434
+
+  24 Jun 2013; Julian Ospald <hasufell@gentoo.org> hexchat-2.9.5.ebuild,
+  hexchat-2.9.5-r1.ebuild, hexchat-2.9.5_p20130525.ebuild,
+  +files/hexchat-2.9.5-autoconf-missing-macros.patch:
+  fix autoconf when gtk+:2 is not installed wrt #474582
+
+  24 Jun 2013; Tobias Klausmann <klausman@gentoo.org> hexchat-2.9.5-r1.ebuild:
+  Stable on alpha, bug #474434
+
+  24 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> hexchat-2.9.5-r1.ebuild:
+  Stable on amd64 and x86, wrt bug #474434
+
+*hexchat-2.9.5_p20130525 (13 Jun 2013)
+
+  13 Jun 2013; Julian Ospald <hasufell@gentoo.org>
+  +hexchat-2.9.5_p20130525.ebuild:
+  patchlevel bump as requested by Zero_Chaos
+
+*hexchat-2.9.5-r1 (07 Jun 2013)
+
+  07 Jun 2013; Julian Ospald <hasufell@gentoo.org> +hexchat-2.9.5-r1.ebuild,
+  +files/hexchat-2.9.5-fix_leftclick_opens_menu.patch:
+  fix bug #472578
+
+  29 May 2013; Julian Ospald <hasufell@gentoo.org> hexchat-2.9.4-r2.ebuild,
+  hexchat-2.9.5.ebuild:
+  update REQUIRED_USE to include PYTHON_REQUIRED_USE
+
+  13 May 2013; Julian Ospald <hasufell@gentoo.org> hexchat-2.9.5.ebuild:
+  fix deps wrt #469656 thanks to Peter Wilmott
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5.ebuild:
+  Stable for sparc, wrt bug #465006
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5.ebuild:
+  Stable for ppc, wrt bug #465006
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5.ebuild:
+  Stable for ppc64, wrt bug #465006
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5.ebuild:
+  Stable for ia64, wrt bug #465006
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5.ebuild:
+  Stable for arm, wrt bug #465006
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5.ebuild:
+  Stable for alpha, wrt bug #465006
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5.ebuild:
+  Stable for x86, wrt bug #465006
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> hexchat-2.9.5.ebuild:
+  Stable for amd64, wrt bug #465006
+
+  09 May 2013; Jeroen Roovers <jer@gentoo.org> hexchat-2.9.5.ebuild:
+  Stable for HPPA (bug #469092).
+
+  08 May 2013; Julian Ospald <hasufell@gentoo.org> hexchat-2.9.5.ebuild,
+  +files/hexchat-2.9.5-gobject.patch:
+  fix build time error wrt #469122
 
 *hexchat-2.9.5 (03 Apr 2013)
 

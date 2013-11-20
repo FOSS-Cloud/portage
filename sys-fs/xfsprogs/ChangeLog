@@ -1,6 +1,16 @@
 # ChangeLog for sys-fs/xfsprogs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/xfsprogs/ChangeLog,v 1.164 2013/04/02 11:18:09 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/xfsprogs/ChangeLog,v 1.166 2013/10/18 08:17:44 polynomial-c Exp $
+
+*xfsprogs-3.1.11 (18 Oct 2013)
+
+  18 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> -xfsprogs-3.1.7.ebuild,
+  -xfsprogs-3.1.8.ebuild, +xfsprogs-3.1.11.ebuild,
+  -files/xfsprogs-3.1.1-sharedlibs.patch, -files/xfsprogs-3.1.8-readline.patch:
+  Version bump. Removed old.
+
+  15 May 2013; Mike Frysinger <vapier@gentoo.org> xfsprogs-3.1.10.ebuild:
+  Add s390 love #444688.
 
   02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xfsprogs-3.1.10.ebuild:
   Stable for hppa, wrt bug #457486

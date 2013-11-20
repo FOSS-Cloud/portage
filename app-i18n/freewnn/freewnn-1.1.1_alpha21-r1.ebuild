@@ -1,6 +1,6 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/freewnn/freewnn-1.1.1_alpha21-r1.ebuild,v 1.10 2011/11/07 08:49:51 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/freewnn/freewnn-1.1.1_alpha21-r1.ebuild,v 1.11 2013/08/31 06:10:35 naota Exp $
 
 inherit eutils
 
@@ -29,8 +29,6 @@ src_unpack() {
 	# and disable stripping of binary files
 	sed -i -e "s/WNNOWNER = wnn/WNNOWNER = root/" \
 		-e "s/@INSTPGMFLAGS@//" makerule.mk.in || die
-	# bug #298744
-	epatch "${FILESDIR}/${P}-as-needed.patch"
 
 	#bug #318593
 	epatch "${FILESDIR}"/${P}-gcc45.patch

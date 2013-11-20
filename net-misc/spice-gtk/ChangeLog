@@ -1,6 +1,86 @@
 # ChangeLog for net-misc/spice-gtk
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/spice-gtk/ChangeLog,v 1.55 2013/02/17 19:09:37 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/spice-gtk/ChangeLog,v 1.75 2013/10/06 07:51:39 ago Exp $
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> spice-gtk-0.21.ebuild:
+  Stable for x86, wrt bug #485420
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> spice-gtk-0.21.ebuild:
+  Stable for amd64, wrt bug #485420
+
+  23 Sep 2013; Doug Goldstein <cardoe@gentoo.org>
+  +files/spice-gtk-0.21-fix-g-clear-pointer-on-old-glib.patch,
+  spice-gtk-0.21.ebuild:
+  Drop the glib depend back down with a fix for g_clear_pointer() and add a
+  missing epatch_user. bug #485550
+
+  23 Sep 2013; Doug Goldstein <cardoe@gentoo.org> spice-gtk-0.21.ebuild:
+  Fix depend for g_clear_pointer() call in libspice-client-glib-2.0.so. Spotted
+  by Rafal Muzylo <galtgendo@o2.pl> bug #485550
+
+*spice-gtk-0.21 (19 Sep 2013)
+
+  19 Sep 2013; Doug Goldstein <cardoe@gentoo.org> +spice-gtk-0.21.ebuild,
+  -spice-gtk-0.18.ebuild, -spice-gtk-0.20.ebuild:
+  Bump for CVE-2013-4324
+
+  12 Sep 2013; Michał Górny <mgorny@gentoo.org> spice-gtk-0.18.ebuild,
+  spice-gtk-0.20-r1.ebuild, spice-gtk-0.20.ebuild:
+  Replace virtual/pyparsing dep with dev-python/pyparsing. The split versions
+  were removed and all in-tree versions support all impls now.
+
+  06 Sep 2013; Doug Goldstein <cardoe@gentoo.org> -spice-gtk-0.14-r2.ebuild:
+  Remove older version
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> spice-gtk-0.20-r1.ebuild:
+  Stable for x86, wrt bug #480146
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> spice-gtk-0.20-r1.ebuild:
+  Stable for amd64, wrt bug #480146
+
+  09 Aug 2013; Markus Meier <maekke@gentoo.org> spice-gtk-0.20-r1.ebuild:
+  add ~arm
+
+  09 Aug 2013; Doug Goldstein <cardoe@gentoo.org> -spice-gtk-0.14.ebuild,
+  -spice-gtk-0.15.3.ebuild, -spice-gtk-0.16.ebuild, -spice-gtk-0.18-r1.ebuild:
+  Remove older versions
+
+*spice-gtk-0.20-r1 (09 Aug 2013)
+
+  09 Aug 2013; Doug Goldstein <cardoe@gentoo.org>
+  +files/spice-gtk-0.20-add-spice-channel-string-to-type.patch,
+  +spice-gtk-0.20-r1.ebuild:
+  Fix missing symbol in SpiceClientGtk Python module. Identified by X4
+  <worldwide@online.de> on bug #480146. rhbz#981815
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> spice-gtk-0.20.ebuild:
+  Stable for amd64, wrt bug #480146
+
+  05 Jul 2013; Tiziano Müller <dev-zero@gentoo.org> spice-gtk-0.20.ebuild:
+  Fix doc installation (README, etc.), bug #446230.
+
+  05 Jul 2013; Tiziano Müller <dev-zero@gentoo.org> spice-gtk-0.20.ebuild:
+  ... and drop autotools eclass.
+
+*spice-gtk-0.20 (05 Jul 2013)
+
+  05 Jul 2013; Tiziano Müller <dev-zero@gentoo.org> +spice-gtk-0.20.ebuild:
+  Version bump (bug #471964), also solves bug #419933 since we don't have to run
+  eautoreconf anymore.
+
+*spice-gtk-0.18-r1 (30 Jun 2013)
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> +spice-gtk-0.18-r1.ebuild:
+  Bump to new python eclass
+
+  12 May 2013; Pacho Ramos <pacho@gentoo.org> spice-gtk-0.18.ebuild:
+  Use vala.eclass (#467400)
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> spice-gtk-0.18.ebuild:
+  Stable for x86, wrt bug #459790
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> spice-gtk-0.18.ebuild:
+  Stable for amd64, wrt bug #459790
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> spice-gtk-0.14-r2.ebuild:
   Add ~arm, wrt bug #449220

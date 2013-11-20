@@ -1,0 +1,19 @@
+# ChangeLog for net-misc/livestreamer
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/livestreamer/ChangeLog,v 1.3 2013/11/09 09:21:04 tomwij Exp $
+
+*livestreamer-1.7.0 (09 Nov 2013)
+
+  09 Nov 2013; Tom Wijsman <TomWij@gentoo.org> +livestreamer-1.7.0.ebuild:
+  Version bump to 1.7.0, proxied commit for Nikos Chantziaras (realnc); fixes
+  bug #490824.
+
+  02 Nov 2013; Markos Chandras <hwoarang@gentoo.org> livestreamer-1.6.1.ebuild:
+  Add ~mips
+
+*livestreamer-1.6.1 (30 Oct 2013)
+
+  30 Oct 2013; Markos Chandras <hwoarang@gentoo.org> +livestreamer-1.6.1.ebuild,
+  +metadata.xml:
+  Initial commit. Bug #488422. Thanks to Nikos Chantziaras <realnc@gmail.com>
+  for the ebuild and for agreeing to become the maintainer

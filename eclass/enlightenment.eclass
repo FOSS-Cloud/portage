@@ -1,11 +1,14 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/enlightenment.eclass,v 1.98 2012/11/26 06:58:19 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/enlightenment.eclass,v 1.105 2013/10/12 15:30:23 aballier Exp $
 
 # @ECLASS: enlightenment.eclass
 # @MAINTAINER:
 # enlightenment@gentoo.org
 # @BLURB: simplify enlightenment package management
+
+if [[ ${___ECLASS_ONCE_ENLIGHTENMENT} != "recur -_+^+_- spank" ]] ; then
+___ECLASS_ONCE_ENLIGHTENMENT="recur -_+^+_- spank"
 
 inherit eutils libtool
 
@@ -18,6 +21,11 @@ inherit eutils libtool
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # if defined, the package is Cython bindings (implies E_PYTHON)
+
+# @ECLASS-VARIABLE: E_ECONF
+# @DESCRIPTION:
+# Array of flags to pass to econf (obsoletes MY_ECONF)
+E_ECONF=()
 
 # E_STATE's:
 #	release      [default]
@@ -41,19 +49,31 @@ inherit eutils libtool
 #	S           EURI_STATE
 
 E_LIVE_SERVER_DEFAULT_SVN="http://svn.enlightenment.org/svn/e/trunk"
+E_LIVE_SERVER_DEFAULT_GIT="git://git.enlightenment.org"
 
 E_STATE="release"
 if [[ ${PV} == *9999* ]] ; then
-	E_LIVE_SERVER=${E_LIVE_SERVER:-${E_LIVE_SERVER_DEFAULT_SVN}}
+	if [[ ${EGIT_URI_APPEND} ]] ; then
+		E_LIVE_SERVER=${E_LIVE_SERVER:-${E_LIVE_SERVER_DEFAULT_GIT}}
+		EGIT_URI_APPEND=${EGIT_URI_APPEND:-${PN}}
+		EGIT_PROJECT="enlightenment/${EGIT_SUB_PROJECT}/${EGIT_URI_APPEND}"
+		EGIT_REPO_URI=${EGIT_SERVER:-${E_LIVE_SERVER_DEFAULT_GIT}}/${EGIT_SUB_PROJECT}/${EGIT_URI_APPEND}.git
+		E_S_APPEND=${EGIT_URI_APPEND}
+		E_LIVE_SOURCE="git"
+		inherit git-2
+	else
+		E_LIVE_SERVER=${E_LIVE_SERVER:-${E_LIVE_SERVER_DEFAULT_SVN}}
+
+		ESVN_URI_APPEND=${ESVN_URI_APPEND:-${PN}}
+		ESVN_PROJECT="enlightenment/${ESVN_SUB_PROJECT}"
+		ESVN_REPO_URI=${ESVN_SERVER:-${E_LIVE_SERVER_DEFAULT_SVN}}/${ESVN_SUB_PROJECT}/${ESVN_URI_APPEND}
+		E_S_APPEND=${ESVN_URI_APPEND}
+		E_LIVE_SOURCE="svn"
+		inherit subversion
+	fi
 	E_STATE="live"
 	WANT_AUTOTOOLS="yes"
 
-	ESVN_URI_APPEND=${ESVN_URI_APPEND:-${PN}}
-	ESVN_PROJECT="enlightenment/${ESVN_SUB_PROJECT}"
-	ESVN_REPO_URI=${ESVN_SERVER:-${E_LIVE_SERVER_DEFAULT_SVN}}/${ESVN_SUB_PROJECT}/${ESVN_URI_APPEND}
-	E_S_APPEND=${ESVN_URI_APPEND}
-	E_LIVE_SOURCE="svn"
-	inherit subversion
 elif [[ -n ${E_SNAP_DATE} ]] ; then
 	E_STATE="snap"
 else
@@ -76,24 +96,26 @@ fi
 
 ENLIGHTENMENT_EXPF="src_unpack src_compile src_install"
 case "${EAPI:-0}" in
-		2|3|4|5) ENLIGHTENMENT_EXPF+=" src_prepare src_configure" ;;
-		*) ;;
+2|3|4|5) ENLIGHTENMENT_EXPF+=" src_prepare src_configure" ;;
+*) ;;
 esac
 EXPORT_FUNCTIONS ${ENLIGHTENMENT_EXPF}
 
 DESCRIPTION="A DR17 production"
 HOMEPAGE="http://www.enlightenment.org/"
-case ${EURI_STATE:-${E_STATE}} in
+if [[ -z ${SRC_URI} ]] ; then
+	case ${EURI_STATE:-${E_STATE}} in
 	release) SRC_URI="mirror://sourceforge/enlightenment/${P}.tar.gz";;
 	snap)    SRC_URI="http://download.enlightenment.org/snapshots/${E_SNAP_DATE}/${P}.tar.bz2";;
 	live)    SRC_URI="";;
-esac
+	esac
+fi
 
 LICENSE="BSD"
 SLOT="0"
 case ${EKEY_STATE:-${E_STATE}} in
-	release) KEYWORDS="alpha amd64 arm hppa ia64 mips ppc ppc64 sh sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-interix ~x86-solaris ~x64-solaris";;
-	snap)    KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-interix ~x86-solaris ~x64-solaris";;
+	release) KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-interix ~x86-solaris ~x64-solaris";;
+	snap)    KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-interix ~x86-solaris ~x64-solaris";;
 	live)    KEYWORDS="";;
 esac
 IUSE="nls doc"
@@ -113,6 +135,7 @@ enlightenment_src_unpack() {
 	if [[ ${E_STATE} == "live" ]] ; then
 		case ${E_LIVE_SOURCE} in
 			svn) subversion_src_unpack;;
+			git) git-2_src_unpack;;
 			*)   die "eek!";;
 		esac
 	else
@@ -142,9 +165,9 @@ enlightenment_src_prepare() {
 enlightenment_src_configure() {
 	# gstreamer sucks, work around it doing stupid stuff
 	export GST_REGISTRY="${S}/registry.xml"
-	has static-libs ${IUSE} && MY_ECONF+=" $(use_enable static-libs static)"
+	has static-libs ${IUSE} && E_ECONF+=( $(use_enable static-libs static) )
 
-	econf ${MY_ECONF}
+	econf ${MY_ECONF} "${E_ECONF[@]}"
 }
 
 enlightenment_src_compile() {
@@ -172,3 +195,5 @@ enlightenment_src_install() {
 		use static-libs || find "${D}" -name '*.la' -exec rm -f {} +
 	fi
 }
+
+fi

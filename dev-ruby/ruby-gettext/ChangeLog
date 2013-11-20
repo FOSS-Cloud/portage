@@ -1,6 +1,52 @@
 # ChangeLog for dev-ruby/ruby-gettext
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-gettext/ChangeLog,v 1.102 2013/01/15 06:14:02 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-gettext/ChangeLog,v 1.116 2013/08/24 13:29:20 maekke Exp $
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> ruby-gettext-2.3.8.ebuild:
+  add ~x86, bug #465948
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Stable for sparc, wrt bug #472910
+
+  22 Jul 2013; Hans de Graaff <graaff@gentoo.org>
+  -ruby-gettext-2.1.0_p20100728-r3.ebuild:
+  Cleanup.
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Stable for alpha, wrt bug #472910
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Stable for ppc64, wrt bug #472910
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Stable for ppc, wrt bug #472910
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Stable for ia64, wrt bug #472910
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Stable for amd64, wrt bug #472910
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Stable for x86, wrt bug #472910
+
+  10 Jun 2013; Jeroen Roovers <jer@gentoo.org> ruby-gettext-2.3.3.ebuild:
+  Stable for HPPA (bug #472910).
+
+  16 May 2013; Markus Meier <maekke@gentoo.org> ruby-gettext-2.3.8.ebuild:
+  add ~arm, bug #465948
+
+  24 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-2.3.8.ebuild:
+  Add ~ppc, wrt bug #465948
+
+  15 Apr 2013; Jeroen Roovers <jer@gentoo.org> ruby-gettext-2.3.8.ebuild:
+  Marked ~hppa (bug #465948).
+
+*ruby-gettext-2.3.8 (15 Apr 2013)
+
+  15 Apr 2013; Hans de Graaff <graaff@gentoo.org> +ruby-gettext-2.3.8.ebuild:
+  Version bump. Drop jruby and arches due to new levenshtein dependency:
+  #465948.
 
   15 Jan 2013; Rick Farina <zerochaos@gentoo.org> ruby-gettext-2.2.1.ebuild,
   ruby-gettext-2.3.3.ebuild:

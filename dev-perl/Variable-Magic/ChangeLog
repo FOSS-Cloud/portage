@@ -1,6 +1,25 @@
 # ChangeLog for dev-perl/Variable-Magic
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Variable-Magic/ChangeLog,v 1.57 2013/01/06 14:49:44 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Variable-Magic/ChangeLog,v 1.62 2013/09/09 09:26:43 pinkbyte Exp $
+
+  09 Sep 2013; Sergey Popov <pinkbyte@gentoo.org>
+  Variable-Magic-0.530.0.ebuild:
+  Add ~arm keyword, wrt bug #449762
+
+*Variable-Magic-0.530.0 (03 Sep 2013)
+
+  03 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  +Variable-Magic-0.530.0.ebuild:
+  Bump
+
+  19 Aug 2013; Agostino Sarubbo <ago@gentoo.org> Variable-Magic-0.520.0.ebuild:
+  Stable for ppc, wrt bug #449624
+
+  18 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> Variable-Magic-0.520.0.ebuild:
+  x86 stable wrt bug #449624
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> Variable-Magic-0.520.0.ebuild:
+  Stable for amd64, wrt bug #449624
 
   06 Jan 2013; Torsten Veller <tove@gentoo.org> -Variable-Magic-0.470.0.ebuild,
   -Variable-Magic-0.500.0.ebuild:

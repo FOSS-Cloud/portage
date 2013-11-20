@@ -1,9 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/freevo/freevo-1.7.6.1.ebuild,v 1.8 2013/03/22 23:08:21 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/freevo/freevo-1.7.6.1.ebuild,v 1.12 2013/08/03 09:45:47 mgorny Exp $
 
 EAPI="3"
 PYTHON_DEPEND="2"
+PYTHON_USE_WITH="xml"
 
 inherit distutils
 
@@ -19,15 +20,14 @@ KEYWORDS="amd64 ppc x86"
 
 RDEPEND=">=dev-python/pygame-1.5.6
 	>=dev-python/pyxml-0.8.2
-	>=dev-python/imaging-1.1.3
-	>=dev-python/twisted-2.4
+	virtual/python-imaging
+	>=dev-python/twisted-core-2.4
 	>=dev-python/twisted-web-0.6
 	>=media-video/mplayer-0.92[directfb?,fbcon?]
 	>=media-libs/freetype-2.1.4
 	>=media-libs/libsdl-1.2.5[directfb?,fbcon?]
 	media-libs/sdl-image[jpeg,png]
 	>=sys-apps/sed-4
-	>=dev-python/elementtree-1.2.6
 	>=dev-python/beautifulsoup-3.0
 	>=dev-python/kaa-base-0.2.0
 	>=dev-python/kaa-metadata-0.7.1

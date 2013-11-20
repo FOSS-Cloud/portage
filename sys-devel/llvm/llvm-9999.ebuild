@@ -1,45 +1,101 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-9999.ebuild,v 1.41 2013/03/21 09:12:55 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-9999.ebuild,v 1.59 2013/11/12 18:30:46 mgorny Exp $
 
 EAPI=5
 
-# pypy gives me around 1700 unresolved tests due to open file limit
-# being exceeded. probably GC does not close them fast enough.
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_5,2_6,2_7} pypy{1_9,2_0} )
 
-inherit subversion eutils flag-o-matic multilib python-any-r1 toolchain-funcs pax-utils
+inherit eutils flag-o-matic git-r3 multilib multilib-minimal \
+	python-r1 toolchain-funcs pax-utils check-reqs
 
 DESCRIPTION="Low Level Virtual Machine"
 HOMEPAGE="http://llvm.org/"
 SRC_URI=""
-ESVN_REPO_URI="http://llvm.org/svn/llvm-project/llvm/trunk"
+EGIT_REPO_URI="http://llvm.org/git/llvm.git
+	https://github.com/llvm-mirror/llvm.git"
 
 LICENSE="UoI-NCSA"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS=""
-IUSE="debug doc gold +libffi multitarget ocaml test udis86 vim-syntax video_cards_radeon"
+IUSE="clang debug doc gold +libffi multitarget ncurses ocaml python
+	+static-analyzer test udis86 video_cards_radeon kernel_Darwin"
 
-DEPEND="dev-lang/perl
+COMMON_DEPEND="
+	sys-libs/zlib:0=
+	clang? (
+		python? ( ${PYTHON_DEPS} )
+		static-analyzer? (
+			dev-lang/perl
+			${PYTHON_DEPS}
+		)
+	)
+	gold? ( >=sys-devel/binutils-2.22[cxx] )
+	libffi? ( virtual/libffi:0=[${MULTILIB_USEDEP}] )
+	ncurses? ( sys-libs/ncurses:5=[${MULTILIB_USEDEP}] )
+	ocaml? ( dev-lang/ocaml )
+	udis86? ( dev-libs/udis86:0=[pic(+),${MULTILIB_USEDEP}] )"
+DEPEND="${COMMON_DEPEND}
+	dev-lang/perl
 	dev-python/sphinx
-	>=sys-devel/make-3.79
+	>=sys-devel/make-3.81
 	>=sys-devel/flex-2.5.4
 	>=sys-devel/bison-1.875d
-	|| ( >=sys-devel/gcc-3.0 >=sys-devel/gcc-apple-4.2.1 )
+	|| ( >=sys-devel/gcc-3.0 >=sys-devel/gcc-apple-4.2.1
+		( >=sys-freebsd/freebsd-lib-9.1-r10 sys-libs/libcxx )
+	)
 	|| ( >=sys-devel/binutils-2.18 >=sys-devel/binutils-apple-3.2.3 )
-	gold? ( >=sys-devel/binutils-2.22[cxx] )
-	libffi? ( virtual/pkgconfig
-		virtual/libffi )
-	ocaml? ( dev-lang/ocaml )
-	udis86? ( dev-libs/udis86[pic(+)] )
+	!kernel_Darwin? ( app-admin/chrpath )
+	libffi? ( virtual/pkgconfig )
 	${PYTHON_DEPS}"
-RDEPEND="dev-lang/perl
-	libffi? ( virtual/libffi )
-	vim-syntax? ( || ( app-editors/vim app-editors/gvim ) )"
+RDEPEND="${COMMON_DEPEND}
+	clang? ( !<=sys-devel/clang-9999-r99 )
+	abi_x86_32? ( !<=app-emulation/emul-linux-x86-baselibs-20130224-r2
+		!app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)] )"
+
+# pypy gives me around 1700 unresolved tests due to open file limit
+# being exceeded. probably GC does not close them fast enough.
+REQUIRED_USE="${PYTHON_REQUIRED_USE}
+	test? ( || ( $(python_gen_useflags 'python*') ) )"
+
+pkg_pretend() {
+	# in megs
+	# !clang !debug !multitarget -O2       400
+	# !clang !debug  multitarget -O2       550
+	#  clang !debug !multitarget -O2       950
+	#  clang !debug  multitarget -O2      1200
+	# !clang  debug  multitarget -O2      5G
+	#  clang !debug  multitarget -O0 -g  12G
+	#  clang  debug  multitarget -O2     16G
+	#  clang  debug  multitarget -O0 -g  14G
+
+	local build_size=550
+	use clang && build_size=1200
+
+	if use debug; then
+		ewarn "USE=debug is known to increase the size of package considerably"
+		ewarn "and cause the tests to fail."
+		ewarn
+
+		(( build_size *= 14 ))
+	elif is-flagq -g || is-flagq -ggdb; then
+		ewarn "The C++ compiler -g option is known to increase the size of the package"
+		ewarn "considerably. If you run out of space, please consider removing it."
+		ewarn
+
+		(( build_size *= 10 ))
+	fi
+
+	# Multiply by number of ABIs :).
+	local abis=( $(multilib_get_enabled_abis) )
+	(( build_size *= ${#abis[@]} ))
+
+	local CHECKREQS_DISK_BUILD=${build_size}M
+	check-reqs_pkg_pretend
+}
 
 pkg_setup() {
-	# Required for test and build
-	python-any-r1_pkg_setup
+	pkg_pretend
 
 	# need to check if the active compiler is ok
 
@@ -74,59 +130,84 @@ pkg_setup() {
 	fi
 }
 
+src_unpack() {
+	if use clang; then
+		git-r3_fetch "http://llvm.org/git/compiler-rt.git
+			https://github.com/llvm-mirror/compiler-rt.git"
+		git-r3_fetch "http://llvm.org/git/clang.git
+			https://github.com/llvm-mirror/clang.git"
+	fi
+	git-r3_fetch
+
+	if use clang; then
+		git-r3_checkout http://llvm.org/git/compiler-rt.git \
+			"${S}"/projects/compiler-rt
+		git-r3_checkout http://llvm.org/git/clang.git \
+			"${S}"/tools/clang
+	fi
+	git-r3_checkout
+}
+
 src_prepare() {
+	epatch "${FILESDIR}"/${PN}-3.2-nodoctargz.patch
+	epatch "${FILESDIR}"/${PN}-3.4-gentoo-install.patch
+	use clang && epatch "${FILESDIR}"/clang-3.3-gentoo-install.patch
+
+	local sub_files=(
+		Makefile.config.in
+		Makefile.rules
+		tools/llvm-config/llvm-config.cpp
+	)
+	use clang && sub_files+=(
+		tools/clang/lib/Driver/Tools.cpp
+		tools/clang/tools/scan-build/scan-build
+	)
+
 	# unfortunately ./configure won't listen to --mandir and the-like, so take
 	# care of this.
+	# note: we're setting the main libdir intentionally.
+	# where per-ABI is appropriate, we use $(GENTOO_LIBDIR) make.
 	einfo "Fixing install dirs"
-	sed -e 's,^PROJ_docsdir.*,PROJ_docsdir := $(PROJ_prefix)/share/doc/'${PF}, \
-		-e 's,^PROJ_etcdir.*,PROJ_etcdir := '"${EPREFIX}"'/etc/llvm,' \
-		-e 's,^PROJ_libdir.*,PROJ_libdir := $(PROJ_prefix)/'$(get_libdir)/${PN}, \
-		-i Makefile.config.in || die "Makefile.config sed failed"
-	sed -e "/ActiveLibDir = ActivePrefix/s/lib/$(get_libdir)\/${PN}/" \
-		-i tools/llvm-config/llvm-config.cpp || die "llvm-config sed failed"
-
-	einfo "Fixing rpath and CFLAGS"
-	sed -e 's,\$(RPATH) -Wl\,\$(\(ToolDir\|LibDir\)),$(RPATH) -Wl\,'"${EPREFIX}"/usr/$(get_libdir)/${PN}, \
-		-e '/OmitFramePointer/s/-fomit-frame-pointer//' \
-		-i Makefile.rules || die "rpath sed failed"
-	if use gold; then
-		sed -e 's,\$(SharedLibDir),'"${EPREFIX}"/usr/$(get_libdir)/${PN}, \
-			-i tools/gold/Makefile || die "gold rpath sed failed"
-	fi
-
-	# FileCheck is needed at least for dragonegg tests
-	sed -e "/NO_INSTALL = 1/s/^/#/" -i utils/FileCheck/Makefile \
-		|| die "FileCheck Makefile sed failed"
-
-	epatch "${FILESDIR}"/${PN}-3.2-nodoctargz.patch
-#	Patch fails to apply, bug #462444
-#	epatch "${FILESDIR}"/${PN}-3.0-PPC_macro.patch
+	sed -e "s,@libdir@,$(get_libdir),g" \
+		-e "s,@PF@,${PF},g" \
+		-e "s,@EPREFIX@,${EPREFIX},g" \
+		-i "${sub_files[@]}" \
+		|| die "install paths sed failed"
 
 	# User patches
 	epatch_user
 }
 
-src_configure() {
-	local CONF_FLAGS="--enable-shared
+multilib_src_configure() {
+	# disable timestamps since they confuse ccache
+	local CONF_FLAGS="--disable-timestamps
+		--enable-keep-symbols
+		--enable-shared
 		--with-optimize-option=
 		$(use_enable !debug optimized)
 		$(use_enable debug assertions)
-		$(use_enable debug expensive-checks)"
+		$(use_enable debug expensive-checks)
+		$(use_enable ncurses terminfo)
+		$(use_enable libffi)"
+
+	if use clang; then
+		CONF_FLAGS+="
+			--with-clang-resource-dir=../lib/clang/3.4"
+	fi
 
 	if use multitarget; then
 		CONF_FLAGS="${CONF_FLAGS} --enable-targets=all"
 	else
 		CONF_FLAGS="${CONF_FLAGS} --enable-targets=host,cpp"
+		if use video_cards_radeon; then
+			CONF_FLAGS="${CONF_FLAGS},r600"
+		fi
 	fi
 
-	if use amd64; then
-		CONF_FLAGS="${CONF_FLAGS} --enable-pic"
-	fi
-
-	if use gold; then
+	if multilib_build_binaries && use gold; then
 		CONF_FLAGS="${CONF_FLAGS} --with-binutils-include=${EPREFIX}/usr/include/"
 	fi
-	if use ocaml; then
+	if multilib_is_native_abi && use ocaml; then
 		CONF_FLAGS="${CONF_FLAGS} --enable-bindings=ocaml"
 	else
 		CONF_FLAGS="${CONF_FLAGS} --enable-bindings=none"
@@ -136,27 +217,36 @@ src_configure() {
 		CONF_FLAGS="${CONF_FLAGS} --with-udis86"
 	fi
 
-	if use video_cards_radeon; then
-		CONF_FLAGS="${CONF_FLAGS} --enable-experimental-targets=R600"
-	fi
-
 	if use libffi; then
+		local CPPFLAGS=${CPPFLAGS}
 		append-cppflags "$(pkg-config --cflags libffi)"
 	fi
-	CONF_FLAGS="${CONF_FLAGS} $(use_enable libffi)"
+
+	# build with a suitable Python version
+	python_export_best
 
 	# llvm prefers clang over gcc, so we may need to force that
 	tc-export CC CXX
+
+	ECONF_SOURCE=${S} \
 	econf ${CONF_FLAGS}
 }
 
-src_compile() {
-	emake VERBOSE=1 KEEP_SYMBOLS=1 REQUIRES_RTTI=1
+multilib_src_compile() {
+	emake VERBOSE=1 REQUIRES_RTTI=1 GENTOO_LIBDIR=$(get_libdir)
 
-	emake -C docs -f Makefile.sphinx man
-	use doc && emake -C docs -f Makefile.sphinx html
+	if multilib_is_native_abi; then
+		emake -C "${S}"/docs -f Makefile.sphinx man
+		use doc && emake -C "${S}"/docs -f Makefile.sphinx html
+	fi
 
-	pax-mark m Release/bin/lli
+	if use debug; then
+		pax-mark m Debug+Asserts+Checks/bin/llvm-rtdyld
+		pax-mark m Debug+Asserts+Checks/bin/lli
+	else
+		pax-mark m Release/bin/llvm-rtdyld
+		pax-mark m Release/bin/lli
+	fi
 	if use test; then
 		pax-mark m unittests/ExecutionEngine/JIT/Release/JITTests
 		pax-mark m unittests/ExecutionEngine/MCJIT/Release/MCJITTests
@@ -164,15 +254,46 @@ src_compile() {
 	fi
 }
 
+multilib_src_test() {
+	default
+
+	use clang && emake -C tools/clang test
+}
+
 src_install() {
-	emake KEEP_SYMBOLS=1 DESTDIR="${D}" install
+	local MULTILIB_WRAPPED_HEADERS=(
+		/usr/include/llvm/Config/config.h
+		/usr/include/llvm/Config/llvm-config.h
+	)
 
-	doman docs/_build/man/*.1
-	use doc && dohtml -r docs/_build/html/
+	use clang && MULTILIB_WRAPPED_HEADERS+=(
+		/usr/include/clang/Config/config.h
+	)
 
-	if use vim-syntax; then
-		insinto /usr/share/vim/vimfiles/syntax
-		doins utils/vim/*.vim
+	multilib-minimal_src_install
+}
+
+multilib_src_install() {
+	emake DESTDIR="${D}" GENTOO_LIBDIR=$(get_libdir) install
+
+	# Fix rpaths.
+	if use !kernel_Darwin ; then
+		chrpath -r "${EPREFIX}"/usr/$(get_libdir)/llvm \
+			"${ED}"/usr/bin/* || die
+	fi
+
+	if multilib_build_binaries; then
+		# Move files back.
+		if path_exists -o "${ED}"/tmp/llvm-config.*; then
+			mv "${ED}"/tmp/llvm-config.* "${ED}"/usr/bin || die
+		fi
+	else
+		# Preserve ABI-variant of llvm-config,
+		# then drop all the executables since LLVM doesn't like to
+		# clobber when installing.
+		mkdir -p "${ED}"/tmp || die
+		mv "${ED}"/usr/bin/llvm-config "${ED}"/tmp/llvm-config.${ABI} || die
+		rm -r "${ED}"/usr/bin || die
 	fi
 
 	# Fix install_names on Darwin.  The build system is too complicated
@@ -181,23 +302,81 @@ src_install() {
 	if [[ ${CHOST} == *-darwin* ]] ; then
 		eval $(grep PACKAGE_VERSION= configure)
 		[[ -n ${PACKAGE_VERSION} ]] && libpv=${PACKAGE_VERSION}
-		for lib in lib{EnhancedDisassembly,LLVM-${libpv},LTO,profile_rt}.dylib {BugpointPasses,LLVMHello}.dylib ; do
+		for lib in lib{EnhancedDisassembly,LLVM-${libpv},LTO,profile_rt,clang}.dylib {BugpointPasses,LLVMHello}.dylib ; do
 			# libEnhancedDisassembly is Darwin10 only, so non-fatal
+			# + omit clang libs if not enabled
 			[[ -f ${ED}/usr/lib/${PN}/${lib} ]] || continue
+
 			ebegin "fixing install_name of $lib"
 			install_name_tool \
 				-id "${EPREFIX}"/usr/lib/${PN}/${lib} \
 				"${ED}"/usr/lib/${PN}/${lib}
 			eend $?
 		done
-		for f in "${ED}"/usr/bin/* "${ED}"/usr/lib/${PN}/libLTO.dylib ; do
+		for f in "${ED}"/usr/bin/* "${ED}"/usr/lib/${PN}/lib{LTO,clang}.dylib ; do
+			# omit clang libs if not enabled
+			[[ -f ${ED}/usr/lib/${PN}/${lib} ]] || continue
+
 			odylib=$(scanmacho -BF'%n#f' "${f}" | tr ',' '\n' | grep libLLVM-${libpv}.dylib)
 			ebegin "fixing install_name reference to ${odylib} of ${f##*/}"
 			install_name_tool \
 				-change "${odylib}" \
 					"${EPREFIX}"/usr/lib/${PN}/libLLVM-${libpv}.dylib \
+				-change "@rpath/libclang.dylib" \
+					"${EPREFIX}"/usr/lib/llvm/libclang.dylib \
+				-change "${S}"/Release/lib/libclang.dylib \
+					"${EPREFIX}"/usr/lib/llvm/libclang.dylib \
 				"${f}"
 			eend $?
 		done
+	fi
+}
+
+multilib_src_install_all() {
+	doman docs/_build/man/*.1
+	use doc && dohtml -r docs/_build/html/
+
+	insinto /usr/share/vim/vimfiles/syntax
+	doins utils/vim/*.vim
+
+	if use clang; then
+		cd tools/clang || die
+
+		if use static-analyzer ; then
+			dobin tools/scan-build/ccc-analyzer
+			dosym ccc-analyzer /usr/bin/c++-analyzer
+			dobin tools/scan-build/scan-build
+
+			insinto /usr/share/${PN}
+			doins tools/scan-build/scanview.css
+			doins tools/scan-build/sorttable.js
+		fi
+
+		python_inst() {
+			if use static-analyzer ; then
+				pushd tools/scan-view >/dev/null || die
+
+				python_doscript scan-view
+
+				touch __init__.py || die
+				python_moduleinto clang
+				python_domodule __init__.py Reporter.py Resources ScanView.py startfile.py
+
+				popd >/dev/null || die
+			fi
+
+			if use python ; then
+				pushd bindings/python/clang >/dev/null || die
+
+				python_moduleinto clang
+				python_domodule __init__.py cindex.py enumerations.py
+
+				popd >/dev/null || die
+			fi
+
+			# AddressSanitizer symbolizer (currently separate)
+			python_doscript "${S}"/projects/compiler-rt/lib/asan/scripts/asan_symbolize.py
+		}
+		python_foreach_impl python_inst
 	fi
 }

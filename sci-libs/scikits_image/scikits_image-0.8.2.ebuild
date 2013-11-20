@@ -1,9 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/scikits_image/scikits_image-0.8.2.ebuild,v 1.1 2013/03/19 20:31:15 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/scikits_image/scikits_image-0.8.2.ebuild,v 1.5 2013/09/18 14:58:28 jlec Exp $
 
 EAPI=5
 
+# pyamg missing py3 support
+#PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
 PYTHON_COMPAT=( python{2_6,2_7} )
 
 inherit distutils-r1
@@ -21,9 +23,9 @@ IUSE="doc freeimage gtk qt4 test"
 
 RDEPEND="
 	sci-libs/scikits[${PYTHON_USEDEP}]
-	sci-libs/scipy[umfpack,${PYTHON_USEDEP}]
+	sci-libs/scipy[sparse,${PYTHON_USEDEP}]
 	freeimage? ( media-libs/freeimage )
-	gtk? ( dev-python/pygtk[${PYTHON_USEDEP}] )
+	gtk? ( dev-python/pygtk[$(python_gen_usedep 'python2*')] )
 	qt4? ( dev-python/PyQt4[${PYTHON_USEDEP}] )"
 DEPEND="
 	>=dev-python/cython-0.15[${PYTHON_USEDEP}]
@@ -42,8 +44,8 @@ DOCS=( CONTRIBUTORS.txt DEPENDS.txt DEVELOPMENT.txt RELEASE.txt TASKS.txt )
 python_test() {
 	esetup.py \
 		install --root="${T}/test-${EPYTHON}" \
-		--no-compile || die "install test failed"
+		--no-compile
 	cd "${T}/test-${EPYTHON}/$(python_get_sitedir)" || die
-	echo "backend: Agg" > matplotlibrc
-	MPLCONFIGDIR=. PYTHONPATH=. nosetests-"${EPYTHON}" || die
+	echo "backend: Agg" > matplotlibrc || die
+	MPLCONFIGDIR=. nosetests -v skimage || die
 }

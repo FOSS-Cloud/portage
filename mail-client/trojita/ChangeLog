@@ -1,6 +1,28 @@
 # ChangeLog for mail-client/trojita
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/trojita/ChangeLog,v 1.24 2013/04/07 13:59:47 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/trojita/ChangeLog,v 1.28 2013/10/04 11:38:32 ago Exp $
+
+*trojita-0.3.96-r1 (04 Oct 2013)
+
+  04 Oct 2013; Agostino Sarubbo <ago@gentoo.org> +trojita-0.3.96-r1.ebuild,
+  -trojita-0.3.96.ebuild, trojita-9999.ebuild:
+  Properly using an array instead of bash string and setting up correct flag
+  names, wrt bug #486632 by Matthew Thode and Jan Kundrat
+
+*trojita-0.3.96 (30 Sep 2013)
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> +trojita-0.3.96.ebuild,
+  trojita-9999.ebuild:
+  Version bump to 0.3.96, change the buildsystem to cmake, wrt bug #486588
+
+  20 Jun 2013; Agostino Sarubbo <ago@gentoo.org> trojita-9999.ebuild:
+  Port the 9999 ebuil to cmake, wrt to bug #473930
+
+*trojita-0.3.93 (07 May 2013)
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> +trojita-0.3.93.ebuild,
+  -trojita-0.3.92.ebuild, trojita-9999.ebuild:
+  Version bump to 0.3.93, update LINGUAS, remove old
 
   07 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org> trojita-0.3.92.ebuild,
   trojita-9999.ebuild:

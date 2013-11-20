@@ -1,6 +1,26 @@
 # ChangeLog for sys-libs/libsemanage
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libsemanage/ChangeLog,v 1.54 2013/02/07 19:42:32 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libsemanage/ChangeLog,v 1.59 2013/11/10 14:17:26 swift Exp $
+
+  10 Nov 2013; Sven Vermeulen <swift@gentoo.org> libsemanage-2.2.ebuild:
+  Adding dependency to audit (bug #490488)
+
+*libsemanage-2.2 (04 Nov 2013)
+
+  04 Nov 2013; Sven Vermeulen <swift@gentoo.org> +libsemanage-2.2.ebuild:
+  New libsemanage release
+
+  07 Jul 2013; Sven Vermeulen <swift@gentoo.org> -libsemanage-2.1.6.ebuild,
+  -libsemanage-2.1.6-r2.ebuild:
+  Summer cleaning
+
+  16 Jun 2013; Sven Vermeulen <swift@gentoo.org> libsemanage-2.1.10.ebuild:
+  Stabilization
+
+*libsemanage-2.1.10 (25 Apr 2013)
+
+  25 Apr 2013; Sven Vermeulen <swift@gentoo.org> +libsemanage-2.1.10.ebuild:
+  New upstream release
 
   07 Feb 2013; Sven Vermeulen <swift@gentoo.org> libsemanage-2.1.9.ebuild:
   Python 2.6 is not supported with libsemanage, see bug #445216

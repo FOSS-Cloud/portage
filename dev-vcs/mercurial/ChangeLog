@@ -1,6 +1,76 @@
 # ChangeLog for dev-vcs/mercurial
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/mercurial/ChangeLog,v 1.117 2013/03/09 12:55:52 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/mercurial/ChangeLog,v 1.130 2013/11/04 16:13:26 polynomial-c Exp $
+
+*mercurial-2.8 (04 Nov 2013)
+
+  04 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> -mercurial-2.7.1.ebuild,
+  +mercurial-2.8.ebuild:
+  Version bump. Removed old.
+
+*mercurial-2.7.2 (02 Oct 2013)
+
+  02 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> -mercurial-2.7.ebuild,
+  +mercurial-2.7.2.ebuild:
+  Version bump. Removed old.
+
+*mercurial-2.7.1 (06 Sep 2013)
+
+  06 Sep 2013; Lars Wendler <polynomial-c@gentoo.org> +mercurial-2.7.1.ebuild:
+  Version bump.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> mercurial-2.5.4.ebuild,
+  mercurial-2.6.3.ebuild, mercurial-2.7.ebuild, mercurial-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*mercurial-2.7 (11 Aug 2013)
+
+  11 Aug 2013; Lars Wendler <polynomial-c@gentoo.org> -mercurial-2.6.2.ebuild,
+  +mercurial-2.7.ebuild:
+  Version bump (bug #480500). Removed old.
+
+  26 Jul 2013; Lars Wendler <polynomial-c@gentoo.org> mercurial-2.4.2.ebuild,
+  mercurial-2.5.4.ebuild, mercurial-2.6.2.ebuild, mercurial-2.6.3.ebuild,
+  mercurial-9999.ebuild:
+  Fixed bash completion. Thanks to Alexander Tsoy for reporting this in bug
+  #477826.
+
+*mercurial-2.6.3 (02 Jul 2013)
+
+  02 Jul 2013; Lars Wendler <polynomial-c@gentoo.org> -mercurial-2.6.1.ebuild,
+  +mercurial-2.6.3.ebuild:
+  Version bump. Removed old.
+
+*mercurial-2.6.2 (07 Jun 2013)
+
+  07 Jun 2013; Lars Wendler <polynomial-c@gentoo.org> -mercurial-2.6.ebuild,
+  +mercurial-2.6.2.ebuild:
+  Version bump. Removed old.
+
+*mercurial-2.6.1 (15 May 2013)
+
+  15 May 2013; Dirkjan Ochtman <djc@gentoo.org> +mercurial-2.6.1.ebuild:
+  Version bump mercurial to 2.6.1.
+
+  15 May 2013; Dirkjan Ochtman <djc@gentoo.org> -mercurial-2.5.1.ebuild,
+  -mercurial-2.5.2.ebuild:
+  Remove old versions.
+
+*mercurial-2.6 (03 May 2013)
+
+  03 May 2013; Dirkjan Ochtman <djc@gentoo.org> +mercurial-2.6.ebuild:
+  Version bump to 2.6.
+
+  17 Apr 2013; Maxim Koltsov <maksbotan@gentoo.org> mercurial-9999.ebuild:
+  Port mercurial-999 to EAPI 5 and distutils-r1 eclass, bug #465630. Thanks to
+  Nikolaj Sjujskij.
+
+*mercurial-2.5.4 (08 Apr 2013)
+
+  08 Apr 2013; Maxim Koltsov <maksbotan@gentoo.org> +mercurial-2.5.4.ebuild,
+  mercurial-9999.ebuild, metadata.xml:
+  Do not install unneeded contrib files, bug #421893, and use '@' bookmark for
+  source checkout in 9999, patch by Nikolaj Sjujskij. Bump to 2.5.4.
 
   09 Mar 2013; Michał Górny <mgorny@gentoo.org> mercurial-2.5.2.ebuild:
   Remove the python_configure hack since bug 460016 was fixed.

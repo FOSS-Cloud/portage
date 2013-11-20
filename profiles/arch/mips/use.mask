@@ -1,7 +1,14 @@
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/use.mask,v 1.63 2013/03/11 16:45:47 chithanh Exp $
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/use.mask,v 1.70 2013/10/19 01:58:38 vapier Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -mips
+
+# Markos Chandras <hwoarang@gentoo.org>
+# Needs packages that lack ~mips keywords
+# See #485366
+m17n-lib
 
 # Ryan Hill <dirtyepic@gentoo.org>
 # Needs sci-mathematics/glpk.
@@ -137,8 +144,10 @@ video_cards_r100
 video_cards_r200
 video_cards_r300
 video_cards_r600
+video_cards_radeonsi
 video_cards_i915
 video_cards_i965
+video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
 
@@ -261,7 +270,6 @@ lirc
 trusted
 voodoo3
 smartcard
-emacs
 
 #
 # Anthony G. Basile <blueness@gentoo.org> (18 Jul 2012)
@@ -377,3 +385,10 @@ fluidsynth
 # libdlm and cman are not keyworded
 cman
 clvm
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
+# virtual/opencl is not keyworded
+opencl
+
+# Unmask once sys-libs/libunwind gets keyworded.
+unwind

@@ -1,6 +1,26 @@
 # ChangeLog for app-laptop/tpacpi-bat
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-laptop/tpacpi-bat/ChangeLog,v 1.2 2012/12/20 04:58:41 ottxor Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-laptop/tpacpi-bat/ChangeLog,v 1.6 2013/11/04 18:56:09 ottxor Exp $
+
+  04 Nov 2013; Christoph Junghans <ottxor@gentoo.org> -files/tpacpi-bat.initd.0,
+  -tpacpi-bat-1.0-r1.ebuild:
+  remove old
+
+*tpacpi-bat-1.1 (04 Nov 2013)
+
+  04 Nov 2013; Christoph Junghans <ottxor@gentoo.org> +tpacpi-bat-1.1.ebuild,
+  tpacpi-bat-9999.ebuild:
+  version bump
+
+  04 Nov 2013; Christoph Junghans <ottxor@gentoo.org> +files/tpacpi-bat.initd.1,
+  tpacpi-bat-9999.ebuild:
+  fixes for new call syntax (bug #485526#c2)
+
+*tpacpi-bat-1.0-r1 (21 Sep 2013)
+
+  21 Sep 2013; Christoph Junghans <ottxor@gentoo.org> +tpacpi-bat-1.0-r1.ebuild,
+  -tpacpi-bat-1.0.ebuild, files/tpacpi-bat.confd.0:
+  fixed TPACPI_BAT_HIGH_THRESH_STOP (bug #485526, thx to Michael)
 
 *tpacpi-bat-1.0 (20 Dec 2012)
 

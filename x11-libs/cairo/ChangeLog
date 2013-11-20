@@ -1,6 +1,118 @@
 # ChangeLog for x11-libs/cairo
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/cairo/ChangeLog,v 1.329 2013/03/11 22:46:15 remi Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/cairo/ChangeLog,v 1.357 2013/09/06 14:59:45 ago Exp $
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.14-r4.ebuild:
+  Stable for sparc, wrt bug #447354
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.14-r4.ebuild:
+  Stable for ppc64, wrt bug #447354
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.14-r4.ebuild:
+  Stable for alpha, wrt bug #447354
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.14-r4.ebuild:
+  Stable for ia64, wrt bug #447354
+
+*cairo-1.12.16 (27 Aug 2013)
+
+  27 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +cairo-1.12.16.ebuild:
+  Version bump.
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.14-r4.ebuild:
+  Stable for ppc, wrt bug #447354
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> cairo-1.12.14-r4.ebuild:
+  arm stable, bug #447354
+
+  23 Aug 2013; Jeroen Roovers <jer@gentoo.org> cairo-1.12.14-r4.ebuild:
+  Stable for HPPA (bug #447354).
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.14-r4.ebuild:
+  Stable for x86, wrt bug #447354
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.14-r4.ebuild:
+  Stable for amd64, wrt bug #447354
+
+  21 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  cairo-1.12.14-r4.ebuild, cairo-9999.ebuild:
+  Add postinstall warning for nxserver users about the xlib-xcb backend, bug
+  #441878.
+
+  21 Aug 2013; Ben de Groot <yngwin@gentoo.org> -cairo-1.12.10-r2.ebuild,
+  -cairo-1.12.12-r1.ebuild, -cairo-1.12.12.ebuild, -cairo-1.12.14-r2.ebuild,
+  -cairo-1.12.14-r3.ebuild, -cairo-1.12.8.ebuild:
+  Clean up old ebuilds
+
+  03 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  cairo-9999.ebuild:
+  Drop failing patches, bug #478248.
+
+  22 Jul 2013; Justin Lecher <jlec@gentoo.org> cairo-1.12.14-r4.ebuild,
+  cairo-9999.ebuild, metadata.xml:
+  Fix typo, #477690
+
+  22 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  cairo-9999.ebuild:
+  Sync live and non-live ebuilds.
+
+*cairo-1.12.14-r4 (22 Jul 2013)
+
+  22 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +cairo-1.12.14-r4.ebuild, metadata.xml:
+  Make xlib-xcb backend optional, this might address all of bugs #441878 #476306
+  #477444 and #477530. Also require gles2 or opengl for openvg, bug #447294.
+
+  18 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  cairo-1.12.14-r3.ebuild:
+  Remove comment and useless econf option which was overriden by use_enable.
+
+*cairo-1.12.14-r3 (17 Jul 2013)
+
+  17 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +cairo-1.12.14-r3.ebuild, metadata.xml:
+  Add gles2 support, bug #428770. Import of okias's ebuild from the x11 overlay
+  with slight modifications.
+
+  26 Jun 2013; Luca Barbato <lu_zero@gentoo.org> cairo-9999.ebuild:
+  Drop legacy-driver from the live ebuild
+
+  26 Jun 2013; Luca Barbato <lu_zero@gentoo.org> cairo-9999.ebuild:
+  Update live ebuild
+
+  05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  27 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> -cairo-1.12.14.ebuild,
+  -cairo-1.12.14-r1.ebuild, -files/cairo-libpng16.patch:
+  old
+
+*cairo-1.12.14-r2 (27 Apr 2013)
+
+  27 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> +cairo-1.12.14-r2.ebuild,
+  +files/cairo-1.12.14-libpng16.patch:
+  Backport upstream compability patch for libpng16 wrt #465658 by Richard
+  Grenville
+
+*cairo-1.12.14-r1 (27 Apr 2013)
+
+  27 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> +cairo-1.12.14-r1.ebuild:
+  Stop applying bogus -libpng16.patch wrt #467426 by Richard Grenville
+
+  11 Apr 2013; Lars Wendler <polynomial-c@gentoo.org> cairo-1.12.14.ebuild:
+  Fixed patch command.
+
+*cairo-1.12.14 (11 Apr 2013)
+
+  11 Apr 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +files/cairo-libpng16.patch, +cairo-1.12.14.ebuild:
+  Non-maintainer commit: Version bump (bug #456818). Added libpng16 patch (bug
+  #465044). Committed with kind permission from yngwin.
+
+  09 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> cairo-1.12.10-r2.ebuild,
+  cairo-1.12.12.ebuild, cairo-1.12.12-r1.ebuild, cairo-9999.ebuild:
+  Use subslot operator for the libpng dependency in every eapi5 ebuild.
 
 *cairo-1.12.12-r1 (11 Mar 2013)
 

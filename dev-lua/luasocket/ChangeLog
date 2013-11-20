@@ -1,6 +1,44 @@
 # ChangeLog for dev-lua/luasocket
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lua/luasocket/ChangeLog,v 1.5 2012/08/13 10:33:04 johu Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lua/luasocket/ChangeLog,v 1.13 2013/09/16 22:05:35 mrueg Exp $
+
+*luasocket-3.0_rc1-r2 (16 Sep 2013)
+
+  16 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +luasocket-3.0_rc1-r2.ebuild,
+  -luasocket-3.0_rc1-r1.ebuild:
+  Install also unix socket support.
+
+*luasocket-3.0_rc1-r1 (16 Sep 2013)
+
+  16 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +luasocket-3.0_rc1-r1.ebuild,
+  -luasocket-3.0_rc1.ebuild:
+  Revbump last commit, so users that have already installed it get the change,
+  too.
+
+  16 Sep 2013; Manuel Rüger <mrueg@gentoo.org> luasocket-3.0_rc1.ebuild:
+  Fix install dir. Ebuild patch by Alexander Tsoy. Fixes bug #485074.
+
+  11 Sep 2013; Manuel Rüger <mrueg@gentoo.org> luasocket-2.0.2.ebuild,
+  luasocket-3.0_rc1.ebuild:
+  Drop hardcoded lua version.
+
+  11 Sep 2013; Manuel Rüger <mrueg@gentoo.org> luasocket-2.0.2.ebuild,
+  luasocket-3.0_rc1.ebuild:
+  Fix build without debug.
+
+*luasocket-3.0_rc1 (11 Sep 2013)
+
+  11 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +luasocket-3.0_rc1.ebuild,
+  luasocket-2.0.2.ebuild:
+  Version bump. Fixes bug #477344. Thanks to Emery Hemingway for inital ebuild
+  patch.
+
+  08 Aug 2013; Markus Meier <maekke@gentoo.org> luasocket-2.0.2.ebuild:
+  add ~arm, bug #476264
+
+  22 Jul 2013; Manuel Rüger <mrueg@gentoo.org> luasocket-2.0.2.ebuild,
+  metadata.xml:
+  Taking up maintainership
 
   13 Aug 2012; Johannes Huber <johu@gentoo.org> luasocket-2.0.2.ebuild:
   Stable for x86, wrt bug #429592

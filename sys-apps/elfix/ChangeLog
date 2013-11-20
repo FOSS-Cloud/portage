@@ -1,3 +1,45 @@
+# ChangeLog for sys-apps/elfix
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/elfix/ChangeLog,v 1.74 2013/11/07 15:22:48 blueness Exp $
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> elfix-0.8.3.ebuild:
+  Stable for sparc, wrt bug #474200
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> elfix-0.8.3.ebuild:
+  Stable for arm, wrt bug #474200
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> elfix-0.8.3.ebuild:
+  Stable for ia64, wrt bug #474200
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> elfix-0.8.3.ebuild:
+  Stable for alpha, wrt bug #474200
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> elfix-0.8.3.ebuild:
+  Stable for amd64, wrt bug #474200
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> elfix-0.8.3.ebuild:
+  Stable for x86, wrt bug #474200
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> elfix-0.8.3.ebuild:
+  Stable for ppc64, wrt bug #474200
+
+  24 Jun 2013; Jeroen Roovers <jer@gentoo.org> elfix-0.8.3.ebuild:
+  Stable for HPPA (bug #474200).
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> elfix-0.8.3.ebuild:
+  Stable for ppc, wrt bug #474200
+
+*elfix-0.8.3 (21 May 2013)
+
+  21 May 2013; Anthony G. Basile <blueness@gentoo.org> +elfix-0.8.3.ebuild,
+  -elfix-0.8.2.ebuild:
+  Version bump: rename pax-mark to avoid name collision
+
+*elfix-0.8.2 (20 May 2013)
+
+  20 May 2013; Anthony G. Basile <blueness@gentoo.org> +elfix-0.8.2.ebuild,
+  -elfix-0.7.0.ebuild:
+  Version bump: avoid ELF_C_RDWR_MMAP for uclibc systems
 
   28 Feb 2013; Anthony G. Basile <blueness@gentoo.org> elfix-0.8.1.ebuild:
   Depend on any revision of PV, for bug #459632

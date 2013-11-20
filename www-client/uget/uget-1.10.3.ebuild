@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/uget/uget-1.10.3.ebuild,v 1.1 2013/02/02 04:51:17 wired Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/uget/uget-1.10.3.ebuild,v 1.5 2013/11/05 21:04:22 wired Exp $
 
 EAPI="4"
 
@@ -11,12 +11,12 @@ if [[ ${PV} == *9999* ]]; then
 	SRC_URI=""
 	EGIT_REPO_URI="git://urlget.git.sourceforge.net/gitroot/urlget/uget"
 else
-	KEYWORDS="~amd64 ~ppc ~x86"
+	KEYWORDS="amd64 ppc x86"
 	SRC_URI="mirror://sourceforge/urlget/${P}.tar.gz"
 fi
 
 DESCRIPTION="Download manager using gtk+ and libcurl"
-HOMEPAGE="http://urlget.sourceforge.net/"
+HOMEPAGE="http://www.ugetdm.com"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

@@ -1,6 +1,18 @@
 # ChangeLog for virtual/perl-CPAN-Meta-Requirements
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-CPAN-Meta-Requirements/ChangeLog,v 1.15 2013/03/02 16:26:39 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-CPAN-Meta-Requirements/ChangeLog,v 1.17 2013/10/28 06:19:55 patrick Exp $
+
+*perl-CPAN-Meta-Requirements-2.125.0 (28 Oct 2013)
+
+  28 Oct 2013; Patrick Lauer <patrick@gentoo.org>
+  +perl-CPAN-Meta-Requirements-2.125.0.ebuild:
+  Bump
+
+*perl-CPAN-Meta-Requirements-2.123.0 (05 Sep 2013)
+
+  05 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  +perl-CPAN-Meta-Requirements-2.123.0.ebuild:
+  Bump
 
   02 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
   perl-CPAN-Meta-Requirements-2.122.0.ebuild:

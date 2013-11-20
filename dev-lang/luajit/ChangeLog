@@ -1,6 +1,31 @@
 # ChangeLog for dev-lang/luajit
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/luajit/ChangeLog,v 1.11 2013/03/05 21:54:23 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/luajit/ChangeLog,v 1.16 2013/10/21 01:08:41 rafaelmartins Exp $
+
+*luajit-2.0.2 (21 Oct 2013)
+
+  21 Oct 2013; Rafael G. Martins <rafaelmartins@gentoo.org>
+  +luajit-2.0.2.ebuild, -luajit-2.0.1_p1-r1.ebuild:
+  Version bump.
+
+  12 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org> luajit-2.0.1_p1-r1.ebuild:
+  Re-add prefix variables
+
+*luajit-2.0.1_p1-r1 (31 May 2013)
+
+  31 May 2013; Rafael G. Martins <rafaelmartins@gentoo.org>
+  +luajit-2.0.1_p1-r1.ebuild, -luajit-2.0.1_p1.ebuild:
+  Fix bugs #471698 and #471596. Thanks to hasufell and mva
+
+  28 May 2013; Rafael G. Martins <rafaelmartins@gentoo.org>
+  luajit-2.0.0_beta7.ebuild:
+  Enable verbose build. Thanks to hasufell (#449516)
+
+*luajit-2.0.1_p1 (28 May 2013)
+
+  28 May 2013; Rafael G. Martins <rafaelmartins@gentoo.org>
+  +luajit-2.0.1_p1.ebuild, metadata.xml:
+  Version bump. Clean ebuild for now.
 
   05 Mar 2013; Sébastien Fabbro <bicatali@gentoo.org> luajit-2.0.0.ebuild:
   Keyword amd64-linux and x86-linux

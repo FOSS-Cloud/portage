@@ -1,8 +1,20 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/package.use.mask,v 1.122 2013/03/31 14:24:38 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/package.use.mask,v 1.131 2013/10/25 14:52:39 jer Exp $
 
 # DON'T TOUCH THIS FILE. Instead, file a bug and assign it to <hppa@gentoo.org>.
+
+# Jeroen Roovers <jer@gentoo.org> (25 Oct 2013)
+# Building against libatomic_ops fails (bug #453704)
+sys-libs/libunwind libatomic
+
+# Jeroen Roovers <jer@gentoo.org> (23 Jul 2013)
+# graphite is not implemented on HPPA
+sys-devel/gcc graphite
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (28 May 2013)
+# depends on sys-devel/llvm[video_cards_radeon]
+media-libs/mesa r600-llvm-compiler
 
 # Julian Ospald <hasufell@gentoo.org> (31 Mar 2013)
 # depends on mono
@@ -34,10 +46,6 @@ app-portage/eix clang
 # Jeroen Roovers <jer@gentoo.org> (8 Jul 2012)
 # media-libs/devil has not been fully tested on HPPA
 media-gfx/graphviz devil
-
-# Jeroen Roovers <jer@gentoo.org> (4 Jul 2012)
-# media-gfx/mscgen does not work on HPPA (bug #419987).
-dev-libs/libnl doc
 
 # Jeroen Roovers <jer@gentoo.org> (3 Jul 2012)
 # Mask USE=connman for net-libs/gupnp (bug #424225)
@@ -110,7 +118,6 @@ net-im/pidgin gstreamer
 x11-misc/xscreensaver gdm new-login
 x11-libs/wxGTK gstreamer
 net-p2p/mldonkey guionly gtk
-media-libs/libcanberra gtk gtk3
 dev-vcs/git gtk
 app-cdr/cdrdao gcdmaster
 net-im/pidgin eds
@@ -119,28 +126,15 @@ net-im/pidgin eds
 # qtmultimedia is not keyworded, bug 293671
 dev-python/PyQt4 multimedia
 
-# Jeroen Roovers <jer@gentoo.org> (31 May 2009)
-# Mask media-gfx/imagemagick[openmp] until we have a stable
-# sys-devel/gcc-4.3[openmp] (bug #225917).
-media-gfx/imagemagick openmp
-
-# Jeroen Roovers <jer@gentoo.org> (06 May 2009)
-# Mask webkit-gtk dependency for net-libs/libproxy:
-net-libs/libproxy webkit
-
 # Jeroen Roovers <jer@gentoo.org> (15 Apr 2008)
 # media-sound/fluidsynth fails to build with stable libtool, so it can't be
 # tested for ~hppa keywording right now
 media-sound/mpd fluidsynth
 
-# Jeroen Roovers <jer@gentoo.org> (2 Apr 2008)
-# Help browsing through webkit doesn't seem to work really well yet
-media-gfx/gimp webkit
-
 # Jeroen Roovers <jer@gentoo.org> (16 Sep 2008)
 # cpudetection and custom-cpuopts does not apply
 # to HPPA (bug #234629)
-media-video/mplayer cpudetection custom-cpuopts
+media-video/mplayer cpudetection
 
 # Jeroen Roovers <jer@gentoo.org> (16 Sep 2008)
 # app-text/xindy needs dev-lisp/clisp and clisp does not build (bug #229217)
@@ -157,7 +151,3 @@ media-plugins/gst-plugins-meta dvb
 # Jeroen Roovers <jer@gentoo.org> (12 Apr 2007)
 # Mask until fixed.
 net-misc/tightvnc server
-
-# Ultrabug <ultrabug@gentoo.org) (05 Sept 2011)
-# missing keyword for net-libs/zeromq
-app-admin/rsyslog zeromq

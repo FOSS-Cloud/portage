@@ -1,6 +1,61 @@
 # ChangeLog for net-libs/libmicrohttpd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libmicrohttpd/ChangeLog,v 1.31 2013/03/30 21:21:45 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libmicrohttpd/ChangeLog,v 1.44 2013/11/13 04:12:09 mattst88 Exp $
+
+  13 Nov 2013; Matt Turner <mattst88@gentoo.org> libmicrohttpd-0.9.31.ebuild:
+  Added ~alpha, bug 478076.
+
+  23 Oct 2013; Markus Meier <maekke@gentoo.org> libmicrohttpd-0.9.30.ebuild:
+  arm stable, bug #488644
+
+*libmicrohttpd-0.9.31 (19 Oct 2013)
+
+  19 Oct 2013; Anthony G. Basile <blueness@gentoo.org>
+  +libmicrohttpd-0.9.31.ebuild, metadata.xml:
+  Version bump
+
+  02 Sep 2013; Anthony G. Basile <blueness@gentoo.org>
+  -libmicrohttpd-0.9.21.ebuild, -libmicrohttpd-0.9.23.ebuild,
+  -libmicrohttpd-0.9.24.ebuild:
+  Remove older versions
+
+*libmicrohttpd-0.9.30 (02 Sep 2013)
+
+  02 Sep 2013; Anthony G. Basile <blueness@gentoo.org>
+  +libmicrohttpd-0.9.30.ebuild:
+  Version bump
+
+*libmicrohttpd-0.9.28 (24 Jul 2013)
+
+  24 Jul 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/libmicrohttpd-0.9.28-fix-no-messages.patch,
+  +libmicrohttpd-0.9.28.ebuild:
+  Version bump
+
+  20 Jul 2013; Jeroen Roovers <jer@gentoo.org> libmicrohttpd-0.9.27.ebuild:
+  Marked ~hppa too.
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.27.ebuild:
+  Stable for arm, wrt bug #474266
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.27.ebuild:
+  Stable for amd64, wrt bug #474266
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.27.ebuild:
+  Stable for x86, wrt bug #474266
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.27.ebuild:
+  Stable for ppc64, wrt bug #474266
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.27.ebuild:
+  Stable for ppc, wrt bug #474266
+
+*libmicrohttpd-0.9.27 (06 May 2013)
+
+  06 May 2013; Anthony G. Basile <blueness@gentoo.org>
+  +libmicrohttpd-0.9.27.ebuild, -files/libmicrohttpd-0.9.26-fix-doc-build.patch,
+  -libmicrohttpd-0.9.25.ebuild, -libmicrohttpd-0.9.26.ebuild:
+  Version bump and remove 0.9.26 requiring autoreconf, bug #467852
 
   30 Mar 2013; Anthony G. Basile <blueness@gentoo.org>
   files/libmicrohttpd-0.9.26-fix-doc-build.patch:

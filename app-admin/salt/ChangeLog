@@ -1,6 +1,80 @@
 # ChangeLog for app-admin/salt
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/salt/ChangeLog,v 1.10 2013/03/26 00:57:09 chutzpah Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/salt/ChangeLog,v 1.26 2013/11/18 21:56:11 chutzpah Exp $
+
+*salt-0.17.2 (18 Nov 2013)
+
+  18 Nov 2013; Patrick McLean <chutzpah@gentoo.org> -salt-0.17.1.ebuild,
+  +salt-0.17.2.ebuild:
+  Version bump, remove 0.17.1.
+
+*salt-0.17.1 (12 Nov 2013)
+
+  12 Nov 2013; Patrick McLean <chutzpah@gentoo.org> +salt-0.17.1.ebuild,
+  +files/salt-0.17.1-tests-nonroot.patch:
+  Version bump, add test dep on dev-python/SaltTesting.
+
+*salt-0.16.4 (08 Sep 2013)
+
+  08 Sep 2013; Patrick McLean <chutzpah@gentoo.org> +salt-0.16.4.ebuild:
+  Version bump.
+
+*salt-0.16.3 (14 Aug 2013)
+
+  04 Aug 2013; Patrick McLean <chutzpah@gentoo.org> salt-0.16.2.ebuild,
+  +salt-0.16.3.ebuild, salt-9999.ebuild:
+  Version bump. Add call to distutils-r1_python_install_all to
+  python_install_all in all current versions. Clean out version 0.16.0.
+
+*salt-0.16.2 (06 Aug 2013)
+
+  06 Aug 2013; Patrick McLean <chutzpah@gentoo.org> +salt-0.16.2.ebuild:
+  Version bump.
+
+  02 Aug 2013; Patrick McLean <chutzpah@gentoo.org> -salt-0.15.3.ebuild,
+  salt-0.16.0.ebuild, salt-9999.ebuild:
+  Add RDEPEND on pciutils (bug #479450). Clean out version 0.15.3.
+
+*salt-0.16.0 (10 Jul 2013)
+
+  10 Jul 2013; Patrick McLean <chutzpah@gentoo.org> +salt-0.16.0.ebuild:
+  Version bump.
+
+  02 Jul 2013; Patrick McLean <chutzpah@gentoo.org> -salt-0.14.1.ebuild,
+  -salt-0.15.1.ebuild, -files/salt-0.13.1-disable-failing-tests.patch:
+  Remove old versions, removing 0.14.1 from the tree due to bug #475438.
+
+*salt-0.15.3 (04 Jun 2013)
+
+  04 Jun 2013; Patrick McLean <chutzpah@gentoo.org> -salt-0.15.0-r1.ebuild,
+  +salt-0.15.3.ebuild:
+  Version bump, clean out older version.
+
+*salt-0.15.1 (11 May 2013)
+
+  11 May 2013; Patrick McLean <chutzpah@gentoo.org> +salt-0.15.1.ebuild:
+  Version bump.
+
+  04 May 2013; Patrick McLean <chutzpah@gentoo.org> salt-9999.ebuild:
+  Migrate config file fix over to 9999 ebuild
+
+*salt-0.15.0-r1 (04 May 2013)
+
+  04 May 2013; Patrick McLean <chutzpah@gentoo.org> +salt-0.15.0-r1.ebuild:
+  Revision bump, make sure the default config files get installed (fixes bug
+  #449132).
+
+*salt-0.15.0 (04 May 2013)
+
+  04 May 2013; Patrick McLean <chutzpah@gentoo.org> -salt-0.13.1.ebuild,
+  -salt-0.14.0.ebuild, +salt-0.15.0.ebuild, salt-9999.ebuild, metadata.xml:
+  Version bump, refactor ebuild and 9999 a little for better distutils-r1
+  support. Add mako USE flag. Clean out old versions.
+
+*salt-0.14.1 (16 Apr 2013)
+
+  16 Apr 2013; Patrick McLean <chutzpah@gentoo.org> +salt-0.14.1.ebuild:
+  Version bump.
 
 *salt-0.14.0 (25 Mar 2013)
 

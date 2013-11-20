@@ -1,6 +1,23 @@
 # ChangeLog for media-radio/wspr
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/wspr/ChangeLog,v 1.9 2013/03/03 18:42:51 tomjbe Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-radio/wspr/ChangeLog,v 1.13 2013/07/30 13:22:04 tomjbe Exp $
+
+  30 Jul 2013; Thomas Beierlein <tomjbe@gentoo.org> -wspr-2.00.ebuild:
+  Drop pre EAPI=4 version wrt bug #478576
+
+  09 Jun 2013; Mike Gilbert <floppym@gentoo.org> wspr-2.00-r2.ebuild:
+  Depend on virtual/python-imaging.
+
+*wspr-2.00-r2 (03 Jun 2013)
+
+  03 Jun 2013; Thomas Beierlein <tomjbe@gentoo.org> -wspr-2.00-r1.ebuild,
+  +wspr-2.00-r2.ebuild:
+  Make last patch a rev bump. Thanks Arfrever for pointing out
+
+
+  02 Jun 2013; Thomas Beierlein <tomjbe@gentoo.org> wspr-2.00-r1.ebuild,
+  +files/wspr-2.00-PIL.patch:
+  Fix import of PIL modules (Bug #471538)
 
   03 Mar 2013; Thomas Beierlein <tomjbe@gentoo.org> wspr-2.00-r1.ebuild:
   Improve build logic. Thanks for help Michal
@@ -72,4 +89,3 @@
   03 Nov 2009; Thomas Beierlein (TomJBE) <tb@forth-ev.de> +wspr-1.12.ebuild,
   +metadata.xml:
   New ebuild for bug 291186. Thanks Tommy[D] for thorough review and help.
-

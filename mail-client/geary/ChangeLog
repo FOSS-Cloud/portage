@@ -1,0 +1,41 @@
+# ChangeLog for mail-client/geary
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/geary/ChangeLog,v 1.7 2013/10/06 21:53:34 hasufell Exp $
+
+  06 Oct 2013; Julian Ospald <hasufell@gentoo.org> geary-0.4.0.ebuild:
+  fix deps
+
+*geary-0.4.0 (06 Oct 2013)
+
+  06 Oct 2013; Julian Ospald <hasufell@gentoo.org>
+  +files/geary-0.4.0-cflags.patch, +files/geary-0.4.0-unity.patch,
+  +geary-0.4.0.ebuild, -files/geary-0.4.0_pre2-cflags.patch,
+  -files/geary-0.4.0_pre2-unity.patch, -geary-0.4.0_pre2.ebuild:
+  version bump wrt #487054
+
+*geary-0.4.0_pre2 (22 Sep 2013)
+
+  22 Sep 2013; Julian Ospald <hasufell@gentoo.org> -geary-0.4.0_pre1.ebuild,
+  +geary-0.4.0_pre2.ebuild, -files/geary-0.4.0_pre1-cflags.patch,
+  -files/geary-0.4.0_pre1-unity.patch, +files/geary-0.4.0_pre2-cflags.patch,
+  +files/geary-0.4.0_pre2-unity.patch:
+  version bump, remove old
+
+  13 Sep 2013; Julian Ospald <hasufell@gentoo.org> geary-0.4.0_pre1.ebuild:
+  fix webkit-gtk dependency wrt #484632
+
+*geary-0.4.0_pre1 (27 Aug 2013)
+
+  27 Aug 2013; Julian Ospald <hasufell@gentoo.org> +geary-0.4.0_pre1.ebuild,
+  +files/geary-0.4.0_pre1-cflags.patch, +files/geary-0.4.0_pre1-unity.patch:
+  version bump
+
+  30 May 2013; Julian Ospald <hasufell@gentoo.org> geary-0.3.1.ebuild:
+  fix homepage
+
+*geary-0.3.1 (30 May 2013)
+
+  30 May 2013; Julian Ospald <hasufell@gentoo.org> +geary-0.3.1.ebuild,
+  +files/geary-0.3.1-ayatana.patch, +files/geary-0.3.1-cflags.patch,
+  +metadata.xml:
+  initial import wrt #436976

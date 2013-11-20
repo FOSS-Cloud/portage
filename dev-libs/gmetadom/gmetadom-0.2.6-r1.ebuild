@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/gmetadom/gmetadom-0.2.6-r1.ebuild,v 1.1 2013/03/16 20:50:48 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/gmetadom/gmetadom-0.2.6-r1.ebuild,v 1.10 2013/05/25 14:29:25 ago Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/gmetadom/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 hppa ia64 ppc ppc64 sparc x86"
 IUSE="ocaml static-libs"
 
 RDEPEND="dev-libs/glib
@@ -28,7 +28,11 @@ DEPEND="${RDEPEND}
 AUTOTOOLS_IN_SOURCE_BUILD="yes"
 AUTOTOOLS_AUTORECONF="yes"
 MAKEOPTS="${MAKEOPTS} -j1"
-PATCHES=( "${FILESDIR}"/${P}-gentoo-2.patch "${FILESDIR}"/${P}-gcc43.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-gentoo-2.patch
+	"${FILESDIR}"/${P}-gcc43.patch
+	"${FILESDIR}"/${P}-automake-1.13.patch
+)
 
 src_configure() {
 	# Unconditonal use of -fPIC (#55238).

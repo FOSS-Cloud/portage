@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/wt/wt-3.2.2_p1-r1.ebuild,v 1.1 2012/10/02 19:27:44 mattm Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/wt/wt-3.2.2_p1-r1.ebuild,v 1.5 2013/11/15 20:28:02 mattm Exp $
 
-EAPI="2"
+EAPI="3"
 
-inherit cmake-utils versionator eutils
+inherit cmake-utils versionator eutils user
 
 DESCRIPTION="C++ library for developing interactive web applications."
 MY_P=${P/_/-}
@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/witty/wt/3.2.2/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="doc +extjs fcgi graphicsmagick pdf postgres resources +server ssl +sqlite test zlib"
 
 RDEPEND="
@@ -62,7 +62,7 @@ src_prepare() {
 			-i cmake/WtFindHaru.txt || die
 	fi
 
-	base_src_prepare
+	cmake-utils_src_prepare
 }
 
 src_configure() {

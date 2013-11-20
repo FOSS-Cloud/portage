@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/avidemux-core/avidemux-core-2.6.3.ebuild,v 1.1 2013/03/29 15:10:12 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/avidemux-core/avidemux-core-2.6.3.ebuild,v 1.5 2013/08/11 21:42:55 aballier Exp $
 
 EAPI="5"
 
@@ -12,7 +12,7 @@ MY_PN="${PN/-core/}"
 MY_P="${MY_PN}_${PV}"
 
 DESCRIPTION="Core libraries for a video editor designed for simple cutting, filtering and encoding tasks."
-HOMEPAGE="http://fixounet.free.fr/${MY_PN}"
+HOMEPAGE="http://fixounet.free.fr/avidemux"
 SRC_URI="mirror://sourceforge/${MY_PN}/${PV}/${MY_P}.tar.gz"
 
 # Multiple licenses because of all the bundled stuff.
@@ -21,11 +21,11 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug nls sdl system-ffmpeg vdpau xv"
 
 DEPEND="
-	!<media-video/avidemux-${PV}
+	!<media-video/avidemux-${PV}:${SLOT}
 	dev-db/sqlite
 	nls? ( sys-devel/gettext )
 	sdl? ( media-libs/libsdl )
-	system-ffmpeg? ( >=media-video/ffmpeg-1.0[aac,cpudetection,mp3,theora] )
+	system-ffmpeg? ( >=media-video/ffmpeg-1.0:0[aac,cpudetection,mp3,theora] )
 	xv? ( x11-libs/libXv )
 	vdpau? ( x11-libs/libvdpau )
 "
@@ -35,6 +35,7 @@ RDEPEND="
 DEPEND="
 	$DEPEND
 	virtual/pkgconfig
+	!system-ffmpeg? ( dev-lang/yasm[nls=] )
 "
 
 S="${WORKDIR}/${MY_P}"

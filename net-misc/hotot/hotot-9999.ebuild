@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/hotot/hotot-9999.ebuild,v 1.7 2013/03/02 23:00:43 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/hotot/hotot-9999.ebuild,v 1.8 2013/06/12 20:16:30 xmw Exp $
 
-EAPI=4
+EAPI=5
 
 PYTHON_DEPEND="gtk? 2"
-RESTRICT_PYTHON_ABIS="3.*"
+PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit cmake-utils git-2 python
+inherit cmake-utils git-2 python-single-r1
 
 DESCRIPTION="lightweight & open source microblogging client"
 HOMEPAGE="http://hotot.org"
@@ -18,7 +18,10 @@ SLOT="0"
 KEYWORDS=""
 IUSE="chrome gtk kde qt4"
 
-RDEPEND="dev-python/dbus-python
+REQUIRED_USE="|| ( chrome gtk qt4 )"
+
+RDEPEND="${PYTHON_DEPS}
+	dev-python/dbus-python[${PYTHON_USEDEP}]
 	gtk? ( dev-python/pywebkitgtk )
 	qt4? ( dev-qt/qtwebkit:4
 		kde? ( kde-base/kdelibs ) )"
@@ -26,24 +29,25 @@ DEPEND="${RDEPEND}
 	sys-devel/gettext
 	qt4? ( dev-qt/qtsql:4 )"
 
-REQUIRED_USE="|| ( chrome gtk qt4 )"
-
 pkg_setup() {
 	if ! use gtk ; then
 		if ! use qt4 ; then
 			ewarn "neither gtk not qt4 binaries will be build"
 		fi
 	fi
-	python_pkg_setup
+	python-single-r1_pkg_setup
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs} \
-		$(cmake-utils_use_with chrome CHROME) \
-		$(cmake-utils_use_with gtk GTK) \
-		$(cmake-utils_use_with kde KDE) \
-		$(cmake-utils_use_with qt4 QT) \
-		-DPYTHON_EXECUTABLE=$(PYTHON -2 -a)"
+	mycmakeargs=(
+		${mycmakeargs}
+		$(cmake-utils_use_with chrome CHROME)
+		$(cmake-utils_use_with gtk GTK)
+		$(cmake-utils_use_with gtk GTK2)
+		-DWITH_GTK3=OFF
+		$(cmake-utils_use_with kde KDE)
+		$(cmake-utils_use_with qt4 QT)
+		-DPYTHON_EXECUTABLE=${PYTHON} )
 
 	cmake-utils_src_configure
 }

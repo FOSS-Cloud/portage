@@ -1,6 +1,45 @@
 # ChangeLog for net-misc/ipv6calc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/ipv6calc/ChangeLog,v 1.62 2013/03/17 15:08:18 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/ipv6calc/ChangeLog,v 1.72 2013/11/17 16:24:13 blueness Exp $
+
+*ipv6calc-0.95.0 (17 Nov 2013)
+
+  17 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +ipv6calc-0.95.0.ebuild:
+  Version bump
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> ipv6calc-0.94.1.ebuild:
+  Stable for sparc, wrt bug #474276
+
+  17 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> ipv6calc-0.94.1.ebuild:
+  Correct dependency on dev-perl/URI, thanks to Nikoli <nikoli AT lavabit.com>
+
+  16 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> ipv6calc-0.93.1.ebuild,
+  ipv6calc-0.94.1.ebuild:
+  Add dependency on dev-perl/Digest-SHA1, needed for tests, wrt bug #454256
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ipv6calc-0.94.1.ebuild:
+  Stable for ppc, wrt bug #474276
+
+  10 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> ipv6calc-0.94.1.ebuild:
+  Add Prefix support and some keywords for it
+
+  10 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> ipv6calc-0.94.1.ebuild:
+  Stable on amd64 and x86, wrt bug #474276
+
+  09 Jul 2013; Jeroen Roovers <jer@gentoo.org> ipv6calc-0.94.1.ebuild:
+  Stable for HPPA (bug #474276).
+
+*ipv6calc-0.94.1 (14 May 2013)
+
+  14 May 2013; Peter Volkov <pva@gentoo.org> -ipv6calc-0.94.0.ebuild,
+  +ipv6calc-0.94.1.ebuild:
+  Version bump. Drop previous version, where tests revealed real problem.
+
+*ipv6calc-0.94.0 (09 May 2013)
+
+  09 May 2013; Peter Volkov <pva@gentoo.org> +ipv6calc-0.94.0.ebuild,
+  metadata.xml:
+  Version bump.
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

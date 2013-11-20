@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/foomatic-db-engine/foomatic-db-engine-4.0.8.ebuild,v 1.1 2012/01/17 13:34:45 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/foomatic-db-engine/foomatic-db-engine-4.0.8.ebuild,v 1.11 2013/09/05 05:39:50 vapier Exp $
 
 EAPI="2"
 
@@ -12,9 +12,10 @@ SRC_URI="http://www.openprinting.org/download/foomatic/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~x86-fbsd"
 IUSE=""
 
+DEPEND="net-print/cups"
 RDEPEND="
 	dev-libs/libxml2
 	net-print/foomatic-filters"

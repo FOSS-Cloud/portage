@@ -1,6 +1,69 @@
 # ChangeLog for dev-python/pypax
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pypax/ChangeLog,v 1.56 2013/04/05 20:30:09 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pypax/ChangeLog,v 1.74 2013/11/07 15:18:56 blueness Exp $
+
+*pypax-0.8.4 (07 Nov 2013)
+
+  07 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +pypax-0.8.4.ebuild:
+  Version bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pypax-0.8.1-r1.ebuild,
+  pypax-0.8.3.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.3.ebuild:
+  Stable for sparc, wrt bug #474200
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.3.ebuild:
+  Stable for arm, wrt bug #474200
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.3.ebuild:
+  Stable for ia64, wrt bug #474200
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.3.ebuild:
+  Stable for alpha, wrt bug #474200
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.3.ebuild:
+  Stable for amd64, wrt bug #474200
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.3.ebuild:
+  Stable for x86, wrt bug #474200
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.3.ebuild:
+  Stable for ppc64, wrt bug #474200
+
+  24 Jun 2013; Jeroen Roovers <jer@gentoo.org> pypax-0.8.3.ebuild:
+  Stable for HPPA (bug #474200).
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.3.ebuild:
+  Stable for ppc, wrt bug #474200
+
+*pypax-0.8.3 (21 May 2013)
+
+  21 May 2013; Anthony G. Basile <blueness@gentoo.org> +pypax-0.8.3.ebuild,
+  -pypax-0.8.2.ebuild:
+  Version bump: rename pax-mark to avoid name collision
+
+  20 May 2013; Anthony G. Basile <blueness@gentoo.org> -pypax-0.7.0.ebuild,
+  -pypax-0.8.1.ebuild:
+  Remove older stable
+
+*pypax-0.8.2 (20 May 2013)
+
+  20 May 2013; Anthony G. Basile <blueness@gentoo.org> +pypax-0.8.2.ebuild:
+  Version bump: avoid ELF_C_RDWR_MMAP for uclibc systems
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.1-r1.ebuild:
+  Stable for sparc, wrt bug #464426
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.1-r1.ebuild:
+  Stable for ia64, wrt bug #464426
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.1-r1.ebuild:
+  Stable for alpha, wrt bug #464426
+
+  10 Apr 2013; Jeroen Roovers <jer@gentoo.org> pypax-0.8.1-r1.ebuild:
+  Stable for HPPA (bug #464426).
 
   05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pypax-0.8.1-r1.ebuild:
   Stable for arm, wrt bug #464426

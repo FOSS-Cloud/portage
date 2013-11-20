@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/tinyca/tinyca-2.0.7.5-r1.ebuild,v 1.1 2013/03/12 08:16:40 alonbl Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/tinyca/tinyca-2.0.7.5-r1.ebuild,v 1.4 2013/07/04 12:18:41 ago Exp $
 
 inherit eutils
 
@@ -11,7 +11,7 @@ SRC_URI="http://tinyca.sm-zone.net/${MY_P}.tar.bz2"
 
 LICENSE="Artistic"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ~ppc ~sparc x86"
 IUSE=""
 LANGS="en de cs es sv"
 
@@ -39,7 +39,7 @@ src_unpack() {
 }
 
 src_compile() {
-	make -C po
+	emake -C po || die
 }
 
 locale_install() {

@@ -1,6 +1,31 @@
 # ChangeLog for www-servers/cherokee
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/cherokee/ChangeLog,v 1.96 2012/11/25 17:24:03 lu_zero Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-servers/cherokee/ChangeLog,v 1.100 2013/09/28 10:56:42 patrick Exp $
+
+  28 Sep 2013; Patrick Lauer <patrick@gentoo.org> cherokee-1.2.103-r1.ebuild:
+  Whitespace and quoting
+
+*cherokee-1.2.103-r1 (22 Sep 2013)
+
+  22 Sep 2013; Anthony G. Basile <blueness@gentoo.org>
+  +cherokee-1.2.103-r1.ebuild, -cherokee-1.2.103.ebuild,
+  -files/cherokee-1.2.103-fix-Makefile-CTK.patch,
+  -files/cherokee-1.2.103-fix-configure.ac.patch:
+  Fix cherokee-admin, bug #482430
+
+*cherokee-1.2.103 (17 Jul 2013)
+
+  17 Jul 2013; Anthony G. Basile <blueness@gentoo.org> +cherokee-1.2.103.ebuild,
+  +files/cherokee-1.2.103-fix-Makefile-CTK.patch,
+  +files/cherokee-1.2.103-fix-configure.ac.patch,
+  +files/cherokee-1.2.103-linux3.patch:
+  Version bump
+
+*cherokee-1.2.101-r3 (05 Jul 2013)
+
+  05 Jul 2013; Anthony G. Basile <blueness@gentoo.org>
+  +cherokee-1.2.101-r3.ebuild, +files/cherokee.service:
+  Add systemd file bug #475874
 
   25 Nov 2012; Luca Barbato <lu_zero@gentoo.org> cherokee-1.2.101-r2.ebuild,
   +files/cherokee-1.2.101-libav-9.patch:
@@ -652,4 +677,3 @@
  
   13 Jul 2003; Daniel Ahlberg <aliz@gentoo.org> :
   Added missing changelog entry.
-

@@ -1,6 +1,193 @@
 # ChangeLog for dev-libs/libnl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libnl/ChangeLog,v 1.139 2013/03/20 01:26:43 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libnl/ChangeLog,v 1.189 2013/11/03 16:50:09 jer Exp $
+
+*libnl-3.2.23 (03 Nov 2013)
+
+  03 Nov 2013; Jeroen Roovers <jer@gentoo.org> +libnl-3.2.23.ebuild,
+  +files/libnl-3.2.23-utils.h:
+  Version bump.
+
+*libnl-3.2.9999 (23 Oct 2013)
+
+  23 Oct 2013; Jeroen Roovers <jer@gentoo.org> +libnl-3.2.9999.ebuild:
+  Add live ebuild.
+
+  29 Sep 2013; Jeroen Roovers <jer@gentoo.org> -libnl-1.1.3.ebuild,
+  -libnl-3.2.21.ebuild:
+  Old.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> libnl-3.2.22-r2.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.4.ebuild,
+  libnl-3.2.22.ebuild:
+  Stable for s390, wrt bug #475744
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.4.ebuild,
+  libnl-3.2.22.ebuild:
+  Stable for sparc, wrt bug #475744
+
+  21 Jul 2013; Jeroen Roovers <jer@gentoo.org> libnl-3.2.22-r2.ebuild:
+  Fix USE=-python by Jonathan Callen (bug #477550).
+
+*libnl-3.2.22-r2 (16 Jul 2013)
+
+  16 Jul 2013; Jeroen Roovers <jer@gentoo.org> -libnl-3.2.22-r1.ebuild,
+  +libnl-3.2.22-r2.ebuild, +files/libnl-3.2.22-python.patch:
+  Fix python extension linking (bug #477110 by Arfrever Frehtes Taifersar
+  Arahesis).
+
+  16 Jul 2013; Jeroen Roovers <jer@gentoo.org> libnl-3.2.22-r1.ebuild:
+  DEPEND on dev-lang/swig for python support by Arfrever Frehtes Taifersar
+  Arahesis (bug #477108).
+
+  16 Jul 2013; Jeroen Roovers <jer@gentoo.org> libnl-3.2.21.ebuild,
+  libnl-3.2.22-r1.ebuild, libnl-3.2.22.ebuild:
+  Fix LICENSE for USE=doc.
+
+*libnl-3.2.22-r1 (15 Jul 2013)
+
+  15 Jul 2013; Jeroen Roovers <jer@gentoo.org> +libnl-3.2.22-r1.ebuild,
+  metadata.xml:
+  Conditionally install experimental python bindings.
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.4.ebuild,
+  libnl-3.2.22.ebuild:
+  Stable for ppc64, wrt bug #475744
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.4.ebuild,
+  libnl-3.2.22.ebuild:
+  Stable for ppc, wrt bug #475744
+
+  08 Jul 2013; Jeroen Roovers <jer@gentoo.org> libnl-3.2.22.ebuild:
+  Stable for HPPA (bug #475744).
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.4.ebuild,
+  libnl-3.2.22.ebuild:
+  Stable for ia64, wrt bug #475744
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.4.ebuild,
+  libnl-3.2.22.ebuild:
+  Stable for arm, wrt bug #475744
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.4.ebuild,
+  libnl-3.2.22.ebuild:
+  Stable for alpha, wrt bug #475744
+
+  05 Jul 2013; Jeroen Roovers <jer@gentoo.org> libnl-1.1.4.ebuild:
+  Stable for HPPA (bug #475744).
+
+  05 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.4.ebuild,
+  libnl-3.2.22.ebuild:
+  Stable for x86, wrt bug #475744
+
+  05 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.4.ebuild,
+  libnl-3.2.22.ebuild:
+  Stable for amd64, wrt bug #475744
+
+  04 Jul 2013; Jeroen Roovers <jer@gentoo.org> -libnl-1.1-r3.ebuild,
+  -libnl-3.2.14.ebuild, -files/libnl-1.1-glibc-2.8-ULONG_MAX.patch,
+  -files/libnl-1.1-inline.patch, -files/libnl-1.1-minor-leaks.patch:
+  Old.
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for s390, wrt bug #471046
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for sh, wrt bug #471046
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for sh, wrt bug #469100
+
+  26 May 2013; Jeroen Roovers <jer@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for HPPA (bug #471046).
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for ppc, wrt bug #471046
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for ia64, wrt bug #471046
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for arm, wrt bug #471046
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for alpha, wrt bug #471046
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for sparc, wrt bug #469100
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for sparc, wrt bug #471046
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for ppc64, wrt bug #471046
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for x86, wrt bug #471046
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-3.2.21.ebuild:
+  Stable for amd64, wrt bug #471046
+
+  23 May 2013; Jeroen Roovers <jer@gentoo.org> -libnl-3.2.16.ebuild,
+  -libnl-3.2.18.ebuild, -libnl-3.2.19.ebuild, -libnl-3.2.20.ebuild:
+  Old.
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> libnl-1.1-r3.ebuild,
+  libnl-1.1.3.ebuild, libnl-1.1.4.ebuild, libnl-3.2.14.ebuild,
+  libnl-3.2.16.ebuild, libnl-3.2.18.ebuild, libnl-3.2.19.ebuild,
+  libnl-3.2.20.ebuild, libnl-3.2.21.ebuild, libnl-3.2.22.ebuild:
+  Update description.
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for s390, wrt bug #469100
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for alpha, wrt bug #469100
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for ia64, wrt bug #469100
+
+*libnl-3.2.22 (15 May 2013)
+
+  15 May 2013; Jeroen Roovers <jer@gentoo.org> +libnl-3.2.22.ebuild,
+  -libnl-3.2.22_rc1.ebuild:
+  Version bump.
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for ppc64, wrt bug #469100
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for ppc, wrt bug #469100
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for arm, wrt bug #469100
+
+  10 May 2013; Jeroen Roovers <jer@gentoo.org> libnl-1.1.4.ebuild:
+  Do not set IUSE=+static-libs.
+
+  10 May 2013; Jeroen Roovers <jer@gentoo.org> libnl-1.1.4.ebuild:
+  Add IUSE=static-libs hackery (bug #469280).
+
+  10 May 2013; Jeroen Roovers <jer@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for HPPA (bug #469100).
+
+  10 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for x86, wrt bug #469100
+
+  10 May 2013; Agostino Sarubbo <ago@gentoo.org> libnl-1.1.3.ebuild:
+  Stable for amd64, wrt bug #469100
+
+*libnl-1.1.4 (07 May 2013)
+
+  07 May 2013; Jeroen Roovers <jer@gentoo.org> +libnl-1.1.4.ebuild:
+  Version bump.
+
+*libnl-3.2.22_rc1 (28 Apr 2013)
+
+  28 Apr 2013; Jeroen Roovers <jer@gentoo.org> +libnl-3.2.22_rc1.ebuild:
+  Version bump.
 
 *libnl-1.1.3 (20 Mar 2013)
 

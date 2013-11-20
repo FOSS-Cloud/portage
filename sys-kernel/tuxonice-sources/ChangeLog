@@ -1,6 +1,91 @@
 # ChangeLog for sys-kernel/tuxonice-sources
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/tuxonice-sources/ChangeLog,v 1.153 2013/03/09 21:07:32 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/tuxonice-sources/ChangeLog,v 1.165 2013/11/16 22:20:18 floppym Exp $
+
+*tuxonice-sources-3.10.19 (16 Nov 2013)
+*tuxonice-sources-3.11.8 (16 Nov 2013)
+*tuxonice-sources-3.4.69 (16 Nov 2013)
+
+  16 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  +tuxonice-sources-3.10.19.ebuild, +tuxonice-sources-3.11.8.ebuild,
+  +tuxonice-sources-3.4.69.ebuild:
+  Version bumps. Ebuilds by Arfrever.
+
+  10 Nov 2013; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Added Arfrever as proxied maintainer.
+
+*tuxonice-sources-3.10.18 (10 Nov 2013)
+*tuxonice-sources-3.4.68 (10 Nov 2013)
+
+  10 Nov 2013; Tom Wijsman <TomWij@gentoo.org> +tuxonice-sources-3.10.18.ebuild,
+  +tuxonice-sources-3.4.68.ebuild, -tuxonice-sources-3.0.80.ebuild,
+  -tuxonice-sources-3.4.47.ebuild:
+  Version bumps to 3.4.68 and 3.10.18, proxied commit for Arfrever; removed more
+  old and/or insecure versions.
+
+*tuxonice-sources-3.11.7 (09 Nov 2013)
+
+  09 Nov 2013; Tom Wijsman <TomWij@gentoo.org> +tuxonice-sources-3.11.7.ebuild,
+  -tuxonice-sources-3.0.78.ebuild, -tuxonice-sources-3.4.45.ebuild,
+  -tuxonice-sources-3.8.13.ebuild, metadata.xml:
+  Version bump to 3.11.7, proxied commit for Arfrever; removed old and/or
+  insecure versions.
+
+  21 Sep 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Drop as maintainer
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+*tuxonice-sources-3.0.80 (04 Jun 2013)
+*tuxonice-sources-3.4.47 (04 Jun 2013)
+*tuxonice-sources-3.9.4 (04 Jun 2013)
+
+  04 Jun 2013; Pacho Ramos <pacho@gentoo.org> +tuxonice-sources-3.0.80.ebuild,
+  +tuxonice-sources-3.4.47.ebuild, +tuxonice-sources-3.9.4.ebuild,
+  -tuxonice-sources-3.0.35.ebuild, -tuxonice-sources-3.0.77.ebuild,
+  -tuxonice-sources-3.4.44.ebuild, -tuxonice-sources-3.6.11-r1.ebuild,
+  -tuxonice-sources-3.6.11.ebuild, -tuxonice-sources-3.8.12.ebuild,
+  -tuxonice-sources-3.9.1-r1.ebuild, -tuxonice-sources-3.9.2.ebuild:
+  Version bump, drop old
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> tuxonice-sources-3.8.13.ebuild:
+  Stable for x86, wrt bug #469866
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> tuxonice-sources-3.8.13.ebuild:
+  Stable for amd64, wrt bug #469866
+
+*tuxonice-sources-3.4.45 (12 May 2013)
+*tuxonice-sources-3.0.78 (12 May 2013)
+*tuxonice-sources-3.8.13 (12 May 2013)
+*tuxonice-sources-3.9.2 (12 May 2013)
+
+  12 May 2013; Pacho Ramos <pacho@gentoo.org> +tuxonice-sources-3.0.78.ebuild,
+  +tuxonice-sources-3.4.45.ebuild, +tuxonice-sources-3.8.13.ebuild,
+  +tuxonice-sources-3.9.2.ebuild:
+  Version bump
+
+*tuxonice-sources-3.9.1-r1 (11 May 2013)
+
+  11 May 2013; Pacho Ramos <pacho@gentoo.org> +tuxonice-sources-3.9.1-r1.ebuild,
+  -tuxonice-sources-3.9.1.ebuild:
+  Version bump, drop old
+
+*tuxonice-sources-3.9.1 (09 May 2013)
+*tuxonice-sources-3.0.77 (09 May 2013)
+*tuxonice-sources-3.6.11-r1 (09 May 2013)
+*tuxonice-sources-3.8.12 (09 May 2013)
+*tuxonice-sources-3.4.44 (09 May 2013)
+
+  09 May 2013; Pacho Ramos <pacho@gentoo.org> +tuxonice-sources-3.0.77.ebuild,
+  +tuxonice-sources-3.4.44.ebuild, +tuxonice-sources-3.6.11-r1.ebuild,
+  +tuxonice-sources-3.8.12.ebuild, +tuxonice-sources-3.9.1.ebuild,
+  -files/tuxonice-sources-3.3-undo-cleanup.patch,
+  -tuxonice-sources-3.0.57.ebuild, -tuxonice-sources-3.3.8-r1.ebuild,
+  -tuxonice-sources-3.3.8-r2.ebuild, -tuxonice-sources-3.3.8.ebuild,
+  -tuxonice-sources-3.4.11.ebuild, -tuxonice-sources-3.4.24.ebuild,
+  -tuxonice-sources-3.5.7.ebuild, -tuxonice-sources-3.7.1.ebuild:
+  Version bump, drop old
 
   09 Mar 2013; Tom Wijsman <TomWij@gentoo.org> tuxonice-sources-3.0.35.ebuild,
   tuxonice-sources-3.0.57.ebuild, tuxonice-sources-3.3.8-r1.ebuild,

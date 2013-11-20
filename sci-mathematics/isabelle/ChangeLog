@@ -1,6 +1,20 @@
 # ChangeLog for sci-mathematics/isabelle
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/isabelle/ChangeLog,v 1.7 2012/12/05 10:09:32 gienah Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/isabelle/ChangeLog,v 1.10 2013/09/01 08:30:31 zmedico Exp $
+
+  01 Sep 2013; Zac Medico <zmedico@gentoo.org> isabelle-2013.ebuild:
+  Fix SRC_URI and HOMEPAGE (case-sensitive).
+
+*isabelle-2013 (31 Aug 2013)
+
+  31 Aug 2013; Mark Wright <gienah@gentoo.org>
+  +files/isabelle-2013-HOL-Predicate_Compile_Examples.patch,
+  +files/isabelle-2013-classpath.patch,
+  +files/isabelle-2013-gentoo-settings.patch, +isabelle-2013.ebuild:
+  Bump isabelle to 2013, fixes bug 468344
+
+  03 May 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Fix XML.
 
   05 Dec 2012; Mark Wright <gienah@gentoo.org> isabelle-2011.1-r1.ebuild,
   isabelle-2012.ebuild:

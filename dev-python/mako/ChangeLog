@@ -1,6 +1,53 @@
 # ChangeLog for dev-python/mako
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/mako/ChangeLog,v 1.61 2013/02/22 00:06:32 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/mako/ChangeLog,v 1.75 2013/11/16 09:47:12 pacho Exp $
+
+  16 Nov 2013; Pacho Ramos <pacho@gentoo.org> mako-0.7.3-r2.ebuild:
+  amd64 stable, bug #489894
+
+  09 Nov 2013; Pacho Ramos <pacho@gentoo.org> mako-0.7.3-r2.ebuild:
+  Modify beaker addition to world file instructions (#489896)
+
+*mako-0.7.3-r2 (22 Oct 2013)
+
+  22 Oct 2013; Jan Matejka <yac@gentoo.org> +mako-0.7.3-r2.ebuild:
+  revbump to support python 3.3 and removing beaker from deps. fixes 488950
+
+  22 Oct 2013; Jan Matejka <yac@gentoo.org> -mako-0.7.3-r2.ebuild:
+  reverting last commit before it gets published
+
+*mako-0.7.3-r2 (22 Oct 2013)
+
+  22 Oct 2013; Jan Matejka <yac@gentoo.org> +mako-0.7.3-r2.ebuild:
+  revbump to support python 3.3 and removing beaker from deps
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> mako-0.7.3-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mako-0.7.3-r1.ebuild:
+  Stable for sparc, wrt bug #450174
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mako-0.7.3-r1.ebuild:
+  Stable for sh, wrt bug #450174
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mako-0.7.3-r1.ebuild:
+  Stable for s390, wrt bug #450174
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mako-0.7.3-r1.ebuild:
+  Stable for ppc, wrt bug #450174
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mako-0.7.3-r1.ebuild:
+  Stable for ia64, wrt bug #450174
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mako-0.7.3-r1.ebuild:
+  Stable for x86, wrt bug #450174
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mako-0.7.3-r1.ebuild:
+  Stable for amd64, wrt bug #450174
+
+  21 Aug 2013; Dirkjan Ochtman <djc@gentoo.org> -mako-0.7.1.ebuild,
+  -mako-0.7.2.ebuild, -mako-0.7.3.ebuild:
+  Remove old versions.
 
 *mako-0.7.3-r1 (22 Feb 2013)
 

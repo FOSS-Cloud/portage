@@ -1,6 +1,97 @@
 # ChangeLog for sys-apps/hwids
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.102 2013/04/05 18:18:04 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.122 2013/11/13 03:30:18 mattst88 Exp $
+
+  13 Nov 2013; Matt Turner <mattst88@gentoo.org> hwids-20130915.1.ebuild:
+  alpha stable, bug 487342.
+
+  12 Nov 2013; Jeroen Roovers <jer@gentoo.org> hwids-20130915.1.ebuild:
+  Stable for HPPA (bug #487342).
+
+  08 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> hwids-20130915.1.ebuild:
+  Revert stabilization for HPPA because this version of hwids needs >=sys-
+  fs/udev-206 as well as >=sys-apps/systemd-206 stable first.
+
+  08 Oct 2013; Jeroen Roovers <jer@gentoo.org> hwids-20130915.1.ebuild:
+  Stable for HPPA (bug #487238).
+
+  16 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> hwids-20130915.1.ebuild:
+  Synchronize with hwids-9999.ebuild to correct udev dependency and hwdb update.
+
+*hwids-20130915.1 (15 Sep 2013)
+
+  15 Sep 2013; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20130915.1.ebuild,
+  -hwids-20130707.ebuild, -hwids-20130717-r1.ebuild, -hwids-20130717.ebuild,
+  -hwids-20130915.ebuild:
+  Cleanup the stupid -r1/patching/non-default ebuilds.
+
+*hwids-20130915 (15 Sep 2013)
+
+  15 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> +hwids-20130915.ebuild:
+  Temporarily use different SRC_URI for http://github.com/gentoo/hwids/pull/4 +
+  make fetch; update for important syntax bug fixes in the udev hwdb files.
+
+  11 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> hwids-20130717-r1.ebuild,
+  hwids-99999999.ebuild:
+  Don't reload the /etc/udev/hwdb.bin when $ROOT isn't set or when it isn't /
+
+  11 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> hwids-20130717-r1.ebuild,
+  hwids-99999999.ebuild:
+  Run udevadm control --reload to reload the /etc/udev/hwdb.bin after
+  regenerating it.
+
+*hwids-20130717-r1 (23 Jul 2013)
+
+  23 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +hwids-20130717-r1.ebuild, hwids-99999999.ebuild:
+  Import 60-keyboard.hwdb file from systemd git for virtual/udev >= 206.
+  Because this file will conflict with the old keymap feature, be strict with
+  the virtual/udev dependency.
+
+*hwids-20130717 (17 Jul 2013)
+
+  17 Jul 2013; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20130717.ebuild:
+  Version bump.
+
+*hwids-20130707 (08 Jul 2013)
+
+  08 Jul 2013; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20130707.ebuild,
+  -hwids-20130617.ebuild:
+  Version bump.
+
+*hwids-20130617 (17 Jun 2013)
+
+  17 Jun 2013; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20130617.ebuild,
+  -hwids-20130302.ebuild, -hwids-20130529.ebuild:
+  Version bump; remove old.
+
+  04 Jun 2013; Samuli Suominen <ssuominen@gentoo.org> hwids-20130329.ebuild:
+  m68k stable wrt #463678
+
+*hwids-20130529 (29 May 2013)
+
+  29 May 2013; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20130529.ebuild,
+  -hwids-20130514.ebuild, -hwids-20130523.ebuild:
+  Version bump and cleanup old.
+
+*hwids-20130523 (23 May 2013)
+
+  23 May 2013; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20130523.ebuild:
+  Version bump.
+
+*hwids-20130514 (14 May 2013)
+
+  14 May 2013; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20130514.ebuild:
+  Version bump.
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> hwids-20130329.ebuild:
+  Stable for s390, wrt bug #463678
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> hwids-20130329.ebuild:
+  Stable for ia64, wrt bug #463678
+
+  09 Apr 2013; Jeroen Roovers <jer@gentoo.org> hwids-20130329.ebuild:
+  Stable for HPPA (bug #463678).
 
   05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> hwids-20130329.ebuild:
   Stable for ppc64, wrt bug #463678

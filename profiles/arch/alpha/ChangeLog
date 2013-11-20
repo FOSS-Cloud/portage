@@ -1,6 +1,54 @@
 # ChangeLog for Gentoo/Alpha profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/ChangeLog,v 1.168 2013/03/12 21:47:35 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/ChangeLog,v 1.183 2013/11/13 04:18:20 mattst88 Exp $
+
+  13 Nov 2013; Matt Turner <mattst88@gentoo.org> use.mask:
+  Drop systemd from use.mask, bug 478076.
+
+  26 Oct 2013; Mark Wright <gienah@gentoo.org> package.use.mask:
+  mask dev-haskell/dataenc test as template-haskell not yet available
+
+  21 Oct 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Added bug reference to media-video/mpv luajit mask.
+
+  20 Oct 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Adjusted media-video/mpv luajit USE mask to support future versions.
+
+  16 Oct 2013; Tom Wijsman <TomWij@gentoo.org> package.use.mask:
+  Mask luajit on ~media-video/mpv-0.2.0 because it only has amd64 x86 keywords.
+
+  10 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> package.use.mask:
+  Remove mask for USE="pam" in sys-auth/polkit since it doesn't have the
+  difficult pambase dependency anymore.
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask opencl flag due to lack of virtual/opencl keywording.
+
+  12 Aug 2013; Tobias Klausmann <klausman@gentoo.org> package.mask:
+  Mask glibc-2.17 on alpha due to bug 480740
+
+  09 Jul 2013; Davide Pesavento <pesa@gentoo.org> package.use.mask:
+  Extend masking of USE=webkit to dev-qt/assistant and dev-qt/designer.
+
+  22 Jun 2013; William Hubbs <williamh@gentoo.org> package.use.mask:
+  Mask python use flag for >=brltty-4.5 because dev-python/cython is not
+  keyworded for alpha.
+
+  17 Jun 2013; Patrick Lauer <patrick@gentoo.org> package.use.mask:
+  Fix per-arch mask of phonon[zeitgeist] #460140
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask r600-llvm-compiler flag for mesa.
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask video_cards_radeonsi.
+
+  27 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask video_cards_ilo.
+
+  22 Apr 2013; Bernard Cafarelli <voyageur@gentoo.org> package.use.mask:
+  x11-misc/google-gadgets removed from tree
 
   12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> use.mask:
   Mask USE="cg" since it is a toolkit for nvidia binary drivers.

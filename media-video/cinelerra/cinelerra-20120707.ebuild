@@ -1,13 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/cinelerra/cinelerra-20120707.ebuild,v 1.3 2012/10/17 03:25:31 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/cinelerra/cinelerra-20120707.ebuild,v 1.7 2013/08/07 02:35:20 aballier Exp $
 
-EAPI=4
+EAPI=5
 inherit autotools eutils multilib flag-o-matic
 
 DESCRIPTION="The most advanced non-linear video editor and compositor"
 HOMEPAGE="http://www.cinelerra.org/"
-SRC_URI="http://dev.gentoo.org/~ssuominen/${P}.tar.xz"
+SRC_URI="mirror://gentoo/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -20,13 +20,13 @@ RDEPEND="media-libs/a52dec
 	>=media-libs/freetype-2
 	media-libs/libdv
 	>=media-libs/libogg-1.2
-	media-libs/libpng:0
+	media-libs/libpng:0=
 	media-libs/libsndfile
 	>=media-libs/libtheora-1.1
 	>=media-libs/libvorbis-1.3
 	>=media-libs/openexr-1.5
 	media-libs/tiff:0
-	media-libs/x264
+	media-libs/x264:=
 	media-sound/lame
 	>=media-video/mjpegtools-2
 	>=sci-libs/fftw-3
@@ -55,13 +55,19 @@ src_prepare() {
 		"${FILESDIR}"/${PN}-entry.patch \
 		"${FILESDIR}"/${PN}-ffmpeg.patch \
 		"${FILESDIR}"/${PN}-underlinking.patch \
-		"${FILESDIR}"/${PN}-ffmpeg-0.11.patch
+		"${FILESDIR}"/${PN}-ffmpeg-0.11.patch \
+		"${FILESDIR}"/${PN}-std_and_str_h.patch \
+		"${FILESDIR}"/${PN}-libav9.patch
+
+	if has_version '>=media-video/ffmpeg-2' ; then
+		epatch "${FILESDIR}"/${PN}-ffmpeg2.patch
+	fi
 
 	eautoreconf
 }
 
 src_configure() {
-	append-flags -D__STDC_CONSTANT_MACROS #321945
+	append-cppflags -D__STDC_CONSTANT_MACROS #321945
 	append-ldflags -Wl,-z,noexecstack #212959
 
 	econf \

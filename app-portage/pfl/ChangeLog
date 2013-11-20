@@ -1,6 +1,40 @@
 # ChangeLog for app-portage/pfl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/pfl/ChangeLog,v 1.53 2013/03/23 16:51:09 billie Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/pfl/ChangeLog,v 1.61 2013/11/05 19:10:18 billie Exp $
+
+  05 Nov 2013; Daniel Pielmeier <billie@gentoo.org> pfl-2.3.ebuild,
+  pfl-2.4-r1.ebuild:
+  Add missing die. Thanks to Chema Alonso in bug
+
+  05 Nov 2013; Chema Alonso <nimiux@gentoo.org> pfl-2.4-r1.ebuild:
+  Stable for amd64 wrt bug #488730
+
+  20 Oct 2013; Jeroen Roovers <jer@gentoo.org> pfl-2.4-r1.ebuild:
+  Stable for HPPA (bug #488730).
+
+  14 Oct 2013; Daniel Pielmeier <billie@gentoo.org> -pfl-2.4.ebuild:
+  Remove old.
+
+*pfl-2.4-r1 (14 Oct 2013)
+
+  14 Oct 2013; Daniel Pielmeier <billie@gentoo.org> +pfl-2.4-r1.ebuild,
+  +files/e-file-20110906-http-response.patch:
+  Revision bump. Fixes bug #413191. Thanks to rking for the report and Jeroen
+  Roovers the for the fix.
+
+  08 Oct 2013; Daniel Pielmeier <billie@gentoo.org> -pfl-2.3-r3.ebuild:
+  Remove old.
+
+*pfl-2.4 (06 Oct 2013)
+
+  06 Oct 2013; Daniel Pielmeier <billie@gentoo.org> +pfl-2.4.ebuild,
+  +files/e-file-20110906-portageq.patch:
+  Version bump. Fixes bug #420111, thanks to Jeroen Roovers for the patch.
+  Fixed bug #481296, thanks to Alice Ferrazzi for the report and Daniel for the
+  fix.
+
+  20 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org> pfl-2.3-r3.ebuild:
+  Keyword amd64-linux and x86-linux
 
   23 Mar 2013; Daniel Pielmeier <billie@gentoo.org> metadata.xml:
   Remove proxy-maintainers. They are not required if the user in metadata is

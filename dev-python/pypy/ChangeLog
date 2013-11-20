@@ -1,6 +1,98 @@
 # ChangeLog for dev-python/pypy
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy/ChangeLog,v 1.34 2013/02/21 15:25:39 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy/ChangeLog,v 1.52 2013/11/17 03:42:36 prometheanfire Exp $
+
+  17 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> pypy-2.0.2.ebuild:
+  fix for pypy on hardened
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pypy-2.0.2.ebuild,
+  pypy-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org>
+  -files/1.9-distutils-fix_handling_of_executables_and_flags.patch,
+  -files/1.9-get_python_lib_standard_lib-04ea518e5b71.patch,
+  -files/1.9-getargs-freelist-c26dc70ee340.patch,
+  -files/1.9-more-ignored-ops-146ddf82a279.patch,
+  -files/1.9-more-ignored-ops-a9a8faa76bca.patch,
+  -files/1.9-no-bytecode-4151f9c406b6.patch, -files/1.9-no-static-hack.patch,
+  -files/1.9-pybuffer-release-double-decref-4ec2a5b49386.patch,
+  -files/1.9-signal-a33052b17f4e.patch,
+  -files/1.9-ssl-errors-25d3418150d2.patch,
+  -files/1.9-ssl-threads-1-34b3b5aac082.patch,
+  -files/1.9-ssl-threads-2-25cd11066d95.patch, -pypy-1.9-r2.ebuild:
+  Remove PyPy 1.9.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> pypy-1.9-r2.ebuild,
+  pypy-2.0.2.ebuild, pypy-9999.ebuild:
+  Drop removed Python implementations from PYTHON_COMPAT.
+
+*pypy-9999 (25 Jul 2013)
+
+  25 Jul 2013; Michał Górny <mgorny@gentoo.org> +pypy-9999.ebuild:
+  Introduce a live ebuild to make testing easier.
+
+  25 Jul 2013; Michał Górny <mgorny@gentoo.org> pypy-1.9-r2.ebuild,
+  pypy-2.0.2.ebuild:
+  Drop needless include symlinking and flag-o-matic inherit. Add PaX-marking to
+  1.9.
+
+  22 Jul 2013; Michał Górny <mgorny@gentoo.org> pypy-1.9-r2.ebuild,
+  pypy-2.0.2.ebuild:
+  Clean up and drop meaningless USE flags (bug #477514). Drop USE=ssl (automagic
+  dep, bug #477642). Add sphinx to deps. Add USE=sse2 to control JIT backend on
+  x86. No revbump since this will not cause changes in install unless USE flags
+  are changed.
+
+  21 Jul 2013; Michał Górny <mgorny@gentoo.org>
+  -files/2.0-distutils-fix_handling_of_executables_and_flags.patch,
+  -files/2.0-encoder-3655afd07f2f.patch, -files/2.0-no-static-hack-r1.patch,
+  -files/2.0-no-static-hack.patch,
+  -files/pypy-1.7-distutils-fix_handling_of_executables_and_flags.patch, -files/
+  pypy-1.7-distutils.unixccompiler.UnixCCompiler.runtime_library_dir_option.patc
+  h, -pypy-1.9-r1.ebuild, -pypy-1.9.ebuild, -pypy-2.0_beta1.ebuild,
+  -pypy-2.0_beta2.ebuild:
+  Drop old.
+
+  18 Jun 2013; Ian Delaney <idella4@gentoo.org> pypy-2.0.2.ebuild,
+  pypy-2.0_beta2.ebuild:
+  Correction to symlink
+
+  18 Jun 2013; Ian Delaney <idella4@gentoo.org> pypy-2.0.2.ebuild,
+  pypy-2.0_beta2.ebuild:
+  add doc build & install, symlink to include folder on install, revbump
+  declined
+
+*pypy-2.0.2 (26 May 2013)
+
+  26 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/2.0.2-distutils-fix_handling_of_executables_and_flags.patch,
+  +pypy-2.0.2.ebuild:
+  Version bump.
+
+  14 May 2013; Mike Gilbert <floppym@gentoo.org> pypy-2.0_beta2.ebuild:
+  Fix typo in gcc-version, bug 469832 by MiPnamic.
+
+  13 May 2013; Mike Gilbert <floppym@gentoo.org> pypy-2.0_beta2.ebuild:
+  Fix build with sqlite disabled, bug 469654 by René 'Necoro' Neumann.
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Adding DOCTYPE to metadata
+
+  08 May 2013; Mike Gilbert <floppym@gentoo.org> pypy-2.0_beta2.ebuild:
+  Disable MPROTECT if jit is enabled, bug 448818.
+
+  08 May 2013; Mike Gilbert <floppym@gentoo.org> pypy-2.0_beta2.ebuild:
+  Die in pkg_pretend if gcc-4.8 is selected.
+
+  05 May 2013; Mike Gilbert <floppym@gentoo.org> pypy-2.0_beta2.ebuild:
+  Pregenerate cffi code for _curses and _sqlite3 modules.
+
+*pypy-2.0_beta2 (05 May 2013)
+
+  05 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/2.0-no-static-hack-r1.patch, +pypy-2.0_beta2.ebuild:
+  Version bump.
 
   21 Feb 2013; Ian Delaney <idella4@gentoo.org>
   +files/2.0-encoder-3655afd07f2f.patch, pypy-2.0_beta1.ebuild:

@@ -1,6 +1,26 @@
 # ChangeLog for dev-libs/libbsd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libbsd/ChangeLog,v 1.15 2012/07/02 08:28:16 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libbsd/ChangeLog,v 1.20 2013/08/13 01:31:27 ssuominen Exp $
+
+  13 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> -libbsd-0.4.2.ebuild,
+  -libbsd-0.5.2.ebuild:
+  old
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libbsd-0.6.0.ebuild:
+  Stable for x86, wrt bug #480692
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libbsd-0.6.0.ebuild:
+  Stable for amd64, wrt bug #480692
+
+*libbsd-0.6.0 (14 Jul 2013)
+
+  14 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> +libbsd-0.6.0.ebuild:
+  Version bump.
+
+*libbsd-0.5.2 (10 Jun 2013)
+
+  10 Jun 2013; Samuli Suominen <ssuominen@gentoo.org> +libbsd-0.5.2.ebuild:
+  Version bump.
 
   02 Jul 2012; Samuli Suominen <ssuominen@gentoo.org> -libbsd-0.3.0-r1.ebuild,
   -libbsd-0.4.0.ebuild, -libbsd-0.4.1.ebuild:
@@ -64,4 +84,3 @@
   +files/libbsd-0.2.0-arc4random-prototypes.patch,
   +files/libbsd-0.2.0-move-nlist.patch, +metadata.xml:
   New ebuild for libbsd. Ebuild by Kevin McCarthy. See bug #354271
-

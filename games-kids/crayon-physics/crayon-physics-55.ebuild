@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-kids/crayon-physics/crayon-physics-55.ebuild,v 1.1 2013/03/21 22:03:58 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-kids/crayon-physics/crayon-physics-55.ebuild,v 1.6 2013/08/17 12:59:50 hasufell Exp $
 
 EAPI=5
 
@@ -12,9 +12,9 @@ SRC_URI="crayon_physics_deluxe-linux-release${PV}.tar.gz"
 
 LICENSE="CRAYON-PHYSICS"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="bundled-libs"
-RESTRICT="bindist fetch"
+RESTRICT="bindist fetch splitdebug"
 
 MYGAMEDIR=${GAMES_PREFIX_OPT}/${PN}
 QA_PREBUILT="${MYGAMEDIR#/}/crayon
@@ -38,7 +38,7 @@ RDEPEND="
 		x11-libs/libX11
 		!bundled-libs? (
 			media-libs/libmikmod
-			media-libs/libsdl[X,audio,video,opengl,joystick]
+			media-libs/libsdl:0[X,audio,video,opengl,joystick]
 			media-libs/libvorbis
 			media-libs/sdl-image[png,jpeg,tiff]
 			media-libs/sdl-mixer[vorbis,wav]

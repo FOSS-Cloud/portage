@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/ipmitool/ipmitool-1.8.11-r1.ebuild,v 1.4 2012/02/28 19:47:19 ranger Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/ipmitool/ipmitool-1.8.11-r1.ebuild,v 1.6 2013/10/30 15:55:32 jer Exp $
 
 EAPI=4
 inherit eutils
@@ -11,11 +11,11 @@ DEBIAN_PR="5ubuntu1"
 DEBIAN_P="${P/-/_}"
 DEBIAN_PF="${DEBIAN_P}-${DEBIAN_PR}"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz
-         https://launchpad.net/ubuntu/+archive/primary/+files/${DEBIAN_PF}.diff.gz"
+	https://launchpad.net/ubuntu/+archive/primary/+files/${DEBIAN_PF}.diff.gz"
 #IUSE="freeipmi openipmi"
 IUSE="openipmi"
 SLOT="0"
-KEYWORDS="amd64 ~ia64 ppc x86"
+KEYWORDS="amd64 ~hppa ~ia64 ppc x86"
 LICENSE="BSD"
 
 RDEPEND="dev-libs/openssl"

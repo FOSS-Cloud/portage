@@ -1,0 +1,23 @@
+# ChangeLog for app-text/discount
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/discount/ChangeLog,v 1.3 2013/10/29 22:13:29 chainsaw Exp $
+
+  29 Oct 2013; Tony Vroon <chainsaw@gentoo.org> discount-2.1.6-r1.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #488810.
+
+*discount-2.1.6-r1 (31 Jul 2013)
+
+  31 Jul 2013; Nathan Phillip Brink <binki@gentoo.org>
+  +discount-2.1.6-r1.ebuild, -discount-2.1.6.ebuild:
+  Use prefix of “discount-” instead of “mkd” for overly-generic binary names to
+  match the prefix chosen in fedora.
+
+*discount-2.1.6 (29 Jul 2013)
+
+  29 Jul 2013; Nathan Phillip Brink <binki@gentoo.org> +discount-2.1.6.ebuild,
+  +files/discount-2.1.6-portage-multilib-CFLAGS.patch, +metadata.xml:
+  Add app-text/discount for bug #294000 by Egil Hanger and jauhien. Imported
+  from sunrise with fixes including CFLAGS, LDFLAGS, CPPFLAGS, sandbox, and
+  shared/dynamic library support. Prefixed some generically-named binaries with
+  'mkd'.

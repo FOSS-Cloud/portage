@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-zope/zope-interface/zope-interface-4.0.5.ebuild,v 1.2 2013/03/30 13:06:41 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-zope/zope-interface/zope-interface-4.0.5.ebuild,v 1.5 2013/11/01 00:29:15 yac Exp $
 
 EAPI=5
 
 # Tests fail with py3.1
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy{1_9,2_0} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy2_0 )
 
 inherit distutils-r1 flag-o-matic
 
@@ -23,6 +23,7 @@ IUSE=""
 
 # net-zope/zope-fixers is required for building with Python 3.
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+	app-arch/unzip
 	net-zope/zope-fixers[$(python_gen_usedep 'python3*')]"
 RDEPEND=""
 
@@ -30,7 +31,7 @@ S="${WORKDIR}/${MY_P}"
 
 python_compile() {
 	if [[ ${EPYTHON} != python3* ]]; then
-		local CFLAGS CXXFLAGS
+		local CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}"
 		append-flags -fno-strict-aliasing
 	fi
 

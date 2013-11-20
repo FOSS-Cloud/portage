@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.0.5.ebuild,v 1.4 2013/03/02 22:44:15 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.0.5.ebuild,v 1.10 2013/11/10 15:41:55 tomwij Exp $
 
-EAPI="4"
+EAPI="5"
 
 SCM=""
 if [ "${PV%9999}" != "${PV}" ] ; then
@@ -56,7 +56,7 @@ IUSE="a52 aac aalib alsa altivec atmo +audioqueue avahi +avcodec
 	portaudio +postproc projectm pulseaudio pvr +qt4 rtsp run-as-root samba
 	schroedinger sdl sdl-image shine shout sid skins speex sqlite sse svg
 	+swscale switcher taglib theora truetype twolame udev upnp vaapi v4l
-	vcdx vlm vorbis waveout win32codecs wingdi wma-fixed +X x264 +xcb xml
+	vcdx vlm vorbis waveout wingdi wma-fixed +X x264 +xcb xml
 	xosd xv zvbi"
 
 RDEPEND="
@@ -115,7 +115,7 @@ RDEPEND="
 		opus? ( media-libs/opus )
 		png? ( media-libs/libpng sys-libs/zlib )
 		portaudio? ( >=media-libs/portaudio-19_pre )
-		postproc? ( || ( media-video/ffmpeg media-libs/libpostproc ) )
+		postproc? ( || ( media-video/ffmpeg:0 media-libs/libpostproc ) )
 		projectm? ( media-libs/libprojectm )
 		pulseaudio? ( >=media-sound/pulseaudio-0.9.22 )
 		qt4? ( dev-qt/qtgui:4 dev-qt/qtcore:4 )
@@ -138,12 +138,11 @@ RDEPEND="
 		udev? ( virtual/udev )
 		upnp? ( net-libs/libupnp )
 		v4l? ( media-libs/libv4l )
-		vaapi? ( x11-libs/libva )
+		vaapi? ( x11-libs/libva:0 virtual/ffmpeg[vaapi] )
 		vcdx? ( >=dev-libs/libcdio-0.78.2 >=media-video/vcdimager-0.7.22 )
 		vorbis? ( media-libs/libvorbis )
-		win32codecs? ( media-libs/win32codecs )
 		X? ( x11-libs/libX11 )
-		x264? ( >=media-libs/x264-0.0.20090923 )
+		x264? ( >=media-libs/x264-0.0.20090923:= )
 		xcb? ( >=x11-libs/libxcb-1.6 >=x11-libs/xcb-util-0.3.4 )
 		xml? ( dev-libs/libxml2 )
 		xosd? ( x11-libs/xosd )
@@ -151,7 +150,6 @@ RDEPEND="
 		"
 
 DEPEND="${RDEPEND}
-	alsa? ( >=media-sound/alsa-headers-1.0.23 )
 	fbosd? ( sys-kernel/linux-headers )
 	kde? ( >=kde-base/kdelibs-4 )
 	xcb? ( x11-proto/xproto )
@@ -317,7 +315,6 @@ src_configure() {
 		$(use_enable vlm) \
 		$(use_enable vorbis) \
 		$(use_enable waveout) \
-		$(use_enable win32codecs loader) \
 		$(use_enable wingdi) \
 		$(use_enable wma-fixed) \
 		$(use_with X x) \
@@ -327,6 +324,7 @@ src_configure() {
 		$(use_enable xosd) \
 		$(use_enable xv xvideo) \
 		$(use_enable zvbi) $(use_enable !zvbi telx) \
+		--disable-loader \
 		--disable-optimizations \
 		--without-tuning \
 		--enable-fast-install

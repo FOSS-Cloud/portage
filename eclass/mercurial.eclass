@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/mercurial.eclass,v 1.21 2013/03/15 21:47:58 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/mercurial.eclass,v 1.23 2013/11/04 22:05:31 floppym Exp $
 
 # @ECLASS: mercurial.eclass
 # @MAINTAINER:
@@ -36,7 +36,7 @@ DEPEND="dev-vcs/mercurial"
 
 # @ECLASS-VARIABLE: EHG_STORE_DIR
 # @DESCRIPTION:
-# Mercurial sources store directory. Users may override this in /etc/make.conf
+# Mercurial sources store directory. Users may override this in /etc/portage/make.conf
 [[ -z "${EHG_STORE_DIR}" ]] && EHG_STORE_DIR="${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/hg-src"
 
 # @ECLASS-VARIABLE: EHG_PROJECT
@@ -85,7 +85,7 @@ mercurial_fetch() {
 	EHG_REPO_URI=${1-${EHG_REPO_URI}}
 	[[ -z "${EHG_REPO_URI}" ]] && die "EHG_REPO_URI is empty"
 
-	local cert_opt=
+	local cert_opt=()
 	[[ -f ${EPREFIX}/etc/ssl/certs/ca-certificates.crt ]] && \
 		cert_opt=( --config "web.cacerts=${EPREFIX}/etc/ssl/certs/ca-certificates.crt" )
 

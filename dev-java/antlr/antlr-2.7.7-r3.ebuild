@@ -1,11 +1,16 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/antlr/antlr-2.7.7-r3.ebuild,v 1.3 2013/02/05 06:54:43 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/antlr/antlr-2.7.7-r3.ebuild,v 1.6 2013/09/05 18:27:44 mgorny Exp $
 
-EAPI="3"
-PYTHON_DEPEND="python? 2"
+EAPI="5"
 
-inherit base java-pkg-2 mono distutils multilib toolchain-funcs versionator
+PYTHON_COMPAT=( python2_{6,7} )
+
+DISTUTILS_OPTIONAL="y"
+DISTUTILS_SINGLE_IMPL="y"
+DISTUTILS_IN_SOURCE_BUILD="y"
+
+inherit base java-pkg-2 mono autotools distutils-r1 multilib toolchain-funcs versionator
 
 DESCRIPTION="A parser generator for C++, C#, Java, and Python"
 HOMEPAGE="http://www.antlr2.org/"
@@ -16,8 +21,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="doc debug examples mono +cxx +java python script source static-libs"
 
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
 # TODO do we actually need jdk at runtime?
-RDEPEND=">=virtual/jdk-1.3
+RDEPEND="python? ( ${PYTHON_DEPS} )
+	>=virtual/jdk-1.3
 	mono? ( dev-lang/mono )"
 DEPEND="${RDEPEND}
 	script? ( !dev-util/pccts )
@@ -52,9 +60,8 @@ make_shared_lib_macho() {
 pkg_setup() {
 	java-pkg-2_pkg_setup
 
-	if use python; then
-		python_set_active_version 2
-		python_pkg_setup
+	if use python ; then
+		python-single-r1_pkg_setup
 	fi
 }
 
@@ -63,6 +70,10 @@ src_prepare() {
 	sed -i \
 		-e 's/install:.*this-install/install:/' \
 		lib/cpp/src/Makefile.in || die
+
+	# See bug #468540, this can be removed once bug #469150 is fixed.
+	sed -i 's/tlib lib ar/ar/' configure.in || die
+	eautoreconf
 }
 
 src_configure() {
@@ -135,8 +146,9 @@ src_install() {
 	fi
 
 	if use python ; then
-		cd "${S}"/lib/python
-		distutils_src_install
+		pushd "${S}"/lib/python > /dev/null
+		distutils-r1_python_install
+		popd > /dev/null
 	fi
 
 	if use examples ; then
@@ -152,12 +164,4 @@ src_install() {
 	fi
 
 	newdoc "${S}"/README.txt README || die
-}
-
-pkg_postinst() {
-	use python && distutils_pkg_postinst
-}
-
-pkg_postrm() {
-	use python && distutils_pkg_postrm
 }

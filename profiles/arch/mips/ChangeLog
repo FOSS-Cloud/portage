@@ -1,6 +1,47 @@
 # ChangeLog for Gentoo/MIPS profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/ChangeLog,v 1.110 2013/02/06 23:32:20 mattst88 Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/ChangeLog,v 1.122 2013/10/11 22:27:28 hwoarang Exp $
+
+  11 Oct 2013; Markos Chandras <hwoarang@gentoo.org> use.mask:
+  Mask m17n-lib for MIPS. Bug #485366
+
+  02 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
+  Mask webp USE-flag on media-libs/leptonica and app-text/tesseract, not tested
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask opencl flag due to lack of virtual/opencl keywording.
+
+  15 Aug 2013; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  =sys-kernel/gentoo-sources-3.4.58: Broken due to not building patches that
+  upstream slipped through.
+
+  30 Jul 2013; Matt Turner <mattst88@gentoo.org> mips64/multilib/make.defaults,
+  mipsel/mips64el/multilib/make.defaults:
+  Unhide ABI_MIPS.
+
+  29 Jul 2013; Matt Turner <mattst88@gentoo.org>
+  +mips64/multilib/n32/use.force, +mips64/multilib/n64/use.force,
+  +mips64/multilib/o32/use.force, +mips64/multilib/use.mask,
+  +mipsel/mips64el/multilib/n32/use.force,
+  +mipsel/mips64el/multilib/n64/use.force,
+  +mipsel/mips64el/multilib/o32/use.force, +mipsel/mips64el/multilib/use.mask:
+  Mask/force ABI flags on multilib profiles.
+
+  10 Jul 2013; Anthony G. Basile <blueness@gentoo.org> use.mask:
+  Unmask USE=emacs, bug #476160
+
+  16 Jun 2013; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Mask openssl-1.0.1e-r1 per #469976
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask r600-llvm-compiler flag for mesa.
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask video_cards_radeonsi.
+
+  27 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask video_cards_ilo.
 
   06 Feb 2013; Matt Turner <mattst88@gentoo.org> use.mask:
   un-use.mask mips-only loongson2f USE flag.

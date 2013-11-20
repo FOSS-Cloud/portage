@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/motif/motif-2.3.4-r1.ebuild,v 1.5 2013/04/05 22:13:40 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/motif/motif-2.3.4-r1.ebuild,v 1.30 2013/10/21 13:56:09 grobian Exp $
 
 EAPI=5
 
@@ -9,29 +9,38 @@ inherit autotools eutils flag-o-matic multilib multilib-minimal
 DESCRIPTION="The Motif user interface component toolkit"
 HOMEPAGE="http://sourceforge.net/projects/motif/
 	http://motif.ics.com/"
-SRC_URI="mirror://sourceforge/project/motif/Motif%20${PV}%20Source%20Code/${P}-src.tgz"
+SRC_URI="mirror://sourceforge/project/motif/Motif%20${PV}%20Source%20Code/${P}-src.tgz
+	mirror://gentoo/${P}-patches-1.tar.xz"
 
 LICENSE="LGPL-2.1+ MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~ia64-hpux ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sh sparc x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~ia64-hpux ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="examples jpeg +motif22-compatibility png static-libs unicode xft"
 
-RDEPEND="x11-libs/libX11[${MULTILIB_USEDEP}]
+RDEPEND="abi_x86_32? ( !app-emulation/emul-linux-x86-motif[-abi_x86_32(-)] )
+	x11-libs/libX11[${MULTILIB_USEDEP}]
 	x11-libs/libXext[${MULTILIB_USEDEP}]
 	x11-libs/libXmu[${MULTILIB_USEDEP}]
 	x11-libs/libXp[${MULTILIB_USEDEP}]
 	x11-libs/libXt[${MULTILIB_USEDEP}]
-	unicode? ( virtual/libiconv )
 	xft? (
 		media-libs/fontconfig[${MULTILIB_USEDEP}]
 		x11-libs/libXft[${MULTILIB_USEDEP}]
 	)
-	jpeg? ( virtual/jpeg )
-	png? ( >=media-libs/libpng-1.4:0= )
-	abi_x86_32? (
-		amd64? ( app-emulation/emul-linux-x86-baselibs )
-		!app-emulation/emul-linux-x86-motif
-	)"
+	|| ( (
+		unicode? ( virtual/libiconv[${MULTILIB_USEDEP}] )
+		jpeg? ( virtual/jpeg:0=[${MULTILIB_USEDEP}] )
+		png? ( >=media-libs/libpng-1.4:0=[${MULTILIB_USEDEP}] )
+	)
+	(
+		unicode? ( virtual/libiconv )
+		jpeg? ( virtual/jpeg:0= )
+		png? ( >=media-libs/libpng-1.4:0= )
+		abi_x86_32? ( amd64? (
+			jpeg? ( app-emulation/emul-linux-x86-baselibs )
+			png? ( app-emulation/emul-linux-x86-baselibs )
+		) )
+	) )"
 
 DEPEND="${RDEPEND}
 	sys-devel/flex
@@ -39,14 +48,7 @@ DEPEND="${RDEPEND}
 	x11-misc/xbitmaps"
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}-solaris.patch"
-	epatch "${FILESDIR}/${PN}-2.3.2-sanitise-paths.patch"
-	epatch "${FILESDIR}/${P}-parallel-make.patch"
-	epatch "${FILESDIR}/${P}-install-dirs.patch"
-	epatch "${FILESDIR}/${P}-fc-config.patch"
-	[[ ${CHOST} == *-solaris2.11 ]] \
-		&& epatch "${FILESDIR}/${PN}-2.3.2-solaris-2.11.patch"
-
+	EPATCH_SUFFIX=patch epatch
 	epatch_user
 
 	# disable compilation of demo binaries
@@ -66,8 +68,9 @@ src_prepare() {
 	# feel free to fix properly if you care
 	append-flags -fno-strict-aliasing
 
-	# For Solaris Xos_r.h :(
-	[[ ${CHOST} == *-solaris2.11 ]] && append-flags -DNEED_XOS_R_H=1
+	# for Solaris Xos_r.h :(
+	[[ ${CHOST} == *-solaris2.11 ]] \
+		&& append-cppflags -DNEED_XOS_R_H -DHAVE_READDIR_R_3
 
 	if use !elibc_glibc && use !elibc_uclibc && use unicode; then
 		# libiconv detection in configure script doesn't always work

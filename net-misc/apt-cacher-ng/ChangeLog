@@ -1,6 +1,48 @@
 # ChangeLog for net-misc/apt-cacher-ng
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/apt-cacher-ng/ChangeLog,v 1.21 2013/01/14 19:55:21 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/apt-cacher-ng/ChangeLog,v 1.29 2013/10/29 16:53:58 jer Exp $
+
+*apt-cacher-ng-0.7.19 (29 Oct 2013)
+
+  29 Oct 2013; Jeroen Roovers <jer@gentoo.org> +apt-cacher-ng-0.7.19.ebuild:
+  Version bump.
+
+*apt-cacher-ng-0.7.18 (20 Aug 2013)
+
+  20 Aug 2013; Jeroen Roovers <jer@gentoo.org> +apt-cacher-ng-0.7.18.ebuild:
+  Version bump.
+
+*apt-cacher-ng-0.7.17 (19 Aug 2013)
+
+  19 Aug 2013; Jeroen Roovers <jer@gentoo.org> -apt-cacher-ng-0.7.14.ebuild,
+  -apt-cacher-ng-0.7.15.ebuild, +apt-cacher-ng-0.7.17.ebuild:
+  Version bump.
+
+*apt-cacher-ng-0.7.16 (01 Aug 2013)
+
+  01 Aug 2013; Jeroen Roovers <jer@gentoo.org> -apt-cacher-ng-0.7.13.ebuild,
+  +apt-cacher-ng-0.7.16.ebuild:
+  Version bump.
+
+*apt-cacher-ng-0.7.15 (29 Jul 2013)
+
+  29 Jul 2013; Jeroen Roovers <jer@gentoo.org> +apt-cacher-ng-0.7.15.ebuild:
+  Version bump.
+
+*apt-cacher-ng-0.7.14 (20 Jul 2013)
+
+  20 Jul 2013; Jeroen Roovers <jer@gentoo.org> -apt-cacher-ng-0.7.11.ebuild,
+  -apt-cacher-ng-0.7.12.ebuild, +apt-cacher-ng-0.7.14.ebuild:
+  Version bump.
+
+*apt-cacher-ng-0.7.13 (22 May 2013)
+
+  22 May 2013; Jeroen Roovers <jer@gentoo.org> +apt-cacher-ng-0.7.13.ebuild:
+  Version bump.
+
+  14 May 2013; Jeroen Roovers <jer@gentoo.org> -apt-cacher-ng-0.7.10.ebuild,
+  apt-cacher-ng-0.7.11.ebuild, apt-cacher-ng-0.7.12.ebuild:
+  Add extra HOMEPAGE.
 
 *apt-cacher-ng-0.7.12 (14 Jan 2013)
 
@@ -112,4 +154,3 @@
   +files/confd, +files/cron.daily, +files/initd, +files/logrotate,
   +metadata.xml:
   Initial commit (bug #265840).
-

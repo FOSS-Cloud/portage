@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/bacula/bacula-5.2.13.ebuild,v 1.1 2013/03/14 07:42:06 tomjbe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-backup/bacula/bacula-5.2.13.ebuild,v 1.8 2013/05/20 14:20:50 jer Exp $
 
 EAPI="4"
 PYTHON_DEPEND="python? 2"
@@ -18,7 +18,7 @@ SRC_URI="mirror://sourceforge/bacula/${MY_P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~ppc ~sparc ~x86"
+KEYWORDS=" amd64 ppc sparc x86"
 IUSE="acl bacula-clientonly bacula-nodir bacula-nosd examples ipv6 logwatch mysql postgres python qt4 readline +sqlite3 ssl static tcpd vim-syntax X"
 
 DEPEND="
@@ -114,6 +114,12 @@ src_prepare() {
 	done
 	popd >&/dev/null || die
 
+	# bug 466688 drop deprecated categories from Desktop file
+	sed -i -e 's/Application;//' scripts/bat.desktop.in || die
+
+	# bug 466690 Use CXXFLAGS instead of CFLAGS
+	sed -i -e 's/@CFLAGS@/@CXXFLAGS@/' autoconf/Make.common.in || die
+
 	# drop automatic install of unneeded documentation (for bug 356499)
 	epatch "${FILESDIR}"/5.2.3/${PN}-5.2.3-doc.patch
 
@@ -189,6 +195,7 @@ src_configure() {
 		--sysconfdir=/etc/bacula \
 		--with-subsys-dir=/var/lock/subsys \
 		--with-working-dir=/var/lib/bacula \
+		--with-logdir=/var/lib/bacula \
 		--with-scriptdir=/usr/libexec/bacula \
 		--with-dir-user=bacula \
 		--with-dir-group=bacula \

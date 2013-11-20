@@ -1,6 +1,29 @@
 # ChangeLog for app-office/abiword
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/abiword/ChangeLog,v 1.262 2012/08/05 21:44:50 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/abiword/ChangeLog,v 1.267 2013/11/13 20:20:33 pacho Exp $
+
+  13 Nov 2013; Pacho Ramos <pacho@gentoo.org> abiword-3.0.0-r1.ebuild:
+  Parallel build fails, bug #488462; fix libgoffice dependency (#491076 by A.
+  Person)
+
+*abiword-3.0.0-r1 (17 Oct 2013)
+
+  17 Oct 2013; Pacho Ramos <pacho@gentoo.org> +abiword-3.0.0-r1.ebuild,
+  +files/abiword-3.0.0-fix-crash.patch, -abiword-3.0.0.ebuild:
+  Apply upstream fix to solve abiword-docs building in the right way
+
+  15 Oct 2013; Pacho Ramos <pacho@gentoo.org> abiword-3.0.0.ebuild:
+  DEPEND on fixed ots letting the plugin to compile (#488140 by croutch)
+
+  14 Oct 2013; Pacho Ramos <pacho@gentoo.org> abiword-3.0.0.ebuild,
+  metadata.xml:
+  Move from 'gnome' to 'goffice' (#416829 by Maxim Kammerer)
+
+*abiword-3.0.0 (14 Oct 2013)
+
+  14 Oct 2013; Pacho Ramos <pacho@gentoo.org> +abiword-3.0.0.ebuild,
+  +files/abiword-3.0.0-eds-3.6.patch, metadata.xml:
+  Version bump
 
   05 Aug 2012; Anthony G. Basile <blueness@gentoo.org> abiword-2.8.6-r2.ebuild:
   Keyword ~arm

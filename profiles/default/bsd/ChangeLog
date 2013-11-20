@@ -1,6 +1,82 @@
 # ChangeLog for profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/default/bsd/ChangeLog,v 1.140 2013/02/18 11:22:22 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/default/bsd/ChangeLog,v 1.159 2013/10/14 04:53:56 naota Exp $
+
+  14 Oct 2013; Naohiro Aota <naota@gentoo.org> package.use.mask:
+  Add USE mask for tcpdump. #482930
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  mask app-misc/geoclue skyhook here since networkmanager is masked here
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> fbsd/package.mask,
+  package.mask:
+  remove obsolete mailbase < 1 mask
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> fbsd/package.use.mask:
+  remove obsolete crashreporter usemask for firefox
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> fbsd/package.use.mask:
+  remove obsolete swig entries
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  remove obsolete entry
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  move udev-related usemasks from amd64-fbsd/todo here
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  mask linux only useflags for opencv
+
+  09 Aug 2013; Alexis Ballier <aballier@gentoo.org> -fbsd/amd64/8.2/deprecated,
+  -fbsd/amd64/8.2/make.defaults, -fbsd/amd64/8.2/parent,
+  -fbsd/amd64/9.0/deprecated, -fbsd/amd64/9.0/make.defaults,
+  -fbsd/amd64/9.0/parent, -fbsd/x86/8.2/deprecated,
+  -fbsd/x86/8.2/make.defaults, -fbsd/x86/8.2/parent, -fbsd/x86/9.0/deprecated,
+  -fbsd/x86/9.0/make.defaults, -fbsd/x86/9.0/parent:
+  Remove EOL fbsd 8.2 and 9.0 profiles
+
+  07 Aug 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  mask video_cards_tdfx for mplayer, bug #477750 by Yuta SATOH
+
+  28 Jul 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  mask mplayer[joystick], bug #477750 by Yuta SATOH
+
+  18 Jun 2013; Alexis Ballier <aballier@gentoo.org> -fbsd/amd64/8.0/deprecated,
+  -fbsd/amd64/8.0/make.defaults, -fbsd/amd64/8.0/parent,
+  -fbsd/sparc/8.0/deprecated, -fbsd/sparc/8.0/make.defaults,
+  -fbsd/sparc/8.0/parent, -fbsd/x86/8.0/deprecated,
+  -fbsd/x86/8.0/make.defaults, -fbsd/x86/8.0/parent:
+  remove 8.0 profiles
+
+  18 Jun 2013; Alexis Ballier <aballier@gentoo.org> -fbsd/amd64/7.2/deprecated,
+  -fbsd/amd64/7.2/make.defaults, -fbsd/amd64/7.2/parent,
+  -fbsd/sparc/7.2/deprecated, -fbsd/sparc/7.2/make.defaults,
+  -fbsd/sparc/7.2/parent, -fbsd/x86/7.2/deprecated,
+  -fbsd/x86/7.2/make.defaults, -fbsd/x86/7.2/parent:
+  Remove 7.2 profiles
+
+  25 May 2013; Alexis Ballier <aballier@gentoo.org>
+  fbsd/amd64/9.1/clang/packages, fbsd/amd64/9.1/clang/packages.build,
+  fbsd/amd64/9.1/clang/profile.bashrc:
+  Make the clang profile use libcxx
+
+  25 May 2013; Alexis Ballier <aballier@gentoo.org>
+  fbsd/amd64/9.1/clang/packages.build, fbsd/packages.build:
+  remove texinfo from packages.build: it is not needed anymore for building
+  stages and causes problems when trying to put it in a stage1. bug #471192
+
+  24 May 2013; Alexis Ballier <aballier@gentoo.org> fbsd/package.use.mask:
+  mask xattr useflag on GNU tar, bug #432410 by Yuta SATOH
+
+  20 May 2013; Alexis Ballier <aballier@gentoo.org> +fbsd/amd64/9.0/deprecated:
+  deprecate 9.0 profile for amd64, bug #464742
+
+  19 May 2013; Alexis Ballier <aballier@gentoo.org> use.mask:
+  mask filecaps useflag, bug #469646
+
+  07 May 2013; Naohiro Aota <naota@gentoo.org> +fbsd/x86/9.0/deprecated,
+  fbsd/x86/7.2/deprecated, fbsd/x86/8.0/deprecated, fbsd/x86/8.2/deprecated:
+  Deprecate x86/9.0. #464742
 
   18 Feb 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask:
   mask ffmpeg[iec61883] as its linux only too

@@ -1,6 +1,35 @@
 # ChangeLog for dev-ml/lablgl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/lablgl/ChangeLog,v 1.62 2013/03/02 18:00:28 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/lablgl/ChangeLog,v 1.71 2013/10/12 08:42:38 aballier Exp $
+
+*lablgl-1.05 (12 Oct 2013)
+
+  12 Oct 2013; Alexis Ballier <aballier@gentoo.org> +lablgl-1.05.ebuild:
+  version bump
+
+  22 Jul 2013; Alexis Ballier <aballier@gentoo.org> -lablgl-1.04.ebuild:
+  remove old
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> lablgl-1.04-r1.ebuild:
+  Stable for alpha, wrt bug #470404
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> lablgl-1.04-r1.ebuild:
+  Stable for sparc, wrt bug #470404
+
+  22 May 2013; Agostino Sarubbo <ago@gentoo.org> lablgl-1.04-r1.ebuild:
+  Stable for ia64, wrt bug #470404
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> lablgl-1.04-r1.ebuild:
+  Stable for HPPA (bug #470404).
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> lablgl-1.04-r1.ebuild:
+  Stable for ppc, wrt bug #470404
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> lablgl-1.04-r1.ebuild:
+  Stable for x86, wrt bug #470404
+
+  19 May 2013; Agostino Sarubbo <ago@gentoo.org> lablgl-1.04-r1.ebuild:
+  Stable for amd64, wrt bug #470404
 
 *lablgl-1.04-r1 (02 Mar 2013)
 

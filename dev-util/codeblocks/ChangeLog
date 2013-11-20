@@ -1,6 +1,14 @@
 # ChangeLog for dev-util/codeblocks
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/codeblocks/ChangeLog,v 1.25 2013/03/04 04:57:48 dirtyepic Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/codeblocks/ChangeLog,v 1.27 2013/08/04 11:59:01 maekke Exp $
+
+  04 Aug 2013; Markus Meier <maekke@gentoo.org> codeblocks-12.11.ebuild:
+  add ~arm, bug #473820
+
+  13 Apr 2013; Ryan Hill <dirtyepic@gentoo.org> codeblocks-12.11.ebuild,
+  codeblocks-9999.ebuild:
+  Update upstream repo (bug #465386 by Branko BAdrljica). Add slot operator to
+  boost dep.
 
 *codeblocks-12.11 (04 Mar 2013)
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/features/64bit-native/package.mask,v 1.92 2013/03/27 17:59:07 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/features/64bit-native/package.mask,v 1.96 2013/10/14 18:23:43 pacho Exp $
 
 # AMD64 Team <amd64@gentoo.org>
 # Mask packages that rely on amd64 multilib
@@ -19,6 +19,7 @@ app-emulation/virtualbox-extpack-oracle
 app-emulation/virtualbox-guest-additions
 app-emulation/vmware-player
 >=app-i18n/atokx3-3.0.0
+app-office/lotus-notes
 app-office/ooextras
 app-emulation/emul-linux-x86-baselibs
 app-emulation/emul-linux-x86-compat
@@ -151,8 +152,6 @@ games-strategy/x2
 games-strategy/x2-demo
 media-fonts/acroread-asianfonts
 media-gfx/picasa
-media-libs/realcodecs
-media-libs/win32codecs
 media-sound/shoutcast-server-bin
 media-sound/shoutcast-trans-bin
 media-sound/ventrilo-server-bin
@@ -162,6 +161,8 @@ media-video/binkplayer
 media-video/tsmuxer
 net-im/skype
 net-im/skypetab-ng
+net-print/cndrvcups-common-lb
+net-print/cndrvcups-lb
 net-misc/icaclient
 net-misc/ps3mediaserver
 sci-biology/foldingathome
@@ -171,7 +172,7 @@ sci-chemistry/cyana
 sci-chemistry/icm
 sci-chemistry/icm-browser
 sci-chemistry/mars
-sci-geosciences/googleearth
+<sci-geosciences/googleearth-7.1
 sci-libs/ipp
 sys-apps/memtest86
 sys-apps/memtest86+

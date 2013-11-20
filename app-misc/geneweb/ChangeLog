@@ -1,6 +1,40 @@
 # ChangeLog for app-misc/geneweb
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/geneweb/ChangeLog,v 1.20 2012/06/01 01:56:55 zmedico Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/geneweb/ChangeLog,v 1.27 2013/06/13 07:02:17 tupone Exp $
+
+  13 Jun 2013; Alfredo Tupone <tupone@gentoo.org> geneweb-6.07.ebuild:
+  Using gentoo mirror instead of developer's area for SRC_URI
+
+  22 Apr 2013; Zac Medico <zmedico@gentoo.org> geneweb-6.07.ebuild:
+  Fix SRC_URI.
+
+*geneweb-6.07 (22 Apr 2013)
+
+  22 Apr 2013; Alfredo Tupone <tupone@gentoo.org> +geneweb-6.07.ebuild,
+  +files/geneweb-6.07-gentoo.patch, +files/geneweb-6.07-parallellbuild.patch:
+  Version bump to 6.07. Patch taken from debian experimental
+
+*geneweb-6.06 (19 Apr 2013)
+
+  19 Apr 2013; Alfredo Tupone <tupone@gentoo.org> +geneweb-6.06.ebuild,
+  +files/geneweb-6.06-gentoo.patch, +files/geneweb-6.06-parallellbuild.patch:
+  Version bump to 6.06
+
+  16 Apr 2013; Tupone Alfredo <tupone@gentoo.org> -geneweb-6.02.ebuild,
+  -files/geneweb-6.02-amd64.patch:
+  Removing old unstable version
+
+*geneweb-6.02-r1 (16 Apr 2013)
+
+  16 Apr 2013; Alfredo Tupone <tupone@gentoo.org> +geneweb-6.02-r1.ebuild:
+  Use the new database format for amd64
+
+*geneweb-6.02 (12 Apr 2013)
+
+  12 Apr 2013; Alfredo Tupone <tupone@gentoo.org> +geneweb-6.02.ebuild,
+  +files/geneweb-6.02-amd64.patch, +files/geneweb-6.02-gentoo.patch,
+  +files/geneweb-6.02-parallellbuild.patch:
+  Version bump to 6.02
 
   01 Jun 2012; Zac Medico <zmedico@gentoo.org> geneweb-5.02.ebuild:
   inherit user for enewuser
@@ -88,4 +122,3 @@
   +files/geneweb-5.00-gentoo.patch, +files/geneweb.confd,
   +files/geneweb.initd, +metadata.xml, +geneweb-5.00.ebuild:
   New ebuild. Based on bug #22239 by David Grant
-

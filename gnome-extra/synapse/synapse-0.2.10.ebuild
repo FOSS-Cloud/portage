@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/synapse/synapse-0.2.10.ebuild,v 1.6 2013/04/07 14:43:58 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/synapse/synapse-0.2.10.ebuild,v 1.8 2013/05/05 12:59:53 jlec Exp $
 
 EAPI=4
 
@@ -41,7 +41,7 @@ RDEPEND="
 		)"
 	#ayatana? ( dev-libs/libappindicator )
 DEPEND="${RDEPEND}
-	${vala_depend}
+	$(vala_depend)
 	dev-util/intltool
 	virtual/pkgconfig"
 
@@ -65,7 +65,6 @@ src_configure() {
 		--enable-indicator=no
 		$(use_enable plugins librest yes)
 		$(use_enable zeitgeist)
-		VALAC="$(type -P valac-0.14)"
 		)
 	autotools-utils_src_configure
 }

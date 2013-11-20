@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/fio/fio-2.0.14-r1.ebuild,v 1.1 2013/03/27 01:59:26 robbat2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/fio/fio-2.0.14-r1.ebuild,v 1.6 2013/05/12 02:09:36 patrick Exp $
 
 EAPI="4"
 
-inherit toolchain-funcs flag-o-matic
+inherit toolchain-funcs flag-o-matic eutils
 
 MY_PV="${PV/_rc/-rc}"
 MY_P="${PN}-${MY_PV}"
@@ -15,7 +15,7 @@ SRC_URI="http://brick.kernel.dk/snaps/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ia64 ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ia64 ~ppc ppc64 x86"
 IUSE=""
 
 DEPEND="dev-libs/libaio"

@@ -1,6 +1,106 @@
 # ChangeLog for app-misc/byobu
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/byobu/ChangeLog,v 1.49 2013/03/27 06:26:10 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/byobu/ChangeLog,v 1.69 2013/11/12 09:26:24 radhermit Exp $
+
+*byobu-5.64 (12 Nov 2013)
+
+  12 Nov 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.64.ebuild:
+  Version bump.
+
+  20 Oct 2013; Tim Harder <radhermit@gentoo.org> -byobu-5.49.ebuild,
+  -byobu-5.55.ebuild, -byobu-5.56.ebuild, -byobu-5.58.ebuild,
+  -byobu-5.59.ebuild:
+  Remove old.
+
+*byobu-5.61 (20 Oct 2013)
+
+  20 Oct 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.61.ebuild:
+  Version bump.
+
+*byobu-5.60 (26 Sep 2013)
+
+  26 Sep 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.60.ebuild:
+  Version bump.
+
+*byobu-5.59 (20 Sep 2013)
+
+  20 Sep 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.59.ebuild:
+  Version bump.
+
+*byobu-5.58 (16 Sep 2013)
+
+  16 Sep 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.58.ebuild:
+  Version bump.
+
+*byobu-5.56 (27 Aug 2013)
+
+  27 Aug 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.56.ebuild:
+  Version bump.
+
+*byobu-5.55 (16 Aug 2013)
+
+  16 Aug 2013; Tim Harder <radhermit@gentoo.org> -byobu-5.39.ebuild,
+  -byobu-5.41.ebuild, -byobu-5.41-r1.ebuild, -byobu-5.43.ebuild,
+  -byobu-5.45.ebuild, -byobu-5.47.ebuild, +byobu-5.55.ebuild:
+  Version bump and remove old.
+
+*byobu-5.49 (30 Jul 2013)
+
+  30 Jul 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.49.ebuild:
+  Version bump.
+
+*byobu-5.47 (21 Jul 2013)
+
+  21 Jul 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.47.ebuild:
+  Version bump.
+
+*byobu-5.45 (16 Jul 2013)
+
+  16 Jul 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.45.ebuild:
+  Version bump.
+
+*byobu-5.43 (05 Jun 2013)
+
+  05 Jun 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.43.ebuild:
+  Version bump.
+
+  29 May 2013; Justin Lecher <jlec@gentoo.org> byobu-5.39.ebuild,
+  byobu-5.41.ebuild, byobu-5.41-r1.ebuild:
+  Fix usage of new python r1 eclasses (missing PYTHON_REQUIRED_USE,
+  PYTHON_USEDEP); drop py2.5 support because of incompatible deps
+
+  29 May 2013; Tim Harder <radhermit@gentoo.org> byobu-5.41-r1.ebuild:
+  Add python deps.
+
+*byobu-5.41-r1 (26 May 2013)
+
+  26 May 2013; Justin Lecher <jlec@gentoo.org> -byobu-5.35.ebuild,
+  -byobu-5.36.ebuild, -byobu-5.37.ebuild, +byobu-5.41-r1.ebuild:
+  Don't compress help files, #408859; drop old
+
+*byobu-5.41 (11 May 2013)
+
+  11 May 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.41.ebuild:
+  Version bump.
+
+*byobu-5.39 (08 May 2013)
+
+  08 May 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.39.ebuild:
+  Version bump.
+
+  29 Apr 2013; Tim Harder <radhermit@gentoo.org> -byobu-5.29.ebuild,
+  -byobu-5.33.ebuild, -byobu-5.34.ebuild:
+  Remove old.
+
+*byobu-5.37 (29 Apr 2013)
+
+  29 Apr 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.37.ebuild:
+  Version bump.
+
+*byobu-5.36 (16 Apr 2013)
+
+  16 Apr 2013; Tim Harder <radhermit@gentoo.org> +byobu-5.36.ebuild:
+  Version bump.
 
 *byobu-5.35 (27 Mar 2013)
 

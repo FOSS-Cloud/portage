@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/net-tools/net-tools-9999.ebuild,v 1.3 2012/07/23 01:12:43 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/net-tools/net-tools-9999.ebuild,v 1.4 2013/05/13 16:29:38 vapier Exp $
 
 EAPI="3"
 
@@ -22,10 +22,12 @@ HOMEPAGE="http://net-tools.sourceforge.net/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="nls old-output static"
+IUSE="nls old-output selinux static"
 
-RDEPEND=""
+RDEPEND="!<sys-apps/openrc-0.9.9.3
+	selinux? ( sys-libs/libselinux )"
 DEPEND="${RDEPEND}
+	selinux? ( virtual/pkgconfig )
 	app-arch/xz-utils"
 
 maint_pkg_create() {
@@ -34,14 +36,10 @@ maint_pkg_create() {
 	local stamp=$(date --date="$(git log -n1 --pretty=format:%ci master)" -u +%Y%m%d%H%M%S)
 	local pv="${PV/_p*}_p${stamp}"; pv=${pv/9999/1.60}
 	local p="${PN}-${pv}"
-	git archive --prefix="nt/" master | tar xf - -C "${T}"
+	git archive --prefix="${p}/" master | tar xf - -C "${T}"
 	pushd "${T}" >/dev/null
-	pushd nt >/dev/null
-	sed -i "/^RELEASE/s:=.*:=${pv}:" Makefile || die
-	emake dist >/dev/null
-	popd >/dev/null
-	zcat ${p}.tar.gz | xz > ${p}.tar.xz
-	rm -f ${p}.tar.gz
+	sed -i "/^RELEASE/s:=.*:=${pv}:" */Makefile || die
+	tar cf - ${p}/ | xz > ${p}.tar.xz
 	popd >/dev/null
 
 	local patches="${p}-patches-${PATCH_VER:-1}"
@@ -78,6 +76,8 @@ src_configure() {
 	set_opt I18N use nls
 	set_opt HAVE_HWIB has_version '>=sys-kernel/linux-headers-2.6'
 	set_opt HAVE_HWTR has_version '<sys-kernel/linux-headers-3.5'
+	set_opt HAVE_HWSTRIP has_version '<sys-kernel/linux-headers-3.6'
+	set_opt SELINUX use selinux
 	if use static ; then
 		append-flags -static
 		append-ldflags -static

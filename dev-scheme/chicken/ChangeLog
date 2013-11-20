@@ -1,6 +1,52 @@
 # ChangeLog for dev-scheme/chicken
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-scheme/chicken/ChangeLog,v 1.47 2013/04/07 22:49:31 pchrist Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-scheme/chicken/ChangeLog,v 1.59 2013/07/14 14:18:38 ago Exp $
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> chicken-4.8.0.3-r1.ebuild:
+  Stable for alpha, wrt bug #476172
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> chicken-4.8.0.3-r1.ebuild:
+  Stable for ppc64, wrt bug #476172
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> chicken-4.8.0.3-r1.ebuild:
+  Stable for ppc, wrt bug #476172
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> chicken-4.8.0.3-r1.ebuild:
+  Stable for x86, wrt bug #476172
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> chicken-4.8.0.3-r1.ebuild:
+  Stable for amd64, wrt bug #476172
+
+*chicken-4.8.0.3-r1 (08 Jul 2013)
+
+  08 Jul 2013; Michael Weber <xmw@gentoo.org> +chicken-4.8.0.3-r1.ebuild,
+  +files/chicken-4.8.0.3-CVE-2013-1874.patch,
+  +files/chicken-4.8.0.3-CVE-2013-2024.patch,
+  +files/chicken-4.8.0.3-CVE-2013-2075_1.patch,
+  +files/chicken-4.8.0.3-CVE-2013-2075_2.patch:
+  Revbump to include security patches (bugs 462458, 469392, 467966)
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> chicken-4.8.0.3.ebuild:
+  Stable for amd64, wrt bug #455200
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> chicken-4.8.0.3.ebuild:
+  Stable for x86, wrt bug #455200
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> chicken-4.8.0.3.ebuild:
+  Stable for alpha, wrt bug #455200
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> chicken-4.8.0.3.ebuild:
+  Stable for ppc64, wrt bug #455200
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> chicken-4.8.0.3.ebuild:
+  Stable for ppc, wrt bug #455200
+
+*chicken-4.8.0.3 (08 Apr 2013)
+
+  08 Apr 2013; Panagiotis Christopoulos <pchrist@gentoo.org>
+  -chicken-4.8.0.2.ebuild, -files/chicken-4.8.0.2-parallel-build.patch,
+  +chicken-4.8.0.3.ebuild, +files/chicken-4.8.0.3-parallel-build.patch:
+  pushd chicken-4.8.0.3, remove 4.8.0.2
 
 *chicken-4.8.0.2 (07 Apr 2013)
 
@@ -215,4 +261,3 @@
   20 Nov 2003; <mkennedy@gentoo.org> chicken-1.22.ebuild:
   Initial import. Ebuild contributed by Mirian Crzig Lennox <mirian@cosmic.com>
   and modified by Matthew Kennedy <mkennedy@gentoo.org>
-

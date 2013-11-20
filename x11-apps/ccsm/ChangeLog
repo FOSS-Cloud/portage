@@ -1,6 +1,26 @@
 # ChangeLog for x11-apps/ccsm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-apps/ccsm/ChangeLog,v 1.26 2012/08/30 17:41:06 pinkbyte Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-apps/ccsm/ChangeLog,v 1.30 2013/08/25 15:01:19 pinkbyte Exp $
+
+  25 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> -ccsm-0.8.4-r2.ebuild:
+  Drop old revision
+
+  07 Aug 2013; Michael Sterrett <mr_bones_@gentoo.org> ccsm-0.8.4-r4.ebuild:
+  respect LINGUAS
+
+*ccsm-0.8.4-r4 (13 May 2013)
+
+  13 May 2013; Sergey Popov <pinkbyte@gentoo.org> -ccsm-0.8.4-r3.ebuild,
+  +ccsm-0.8.4-r4.ebuild:
+  Revision bump: fix default prefix path, wrt bug #469596, thanks to Alexander
+  E. Patrakov <patrakov AT gmail.com> for discovering this and CBke <cb AT
+  linux.be> for suggested fix. Remove broken revision
+
+*ccsm-0.8.4-r3 (07 May 2013)
+
+  07 May 2013; Sergey Popov <pinkbyte@gentoo.org> -ccsm-0.8.4-r1.ebuild,
+  +ccsm-0.8.4-r3.ebuild:
+  Revision bump: migrate to distutils-r1 eclass. Drop old revision
 
   30 Aug 2012; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
   Remove myself and proxy maintainer from maintainers

@@ -1,6 +1,20 @@
 # ChangeLog for dev-ruby/trollop
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/trollop/ChangeLog,v 1.17 2012/10/28 17:23:20 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/trollop/ChangeLog,v 1.21 2013/11/06 16:02:58 graaff Exp $
+
+  06 Nov 2013; Hans de Graaff <graaff@gentoo.org> trollop-2.0.ebuild:
+  Add ruby20. Remove ree18.
+
+*trollop-1.16.2-r4 (06 Nov 2013)
+
+  06 Nov 2013; Hans de Graaff <graaff@gentoo.org> +trollop-1.16.2-r4.ebuild:
+  EAPI 5. Add ruby20. Remove ree18.
+
+  15 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -trollop-1.16.2-r2.ebuild:
+  Cleanup old.
+
+  14 Sep 2013; Jeroen Roovers <jer@gentoo.org> trollop-1.16.2-r3.ebuild:
+  Stable for HPPA (bug #484810).
 
   28 Oct 2012; Raúl Porcel <armin76@gentoo.org> trollop-1.16.2-r2.ebuild,
   trollop-1.16.2-r3.ebuild, trollop-2.0.ebuild:
@@ -67,4 +81,3 @@
   08 May 2010; Hans de Graaff <graaff@gentoo.org> +trollop-1.16.2.ebuild,
   +metadata.xml:
   Initial import from overlay graaff. Dependency for dev-ruby/gherkin.
-

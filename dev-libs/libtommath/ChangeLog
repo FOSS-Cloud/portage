@@ -1,6 +1,60 @@
 # ChangeLog for dev-libs/libtommath
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libtommath/ChangeLog,v 1.49 2013/03/28 15:43:01 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libtommath/ChangeLog,v 1.64 2013/08/16 13:30:06 aballier Exp $
+
+  16 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  libtommath-0.42.0-r1.ebuild:
+  keyword ~amd64-fbsd, bug #481092
+
+  09 Jul 2013; Michael Palimaka <kensington@gentoo.org>
+  -libtommath-0.42.0.ebuild:
+  Remove old.
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for sh, wrt bug #470264
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for x86, wrt bug #470264
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for alpha, wrt bug #470264
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for sparc, wrt bug #470264
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for ppc64, wrt bug #470264
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for amd64, wrt bug #470264
+
+  22 May 2013; Agostino Sarubbo <ago@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for ia64, wrt bug #470264
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for HPPA (bug #470264).
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for s390, wrt bug #470264
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for arm, wrt bug #470264
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> libtommath-0.42.0-r1.ebuild:
+  Stable for ppc, wrt bug #470264
+
+  24 Apr 2013; Mike Frysinger <vapier@gentoo.org>
+  files/libtommath-0.42.0-makefile.patch, libtommath-0.42.0-r1.ebuild:
+  Use CPPFLAGS when compiling and CFLAGS when linking.  Avoid building static
+  objects when USE=static-libs.  Use new libtool code for all targets including
+  darwin.
+
+  23 Apr 2013; Markos Chandras <hwoarang@gentoo.org>
+  libtommath-0.42.0-r1.ebuild, files/libtommath-0.42.0-makefile.patch:
+  Create a minimal configure.ac file to build libtool. Fixes cross compilation
+  problems reported in bug #376643. Thanks to Bertrand Jacquin
+  <beber@meleeweb.net> for the upstream patch and Mike Frysinger
+  <vapier@gentoo.org> for the suggestions.
 
   28 Mar 2013; Anthony G. Basile <blueness@gentoo.org>
   libtommath-0.42.0-r1.ebuild, libtommath-0.42.0.ebuild:

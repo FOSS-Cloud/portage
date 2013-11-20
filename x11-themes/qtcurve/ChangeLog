@@ -1,0 +1,26 @@
+# ChangeLog for x11-themes/qtcurve
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-themes/qtcurve/ChangeLog,v 1.79 2013/11/04 14:26:10 polynomial-c Exp $
+
+*qtcurve-1.8.17-r1 (04 Nov 2013)
+
+  04 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> -qtcurve-1.8.17.ebuild,
+  +qtcurve-1.8.17-r1.ebuild, metadata.xml:
+  Revbump to add a patch so qtcurve finds its old config files properly. Added
+  myself as maintainer.
+
+  04 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> qtcurve-1.8.17.ebuild:
+  Fixed HOMEPAGE.
+
+*qtcurve-1.8.14 (04 Nov 2013)
+
+  04 Nov 2013; Ben de Groot <yngwin@gentoo.org>
+  +files/qtcurve_kwin_automagic_fix.patch, +qtcurve-1.8.14.ebuild:
+  Move stable qtcurve-qt4 here to complete the move
+
+*qtcurve-1.8.17 (03 Nov 2013)
+
+  03 Nov 2013; Ben de Groot <yngwin@gentoo.org> +metadata.xml,
+  +qtcurve-1.8.17.ebuild:
+  Version bump. New upstream merged gtk-engines-qtcurve and qtcurve-qt4 into one
+  package. Dropped deprecated mozilla option. Fixes bug #489978.

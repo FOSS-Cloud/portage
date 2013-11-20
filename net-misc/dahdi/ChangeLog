@@ -1,6 +1,23 @@
 # ChangeLog for net-misc/dahdi
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi/ChangeLog,v 1.49 2013/03/18 10:13:27 chainsaw Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi/ChangeLog,v 1.53 2013/10/27 09:50:13 pacho Exp $
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due voip herd removal:
+  http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+*dahdi-2.7.0.1 (23 Sep 2013)
+
+  23 Sep 2013; Tony Vroon <chainsaw@gentoo.org> +dahdi-2.7.0.1.ebuild:
+  Version bump.
+
+  08 May 2013; Tony Vroon <chainsaw@gentoo.org> -dahdi-2.5.0.2-r4.ebuild,
+  -dahdi-2.6.1.ebuild, -dahdi-2.6.1-r1.ebuild, -dahdi-2.6.1-r2.ebuild,
+  -dahdi-2.6.1-r3.ebuild:
+  Remove ebuilds that are no longer usable, for bug #469024.
+
+  08 May 2013; Vicente Olivert Riera <vincent@gentoo.org> dahdi-2.6.2.ebuild:
+  amd64 x86 stable, bug #469024
 
 *dahdi-2.6.2 (18 Mar 2013)
 

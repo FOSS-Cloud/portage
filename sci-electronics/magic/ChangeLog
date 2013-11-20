@@ -1,6 +1,61 @@
 # ChangeLog for sci-electronics/magic
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/magic/ChangeLog,v 1.63 2013/01/21 11:12:18 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-electronics/magic/ChangeLog,v 1.73 2013/05/15 12:15:49 xmw Exp $
+
+*magic-8.0.138 (15 May 2013)
+
+  15 May 2013; Michael Weber <xmw@gentoo.org> +magic-8.0.138.ebuild,
+  -files/magic-8.0.109-ldflags.patch, -files/magic-8.0.131-sed.patch,
+  -magic-8.0.131.ebuild, magic-7.5.231.ebuild:
+  Version bump, remove old. Verbose build (bug 466808), upstream accepted
+  patches.
+
+  15 May 2013; Michael Weber <xmw@gentoo.org>
+  +files/magic-7.5.231-ldflags.patch, +files/magic-7.5.231-verbose-build.patch,
+  -magic-7.5.230.ebuild, magic-7.5.231.ebuild:
+  Version bump, verbose build log (bug 466808)
+
+*magic-7.5.231 (15 May 2013)
+
+  15 May 2013; Michael Weber <xmw@gentoo.org>
+  +files/magic-7.5.231-blt-test.patch, +magic-7.5.231.ebuild,
+  magic-7.5.230.ebuild:
+  Version bump, upstream accepted our patches. Override blt detection (assured
+  by portage/DEPEND)
+
+  26 Apr 2013; Michael Weber <xmw@gentoo.org> metadata.xml:
+  improve metadata
+
+  23 Apr 2013; Agostino Sarubbo <ago@gentoo.org> magic-7.5.202-r1.ebuild:
+  Stable for ppc, wrt bug #466772
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> magic-7.5.202-r1.ebuild:
+  Stable for x86, wrt bug #466772
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> magic-7.5.202-r1.ebuild:
+  Stable for amd64, wrt bug #466772
+
+  22 Apr 2013; Michael Weber <xmw@gentoo.org>
+  files/magic-7.5.202-include.patch:
+  More complete include patch.
+
+*magic-8.0.131 (22 Apr 2013)
+*magic-7.5.202-r1 (22 Apr 2013)
+
+  22 Apr 2013; Michael Weber <xmw@gentoo.org> -magic-7.4.46.ebuild,
+  +magic-7.5.202-r1.ebuild, +files/magic-7.5.202-include.patch,
+  +files/magic-7.5.202-install.patch, -magic-7.5.220.ebuild,
+  magic-7.5.230.ebuild, -magic-8.0.109.ebuild, -magic-8.0.125.ebuild,
+  +magic-8.0.131.ebuild, +files/magic-8.0.131-sed.patch:
+  Revbump to fix current stable version (install binaries, bug 422687, detect
+  tcl/tk, bug 447868, include stdlib). Version bump to latest upstream stable.
+  Version bump to latest upstream development. Drop old and broken versions.
+
+*magic-7.5.230 (22 Apr 2013)
+
+  22 Apr 2013; Michael Weber <xmw@gentoo.org> +magic-7.5.230.ebuild,
+  -magic-7.5.127.ebuild, -magic-7.5.129.ebuild:
+  Version bump of upstream stable 7.5 branch, drop old.
 
 *magic-8.0.125 (21 Jan 2013)
 

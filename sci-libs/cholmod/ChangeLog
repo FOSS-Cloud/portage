@@ -1,6 +1,18 @@
 # ChangeLog for sci-libs/cholmod
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/cholmod/ChangeLog,v 1.37 2013/02/21 21:56:07 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/cholmod/ChangeLog,v 1.40 2013/07/18 13:39:01 chithanh Exp $
+
+  18 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  cholmod-2.1.2.ebuild:
+  Keyword ~arm.
+
+*cholmod-2.1.2 (24 Jun 2013)
+
+  24 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> +cholmod-2.1.2.ebuild:
+  Version bump, switch to EAPI5 and new tar ball
+
+  10 Apr 2013; Justin Lecher <jlec@gentoo.org> cholmod-2.0.1.ebuild:
+  Fix typo for pkg-config usage
 
   21 Feb 2013; Justin Lecher <jlec@gentoo.org> cholmod-1.6.0-r1.ebuild,
   cholmod-1.7.4.ebuild, metadata.xml:

@@ -1,6 +1,93 @@
 # ChangeLog for sys-apps/openrc
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/ChangeLog,v 1.266 2013/03/03 03:46:42 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/ChangeLog,v 1.288 2013/11/13 03:25:52 mattst88 Exp $
+
+  13 Nov 2013; Matt Turner <mattst88@gentoo.org> openrc-0.12.4.ebuild:
+  alpha stable, bug 487332.
+
+  12 Nov 2013; Jeroen Roovers <jer@gentoo.org> openrc-0.12.4.ebuild:
+  Stable for HPPA (bug #487332).
+
+*openrc-0.12.4 (31 Oct 2013)
+
+  31 Oct 2013; William Hubbs <williamh@gentoo.org> +openrc-0.12.4.ebuild:
+  version bump for vserver fixes and starting a port to GNU/kFreeBSD for Debian.
+
+  21 Oct 2013; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  bring back gen_usr_ldscript calls for libeinfo
+
+  21 Oct 2013; William Hubbs <williamh@gentoo.org> -openrc-0.12.1.ebuild,
+  -openrc-0.12.ebuild:
+  Remove some old 0.12 unstable versions
+
+*openrc-0.12.3 (21 Oct 2013)
+
+  21 Oct 2013; William Hubbs <williamh@gentoo.org> +openrc-0.12.3.ebuild:
+  version bump
+
+*openrc-0.12.2 (08 Oct 2013)
+
+  08 Oct 2013; William Hubbs <williamh@gentoo.org> +openrc-0.12.2.ebuild:
+  version bump
+
+*openrc-0.12.1 (02 Oct 2013)
+
+  02 Oct 2013; William Hubbs <williamh@gentoo.org> +openrc-0.12.1.ebuild:
+  version bump for bug #486210.
+
+  27 Sep 2013; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  remove references to libeinfo since it no longer exists upstream
+
+  16 Aug 2013; Ian Stakenvicius <axs@gentoo.org> openrc-0.11.8.ebuild:
+  added blocker on net-misc/netifrc to openrc-0.11.8 just in case it helps
+  ensure net.lo is replaced
+
+  16 Aug 2013; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  sync live ebuild
+
+  16 Aug 2013; William Hubbs <williamh@gentoo.org> -files/net.confd.comment,
+  openrc-0.12.ebuild:
+  move the net comment into a here document.
+
+  16 Aug 2013; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  partially sync live ebuild
+
+  16 Aug 2013; Ian Stakenvicius <axs@gentoo.org> +files/net.confd.comment,
+  openrc-0.12.ebuild:
+  stop the removal of /etc/conf.d/net when upgrading from 0.11.8 and previous,
+  bug 481336
+
+  14 Aug 2013; Ian Stakenvicius <axs@gentoo.org> openrc-0.12.ebuild:
+  fixed dodoc README.net to README.newnet to match distfile, bug 481078
+
+*openrc-0.12 (14 Aug 2013)
+
+  14 Aug 2013; William Hubbs <williamh@gentoo.org> +openrc-0.12.ebuild:
+  OpenRC-0.12, bug #439098 tracks changes
+
+  14 Aug 2013; William Hubbs <williamh@gentoo.org> metadata.xml,
+  openrc-9999.ebuild:
+  adjustments for separating netifrc: add a temporary pdepend with a use flag to
+  bring it in and add warnings about both network use flags missing.
+
+  11 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> openrc-0.11.8.ebuild,
+  openrc-9999.ebuild:
+  Replace virtual/init with direct dependencies for || ( sysvinit rinit )
+  because sys-apps/openrc is the only consumer of the virtual.
+
+  11 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> openrc-0.11.8.ebuild,
+  openrc-9999.ebuild:
+  Move virtual/init from COMMON_DEPEND to RDEPEND.
+
+  05 Aug 2013; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  Install the documention for incompatibilities with busybox, and optionally,
+  the documentation for the newnet scripts.
+
+  25 Apr 2013; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  change git source to point to github
+
+  24 Apr 2013; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  migrate to eapi 5 and remove old baselayout-1 migration code
 
   03 Mar 2013; William Hubbs <williamh@gentoo.org> openrc-0.11.8.ebuild:
   Per Mike Frysinger, on bug #459782, we should not rdepend on ncurses[-tinfo].

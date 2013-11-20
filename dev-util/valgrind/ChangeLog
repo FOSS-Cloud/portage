@@ -1,6 +1,69 @@
 # ChangeLog for dev-util/valgrind
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/valgrind/ChangeLog,v 1.161 2013/02/19 18:06:53 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/valgrind/ChangeLog,v 1.172 2013/11/02 23:59:17 blueness Exp $
+
+*valgrind-3.9.0 (02 Nov 2013)
+
+  02 Nov 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/valgrind-3.9.0-non-exec-stack.patch, +valgrind-3.9.0.ebuild:
+  Version bump
+
+  18 Jun 2013; Anthony G. Basile <blueness@gentoo.org>
+  -files/valgrind-3.4.1-glibc-2.10.1.patch,
+  -files/valgrind-3.5.0-glibc-2.11.patch,
+  -files/valgrind-3.5.0-glibc-2.12.patch,
+  -files/valgrind-3.5.0-local-labels.patch,
+  -files/valgrind-3.5.0-non-exec-stack.patch,
+  -files/valgrind-3.5.0-respect-LDFLAGS.patch,
+  -files/valgrind-3.5.0-stat_h.patch, -files/valgrind-3.6.0-glibc-2.13.patch,
+  -files/valgrind-3.6.0-non-exec-stack.patch,
+  -files/valgrind-3.6.0-strcasecmp.patch,
+  -files/valgrind-3.6.1-automake-1.11.3.patch,
+  -files/valgrind-3.6.1-fix-unhandled-opcode.patch,
+  -files/valgrind-3.6.1-glibc-2.14.patch,
+  -files/valgrind-3.6.1-glibc-2.15.patch, -files/valgrind-3.6.1-linux-3.patch,
+  -files/valgrind-3.6.1-user-enable-qt4.patch, -valgrind-3.5.0.ebuild,
+  -valgrind-3.6.1-r1.ebuild, -valgrind-3.6.1-r3.ebuild,
+  -valgrind-3.6.1-r4.ebuild, -valgrind-3.6.1.ebuild:
+  Remove old patchy versions
+
+*valgrind-3.8.1-r1 (18 Jun 2013)
+
+  18 Jun 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/valgrind-3.8.1-gcc-4.8-memmove.patch, +valgrind-3.8.1-r1.ebuild:
+  Fix link error with gcc-4.8, bug #466488
+
+  26 May 2013; Anthony G. Basile <blueness@gentoo.org> valgrind-3.8.1.ebuild:
+  Respect AR, bug #468114, thanks Michael Mair-Keimberger
+
+  14 May 2013; Anthony G. Basile <blueness@gentoo.org> -valgrind-3.8.0.ebuild:
+  Remove older unstable
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> valgrind-3.8.1.ebuild:
+  Stable for ppc64, wrt bug #467850
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> valgrind-3.8.1.ebuild:
+  Stable for ppc, wrt bug #467850
+
+  01 May 2013; Agostino Sarubbo <ago@gentoo.org> valgrind-3.8.1.ebuild:
+  Stable for x86, wrt bug #467850
+
+  01 May 2013; Agostino Sarubbo <ago@gentoo.org> valgrind-3.8.1.ebuild:
+  Stable for amd64, wrt bug #467850
+
+  19 Apr 2013; Anthony G. Basile <blueness@gentoo.org> valgrind-3.6.1-r3.ebuild,
+  valgrind-3.6.1-r4.ebuild, valgrind-3.7.0-r4.ebuild, valgrind-3.8.0.ebuild,
+  valgrind-3.8.1.ebuild:
+  Switch ewarn to elog to inform about splitdebug, bug #466384
+
+  19 Apr 2013; Anthony G. Basile <blueness@gentoo.org>
+  -files/valgrind-3.2.3-pkg-config.patch, -files/valgrind-3.3.0-only64bit.patch,
+  -files/valgrind-3.3.1-local-labels.patch,
+  -files/valgrind-3.4.1-local-labels.patch,
+  -files/valgrind-3.4.1-respect-LDFLAGS.patch,
+  -files/valgrind-3.4.1-x86_64-ldso-strlen.patch, -valgrind-3.4.0.ebuild,
+  -valgrind-3.4.1.ebuild:
+  Remove older 3.4 branch
 
   19 Feb 2013; Anthony G. Basile <blueness@gentoo.org>
   +files/valgrind-3.8.1-glibc-2.17.patch, valgrind-3.8.1.ebuild:

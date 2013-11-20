@@ -1,6 +1,47 @@
 # ChangeLog for app-emulation/dosemu
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/dosemu/ChangeLog,v 1.53 2010/06/24 08:59:31 angelos Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/dosemu/ChangeLog,v 1.60 2013/09/05 18:04:54 slyfox Exp $
+
+  05 Sep 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  dosemu-1.4.1_pre20130107-r3.ebuild:
+  Respect AR (bug #483740 by Agostino Sarubbo).
+
+*dosemu-1.4.1_pre20130107-r3 (05 Aug 2013)
+
+  05 Aug 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +dosemu-1.4.1_pre20130107-r3.ebuild,
+  +files/dosemu-1.4.1_pre20130107-fortify.patch,
+  dosemu-1.4.1_pre20130107-r2.ebuild:
+  Fixed stack struct overflow (bug #343577 by Diego Elio Pettenò).
+
+  05 Aug 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  dosemu-1.4.1_pre20130107-r2.ebuild:
+  Fixed typos.
+
+*dosemu-1.4.1_pre20130107-r2 (05 Aug 2013)
+
+  05 Aug 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +dosemu-1.4.1_pre20130107-r2.ebuild, -dosemu-1.4.1_pre20130107-r1.ebuild:
+  Added basic hardened support (bug #392261 by Daniel Keyhani).
+
+*dosemu-1.4.1_pre20130107-r1 (05 Aug 2013)
+
+  05 Aug 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +dosemu-1.4.1_pre20130107-r1.ebuild:
+  Picked FluidR3_GM.sf2 from media-sound/fluid-soundfont as a default soundfont
+  (bug #479534 by Michelangelo Scopelliti)
+
+*dosemu-1.4.1_pre20130107 (17 Jul 2013)
+
+  17 Jul 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +dosemu-1.4.1_pre20130107.ebuild, metadata.xml:
+  Bump snapshot version of dosemu (ebuild and bug #451092 by Ben Kohler). Added
+  myself as a co-maintainer.
+
+  11 Jun 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/dosemu-1.4.1_pre20091009-flex.patch, dosemu-1.4.1_pre20091009.ebuild:
+  Fix build failure against modern flex (like 2.5.37). Bug #437074 by Chris
+  Smith and others.
 
   24 Jun 2010; Christoph Mende <angelos@gentoo.org>
   dosemu-1.4.1_pre20091009.ebuild:

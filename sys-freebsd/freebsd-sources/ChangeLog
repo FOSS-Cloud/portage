@@ -1,6 +1,121 @@
 # ChangeLog for sys-freebsd/freebsd-sources
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-freebsd/freebsd-sources/ChangeLog,v 1.82 2013/01/29 13:11:14 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-freebsd/freebsd-sources/ChangeLog,v 1.101 2013/11/17 04:22:41 naota Exp $
+
+*freebsd-sources-9.1-r4 (17 Nov 2013)
+
+  17 Nov 2013; Naohiro Aota <naota@gentoo.org>
+  +files/freebsd-sources-9.1-cve-2013-3077.patch,
+  +files/freebsd-sources-9.1-cve-2013-5209.patch,
+  +files/freebsd-sources-9.1-cve-2013-5691.patch,
+  +files/freebsd-sources-9.1-cve-2013-5710.patch,
+  +freebsd-sources-9.1-r4.ebuild:
+  Add Eratta/CVE patch. #482076
+
+*freebsd-sources-9.2 (09 Nov 2013)
+
+  09 Nov 2013; Alexis Ballier <aballier@gentoo.org>
+  +freebsd-sources-9.2.ebuild:
+  bump to 9.2
+
+*freebsd-sources-9.2_rc3 (26 Aug 2013)
+
+  26 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  +freebsd-sources-9.2_rc3.ebuild:
+  bump to rc3
+
+*freebsd-sources-9.2_rc2 (22 Aug 2013)
+
+  22 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  +freebsd-sources-9.2_rc2.ebuild:
+  bump to rc2
+
+  14 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  freebsd-sources-9.2_rc1.ebuild, metadata.xml:
+  Make dtrace (and CDDL) support optional, bug #481024 by Yuta SATOH
+
+  12 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  freebsd-sources-9.2_rc1.ebuild:
+  Add fbsd-cddl to (R)DEPEND, bug #480728 by Yuta SATOH
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  freebsd-sources-9.2_rc1.ebuild, -files/freebsd-sources-9.2-no_ctf.patch:
+  drop the no ctf patch now that its not needed anymore.
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  freebsd-sources-9.2_rc1.ebuild, metadata.xml:
+  Add a useflag to build and install a generic kernel. It makes updates easier.
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  freebsd-sources-9.2_rc1.ebuild:
+  Install directly in /usr/src/sys and remove the symlink useflag
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  freebsd-sources-9.2_rc1.ebuild:
+  Move to slot 0. There is no point in slotting it since kernel is tight to
+  userland in the FreeBSD world.
+
+*freebsd-sources-9.2_rc1 (09 Aug 2013)
+
+  09 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  +freebsd-sources-9.2_rc1.ebuild, +files/freebsd-sources-9.2-gentoo.patch,
+  +files/freebsd-sources-9.2-gentoo-gcc.patch,
+  +files/freebsd-sources-9.2-no_ctf.patch:
+  Bump to 9.2 rc1, by Yuta SATOH, bug #476646
+
+  09 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  freebsd-sources-9.1-r3.ebuild:
+  fix elog message, by Yuta SATOH
+
+  09 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  -freebsd-sources-9.0-r5.ebuild, -files/freebsd-sources-9.0-gentoo.patch,
+  -files/freebsd-sources-cve-2012-4576.patch:
+  remove old
+
+  09 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  -freebsd-sources-9.1-r1.ebuild, -freebsd-sources-9.1-r2.ebuild:
+  remove old
+
+  09 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  freebsd-sources-9.1-r3.ebuild:
+  depend on the same version of mk-defs, bug #476646 by Yuta SATOH
+
+*freebsd-sources-9.1-r3 (27 Jul 2013)
+
+  27 Jul 2013; Alexis Ballier <aballier@gentoo.org>
+  +freebsd-sources-9.1-r3.ebuild, +files/freebsd-sources-9.1-nfsserver.patch:
+  Apply fix for FreeBSD-SA-13:08, bug #478314
+
+*freebsd-sources-9.1-r2 (19 Jun 2013)
+
+  19 Jun 2013; Alexis Ballier <aballier@gentoo.org>
+  +freebsd-sources-9.1-r2.ebuild, +files/freebsd-sources-9.1-mmap.patch:
+  Fix CVE-2013-2171, bug #473688 by Yuta SATOH
+
+  18 Jun 2013; Alexis Ballier <aballier@gentoo.org>
+  -freebsd-sources-7.2-r3.ebuild, -freebsd-sources-8.0.ebuild,
+  -files/freebsd-sources-7.0-gentoo.patch,
+  -files/freebsd-sources-7.0-werror.patch,
+  -files/freebsd-sources-7.1-asm.patch,
+  -files/freebsd-sources-7.1-subnet-route-pr40133.patch,
+  -files/freebsd-sources-7.2-devfs7.patch,
+  -files/freebsd-sources-7.2-ipv6.patch, -files/freebsd-sources-7.2-null.patch,
+  -files/freebsd-sources-7.2-pipe.patch,
+  -files/freebsd-sources-7.2-sparc64.patch,
+  -files/freebsd-sources-7.2-zfs712.patch,
+  -files/freebsd-sources-8.0-arpresolve_panic.patch,
+  -files/freebsd-sources-8.0-mf626.patch,
+  -files/freebsd-sources-8.0-sparc64.patch,
+  -files/freebsd-sources-8.0-werror.patch,
+  -files/freebsd-sources-8.0-zfs.patch:
+  remove old
+
+*freebsd-sources-9.1-r1 (07 May 2013)
+
+  07 May 2013; Naohiro Aota <naota@gentoo.org>
+  +files/freebsd-sources-9.1-cve-2013-3266.patch,
+  +freebsd-sources-9.1-r1.ebuild, -freebsd-sources-9.1.ebuild:
+  Add patch to deal with CVE-2013-3266. #468422
 
   29 Jan 2013; Alexis Ballier <aballier@gentoo.org> freebsd-sources-9.1.ebuild:
   Install to /usr/src/PN-RV to ease upgrades, bug #454414 by Yuta SATOH

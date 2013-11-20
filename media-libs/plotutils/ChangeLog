@@ -1,6 +1,34 @@
 # ChangeLog for media-libs/plotutils
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/plotutils/ChangeLog,v 1.62 2013/02/20 13:14:44 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/plotutils/ChangeLog,v 1.70 2013/07/12 14:38:11 vincent Exp $
+
+  12 Jul 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  plotutils-2.6-r1.ebuild:
+  ppc, ppc64 keywords added, bug #468582
+
+  19 May 2013; Alexis Ballier <aballier@gentoo.org> plotutils-2.6-r1.ebuild:
+  keyword ~amd64-fbsd, bug #465136
+
+  10 May 2013; Markus Meier <maekke@gentoo.org> plotutils-2.6-r1.ebuild:
+  add ~arm, bug #468582
+
+  07 May 2013; Naohiro Aota <naota@gentoo.org> plotutils-2.6-r1.ebuild:
+  Add ~x86-fbsd wrt bug #468582
+
+  05 May 2013; Jeroen Roovers <jer@gentoo.org> plotutils-2.6-r1.ebuild:
+  Marked ~hppa (bug #468582).
+
+  04 May 2013; Justin Lecher <jlec@gentoo.org> plotutils-2.6.ebuild:
+  Add missing blocker
+
+*plotutils-2.6-r1 (04 May 2013)
+
+  04 May 2013; Justin Lecher <jlec@gentoo.org> +plotutils-2.6-r1.ebuild,
+  +files/plotutils-2.6-libxmi.patch, metadata.xml:
+  Unbundle media-libs/libxmi, #399741
+
+  03 May 2013; Andreas K. Huettel <dilfridge@gentoo.org> plotutils-2.6.ebuild:
+  Fix automake-1.13 compatibility, bug 467784
 
   20 Feb 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
   plotutils-2.6.ebuild:

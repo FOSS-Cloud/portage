@@ -1,6 +1,35 @@
 # ChangeLog for media-sound/ncmpc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/ncmpc/ChangeLog,v 1.75 2012/07/29 17:42:26 angelos Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/ncmpc/ChangeLog,v 1.84 2013/05/26 15:55:48 ago Exp $
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> ncmpc-0.21.ebuild:
+  Stable for x86, wrt bug #470752
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> ncmpc-0.21.ebuild:
+  Stable for ppc, wrt bug #470752
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> ncmpc-0.21.ebuild:
+  Stable for sparc, wrt bug #470752
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> ncmpc-0.21.ebuild:
+  Stable for ppc64, wrt bug #470752
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> ncmpc-0.21.ebuild:
+  Stable for amd64, wrt bug #470752
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> ncmpc-0.21.ebuild:
+  Stable for HPPA (bug #470752).
+
+  21 Apr 2013; Jeroen Roovers <jer@gentoo.org> ncmpc-0.21.ebuild, metadata.xml:
+  Add some USE flag consistency.
+
+  20 Apr 2013; Jeroen Roovers <jer@gentoo.org> ncmpc-0.21.ebuild, metadata.xml:
+  Enable chat support.
+
+*ncmpc-0.21 (20 Apr 2013)
+
+  20 Apr 2013; Christoph Mende <angelos@gentoo.org> +ncmpc-0.21.ebuild:
+  Version bump
 
   29 Jul 2012; Christoph Mende <angelos@gentoo.org> -ncmpc-0.18.ebuild,
   -ncmpc-0.19.ebuild:

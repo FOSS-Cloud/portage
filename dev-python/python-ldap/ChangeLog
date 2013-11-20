@@ -1,6 +1,38 @@
 # ChangeLog for dev-python/python-ldap
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-ldap/ChangeLog,v 1.123 2013/04/06 00:50:31 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-ldap/ChangeLog,v 1.129 2013/09/05 18:46:36 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> python-ldap-2.4.10-r1.ebuild,
+  python-ldap-2.4.12.ebuild, python-ldap-2.4.13.ebuild, python-ldap-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  02 Jul 2013; Mike Gilbert <floppym@gentoo.org> python-ldap-2.3.13.ebuild,
+  python-ldap-2.4.10-r1.ebuild, python-ldap-2.4.10.ebuild,
+  python-ldap-2.4.12.ebuild, python-ldap-2.4.13.ebuild, python-ldap-9999.ebuild:
+  Unquote eprefix in sed call, bug 475072.
+
+  27 Jun 2013; Michael Weber <xmw@gentoo.org> python-ldap-9999.ebuild:
+  no parallel, in-source build, fix python2.5 syntax via sed.
+
+*python-ldap-9999 (27 Jun 2013)
+
+  27 Jun 2013; Michael Weber <xmw@gentoo.org> +python-ldap-9999.ebuild,
+  -python-ldap-2.4.3.ebuild, -python-ldap-2.4.9.ebuild, metadata.xml,
+  python-ldap-2.3.13.ebuild, python-ldap-2.4.10-r1.ebuild,
+  python-ldap-2.4.10.ebuild, python-ldap-2.4.12.ebuild,
+  python-ldap-2.4.13.ebuild:
+  Add myself as maintainer, add live ebuild for python3 fork, fix unquited
+  variables, remove two old, unstable versions.
+
+*python-ldap-2.4.13 (27 Jun 2013)
+
+  27 Jun 2013; Michael Weber <xmw@gentoo.org> +python-ldap-2.4.13.ebuild:
+  Version bump (bug 474962).
+
+*python-ldap-2.4.12 (03 Jun 2013)
+
+  03 Jun 2013; Patrick Lauer <patrick@gentoo.org> +python-ldap-2.4.12.ebuild:
+  Bump
 
   06 Apr 2013; Naohiro Aota <naota@gentoo.org> python-ldap-2.4.10-r1.ebuild:
   Add ~x86-fbsd.

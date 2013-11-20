@@ -1,6 +1,108 @@
 # ChangeLog for app-admin/eselect
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect/ChangeLog,v 1.226 2013/03/15 15:24:19 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect/ChangeLog,v 1.255 2013/10/29 21:08:27 ulm Exp $
+
+  29 Oct 2013; Ulrich Müller <ulm@gentoo.org> eselect-9999.ebuild:
+  Change to git-r3 again, following partial fix of bug 489100.
+
+  22 Oct 2013; Ulrich Müller <ulm@gentoo.org> eselect-9999.ebuild:
+  Return to git-2.eclass, reverting previous commit.
+
+  10 Oct 2013; Ulrich Müller <ulm@gentoo.org> eselect-9999.ebuild:
+  Migrate to git-r3.eclass.
+
+  29 Sep 2013; Ulrich Müller <ulm@gentoo.org> -eselect-1.2.18.ebuild,
+  -eselect-1.3.4.ebuild:
+  Remove old.
+
+  26 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.8.ebuild:
+  Stable for arm, wrt bug #485500
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.8.ebuild:
+  Stable for ppc, wrt bug #485500
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.8.ebuild:
+  Stable for sparc, wrt bug #485500
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.8.ebuild:
+  Stable for ppc64, wrt bug #485500
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.8.ebuild:
+  Stable for alpha, wrt bug #485500
+
+  22 Sep 2013; Jeroen Roovers <jer@gentoo.org> eselect-1.3.8.ebuild:
+  Stable for HPPA (bug #485500).
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.8.ebuild:
+  Stable for x86, wrt bug #485500
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.8.ebuild:
+  Stable for amd64, wrt bug #485500
+
+  05 Sep 2013; Ulrich Müller <ulm@gentoo.org> eselect-1.3.6.ebuild:
+  Add eselect-mode and eselect-syntax to PDEPEND.
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.6.ebuild:
+  Stable for x86, wrt bug #482308
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.6.ebuild:
+  Stable for ppc64, wrt bug #482308
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.6.ebuild:
+  Stable for ppc, wrt bug #482308
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.6.ebuild:
+  Stable for ia64, wrt bug #482308
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.6.ebuild:
+  Stable for alpha, wrt bug #482308
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.6.ebuild:
+  Stable for arm, wrt bug #482308
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> eselect-1.3.6.ebuild:
+  Stable for amd64, wrt bug #482308
+
+  28 Aug 2013; Jeroen Roovers <jer@gentoo.org> eselect-1.3.6.ebuild:
+  Stable for HPPA (bug #482308).
+
+  28 Aug 2013; Raúl Porcel <armin76@gentoo.org> eselect-1.3.8.ebuild:
+  Add ~s390 wrt #477082
+
+*eselect-1.3.8 (28 Aug 2013)
+
+  28 Aug 2013; Ulrich Müller <ulm@gentoo.org> -eselect-1.3.7.ebuild,
+  +eselect-1.3.8.ebuild:
+  Version bump. Remove intermediate version.
+
+  25 Aug 2013; Jeroen Roovers <jer@gentoo.org> eselect-1.3.7.ebuild:
+  Stable for HPPA (bug #482308).
+
+  06 Aug 2013; Markus Meier <maekke@gentoo.org> eselect-1.3.7.ebuild:
+  add ~arm, bug #475964
+
+*eselect-1.3.7 (16 Jul 2013)
+
+  16 Jul 2013; Ulrich Müller <ulm@gentoo.org> +eselect-1.3.7.ebuild:
+  Version bump, fixes bugs 460328 and 473308. New USE flags emacs and
+  vim-syntax pull edit modes for Emacs and Vim, respectively. Drop ~arm and
+  ~s390 keywords because they are missing from dependencies.
+
+  14 Jul 2013; Ulrich Müller <ulm@gentoo.org> -eselect-1.3.5.ebuild,
+  eselect-1.3.6.ebuild, eselect-9999.ebuild:
+  Update LICENSE in live ebuild, documentation is now dual-licensed under GPL
+  or CC-BY-SA. Update HOMEPAGE. Remove intermediate version.
+
+*eselect-1.3.6 (06 Jul 2013)
+
+  06 Jul 2013; Ulrich Müller <ulm@gentoo.org> +eselect-1.3.6.ebuild:
+  Version bump, fixes bug 475284.
+
+*eselect-1.3.5 (22 Jun 2013)
+
+  22 Jun 2013; Ulrich Müller <ulm@gentoo.org> -eselect-1.2.15.ebuild,
+  -eselect-1.3.3.ebuild, +eselect-1.3.5.ebuild:
+  Version bump, fixes bugs 451150 and 473542. Remove old.
 
   15 Mar 2013; Jeroen Roovers <jer@gentoo.org> eselect-1.3.4.ebuild:
   Stable for HPPA (bug #461342).

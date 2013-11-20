@@ -1,6 +1,50 @@
 # ChangeLog for dev-python/pyparsing
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyparsing/ChangeLog,v 1.89 2013/01/29 14:56:38 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyparsing/ChangeLog,v 1.102 2013/09/26 17:31:39 ago Exp $
+
+  26 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pyparsing-2.0.1.ebuild:
+  Stable for arm, wrt bug #484724
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pyparsing-2.0.1.ebuild:
+  Stable for ppc, wrt bug #484724
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pyparsing-2.0.1.ebuild:
+  Stable for sparc, wrt bug #484724
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pyparsing-2.0.1.ebuild:
+  Stable for ppc64, wrt bug #484724
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pyparsing-2.0.1.ebuild:
+  Stable for alpha, wrt bug #484724
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pyparsing-2.0.1.ebuild:
+  Stable for x86, wrt bug #484724
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pyparsing-2.0.1.ebuild:
+  Stable for amd64, wrt bug #484724
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pyparsing-2.0.1.ebuild:
+  Stable for ia64, wrt bug #484724
+
+  13 Sep 2013; Jeroen Roovers <jer@gentoo.org> pyparsing-2.0.1.ebuild:
+  Stable for HPPA (bug #484724).
+
+  12 Sep 2013; Michał Górny <mgorny@gentoo.org> -pyparsing-1.5.7.ebuild,
+  -pyparsing-2.0.0.ebuild:
+  Remove the split-impl pyparsing versions.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pyparsing-1.5.6-r2.ebuild,
+  pyparsing-1.5.7.ebuild, pyparsing-2.0.0.ebuild, pyparsing-2.0.1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*pyparsing-2.0.1 (11 Aug 2013)
+
+  11 Aug 2013; Mike Gilbert <floppym@gentoo.org> +pyparsing-2.0.1.ebuild:
+  Version bump.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> pyparsing-1.5.6-r2.ebuild,
+  pyparsing-1.5.7.ebuild:
+  Drop removed Python implementations from PYTHON_COMPAT.
 
   29 Jan 2013; Michał Górny <mgorny@gentoo.org> -pyparsing-1.5.7-r1.ebuild,
   pyparsing-1.5.7.ebuild:

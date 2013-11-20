@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/hydra/hydra-7.4.2.ebuild,v 1.1 2013/03/08 17:18:12 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/hydra/hydra-7.4.2.ebuild,v 1.5 2013/06/25 12:48:08 ago Exp $
 
 EAPI=5
 inherit eutils toolchain-funcs
@@ -11,7 +11,7 @@ SRC_URI="http://freeworld.thc.org/releases/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="firebird gtk idn mysql ncp oracle pcre postgres ssl subversion"
 
 RDEPEND="
@@ -42,7 +42,6 @@ src_prepare() {
 	: > Makefile.unix
 
 	sed -i \
-		-e 's:-O2:$(CPPFLAGS) $(CFLAGS):g' \
 		-e 's:|| echo.*$::' \
 		-e '/\t-$(CC)/s:-::' \
 		-e '/^OPTS/{s|=|+=|;s| -O3||}' \

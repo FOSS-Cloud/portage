@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ghc/ghc-7.4.2.ebuild,v 1.7 2013/03/28 22:45:39 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/ghc/ghc-7.4.2.ebuild,v 1.13 2013/04/25 18:47:56 ago Exp $
 
 # Brief explanation of the bootstrap logic:
 #
@@ -74,7 +74,7 @@ SRC_URI="!binary? ( http://www.haskell.org/ghc/dist/${PV}/${P}-src.tar.bz2 )"
 LICENSE="BSD"
 SLOT="0/${PV}"
 # ghc on ia64 needs gcc to support -mcmodel=medium (or some dark hackery) to avoid TOC overflow
-KEYWORDS="~alpha amd64 ~ia64 ~ppc ~ppc64 ~sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE="doc ghcbootstrap ghcmakebinary +gmp llvm"
 IUSE+=" binary" # don't forget about me later!
 IUSE+=" elibc_glibc" # system stuff
@@ -368,9 +368,18 @@ src_prepare() {
 		epatch "${FILESDIR}"/${PN}-7.4.1-darwin-CHOST.patch
 		epatch "${FILESDIR}"/${PN}-7.2.1-freebsd-CHOST.patch
 
+		we_want_libffi_workaround() {
+			use ghcmakebinary && return 1
+
+			# pick only registerised arches
+			# http://bugs.gentoo.org/463814
+			use amd64 && return 0
+			use x86 && return 0
+			return 1
+		}
 		# one mode external depend with unstable ABI be careful to stash it
 		# avoid external libffi runtime when we build binaries
-		use ghcmakebinary || epatch "${FILESDIR}"/${PN}-7.4.2-system-libffi.patch
+		we_want_libffi_workaround && epatch "${FILESDIR}"/${PN}-7.4.2-system-libffi.patch
 
 		epatch "${FILESDIR}"/${PN}-7.4.1-ticket-7339-fix-unaligned-unreg.patch
 

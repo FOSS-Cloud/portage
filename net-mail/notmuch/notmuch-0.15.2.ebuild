@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/notmuch/notmuch-0.15.2.ebuild,v 1.3 2013/03/09 17:36:23 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/notmuch/notmuch-0.15.2.ebuild,v 1.5 2013/09/14 17:26:31 aidecoe Exp $
 
 EAPI=4
 
@@ -27,7 +27,7 @@ IUSE="bash-completion crypt debug doc emacs mutt nmbug pick python test vim
 CDEPEND="
 	>=dev-libs/glib-2.22
 	>=dev-libs/gmime-2.6.7
-	dev-libs/xapian
+	<dev-libs/xapian-1.3
 	sys-libs/talloc
 	debug? ( dev-util/valgrind )
 	emacs? ( >=virtual/emacs-23 )
@@ -51,7 +51,6 @@ RDEPEND="${CDEPEND}
 	zsh-completion? ( app-shells/zsh )
 	"
 
-PATCHES=( )
 DOCS=( AUTHORS NEWS README )
 SITEFILE="50${PN}-gentoo.el"
 SITEFILE_PICK="60${PN}-pick-gentoo.el"
@@ -74,10 +73,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	local p
-	for p in "${PATCHES[@]}"; do
-		epatch "${p}"
-	done
+	epatch "${FILESDIR}/${PV}-0001-test-exit-with-nonzero-value-when-not-.patch"
 
 	default
 	bindings python distutils_src_prepare

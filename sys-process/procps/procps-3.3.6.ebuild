@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/procps/procps-3.3.6.ebuild,v 1.3 2013/03/16 15:08:39 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/procps/procps-3.3.6.ebuild,v 1.15 2013/08/03 07:33:08 ago Exp $
 
 EAPI="5"
 
@@ -14,7 +14,7 @@ SRC_URI="http://pkgs.fedoraproject.org/repo/pkgs/${PN}-ng/${PN}-ng-${PV}.tar.xz/
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-linux ~ia64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-linux ~ia64-linux ~x86-linux"
 IUSE="+ncurses nls static-libs unicode"
 
 RDEPEND="ncurses? ( >=sys-libs/ncurses-5.7-r7[unicode?] )"
@@ -29,7 +29,7 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--exec-prefix="${EPREFIX}/" \
+		--exec-prefix="${EPREFIX}" \
 		--docdir='$(datarootdir)'/doc/${PF} \
 		$(use_with ncurses) \
 		$(use_enable nls) \

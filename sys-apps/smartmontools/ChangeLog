@@ -1,6 +1,51 @@
 # ChangeLog for sys-apps/smartmontools
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/smartmontools/ChangeLog,v 1.120 2013/02/21 02:17:07 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/smartmontools/ChangeLog,v 1.133 2013/09/14 10:32:46 hwoarang Exp $
+
+  14 Sep 2013; Markos Chandras <hwoarang@gentoo.org> files/smartd.rc:
+  Use /run instead of /var/run. Bug #476242
+
+  11 Aug 2013; Sven Vermeulen <swift@gentoo.org> smartmontools-6.1.ebuild,
+  smartmontools-6.2.ebuild, smartmontools-9999.ebuild:
+  Adding USE=selinux dependency on selinux-smartmon
+
+*smartmontools-6.2 (10 Aug 2013)
+
+  10 Aug 2013; Tim Harder <radhermit@gentoo.org> +smartmontools-6.2.ebuild:
+  Version bump.
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> smartmontools-6.1.ebuild:
+  Stable for sparc, wrt bug #475894
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> smartmontools-6.1.ebuild:
+  Stable for ppc64, wrt bug #475894
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> smartmontools-6.1.ebuild:
+  Stable for ppc, wrt bug #475894
+
+  08 Jul 2013; Jeroen Roovers <jer@gentoo.org> smartmontools-6.1.ebuild:
+  Stable for HPPA (bug #475894).
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> smartmontools-6.1.ebuild:
+  Stable for ia64, wrt bug #475894
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> smartmontools-6.1.ebuild:
+  Stable for arm, wrt bug #475894
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> smartmontools-6.1.ebuild:
+  Stable for alpha, wrt bug #475894
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> smartmontools-6.1.ebuild:
+  Stable for x86, wrt bug #475894
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> smartmontools-6.1.ebuild:
+  Stable for amd64, wrt bug #475894
+
+*smartmontools-6.1 (31 May 2013)
+
+  31 May 2013; Tim Harder <radhermit@gentoo.org> +smartmontools-6.1.ebuild,
+  smartmontools-9999.ebuild:
+  Version bump (bug #462414) and update to EAPI 4.
 
   21 Feb 2013; Zac Medico <zmedico@gentoo.org> smartmontools-6.0.ebuild,
   smartmontools-9999.ebuild:

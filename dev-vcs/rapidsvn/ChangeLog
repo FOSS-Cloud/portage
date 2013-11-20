@@ -1,6 +1,16 @@
 # ChangeLog for dev-vcs/rapidsvn
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/rapidsvn/ChangeLog,v 1.17 2012/10/07 11:20:26 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/rapidsvn/ChangeLog,v 1.20 2013/11/16 08:04:36 dirtyepic Exp $
+
+  16 Nov 2013; Ryan Hill <dirtyepic@gentoo.org> rapidsvn-0.12.1.ebuild:
+  Remove wxwidgets_pkg_setup call (unnecessary with USE deps).
+
+  04 Aug 2013; Markus Meier <maekke@gentoo.org> rapidsvn-0.12.1.ebuild:
+  add ~arm, bug #473824
+
+  10 May 2013; Agostino Sarubbo <ago@gentoo.org> -rapidsvn-0.12.0.ebuild,
+  rapidsvn-0.12.1.ebuild:
+  Stable for amd64/ppc/ppc64/x86, wrt to bug #469282, remove old
 
 *rapidsvn-0.12.1 (07 Oct 2012)
 

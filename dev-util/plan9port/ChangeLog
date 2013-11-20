@@ -1,6 +1,87 @@
 # ChangeLog for dev-util/plan9port
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/plan9port/ChangeLog,v 1.15 2013/03/22 12:06:39 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/plan9port/ChangeLog,v 1.29 2013/10/25 12:39:49 blueness Exp $
+
+*plan9port-20131024 (25 Oct 2013)
+
+  25 Oct 2013; Anthony G. Basile <blueness@gentoo.org>
+  +plan9port-20131024.ebuild:
+  Version bump
+
+*plan9port-20130927 (28 Sep 2013)
+
+  28 Sep 2013; Anthony G. Basile <blueness@gentoo.org>
+  +plan9port-20130927.ebuild, -plan9port-20130926.ebuild:
+  Version bump and remove broken version
+
+  27 Sep 2013; Anthony G. Basile <blueness@gentoo.org>
+  -plan9port-20130814.ebuild:
+  Remove older unstable
+
+*plan9port-20130926 (27 Sep 2013)
+
+  27 Sep 2013; Anthony G. Basile <blueness@gentoo.org>
+  +plan9port-20130926.ebuild:
+  Version bump
+
+  08 Sep 2013; Anthony G. Basile <blueness@gentoo.org>
+  -plan9port-20130807.ebuild:
+  Remove older unstable
+
+*plan9port-20130907 (08 Sep 2013)
+
+  08 Sep 2013; Anthony G. Basile <blueness@gentoo.org>
+  +plan9port-20130907.ebuild:
+  Version bump
+
+*plan9port-20130814 (15 Aug 2013)
+
+  15 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  +plan9port-20130814.ebuild, -plan9port-20130801.ebuild:
+  Version bump and remove older unstable
+
+*plan9port-20130807 (08 Aug 2013)
+
+  08 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  +plan9port-20130807.ebuild:
+  Version bump
+
+  03 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  -plan9port-20130320-r1.ebuild, -plan9port-20130622.ebuild,
+  -plan9port-20130702.ebuild, -plan9port-20130718.ebuild:
+  Remove older versions
+
+*plan9port-20130801 (02 Aug 2013)
+
+  02 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  +plan9port-20130801.ebuild:
+  Version bump
+
+*plan9port-20130718 (20 Jul 2013)
+
+  20 Jul 2013; Anthony G. Basile <blueness@gentoo.org>
+  +plan9port-20130718.ebuild:
+  Version bump
+
+*plan9port-20130702 (04 Jul 2013)
+
+  04 Jul 2013; Anthony G. Basile <blueness@gentoo.org>
+  +plan9port-20130702.ebuild:
+  Version bump
+
+*plan9port-20130622 (23 Jun 2013)
+
+  23 Jun 2013; Anthony G. Basile <blueness@gentoo.org>
+  +plan9port-20130622.ebuild:
+  Version bump
+
+*plan9port-20130320-r1 (21 Jun 2013)
+
+  21 Jun 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/plan9port-builderr.patch, +plan9port-20130320-r1.ebuild,
+  -plan9port-20130119.ebuild, -plan9port-20130131.ebuild,
+  -plan9port-20130209-r1.ebuild, -plan9port-20130308.ebuild:
+  Optionally depend on X, fix build system, bug #463616
 
 *plan9port-20130320 (22 Mar 2013)
 

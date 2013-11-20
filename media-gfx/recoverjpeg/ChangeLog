@@ -1,6 +1,27 @@
 # ChangeLog for media-gfx/recoverjpeg
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/recoverjpeg/ChangeLog,v 1.11 2013/03/19 10:32:56 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/recoverjpeg/ChangeLog,v 1.16 2013/06/25 18:44:17 ago Exp $
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> recoverjpeg-2.2.3.ebuild:
+  Stable for amd64, wrt bug #474234
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> recoverjpeg-2.2.3.ebuild:
+  Stable for x86, wrt bug #474234
+
+  11 May 2013; Michael Weber <xmw@gentoo.org> recoverjpeg-2.0-r1.ebuild,
+  recoverjpeg-2.1.1.ebuild, recoverjpeg-2.2.1.ebuild, recoverjpeg-2.2.2.ebuild,
+  recoverjpeg-2.2.3.ebuild:
+  Fix HOMEPAGE (thanks  Mr. Anderson, bug 469346)
+
+*recoverjpeg-2.2.3 (06 May 2013)
+
+  06 May 2013; Michael Weber <xmw@gentoo.org> +recoverjpeg-2.2.3.ebuild:
+  Version bump
+
+*recoverjpeg-2.2.2 (29 Apr 2013)
+
+  29 Apr 2013; Michael Weber <xmw@gentoo.org> +recoverjpeg-2.2.2.ebuild:
+  Version bump
 
   19 Mar 2013; Agostino Sarubbo <ago@gentoo.org> recoverjpeg-2.2.1.ebuild:
   Stable for x86, wrt bug #461184

@@ -1,6 +1,46 @@
 # ChangeLog for x11-apps/xinput
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-apps/xinput/ChangeLog,v 1.50 2012/08/26 20:14:10 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-apps/xinput/ChangeLog,v 1.62 2013/10/08 05:03:53 ago Exp $
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xinput-1.6.1.ebuild:
+  Stable for x86, wrt bug #475480
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xinput-1.6.1.ebuild:
+  Stable for sparc, wrt bug #475480
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xinput-1.6.1.ebuild:
+  Stable for ia64, wrt bug #475480
+
+  05 Oct 2013; Markus Meier <maekke@gentoo.org> xinput-1.6.1.ebuild:
+  arm stable, bug #475480
+
+  05 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xinput-1.6.1.ebuild:
+  Stable for alpha, wrt bug #475480
+
+  04 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xinput-1.6.1.ebuild:
+  Stable for ppc64, wrt bug #475480
+
+  03 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xinput-1.6.1.ebuild:
+  Stable for ppc, wrt bug #475480
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> xinput-1.6.1.ebuild:
+  Stable for HPPA (bug #475480).
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xinput-1.6.1.ebuild:
+  Stable for amd64, wrt bug #475480
+
+*xinput-1.6.1 (18 Sep 2013)
+
+  18 Sep 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xinput-1.6.1.ebuild, -files/xinput-1.5.3-inputproto-2.1.patch,
+  -xinput-1.5.3-r1.ebuild, -xinput-1.5.4.ebuild:
+  Version bump.
+
+  05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  11 May 2013; Patrick Lauer <patrick@gentoo.org> -xinput-1.5.3.ebuild:
+  Remove old version with unsatisfiable deps
 
   26 Aug 2012; Raúl Porcel <armin76@gentoo.org> xinput-1.6.0.ebuild:
   alpha/ia64/sh/sparc stable wrt #419473
@@ -275,4 +315,3 @@
 
   30 Jun 2004; Matthieu Sozeau <mattam@gentoo.org> xinput-1.2.ebuild:
   Initial import, see bug #10580.
-

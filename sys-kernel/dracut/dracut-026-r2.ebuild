@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/dracut-026-r2.ebuild,v 1.1 2013/04/02 14:16:51 aidecoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/dracut-026-r2.ebuild,v 1.5 2013/10/27 17:51:45 swift Exp $
 
 EAPI=4
 
@@ -67,19 +67,20 @@ RESTRICT="test"
 
 CDEPEND="virtual/udev
 	dracut_modules_systemd? ( >=sys-apps/systemd-198-r5 )
+	selinux? ( sec-policy/selinux-dracut )
 	"
 RDEPEND="${CDEPEND}
 	app-arch/cpio
 	>=app-shells/bash-4.0
 	>=app-shells/dash-0.5.4.11
 	>=sys-apps/baselayout-1.12.14-r1
-	|| ( >=sys-apps/module-init-tools-3.8 >sys-apps/kmod-5[tools] )
+	>sys-apps/kmod-5[tools]
 	>=sys-apps/sysvinit-2.87-r3
 	>=sys-apps/util-linux-2.21
 	virtual/pkgconfig
 
 	debug? ( dev-util/strace )
-	device-mapper? ( || ( sys-fs/device-mapper >=sys-fs/lvm2-2.02.33 ) )
+	device-mapper? ( >=sys-fs/lvm2-2.02.33 )
 	net? ( net-misc/curl >=net-misc/dhcp-4.2.4_p2-r1[client] sys-apps/iproute2 )
 	selinux? ( sys-libs/libselinux sys-libs/libsepol )
 	dracut_modules_biosdevname? ( sys-apps/biosdevname )
@@ -94,7 +95,7 @@ RDEPEND="${CDEPEND}
 	dracut_modules_gensplash? ( media-gfx/splashutils )
 	dracut_modules_iscsi? ( >=sys-block/open-iscsi-2.0.871.3 )
 	dracut_modules_lvm? ( >=sys-fs/lvm2-2.02.33 )
-	dracut_modules_mdraid? ( sys-fs/mdadm )
+	dracut_modules_mdraid? ( >=sys-fs/mdadm-3.2.6-r1 )
 	dracut_modules_multipath? ( sys-fs/multipath-tools )
 	dracut_modules_nbd? ( sys-block/nbd )
 	dracut_modules_nfs? ( net-fs/nfs-utils net-nds/rpcbind )

@@ -1,6 +1,37 @@
 # ChangeLog for dev-python/kombu
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/kombu/ChangeLog,v 1.22 2013/03/26 06:24:38 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/kombu/ChangeLog,v 1.29 2013/09/26 18:46:45 prometheanfire Exp $
+
+  26 Sep 2013; Matthew Thode <prometheanfire@gentoo.org> kombu-2.5.14.ebuild:
+  fixing a py-amqp dep in kombu-2.5.14 so that kombu actually works
+
+*kombu-2.5.14 (02 Sep 2013)
+
+  02 Sep 2013; Patrick Lauer <patrick@gentoo.org> +kombu-2.5.14.ebuild:
+  Bump
+
+*kombu-2.5.12 (15 Aug 2013)
+
+  15 Aug 2013; Ian Delaney <idella4@gentoo.org> +kombu-2.5.12.ebuild:
+  bump, needed for celery-3.0.21, corrections & updates to deps
+
+  15 Aug 2013; Patrick Lauer <patrick@gentoo.org> kombu-2.5.10.ebuild:
+  Whitespace
+
+  27 Jun 2013; Ian Delaney <idella4@gentoo.org> +files/kombu-2.5.10-tests.patch,
+  kombu-2.5.10.ebuild:
+  update dep, update test phase, patch partially fixing testsuite
+
+  28 Apr 2013; Ian Delaney <idella4@gentoo.org> kombu-2.5.10.ebuild:
+  Add py3.3, drop py3.1 & pypy support, drop dep simplejson, tidied up dep list,
+  set in source build req'd for tests, unrestricted test, overhauled doc build &
+  test phase
+
+*kombu-2.5.10 (24 Apr 2013)
+
+  24 Apr 2013; Ian Delaney <idella4@gentoo.org> +kombu-2.5.10.ebuild,
+  kombu-2.4.10.ebuild:
+  bump, test /issues/227 in progress
 
   26 Mar 2013; Matthew Thode <prometheanfire@gentoo.org> kombu-1.0.4-r1.ebuild:
   fixing kombu's 1.0.4 deps (anyjson was versioned and should not have been)

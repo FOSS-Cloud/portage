@@ -1,6 +1,115 @@
 # ChangeLog for x11-drivers/ati-drivers
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ChangeLog,v 1.325 2013/03/19 11:54:39 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ChangeLog,v 1.348 2013/11/10 18:48:56 chithanh Exp $
+
+*ati-drivers-13.11_beta6 (10 Nov 2013)
+
+  10 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-13.11_beta6.ebuild:
+  Version bump, bug #490666. Import of Emil Karlson's ebuild from the x11 overlay.
+
+  12 Oct 2013; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Simplify automatic assignment.
+
+*ati-drivers-13.11_beta (10 Oct 2013)
+
+  10 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-13.11_beta.ebuild:
+  Bump to latest beta. Import of Emil Karlson's ebuild from the x11 overlay.
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org> ati-drivers-13.9.ebuild:
+  Stable for x86, wrt bug #475480
+
+*ati-drivers-13.10_beta (04 Oct 2013)
+
+  04 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-13.10_beta.ebuild:
+  Bump to latest beta. Import of Emil Karlson's ebuild from the x11 overlay.
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ati-drivers-13.9.ebuild:
+  Stable for amd64, wrt bug #475480
+
+*ati-drivers-13.9 (19 Sep 2013)
+
+  19 Sep 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-13.9.ebuild:
+  Version bump, import of Emil Karlson's ebuild from the x11 overlay.
+
+  12 Sep 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/fgl_glxgears-do-not-include-glATI.patch, ati-drivers-13.8_beta2.ebuild:
+  Fix bug #483400, import of Emil Karlson's ebuild from the x11 overlay.
+
+  24 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/ati-drivers-13.8-beta-include-seq_file.patch,
+  +files/ati-drivers-13.8-proc-permissions.diff,
+  +files/check-for-iommu-only-if-iommu-is-supported.patch:
+  Add patches that were mistakenly omitted.
+
+*ati-drivers-13.8_beta2 (23 Aug 2013)
+
+  23 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-13.8_beta2.ebuild:
+  Bump to new prerelease. Import of Emil Karlson's ebuild from the x11 overlay.
+
+  01 Jul 2013; Rick Farina <zerochaos@gentoo.org> ati-drivers-13.4.ebuild,
+  ati-drivers-13.6_beta.ebuild:
+  with permission of maintainer, removing improper check which attempted to
+  verify if pax sources were being used when user had USE=pax_kernel.  bugs with
+  USE=pax_kernel and no actual pax kernel should be closed as invalid
+
+  30 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/linux-3.10-proc.diff:
+  Restore patch that is still needed for 13.4, bug #475306.
+
+  30 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> ati-drivers-13.4.ebuild:
+  Stabilize on amd64 and x86, in tree for >30 days and works fine.
+
+  18 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/ati-drivers-13.6-linux-3.10-proc.diff, +files/typesafe-kuid.diff,
+  -files/linux-3.10-proc.diff, -files/linux-3.9-kuid.diff,
+  ati-drivers-13.1_pre897.ebuild, ati-drivers-13.4.ebuild,
+  ati-drivers-13.6_beta.ebuild:
+  Fix building with recent kernels, bug #470596. Import of Emil Karlson's ebuild
+  from the x11 overlay.
+
+  03 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ati-drivers-13.4.ebuild, ati-drivers-13.6_beta.ebuild:
+  Import hardened kernel build fix from the x11 overlay by Emil Karlson, bug
+  #471976.
+
+  31 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ati-drivers-13.6_beta.ebuild:
+  Update dependency on xorg-server, bug #471878.
+
+*ati-drivers-13.6_beta (30 May 2013)
+
+  30 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-13.6_beta.ebuild, ati-drivers-13.1_pre897.ebuild:
+  Import latest ebuilds from the x11 overlay, by Emil Karlson.
+
+  20 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/linux-3.10-proc.diff, +files/linux-3.9-kuid.diff,
+  ati-drivers-13.4.ebuild:
+  Import latest ebuild from the x11 overlay, by Emil Karlson.
+
+*ati-drivers-13.4 (26 Apr 2013)
+
+  26 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> +ati-drivers-13.4.ebuild,
+  -ati-drivers-13.2_beta7.ebuild, -ati-drivers-13.3_beta2.ebuild,
+  -ati-drivers-13.3_beta3.ebuild:
+  Version bump to 13.4 wrt bug#467202. Upstream download url changed a bit.
+  Remove betas as 13.4 should be full release of those.
+
+  21 Apr 2013; Michał Górny <mgorny@gentoo.org> ati-drivers-13.1.ebuild,
+  ati-drivers-13.1_pre897.ebuild, ati-drivers-13.2_beta7.ebuild,
+  ati-drivers-13.3_beta2.ebuild, ati-drivers-13.3_beta3.ebuild:
+  Support multilib libraries alternatively to emul-linux-x86-xlibs.
+
+*ati-drivers-13.3_beta3 (20 Apr 2013)
+
+  20 Apr 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-13.3_beta3.ebuild:
+  Bump to latest beta. Import of Emil Karlson's ebuild from the x11 overlay.
 
   19 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
   ati-drivers-13.1.ebuild, ati-drivers-13.1_pre897.ebuild:

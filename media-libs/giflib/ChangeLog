@@ -1,6 +1,23 @@
 # ChangeLog for media-libs/giflib
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/giflib/ChangeLog,v 1.68 2013/03/12 14:20:43 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/giflib/ChangeLog,v 1.72 2013/11/10 04:14:36 radhermit Exp $
+
+*giflib-5.0.5 (10 Nov 2013)
+
+  10 Nov 2013; Tim Harder <radhermit@gentoo.org> +giflib-5.0.5.ebuild:
+  Version bump.
+
+  19 Oct 2013; Mike Frysinger <vapier@gentoo.org> giflib-4.2.3.ebuild:
+  Fix building w/automake-1.13 #486542 by Arfrever Frehtes Taifersar Arahesis.
+
+*giflib-4.2.3 (27 Sep 2013)
+
+  27 Sep 2013; Tim Harder <radhermit@gentoo.org> +giflib-4.2.3.ebuild:
+  Version bump.
+
+  06 Jul 2013; Christoph Junghans <ottxor@gentoo.org> giflib-4.1.6-r2.ebuild,
+  giflib-5.0.4.ebuild:
+  added prefix keywords
 
   12 Mar 2013; Mike Frysinger <vapier@gentoo.org> giflib-5.0.4.ebuild:
   Drop epunt_cxx as we no longer need it here.

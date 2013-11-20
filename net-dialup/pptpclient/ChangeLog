@@ -1,6 +1,32 @@
 # ChangeLog for net-dialup/pptpclient
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/pptpclient/ChangeLog,v 1.58 2013/04/01 17:37:54 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/pptpclient/ChangeLog,v 1.65 2013/10/25 09:27:10 pinkbyte Exp $
+
+  25 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> pptpclient-1.7.2-r3.ebuild:
+  Add ~arm keyword wrt bug #488572, thanks to Michael Kurinnoy <viewizard AT
+  viewizard.com>
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> pptpclient-1.7.2-r3.ebuild:
+  Stable for alpha, wrt bug #455470
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> pptpclient-1.7.2-r3.ebuild:
+  Stable for ppc64, wrt bug #455470
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> pptpclient-1.7.2-r3.ebuild:
+  Stable for ppc, wrt bug #455470
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> pptpclient-1.7.2-r3.ebuild:
+  Stable for x86, wrt bug #455470
+
+  19 May 2013; Agostino Sarubbo <ago@gentoo.org> pptpclient-1.7.2-r3.ebuild:
+  Stable for amd64, wrt bug #455470
+
+*pptpclient-1.7.2-r3 (15 May 2013)
+
+  15 May 2013; Sergey Popov <pinkbyte@gentoo.org> +pptpclient-1.7.2-r3.ebuild:
+  Revision bump: bump EAPI to 5, add epatch_user, do not apply ip-path.patch
+  anymore, wrt bug #455470. Thanks to Michelangelo Scopelliti for discovering
+  this issue
 
   01 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> -pptpclient-1.7.1-r1.ebuild,
   -files/pptpclient-1.7.1-process-name.patch:

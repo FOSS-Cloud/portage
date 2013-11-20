@@ -1,6 +1,39 @@
 # ChangeLog for dev-libs/quazip
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/quazip/ChangeLog,v 1.26 2013/03/21 16:23:54 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/quazip/ChangeLog,v 1.36 2013/08/19 12:57:28 jlec Exp $
+
+  19 Aug 2013; Justin Lecher <jlec@gentoo.org> -quazip-0.4.4.ebuild,
+  -quazip-0.5.ebuild:
+  Drop old
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> quazip-0.5.1-r1.ebuild:
+  Stable for x86, wrt bug #476556
+
+  23 Jul 2013; Michael Palimaka <kensington@gentoo.org> quazip-0.5.1-r1.ebuild:
+  Pin dev-qt/qttest to SLOT 4.
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> quazip-0.5.1-r1.ebuild:
+  Stable for arm, wrt bug #476556
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> quazip-0.5.1-r1.ebuild:
+  Stable for ppc64, wrt bug #476556
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> quazip-0.5.1-r1.ebuild:
+  Stable for ppc, wrt bug #476556
+
+  13 Jul 2013; Jeroen Roovers <jer@gentoo.org> quazip-0.5.1-r1.ebuild:
+  Stable for HPPA (bug #476556).
+
+  12 Jul 2013; Agostino Sarubbo <ago@gentoo.org> quazip-0.5.1-r1.ebuild:
+  Stable for amd64, wrt bug #476556
+
+  12 Jul 2013; Justin Lecher <jlec@gentoo.org> quazip-0.5.1-r1.ebuild,
+  +files/quazip-0.5.1-prll.patch:
+  Fix parallel build, #476630; prepend LD_LIBRARY_PATH during testing to test
+  new lib, #476634
+
+  11 Jul 2013; Justin Lecher <jlec@gentoo.org> quazip-0.5.1-r1.ebuild:
+  Enable testsuite
 
   21 Mar 2013; Justin Lecher <jlec@gentoo.org> quazip-0.5.1-r1.ebuild:
   Fix EPREFIX typo

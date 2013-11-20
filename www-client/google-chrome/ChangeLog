@@ -1,6 +1,614 @@
 # ChangeLog for www-client/google-chrome
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/google-chrome/ChangeLog,v 1.265 2013/04/05 14:31:53 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/google-chrome/ChangeLog,v 1.344 2013/11/19 17:24:27 floppym Exp $
+
+*google-chrome-33.0.1711.3_alpha1 (19 Nov 2013)
+*google-chrome-32.0.1700.19_beta1 (19 Nov 2013)
+
+  19 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-32.0.1700.19_beta1.ebuild,
+  +google-chrome-33.0.1711.3_alpha1.ebuild,
+  -google-chrome-32.0.1700.14_beta1.ebuild,
+  -google-chrome-33.0.1707.0_alpha1.ebuild:
+  Automated update.
+
+  16 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  google-chrome-31.0.1650.57_p1.ebuild, google-chrome-32.0.1700.14_beta1.ebuild,
+  google-chrome-33.0.1707.0_alpha1.ebuild:
+  Fix sed in pkg_preinst, bug 491448.
+
+*google-chrome-31.0.1650.57_p1 (15 Nov 2013)
+
+  15 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1650.57_p1.ebuild, -google-chrome-31.0.1650.48_p1.ebuild:
+  Automated update.
+
+*google-chrome-32.0.1700.14_beta1 (14 Nov 2013)
+
+  14 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-32.0.1700.14_beta1.ebuild,
+  -google-chrome-32.0.1700.6_beta1.ebuild:
+  Bump.
+
+  13 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  google-chrome-33.0.1707.0_alpha1.ebuild:
+  Tweak src_install.
+
+*google-chrome-31.0.1650.48_p1 (12 Nov 2013)
+*google-chrome-33.0.1707.0_alpha1 (12 Nov 2013)
+
+  12 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1650.48_p1.ebuild,
+  +google-chrome-33.0.1707.0_alpha1.ebuild,
+  -google-chrome-30.0.1599.114_p1.ebuild,
+  -google-chrome-32.0.1700.6_alpha1.ebuild:
+  Bump.
+
+*google-chrome-32.0.1700.6_beta1 (11 Nov 2013)
+
+  11 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-32.0.1700.6_beta1.ebuild,
+  -google-chrome-31.0.1650.48_beta1.ebuild:
+  Beta channel bump.
+
+*google-chrome-32.0.1700.6_alpha1 (08 Nov 2013)
+*google-chrome-31.0.1650.48_beta1 (08 Nov 2013)
+
+  08 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1650.48_beta1.ebuild,
+  +google-chrome-32.0.1700.6_alpha1.ebuild,
+  -google-chrome-31.0.1650.39_beta1.ebuild,
+  -google-chrome-32.0.1700.2_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-32.0.1700.2_alpha1 (06 Nov 2013)
+
+  06 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-32.0.1700.2_alpha1.ebuild,
+  -google-chrome-32.0.1685.0_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-31.0.1650.39_beta1 (31 Oct 2013)
+
+  31 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1650.39_beta1.ebuild,
+  -google-chrome-31.0.1650.34_beta1.ebuild:
+  Automated update.
+
+*google-chrome-32.0.1685.0_alpha1 (29 Oct 2013)
+
+  29 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-32.0.1685.0_alpha1.ebuild,
+  -google-chrome-32.0.1678.0_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-31.0.1650.34_beta1 (24 Oct 2013)
+
+  24 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1650.34_beta1.ebuild,
+  -google-chrome-31.0.1650.26_beta1.ebuild:
+  Automated update.
+
+*google-chrome-30.0.1599.114_p1 (23 Oct 2013)
+*google-chrome-32.0.1678.0_alpha1 (23 Oct 2013)
+
+  23 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.114_p1.ebuild,
+  +google-chrome-32.0.1678.0_alpha1.ebuild,
+  -google-chrome-30.0.1599.101_p1.ebuild,
+  -google-chrome-32.0.1671.3_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-31.0.1650.26_beta1 (18 Oct 2013)
+
+  18 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1650.26_beta1.ebuild,
+  -google-chrome-31.0.1650.16_beta1.ebuild,
+  google-chrome-30.0.1599.101_p1.ebuild,
+  google-chrome-32.0.1671.3_alpha1.ebuild:
+  Bump. Migrate postinst message to readme.gentoo eclass.
+
+*google-chrome-30.0.1599.101_p1 (15 Oct 2013)
+*google-chrome-32.0.1671.3_alpha1 (15 Oct 2013)
+
+  15 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.101_p1.ebuild,
+  +google-chrome-32.0.1671.3_alpha1.ebuild,
+  -google-chrome-30.0.1599.66_p1.ebuild,
+  -google-chrome-32.0.1664.3_alpha1.ebuild:
+  Bump.
+
+*google-chrome-32.0.1664.3_alpha1 (09 Oct 2013)
+*google-chrome-31.0.1650.16_beta1 (09 Oct 2013)
+
+  09 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1650.16_beta1.ebuild,
+  +google-chrome-32.0.1664.3_alpha1.ebuild,
+  -google-chrome-31.0.1650.12_beta1.ebuild,
+  -google-chrome-31.0.1650.8_alpha1.ebuild:
+  Bump.
+
+*google-chrome-31.0.1650.12_beta1 (05 Oct 2013)
+
+  05 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1650.12_beta1.ebuild,
+  -google-chrome-31.0.1650.11_beta1.ebuild:
+  Bump.
+
+*google-chrome-31.0.1650.11_beta1 (04 Oct 2013)
+*google-chrome-31.0.1650.8_alpha1 (04 Oct 2013)
+
+  04 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1650.11_beta1.ebuild,
+  +google-chrome-31.0.1650.8_alpha1.ebuild,
+  -google-chrome-30.0.1599.66_beta1.ebuild,
+  -google-chrome-31.0.1650.4_alpha1.ebuild:
+  Bump.
+
+*google-chrome-30.0.1599.66_p1 (01 Oct 2013)
+
+  01 Oct 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.66_p1.ebuild,
+  -google-chrome-29.0.1547.76_p223446.ebuild:
+  Bump.
+
+*google-chrome-30.0.1599.66_beta1 (27 Sep 2013)
+
+  27 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.66_beta1.ebuild,
+  -google-chrome-30.0.1599.65_beta1.ebuild:
+  Automated update.
+
+*google-chrome-30.0.1599.65_beta1 (26 Sep 2013)
+*google-chrome-31.0.1650.4_alpha1 (26 Sep 2013)
+
+  26 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.65_beta1.ebuild,
+  +google-chrome-31.0.1650.4_alpha1.ebuild,
+  -google-chrome-30.0.1599.59_beta1.ebuild,
+  -google-chrome-31.0.1650.0_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-30.0.1599.59_beta1 (25 Sep 2013)
+*google-chrome-31.0.1650.0_alpha1 (25 Sep 2013)
+
+  25 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.59_beta1.ebuild,
+  +google-chrome-31.0.1650.0_alpha1.ebuild,
+  -google-chrome-30.0.1599.47_beta1.ebuild,
+  -google-chrome-31.0.1636.0_alpha1.ebuild:
+  Automated update.
+
+  22 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  google-chrome-31.0.1636.0_alpha1.ebuild:
+  Update dependencies.
+
+  21 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  google-chrome-29.0.1547.76_p223446.ebuild,
+  google-chrome-30.0.1599.47_beta1.ebuild,
+  google-chrome-31.0.1636.0_alpha1.ebuild:
+  Adjust blockers for side-by-side installation in M31.
+
+  21 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  google-chrome-31.0.1636.0_alpha1.ebuild:
+  Fix installation.
+
+*google-chrome-31.0.1636.0_alpha1 (21 Sep 2013)
+
+  21 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1636.0_alpha1.ebuild,
+  -google-chrome-31.0.1626.0_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-29.0.1547.76_p223446 (18 Sep 2013)
+*google-chrome-30.0.1599.47_beta1 (18 Sep 2013)
+
+  18 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.76_p223446.ebuild,
+  +google-chrome-30.0.1599.47_beta1.ebuild,
+  -google-chrome-29.0.1547.65_p220622.ebuild,
+  -google-chrome-30.0.1599.37_beta1.ebuild:
+  Automated update.
+
+*google-chrome-30.0.1599.37_beta1 (12 Sep 2013)
+
+  12 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.37_beta1.ebuild,
+  -google-chrome-30.0.1599.28_beta1.ebuild:
+  Automated update.
+
+*google-chrome-31.0.1626.0_alpha1 (11 Sep 2013)
+
+  11 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1626.0_alpha1.ebuild,
+  -google-chrome-31.0.1622.0_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-31.0.1622.0_alpha1 (07 Sep 2013)
+
+  07 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-31.0.1622.0_alpha1.ebuild,
+  -google-chrome-31.0.1612.0_alpha1.ebuild:
+  Bump.
+
+*google-chrome-30.0.1599.28_beta1 (05 Sep 2013)
+
+  05 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.28_beta1.ebuild,
+  -google-chrome-30.0.1599.22_beta1.ebuild:
+  Automated update.
+
+*google-chrome-29.0.1547.65_p220622 (04 Sep 2013)
+
+  04 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.65_p220622.ebuild,
+  -google-chrome-29.0.1547.62_p219432.ebuild:
+  Automated update.
+
+*google-chrome-31.0.1612.0_alpha1 (28 Aug 2013)
+*google-chrome-30.0.1599.22_beta1 (28 Aug 2013)
+*google-chrome-29.0.1547.62_p219432 (28 Aug 2013)
+
+  28 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.62_p219432.ebuild,
+  +google-chrome-30.0.1599.22_beta1.ebuild,
+  +google-chrome-31.0.1612.0_alpha1.ebuild,
+  -google-chrome-29.0.1547.57_p217859.ebuild,
+  -google-chrome-30.0.1599.14_alpha1.ebuild,
+  -google-chrome-30.0.1599.14_beta1.ebuild:
+  Automated update.
+
+*google-chrome-30.0.1599.14_beta1 (23 Aug 2013)
+
+  23 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.14_beta1.ebuild,
+  -google-chrome-29.0.1547.57_beta217859.ebuild:
+  Bump.
+
+*google-chrome-29.0.1547.57_p217859 (20 Aug 2013)
+*google-chrome-30.0.1599.14_alpha1 (20 Aug 2013)
+
+  20 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.57_p217859.ebuild,
+  +google-chrome-30.0.1599.14_alpha1.ebuild,
+  -google-chrome-28.0.1500.95_p213514.ebuild,
+  -google-chrome-30.0.1599.10_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-29.0.1547.57_beta217859 (17 Aug 2013)
+
+  17 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.57_beta217859.ebuild,
+  -google-chrome-29.0.1547.55_beta217443.ebuild:
+  Automated update.
+
+*google-chrome-30.0.1599.10_alpha1 (16 Aug 2013)
+
+  16 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.10_alpha1.ebuild,
+  -google-chrome-30.0.1599.0_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-29.0.1547.55_beta217443 (15 Aug 2013)
+
+  15 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.55_beta217443.ebuild,
+  -google-chrome-29.0.1547.49_beta216092.ebuild:
+  Automated update.
+
+*google-chrome-30.0.1599.0_alpha1 (14 Aug 2013)
+
+  14 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1599.0_alpha1.ebuild,
+  -google-chrome-30.0.1588.0_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-30.0.1588.0_alpha1 (08 Aug 2013)
+*google-chrome-29.0.1547.49_beta216092 (08 Aug 2013)
+
+  08 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.49_beta216092.ebuild,
+  +google-chrome-30.0.1588.0_alpha1.ebuild,
+  -google-chrome-29.0.1547.41_beta214871.ebuild,
+  -google-chrome-30.0.1581.2_alpha1.ebuild:
+  Automated update.
+
+  06 Aug 2013; Ulrich Müller <ulm@gentoo.org>
+  google-chrome-28.0.1500.95_p213514.ebuild,
+  google-chrome-29.0.1547.41_beta214871.ebuild,
+  google-chrome-30.0.1581.2_alpha1.ebuild:
+  Remove gcc[-nocxx] from dependencies, the nocxx flag is gone.
+
+*google-chrome-29.0.1547.41_beta214871 (02 Aug 2013)
+
+  02 Aug 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.41_beta214871.ebuild,
+  -google-chrome-29.0.1547.32_beta213282.ebuild:
+  Automated update.
+
+*google-chrome-28.0.1500.95_p213514 (30 Jul 2013)
+*google-chrome-30.0.1581.2_alpha1 (30 Jul 2013)
+
+  30 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.95_p213514.ebuild,
+  +google-chrome-30.0.1581.2_alpha1.ebuild,
+  -google-chrome-28.0.1500.71_p209842.ebuild,
+  -google-chrome-30.0.1573.2_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-29.0.1547.32_beta213282 (25 Jul 2013)
+
+  25 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.32_beta213282.ebuild,
+  -google-chrome-29.0.1547.22_beta211613.ebuild:
+  Automated update.
+
+*google-chrome-30.0.1573.2_alpha1 (23 Jul 2013)
+
+  23 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1573.2_alpha1.ebuild,
+  -google-chrome-30.0.1568.0_alpha1.ebuild:
+  Automated update.
+
+*google-chrome-30.0.1568.0_alpha1 (18 Jul 2013)
+
+  18 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-30.0.1568.0_alpha1.ebuild,
+  -google-chrome-30.0.1566.2_alpha1.ebuild:
+  Bump.
+
+*google-chrome-29.0.1547.22_beta211613 (17 Jul 2013)
+*google-chrome-30.0.1566.2_alpha1 (17 Jul 2013)
+
+  17 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.22_beta211613.ebuild,
+  +google-chrome-30.0.1566.2_alpha1.ebuild,
+  -google-chrome-28.0.1500.89_beta209621.ebuild,
+  -google-chrome-29.0.1547.22_alpha211613.ebuild:
+  Bump.
+
+*google-chrome-29.0.1547.22_alpha211613 (16 Jul 2013)
+
+  16 Jul 2013; Michael Weber <xmw@gentoo.org>
+  -google-chrome-29.0.1547.18_alpha210974.ebuild,
+  +google-chrome-29.0.1547.22_alpha211613.ebuild:
+  automated version bump
+
+*google-chrome-29.0.1547.18_alpha210974 (12 Jul 2013)
+
+  12 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.18_alpha210974.ebuild,
+  -google-chrome-29.0.1547.15_alpha210325.ebuild:
+  Bump.
+
+*google-chrome-29.0.1547.15_alpha210325 (09 Jul 2013)
+
+  09 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.15_alpha210325.ebuild,
+  -google-chrome-29.0.1547.0_alpha208345.ebuild:
+  Bump.
+
+*google-chrome-28.0.1500.71_p209842 (04 Jul 2013)
+
+  04 Jul 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.71_p209842.ebuild,
+  -google-chrome-28.0.1500.70_p209565.ebuild:
+  Bump.
+
+*google-chrome-28.0.1500.89_beta209621 (03 Jul 2013)
+*google-chrome-28.0.1500.70_p209565 (03 Jul 2013)
+
+  03 Jul 2013; Michael Weber <xmw@gentoo.org>
+  -google-chrome-28.0.1500.63_beta208724.ebuild,
+  -google-chrome-28.0.1500.63_p208724.ebuild,
+  +google-chrome-28.0.1500.70_p209565.ebuild,
+  +google-chrome-28.0.1500.89_beta209621.ebuild:
+  automated version bump
+
+*google-chrome-28.0.1500.63_beta208724 (28 Jun 2013)
+*google-chrome-28.0.1500.63_p208724 (28 Jun 2013)
+
+  28 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.63_beta208724.ebuild,
+  +google-chrome-28.0.1500.63_p208724.ebuild,
+  -google-chrome-28.0.1500.52_beta207119.ebuild,
+  -google-chrome-28.0.1500.52_p207119.ebuild:
+  Bump.
+
+*google-chrome-29.0.1547.0_alpha208345 (26 Jun 2013)
+
+  26 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1547.0_alpha208345.ebuild,
+  -google-chrome-29.0.1541.2_alpha207000.ebuild:
+  Bump.
+
+*google-chrome-28.0.1500.52_p207119 (19 Jun 2013)
+*google-chrome-28.0.1500.52_beta207119 (19 Jun 2013)
+
+  19 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.52_beta207119.ebuild,
+  +google-chrome-28.0.1500.52_p207119.ebuild,
+  -google-chrome-28.0.1500.45_beta205727.ebuild,
+  -google-chrome-28.0.1500.45_p205727.ebuild:
+  Bump.
+
+*google-chrome-29.0.1541.2_alpha207000 (19 Jun 2013)
+
+  19 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1541.2_alpha207000.ebuild,
+  -google-chrome-29.0.1535.3_alpha205561.ebuild:
+  Dev channel bump.
+
+*google-chrome-28.0.1500.45_p205727 (17 Jun 2013)
+
+  17 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.45_p205727.ebuild,
+  -google-chrome-27.0.1453.110_p202711.ebuild:
+  Stable bump.
+
+*google-chrome-28.0.1500.45_beta205727 (13 Jun 2013)
+
+  13 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.45_beta205727.ebuild,
+  -google-chrome-28.0.1500.36_beta204086.ebuild:
+  Bump.
+
+*google-chrome-29.0.1535.3_alpha205561 (12 Jun 2013)
+
+  12 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1535.3_alpha205561.ebuild,
+  -google-chrome-29.0.1530.2_alpha204444.ebuild:
+  Bump.
+
+*google-chrome-29.0.1530.2_alpha204444 (06 Jun 2013)
+*google-chrome-28.0.1500.36_beta204086 (06 Jun 2013)
+
+  06 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.36_beta204086.ebuild,
+  +google-chrome-29.0.1530.2_alpha204444.ebuild,
+  -google-chrome-28.0.1500.29_beta202781.ebuild,
+  -google-chrome-29.0.1521.3_alpha202710.ebuild:
+  Bump.
+
+*google-chrome-27.0.1453.110_p202711 (04 Jun 2013)
+
+  04 Jun 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-27.0.1453.110_p202711.ebuild,
+  -google-chrome-27.0.1453.93_p200836.ebuild:
+  Bump.
+
+*google-chrome-28.0.1500.29_beta202781 (31 May 2013)
+
+  31 May 2013; Michael Weber <xmw@gentoo.org>
+  -google-chrome-28.0.1500.20_beta201172.ebuild,
+  +google-chrome-28.0.1500.29_beta202781.ebuild:
+  automated version bump
+
+*google-chrome-29.0.1521.3_alpha202710 (29 May 2013)
+
+  29 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-29.0.1521.3_alpha202710.ebuild,
+  -google-chrome-29.0.1516.3_alpha201887.ebuild:
+  Bump.
+
+  27 May 2013; Mike Gilbert <floppym@gentoo.org>
+  google-chrome-28.0.1500.20_beta201172.ebuild,
+  google-chrome-29.0.1516.3_alpha201887.ebuild:
+  Update dependency on libX11, bug 471470 by Michal Feix.
+
+*google-chrome-29.0.1516.3_alpha201887 (24 May 2013)
+*google-chrome-28.0.1500.20_beta201172 (24 May 2013)
+
+  24 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.20_beta201172.ebuild,
+  +google-chrome-29.0.1516.3_alpha201887.ebuild,
+  -google-chrome-27.0.1453.93_beta200836.ebuild,
+  -google-chrome-28.0.1500.20_alpha201172.ebuild:
+  Bump.
+
+*google-chrome-27.0.1453.93_p200836 (21 May 2013)
+*google-chrome-28.0.1500.20_alpha201172 (21 May 2013)
+
+  21 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-27.0.1453.93_p200836.ebuild,
+  +google-chrome-28.0.1500.20_alpha201172.ebuild,
+  -google-chrome-26.0.1410.63_p192696.ebuild,
+  -google-chrome-28.0.1500.11_alpha199640.ebuild:
+  Bump.
+
+*google-chrome-27.0.1453.93_beta200836 (20 May 2013)
+
+  20 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-27.0.1453.93_beta200836.ebuild,
+  -google-chrome-27.0.1453.81_beta198567.ebuild:
+  Bump.
+
+*google-chrome-28.0.1500.11_alpha199640 (13 May 2013)
+
+  13 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.11_alpha199640.ebuild,
+  -google-chrome-28.0.1500.5_alpha199062.ebuild:
+  Bump.
+
+*google-chrome-28.0.1500.5_alpha199062 (09 May 2013)
+
+  09 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.5_alpha199062.ebuild,
+  -google-chrome-28.0.1500.3_alpha198635.ebuild:
+  Bump.
+
+*google-chrome-27.0.1453.81_beta198567 (08 May 2013)
+
+  08 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-27.0.1453.81_beta198567.ebuild,
+  -google-chrome-27.0.1453.73_beta197225.ebuild:
+  Beta channel bump.
+
+*google-chrome-28.0.1500.3_alpha198635 (08 May 2013)
+
+  08 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1500.3_alpha198635.ebuild,
+  -google-chrome-28.0.1496.0_alpha197749.ebuild:
+  Dev channel bump.
+
+*google-chrome-28.0.1496.0_alpha197749 (03 May 2013)
+
+  03 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1496.0_alpha197749.ebuild,
+  -google-chrome-28.0.1490.2_alpha196983.ebuild:
+  Dev channel bump.
+
+*google-chrome-27.0.1453.73_beta197225 (02 May 2013)
+*google-chrome-28.0.1490.2_alpha196983 (02 May 2013)
+
+  02 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-27.0.1453.73_beta197225.ebuild,
+  +google-chrome-28.0.1490.2_alpha196983.ebuild,
+  -google-chrome-27.0.1453.65_beta195685.ebuild,
+  -google-chrome-28.0.1485.0_alpha195393.ebuild:
+  Bump.
+
+*google-chrome-27.0.1453.65_beta195685 (26 Apr 2013)
+
+  26 Apr 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-27.0.1453.65_beta195685.ebuild,
+  -google-chrome-27.0.1453.56_beta194414.ebuild:
+  Bump.
+
+*google-chrome-28.0.1485.0_alpha195393 (23 Apr 2013)
+
+  23 Apr 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1485.0_alpha195393.ebuild,
+  -google-chrome-28.0.1478.0_alpha194114.ebuild:
+  Bump.
+
+*google-chrome-27.0.1453.56_beta194414 (17 Apr 2013)
+
+  17 Apr 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-27.0.1453.56_beta194414.ebuild,
+  -google-chrome-27.0.1453.47_beta193194.ebuild:
+  Bump.
+
+*google-chrome-28.0.1478.0_alpha194114 (16 Apr 2013)
+
+  16 Apr 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-28.0.1478.0_alpha194114.ebuild,
+  -google-chrome-27.0.1453.12_alpha191631.ebuild:
+  Dev channel bump.
+
+*google-chrome-27.0.1453.47_beta193194 (12 Apr 2013)
+
+  12 Apr 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-27.0.1453.47_beta193194.ebuild,
+  -google-chrome-27.0.1453.15_beta191758.ebuild:
+  Beta channel bump.
+
+*google-chrome-26.0.1410.63_p192696 (09 Apr 2013)
+
+  09 Apr 2013; Mike Gilbert <floppym@gentoo.org>
+  +google-chrome-26.0.1410.63_p192696.ebuild,
+  -google-chrome-26.0.1410.43_p189671.ebuild:
+  Stable bump.
 
   05 Apr 2013; Mike Gilbert <floppym@gentoo.org>
   google-chrome-26.0.1410.43_p189671.ebuild,

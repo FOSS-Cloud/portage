@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/mailman/mailman-2.1.15.ebuild,v 1.6 2012/08/26 16:01:17 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/mailman/mailman-2.1.15.ebuild,v 1.8 2013/10/22 08:06:43 lxnay Exp $
 
 EAPI="4"
 PYTHON_DEPEND="2"
 
-inherit eutils python multilib
+inherit eutils python multilib systemd
 
 DESCRIPTION="A python-based mailing list server with an extensive web interface"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tgz"
@@ -14,11 +14,12 @@ HOMEPAGE="http://www.list.org/"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="amd64 ppc x86"
-IUSE=""
+IUSE="selinux"
 
 DEPEND="virtual/mta
 	virtual/cron
-	virtual/httpd-cgi"
+	virtual/httpd-cgi
+	selinux? ( sec-policy/selinux-mailman )"
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
@@ -95,6 +96,9 @@ src_install () {
 	done
 
 	newinitd "${FILESDIR}/mailman.rc" mailman
+	cp "${FILESDIR}/mailman.service" "${T}/mailman.service" || die
+	sed -i "s/^User=.*/User=${MAILUSR}/" "${T}/mailman.service" || die
+	systemd_dounit "${T}/mailman.service"
 
 	keepdir ${VAR_PREFIX}/logs
 	keepdir ${VAR_PREFIX}/locks

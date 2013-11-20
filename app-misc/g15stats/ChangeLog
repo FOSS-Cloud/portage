@@ -1,6 +1,12 @@
 # ChangeLog for app-misc/g15stats
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/g15stats/ChangeLog,v 1.8 2012/05/03 19:41:35 jdhore Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/g15stats/ChangeLog,v 1.10 2013/11/03 12:09:00 polynomial-c Exp $
+
+  03 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> metadata.xml:
+  Added myself as maintainer.
+
+  13 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove removed lcd herd from metadata
 
   03 May 2012; Jeff Horelick <jdhore@gentoo.org> g15stats-1.0.ebuild,
   g15stats-1.9.7.ebuild:
@@ -35,4 +41,3 @@
   +g15stats-1.0.ebuild:
   Initial commit. Thanks Vadim Efimov <evadim@evadim.ru> of bug #210192 for
   the ebuild.
-

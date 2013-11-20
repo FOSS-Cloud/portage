@@ -1,6 +1,89 @@
 # ChangeLog for net-p2p/bitcoin-qt
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/bitcoin-qt/ChangeLog,v 1.57 2013/04/08 00:08:53 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/bitcoin-qt/ChangeLog,v 1.77 2013/10/22 16:35:24 blueness Exp $
+
+  22 Oct 2013; Anthony G. Basile <blueness@gentoo.org>
+  -files/0.5.0.5+bip16-eligius_sendfee.patch, -files/0.8.0-sys_leveldb.patch:
+  Remove older patches
+
+  14 Oct 2013; Anthony G. Basile <blueness@gentoo.org>
+  -bitcoin-qt-0.5.8_rc2.ebuild, -bitcoin-qt-0.6.3.ebuild,
+  -bitcoin-qt-0.6.5_rc2.ebuild, -bitcoin-qt-0.7.3_rc2.ebuild,
+  -bitcoin-qt-0.8.1.ebuild, -bitcoin-qt-0.8.2.ebuild,
+  -bitcoin-qt-0.8.3-r1.ebuild, -bitcoin-qt-0.8.3.ebuild,
+  -bitcoin-qt-0.8.4.ebuild, metadata.xml:
+  Remove vulnerable versions, bug #484546
+
+  13 Oct 2013; Agostino Sarubbo <ago@gentoo.org> bitcoin-qt-0.8.5.ebuild:
+  Stable for arm, wrt bug #484546
+
+  11 Oct 2013; Agostino Sarubbo <ago@gentoo.org> bitcoin-qt-0.8.5.ebuild:
+  Stable for x86, wrt bug #484546
+
+  11 Oct 2013; Agostino Sarubbo <ago@gentoo.org> bitcoin-qt-0.8.5.ebuild:
+  Stable for amd64, wrt bug #484546
+
+  19 Sep 2013; Anthony G. Basile <blueness@gentoo.org> bitcoin-qt-0.8.1.ebuild,
+  bitcoin-qt-0.8.2.ebuild, bitcoin-qt-0.8.3-r1.ebuild, bitcoin-qt-0.8.3.ebuild,
+  bitcoin-qt-0.8.4.ebuild, bitcoin-qt-0.8.5.ebuild:
+  Expand leveldb version range
+
+*bitcoin-qt-0.8.5 (13 Sep 2013)
+
+  13 Sep 2013; Anthony G. Basile <blueness@gentoo.org> +bitcoin-qt-0.8.5.ebuild:
+  Version bump
+
+*bitcoin-qt-0.8.4 (09 Sep 2013)
+
+  09 Sep 2013; Anthony G. Basile <blueness@gentoo.org> +bitcoin-qt-0.8.4.ebuild:
+  Version bump
+
+*bitcoin-qt-0.8.3-r1 (16 Aug 2013)
+
+  16 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  +bitcoin-qt-0.8.3-r1.ebuild:
+  Fix .desktop entry
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> bitcoin-qt-0.8.2.ebuild:
+  Whitespace
+
+*bitcoin-qt-0.8.3 (16 Jul 2013)
+
+  16 Jul 2013; Anthony G. Basile <blueness@gentoo.org> +bitcoin-qt-0.8.3.ebuild:
+  Version bump
+
+  16 Jul 2013; Patrick Lauer <patrick@gentoo.org> bitcoin-qt-0.8.2.ebuild:
+  Fix leveldb memenv header search location
+
+  15 Jun 2013; Anthony G. Basile <blueness@gentoo.org> bitcoin-qt-0.8.2.ebuild:
+  Expand recognized linguas
+
+*bitcoin-qt-0.8.2 (14 Jun 2013)
+
+  14 Jun 2013; Anthony G. Basile <blueness@gentoo.org> +bitcoin-qt-0.8.2.ebuild,
+  +files/0.8.2-sys_leveldb.patch:
+  Version bump
+
+  01 Jun 2013; Anthony G. Basile <blueness@gentoo.org> bitcoin-qt-0.8.1.ebuild:
+  Force snappy off for leveldb since it may have security issues
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> bitcoin-qt-0.8.1.ebuild:
+  Stable for arm, wrt bug #469342
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> bitcoin-qt-0.8.1.ebuild:
+  Stable for x86, wrt bug #469342
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> bitcoin-qt-0.8.1.ebuild:
+  Stable for amd64, wrt bug #469342
+
+  14 Apr 2013; Anthony G. Basile <blueness@gentoo.org> ChangeLog:
+  Fix Manifest signing
+
+  14 Apr 2013; Anthony G. Basile <blueness@gentoo.org>
+  bitcoin-qt-0.5.8_rc2.ebuild, bitcoin-qt-0.6.3.ebuild,
+  bitcoin-qt-0.6.5_rc2.ebuild, bitcoin-qt-0.7.3_rc2.ebuild,
+  bitcoin-qt-0.8.1.ebuild:
+  Fix dependency on openssl, bug #465888
 
 *bitcoin-qt-0.5.8_rc2 (08 Apr 2013)
 *bitcoin-qt-0.6.5_rc2 (08 Apr 2013)

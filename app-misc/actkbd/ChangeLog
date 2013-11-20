@@ -1,6 +1,12 @@
 # ChangeLog for app-misc/actkbd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/actkbd/ChangeLog,v 1.10 2013/03/14 19:50:09 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/actkbd/ChangeLog,v 1.12 2013/08/07 13:27:28 ago Exp $
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> actkbd-0.2.8-r1.ebuild:
+  Stable for x86, wrt bug #470328
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> actkbd-0.2.8-r1.ebuild:
+  Stable for amd64, wrt bug #470328
 
 *actkbd-0.2.8-r1 (14 Mar 2013)
 

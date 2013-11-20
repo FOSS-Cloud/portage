@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/sympy
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/sympy/ChangeLog,v 1.21 2013/03/31 06:04:50 grozin Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/sympy/ChangeLog,v 1.26 2013/10/16 16:28:25 jlec Exp $
+
+  16 Oct 2013; Justin Lecher <jlec@gentoo.org> sympy-0.7.3.ebuild:
+  Fix problems with doc building, #488172; simplify py 2/3 selection code
+
+*sympy-0.7.3 (15 Oct 2013)
+
+  15 Oct 2013; Justin Lecher <jlec@gentoo.org> sympy-0.7.2-r1.ebuild,
+  +sympy-0.7.3.ebuild, metadata.xml:
+  Version BUmp; fix missing py3.3 handling, #488098
+
+  13 Oct 2013; Pacho Ramos <pacho@gentoo.org> sympy-0.7.2-r1.ebuild:
+  Also compatible with python3_3
+
+  09 Jun 2013; Mike Gilbert <floppym@gentoo.org> sympy-0.7.1.ebuild,
+  sympy-0.7.2-r1.ebuild, sympy-0.7.2.ebuild:
+  Depend on virtual/python-imaging.
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> sympy-0.7.2-r1.ebuild:
+  Fix inherit
 
 *sympy-0.7.2-r1 (31 Mar 2013)
 

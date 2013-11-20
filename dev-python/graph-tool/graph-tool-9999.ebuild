@@ -1,9 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/graph-tool/graph-tool-9999.ebuild,v 1.4 2013/02/10 11:06:44 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/graph-tool/graph-tool-9999.ebuild,v 1.5 2013/06/04 21:13:27 radhermit Exp $
 
 EAPI=5
-# python3 dropped until scipy reinstates support
+# python3 missing from graphviz
 PYTHON_COMPAT=( python2_7 )
 
 inherit check-reqs eutils toolchain-funcs python-r1
@@ -23,7 +23,7 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="+cairo openmp"
 
-CDEPEND=">=dev-libs/boost-1.46.0[python]
+CDEPEND=">=dev-libs/boost-1.46.0[python,${PYTHON_USEDEP}]
 	dev-libs/expat
 	dev-python/numpy[${PYTHON_USEDEP}]
 	sci-libs/scipy[${PYTHON_USEDEP}]
@@ -34,7 +34,7 @@ CDEPEND=">=dev-libs/boost-1.46.0[python]
 	)"
 RDEPEND="${CDEPEND}
 	dev-python/matplotlib[${PYTHON_USEDEP}]
-	media-gfx/graphviz[python]"
+	media-gfx/graphviz[python,${PYTHON_USEDEP}]"
 DEPEND="${CDEPEND}
 	dev-cpp/sparsehash
 	virtual/pkgconfig"
@@ -58,7 +58,7 @@ src_prepare() {
 }
 
 src_configure() {
-	python_foreach_impl run_in_build_dir \
+	python_parallel_foreach_impl run_in_build_dir \
 		econf \
 			--disable-static \
 			--disable-optimization \
@@ -67,11 +67,11 @@ src_configure() {
 }
 
 src_compile() {
-	python_foreach_impl run_in_build_dir default
+	python_parallel_foreach_impl run_in_build_dir default
 }
 
 src_install() {
-	python_foreach_impl run_in_build_dir default
+	python_parallel_foreach_impl run_in_build_dir default
 	prune_libtool_files --modules
 
 	# remove unwanted extra docs

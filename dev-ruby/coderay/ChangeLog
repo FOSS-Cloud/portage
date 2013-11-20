@@ -1,6 +1,42 @@
 # ChangeLog for dev-ruby/coderay
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/coderay/ChangeLog,v 1.68 2013/04/05 18:24:50 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/coderay/ChangeLog,v 1.78 2013/11/11 16:55:27 mrueg Exp $
+
+  11 Nov 2013; Manuel Rüger <mrueg@gentoo.org> -coderay-1.1.0.ebuild:
+  Cleanup old.
+
+*coderay-1.1.0-r1 (06 Oct 2013)
+
+  06 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +coderay-1.1.0-r1.ebuild:
+  Add ruby20 target.
+
+  04 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -coderay-0.9.8.ebuild:
+  Cleanup old.
+
+*coderay-1.1.0 (02 Sep 2013)
+
+  02 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +coderay-1.1.0.ebuild,
+  coderay-1.0.9.ebuild:
+  Fix license change in stable. Version bump.
+
+  14 Aug 2013; Manuel Rüger <mrueg@gentoo.org> -coderay-1.0.6.ebuild,
+  -coderay-1.0.8.ebuild:
+  Cleanup.
+
+  08 Aug 2013; Markus Meier <maekke@gentoo.org> coderay-1.0.9.ebuild:
+  add ~arm, bug #477648
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> coderay-1.0.9.ebuild:
+  Stable for sparc, wrt bug #464366
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> coderay-1.0.9.ebuild:
+  Stable for ia64, wrt bug #464366
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> coderay-1.0.9.ebuild:
+  Stable for alpha, wrt bug #464366
+
+  11 Apr 2013; Jeroen Roovers <jer@gentoo.org> coderay-1.0.9.ebuild:
+  Stable for HPPA (bug #464366).
 
   05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> coderay-1.0.9.ebuild:
   Stable for ppc64, wrt bug #464366

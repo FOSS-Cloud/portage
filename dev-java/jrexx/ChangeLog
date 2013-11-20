@@ -1,6 +1,15 @@
 # ChangeLog for dev-java/jrexx
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jrexx/ChangeLog,v 1.14 2012/01/13 13:26:57 sera Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/jrexx/ChangeLog,v 1.17 2013/09/01 11:37:32 grobian Exp $
+
+  01 Sep 2013; Fabian Groffen <grobian@gentoo.org> jrexx-1.1.1-r1.ebuild:
+  Marked *-macos
+
+  01 Sep 2013; Fabian Groffen <grobian@gentoo.org> jrexx-1.1.1-r1.ebuild:
+  Marked *-macos
+
+  27 Jun 2013; Alexis Ballier <aballier@gentoo.org> jrexx-1.1.1-r1.ebuild:
+  keyword ~amd64-fbsd
 
   13 Jan 2012; Ralph Sennhauser <sera@gentoo.org> jrexx-1.1.1-r1.ebuild:
   Set encoding to ISO8859_1 for javadoc generation. Fixes #398101
@@ -49,4 +58,3 @@
   30 Oct 2004; Thomas Matthijs <axxo@gentoo.org> +metadata.xml,
   +jrexx-1.1.1.ebuild:
   inital import, ebuild contributed by Dan <dan@intuitivelyobvious.net>
-

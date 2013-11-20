@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64-fbsd/todo/package.use.mask,v 1.302 2013/03/02 20:45:51 pesa Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64-fbsd/todo/package.use.mask,v 1.336 2013/11/17 14:13:57 aballier Exp $
 
 # Mask useflags that require deps with missing keywords.
 # Anyone is allowed and _very welcome_ to add masks there.
@@ -13,6 +13,15 @@
 #            mask
 # Keep it simple, we do not really care about the date or who masked it, we want
 # to be easily able to determine what we need to keyword.
+
+# net-libs/gnome-online-accounts
+gnome-base/gvfs gnome-online-accounts
+
+# media-libs/gavl (missing clock_nanosleep on fbsd)
+media-plugins/frei0r-plugins scale0tilt
+
+# net-fs/openafs
+app-crypt/heimdal afs
 
 # app-accessibility/flite (fails at install)
 media-video/ffmpeg flite
@@ -36,9 +45,6 @@ net-misc/curl curl_ssl_cyassl
 # sys-process/numactl
 sys-apps/hwloc numa
 
-# sys-auth/pam_krb5
-sys-auth/pambase pam_krb5
-
 # dev-lang/mono
 net-dns/libidn mono
 media-libs/libcaca mono
@@ -60,12 +66,6 @@ media-gfx/ufraw fits
 # >=media-gfx/gimp-2
 media-gfx/ufraw gimp
 
-# app-crypt/heimdal
-net-nds/openldap smbkrb5passwd
-
-# app-office/lyx
-dev-tex/latex-beamer lyx
-
 # net-libs/libproxy
 net-libs/neon libproxy
 net-libs/glib-networking libproxy
@@ -76,13 +76,6 @@ net-libs/neon pkcs11
 
 # app-text/texlive[extra]
 app-doc/doxygen latex
-
-# dev-tex/latex2html
-dev-python/pyopenssl doc
-dev-tex/chktex doc
-
-# dev-util/source-highlight
-dev-util/gtk-doc highlight
 
 # x11-misc/colord
 x11-libs/gtk+ colord
@@ -98,6 +91,9 @@ media-video/ffmpeg pulseaudio
 media-libs/libcanberra pulseaudio
 media-libs/phonon pulseaudio
 media-video/vlc pulseaudio
+media-sound/mpg123 pulseaudio
+media-video/mplayer pulseaudio
+media-libs/xine-lib pulseaudio
 
 # >=media-plugins/gst-plugins-pulse-0.10
 media-plugins/gst-plugins-meta pulseaudio
@@ -115,20 +111,14 @@ gnome-base/gvfs gdu
 media-video/ffmpeg vaapi
 virtual/ffmpeg vaapi
 media-video/vlc vaapi
-
-# media-plugins/gst-plugins-xvid
-media-plugins/gst-plugins-meta xvid
-
-# >=media-libs/xvid-1.1.0
-media-video/ffmpeg xvid
-
-# media-plugins/frei0r-plugins
-media-video/ffmpeg frei0r
+media-libs/xine-lib vaapi
 
 # media-libs/nas
 media-libs/libsdl nas
 dev-qt/qtgui nas
 app-editors/xemacs nas
+media-sound/mpg123 nas
+media-video/mplayer nas
 
 # net-misc/openntpd
 net-misc/ntp openntpd
@@ -144,23 +134,6 @@ dev-libs/redland mysql
 dev-libs/cyrus-sasl mysql
 dev-lang/php mysql mysqli
 net-libs/courier-authlib mysql
-
-# dev-db/freetds[mssql]
-dev-lang/php mssql
-
-# net-mail/courier-imap
-dev-libs/cyrus-sasl authdaemond
-
-# dev-db/freetds
-dev-libs/apr-util freetds
-dev-qt/qtsql freetds
-
-# app-emulation/wine
-media-libs/mesa d3d
-
-# sys-fs/udev
-media-libs/mesa gbm
-x11-drivers/xf86-video-intel glamor
 
 # does not build
 x11-libs/libdrm libkms
@@ -181,18 +154,8 @@ x11-base/xorg-drivers video_cards_tdfx
 # x11-libs/libdrm[libkms,video_cards_vmware]
 x11-base/xorg-drivers video_cards_vmware
 
-# >=media-plugins/gst-plugins-ffmpeg-0.10
-media-plugins/gst-plugins-meta ffmpeg
-
-# media-plugins/gst-plugins-taglib
-media-plugins/gst-plugins-meta taglib
-
-# >=media-libs/taglib-1.5
-media-video/vlc taglib
-
 # >=dev-cpp/clucene-0.9.21[-debug]
 app-misc/strigi clucene
-dev-libs/soprano clucene
 
 # >=sys-auth/polkit-qt-0.103.0
 # >=kde-misc/polkit-kde-kcmodules-0.98_pre20101127
@@ -202,23 +165,14 @@ kde-base/kdelibs policykit
 # <=sci-geosciences/gpsd-2.95-r1
 app-misc/geoclue gps
 
-# app-misc/geoclue[networkmanager]
-app-misc/geoclue skyhook
-
 # >=sys-devel/binutils-2.22
 sys-devel/llvm gold
 
 # media-libs/liboggz
 media-libs/libkate wxwidgets
 
-# >=media-plugins/live-2011.12.23 (xlocale.h)
-media-video/vlc live
-
 # media-sound/fluidsynth
 media-video/vlc fluidsynth
-
-# media-libs/libshout
-media-video/vlc shout
 
 # sys-cluster/knem
 sys-cluster/openmpi openmpi_fabrics_knem
@@ -250,14 +204,18 @@ app-editors/xemacs canna
 # app-i18n/freewnn
 app-editors/xemacs freewnn
 
-# media-libs/libmtp
-media-video/vlc mtp
-
 # media-libs/devil[png,jpeg]
 media-gfx/graphviz devil
 
-# sci-libs/gts
-media-gfx/graphviz gts
-
 # sys-apps/util-linux (libuuid)
 net-misc/wget uuid
+
+# dev-util/valgrind
+dev-libs/eina valgrind
+
+# dev-util/lcov
+dev-libs/eina test
+dev-libs/eet test
+
+# net-misc/freerdp (doesnt build)
+media-video/vlc rdp

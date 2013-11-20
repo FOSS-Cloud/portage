@@ -1,6 +1,39 @@
 # ChangeLog for dev-util/suse-build
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/suse-build/ChangeLog,v 1.13 2013/03/18 10:23:04 miska Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/suse-build/ChangeLog,v 1.19 2013/11/02 09:05:08 scarabeus Exp $
+
+  02 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  -suse-build-2013.05.17-r1.ebuild, suse-build-2013.10.15.ebuild:
+  Stabilise latest on amd64 and x86 to ensure build is correct and matching what
+  obs is doing.
+
+*suse-build-2013.10.15 (02 Nov 2013)
+
+  02 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +suse-build-2013.10.15.ebuild, suse-build-9999.ebuild:
+  Version bump to the latest fixing building for factory.
+
+*suse-build-2013.05.17-r1 (16 Jul 2013)
+
+  16 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +suse-build-2013.05.17-r1.ebuild, -suse-build-2013.05.17.ebuild,
+  suse-build-9999.ebuild:
+  Provide symlink for default config as otherwise some local services won't be
+  executed.
+
+  21 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  -suse-build-2013.02.27.ebuild, suse-build-2013.05.17.ebuild:
+  Stabilise on amd64 and x86. Drop older.
+
+*suse-build-2013.05.17 (27 May 2013)
+
+  27 May 2013; Michal Hrusecky <miska@gentoo.org>
+  +suse-build-2013.05.17.ebuild, suse-build-9999.ebuild:
+  Updated to the latest version (2013.05.17)
+  Added missing dependency on cpio
+
+  29 Apr 2013; Agostino Sarubbo <ago@gentoo.org> suse-build-2013.02.27.ebuild:
+  Move KEYWORDS on another line to avoid ekeyword failure
 
   18 Mar 2013; Michal Hrusecky <miska@gentoo.org>
   -suse-build-2012.11.23.ebuild, suse-build-2013.02.27.ebuild:

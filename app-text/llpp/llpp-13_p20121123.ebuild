@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/llpp/llpp-13_p20121123.ebuild,v 1.5 2013/03/26 18:16:46 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/llpp/llpp-13_p20121123.ebuild,v 1.7 2013/07/13 23:16:59 xmw Exp $
 
 EAPI=4
 
@@ -17,7 +17,7 @@ IUSE=""
 
 RDEPEND="media-libs/freetype
 	media-libs/jbig2dec
-	media-libs/openjpeg
+	media-libs/openjpeg:0
 	virtual/jpeg
 	x11-libs/libX11
 	x11-misc/xsel"
@@ -31,7 +31,7 @@ src_prepare() {
 }
 
 src_compile() {
-	ocaml str.cma keystoml.ml KEYS > help.ml || die
+	ocaml str.cma keystoml.ml < KEYS > help.ml || die
 	printf 'let version ="%s";;\n' ${PV} >> help.ml || die
 
 	local myccopt="$(freetype-config --cflags) -O -include ft2build.h -D_GNU_SOURCE"

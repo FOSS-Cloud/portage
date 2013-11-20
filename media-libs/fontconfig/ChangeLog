@@ -1,6 +1,78 @@
 # ChangeLog for media-libs/fontconfig
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/fontconfig/ChangeLog,v 1.169 2013/03/28 17:42:05 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/fontconfig/ChangeLog,v 1.187 2013/10/21 04:13:31 yngwin Exp $
+
+*fontconfig-2.11.0 (21 Oct 2013)
+
+  21 Oct 2013; Ben de Groot <yngwin@gentoo.org> +fontconfig-2.11.0.ebuild:
+  version bump
+
+  17 Oct 2013; Christoph Junghans <ottxor@gentoo.org> fontconfig-2.10.93.ebuild:
+  added prefix support (bug #484146)
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fontconfig-2.10.92.ebuild:
+  Stable for x86, wrt bug #481824
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fontconfig-2.10.92.ebuild:
+  Stable for amd64, wrt bug #481824
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fontconfig-2.10.92.ebuild:
+  Stable for sparc, wrt bug #481824
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fontconfig-2.10.92.ebuild:
+  Stable for ppc64, wrt bug #481824
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> fontconfig-2.10.92.ebuild:
+  Stable for alpha, wrt bug #481824
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> fontconfig-2.10.92.ebuild:
+  Stable for ia64, wrt bug #481824
+
+  28 Aug 2013; Markus Meier <maekke@gentoo.org> fontconfig-2.10.92.ebuild:
+  arm stable, bug #481824
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> fontconfig-2.10.92.ebuild:
+  Stable for ppc, wrt bug #481824
+
+  23 Aug 2013; Jeroen Roovers <jer@gentoo.org> fontconfig-2.10.92.ebuild:
+  Stable for HPPA (bug #481824).
+
+*fontconfig-2.10.93 (21 Aug 2013)
+
+  21 Aug 2013; Ben de Groot <yngwin@gentoo.org> +fontconfig-2.10.93.ebuild,
+  -fontconfig-2.10.2-r1.ebuild, -fontconfig-2.10.2.ebuild,
+  -fontconfig-2.10.91.ebuild, -fontconfig-2.8.0-r2.ebuild:
+  Version bump. Drop old ebuilds.
+
+  21 Aug 2013; Ben de Groot <yngwin@gentoo.org> fontconfig-2.10.92.ebuild:
+  Order dependencies alphabetically and tighten up formatting
+
+  12 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org> fontconfig-2.10.92.ebuild:
+  Keyword amd64-linux
+
+  07 Aug 2013; Alexis Ballier <aballier@gentoo.org> fontconfig-2.10.92.ebuild:
+  fix multilib deps on expat now that it is unmasked
+
+  30 Jul 2013; Michał Górny <mgorny@gentoo.org> fontconfig-2.10.2-r1.ebuild,
+  fontconfig-2.10.91.ebuild, fontconfig-2.10.92.ebuild:
+  Update the emul-linux blocker to support abi_x86_32 flag on emul-linux.
+
+*fontconfig-2.10.92 (12 May 2013)
+
+  12 May 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/fontconfig-2.10.92-automake-1.13.patch,
+  +files/fontconfig-2.10.92-closing-fp.patch,
+  +files/fontconfig-2.10.92-fix-check.patch,
+  +files/fontconfig-2.10.92-fix-woff.patch,
+  +files/fontconfig-2.10.92-ft-face.patch,
+  +files/fontconfig-2.10.92-ft-face2.patch,
+  +files/fontconfig-2.10.92-native-fonts.patch,
+  +files/fontconfig-2.10.92-use-glob.patch, +fontconfig-2.10.92.ebuild:
+  Version bump, also include upstream patches that will be in 2.10.93 and
+  incorporate a fix to bug #466432 making fedora patch not needed.
+
+  29 Apr 2013; Michal Gorny <mgorny@gentoo.org> metadata.xml:
+  Add multilib@ as the co-maintainer for multilib conversion.
 
 *fontconfig-2.10.91 (28 Mar 2013)
 

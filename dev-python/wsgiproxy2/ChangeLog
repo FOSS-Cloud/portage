@@ -1,6 +1,22 @@
 # ChangeLog for dev-python/wsgiproxy2
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/wsgiproxy2/ChangeLog,v 1.1 2013/03/20 07:12:32 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/wsgiproxy2/ChangeLog,v 1.5 2013/09/17 05:45:37 patrick Exp $
+
+*wsgiproxy2-0.3 (17 Sep 2013)
+
+  17 Sep 2013; Patrick Lauer <patrick@gentoo.org> +wsgiproxy2-0.3.ebuild:
+  Bump
+
+*wsgiproxy2-0.2 (03 Jun 2013)
+
+  03 Jun 2013; Patrick Lauer <patrick@gentoo.org> +wsgiproxy2-0.2.ebuild:
+  Bump
+
+  22 May 2013; Patrick Lauer <patrick@gentoo.org> wsgiproxy2-0.1.ebuild:
+  Readding python-3.3 to python_targets
+
+  22 May 2013; Patrick Lauer <patrick@gentoo.org> wsgiproxy2-0.1.ebuild:
+  Remove python 3.3 until socketpool catches up
 
 *wsgiproxy2-0.1 (20 Mar 2013)
 

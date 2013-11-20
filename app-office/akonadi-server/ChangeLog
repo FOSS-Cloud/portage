@@ -1,6 +1,89 @@
 # ChangeLog for app-office/akonadi-server
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/akonadi-server/ChangeLog,v 1.109 2013/04/03 08:01:11 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/akonadi-server/ChangeLog,v 1.126 2013/10/14 21:51:13 dilfridge Exp $
+
+  14 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  akonadi-server-1.10.3.ebuild:
+  Needs qt-4.8.5 or the postgres backend breaks horribly
+
+*akonadi-server-1.10.3 (09 Oct 2013)
+
+  09 Oct 2013; Johannes Huber <johu@gentoo.org> +akonadi-server-1.10.3.ebuild,
+  -akonadi-server-1.10.2-r1.ebuild,
+  -files/akonadi-server-1.10.2-datastore_query_fix.patch:
+  Version bump fixes bug #484572. Remove old.
+
+  08 Sep 2013; Michael Palimaka <kensington@gentoo.org>
+  akonadi-server-1.10.2-r1.ebuild, akonadi-server-1.9.2.ebuild:
+  Correct dependencies wrt bug #484166.
+
+*akonadi-server-1.10.2-r1 (13 Aug 2013)
+
+  13 Aug 2013; Maciej Mrozowski <reavertm@gentoo.org>
+  -akonadi-server-1.10.2.ebuild, +akonadi-server-1.10.2-r1.ebuild,
+  +files/akonadi-server-1.10.2-datastore_query_fix.patch:
+  Add fix for assert in datastore for certain queries.
+
+*akonadi-server-1.10.2 (25 Jul 2013)
+
+  25 Jul 2013; Johannes Huber <johu@gentoo.org> +akonadi-server-1.10.2.ebuild,
+  -akonadi-server-1.10.1-r1.ebuild, -files/akonadi-server-1.10.1-fix_psql.patch:
+  Version bump, remove old.
+
+*akonadi-server-1.10.1-r1 (24 Jul 2013)
+
+  24 Jul 2013; Marc Schiffbauer <mschiff@gentoo.org>
+  +akonadi-server-1.10.1-r1.ebuild, +files/akonadi-server-1.10.1-fix_psql.patch,
+  -akonadi-server-1.10.1.ebuild:
+  Add PostgreSQL fix. Drop old ebuild.
+
+*akonadi-server-1.10.1 (23 Jul 2013)
+
+  23 Jul 2013; Johannes Huber <johu@gentoo.org> +akonadi-server-1.10.1.ebuild,
+  -akonadi-server-1.10.0-r1.ebuild, -akonadi-server-1.10.0.ebuild,
+  -files/akonadi-server-1.10.0-fix-pgsql.patch:
+  Version bump, remove old.
+
+  14 Jul 2013; Manuel Rüger <mrueg@gentoo.org> akonadi-server-1.10.0-r1.ebuild,
+  akonadi-server-1.10.0.ebuild:
+  Add 'Fixing qtgui deps for qt-4.8.5' to 1.10 releases
+
+*akonadi-server-1.10.0-r1 (12 Jul 2013)
+
+  12 Jul 2013; Marc Schiffbauer <mschiff@gentoo.org>
+  +akonadi-server-1.10.0-r1.ebuild,
+  +files/akonadi-server-1.10.0-pgsql-fix.patch:
+  Bump revision. Backported upstream fix 'fdedc830 - Unbreak akonadi on
+  Postgres'
+
+*akonadi-server-1.10.0 (10 Jul 2013)
+
+  10 Jul 2013; Johannes Huber <johu@gentoo.org> +akonadi-server-1.10.0.ebuild:
+  Version bump.
+
+  10 Jul 2013; Patrick Lauer <patrick@gentoo.org> akonadi-server-1.9.2.ebuild:
+  Fixing qtgui deps for qt-4.8.5
+
+  09 Jun 2013; Johannes Huber <johu@gentoo.org> -akonadi-server-1.9.1-r1.ebuild,
+  -files/akonadi-server-1.9.0-qt5.patch:
+  Remove old.
+
+  08 Jun 2013; Agostino Sarubbo <ago@gentoo.org> akonadi-server-1.9.2.ebuild:
+  Stable for ppc64, wrt bug #471392
+
+  06 Jun 2013; Agostino Sarubbo <ago@gentoo.org> akonadi-server-1.9.2.ebuild:
+  Stable for ppc, wrt bug #471392
+
+  05 Jun 2013; Agostino Sarubbo <ago@gentoo.org> akonadi-server-1.9.2.ebuild:
+  Stable for x86, wrt bug #471392
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> akonadi-server-1.9.2.ebuild:
+  Stable for amd64, wrt bug #471392
+
+*akonadi-server-1.9.2 (08 May 2013)
+
+  08 May 2013; Johannes Huber <johu@gentoo.org> +akonadi-server-1.9.2.ebuild:
+  Version bump.
 
   03 Apr 2013; Michael Palimaka <kensington@gentoo.org>
   -akonadi-server-1.8.0.ebuild, -akonadi-server-1.8.1.ebuild,

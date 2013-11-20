@@ -1,6 +1,15 @@
 # ChangeLog for net-mail/pflogsumm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/pflogsumm/ChangeLog,v 1.23 2012/02/06 13:32:34 eras Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-mail/pflogsumm/ChangeLog,v 1.26 2013/05/07 13:56:02 ago Exp $
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> pflogsumm-1.1.5.ebuild:
+  Stable for sparc, wrt bug #462820
+
+  30 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pflogsumm-1.1.5.ebuild:
+  Stable for x86, wrt bug #462820
+
+  30 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pflogsumm-1.1.5.ebuild:
+  Stable for amd64, wrt bug #462820
 
 *pflogsumm-1.1.5 (06 Feb 2012)
 
@@ -97,4 +106,3 @@
   +pflogsumm-1.0.11.ebuild:
   Initial import. Closes bug #32445, ebuild submitted by eric sammer
   <eric@ineoconcepts.com>.
-

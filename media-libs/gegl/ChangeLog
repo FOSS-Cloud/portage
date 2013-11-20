@@ -1,6 +1,93 @@
 # ChangeLog for media-libs/gegl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gegl/ChangeLog,v 1.78 2013/02/22 20:53:29 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/gegl/ChangeLog,v 1.103 2013/10/27 01:39:27 sping Exp $
+
+  27 Oct 2013; Sebastian Pipping <sping@gentoo.org> -gegl-0.2.0-r1.ebuild:
+  Removing 0.2.0-r1 for security (bug #442016)
+
+  01 Oct 2013; Sebastian Pipping <sping@gentoo.org> gegl-0.2.0-r1.ebuild,
+  gegl-0.2.0-r2.ebuild:
+  Fix tests (bug #471990), thanks to David Leverton!
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gegl-0.2.0-r2.ebuild:
+  Stable for ppc, wrt bug #481736
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gegl-0.2.0-r2.ebuild:
+  Stable for sparc, wrt bug #481736
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gegl-0.2.0-r2.ebuild:
+  Stable for ppc64, wrt bug #481736
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gegl-0.2.0-r2.ebuild:
+  Stable for ia64, wrt bug #481736
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gegl-0.2.0-r2.ebuild:
+  Stable for alpha, wrt bug #481736
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gegl-0.2.0-r2.ebuild:
+  Stable for x86, wrt bug #481736
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gegl-0.2.0-r2.ebuild:
+  Stable for amd64, wrt bug #481736
+
+  09 Sep 2013; Jeroen Roovers <jer@gentoo.org> gegl-0.2.0-r2.ebuild:
+  Stable for HPPA (bug #481736).
+
+  03 Aug 2013; Markus Meier <maekke@gentoo.org> gegl-0.2.0-r2.ebuild:
+  add ~arm, bug #473602
+
+*gegl-0.2.0-r2 (04 Jul 2013)
+
+  04 Jul 2013; Pacho Ramos <pacho@gentoo.org> +gegl-0.2.0-r2.ebuild:
+  vala and introspection support is broken, bug #468208
+
+  06 May 2013; Sebastian Pipping <sping@gentoo.org> gegl-0.2.0-r1.ebuild:
+  Workaround missing gegl-0.2.deps file (bug #468248)
+
+  02 May 2013; Agostino Sarubbo <ago@gentoo.org> gegl-0.2.0-r1.ebuild:
+  Revert for sping's request
+
+  02 May 2013; Agostino Sarubbo <ago@gentoo.org> gegl-0.2.0-r1.ebuild:
+  Stable for amd64, wrt bug #464572
+
+  01 May 2013; Sebastian Pipping <sping@gentoo.org> gegl-0.2.0-r1.ebuild:
+  Restore use of virtual/ffmpeg for ffmpeg/libav (bug #467810)
+
+  01 May 2013; Sebastian Pipping <sping@gentoo.org> -gegl-0.1.8.ebuild,
+  -gegl-0.2.0.ebuild:
+  Remove cruft
+
+  01 May 2013; Sebastian Pipping <sping@gentoo.org> gegl-0.2.0-r1.ebuild,
+  gegl-9999.ebuild:
+  Resolve dead USE="exif graphviz lua v4l" (bug #451136), reported by Nikoli
+
+  30 Apr 2013; Sebastian Pipping <sping@gentoo.org> gegl-0.2.0-r1.ebuild,
+  +files/gegl-0.2.0-g_log_domain.patch:
+  Apply experimental fix for G_LOG_DOMAIN related compile errors (bug #416587)
+
+  28 Apr 2013; Sebastian Pipping <sping@gentoo.org> gegl-0.2.0.ebuild,
+  gegl-0.2.0-r1.ebuild, gegl-9999.ebuild:
+  Enable tests for >=0.2.0
+
+  28 Apr 2013; Sebastian Pipping <sping@gentoo.org> gegl-0.2.0-r1.ebuild,
+  +files/gegl-0.2.0-introspection-version.patch:
+  Use upstream patch to fix introspection version (bug #416587)
+
+  28 Apr 2013; Sebastian Pipping <sping@gentoo.org> gegl-0.2.0-r1.ebuild,
+  gegl-9999.ebuild:
+  Move perl from RDEPEND to DEPEND (bug #415107), thanks to nzqr
+
+  28 Apr 2013; Sebastian Pipping <sping@gentoo.org> gegl-0.2.0-r1.ebuild,
+  gegl-9999.ebuild:
+  Migrate to vala eclass (bug #467396)
+
+  28 Apr 2013; Sebastian Pipping <sping@gentoo.org> gegl-9999.ebuild:
+  Drop patch from live ebuild (bug #460778)
+
+  27 Apr 2013; Sebastian Pipping <sping@gentoo.org> gegl-0.2.0.ebuild,
+  gegl-0.2.0-r1.ebuild, files/gegl-0.2.0-ffmpeg-0.11.diff:
+  Upgrade to libavformat v54 using upstream patch (bug #459312), thanks to
+  Andrew Karpow!
 
   22 Feb 2013; Zac Medico <zmedico@gentoo.org> gegl-0.2.0-r1.ebuild:
   Add ~arm-linux keyword.

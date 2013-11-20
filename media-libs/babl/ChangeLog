@@ -1,6 +1,57 @@
 # ChangeLog for media-libs/babl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/babl/ChangeLog,v 1.45 2013/02/21 18:07:17 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/babl/ChangeLog,v 1.60 2013/09/25 17:25:59 ago Exp $
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> babl-0.1.10-r1.ebuild:
+  Stable for ppc, wrt bug #481736
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> babl-0.1.10-r1.ebuild:
+  Stable for sparc, wrt bug #481736
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> babl-0.1.10-r1.ebuild:
+  Stable for ppc64, wrt bug #481736
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> babl-0.1.10-r1.ebuild:
+  Stable for ia64, wrt bug #481736
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> babl-0.1.10-r1.ebuild:
+  Stable for alpha, wrt bug #481736
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> babl-0.1.10-r1.ebuild:
+  Stable for x86, wrt bug #481736
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> babl-0.1.10-r1.ebuild:
+  Stable for amd64, wrt bug #481736
+
+  09 Sep 2013; Jeroen Roovers <jer@gentoo.org> babl-0.1.10-r1.ebuild:
+  Stable for HPPA (bug #481736).
+
+  02 Aug 2013; Markus Meier <maekke@gentoo.org> babl-0.1.10-r1.ebuild:
+  add ~arm, bug #473606
+
+*babl-0.1.10-r1 (04 Jul 2013)
+
+  04 Jul 2013; Pacho Ramos <pacho@gentoo.org> +babl-0.1.10-r1.ebuild:
+  vala and introspection support is broken, bug #468208
+
+  02 May 2013; Agostino Sarubbo <ago@gentoo.org> babl-0.1.10.ebuild:
+  Revert for sping's request
+
+  02 May 2013; Agostino Sarubbo <ago@gentoo.org> babl-0.1.10.ebuild:
+  Stable for amd64, wrt bug #464572
+
+  30 Apr 2013; Sebastian Pipping <sping@gentoo.org> babl-0.1.10.ebuild,
+  babl-9999.ebuild:
+  Migrate to vala eclass (bug #467394)
+
+  30 Apr 2013; Sebastian Pipping <sping@gentoo.org> babl-0.1.8.ebuild:
+  Apply g-ir crash patch to 0.1.8, too (bug #413663)
+
+  29 Apr 2013; Sebastian Pipping <sping@gentoo.org> babl-0.1.10.ebuild,
+  +files/babl-0.1.10-g-ir-compiler-crash.patch,
+  +files/babl-0.1.10-introspection.patch:
+  Fix build with USE=introspection (bug #413663), patches by upstream and
+  openSUSE
 
   21 Feb 2013; Zac Medico <zmedico@gentoo.org> babl-0.1.10.ebuild:
   Add ~arm-linux keyword.

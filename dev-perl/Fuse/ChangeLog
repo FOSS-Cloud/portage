@@ -1,6 +1,16 @@
 # ChangeLog for dev-perl/Fuse
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Fuse/ChangeLog,v 1.18 2012/06/24 12:58:36 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Fuse/ChangeLog,v 1.20 2013/11/03 11:49:59 zlogene Exp $
+
+*Fuse-0.160.1 (03 Nov 2013)
+
+  03 Nov 2013; Mikle Kolyada <zlogene@gentoo.org> +Fuse-0.160.1.ebuild:
+  version bump, fix bug #489874
+
+*Fuse-0.160.0 (29 Oct 2013)
+
+  29 Oct 2013; Patrick Lauer <patrick@gentoo.org> +Fuse-0.160.0.ebuild:
+  Bump
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

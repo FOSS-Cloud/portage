@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/maruku/maruku-0.6.1.ebuild,v 1.2 2013/01/15 06:44:44 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/maruku/maruku-0.6.1.ebuild,v 1.5 2013/11/15 19:10:12 graaff Exp $
 
 EAPI=5
 
@@ -21,7 +21,7 @@ HOMEPAGE="http://maruku.rubyforge.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="amd64 ~arm ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE=""
 
 ruby_add_rdepend dev-ruby/syntax
@@ -42,8 +42,8 @@ each_ruby_test() {
 
 pkg_postinst() {
 	elog
-	elog "You need to emerge app-text/texlive and dev-tex/latex-unicode if"
+	elog "You need to emerge app-text/texlive and dev-texlive/texlive-latexextra if"
 	elog "you want to use --pdf with Maruku. You may also want to emerge"
-	elog "dev-tex/listings to enable LaTeX syntax highlighting."
+	elog "dev-texlive/texlive-latexrecommended to enable LaTeX syntax highlighting."
 	elog
 }

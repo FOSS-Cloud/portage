@@ -1,6 +1,26 @@
 # ChangeLog for net-misc/mosh
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/mosh/ChangeLog,v 1.39 2013/03/27 15:23:26 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/mosh/ChangeLog,v 1.45 2013/08/13 12:57:05 xmw Exp $
+
+  13 Aug 2013; Michael Weber <xmw@gentoo.org> mosh-1.2.4.ebuild:
+  Add ~arm keyword
+
+  20 Jul 2013; Michael Weber <xmw@gentoo.org> mosh-1.2.4.ebuild,
+  mosh-9999.ebuild:
+  respect bashcompdir (bug 477384)
+
+  11 Jun 2013; Michael Weber <xmw@gentoo.org> -mosh-1.2.2.ebuild,
+  -mosh-1.2.3.95_rc1.ebuild, -mosh-1.2.3.ebuild:
+  drop old versions.
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> mosh-1.2.4.ebuild:
+  Stable for ppc, wrt bug #470562
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> mosh-1.2.4.ebuild:
+  Stable for x86, wrt bug #470562
+
+  19 May 2013; Agostino Sarubbo <ago@gentoo.org> mosh-1.2.4.ebuild:
+  Stable for amd64, wrt bug #470562
 
 *mosh-1.2.4 (27 Mar 2013)
 

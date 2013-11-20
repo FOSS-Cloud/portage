@@ -1,6 +1,21 @@
 # ChangeLog for dev-lang/mercury
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/mercury/ChangeLog,v 1.150 2012/06/25 12:22:53 keri Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/mercury/ChangeLog,v 1.153 2013/06/27 13:19:07 keri Exp $
+
+*mercury-13.05.1 (27 Jun 2013)
+
+  27 Jun 2013; <keri@gentoo.org> +mercury-13.05.1.ebuild:
+  Version bump
+
+*mercury-13.05 (03 Jun 2013)
+
+  03 Jun 2013; <keri@gentoo.org> +mercury-13.05.ebuild:
+  Version bump
+
+*mercury-11.07.2 (21 Apr 2013)
+
+  21 Apr 2013; <keri@gentoo.org> +mercury-11.07.2.ebuild:
+  Version bump
 
   25 Jun 2012; <keri@gentoo.org> mercury-11.07.1.ebuild:
   Ensure debugger/completion test passes with --force-readline ml option

@@ -1,6 +1,42 @@
 # ChangeLog for app-accessibility/espeak
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/espeak/ChangeLog,v 1.106 2013/02/02 22:17:43 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/espeak/ChangeLog,v 1.115 2013/10/02 11:50:49 williamh Exp $
+
+  02 Oct 2013; William Hubbs <williamh@gentoo.org> -espeak-1.42.04.ebuild,
+  -espeak-1.45.03.ebuild, -espeak-1.46.01.ebuild, -espeak-1.47.11.ebuild:
+  remove old unstable versions
+
+  01 Oct 2013; William Hubbs <williamh@gentoo.org> espeak-1.47.11-r1.ebuild:
+  drop the required_use line; portaudio and pulseaudio are independent from each
+  other.
+
+  01 Oct 2013; William Hubbs <williamh@gentoo.org> espeak-1.47.11-r1.ebuild:
+  style fixes and use required_use since pulseaudio support will not build
+  without portaudio, thanks to Chainsaw for pointing out the style changes.
+
+*espeak-1.47.11-r1 (01 Oct 2013)
+
+  01 Oct 2013; William Hubbs <williamh@gentoo.org> +espeak-1.47.11-r1.ebuild:
+  Fixes for bug #485934 and bug #485936
+
+  22 Sep 2013; William Hubbs <williamh@gentoo.org> espeak-1.47.11.ebuild:
+  Add overrides for AR and CFLAGS, convert a call to make to emake, use the S
+  variable instead of "cd src" in the src_* functions and make some cosmetic
+  changes. Thanks to ago for pointing these out. This fixes bug #484852.
+
+  12 Jul 2013; William Hubbs <williamh@gentoo.org> espeak-1.47.11.ebuild:
+  remove error message since "rm -rf" does not fail
+
+  12 Jul 2013; William Hubbs <williamh@gentoo.org> espeak-1.47.11.ebuild:
+  remove the blocker so someone can be running espeak when they upgrade
+
+  12 Jul 2013; Patrick Lauer <patrick@gentoo.org> espeak-1.47.11.ebuild:
+  Add blocker to avoid manual file deletion stupidity
+
+*espeak-1.47.11 (11 Jul 2013)
+
+  11 Jul 2013; William Hubbs <williamh@gentoo.org> +espeak-1.47.11.ebuild:
+  version bump for bug #476462
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> espeak-1.46.01.ebuild:
   Add ~arm, wrt bug #449220

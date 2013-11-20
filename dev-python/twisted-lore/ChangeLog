@@ -1,6 +1,38 @@
 # ChangeLog for dev-python/twisted-lore
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-lore/ChangeLog,v 1.62 2013/04/08 06:44:56 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-lore/ChangeLog,v 1.71 2013/09/06 16:51:01 ago Exp $
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-lore-12.3.0.ebuild:
+  Stable for sparc, wrt bug #468150
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-lore-12.3.0.ebuild:
+  Stable for ppc64, wrt bug #468150
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-lore-12.3.0.ebuild:
+  Stable for ppc, wrt bug #468150
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-lore-12.3.0.ebuild:
+  Stable for ia64, wrt bug #468150
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-lore-12.3.0.ebuild:
+  Stable for alpha, wrt bug #468150
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-lore-12.3.0.ebuild:
+  Stable for x86, wrt bug #468150
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-lore-12.3.0.ebuild:
+  Stable for amd64, wrt bug #468150
+
+*twisted-lore-13.0.0-r1 (09 Aug 2013)
+
+  09 Aug 2013; Michał Górny <mgorny@gentoo.org> +twisted-lore-13.0.0-r1.ebuild:
+  Migrate to twisted-r1.
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> twisted-lore-10.2.0.ebuild,
+  twisted-lore-11.0.0.ebuild, twisted-lore-11.1.0.ebuild,
+  twisted-lore-12.0.0.ebuild, twisted-lore-12.2.0.ebuild,
+  twisted-lore-12.3.0.ebuild, twisted-lore-13.0.0.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
 
 *twisted-lore-13.0.0 (08 Apr 2013)
 

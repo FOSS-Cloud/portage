@@ -1,0 +1,13 @@
+# ChangeLog for dev-haskell/ranges
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/ranges/ChangeLog,v 1.2 2013/11/05 11:21:52 chainsaw Exp $
+
+  05 Nov 2013; Tony Vroon <chainsaw@gentoo.org> ranges-0.2.4.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #488750.
+
+*ranges-0.2.4 (26 Aug 2013)
+
+  26 Aug 2013; Alexander Vershilov <qnikst@gentoo.org> +metadata.xml,
+  +ranges-0.2.4.ebuild:
+  dev-haskell/ranges: initial layout

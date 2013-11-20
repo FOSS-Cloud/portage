@@ -1,15 +1,15 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libdnet/libdnet-1.12.ebuild,v 1.3 2012/10/10 18:17:08 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libdnet/libdnet-1.12.ebuild,v 1.19 2013/11/08 15:11:49 jer Exp $
 
-EAPI=4
+EAPI=5
 
 AT_M4DIR="config"
-AUTOTOOLS_AUTORECONF=1
-AUTOTOOLS_IN_SOURCE_BUILD=1
 PYTHON_DEPEND="python? 2"
+PYTHON_COMPAT=( python2_6 python2_7 )
+DISTUTILS_OPTIONAL=1
 
-inherit autotools-utils eutils python
+inherit autotools distutils-r1 eutils
 
 DESCRIPTION="simplified, portable interface to several low-level networking routines"
 HOMEPAGE="http://code.google.com/p/libdnet/"
@@ -18,32 +18,54 @@ SRC_URI="http://libdnet.googlecode.com/files/${P}.tgz
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 sparc x86 ~x86-fbsd"
 IUSE="ipv6 python static-libs test"
 
 #DEPEND="test? ( dev-libs/check )"
+DEPEND="python? ( ${PYTHON_DEPS} )"
+RDEPEND="${DEPEND}"
 RESTRICT="test"
 
 DOCS=( README THANKS TODO )
-
-pkg_setup() {
-	if use python; then
-		python_set_active_version 2
-		python_pkg_setup
-	fi
-}
 
 src_prepare() {
 	# Useless copy
 	rm -r trunk/ || die
 
-	sed -i -e 's/libcheck.a/libcheck.so/g' configure.in || die "sed failed"
+	sed -i \
+		-e 's/libcheck.a/libcheck.so/g' \
+		-e 's|AM_CONFIG_HEADER|AC_CONFIG_HEADERS|g' \
+		configure.in || die
+	sed -i -e 's|-L@libdir@ ||g' dnet-config.in || die
 	use ipv6 && epatch "${WORKDIR}/${P}.ipv6-1.patch"
-	autotools-utils_src_prepare
+	sed -i -e '/^SUBDIRS/s|python||g' Makefile.am || die
+	eautoreconf
+	if use python; then
+		cd python
+		distutils-r1_src_prepare
+	fi
 }
 
 src_configure() {
 	econf \
 		$(use_with python) \
 		$(use_enable static-libs static)
+}
+
+src_compile() {
+	default
+	if use python; then
+		cd python
+		distutils-r1_src_compile
+	fi
+}
+
+src_install() {
+	default
+	if use python; then
+		cd python
+		unset DOCS
+		distutils-r1_src_install
+	fi
+	prune_libtool_files
 }

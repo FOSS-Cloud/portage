@@ -1,6 +1,91 @@
 # ChangeLog for net-mail/notmuch
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/notmuch/ChangeLog,v 1.73 2013/03/10 09:39:51 aidecoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/notmuch/ChangeLog,v 1.83 2013/09/22 06:51:11 ago Exp $
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> notmuch-0.16-r1.ebuild:
+  Stable for x86, wrt bug #484926
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> notmuch-0.16-r1.ebuild:
+  Stable for amd64, wrt bug #484926
+
+  14 Sep 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  -notmuch-0.10.2-r3.ebuild, -notmuch-0.11.1-r3.ebuild,
+  -files/0.10.2-build-with-gmime-2.4-only.patch,
+  -files/0.10.2-emacsui-mml-tags-quoting-fix.patch,
+  -files/0.10.2-emacsui-mml-tags-quoting-test.patch,
+  -files/0.10.2-fix-test-build.patch,
+  -files/0.10.2-lib-call-g_mime_init-db-open.patch,
+  -files/0.11.1-build-with-gmime-2.4-only.patch:
+  Removed the oldest versions: 0.10 and 0.11.
+
+  14 Sep 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  -files/0.15-0001-lib-Makefile.local-depend-on-libs-we-a.patch,
+  -files/0.15.1-0001-lib-Makefile.local-depend-on-libs-we-a.patch:
+  Removed old, unused patches.
+
+  14 Sep 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> notmuch-0.12.ebuild,
+  notmuch-0.13.1.ebuild, notmuch-0.14-r1.ebuild, notmuch-0.15.2.ebuild,
+  notmuch-0.16-r1.ebuild,
+  +files/0.12-0001-test-exit-with-nonzero-value-when-not-.patch,
+  +files/0.13.1-0001-test-exit-with-nonzero-value-when-not-.patch,
+  +files/0.14-0001-test-exit-with-nonzero-value-when-not-.patch,
+  +files/0.15.2-0001-test-exit-with-nonzero-value-when-not-.patch,
+  +files/0.16-0001-test-exit-with-nonzero-value-when-not-.patch:
+  Ensure test phase fails if any test in suite fails. Rels bug #483988.
+
+  06 Sep 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> -notmuch-0.16.ebuild:
+  Removing old revision of 0.16 version.
+
+*notmuch-0.16-r1 (06 Sep 2013)
+
+  06 Sep 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +notmuch-0.16-r1.ebuild:
+  Bumping 0.16 to r1 to enforce rebuild for ~arch users. It rels bug #483988.
+
+  Stable users should not be affected by the bug.
+
+  06 Sep 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  notmuch-0.10.2-r3.ebuild, notmuch-0.11.1-r3.ebuild, notmuch-0.12.ebuild,
+  notmuch-0.13.1.ebuild, notmuch-0.14-r1.ebuild, notmuch-0.15.2.ebuild,
+  notmuch-0.16.ebuild:
+  Block >=xapian-1.3 for notmuch, because half of tests fail with new xapian.
+  It rels bug #483988.
+
+*notmuch-0.16 (03 Aug 2013)
+
+  03 Aug 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> +notmuch-0.16.ebuild:
+  Version bump.
+
+  Bumped EAPI to 5 and migrated to distutils-r1 (thanks to Mike
+  Gilbert <floppym@gentoo.org> for help with that).
+
+  Notmuch 0.16 has new Vim UI which needs Ruby bindings. Unfortunatelly the
+  ebuild doesn't support Ruby bindings until somebody add it. Patches with
+  support for Ruby bindings using ruby-ng eclass are welcome.  See bug #475624.
+
+  NEWS
+  ~~~~
+  (Extracted headlines from NEWS file. See it for details.)
+
+  Command-Line Interface
+  ----------------------
+  - Support for delivering messages to Maildir (new command `insert`)
+  - `notmuch count --batch` option
+  - `notmuch tag` option to remove all tags from matching messages (`notmuch
+  tag --remove-all`)
+  - Decrypting commands explicitly expect a gpg-agent
+  - Configuration file saves follow symbolic links
+  - Top level option to specify configuration file (`notmuch --config=FILE`)
+  - Bash command-line completion improved
+  - Deprecated commands "part" and "search-tags" are removed.
+
+  Emacs Interface
+  ---------------
+  - New keymap to view/save parts; removed s/v/o/| part button bindings
+  - Default part save directory is now `mm-default-directory`
+  - Key bindings for next/previous thread (M-n and M-p)
+  - Better handling of errors in search buffers
+  - Faster search and show
 
   10 Mar 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> -notmuch-0.15.ebuild,
   -notmuch-0.15.1.ebuild:

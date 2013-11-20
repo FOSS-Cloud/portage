@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/apitrace/apitrace-3.0-r1.ebuild,v 1.4 2013/03/02 20:19:29 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/apitrace/apitrace-3.0-r1.ebuild,v 1.6 2013/07/17 21:55:34 radhermit Exp $
 
-EAPI="4"
+EAPI="5"
 PYTHON_DEPEND="2:2.6"
 
 inherit cmake-utils eutils python multilib vcs-snapshot
@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="egl multilib qt4"
 
 RDEPEND="app-arch/snappy
-	media-libs/libpng
+	media-libs/libpng:0=
 	sys-libs/zlib
 	media-libs/mesa[egl?]
 	egl? ( || (
@@ -40,6 +40,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-system-libs.patch
 	"${FILESDIR}"/${P}-glxtrace-only.patch
 	"${FILESDIR}"/${PN}-3.0-gcc47.patch
+	"${FILESDIR}"/${P}-memcpy.patch
 )
 
 pkg_setup() {
@@ -47,7 +48,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	base_src_prepare
+	cmake-utils_src_prepare
 
 	# Workaround NULL DT_RPATH issues
 	sed -i -e "s/install (TARGETS/#\0/" gui/CMakeLists.txt || die
@@ -71,7 +72,7 @@ src_configure() {
 			multilib_toolchain_setup ${ABI}
 		fi
 
-		CMAKE_BUILD_DIR="${WORKDIR}/${P}_build-${ABI}"
+		BUILD_DIR="${WORKDIR}/${P}_build-${ABI}"
 		cmake-utils_src_configure
 	done
 }
@@ -79,19 +80,19 @@ src_configure() {
 src_compile() {
 	for ABI in $(get_install_abis) ; do
 		use multilib && multilib_toolchain_setup ${ABI}
-		CMAKE_BUILD_DIR="${WORKDIR}/${P}_build-${ABI}"
+		BUILD_DIR="${WORKDIR}/${P}_build-${ABI}"
 		cmake-utils_src_compile
 	done
 }
 
 src_install() {
-	dobin "${CMAKE_BUILD_DIR}"/{glretrace,apitrace}
-	use qt4 && dobin "${CMAKE_BUILD_DIR}"/qapitrace
+	dobin "${BUILD_DIR}"/{glretrace,apitrace}
+	use qt4 && dobin "${BUILD_DIR}"/qapitrace
 
 	for ABI in $(get_install_abis) ; do
-		CMAKE_BUILD_DIR="${WORKDIR}/${P}_build-${ABI}"
+		BUILD_DIR="${WORKDIR}/${P}_build-${ABI}"
 		exeinto /usr/$(get_libdir)/${PN}/wrappers
-		doexe "${CMAKE_BUILD_DIR}"/wrappers/*.so
+		doexe "${BUILD_DIR}"/wrappers/*.so
 		dosym glxtrace.so /usr/$(get_libdir)/${PN}/wrappers/libGL.so
 		dosym glxtrace.so /usr/$(get_libdir)/${PN}/wrappers/libGL.so.1
 		dosym glxtrace.so /usr/$(get_libdir)/${PN}/wrappers/libGL.so.1.2

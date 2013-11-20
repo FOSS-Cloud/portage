@@ -1,6 +1,30 @@
 # ChangeLog for perl-core/Parse-CPAN-Meta
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/Parse-CPAN-Meta/ChangeLog,v 1.41 2013/03/02 16:20:28 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/perl-core/Parse-CPAN-Meta/ChangeLog,v 1.45 2013/10/28 06:01:00 patrick Exp $
+
+*Parse-CPAN-Meta-1.440.900 (28 Oct 2013)
+
+  28 Oct 2013; Patrick Lauer <patrick@gentoo.org>
+  +Parse-CPAN-Meta-1.440.900.ebuild:
+  Bump
+
+*Parse-CPAN-Meta-1.440.700 (13 Sep 2013)
+
+  13 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  +Parse-CPAN-Meta-1.440.700.ebuild:
+  Bump
+
+  25 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> -Parse-CPAN-Meta-1.40.ebuild,
+  -Parse-CPAN-Meta-1.420.ebuild, -Parse-CPAN-Meta-1.440.100.ebuild,
+  -Parse-CPAN-Meta-1.440.200.ebuild, -Parse-CPAN-Meta-1.440.300.ebuild,
+  -Parse-CPAN-Meta-1.440.ebuild:
+  drop old
+
+*Parse-CPAN-Meta-1.440.500 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +Parse-CPAN-Meta-1.440.500.ebuild:
+  Bump
 
   02 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
   Parse-CPAN-Meta-1.440.400.ebuild:

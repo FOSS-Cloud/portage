@@ -1,6 +1,36 @@
 # ChangeLog for net-proxy/http-replicator
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/http-replicator/ChangeLog,v 1.37 2013/03/04 13:00:40 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/http-replicator/ChangeLog,v 1.40 2013/06/10 14:01:46 tomwij Exp $
+
+*http-replicator-4.0_alpha2-r3 (10 Jun 2013)
+
+  10 Jun 2013; Tom Wijsman <TomWij@gentoo.org>
+  +files/http-replicator-4.0_alpha2-r3-pid.patch,
+  +files/http-replicator-4.0_alpha2-r3.init,
+  +http-replicator-4.0_alpha2-r3.ebuild,
+  -files/http-replicator-4.0_alpha2-r2.init,
+  -http-replicator-4.0_alpha2-r2.ebuild:
+  Revision bump. Bring back --pid functionality from 3.x, more proper than using
+  shell redirection. Thanks to klnikita_ on IRC for providing the patch and
+  testing whether it works on OpenRC. I plan to write a systemd service unit
+  file by the time 4.x has a stable release.
+
+*http-replicator-4.0_alpha2-r2 (10 Jun 2013)
+
+  10 Jun 2013; Tom Wijsman <TomWij@gentoo.org>
+  +files/http-replicator-4.0_alpha2-r2.conf,
+  +files/http-replicator-4.0_alpha2-r2.init,
+  +http-replicator-4.0_alpha2-r2.ebuild, -http-replicator-4.0_alpha2-r1.ebuild,
+  -http-replicator-4.0_alpha2.ebuild:
+  Revision bump. Updated configuration, the parameters have changed since 4.x;
+  fixed init script and shebangs. Fixes bug #472422.
+
+*http-replicator-4.0_alpha2-r1 (05 Jun 2013)
+
+  05 Jun 2013; Tom Wijsman <TomWij@gentoo.org>
+  +http-replicator-4.0_alpha2-r1.ebuild:
+  Revision bump, added missing Python modules. Fixes bug #472122 reported by
+  Russell Knighton.
 
 *http-replicator-4.0_alpha2 (04 Mar 2013)
 

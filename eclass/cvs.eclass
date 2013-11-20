@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/cvs.eclass,v 1.81 2013/01/22 07:29:02 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/cvs.eclass,v 1.83 2013/09/28 16:22:29 ottxor Exp $
 
 # @ECLASS: cvs.eclass
 # @MAINTAINER:
@@ -202,6 +202,7 @@ fi
 
 # called from cvs_src_unpack
 cvs_fetch() {
+	has "${EAPI:-0}" 0 1 2 && ! use prefix && EPREFIX=
 
 	# Make these options local variables so that the global values are
 	# not affected by modifications in this function.
@@ -301,10 +302,10 @@ cvs_fetch() {
 
 	# Our server string (i.e. CVSROOT) without the password so it can
 	# be put in Root
+	local connection="${ECVS_AUTH}"
 	if [[ ${ECVS_AUTH} == "no" ]] ; then
 		local server="${ECVS_USER}@${ECVS_SERVER}"
 	else
-		local connection="${ECVS_AUTH}"
 		[[ -n ${ECVS_PROXY} ]] && connection+=";proxy=${ECVS_PROXY}"
 		[[ -n ${ECVS_PROXY_PORT} ]] && connection+=";proxyport=${ECVS_PROXY_PORT}"
 		local server=":${connection}:${ECVS_USER}@${ECVS_SERVER}"
@@ -340,15 +341,15 @@ cvs_fetch() {
 		chown "${ECVS_RUNAS}" "${T}/cvspass"
 	fi
 
-	# The server string with the password in it, for login
-	cvsroot_pass=":${ECVS_AUTH}:${ECVS_USER}:${ECVS_PASS}@${ECVS_SERVER}"
+	# The server string with the password in it, for login (only used for pserver)
+	cvsroot_pass=":${connection}:${ECVS_USER}:${ECVS_PASS}@${ECVS_SERVER}"
 
 	# Ditto without the password, for checkout/update after login, so
 	# that the CVS/Root files don't contain the password in plaintext
 	if [[ ${ECVS_AUTH} == "no" ]] ; then
 		cvsroot_nopass="${ECVS_USER}@${ECVS_SERVER}"
 	else
-		cvsroot_nopass=":${ECVS_AUTH}:${ECVS_USER}@${ECVS_SERVER}"
+		cvsroot_nopass=":${connection}:${ECVS_USER}@${ECVS_SERVER}"
 	fi
 
 	# Commands to run
@@ -392,7 +393,7 @@ cvs_fetch() {
 
 			export CVS_RSH="${T}/cvs_sshwrapper"
 			cat > "${CVS_RSH}"<<EOF
-#!/usr/bin/python
+#!${EPREFIX}/usr/bin/python
 import fcntl
 import os
 import sys
@@ -436,7 +437,7 @@ EOF
 				>> "${CVS_RSH}"
 			echo "${CVS_ECLASS_STRICT_HOST_CHECKING}')" \
 				>> "${CVS_RSH}"
-			echo "os.execv('/usr/bin/ssh', newarglist)" \
+			echo "os.execv('${EPREFIX}/usr/bin/ssh', newarglist)" \
 				>> "${CVS_RSH}"
 
 			chmod a+x "${CVS_RSH}"

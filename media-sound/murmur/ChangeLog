@@ -1,6 +1,65 @@
 # ChangeLog for media-sound/murmur
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/murmur/ChangeLog,v 1.38 2013/03/02 21:58:23 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/murmur/ChangeLog,v 1.51 2013/11/17 23:50:12 tgurr Exp $
+
+  17 Nov 2013; Timo Gurr <tgurr@gentoo.org> -murmur-1.2.3-r4.ebuild,
+  -murmur-1.2.4.ebuild, -files/mumble-1.2.3-fix-cert-validation.patch,
+  -files/murmur-1.2.3-ice-3.4.2-compat.patch,
+  -files/mumble-1.2.3-remove-certs.patch, -files/murmur.initd:
+  Remove old.
+
+  17 Nov 2013; Timo Gurr <tgurr@gentoo.org> murmur-1.2.4-r2.ebuild,
+  +files/murmur-1.2.4-ice-3.5.1-compat.patch:
+  Use readme.gentoo.eclass, bug #487462. Add ice-3.5.1-compat.patch, bug
+  #488880.
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> murmur-1.2.4-r2.ebuild:
+  Stable for x86, wrt bug #486304
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due voip herd removal:
+  http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> murmur-1.2.4-r2.ebuild:
+  amd64 stable, bug #486304
+
+*murmur-1.2.4-r2 (09 Oct 2013)
+
+  09 Oct 2013; Pacho Ramos <pacho@gentoo.org> +files/murmurd-dbus.service,
+  +files/murmurd-dbus.tmpfiles, +files/murmurd-no-dbus.service,
+  +murmur-1.2.4-r2.ebuild, -files/murmur.service, -murmur-1.2.4-r1.ebuild:
+  Use improved unit files from Exherbo (thanks to tgurr for suggesting the
+  change), revert the dependency restriction on Ice as I cannot reproduce the
+  problem and, in any case, the problem would affect to even current stable (and
+  probably would need a specific bug to handle that issue)
+
+  07 Oct 2013; Pacho Ramos <pacho@gentoo.org> murmur-1.2.4-r1.ebuild:
+  Fix Ice dependency (#486304#c2 by Lars Wendler (Polynomial-C))
+
+*murmur-1.2.4-r1 (18 Sep 2013)
+
+  18 Sep 2013; Pacho Ramos <pacho@gentoo.org> +files/murmur.service,
+  +murmur-1.2.4-r1.ebuild:
+  Add unit file (#484936 by Andrius Štikonas)
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> murmur-1.2.4.ebuild:
+  Stable for x86, wrt bug #476266
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> murmur-1.2.4.ebuild:
+  Stable for amd64, wrt bug #476266
+
+  04 Jun 2013; Timo Gurr <tgurr@gentoo.org> ChangeLog:
+  2nd attempt to correctly sign the Manifest (now with my own key ...).
+
+  04 Jun 2013; Timo Gurr <tgurr@gentoo.org> ChangeLog:
+  Attempt to correctly sign the Manifest.
+
+*murmur-1.2.4 (04 Jun 2013)
+
+  04 Jun 2013; Timo Gurr <tgurr@gentoo.org> -murmur-1.2.4_beta1-r1.ebuild,
+  +murmur-1.2.4.ebuild, +files/murmur-1.2.4-ice-3.5.0-compat.patch,
+  +files/murmur.initd-r1:
+  Version bump, remove old. Fixes bug #452740,#460524,#472128.
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> murmur-1.2.3-r4.ebuild,
   murmur-1.2.4_beta1-r1.ebuild:

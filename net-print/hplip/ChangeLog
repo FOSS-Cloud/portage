@@ -1,6 +1,77 @@
 # ChangeLog for net-print/hplip
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.268 2013/04/06 08:38:40 billie Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.284 2013/11/07 17:09:49 billie Exp $
+
+*hplip-3.13.11 (07 Nov 2013)
+
+  07 Nov 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.11.ebuild:
+  Version bump.
+
+*hplip-3.13.10 (14 Oct 2013)
+
+  14 Oct 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.10.ebuild:
+  Version bump.
+
+  14 Oct 2013; Tony Vroon <chainsaw@gentoo.org> hplip-3.13.9.ebuild:
+  Marked stable on AMD64 based on arch tester report by Elijah "Armageddon" El
+  Lazkani in bug #484474.
+
+  28 Sep 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.7.ebuild,
+  -hplip-3.13.8.ebuild:
+  Remove old.
+
+*hplip-3.13.9 (28 Sep 2013)
+
+  28 Sep 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.9.ebuild:
+  Version bump. Includes Red Hat's patch to fix CVE-2013-4325.
+
+  06 Sep 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.6.ebuild:
+  Remove old.
+
+*hplip-3.13.8 (06 Sep 2013)
+
+  06 Sep 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.8.ebuild:
+  Version bump.
+
+*hplip-3.13.7 (24 Jul 2013)
+
+  24 Jul 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.7.ebuild:
+  Version bump.
+
+  05 Jul 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.5.ebuild:
+  Remove old.
+
+*hplip-3.13.6 (24 Jun 2013)
+
+  24 Jun 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.6.ebuild:
+  Version bump.
+
+  09 Jun 2013; Daniel Pielmeier <billie@gentoo.org> hplip-3.13.5.ebuild:
+  Switch to virtual/python-imaging as hplip supports both pillow and imaging.
+  This fixes bug #472556. Thanks to Ivan Iraci for the report.
+
+  07 Jun 2013; Daniel Pielmeier <billie@gentoo.org> hplip-3.13.5.ebuild:
+  Add REQUIRED_USE needed by PYTHON_REQUIRED_USE and python-single-r1 eclass.
+
+  07 Jun 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.4.ebuild:
+  Remove old.
+
+*hplip-3.13.5 (18 May 2013)
+
+  18 May 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.5.ebuild:
+  Version bump.
+
+  01 May 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.2-r2.ebuild,
+  -hplip-3.13.3.ebuild:
+  Remove old.
+
+  12 Apr 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.2-r2.ebuild:
+  Remove old.
+
+*hplip-3.13.4 (12 Apr 2013)
+
+  12 Apr 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.4.ebuild:
+  Version bump.
 
   06 Apr 2013; Daniel Pielmeier <billie@gentoo.org> hplip-3.13.3.ebuild:
   Raise dbus dependency for new python-r1 eclass.

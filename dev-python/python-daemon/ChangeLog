@@ -1,6 +1,24 @@
 # ChangeLog for dev-python/python-daemon
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-daemon/ChangeLog,v 1.8 2012/06/09 08:20:18 vapier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-daemon/ChangeLog,v 1.13 2013/08/18 13:26:20 ago Exp $
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> python-daemon-1.6-r1.ebuild:
+  Stable for x86, wrt bug #477628
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> python-daemon-1.6-r1.ebuild:
+  Stable for amd64, wrt bug #477628
+
+  24 Jul 2013; Patrick Lauer <patrick@gentoo.org> python-daemon-1.6-r1.ebuild:
+  QA: Removing stable keyword on arm as dev-python/lockfile doesn't have
+  matching keywords yet
+
+  23 Jul 2013; Agostino Sarubbo <ago@gentoo.org> python-daemon-1.6-r1.ebuild:
+  Stable for arm, wrt bug #477628
+
+*python-daemon-1.6-r1 (31 May 2013)
+
+  31 May 2013; Tim Harder <radhermit@gentoo.org> +python-daemon-1.6-r1.ebuild:
+  Revision bump, migrate to distutils-r1.
 
   09 Jun 2012; Mike Frysinger <vapier@gentoo.org> python-daemon-1.6.ebuild:
   Add arm love for ChromiumOS.
@@ -34,4 +52,3 @@
 
   22 Jan 2010; Dirkjan Ochtman <djc@gentoo.org> +python-daemon-1.5.2.ebuild:
   Initial version (contributed by Priit Laes; bug 289496).
-

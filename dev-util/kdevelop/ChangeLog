@@ -1,6 +1,34 @@
 # ChangeLog for dev-util/kdevelop
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/kdevelop/ChangeLog,v 1.245 2013/03/02 21:05:40 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/kdevelop/ChangeLog,v 1.252 2013/11/04 14:30:29 johu Exp $
+
+  04 Nov 2013; Johannes Huber <johu@gentoo.org>
+  +files/kdevelop-4.5.2-kdevplatform-without-qjson.patch, kdevelop-4.5.2.ebuild,
+  metadata.xml:
+  Fix build on dev-util/kdevplatform[-reviewboard] by adding upstream patch and
+  introducing a use flag reviewboard wrt bug #490002.
+
+*kdevelop-4.5.2 (31 Oct 2013)
+
+  31 Oct 2013; Johannes Huber <johu@gentoo.org> +kdevelop-4.5.2.ebuild:
+  Version bump.
+
+  21 Aug 2013; Michael Palimaka <kensington@gentoo.org> -kdevelop-4.4.1.ebuild:
+  Remove old.
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> kdevelop-4.5.1.ebuild:
+  Stable for x86, wrt bug #476510
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> kdevelop-4.5.1.ebuild:
+  Stable for ppc, wrt bug #476510
+
+  12 Jul 2013; Agostino Sarubbo <ago@gentoo.org> kdevelop-4.5.1.ebuild:
+  Stable for amd64, wrt bug #476510
+
+*kdevelop-4.5.1 (08 Jun 2013)
+
+  08 Jun 2013; Maciej Mrozowski <reavertm@gentoo.org> +kdevelop-4.5.1.ebuild:
+  Version bump, bug 467730.
 
   02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> kdevelop-4.4.1.ebuild:
   Move Qt dependencies to the new category

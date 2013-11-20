@@ -1,6 +1,20 @@
 # ChangeLog for sci-electronics/electric
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/electric/ChangeLog,v 1.41 2012/07/09 14:09:30 xmw Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-electronics/electric/ChangeLog,v 1.45 2013/07/04 12:17:44 ago Exp $
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> electric-9.02.ebuild:
+  Stable for x86, wrt bug #472156
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> electric-9.02.ebuild:
+  Stable for ppc, wrt bug #472156
+
+  05 Jun 2013; Chema Alonso <nimiux@gentoo.org> electric-9.02.ebuild:
+  Stable for amd64 wrt bug #472156
+
+*electric-9.03 (03 Jun 2013)
+
+  03 Jun 2013; Michael Weber <xmw@gentoo.org> +electric-9.03.ebuild:
+  Version bump
 
 *electric-9.02 (09 Jul 2012)
 

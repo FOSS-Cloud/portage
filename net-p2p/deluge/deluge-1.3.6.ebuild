@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/deluge/deluge-1.3.6.ebuild,v 1.2 2013/04/01 08:38:38 heroxbd Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/deluge/deluge-1.3.6.ebuild,v 1.6 2013/09/14 10:05:36 ago Exp $
 
 EAPI="3"
 PYTHON_DEPEND="2:2.5"
 
-inherit distutils eutils python
+inherit distutils eutils python systemd
 
 DESCRIPTION="BitTorrent client with a client/server model."
 HOMEPAGE="http://deluge-torrent.org/"
@@ -13,7 +13,7 @@ SRC_URI="http://download.deluge-torrent.org/source/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~ppc ~sparc x86"
 IUSE="geoip gtk libnotify setproctitle sound webinterface"
 
 DEPEND=">=net-libs/rb_libtorrent-0.14.9[python]
@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}
 	dev-python/pyopenssl
 	dev-python/pyxdg
 	|| ( dev-lang/python:2.7 dev-lang/python:2.6 dev-python/simplejson )
-	>=dev-python/twisted-8.1
+	>=dev-python/twisted-core-8.1
 	>=dev-python/twisted-web-8.1
 	geoip? ( dev-libs/geoip )
 	gtk? (
@@ -53,6 +53,8 @@ src_install() {
 	distutils_src_install
 	newinitd "${FILESDIR}"/deluged.init deluged
 	newconfd "${FILESDIR}"/deluged.conf deluged
+	systemd_dounit "${FILESDIR}"/deluged.service
+	systemd_dounit "${FILESDIR}"/deluge-web.service
 }
 
 pkg_postinst() {

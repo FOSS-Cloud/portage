@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmscon/kmscon-7.ebuild,v 1.1 2013/03/27 04:08:22 alexxy Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmscon/kmscon-7.ebuild,v 1.2 2013/06/01 05:24:03 chithanh Exp $
 
 EAPI=5
 
@@ -27,7 +27,7 @@ SLOT="0"
 IUSE="cairo dbus debug doc +drm +fbdev +gles2 multiseat +optimizations +pango pixman
 static-libs systemd truetype udev +unicode wayland"
 
-RDEPEND="
+COMMON_DEPEND="
 	dev-libs/glib:2
 	>=virtual/udev-172
 	x11-libs/libxkbcommon
@@ -42,7 +42,9 @@ RDEPEND="
 	cairo? ( x11-libs/cairo )
 	pixman? ( x11-libs/pixman )
 	wayland? ( dev-libs/wayland )"
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	x11-misc/xkeyboard-config"
+DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 	x11-proto/xproto
 	doc? ( dev-util/gtk-doc )"
