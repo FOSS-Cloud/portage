@@ -1,6 +1,29 @@
 # ChangeLog for media-video/makemkv
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/makemkv/ChangeLog,v 1.27 2013/11/17 03:37:48 mattm Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/makemkv/ChangeLog,v 1.33 2013/11/22 09:52:39 mattm Exp $
+
+  22 Nov 2013; Matthew Marlowe <mattm@gentoo.org> makemkv-1.8.6-r1.ebuild:
+  Keywording makemkv-1.8.6-r1 ~amd64 and ~x86
+
+  22 Nov 2013; Matthew Marlowe <mattm@gentoo.org> makemkv-1.8.6-r1.ebuild:
+  Latest version bump uses standard unix configure script, adding econf to
+  src_configure.
+
+  22 Nov 2013; Matthew Marlowe <mattm@gentoo.org> makemkv-1.8.6-r1.ebuild:
+  src_compile make target changes in latest upstream version bump.
+
+  22 Nov 2013; Matthew Marlowe <mattm@gentoo.org>
+  files/makemkv-1.8.6-makefile.linux.patch:
+  Makemkv-1.8.6 changed makefile/configure files slightly, updated patch.
+
+  22 Nov 2013; Matthew Marlowe <mattm@gentoo.org> makemkv-1.8.6-r1.ebuild:
+  Adjusted S variable to reflect how upstream unpacks hotfix.
+
+*makemkv-1.8.6-r1 (21 Nov 2013)
+
+  21 Nov 2013; Matthew Marlowe <mattm@gentoo.org> +makemkv-1.8.6-r1.ebuild,
+  -makemkv-1.8.6.ebuild:
+  Upstream hotfix
 
   17 Nov 2013; Matthew Marlowe <mattm@gentoo.org> makemkv-1.8.6.ebuild:
   Upstream is reporting issues with makemkv-1.8.6 on Linux:

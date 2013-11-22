@@ -1306,6 +1306,12 @@ dev-haskell/lens:test-properties - Build the properties test if we're building t
 dev-haskell/lens:trustworthy - Assert that we are trustworthy when we can
 dev-haskell/monad-control:instancest - If enabled this package will export MonadBaseControl instances for the lazy and strict ST monad. If disabled these instances are only exported when base >= 4.4. If enabled it is required that the transformer-base package exports MonadBase instances for ST. It will do this by default.
 dev-haskell/monad-par:chaselev - Use Chase-Lev Deques for higher-perf work-stealing.
+dev-haskell/pandoc-citeproc:bibutils - use Chris Putnam's app-text/bibutils
+dev-haskell/pandoc-citeproc:embed_data_files - Embed locale files into the library (needed for windows packaging)
+dev-haskell/pandoc-citeproc:hexpat - use dev-haskell/hexpat instead of dev-haskell/xml for XML parsing
+dev-haskell/pandoc-citeproc:network - use dev-haskell/network and dev-haskell/http to retrieve CSL file from URIs
+dev-haskell/pandoc-citeproc:small_base - Choose the new smaller, split-up base package.
+dev-haskell/pandoc-citeproc:unicode_collation - Use Haskell bindings to the dev-libs/icu
 dev-haskell/persistent-sqlite:systemlib - Use the system-wide sqlite library
 dev-haskell/quickcheck:template_haskell - Enable additional test modules requiring Template Haskell support.
 dev-haskell/rfc5051:mkunicodedata - build codes generator itself
@@ -1532,7 +1538,6 @@ dev-libs/ace:tao - Include the ACE ORB (CORBA stuff) (called tao) into the build
 dev-libs/antlr-c:debugger - Compiles debug info into the library
 dev-libs/apr:older-kernels-compatibility - Enable binary compatibility with older kernels
 dev-libs/apr:urandom - Use /dev/urandom instead of /dev/random
-dev-libs/apr:uuid - Enable UUID support
 dev-libs/apr-util:nss - Install apr_crypto_nss module
 dev-libs/apr-util:openssl - Install apr_crypto_openssl module
 dev-libs/bitset:jemalloc - Use dev-libs/jemalloc for allocations
@@ -6567,6 +6572,7 @@ www-apps/viewvc:cvsgraph - Add dev-vcs/cvsgraph support to show graphical views 
 www-apps/viewvc:mod_wsgi - Add www-apache/mod_wsgi support
 www-apps/viewvc:pygments - Add dev-python/pygments support for syntax highlighting
 www-apps/webdavcgi:rcs - Adds support for a revision controlled backend with RCS (dev-vcs/rcs)
+www-client/chromium:aura - Enable Aura, new UI architecture that is GPU accelerated, see http://www.chromium.org/developers/design-documents/aura .
 www-client/chromium:bindist - Disable patent-encumbered HTML5 video codecs
 www-client/chromium:system-sqlite - Use system sqlite instead of bundled sqlite. This breaks WebSQL on websites, please report compatibility issues to https://bugs.gentoo.org .
 www-client/chromium:tcmalloc - Use bundled tcmalloc instead of system malloc.

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-news/quiterss/quiterss-9999.ebuild,v 1.10 2013/10/10 10:29:31 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-news/quiterss/quiterss-9999.ebuild,v 1.11 2013/11/20 18:46:34 pinkbyte Exp $
 
 EAPI=5
 
@@ -9,7 +9,7 @@ EHG_REPO_URI="https://code.google.com/p/quite-rss"
 inherit l10n qt4-r2 mercurial
 
 DESCRIPTION="A Qt4-based RSS/Atom feed reader"
-HOMEPAGE="http://code.google.com/p/quite-rss/"
+HOMEPAGE="http://quiterss.org"
 
 LICENSE="GPL-3"
 SLOT="0"
