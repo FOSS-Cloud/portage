@@ -1,9 +1,13 @@
-@version: 3.2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/syslog-ng/files/syslog-ng.conf.gentoo.3.2,v 1.1 2011/01/18 17:44:14 mr_bones_ Exp $
+@version: 3.4
+# $Header: /var/cvsroot/gentoo-x86/app-admin/syslog-ng/files/3.4/syslog-ng.conf.gentoo,v 1.2 2013/06/02 01:18:35 mr_bones_ Exp $
 #
 # Syslog-ng default configuration file for Gentoo Linux
 
+# https://bugs.gentoo.org/show_bug.cgi?id=426814
+@include "scl.conf"
+
 options { 
+	threaded(yes);
 	chain_hostnames(no); 
 
 	# The default action of syslog-ng is to log a STATS line
@@ -18,11 +22,7 @@ options {
 	mark_freq(3600); 
 };
 
-source src {
-    unix-stream("/dev/log" max-connections(256));
-    internal();
-    file("/proc/kmsg");
-};
+source src { system(); internal(); };
 
 destination messages { file("/var/log/messages"); };
 
