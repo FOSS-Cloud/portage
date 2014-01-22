@@ -1,6 +1,38 @@
 # ChangeLog for net-print/foomatic-filters
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/foomatic-filters/ChangeLog,v 1.94 2013/10/20 20:24:57 maekke Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-print/foomatic-filters/ChangeLog,v 1.102 2014/01/18 20:15:31 dilfridge Exp $
+
+  18 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -foomatic-filters-4.0.17.ebuild:
+  Remove old
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-filters-4.0.17-r1.ebuild:
+  Stable for alpha, wrt bug #486890
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-filters-4.0.17-r1.ebuild:
+  Stable for ia64, wrt bug #486890
+
+  05 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  foomatic-filters-4.0.17-r1.ebuild, foomatic-filters-4.0.17.ebuild:
+  Add blockers on recent cups-filters
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-filters-4.0.17-r1.ebuild:
+  Stable for x86, wrt bug #486890
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-filters-4.0.17-r1.ebuild:
+  Stable for sparc, wrt bug #486890
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-filters-4.0.17-r1.ebuild:
+  Stable for ppc64, wrt bug #486890
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  foomatic-filters-4.0.17-r1.ebuild:
+  Stable for ppc, wrt bug #486890
 
   20 Oct 2013; Markus Meier <maekke@gentoo.org>
   foomatic-filters-4.0.17-r1.ebuild:

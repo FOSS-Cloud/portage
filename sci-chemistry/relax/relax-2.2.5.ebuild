@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/relax/relax-2.2.5.ebuild,v 1.4 2013/11/16 08:25:43 dirtyepic Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/relax/relax-2.2.5.ebuild,v 1.5 2013/11/27 07:58:28 jlec Exp $
 
 EAPI=5
 
@@ -50,8 +50,8 @@ src_compile() {
 }
 
 src_test() {
-	${EPYTHON} ./${PN}.py -s || die
-	${EPYTHON} ./${PN}.py -x || die
+#	${EPYTHON} ./${PN}.py -s || die
+	${EPYTHON} ./${PN}.py --gui-tests || die
 }
 
 src_install() {

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/eudev-1.3.ebuild,v 1.4 2013/11/12 13:45:54 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/eudev-1.3.ebuild,v 1.12 2014/01/18 19:53:38 ago Exp $
 
 EAPI="5"
 
@@ -14,7 +14,7 @@ then
 	inherit git-2
 else
 	SRC_URI="http://dev.gentoo.org/~blueness/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm hppa ~mips ~ppc ~ppc64 ~x86"
+	KEYWORDS="alpha amd64 arm hppa ~mips ~ppc ~ppc64 x86"
 fi
 
 DESCRIPTION="Linux dynamic and persistent device naming support (aka userspace devfs)"
@@ -47,8 +47,6 @@ DEPEND="${COMMON_DEPEND}
 	test? ( app-text/tree dev-lang/perl )"
 
 RDEPEND="${COMMON_DEPEND}
-	hwdb? ( >=sys-apps/hwids-20121202.2[udev] )
-	keymap? ( >=sys-apps/hwids-20130717-r1[udev] )
 	!sys-fs/udev
 	!sys-apps/coldplug
 	!sys-apps/systemd
@@ -56,7 +54,9 @@ RDEPEND="${COMMON_DEPEND}
 	!sys-fs/device-mapper
 	!<sys-fs/udev-init-scripts-18"
 
-PDEPEND=">=virtual/udev-180
+PDEPEND="hwdb? ( >=sys-apps/hwids-20130717-r1[udev] )
+	keymap? ( >=sys-apps/hwids-20130717-r1[udev] )
+	>=virtual/udev-206-r2
 	openrc? ( >=sys-fs/udev-init-scripts-18 )"
 
 REQUIRED_USE="keymap? ( hwdb )"
@@ -138,16 +138,17 @@ multilib_src_configure()
 		--enable-split-usr
 		--exec-prefix=/
 	)
+
 	# Only build libudev for non-native_abi, and only install it to libdir,
 	# that means all options only apply to native_abi
-	if multilib_is_native_abi; then econf_args+=(
+	if multilib_build_binaries; then econf_args+=(
 		--with-rootlibdir=/$(get_libdir)
 		$(use_enable doc gtk-doc)
 		$(use_enable gudev)
 		$(use_enable introspection)
 		$(use_enable keymap)
 		$(use_enable kmod libkmod)
-		$(use_enable modutils modules)
+		$(usex kmod --enable-modules $(use_enable modutils modules))
 		$(use_enable static-libs static)
 		$(use_enable selinux)
 		$(use_enable rule-generator)
@@ -161,7 +162,7 @@ multilib_src_configure()
 
 multilib_src_compile()
 {
-	if ! multilib_is_native_abi; then
+	if ! multilib_build_binaries; then
 		cd src/libudev || die "Could not change directory"
 	fi
 	emake
@@ -169,7 +170,7 @@ multilib_src_compile()
 
 multilib_src_install()
 {
-	if ! multilib_is_native_abi; then
+	if ! multilib_build_binaries; then
 		cd src/libudev || die "Could not change directory"
 	fi
 	emake DESTDIR="${D}" install
@@ -182,7 +183,7 @@ multilib_src_test()
 	# but sandbox seems to evaluate the paths of the test i/o instead of the
 	# paths of the actual i/o that results.
 	# also only test for native abi
-	if multilib_is_native_abi; then
+	if multilib_build_binaries; then
 		addread /sys
 		addwrite /dev
 		addwrite /run

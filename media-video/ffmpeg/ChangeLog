@@ -1,6 +1,65 @@
 # ChangeLog for media-video/ffmpeg
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ChangeLog,v 1.692 2013/11/22 06:26:26 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ChangeLog,v 1.707 2014/01/19 13:48:27 aballier Exp $
+
+*ffmpeg-0.10.11 (19 Jan 2014)
+
+  19 Jan 2014; Alexis Ballier <aballier@gentoo.org> +ffmpeg-0.10.11.ebuild:
+  bump for the 0.10 slot
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.0.8.ebuild:
+  Stable for alpha, wrt bug #492252
+
+*ffmpeg-1.2.5 (16 Jan 2014)
+
+  16 Jan 2014; Alexis Ballier <aballier@gentoo.org> +ffmpeg-1.2.5.ebuild:
+  version bump
+
+  16 Jan 2014; Alexis Ballier <aballier@gentoo.org> -ffmpeg-2.0.2.ebuild,
+  -ffmpeg-2.1.ebuild, -ffmpeg-2.1.1.ebuild, -ffmpeg-2.1.2.ebuild:
+  remove old
+
+*ffmpeg-2.1.3 (16 Jan 2014)
+
+  16 Jan 2014; Alexis Ballier <aballier@gentoo.org> +ffmpeg-2.1.3.ebuild:
+  version bump
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.0.8.ebuild:
+  Stable for ia64, wrt bug #492252
+
+*ffmpeg-2.1.2 (14 Jan 2014)
+
+  14 Jan 2014; Alexis Ballier <aballier@gentoo.org> +ffmpeg-2.1.2.ebuild:
+  version bump
+
+  14 Jan 2014; Alexis Ballier <aballier@gentoo.org> ffmpeg-9999.ebuild,
+  metadata.xml:
+  Add some more cpu features useflags for x86, mips and arm.
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.0.8.ebuild:
+  Stable for ppc, wrt bug #492252
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.0.8.ebuild:
+  Stable for ppc64, wrt bug #492252
+
+  10 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> ffmpeg-0.10.10.ebuild,
+  ffmpeg-1.0.8.ebuild, ffmpeg-1.2.4.ebuild, ffmpeg-2.0.2.ebuild,
+  ffmpeg-2.1.1.ebuild, +files/ffmpeg-0.10.10-freetype251.patch,
+  +files/ffmpeg-1.0.8-freetype251.patch, +files/ffmpeg-1.2.4-freetype251.patch,
+  +files/ffmpeg-2.0.2-freetype251.patch:
+  Fixed compilation with >=media-libs/freetype-2.5.1 (bug #493596).
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> ffmpeg-1.0.8.ebuild:
+  x86 stable, bug #492252
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> ffmpeg-1.0.8.ebuild:
+  amd64 stable, bug #492252
+
+  06 Dec 2013; Markus Meier <maekke@gentoo.org> ffmpeg-1.0.8.ebuild:
+  arm stable, bug #492252
+
+  26 Nov 2013; Jeroen Roovers <jer@gentoo.org> ffmpeg-1.0.8.ebuild:
+  Stable for HPPA (bug #492252).
 
 *ffmpeg-2.1.1 (22 Nov 2013)
 

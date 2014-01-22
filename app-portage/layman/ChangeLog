@@ -1,6 +1,27 @@
 # ChangeLog for app-portage/layman
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/layman/ChangeLog,v 1.182 2013/09/14 23:49:08 floppym Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/layman/ChangeLog,v 1.185 2014/01/18 03:19:39 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> layman-2.0.0-r1.ebuild,
+  layman-2.0.0-r2.ebuild:
+  Add arm64/m68k/s390/sh love.
+
+*layman-2.0.0-r2 (07 Jan 2014)
+*layman-2.0.0-r1 (07 Jan 2014)
+
+  07 Jan 2014; Brian Dolbec <dolsen@gentoo.org> -layman-1.4.2-r3.ebuild,
+  -layman-2.0.0.ebuild, +layman-2.0.0-r1.ebuild, +layman-2.0.0-r2.ebuild,
+  -files/layman-1.4.2-manpage-corrections.patch,
+  -files/layman-1.4.2-python-compatbility-fix.patch,
+  +files/layman-2.0.0.svn_upgrade.patch:
+  Version bump to fix a USE flag rename in subversion-1.8.5.
+  bug # 497324. Second bump to patch the internal svn upgrade handling
+  code for the new svn. Remove old/deprecated version.
+
+  07 Jan 2014; Brian Dolbec <dolsen@gentoo.org> layman-1.4.2-r3.ebuild,
+  layman-2.0.0.ebuild, layman-9999.ebuild:
+  Update the subversion dep as per bug #497324. Subversion-185's new
+  "http" use flag.
 
   14 Sep 2013; Mike Gilbert <floppym@gentoo.org> layman-2.0.0.ebuild:
   Call distutils-r1_python_prepare_all.

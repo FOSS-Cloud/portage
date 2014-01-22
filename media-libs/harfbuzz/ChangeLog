@@ -1,6 +1,29 @@
 # ChangeLog for media-libs/harfbuzz
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/harfbuzz/ChangeLog,v 1.53 2013/11/14 05:22:51 mattst88 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/harfbuzz/ChangeLog,v 1.60 2014/01/20 19:21:19 vapier Exp $
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org> harfbuzz-0.9.12.ebuild,
+  harfbuzz-0.9.18-r1.ebuild, harfbuzz-0.9.20.ebuild, harfbuzz-0.9.23.ebuild,
+  harfbuzz-9999.ebuild:
+  Add s390 love #469982.
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> harfbuzz-0.9.23.ebuild:
+  Stable for HPPA (bug #478252).
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> harfbuzz-0.9.23.ebuild:
+  x86 stable, bug #478252
+
+  01 Dec 2013; Fabian Groffen <grobian@gentoo.org> harfbuzz-9999.ebuild:
+  Apply Solaris fixes to 9999 so I won't get caught by unpleasant surprise again
+
+  01 Dec 2013; Fabian Groffen <grobian@gentoo.org> harfbuzz-0.9.23.ebuild:
+  Restore 0.9.20 fixes for Solaris :(
+
+  01 Dec 2013; Fabian Groffen <grobian@gentoo.org> harfbuzz-0.9.23.ebuild:
+  Fix compilation some more on Solaris
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> harfbuzz-0.9.23.ebuild:
+  amd64 stable, bug #478252
 
   14 Nov 2013; Matt Turner <mattst88@gentoo.org> harfbuzz-0.9.20.ebuild:
   alpha stable, bug 476364.

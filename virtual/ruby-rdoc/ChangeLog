@@ -1,6 +1,27 @@
 # ChangeLog for virtual/ruby-rdoc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/ruby-rdoc/ChangeLog,v 1.21 2013/09/05 15:48:44 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/ruby-rdoc/ChangeLog,v 1.27 2014/01/05 10:50:29 graaff Exp $
+
+  05 Jan 2014; Hans de Graaff <graaff@gentoo.org> ruby-rdoc-0.ebuild,
+  ruby-rdoc-1.ebuild:
+  Drop s390 and sh stable flags for ruby.
+
+  29 Dec 2013; Markus Meier <maekke@gentoo.org> ruby-rdoc-3.ebuild:
+  arm stable, bug #483254
+
+*ruby-rdoc-4 (26 Dec 2013)
+
+  26 Dec 2013; Hans de Graaff <graaff@gentoo.org> +ruby-rdoc-4.ebuild:
+  Add ruby21.
+
+  20 Dec 2013; Akinori Hattori <hattya@gentoo.org> ruby-rdoc-3.ebuild:
+  ia64 stable wrt bug #483254
+
+  15 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ruby-rdoc-3.ebuild:
+  Stable for ppc64, wrt bug #483254
+
+  15 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ruby-rdoc-3.ebuild:
+  Stable for ppc, wrt bug #483254
 
   05 Sep 2013; Jeroen Roovers <jer@gentoo.org> ruby-rdoc-3.ebuild:
   Stable for HPPA (bug #483254).

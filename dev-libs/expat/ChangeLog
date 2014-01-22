@@ -1,6 +1,43 @@
 # ChangeLog for dev-libs/expat
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/expat/ChangeLog,v 1.150 2013/08/07 13:21:55 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/expat/ChangeLog,v 1.162 2014/01/18 04:35:28 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> expat-2.1.0-r3.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> expat-2.1.0-r3.ebuild:
+  Mark m68k/s390/sh stable.
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> expat-2.1.0-r3.ebuild:
+  Stable for ia64, wrt bug #492702
+
+  04 Jan 2014; Michał Górny <mgorny@gentoo.org> expat-2.1.0-r3.ebuild:
+  Replace the explicit ABI==DEFAULT_ABI check with multilib_build_binaries
+  eclass function.
+
+  03 Jan 2014; Matt Turner <mattst88@gentoo.org> expat-2.1.0-r3.ebuild:
+  alpha stable, bug 492702.
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> expat-2.1.0-r3.ebuild:
+  Stable for sparc, wrt bug #492702
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> expat-2.1.0-r3.ebuild:
+  Stable for ppc64, wrt bug #492702
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> expat-2.1.0-r3.ebuild:
+  Stable for ppc, wrt bug #492702
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> expat-2.1.0-r3.ebuild:
+  x86 stable, bug #492702
+
+  06 Dec 2013; Markus Meier <maekke@gentoo.org> expat-2.1.0-r3.ebuild:
+  arm stable, bug #492702
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> expat-2.1.0-r3.ebuild:
+  amd64 stable, bug #492702
+
+  28 Nov 2013; Jeroen Roovers <jer@gentoo.org> expat-2.1.0-r3.ebuild:
+  Stable for HPPA (bug #492702).
 
   07 Aug 2013; Alexis Ballier <aballier@gentoo.org> expat-2.1.0-r3.ebuild:
   add blockers on emul-libs and stack it for baselibs -r7

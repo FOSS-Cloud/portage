@@ -1,6 +1,38 @@
 # ChangeLog for sys-apps/ethtool
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/ethtool/ChangeLog,v 1.100 2013/11/10 03:13:12 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/ethtool/ChangeLog,v 1.109 2014/01/20 15:54:08 ago Exp $
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> ethtool-3.12.1.ebuild:
+  Stable for ppc, wrt bug #495920
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> ethtool-3.12.1.ebuild:
+  Stable for ppc64, wrt bug #495920
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> ethtool-3.12.1.ebuild:
+  Stable for alpha, wrt bug #495920
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> ethtool-3.0.ebuild,
+  ethtool-3.12.1.ebuild:
+  Mark sh stable.
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> ethtool-3.12.1.ebuild:
+  Stable for ia64, wrt bug #495920
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -ethtool-0.6.ebuild,
+  -ethtool-2.6.36.ebuild, -ethtool-2.6.37.ebuild, -ethtool-2.6.38.ebuild,
+  -ethtool-3.1.ebuild, -ethtool-3.2.ebuild, -ethtool-3.4.ebuild,
+  -ethtool-3.4.1.ebuild, -ethtool-3.5.ebuild, -ethtool-3.6.ebuild,
+  -ethtool-3.7.ebuild, -ethtool-3.9.ebuild, -ethtool-3.11.ebuild:
+  Removed old versions and files.
+
+  03 Jan 2014; Sergey Popov <pinkbyte@gentoo.org> ethtool-3.12.1.ebuild:
+  Stable on amd64 and x86, wrt bug #495920
+
+  31 Dec 2013; Markus Meier <maekke@gentoo.org> ethtool-3.12.1.ebuild:
+  arm stable, bug #495920
+
+  26 Dec 2013; Jeroen Roovers <jer@gentoo.org> ethtool-3.12.1.ebuild:
+  Stable for HPPA (bug #495920).
 
 *ethtool-3.12.1 (10 Nov 2013)
 

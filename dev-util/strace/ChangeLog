@@ -1,6 +1,18 @@
 # ChangeLog for dev-util/strace
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/strace/ChangeLog,v 1.188 2013/06/09 23:48:14 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/strace/ChangeLog,v 1.191 2014/01/18 01:55:37 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> strace-4.8.ebuild,
+  strace-9999.ebuild:
+  Add arm64 love.
+
+  29 Nov 2013; Mike Frysinger <vapier@gentoo.org> strace-4.8.ebuild,
+  strace-9999.ebuild:
+  Fix USE=-perl thinko #492826 by Duncan.
+
+  28 Nov 2013; Mike Frysinger <vapier@gentoo.org> strace-4.8.ebuild,
+  strace-9999.ebuild:
+  Add USE=perl to control perl script #489478 by Nikoli.
 
 *strace-4.8 (09 Jun 2013)
 

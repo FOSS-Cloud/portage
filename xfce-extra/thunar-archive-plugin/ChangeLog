@@ -1,6 +1,14 @@
 # ChangeLog for xfce-extra/thunar-archive-plugin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-extra/thunar-archive-plugin/ChangeLog,v 1.21 2013/05/11 12:03:30 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/xfce-extra/thunar-archive-plugin/ChangeLog,v 1.23 2014/01/19 19:00:53 pacho Exp $
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org>
+  thunar-archive-plugin-0.3.1.ebuild:
+  amd64 stable, bug 496018
+
+  31 Dec 2013; Markus Meier <maekke@gentoo.org>
+  thunar-archive-plugin-0.3.1.ebuild:
+  arm stable, bug #496018
 
 *thunar-archive-plugin-0.3.1 (11 May 2013)
 
@@ -94,4 +102,3 @@
   24 Aug 2009; Samuli Suominen <ssuominen@gentoo.org>
   +thunar-archive-plugin-0.2.4-r1.ebuild:
   Rename thunar-archive to thunar-archive-plugin.
-

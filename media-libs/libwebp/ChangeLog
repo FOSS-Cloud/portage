@@ -1,6 +1,22 @@
 # ChangeLog for media-libs/libwebp
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libwebp/ChangeLog,v 1.64 2013/10/21 12:26:38 grobian Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libwebp/ChangeLog,v 1.68 2014/01/16 16:00:38 blueness Exp $
+
+  16 Jan 2014; Anthony G. Basile <blueness@gentoo.org> libwebp-0.2.1.ebuild,
+  libwebp-0.3.0.ebuild, libwebp-0.3.1.ebuild, libwebp-0.4.0.ebuild:
+  Keyword ~mips
+
+  06 Jan 2014; Naohiro Aota <naota@gentoo.org> libwebp-0.4.0.ebuild:
+  Add ~x86-fbsd #496740
+
+  05 Jan 2014; Fabian Groffen <grobian@gentoo.org> libwebp-0.4.0.ebuild:
+  Marked ~m68k-mint, bug #494512
+
+*libwebp-0.4.0 (02 Jan 2014)
+
+  02 Jan 2014; Tim Harder <radhermit@gentoo.org> +libwebp-0.4.0.ebuild,
+  metadata.xml:
+  Version bump (bug #496778). Add subslot and chromium herd to metadata.
 
   21 Oct 2013; Fabian Groffen <grobian@gentoo.org> libwebp-0.3.1.ebuild:
   Marked ~x64-macos, bug #486818

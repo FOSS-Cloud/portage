@@ -1,6 +1,68 @@
 # ChangeLog for app-emulation/xen
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/ChangeLog,v 1.131 2013/11/06 06:45:18 idella4 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/ChangeLog,v 1.143 2014/01/17 02:44:09 dlan Exp $
+
+*xen-4.2.2-r2 (17 Jan 2014)
+
+  17 Jan 2014; Yixun Lan <dlan@gentoo.org> +xen-4.2.2-r2.ebuild,
+  +files/xen-4.2-CVE-2013-4553-XSA-74.patch:
+  fix security bug #497084, previous missed version 4.2.2
+
+*xen-4.3.1-r3 (06 Jan 2014)
+*xen-4.3.0-r6 (06 Jan 2014)
+
+  06 Jan 2014; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4.3-CVE-2013-4553-XSA-74.patch,
+  +files/xen-CVE-2013-4554-XSA-76.patch, +files/xen-CVE-2013-6400-XSA-80.patch,
+  +xen-4.3.0-r6.ebuild, +xen-4.3.1-r3.ebuild:
+  add new sec patches, revbumps, patches prepared by dlan
+
+  01 Jan 2014; Tom Wijsman <TomWij@gentoo.org>
+  -files/xen-4-CVE-2012-5634-XSA-33.patch,
+  -files/xen-4-CVE-2013-0151-XSA-34_35.patch,
+  -files/xen-4-CVE-2013-0153-XSA-36.patch,
+  -files/xen-4-CVE-2013-0154-XSA-37.patch,
+  -files/xen-4-CVE-2013-1917-XSA-44.patch:
+  [QA] Remove unused files.
+
+  31 Dec 2013; Ian Delaney <idella4@gentoo.org> xen-4.3.0-r5.ebuild,
+  xen-4.3.1-r1.ebuild, xen-4.3.1-r2.ebuild:
+  After some further 'discussion', stabalised version corrected to resolve
+  residual QA issues, other ebuilds updated to follow suit
+
+*xen-4.3.1-r2 (16 Dec 2013)
+*xen-4.3.0-r5 (16 Dec 2013)
+
+  16 Dec 2013; Ian Delaney <idella4@gentoo.org> +xen-4.3.0-r5.ebuild,
+  +xen-4.3.1-r2.ebuild, -xen-4.3.0-r4.ebuild, metadata.xml:
+  KEYWORDS.dropped, x86, along with IUSE pae, in 4.3.x, wrt Bug #493944
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xen-4.3.1-r1.ebuild:
+  Stable for x86, wrt bug #486354
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xen-4.3.1-r1.ebuild:
+  Stable for amd64, wrt bug #486354
+
+*xen-4.3.0-r4 (06 Dec 2013)
+*xen-4.3.1-r1 (06 Dec 2013)
+
+  06 Dec 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-CVE-2013-6885-XSA-82.patch, +xen-4.3.0-r4.ebuild,
+  +xen-4.3.1-r1.ebuild, -xen-4.3.0-r3.ebuild, -xen-4.3.1.ebuild:
+  revbumps; add sec XSA-82.patch, remove old
+
+*xen-4.3.1 (24 Nov 2013)
+
+  24 Nov 2013; Ian Delaney <idella4@gentoo.org> +xen-4.3.1.ebuild:
+  bump
+
+*xen-4.3.0-r3 (22 Nov 2013)
+
+  22 Nov 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4.3-CVE-2013-6375-XSA-75.patch,
+  +files/xen-CVE-2013-6375-XSA-78.patch, +xen-4.3.0-r3.ebuild,
+  -xen-4.3.0-r1.ebuild, -xen-4.3.0-r2.ebuild, -xen-4.3.0.ebuild:
+  Adding more security patches to 4.3.0 from Bug #486354, drop old
 
 *xen-4.3.0-r2 (06 Nov 2013)
 

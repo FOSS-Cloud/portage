@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.0.8a.ebuild,v 1.3 2013/11/10 15:41:55 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.0.8a.ebuild,v 1.5 2013/12/20 20:01:29 tomwij Exp $
 
 EAPI="5"
 
@@ -35,7 +35,7 @@ LICENSE="LGPL-2.1 GPL-2"
 SLOT="0"
 
 if [ "${PV%9999}" = "${PV}" ] ; then
-	KEYWORDS="~amd64 ~ppc ~ppc64 -sparc ~x86 ~x86-fbsd"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 -sparc ~x86 ~x86-fbsd"
 else
 	KEYWORDS=""
 fi
@@ -114,7 +114,7 @@ RDEPEND="
 		opus? ( >=media-libs/opus-1.0.3:0 )
 		png? ( media-libs/libpng:0= sys-libs/zlib:0 )
 		portaudio? ( >=media-libs/portaudio-19_pre:0 )
-		postproc? ( || ( media-video/ffmpeg:0= media-libs/libpostproc:0 ) )
+		postproc? ( || ( media-libs/libpostproc:0 media-video/ffmpeg:0= ) )
 		projectm? ( media-libs/libprojectm:0 media-fonts/dejavu:0 )
 		pulseaudio? ( >=media-sound/pulseaudio-0.9.22:0 )
 		qt4? ( dev-qt/qtgui:4 dev-qt/qtcore:4 )

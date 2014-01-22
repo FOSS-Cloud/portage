@@ -1,6 +1,57 @@
 # ChangeLog for app-emulation/wine
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/wine/ChangeLog,v 1.485 2013/10/15 18:03:07 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/wine/ChangeLog,v 1.494 2014/01/22 06:58:56 tetromino Exp $
+
+*wine-1.7.11 (22 Jan 2014)
+
+  22 Jan 2014; Alexandre Rostovtsev <tetromino@gentoo.org> +wine-1.7.11.ebuild:
+  Version bump, see http://www.winehq.org/announce/1.7.11 for the announcement.
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> wine-1.6.1.ebuild:
+  amd64 stable, bug #497962
+
+*wine-1.6.2 (13 Jan 2014)
+
+  13 Jan 2014; Alexandre Rostovtsev <tetromino@gentoo.org> +wine-1.6.2.ebuild:
+  Version bump, see http://www.winehq.org/announce/1.6.2 for the announcement
+  (bug #497820).
+
+*wine-1.7.10 (04 Jan 2014)
+
+  04 Jan 2014; Alexandre Rostovtsev <tetromino@gentoo.org> +wine-1.7.10.ebuild,
+  wine-9999.ebuild:
+  Version bump, see http://www.winehq.org/announce/1.7.10 for the announcement.
+
+*wine-1.7.9 (24 Dec 2013)
+
+  24 Dec 2013; Alexandre Rostovtsev <tetromino@gentoo.org> +wine-1.7.9.ebuild:
+  Version bump, see http://www.winehq.org/announce/1.7.9 for the announcement.
+
+  17 Dec 2013; Alexandre Rostovtsev <tetromino@gentoo.org> wine-1.6.ebuild,
+  wine-1.6.1.ebuild, wine-1.7.0.ebuild, wine-1.7.3.ebuild, wine-1.7.4.ebuild,
+  wine-1.7.8.ebuild, wine-9999.ebuild:
+  Fix dependencies and ensure NATIVE_DEPEND is always considered in DEPEND (bug
+  #492986, thanks to Jeffrey Thomas Piercy and Nikos Chantziaras).
+
+  16 Dec 2013; Alexandre Rostovtsev <tetromino@gentoo.org> wine-1.7.8.ebuild,
+  wine-9999.ebuild:
+  Add a warning that on amd64, netapi is currently 64-bit only
+
+*wine-1.7.8 (16 Dec 2013)
+*wine-1.6.1 (16 Dec 2013)
+
+  16 Dec 2013; Alexandre Rostovtsev <tetromino@gentoo.org> +wine-1.6.1.ebuild,
+  +wine-1.7.8.ebuild, wine-9999.ebuild, metadata.xml:
+  Belated version bump (bug #490998, thanks to Frank Krömmelbein, Andreas
+  Sturmlechner, Ryan Harris et al.); see http://www.winehq.org/announce/1.7.8
+  and http://www.winehq.org/announce/1.6.1 for the announcement. Pulseaudio
+  patches are now applied only when USE=pulseaudio, since they apparently cause
+  crashes in some applications when USE=-pulseaudio (bug #489004, thanks to
+  Sebastian Parborg).
+
+  01 Dec 2013; Michał Górny <mgorny@gentoo.org> wine-1.7.4.ebuild,
+  wine-9999.ebuild:
+  Support multilib pulseaudio aside of emul-linux.
 
   15 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org> wine-1.6.ebuild,
   wine-1.7.0.ebuild, wine-1.7.3.ebuild, wine-1.7.4.ebuild, wine-9999.ebuild:

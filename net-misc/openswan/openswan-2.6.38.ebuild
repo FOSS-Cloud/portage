@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openswan/openswan-2.6.38.ebuild,v 1.5 2013/01/06 17:54:29 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openswan/openswan-2.6.38.ebuild,v 1.8 2014/01/05 00:59:30 floppym Exp $
 
 EAPI="4"
 
@@ -10,7 +10,7 @@ DESCRIPTION="Open Source implementation of IPsec for the Linux operating system 
 HOMEPAGE="http://www.openswan.org/"
 SRC_URI="http://download.openswan.org/openswan/${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2 BSD-4 DES RSA"
 SLOT="0"
 KEYWORDS="amd64 ~ppc ~sparc x86"
 IUSE="caps curl ldap pam ssl extra-algorithms weak-algorithms nocrypto-algorithms ms-bad-proposal nss"
@@ -30,9 +30,9 @@ DEPEND="${COMMON_DEPEND}
 	app-text/xmlto
 	app-text/docbook-xml-dtd:4.1.2" # see bug 237132
 RDEPEND="${COMMON_DEPEND}
-	|| ( sys-apps/net-tools[old-output] <sys-apps/net-tools-1.60_p201111202031570500 )
 	virtual/logger
-	sys-apps/iproute2"
+	sys-apps/iproute2
+	!net-misc/libreswan"
 
 pkg_setup() {
 	if use nocrypto-algorithms && ! use weak-algorithms; then

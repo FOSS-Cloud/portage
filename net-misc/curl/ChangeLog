@@ -1,6 +1,87 @@
 # ChangeLog for net-misc/curl
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/curl/ChangeLog,v 1.303 2013/11/12 20:17:58 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/curl/ChangeLog,v 1.328 2014/01/20 13:11:06 blueness Exp $
+
+  20 Jan 2014; Anthony G. Basile <blueness@gentoo.org> -curl-7.33.0.ebuild:
+  Remove vulnerable version, bug #497092
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> curl-7.34.0-r1.ebuild:
+  Add arm64 love.
+
+  16 Jan 2014; Mike Frysinger <vapier@gentoo.org> curl-7.33.0.ebuild,
+  curl-7.34.0-r1.ebuild:
+  Mark m68k/s390/sh stable.
+
+  12 Jan 2014; Agostino Sarubbo <ago@gentoo.org> curl-7.34.0-r1.ebuild:
+  Stable for ia64, wrt bug #497092
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> curl-7.34.0-r1.ebuild:
+  Stable for ppc, wrt bug #497092
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> curl-7.34.0-r1.ebuild:
+  Stable for arm, wrt bug #497092
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> curl-7.34.0-r1.ebuild:
+  Stable for ppc64, wrt bug #497092
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> curl-7.34.0-r1.ebuild:
+  Stable for sparc, wrt bug #497092
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> curl-7.34.0-r1.ebuild:
+  Stable for alpha, wrt bug #497092
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> curl-7.34.0-r1.ebuild:
+  Stable for x86, wrt bug #497092
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> curl-7.34.0-r1.ebuild:
+  Stable for amd64, wrt bug #497092
+
+  05 Jan 2014; Jeroen Roovers <jer@gentoo.org> curl-7.34.0-r1.ebuild:
+  Stable for HPPA (bug #497092).
+
+*curl-7.34.0-r1 (27 Dec 2013)
+
+  27 Dec 2013; Anthony G. Basile <blueness@gentoo.org> +curl-7.34.0-r1.ebuild,
+  +files/curl-7.34.0-fix-ipv6-failover.patch, -curl-7.34.0.ebuild:
+  Add patch for bug #495170
+
+  26 Dec 2013; Michał Górny <mgorny@gentoo.org> curl-7.34.0.ebuild:
+  Add epatch_user call to make patch testing easier.
+
+  26 Dec 2013; Anthony G. Basile <blueness@gentoo.org> -curl-7.31.0.ebuild:
+  Remove vulnerable version, bug #492688
+
+  26 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> curl-7.33.0.ebuild:
+  ia64 stable wrt bug #492688
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> curl-7.33.0.ebuild:
+  Stable for sparc, wrt bug #492688
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> curl-7.33.0.ebuild:
+  Stable for x86, wrt bug #492688
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> curl-7.33.0.ebuild:
+  Stable for alpha, wrt bug #492688
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> curl-7.33.0.ebuild:
+  amd64 stable, bug #492688
+
+  22 Dec 2013; Anthony G. Basile <blueness@gentoo.org> curl-7.33.0.ebuild:
+  Stable arm, bug #492688
+
+  20 Dec 2013; Anthony G. Basile <blueness@gentoo.org> curl-7.33.0.ebuild:
+  Stable ppc, ppc64, bug #492688
+
+  19 Dec 2013; Jeroen Roovers <jer@gentoo.org> curl-7.33.0.ebuild:
+  Stable for HPPA (bug #492688).
+
+  18 Dec 2013; Anthony G. Basile <blueness@gentoo.org> -curl-7.32.0.ebuild:
+  Remove older unstable
+
+*curl-7.34.0 (18 Dec 2013)
+
+  18 Dec 2013; Anthony G. Basile <blueness@gentoo.org> +curl-7.34.0.ebuild:
+  Version bump
 
   12 Nov 2013; Agostino Sarubbo <ago@gentoo.org> -curl-7.30.0.ebuild:
   Remove old

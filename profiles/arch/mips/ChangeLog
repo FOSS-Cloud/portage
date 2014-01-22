@@ -1,6 +1,27 @@
 # ChangeLog for Gentoo/MIPS profile directory
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/ChangeLog,v 1.122 2013/10/11 22:27:28 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/ChangeLog,v 1.129 2014/01/14 20:46:26 vapier Exp $
+
+  14 Jan 2014; Mike Frysinger <vapier@gentoo.org> parent, use.mask:
+  Use unified arch/base/ like all other arches.
+
+  14 Jan 2014; Markos Chandras <hwoarang@gentoo.org> use.mask:
+  Remove old libnotify entry
+
+  08 Jan 2014; Ryan Hill <dirtyepic@gentoo.org> package.use.mask:
+  Mask webkit USE flag for wxGTK.
+
+  05 Jan 2014; Markos Chandras <hwoarang@gentoo.org> package.use.mask:
+  Masking dev-vcs/git mediawiki per #497068
+
+  24 Dec 2013; Anthony G. Basile <blueness@gentoo.org> package.mask:
+  Just drop to -mips for spidermonkey after talking to ssuominen, bug ##491294
+
+  23 Dec 2013; Anthony G. Basile <blueness@gentoo.org> package.mask:
+  Relax masking on spidermonkey after discussion with desktop folks
+
+  23 Dec 2013; Anthony G. Basile <blueness@gentoo.org> package.mask:
+  Mask >dev-lang/spidermonkey-1.8.5-r4 becuase of bug #491294
 
   11 Oct 2013; Markos Chandras <hwoarang@gentoo.org> use.mask:
   Mask m17n-lib for MIPS. Bug #485366

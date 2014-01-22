@@ -1,6 +1,33 @@
 # ChangeLog for app-shells/bash
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/bash/ChangeLog,v 1.345 2013/06/05 00:13:01 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-shells/bash/ChangeLog,v 1.350 2014/01/18 02:25:19 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> bash-3.1_p17.ebuild,
+  bash-3.2_p51.ebuild, bash-4.0_p38.ebuild, bash-4.1_p11.ebuild,
+  bash-4.2_p45-r1.ebuild, bash-4.2_p45.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> bash-4.2_p45.ebuild:
+  Mark m68k stable.
+
+*bash-4.2_p45-r1 (07 Jan 2014)
+
+  07 Jan 2014; Mike Frysinger <vapier@gentoo.org> +bash-4.2_p45-r1.ebuild,
+  +files/bash-4.2-read-retry.patch:
+  Add workaround from upstream for read() under buggy BSD kernels #447810 by
+  Yuta SATOH.
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.2_p37.ebuild,
+  -bash-4.2_p39.ebuild, -bash-4.2_p39-r1.ebuild, -bash-4.2_p42.ebuild,
+  -files/bash-4.2-extglob-multibyte.patch, -files/bash-4.2-print-heredoc.patch:
+  Removed old versions and files.
+
+  22 Dec 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/autoconf-mktime-2.53.patch, -files/bash-3.0-configs.patch,
+  -files/bash-3.0-etc-inputrc.patch, -files/bash-3.1-bash-logger.patch,
+  bash-3.1_p17.ebuild, bash-3.2_p51.ebuild, bash-4.0_p38.ebuild,
+  bash-4.1_p11.ebuild, files/bash-3.1-gentoo.patch:
+  Move older versions into SLOTs for easier testing #479574 by Michał Górny.
 
   05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
   Add upstream CPE tag (security info) from ChromiumOS.

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/umurmur/umurmur-0.2.13.ebuild,v 1.3 2013/10/26 22:04:02 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/umurmur/umurmur-0.2.13.ebuild,v 1.6 2013/12/26 17:14:11 polynomial-c Exp $
 
 EAPI=5
 
@@ -12,13 +12,13 @@ SRC_URI="http://${PN}.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="polarssl"
 
 DEPEND=">=dev-libs/protobuf-c-0.14
 	dev-libs/libconfig
 	polarssl? ( >=net-libs/polarssl-1.0.0 )
-	!polarssl? ( dev-libs/openssl )"
+	!polarssl? ( dev-libs/openssl:0 )"
 
 RDEPEND="${DEPEND}"
 
@@ -44,6 +44,8 @@ src_configure() {
 }
 
 src_install() {
+	local confdir
+
 	emake DESTDIR="${D}" install
 
 	newinitd "${FILESDIR}"/umurmurd.initd umurmurd
@@ -52,17 +54,16 @@ src_install() {
 	dodoc AUTHORS ChangeLog
 	newdoc README.md README
 
+	confdir="/etc/umurmur"
+	insinto "${confdir}"
+	doins "${FILESDIR}"/umurmur.conf
+
 	# Some permissions are adjusted as the config may contain a server
 	# password, and /etc/umurmur will typically contain the cert and the
 	# key used to sign it, which are read after priveleges are dropped.
-	local confdir="/etc/umurmur"
-	dodir ${confdir}
-	fperms 0750 ${confdir}
-	fowners root:murmur ${confdir}
-
-	insinto ${confdir}
-	doins "${FILESDIR}"/umurmur.conf
-	fperms 0640 ${confdir}/umurmur.conf
+	fperms 0750 "${confdir}"
+	fowners -R root:murmur "${confdir}"
+	fperms 0640 "${confdir}"/umurmur.conf
 
 	readme.gentoo_create_doc
 }

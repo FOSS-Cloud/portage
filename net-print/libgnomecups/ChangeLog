@@ -1,6 +1,14 @@
 # ChangeLog for net-print/libgnomecups
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/libgnomecups/ChangeLog,v 1.96 2013/04/10 20:22:12 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-print/libgnomecups/ChangeLog,v 1.98 2014/01/01 21:12:36 pacho Exp $
+
+  01 Jan 2014; Pacho Ramos <pacho@gentoo.org> libgnomecups-0.2.3-r3.ebuild:
+  Add missing dependency on gnome-common, bug #496648 by Jan Hrabe
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> -libgnomecups-0.2.3-r2.ebuild,
+  libgnomecups-0.2.3-r3.ebuild:
+  Fix intltool files making LINGUAS to be honored, bug #408103 by  Piotr
+  Szymaniak, drop old
 
   10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libgnomecups-0.2.3-r3.ebuild:
   Stable for hppa, wrt bug #458984

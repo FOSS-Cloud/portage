@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/abiword/abiword-3.0.0-r1.ebuild,v 1.2 2013/11/13 20:20:33 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/abiword/abiword-3.0.0-r1.ebuild,v 1.7 2013/12/19 21:10:25 pacho Exp $
 
 EAPI=5
 GCONF_DEBUG="yes"
@@ -14,19 +14,19 @@ SRC_URI="http://www.abisource.com/downloads/${PN}/${PV}/source/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="2"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="calendar collab cups eds +goffice grammar +introspection latex map math ots openxml +plugins readline redland spell wordperfect wmf thesaurus"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
+IUSE="calendar collab cups eds +goffice grammar +introspection latex map math ots +plugins readline redland spell wordperfect wmf thesaurus"
 
 # You need 'plugins' enabled if want to enable the extra plugins
-REQUIRED_USE="!plugins? ( !collab !grammar !latex !math !openxml !ots !readline !thesaurus !wordperfect !wmf )"
+REQUIRED_USE="!plugins? ( !collab !grammar !latex !math !ots !readline !thesaurus !wordperfect !wmf )"
 
 RDEPEND="
 	>=app-text/wv-1.2
-	dev-lang/perl
 	>=dev-libs/boost-1.40.0
 	>=dev-libs/fribidi-0.10.4
 	>=dev-libs/glib-2.16:2
 	>=dev-libs/libgcrypt-1.4.5
+	dev-libs/libxslt
 	>=gnome-base/librsvg-2.16:2
 	>=gnome-extra/libgsf-1.14.18
 	>=media-libs/libpng-1.2
@@ -34,7 +34,7 @@ RDEPEND="
 	>=x11-libs/cairo-1.10[X]
 	>=x11-libs/gtk+-3.0.8:3[cups?]
 	calendar? ( >=dev-libs/libical-0.46 )
-	eds? ( gnome-extra/evolution-data-server )
+	eds? ( >=gnome-extra/evolution-data-server-3.6.0 )
 	goffice? ( >=x11-libs/goffice-0.10.2:0.10 )
 	introspection? ( >=dev-libs/gobject-introspection-1.0.0 )
 	map? ( >=media-libs/libchamplain-0.12 )
@@ -45,7 +45,6 @@ RDEPEND="
 			net-libs/libsoup:2.4
 			net-libs/gnutls )
 		grammar? ( >=dev-libs/link-grammar-4.2.1 )
-		latex? ( dev-libs/libxslt )
 		math? ( >=x11-libs/gtkmathview-0.7.5 )
 		ots? ( >=app-text/ots-0.5-r1 )
 		readline? ( sys-libs/readline )
@@ -62,6 +61,7 @@ RDEPEND="
 	!<app-office/abiword-plugins-2.8
 "
 DEPEND="${RDEPEND}
+	dev-lang/perl
 	virtual/pkgconfig
 	collab? ( dev-cpp/asio )
 "
@@ -94,7 +94,8 @@ src_configure() {
 
 		# Plugins not depending on anything
 		plugins="${plugins} gimp bmp freetranslation iscii s5 babelfish opml eml
-			wikipedia gdict passepartout google presentation urldict hrtext mif"
+			wikipedia gdict passepartout google presentation urldict hrtext mif
+			openxml"
 
 		# inter7eps: eps.h
 		# libtidy: gsf + tidy.h
@@ -103,7 +104,6 @@ src_configure() {
 		use goffice && plugins="${plugins} goffice"
 		use latex && plugins="${plugins} latex"
 		use math && plugins="${plugins} mathview"
-		use openxml && plugins="${plugins} openxml"
 		use ots && plugins="${plugins} ots"
 		# psion: >=psiconv-0.9.4
 		use readline && plugins="${plugins} command"

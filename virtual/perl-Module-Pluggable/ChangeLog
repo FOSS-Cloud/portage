@@ -1,6 +1,25 @@
 # ChangeLog for virtual/perl-Module-Pluggable
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Module-Pluggable/ChangeLog,v 1.40 2013/08/16 07:11:18 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Module-Pluggable/ChangeLog,v 1.44 2014/01/20 20:54:36 vapier Exp $
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  perl-Module-Pluggable-4.600.0.ebuild, perl-Module-Pluggable-4.700.0.ebuild,
+  perl-Module-Pluggable-4.800.0.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  perl-Module-Pluggable-4.700.0.ebuild, perl-Module-Pluggable-4.800.0.ebuild:
+  Add m68k keywords.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  perl-Module-Pluggable-4.600.0.ebuild:
+  Mark m68k/s390/sh stable.
+
+  31 Dec 2013; Mikle Kolyada <zlogene@gentoo.org>
+  -perl-Module-Pluggable-3.900.0-r1.ebuild,
+  -perl-Module-Pluggable-4.0.0-r1.ebuild, -perl-Module-Pluggable-4.300.0.ebuild,
+  -perl-Module-Pluggable-4.500.0.ebuild:
+  Drop old
 
 *perl-Module-Pluggable-4.800.0 (16 Aug 2013)
 

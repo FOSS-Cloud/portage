@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/dee/dee-1.0.14-r2.ebuild,v 1.6 2013/09/05 18:29:54 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/dee/dee-1.0.14-r2.ebuild,v 1.8 2013/12/08 20:00:03 pacho Exp $
 
 EAPI=5
 
@@ -16,7 +16,7 @@ SRC_URI="https://launchpad.net/dee/1.0/${PV}/+download/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-3"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86"
 IUSE="doc debug examples +icu introspection static-libs test"
 
 REQUIRED_USE="introspection? ( ${PYTHON_REQUIRED_USE} )"

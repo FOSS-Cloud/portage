@@ -1,6 +1,15 @@
 # ChangeLog for dev-libs/libgit2-glib
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgit2-glib/ChangeLog,v 1.5 2013/10/13 07:35:24 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgit2-glib/ChangeLog,v 1.8 2013/12/08 18:02:57 pacho Exp $
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> libgit2-glib-0.0.6.ebuild:
+  x86 stable, bug #478252
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> libgit2-glib-0.0.6.ebuild:
+  Sometimes repository test gets stuck, check again on next major release
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> libgit2-glib-0.0.6.ebuild:
+  amd64 stable, bug #478252
 
   13 Oct 2013; Pacho Ramos <pacho@gentoo.org> -libgit2-glib-0.0.4.ebuild,
   libgit2-glib-0.0.6.ebuild:

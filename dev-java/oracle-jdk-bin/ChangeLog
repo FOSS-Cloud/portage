@@ -1,6 +1,22 @@
 # ChangeLog for dev-java/oracle-jdk-bin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/oracle-jdk-bin/ChangeLog,v 1.47 2013/10/27 09:56:15 tomwij Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/oracle-jdk-bin/ChangeLog,v 1.50 2014/01/19 01:01:53 polynomial-c Exp $
+
+*oracle-jdk-bin-1.7.0.51-r1 (19 Jan 2014)
+
+  19 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -oracle-jdk-bin-1.7.0.51.ebuild, +oracle-jdk-bin-1.7.0.51-r1.ebuild:
+  Forgot to change java_fx version.
+
+*oracle-jdk-bin-1.7.0.51 (17 Jan 2014)
+
+  17 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +oracle-jdk-bin-1.7.0.51.ebuild:
+  non-maintainer security bump due to slacking java herd (bug #498148).
+
+  25 Dec 2013; Fabian Groffen <grobian@gentoo.org>
+  oracle-jdk-bin-1.7.0.45.ebuild:
+  Add support for Mac OS X, bug #492996
 
   27 Oct 2013; Tom Wijsman <TomWij@gentoo.org> oracle-jdk-bin-1.7.0.45.ebuild:
   Bump samples tarball version number; reported by TheMadMan, permitted by ago.

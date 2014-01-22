@@ -1,6 +1,30 @@
 # ChangeLog for dev-ruby/sexp_processor
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/sexp_processor/ChangeLog,v 1.23 2013/10/21 07:32:12 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/sexp_processor/ChangeLog,v 1.30 2013/12/19 23:47:36 mrueg Exp $
+
+  19 Dec 2013; Manuel Rüger <mrueg@gentoo.org> -sexp_processor-3.0.5.ebuild,
+  -sexp_processor-4.3.0-r1.ebuild, -sexp_processor-4.4.0.ebuild:
+  Cleanup old.
+
+  19 Dec 2013; Akinori Hattori <hattya@gentoo.org> sexp_processor-4.2.1.ebuild:
+  ia64 stable wrt bug #483708
+
+*sexp_processor-4.4.1 (15 Dec 2013)
+
+  15 Dec 2013; Manuel Rüger <mrueg@gentoo.org> +sexp_processor-4.4.1.ebuild:
+  Version bump.
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> sexp_processor-4.2.1.ebuild:
+  Stable for sparc, wrt bug #483708
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> sexp_processor-4.2.1.ebuild:
+  Stable for ppc64, wrt bug #483708
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> sexp_processor-4.2.1.ebuild:
+  Stable for ppc, wrt bug #483708
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> sexp_processor-4.2.1.ebuild:
+  Stable for alpha, wrt bug #483708
 
 *sexp_processor-4.4.0 (21 Oct 2013)
 

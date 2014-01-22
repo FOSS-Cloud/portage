@@ -1,6 +1,70 @@
 # ChangeLog for sys-auth/keystone
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/keystone/ChangeLog,v 1.47 2013/11/18 03:24:30 prometheanfire Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/keystone/ChangeLog,v 1.58 2014/01/20 06:08:12 prometheanfire Exp $
+
+  20 Jan 2014; Matthew Thode <prometheanfire@gentoo.org>
+  -files/keystone.initd.havana, files/keystone.confd, files/keystone.initd,
+  keystone-2013.1.4-r2.ebuild, keystone-2013.1.9999.ebuild,
+  keystone-2013.2.1-r1.ebuild, keystone-2013.2.9999.ebuild,
+  keystone-9999.ebuild:
+  updated init scripts :D
+
+*keystone-2013.2.1-r1 (20 Jan 2014)
+*keystone-2013.1.4-r2 (20 Jan 2014)
+
+  20 Jan 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +keystone-2013.1.4-r2.ebuild, +keystone-2013.2.1-r1.ebuild,
+  -keystone-2013.1.4-r1.ebuild, -keystone-2013.2.1.ebuild,
+  keystone-2013.1.9999.ebuild, keystone-2013.2.9999.ebuild,
+  keystone-9999.ebuild:
+  update keystone for bug 498510
+
+  18 Jan 2014; Matthew Thode <prometheanfire@gentoo.org>
+  keystone-2013.2.9999.ebuild:
+  the cve patches are in git, fixing build
+
+  08 Jan 2014; Mike Frysinger <vapier@gentoo.org> keystone-2013.2.1.ebuild,
+  keystone-2013.2.9999.ebuild:
+  Inherit the user eclass for enewuser/etc...
+
+  03 Jan 2014; Ian Delaney <idella4@gentoo.org> keystone-2013.2.1.ebuild,
+  keystone-2013.2.9999.ebuild:
+  Tidy DESCRIPTION, correct SLOT entry in -2013.2 ebuilds, take out un-needed
+  mkdir in -2013.2.9999
+
+  22 Dec 2013; Ian Delaney <idella4@gentoo.org> keystone-2013.2.1.ebuild:
+  update dep under test?, update test phase
+
+  19 Dec 2013; Ian Delaney <idella4@gentoo.org> keystone-2013.2.1.ebuild:
+  Condense DESCRIPTION, test phase broken; add upstream bug for monitoring
+
+*keystone-2013.2.1 (19 Dec 2013)
+
+  19 Dec 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +keystone-2013.2.1.ebuild, -files/2013.2-CVE-2013-4477.patch,
+  -files/cve-2013-6391_2013.2.patch, -keystone-2013.2-r2.ebuild:
+  2013.2.1 and cleaner deps
+
+  13 Dec 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +files/keystone.initd.havana, -files/2012.2.4-upstream-1181157.patch,
+  -files/keystone-cve-2013-4294-grizzly.patch,
+  -files/keystone-folsom-4-CVE-2013-1977.patch,
+  -files/keystone-folsom-4-CVE-2013-2030.patch,
+  -files/keystone-folsom-4-CVE-2013-2059.patch,
+  -files/keystone-folsom-4-CVE-2013-2104.patch,
+  -files/keystone-folsom-4-CVE-2013-2157.patch, -keystone-2013.2-r1.ebuild,
+  keystone-2013.2-r2.ebuild, keystone-2013.2.9999.ebuild:
+  fixes for bug 494144
+
+*keystone-2013.2-r2 (13 Dec 2013)
+
+  13 Dec 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +files/cve-2013-6391_2013.2.patch, +keystone-2013.2-r2.ebuild:
+  fix for CVE-2013-6391
+
+  28 Nov 2013; Ian Delaney <idella4@gentoo.org> keystone-2013.2-r1.ebuild,
+  keystone-2013.2.9999.ebuild, keystone-9999.ebuild:
+  Edit, remove  from Description, update test phase
 
 *keystone-2013.2-r1 (18 Nov 2013)
 *keystone-2013.1.4-r1 (18 Nov 2013)

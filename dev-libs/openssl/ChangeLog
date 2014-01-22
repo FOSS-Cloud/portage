@@ -1,6 +1,64 @@
 # ChangeLog for dev-libs/openssl
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/openssl/ChangeLog,v 1.496 2013/10/23 16:10:35 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/openssl/ChangeLog,v 1.509 2014/01/21 00:01:22 phajdan.jr Exp $
+
+  21 Jan 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> openssl-1.0.1f.ebuild:
+  x86 stable wrt security bug #497838
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> openssl-1.0.1f.ebuild:
+  Stable for ppc, wrt bug #497838
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> openssl-1.0.1f.ebuild:
+  Stable for alpha, wrt bug #497838
+
+  19 Jan 2014; Markus Meier <maekke@gentoo.org> openssl-1.0.1f.ebuild:
+  arm stable, bug #497838
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> openssl-1.0.1f.ebuild:
+  amd64 stable, bug #497838
+
+  17 Jan 2014; Jeroen Roovers <jer@gentoo.org> openssl-1.0.1f.ebuild:
+  Stable for HPPA (bug #497838).
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> files/gentoo.config-1.0.1,
+  openssl-1.0.1f.ebuild:
+  Initial arm64 and little endian ppc support.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> openssl-1.0.1f.ebuild:
+  Mark m68k/s390/sh stable #497838.
+
+  16 Jan 2014; Mike Frysinger <vapier@gentoo.org> openssl-1.0.1e-r1.ebuild:
+  Mark m68k/s390/sh stable.
+
+  06 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> openssl-1.0.1f.ebuild,
+  +files/openssl-1.0.1f-perl-5.18.patch:
+  Fixed build with perl-5.18 (bug #497286).
+
+*openssl-1.0.1f (06 Jan 2014)
+
+  06 Jan 2014; Mike Frysinger <vapier@gentoo.org> +openssl-1.0.1f.ebuild:
+  Version bump.
+
+*openssl-1.0.1e-r3 (20 Dec 2013)
+
+  20 Dec 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/openssl-1.0.1e-rdrand-explicit.patch,
+  +files/openssl-1.0.1e-tls-ver-crash.patch, +openssl-1.0.1e-r3.ebuild:
+  Add fix from upstream for crashes w/TLS 1.2 #494816 by Agostino Sarubbo.  Also
+  add fix from upstream for rdrand selection.
+
+  26 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> -openssl-0.9.8u.ebuild,
+  -openssl-0.9.8v.ebuild, -openssl-0.9.8w.ebuild, -openssl-0.9.8x.ebuild,
+  -openssl-1.0.0h.ebuild, -openssl-1.0.0i.ebuild, -openssl-1.0.1a.ebuild,
+  -openssl-1.0.1b.ebuild, -openssl-1.0.1c.ebuild, -openssl-1.0.1d.ebuild,
+  -openssl-1.0.1d-r1.ebuild, openssl-1.0.1e.ebuild,
+  -files/openssl-1.0.0d-alpha-fix-unalign.patch,
+  -files/openssl-1.0.0d-alpha-typo.patch,
+  -files/openssl-1.0.0e-pkg-config.patch, -files/openssl-1.0.1-ipv6.patch,
+  -files/openssl-1.0.1a-hmac-ia32cap.patch,
+  -files/openssl-1.0.1d-s3-packet.patch:
+  Removed old vulnerable versions. Removed all but ppc64 KEYWORDS from
+  openssl-1.0.1e.ebuild.
 
 *openssl-1.0.1e-r2 (23 Oct 2013)
 

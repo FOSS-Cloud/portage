@@ -1,6 +1,18 @@
 # ChangeLog for dev-util/buildbot-slave
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot-slave/ChangeLog,v 1.52 2013/09/21 23:57:45 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot-slave/ChangeLog,v 1.55 2014/01/21 20:56:51 maekke Exp $
+
+  21 Jan 2014; Markus Meier <maekke@gentoo.org> buildbot-slave-0.8.8-r1.ebuild:
+  arm stable, bug #487736
+
+  20 Jan 2014; Jeroen Roovers <jer@gentoo.org> buildbot-slave-0.8.8-r1.ebuild:
+  Stable for HPPA (bug #487736).
+
+*buildbot-slave-0.8.8-r1 (22 Dec 2013)
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> +buildbot-slave-0.8.8-r1.ebuild,
+  +files/buildslave.service:
+  Add unit file (#491038)
 
   21 Sep 2013; Markos Chandras <hwoarang@gentoo.org>
   -buildbot-slave-0.8.7.ebuild:

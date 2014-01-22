@@ -1,6 +1,15 @@
 # ChangeLog for sys-apps/hwinfo
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwinfo/ChangeLog,v 1.32 2013/02/19 04:55:25 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwinfo/ChangeLog,v 1.35 2014/01/14 15:09:49 ago Exp $
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hwinfo-20.0.ebuild:
+  Stable for ppc, wrt bug #492258
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hwinfo-20.0.ebuild:
+  Stable for x86, wrt bug #492258
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> hwinfo-20.0.ebuild:
+  amd64 stable, bug #492258
 
   19 Feb 2013; Zac Medico <zmedico@gentoo.org> hwinfo-20.0.ebuild:
   Add ~arm-linux keyword.

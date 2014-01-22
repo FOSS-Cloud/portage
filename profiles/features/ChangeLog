@@ -1,6 +1,18 @@
 # ChangeLog for Gentoo/AMD64 profile directory
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/features/ChangeLog,v 1.72 2013/10/09 18:20:27 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/features/ChangeLog,v 1.76 2014/01/19 19:13:09 swift Exp $
+
+  19 Jan 2014; Sven Vermeulen <swift@gentoo.org> selinux/package.mask:
+  Adding cachefilesd SELinux policy to the tree
+
+  18 Jan 2014; Ruud Koolen <redlizard@gentoo.org> prefix:
+  Created prefix feature profile tree
+
+  29 Dec 2013; Sven Vermeulen <swift@gentoo.org> selinux/package.mask:
+  Unmask selinux-mandb
+
+  16 Dec 2013; Sven Vermeulen <swift@gentoo.org> selinux/package.mask:
+  Unmasking selinux-rngd (new policy package)
 
   09 Oct 2013; Michał Górny <mgorny@gentoo.org> multilib/make.defaults:
   Exempt python-exec from multilib-strict.

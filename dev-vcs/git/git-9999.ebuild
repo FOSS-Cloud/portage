@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git/git-9999.ebuild,v 1.48 2013/10/20 20:11:50 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git/git-9999.ebuild,v 1.52 2014/01/04 23:22:32 dilfridge Exp $
 
 EAPI=5
 
@@ -40,14 +40,14 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+blksha1 +curl cgi doc emacs gnome-keyring +gpg gtk highlight +iconv +nls +pcre +perl +python ppcsha1 tk +threads +webdav xinetd cvs subversion test"
+IUSE="+blksha1 +curl cgi doc emacs gnome-keyring +gpg gtk highlight +iconv mediawiki +nls +pcre +perl +python ppcsha1 tk +threads +webdav xinetd cvs subversion test"
 
 # Common to both DEPEND and RDEPEND
 CDEPEND="
 	dev-libs/openssl
 	sys-libs/zlib
 	pcre? ( dev-libs/libpcre )
-	perl? ( dev-lang/perl[-build(-)] )
+	perl? ( dev-lang/perl:=[-build(-)] )
 	tk? ( dev-lang/tk )
 	curl? (
 		net-misc/curl
@@ -58,6 +58,10 @@ CDEPEND="
 
 RDEPEND="${CDEPEND}
 	gpg? ( app-crypt/gnupg )
+	mediawiki? (
+		dev-perl/HTML-Tree
+		dev-perl/MediaWiki-API
+	)
 	perl? ( dev-perl/Error
 			dev-perl/Net-SMTP-SSL
 			dev-perl/Authen-SASL
@@ -100,6 +104,7 @@ S="${WORKDIR}/${MY_P}"
 REQUIRED_USE="
 	cgi? ( perl )
 	cvs? ( perl )
+	mediawiki? ( perl )
 	subversion? ( perl )
 	webdav? ( curl )
 	gtk? ( python )
@@ -220,7 +225,11 @@ src_unpack() {
 
 src_prepare() {
 	# bug #350330 - automagic CVS when we don't want it is bad.
-	epatch "${FILESDIR}"/git-1.8.4-optional-cvs.patch
+	epatch "${FILESDIR}"/git-1.8.5-optional-cvs.patch
+
+	# install mediawiki perl modules also in vendor_dir
+	# hack, needs better upstream solution
+	epatch "${FILESDIR}"/git-1.8.5-mw-vendor.patch
 
 	sed -i \
 		-e 's:^\(CFLAGS[[:space:]]*=\).*$:\1 $(OPTCFLAGS) -Wall:' \
@@ -329,6 +338,11 @@ src_compile() {
 	cd "${S}"/contrib/subtree
 	git_emake
 	use doc && git_emake doc
+
+	if use mediawiki ; then
+		cd "${S}"/contrib/mw-to-git
+		git_emake
+	fi
 }
 
 src_install() {
@@ -390,6 +404,12 @@ src_install() {
 	dodoc git-subtree.txt
 	cd "${S}"
 
+	if use mediawiki ; then
+		cd "${S}"/contrib/mw-to-git
+		git_emake install
+		cd "${S}"
+	fi
+
 	# git-diffall
 	dobin contrib/diffall/git-diffall
 	newdoc contrib/diffall/README git-diffall.txt
@@ -446,7 +466,7 @@ src_install() {
 	# svnimport - use git-svn
 	# thunderbird-patch-inline - fixes thunderbird
 	for i in \
-		buildsystems ciabot convert-objects fast-import \
+		buildsystems convert-objects fast-import \
 		hg-to-git hooks remotes2config.sh rerere-train.sh \
 		stats vim workdir \
 		; do
@@ -503,7 +523,8 @@ src_test() {
 					t9600-cvsimport.sh \
 					t9601-cvsimport-vendor-branch.sh \
 					t9602-cvsimport-branches-tags.sh \
-					t9603-cvsimport-patchsets.sh"
+					t9603-cvsimport-patchsets.sh \
+					t9604-cvsimport-timestamps.sh"
 	local tests_perl="t3701-add-interactive.sh \
 					t5502-quickfetch.sh \
 					t5512-ls-remote.sh \

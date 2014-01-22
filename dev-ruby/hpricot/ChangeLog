@@ -1,6 +1,20 @@
 # ChangeLog for dev-ruby/hpricot
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hpricot/ChangeLog,v 1.46 2013/10/15 19:36:36 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hpricot/ChangeLog,v 1.50 2014/01/02 08:09:29 graaff Exp $
+
+  02 Jan 2014; Hans de Graaff <graaff@gentoo.org> hpricot-0.8.6-r1.ebuild,
+  hpricot-0.8.6-r2.ebuild:
+  Restore ruby18.
+
+  01 Jan 2014; Patrick Lauer <patrick@gentoo.org> hpricot-0.8.6-r1.ebuild,
+  hpricot-0.8.6-r2.ebuild:
+  Remove ruby18 target as dependencies lost support already
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> hpricot-0.8.6-r1.ebuild:
+  arm stable, bug #493780
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> hpricot-0.8.6-r1.ebuild:
+  Stable for HPPA (bug #493780).
 
 *hpricot-0.8.6-r2 (15 Oct 2013)
 

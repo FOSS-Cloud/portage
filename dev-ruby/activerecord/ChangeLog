@@ -1,6 +1,34 @@
 # ChangeLog for dev-ruby/activerecord
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activerecord/ChangeLog,v 1.247 2013/11/10 14:42:04 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activerecord/ChangeLog,v 1.254 2014/01/18 09:54:39 graaff Exp $
+
+  18 Jan 2014; Hans de Graaff <graaff@gentoo.org> -activerecord-2.3.18.ebuild:
+  Remove masked version.
+
+  02 Jan 2014; Hans de Graaff <graaff@gentoo.org> activerecord-2.3.18.ebuild,
+  activerecord-3.2.16.ebuild:
+  Restore ruby18.
+
+  01 Jan 2014; Patrick Lauer <patrick@gentoo.org> activerecord-2.3.18.ebuild,
+  activerecord-3.2.16.ebuild:
+  Remove ruby18 target as dependencies lost support already
+
+  16 Dec 2013; Hans de Graaff <graaff@gentoo.org> -activerecord-3.2.15.ebuild,
+  -activerecord-4.0.0.ebuild:
+  Cleanup for security bug 493284.
+
+*activerecord-4.0.2 (04 Dec 2013)
+
+  04 Dec 2013; Hans de Graaff <graaff@gentoo.org> +activerecord-4.0.2.ebuild:
+  Version bump for security bug 493284.
+
+*activerecord-3.2.16 (04 Dec 2013)
+
+  04 Dec 2013; Hans de Graaff <graaff@gentoo.org> +activerecord-3.2.16.ebuild:
+  Version bump for security bug 493284.
+
+  29 Nov 2013; Hans de Graaff <graaff@gentoo.org> -activerecord-3.1.12.ebuild:
+  Remove masked Rails 3.1.
 
   10 Nov 2013; Hans de Graaff <graaff@gentoo.org> -activerecord-3.2.13.ebuild,
   -activerecord-3.2.14.ebuild:

@@ -1,6 +1,20 @@
 # ChangeLog for app-office/orage
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/orage/ChangeLog,v 1.74 2013/05/05 17:18:50 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/orage/ChangeLog,v 1.78 2014/01/19 19:00:29 pacho Exp $
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> orage-4.10.0.ebuild:
+  amd64 stable, bug 496018
+
+  31 Dec 2013; Markus Meier <maekke@gentoo.org> orage-4.10.0.ebuild:
+  arm stable, bug #496018
+
+  27 Dec 2013; Jeroen Roovers <jer@gentoo.org> orage-4.10.0.ebuild:
+  Stable for HPPA (bug #496018).
+
+*orage-4.10.0 (10 Dec 2013)
+
+  10 Dec 2013; Samuli Suominen <ssuominen@gentoo.org> +orage-4.10.0.ebuild:
+  Version bump.
 
   05 May 2013; Samuli Suominen <ssuominen@gentoo.org> -orage-4.8.3.ebuild:
   old

@@ -1,6 +1,20 @@
 # ChangeLog for net-p2p/gtk-gnutella
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/gtk-gnutella/ChangeLog,v 1.149 2013/10/29 22:22:38 chainsaw Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/gtk-gnutella/ChangeLog,v 1.152 2014/01/01 08:05:57 graaff Exp $
+
+*gtk-gnutella-1.0.1 (01 Jan 2014)
+
+  01 Jan 2014; Hans de Graaff <graaff@gentoo.org> +gtk-gnutella-1.0.1.ebuild:
+  Version bump.
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> gtk-gnutella-1.0.0.ebuild:
+  Stable for x86, wrt bug #489180
+
+*gtk-gnutella-1.0.0-r1 (04 Dec 2013)
+
+  04 Dec 2013; Hans de Graaff <graaff@gentoo.org>
+  +gtk-gnutella-1.0.0-r1.ebuild, +files/gtk-gnutella-1.0.0-gtkg-hostile.patch:
+  Fix bug causing all other gtk-gnutella instances to be reported as hostile.
 
   29 Oct 2013; Tony Vroon <chainsaw@gentoo.org> gtk-gnutella-1.0.0.ebuild:
   Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El

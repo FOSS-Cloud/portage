@@ -1,8 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/gnatbuild.eclass,v 1.58 2013/11/20 06:09:43 nerdboy Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/gnatbuild.eclass,v 1.60 2013/11/25 07:06:23 nerdboy Exp $
 #
-# Author: George Shapovalov <george@gentoo.org>
+# Authors: George Shapovalov <george@gentoo.org>
+#          Steve Arnold <nerdboy@gentoo.org>
+#
 # Belongs to: ada herd <ada@gentoo.org>
 #
 # Notes:
@@ -25,7 +27,10 @@ EXPORT_FUNCTIONS pkg_setup pkg_postinst pkg_postrm src_unpack src_compile src_in
 IUSE="nls"
 # multilib is supported via profiles now, multilib usevar is deprecated
 
-DEPEND=">=app-admin/eselect-gnat-1.3"
+DEPEND=">=app-admin/eselect-gnat-1.3
+          sys-devel/bc
+"
+
 RDEPEND="app-admin/eselect-gnat"
 
 # Note!
@@ -485,9 +490,9 @@ gnatbuild_src_compile() {
 					confgcc="${confgcc} --disable-nls"
 				fi
 
-				if [ "${GNATMINOR}" -ge "6" ] ; then
+				if version_is_at_least 4.6 ; then
 					confgcc+=( $(use_enable lto) )
-				elif [ "${GNATMINOR}" -ge "5" ] ; then
+				else
 					confgcc+=( --disable-lto )
 				fi
 
@@ -591,7 +596,7 @@ gnatbuild_src_compile() {
 				cp "${S}"/gcc/ada/xeinfo.adb   .
 				cp "${S}"/gcc/ada/xnmake.adb   .
 				cp "${S}"/gcc/ada/xutil.ad{s,b}   .
-				if [[ ${GNATMINOR} > 5 ]] ; then
+				if (( ${GNATMINOR} > 5 )) ; then
 					cp "${S}"/gcc/ada/einfo.ad{s,b}  .
 					cp "${S}"/gcc/ada/csinfo.adb  .
 					cp "${S}"/gcc/ada/ceinfo.adb  .
@@ -686,8 +691,13 @@ gnatbuild_src_install() {
 		cd "${GNATBUILD}"
 		make DESTDIR="${D}" install || die
 
-		#make a convenience info link
-		dosym ${DATAPATH}/info/gnat_ugn.info ${DATAPATH}/info/gnat.info
+		if use doc ; then
+			if (( $(bc <<< "${GNATBRANCH} > 4.3") )) ; then
+				#make a convenience info link
+				elog "Yay!  Math is good."
+				dosym gnat_ugn.info ${DATAPATH}/info/gnat.info
+			fi
+		fi
 		;;
 
 	move_libs)

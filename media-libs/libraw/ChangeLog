@@ -1,6 +1,30 @@
 # ChangeLog for media-libs/libraw
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libraw/ChangeLog,v 1.70 2013/11/08 09:42:43 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libraw/ChangeLog,v 1.75 2014/01/14 21:27:53 pacho Exp $
+
+  14 Jan 2014; Pacho Ramos <pacho@gentoo.org> libraw-0.15.4.ebuild:
+  ia64 stable, bug #488908 (thanks to Emeric Maschino for testing)
+
+  23 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libraw-0.16.0_alpha3.ebuild, -libraw-0.16.0_beta1.ebuild:
+  Remove old
+
+*libraw-0.16.0_beta1-r1 (23 Dec 2013)
+
+  23 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libraw-0.16.0_beta1-r1.ebuild, +files/libraw-0.16.0_beta1-include.patch,
+  +files/libraw-0.16.0_beta1-libsuffix.patch,
+  +files/libraw-0.16.0_beta1-libsuffixpc.patch:
+  Add bump to fix include path and libdir handling, bug 495096
+
+  23 Nov 2013; Tim Harder <radhermit@gentoo.org> -libraw-0.16.0_alpha2.ebuild,
+  -libraw-0.16.0_alpha2-r1.ebuild:
+  Remove old.
+
+*libraw-0.16.0_beta1 (23 Nov 2013)
+
+  23 Nov 2013; Tim Harder <radhermit@gentoo.org> +libraw-0.16.0_beta1.ebuild:
+  Version bump.
 
 *libraw-0.16.0_alpha3 (08 Nov 2013)
 

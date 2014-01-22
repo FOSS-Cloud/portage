@@ -1,6 +1,12 @@
 # ChangeLog for xfce-extra/tumbler
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-extra/tumbler/ChangeLog,v 1.55 2013/08/05 09:47:17 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/xfce-extra/tumbler/ChangeLog,v 1.57 2014/01/19 19:01:35 pacho Exp $
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> tumbler-0.1.29.ebuild:
+  amd64 stable, bug 496018
+
+  31 Dec 2013; Markus Meier <maekke@gentoo.org> tumbler-0.1.29.ebuild:
+  arm stable, bug #496018
 
   05 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> tumbler-0.1.29.ebuild:
   Pull in correct SLOT of libjpeg for headers.

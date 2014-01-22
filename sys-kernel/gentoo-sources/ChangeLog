@@ -1,6 +1,184 @@
 # ChangeLog for sys-kernel/gentoo-sources
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1216 2013/11/21 01:00:33 tomwij Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1247 2014/01/21 15:10:42 mpagano Exp $
+
+*gentoo-sources-3.13.0-r1 (21 Jan 2014)
+
+  21 Jan 2014; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.13.0-r1.ebuild:
+  Fix for fbcondecor patch. If you don't use fbcondecor, no need to upgrade.
+
+*gentoo-sources-3.13.0 (20 Jan 2014)
+
+  20 Jan 2014; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.13.0.ebuild:
+  Support for namespace user.pax.* on tmpfs. Enable mic mute led in thinkpads.
+  Zero copy for infiniband psm userspace driver. Disable Windows 8
+  compatibility for some Lenovo ThinkPads. Ensure that /dev/root doesn't appear
+  in /proc/mounts when bootint without an initramfs. Do not lock when UMH is
+  waiting on current thread spawned by linuxrc. Bootsplash successor by Michal
+  Januszewski ported by Jeremy. Support for Pogoplug e02 (bug #460350),
+  adjusted to be opt-in by TomWij. Add Gentoo Linux support config settings and
+  defaults. BFQ patch 
+
+  17 Jan 2014; Joseph Jezak <josejx@gentoo.org> gentoo-sources-3.10.25.ebuild:
+  Marked ppc/ppc64 stable for bug #496890.
+
+*gentoo-sources-3.4.77 (16 Jan 2014)
+
+  16 Jan 2014; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.4.77.ebuild:
+  Linux patch 3.4.77
+
+*gentoo-sources-3.10.27 (16 Jan 2014)
+
+  16 Jan 2014; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.10.27.ebuild:
+  Linux patch 3.10.27
+
+*gentoo-sources-3.12.8 (16 Jan 2014)
+
+  16 Jan 2014; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.12.8.ebuild:
+  Linux patch 3.12.8
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.10.25.ebuild:
+  Stable for ia64, wrt bug #496890
+
+  11 Jan 2014; Markus Meier <maekke@gentoo.org> gentoo-sources-3.10.25.ebuild:
+  arm stable, bug #496890
+
+  10 Jan 2014; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.2.52.ebuild, -gentoo-sources-3.2.53.ebuild,
+  -gentoo-sources-3.4.72.ebuild, -gentoo-sources-3.4.74.ebuild,
+  -gentoo-sources-3.4.75.ebuild, -gentoo-sources-3.10.22.ebuild,
+  -gentoo-sources-3.10.24.ebuild, -gentoo-sources-3.11.8.ebuild,
+  -gentoo-sources-3.11.9.ebuild, -gentoo-sources-3.12.4.ebuild,
+  -gentoo-sources-3.12.5.ebuild, -gentoo-sources-3.12.6.ebuild:
+  Remove old versions
+
+*gentoo-sources-3.10.26 (10 Jan 2014)
+
+  10 Jan 2014; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.10.26.ebuild:
+  Linux patch 3.10.26
+
+*gentoo-sources-3.12.7 (10 Jan 2014)
+
+  10 Jan 2014; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.12.7.ebuild:
+  Linux patch 3.12.7
+
+*gentoo-sources-3.4.76 (09 Jan 2014)
+
+  09 Jan 2014; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.4.76.ebuild:
+  Linux patch 3.4.76
+
+*gentoo-sources-3.2.54 (07 Jan 2014)
+*gentoo-sources-3.2.53 (07 Jan 2014)
+
+  07 Jan 2014; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.2.53.ebuild,
+  +gentoo-sources-3.2.54.ebuild:
+  Linux patches 3.2.53 and 3.2.54.
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.10.25.ebuild:
+  Stable for x86, wrt bug #496890
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.10.25.ebuild:
+  Stable for amd64, wrt bug #496890
+
+  04 Jan 2014; Jeroen Roovers <jer@gentoo.org> gentoo-sources-3.10.25.ebuild:
+  Stable for HPPA (bug #496890).
+
+*gentoo-sources-3.4.75 (21 Dec 2013)
+
+  21 Dec 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.4.75.ebuild:
+  Linux patch 3.4.75.
+
+*gentoo-sources-3.10.25 (21 Dec 2013)
+
+  21 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.10.25.ebuild:
+  Linux patch 3.10.25
+
+*gentoo-sources-3.12.6 (20 Dec 2013)
+
+  20 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.12.6.ebuild:
+  Linux patch 3.12.6
+
+  13 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.4.69.ebuild, -gentoo-sources-3.4.70.ebuild,
+  -gentoo-sources-3.4.71.ebuild:
+  Cleanup old version
+
+  13 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.10.19.ebuild, -gentoo-sources-3.10.20.ebuild,
+  -gentoo-sources-3.10.21.ebuild:
+  Cleanup old version
+
+  13 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.12.0.ebuild, -gentoo-sources-3.12.1.ebuild,
+  -gentoo-sources-3.12.2.ebuild, -gentoo-sources-3.12.3.ebuild:
+  Cleanup old version
+
+*gentoo-sources-3.12.5 (13 Dec 2013)
+
+  13 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.12.5.ebuild:
+  Linux patch 3.12.5
+
+*gentoo-sources-3.10.24 (13 Dec 2013)
+
+  13 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.10.24.ebuild:
+  Linux patch 3.10.23. Linux patch 3.10.24
+
+*gentoo-sources-3.4.74 (13 Dec 2013)
+
+  13 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.4.74.ebuild:
+  Linux patch 3.4.73 and 3.4.74
+
+*gentoo-sources-3.12.4 (08 Dec 2013)
+
+  08 Dec 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.12.4.ebuild:
+  Linux patch 3.12.4.
+
+*gentoo-sources-3.4.72 (07 Dec 2013)
+
+  07 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.4.72.ebuild:
+  Linux patch 3.4.72
+
+*gentoo-sources-3.10.22 (07 Dec 2013)
+
+  07 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.10.22.ebuild:
+  Linux patch 3.10.22
+
+*gentoo-sources-3.12.3 (07 Dec 2013)
+
+  07 Dec 2013; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.12.3.ebuild:
+  Linux patch 3.12.3
+
+*gentoo-sources-3.11.10 (30 Nov 2013)
+*gentoo-sources-3.2.52 (30 Nov 2013)
+*gentoo-sources-3.10.21 (30 Nov 2013)
+*gentoo-sources-3.4.71 (30 Nov 2013)
+*gentoo-sources-3.12.2 (30 Nov 2013)
+
+  30 Nov 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.10.21.ebuild,
+  +gentoo-sources-3.11.10.ebuild, +gentoo-sources-3.12.2.ebuild,
+  +gentoo-sources-3.2.52.ebuild, +gentoo-sources-3.4.71.ebuild:
+  Linux patches 3.2.53, 3.4.71, 3.10.21, 3.11.10 and 3.12.2.
+
+*gentoo-sources-3.12.9999 (22 Nov 2013)
+
+  22 Nov 2013; Tom Wijsman <TomWij@gentoo.org> +gentoo-sources-3.12.9999.ebuild:
+  Live 9999 ebuild for 3.12 branch.
 
 *gentoo-sources-3.12.1 (21 Nov 2013)
 *gentoo-sources-3.11.9 (21 Nov 2013)

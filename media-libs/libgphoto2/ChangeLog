@@ -1,6 +1,41 @@
 # ChangeLog for media-libs/libgphoto2
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libgphoto2/ChangeLog,v 1.238 2013/10/10 18:40:36 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libgphoto2/ChangeLog,v 1.245 2014/01/03 10:57:11 pacho Exp $
+
+*libgphoto2-2.5.2-r3 (03 Jan 2014)
+
+  03 Jan 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/libgphoto2-2.5.2-canon-s100.patch, +libgphoto2-2.5.2-r3.ebuild,
+  -libgphoto2-2.5.2-r2.ebuild:
+  Fix Canon S100 detection, bug #496754 by Nikolay Kichukov, drop old
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> libgphoto2-2.5.2-r1.ebuild:
+  Stable for HPPA (bug #478252).
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> libgphoto2-2.5.2-r1.ebuild:
+  x86 stable, bug #478252
+
+  05 Dec 2013; Jeroen Roovers <jer@gentoo.org> libgphoto2-2.5.2-r2.ebuild:
+  Marked ~hppa (bug #493156).
+
+*libgphoto2-2.5.2-r2 (02 Dec 2013)
+
+  02 Dec 2013; Pacho Ramos <pacho@gentoo.org> +libgphoto2-2.5.2-r2.ebuild,
+  metadata.xml:
+  Add serial USE flag (#493150 by emil karlson)
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> libgphoto2-2.5.2-r1.ebuild:
+  amd64 stable, bug #478252
+
+*libgphoto2-2.5.2-r1 (22 Nov 2013)
+
+  22 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/libgphoto2-2.5.2-libxml2-detection.patch,
+  +files/libgphoto2-2.5.2-libxml2-detection2.patch, +libgphoto2-2.5.2-r1.ebuild,
+  -libgphoto2-2.5.2.ebuild:
+  Apply important fixes: solve libxml2 detection, update configure options, rely
+  on udev >= 175, update cameras (#484276 by Nikoli and Evgeny Bobkin, also
+  solving #484276 by Michael Rowell); drop old.
 
   10 Oct 2013; Pacho Ramos <pacho@gentoo.org> -libgphoto2-2.5.1.1.ebuild,
   libgphoto2-2.5.2.ebuild:

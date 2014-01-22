@@ -1,6 +1,76 @@
 # ChangeLog for Gentoo base-profile
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.610 2013/11/19 10:12:12 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.632 2014/01/19 19:12:11 swift Exp $
+
+  19 Jan 2014; Sven Vermeulen <swift@gentoo.org> package.mask:
+  Adding cachefilesd policy to the tree
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> make.defaults:
+  Update PYTHON_TARGETS from 3.2 to 3.3 now that it is stable #474128.
+
+  16 Jan 2014; Ultrabug <ultrabug@gentoo.org> make.defaults:
+  add new USWGI_PLUGINS USE_EXPAND
+
+  14 Jan 2014; Ruud Koolen <redlizard@gentoo.org> use.mask:
+  Add prefix-guest use mask for new prefix profiles.
+
+  13 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> package.use.mask:
+  Removed use.mask entry for seamonkey's crypt USE flag.
+
+  05 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> package.use.mask:
+  Adjusted polarssl use.mask for media-sound/umurmur.
+
+  04 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.use.mask:
+  Mask dev-vcs/git[mediawiki] until dependencies are keyworded
+
+  01 Jan 2014; Patrick Lauer <patrick@gentoo.org> use.mask:
+  Masking ruby_targets_ruby18 as there's now cascading breakage of deps and
+  deps-of-deps and it's going to be removed anyway
+
+  30 Dec 2013; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  unmask pulseaudio and openal on multilib ffmpeg
+
+  29 Dec 2013; Sven Vermeulen <swift@gentoo.org> package.mask:
+  Add mask for selinux-mandb
+
+  27 Dec 2013; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
+  Mask 'context' USE-flag for dev-libs/boost
+
+  26 Dec 2013; Gilles Dartiguelongue <eva@gentoo.org> package.use.mask:
+  Add missing version to libpeas python mask.
+
+  24 Dec 2013; Gilles Dartiguelongue <eva@gentoo.org> package.use.mask:
+  Add relevant USE mask for libpeas.
+
+  23 Dec 2013; Gilles Dartiguelongue <eva@gentoo.org> package.use.mask:
+  Add gstreamer use mask for new cogl release.
+
+  20 Dec 2013; Rick Farina <zerochaos@gentoo.org> package.use.mask:
+  Masking test and development for metasploit until gentoo has rake 10
+
+  18 Dec 2013; Johannes Huber <johu@gentoo.org> package.use.mask:
+  Mask >=kde-base/kopete-4.12.0[otr] because of package mask on 
+  >=net-libs/libotr-0.4.0.
+
+  16 Dec 2013; Sven Vermeulen <swift@gentoo.org> package.mask:
+  Mask selinux-rngd (new SELinux policy package)
+
+  15 Dec 2013; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Simplify wine ebuilds: apply winepulse patchset only when USE=pulseaudio (bug
+  #489004), and allow -9999 users to enable it if they really want.
+
+  13 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> package.use.mask:
+  Mask crypt USE flag for >=seamonkey-2.23 until enigmail provides a build
+  system fix. package.use.mask
+
+  12 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org> package.use.mask:
+  LibreOffice kde support has been fixed, hooray
+
+  06 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org> package.use.mask:
+  Mask kde integration of libreoffice
+
+  23 Nov 2013; Mike Frysinger <vapier@gentoo.org> make.defaults:
+  Add ublox to GPSD_PROTOCOLS.
 
   19 Nov 2013; Tim Harder <radhermit@gentoo.org> package.use.mask:
   Mask racket USE flag for app-editors/(g)vim.

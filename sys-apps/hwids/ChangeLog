@@ -1,6 +1,32 @@
 # ChangeLog for sys-apps/hwids
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.122 2013/11/13 03:30:18 mattst88 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.129 2014/01/18 04:55:37 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> hwids-20130915.1.ebuild,
+  hwids-20131226.ebuild, hwids-20140103.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> hwids-20130915.1.ebuild:
+  Mark m68k/s390/sh stable.
+
+*hwids-20140103 (03 Jan 2014)
+
+  03 Jan 2014; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20140103.ebuild:
+  Update.
+
+*hwids-20131226 (26 Dec 2013)
+
+  26 Dec 2013; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20131226.ebuild:
+  Long time no update.
+
+  08 Dec 2013; Markus Meier <maekke@gentoo.org> hwids-20130915.1.ebuild:
+  arm stable, bug #487342
+
+  01 Dec 2013; Johannes Huber <johu@gentoo.org> hwids-20130915.1.ebuild:
+  x86 stable, bug #487342
+
+  24 Nov 2013; Pacho Ramos <pacho@gentoo.org> hwids-20130915.1.ebuild:
+  amd64 stable, bug #487342
 
   13 Nov 2013; Matt Turner <mattst88@gentoo.org> hwids-20130915.1.ebuild:
   alpha stable, bug 487342.

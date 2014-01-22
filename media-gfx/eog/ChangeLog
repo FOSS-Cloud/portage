@@ -1,6 +1,18 @@
 # ChangeLog for media-gfx/eog
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/eog/ChangeLog,v 1.305 2013/05/13 21:18:58 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/eog/ChangeLog,v 1.308 2013/12/24 17:17:43 pacho Exp $
+
+*eog-3.10.2 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +eog-3.10.2.ebuild,
+  -eog-3.6.2.ebuild, -eog-3.8.0.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> eog-3.8.2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> eog-3.8.2.ebuild:
+  amd64 stable, bug #478252
 
 *eog-3.8.2 (13 May 2013)
 

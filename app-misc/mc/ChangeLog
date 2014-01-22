@@ -1,6 +1,42 @@
 # ChangeLog for app-misc/mc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/mc/ChangeLog,v 1.287 2013/09/22 06:37:15 slyfox Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/mc/ChangeLog,v 1.298 2014/01/18 20:02:23 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> mc-4.8.9.ebuild:
+  Stable for alpha, wrt bug #493194
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> mc-4.8.9.ebuild:
+  Stable for ia64, wrt bug #493194
+
+  23 Dec 2013; Markus Meier <maekke@gentoo.org> mc-4.8.9.ebuild:
+  arm stable, bug #493194
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mc-4.8.9.ebuild:
+  Stable for sparc, wrt bug #493194
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mc-4.8.9.ebuild:
+  Stable for ppc64, wrt bug #493194
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mc-4.8.9.ebuild:
+  Stable for ppc, wrt bug #493194
+
+  05 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> mc-4.8.9.ebuild:
+  Stable for x86 (bug #493194).
+
+  05 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> mc-4.8.9.ebuild:
+  Stable for amd64 (bug #493194).
+
+  04 Dec 2013; Jeroen Roovers <jer@gentoo.org> mc-4.8.9.ebuild:
+  Stable for HPPA (bug #493194).
+
+  03 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> mc-4.8.11.ebuild,
+  +files/mc-4.8.11-ncurses_build_fix.patch:
+  Fixed building with ncurses.
+
+*mc-4.8.11 (02 Dec 2013)
+
+  02 Dec 2013; Sergei Trofimovich <slyfox@gentoo.org> +mc-4.8.11.ebuild:
+  Version bump.
 
   22 Sep 2013; Sergei Trofimovich <slyfox@gentoo.org> mc-9999.ebuild:
   Drop upstreamed patch.

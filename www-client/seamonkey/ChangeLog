@@ -1,6 +1,36 @@
 # ChangeLog for www-client/seamonkey
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.468 2013/11/18 18:52:27 polynomial-c Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.476 2014/01/13 17:30:22 polynomial-c Exp $
+
+  13 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.23.ebuild:
+  Added enigmail snapshot with new build system. This should fix bug #494088.
+
+  31 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.22.1.ebuild,
+  +files/seamonkey-freetype251.patch:
+  Fixed compilation with >=freetype-2.5.1
+
+  17 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.23.ebuild:
+  Update to latest patchset.
+
+  13 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.23.ebuild:
+  Use firefox-26 patchset.
+
+*seamonkey-2.23 (12 Dec 2013)
+
+  12 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.23.ebuild:
+  Version bump.
+
+  11 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.21.ebuild,
+  -seamonkey-2.21-r1.ebuild, -seamonkey-2.22.ebuild, -files/all-gentoo.js,
+  -files/enigmail_mailnews_extensions_genxpi.patch,
+  -files/moz24-drop-Wl-build-id.patch, metadata.xml:
+  Better description for "custom-optimization" USE flag. Removed old versions.
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.22.1.ebuild:
+  Stable for x86, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.22.1.ebuild:
+  Stable for amd64, wrt bug #489796
 
 *seamonkey-2.22.1 (18 Nov 2013)
 

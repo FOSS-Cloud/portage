@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/mcollective/mcollective-2.2.4.ebuild,v 1.1 2013/09/16 06:06:36 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/mcollective/mcollective-2.2.4.ebuild,v 1.3 2013/12/08 21:30:08 prometheanfire Exp $
 
 EAPI="4"
 
@@ -15,7 +15,7 @@ SRC_URI="http://puppetlabs.com/downloads/mcollective/${P}.tgz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 x86"
 IUSE="doc +client"
 
 DEPEND=""
@@ -42,7 +42,7 @@ each_ruby_install() {
 	for cfg in *.dist ; do
 		newins "${cfg}" "${cfg%%.dist}"
 		sed -i -e "s:^libdir.*:libdir = /usr/share/mcollective/plugins:" \
-			"${D}"/etc/mcollective/${cfg%%.dist}
+			"${D}"/etc/mcollective/${cfg%%.dist} || die "sed failed"
 	done
 	insinto /etc/mcollective/plugin.d
 }

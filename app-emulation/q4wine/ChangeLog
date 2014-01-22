@@ -1,6 +1,30 @@
 # ChangeLog for app-emulation/q4wine
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/q4wine/ChangeLog,v 1.45 2013/11/16 11:29:23 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/q4wine/ChangeLog,v 1.50 2014/01/02 20:13:14 hwoarang Exp $
+
+  02 Jan 2014; Markos Chandras <hwoarang@gentoo.org> q4wine-1.1_p2-r1.ebuild:
+  Depend on qtsingleapplication[X] to fix configure failure
+
+  28 Dec 2013; Davide Pesavento <pesa@gentoo.org> metadata.xml:
+  Cleanup
+
+*q4wine-1.1_p2-r1 (28 Dec 2013)
+
+  28 Dec 2013; Davide Pesavento <pesa@gentoo.org> +q4wine-1.1_p2-r1.ebuild,
+  -q4wine-1.0_p3-r1.ebuild, -q4wine-1.1.ebuild, -q4wine-1.1_p1.ebuild,
+  -q4wine-1.1_p2.ebuild:
+  Drop pointless gksu/kdesu dependency (bug 486442); major ebuild cleanup;
+  remove older versions.
+
+*q4wine-1.1_p2 (17 Dec 2013)
+
+  17 Dec 2013; Markos Chandras <hwoarang@gentoo.org> +q4wine-1.1_p2.ebuild:
+  Version bump
+
+*q4wine-1.1_p1 (01 Dec 2013)
+
+  01 Dec 2013; Markos Chandras <hwoarang@gentoo.org> +q4wine-1.1_p1.ebuild:
+  Version bump
 
 *q4wine-1.1 (15 Nov 2013)
 

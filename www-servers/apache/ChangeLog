@@ -1,6 +1,20 @@
 # ChangeLog for www-servers/apache
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/ChangeLog,v 1.250 2013/11/22 08:45:22 polynomial-c Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/ChangeLog,v 1.253 2014/01/15 22:48:44 robbat2 Exp $
+
+  15 Jan 2014; Robin H. Johnson <robbat2@gentoo.org> apache-2.4.7.ebuild:
+  proxy_scgi should behind IfDefine PROXY as well, otherwise you get undefined
+  symbol: ap_proxy_canonenc.
+
+  26 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> apache-2.4.7.ebuild,
+  metadata.xml:
+  Fixed bug #492578. Moved latest 2.4 ebuild to EAPI-5. Added myself as
+  maintainer.
+
+*apache-2.4.7 (26 Nov 2013)
+
+  26 Nov 2013; Patrick Lauer <patrick@gentoo.org> +apache-2.4.7.ebuild:
+  Bump
 
   22 Nov 2013; Lars Wendler <polynomial-c@gentoo.org>
   files/gentoo-apache-2.2.23-initd_fixups.patch:

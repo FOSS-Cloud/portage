@@ -1,6 +1,28 @@
 # ChangeLog for sys-apps/baobab
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/baobab/ChangeLog,v 1.10 2013/05/13 18:02:30 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/baobab/ChangeLog,v 1.16 2013/12/26 22:59:17 eva Exp $
+
+  26 Dec 2013; Gilles Dartiguelongue <eva@gentoo.org> baobab-3.10.1.ebuild:
+  Re-sync 3.10 ebuild with 3.8 changes.
+
+*baobab-3.10.1 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +baobab-3.10.1.ebuild:
+  Version bump for Gnome 3.10
+
+  09 Dec 2013; Pacho Ramos <pacho@gentoo.org> baobab-3.8.2.ebuild:
+  It's really an RDEPEND only
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> baobab-3.8.2.ebuild:
+  x86 stable, bug #478252
+
+  01 Dec 2013; Pacho Ramos <pacho@gentoo.org> -baobab-3.6.4.ebuild,
+  -baobab-3.8.1.ebuild, baobab-3.8.2.ebuild:
+  x11-themes/gnome-icon-theme-extras is needed (#493044 by poncho), update
+  homepage, drop old.
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> baobab-3.8.2.ebuild:
+  amd64 stable, bug #478252
 
 *baobab-3.8.2 (13 May 2013)
 

@@ -1,6 +1,47 @@
 # ChangeLog for www-client/firefox
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/firefox/ChangeLog,v 1.285 2013/11/19 14:35:00 anarchy Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/firefox/ChangeLog,v 1.297 2013/12/16 20:17:58 anarchy Exp $
+
+  16 Dec 2013; Jory A. Pratt <anarchy@gentoo.org> firefox-26.0.ebuild:
+  Address bug #494162,494164
+
+  15 Dec 2013; Jory A. Pratt <anarchy@gentoo.org> firefox-24.2.0.ebuild:
+  Readd missing patch to disable buildid, bug #465466
+
+  13 Dec 2013; Jeroen Roovers <jer@gentoo.org> firefox-24.2.0.ebuild:
+  Stable for HPPA (bug #493850).
+
+*firefox-26.0 (13 Dec 2013)
+
+  13 Dec 2013; Jory A. Pratt <anarchy@gentoo.org> +firefox-26.0.ebuild,
+  -files/firefox-25.0-stack-grows-up.patch, -firefox-25.0.1.ebuild:
+  Version/Security bump, bug #493886,493850
+
+*firefox-24.2.0 (12 Dec 2013)
+
+  12 Dec 2013; Jory A. Pratt <anarchy@gentoo.org> +firefox-24.2.0.ebuild:
+  Security bump bug #493850, amd64 stable
+
+  11 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> metadata.xml:
+  Better description for "custom-optimization" USE flag.
+
+  07 Dec 2013; Agostino Sarubbo <ago@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for arm, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for ppc64, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for ppc, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for x86, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for amd64, wrt bug #489796
+
+  26 Nov 2013; Jeroen Roovers <jer@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for HPPA too.
 
 *firefox-24.1.1 (19 Nov 2013)
 

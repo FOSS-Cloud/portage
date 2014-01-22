@@ -1,6 +1,42 @@
 # ChangeLog for x11-base/xorg-server
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-base/xorg-server/ChangeLog,v 1.774 2013/11/14 15:13:48 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-base/xorg-server/ChangeLog,v 1.780 2013/12/31 22:36:41 mattst88 Exp $
+
+  31 Dec 2013; Matt Turner <mattst88@gentoo.org> xorg-server-1.15.0.ebuild:
+  Remove unnecessary XORG_AUTORECONF. Remove link to nonexistant upgrade guide,
+  bug 496618.
+
+*xorg-server-1.15.0 (30 Dec 2013)
+
+  30 Dec 2013; Matt Turner <mattst88@gentoo.org> +xorg-server-1.15.0.ebuild,
+  -xorg-server-1.14.99.904.ebuild:
+  Version bump to 1.15, bug 496226.
+
+*xorg-server-1.14.99.904 (16 Dec 2013)
+*xorg-server-1.14.5 (16 Dec 2013)
+
+  16 Dec 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xorg-server-1.14.5.ebuild, +xorg-server-1.14.99.904.ebuild,
+  -files/xorg-server-1.15-xshmfence-1.1.patch,
+  -xorg-server-1.14.99.903-r1.ebuild, -xorg-server-1.14.99.903.ebuild:
+  Version bump. Remove old prerelease.
+
+*xorg-server-1.14.99.903-r1 (04 Dec 2013)
+
+  04 Dec 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/xorg-server-1.15-xshmfence-1.1.patch,
+  +xorg-server-1.14.99.903-r1.ebuild:
+  Add patch for libxshmfence API changes.
+
+  29 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  xorg-server-1.14.99.903.ebuild:
+  Raise mesa dependency to 9.2, bug #492852.
+
+*xorg-server-1.14.99.903 (28 Nov 2013)
+
+  28 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xorg-server-1.14.99.903.ebuild, -xorg-server-1.14.99.902.ebuild:
+  Bump to latest prerelease.
 
 *xorg-server-1.14.99.902 (14 Nov 2013)
 

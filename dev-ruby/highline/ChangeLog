@@ -1,6 +1,24 @@
 # ChangeLog for dev-ruby/highline
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/highline/ChangeLog,v 1.82 2013/11/03 03:47:35 mrueg Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/highline/ChangeLog,v 1.88 2014/01/18 20:33:42 mrueg Exp $
+
+  18 Jan 2014; Manuel Rüger <mrueg@gentoo.org> -highline-1.6.13.ebuild:
+  Cleanup old.
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> highline-1.6.19.ebuild:
+  Stable for alpha, wrt bug #485788
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> highline-1.6.19.ebuild:
+  Stable for sparc, wrt bug #485788
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> highline-1.6.19.ebuild:
+  Stable for ppc64, wrt bug #485788
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> highline-1.6.19.ebuild:
+  Stable for ppc, wrt bug #485788
+
+  20 Dec 2013; Akinori Hattori <hattya@gentoo.org> highline-1.6.19.ebuild:
+  ia64 stable wrt bug #485788
 
   03 Nov 2013; Manuel Rüger <mrueg@gentoo.org> -highline-1.6.18.ebuild,
   -highline-1.6.19-r1.ebuild:

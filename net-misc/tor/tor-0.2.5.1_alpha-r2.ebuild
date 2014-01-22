@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/tor/tor-0.2.5.1_alpha-r2.ebuild,v 1.1 2013/10/28 22:16:36 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/tor/tor-0.2.5.1_alpha-r2.ebuild,v 1.4 2014/01/08 06:31:16 vapier Exp $
 
 EAPI="5"
 
-inherit eutils flag-o-matic readme.gentoo systemd versionator
+inherit eutils flag-o-matic readme.gentoo systemd toolchain-funcs versionator user
 
 MY_PV="$(replace_version_separator 4 -)"
 MY_PF="${PN}-${MY_PV}"
@@ -86,4 +86,13 @@ src_install() {
 
 pkg_postinst() {
 	readme.gentoo_pkg_postinst
+
+	if [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -eq 8 && $(gcc-micro-version) -ge 1 ]] ; then
+		ewarn "Due to a bug in  >=gcc-4.8.1, compiling ${P} with -Os leads to an infinite"
+		ewarn "loop.  See:"
+		ewarn
+		ewarn "    https://trac.torproject.org/projects/tor/ticket/10259"
+		ewarn "    http://gcc.gnu.org/bugzilla/show_bug.cgi?id=59358"
+		ewarn
+	fi
 }

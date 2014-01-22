@@ -1,6 +1,32 @@
 # ChangeLog for dev-libs/mpfr
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/mpfr/ChangeLog,v 1.174 2013/11/03 23:40:27 mattst88 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/mpfr/ChangeLog,v 1.182 2014/01/18 04:34:25 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> mpfr-3.1.2-r1.ebuild:
+  Add arm64 love.
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mpfr-3.1.2-r1.ebuild:
+  Stable for x86, wrt bug #487798
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mpfr-3.1.2-r1.ebuild:
+  Stable for sparc, wrt bug #487798
+
+  23 Dec 2013; Mike Frysinger <vapier@gentoo.org> mpfr-3.1.2-r1.ebuild:
+  Mark ia64 stable #487798.
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mpfr-3.1.2-r1.ebuild:
+  Stable for ppc64, wrt bug #487798
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mpfr-3.1.2-r1.ebuild:
+  Stable for ppc, wrt bug #487798
+
+  26 Nov 2013; Mike Frysinger <vapier@gentoo.org> mpfr-3.1.2-r1.ebuild:
+  Disable logic to probe gmp.h using the wrong toolchain #476336#19 by Michael
+  Haubenwallner.
+
+  24 Nov 2013; Mike Frysinger <vapier@gentoo.org> mpfr-3.1.2-r1.ebuild:
+  Revert gmp lib/include flags as they are wrong & unnecessary and tweak the
+  docdir flag to be a bit simpler #476336 by Christoph Junghans.
 
   03 Nov 2013; Matt Turner <mattst88@gentoo.org> mpfr-3.1.2-r1.ebuild:
   alpha stable, bug 487798.

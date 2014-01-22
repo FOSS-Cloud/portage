@@ -1,6 +1,61 @@
 # ChangeLog for app-emulation/xen-tools
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-tools/ChangeLog,v 1.200 2013/11/09 08:14:57 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-tools/ChangeLog,v 1.211 2014/01/02 04:58:54 idella4 Exp $
+
+  02 Jan 2014; Ian Delaney <idella4@gentoo.org> files/xend.initd-r1,
+  files/xend.initd-r2:
+  Remove un-needed var 'opts' from xend init scripts noted by mva
+
+  22 Dec 2013; Ian Delaney <idella4@gentoo.org> xen-tools-4.3.0-r3.ebuild,
+  xen-tools-4.3.1-r3.ebuild:
+  set pygrub in REQUIRED_USE paired with python, fixes Bug #494908 by K. Agouros
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.3.1-r3.ebuild:
+  Stable for x86, wrt bug #486354
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.3.1-r3.ebuild:
+  Stable for amd64, wrt bug #486354
+
+*xen-tools-4.3.1-r3 (09 Dec 2013)
+
+  09 Dec 2013; Ian Delaney <idella4@gentoo.org> +xen-tools-4.3.1-r3.ebuild,
+  -xen-tools-4.3.1-r2.ebuild:
+  revbump; fix to Bug #493232, update of xen guide page @ the gentoo wiki
+
+  08 Dec 2013; Ian Delaney <idella4@gentoo.org> -files/xenstoredorig.confd:
+  remove leftover wrong files
+
+  07 Dec 2013; Ian Delaney <idella4@gentoo.org> -xen-tools-4.3.1-r1.ebuild,
+  -xen-tools-4.3.1.ebuild:
+  rm superseded 4.3.1 ebuilds
+
+  07 Dec 2013; Ian Delaney <idella4@gentoo.org> files/xencommons.confd,
+  files/xenconsoled.initd, files/xenqemudev.initd, files/xenstored.confd,
+  files/xenstored.initd, xen-tools-4.3.1-r1.ebuild, xen-tools-4.3.1-r2.ebuild:
+  corrections to previous patch by dlan, tested by him
+
+*xen-tools-4.3.1-r2 (06 Dec 2013)
+
+  06 Dec 2013; Ian Delaney <idella4@gentoo.org> +files/xencommons.confd,
+  +files/xencommons.initd, +files/xenqemudev.confd, +files/xenqemudev.initd,
+  +xen-tools-4.3.1-r2.ebuild, files/xenconsoled.initd, files/xenstored.initd,
+  xen-tools-4.3.1-r1.ebuild:
+  revbump; the gentoo styling of xencommon script split into the new 4 files,
+  patching prepared by up and coming dlan
+
+*xen-tools-4.3.1-r1
+
+  1 Dec 2013; Ian Delaney <idella4@gentoo.org>
+  +xen-tools-4.3.1-r1:
+  revbump; install provisioned xencommons script with elog msg 
+  @ pkg_postinst  
+
+*xen-tools-4.3.1 (24 Nov 2013)
+
+  24 Nov 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4.3-anti-download.patch, +xen-tools-4.3.1.ebuild,
+  -files/xen-4.3.0-anti-download.patch, xen-tools-4.3.0-r3.ebuild:
+  renamed xen-4.3-anti-download.patch to xen-4.3.0-anti-download.patch, bump
 
   09 Nov 2013; Michał Górny <mgorny@gentoo.org> xen-tools-4.2.2-r3.ebuild,
   xen-tools-4.2.2-r5.ebuild, xen-tools-4.3.0-r3.ebuild:

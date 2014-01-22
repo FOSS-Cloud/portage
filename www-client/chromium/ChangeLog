@@ -1,6 +1,123 @@
 # ChangeLog for www-client/chromium
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/ChangeLog,v 1.991 2013/11/22 01:07:42 floppym Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/ChangeLog,v 1.1013 2014/01/18 04:10:59 phajdan.jr Exp $
+
+*chromium-33.0.1750.29 (18 Jan 2014)
+
+  18 Jan 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +chromium-33.0.1750.29.ebuild, -chromium-33.0.1750.3.ebuild, metadata.xml:
+  Beta channel bump. Use system libvpx again. Remove old.
+
+*chromium-34.0.1788.0 (17 Jan 2014)
+
+  17 Jan 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-gn-r1.patch, -chromium-31.0.1650.63.ebuild,
+  -chromium-32.0.1700.72.ebuild, +chromium-34.0.1788.0.ebuild,
+  +files/chromium-system-libjpeg-r0.patch:
+  Dev channel bump. Use system libvpx again. Remove old.
+
+  16 Jan 2014; Agostino Sarubbo <ago@gentoo.org> chromium-32.0.1700.77.ebuild:
+  Stable for x86, wrt bug #498168
+
+  16 Jan 2014; Agostino Sarubbo <ago@gentoo.org> chromium-32.0.1700.77.ebuild:
+  Stable for amd64, wrt bug #498168
+
+*chromium-32.0.1700.77 (16 Jan 2014)
+
+  16 Jan 2014; Mike Gilbert <floppym@gentoo.org> +chromium-32.0.1700.77.ebuild,
+  -chromium-32.0.1700.68.ebuild:
+  Stable channel bump.
+
+*chromium-32.0.1700.72 (09 Jan 2014)
+
+  09 Jan 2014; Mike Gilbert <floppym@gentoo.org> +chromium-32.0.1700.72.ebuild,
+  -chromium-32.0.1700.55.ebuild:
+  Beta channel bump.
+
+*chromium-33.0.1750.18 (08 Jan 2014)
+
+  08 Jan 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-32.0.1700.68.ebuild, -chromium-33.0.1734.0.ebuild,
+  +chromium-33.0.1750.18.ebuild:
+  Dev channel bump. Use system libwebp again. Drop system-sqlite flag, it
+  doesn't work (bug #466266 by Alphat-PC). Remove old.
+
+  02 Jan 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-32.0.1700.68.ebuild, chromium-33.0.1750.3.ebuild:
+  Correctly handle python dependencies, bug #496326 by nzqr.
+
+*chromium-32.0.1700.68 (20 Dec 2013)
+
+  20 Dec 2013; Mike Gilbert <floppym@gentoo.org> +chromium-32.0.1700.68.ebuild,
+  -chromium-32.0.1700.41.ebuild:
+  Beta channel bump.
+
+*chromium-33.0.1750.3 (18 Dec 2013)
+
+  18 Dec 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  -chromium-33.0.1726.0.ebuild, +chromium-33.0.1750.3.ebuild:
+  Dev channel bump. Remove old.
+
+*chromium-32.0.1700.55 (13 Dec 2013)
+
+  13 Dec 2013; Mike Gilbert <floppym@gentoo.org> +chromium-32.0.1700.55.ebuild,
+  -chromium-32.0.1700.39.ebuild:
+  Beta channel bump.
+
+*chromium-33.0.1734.0 (11 Dec 2013)
+
+  11 Dec 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +files/chromium-gn-r0.patch, -chromium-31.0.1650.57.ebuild,
+  -chromium-33.0.1711.3.ebuild, +chromium-33.0.1734.0.ebuild:
+  Dev channel bump. Remove old.
+
+  08 Dec 2013; Mike Gilbert <floppym@gentoo.org> chromium-33.0.1726.0.ebuild:
+  Refactor ninja option processing into eninja function. Add load average
+  support, thanks to M.B. in bug 490624.
+
+  06 Dec 2013; Agostino Sarubbo <ago@gentoo.org> chromium-31.0.1650.63.ebuild:
+  Stable for x86, wrt bug #493364
+
+*chromium-32.0.1700.41 (06 Dec 2013)
+
+  06 Dec 2013; Mike Gilbert <floppym@gentoo.org> +chromium-32.0.1700.41.ebuild,
+  -chromium-32.0.1700.19.ebuild:
+  Beta channel bump.
+
+  05 Dec 2013; Richard Freeman <rich0@gentoo.org> chromium-31.0.1650.63.ebuild:
+  amd64 stable - 493364
+
+*chromium-31.0.1650.63 (05 Dec 2013)
+
+  05 Dec 2013; Mike Gilbert <floppym@gentoo.org> +chromium-31.0.1650.63.ebuild:
+  Stable channel bump.
+
+*chromium-32.0.1700.39 (04 Dec 2013)
+
+  04 Dec 2013; Mike Gilbert <floppym@gentoo.org> +chromium-32.0.1700.39.ebuild,
+  -chromium-32.0.1700.14.ebuild:
+  Beta channel bump.
+
+*chromium-33.0.1726.0 (04 Dec 2013)
+
+  04 Dec 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  -chromium-33.0.1707.0.ebuild, +chromium-33.0.1726.0.ebuild:
+  Dev channel bump. Remove old.
+
+  03 Dec 2013; Mike Gilbert <floppym@gentoo.org> chromium-31.0.1650.57.ebuild,
+  chromium-32.0.1700.19.ebuild, chromium-33.0.1711.3.ebuild:
+  Set python version and libdir so that python_arch.sh can find libpython. Bug
+  492864 by Yannick Schaeffer. Thanks to John Keeping for the helpful hint.
+
+  27 Nov 2013; Mike Gilbert <floppym@gentoo.org> chromium-32.0.1700.19.ebuild,
+  chromium-33.0.1711.3.ebuild:
+  Override TMPDIR to prevent grsec TPE failures in ffmpeg configure script, bug
+  491582.
+
+  23 Nov 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  chromium-32.0.1700.19.ebuild, chromium-33.0.1711.3.ebuild:
+  Prepare for unmasking tcmalloc USE flag, add blocker on old nvidia-drivers.
+  Thanks to Julien Sanchez and Pavel Volkov for testing (bug #413637).
 
   22 Nov 2013; Mike Gilbert <floppym@gentoo.org> chromium-32.0.1700.19.ebuild,
   chromium-33.0.1711.3.ebuild, files/chromium-build_ffmpeg-r0.patch:

@@ -1,6 +1,23 @@
 # ChangeLog for net-analyzer/ifstat
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/ifstat/ChangeLog,v 1.29 2013/10/10 10:43:04 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/ifstat/ChangeLog,v 1.34 2014/01/19 12:27:32 jer Exp $
+
+  19 Jan 2014; Jeroen Roovers <jer@gentoo.org> ifstat-1.1-r2.ebuild,
+  +files/ifstat-1.1-hardened.patch:
+  Fix building on hardened (bug #498074 by John Default).
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> -ifstat-1.1.ebuild,
+  -files/ifstat-1.1-strip_and_cflags.patch:
+  Old.
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ifstat-1.1-r2.ebuild:
+  Stable for ppc64, wrt bug #486524
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ifstat-1.1-r2.ebuild:
+  Stable for ppc, wrt bug #486524
+
+  17 Dec 2013; Raúl Porcel <armin76@gentoo.org> ifstat-1.1-r2.ebuild:
+  sparc stable wrt #486524
 
   10 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> ifstat-1.1-r2.ebuild:
   Stable on x86, wrt bug #486524
@@ -103,4 +120,3 @@
   11 Oct 2003; Martin Holzer <mholzer@gentoo.org> ifstat-1.0.ebuild:
   Inital ebuild. Submitted by Gustavo Zacarias <gustavo@zacarias.com.ar> in
   #26070.
-

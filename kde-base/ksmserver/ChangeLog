@@ -1,6 +1,49 @@
 # ChangeLog for kde-base/ksmserver
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/ksmserver/ChangeLog,v 1.281 2013/11/05 22:22:50 dilfridge Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/ksmserver/ChangeLog,v 1.293 2014/01/20 08:00:03 kensington Exp $
+
+  20 Jan 2014; Michael Palimaka <kensington@gentoo.org> ksmserver-4.11.5.ebuild:
+  Restore keywords that were accidentally omitted.
+
+  10 Jan 2014; Chris Reffett <creffett@gentoo.org> -ksmserver-4.11.4.ebuild:
+  Remove KDE SC 4.11.4
+
+*ksmserver-4.11.5 (10 Jan 2014)
+
+  10 Jan 2014; Chris Reffett <creffett@gentoo.org> +ksmserver-4.11.5.ebuild,
+  files/ksmserver-4.11.97-noplasmalock.patch:
+  Bump KDE SC 4.11.5
+
+  14 Dec 2013; Johannes Huber <johu@gentoo.org>
+  -files/ksmserver-4.10.1-noplasmalock.patch:
+  Remove unused patch.
+
+  12 Dec 2013; Agostino Sarubbo <ago@gentoo.org> -ksmserver-4.10.5.ebuild:
+  Remove old
+
+  11 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ksmserver-4.11.2.ebuild:
+  Stable for ppc64, wrt bug #484884
+
+  11 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ksmserver-4.11.2.ebuild:
+  Stable for ppc, wrt bug #484884
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ksmserver-4.11.2.ebuild:
+  Stable for ppc, wrt bug #484884
+
+  09 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ksmserver-4.11.2.ebuild:
+  Stable for x86, wrt bug #484884
+
+  08 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ksmserver-4.11.2.ebuild:
+  Stable for amd64, wrt bug #484884
+
+  04 Dec 2013; Johannes Huber <johu@gentoo.org> -ksmserver-4.11.3.ebuild:
+  Remove KDE SC 4.11.3
+
+*ksmserver-4.11.4 (03 Dec 2013)
+
+  03 Dec 2013; Johannes Huber <johu@gentoo.org> +ksmserver-4.11.4.ebuild,
+  +files/ksmserver-4.11.97-noplasmalock.patch:
+  Version bump KDE SC 4.11.4
 
 *ksmserver-4.11.3 (05 Nov 2013)
 

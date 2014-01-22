@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs-vcs/emacs-vcs-24.3.9999.ebuild,v 1.20 2013/08/31 22:13:48 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs-vcs/emacs-vcs-24.3.9999.ebuild,v 1.23 2014/01/19 16:57:21 ulm Exp $
 
 EAPI=5
 
@@ -17,7 +17,7 @@ if [[ ${PV##*.} = 9999 ]]; then
 	inherit bzr
 	S="${EBZR_UNPACK_DIR}"
 else
-	SRC_URI="mirror://gentoo/emacs-${PV}.tar.xz
+	SRC_URI="http://dev.gentoo.org/~ulm/distfiles/emacs-${PV}.tar.xz
 		mirror://gnu-alpha/emacs/pretest/emacs-${PV}.tar.xz"
 	# FULL_VERSION keeps the full version number, which is needed in
 	# order to determine some path information correctly for copy/move
@@ -31,7 +31,6 @@ HOMEPAGE="http://www.gnu.org/software/emacs/"
 
 LICENSE="GPL-3+ FDL-1.3+ BSD HPND MIT W3C unicode PSF-2"
 SLOT="24"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="acl alsa aqua athena dbus games gconf gfile gif gnutls gpm gsettings gtk +gtk3 gzip-el hesiod imagemagick +inotify jpeg kerberos libxml2 livecd m17n-lib motif pax_kernel png selinux sound source svg tiff toolkit-scroll-bars wide-int X Xaw3d xft +xpm zlib"
 REQUIRED_USE="?? ( aqua X )"
 
@@ -116,15 +115,6 @@ src_prepare() {
 	fi
 
 	epatch_user
-
-	if ! use gzip-el; then
-		# Emacs' build system automatically detects the gzip binary and
-		# compresses el files. We don't want that so confuse it with a
-		# wrong binary name
-		sed -i -e "/AC_PATH_PROG/s/gzip/PrEvEnTcOmPrEsSiOn/" configure.ac \
-			|| die "unable to sed configure.ac"
-	fi
-
 	AT_M4DIR=m4 eautoreconf
 }
 
@@ -215,7 +205,7 @@ src_configure() {
 		--infodir="${EPREFIX}"/usr/share/info/${EMACS_SUFFIX} \
 		--enable-locallisppath="${EPREFIX}/etc/emacs:${EPREFIX}${SITELISP}" \
 		--with-gameuser="${GAMES_USER_DED:-games}" \
-		--without-compress-info \
+		--without-compress-install \
 		--with-file-notification=$(usev gfile || usev inotify || echo no) \
 		$(use_enable acl) \
 		$(use_with dbus) \
@@ -254,6 +244,13 @@ src_install () {
 
 	# remove unused <version>/site-lisp dir
 	rm -rf "${ED}"/usr/share/emacs/${FULL_VERSION}/site-lisp
+
+	if use gzip-el; then
+		# compress .el files when a corresponding .elc exists
+		find "${ED}"/usr/share/emacs/${FULL_VERSION}/lisp -type f \
+			-name "*.elc" -print | sed 's/\.elc$/.el/' | xargs gzip -9n
+		assert "gzip .el failed"
+	fi
 
 	local cdir
 	if use source; then

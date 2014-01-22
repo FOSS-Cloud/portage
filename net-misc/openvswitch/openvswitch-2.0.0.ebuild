@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openvswitch/openvswitch-2.0.0.ebuild,v 1.2 2013/11/18 03:08:16 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openvswitch/openvswitch-2.0.0.ebuild,v 1.5 2013/12/11 03:05:13 prometheanfire Exp $
 
 EAPI=5
 
@@ -32,19 +32,19 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 CONFIG_CHECK="~NET_CLS_ACT ~NET_CLS_U32 ~NET_SCH_INGRESS ~NET_ACT_POLICE ~IPV6 ~TUN"
-MODULE_NAMES="brcompat(net:${S}/datapath/linux) openvswitch(net:${S}/datapath/linux)"
+MODULE_NAMES="openvswitch(net:${S}/datapath/linux)"
 BUILD_TARGETS="all"
 
 pkg_setup() {
 	if use modules ; then
 		CONFIG_CHECK+=" ~!OPENVSWITCH"
+		kernel_is ge 2 6 32 || die "Linux >=2.6.32 and <3.10 required"
+		kernel_is lt 3 11 || die "Linux >=2.6.18 and <3.11 required"
 		linux-mod_pkg_setup
 	else
 		CONFIG_CHECK+=" ~OPENVSWITCH"
 		linux-info_pkg_setup
 	fi
-	kernel_is ge 2 6 32 || die "Linux >=2.6.32 and <3.10 required"
-	kernel_is lt 3 11 || die "Linux >=2.6.18 and <3.11 required"
 	use monitor && python-single-r1_pkg_setup
 }
 
@@ -53,6 +53,7 @@ src_prepare() {
 	sed -i \
 		-e '/^SUBDIRS/d' \
 		datapath/Makefile.in || die "sed failed"
+	epatch "${FILESDIR}/prevent-traceback.patch"
 }
 src_configure() {
 	set_arch_to_kernel

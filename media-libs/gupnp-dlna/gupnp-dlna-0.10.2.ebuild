@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gupnp-dlna/gupnp-dlna-0.10.2.ebuild,v 1.1 2013/05/30 19:26:09 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/gupnp-dlna/gupnp-dlna-0.10.2.ebuild,v 1.4 2013/12/08 19:12:57 pacho Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -15,7 +15,7 @@ HOMEPAGE="http://gupnp.org/"
 
 LICENSE="LGPL-2"
 SLOT="2.0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86"
 IUSE="+introspection"
 
 RDEPEND="
@@ -55,4 +55,9 @@ src_configure() {
 	gnome2_src_configure \
 		--disable-static \
 		$(use_enable introspection)
+}
+
+src_install() {
+	# Parallel install fails, upstream bug #720053
+	MAKEOPTS="${MAKEOPTS} -j1" gnome2_src_install
 }

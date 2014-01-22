@@ -1,6 +1,40 @@
 # ChangeLog for media-video/nvidia-settings
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/nvidia-settings/ChangeLog,v 1.130 2013/11/07 11:15:34 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/nvidia-settings/ChangeLog,v 1.138 2014/01/15 15:29:15 jer Exp $
+
+  15 Jan 2014; Jeroen Roovers <jer@gentoo.org> nvidia-settings-331.20.ebuild:
+  Revert USE dependency change (bug #498176).
+
+  14 Jan 2014; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Drop myself as maintainer
+
+  14 Jan 2014; Justin Lecher <jlec@gentoo.org> nvidia-settings-331.20.ebuild:
+  Avoid shadowing nvidia-settings from x11-drivers/nvidia-drivers
+
+  10 Jan 2014; Justin Lecher <jlec@gentoo.org> -nvidia-settings-304.116.ebuild,
+  -nvidia-settings-304.117.ebuild:
+  Clean old
+
+*nvidia-settings-304.117 (24 Dec 2013)
+*nvidia-settings-304.116 (24 Dec 2013)
+
+  24 Dec 2013; Justin Lecher <jlec@gentoo.org>
+  -nvidia-settings-173.14.37.ebuild, -nvidia-settings-304.60.ebuild,
+  +nvidia-settings-304.116.ebuild, +nvidia-settings-304.117.ebuild,
+  -nvidia-settings-313.26.ebuild, -nvidia-settings-319.12.ebuild,
+  -nvidia-settings-319.23.ebuild, -nvidia-settings-319.32.ebuild,
+  -nvidia-settings-319.60.ebuild, -nvidia-settings-325.15.ebuild,
+  -nvidia-settings-331.17.ebuild:
+  Drop old; synchronize with drivers
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> nvidia-settings-331.20.ebuild:
+  Stable for x86, wrt bug #490684
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> nvidia-settings-331.20.ebuild:
+  amd64 stable, bug #490684
+
+  28 Nov 2013; Chema Alonso <nimiux@gentoo.org> nvidia-settings-325.15.ebuild:
+  Stable for amd64 wrt bug #490684
 
 *nvidia-settings-331.20 (07 Nov 2013)
 

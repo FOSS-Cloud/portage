@@ -1,6 +1,12 @@
 # ChangeLog for virtual/perl-File-Spec
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-File-Spec/ChangeLog,v 1.84 2013/09/04 23:23:29 zlogene Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-File-Spec/ChangeLog,v 1.86 2014/01/19 20:30:51 vapier Exp $
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org> perl-File-Spec-3.400.0.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> perl-File-Spec-3.400.0.ebuild:
+  Mark m68k/s390/sh stable.
 
   04 Sep 2013; Mikle Kolyada <zlogene@gentoo.org>
   -perl-File-Spec-3.330.0-r1.ebuild:

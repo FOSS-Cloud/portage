@@ -1,6 +1,18 @@
 # ChangeLog for app-accessibility/orca
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/orca/ChangeLog,v 1.121 2013/08/02 20:49:29 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/orca/ChangeLog,v 1.124 2013/12/24 15:15:41 pacho Exp $
+
+*orca-3.10.2 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +orca-3.10.2.ebuild,
+  -orca-3.6.3-r1.ebuild, -orca-3.8.1.ebuild:
+  Version bump for Gnome 3.10, drop old
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> orca-3.8.2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> orca-3.8.2.ebuild:
+  amd64 stable, bug #478252
 
 *orca-3.8.2 (02 Aug 2013)
 

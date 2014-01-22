@@ -1,6 +1,42 @@
 # ChangeLog for www-plugins/adobe-flash
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/adobe-flash/ChangeLog,v 1.222 2013/11/14 01:39:39 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/adobe-flash/ChangeLog,v 1.231 2014/01/17 14:45:46 jer Exp $
+
+  17 Jan 2014; Jeroen Roovers <jer@gentoo.org> -adobe-flash-11.2.202.332.ebuild:
+  Old.
+
+  16 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  adobe-flash-11.2.202.335.ebuild:
+  Stable for x86, wrt bug #498170
+
+  16 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  adobe-flash-11.2.202.335.ebuild:
+  Stable for amd64, wrt bug #498170
+
+*adobe-flash-11.2.202.335 (14 Jan 2014)
+
+  14 Jan 2014; Jeroen Roovers <jer@gentoo.org> +adobe-flash-11.2.202.335.ebuild:
+  Version bump.
+
+  11 Dec 2013; Jeroen Roovers <jer@gentoo.org>
+  -adobe-flash-11.2.202.327.ebuild, adobe-flash-11.2.202.332.ebuild:
+  Stable for x86 (bug #493894).
+
+  11 Dec 2013; Agostino Sarubbo <ago@gentoo.org> Manifest:
+  Stable for x86, wrt bug #493894
+
+  11 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  adobe-flash-11.2.202.332.ebuild:
+  Stable for amd64, wrt bug #493894
+
+  10 Dec 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Remove deprecated comments.
+
+*adobe-flash-11.2.202.332 (10 Dec 2013)
+
+  10 Dec 2013; Jeroen Roovers <jer@gentoo.org>
+  +adobe-flash-11.2.202.332.ebuild:
+  Version bump.
 
   14 Nov 2013; Jeroen Roovers <jer@gentoo.org>
   -adobe-flash-11.2.202.310-r1.ebuild, -adobe-flash-11.2.202.310.ebuild,

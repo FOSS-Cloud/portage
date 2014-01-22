@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/colord/colord-1.0.3.ebuild,v 1.2 2013/09/08 19:50:07 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/colord/colord-1.0.3.ebuild,v 1.5 2014/01/10 20:46:44 pacho Exp $
 
 EAPI="5"
 VALA_MIN_API_VERSION="0.18"
@@ -14,7 +14,7 @@ SRC_URI="http://www.freedesktop.org/software/colord/releases/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0/1" # subslot = libcolord soname version
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc x86 ~x86-fbsd"
 IUSE="examples extra-print-profiles +gusb +introspection scanner systemd +udev vala"
 REQUIRED_USE="
 	gusb? ( udev )
@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	>=dev-libs/glib-2.32.0:2
 	>=media-libs/lcms-2.5:2=
 	>=sys-auth/polkit-0.103
-	gusb? ( >=dev-libs/libgusb-0.1.1 )
+	gusb? ( >=dev-libs/libgusb-0.1.1[introspection?] )
 	introspection? ( >=dev-libs/gobject-introspection-0.9.8 )
 	scanner? ( media-gfx/sane-backends )
 	systemd? ( >=sys-apps/systemd-44 )

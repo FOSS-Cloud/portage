@@ -1,6 +1,37 @@
 # ChangeLog for app-emacs/emacs-common-gentoo
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-common-gentoo/ChangeLog,v 1.87 2013/11/16 12:50:52 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-common-gentoo/ChangeLog,v 1.97 2014/01/18 20:13:30 ulm Exp $
+
+  18 Jan 2014; Ulrich Müller <ulm@gentoo.org>
+  -emacs-common-gentoo-1.3-r3.ebuild, -emacs-common-gentoo-1.3-r4.ebuild:
+  Remove old.
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for alpha, wrt bug #494584
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for ia64, wrt bug #494584
+
+  25 Dec 2013; Markus Meier <maekke@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  arm stable, bug #494584
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for x86, wrt bug #494584
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for sparc, wrt bug #494584
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  amd64 stable, bug #494584
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for ppc64, wrt bug #494584
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for ppc, wrt bug #494584
+
+  21 Dec 2013; Jeroen Roovers <jer@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for HPPA (bug #494584).
 
 *emacs-common-gentoo-1.4 (16 Nov 2013)
 
@@ -458,4 +489,3 @@
   16 Apr 2007; Christian Faulhammer <opfer@gentoo.org> +metadata.xml,
   +emacs-desktop-0.1-r1.ebuild:
   initial import from Emacs Overlay.  Contains desktop icons etc.
-

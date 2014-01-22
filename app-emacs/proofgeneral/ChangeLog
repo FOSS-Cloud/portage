@@ -1,6 +1,15 @@
 # ChangeLog for app-emacs/proofgeneral
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/proofgeneral/ChangeLog,v 1.38 2013/04/22 19:42:12 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/proofgeneral/ChangeLog,v 1.41 2013/12/24 12:45:52 ago Exp $
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> proofgeneral-4.2.ebuild:
+  Stable for x86, wrt bug #490100
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> proofgeneral-4.2.ebuild:
+  amd64 stable, bug #490100
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> proofgeneral-4.2.ebuild:
+  Stable for ppc, wrt bug #490100
 
 *proofgeneral-4.2 (22 Apr 2013)
 
@@ -155,4 +164,3 @@
   21 Jan 2004; Matthieu Sozeau <mattam@gentoo.org> metadata.xml,
   proofgeneral-3.4.ebuild, files/50proofgeneral-gentoo.el:
   Initial version, related bug's #30394.
-

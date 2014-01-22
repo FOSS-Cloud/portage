@@ -1,6 +1,25 @@
 # ChangeLog for virtual/perl-Digest-SHA
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Digest-SHA/ChangeLog,v 1.60 2013/08/14 16:24:59 mattst88 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Digest-SHA/ChangeLog,v 1.64 2014/01/20 20:45:22 vapier Exp $
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  perl-Digest-SHA-5.820.0.ebuild, perl-Digest-SHA-5.850.0.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  perl-Digest-SHA-5.820.0.ebuild:
+  Mark m68k/s390/sh stable.
+
+  30 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> -perl-Digest-SHA-5.47.ebuild,
+  -perl-Digest-SHA-5.48.ebuild, -perl-Digest-SHA-5.500.ebuild,
+  -perl-Digest-SHA-5.600.0.ebuild, -perl-Digest-SHA-5.610.0-r2.ebuild,
+  -perl-Digest-SHA-5.620.0.ebuild, -perl-Digest-SHA-5.630.0.ebuild,
+  -perl-Digest-SHA-5.700.0.ebuild, -perl-Digest-SHA-5.710.0-r1.ebuild,
+  -perl-Digest-SHA-5.740.0.ebuild, -perl-Digest-SHA-5.810.0.ebuild:
+  Drop old
+
+  17 Dec 2013; Markus Meier <maekke@gentoo.org> perl-Digest-SHA-5.820.0.ebuild:
+  arm stable, bug #494556
 
 *perl-Digest-SHA-5.850.0 (14 Aug 2013)
 

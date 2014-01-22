@@ -1,6 +1,16 @@
 # ChangeLog for dev-haskell/crypto-pubkey-types
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/crypto-pubkey-types/ChangeLog,v 1.2 2013/11/05 10:50:57 chainsaw Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/crypto-pubkey-types/ChangeLog,v 1.4 2013/12/11 05:54:14 gienah Exp $
+
+*crypto-pubkey-types-0.4.1 (11 Dec 2013)
+
+  11 Dec 2013; Mark Wright <gienah@gentoo.org>
+  +crypto-pubkey-types-0.4.1.ebuild:
+  Bump crypto-pubkey-types to 0.4.1
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org>
+  crypto-pubkey-types-0.4.0.ebuild:
+  Stable for x86, wrt bug #488750
 
   05 Nov 2013; Tony Vroon <chainsaw@gentoo.org>
   crypto-pubkey-types-0.4.0.ebuild:

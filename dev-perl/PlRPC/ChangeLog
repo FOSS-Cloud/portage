@@ -1,6 +1,56 @@
 # ChangeLog for dev-perl/PlRPC
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/PlRPC/ChangeLog,v 1.56 2013/09/13 14:42:50 idella4 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/PlRPC/ChangeLog,v 1.71 2014/01/22 18:27:04 ago Exp $
+
+  22 Jan 2014; Agostino Sarubbo <ago@gentoo.org> PlRPC-0.202.0-r2.ebuild:
+  Stable for amd64, wrt bug #497692
+
+  21 Jan 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> PlRPC-0.202.0-r2.ebuild:
+  x86 stable wrt security bug #497692
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org> PlRPC-0.202.0-r1.ebuild,
+  PlRPC-0.202.0-r2.ebuild:
+  Add arm64 love.
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> PlRPC-0.202.0-r2.ebuild:
+  Stable for ppc, wrt bug #497692
+
+  20 Jan 2014; Jeroen Roovers <jer@gentoo.org> PlRPC-0.202.0-r2.ebuild:
+  Stable for HPPA (bug #497692).
+
+*PlRPC-0.202.0-r2 (19 Jan 2014)
+
+  19 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> +PlRPC-0.202.0-r2.ebuild,
+  +files/Security-notice-on-Storable-and-reply-attack.patch:
+  Security bump wrt byg #497692
+
+  15 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> -PlRPC-0.202.0.ebuild,
+  PlRPC-0.202.0-r1.ebuild:
+  sparc stable wrt bug #495454
+
+  15 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> PlRPC-0.202.0-r1.ebuild:
+  ppc64 stable wrt bug #495454
+
+  15 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> PlRPC-0.202.0-r1.ebuild:
+  alpha stable wrt bug #495454
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> PlRPC-0.202.0-r1.ebuild:
+  Stable for ia64, wrt bug #495454
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> PlRPC-0.202.0-r1.ebuild:
+  Stable for ppc, wrt bug #495454
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> PlRPC-0.202.0-r1.ebuild:
+  Stable for x86, wrt bug #495454
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> PlRPC-0.202.0-r1.ebuild:
+  amd64 stable, bug #495454
+
+  05 Jan 2014; Markus Meier <maekke@gentoo.org> PlRPC-0.202.0-r1.ebuild:
+  arm stable, bug #495454
+
+  01 Jan 2014; Jeroen Roovers <jer@gentoo.org> PlRPC-0.202.0-r1.ebuild:
+  Stable for HPPA (bug #495454).
 
 *PlRPC-0.202.0-r1 (13 Sep 2013)
 

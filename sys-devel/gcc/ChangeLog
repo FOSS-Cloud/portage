@@ -1,6 +1,99 @@
 # ChangeLog for sys-devel/gcc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gcc/ChangeLog,v 1.981 2013/11/14 01:30:37 dirtyepic Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/gcc/ChangeLog,v 1.998 2014/01/19 01:51:34 dirtyepic Exp $
+
+  19 Jan 2014; Ryan Hill <dirtyepic@gentoo.org> gcc-2.95.3-r10.ebuild,
+  gcc-3.3.6-r1.ebuild, gcc-3.4.6-r2.ebuild, gcc-4.0.4.ebuild, gcc-4.1.2.ebuild,
+  gcc-4.2.4-r1.ebuild, gcc-4.3.6-r1.ebuild, gcc-4.4.7.ebuild,
+  gcc-4.5.1-r1.ebuild, gcc-4.5.2.ebuild, gcc-4.5.3-r2.ebuild, gcc-4.5.4.ebuild,
+  gcc-4.6.0.ebuild, gcc-4.6.1-r1.ebuild, gcc-4.6.2.ebuild, gcc-4.6.3.ebuild,
+  gcc-4.6.4.ebuild, gcc-4.7.0.ebuild, gcc-4.7.1.ebuild, gcc-4.7.2-r1.ebuild,
+  gcc-4.7.3-r1.ebuild, gcc-4.8.0.ebuild, gcc-4.8.1-r1.ebuild, gcc-4.8.2.ebuild,
+  gcc-4.8.2-r1.ebuild:
+  Bump all to EAPI 2.
+
+  18 Jan 2014; Ryan Hill <dirtyepic@gentoo.org> -gcc-4.3.3-r2.ebuild,
+  -gcc-4.3.4.ebuild, -gcc-4.3.5.ebuild, -gcc-4.4.2.ebuild,
+  -gcc-4.4.3-r3.ebuild, -gcc-4.4.4-r2.ebuild, -gcc-4.4.5.ebuild,
+  -gcc-4.4.6-r1.ebuild, -files/3.2.1/gcc31-loop-load-final-value.patch,
+  -files/3.2.1/gcc32-arm-disable-mathf.patch,
+  -files/3.2.1/gcc32-arm-reload1-fix.patch,
+  -files/3.2.1/gcc32-athlon-alignment.patch,
+  -files/3.2.1/gcc32-sparc32-hack.patch, -files/3.2.1/gcc32-strip-dotdot.patch,
+  -files/3.2.2/gcc-3.2.2-cross-compile.patch,
+  -files/3.2.2/gcc-3.2.2-no-COPYING-cross-compile.patch,
+  -files/3.2.2/gcc32-pr7768.patch, -files/3.2.2/gcc32-pr8213.patch,
+  -files/3.2.2/gcc322-ggc_page-speedup.patch,
+  -files/3.2.3/gcc-3.2.3-mergel-fix.patch,
+  -files/3.2.3/gcc-3.2.3-move-propolice-into-glibc.patch,
+  -files/3.2.3/gcc-3.2.3-poisoned-malloc.patch,
+  -files/3.2.3/gcc-323-propolice-version.patch,
+  -files/3.2.3/gcc32-c++-classfn-member-template.patch,
+  -files/3.2.3/gcc32-mklibgcc-serialize-crtfiles.patch,
+  -files/3.2.3/gcc323-gentoo-branding.patch,
+  -files/3.2.3/gcc323-hppa-default_assemble_visibility.patch,
+  -files/3.3.6/gcc-3.3.6-cross-compile.patch,
+  -files/3.4.0/gcc-3.4.0-cc1-no-stack-protector.patch,
+  -files/3.4.1/gcc-3.4.1-r2-gentoo-branding.patch, -files/mkinfodir:
+  Move old ebuilds to toolchain overlay and drop unused patches.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> gcc-4.8.2.ebuild:
+  Add arm64 keywords.
+
+  16 Jan 2014; Mike Frysinger <vapier@gentoo.org> gcc-4.7.3-r1.ebuild:
+  Mark m68k/s390 stable.
+
+  11 Jan 2014; Ryan Hill <dirtyepic@gentoo.org> gcc-4.8.2.ebuild:
+  Fix patchset and manifest. Once a distfile is uploaded it cannot be replaced
+  by another with the same name.
+
+  10 Jan 2014; Magnus Granberg <zorry@gentoo.org> gcc-4.8.2-r1.ebuild:
+  Removed the keywords from gcc-4.8.2-r1
+
+*gcc-4.8.2-r1 (10 Jan 2014)
+
+  10 Jan 2014; Magnus Granberg <zorry@gentoo.org> gcc-4.8.2.ebuild,
+  +gcc-4.8.2-r1.ebuild:
+  Reverted gcc-4.8.2 and move the ssp changes to -r1
+
+  10 Jan 2014; Magnus Granberg <zorry@gentoo.org> gcc-4.8.2.ebuild:
+  Updated it with the default ssp patchset bug 484714
+
+  03 Jan 2014; Mike Frysinger <vapier@gentoo.org> gcc-4.8.2.ebuild:
+  Stop building libbacktrace with -Werror.
+
+  30 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> gcc-4.8.2.ebuild:
+  4.8.2 p1.2: Fixes target CXXFLAGS being used with the native host compiler
+  when building with a cross-compiler (bug #492590).
+
+  28 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> gcc-4.1.2.ebuild,
+  gcc-4.2.4-r1.ebuild:
+  Backport libgcj patch for glibc-2.15 a couple more versions.
+
+  24 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> gcc-4.6.4.ebuild,
+  gcc-4.7.3-r1.ebuild:
+  4.6.4 p1.1: Fix ICE with -fprefetch-loop-arrays (bug #454568) and fix gcj
+  build with new freetype (bug #494606).
+
+  4.7.3 p1.4: Fix gcj build with new freetype (bug #494606).
+
+  23 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> gcc-4.6.0.ebuild,
+  gcc-4.6.1-r1.ebuild, gcc-4.6.2.ebuild, gcc-4.6.3.ebuild, gcc-4.6.4.ebuild,
+  gcc-4.7.0.ebuild, gcc-4.7.1.ebuild, gcc-4.7.2-r1.ebuild, gcc-4.7.3-r1.ebuild,
+  gcc-4.8.0.ebuild, gcc-4.8.1-r1.ebuild, gcc-4.8.2.ebuild, metadata.xml:
+  4.8.2 p1.1: Fix segfault with std::nth_element (bug #494796) and build
+  failures in gcj due to freetype include dir changes (bug #494606). Rename gtk
+  USE flag to awt. Remove lto USE flag - lto support is now always available.
+  Remove messages.
+
+  23 Dec 2013; Mike Frysinger <vapier@gentoo.org> gcc-4.7.3-r1.ebuild:
+  Mark ia64 stable #467274.
+
+  13 Dec 2013; Agostino Sarubbo <ago@gentoo.org> gcc-4.7.3-r1.ebuild:
+  Stable for sparc, wrt bug #467274
+
+  27 Nov 2013; Jeroen Roovers <jer@gentoo.org> gcc-4.7.3-r1.ebuild:
+  Stable for HPPA (bug #486618).
 
   14 Nov 2013; Ryan Hill <dirtyepic@gentoo.org> Manifest:
   Fix manifests.

@@ -1,6 +1,37 @@
 # ChangeLog for sys-apps/openrc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/ChangeLog,v 1.288 2013/11/13 03:25:52 mattst88 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/ChangeLog,v 1.298 2014/01/19 19:38:11 ago Exp $
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> openrc-0.12.4.ebuild:
+  Stable for sparc, wrt bug #487332
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> openrc-0.12.4.ebuild:
+  Stable for ppc64, wrt bug #487332
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> openrc-0.12.4.ebuild:
+  Stable for ppc, wrt bug #487332
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> openrc-0.12.4.ebuild,
+  openrc-9999.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> openrc-0.12.4.ebuild:
+  Mark m68k/s390/sh stable.
+
+  14 Jan 2014; Pacho Ramos <pacho@gentoo.org> openrc-0.12.4.ebuild:
+  ia64 stable, bug #487332 (thanks to Emeric Maschino for testing)
+
+  21 Dec 2013; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  Fix the mknet setting. It is either yes or no, so we can use usex.
+
+  29 Nov 2013; Johannes Huber <johu@gentoo.org> openrc-0.12.4.ebuild:
+  x86 stable wrt bug #487332
+
+  27 Nov 2013; Rick Farina <zerochaos@gentoo.org> openrc-0.12.4.ebuild:
+  arm stable, bug #487332
+
+  24 Nov 2013; Pacho Ramos <pacho@gentoo.org> openrc-0.12.4.ebuild:
+  amd64 stable, bug #487332
 
   13 Nov 2013; Matt Turner <mattst88@gentoo.org> openrc-0.12.4.ebuild:
   alpha stable, bug 487332.

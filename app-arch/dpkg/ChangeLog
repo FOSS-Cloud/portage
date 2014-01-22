@@ -1,6 +1,56 @@
 # ChangeLog for app-arch/dpkg
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/dpkg/ChangeLog,v 1.239 2013/11/19 16:24:55 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/dpkg/ChangeLog,v 1.252 2014/01/19 11:54:25 jer Exp $
+
+  19 Jan 2014; Jeroen Roovers <jer@gentoo.org> -dpkg-1.16.10.ebuild,
+  -dpkg-1.16.11.ebuild:
+  Old.
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dpkg-1.16.12-r1.ebuild:
+  Stable for alpha, wrt bug #491588
+
+*dpkg-1.17.6 (17 Jan 2014)
+
+  17 Jan 2014; Jeroen Roovers <jer@gentoo.org> +dpkg-1.17.6.ebuild:
+  Version bump.
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dpkg-1.16.12-r1.ebuild:
+  Stable for ia64, wrt bug #491588
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> dpkg-1.16.12-r1.ebuild:
+  Stable for sparc, wrt bug #491588
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> dpkg-1.16.12-r1.ebuild:
+  Stable for ppc64, wrt bug #491588
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> dpkg-1.16.12-r1.ebuild:
+  Stable for ppc, wrt bug #491588
+
+*dpkg-1.17.5 (12 Dec 2013)
+
+  12 Dec 2013; Jeroen Roovers <jer@gentoo.org> -dpkg-1.17.3.ebuild,
+  +dpkg-1.17.5.ebuild:
+  Version bump.
+
+*dpkg-1.17.4 (07 Dec 2013)
+
+  07 Dec 2013; Jeroen Roovers <jer@gentoo.org> -dpkg-1.17.1-r1.ebuild,
+  +dpkg-1.17.4.ebuild:
+  Version bump.
+
+*dpkg-1.17.3 (05 Dec 2013)
+
+  05 Dec 2013; Jeroen Roovers <jer@gentoo.org> +dpkg-1.17.3.ebuild:
+  Version bump.
+
+  05 Dec 2013; Chema Alonso <nimiux@gentoo.org> dpkg-1.16.12-r1.ebuild:
+  Stable for amd64 wrt bug #491588
+
+  01 Dec 2013; Johannes Huber <johu@gentoo.org> dpkg-1.16.12-r1.ebuild:
+  x86 stable, bug #491588
+
+  30 Nov 2013; Markus Meier <maekke@gentoo.org> dpkg-1.16.12-r1.ebuild:
+  arm stable, bug #491588
 
   19 Nov 2013; Jeroen Roovers <jer@gentoo.org> dpkg-1.16.12-r1.ebuild:
   Stable for HPPA (bug #491588).

@@ -1,6 +1,31 @@
 # ChangeLog for lxde-base/lxsession
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxsession/ChangeLog,v 1.50 2013/10/23 09:53:44 nullishzero Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxsession/ChangeLog,v 1.56 2014/01/14 15:33:33 ago Exp $
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> lxsession-0.4.9.2-r1.ebuild:
+  Stable for ppc, wrt bug #495684
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> lxsession-0.4.9.2-r1.ebuild:
+  Stable for x86, wrt bug #495684
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> lxsession-0.4.9.2-r1.ebuild:
+  amd64 stable, bug #495684
+
+*lxsession-0.4.9.2-r3 (09 Jan 2014)
+
+  09 Jan 2014; Pavel Kazakov <nullishzero@gentoo.org>
+  +files/lxsession-0.4.9.2-fix-logind-dbus-calls.patch,
+  +lxsession-0.4.9.2-r3.ebuild:
+  Fix for bug #496880
+
+*lxsession-0.4.9.2-r2 (05 Jan 2014)
+
+  05 Jan 2014; Pavel Kazakov <nullishzero@gentoo.org>
+  +files/lxsession-0.4.9.2-configure.patch, +lxsession-0.4.9.2-r2.ebuild:
+  Fix for bug #497100
+
+  29 Dec 2013; Markus Meier <maekke@gentoo.org> lxsession-0.4.9.2-r1.ebuild:
+  arm stable, bug #495684
 
 *lxsession-0.4.9.2-r1 (23 Oct 2013)
 

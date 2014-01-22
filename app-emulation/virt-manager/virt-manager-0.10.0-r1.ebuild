@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virt-manager/virt-manager-0.10.0-r1.ebuild,v 1.3 2013/09/25 07:24:54 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/virt-manager/virt-manager-0.10.0-r1.ebuild,v 1.6 2014/01/18 19:05:34 pacho Exp $
 
 EAPI=5
 
@@ -18,10 +18,11 @@ if [[ ${PV} = *9999* ]]; then
 	inherit git-2
 	SRC_URI=""
 	KEYWORDS=""
+	EGIT_REPO_URI="git://git.fedorahosted.org/virt-manager.git"
 else
 	SRC_URI="http://virt-manager.org/download/sources/${PN}/${P}.tar.gz
 	${BACKPORTS+http://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz}"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 ~x86"
 fi
 
 LICENSE="GPL-2"
@@ -30,7 +31,10 @@ IUSE="gnome-keyring policykit sasl"
 
 RDEPEND="!app-emulation/virtinst
 	x11-libs/gtk+:3[introspection]
-	>=app-emulation/libvirt-0.7.0[python,${PYTHON_USEDEP}]
+	|| (
+		dev-python/libvirt-python[${PYTHON_USEDEP}]
+		>=app-emulation/libvirt-0.7.0[python(-),${PYTHON_USEDEP}]
+	)
 	>=app-emulation/libvirt-glib-0.0.9[introspection,python,${PYTHON_USEDEP}]
 	${PYTHON_DEPS}
 	dev-libs/libxml2[python,${PYTHON_USEDEP}]

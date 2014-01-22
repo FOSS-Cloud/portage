@@ -1,6 +1,60 @@
 # ChangeLog for sys-cluster/torque
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/torque/ChangeLog,v 1.155 2013/06/12 06:53:19 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/torque/ChangeLog,v 1.166 2014/01/19 20:36:30 jsbronder Exp $
+
+  19 Jan 2014; Justin Bronder <jsbronder@gentoo.org> -torque-2.4.16.ebuild,
+  -torque-2.4.16-r1.ebuild, -files/0001-fix-parallel-doc-install.patch,
+  -files/0002-fix-implicit-declaration-warnings.patch,
+  -files/0003-disable-automagic-doc-building.patch,
+  -files/disable-automagic-doc-building-2.4.14.patch:
+  cleanup
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> torque-2.5.12-r1.ebuild,
+  torque-4.1.5.1-r1.ebuild:
+  Stable for alpha, wrt bug #484320
+
+  12 Jan 2014; Agostino Sarubbo <ago@gentoo.org> torque-2.5.12-r1.ebuild,
+  torque-4.1.5.1-r1.ebuild:
+  Stable for ia64, wrt bug #484320
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> torque-2.5.12-r1.ebuild,
+  torque-4.1.5.1-r1.ebuild:
+  Stable for sparc, wrt bug #484320
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> torque-2.5.12-r1.ebuild,
+  torque-4.1.5.1-r1.ebuild:
+  Stable for ppc, wrt bug #484320
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> torque-2.5.12-r1.ebuild,
+  torque-4.1.5.1-r1.ebuild:
+  Stable for ppc64, wrt bug #484320
+
+  03 Jan 2014; Agostino Sarubbo <ago@gentoo.org> torque-2.5.12-r1.ebuild,
+  torque-4.1.5.1-r1.ebuild:
+  Stable for x86, wrt bug #484320
+
+  03 Jan 2014; Agostino Sarubbo <ago@gentoo.org> torque-2.5.12-r1.ebuild,
+  torque-4.1.5.1-r1.ebuild:
+  Stable for amd64, wrt bug #484320
+
+  25 Dec 2013; Jeroen Roovers <jer@gentoo.org> torque-2.5.12-r1.ebuild,
+  torque-4.1.5.1-r1.ebuild:
+  Stable for HPPA (bug #484320).
+
+*torque-4.1.5.1-r1 (23 Dec 2013)
+*torque-2.5.12-r1 (23 Dec 2013)
+*torque-2.4.16-r1 (23 Dec 2013)
+
+  23 Dec 2013; Justin Bronder <jsbronder@gentoo.org> torque-2.4.16.ebuild,
+  +torque-2.4.16-r1.ebuild, -torque-2.5.12.ebuild, +torque-2.5.12-r1.ebuild,
+  -torque-4.1.5.1.ebuild, +torque-4.1.5.1-r1.ebuild,
+  +files/CVE-2013-4319-2.x-root-submit-fix.patch,
+  +files/CVE-2013-4319-4.x-root-submit-fix.patch:
+  Add patches for CVE-2013-4319 (#484320).
+
+  23 Dec 2013; Justin Bronder <jsbronder@gentoo.org> -torque-2.3.13.ebuild,
+  -torque-3.0.6-r1.ebuild:
+  cleanup old
 
   12 Jun 2013; Justin Lecher <jlec@gentoo.org> torque-4.1.5.1.ebuild,
   +files/torque-4.1.5.1-tcl8.6.patch:
@@ -716,4 +770,3 @@
   23 Apr 2004; Michael Imhof <tantive@gentoo.org> torque-1.0.1-r6.ebuild, files/pbs.rc:
   New ebuild. Submitted by Joseph Spadavecchia <j.spadavecchia@ed.ac.uk>.
   Closes #47986.
-

@@ -1,6 +1,24 @@
 # ChangeLog for net-libs/libpcap
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libpcap/ChangeLog,v 1.185 2013/07/27 17:09:36 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libpcap/ChangeLog,v 1.189 2014/01/22 09:13:54 radhermit Exp $
+
+*libpcap-1.5.3 (22 Jan 2014)
+
+  22 Jan 2014; Tim Harder <radhermit@gentoo.org> +libpcap-1.5.3.ebuild:
+  Version bump.
+
+*libpcap-1.5.2 (16 Dec 2013)
+
+  16 Dec 2013; Tim Harder <radhermit@gentoo.org> +libpcap-1.5.2.ebuild:
+  Version bump.
+
+  01 Dec 2013; Fabian Groffen <grobian@gentoo.org> libpcap-1.5.1.ebuild:
+  Fix building on Darwin with Prefix toolchain
+
+*libpcap-1.5.1 (28 Nov 2013)
+
+  28 Nov 2013; Tim Harder <radhermit@gentoo.org> +libpcap-1.5.1.ebuild:
+  Version bump, add dbus use flag.
 
   27 Jul 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
   Remove duplicate description.

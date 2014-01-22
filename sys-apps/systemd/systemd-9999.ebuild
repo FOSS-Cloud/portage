@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.72 2013/11/16 13:40:35 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.80 2014/01/20 22:53:07 floppym Exp $
 
 EAPI=5
 
@@ -26,13 +26,12 @@ LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0/1"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 IUSE="acl audit cryptsetup doc +firmware-loader gcrypt gudev http introspection
-	+kmod lzma pam policykit python qrcode selinux tcpd test
+	+kdbus +kmod lzma pam policykit python qrcode selinux tcpd test
 	vanilla xattr"
 
 MINKV="3.0"
 
-COMMON_DEPEND=">=sys-apps/dbus-1.6.8-r1:0=
-	>=sys-apps/util-linux-2.20:0=
+COMMON_DEPEND=">=sys-apps/util-linux-2.20:0=
 	sys-libs/libcap:0=
 	acl? ( sys-apps/acl:0= )
 	audit? ( >=sys-process/audit-2:0= )
@@ -55,7 +54,6 @@ COMMON_DEPEND=">=sys-apps/dbus-1.6.8-r1:0=
 # baselayout-2.2 has /run
 RDEPEND="${COMMON_DEPEND}
 	>=sys-apps/baselayout-2.2
-	>=sys-fs/udev-init-scripts-25
 	|| (
 		>=sys-apps/util-linux-2.22
 		<sys-apps/sysvinit-2.88-r4
@@ -64,10 +62,14 @@ RDEPEND="${COMMON_DEPEND}
 	!<sys-libs/glibc-2.10
 	!sys-fs/udev"
 
-PDEPEND=">=sys-apps/hwids-20130717-r1[udev]
+# sys-apps/daemon: the daemon only (+ build-time lib dep for tests)
+PDEPEND=">=sys-apps/dbus-1.6.8-r1:0
+	>=sys-apps/hwids-20130717-r1[udev]
+	>=sys-fs/udev-init-scripts-25
 	policykit? ( sys-auth/polkit )
 	!vanilla? ( sys-apps/gentoo-systemd-integration )"
 
+# Newer linux-headers needed by ia64, bug #480218
 DEPEND="${COMMON_DEPEND}
 	app-arch/xz-utils:0
 	app-text/docbook-xml-dtd:4.2
@@ -78,27 +80,35 @@ DEPEND="${COMMON_DEPEND}
 	>=sys-devel/binutils-2.23.1
 	>=sys-devel/gcc-4.6
 	>=sys-kernel/linux-headers-${MINKV}
+	ia64? ( >=sys-kernel/linux-headers-3.9 )
 	virtual/pkgconfig
-	doc? ( >=dev-util/gtk-doc-1.18 )"
+	doc? ( >=dev-util/gtk-doc-1.18 )
+	test? ( >=sys-apps/dbus-1.6.8-r1:0 )"
 
 #if LIVE
 DEPEND="${DEPEND}
 	dev-libs/gobject-introspection
-	>=dev-libs/libgcrypt-1.4.5:0
-	>=dev-util/gtk-doc-1.18"
+	>=dev-libs/libgcrypt-1.4.5:0"
 
 SRC_URI=
 KEYWORDS=
 
 src_prepare() {
-	gtkdocize --docdir docs/ || die
+	if use doc; then
+		gtkdocize --docdir docs/ || die
+	else
+		echo 'EXTRA_DIST =' > docs/gtk-doc.make
+	fi
+
+	# Bug 463376
+	sed -i -e 's/GROUP="dialout"/GROUP="uucp"/' rules/*.rules || die
 
 	autotools-utils_src_prepare
 }
 #endif
 
 pkg_pretend() {
-	local CONFIG_CHECK="~AUTOFS4_FS ~BLK_DEV_BSG ~CGROUPS ~DEVTMPFS
+	local CONFIG_CHECK="~AUTOFS4_FS ~BLK_DEV_BSG ~CGROUPS ~DEVTMPFS ~DMIID
 		~EPOLL ~FANOTIFY ~FHANDLE ~INOTIFY_USER ~IPV6 ~NET ~PROC_FS
 		~SECCOMP ~SIGNALFD ~SYSFS ~TIMERFD
 		~!IDE ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2
@@ -106,8 +116,17 @@ pkg_pretend() {
 
 	use acl && CONFIG_CHECK+=" ~TMPFS_POSIX_ACL"
 	use pam && CONFIG_CHECK+=" ~AUDITSYSCALL"
+	use xattr && CONFIG_CHECK+=" ~TMPFS_XATTR"
 	kernel_is -lt 3 7 && CONFIG_CHECK+=" ~HOTPLUG"
 	use firmware-loader || CONFIG_CHECK+=" ~!FW_LOADER_USER_HELPER"
+
+	if linux_config_exists; then
+		local uevent_helper_path=$(linux_chkconfig_string UEVENT_HELPER_PATH)
+			if [ -n "${uevent_helper_path}" ] && [ "${uevent_helper_path}" != '""' ]; then
+				ewarn "It's recommended to set an empty value to the following kernel config option:"
+				ewarn "CONFIG_UEVENT_HELPER_PATH=${uevent_helper_path}"
+			fi
+	fi
 
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		if [[ $(gcc-major-version) -lt 4
@@ -140,6 +159,7 @@ pkg_setup() {
 
 multilib_src_configure() {
 	local myeconfargs=(
+		--disable-maintainer-mode
 		--localstatedir=/var
 		--with-pamlibdir=$(getpam_mod_dir)
 		# avoid bash-completion dep
@@ -161,6 +181,7 @@ multilib_src_configure() {
 		$(use_enable gudev)
 		$(use_enable http microhttpd)
 		$(use_enable introspection)
+		$(use_enable kdbus)
 		$(use_enable kmod)
 		$(use_enable lzma xz)
 		$(use_enable pam)
@@ -233,6 +254,8 @@ multilib_src_compile() {
 		# prerequisites for gudev
 		use gudev && emake src/gudev/gudev{enumtypes,marshal}.{c,h}
 
+		echo 'gentoo: $(BUILT_SOURCES)' | \
+		emake "${mymakeopts[@]}" -f Makefile -f - gentoo
 		echo 'gentoo: $(lib_LTLIBRARIES) $(pkgconfiglib_DATA)' | \
 		emake "${mymakeopts[@]}" -f Makefile -f - gentoo
 	fi
@@ -336,9 +359,6 @@ migrate_locale() {
 }
 
 pkg_postinst() {
-	# for udev rules
-	enewgroup dialout
-
 	enewgroup systemd-journal
 	if use http; then
 		enewgroup systemd-journal-gateway

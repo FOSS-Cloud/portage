@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/distutils-r1.eclass,v 1.91 2013/11/11 15:58:40 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/distutils-r1.eclass,v 1.94 2014/01/18 15:06:56 floppym Exp $
 
 # @ECLASS: distutils-r1
 # @MAINTAINER:
@@ -249,10 +249,8 @@ distutils_install_for_testing() {
 	# 3) non-root 'install' complains about PYTHONPATH and missing dirs,
 	#    so we need to set it properly and mkdir them,
 	# 4) it runs a bunch of commands which write random files to cwd,
-	#    in order to avoid that, we need to run them ourselves to pass
-	#    alternate build paths,
-	# 5) 'install' needs to go before 'bdist_egg' or the latter would
-	#    re-set install paths.
+	#    in order to avoid that, we add the necessary path overrides
+	#    in _distutils-r1_create_setup_cfg.
 
 	TEST_DIR=${BUILD_DIR}/test
 	local bindir=${TEST_DIR}/scripts
@@ -265,12 +263,6 @@ distutils_install_for_testing() {
 			--install-lib="${libdir}"
 			--install-scripts="${bindir}"
 	)
-
-	if "${PYTHON:-python}" setup.py --help bdist_egg &>/dev/null; then
-		add_args+=(
-			bdist_egg --dist-dir="${TEST_DIR}"
-		)
-	fi
 
 	mkdir -p "${libdir}" || die
 	esetup.py "${add_args[@]}" "${@}"
@@ -367,6 +359,11 @@ _distutils-r1_create_setup_cfg() {
 
 		[egg_info]
 		egg-base = ${BUILD_DIR}
+
+		# this is needed by distutils_install_for_testing since
+		# setuptools like to create .egg files for install --home.
+		[bdist_egg]
+		dist-dir = ${BUILD_DIR}/dist
 	_EOF_
 }
 
@@ -395,15 +392,6 @@ distutils-r1_python_compile() {
 	_distutils-r1_copy_egg_info
 
 	esetup.py build "${@}"
-}
-
-# @FUNCTION: distutils-r1_python_test
-# @DESCRIPTION:
-# The default python_test(). A no-op.
-distutils-r1_python_test() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	:
 }
 
 # @FUNCTION: _distutils-r1_wrap_scripts
@@ -494,6 +482,7 @@ distutils-r1_python_install() {
 	# failures if some packages haven't compiled their modules yet.
 	addpredict "$(python_get_sitedir)"
 	addpredict /usr/lib/portage/pym
+	addpredict /usr/local # bug 498232
 
 	local root=${D}/_${EPYTHON}
 	[[ ${DISTUTILS_SINGLE_IMPL} ]] && root=${D}

@@ -1,6 +1,42 @@
 # ChangeLog for media-libs/libpng
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libpng/ChangeLog,v 1.425 2013/11/15 18:54:48 josejx Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libpng/ChangeLog,v 1.435 2014/01/15 09:57:15 ago Exp $
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libpng-1.5.17-r1.ebuild:
+  Stable for ia64, wrt bug #490534
+
+  04 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libpng-1.2.50-r1.ebuild,
+  libpng-1.5.17-r15.ebuild, libpng-1.6.8.ebuild:
+  Stable for x86, wrt bug #494962
+
+  04 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libpng-1.2.50-r1.ebuild,
+  libpng-1.5.17-r15.ebuild, libpng-1.6.8.ebuild:
+  Stable for amd64, wrt bug #494962
+
+  04 Jan 2014; Markus Meier <maekke@gentoo.org> libpng-1.6.8.ebuild:
+  arm stable, bug #494962
+
+  03 Jan 2014; Matt Turner <mattst88@gentoo.org> libpng-1.6.8.ebuild:
+  alpha stable, bug 494962.
+
+  26 Dec 2013; Jeroen Roovers <jer@gentoo.org> libpng-1.6.8.ebuild:
+  Stable for HPPA (bug #494962).
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> libpng-1.5.17-r1.ebuild:
+  Stable for sparc, wrt bug #490534
+
+*libpng-1.6.8 (21 Dec 2013)
+
+  21 Dec 2013; Samuli Suominen <ssuominen@gentoo.org> +libpng-1.6.8.ebuild:
+  Version bump wrt security #494948 by Agostino Sarubbo
+
+*libpng-1.6.7 (01 Dec 2013)
+
+  01 Dec 2013; Samuli Suominen <ssuominen@gentoo.org> +libpng-1.6.7.ebuild:
+  Version bump.
+
+  30 Nov 2013; Markus Meier <maekke@gentoo.org> libpng-1.5.17-r1.ebuild:
+  arm stable, bug #490534
 
   15 Nov 2013; Joseph Jezak <josejx@gentoo.org> libpng-1.5.17-r1.ebuild:
   Marked ppc/ppc64 stable for bug #490534.

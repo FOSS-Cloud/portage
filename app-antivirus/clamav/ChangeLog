@@ -1,6 +1,15 @@
 # ChangeLog for app-antivirus/clamav
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-antivirus/clamav/ChangeLog,v 1.467 2013/10/09 11:28:32 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-antivirus/clamav/ChangeLog,v 1.470 2013/12/24 16:55:00 ago Exp $
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> clamav-0.97.8-r2.ebuild:
+  Stable for ppc64, wrt bug #480038
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org> clamav-0.97.8-r2.ebuild:
+  x86 stable, bug #480038
+
+  29 Nov 2013; Sergey Popov <pinkbyte@gentoo.org> clamav-0.97.8.ebuild:
+  QA: set keywords according to bug #470090
 
   09 Oct 2013; Kacper Kowalik <xarthisius@gentoo.org> clamav-0.97.7.ebuild,
   clamav-0.97.8-r2.ebuild, clamav-0.97.8.ebuild, clamav-0.98.ebuild:

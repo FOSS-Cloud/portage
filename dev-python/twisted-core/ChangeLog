@@ -1,6 +1,19 @@
 # ChangeLog for dev-python/twisted-core
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-core/ChangeLog,v 1.15 2013/09/06 16:50:52 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-core/ChangeLog,v 1.18 2014/01/21 04:50:48 patrick Exp $
+
+  21 Jan 2014; Patrick Lauer <patrick@gentoo.org> -twisted-core-10.2.0.ebuild,
+  -twisted-core-11.0.0.ebuild, -twisted-core-11.1.0.ebuild,
+  -twisted-core-12.0.0.ebuild, -twisted-core-12.2.0.ebuild:
+  Remove old
+
+*twisted-core-13.2.0 (19 Jan 2014)
+
+  19 Jan 2014; Ian Delaney <idella4@gentoo.org> +twisted-core-13.2.0.ebuild:
+  bump; update to test phase in light of some test failures
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> twisted-core-12.3.0.ebuild:
+  Stable for arm, wrt bug #468150
 
   06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> twisted-core-12.3.0.ebuild:
   Stable for sparc, wrt bug #468150

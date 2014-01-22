@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.1.1.ebuild,v 1.1 2013/11/17 15:48:44 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.1.1.ebuild,v 1.4 2013/12/20 20:01:29 tomwij Exp $
 
 EAPI="5"
 
@@ -35,7 +35,7 @@ LICENSE="LGPL-2.1 GPL-2"
 SLOT="0/core7.0.0-vlc5.4.0"
 
 if [ "${PV%9999}" = "${PV}" ] ; then
-	KEYWORDS="~amd64 ~ppc -sparc ~x86 ~amd64-fbsd ~x86-fbsd"
+	KEYWORDS="~amd64 ~arm ~ppc -sparc ~x86 ~amd64-fbsd ~x86-fbsd"
 else
 	KEYWORDS=""
 fi
@@ -115,7 +115,7 @@ RDEPEND="
 		opengl? ( virtual/opengl:0 >=x11-libs/libX11-1.3.99.901:0 )
 		opus? ( >=media-libs/opus-1.0.3:0 )
 		png? ( media-libs/libpng:0= sys-libs/zlib:0 )
-		postproc? ( || ( >=media-video/ffmpeg-1.2:0= media-libs/libpostproc:0 ) )
+		postproc? ( || ( media-libs/libpostproc:0 >=media-video/ffmpeg-1.2:0= ) )
 		projectm? ( media-libs/libprojectm:0 media-fonts/dejavu:0 )
 		pulseaudio? ( >=media-sound/pulseaudio-0.9.22:0 )
 		qt4? ( >=dev-qt/qtgui-4.6.0:4 >=dev-qt/qtcore-4.6.0:4 )
@@ -238,6 +238,11 @@ src_prepare() {
 
 	# Fix up broken audio; first is a fixed reversed bisected commit, latter two are backported.
 	epatch "${FILESDIR}"/${PN}-2.1.0-TomWij-bisected-PA-broken-underflow.patch
+
+	# Support for freetype-2.5.1.
+	if has_version '>=media-libs/freetype-2.5.1' ; then
+		epatch "${FILESDIR}"/${P}-freetype-2.5.1-support.patch
+	fi
 
 	# Disable avcodec checks when avcodec is not used.
 	sed -i 's/^#if LIBAVCODEC_VERSION_CHECK(.*)$/#if 0/' modules/codec/avcodec/fourcc.c || die

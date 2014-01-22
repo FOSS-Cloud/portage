@@ -1,6 +1,56 @@
 # ChangeLog for sys-apps/portage
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/portage/ChangeLog,v 1.1368 2013/11/03 23:58:06 mattst88 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/portage/ChangeLog,v 1.1381 2014/01/20 18:50:39 floppym Exp $
+
+*portage-2.2.8-r1 (20 Jan 2014)
+
+  20 Jan 2014; Mike Gilbert <floppym@gentoo.org> +portage-2.2.8-r1.ebuild:
+  Revbump for last change.
+
+  20 Jan 2014; Mike Gilbert <floppym@gentoo.org> portage-2.2.8.ebuild,
+  portage-9999.ebuild:
+  Enforce python_targets on pyxattr dep, bug 498478.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> portage-2.2.7.ebuild,
+  portage-2.2.8.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> portage-2.1.11.62.ebuild,
+  portage-2.1.12.2.ebuild, portage-2.2.1.ebuild, portage-2.2.7.ebuild:
+  Mark m68k stable.
+
+  13 Jan 2014; Mike Gilbert <floppym@gentoo.org> portage-9999.ebuild:
+  Switch github to https instead of ssh.
+
+  13 Jan 2014; Brian Dolbec <dolsen@gentoo.org> portage-9999.ebuild:
+  Add the github repo as a backup uri.
+
+*portage-2.2.8 (06 Jan 2014)
+
+  06 Jan 2014; Brian Dolbec <dolsen@gentoo.org> +portage-2.2.8.ebuild:
+  version bump. This fixes the following bugs: bug #395359,
+  bug #472104, bug #485920, bug #486580, bug #487198, bug #488972,
+  bug #489544, bug #489662, bug #490362, bug #491426, bug #492314.
+  Bug #484436 tracks all bugs since portage-2.2.1. 
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> portage-2.2.7.ebuild:
+  Stable for sparc, wrt bug #488156
+
+  23 Dec 2013; Mike Frysinger <vapier@gentoo.org> portage-2.2.7.ebuild:
+  Mark ia64 stable #488156.
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> portage-2.2.7.ebuild:
+  Stable for ppc64, wrt bug #488156
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> portage-2.2.7.ebuild:
+  Stable for ppc, wrt bug #488156
+
+  12 Dec 2013; Maciej Mrozowski <reavertm@gentoo.org> metadata.xml:
+  Describe 'xattr' USE flag to avoid being used unnecessarily as it brings
+  significant overhead.
+
+  30 Nov 2013; Jeff Horelick <jdhore@gentoo.org> portage-2.2.7.ebuild:
+  x86 stable wrt bug #488156
 
   03 Nov 2013; Matt Turner <mattst88@gentoo.org> portage-2.2.7.ebuild:
   alpha stable, bug 488156.

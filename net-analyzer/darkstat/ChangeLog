@@ -1,6 +1,16 @@
 # ChangeLog for net-analyzer/darkstat
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/darkstat/ChangeLog,v 1.55 2013/08/26 08:05:12 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/darkstat/ChangeLog,v 1.58 2014/01/20 15:53:10 ago Exp $
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> darkstat-3.0.717.ebuild:
+  Stable for ppc, wrt bug #495830
+
+  16 Jan 2014; Sergey Popov <pinkbyte@gentoo.org> darkstat-3.0.715.ebuild,
+  darkstat-3.0.717.ebuild:
+  QA: change description to not include package name
+
+  16 Jan 2014; Sergey Popov <pinkbyte@gentoo.org> darkstat-3.0.717.ebuild:
+  Stable on amd64 and x86, wrt bug #495830
 
 *darkstat-3.0.717 (26 Aug 2013)
 
@@ -235,4 +245,3 @@
   files/darkstat-confd:
   Initial version, submitted by Thomas Preissler <tomjohn@gmx.de>
   closes bug #29548.
-

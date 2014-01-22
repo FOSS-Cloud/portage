@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/lokalize/lokalize-4.11.2-r1.ebuild,v 1.1 2013/10/09 23:04:14 creffett Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/lokalize/lokalize-4.11.2-r1.ebuild,v 1.6 2014/01/07 16:26:08 scarabeus Exp $
 
 EAPI=5
 
@@ -11,7 +11,7 @@ inherit python-single-r1 kde4-base
 DESCRIPTION="KDE4 translation tool"
 HOMEPAGE="http://www.kde.org/applications/development/lokalize
 http://l10n.kde.org/tools"
-KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm ppc ppc64 x86 ~amd64-linux ~x86-linux"
 IUSE="debug semantic-desktop"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -23,6 +23,7 @@ DEPEND="
 	semantic-desktop? ( >=dev-libs/soprano-2.9.0 )
 "
 RDEPEND="${DEPEND}
+	$(add_kdebase_dep kdesdk-strigi-analyzer)
 	$(add_kdebase_dep krosspython "${PYTHON_USEDEP}")
 	$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 "

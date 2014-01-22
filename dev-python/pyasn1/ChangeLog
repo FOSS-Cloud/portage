@@ -1,6 +1,21 @@
 # ChangeLog for dev-python/pyasn1
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyasn1/ChangeLog,v 1.65 2013/11/04 00:56:46 mattst88 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyasn1/ChangeLog,v 1.70 2013/12/22 13:22:26 ago Exp $
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> pyasn1-0.1.7.ebuild:
+  Stable for ppc64, wrt bug #474194
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> pyasn1-0.1.7.ebuild:
+  Stable for ppc, wrt bug #474194
+
+  15 Dec 2013; Agostino Sarubbo <ago@gentoo.org> pyasn1-0.1.7.ebuild:
+  Stable for sparc, wrt bug #474194
+
+  07 Dec 2013; Akinori Hattori <hattya@gentoo.org> pyasn1-0.1.7.ebuild:
+  ia64 stable wrt bug #474194
+
+  02 Dec 2013; Johannes Huber <johu@gentoo.org> pyasn1-0.1.7.ebuild:
+  x86 stable, bug #474194
 
   04 Nov 2013; Matt Turner <mattst88@gentoo.org> pyasn1-0.1.7.ebuild:
   alpha stable, bug 474194.

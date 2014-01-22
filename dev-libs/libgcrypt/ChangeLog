@@ -1,6 +1,27 @@
 # ChangeLog for dev-libs/libgcrypt
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgcrypt/ChangeLog,v 1.192 2013/08/08 12:37:17 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgcrypt/ChangeLog,v 1.198 2014/01/18 05:07:26 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> libgcrypt-1.5.3.ebuild,
+  libgcrypt-1.6.0.ebuild:
+  Add arm64 love.
+
+  16 Jan 2014; Markus Meier <maekke@gentoo.org> libgcrypt-1.6.0.ebuild:
+  mark -arm, bug #494668
+
+  05 Jan 2014; Fabian Groffen <grobian@gentoo.org> libgcrypt-1.6.0.ebuild:
+  Marked ~m68k-mint, bug #494512
+
+  27 Dec 2013; Fabian Groffen <grobian@gentoo.org> libgcrypt-1.6.0.ebuild:
+  Fix building the asm bits on Solaris by allowing the divide operand there
+
+*libgcrypt-1.6.0 (16 Dec 2013)
+
+  16 Dec 2013; Tim Harder <radhermit@gentoo.org> +libgcrypt-1.6.0.ebuild:
+  Version bump, restrict automake version so tests run properly.
+
+  05 Dec 2013; Michael Haubenwallner <haubi@gentoo.org> libgcrypt-1.5.3.ebuild:
+  add ~ppc-aix keyword
 
   08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.3.ebuild:
   Stable for sh, wrt bug #478184

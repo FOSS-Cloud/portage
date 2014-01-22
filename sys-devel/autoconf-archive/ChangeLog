@@ -1,6 +1,24 @@
 # ChangeLog for sys-devel/autoconf-archive
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/autoconf-archive/ChangeLog,v 1.63 2013/10/02 11:53:43 scarabeus Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/autoconf-archive/ChangeLog,v 1.67 2014/01/18 03:11:58 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  autoconf-archive-2013.06.09.ebuild, autoconf-archive-2013.11.01.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  autoconf-archive-2013.06.09.ebuild:
+  Mark m68k/s390/sh stable.
+
+*autoconf-archive-2013.11.01 (25 Dec 2013)
+
+  25 Dec 2013; Mike Frysinger <vapier@gentoo.org>
+  +autoconf-archive-2013.11.01.ebuild:
+  Version bump.
+
+  25 Dec 2013; Mike Frysinger <vapier@gentoo.org>
+  autoconf-archive-2013.06.09.ebuild:
+  Stabilize for all #495948 by Pacho Ramos.
 
 *autoconf-archive-2013.06.09 (02 Oct 2013)
 

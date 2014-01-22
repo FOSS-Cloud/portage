@@ -1,6 +1,51 @@
 # ChangeLog for dev-perl/WWW-RobotRules
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/WWW-RobotRules/ChangeLog,v 1.22 2013/09/14 14:33:13 idella4 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/WWW-RobotRules/ChangeLog,v 1.33 2014/01/20 23:25:43 vapier Exp $
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  WWW-RobotRules-6.10.0-r1.ebuild, WWW-RobotRules-6.20.0.ebuild:
+  Add arm64 love.
+
+*WWW-RobotRules-6.20.0 (03 Jan 2014)
+
+  03 Jan 2014; Sergey Popov <pinkbyte@gentoo.org>
+  -WWW-RobotRules-6.10.0.ebuild, +WWW-RobotRules-6.20.0.ebuild:
+  Version bump, drop old
+
+  03 Jan 2014; Sergey Popov <pinkbyte@gentoo.org>
+  WWW-RobotRules-6.10.0-r1.ebuild:
+  Stable on arm, wrt bug #495508
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  WWW-RobotRules-6.10.0-r1.ebuild:
+  x86 stable wrt bug #495508
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  WWW-RobotRules-6.10.0-r1.ebuild:
+  sparc stable wrt bug #495508
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  WWW-RobotRules-6.10.0-r1.ebuild:
+  ppc stable wrt bug #495508
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  WWW-RobotRules-6.10.0-r1.ebuild:
+  ppc64 stable wrt bug #495508
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  WWW-RobotRules-6.10.0-r1.ebuild:
+  ia64 stable wrt bug #495508
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  WWW-RobotRules-6.10.0-r1.ebuild:
+  amd64 stable wrt bug #495508
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  WWW-RobotRules-6.10.0-r1.ebuild:
+  alpha stable wrt bug #495508
+
+  01 Jan 2014; Jeroen Roovers <jer@gentoo.org> WWW-RobotRules-6.10.0-r1.ebuild:
+  Stable for HPPA (bug #495508).
 
 *WWW-RobotRules-6.10.0-r1 (14 Sep 2013)
 

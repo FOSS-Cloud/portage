@@ -1,10 +1,11 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/minitube/minitube-2.1.3.ebuild,v 1.3 2013/11/19 19:36:39 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/minitube/minitube-2.1.3.ebuild,v 1.5 2014/01/02 20:46:36 hwoarang Exp $
 
 EAPI=5
 PLOCALES="ar ca ca_ES da de_DE el en es es_AR es_ES fi fi_FI fr he_IL hr hu
 ia it jv nl pl pl_PL pt_BR ro ru sk sl tr zh_CN"
+PLOCALE_BACKUP="en"
 
 inherit l10n qt4-r2
 
@@ -18,7 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug download gstreamer kde"
 
-DEPEND=">=dev-qt/qtgui-4.8:4[accessibility,gtkstyle]
+DEPEND=">=dev-qt/qtgui-4.8:4[accessibility]
 	>=dev-qt/qtdbus-4.8:4
 	>=dev-qt/qtsql-4.8:4
 	kde? ( || ( media-libs/phonon[gstreamer?] >=dev-qt/qtphonon-4.8:4 ) )

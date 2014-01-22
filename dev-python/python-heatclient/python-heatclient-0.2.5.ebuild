@@ -1,14 +1,13 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-heatclient/python-heatclient-0.2.5.ebuild,v 1.1 2013/10/23 16:26:24 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-heatclient/python-heatclient-0.2.5.ebuild,v 1.3 2014/01/04 00:38:50 idella4 Exp $
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
 
 inherit distutils-r1
 
-DESCRIPTION="This is a client library for Heat built on the Heat orchestration
-API."
+DESCRIPTION="A client library for Heat built on the Heat orchestration API."
 HOMEPAGE="https://github.com/openstack/python-heatclient"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
@@ -47,5 +46,7 @@ PATCHES=(
 #	"${FILESDIR}/0.2.3-CVE-2013-2104.patch"
 
 python_test() {
-	${PYTHON} -m subunit.run discover -t ./ . || die
+	testr init
+	testr run || die "Tests failed under python2.7"
+	flake8 heatclient/tests || die "run over tests folder by flake8 yielded error"
 }

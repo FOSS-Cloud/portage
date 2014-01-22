@@ -1,6 +1,17 @@
 # ChangeLog for net-misc/rabbitmq-server
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/rabbitmq-server/ChangeLog,v 1.33 2013/11/08 13:10:51 ultrabug Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/rabbitmq-server/ChangeLog,v 1.35 2014/01/08 06:34:33 vapier Exp $
+
+  08 Jan 2014; Mike Frysinger <vapier@gentoo.org> rabbitmq-server-3.1.3.ebuild,
+  rabbitmq-server-3.1.4.ebuild, rabbitmq-server-3.2.1.ebuild,
+  rabbitmq-server-3.2.2.ebuild:
+  Inherit the user eclass for enewuser/etc...
+
+*rabbitmq-server-3.2.2 (24 Dec 2013)
+
+  24 Dec 2013; Ultrabug <ultrabug@gentoo.org> +rabbitmq-server-3.2.2.ebuild,
+  files/rabbitmq-server.init-r3:
+  Version bump, enhance init script wrt #495090 thx to Evgeniy
 
 *rabbitmq-server-3.2.1 (08 Nov 2013)
 

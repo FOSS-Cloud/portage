@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/sk1libs/sk1libs-0.9.1-r3.ebuild,v 1.3 2013/09/05 18:55:06 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/sk1libs/sk1libs-0.9.1-r3.ebuild,v 1.5 2013/12/25 09:37:14 maekke Exp $
 
 EAPI=5
 
@@ -10,11 +10,12 @@ inherit distutils-r1 python-r1
 
 DESCRIPTION="sk1 vector graphics lib"
 HOMEPAGE="http://sk1project.org"
-SRC_URI="http://uniconvertor.googlecode.com/files/${P}.tar.gz"
+SRC_URI="http://uniconvertor.googlecode.com/files/${P}.tar.gz
+	https://github.com/python-imaging/Pillow/commit/c6040f618d8f2706a7b46d1cdf37d1a587f9701f.patch -> ${PN}-0.9.1-freetype251.patch"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~sparc-solaris ~x86-solaris"
 IUSE=""
 
 DEPEND="
@@ -32,6 +33,10 @@ RDEPEND="${DEPEND}
 "
 
 python_prepare_all() {
+	pushd src/imaging/libimagingft &>/dev/null || die
+	epatch "${DISTDIR}"/${PN}-0.9.1-freetype251.patch
+	popd &>/dev/null || die
+
 	sed \
 		-e "/include_dirs/s:\(/usr/include/freetype2\):${EPREFIX}\1:" \
 		-i setup.py || die

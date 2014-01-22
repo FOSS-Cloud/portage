@@ -1,6 +1,27 @@
 # ChangeLog for virtual/ruby-ssl
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/ruby-ssl/ChangeLog,v 1.21 2013/10/07 17:42:03 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/ruby-ssl/ChangeLog,v 1.27 2014/01/05 10:48:35 graaff Exp $
+
+  05 Jan 2014; Hans de Graaff <graaff@gentoo.org> ruby-ssl-0.ebuild,
+  ruby-ssl-1.ebuild:
+  Drop s390 and sh stable flags for ruby.
+
+  29 Dec 2013; Markus Meier <maekke@gentoo.org> ruby-ssl-3.ebuild:
+  arm stable, bug #487004
+
+*ruby-ssl-4 (26 Dec 2013)
+
+  26 Dec 2013; Hans de Graaff <graaff@gentoo.org> +ruby-ssl-4.ebuild:
+  Add ruby21.
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ruby-ssl-3.ebuild:
+  Stable for ppc64, wrt bug #487004
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> ruby-ssl-3.ebuild:
+  amd64 stable, bug #487004
+
+  03 Dec 2013; Johannes Huber <johu@gentoo.org> ruby-ssl-3.ebuild:
+  x86 stable, bug #487004
 
   07 Oct 2013; Jeroen Roovers <jer@gentoo.org> ruby-ssl-3.ebuild:
   Stable for HPPA (bug #487004).
@@ -73,4 +94,3 @@
   +ruby-ssl-1.ebuild, +ruby-ssl-2.ebuild, +ruby-ssl-3.ebuild, +metadata.xml:
   Add virtual ebuild for the OpenSSL binding for all the Ruby
   implementations.
-

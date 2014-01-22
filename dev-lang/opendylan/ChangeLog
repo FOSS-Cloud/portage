@@ -1,6 +1,24 @@
 # ChangeLog for dev-lang/opendylan
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/opendylan/ChangeLog,v 1.11 2013/11/19 06:11:58 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/opendylan/ChangeLog,v 1.16 2014/01/08 09:00:47 patrick Exp $
+
+  08 Jan 2014; Patrick Lauer <patrick@gentoo.org> opendylan-2013.2.ebuild,
+  opendylan-9999.ebuild:
+  Whitespace
+
+*opendylan-2013.2 (07 Jan 2014)
+
+  07 Jan 2014; Patrick Lauer <patrick@gentoo.org> +opendylan-2013.2.ebuild:
+  Bump
+
+  07 Jan 2014; Patrick Lauer <patrick@gentoo.org> opendylan-9999.ebuild:
+  Fixing -9999 ebuild for 2013.2 release
+
+  20 Dec 2013; Patrick Lauer <patrick@gentoo.org> opendylan-9999.ebuild:
+  Whitespace
+
+  20 Dec 2013; Patrick Lauer <patrick@gentoo.org> opendylan-9999.ebuild:
+  Fix -9999 ebuild a bit
 
 *opendylan-2013.1-r1 (19 Nov 2013)
 

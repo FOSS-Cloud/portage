@@ -1,6 +1,48 @@
 # ChangeLog for app-admin/logrotate
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/logrotate/ChangeLog,v 1.161 2013/10/26 16:53:38 nimiux Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/logrotate/ChangeLog,v 1.175 2014/01/18 20:01:53 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.7.ebuild:
+  Stable for alpha, wrt bug #492768
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.7.ebuild:
+  Stable for ia64, wrt bug #492768
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.7.ebuild:
+  Stable for sparc, wrt bug #492768
+
+  23 Dec 2013; Tom Wijsman <TomWij@gentoo.org> -files/logrotate.cron:
+  [QA] Remove unused files. (logrotate.cron is installed from ${S}/examples)
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.6.ebuild:
+  Stable for ppc64, wrt bug #485886
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.7.ebuild:
+  Stable for ppc64, wrt bug #492768
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.7.ebuild:
+  Stable for ppc, wrt bug #492768
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> logrotate-3.8.6.ebuild:
+  Stable for ppc, wrt bug #485886
+
+  17 Dec 2013; Raúl Porcel <armin76@gentoo.org> logrotate-3.8.6.ebuild:
+  alpha/ia64/s390/sh/sparc stable wrt #485502
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> logrotate-3.8.7.ebuild:
+  x86 stable, bug #492768
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> logrotate-3.8.7.ebuild:
+  amd64 stable, bug #492768
+
+  06 Dec 2013; Markus Meier <maekke@gentoo.org> logrotate-3.8.7.ebuild:
+  arm stable, bug #492768
+
+  04 Dec 2013; Markos Chandras <hwoarang@gentoo.org> logrotate-3.8.7.ebuild:
+  Add ~mips
+
+  30 Nov 2013; Jeroen Roovers <jer@gentoo.org> logrotate-3.8.7.ebuild:
+  Stable for HPPA (bug #492768).
 
   26 Oct 2013; Chema Alonso <nimiux@gentoo.org> -logrotate-3.8.5.ebuild,
   -files/logrotate-3.8.5-atomic-create.patch,

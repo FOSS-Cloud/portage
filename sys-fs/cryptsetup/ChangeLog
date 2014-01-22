@@ -1,6 +1,32 @@
 # ChangeLog for sys-fs/cryptsetup
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/cryptsetup/ChangeLog,v 1.158 2013/11/19 11:20:53 nimiux Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/cryptsetup/ChangeLog,v 1.166 2014/01/18 19:54:08 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> cryptsetup-1.6.2.ebuild:
+  Stable for alpha, wrt bug #487652
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> cryptsetup-1.6.2.ebuild:
+  Stable for ia64, wrt bug #487652
+
+*cryptsetup-1.6.3 (27 Dec 2013)
+
+  27 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> +cryptsetup-1.6.3.ebuild:
+  Version bump by Manuel Rüger (bug #496126).
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> cryptsetup-1.6.2.ebuild:
+  Stable for sparc, wrt bug #487652
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> cryptsetup-1.6.2.ebuild:
+  Stable for ppc64, wrt bug #487652
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> cryptsetup-1.6.2.ebuild:
+  Stable for ppc, wrt bug #487652
+
+  01 Dec 2013; Johannes Huber <johu@gentoo.org> cryptsetup-1.6.2.ebuild:
+  x86 stable, bug #487652
+
+  27 Nov 2013; Markus Meier <maekke@gentoo.org> cryptsetup-1.6.2.ebuild:
+  arm stable, bug #487652
 
   19 Nov 2013; Chema Alonso <nimiux@gentoo.org> cryptsetup-1.6.2.ebuild:
   Stable for amd64 wrt bug #487652

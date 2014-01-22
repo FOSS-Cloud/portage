@@ -1,6 +1,73 @@
 # ChangeLog for sys-process/procps
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/procps/ChangeLog,v 1.98 2013/10/25 13:02:08 polynomial-c Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-process/procps/ChangeLog,v 1.115 2014/01/18 03:51:39 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> procps-3.3.8-r2.ebuild,
+  procps-3.3.9.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> procps-3.3.6.ebuild,
+  procps-3.3.8-r2.ebuild:
+  Mark m68k/s390/sh stable.
+
+  17 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> procps-3.3.8-r2.ebuild,
+  procps-3.3.9.ebuild:
+  Added "test" USE flag to IUSE. Thanks to Andrey Volkov for reporting this in
+  bug #498320.
+
+*procps-3.3.8-r2 (16 Jan 2014)
+
+  16 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -procps-3.3.8-r1.ebuild,
+  +procps-3.3.8-r2.ebuild:
+  Added upstream patch to fix user filter in top (bug #497438). Committed
+  straight to stable.
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> procps-3.3.8-r1.ebuild:
+  Stable for ia64, wrt bug #494822
+
+  04 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -procps-3.2.8_p11.ebuild,
+  -procps-3.3.4.ebuild, -procps-3.3.8.ebuild, -files/procps-3.2.3-noproc.patch,
+  -files/procps-3.2.7-proc-mount.patch,
+  -files/procps-3.2.8-r1-forest-prefix.patch, -files/procps-3.2.8-time_t.patch,
+  -files/procps-3.2.8-toprc-fixup.patch,
+  -files/procps-mips-define-pagesize.patch:
+  Removed old versions and files.
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> procps-3.3.8-r1.ebuild:
+  arm stable, bug #494822
+
+  24 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> procps-3.3.8-r1.ebuild:
+  x86 stable (bug #494822)
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> procps-3.3.8-r1.ebuild:
+  Stable for sparc, wrt bug #494822
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> procps-3.3.8-r1.ebuild:
+  amd64 stable, bug #494822
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> procps-3.3.8-r1.ebuild:
+  Stable for ppc64, wrt bug #494822
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> procps-3.3.8-r1.ebuild:
+  Stable for ppc, wrt bug #494822
+
+  21 Dec 2013; Jeroen Roovers <jer@gentoo.org> procps-3.3.8-r1.ebuild:
+  Stable for HPPA (bug #494822).
+
+  20 Dec 2013; Matt Turner <mattst88@gentoo.org> procps-3.3.8-r1.ebuild:
+  alpha stable, bug 494822.
+
+  20 Dec 2013; Christoph Junghans <ottxor@gentoo.org> procps-3.3.9.ebuild:
+  fixed prefix build
+
+*procps-3.3.9 (20 Dec 2013)
+
+  20 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> +procps-3.3.9.ebuild:
+  Version bump.
+
+  28 Nov 2013; Mike Frysinger <vapier@gentoo.org> procps-3.3.4.ebuild,
+  procps-3.3.6.ebuild, procps-3.3.8-r1.ebuild, procps-3.3.8.ebuild:
+  Pull in dejagnu for FEATURES=test #490174 by Nikoli.
 
 *procps-3.3.8-r1 (25 Oct 2013)
 

@@ -1,6 +1,119 @@
 # ChangeLog for sys-devel/llvm
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/ChangeLog,v 1.145 2013/11/12 18:30:46 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/ChangeLog,v 1.172 2014/01/15 18:08:11 mgorny Exp $
+
+  15 Jan 2014; Michał Górny <mgorny@gentoo.org> llvm-3.4.ebuild,
+  llvm-9999.ebuild:
+  Make tests respect TMPDIR. Solution suggested by NAKAMURA Takumi on
+  http://llvm.org/bugs/show_bug.cgi?id=18335.
+
+  10 Jan 2014; Michał Górny <mgorny@gentoo.org> llvm-3.4.ebuild,
+  llvm-9999.ebuild:
+  Restore building clang-check and clang-format, bug #497620.
+
+  10 Jan 2014; Michał Górny <mgorny@gentoo.org> llvm-3.4.ebuild:
+  Re-add missing runtime gcc detection patch, bug #497704.
+
+  08 Jan 2014; Michał Górny <mgorny@gentoo.org> llvm-3.4.ebuild,
+  llvm-9999.ebuild:
+  Build extra clang tools, bug #497428.
+
+  08 Jan 2014; Bernard Cafarelli <voyageur@gentoo.org> llvm-3.4.ebuild,
+  +files/llvm-3.4-fix_varargs.patch:
+  Fix a varargs bug causing miscompilations, thanks Holger Hoffstätte
+  <holger.hoffstaette@googlemail.com> in bug #497298
+
+  06 Jan 2014; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Add a PDEP on sys-devel/clang to the live ebuild as well.
+
+*llvm-3.4 (06 Jan 2014)
+
+  06 Jan 2014; Michał Górny <mgorny@gentoo.org> +llvm-3.4.ebuild:
+  Version bump.
+
+*llvm-3.3-r3 (06 Jan 2014)
+
+  06 Jan 2014; Michał Górny <mgorny@gentoo.org>
+  +files/llvm-3.3-cmake-modulepath.patch, +llvm-3.3-r3.ebuild,
+  -llvm-3.3-r2.ebuild:
+  Restore missing patches for 3.3. Add a patch for CMake wrt bug #496480.
+
+  30 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-3.3-r2.ebuild:
+  Fix building docs with USE=-clang, bug #496394.
+
+  29 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-3.3-r2.ebuild,
+  llvm-9999.ebuild:
+  Explicitly require Makefiles from CMake, to avoid failures when people like to
+  enable ninja globally. Bug #496426.
+
+  28 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-3.3-r2.ebuild:
+  Fix building R600 target, bug #496308.
+
+  28 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-3.3-r2.ebuild:
+  Fix clang blocker to match 3.3-r100.
+
+*llvm-3.3-r2 (28 Dec 2013)
+
+  28 Dec 2013; Michał Górny <mgorny@gentoo.org>
+  +files/llvm-3.3-r2-gentoo-install.patch, +llvm-3.3-r2.ebuild:
+  Backport all the fixes and install design changes from -9999 to -3.3. Fixes
+  bugs #425844 (install CMake modules), #462554 (install bfd-plugins symlink),
+  #489586 (multilib portage compat.), #488216, #492554 (RPATH issues).
+
+  28 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Add bugpoint to built tools. Switch llvm-config wrapping to use $CHOST-llvm-
+  config.
+
+  27 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Update/fix dependencies.
+
+  24 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Fix libLTO linking parallel make issue, bug #494922.
+
+  24 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Create the gold plugin symlink only with USE=gold.
+
+  20 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Disable libxml2 support in non-native ABIs since it is meaningful for
+  installed c-index-test only.
+
+  20 Dec 2013; Michał Górny <mgorny@gentoo.org>
+  +files/llvm-3.5-gentoo-install.patch, llvm-9999.ebuild:
+  Update LLVM build patch for -9999.
+
+  20 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Fix gcc version check. Add missing libxml2 dependency (for clang). Install
+  CMake modules.
+
+  19 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Symlink the LLVM gold plugin to bfd-plugins directory to enable LLVM object
+  support in various binutils tools, bug #462554.
+
+  19 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Remove traces of BugpointPasses in darwin branch.
+
+  19 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Delay building unnecessary tools & unittests until src_test(). Do not install
+  BugpointPasses.so (seems unused). Match man phase generation & install phases.
+
+  19 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Clean up the build procedure a bit. Pass the same MAKEOPTS to all calls, and
+  therefore make tests verbose as well. Avoid building unnecessary tools for
+  non-native ABIs.
+
+  03 Dec 2013; Michał Górny <mgorny@gentoo.org>
+  +files/clang-3.5-gentoo-install.patch, llvm-9999.ebuild:
+  Update Gentoo patch for clang.
+
+  30 Nov 2013; Michał Górny <mgorny@gentoo.org>
+  +files/clang-3.4-gentoo-install.patch, files/llvm-3.4-gentoo-install.patch,
+  llvm-9999.ebuild:
+  Drop the custom Gentoo "llvm" sub-dir that requires a lot of extra hacking,
+  and causes bugs like #492554 and #488216.
+
+  27 Nov 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Bump clang version to 3.5, bug #491880. Thanks to Mike Lothian for finding out
+  what is wrong.
 
   12 Nov 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
   Bump make dep to 3.81 since 3.80 was reported non-working by okias.

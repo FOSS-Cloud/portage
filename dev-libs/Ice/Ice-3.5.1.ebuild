@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/Ice/Ice-3.5.1.ebuild,v 1.1 2013/10/11 08:01:53 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/Ice/Ice-3.5.1.ebuild,v 1.5 2014/01/18 18:44:01 pacho Exp $
 
 EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} pypy2_0 )
 RUBY_OPTIONAL="yes"
-USE_RUBY="ruby18"
+USE_RUBY="ruby19"
 
 inherit toolchain-funcs versionator python-r1 mono-env ruby-ng db-use
 
@@ -16,7 +16,7 @@ SRC_URI="http://www.zeroc.com/download/Ice/$(get_version_component_range 1-2)/${
 	doc? ( http://www.zeroc.com/download/Ice/$(get_version_component_range 1-2)/${P}.pdf )"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ia64 ~x86 ~x86-linux ~x64-macos"
+KEYWORDS="~amd64 ~arm ~ia64 x86 ~x86-linux ~x64-macos"
 IUSE="doc examples +ncurses mono python ruby test debug"
 
 RDEPEND=">=dev-libs/expat-2.0.1
@@ -25,7 +25,7 @@ RDEPEND=">=dev-libs/expat-2.0.1
 	<sys-libs/db-6.0[cxx]
 	~dev-cpp/libmcpp-2.7.2
 	python? ( ${PYTHON_DEPS} )
-	ruby? ( $(ruby_implementation_depend ruby18) )
+	ruby? ( $(ruby_implementation_depend ruby19) )
 	mono? ( dev-lang/mono )
 	!dev-python/IcePy
 	!dev-ruby/IceRuby"
@@ -115,13 +115,13 @@ src_configure() {
 	fi
 
 	if use ruby ; then
-		SITERUBY="$(ruby18 -r rbconfig -e 'print Config::CONFIG["sitedir"]')"
+		SITERUBY="$(ruby19 -r rbconfig -e 'print Config::CONFIG["sitedir"]')"
 		MAKE_RULES_RB="install_rubydir=\"${ED}/${SITERUBY}\"
 			install_libdir=\"${ED}/${SITERUBY}\""
 
-		# make it use ruby18 only
+		# make it use ruby19 only
 		sed -i \
-			-e 's|RUBY = ruby|\018|' \
+			-e 's|RUBY = ruby|\019|' \
 			rb/config/Make.rules || die "sed failed"
 	fi
 

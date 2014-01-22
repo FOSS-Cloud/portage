@@ -1,6 +1,88 @@
 # ChangeLog for net-analyzer/wireshark
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/wireshark/ChangeLog,v 1.565 2013/11/19 02:30:54 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/wireshark/ChangeLog,v 1.584 2014/01/12 13:31:25 jer Exp $
+
+  12 Jan 2014; Jeroen Roovers <jer@gentoo.org> -wireshark-1.10.3.ebuild,
+  -wireshark-1.8.11.ebuild:
+  Old.
+
+  12 Jan 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.10.5.ebuild,
+  wireshark-1.8.12.ebuild:
+  Stable for ia64, wrt bug #494612
+
+*wireshark-1.11.3_pre54663 (08 Jan 2014)
+
+  08 Jan 2014; Jeroen Roovers <jer@gentoo.org>
+  +wireshark-1.11.3_pre54663.ebuild,
+  +files/wireshark-1.11.3-gtk-deprecated-warnings.patch:
+  Version bump.
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.10.5.ebuild,
+  wireshark-1.8.12.ebuild:
+  Stable for sparc, wrt bug #494612
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.10.5.ebuild,
+  wireshark-1.8.12.ebuild:
+  Stable for x86, wrt bug #494612
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.10.5.ebuild,
+  wireshark-1.8.12.ebuild:
+  Stable for amd64, wrt bug #494612
+
+  21 Dec 2013; Jeroen Roovers <jer@gentoo.org> -wireshark-1.10.4.ebuild,
+  wireshark-1.10.5.ebuild:
+  Stable for HPPA (bug #494612).
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.10.5.ebuild,
+  wireshark-1.8.12.ebuild:
+  Stable for alpha, wrt bug #494612
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.10.5.ebuild,
+  wireshark-1.8.12.ebuild:
+  Stable for ppc64, wrt bug #494612
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> wireshark-1.10.5.ebuild,
+  wireshark-1.8.12.ebuild:
+  Stable for ppc, wrt bug #494612
+
+  20 Dec 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.8.12.ebuild,
+  wireshark-1.10.5.ebuild, wireshark-1.11.2.ebuild:
+  Fix dumpcap permissions, remove some unneeded configure options by Luis
+  Ressel (bug #490956).
+
+*wireshark-1.10.5 (20 Dec 2013)
+
+  20 Dec 2013; Jeroen Roovers <jer@gentoo.org> +wireshark-1.10.5.ebuild:
+  Version bump.
+
+  19 Dec 2013; Sergey Popov <pinkbyte@gentoo.org> wireshark-1.8.12.ebuild:
+  Stable on amd64/x86, wrt bug #494612
+
+  19 Dec 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.10.4.ebuild:
+  Stable for HPPA (bug #494612).
+
+  19 Dec 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.8.12.ebuild:
+  Stable for HPPA (bug #494612).
+
+  18 Dec 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.11.2.ebuild:
+  Drop keywords for development branch.
+
+*wireshark-1.10.4 (18 Dec 2013)
+*wireshark-1.8.12 (18 Dec 2013)
+
+  18 Dec 2013; Jeroen Roovers <jer@gentoo.org> +wireshark-1.8.12.ebuild,
+  +wireshark-1.10.4.ebuild,
+  +files/wireshark-1.8.12-gtk-deprecated-warnings.patch,
+  +files/wireshark-1.10.4-gtk-deprecated-warnings.patch:
+  Version bump (bug #494612).
+
+  17 Dec 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.10.3.ebuild,
+  wireshark-1.11.2.ebuild, wireshark-1.8.11.ebuild:
+  Add SLOT operators for dev-libs/libgcrypt by Thomas D. (bug #494528).
+
+  11 Dec 2013; Jeroen Roovers <jer@gentoo.org> wireshark-1.11.2.ebuild,
+  +files/wireshark-1.11.2-gtk-deprecated-warnings.patch:
+  Possibly fix compile problems with x11-libs/gtk+3.10* (bug #491464).
 
 *wireshark-1.11.2 (19 Nov 2013)
 

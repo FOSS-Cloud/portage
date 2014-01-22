@@ -1,6 +1,22 @@
 # ChangeLog for app-admin/eselect
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect/ChangeLog,v 1.255 2013/10/29 21:08:27 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect/ChangeLog,v 1.260 2014/01/18 04:38:15 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> eselect-1.3.8.ebuild,
+  eselect-1.4.ebuild:
+  Add arm64 love.
+
+  17 Dec 2013; Raúl Porcel <armin76@gentoo.org> eselect-1.3.8.ebuild:
+  ia64/m68k/s390/sh stable wrt #485500
+
+  07 Dec 2013; Ulrich Müller <ulm@gentoo.org> eselect-1.3.1.ebuild,
+  eselect-1.3.6.ebuild, eselect-1.3.8.ebuild:
+  Update SRC_URI.
+
+*eselect-1.4 (07 Dec 2013)
+
+  07 Dec 2013; Ulrich Müller <ulm@gentoo.org> +eselect-1.4.ebuild:
+  Version bump.
 
   29 Oct 2013; Ulrich Müller <ulm@gentoo.org> eselect-9999.ebuild:
   Change to git-r3 again, following partial fix of bug 489100.

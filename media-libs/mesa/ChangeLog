@@ -1,6 +1,61 @@
 # ChangeLog for media-libs/mesa
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.517 2013/11/19 01:08:18 mattst88 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.528 2014/01/11 11:15:22 mgorny Exp $
+
+  11 Jan 2014; Michał Górny <mgorny@gentoo.org> mesa-9.1.6.ebuild,
+  mesa-9.2.5.ebuild:
+  Depend on llvm < 3.4 where 3.4 is not supported.
+
+  09 Jan 2014; Matt Turner <mattst88@gentoo.org> -mesa-10.0.0.ebuild,
+  -mesa-10.0.0_rc2.ebuild, -mesa-10.0.1.ebuild, -mesa-9.2.4.ebuild:
+  Remove old.
+
+  09 Jan 2014; Matt Turner <mattst88@gentoo.org> mesa-10.0.2.ebuild:
+  Add gbm to REQUIRED_USE for wayland, bug 491646.
+
+*mesa-10.0.2 (09 Jan 2014)
+
+  09 Jan 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.0.2.ebuild:
+  Version bump to 10.0.2.
+
+*mesa-9.2.5 (16 Dec 2013)
+
+  16 Dec 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2.5.ebuild:
+  Version bump.
+
+*mesa-10.0.1 (13 Dec 2013)
+
+  13 Dec 2013; Matt Turner <mattst88@gentoo.org> +mesa-10.0.1.ebuild:
+  Version bump to 10.0.1.
+
+  04 Dec 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-10.0.0.ebuild:
+  drop llvm-shared-libs requirement for opencl.
+
+*mesa-10.0.0 (01 Dec 2013)
+
+  01 Dec 2013; Matt Turner <mattst88@gentoo.org> +mesa-10.0.0.ebuild:
+  Version bump to 10.0.0.
+
+  29 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -mesa-9.2.0-r1.ebuild, -mesa-9.2.0.ebuild, -mesa-9.2.1.ebuild,
+  -mesa-9.2.2.ebuild, -mesa-9.2.3.ebuild, mesa-9.2.4.ebuild:
+  Add patches to fix building gallivm and clover against llvm-3.4, bug #488064
+  and bug #492828, and xorg state tracker against xorg-server-1.15, bug #492838.
+  Drop old 9.2 releases.
+
+  29 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-10.0.0_rc2.ebuild:
+  shared-llvm-libs is not required for opencl in mesa-10
+
+*mesa-10.0.0_rc2 (28 Nov 2013)
+*mesa-9.2.4 (28 Nov 2013)
+
+  28 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-10.0.0_rc2.ebuild, +mesa-9.2.4.ebuild, -mesa-10.0.0_rc1.ebuild,
+  metadata.xml:
+  Version bumps.
 
   19 Nov 2013; Matt Turner <mattst88@gentoo.org> mesa-10.0.0_rc1.ebuild:
   Fix typo, thanks mrueg.

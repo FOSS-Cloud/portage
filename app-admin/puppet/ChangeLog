@@ -1,6 +1,67 @@
 # ChangeLog for app-admin/puppet
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/puppet/ChangeLog,v 1.178 2013/11/19 10:07:26 nimiux Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/puppet/ChangeLog,v 1.192 2014/01/18 07:33:11 prometheanfire Exp $
+
+  18 Jan 2014; Matthew Thode <prometheanfire@gentoo.org> -puppet-2.7.23.ebuild,
+  -puppet-3.2.4.ebuild:
+  removing the old and janky (vulnerable)
+
+*puppet-3.4.2-r1 (15 Jan 2014)
+
+  15 Jan 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +puppet-3.4.2-r1.ebuild:
+  750 on /var/lib/puppet and /etc/puppet
+
+*puppet-3.4.2 (08 Jan 2014)
+
+  08 Jan 2014; Matthew Thode <prometheanfire@gentoo.org> +puppet-3.4.2.ebuild:
+  bugfix bump for PUP-724: Could not autoload puppet /util /instrumentation
+  /listeners
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> puppet-2.7.24.ebuild,
+  puppet-3.4.1.ebuild:
+  Stable for sparc, wrt bug #494768
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> puppet-2.7.24.ebuild,
+  puppet-3.4.1.ebuild:
+  Stable for ppc, wrt bug #494768
+
+  04 Jan 2014; Agostino Sarubbo <ago@gentoo.org> puppet-2.7.24.ebuild,
+  puppet-3.4.1.ebuild:
+  Stable for x86, wrt bug #494768
+
+  04 Jan 2014; Agostino Sarubbo <ago@gentoo.org> puppet-2.7.24.ebuild,
+  puppet-3.4.1.ebuild:
+  Stable for amd64, wrt bug #494768
+
+  01 Jan 2014; Patrick Lauer <patrick@gentoo.org> puppet-2.7.23.ebuild,
+  puppet-3.2.4.ebuild:
+  Remove ruby18 target as dependencies lost support already
+
+  27 Dec 2013; Jeroen Roovers <jer@gentoo.org> puppet-3.4.1.ebuild:
+  Stable for HPPA (bug #494768).
+
+  27 Dec 2013; Jeroen Roovers <jer@gentoo.org> puppet-2.7.24.ebuild:
+  Stable for HPPA (bug #494768).
+
+*puppet-2.7.24 (26 Dec 2013)
+*puppet-3.4.1 (26 Dec 2013)
+
+  26 Dec 2013; Matthew Thode <prometheanfire@gentoo.org> +puppet-2.7.24.ebuild,
+  +puppet-3.4.1.ebuild, -puppet-3.3.2-r1.ebuild, -puppet-3.3.2.ebuild:
+  updating puppet for CVE-2013-4969 bug 494768
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> puppet-3.2.4.ebuild:
+  Stable for x86, wrt bug #486002
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> puppet-3.2.4.ebuild:
+  Stable for sparc, wrt bug #486002
+
+*puppet-3.3.2-r1 (23 Dec 2013)
+
+  23 Dec 2013; Matthew Thode <prometheanfire@gentoo.org> +files/tmpfiles.d,
+  +puppet-3.3.2-r1.ebuild, -puppet-3.3.0.ebuild, -puppet-3.3.1.ebuild:
+  adding systemd support for bug 489860
 
   19 Nov 2013; Chema Alonso <nimiux@gentoo.org> puppet-3.2.4.ebuild:
   Stable for amd64 wrt bug #486002

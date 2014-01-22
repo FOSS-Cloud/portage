@@ -1,6 +1,30 @@
 # ChangeLog for dev-perl/Crypt-DES
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Crypt-DES/ChangeLog,v 1.33 2013/09/07 18:26:33 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Crypt-DES/ChangeLog,v 1.41 2013/12/07 16:29:52 zlogene Exp $
+
+  07 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> Crypt-DES-2.70.0.ebuild:
+  ppc64 stable wrt bug #492106
+
+  07 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> Crypt-DES-2.70.0.ebuild:
+  ppc stable wrt bug #492106
+
+  07 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> Crypt-DES-2.70.0.ebuild:
+  sparc stable wrt bug #492106
+
+  07 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> Crypt-DES-2.70.0.ebuild:
+  ia64 stable wrt bug #492106
+
+  06 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> Crypt-DES-2.70.0.ebuild:
+  x86 stable wrt bug #492106
+
+  06 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> Crypt-DES-2.70.0.ebuild:
+  amd64 stable wrt bug #492106
+
+  06 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> Crypt-DES-2.70.0.ebuild:
+  alpha stable wrt bug #492106
+
+  06 Dec 2013; Jeroen Roovers <jer@gentoo.org> Crypt-DES-2.70.0.ebuild:
+  Stable for HPPA (bug #492106).
 
 *Crypt-DES-2.70.0 (07 Sep 2013)
 

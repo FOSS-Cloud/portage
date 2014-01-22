@@ -1,6 +1,42 @@
 # ChangeLog for media-gfx/hugin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/hugin/ChangeLog,v 1.134 2013/10/28 22:18:52 maekke Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/hugin/ChangeLog,v 1.141 2014/01/20 16:00:22 ago Exp $
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hugin-2013.0.0-r1.ebuild:
+  Stable for ppc, wrt bug #497934
+
+*hugin-2014.0.0_beta1 (12 Jan 2014)
+
+  12 Jan 2014; Markus Meier <maekke@gentoo.org> hugin-2013.0.0-r1.ebuild,
+  +hugin-2014.0.0_beta1.ebuild, hugin-9999.ebuild:
+  version bump, add subslot operator for media-libs/libpano13 and sync live
+  ebuild
+
+  08 Dec 2013; Justin Lecher <jlec@gentoo.org> hugin-2013.0.0-r1.ebuild:
+  Drop flann dependency, #492592
+
+*hugin-2013.0.0-r1 (25 Nov 2013)
+
+  25 Nov 2013; Justin Lecher <jlec@gentoo.org> +hugin-2013.0.0-r1.ebuild:
+  RevBump to trigger rebuild
+
+  25 Nov 2013; Patrick Lauer <patrick@gentoo.org> hugin-2013.0.0.ebuild:
+  Whitespace
+
+  24 Nov 2013; Justin Lecher <jlec@gentoo.org> hugin-2012.0.0-r1.ebuild,
+  hugin-2013.0.0.ebuild, hugin-9999.ebuild:
+  Add sci-libs/flann to unbundle it
+
+*hugin-9999 (24 Nov 2013)
+*hugin-2012.0.0-r1 (24 Nov 2013)
+
+  24 Nov 2013; Justin Lecher <jlec@gentoo.org> +hugin-2012.0.0-r1.ebuild,
+  hugin-2013.0.0.ebuild, +hugin-9999.ebuild, +files/hugin-2012.0.0-boost.patch,
+  +files/hugin-2012.0.0-perl.patch, +files/hugin-2013.0.0-boost.patch,
+  metadata.xml:
+  Backport fix for building with newer boost; Use system cmake modules to
+  detect lapack; backport patch to use perl 5.16; fixes bugs
+  #296510,300127,373387,374337,388149,404227,484238
 
 *hugin-2013.0.0 (28 Oct 2013)
 

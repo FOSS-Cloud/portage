@@ -1,6 +1,77 @@
 # ChangeLog for dev-lang/php
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/php/ChangeLog,v 1.776 2013/11/15 12:02:54 olemarkus Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/php/ChangeLog,v 1.792 2014/01/17 18:13:53 rich0 Exp $
+
+  17 Jan 2014; Richard Freeman <rich0@gentoo.org> php-5.3.28-r1.ebuild:
+  amd64 stable - 494249,492784
+
+*php-5.5.7 (13 Jan 2014)
+
+  13 Jan 2014; Ole Markus With <olemarkus@gentoo.org> +php-5.5.7.ebuild:
+  Restoring php-5.5.7
+
+  13 Jan 2014; Ole Markus With <olemarkus@gentoo.org> -php-5.4.18.ebuild,
+  -php-5.4.19.ebuild, -php-5.4.20.ebuild, -php-5.4.21.ebuild,
+  -php-5.4.22.ebuild, -php-5.5.3-r1.ebuild, -php-5.5.3.ebuild,
+  -php-5.5.4.ebuild, -php-5.5.5.ebuild, -php-5.5.6.ebuild, -php-5.5.7.ebuild:
+  Removing old versions
+
+*php-5.5.8 (13 Jan 2014)
+*php-5.4.24 (13 Jan 2014)
+
+  13 Jan 2014; Ole Markus With <olemarkus@gentoo.org> +php-5.4.24.ebuild,
+  +php-5.5.8.ebuild:
+  Version bump
+
+  12 Jan 2014; Agostino Sarubbo <ago@gentoo.org> php-5.3.28.ebuild,
+  php-5.4.23.ebuild, php-5.5.7.ebuild:
+  Stable for ia64, wrt bug #492784
+
+  10 Jan 2014; Jeroen Roovers <jer@gentoo.org> php-5.3.28-r1.ebuild:
+  Stable for HPPA (bug #492784).
+
+  10 Jan 2014; Ole Markus With <olemarkus@gentoo.org> php-5.3.28-r1.ebuild:
+  Fix for building with USE=threads. Bug #494240
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> php-5.3.28.ebuild,
+  php-5.4.23.ebuild, php-5.5.7.ebuild:
+  Stable for alpha, wrt bug #492784
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> php-5.3.28.ebuild,
+  php-5.4.23.ebuild, php-5.5.7.ebuild:
+  Stable for arm, wrt bug #492784
+
+  04 Jan 2014; Agostino Sarubbo <ago@gentoo.org> php-5.3.28.ebuild,
+  php-5.4.23.ebuild, php-5.5.7.ebuild:
+  Stable for sparc, wrt bug #492784
+
+  04 Jan 2014; Agostino Sarubbo <ago@gentoo.org> php-5.3.28.ebuild,
+  php-5.4.23.ebuild, php-5.5.7.ebuild:
+  Stable for ppc64, wrt bug #492784
+
+  04 Jan 2014; Agostino Sarubbo <ago@gentoo.org> php-5.3.28.ebuild,
+  php-5.4.23.ebuild, php-5.5.7.ebuild:
+  Stable for ppc, wrt bug #492784
+
+  03 Jan 2014; Agostino Sarubbo <ago@gentoo.org> php-5.3.28.ebuild,
+  php-5.4.23.ebuild, php-5.5.7.ebuild:
+  Stable for x86, wrt bug #492784
+
+  03 Jan 2014; Agostino Sarubbo <ago@gentoo.org> php-5.3.28.ebuild,
+  php-5.4.23.ebuild, php-5.5.7.ebuild:
+  Stable for amd64, wrt bug #492784
+
+  30 Dec 2013; Jeroen Roovers <jer@gentoo.org> php-5.4.23.ebuild,
+  php-5.5.7.ebuild:
+  Stable for HPPA (bug #492784).
+
+*php-5.4.23 (13 Dec 2013)
+*php-5.5.7 (13 Dec 2013)
+*php-5.3.28 (13 Dec 2013)
+
+  13 Dec 2013; Ole Markus With <olemarkus@gentoo.org> +php-5.3.28.ebuild,
+  +php-5.4.23.ebuild, +php-5.5.7.ebuild:
+  Version bump of all minor versions
 
 *php-5.4.22 (15 Nov 2013)
 

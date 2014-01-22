@@ -1,6 +1,18 @@
 # ChangeLog for x11-drivers/xf86-video-modesetting
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-modesetting/ChangeLog,v 1.41 2013/10/08 05:06:19 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-modesetting/ChangeLog,v 1.43 2013/12/04 11:54:13 chithanh Exp $
+
+*xf86-video-modesetting-0.8.1 (04 Dec 2013)
+
+  04 Dec 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xf86-video-modesetting-0.8.1.ebuild:
+  Version bump.
+
+  28 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/xf86-video-modesetting-0.8.0-damageunregister.patch,
+  -xf86-video-modesetting-0.5.0.ebuild, -xf86-video-modesetting-0.6.0.ebuild,
+  -xf86-video-modesetting-0.7.0.ebuild, xf86-video-modesetting-0.8.0.ebuild:
+  Add patch to build against recent xorg-server. Drop old.
 
   08 Oct 2013; Agostino Sarubbo <ago@gentoo.org>
   xf86-video-modesetting-0.8.0.ebuild:

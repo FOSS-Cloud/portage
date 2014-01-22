@@ -1,6 +1,22 @@
 # ChangeLog for net-misc/htpdate
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/htpdate/ChangeLog,v 1.51 2013/11/17 10:39:18 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/htpdate/ChangeLog,v 1.56 2014/01/18 10:38:58 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> htpdate-1.0.7.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> htpdate-1.0.4.ebuild,
+  htpdate-1.0.7.ebuild:
+  Mark s390/sh stable.
+
+  22 Dec 2013; Mike Frysinger <vapier@gentoo.org> htpdate-1.0.7.ebuild:
+  Fix building on uclibc systems.
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> htpdate-1.0.7.ebuild:
+  Stable for ppc, wrt bug #490586
+
+  30 Nov 2013; Markus Meier <maekke@gentoo.org> htpdate-1.0.7.ebuild:
+  arm stable, bug #490586
 
   17 Nov 2013; Sergey Popov <pinkbyte@gentoo.org> htpdate-1.0.7.ebuild:
   Stable on amd64 and x86, wrt bug #490586
@@ -213,4 +229,3 @@
   22 Jun 2005; Tobias Scherbaum <dertobi123@gentoo.org> +metadata.xml,
   +htpdate-0.8.2.ebuild:
   Initial ebuild thanks to Christian Hartmann in #96364.
-

@@ -1,6 +1,47 @@
 # ChangeLog for app-emulation/emul-linux-x86-baselibs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-baselibs/ChangeLog,v 1.165 2013/11/11 14:16:36 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-baselibs/ChangeLog,v 1.172 2013/12/30 08:37:02 aballier Exp $
+
+*emul-linux-x86-baselibs-20131008-r8 (30 Dec 2013)
+
+  30 Dec 2013; Alexis Ballier <aballier@gentoo.org>
+  -emul-linux-x86-baselibs-20131008-r7.ebuild,
+  +emul-linux-x86-baselibs-20131008-r8.ebuild, files/remove-native:
+  rev bump featuring migrated dbus-glib and readline
+
+*emul-linux-x86-baselibs-20131008-r7 (30 Dec 2013)
+
+  30 Dec 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  emul-linux-x86-baselibs-20131008-r6.ebuild,
+  +emul-linux-x86-baselibs-20131008-r7.ebuild,
+  +files/remove-native-20131008-r6, files/remove-native:
+  Bump for multilib libxml2.
+
+  04 Dec 2013; Michał Górny <mgorny@gentoo.org> files/remove-native:
+  Remove Perl & Python modules that require gdbm_compat as well.
+
+*emul-linux-x86-baselibs-20131008-r6 (04 Dec 2013)
+
+  04 Dec 2013; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20131008-r6.ebuild,
+  -emul-linux-x86-baselibs-20131008-r5.ebuild, files/remove-native:
+  Remove gdbm perl & python modules in multilib mode, bug #493004.
+
+  30 Nov 2013; Michał Górny <mgorny@gentoo.org>
+  emul-linux-x86-baselibs-20131008-r5.ebuild, files/remove-native:
+  Add json-c to the removal list while the ebuild is still fresh. It does not
+  collide with the package contents since it is a different version.
+
+*emul-linux-x86-baselibs-20131008-r5 (30 Nov 2013)
+
+  30 Nov 2013; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20131008-r5.ebuild,
+  -emul-linux-x86-baselibs-20131008-r4.ebuild, files/remove-native:
+  Bump for inclusion of dbus, gdbm and tcp-wrappers.
+
+  22 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-baselibs-20131008-r4.ebuild:
+  amd64 stable, bug #489898
 
 *emul-linux-x86-baselibs-20131008-r4 (11 Nov 2013)
 

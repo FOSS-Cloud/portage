@@ -1,6 +1,15 @@
 # ChangeLog for dev-python/pyflakes
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyflakes/ChangeLog,v 1.36 2013/10/22 14:19:56 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyflakes/ChangeLog,v 1.39 2013/12/15 15:09:01 mgorny Exp $
+
+  15 Dec 2013; Michał Górny <mgorny@gentoo.org> pyflakes-0.7.2.ebuild:
+  Add missing unittest2 dep (only in older version), bug #494012.
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> pyflakes-0.7.3.ebuild:
+  Stable for x86, wrt bug #490378
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> pyflakes-0.7.3.ebuild:
+  Stable for amd64, wrt bug #490378
 
   22 Oct 2013; Fabian Groffen <grobian@gentoo.org> pyflakes-0.7.3.ebuild:
   Marked ~x64-macos, bug #487670

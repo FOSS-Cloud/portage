@@ -1,6 +1,16 @@
 # ChangeLog for net-misc/whois
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/whois/ChangeLog,v 1.197 2013/08/10 12:50:58 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/whois/ChangeLog,v 1.199 2014/01/20 13:59:15 chainsaw Exp $
+
+*whois-5.1.1 (20 Jan 2014)
+
+  20 Jan 2014; Tony Vroon <chainsaw@gentoo.org> +whois-5.1.1.ebuild:
+  Version bump, as requested by Mike DeSimone in bug #498644.
+
+*whois-5.1.0 (03 Jan 2014)
+
+  03 Jan 2014; Tim Harder <radhermit@gentoo.org> +whois-5.1.0.ebuild:
+  Version bump.
 
   10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> whois-5.0.25.ebuild:
   Stable for ppc, wrt bug #478528

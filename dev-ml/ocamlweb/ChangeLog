@@ -1,6 +1,12 @@
 # ChangeLog for dev-ml/ocamlweb
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocamlweb/ChangeLog,v 1.22 2013/07/05 23:10:06 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocamlweb/ChangeLog,v 1.24 2013/12/24 12:41:58 ago Exp $
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ocamlweb-1.38-r1.ebuild:
+  Stable for x86, wrt bug #492052
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ocamlweb-1.38-r1.ebuild:
+  Stable for ppc, wrt bug #492052
 
 *ocamlweb-1.38-r1 (05 Jul 2013)
 
@@ -82,4 +88,3 @@
   ocamlweb-1.34.ebuild:
   ocamlweb is a literate programming tool for ocaml, it can output TeX docs
   from literate sources.
-

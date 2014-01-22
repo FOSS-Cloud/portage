@@ -1,6 +1,25 @@
 # ChangeLog for app-backup/deja-dup
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/deja-dup/ChangeLog,v 1.38 2013/11/19 20:32:46 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-backup/deja-dup/ChangeLog,v 1.43 2014/01/13 07:13:17 jlec Exp $
+
+*deja-dup-29.4 (13 Jan 2014)
+
+  13 Jan 2014; Justin Lecher <jlec@gentoo.org> +deja-dup-29.4.ebuild:
+  Version Bump
+
+  24 Dec 2013; Tom Wijsman <TomWij@gentoo.org>
+  -files/deja-dup-23.2-add-missing-include.patch,
+  -files/deja-dup-25.1.1-desktop.patch:
+  [QA] Remove unused files.
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> deja-dup-28.0.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> deja-dup-28.0.ebuild:
+  amd64 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> deja-dup-28.0.ebuild:
+  28.0 doesn't compile with vala-0.22
 
 *deja-dup-29.1-r1 (19 Nov 2013)
 
@@ -174,4 +193,3 @@
   +metadata.xml:
   New addition, thanks Alexander van der Mey, Yoan Blanc, Manuel Wiesinger,
   Helmut Eberharter writting the initial ebuilds, #259744
-

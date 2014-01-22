@@ -1,6 +1,33 @@
 # ChangeLog for www-client/links
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/links/ChangeLog,v 1.192 2013/10/04 05:40:02 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/links/ChangeLog,v 1.201 2014/01/12 13:16:09 ago Exp $
+
+  12 Jan 2014; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for ia64, wrt bug #493138
+
+  29 Dec 2013; Markus Meier <maekke@gentoo.org> links-2.8-r1.ebuild:
+  arm stable, bug #493138
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for sparc, wrt bug #493138
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for x86, wrt bug #493138
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for alpha, wrt bug #493138
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> links-2.8-r1.ebuild:
+  amd64 stable, bug #493138
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for ppc64, wrt bug #493138
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for ppc, wrt bug #493138
+
+  19 Dec 2013; Jeroen Roovers <jer@gentoo.org> links-2.8-r1.ebuild:
+  Stable for HPPA (bug #493138).
 
 *links-2.8-r1 (04 Oct 2013)
 

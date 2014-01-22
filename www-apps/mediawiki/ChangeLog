@@ -1,6 +1,39 @@
 # ChangeLog for www-apps/mediawiki
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.247 2013/11/15 09:33:34 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.254 2014/01/22 18:15:56 zlogene Exp $
+
+  22 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> mediawiki-1.19.10.ebuild,
+  mediawiki-1.21.4.ebuild:
+  amd64 stable wrt bug #498064
+
+*mediawiki-1.19.10 (22 Jan 2014)
+*mediawiki-1.21.4 (22 Jan 2014)
+*mediawiki-1.22.1 (22 Jan 2014)
+
+  22 Jan 2014; Samuel Damashek <sdamashek@gentoo.org> +mediawiki-1.19.10.ebuild,
+  +mediawiki-1.21.4.ebuild, +mediawiki-1.22.1.ebuild:
+  Version bump wrt bug 498064
+
+  13 Dec 2013; Tim Harder <radhermit@gentoo.org> -mediawiki-1.19.8.ebuild,
+  -mediawiki-1.20.7.ebuild, -mediawiki-1.21.2.ebuild:
+  Remove old.
+
+  13 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.9.ebuild,
+  mediawiki-1.20.8.ebuild, mediawiki-1.21.3.ebuild:
+  Stable for ppc, wrt bug #491278
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.9.ebuild,
+  mediawiki-1.20.8.ebuild, mediawiki-1.21.3.ebuild:
+  Stable for x86, wrt bug #491278
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.9.ebuild,
+  mediawiki-1.20.8.ebuild, mediawiki-1.21.3.ebuild:
+  Stable for amd64, wrt bug #491278
+
+*mediawiki-1.22.0 (10 Dec 2013)
+
+  10 Dec 2013; Tim Harder <radhermit@gentoo.org> +mediawiki-1.22.0.ebuild:
+  Version bump.
 
 *mediawiki-1.21.3 (15 Nov 2013)
 *mediawiki-1.20.8 (15 Nov 2013)

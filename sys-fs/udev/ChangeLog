@@ -1,6 +1,26 @@
 # ChangeLog for sys-fs/udev
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/ChangeLog,v 1.973 2013/11/13 03:30:35 mattst88 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/ChangeLog,v 1.979 2014/01/18 05:16:48 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> udev-208.ebuild,
+  udev-9999.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> udev-208.ebuild:
+  Mark m68k/s390/sh stable.
+
+  06 Jan 2014; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> udev-208.ebuild,
+  udev-9999.ebuild:
+  Replace multilib_is_native_abi with multilib_build_binaries, bug 485734
+
+  08 Dec 2013; Markus Meier <maekke@gentoo.org> udev-208.ebuild:
+  arm stable, bug #487340
+
+  01 Dec 2013; Johannes Huber <johu@gentoo.org> udev-208.ebuild:
+  x86 stable, bug #487340
+
+  24 Nov 2013; Pacho Ramos <pacho@gentoo.org> udev-208.ebuild:
+  amd64 stable, bug #487340
 
   13 Nov 2013; Matt Turner <mattst88@gentoo.org> udev-208.ebuild:
   alpha stable, bug 487340.

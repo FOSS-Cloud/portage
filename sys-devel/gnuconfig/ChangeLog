@@ -1,6 +1,29 @@
 # ChangeLog for sys-devel/gnuconfig
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gnuconfig/ChangeLog,v 1.73 2013/05/16 15:21:59 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/gnuconfig/ChangeLog,v 1.77 2014/01/18 03:12:22 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> gnuconfig-20130516.ebuild,
+  gnuconfig-20131128.ebuild, gnuconfig-99999999.ebuild:
+  Add arm64 love.
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -gnuconfig-20100924.ebuild, -gnuconfig-20110202.ebuild,
+  -gnuconfig-20110814.ebuild, -gnuconfig-20120116.ebuild,
+  -gnuconfig-20120818.ebuild, -gnuconfig-20121010.ebuild,
+  -gnuconfig-20130111.ebuild:
+  Removed old versions and files.
+
+*gnuconfig-20131128 (21 Dec 2013)
+
+  21 Dec 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/99999999/0002-Add-x32-support-to-config.guess.patch,
+  +gnuconfig-20131128.ebuild,
+  files/99999999/0002-add-ps2-targets-to-config.sub.patch,
+  gnuconfig-99999999.ebuild:
+  Version bump.
+
+  21 Dec 2013; Mike Frysinger <vapier@gentoo.org> gnuconfig-20130516.ebuild:
+  Stabilize for all.
 
 *gnuconfig-20130516 (16 May 2013)
 

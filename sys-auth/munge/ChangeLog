@@ -1,6 +1,30 @@
 # ChangeLog for sys-auth/munge
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/munge/ChangeLog,v 1.13 2013/01/11 20:05:08 jsbronder Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/munge/ChangeLog,v 1.21 2014/01/19 13:46:51 ago Exp $
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> munge-0.5.10-r1.ebuild:
+  Stable for alpha, wrt bug #484320
+
+  12 Jan 2014; Agostino Sarubbo <ago@gentoo.org> munge-0.5.10-r1.ebuild:
+  Stable for ia64, wrt bug #484320
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> munge-0.5.10-r1.ebuild:
+  Stable for sparc, wrt bug #484320
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> munge-0.5.10-r1.ebuild:
+  Stable for ppc, wrt bug #484320
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> munge-0.5.10-r1.ebuild:
+  Stable for ppc64, wrt bug #484320
+
+  03 Jan 2014; Agostino Sarubbo <ago@gentoo.org> munge-0.5.10-r1.ebuild:
+  Stable for x86, wrt bug #484320
+
+  03 Jan 2014; Agostino Sarubbo <ago@gentoo.org> munge-0.5.10-r1.ebuild:
+  Stable for amd64, wrt bug #484320
+
+  25 Dec 2013; Jeroen Roovers <jer@gentoo.org> munge-0.5.10-r1.ebuild:
+  Stable for HPPA (bug #484320).
 
   11 Jan 2013; Justin Bronder <jsbronder@gentoo.org> munge-0.5.10-r1.ebuild:
   Remove /var/run from install image. #450830.
@@ -51,4 +75,3 @@
   14 Nov 2010; Justin Bronder <jsbronder@gentoo.org> +munge-0.5.9.ebuild,
   +files/munged.confd, +files/munged.initd, +metadata.xml:
   Initial import.
-

@@ -1,6 +1,30 @@
 # ChangeLog for app-emulation/virt-manager
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virt-manager/ChangeLog,v 1.95 2013/09/25 07:24:54 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/virt-manager/ChangeLog,v 1.100 2014/01/18 19:05:34 pacho Exp $
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> virt-manager-0.10.0-r1.ebuild:
+  amd64 stable, bug #493788
+
+*virt-manager-0.10.0-r2 (14 Dec 2013)
+
+  14 Dec 2013; Doug Goldstein <cardoe@gentoo.org>
+  +virt-manager-0.10.0-r2.ebuild:
+  Allow virtinst components to be installed separate from virt-manager to allow
+  users without a GUI to get the newer virtinst bits that are now merged into
+  virt-manager and maintained there. Controlled by USE=gtk.
+
+  09 Dec 2013; Doug Goldstein <cardoe@gentoo.org> virt-manager-0.10.0-r1.ebuild,
+  virt-manager-9999.ebuild:
+  Michal Privoznik <mprivozn@redhat.com> pointed out that the live ebuild was
+  broken and the deps for 0.10.0-r1 were wrong as well. This should hopefully
+  fix both.
+
+  02 Dec 2013; Doug Goldstein <cardoe@gentoo.org> virt-manager-0.10.0-r1.ebuild,
+  virt-manager-0.10.0.ebuild:
+  Fix depends to account for new Python bindings package for libvirt.
+
+  02 Dec 2013; Doug Goldstein <cardoe@gentoo.org> -virt-manager-0.9.4.ebuild:
+  Remove older version
 
   25 Sep 2013; Justin Lecher <jlec@gentoo.org> virt-manager-0.10.0.ebuild,
   virt-manager-0.10.0-r1.ebuild, virt-manager-9999.ebuild:

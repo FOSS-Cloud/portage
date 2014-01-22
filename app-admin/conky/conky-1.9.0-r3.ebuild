@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/conky/conky-1.9.0-r3.ebuild,v 1.2 2013/10/25 14:38:33 billie Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/conky/conky-1.9.0-r3.ebuild,v 1.4 2014/01/06 16:01:46 billie Exp $
 
 EAPI=5
 
@@ -17,7 +17,7 @@ IUSE="apcupsd audacious curl debug eve hddtemp imlib iostats lua lua-cairo lua-i
 
 DEPEND_COMMON="
 	X? (
-		imlib? ( media-libs/imlib2 )
+		imlib? ( media-libs/imlib2[X] )
 		lua-cairo? (
 			>=dev-lua/toluapp-1.0.93
 			>=dev-lang/lua-5.1.4-r8
@@ -25,7 +25,7 @@ DEPEND_COMMON="
 		lua-imlib? (
 			>=dev-lua/toluapp-1.0.93
 			>=dev-lang/lua-5.1.4-r8
-			media-libs/imlib2 )
+			media-libs/imlib2[X] )
 		nvidia? ( media-video/nvidia-settings )
 		truetype? ( x11-libs/libXft >=media-libs/freetype-2 )
 		x11-libs/libX11
@@ -64,7 +64,8 @@ src_prepare() {
 		"${FILESDIR}/${P}-lines-fix.patch" \
 		"${FILESDIR}/${P}-update-when-message-count-decreases.patch" \
 		"${FILESDIR}/${P}-apcupsd.patch" \
-		"${FILESDIR}/${P}-default-graph-size.patch"
+		"${FILESDIR}/${P}-default-graph-size.patch" \
+		"${FILESDIR}/${P}-diskio-dmmajor.patch"
 
 	# Allow user patches #478482
 	# Only run autotools if user patched something

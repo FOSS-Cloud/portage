@@ -1,6 +1,20 @@
 # ChangeLog for gnome-extra/zenity
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/zenity/ChangeLog,v 1.211 2013/03/29 22:58:00 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/zenity/ChangeLog,v 1.214 2013/12/24 12:41:09 pacho Exp $
+
+*zenity-3.8.0-r1 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/zenity-3.8.0-double-click.patch, +zenity-3.8.0-r1.ebuild,
+  -zenity-3.6.0.ebuild:
+  Fix double clicking an item or hitting enter after selecting an item (#493332
+  by Kai Wustermann), drop old.
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> zenity-3.8.0.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> zenity-3.8.0.ebuild:
+  amd64 stable, bug #478252
 
   29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -zenity-3.4.0.ebuild,
   -files/zenity-3.4.0-list-check.patch,

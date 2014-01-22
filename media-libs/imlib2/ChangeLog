@@ -1,6 +1,24 @@
 # ChangeLog for media-libs/imlib2
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/imlib2/ChangeLog,v 1.117 2013/09/28 09:37:31 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/imlib2/ChangeLog,v 1.120 2014/01/18 20:19:17 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/imlib2-1.4.5-giflib-5.patch, imlib2-1.4.5-r1.ebuild,
+  imlib2-1.4.6-r1.ebuild:
+  Add fix from upstream for giflib-5 #457634 by Andrew John Hughes.
+
+*imlib2-1.4.6-r1 (18 Jan 2014)
+*imlib2-1.4.5-r1 (18 Jan 2014)
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> -imlib2-1.4.5.ebuild,
+  +imlib2-1.4.5-r1.ebuild, -imlib2-1.4.6.ebuild, +imlib2-1.4.6-r1.ebuild,
+  +files/imlib2-1.4.5-no-my-libs.patch:
+  Add fix from upstream for stray @my_libs@ in imlib2-config #497894 by Emile.
+
+*imlib2-1.4.6 (09 Jan 2014)
+
+  09 Jan 2014; Mike Frysinger <vapier@gentoo.org> +imlib2-1.4.6.ebuild:
+  Version bump #496730 by pavel sanda.
 
 *imlib2-9999 (28 Sep 2013)
 

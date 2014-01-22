@@ -1,6 +1,21 @@
 # ChangeLog for dev-python/tempita
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/tempita/ChangeLog,v 1.33 2013/09/05 18:46:29 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/tempita/ChangeLog,v 1.36 2013/12/03 08:06:45 dev-zero Exp $
+
+*tempita-0.5.2_pre20130828 (03 Dec 2013)
+
+  03 Dec 2013; Tiziano Müller <dev-zero@gentoo.org>
+  +tempita-0.5.2_pre20130828.ebuild, -tempita-0.5.1-r2.ebuild:
+  Version bump to snapshot from bugfixed fork for py3 support.
+
+  02 Dec 2013; Sébastien Fabbro <bicatali@gentoo.org> tempita-0.5.1-r2.ebuild:
+  Keyword amd64-linux and x86-linux
+
+*tempita-0.5.1-r2 (01 Dec 2013)
+
+  01 Dec 2013; Justin Lecher <jlec@gentoo.org> +tempita-0.5.1-r2.ebuild,
+  metadata.xml:
+  add python-3 support
 
   05 Sep 2013; Michał Górny <mgorny@gentoo.org> tempita-0.5.1-r1.ebuild:
   Clean up PYTHON_COMPAT from old implementations.

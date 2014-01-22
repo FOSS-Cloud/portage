@@ -1,6 +1,30 @@
 # ChangeLog for dev-libs/libxml2
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libxml2/ChangeLog,v 1.403 2013/10/19 14:05:37 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libxml2/ChangeLog,v 1.408 2014/01/18 02:53:03 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> libxml2-2.9.1-r1.ebuild,
+  libxml2-2.9.1-r2.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> libxml2-2.9.1-r1.ebuild:
+  Mark m68k stable.
+
+  06 Jan 2014; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  libxml2-2.9.1-r2.ebuild:
+  Use multilib_build_binaries instead of multilib_is_native_abi, fixes build
+  failures of multilib-portage e.g. with 32bit mesa because of missing 32bit
+  python modules of libxml2
+
+  03 Jan 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  libxml2-2.9.1-r2.ebuild:
+  Stylistic fix: make locals local, thanks to Arfrever for noticing.
+
+*libxml2-2.9.1-r2 (30 Dec 2013)
+
+  30 Dec 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +libxml2-2.9.1-r2.ebuild, +files/libxml2-2.9.1-icu-pkgconfig.patch:
+  Add multilib support (bug #480404, thanks to David Heidelberger (okias) and
+  Alexis Ballier).
 
   19 Oct 2013; Pacho Ramos <pacho@gentoo.org>
   -files/libxml2-2.7.8-disable_static_modules.patch,

@@ -1,6 +1,30 @@
 # ChangeLog for sys-power/apcupsd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/apcupsd/ChangeLog,v 1.92 2013/11/01 13:51:12 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-power/apcupsd/ChangeLog,v 1.98 2014/01/16 17:28:22 jer Exp $
+
+  16 Jan 2014; Jeroen Roovers <jer@gentoo.org> files/apcupsd.conf:
+  Spelling.
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> apcupsd-3.14.8-r2.ebuild:
+  Stable for ppc, wrt bug #485344
+
+  07 Dec 2013; Matthew Marlowe <mattm@gentoo.org> files/apcupsd-tmpfiles.conf:
+  Add D /run/apcupsd 0755 root root to systemd tmpfile spec per Bug 492992.
+  Thank you to  Billy DeVincentis for testing.
+
+*apcupsd-3.14.10-r6 (06 Dec 2013)
+
+  06 Dec 2013; Matthew Marlowe <mattm@gentoo.org> +apcupsd-3.14.10-r6.ebuild,
+  -apcupsd-3.14.10-r5.ebuild, files/apcupsd.conf:
+  Found a few more references to /var/run/apcupsd that needed to be changed to
+  /run/apcupsd
+
+  03 Dec 2013; Matthew Marlowe <mattm@gentoo.org> apcupsd-3.14.10-r5.ebuild,
+  files/apcupsd.init.4:
+  Update init file /var/run/apcupsd directory > /run/apcupsd
+
+  28 Nov 2013; Mike Frysinger <vapier@gentoo.org> apcupsd-3.14.10-r5.ebuild:
+  Keep KEYWORDS sorted.
 
   01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> apcupsd-3.14.8-r2.ebuild:
   Stable for x86, wrt bug #485344

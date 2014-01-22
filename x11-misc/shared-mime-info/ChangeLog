@@ -1,6 +1,41 @@
 # ChangeLog for x11-misc/shared-mime-info
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/shared-mime-info/ChangeLog,v 1.200 2013/11/12 20:33:24 haubi Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/shared-mime-info/ChangeLog,v 1.211 2014/01/18 20:02:35 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> shared-mime-info-1.2-r1.ebuild:
+  Stable for alpha, wrt bug #493208
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  shared-mime-info-1.2-r1.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  shared-mime-info-1.2-r1.ebuild:
+  Mark m68k/s390/sh stable.
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> shared-mime-info-1.2-r1.ebuild:
+  Stable for ia64, wrt bug #493208
+
+  23 Dec 2013; Markus Meier <maekke@gentoo.org> shared-mime-info-1.2-r1.ebuild:
+  arm stable, bug #493208
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> shared-mime-info-1.2-r1.ebuild:
+  Stable for sparc, wrt bug #493208
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> shared-mime-info-1.2-r1.ebuild:
+  Stable for ppc64, wrt bug #493208
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> shared-mime-info-1.2-r1.ebuild:
+  Stable for ppc, wrt bug #493208
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> shared-mime-info-1.2-r1.ebuild:
+  x86 stable, bug #493208
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> shared-mime-info-1.2-r1.ebuild:
+  amd64 stable, bug #493208
+
+  05 Dec 2013; Jeroen Roovers <jer@gentoo.org> shared-mime-info-1.2-r1.ebuild:
+  Stable for HPPA (bug #493208).
 
   12 Nov 2013; Michael Haubenwallner <haubi@gentoo.org>
   shared-mime-info-1.2-r1.ebuild:

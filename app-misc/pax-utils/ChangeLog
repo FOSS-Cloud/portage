@@ -1,6 +1,21 @@
 # ChangeLog for app-misc/pax-utils
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/pax-utils/ChangeLog,v 1.149 2013/11/09 17:24:22 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/pax-utils/ChangeLog,v 1.154 2014/01/18 03:18:03 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> pax-utils-0.7.ebuild:
+  Add arm64 love.
+
+  25 Dec 2013; Patrick Lauer <patrick@gentoo.org> pax-utils-0.7.ebuild:
+  Remove bogus stable keyword
+
+  23 Dec 2013; Mike Frysinger <vapier@gentoo.org> pax-utils-0.7.ebuild:
+  Stabilize for all #487676.
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org> pax-utils-0.7.ebuild:
+  x86 stable, bug #487676
+
+  27 Nov 2013; Markus Meier <maekke@gentoo.org> pax-utils-0.7.ebuild:
+  arm stable, bug #487676
 
   09 Nov 2013; Pacho Ramos <pacho@gentoo.org> pax-utils-0.7.ebuild:
   amd64 stable, bug #487676

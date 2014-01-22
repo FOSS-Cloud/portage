@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/xpyb/xpyb-1.3.1-r2.ebuild,v 1.11 2013/10/08 05:08:56 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/xpyb/xpyb-1.3.1-r2.ebuild,v 1.12 2013/11/28 18:10:48 chithanh Exp $
 
 EAPI=5
 
@@ -19,6 +19,7 @@ IUSE="selinux"
 
 RDEPEND=">=x11-libs/libxcb-1.7
 	>=x11-proto/xcb-proto-1.7.1[${PYTHON_USEDEP}]
+	<x11-proto/xcb-proto-1.9
 	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}"
 

@@ -1,6 +1,30 @@
 # ChangeLog for net-misc/dhcpcd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcpcd/ChangeLog,v 1.376 2013/09/23 17:58:22 williamh Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcpcd/ChangeLog,v 1.381 2014/01/18 10:25:23 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> dhcpcd-5.6.4.ebuild,
+  dhcpcd-6.0.5-r1.ebuild, dhcpcd-6.1.0.ebuild, dhcpcd-6.2.0-r1.ebuild,
+  dhcpcd-6.2.0.ebuild, dhcpcd-9999.ebuild:
+  Add arm64 love.
+
+*dhcpcd-6.2.0-r1 (09 Jan 2014)
+
+  09 Jan 2014; William Hubbs <williamh@gentoo.org> +dhcpcd-6.2.0-r1.ebuild,
+  +files/dhcpcd-6.2.0-dynamic-init.patch:
+  make the init system selection dynamic for bug #496870
+
+  05 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> dhcpcd-6.2.0.ebuild,
+  +files/dhcpcd-6.2.0-no_ipv6_fix.patch:
+  Fixed building without ipv6 support (bug #497098).
+
+  05 Jan 2014; Fabian Groffen <grobian@gentoo.org> dhcpcd-6.2.0.ebuild,
+  dhcpcd-9999.ebuild:
+  Use EPREFIX for rundir as well
+
+*dhcpcd-6.2.0 (04 Jan 2014)
+
+  04 Jan 2014; William Hubbs <williamh@gentoo.org> +dhcpcd-6.2.0.ebuild:
+  version bump
 
   23 Sep 2013; William Hubbs <williamh@gentoo.org> -dhcpcd-6.0.2.ebuild,
   -dhcpcd-6.0.3.ebuild, -dhcpcd-6.0.5.ebuild:

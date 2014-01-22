@@ -1,6 +1,26 @@
 # ChangeLog for dev-python/cffi
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/cffi/ChangeLog,v 1.14 2013/11/18 09:10:56 djc Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/cffi/ChangeLog,v 1.19 2013/12/07 19:14:46 pacho Exp $
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org> cffi-0.7.2.ebuild:
+  x86 stable, bug #488738
+
+*cffi-0.8.1 (06 Dec 2013)
+
+  06 Dec 2013; Patrick Lauer <patrick@gentoo.org> +cffi-0.8.1.ebuild:
+  Bump
+
+  30 Nov 2013; Mike Gilbert <floppym@gentoo.org> cffi-0.7.2.ebuild,
+  cffi-0.8.ebuild:
+  Skip test_integration.py to avoid bugs 486736 and 489870.
+
+  30 Nov 2013; Mike Gilbert <floppym@gentoo.org> cffi-0.7.2.ebuild,
+  cffi-0.8.ebuild:
+  Restrict tests until we can fix bugs 486736 and 489870. Simplify pycparser
+  dep. Call distutils-r1_python_install_all.
+
+  29 Nov 2013; Pacho Ramos <pacho@gentoo.org> cffi-0.7.2.ebuild:
+  amd64 stable, bug #488738
 
 *cffi-0.8 (18 Nov 2013)
 

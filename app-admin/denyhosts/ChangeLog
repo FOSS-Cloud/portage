@@ -1,6 +1,44 @@
 # ChangeLog for app-admin/denyhosts
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/denyhosts/ChangeLog,v 1.67 2013/11/12 13:25:59 kensington Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/denyhosts/ChangeLog,v 1.78 2014/01/09 01:11:32 ottxor Exp $
+
+  09 Jan 2014; Christoph Junghans <ottxor@gentoo.org> -files/denyhosts.init:
+  clean up unneeded files
+
+  09 Jan 2014; Christoph Junghans <ottxor@gentoo.org> -denyhosts-2.6-r8.ebuild:
+  remove vulnerable version (bug #495130)
+
+  06 Jan 2014; Jeroen Roovers <jer@gentoo.org> denyhosts-2.6-r9.ebuild:
+  Stable for HPPA (bug #495130).
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> denyhosts-2.6-r9.ebuild:
+  Stable for ppc, wrt bug #495130
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> denyhosts-2.6-r9.ebuild:
+  Stable for arm, wrt bug #495130
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> denyhosts-2.6-r9.ebuild:
+  Stable for sparc, wrt bug #495130
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> denyhosts-2.6-r9.ebuild:
+  Stable for alpha, wrt bug #495130
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> denyhosts-2.6-r9.ebuild:
+  Stable for x86, wrt bug #495130
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> denyhosts-2.6-r9.ebuild:
+  Stable for amd64, wrt bug #495130
+
+*denyhosts-2.6-r9 (06 Jan 2014)
+
+  06 Jan 2014; Christoph Junghans <ottxor@gentoo.org> +denyhosts-2.6-r9.ebuild,
+  +files/denyhosts-2.6-cve-2013-6890.patch, +files/denyhosts.init-r2,
+  metadata.xml:
+  fixed remote denial of ssh service (CVE-2013-6890, bug #495130), added purge
+  command to init.d script (bug #486730) and added me as maintainer
+
+  29 Dec 2013; Pavlos Ratis <dastergon@gentoo.org> metadata.xml:
+  add myself as maintainer
 
   12 Nov 2013; Michael Palimaka <kensington@gentoo.org>
   -denyhosts-2.6-r6.ebuild:

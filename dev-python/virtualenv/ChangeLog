@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/virtualenv
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/virtualenv/ChangeLog,v 1.107 2013/11/19 09:44:22 chainsaw Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/virtualenv/ChangeLog,v 1.111 2013/12/24 12:52:43 ago Exp $
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.10.1.ebuild:
+  Stable for x86, wrt bug #490816
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.10.1.ebuild:
+  Stable for ppc64, wrt bug #490816
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> virtualenv-1.10.1.ebuild:
+  Stable for ppc, wrt bug #490816
+
+  30 Nov 2013; Markus Meier <maekke@gentoo.org> virtualenv-1.10.1.ebuild:
+  arm stable, bug #490816
 
   19 Nov 2013; Tony Vroon <chainsaw@gentoo.org> virtualenv-1.10.1.ebuild:
   Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El

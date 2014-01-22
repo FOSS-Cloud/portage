@@ -1,6 +1,77 @@
 # ChangeLog for dev-vcs/git
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git/ChangeLog,v 1.227 2013/11/21 01:04:47 robbat2 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git/ChangeLog,v 1.241 2014/01/18 09:26:02 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> git-1.8.1.5-r1.ebuild,
+  git-1.8.3.2-r1.ebuild:
+  Mark s390/sh stable.
+
+  17 Jan 2014; Matthew Thode <prometheanfire@gentoo.org> metadata.xml:
+  removing myself as maintainer of git
+
+*git-1.8.5.3 (14 Jan 2014)
+
+  14 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -git-1.8.5.1.ebuild,
+  +git-1.8.5.3.ebuild:
+  Version bump. Removed old.
+
+  04 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> git-1.8.5.2.ebuild,
+  git-9999.ebuild:
+  Add missing git-mw runtime dependency
+
+  04 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> git-1.8.5.2.ebuild,
+  +files/git-1.8.5-mw-destdir.patch, +files/git-1.8.5-mw-vendor.patch,
+  git-9999.ebuild, metadata.xml:
+  Add (masked until dependencies are keyworded) support for mediawiki, use
+  subslot dependency on perl
+
+*git-1.8.5.2 (18 Dec 2013)
+
+  18 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> +git-1.8.5.2.ebuild:
+  Version bump.
+
+  11 Dec 2013; Sergey Popov <pinkbyte@gentoo.org> git-1.8.3.2-r1.ebuild:
+  Stable on arm, wrt bug #480306
+
+  11 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> git-1.8.1.5.ebuild,
+  git-1.8.1.5-r1.ebuild, git-1.8.2.1.ebuild, git-1.8.3.2-r1.ebuild,
+  git-1.8.4.5.ebuild, git-1.8.5.1.ebuild, git-9999.ebuild:
+  Added t9402-git-cvsserver-refs.sh and t9604-cvsimport-timestamps.sh to the
+  cvs-only tests (bug #492556).
+
+  09 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> git-1.8.3.2-r1.ebuild:
+  ia64 stable wrt bug #480306
+
+  07 Dec 2013; Johannes Huber <johu@gentoo.org> git-1.8.3.2-r1.ebuild:
+  x86 stable, bug #480306
+
+  06 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> git-1.8.1.5.ebuild,
+  git-1.8.1.5-r1.ebuild, git-1.8.2.1.ebuild, -git-1.8.3.2.ebuild,
+  -git-1.8.4.ebuild, -git-1.8.4.2.ebuild, -git-1.8.4.3.ebuild,
+  -git-1.8.4.4.ebuild:
+  Fixed remaining ebuilds who suffer from bug #485166. Removed some older
+  versions.
+
+  05 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> git-9999.ebuild:
+  Added changes to live ebuild.
+
+*git-1.8.5.1 (05 Dec 2013)
+
+  05 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> -git-1.6.4.5.ebuild,
+  -git-1.7.2.5.ebuild, -git-1.7.3.4-r1.ebuild, -git-1.7.8.6.ebuild,
+  -git-1.7.12.4.ebuild, -git-1.8.0.2.ebuild, +git-1.8.5.1.ebuild,
+  -files/git-1.6.6.1-interix6.patch, -files/git-1.7.1-interix.patch,
+  -files/git-1.7.2-always-install-js.patch, -files/git-1.7.3.2-interix.patch,
+  -files/git-1.7.3.4-avoid-shell-issues.patch,
+  -files/git-1.7.3.4-fix-perl-test-prereq.patch,
+  -files/git-1.7.3.5-optional-cvs.patch, -files/git-1.7.11-optional-cvs.patch,
+  +files/git-1.8.5-optional-cvs.patch, metadata.xml:
+  Version bump. Removed old.
+
+*git-1.8.4.5 (04 Dec 2013)
+
+  04 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> +git-1.8.4.5.ebuild:
+  Version bump (bug #493348).
 
 *git-1.8.4.4 (21 Nov 2013)
 

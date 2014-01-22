@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/zeromq/zeromq-4.0.1-r1.ebuild,v 1.2 2013/10/26 14:50:06 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/zeromq/zeromq-4.0.1-r1.ebuild,v 1.4 2013/12/24 11:14:32 jlec Exp $
 
 EAPI=5
 
@@ -9,11 +9,10 @@ inherit autotools eutils
 DESCRIPTION="ZeroMQ is a brokerless kernel"
 HOMEPAGE="http://www.zeromq.org/"
 SRC_URI="http://download.zeromq.org/${P}.tar.gz"
-RESTRICT="mirror"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~hppa ~x86 ~amd64-linux ~x86-linux"
 IUSE="elibc_glibc pgm static-libs test"
 
 RDEPEND="
@@ -40,6 +39,10 @@ src_configure() {
 	econf \
 		$(use_enable static-libs static) \
 		$myconf
+}
+
+src_test() {
+	emake -j1 check
 }
 
 src_install() {

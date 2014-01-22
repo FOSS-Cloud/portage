@@ -1,6 +1,12 @@
 # ChangeLog for net-mail/sendEmail
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/sendEmail/ChangeLog,v 1.24 2013/10/10 21:42:54 chainsaw Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-mail/sendEmail/ChangeLog,v 1.26 2014/01/14 13:56:39 ago Exp $
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> sendEmail-1.56-r2.ebuild:
+  Stable for x86, wrt bug #495868
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> sendEmail-1.56-r2.ebuild:
+  amd64 stable, bug #495868
 
 *sendEmail-1.56-r2 (10 Oct 2013)
 

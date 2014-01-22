@@ -1,6 +1,24 @@
 # ChangeLog for app-editors/gvim
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/gvim/ChangeLog,v 1.416 2013/11/19 10:28:43 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/gvim/ChangeLog,v 1.420 2013/12/23 10:59:13 hasufell Exp $
+
+  23 Dec 2013; Julian Ospald <hasufell@gentoo.org> gvim-7.4.22.ebuild,
+  gvim-7.4.41.ebuild, gvim-7.4.52.ebuild, gvim-7.4.94.ebuild,
+  gvim-7.4.131.ebuild, gvim-9999.ebuild:
+  fix desktop file installation
+
+*gvim-7.4.131 (16 Dec 2013)
+
+  16 Dec 2013; Tim Harder <radhermit@gentoo.org> +gvim-7.4.131.ebuild,
+  gvim-9999.ebuild:
+  Version bump, add session use flag (fixes bug #492722).
+
+  14 Dec 2013; Justin Lecher <jlec@gentoo.org> gvim-7.4.94.ebuild:
+  Port my last changes also to versio 7.4.94
+
+  12 Dec 2013; Justin Lecher <jlec@gentoo.org> gvim-7.4.22.ebuild,
+  gvim-7.4.41.ebuild, gvim-7.4.52.ebuild, gvim-9999.ebuild, metadata.xml:
+  Drop unnecessary die and use domenu/doicon from eutils.eclass
 
 *gvim-7.4.94 (19 Nov 2013)
 

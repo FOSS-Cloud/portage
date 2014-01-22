@@ -1,6 +1,20 @@
 # ChangeLog for perl-core/Module-Load-Conditional
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/Module-Load-Conditional/ChangeLog,v 1.39 2013/09/05 03:34:56 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/Module-Load-Conditional/ChangeLog,v 1.41 2014/01/20 20:58:30 vapier Exp $
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  Module-Load-Conditional-0.400.ebuild, Module-Load-Conditional-0.440.0.ebuild,
+  Module-Load-Conditional-0.460.0.ebuild,
+  Module-Load-Conditional-0.480.0.ebuild,
+  Module-Load-Conditional-0.500.0.ebuild,
+  Module-Load-Conditional-0.520.0.ebuild,
+  Module-Load-Conditional-0.540.0.ebuild,
+  Module-Load-Conditional-0.580.0.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  Module-Load-Conditional-0.540.0.ebuild:
+  Mark m68k stable.
 
 *Module-Load-Conditional-0.580.0 (05 Sep 2013)
 

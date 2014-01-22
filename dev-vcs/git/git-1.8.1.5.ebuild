@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git/git-1.8.1.5.ebuild,v 1.12 2013/03/10 16:23:21 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git/git-1.8.1.5.ebuild,v 1.14 2013/12/11 10:27:22 polynomial-c Exp $
 
 EAPI=4
 
@@ -47,7 +47,7 @@ CDEPEND="
 	dev-libs/openssl
 	sys-libs/zlib
 	pcre? ( dev-libs/libpcre )
-	perl? ( dev-lang/perl[-build] )
+	perl? ( dev-lang/perl[-build(-)] )
 	tk? ( dev-lang/tk )
 	curl? (
 		net-misc/curl
@@ -484,7 +484,8 @@ src_test() {
 					t9600-cvsimport.sh \
 					t9601-cvsimport-vendor-branch.sh \
 					t9602-cvsimport-branches-tags.sh \
-					t9603-cvsimport-patchsets.sh"
+					t9603-cvsimport-patchsets.sh \
+					t9604-cvsimport-timestamps.sh"
 	local tests_perl="t5502-quickfetch.sh \
 					t5512-ls-remote.sh \
 					t5520-pull.sh"

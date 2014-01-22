@@ -1,6 +1,21 @@
 # ChangeLog for app-misc/anki
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/anki/ChangeLog,v 1.71 2013/11/21 11:33:28 tomka Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/anki/ChangeLog,v 1.74 2014/01/18 19:04:31 pacho Exp $
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> anki-2.0.20.ebuild:
+  amd64 stable, bug #498452
+
+*anki-2.0.20 (21 Dec 2013)
+
+  21 Dec 2013; Thomas Kahle <tomka@gentoo.org> +anki-2.0.20.ebuild,
+  -anki-2.0.18.ebuild:
+  bump to 2.0.20
+
+*anki-2.0.19 (11 Dec 2013)
+
+  11 Dec 2013; Thomas Kahle <tomka@gentoo.org> +anki-2.0.19.ebuild,
+  -anki-2.0.17.ebuild:
+  bump to 2.0.19
 
 *anki-2.0.18 (21 Nov 2013)
 

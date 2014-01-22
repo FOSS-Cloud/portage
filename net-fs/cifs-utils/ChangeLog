@@ -1,6 +1,27 @@
 # ChangeLog for net-fs/cifs-utils
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/cifs-utils/ChangeLog,v 1.71 2013/11/15 23:53:27 zerochaos Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-fs/cifs-utils/ChangeLog,v 1.76 2014/01/11 21:39:28 polynomial-c Exp $
+
+*cifs-utils-6.3 (11 Jan 2014)
+
+  11 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -cifs-utils-6.0.ebuild,
+  +cifs-utils-6.3.ebuild:
+  Version bump. Removed old.
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> cifs-utils-6.1-r1.ebuild:
+  Stable for ppc64, wrt bug #486312
+
+  14 Dec 2013; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  cifs-utils-6.1-r1.ebuild, cifs-utils-6.2.ebuild:
+  Move the samba dependency to the pdepend block. Non-mainainer commit.
+
+  11 Dec 2013; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  cifs-utils-6.1-r1.ebuild, cifs-utils-6.2.ebuild:
+  Replace the RDEPEND with a PDEPEND - completely fix bug 489472. Non-maintainer
+  commit acknowledged by Patrick (bonsaikitten).
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org> cifs-utils-6.1-r1.ebuild:
+  x86 stable, bug #486312
 
   15 Nov 2013; Rick Farina <zerochaos@gentoo.org> cifs-utils-6.1-r1.ebuild,
   cifs-utils-6.2.ebuild:

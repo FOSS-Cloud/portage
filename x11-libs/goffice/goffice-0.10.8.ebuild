@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/goffice/goffice-0.10.8.ebuild,v 1.2 2013/10/25 21:06:43 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/goffice/goffice-0.10.8.ebuild,v 1.5 2013/12/24 12:33:48 pacho Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -13,7 +13,7 @@ HOMEPAGE="http://git.gnome.org/browse/goffice/"
 
 LICENSE="GPL-2"
 SLOT="0.10"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x64-solaris"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x64-solaris"
 IUSE="+introspection"
 
 # Build fails with -gtk
@@ -22,7 +22,7 @@ RDEPEND="
 	>=app-text/libspectre-0.2.6:=
 	>=dev-libs/glib-2.28:2
 	>=gnome-base/librsvg-2.22:2
-	>=gnome-extra/libgsf-1.14.9:=
+	>=gnome-extra/libgsf-1.14.9:=[introspection?]
 	>=dev-libs/libxml2-2.4.12:2
 	>=x11-libs/pango-1.24:=
 	>=x11-libs/cairo-1.10:=[svg]

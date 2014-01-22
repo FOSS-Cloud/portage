@@ -1,6 +1,39 @@
 # ChangeLog for app-admin/sysstat
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/sysstat/ChangeLog,v 1.246 2013/11/04 01:17:02 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/sysstat/ChangeLog,v 1.256 2014/01/18 20:03:40 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> sysstat-10.2.0.ebuild:
+  Stable for alpha, wrt bug #494248
+
+  06 Jan 2014; Jeroen Roovers <jer@gentoo.org>
+  files/sysstat-10.2.0-systemd.patch:
+  Fix installing systemd unit fix by Xake (bug #496854 again).
+
+  04 Jan 2014; Jeroen Roovers <jer@gentoo.org> sysstat-10.2.0.ebuild,
+  +files/sysstat-10.2.0-systemd.patch:
+  Fix installing systemd unit by Xake (bug #496854).
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> sysstat-10.2.0.ebuild:
+  Stable for x86, wrt bug #494248
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> sysstat-10.2.0.ebuild:
+  Stable for sparc, wrt bug #494248
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> sysstat-10.2.0.ebuild:
+  amd64 stable, bug #494248
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> sysstat-10.2.0.ebuild:
+  Stable for HPPA (bug #494248).
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> sysstat-10.2.0.ebuild:
+  Stable for ppc64, wrt bug #494248
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> sysstat-10.2.0.ebuild:
+  Stable for ppc, wrt bug #494248
+
+  19 Dec 2013; Jeroen Roovers <jer@gentoo.org> -files/sysstat-10.0.1-nls.patch,
+  -files/crontab:
+  Remove obsolete files.
 
 *sysstat-10.2.0 (04 Nov 2013)
 

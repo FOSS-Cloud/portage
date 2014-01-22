@@ -1,6 +1,40 @@
 # ChangeLog for media-video/vlc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/ChangeLog,v 1.875 2013/11/17 15:48:44 tomwij Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/ChangeLog,v 1.882 2014/01/14 21:31:21 tomwij Exp $
+
+  14 Jan 2014; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Simplified USE flag description of qt4, per desultory's request.
+
+  20 Dec 2013; Tom Wijsman <TomWij@gentoo.org> vlc-2.0.8.ebuild,
+  vlc-2.0.8a.ebuild, vlc-2.0.9.ebuild, vlc-2.1.0.ebuild, vlc-2.1.1.ebuild,
+  vlc-2.1.2.ebuild:
+  Swapped ffmpeg and libpostproc order in postproc dependency line to aid
+  Portage dependency resolution, low backtracking was causing blockers; reported
+  by iamben.
+
+  20 Dec 2013; Tom Wijsman <TomWij@gentoo.org> -vlc-2.0.6.ebuild:
+  Drop old.
+
+*vlc-2.1.2 (15 Dec 2013)
+
+  15 Dec 2013; Tom Wijsman <TomWij@gentoo.org> +vlc-2.1.2.ebuild,
+  vlc-2.1.9999.ebuild, vlc-9999.ebuild:
+  Do not use the --started-from-file parameter on USE="-dbus" in 2.1.2 and
+  newer; fixes bug #491618, reported by Peter Wood. Version bump to 2.1.2; fixes
+  bug #493856, reported by Ulenrich.
+
+  13 Dec 2013; Tom Wijsman <TomWij@gentoo.org> vlc-2.1.9999.ebuild,
+  vlc-9999.ebuild:
+  Sync up 9999 ebuilds with changes to 2.1.1.
+
+  07 Dec 2013; Tom Wijsman <TomWij@gentoo.org>
+  +files/vlc-2.1.1-freetype-2.5.1-support.patch, vlc-2.1.1.ebuild:
+  When freetype-2.5.1 or newer is used, we apply a backported patch to vlc-2.1.1
+  support it; fixes bug #493496, reported by Ben de Groot (yngwin).
+
+  06 Dec 2013; Markus Meier <maekke@gentoo.org> vlc-2.0.8.ebuild,
+  vlc-2.0.8a.ebuild, vlc-2.0.9.ebuild, vlc-2.1.0.ebuild, vlc-2.1.1.ebuild:
+  restore ~arm, bug #489436
 
 *vlc-2.1.1 (17 Nov 2013)
 

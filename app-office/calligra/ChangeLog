@@ -1,6 +1,28 @@
 # ChangeLog for app-office/calligra
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/calligra/ChangeLog,v 1.99 2013/10/19 17:54:57 johu Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/calligra/ChangeLog,v 1.105 2014/01/20 10:20:58 kensington Exp $
+
+  20 Jan 2014; Michael Palimaka <kensington@gentoo.org> calligra-2.6.4.ebuild,
+  calligra-2.7.5.ebuild, calligra-9999.ebuild:
+  Requires libattica built against Qt4.
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> calligra-2.7.5.ebuild:
+  amd64 stable, bug 492678
+
+  31 Dec 2013; Markus Meier <maekke@gentoo.org> calligra-2.7.5.ebuild:
+  add ~arm, bug #490374
+
+  20 Dec 2013; Johannes Huber <johu@gentoo.org> -calligra-2.7.4.ebuild:
+  Remove old.
+
+  20 Dec 2013; Johannes Huber <johu@gentoo.org> calligra-2.7.4.ebuild,
+  calligra-2.7.5.ebuild, calligra-9999.ebuild:
+  Use subslot for media-gfx/exiv2.
+
+*calligra-2.7.5 (30 Nov 2013)
+
+  30 Nov 2013; Johannes Huber <johu@gentoo.org> +calligra-2.7.5.ebuild:
+  Version bump wrt bug #492726.
 
   19 Oct 2013; Johannes Huber <johu@gentoo.org> metadata.xml:
   Fix typo reported by buscher on irc.

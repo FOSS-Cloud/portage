@@ -1,6 +1,40 @@
 # ChangeLog for net-misc/cgminer
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/cgminer/ChangeLog,v 1.51 2013/11/16 15:51:05 blueness Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/cgminer/ChangeLog,v 1.57 2014/01/08 23:34:38 blueness Exp $
+
+*cgminer-3.9.0.1 (08 Jan 2014)
+
+  08 Jan 2014; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.9.0.1.ebuild,
+  cgminer-3.9.0.ebuild:
+  Version bump
+
+*cgminer-3.9.0 (26 Dec 2013)
+
+  26 Dec 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.9.0.ebuild,
+  -cgminer-3.8.4.ebuild, cgminer-3.8.5.ebuild, metadata.xml:
+  Version bump
+
+*cgminer-3.8.5 (10 Dec 2013)
+
+  10 Dec 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.8.5.ebuild,
+  cgminer-3.8.4.ebuild:
+  Version bump
+
+  07 Dec 2013; Anthony G. Basile <blueness@gentoo.org> -cgminer-3.8.3.ebuild,
+  cgminer-3.8.4.ebuild:
+  Add udev rule, bug #493234.  Remove older.
+
+*cgminer-3.8.4 (02 Dec 2013)
+
+  02 Dec 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.8.4.ebuild,
+  -cgminer-3.8.2.ebuild, cgminer-3.8.3.ebuild:
+  Version bump, remove older 3.8
+
+*cgminer-3.8.3 (24 Nov 2013)
+
+  24 Nov 2013; Anthony G. Basile <blueness@gentoo.org> +cgminer-3.8.3.ebuild,
+  -cgminer-3.8.1.ebuild, cgminer-3.8.2.ebuild:
+  Version bump, remover older
 
 *cgminer-3.8.2 (16 Nov 2013)
 

@@ -1,6 +1,33 @@
 # ChangeLog for app-emacs/po-mode
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/po-mode/ChangeLog,v 1.27 2013/09/17 17:37:34 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/po-mode/ChangeLog,v 1.36 2014/01/18 19:57:55 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> po-mode-0.18.3.1.ebuild:
+  Stable for alpha, wrt bug #491914
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> po-mode-0.18.3.1.ebuild:
+  Stable for ia64, wrt bug #491914
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> po-mode-0.18.3.1.ebuild:
+  Stable for x86, wrt bug #491914
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> po-mode-0.18.3.1.ebuild:
+  Stable for sparc, wrt bug #491914
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> po-mode-0.18.3.1.ebuild:
+  Stable for ppc64, wrt bug #491914
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> po-mode-0.18.3.1.ebuild:
+  Stable for ppc, wrt bug #491914
+
+  11 Dec 2013; Chema Alonso <nimiux@gentoo.org> po-mode-0.18.3.1.ebuild:
+  Stable for amd64 wrt bug #491914
+
+  01 Dec 2013; Markus Meier <maekke@gentoo.org> po-mode-0.18.3.1.ebuild:
+  arm stable, bug #491914
+
+  26 Nov 2013; Jeroen Roovers <jer@gentoo.org> po-mode-0.18.3.1.ebuild:
+  Stable for HPPA (bug #491914).
 
 *po-mode-0.18.3.1 (17 Sep 2013)
 
@@ -97,4 +124,3 @@
   06 Jul 2007; Ulrich Mueller <ulm@gentoo.org> +files/51po-mode-gentoo.el,
   +metadata.xml, +po-mode-0.16.1.ebuild:
   Initial import. Split off Emacs support from sys-devel/gettext, bug #149431.
-

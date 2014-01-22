@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/spyview/spyview-20130823.ebuild,v 1.2 2013/10/28 20:57:40 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-visualization/spyview/spyview-20130823.ebuild,v 1.4 2014/01/06 13:35:35 jlec Exp $
 
 EAPI=5
 
-inherit base autotools flag-o-matic eutils multilib
+inherit autotools flag-o-matic eutils multilib
 
 DESCRIPTION="Interactive plotting program"
 HOMEPAGE="http://kavli.nano.tudelft.nl/~gsteele/spyview/"
@@ -12,7 +12,7 @@ SRC_URI="http://nsweb.tn.tudelft.nl/gitweb/?p=spyview.git;a=snapshot;h=879615fcc
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~x86"
 IUSE=""
 
 COMMON_DEPEND="
@@ -42,9 +42,7 @@ src_prepare() {
 	# this one leads to an insane amount of warnings
 	append-ldflags -L$(dirname $(fltk-config --libs))
 
-	find "${S}" -name Makefile.am -exec sed -i -e 's:-mwindows -mconsole::g' {} +
-
-	base_src_prepare
+	find "${S}" -name Makefile.am -exec sed -i -e 's:-mwindows -mconsole::g' {} + || die
 
 	eautoreconf
 }

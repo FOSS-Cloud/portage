@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/grub-9999-r1.ebuild,v 1.3 2013/10/26 14:41:41 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/grub-9999-r1.ebuild,v 1.10 2013/12/24 22:42:11 floppym Exp $
 
 EAPI=5
 
@@ -9,11 +9,16 @@ if [[ ${PV} == 9999 ]]; then
 	GRUB_AUTOGEN=1
 fi
 
+if [[ -n ${GRUB_AUTOGEN} ]]; then
+	PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+	inherit python-any-r1
+fi
+
 inherit autotools-utils bash-completion-r1 eutils flag-o-matic mount-boot multibuild pax-utils toolchain-funcs versionator
 
 if [[ ${PV} != 9999 ]]; then
 	if [[ ${PV} == *_alpha* || ${PV} == *_beta* || ${PV} == *_rc* ]]; then
-		MY_P=${P/_/~}
+		MY_P="${P/_/~}"
 		SRC_URI="mirror://gnu-alpha/${PN}/${MY_P}.tar.xz"
 		S=${WORKDIR}/${MY_P}
 	else
@@ -31,10 +36,10 @@ else
 fi
 
 DEJAVU=dejavu-sans-ttf-2.34
-UNIFONT=unifont-5.1.20080820.pcf
+UNIFONT=unifont-6.3.20131217
 SRC_URI+=" truetype? (
 	mirror://sourceforge/dejavu/${DEJAVU}.zip
-	http://unifoundry.com/${UNIFONT}.gz
+	http://unifoundry.com/pub/${UNIFONT}/${UNIFONT}.pcf.gz
 )"
 
 DESCRIPTION="GNU GRUB boot loader"
@@ -43,7 +48,7 @@ HOMEPAGE="http://www.gnu.org/software/grub/"
 # Includes licenses for dejavu and unifont
 LICENSE="GPL-3 truetype? ( BitstreamVera GPL-2-with-font-exception )"
 SLOT="2"
-IUSE="custom-cflags debug device-mapper doc efiemu mount +multislot nls static sdl test truetype libzfs"
+IUSE="debug device-mapper doc efiemu mount +multislot nls static sdl test truetype libzfs"
 
 GRUB_ALL_PLATFORMS=(
 	# everywhere:
@@ -78,8 +83,8 @@ RDEPEND="
 	ppc64? ( sys-apps/ibm-powerpc-utils sys-apps/powerpc-utils )
 "
 DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
 	app-misc/pax-utils
-	>=dev-lang/python-2.5.2
 	sys-devel/flex
 	sys-devel/bison
 	sys-apps/help2man
@@ -106,16 +111,11 @@ RDEPEND+="
 	!multislot? ( !sys-boot/grub:0 )
 "
 
-if [[ -n ${GRUB_AUTOGEN} ]]; then
-	DEPEND+=" >=sys-devel/autogen-5.10"
-fi
-
 STRIP_MASK="*/grub/*/*.{mod,img}"
 RESTRICT="test"
 
 QA_EXECSTACK="
-	usr/bin/grub*
-	usr/sbin/grub*
+	usr/bin/grub*-emu*
 	usr/lib*/grub/*/*.mod
 	usr/lib*/grub/*/*.module
 	usr/lib*/grub/*/kernel.exec
@@ -160,6 +160,7 @@ src_prepare() {
 	fi
 	epatch_user
 	if [[ -n ${GRUB_AUTOGEN} ]]; then
+		python_setup
 		bash autogen.sh || die
 	fi
 	if [[ -n ${AUTOTOOLS_AUTORECONF} ]]; then
@@ -170,7 +171,7 @@ src_prepare() {
 
 setup_fonts() {
 	ln -s "${WORKDIR}/${DEJAVU}/ttf/DejaVuSans.ttf" DejaVuSans.ttf || die
-	ln -s "${WORKDIR}/${UNIFONT}" unifont.pcf || die
+	ln -s "${WORKDIR}/${UNIFONT}.pcf" unifont.pcf || die
 }
 
 grub_configure() {
@@ -226,8 +227,14 @@ grub_configure() {
 }
 
 src_configure() {
-	use custom-cflags || unset CCASFLAGS CFLAGS CPPFLAGS LDFLAGS
-	use static && export HOST_LDFLAGS="${HOST_LDFLAGS} -static"
+	# We don't want to leak flags onto boot code.
+	export HOST_CCASFLAGS=${CCASFLAGS}
+	export HOST_CFLAGS=${CFLAGS}
+	export HOST_CPPFLAGS=${CPPFLAGS}
+	export HOST_LDFLAGS=${LDFLAGS}
+	unset CCASFLAGS CFLAGS CPPFLAGS LDFLAGS
+
+	use static && HOST_LDFLAGS+=" -static"
 
 	if version_is_at_least 4.8 "$(gcc-version)"; then
 		export TARGET_LDFLAGS+=" -fuse-ld=bfd"
@@ -270,10 +277,7 @@ src_install() {
 	fi
 
 	insinto /etc/default
-	newins "${FILESDIR}"/grub.default-2 grub
-
-	cd "${ED}" || die
-	pax-mark mpes $(scanelf -BF %F usr/{bin,sbin})
+	newins "${FILESDIR}"/grub.default-3 grub
 }
 
 pkg_postinst() {

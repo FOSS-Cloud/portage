@@ -1,6 +1,20 @@
 # ChangeLog for app-text/ronn
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/ronn/ChangeLog,v 1.18 2013/10/15 19:49:45 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/ronn/ChangeLog,v 1.22 2014/01/02 08:10:17 graaff Exp $
+
+  02 Jan 2014; Hans de Graaff <graaff@gentoo.org> ronn-0.7.3-r1.ebuild,
+  ronn-0.7.3-r2.ebuild:
+  Restore ruby18.
+
+  01 Jan 2014; Patrick Lauer <patrick@gentoo.org> ronn-0.7.3-r1.ebuild,
+  ronn-0.7.3-r2.ebuild:
+  Remove ruby18 target as dependencies lost support already
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> ronn-0.7.3-r1.ebuild:
+  arm stable, bug #493780
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> ronn-0.7.3-r1.ebuild:
+  Stable for HPPA (bug #493780).
 
 *ronn-0.7.3-r2 (15 Oct 2013)
 

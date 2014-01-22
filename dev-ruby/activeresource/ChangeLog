@@ -1,6 +1,29 @@
 # ChangeLog for dev-ruby/activeresource
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activeresource/ChangeLog,v 1.162 2013/11/10 14:43:57 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activeresource/ChangeLog,v 1.167 2014/01/18 09:55:00 graaff Exp $
+
+  18 Jan 2014; Hans de Graaff <graaff@gentoo.org>
+  -activeresource-2.3.18.ebuild:
+  Remove masked version.
+
+*activeresource-4.0.0 (24 Dec 2013)
+
+  24 Dec 2013; Hans de Graaff <graaff@gentoo.org> +activeresource-4.0.0.ebuild:
+  Add version compatible with and removed from Rails 4.
+
+  16 Dec 2013; Hans de Graaff <graaff@gentoo.org>
+  -activeresource-3.2.15.ebuild:
+  Cleanup for security bug 493284.
+
+*activeresource-3.2.16 (04 Dec 2013)
+
+  04 Dec 2013; Hans de Graaff <graaff@gentoo.org>
+  +activeresource-3.2.16.ebuild:
+  Version bump for security bug 493284.
+
+  29 Nov 2013; Hans de Graaff <graaff@gentoo.org>
+  -activeresource-3.1.12.ebuild:
+  Remove masked Rails 3.1.
 
   10 Nov 2013; Hans de Graaff <graaff@gentoo.org>
   -activeresource-3.2.13.ebuild, -activeresource-3.2.14.ebuild:

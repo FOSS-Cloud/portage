@@ -1,6 +1,86 @@
 # ChangeLog for kde-base/kdepim-runtime
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdepim-runtime/ChangeLog,v 1.165 2013/11/05 22:22:54 dilfridge Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdepim-runtime/ChangeLog,v 1.182 2014/01/20 14:59:45 kensington Exp $
+
+  20 Jan 2014; Michael Palimaka <kensington@gentoo.org>
+  -kdepim-runtime-4.12.0.ebuild:
+  Remove KDE SC 4.12.0
+
+  20 Jan 2014; Michael Palimaka <kensington@gentoo.org>
+  kdepim-runtime-4.11.5.ebuild:
+  Restore keywords that were accidentally omitted.
+
+*kdepim-runtime-4.12.1 (18 Jan 2014)
+
+  18 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +kdepim-runtime-4.12.1.ebuild:
+  Version bump KDE SC 4.12.1
+
+  10 Jan 2014; Chris Reffett <creffett@gentoo.org>
+  -kdepim-runtime-4.11.4.ebuild:
+  Remove KDE SC 4.11.4
+
+*kdepim-runtime-4.11.5 (10 Jan 2014)
+
+  10 Jan 2014; Chris Reffett <creffett@gentoo.org>
+  +kdepim-runtime-4.11.5.ebuild:
+  Bump KDE SC 4.11.5
+
+*kdepim-runtime-4.4.11.1-r2 (18 Dec 2013)
+
+  18 Dec 2013; Johannes Huber <johu@gentoo.org>
+  +files/4.4/9996-no-knut-anymore.patch,
+  +files/4.4/9997-the-future-is-here.patch,
+  +files/4.4/9998-external-akonadi-xml.patch,
+  +files/4.4/9999-no-akonadi-xml.patch, +kdepim-runtime-4.4.11.1-r2.ebuild,
+  files/4.4/0001-Less-warnings-when-building-against-a-new-kdepimlibs.patch,
+  files/4.4/0002-Implement-readOnly-for-Akonadi-kresources.patch:
+  Oldpim revision bump adds compat patches for KDE SC 4.12.
+
+*kdepim-runtime-4.12.0 (18 Dec 2013)
+
+  18 Dec 2013; Johannes Huber <johu@gentoo.org> +kdepim-runtime-4.12.0.ebuild:
+  Version bump KDE SC 4.12.0
+
+  15 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  kdepim-runtime-4.4.11.1-r1.ebuild:
+  this oldpim variant does not work with kde-4.12, file collision
+
+  14 Dec 2013; Johannes Huber <johu@gentoo.org>
+  -files/kdepim-runtime-4.10.5-fix-autoconfig.patch:
+  Remove unused patch.
+
+  12 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  -kdepim-runtime-4.10.5-r1.ebuild:
+  Remove old
+
+  11 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  kdepim-runtime-4.11.2-r1.ebuild:
+  Stable for ppc64, wrt bug #484884
+
+  11 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  kdepim-runtime-4.11.2-r1.ebuild:
+  Stable for ppc, wrt bug #484884
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  kdepim-runtime-4.11.2-r1.ebuild:
+  Stable for ppc, wrt bug #484884
+
+  09 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  kdepim-runtime-4.11.2-r1.ebuild:
+  Stable for x86, wrt bug #484884
+
+  08 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  kdepim-runtime-4.11.2-r1.ebuild:
+  Stable for amd64, wrt bug #484884
+
+  04 Dec 2013; Johannes Huber <johu@gentoo.org> -kdepim-runtime-4.11.3.ebuild:
+  Remove KDE SC 4.11.3
+
+*kdepim-runtime-4.11.4 (03 Dec 2013)
+
+  03 Dec 2013; Johannes Huber <johu@gentoo.org> +kdepim-runtime-4.11.4.ebuild:
+  Version bump KDE SC 4.11.4
 
 *kdepim-runtime-4.11.3 (05 Nov 2013)
 

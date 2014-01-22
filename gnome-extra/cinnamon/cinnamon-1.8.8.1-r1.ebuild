@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/cinnamon/cinnamon-1.8.8.1-r1.ebuild,v 1.1 2013/10/20 08:18:14 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/cinnamon/cinnamon-1.8.8.1-r1.ebuild,v 1.4 2013/12/12 07:38:27 jlec Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -22,7 +22,7 @@ SRC_URI="https://github.com/linuxmint/Cinnamon/archive/${MY_PV}.tar.gz -> ${MY_P
 LICENSE="GPL-2+"
 SLOT="0"
 IUSE="+bluetooth +networkmanager"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 # gnome-desktop-2.91.2 is needed due to header changes, db82a33 in gnome-desktop
 # latest gsettings-desktop-schemas is needed due to commit 602fa1c6
@@ -205,9 +205,9 @@ src_install() {
 		-i "${ED}usr/bin/cinnamon-"{launcher,menu-editor,settings} \
 		-i "${ED}usr/$(get_libdir)/cinnamon-settings/cinnamon-settings.py" || die
 
-	insinto /usr/share/applications
-	doins "${FILESDIR}/cinnamon-screensaver.desktop"
-	doins "${FILESDIR}/cinnamon2d-screensaver.desktop"
+	domenu\
+		"${FILESDIR}/cinnamon-screensaver.desktop" \
+		"${FILESDIR}/cinnamon2d-screensaver.desktop"
 
 	# Required for gnome-shell on hardened/PaX, bug #398941
 	pax-mark mr "${ED}usr/bin/cinnamon"

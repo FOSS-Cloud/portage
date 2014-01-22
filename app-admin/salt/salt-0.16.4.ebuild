@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/salt/salt-0.16.4.ebuild,v 1.1 2013/09/08 07:35:20 chutzpah Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/salt/salt-0.16.4.ebuild,v 1.3 2013/12/09 23:19:32 chutzpah Exp $
 
 EAPI=5
 
@@ -19,7 +19,7 @@ if [[ ${PV} == 9999* ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
-	KEYWORDS="~x86 ~amd64"
+	KEYWORDS=""
 fi
 
 LICENSE="Apache-2.0"
@@ -38,7 +38,11 @@ RDEPEND=">=dev-python/pyzmq-2.1.9[${PYTHON_USEDEP}]
 		mako? ( dev-python/mako[${PYTHON_USEDEP}] )
 		ldap? ( dev-python/python-ldap[${PYTHON_USEDEP}] )
 		openssl? ( dev-python/pyopenssl[${PYTHON_USEDEP}] )
-		libvirt? ( app-emulation/libvirt[python] )
+		libvirt? ( || (
+			dev-python/libvirt-python[${PYTHON_USEDEP}]
+			app-emulation/libvirt[python,${PYTHON_USEDEP}]
+			)
+		)
 		mongodb? ( dev-python/pymongo[${PYTHON_USEDEP}] )
 		mysql? ( dev-python/mysql-python[${PYTHON_USEDEP}] )
 		redis? ( dev-python/redis-py[${PYTHON_USEDEP}] )"

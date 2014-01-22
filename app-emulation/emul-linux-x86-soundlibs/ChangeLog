@@ -1,6 +1,26 @@
 # ChangeLog for app-emulation/emul-linux-x86-soundlibs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-soundlibs/ChangeLog,v 1.108 2013/10/09 07:13:03 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-soundlibs/ChangeLog,v 1.112 2013/12/01 09:30:10 mgorny Exp $
+
+  01 Dec 2013; Michał Górny <mgorny@gentoo.org>
+  emul-linux-x86-soundlibs-20131008-r2.ebuild, metadata.xml:
+  Add USE=pulseaudio to disable PulseAudio support on multilib variant.
+
+  30 Nov 2013; Michał Górny <mgorny@gentoo.org>
+  emul-linux-x86-soundlibs-20131008-r2.ebuild:
+  Require matching abi_x86_32 flag on dependant emul-linux packages due to
+  potentially mis-matched library versions, reported by mrueg.
+
+*emul-linux-x86-soundlibs-20131008-r2 (30 Nov 2013)
+
+  30 Nov 2013; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-soundlibs-20131008-r2.ebuild,
+  -emul-linux-x86-soundlibs-20131008-r1.ebuild, files/remove-native:
+  Bump for inclusion of pulseaudio and libao.
+
+  22 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-soundlibs-20131008-r1.ebuild:
+  amd64 stable, bug #489898
 
 *emul-linux-x86-soundlibs-20131008-r1 (09 Oct 2013)
 

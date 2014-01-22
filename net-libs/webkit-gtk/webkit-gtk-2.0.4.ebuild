@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/webkit-gtk-2.0.4.ebuild,v 1.6 2013/10/10 23:43:20 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/webkit-gtk-2.0.4.ebuild,v 1.11 2014/01/21 22:42:01 eva Exp $
 
 EAPI="5"
 
@@ -15,7 +15,7 @@ SRC_URI="http://www.webkitgtk.org/releases/${MY_P}.tar.xz"
 
 LICENSE="LGPL-2+ BSD"
 SLOT="3/25" # soname version
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~x86-macos"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~x86-macos"
 IUSE="aqua coverage debug +geoloc +gstreamer libsecret +introspection +jit spell +webgl"
 # bugs 372493, 416331
 REQUIRED_USE="
@@ -42,9 +42,10 @@ RDEPEND="
 	dev-db/sqlite:3=
 	>=x11-libs/pango-1.30.0.0
 	x11-libs/libXrender
+	x11-libs/libXt
 	>=x11-libs/gtk+-2.24.10:2
 
-	geoloc? ( app-misc/geoclue )
+	geoloc? ( app-misc/geoclue:0 )
 	gstreamer? (
 		>=media-libs/gstreamer-1.0.3:1.0
 		>=media-libs/gst-plugins-base-1.0.3:1.0 )
@@ -172,6 +173,9 @@ src_prepare() {
 
 	# bug #459978, upstream bug #113397
 	epatch "${FILESDIR}/${PN}-1.11.90-gtk-docize-fix.patch"
+
+	# bug #493654, upstream bug #125074
+	epatch "${FILESDIR}/${PN}-2.0.4-freetype-2.5.1.patch"
 
 	# Prevent maintainer mode from being triggered during make
 	AT_M4DIR=Source/autotools eautoreconf

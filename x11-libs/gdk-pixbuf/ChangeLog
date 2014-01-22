@@ -1,6 +1,26 @@
 # ChangeLog for x11-libs/gdk-pixbuf
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/gdk-pixbuf/ChangeLog,v 1.91 2013/11/14 05:46:07 mattst88 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/gdk-pixbuf/ChangeLog,v 1.96 2014/01/04 20:46:23 steev Exp $
+
+  04 Jan 2014; Steev Klimaszewski <steev@gentoo.org> gdk-pixbuf-2.26.5.ebuild:
+  Parallel install fails when no gdk-pixbuf is already installed, bug #481372
+
+  (Change approved by pacho2 on irc)
+
+*gdk-pixbuf-2.30.1 (23 Dec 2013)
+
+  23 Dec 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gdk-pixbuf-2.30.1.ebuild:
+  Version bump for Gnome 3.10.
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> gdk-pixbuf-2.28.2.ebuild:
+  Stable for HPPA (bug #478252).
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gdk-pixbuf-2.28.2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gdk-pixbuf-2.28.2.ebuild:
+  amd64 stable, bug #478252
 
   14 Nov 2013; Matt Turner <mattst88@gentoo.org> gdk-pixbuf-2.26.5.ebuild:
   alpha stable, bug 476364.

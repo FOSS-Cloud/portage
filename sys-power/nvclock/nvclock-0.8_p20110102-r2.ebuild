@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/nvclock/nvclock-0.8_p20110102-r2.ebuild,v 1.1 2013/08/15 21:47:24 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-power/nvclock/nvclock-0.8_p20110102-r2.ebuild,v 1.5 2013/12/24 12:51:00 ago Exp $
 
 EAPI="4"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="gtk nvcontrol"
 
 RDEPEND="
@@ -52,6 +52,8 @@ src_compile() {
 }
 
 src_install() {
+	mkdir -p "${D}"/usr/bin || die
+
 	default
 
 	newinitd "${FILESDIR}"/nvclock_initd nvclock

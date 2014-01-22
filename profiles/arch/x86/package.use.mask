@@ -1,8 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/package.use.mask,v 1.127 2013/11/19 10:15:42 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/package.use.mask,v 1.129 2013/12/27 17:12:40 pinkbyte Exp $
 
 # This file requires >=portage-2.1.1
+
+# Sergey Popov <pinkbyte@gentoo.org> (27 Dec 2013)
+# Boost.Context can be built on x86
+dev-libs/boost	-context
 
 # Christoph Junghans <ottxor@gentoo.org> (08 Sep 2013)
 # restrict USE=quad for x86 as there are too less registers
@@ -34,6 +38,7 @@ net-libs/cyassl -aes-ni
 # Justin Lecher <jlec@gentoo.org> (21 Feb 2013)
 # cuda only works on x86 and amd64
 sci-libs/cholmod -cuda
+sci-libs/flann -cuda
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (30 Dec 2012)
 # sys-apps/biosdevname, systemd work on this arch (masked in base)
