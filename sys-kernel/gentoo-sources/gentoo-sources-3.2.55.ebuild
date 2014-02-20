@@ -1,19 +1,19 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/gentoo-sources-3.10.26.ebuild,v 1.1 2014/01/10 01:30:20 mpagano Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/gentoo-sources-3.2.55.ebuild,v 1.1 2014/02/18 22:41:26 mpagano Exp $
 
 EAPI="5"
 ETYPE="sources"
-K_WANT_GENPATCHES="base extras experimental"
+K_WANT_GENPATCHES="base extras"
 K_GENPATCHES_VER="33"
 K_DEBLOB_AVAILABLE="1"
 inherit kernel-2
 detect_version
 detect_arch
 
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 HOMEPAGE="http://dev.gentoo.org/~mpagano/genpatches"
-IUSE="deblob experimental"
+IUSE="deblob"
 
 DESCRIPTION="Full sources including the Gentoo patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
