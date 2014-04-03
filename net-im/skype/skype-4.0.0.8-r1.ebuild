@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/skype/skype-4.0.0.8-r1.ebuild,v 1.2 2012/08/11 18:34:28 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-im/skype/skype-4.0.0.8-r1.ebuild,v 1.6 2013/09/08 21:17:44 reavertm Exp $
 
 EAPI=4
 inherit eutils gnome2-utils pax-utils
@@ -25,7 +25,22 @@ RDEPEND="virtual/ttf-fonts
 	amd64? (
 		>=app-emulation/emul-linux-x86-baselibs-${EMUL_X86_VER}
 		>=app-emulation/emul-linux-x86-soundlibs-${EMUL_X86_VER}
-		>=app-emulation/emul-linux-x86-xlibs-${EMUL_X86_VER}
+		|| (
+			(
+				x11-libs/libX11[abi_x86_32]
+				x11-libs/libXext[abi_x86_32]
+				x11-libs/libXScrnSaver[abi_x86_32]
+				x11-libs/libXv[abi_x86_32]
+				qt-static? (
+					x11-libs/libICE[abi_x86_32]
+					x11-libs/libSM[abi_x86_32]
+					x11-libs/libXrender[abi_x86_32]
+					media-libs/fontconfig[abi_x86_32]
+					>=media-libs/freetype-2[abi_x86_32]
+				)
+			)
+			>=app-emulation/emul-linux-x86-xlibs-${EMUL_X86_VER}
+		)
 		!qt-static? ( >=app-emulation/emul-linux-x86-qtlibs-${EMUL_X86_VER} )
 	)
 	x86? (
@@ -45,9 +60,9 @@ RDEPEND="virtual/ttf-fonts
 			x11-libs/libXrender
 		)
 		!qt-static? (
-			x11-libs/qt-core:4
-			x11-libs/qt-dbus:4
-			x11-libs/qt-gui:4[accessibility,dbus]
+			dev-qt/qtcore:4
+			dev-qt/qtdbus:4
+			dev-qt/qtgui:4[accessibility]
 		)
 	)
 	selinux? ( sec-policy/selinux-skype )"

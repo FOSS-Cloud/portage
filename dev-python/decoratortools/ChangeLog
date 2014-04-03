@@ -1,6 +1,20 @@
 # ChangeLog for dev-python/decoratortools
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/decoratortools/ChangeLog,v 1.20 2011/09/05 04:58:24 neurogeek Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/decoratortools/ChangeLog,v 1.24 2014/03/31 21:06:14 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> decoratortools-1.8-r1.ebuild:
+  Add support for the new PyPy slotting.
+
+  22 Oct 2013; Fabian Groffen <grobian@gentoo.org> decoratortools-1.8-r1.ebuild:
+  Marked ~x64-macos, bug #487670
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> decoratortools-1.8-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*decoratortools-1.8-r1 (09 Apr 2013)
+
+  09 Apr 2013; Ian Delaney <idella4@gentoo.org> +decoratortools-1.8-r1.ebuild:
+  migration to distutils-r1 revbump
 
   05 Sep 2011; Jesus Rivero <neurogeek@gentoo.org> decoratortools-1.8.ebuild:
   License fix, changed to PSF-2
@@ -81,4 +95,3 @@
   02 May 2007; Rob Cakebread <pythonhead@gentoo.org>
   +decoratortools-1.4.ebuild:
   Initial commit.
-

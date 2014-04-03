@@ -1,6 +1,21 @@
 # ChangeLog for dev-libs/xmlsec
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/xmlsec/ChangeLog,v 1.33 2012/05/04 18:35:51 jdhore Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/xmlsec/ChangeLog,v 1.37 2014/03/01 22:21:39 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> xmlsec-1.2.18.ebuild,
+  xmlsec-1.2.19.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> xmlsec-1.2.19.ebuild:
+  Stable for x86, wrt bug #475688
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> xmlsec-1.2.19.ebuild:
+  Stable for amd64, wrt bug #475688
+
+*xmlsec-1.2.19 (02 May 2013)
+
+  02 May 2013; Tim Harder <radhermit@gentoo.org> +xmlsec-1.2.19.ebuild:
+  Version bump (bug #467470), add doc and static-libs use flags.
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org> xmlsec-1.2.18.ebuild:
   dev-util/pkgconfig -> virtual/pkgconfig
@@ -143,4 +158,3 @@
 
   04 Jan 2004; Daniel Ahlberg <aliz@gentoo.org> xmlsec-1.2.2.ebuild:
   Initial import. Ebuild submitted by Rigo Ketelings <rigo@home.nl> in #9429.
-

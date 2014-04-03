@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/vice/vice-2.4.ebuild,v 1.4 2013/01/24 14:40:00 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/vice/vice-2.4.ebuild,v 1.10 2013/06/04 20:41:32 mr_bones_ Exp $
 
 EAPI=5
 inherit autotools eutils toolchain-funcs games
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/vice-emu/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ~ppc ~sparc x86"
 IUSE="Xaw3d alsa gnome nls png readline sdl ipv6 memmap ethernet oss zlib X gif jpeg xv dga xrandr ffmpeg lame pulseaudio"
 
 RDEPEND="
@@ -60,21 +60,24 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-arm.patch \
-		"${FILESDIR}"/${P}-ffmpeg-1.patch
+		"${FILESDIR}"/${P}-ffmpeg-1.patch \
+		"${FILESDIR}"/${P}-buffer.patch \
+		"${FILESDIR}"/${P}-autotools.patch
 	sed -i \
 		-e "s:/usr/local/lib/VICE:${GAMES_DATADIR}/${PN}:" \
 		man/vice.1 \
 		$(grep -rl --exclude="*texi" /usr/local/lib doc) \
 		|| die
 	sed -i \
+		-e '/VICE_ARG_LIST_CHECK/d' \
 		-e "/VICEDIR=/s:=.*:=\"${GAMES_DATADIR}/${PN}\";:" \
-		configure.in \
-		|| die
+		configure.in || die
 	sed -i \
 		-e "s:\(#define LIBDIR \).*:\1\"${GAMES_DATADIR}/${PN}\":" \
 		-e "s:\(#define DOCDIR \).*:\1\"/usr/share/doc/${PF}\":" \
 		src/arch/unix/archdep.h \
 		src/arch/sdl/archdep_unix.h
+	mv configure.in configure.ac || die
 	AT_NO_RECURSIVE=1 eautoreconf
 }
 
@@ -83,7 +86,6 @@ src_configure() {
 	FCCACHE=/bin/true \
 	PKG_CONFIG=$(tc-getPKG_CONFIG) \
 	egamesconf \
-		--disable-dependency-tracking \
 		--enable-fullscreen \
 		--enable-parsid \
 		--with-resid \

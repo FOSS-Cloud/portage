@@ -1,9 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/warzone2100/warzone2100-3.1.0.ebuild,v 1.1 2013/02/10 01:27:10 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/warzone2100/warzone2100-3.1.0.ebuild,v 1.5 2013/08/29 17:38:16 mr_bones_ Exp $
 
 EAPI=5
-inherit autotools eutils versionator gnome2-utils games
+inherit autotools toolchain-funcs eutils versionator gnome2-utils games
 
 MY_PV=$(get_version_component_range -2)
 VIDEOS_PV=2.2
@@ -15,7 +15,7 @@ SRC_URI="mirror://sourceforge/warzone2100/${P}.tar.xz
 
 LICENSE="GPL-2 CC-BY-SA-3.0 public-domain"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc x86"
 # upstream requested debug support
 IUSE="debug nls qt4 videos"
 
@@ -35,12 +35,12 @@ RDEPEND=">=dev-games/physfs-2[zip]
 	virtual/opengl
 	x11-libs/libX11
 	x11-libs/libXrandr
-	x11-libs/qt-core:4
-	x11-libs/qt-script:4
+	dev-qt/qtcore:4
+	dev-qt/qtscript:4
 	nls? ( virtual/libintl )
 	qt4? (
-		x11-libs/qt-gui:4
-		x11-libs/qt-opengl:4
+		dev-qt/qtgui:4
+		dev-qt/qtopengl:4
 	)
 	!qt4? ( media-libs/libsdl[opengl,video] )"
 DEPEND="${RDEPEND}
@@ -72,6 +72,10 @@ src_configure() {
 		$(use_enable debug debug relaxed) \
 		$(use_enable nls) \
 		--with-backend=$(usex qt4 "qt" "sdl")
+}
+
+src_compile() {
+	emake AR="$(tc-getAR)"
 }
 
 src_install() {

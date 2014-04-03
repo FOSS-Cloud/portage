@@ -1,6 +1,14 @@
 # ChangeLog for dev-ruby/attic
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/attic/ChangeLog,v 1.9 2010/09/09 18:02:09 flameeyes Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/attic/ChangeLog,v 1.11 2014/03/07 01:43:12 mrueg Exp $
+
+  07 Mar 2014; Manuel Rüger <mrueg@gentoo.org> -attic-0.5.2.ebuild:
+  Cleanup old.
+
+*attic-0.5.3 (25 Dec 2013)
+
+  25 Dec 2013; Hans de Graaff <graaff@gentoo.org> +attic-0.5.3.ebuild:
+  Version bump.
 
   09 Sep 2010; Diego E. Pettenò <flameeyes@gentoo.org> attic-0.5.2.ebuild:
   Remove JRuby support.
@@ -35,4 +43,3 @@
   14 Feb 2010; Diego E. Pettenò <flameeyes@gentoo.org> +attic-0.5.0.ebuild,
   +files/attic-0.5.0-fixes.patch, +metadata.xml:
   Initial import of attic needed ultimately for rudy.
-

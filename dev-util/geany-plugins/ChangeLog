@@ -1,6 +1,54 @@
 # ChangeLog for dev-util/geany-plugins
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/geany-plugins/ChangeLog,v 1.25 2012/12/07 18:30:48 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/geany-plugins/ChangeLog,v 1.37 2014/01/19 20:05:59 pacho Exp $
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> geany-plugins-1.23.ebuild:
+  ia64 stable, bug #488810 (thanks to Emeric Maschino for testing)
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> geany-plugins-1.23.ebuild:
+  Stable for ppc64, wrt bug #488810
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> geany-plugins-1.23.ebuild:
+  Stable for arm, wrt bug #488810
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> geany-plugins-1.23.ebuild:
+  Stable for x86, wrt bug #488810
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> geany-plugins-1.23.ebuild:
+  Stable for sparc, wrt bug #488810
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> geany-plugins-1.23.ebuild:
+  Stable for ppc, wrt bug #488810
+
+  24 Nov 2013; Agostino Sarubbo <ago@gentoo.org> geany-plugins-1.23.ebuild:
+  Stable for alpha, wrt bug #488810
+
+  29 Oct 2013; Tony Vroon <chainsaw@gentoo.org> geany-plugins-1.23.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #488810.
+
+  31 Jul 2013; Nathan Phillip Brink <binki@gentoo.org>
+  -geany-plugins-0.21.1.ebuild:
+  Drop old geany-plugins-0.21.1.
+
+  31 Jul 2013; Nathan Phillip Brink <binki@gentoo.org>
+  geany-plugins-1.22-r1.ebuild:
+  Restrict geany-plugins-1.22*[lua] to geany-1.22 regarding bug #467624 comment
+  2 by mrueg, as many other plugins are compatible with geany-1.23.
+
+*geany-plugins-1.23 (31 Jul 2013)
+
+  31 Jul 2013; Nathan Phillip Brink <binki@gentoo.org>
+  +geany-plugins-1.23.ebuild, metadata.xml:
+  Add geany-plugins-1.23 for bug #467624 with new plugins commander, markdown,
+  and scope.
+
+  07 Mar 2013; Nathan Phillip Brink <binki@gentoo.org>
+  -files/geany-plugins-0.20-config.h.patch,
+  -files/geany-plugins-0.20-geanyprj-outsrc-tests.patch,
+  -geany-plugins-0.20-r1.ebuild, -geany-plugins-1.22.ebuild:
+  Drop old/never-stabilized geany-plugins-0.20.0-r1 and succeeded geany-
+  plugins-1.22.
 
   07 Dec 2012; Agostino Sarubbo <ago@gentoo.org> geany-plugins-1.22-r1.ebuild:
   Stable for ppc, wrt bug #441312

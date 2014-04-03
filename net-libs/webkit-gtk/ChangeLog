@@ -1,6 +1,314 @@
 # ChangeLog for net-libs/webkit-gtk
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/ChangeLog,v 1.193 2013/01/29 12:36:39 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/ChangeLog,v 1.255 2014/03/23 15:35:30 pacho Exp $
+
+*webkit-gtk-2.2.6 (23 Mar 2014)
+*webkit-gtk-2.2.6-r200 (23 Mar 2014)
+
+  23 Mar 2014; Pacho Ramos <pacho@gentoo.org> +webkit-gtk-2.2.6-r200.ebuild,
+  +webkit-gtk-2.2.6.ebuild, -files/webkit-gtk-2.0.2-harfbuzz-0.9.18.patch,
+  -files/webkit-gtk-2.0.4-freetype-2.5.1.patch, -webkit-gtk-2.0.4.ebuild:
+  Version bump, drop old
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  amd64 stable, bug 499954
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/webkit-gtk-2.2.5-gir-nvidia-hangs.patch, webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  webkit-gtk can keep compiling forever due deadlock issue between gir and
+  nvidia-drivers, applied patch solves the issue (at least for me), bug #463960
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/webkit-gtk-2.2.5-sparc64-build.patch, webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  Apply openBSD patch for compat with sparc64
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  The ugly build system doesn't properly disable JIT in all places causing
+  problems in some arches. Try to really disable it when jit is wanted to be
+  disabled
+
+  04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org>
+  webkit-gtk-2.2.5.ebuild:
+  Add ~mips keyword.
+
+  04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org>
+  webkit-gtk-2.2.5-r200.ebuild:
+  Add ~mips keyword.
+
+  01 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/webkit-gtk-2.2.5-hppa-platform.patch,
+  +files/webkit-gtk-2.2.5-ia64-malloc.patch,
+  +files/webkit-gtk-2.2.5-ia64-platform.patch, webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  Apply various fixes to improve support on some arches (#502492 by Emeric
+  Maschino)
+
+  24 Feb 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  Parallel install fails sometimes (#501990)
+
+  23 Feb 2014; Pacho Ramos <pacho@gentoo.org> -webkit-gtk-2.2.4-r200.ebuild,
+  -webkit-gtk-2.2.4.ebuild, webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  Needs subslot dep on webp, drop old
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.0.4.ebuild,
+  webkit-gtk-2.2.5-r200.ebuild, webkit-gtk-2.2.5.ebuild:
+  Fix wrong commit, bug 502160
+
+*webkit-gtk-2.2.5-r200 (21 Feb 2014)
+*webkit-gtk-2.2.5 (21 Feb 2014)
+
+  21 Feb 2014; Pacho Ramos <pacho@gentoo.org> +webkit-gtk-2.2.5-r200.ebuild,
+  +webkit-gtk-2.2.5.ebuild, webkit-gtk-1.10.2-r300.ebuild,
+  webkit-gtk-1.8.3-r200.ebuild:
+  Version bump
+
+  11 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> webkit-gtk-2.2.4.ebuild,
+  webkit-gtk-2.2.4-r200.ebuild:
+  Really drop unsupported LDFLAG for ld.gold.
+
+  11 Feb 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.4-r200.ebuild,
+  webkit-gtk-2.2.4.ebuild:
+  web-audio relies on gstreamer (#500406 by Dennis New)
+
+  11 Feb 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.4-r200.ebuild,
+  webkit-gtk-2.2.4.ebuild:
+  reduce-memory-overheads options is not recognized by ld.gold (#469942 by
+  Samuli Suominen)
+
+  10 Feb 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-1.10.2-r300.ebuild,
+  webkit-gtk-1.8.3-r200.ebuild, webkit-gtk-2.2.4-r200.ebuild,
+  webkit-gtk-2.2.4.ebuild:
+  >=dev-libs/atk-2.8.0 is needed because atk_object_get_object_locale is used
+  (#500898 by Balint SZENTE)
+
+  06 Feb 2014; Pacho Ramos <pacho@gentoo.org> -webkit-gtk-2.2.2.ebuild,
+  webkit-gtk-2.2.4-r200.ebuild, webkit-gtk-2.2.4.ebuild:
+  Newer bison is needed due 'code' usage (#500454 by Dennis New), drop old
+
+  04 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> webkit-gtk-2.2.4.ebuild,
+  webkit-gtk-2.2.4-r200.ebuild:
+  Finer control on gles2 vs. opengl USE, bug #500150. Actually properly allow
+  ruby21, bug #500230.
+
+  04 Feb 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.4-r200.ebuild,
+  webkit-gtk-2.2.4.ebuild:
+  Add some references to upstream bug reports
+
+  03 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> webkit-gtk-2.2.4.ebuild,
+  webkit-gtk-2.2.4-r200.ebuild, +files/webkit-gtk-2.2.4-unittests-build.patch:
+  Fix build with USE=-gstreamer, bug #500162. Fix configure with USE=gles2
+  opengl, it is a forbidden configuration not only under the scope of the webgl
+  flag unfortunately, bug #500150. Raise dependency on gst-plugins-base, bug
+  #499964. Add dependency on rubygems[ruby21], bug #499896. Update path to
+  disable building of unittests unless requested. Update sed paths due to
+  upstream re-arranging sources.
+
+*webkit-gtk-2.2.4 (02 Feb 2014)
+*webkit-gtk-2.2.4-r200 (02 Feb 2014)
+
+  02 Feb 2014; Pacho Ramos <pacho@gentoo.org> +webkit-gtk-2.2.4-r200.ebuild,
+  +webkit-gtk-2.2.4.ebuild:
+  Version bump
+
+  29 Jan 2014; Mart Raudsepp <leio@gentoo.org> webkit-gtk-1.8.3-r201.ebuild,
+  webkit-gtk-1.8.3-r300.ebuild:
+  Add missing dependency on x11-libs/libXt for older versions too
+
+  24 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/webkit-gtk-1.8.3-bison-3.patch, webkit-gtk-1.8.3-r201.ebuild,
+  webkit-gtk-1.8.3-r300.ebuild:
+  Fix building w/bison-3 #485818 by Patrick Lauer.
+
+  21 Jan 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  webkit-gtk-1.8.3-r200.ebuild, webkit-gtk-1.8.3-r201.ebuild,
+  webkit-gtk-1.8.3-r300.ebuild, webkit-gtk-1.10.2-r300.ebuild,
+  webkit-gtk-2.0.4.ebuild, webkit-gtk-2.2.2.ebuild:
+  Pin geoclue dependency to slot 0, bug #496106.
+
+  19 Jan 2014; Mark Wright <gienah@gentoo.org>
+  +files/webkit-gtk-2.0.4-freetype-2.5.1.patch,
+  +files/webkit-gtk-2.2.2-freetype-2.5.1.patch, webkit-gtk-2.0.4.ebuild,
+  webkit-gtk-2.2.2.ebuild:
+  Apply upstream patch to fix bug #493654, thanks to pacho for finding the
+  patch, Brandon Penglase for tweaking the patch to apply to webkit-gtk-2.0.4,
+  Clemente Aguiar for reporting.
+
+  30 Dec 2013; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.0.4.ebuild,
+  webkit-gtk-2.2.2.ebuild:
+  Add missing dependency on x11-libs/libXt (#496486 by Fabio Rossi)
+
+*webkit-gtk-2.2.2 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/webkit-gtk-2.2.2-unittests-build.patch, +webkit-gtk-2.2.2.ebuild,
+  metadata.xml:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.0.4.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.0.4.ebuild:
+  amd64 stable, bug #478252
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> webkit-gtk-1.10.2-r300.ebuild:
+  arm stable, bug #476364
+
+  10 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  webkit-gtk-1.8.3-r200.ebuild, webkit-gtk-1.8.3-r201.ebuild,
+  webkit-gtk-1.8.3-r300.ebuild, webkit-gtk-1.10.2-r300.ebuild,
+  webkit-gtk-2.0.4.ebuild:
+  Refuse to build if nvidia-drivers-325.* is the being used as the system
+  opengl library to avoid freeze while compiling (bug #463960, thanks to Harris
+  Landgarten, nE0sIghT and others for help in diagnosing the issue).
+
+  04 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  webkit-gtk-1.10.2-r300.ebuild:
+  Disable some tests that fail on a fresh install.
+
+  01 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  webkit-gtk-1.10.2-r300.ebuild, webkit-gtk-2.0.4.ebuild:
+  Allow building using ruby20 (bug #482296, thanks to Mark David Dumlao).
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> webkit-gtk-1.10.2-r300.ebuild,
+  webkit-gtk-1.8.3-r200.ebuild, webkit-gtk-1.8.3-r201.ebuild,
+  webkit-gtk-1.8.3-r300.ebuild, webkit-gtk-2.0.4.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  01 Sep 2013; Pacho Ramos <pacho@gentoo.org> -webkit-gtk-2.0.3.ebuild,
+  webkit-gtk-2.0.4.ebuild:
+  Fix geoloc/introspection required USE combinations (#482208 by poncho), drop
+  old.
+
+  05 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  webkit-gtk-1.10.2-r300.ebuild, webkit-gtk-1.8.3-r200.ebuild,
+  webkit-gtk-1.8.3-r201.ebuild, webkit-gtk-1.8.3-r300.ebuild,
+  webkit-gtk-2.0.3.ebuild, webkit-gtk-2.0.4.ebuild:
+  Pull in correct SLOT of libjpeg for headers.
+
+*webkit-gtk-2.0.4 (24 Jul 2013)
+
+  24 Jul 2013; Pacho Ramos <pacho@gentoo.org> +webkit-gtk-2.0.4.ebuild,
+  -webkit-gtk-2.0.2.ebuild, metadata.xml:
+  Version bump, drop old
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> webkit-gtk-1.8.3-r201.ebuild:
+  Stable for arm, wrt bug #473112
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> webkit-gtk-1.8.3-r201.ebuild:
+  Stable for ia64, wrt bug #473112
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> webkit-gtk-1.8.3-r201.ebuild:
+  Stable for alpha, wrt bug #473112
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> webkit-gtk-1.8.3-r201.ebuild:
+  Stable for amd64, wrt bug #473112
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> webkit-gtk-1.8.3-r201.ebuild:
+  Stable for x86, wrt bug #473112
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> webkit-gtk-1.8.3-r201.ebuild:
+  Stable for ppc64, wrt bug #473112
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> webkit-gtk-1.8.3-r201.ebuild:
+  Stable for ppc, wrt bug #473112
+
+  18 Jun 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  webkit-gtk-1.8.3-r200.ebuild, webkit-gtk-1.8.3-r201.ebuild,
+  webkit-gtk-1.8.3-r300.ebuild, webkit-gtk-1.10.2-r300.ebuild,
+  webkit-gtk-2.0.2.ebuild, webkit-gtk-2.0.3.ebuild:
+  Add missing pygobject:3 dependency when USE=test (bug #473622, thanks to
+  Nikoli). Fix test failure when python-3.x is the system python interpreter.
+
+*webkit-gtk-2.0.3 (12 Jun 2013)
+
+  12 Jun 2013; Pacho Ramos <pacho@gentoo.org> +webkit-gtk-2.0.3.ebuild,
+  -webkit-gtk-2.0.1.ebuild:
+  Version bump, drop old
+
+  06 Jun 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  webkit-gtk-2.0.1.ebuild, webkit-gtk-2.0.2.ebuild:
+  Require harfbuzz[icu].
+
+  06 Jun 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  files/webkit-gtk-2.0.2-harfbuzz-0.9.18.patch:
+  Avoid CRLF line endings in patch.
+
+  06 Jun 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  webkit-gtk-2.0.1.ebuild, webkit-gtk-2.0.2.ebuild,
+  +files/webkit-gtk-2.0.2-harfbuzz-0.9.18.patch:
+  Fix linking failure with harfbuzz-0.9.18, and add a subslot dependency to
+  allow for automatic rebuilding when 0.9.18-rX is subslotted.
+
+  28 May 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  webkit-gtk-1.10.2-r300.ebuild, +files/webkit-gtk-1.10.2-gcc-4.8.patch,
+  +files/webkit-gtk-1.10.2-librt.patch:
+  Fix build failure due to underlinking and silence excessive warnings with
+  gcc-4.8 (bug #458164, thanks to Ted Tanberry and Mike Frysinger).
+
+*webkit-gtk-2.0.2 (15 May 2013)
+
+  15 May 2013; Pacho Ramos <pacho@gentoo.org> +webkit-gtk-2.0.2.ebuild:
+  Version bump
+
+  01 May 2013; Pacho Ramos <pacho@gentoo.org> -webkit-gtk-2.0.0.ebuild,
+  webkit-gtk-2.0.1.ebuild:
+  Workaround to paludis behavior is no longer needed (#406117#c26 by Ulm and
+  mgorny), drop old.
+
+  01 May 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  webkit-gtk-1.8.3-r200.ebuild, webkit-gtk-1.8.3-r201.ebuild,
+  webkit-gtk-1.8.3-r300.ebuild, webkit-gtk-1.10.2-r300.ebuild,
+  webkit-gtk-2.0.0.ebuild, webkit-gtk-2.0.1.ebuild:
+  Don't treat -g0 as a debugging flag (bug #465406, thanks to Tom Wijsman and
+  Agostino Sarubbo).
+
+  30 Apr 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  webkit-gtk-1.8.3-r201.ebuild:
+  Backport build fix to slot:2 for automake-1.13.1 (bug #467244).
+
+  30 Apr 2013; Justin Lecher <jlec@gentoo.org> webkit-gtk-1.10.2-r300.ebuild,
+  metadata.xml:
+  Add compatibility for sys-devel/automake-1.13.1, #467244, thanks Lee Trager
+  for the patch
+
+*webkit-gtk-2.0.1 (27 Apr 2013)
+
+  27 Apr 2013; Pacho Ramos <pacho@gentoo.org> +webkit-gtk-2.0.1.ebuild:
+  Version bump, also ask for bug references in multiple places to be sure
+  upstream is notified of the issues and we don't carry unneeded changes
+  forever.
+
+*webkit-gtk-1.8.3-r201 (11 Apr 2013)
+
+  11 Apr 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/webkit-gtk-1.8.3-spellchecker.patch, +webkit-gtk-1.8.3-r201.ebuild:
+  Fix spell checking, bug #447500 by Walther
+
+  10 Apr 2013; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.0.0.ebuild:
+  use proper gcc dependency version (#465304 by Andrew John Hughes)
+
+  07 Apr 2013; Pacho Ramos <pacho@gentoo.org> -webkit-gtk-1.6.3-r200.ebuild,
+  -webkit-gtk-1.6.3-r300.ebuild, webkit-gtk-2.0.0.ebuild:
+  Improve compiler check (#463704 by Alphat-PC), drop old.
+
+  29 Mar 2013; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.0.0.ebuild:
+  Add missing media-libs/harfbuzz RDEPEND (thanks to plaes for noticing).
+
+*webkit-gtk-2.0.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/webkit-gtk-1.11.90-gtk-docize-fix.patch, +webkit-gtk-2.0.0.ebuild:
+  Version bump for Gnome 3.8
 
   29 Jan 2013; Alexis Ballier <aballier@gentoo.org>
   webkit-gtk-1.10.2-r300.ebuild, +files/webkit-gtk-1.10.2-wifexited.patch:

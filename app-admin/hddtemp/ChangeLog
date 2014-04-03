@@ -1,6 +1,110 @@
 # ChangeLog for app-admin/hddtemp
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/hddtemp/ChangeLog,v 1.123 2012/10/27 12:14:08 aidecoe Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/hddtemp/ChangeLog,v 1.150 2014/02/23 17:12:36 aidecoe Exp $
+
+  23 Feb 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  Added new drives to hddgentoo.db. Rels bug #500924.
+
+  12 Jan 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  Added new drives to hddgentoo.db, rels bug #497382.
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> hddtemp-0.3_beta15-r7.ebuild:
+  Stable for ppc, wrt bug #487148
+
+  17 Dec 2013; Raúl Porcel <armin76@gentoo.org> hddtemp-0.3_beta15-r7.ebuild:
+  alpha/ia64/sparc stable wrt #487148
+
+  14 Dec 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  Added new drive to hddgentoo.db. Rels bug #487978.
+
+  14 Dec 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  Added new drives to hddgentoo.db. Rels bug #492324.
+
+  26 Nov 2013; Pacho Ramos <pacho@gentoo.org> hddtemp-0.3_beta15-r7.ebuild:
+  x86 stable, bug #487148
+
+  18 Nov 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  Added drives to hddgentoo.db, fixes bug #481208.
+
+  20 Oct 2013; Markus Meier <maekke@gentoo.org> hddtemp-0.3_beta15-r7.ebuild:
+  arm stable, bug #487148
+
+  15 Oct 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  hddtemp-0.3_beta15-r7.ebuild:
+  Added missing || die.
+
+  10 Oct 2013; Chema Alonso <nimiux@gentoo.org> hddtemp-0.3_beta15-r7.ebuild:
+  Stable for amd64 wrt bug #487148
+
+  09 Oct 2013; Jeroen Roovers <jer@gentoo.org> hddtemp-0.3_beta15-r7.ebuild:
+  Stable for HPPA (bug #487148).
+
+*hddtemp-0.3_beta15-r24 (28 Sep 2013)
+*hddtemp-0.3_beta15-r7 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +files/hddtemp.service-r1,
+  +files/hddtemp.service.conf, +hddtemp-0.3_beta15-r24.ebuild,
+  +hddtemp-0.3_beta15-r7.ebuild:
+  Fix unit file (#485924 by Tilo Prütz)
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> hddtemp-0.3_beta15-r6.ebuild:
+  Stable for sparc, wrt bug #480036
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> hddtemp-0.3_beta15-r6.ebuild:
+  Stable for alpha, wrt bug #480036
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> hddtemp-0.3_beta15-r6.ebuild:
+  Stable for ia64, wrt bug #480036
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> hddtemp-0.3_beta15-r6.ebuild:
+  Stable for arm, wrt bug #480036
+
+  19 Aug 2013; Agostino Sarubbo <ago@gentoo.org> hddtemp-0.3_beta15-r6.ebuild:
+  Stable for ppc, wrt bug #480036
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> hddtemp-0.3_beta15-r6.ebuild:
+  Stable for x86, wrt bug #480036
+
+  16 Aug 2013; Jeroen Roovers <jer@gentoo.org> hddtemp-0.3_beta15-r6.ebuild:
+  Stable for HPPA (bug #480036).
+
+  14 Aug 2013; Chema Alonso <nimiux@gentoo.org> hddtemp-0.3_beta15-r6.ebuild:
+  Stable for amd64 wrt bug #480036
+
+  25 Jul 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  Added OCZ Vertex 3 and WDC WD5000AZRX-00A8LB0 to hddgentoo.db. Fixes bug
+  #476458.
+
+  08 Jul 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  hddtemp-0.3_beta15-r3.ebuild, hddtemp-0.3_beta15-r5.ebuild,
+  hddtemp-0.3_beta15-r6.ebuild, hddtemp-0.3_beta15-r22.ebuild,
+  hddtemp-0.3_beta15-r23.ebuild:
+  Restore nls flag in IUSE. Rels bug #457648.
+
+*hddtemp-0.3_beta15-r23 (06 Jul 2013)
+*hddtemp-0.3_beta15-r6 (06 Jul 2013)
+
+  06 Jul 2013; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  hddtemp-0.3_beta15-r3.ebuild, hddtemp-0.3_beta15-r5.ebuild,
+  +hddtemp-0.3_beta15-r6.ebuild, hddtemp-0.3_beta15-r22.ebuild,
+  +hddtemp-0.3_beta15-r23.ebuild, files/hddgentoo.db, +files/hddtemp.service:
+  Added systemd unit file (by Pacho Ramos <pacho@gentoo.org>)
+  - fixes bug #474458.
+
+  Removed 'nls' flag from IUSE, because it doesn't build if disabled
+  - fixes bug #457648.
+
+  Added WDC WD3200BEKT-75A25T0 and Hitachi HTS542512K9SA00 to hddgentoo.db
+  - fixes bug #470970 and bug #473686.
+
+  21 May 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  Added new drives to hddgentoo.db. Fixes bug #467046 and bug #468816.
+
+  18 Apr 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  Added new drives to to hddgentoo.db. Fixes bug #462986.
+
+  09 Mar 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  New drives in hddgentoo.db. Fixes bug #456714 and bug #458056.
 
   27 Oct 2012; Amadeusz Żołnowski <aidecoe@gentoo.org>
   hddtemp-0.3_beta15-r5.ebuild, hddtemp-0.3_beta15-r22.ebuild:

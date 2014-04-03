@@ -1,6 +1,62 @@
 # ChangeLog for net-analyzer/icinga
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/icinga/ChangeLog,v 1.37 2013/02/09 21:41:59 prometheanfire Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/icinga/ChangeLog,v 1.46 2014/03/28 02:58:53 prometheanfire Exp $
+
+*icinga-1.10.4 (28 Mar 2014)
+*icinga-1.9.6 (28 Mar 2014)
+*icinga-1.11.1 (28 Mar 2014)
+
+  28 Mar 2014; Matthew Thode <prometheanfire@gentoo.org> +icinga-1.10.4.ebuild,
+  +icinga-1.11.1.ebuild, +icinga-1.9.6.ebuild, -icinga-1.10.3.ebuild,
+  -icinga-1.11.0.ebuild, -icinga-1.9.5.ebuild:
+  updates, updates for everyone
+
+*icinga-1.11.0 (16 Mar 2014)
+
+  16 Mar 2014; Matthew Thode <prometheanfire@gentoo.org> +icinga-1.11.0.ebuild:
+  bump
+
+*icinga-1.9.5 (19 Feb 2014)
+*icinga-1.10.3 (19 Feb 2014)
+
+  19 Feb 2014; Matthew Thode <prometheanfire@gentoo.org> +icinga-1.10.3.ebuild,
+  +icinga-1.9.5.ebuild, -icinga-1.10.2.ebuild, -icinga-1.9.4.ebuild:
+  fixes for CVE-2014-1878 bug 501690
+
+*icinga-1.10.2 (18 Dec 2013)
+*icinga-1.9.4 (18 Dec 2013)
+
+  18 Dec 2013; Matthew Thode <prometheanfire@gentoo.org> +icinga-1.10.2.ebuild,
+  +icinga-1.9.4.ebuild, -files/fix-prestripped-binaries.patch,
+  -icinga-1.10.0.ebuild, -icinga-1.10.1.ebuild, -icinga-1.9.3.ebuild:
+  fix for bug 494510 CVE-2013-7108
+
+*icinga-1.10.1 (18 Nov 2013)
+
+  18 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> +icinga-1.10.1.ebuild:
+  adding icinga-1.10.1 to tree
+
+*icinga-1.10.0 (10 Nov 2013)
+
+  10 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> +icinga-1.10.0.ebuild,
+  -icinga-1.8.4-r1.ebuild, -icinga-1.9.1.ebuild:
+  updating icinga
+
+*icinga-1.9.3 (08 Jul 2013)
+
+  08 Jul 2013; Matthew Thode <prometheanfire@gentoo.org> +icinga-1.9.3.ebuild:
+  version bump of icinga to 1.9.3
+
+*icinga-1.9.1 (28 May 2013)
+
+  28 May 2013; Matthew Thode <prometheanfire@gentoo.org> +icinga-1.9.1.ebuild,
+  -icinga-1.8.4.ebuild, -icinga-1.9.0.ebuild, metadata.xml:
+  updating icinga to 1.9.1 and adding a contrib flag for bug 471174
+
+*icinga-1.9.0 (09 May 2013)
+
+  09 May 2013; Matthew Thode <prometheanfire@gentoo.org> +icinga-1.9.0.ebuild:
+  update of icinga to 1.9.0
 
 *icinga-1.8.4-r1 (09 Feb 2013)
 

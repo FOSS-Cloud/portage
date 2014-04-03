@@ -1,6 +1,21 @@
 # ChangeLog for dev-python/etsdevtools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/etsdevtools/ChangeLog,v 1.21 2012/12/06 17:33:24 bicatali Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/etsdevtools/ChangeLog,v 1.24 2013/05/14 12:41:24 idella4 Exp $
+
+  14 May 2013; Ian Delaney <idella4@gentoo.org> -etsdevtools-3.1.1.ebuild,
+  -etsdevtools-4.0.0.ebuild:
+  drop old
+
+*etsdevtools-4.0.2-r1 (12 Apr 2013)
+
+  12 Apr 2013; Ian Delaney <idella4@gentoo.org> +etsdevtools-4.0.2-r1.ebuild,
+  etsdevtools-4.0.2.ebuild:
+  revbump, migration -> distutils-r1
+
+*etsdevtools-4.0.2 (03 Apr 2013)
+
+  03 Apr 2013; Patrick Lauer <patrick@gentoo.org> +etsdevtools-4.0.2.ebuild:
+  Bump
 
   06 Dec 2012; Sébastien Fabbro <bicatali@gentoo.org> etsdevtools-4.0.0.ebuild:
   Keyword amd64-linux and x86-linux

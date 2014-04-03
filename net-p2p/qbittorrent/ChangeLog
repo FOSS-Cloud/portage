@@ -1,6 +1,98 @@
 # ChangeLog for net-p2p/qbittorrent
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/qbittorrent/ChangeLog,v 1.205 2013/01/23 19:21:53 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/qbittorrent/ChangeLog,v 1.226 2014/03/06 19:56:20 hwoarang Exp $
+
+*qbittorrent-3.1.9 (06 Mar 2014)
+
+  06 Mar 2014; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.9.ebuild:
+  Version bump
+
+*qbittorrent-3.1.8 (04 Feb 2014)
+
+  04 Feb 2014; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.8.ebuild:
+  Version bump
+
+*qbittorrent-3.1.5 (17 Jan 2014)
+
+  17 Jan 2014; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.5.ebuild:
+  Version bump
+
+*qbittorrent-3.1.4 (01 Jan 2014)
+
+  01 Jan 2014; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.4.ebuild:
+  Version bump. Use system's qtsingleapplication. Bug #496638
+
+  30 Dec 2013; Markos Chandras <hwoarang@gentoo.org> qbittorrent-9999.ebuild:
+  Use system's qtsingleapplication (>=2.6.1_p20130904) to take advantage of the
+  new X use-flag
+
+  24 Nov 2013; Markos Chandras <hwoarang@gentoo.org> qbittorrent-3.1.3.ebuild,
+  qbittorrent-9999.ebuild:
+  Use bundled qtsingleapplication for -X
+
+*qbittorrent-3.1.3 (22 Nov 2013)
+
+  22 Nov 2013; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.3.ebuild,
+  -qbittorrent-3.1.0.ebuild, -qbittorrent-3.1.2.ebuild, qbittorrent-9999.ebuild:
+  Version bump. Bug #492316
+
+*qbittorrent-3.1.2 (11 Nov 2013)
+
+  11 Nov 2013; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.2.ebuild:
+  Version bump. Bug #490934
+
+*qbittorrent-3.1.0 (16 Oct 2013)
+
+  16 Oct 2013; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.0.ebuild,
+  metadata.xml:
+  Version bump
+
+*qbittorrent-3.0.11-r1 (13 Oct 2013)
+
+  13 Oct 2013; Markos Chandras <hwoarang@gentoo.org>
+  +qbittorrent-3.0.11-r1.ebuild, qbittorrent-9999.ebuild:
+  Use system qtsingleapplication per #487522 thanks to Nikoli
+
+  27 Sep 2013; Markos Chandras <hwoarang@gentoo.org> -qbittorrent-3.0.8.ebuild,
+  -qbittorrent-3.0.9.ebuild:
+  remove old
+
+  06 Sep 2013; Markos Chandras <hwoarang@gentoo.org> qbittorrent-3.0.11.ebuild:
+  amd64/x86 stable
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> qbittorrent-3.0.11.ebuild,
+  qbittorrent-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*qbittorrent-3.0.11 (31 Jul 2013)
+
+  31 Jul 2013; Ben de Groot <yngwin@gentoo.org> +qbittorrent-3.0.11.ebuild,
+  qbittorrent-9999.ebuild:
+  Version bump, implementing latest eapi, python-r1.eclass, no longer slotted
+  boost, and general cleanup; with thanks to contributors in bug #478840
+
+  17 Jul 2013; Markus Meier <maekke@gentoo.org> qbittorrent-3.0.9.ebuild:
+  add ~arm, bug #473472
+
+  31 Mar 2013; Jeff Horelick <jdhore@gentoo.org> qbittorrent-3.0.8.ebuild:
+  marked x86 per bug 460190
+
+*qbittorrent-3.0.9 (18 Mar 2013)
+
+  18 Mar 2013; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.0.9.ebuild:
+  Version bump
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> qbittorrent-3.0.8.ebuild:
+  Stable for amd64, wrt bug #460190
+
+  03 Mar 2013; Markos Chandras <hwoarang@gentoo.org> -qbittorrent-2.9.11.ebuild,
+  -qbittorrent-3.0.5.ebuild, -qbittorrent-3.0.6.ebuild:
+  remove old
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> qbittorrent-2.9.11.ebuild,
+  qbittorrent-2.9.7.ebuild, qbittorrent-3.0.5.ebuild, qbittorrent-3.0.6.ebuild,
+  qbittorrent-3.0.8.ebuild, qbittorrent-9999.ebuild:
+  Move Qt dependencies to the new category
 
 *qbittorrent-3.0.8 (23 Jan 2013)
 

@@ -1,6 +1,25 @@
 # ChangeLog for x11-misc/i3status
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/i3status/ChangeLog,v 1.16 2013/02/27 10:56:44 xarthisius Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/i3status/ChangeLog,v 1.21 2014/01/05 21:48:44 xarthisius Exp $
+
+*i3status-2.8 (05 Jan 2014)
+
+  05 Jan 2014; Kacper Kowalik <xarthisius@gentoo.org> +i3status-2.8.ebuild:
+  Version bump
+
+  18 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> -i3status-2.6.ebuild:
+  drop old
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> i3status-2.7.ebuild:
+  Stable for x86, wrt bug #480338
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> i3status-2.7.ebuild:
+  Stable for amd64, wrt bug #480338
+
+  14 Mar 2013; Kacper Kowalik <xarthisius@gentoo.org> i3status-2.6.ebuild,
+  i3status-2.7.ebuild:
+  Enhance pkg_posinst message. Thanks to Eduardo Suarez-Santana
+  <e.suarezsantana@gmail.com>
 
 *i3status-2.7 (27 Feb 2013)
 

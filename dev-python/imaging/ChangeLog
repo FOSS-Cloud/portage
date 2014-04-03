@@ -1,6 +1,58 @@
 # ChangeLog for dev-python/imaging
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/imaging/ChangeLog,v 1.81 2013/02/24 12:15:03 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/imaging/ChangeLog,v 1.91 2013/09/05 18:46:38 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> imaging-1.1.7-r2.ebuild,
+  imaging-1.1.7-r4.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  31 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Drop unused useflag description
+
+  28 May 2013; Mike Gilbert <floppym@gentoo.org>
+  -files/imaging-2.0.0-delete_hardcoded_paths.patch,
+  -files/imaging-2.0.0-libm_linking.patch, -imaging-2.0.0.ebuild,
+  imaging-1.1.7-r1.ebuild, imaging-1.1.7-r2.ebuild, imaging-1.1.7-r4.ebuild:
+  Remove imaging-2.0.0, add blocker for dev-python/pillow.
+
+  28 May 2013; Mike Gilbert <floppym@gentoo.org> imaging-2.0.0.ebuild:
+  Depend on unzip.
+
+  28 May 2013; Mike Gilbert <floppym@gentoo.org>
+  -files/imaging-2.0.0-GifImagePlugin.patch,
+  -files/imaging-2.0.0-gif_transparency.patch, imaging-2.0.0.ebuild:
+  Drop GIF transparency patches.
+
+*imaging-2.0.0 (27 May 2013)
+
+  27 May 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/imaging-2.0.0-GifImagePlugin.patch,
+  +files/imaging-2.0.0-delete_hardcoded_paths.patch,
+  +files/imaging-2.0.0-gif_transparency.patch,
+  +files/imaging-2.0.0-libm_linking.patch, +imaging-2.0.0.ebuild, metadata.xml:
+  Copy dev-python/pillow-2.0.0 to dev-python/imaging-2.0.0 in preparation for a
+  pkgmove. Apply rebased patches from Arfrever's Progress overlay. Enable
+  python3 support. Bug 401009.
+
+*imaging-1.1.7-r4 (07 May 2013)
+
+  07 May 2013; Mike Gilbert <floppym@gentoo.org> +imaging-1.1.7-r4.ebuild,
+  -imaging-1.1.7-r3.ebuild:
+  Revbump for previous change.
+
+  07 May 2013; Mike Gilbert <floppym@gentoo.org> imaging-1.1.7-r3.ebuild:
+  Fix installation path for sane demos, bug 468960 by Erik Zeek.
+
+  24 Apr 2013; Mike Gilbert <floppym@gentoo.org> imaging-1.1.7-r3.ebuild:
+  Fix typo in HTML_DOCS, bug 466764 by Martin von Gagern.
+
+*imaging-1.1.7-r3 (21 Apr 2013)
+
+  21 Apr 2013; Michał Górny <mgorny@gentoo.org> +imaging-1.1.7-r3.ebuild:
+  Backport the ebuild improvements from dev-python/pillow. Remove unnecessary
+  inherits. Add a fine-grained control over features, and a simpler feature
+  switch mechanism. Remove unused USE=X, add shebangs to all Python scripts. Use
+  the new python_doinclude function and EXAMPLES support.
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> imaging-1.1.7-r2.ebuild:
   Stable for x86, wrt bug #447470

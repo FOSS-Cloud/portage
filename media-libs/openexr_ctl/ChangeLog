@@ -1,6 +1,23 @@
 # ChangeLog for media-libs/openexr_ctl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/openexr_ctl/ChangeLog,v 1.24 2012/05/05 08:02:27 jdhore Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/openexr_ctl/ChangeLog,v 1.27 2014/01/22 18:54:22 ssuominen Exp $
+
+  22 Jan 2014; Samuli Suominen <ssuominen@gentoo.org>
+  openexr_ctl-1.0.1-r1.ebuild:
+  Force old version of OpenEXR for openexr_ctl without the -namespace.patch wrt
+  #477898
+
+*openexr_ctl-1.0.1-r2 (23 Jul 2013)
+
+  23 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +openexr_ctl-1.0.1-r2.ebuild, +files/openexr_ctl-1.0.1-namespace.patch:
+  Fix namespace handling with OpenEXR >= 2.0.1 wrt
+  http://lists.gnu.org/archive/html/openexr-devel/2013-04/msg00031.html
+
+  21 Mar 2013; Samuli Suominen <ssuominen@gentoo.org>
+  openexr_ctl-1.0.1-r1.ebuild:
+  Use prune_libtool_files to remove unnecessary libtool archive (.la) of
+  libIlmImfCtl and introduce USE="static-libs" support too.
 
   05 May 2012; Jeff Horelick <jdhore@gentoo.org> openexr_ctl-1.0.1-r1.ebuild:
   dev-util/pkgconfig -> virtual/pkgconfig
@@ -93,4 +110,3 @@
   +openexr_ctl-1.0.0.ebuild:
   Initial import, split of media-libs/openexr, thanks to : Arfrever Frehtes
   Taifersar Arahesis <Arfrever.FTA@GMail.Com> for the ebuilds, bug #189798
-

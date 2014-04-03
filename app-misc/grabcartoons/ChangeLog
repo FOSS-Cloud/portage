@@ -1,6 +1,19 @@
 # ChangeLog for app-misc/grabcartoons
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/grabcartoons/ChangeLog,v 1.7 2012/10/29 08:27:51 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/grabcartoons/ChangeLog,v 1.10 2014/03/22 18:41:10 kensington Exp $
+
+  22 Mar 2014; Michael Palimaka <kensington@gentoo.org>
+  -grabcartoons-2.1.ebuild, grabcartoons-2.4.ebuild:
+  Tidy ebuild. Remove old.
+
+  09 Apr 2013; Tom Wijsman <TomWij@gentoo.org> grabcartoons-2.4.ebuild:
+  Add missing dependency on virtual/perl-Getopt-Long. Made test function empty
+  since it opens a web page during the emerge.
+
+*grabcartoons-2.4 (14 Mar 2013)
+
+  14 Mar 2013; Tom Wijsman <TomWij@gentoo.org> +grabcartoons-2.4.ebuild:
+  Non-maintainer commit, version bump to 2.4.
 
   29 Oct 2012; Agostino Sarubbo <ago@gentoo.org> grabcartoons-2.1.ebuild:
   EAPI4, add rdepend, add ~amd64

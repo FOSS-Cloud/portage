@@ -1,6 +1,15 @@
 # ChangeLog for sys-block/noflushd
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/noflushd/ChangeLog,v 1.6 2009/04/11 15:18:15 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-block/noflushd/ChangeLog,v 1.8 2014/03/10 10:59:50 ssuominen Exp $
+
+  10 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> noflushd-2.7.3.ebuild,
+  noflushd-2.7.4.ebuild:
+  Remove virtual/libc dependency.
+
+*noflushd-2.8 (10 Oct 2013)
+
+  10 Oct 2013; Tony Vroon <chainsaw@gentoo.org> +noflushd-2.8.ebuild:
+  Version bump, as requested by Holger Hoffstätte in bug #410567.
 
   11 Apr 2009; Mike Frysinger <vapier@gentoo.org> noflushd-2.7.5.ebuild:
   Force data/init dir sanity #265636 by Jeremy Stent.

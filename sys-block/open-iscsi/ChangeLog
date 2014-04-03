@@ -1,6 +1,56 @@
 # ChangeLog for sys-block/open-iscsi
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/open-iscsi/ChangeLog,v 1.49 2013/01/06 11:10:30 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-block/open-iscsi/ChangeLog,v 1.61 2014/02/02 15:24:49 ago Exp $
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> open-iscsi-2.0.872-r2.ebuild:
+  Stable for alpha, wrt bug #498446
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> open-iscsi-2.0.872-r2.ebuild:
+  Stable for arm, wrt bug #498446
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> open-iscsi-2.0.872-r2.ebuild:
+  Stable for sparc, wrt bug #498446
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> open-iscsi-2.0.872-r2.ebuild:
+  Stable for ppc64, wrt bug #498446
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> open-iscsi-2.0.872-r2.ebuild:
+  ia64 stable, bug #498446 (thanks to Emeric Maschino for testing)
+
+  20 Oct 2013; Christian Ruppert <idl0r@gentoo.org> files/iscsid-init.d:
+  Make sure iscsid starts after multipath
+
+*open-iscsi-2.0.873 (11 Oct 2013)
+
+  11 Oct 2013; Christian Ruppert <idl0r@gentoo.org> +open-iscsi-2.0.873.ebuild,
+  +files/open-iscsi-2.0.873-Makefiles.patch, +files/iscsid-conf.d,
+  +files/iscsid-init.d:
+  Version bump, fixes bug 449830, bug 480158 and bug 456906
+
+  18 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -files/CVE-2009-1297.patch, -files/iscsid-2.0.871-r1.init.d,
+  -files/iscsid-conf.d, -files/iscsid-init.d,
+  -files/open-iscsi-2.0.871-makefile-cleanup.patch,
+  -files/open-iscsi-2.0.871.3-glibc212.patch, -files/open-iscsi-2.0.872-init.d,
+  -open-iscsi-2.0.870.3-r1.ebuild, -open-iscsi-2.0.871-r1.ebuild,
+  -open-iscsi-2.0.871.3.ebuild, -open-iscsi-2.0.871.ebuild,
+  -open-iscsi-2.0.872-r1.ebuild, -open-iscsi-2.0.872.ebuild, metadata.xml:
+  old
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> open-iscsi-2.0.872-r2.ebuild:
+  Stable for x86, wrt bug #479786
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> open-iscsi-2.0.872-r2.ebuild:
+  Stable for ppc, wrt bug #479786
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> open-iscsi-2.0.872-r2.ebuild:
+  Stable for amd64, wrt bug #479786
+
+*open-iscsi-2.0.872-r2 (07 Mar 2013)
+
+  07 Mar 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +open-iscsi-2.0.872-r2.ebuild, +files/open-iscsi-2.0.872-init.d-r1:
+  Stop using "modprobe -l" which went away with sys-apps/kmod wrt #409931
 
   06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> open-iscsi-2.0.872-r1.ebuild:
   Add ~sparc, wrt bug #449220

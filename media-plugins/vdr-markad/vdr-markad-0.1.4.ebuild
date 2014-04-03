@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-markad/vdr-markad-0.1.4.ebuild,v 1.1 2012/09/27 19:28:37 hd_brummy Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-markad/vdr-markad-0.1.4.ebuild,v 1.4 2014/01/29 19:43:00 hd_brummy Exp $
 
-EAPI="4"
+EAPI=5
 
 inherit vdr-plugin-2
 
@@ -12,7 +12,7 @@ DESCRIPTION="VDR Plugin: marks advertisements in VDR recordings"
 HOMEPAGE="http://projects.vdr-developer.org/projects/plg-markad/"
 SRC_URI="mirror://vdr-developerorg/${VERSION}/${P}.tgz"
 
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="GPL-2"
 IUSE=""
@@ -32,6 +32,7 @@ src_prepare() {
 	vdr-plugin-2_src_prepare
 
 	cd "${S2}"
+	epatch "${FILESDIR}/${PN}-0.1.4-libav9.patch"
 	sed -i Makefile \
 		-e "s:\$(CXXFLAGS) \$(OBJS):\$(CXXFLAGS) \$(LDFLAGS) \$(OBJS):" \
 		-e "s:\@\$(STRIP) \$(DESTDIR)/usr/bin/markad::"
@@ -39,6 +40,8 @@ src_prepare() {
 	if has_version ">=media-video/vdr-1.7.15"; then
 		sed -e "s:2001:6419:" -i markad-standalone.cpp
 	fi
+
+	epatch "${FILESDIR}/${P}_ffmpeg-2.patch"
 }
 
 src_compile() {

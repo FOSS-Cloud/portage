@@ -1,8 +1,9 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/povscript+/povscript+-2.1.2.2.19.ebuild,v 1.3 2011/09/14 19:49:57 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/povscript+/povscript+-2.1.2.2.19.ebuild,v 1.4 2013/07/12 06:03:17 jlec Exp $
 
 EAPI=4
+
 inherit eutils versionator
 
 V1=$(get_version_component_range 1 ${PV})
@@ -14,15 +15,16 @@ V5=$(get_version_component_range 5 ${PV})
 MY_P=molscript-${V1}.${V2}.${V3}pov${V4}.${V5}
 
 DESCRIPTION="Modified molscript that uses POV-Ray, does thermal ellipsoids, and more"
-HOMEPAGE="http://www.stanford.edu/~fenn/povscript/"
-SRC_URI="http://www.stanford.edu/~fenn/packs/${MY_P}.tar.gz"
+HOMEPAGE="https://sites.google.com/site/timfenn/povscript"
+SRC_URI="https://sites.google.com/site/timfenn/povscript/${MY_P}.tar.gz"
 
 LICENSE="glut molscript"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE=""
 
-RDEPEND="dev-libs/glib:2
+RDEPEND="
+	dev-libs/glib:2
 	media-libs/freeglut
 	media-libs/giflib
 	>=media-libs/libpng-1.4

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/s390-tools/s390-tools-1.17.0.ebuild,v 1.1 2013/01/07 00:24:25 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/s390-tools/s390-tools-1.17.0.ebuild,v 1.3 2014/01/14 23:37:08 vapier Exp $
 
 EAPI="4"
 
@@ -10,7 +10,7 @@ inherit eutils udev
 E2FSPROGS_P=e2fsprogs-1.41.3
 LINUX_P=linux-2.6.27
 
-DESCRIPTION="A set of user space utilities that should be used together with the zSeries (s390) Linux kernel and device drivers"
+DESCRIPTION="User space utilities for the zSeries (s390) Linux kernel and device drivers"
 HOMEPAGE="http://www.ibm.com/developerworks/linux/linux390/s390-tools.html"
 SRC_URI="http://download.boulder.ibm.com/ibmdl/pub/software/dw/linux390/ht_src/${P}.tar.bz2
 	zfcpdump? (
@@ -20,7 +20,7 @@ SRC_URI="http://download.boulder.ibm.com/ibmdl/pub/software/dw/linux390/ht_src/$
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-* ~s390"
+KEYWORDS="-* s390"
 IUSE="fuse snmp zfcpdump"
 
 RDEPEND="fuse? ( sys-fs/fuse )

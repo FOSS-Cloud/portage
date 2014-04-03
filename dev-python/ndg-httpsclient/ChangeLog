@@ -1,0 +1,15 @@
+# ChangeLog for dev-python/ndg-httpsclient
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ndg-httpsclient/ChangeLog,v 1.3 2014/03/31 21:17:29 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> ndg-httpsclient-0.3.2.ebuild:
+  Add support for the new PyPy slotting.
+
+  11 Aug 2013; Jeroen Roovers <jer@gentoo.org> ndg-httpsclient-0.3.2.ebuild:
+  Marked ~hppa too.
+
+*ndg-httpsclient-0.3.2 (09 Aug 2013)
+
+  09 Aug 2013; Mike Gilbert <floppym@gentoo.org> +metadata.xml,
+  +ndg-httpsclient-0.3.2.ebuild:
+  New ebuild.

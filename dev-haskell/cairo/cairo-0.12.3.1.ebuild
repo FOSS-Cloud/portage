@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cairo/cairo-0.12.3.1.ebuild,v 1.4 2012/09/23 08:41:05 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cairo/cairo-0.12.3.1.ebuild,v 1.6 2013/12/12 05:59:00 gienah Exp $
 
 EAPI=4
 
@@ -21,7 +21,7 @@ RDEPEND="dev-haskell/mtl[profile?]
 		>=dev-lang/ghc-6.10.1
 		x11-libs/cairo[svg?]"
 DEPEND="${RDEPEND}
-		dev-haskell/gtk2hs-buildtools"
+		dev-haskell/gtk2hs-buildtools:0"
 
 src_configure() {
 	# x11-libs/cairo seems to build pdf and ps by default

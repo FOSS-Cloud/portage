@@ -1,6 +1,21 @@
 # ChangeLog for app-text/po4a
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/po4a/ChangeLog,v 1.68 2013/02/24 17:46:45 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/po4a/ChangeLog,v 1.72 2014/02/15 12:07:18 hwoarang Exp $
+
+  15 Feb 2014; Markos Chandras <hwoarang@gentoo.org> po4a-0.45.ebuild:
+  Add ~mips
+
+  11 Jan 2014;  <zlogene@gentoo.org> -po4a-0.38.ebuild, -po4a-0.39.ebuild,
+  -po4a-0.40.1.ebuild, -po4a-0.41.ebuild:
+  Drop old
+
+  05 Jan 2014; Naohiro Aota <naota@gentoo.org> po4a-0.45.ebuild:
+  Add ~x86-fbsd
+
+*po4a-0.45 (29 Oct 2013)
+
+  29 Oct 2013; Patrick Lauer <patrick@gentoo.org> +po4a-0.45.ebuild:
+  Bump
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> po4a-0.42.ebuild:
   Stable for sh, wrt bug #453122

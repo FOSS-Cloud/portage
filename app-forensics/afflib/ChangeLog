@@ -1,6 +1,31 @@
 # ChangeLog for app-forensics/afflib
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-forensics/afflib/ChangeLog,v 1.43 2012/09/08 01:42:09 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-forensics/afflib/ChangeLog,v 1.50 2014/03/05 15:29:03 jer Exp $
+
+  05 Mar 2014; Jeroen Roovers <jer@gentoo.org> afflib-3.7.4.ebuild:
+  Stable for HPPA (bug #502620).
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> afflib-3.7.4.ebuild:
+  Stable for ppc, wrt bug #502620
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> afflib-3.7.4.ebuild:
+  Stable for x86, wrt bug #502620
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> afflib-3.7.4.ebuild:
+  amd64 stable, bug #502620
+
+*afflib-3.7.4 (17 Dec 2013)
+
+  17 Dec 2013; Tim Harder <radhermit@gentoo.org> +afflib-3.7.4.ebuild:
+  Version bump.
+
+*afflib-3.7.3 (10 Nov 2013)
+
+  10 Nov 2013; Tim Harder <radhermit@gentoo.org> +afflib-3.7.3.ebuild:
+  Version bump, migrate to python-single-r1.
+
+  03 May 2013; Tim Harder <radhermit@gentoo.org> afflib-3.7.1.ebuild:
+  Fix build with automake-1.13 (bug #467564).
 
   08 Sep 2012; Tim Harder <radhermit@gentoo.org>
   -files/afflib-3.6.12-python-module.patch, -afflib-3.6.16.ebuild,

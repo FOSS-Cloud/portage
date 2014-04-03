@@ -1,6 +1,16 @@
 # ChangeLog for dev-libs/mozldap
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/mozldap/ChangeLog,v 1.6 2012/07/11 18:16:29 lxnay Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/mozldap/ChangeLog,v 1.8 2013/03/29 03:25:30 patrick Exp $
+
+  29 Mar 2013; Patrick Lauer <patrick@gentoo.org> mozldap-6.0.7.ebuild:
+  Fix install paths #463642
+
+*mozldap-6.0.7 (14 Mar 2013)
+
+  14 Mar 2013; Fabio Erculiani <lxnay@gentoo.org>
+  files/mozldap-6.0.4-pkgconfig.patch, +mozldap-6.0.7.ebuild,
+  +files/mozldap-6.0.7-configure.in.patch, files/configure.in.patch:
+  version bump
 
   11 Jul 2012; Fabio Erculiani <lxnay@gentoo.org> mozldap-6.0.6-r2.ebuild:
   amd64 and x86 stable, as per bug #420131
@@ -29,4 +39,3 @@
   +files/nspr-m4.patch, +files/nss-m4.patch, +mozldap-6.0.6-r1.ebuild,
   +metadata.xml:
   new ebuild, Mozilla LDAP C SDK
-

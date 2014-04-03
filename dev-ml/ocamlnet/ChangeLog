@@ -1,6 +1,59 @@
 # ChangeLog for dev-ml/ocamlnet
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocamlnet/ChangeLog,v 1.68 2013/02/11 03:08:27 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocamlnet/ChangeLog,v 1.82 2014/03/13 20:39:47 aballier Exp $
+
+  13 Mar 2014; Alexis Ballier <aballier@gentoo.org> -ocamlnet-3.6.3.ebuild,
+  -ocamlnet-3.6.5.ebuild, -ocamlnet-3.6.6.ebuild,
+  -files/ocamlnet-3.6.6-ocaml-4.01.patch:
+  remove old
+
+  14 Feb 2014; Chema Alonso <nimiux@gentoo.org> ocamlnet-3.7.3.ebuild:
+  Stable for amd64 wrt bug #492050
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ocamlnet-3.7.3.ebuild:
+  Stable for x86, wrt bug #492050
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ocamlnet-3.7.3.ebuild:
+  Stable for ppc, wrt bug #492050
+
+*ocamlnet-3.7.3 (03 Sep 2013)
+
+  03 Sep 2013; Alexis Ballier <aballier@gentoo.org> +ocamlnet-3.7.3.ebuild:
+  version bump
+
+  19 Aug 2013; Alexis Ballier <aballier@gentoo.org> ocamlnet-3.6.6.ebuild,
+  +files/ocamlnet-3.6.6-ocaml-4.01.patch:
+  Fix build with ocaml 4.01.
+
+*ocamlnet-3.6.6 (22 Jul 2013)
+
+  22 Jul 2013; Alexis Ballier <aballier@gentoo.org> +ocamlnet-3.6.6.ebuild:
+  version bump
+
+  11 Jun 2013; Alexis Ballier <aballier@gentoo.org> -ocamlnet-3.5.ebuild:
+  remove old
+
+*ocamlnet-3.6.5 (11 Jun 2013)
+
+  11 Jun 2013; Alexis Ballier <aballier@gentoo.org> +ocamlnet-3.6.5.ebuild:
+  version bump
+
+  30 Mar 2013; Ulrich Müller <ulm@gentoo.org> ocamlnet-3.5.ebuild,
+  ocamlnet-3.6.3.ebuild:
+  Fix LICENSE.
+
+  12 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ocamlnet-3.6.3.ebuild:
+  Stable for ppc, wrt bug #461112
+
+  10 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ocamlnet-3.6.3.ebuild:
+  Stable for x86, wrt bug #461112
+
+  10 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ocamlnet-3.6.3.ebuild:
+  Stable for amd64, wrt bug #461112
+
+  03 Mar 2013; Alexis Ballier <aballier@gentoo.org> -ocamlnet-3.5.1.ebuild,
+  -ocamlnet-3.6.ebuild, -ocamlnet-3.6.1.ebuild, -ocamlnet-3.6.2.ebuild:
+  remove old
 
   11 Feb 2013; Alexis Ballier <aballier@gentoo.org> ocamlnet-3.6.3.ebuild:
   eapi5, add subslot and use := deps

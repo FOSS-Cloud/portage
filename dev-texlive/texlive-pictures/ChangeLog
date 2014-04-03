@@ -1,6 +1,45 @@
 # ChangeLog for dev-texlive/texlive-pictures
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-texlive/texlive-pictures/ChangeLog,v 1.75 2012/12/17 20:14:22 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-texlive/texlive-pictures/ChangeLog,v 1.87 2013/06/28 16:42:28 aballier Exp $
+
+*texlive-pictures-2013 (28 Jun 2013)
+
+  28 Jun 2013; Alexis Ballier <aballier@gentoo.org>
+  +texlive-pictures-2013.ebuild, metadata.xml:
+  Bump to TeX Live 2013.
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for sh, wrt bug #449298
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for s390, wrt bug #449298
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for sparc, wrt bug #449298
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for arm, wrt bug #449298
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for alpha, wrt bug #449298
+
+  19 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for ia64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for ppc64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for ppc, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for x86, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for amd64, wrt bug #449298
+
+  17 Apr 2013; Jeroen Roovers <jer@gentoo.org> texlive-pictures-2012.ebuild:
+  Stable for HPPA (bug #449298).
 
   17 Dec 2012; Agostino Sarubbo <ago@gentoo.org> texlive-pictures-2012.ebuild:
   Add ~ppc64, wrt bug #428248
@@ -308,4 +347,3 @@
   14 Oct 2007; Alexis Ballier <aballier@gentoo.org> +metadata.xml,
   +texlive-pictures-2007.ebuild:
   initial import
-

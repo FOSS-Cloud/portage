@@ -1,15 +1,15 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/remmina/remmina-9999.ebuild,v 1.26 2012/11/22 03:45:43 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/remmina/remmina-9999.ebuild,v 1.33 2014/03/01 22:19:17 mgorny Exp $
 
 EAPI="4"
 
 inherit gnome2-utils cmake-utils
 
 if [[ ${PV} != 9999 ]]; then
-	SRC_URI="mirror://github/FreeRDP/Remmina/${P}.tar.gz
-		mirror://gentoo/${P}.tar.gz
-		http://dev.gentoo.org/~floppym/distfiles/${P}.tar.gz"
+	inherit vcs-snapshot
+	COMMIT="b6a55ae6f4633d55f8f03e7ce2eeb5899514a8fc"
+	SRC_URI="https://github.com/FreeRDP/Remmina/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 else
 	inherit git-2
@@ -28,12 +28,13 @@ IUSE="ayatana avahi crypt debug freerdp gnome-keyring nls ssh telepathy vte"
 
 RDEPEND="
 	x11-libs/gtk+:3
+	>=dev-libs/glib-2.31.18:2
 	>=net-libs/libvncserver-0.9.8.2
 	x11-libs/libxkbfile
 	avahi? ( net-dns/avahi[gtk3] )
 	ayatana? ( dev-libs/libappindicator )
-	crypt? ( dev-libs/libgcrypt )
-	freerdp? ( >=net-misc/freerdp-1.1.0_pre20121004 )
+	crypt? ( dev-libs/libgcrypt:0 )
+	freerdp? ( >=net-misc/freerdp-1.1.0_beta1_p20130710 )
 	gnome-keyring? ( gnome-base/libgnome-keyring )
 	ssh? ( net-libs/libssh[sftp] )
 	telepathy? ( net-libs/telepathy-glib )
@@ -49,6 +50,7 @@ RDEPEND+="
 "
 
 DOCS=( README )
+PATCHES=( "${FILESDIR}/remmina-external_tools.patch" )
 
 src_configure() {
 	local mycmakeargs=(
@@ -58,6 +60,7 @@ src_configure() {
 		$(cmake-utils_use_with freerdp FREERDP)
 		$(cmake-utils_use_with gnome-keyring GNOMEKEYRING)
 		$(cmake-utils_use_with nls GETTEXT)
+		$(cmake-utils_use_with nls TRANSLATIONS)
 		$(cmake-utils_use_with ssh LIBSSH)
 		$(cmake-utils_use_with telepathy TELEPATHY)
 		$(cmake-utils_use_with vte VTE)

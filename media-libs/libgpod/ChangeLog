@@ -1,6 +1,23 @@
 # ChangeLog for media-libs/libgpod
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libgpod/ChangeLog,v 1.97 2013/02/03 16:34:39 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libgpod/ChangeLog,v 1.102 2014/04/01 11:24:00 zlogene Exp $
+
+  01 Apr 2014; Mikle Kolyada <zlogene@gentoo.org> libgpod-0.8.3.ebuild:
+  x86 stable wrt bug #500240
+
+  30 Mar 2014; Mikle Kolyada <zlogene@gentoo.org> libgpod-0.8.3.ebuild:
+  amd64 stable wrt bug #500240
+
+  04 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> libgpod-0.8.3.ebuild:
+  Use mono-env.eclass instead of mono.eclass as per repoman.
+
+*libgpod-0.8.3 (04 Feb 2014)
+
+  04 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> +libgpod-0.8.3.ebuild:
+  Version bump wrt #498284 by "Nikoli"
+
+  11 May 2013; Samuli Suominen <ssuominen@gentoo.org> libgpod-0.8.2.ebuild:
+  Use subslot operator for the libplist and libimobiledevice dependencies.
 
   03 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> libgpod-0.8.2.ebuild:
   Pull in sys-devel/gettext too which was implicit from dev-util/intltool

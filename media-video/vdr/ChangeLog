@@ -1,6 +1,71 @@
 # ChangeLog for media-video/vdr
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vdr/ChangeLog,v 1.167 2012/09/17 19:41:44 hd_brummy Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/vdr/ChangeLog,v 1.179 2014/01/20 18:40:31 hd_brummy Exp $
+
+*vdr-2.0.5 (20 Jan 2014)
+
+  20 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-2.0.5.ebuild:
+  bump; use-flag setup and depended plugin vdr-setup will be removed in the
+  future, use as equivalent plugin vdr-menuorg
+
+  02 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org> -vdr-2.0.2-r1.ebuild,
+  -vdr-2.0.3.ebuild, vdr-2.0.4.ebuild:
+  stable amd64 x86; cleanup
+
+*vdr-2.0.4 (26 Oct 2013)
+
+  26 Oct 2013; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-2.0.4.ebuild:
+  bump, bug fixes; removed unused use-flag dxr3
+
+*vdr-2.0.3 (01 Sep 2013)
+
+  01 Sep 2013; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-2.0.3.ebuild:
+  bump
+
+  07 Jul 2013; Joerg Bornkessel <hd_brummy@gentoo.org> -vdr-2.0.1-r1.ebuild,
+  -vdr-2.0.2.ebuild, vdr-2.0.2-r1.ebuild:
+  stable amd64 x86; cleanup
+
+*vdr-2.0.2-r1 (04 Jun 2013)
+
+  04 Jun 2013; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-2.0.2-r1.ebuild:
+  new extpatchng, supports media-plugins/vdr-permashift-0.5.4,
+  media-plugins/vdr-pinplugin-0.1.14
+
+*vdr-2.0.2 (20 May 2013)
+
+  20 May 2013; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-1.6.0_p2-r7.ebuild,
+  vdr-1.6.0_p2-r11.ebuild, -vdr-2.0.1.ebuild, vdr-2.0.1-r1.ebuild,
+  +vdr-2.0.2.ebuild:
+  bump; fixed wrt bug 469808, respect AR; fixed wrt bug 469814, respect CXX
+
+*vdr-2.0.1-r1 (27 Apr 2013)
+
+  27 Apr 2013; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-2.0.1-r1.ebuild,
+  metadata.xml:
+  fribidi support added, for languages written from right to left; minor ebuild
+  fixes
+
+*vdr-2.0.1 (13 Apr 2013)
+
+  13 Apr 2013; Joerg Bornkessel <hd_brummy@gentoo.org> -vdr-2.0.0.ebuild,
+  -vdr-2.0.0-r1.ebuild, +vdr-2.0.1.ebuild:
+  bump, bugfixes; cleanup
+
+*vdr-2.0.0-r1 (06 Apr 2013)
+
+  06 Apr 2013; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-2.0.0-r1.ebuild,
+  +files/vdr-2.0.0-fixkeeptracksinit.diff:
+  fixed 'keepTracks is initialized too late in the cDevice'
+
+*vdr-2.0.0 (31 Mar 2013)
+
+  31 Mar 2013; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-2.0.0.ebuild,
+  +files/vdr-2.0.0_gentoo.patch, +files/channel_alternative.conf, metadata.xml:
+  bump, major release
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   17 Sep 2012; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-1.6.0_p2-r11.ebuild:
   fixed variable name

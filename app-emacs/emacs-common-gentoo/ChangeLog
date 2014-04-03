@@ -1,6 +1,66 @@
 # ChangeLog for app-emacs/emacs-common-gentoo
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-common-gentoo/ChangeLog,v 1.81 2012/09/02 18:27:16 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-common-gentoo/ChangeLog,v 1.97 2014/01/18 20:13:30 ulm Exp $
+
+  18 Jan 2014; Ulrich Müller <ulm@gentoo.org>
+  -emacs-common-gentoo-1.3-r3.ebuild, -emacs-common-gentoo-1.3-r4.ebuild:
+  Remove old.
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for alpha, wrt bug #494584
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for ia64, wrt bug #494584
+
+  25 Dec 2013; Markus Meier <maekke@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  arm stable, bug #494584
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for x86, wrt bug #494584
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for sparc, wrt bug #494584
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  amd64 stable, bug #494584
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for ppc64, wrt bug #494584
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for ppc, wrt bug #494584
+
+  21 Dec 2013; Jeroen Roovers <jer@gentoo.org> emacs-common-gentoo-1.4.ebuild:
+  Stable for HPPA (bug #494584).
+
+*emacs-common-gentoo-1.4 (16 Nov 2013)
+
+  16 Nov 2013; Ulrich Müller <ulm@gentoo.org> +emacs-common-gentoo-1.4.ebuild:
+  Version bump.
+
+  15 Nov 2013; Ulrich Müller <ulm@gentoo.org>
+  emacs-common-gentoo-1.3-r4.ebuild:
+  Create site-lisp dir if it doesn't exist yet.
+
+*emacs-common-gentoo-1.3-r4 (12 Nov 2013)
+
+  12 Nov 2013; Ulrich Müller <ulm@gentoo.org>
+  +emacs-common-gentoo-1.3-r4.ebuild:
+  Create site-gentoo.el in preinst phase and have it belong to this package.
+  Refuse installation if the site-start.el file is still in its old location;
+  we have warned about this since almost two years.
+
+  31 Oct 2013; Ulrich Müller <ulm@gentoo.org>
+  emacs-common-gentoo-1.3-r3.ebuild:
+  Specify LICENSE more precisely.
+
+  14 Jul 2013; Ulrich Müller <ulm@gentoo.org>
+  emacs-common-gentoo-1.3-r3.ebuild:
+  Update HOMEPAGE.
+
+  10 Mar 2013; Ulrich Müller <ulm@gentoo.org>
+  emacs-common-gentoo-1.3-r3.ebuild:
+  Use functions from readme.gentoo.eclass instead of elog.
 
   02 Sep 2012; Ulrich Müller <ulm@gentoo.org>
   -emacs-common-gentoo-1.3-r1.ebuild, metadata.xml:
@@ -429,4 +489,3 @@
   16 Apr 2007; Christian Faulhammer <opfer@gentoo.org> +metadata.xml,
   +emacs-desktop-0.1-r1.ebuild:
   initial import from Emacs Overlay.  Contains desktop icons etc.
-

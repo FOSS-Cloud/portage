@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-9.9999.ebuild,v 1.3 2013/01/17 11:29:34 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-9.9999.ebuild,v 1.10 2014/03/18 15:27:10 beandog Exp $
 
 EAPI=5
 
@@ -33,7 +33,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd
 
 IUSE="aac alsa amr bindist +bzip2 cdio cpudetection custom-cflags debug doc
 	+encode faac fdk frei0r +gpl gsm +hardcoded-tables ieee1394 jack jpeg2k mp3
-	network openssl oss pic pulseaudio rtmp schroedinger sdl speex ssl
+	+network openssl opus oss pic pulseaudio rtmp schroedinger sdl speex ssl
 	static-libs test theora threads tools truetype v4l vaapi vdpau vorbis vpx X
 	x264 xvid +zlib"
 
@@ -47,7 +47,7 @@ done
 TOOLS="aviocat graph2dot ismindex pktdumper qt-faststart trasher"
 
 RDEPEND="
-	!media-video/ffmpeg
+	!media-video/ffmpeg:0
 	alsa? ( media-libs/alsa-lib )
 	amr? ( media-libs/opencore-amr )
 	bzip2? ( app-arch/bzip2 )
@@ -68,7 +68,7 @@ RDEPEND="
 			media-libs/libogg
 		)
 		vorbis? ( media-libs/libvorbis media-libs/libogg )
-		x264? ( >=media-libs/x264-0.0.20111017 )
+		x264? ( >=media-libs/x264-0.0.20111017:= )
 		xvid? ( >=media-libs/xvid-1.1.0 )
 	)
 	frei0r? ( media-plugins/frei0r-plugins )
@@ -78,7 +78,8 @@ RDEPEND="
 		sys-libs/libraw1394
 	)
 	jack? ( media-sound/jack-audio-connection-kit )
-	jpeg2k? ( >=media-libs/openjpeg-1.3-r2 )
+	jpeg2k? ( >=media-libs/openjpeg-1.3-r2:0 )
+	opus? ( media-libs/opus )
 	pulseaudio? ( media-sound/pulseaudio )
 	rtmp? ( >=media-video/rtmpdump-2.2f )
 	ssl? (
@@ -199,12 +200,12 @@ src_configure() {
 	use frei0r && myconf+=" --enable-frei0r"
 	use truetype &&  myconf+=" --enable-libfreetype"
 
-	# Threads; we only support pthread for now but ffmpeg supports more
+	# Threads; we only support pthread for now
 	use threads && myconf+=" --enable-pthreads"
 
 	# Decoders
 	use amr && myconf+=" --enable-libopencore-amrwb --enable-libopencore-amrnb"
-	uses="gsm rtmp schroedinger speex vpx"
+	uses="gsm opus rtmp schroedinger speex vpx"
 	for i in ${uses}; do
 		use ${i} && myconf+=" --enable-lib${i}"
 	done
@@ -226,17 +227,6 @@ src_configure() {
 
 	# Option to force building pic
 	use pic && myconf+=" --enable-pic"
-
-	# Try to get cpu type based on CFLAGS.
-	# Bug #172723
-	# We need to do this so that features of that CPU will be better used
-	# If they contain an unknown CPU it will not hurt since ffmpeg's configure
-	# will just ignore it.
-	for i in $(get-flag march) $(get-flag mcpu) $(get-flag mtune) ; do
-		[[ "${i}" == "native" ]] && i="host" # bug #273421
-		myconf+=" --cpu=${i}"
-		break
-	done
 
 	# cross compile support
 	if tc-is-cross-compiler ; then
@@ -317,17 +307,6 @@ src_install() {
 			dobin tools/${i}
 		done
 	fi
-
-	for i in $(usex sdl avplay "") $(usex network avserver "") avprobe; do
-		dosym  ${i} /usr/bin/${i/av/ff}
-	done
-}
-
-pkg_postinst() {
-	elog "Please note that the programs formerly known as ffplay, ffserver"
-	elog "and ffprobe are now called avplay, avserver and avprobe."
-	elog
-	elog "ffmpeg had been replaced by the feature incompatible avconv"
 }
 
 src_test() {

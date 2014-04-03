@@ -1,6 +1,72 @@
 # ChangeLog for sys-apps/shadow
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/shadow/ChangeLog,v 1.276 2013/02/17 20:42:02 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/shadow/ChangeLog,v 1.292 2014/01/18 04:48:18 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Add arm64 love.
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -shadow-4.1.4.2-r6.ebuild, -shadow-4.1.4.3.ebuild, -shadow-4.1.5.ebuild,
+  -shadow-4.1.5-r1.ebuild, -shadow-4.1.5-r2.ebuild, -shadow-4.1.5.1.ebuild,
+  shadow-4.1.5.1-r1.ebuild, -files/pam.d-include/system-auth-1.1,
+  -files/shadow-4.1.4.2-env-reset-keep-locale.patch,
+  -files/shadow-4.1.4.2-fix-etc-gshadow-reading.patch,
+  -files/shadow-4.1.4.2-groupmod-pam-check.patch,
+  -files/shadow-4.1.4.2-su_no_sanitize_env.patch,
+  -files/shadow-4.1.4.3-dup-install-targets.patch,
+  -files/shadow-4.1.5-grremove.patch,
+  -files/shadow-4.1.5-nscd-ignore-exit-1.patch,
+  -files/shadow-4.1.5-nscd-newline-msg.patch,
+  -files/shadow-4.1.5-selinux-groupadd.patch, -files/shadow-4.1.5-stdarg.patch,
+  -files/login.defs, -files/login.pamd.3, -files/login_defs.awk,
+  -files/pam.d-include/login, -files/pam.d-include/other,
+  -files/pam.d-include/su, -files/pam.d-include/su-openpam,
+  -files/pam.d-include/system-auth:
+  Removed old versions and files. Converted remaining ebuild to EAPI-4.
+
+  15 Sep 2013; Mike Frysinger <vapier@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Add ttymxc{2,3} #484834 by Steev Klimaszewski.
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Mark m68k/s390/sh stable #454388.
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for sparc, wrt bug #454388
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for ia64, wrt bug #454388
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for arm, wrt bug #454388
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for alpha, wrt bug #454388
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for ppc64, wrt bug #454388
+
+  01 Jul 2013; Jeroen Roovers <jer@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for HPPA (bug #454388).
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for ppc, wrt bug #454388
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for x86, wrt bug #454388
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Stable for amd64, wrt bug #454388
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  12 Mar 2013; Mike Frysinger <vapier@gentoo.org> shadow-4.1.4.3.ebuild,
+  shadow-4.1.5-r1.ebuild, shadow-4.1.5-r2.ebuild, shadow-4.1.5.1.ebuild,
+  shadow-4.1.5.ebuild:
+  Drop epunt_cxx call as we no longer need it #460922 by Roman Žilka.
+
+  03 Mar 2013; Mike Frysinger <vapier@gentoo.org> shadow-4.1.5.1-r1.ebuild:
+  Drop /etc/pam.d/login sed since the file is in pambase now #458548 by Kobboi.
 
   17 Feb 2013; Mike Frysinger <vapier@gentoo.org> shadow-4.1.5.1-r1.ebuild:
   Drop epunt_cxx as this no longer needs it.

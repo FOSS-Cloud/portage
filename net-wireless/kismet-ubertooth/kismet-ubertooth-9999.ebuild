@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/kismet-ubertooth/kismet-ubertooth-9999.ebuild,v 1.9 2013/02/05 04:37:27 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/kismet-ubertooth/kismet-ubertooth-9999.ebuild,v 1.10 2013/04/25 23:48:07 zerochaos Exp $
 
 EAPI="5"
 
@@ -26,10 +26,10 @@ DESCRIPTION="Provides basic bluetooth support in kismet"
 HOMEPAGE="http://ubertooth.sourceforge.net/"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="0/${PV}"
 IUSE=""
 
-DEPEND=">=net-wireless/kismet-2011.03.2-r1 \
+DEPEND=">=net-wireless/kismet-2011.03.2-r1:= \
 	=net-wireless/ubertooth-${PV} \
 	=net-libs/libbtbb-${PV} \
 	virtual/libusb:1"

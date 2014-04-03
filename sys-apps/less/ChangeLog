@@ -1,6 +1,54 @@
 # ChangeLog for sys-apps/less
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/less/ChangeLog,v 1.170 2013/02/24 18:03:13 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/less/ChangeLog,v 1.182 2014/02/12 13:55:57 zx2c4 Exp $
+
+  12 Feb 2014; Jason A. Donenfeld <zx2c4@gentoo.org> files/less.envd:
+  Prepare for next systemd release.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> less-457.ebuild,
+  less-458.ebuild, less-459.ebuild, less-460.ebuild, less-462.ebuild:
+  Add arm64 love.
+
+  31 Dec 2013; Mike Frysinger <vapier@gentoo.org> files/lesspipe.sh:
+  Fallback to rpm2tar when rpm is not available
+
+*less-462 (17 Dec 2013)
+
+  17 Dec 2013; Tim Harder <radhermit@gentoo.org> +less-462.ebuild:
+  Version bump.
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> less-457.ebuild:
+  Mark m68k stable #450608.
+
+  06 Aug 2013; Mike Frysinger <vapier@gentoo.org> files/lesspipe.sh:
+  Handle csr/crt files with openssl.
+
+*less-460 (09 Jul 2013)
+
+  09 Jul 2013; Tim Harder <radhermit@gentoo.org> +less-460.ebuild:
+  Version bump.
+
+*less-459 (28 May 2013)
+
+  28 May 2013; Mike Frysinger <vapier@gentoo.org> +less-459.ebuild:
+  Version bump #471400 by Agostino Sarubbo.
+
+  11 May 2013; Markos Chandras <hwoarang@gentoo.org> less-436.ebuild,
+  less-441.ebuild, less-443.ebuild, less-444.ebuild, less-445-r1.ebuild,
+  less-445.ebuild, less-449.ebuild, less-450.ebuild, less-451.ebuild,
+  less-456.ebuild, less-457.ebuild, less-458.ebuild:
+  Replace einfo messages with elog. Bug #448268
+
+  29 Apr 2013; Mike Frysinger <vapier@gentoo.org> files/lesspipe.sh:
+  Add webm/webp formats.
+
+*less-458 (04 Apr 2013)
+
+  04 Apr 2013; Mike Frysinger <vapier@gentoo.org> +less-458.ebuild:
+  Version bump.
+
+  24 Mar 2013; Mike Frysinger <vapier@gentoo.org> files/lesspipe.sh:
+  Add lzo support, and xz compressed man pages.
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> less-457.ebuild:
   Stable for sh, wrt bug #450608

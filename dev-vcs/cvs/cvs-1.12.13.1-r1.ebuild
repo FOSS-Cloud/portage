@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/cvs/cvs-1.12.13.1-r1.ebuild,v 1.1 2013/01/11 13:47:04 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/cvs/cvs-1.12.13.1-r1.ebuild,v 1.4 2014/01/19 10:30:16 vapier Exp $
 
 EAPI=3
 
-inherit eutils pam versionator
+inherit eutils pam toolchain-funcs versionator
 
 DESCRIPTION="Concurrent Versions System - source code revision control tools"
 HOMEPAGE="http://www.nongnu.org/cvs/"
@@ -24,13 +24,14 @@ SRC_URI="
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~sparc-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~sparc-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 IUSE="crypt doc kerberos nls pam server"
 
-DEPEND=">=sys-libs/zlib-1.1.4
+RDEPEND=">=sys-libs/zlib-1.1.4
 		kerberos? ( virtual/krb5 )
 		pam? ( virtual/pam )"
+DEPEND="${RDEPEND}"
 
 src_unpack() {
 	unpack ${P}.tar.bz2
@@ -44,6 +45,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-1.12.13.1-hash-nameclash.patch # for AIX
 	epatch "${FILESDIR}"/${PN}-1.12.13.1-gl-mempcpy.patch # for AIX
 	epatch "${FILESDIR}"/${PN}-1.12.12-fix-massive-leak.patch
+	epatch "${FILESDIR}"/${PN}-1.12.13.1-use-include_next.patch
 	# Applied by upstream:
 	#epatch "${FILESDIR}"/${PN}-1.12.13-openat.patch
 	#epatch "${FILESDIR}"/${PN}-1.12.13-zlib.patch
@@ -66,6 +68,11 @@ src_configure() {
 		use server || \
 		ewarn "The server and proxy code are enabled as they are required for tests."
 		myconf="--enable-server --enable-proxy"
+	fi
+	if tc-is-cross-compiler ; then
+		# Sane defaults when cross-compiling (as these tests want to
+		# try and execute code).
+		export cvs_cv_func_printf_ptr="yes"
 	fi
 	econf \
 		--with-external-zlib \

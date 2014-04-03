@@ -1,9 +1,9 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/ruby-ssl/ruby-ssl-3.ebuild,v 1.2 2011/11/23 07:03:16 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/ruby-ssl/ruby-ssl-3.ebuild,v 1.10 2014/01/26 14:00:26 hattya Exp $
 
 EAPI=2
-USE_RUBY="ree18"
+USE_RUBY="ruby20"
 
 inherit ruby-ng
 
@@ -13,10 +13,10 @@ SRC_URI=""
 
 LICENSE=""
 SLOT="${USE_RUBY}"
-KEYWORDS="amd64 x86"
+KEYWORDS="~alpha amd64 arm hppa ia64 ~mips ~ppc ppc64 ~s390 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE=""
 
-RDEPEND="dev-lang/ruby-enterprise:1.8[ssl]"
+RDEPEND="dev-lang/ruby:2.0[ssl]"
 
 pkg_setup() { :; }
 src_unpack() { :; }

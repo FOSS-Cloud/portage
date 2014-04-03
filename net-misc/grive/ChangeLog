@@ -1,6 +1,22 @@
 # ChangeLog for net-misc/grive
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/grive/ChangeLog,v 1.9 2013/01/11 22:36:50 ottxor Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/grive/ChangeLog,v 1.13 2014/03/01 22:09:38 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> grive-0.2.0-r1.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  27 Apr 2013; Christoph Junghans <ottxor@gentoo.org> grive-0.2.0-r1.ebuild:
+  fix build with >=dev-libs/json-c-0.11:0 (bug #467432, thx to Jouni Kosonen for
+  the patch)
+
+*grive-0.2.0-r1 (14 Apr 2013)
+
+  14 Apr 2013; Christoph Junghans <ottxor@gentoo.org> +grive-0.2.0-r1.ebuild,
+  -grive-0.2.0.ebuild:
+  added subslot deps
+
+  23 Mar 2013; Christoph Junghans <ottxor@gentoo.org> grive-0.2.0.ebuild:
+  used new include json-c include path (bug #462632)
 
   11 Jan 2013; Christoph Junghans <ottxor@gentoo.org> grive-0.2.0.ebuild:
   updated SRC_URI

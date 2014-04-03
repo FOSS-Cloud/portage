@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Moose/Moose-2.60.400.ebuild,v 1.5 2013/01/30 18:57:32 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Moose/Moose-2.60.400.ebuild,v 1.7 2013/12/24 13:38:03 zlogene Exp $
 
 EAPI=4
 
@@ -97,4 +97,10 @@ DEPEND="${RDEPEND}
 		dev-perl/Module-Refresh
 	)"
 
+PATCHES=( "${FILESDIR}"/${P}-cmop-package-stash.patch )
+
 SRC_TEST=do
+
+src_compile() {
+	emake OPTIMIZE="${CFLAGS}"
+}

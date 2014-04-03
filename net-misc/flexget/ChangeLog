@@ -1,6 +1,75 @@
 # ChangeLog for net-misc/flexget
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/flexget/ChangeLog,v 1.37 2013/02/14 19:08:38 floppym Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/flexget/ChangeLog,v 1.51 2014/03/12 02:07:14 floppym Exp $
+
+  12 Mar 2014; Mike Gilbert <floppym@gentoo.org> flexget-1.2.31.ebuild,
+  flexget-1.2.97.ebuild, flexget-9999.ebuild:
+  Block beautifulsoup-4.2.0, bug 503962 by Wicla.
+
+  22 Feb 2014; Mike Gilbert <floppym@gentoo.org> flexget-1.2.97.ebuild,
+  flexget-9999.ebuild:
+  Adjust python-dateutil dep, bug 502090 by Weedy.
+
+*flexget-1.2.97 (22 Feb 2014)
+
+  22 Feb 2014; Mike Gilbert <floppym@gentoo.org> +flexget-1.2.97.ebuild,
+  flexget-9999.ebuild:
+  Bump.
+
+  11 Jan 2014; Mike Gilbert <floppym@gentoo.org> flexget-9999.ebuild:
+  Convert to git-r3.
+
+*flexget-1.2.31 (11 Jan 2014)
+
+  11 Jan 2014; Mike Gilbert <floppym@gentoo.org> +flexget-1.2.31.ebuild,
+  flexget-9999.ebuild:
+  Version bump.
+
+*flexget-1.1.138 (16 Oct 2013)
+
+  16 Oct 2013; Mike Gilbert <floppym@gentoo.org> +flexget-1.1.138.ebuild,
+  -flexget-1.1.66.ebuild, -flexget-1.1.79.ebuild, flexget-9999.ebuild:
+  Bump.
+
+  22 Jul 2013; Mike Gilbert <floppym@gentoo.org> flexget-1.1.79.ebuild,
+  flexget-9999.ebuild, metadata.xml:
+  Add use flag for optional runtime dep on dev-python/transmissionrpc, bug
+  477646 by Neil Bothwick.
+
+  21 Jul 2013; Mike Gilbert <floppym@gentoo.org> flexget-9999.ebuild:
+  Add PYTHON_USEDEP for paver.
+
+  21 Jul 2013; Mike Gilbert <floppym@gentoo.org> flexget-1.1.79.ebuild,
+  flexget-9999.ebuild:
+  Add some missing PYTHON_USEDEP.
+
+*flexget-1.1.79 (21 Jul 2013)
+
+  21 Jul 2013; Mike Gilbert <floppym@gentoo.org> +flexget-1.1.79.ebuild,
+  -flexget-1.0.3352.ebuild, -flexget-1.0.3392.ebuild, -flexget-1.1.11.ebuild:
+  Version bump.
+
+*flexget-1.1.66 (06 Jul 2013)
+
+  06 Jul 2013; Mike Gilbert <floppym@gentoo.org> +flexget-1.1.66.ebuild,
+  flexget-9999.ebuild:
+  Version bump. Stop sed-ing upstream's version requirements out of pavement.py.
+
+*flexget-1.1.11 (27 May 2013)
+
+  27 May 2013; Mike Gilbert <floppym@gentoo.org> +flexget-1.1.11.ebuild,
+  flexget-9999.ebuild:
+  Version bump.
+
+*flexget-1.0.3392 (12 May 2013)
+
+  12 May 2013; Mike Gilbert <floppym@gentoo.org> +flexget-1.0.3392.ebuild,
+  flexget-9999.ebuild:
+  Version bump.
+
+  19 Mar 2013; Mike Gilbert <floppym@gentoo.org> -flexget-1.0.3279.ebuild,
+  -flexget-1.0.3344.ebuild, flexget-1.0.3352.ebuild, flexget-9999.ebuild:
+  Add upper bound on sqlalchemy dependency, bug 462260.
 
 *flexget-1.0.3352 (14 Feb 2013)
 

@@ -1,10 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/parted/parted-2.4.ebuild,v 1.2 2012/05/03 04:46:47 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/parted/parted-2.4.ebuild,v 1.18 2014/03/04 00:25:40 jer Exp $
 
 EAPI="3"
-
-WANT_AUTOMAKE="1.11"
 
 inherit autotools eutils
 
@@ -14,7 +12,7 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 ~sh sparc x86"
 IUSE="+debug device-mapper nls readline selinux static-libs"
 
 # specific version for gettext needed
@@ -22,17 +20,20 @@ IUSE="+debug device-mapper nls readline selinux static-libs"
 RDEPEND="
 	>=sys-fs/e2fsprogs-1.27
 	>=sys-libs/ncurses-5.2
-	nls? ( >=sys-devel/gettext-0.12.1-r2 )
+	device-mapper? ( >=sys-fs/lvm2-2.02.45 )
 	readline? ( >=sys-libs/readline-5.2 )
 	selinux? ( sys-libs/libselinux )
-	device-mapper? ( || ( >=sys-fs/lvm2-2.02.45 sys-fs/device-mapper ) )
 "
 DEPEND="
 	${RDEPEND}
+	nls? ( >=sys-devel/gettext-0.12.1-r2 )
 	virtual/pkgconfig
 "
 
 src_prepare() {
+	epatch "${FILESDIR}"/${P}-no-gets.patch
+	epatch "${FILESDIR}"/${P}-readline.patch
+
 	# Remove tests known to FAIL instead of SKIP without OS/userland support
 	sed -i libparted/tests/Makefile.am \
 		-e 's|t3000-symlink.sh||g' || die "sed failed"
@@ -46,14 +47,16 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		$(use_with readline) \
-		$(use_enable nls) \
 		$(use_enable debug) \
-		$(use_enable selinux) \
 		$(use_enable device-mapper) \
+		$(use_enable nls) \
+		$(use_enable selinux) \
 		$(use_enable static-libs static) \
+		$(use_with readline) \
+		--disable-Werror \
 		--disable-rpath \
-		--disable-Werror || die "Configure failed"
+		--disable-silent-rules \
+		|| die
 }
 
 src_test() {

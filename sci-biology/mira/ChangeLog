@@ -1,6 +1,31 @@
 # ChangeLog for sci-biology/mira
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/mira/ChangeLog,v 1.20 2012/11/07 22:29:55 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/mira/ChangeLog,v 1.27 2014/01/14 14:12:44 jlec Exp $
+
+  14 Jan 2014; Justin Lecher <jlec@gentoo.org> -mira-3.2.1.ebuild:
+  Drop old
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> mira-3.9.18.ebuild:
+  Stable for x86, wrt bug #497218
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> mira-3.9.18.ebuild:
+  amd64 stable, bug #497218
+
+  06 Jan 2014; Justin Lecher <jlec@gentoo.org> mira-3.2.1.ebuild:
+  Punt base.eclass
+
+  06 Jan 2014; Justin Lecher <jlec@gentoo.org> -mira-3.2.1-r1.ebuild,
+  -mira-3.4.0.2.ebuild:
+  Drop old
+
+*mira-3.9.18 (07 Jul 2013)
+
+  07 Jul 2013; Justin Lecher <jlec@gentoo.org> +mira-3.9.18.ebuild:
+  Version BUmp; fixed compilation with dev-libs/boost-1.53.0 and some libtool
+  versions, #450322; thanks Martin Mokrejs for all his work
+
+  11 Mar 2013; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Drop Andrey as maintainer so that bugs get assigned to sci-biology directly
 
 *mira-3.4.0.2 (07 Nov 2012)
 
@@ -91,4 +116,3 @@
   02 Feb 2010; Andrey Kislyuk <weaver@gentoo.org> +metadata.xml,
   +mira-3.0.0.ebuild:
   New package, ebuild written by me
-

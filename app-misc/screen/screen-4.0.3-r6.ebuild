@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/screen-4.0.3-r6.ebuild,v 1.1 2012/11/07 16:04:41 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/screen-4.0.3-r6.ebuild,v 1.5 2014/03/10 21:21:35 swegener Exp $
 
 EAPI=4
 
@@ -14,7 +14,7 @@ SRC_URI="ftp://ftp.uni-erlangen.de/pub/utilities/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~sparc-fbsd ~x86-fbsd ~hppa-hpux ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~sparc-fbsd ~x86-fbsd ~hppa-hpux ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="debug nethack pam selinux multiuser"
 
 RDEPEND=">=sys-libs/ncurses-5.2
@@ -89,17 +89,24 @@ src_prepare() {
 	# Allow usernames up to 32 chars
 	epatch "${FILESDIR}"/${PV}-extend-d_termname-ng2.patch
 
+	# support CPPFLAGS
+	epatch "${FILESDIR}"/${P}-cppflags.patch
+
+	sed \
+		-e 's:termlib:tinfo:g' \
+		-i configure.in || die
+
 	# reconfigure
 	eautoconf
 }
 
 src_configure() {
-	append-flags "-DMAXWIN=${MAX_SCREEN_WINDOWS:-100}"
+	append-cppflags "-DMAXWIN=${MAX_SCREEN_WINDOWS:-100}"
 
 	[[ ${CHOST} == *-solaris* ]] && append-libs -lsocket -lnsl
 
-	use nethack || append-flags "-DNONETHACK"
-	use debug && append-flags "-DDEBUG"
+	use nethack || append-cppflags "-DNONETHACK"
+	use debug && append-cppflags "-DDEBUG"
 
 	econf \
 		--with-socket-dir="${EPREFIX}/var/run/screen" \
@@ -147,7 +154,10 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Some dangerous key bindings have been removed or changed to more safe values."
-	elog "We enable some xterm hacks in our default screenrc, which might break some"
-	elog "applications. Please check /etc/screenrc for information on these changes."
+	if [[ -z ${REPLACING_VERSIONS} ]]
+	then
+		elog "Some dangerous key bindings have been removed or changed to more safe values."
+		elog "We enable some xterm hacks in our default screenrc, which might break some"
+		elog "applications. Please check /etc/screenrc for information on these changes."
+	fi
 }

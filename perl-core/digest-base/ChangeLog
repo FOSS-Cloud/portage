@@ -1,6 +1,18 @@
 # ChangeLog for perl-core/digest-base
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/digest-base/ChangeLog,v 1.61 2013/02/23 08:45:32 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/digest-base/ChangeLog,v 1.65 2014/01/20 20:45:35 vapier Exp $
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org> digest-base-1.170.0.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> digest-base-1.170.0.ebuild:
+  Mark m68k stable.
+
+  30 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> -digest-base-1.160.0.ebuild:
+  Drop old
+
+  02 Mar 2013; Agostino Sarubbo <ago@gentoo.org> digest-base-1.170.0.ebuild:
+  Stable for sh, wrt bug #458122
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> digest-base-1.170.0.ebuild:
   Stable for sparc, wrt bug #458122

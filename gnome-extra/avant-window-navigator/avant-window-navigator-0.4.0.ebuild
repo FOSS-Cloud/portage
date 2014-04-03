@@ -1,26 +1,27 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/avant-window-navigator/avant-window-navigator-0.4.0.ebuild,v 1.5 2012/06/19 13:45:15 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/avant-window-navigator/avant-window-navigator-0.4.0.ebuild,v 1.8 2014/02/27 17:59:48 ssuominen Exp $
 
-EAPI=4
-
+EAPI=5
 GCONF_DEBUG=no
 GNOME2_LA_PUNT=yes
+PYTHON_COMPAT=( python2_7 )
+VALA_MIN_API_VERSION=0.10
+VALA_USE_DEPEND=vapigen
 
-PYTHON_DEPEND="2:2.6"
-
-inherit gnome2 python
+inherit autotools eutils gnome2 python-single-r1 vala
 
 DESCRIPTION="A dock-like bar which sits at the bottom of the screen"
 HOMEPAGE="http://launchpad.net/awn"
-SRC_URI="http://launchpad.net/awn/0.4/${PV}/+download/${P}.tar.gz"
+SRC_URI="http://launchpad.net/awn/${PV%.*}/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc +gconf vala"
 
-RDEPEND=">=dev-libs/dbus-glib-0.80
+RDEPEND="
+	>=dev-libs/dbus-glib-0.80
 	>=dev-libs/glib-2.16
 	dev-python/dbus-python
 	dev-python/librsvg-python
@@ -37,29 +38,25 @@ RDEPEND=">=dev-libs/dbus-glib-0.80
 	x11-libs/libXcomposite
 	x11-libs/libXext
 	x11-libs/libXrender
+	${PYTHON_DEPS}
 	gconf? ( >=gnome-base/gconf-2 )"
 DEPEND="${RDEPEND}
 	dev-util/intltool
-	virtual/pkgconfig
 	sys-devel/gettext
+	virtual/pkgconfig
 	x11-proto/xproto
 	!<gnome-extra/avant-window-navigator-extras-${PV}
 	doc? ( dev-util/gtk-doc )
-	vala? ( dev-lang/vala:0.10 )"
+	vala? ( $(vala_depend) )"
 
 pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-
-	if use vala; then
-		export VALAC="$(type -P valac-0.10)"
-		export VALA_GEN_INTROSPECT="$(type -P vapigen-0.10)"
-	fi
+	python-single-r1_pkg_setup
 
 	G2CONF="--disable-static
 		--disable-pymod-checks
 		$(use_enable doc gtk-doc)
 		$(use_enable gconf schemas-install)
+		--disable-shave
 		$(use_with vala)
 		--with-html-dir=/usr/share/doc/${PF}/html"
 
@@ -67,17 +64,11 @@ pkg_setup() {
 }
 
 src_prepare() {
-	>py-compile
+	epatch "${FILESDIR}"/${P}-underlinking.patch
+	eautoreconf
+
+	python_fix_shebang awn-settings/awnSettings{.py.in,Helper.py}
 
 	gnome2_src_prepare
-}
-
-pkg_postinst() {
-	gnome2_pkg_postinst
-	python_mod_optimize awn
-}
-
-pkg_postrm() {
-	gnome2_pkg_postrm
-	python_mod_cleanup awn
+	use vala && vala_src_prepare
 }

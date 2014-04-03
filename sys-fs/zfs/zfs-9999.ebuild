@@ -1,8 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs/zfs-9999.ebuild,v 1.44 2013/02/06 01:48:50 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs/zfs-9999.ebuild,v 1.50 2013/11/21 16:21:23 ryao Exp $
 
-EAPI="4"
+EAPI="5"
+PYTHON_COMPAT=( python{2_6,2_7,3_1,3_2,3_3} )
+
+inherit python-r1
 
 AT_M4DIR="config"
 AUTOTOOLS_AUTORECONF="1"
@@ -14,22 +17,24 @@ if [ ${PV} == "9999" ] ; then
 else
 	inherit eutils versionator
 	MY_PV=$(replace_version_separator 3 '-')
-	SRC_URI="https://github.com/zfsonlinux/${PN}/archive/${PN}-${MY_PV}.tar.gz"
+	SRC_URI="https://github.com/zfsonlinux/${PN}/archive/${PN}-${MY_PV}.tar.gz
+		http://dev.gentoo.org/~ryao/dist/${PN}-kmod-${MY_PV}-p2.tar.xz"
 	S="${WORKDIR}/${PN}-${PN}-${MY_PV}"
 	KEYWORDS="~amd64"
 fi
 
-inherit bash-completion-r1 flag-o-matic toolchain-funcs autotools-utils udev
+inherit bash-completion-r1 flag-o-matic toolchain-funcs autotools-utils udev systemd
 
 DESCRIPTION="Userland utilities for ZFS Linux kernel module"
 HOMEPAGE="http://zfsonlinux.org/"
 
-LICENSE="BSD-2 CDDL MIT"
+LICENSE="BSD-2 CDDL bash-completion? ( MIT )"
 SLOT="0"
-IUSE="custom-cflags kernel-builtin +rootfs test-suite static-libs"
+IUSE="bash-completion custom-cflags kernel-builtin +rootfs selinux test-suite static-libs"
 RESTRICT="test"
 
 COMMON_DEPEND="
+	selinux? ( sys-libs/libselinux )
 	sys-apps/util-linux[static-libs?]
 	sys-libs/zlib[static-libs(+)?]
 	virtual/awk
@@ -64,16 +69,19 @@ pkg_setup() {
 }
 
 src_prepare() {
+	if [ ${PV} != "9999" ]
+	then
+		# Apply patch set
+		EPATCH_SUFFIX="patch" \
+		EPATCH_FORCE="yes" \
+		epatch "${WORKDIR}/${PN}-kmod-${MY_PV}-patches"
+	fi
+
 	# Update paths
 	sed -e "s|/sbin/lsmod|/bin/lsmod|" \
 		-e "s|/usr/bin/scsi-rescan|/usr/sbin/rescan-scsi-bus|" \
 		-e "s|/sbin/parted|/usr/sbin/parted|" \
 		-i scripts/common.sh.in
-
-	if [ ${PV} != "9999" ]
-	then
-		epatch "${FILESDIR}/${P}-fix-libzpool-function-relocations.patch"
-	fi
 
 	autotools-utils_src_prepare
 }
@@ -87,18 +95,33 @@ src_configure() {
 		--with-linux="${KV_DIR}"
 		--with-linux-obj="${KV_OUT_DIR}"
 		--with-udevdir="$(udev_get_udevdir)"
+		--with-blkid
+		$(use_with selinux)
 	)
 	autotools-utils_src_configure
+
+	# prepare systemd unit and helper script
+	cat "${FILESDIR}/zfs.service.in" | \
+		sed -e "s:@sbindir@:${EPREFIX}/sbin:g" \
+			-e "s:@sysconfdir@:${EPREFIX}/etc:g" \
+		> "${T}/zfs.service" || die
+	cat "${FILESDIR}/zfs-init.sh.in" | \
+		sed -e "s:@sbindir@:${EPREFIX}/sbin:g" \
+			-e "s:@sysconfdir@:${EPREFIX}/etc:g" \
+		> "${T}/zfs-init.sh" || die
 }
 
 src_install() {
 	autotools-utils_src_install
-	gen_usr_ldscript -a uutil nvpair zpool zfs
-	rm -rf "${ED}usr/share/dracut"
-	use test-suite || rm -rf "${ED}usr/libexec"
+	gen_usr_ldscript -a uutil nvpair zpool zfs zfs_core
+	rm -rf "${ED}usr/lib/dracut"
+	use test-suite || rm -rf "${ED}usr/share/zfs"
 
-	newbashcomp "${FILESDIR}/bash-completion" zfs
+	use bash-completion && newbashcomp "${FILESDIR}/bash-completion-r1" zfs
 
+	exeinto /usr/libexec
+	doexe "${T}/zfs-init.sh"
+	systemd_dounit "${T}/zfs.service"
 }
 
 pkg_postinst() {

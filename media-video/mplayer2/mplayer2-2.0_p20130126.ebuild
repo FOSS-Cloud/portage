@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/mplayer2-2.0_p20130126.ebuild,v 1.2 2013/02/02 01:13:18 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/mplayer2-2.0_p20130126.ebuild,v 1.18 2014/01/29 22:58:13 eva Exp $
 
 EAPI=4
 
@@ -23,14 +23,14 @@ SLOT="0"
 if [[ ${PV} == *9999* ]]; then
 	KEYWORDS=""
 else
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux"
+	KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 sparc x86 ~amd64-linux"
 fi
-IUSE="+a52 +alsa aqua bindist bluray bs2b cddb +cdio cpudetection debug
+IUSE="+a52 +alsa aqua bluray bs2b cddb +cdio cpudetection debug
 directfb doc +dts +dv dvb +dvd +dvdnav +enca +faad fbcon ftp gif +iconv
 ipv6 jack joystick jpeg kernel_linux ladspa lcms +libass libcaca lirc mad
 md5sum mng +mp3 +network nut +opengl oss png pnm portaudio +postproc
-pulseaudio pvr +quicktime quvi radio +rar +real +rtc samba sdl +speex tga
-+theora +unicode v4l vcd vdpau +vorbis win32codecs +X xanim xinerama
+pulseaudio pvr quvi radio +rar +rtc samba sdl selinux +speex tga
++theora +unicode v4l vcd vdpau +vorbis +X xanim xinerama
 +xscreensaver +xv xvid yuv4mpeg
 "
 IUSE+=" symlink"
@@ -40,9 +40,7 @@ for x in ${CPU_FEATURES}; do
 	IUSE+=" ${x}"
 done
 
-# bindist does not cope with win32codecs, which are nonfree
 REQUIRED_USE="
-	bindist? ( !win32codecs )
 	cddb? ( cdio network )
 	dvdnav? ( dvd )
 	lcms? ( opengl )
@@ -59,11 +57,6 @@ REQUIRED_USE="
 RDEPEND+="
 	sys-libs/ncurses
 	sys-libs/zlib
-	!bindist? (
-		x86? (
-			win32codecs? ( media-libs/win32codecs )
-		)
-	)
 	X? (
 		x11-libs/libXext
 		x11-libs/libXxf86vm
@@ -80,7 +73,7 @@ RDEPEND+="
 	alsa? ( media-libs/alsa-lib )
 	bluray? ( media-libs/libbluray )
 	bs2b? ( media-libs/libbs2b )
-	cdio? ( dev-libs/libcdio )
+	cdio? ( || ( dev-libs/libcdio-paranoia <dev-libs/libcdio-0.90[-minimal] ) )
 	directfb? ( dev-libs/DirectFB )
 	dts? ( media-libs/libdca )
 	dv? ( media-libs/libdv )
@@ -106,9 +99,9 @@ RDEPEND+="
 	png? ( media-libs/libpng )
 	pnm? ( media-libs/netpbm )
 	portaudio? ( >=media-libs/portaudio-19_pre20111121 )
-	postproc? ( || ( media-libs/libpostproc <media-video/libav-0.8.2-r1 media-video/ffmpeg ) )
+	postproc? ( || ( media-libs/libpostproc <media-video/libav-0.8.2-r1	media-video/ffmpeg:0 ) )
 	pulseaudio? ( media-sound/pulseaudio )
-	quvi? ( >=media-libs/libquvi-0.4.1 )
+	quvi? ( >=media-libs/libquvi-0.4.1 <media-libs/libquvi-0.9 )
 	rar? (
 		|| (
 			app-arch/unrar
@@ -117,6 +110,7 @@ RDEPEND+="
 	)
 	samba? ( net-fs/samba )
 	sdl? ( media-libs/libsdl )
+	selinux? ( sec-policy/selinux-mplayer )
 	speex? ( media-libs/speex )
 	theora? ( media-libs/libtheora )
 	vorbis? ( media-libs/libvorbis )
@@ -313,29 +307,7 @@ src_configure() {
 	#################
 	# Binary codecs #
 	#################
-	# bug 213836
-	if ! use x86 || ! use win32codecs; then
-		use quicktime || myconf+=" --disable-qtx"
-	fi
-
-	######################
-	# RealPlayer support #
-	######################
-	# Realplayer support shows up in four places:
-	# - libavcodec (internal)
-	# - win32codecs
-	# - realcodecs (win32codecs libs)
-	# - realcodecs (realplayer libs)
-
-	# internal
-	use real || myconf+=" --disable-real"
-
-	# Real binary codec support only available on x86, amd64
-	if use real; then
-		use x86 && myconf+=" --codecsdir=/opt/RealPlayer/codecs"
-		use amd64 && myconf+=" --codecsdir=/usr/$(get_libdir)/codecs"
-	fi
-	myconf+=" $(use_enable win32codecs win32dll)"
+	myconf+=" --disable-qtx --disable-real --disable-win32dll"
 
 	################
 	# Video Output #
@@ -434,10 +406,6 @@ src_install() {
 	dodoc DOCS/tech/{*.txt,mpsub.sub,playtree}
 	docinto TOOLS/
 	dodoc -r TOOLS
-	if use real; then
-		docinto tech/realcodecs/
-		dodoc DOCS/tech/realcodecs/*
-	fi
 
 	if use doc; then
 		docinto html/

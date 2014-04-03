@@ -1,6 +1,51 @@
 # ChangeLog for net-dns/libidn
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/libidn/ChangeLog,v 1.189 2013/02/26 11:06:00 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/libidn/ChangeLog,v 1.202 2013/09/30 21:24:49 jer Exp $
+
+  30 Sep 2013; Jeroen Roovers <jer@gentoo.org> -libidn-1.25.ebuild,
+  -libidn-1.26.ebuild:
+  Old.
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libidn-1.28.ebuild:
+  Stable for x86, wrt bug #484246
+
+  26 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libidn-1.28.ebuild:
+  Stable for arm, wrt bug #484246
+
+  25 Sep 2013; Jeroen Roovers <jer@gentoo.org> libidn-1.28.ebuild:
+  Run pkg_setup() explicitly for java and mono (bug #485764 by M. B.).
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libidn-1.28.ebuild:
+  Stable for sparc, wrt bug #484246
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libidn-1.28.ebuild:
+  Stable for amd64, wrt bug #484246
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libidn-1.28.ebuild:
+  Stable for alpha, wrt bug #484246
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libidn-1.28.ebuild:
+  Stable for ia64, wrt bug #484246
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libidn-1.28.ebuild:
+  Stable for ppc64, wrt bug #484246
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libidn-1.28.ebuild:
+  Stable for ppc, wrt bug #484246
+
+  09 Sep 2013; Jeroen Roovers <jer@gentoo.org> libidn-1.28.ebuild:
+  Stable for HPPA (bug #484246).
+
+*libidn-1.28 (10 Jul 2013)
+
+  10 Jul 2013; Jeroen Roovers <jer@gentoo.org> -libidn-1.27.ebuild,
+  +libidn-1.28.ebuild:
+  Version bump (fixes bug #472604).
+
+*libidn-1.27 (07 Jun 2013)
+
+  07 Jun 2013; Jeroen Roovers <jer@gentoo.org> +libidn-1.27.ebuild:
+  Version bump.
 
   26 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libidn-1.26.ebuild:
   Stable for amd64, wrt bug #454178

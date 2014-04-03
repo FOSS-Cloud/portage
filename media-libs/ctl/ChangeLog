@@ -1,6 +1,13 @@
 # ChangeLog for media-libs/ctl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/ctl/ChangeLog,v 1.18 2012/05/05 08:02:44 jdhore Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/ctl/ChangeLog,v 1.20 2014/01/24 06:33:58 ssuominen Exp $
+
+  24 Jan 2014; Samuli Suominen <ssuominen@gentoo.org> ctl-1.4.1.ebuild:
+  Modernize the ebuild (eapi5, prune_libtool_files, and so forth)
+
+  03 Mar 2013; Ryan Hill <dirtyepic@gentoo.org> ctl-1.4.1.ebuild,
+  +files/ctl-1.4.1-gcc47.patch:
+  Fix build with GCC 4.7 (bug #426368).
 
   05 May 2012; Jeff Horelick <jdhore@gentoo.org> ctl-1.4.1.ebuild:
   dev-util/pkgconfig -> virtual/pkgconfig
@@ -64,4 +71,3 @@
   +ctl-1.4.0.ebuild:
   Initial import, split of media-libs/openexr, thanks to : Arfrever Frehtes
   Taifersar Arahesis <Arfrever.FTA@GMail.Com> for the ebuilds, bug #189798
-

@@ -1,6 +1,56 @@
 # ChangeLog for www-apps/drupal
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/drupal/ChangeLog,v 1.94 2013/02/24 23:23:09 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/drupal/ChangeLog,v 1.103 2014/01/23 03:35:48 sdamashek Exp $
+
+  23 Jan 2014; Samuel Damashek <sdamashek@gentoo.org> drupal-6.30.ebuild,
+  drupal-7.26.ebuild:
+  Fix up ebuild syntax and add die to external commands
+
+*drupal-7.26 (22 Jan 2014)
+*drupal-6.30 (22 Jan 2014)
+
+  22 Jan 2014; Samuel Damashek <sdamashek@gentoo.org> +drupal-6.30.ebuild,
+  +drupal-7.26.ebuild, -drupal-6.28.ebuild, -drupal-6.29.ebuild,
+  -drupal-7.24.ebuild:
+  Version bump and cleanup wrt bug 498464
+
+  01 Dec 2013; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -drupal-7.22.ebuild, -drupal-7.23.ebuild:
+  Dropping security vulnerable versions.
+
+*drupal-6.29 (01 Dec 2013)
+
+  01 Dec 2013; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +drupal-6.29.ebuild:
+  Version bump to 6.29 - bug 491858.
+
+*drupal-7.24 (29 Nov 2013)
+
+  29 Nov 2013; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +drupal-7.24.ebuild, drupal-7.23.ebuild:
+  Bump drupal to the 7.24 release - fixes bug 491858. Adjust php deps - bug
+  479830.
+
+*drupal-7.23 (13 Sep 2013)
+
+  13 Sep 2013; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +drupal-7.23.ebuild, metadata.xml:
+  Bump drupal to release 7.23. Make dependency on accelerator and uploadprogress
+  optional. Fixes bugs: 416897, 443736 and 475584.
+
+  06 Apr 2013; Tim Harder <radhermit@gentoo.org> -drupal-7.20.ebuild,
+  -drupal-7.21.ebuild:
+  Remove old.
+
+*drupal-7.22 (06 Apr 2013)
+
+  06 Apr 2013; Tim Harder <radhermit@gentoo.org> +drupal-7.22.ebuild:
+  Version bump.
+
+*drupal-7.21 (07 Mar 2013)
+
+  07 Mar 2013; Tim Harder <radhermit@gentoo.org> +drupal-7.21.ebuild:
+  Version bump.
 
 *drupal-7.20 (24 Feb 2013)
 

@@ -1,6 +1,21 @@
 # ChangeLog for sci-chemistry/massxpert
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/massxpert/ChangeLog,v 1.11 2012/07/26 15:12:06 kensington Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/massxpert/ChangeLog,v 1.14 2014/01/06 15:24:25 jlec Exp $
+
+*massxpert-3.4.0 (06 Jan 2014)
+
+  06 Jan 2014; Justin Lecher <jlec@gentoo.org> -massxpert-1.7.6.ebuild,
+  massxpert-2.0.5.ebuild, +massxpert-3.4.0.ebuild,
+  -files/massxpert-1.7.6-gcc43.patch, +files/massxpert-3.4.0-gentoo.patch,
+  metadata.xml:
+  Drop old; punt base.eclass
+
+  19 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> metadata.xml:
+  Changed herd to sci-chemistry
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> massxpert-1.7.6.ebuild,
+  massxpert-2.0.5.ebuild:
+  Move Qt dependencies to the new category
 
   26 Jul 2012; Michael Palimaka <kensington@gentoo.org> massxpert-1.7.6.ebuild:
   Add missing slot dependencies on Qt.

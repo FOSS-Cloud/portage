@@ -1,6 +1,28 @@
 # ChangeLog for dev-python/pynotifier
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pynotifier/ChangeLog,v 1.19 2011/10/24 05:37:32 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pynotifier/ChangeLog,v 1.25 2014/03/05 15:39:50 ago Exp $
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> pynotifier-0.7.0-r2.ebuild:
+  Stable for ppc, wrt bug #495620
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> pynotifier-0.7.0-r2.ebuild:
+  amd64 stable, bug #495620
+
+  23 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  pynotifier-0.7.0-r2.ebuild:
+  x86 stable wrt bug #495620
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> pynotifier-0.7.0-r1.ebuild,
+  pynotifier-0.7.0-r2.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
+
+  01 Jul 2013; Ian Delaney <idella4@gentoo.org> pynotifier-0.7.0-r2.ebuild:
+  correction to dep
+
+*pynotifier-0.7.0-r2 (01 Jul 2013)
+
+  01 Jul 2013; Ian Delaney <idella4@gentoo.org> +pynotifier-0.7.0-r2.ebuild:
+  revbump; migrate -> distutils-r1
 
   24 Oct 2011; Alexandre Rostovtsev <tetromino@gentoo.org>
   pynotifier-0.7.0-r1.ebuild:
@@ -78,4 +100,3 @@
   +pynotifier-0.5.8.ebuild:
   Initial version, thanks to Dirk Meyer and Frittella Laurento
   (bug #156497)
-

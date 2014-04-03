@@ -1,6 +1,106 @@
 # ChangeLog for perl-core/Module-CoreList
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/Module-CoreList/ChangeLog,v 1.63 2013/02/23 08:39:36 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/Module-CoreList/ChangeLog,v 1.83 2014/03/11 19:46:24 zlogene Exp $
+
+*Module-CoreList-3.70.0 (11 Mar 2014)
+
+  11 Mar 2014; Mikle Kolyada <zlogene@gentoo.org>
+  +Module-CoreList-3.70.0.ebuild:
+  Version bump
+
+*Module-CoreList-3.0.0 (11 Mar 2014)
+
+  11 Mar 2014; Mikle Kolyada <zlogene@gentoo.org> +Module-CoreList-3.0.0.ebuild,
+  -Module-CoreList-3.000.000.ebuild:
+  Normalize gentoo version scheme
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  Module-CoreList-2.840.0.ebuild, Module-CoreList-2.940.0.ebuild,
+  Module-CoreList-2.960.0.ebuild, Module-CoreList-2.970.0.ebuild,
+  Module-CoreList-3.000.000.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  Module-CoreList-2.800.0.ebuild, Module-CoreList-2.840.0.ebuild:
+  Mark sh stable.
+
+  27 Nov 2013; Markus Meier <maekke@gentoo.org> Module-CoreList-2.840.0.ebuild:
+  arm stable, bug #458122
+
+  24 Nov 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Module-CoreList-2.840.0.ebuild:
+  sparc stable wrt bug #458122
+
+  24 Nov 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Module-CoreList-2.840.0.ebuild:
+  ppc64 stable wrt bug #458122
+
+  24 Nov 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Module-CoreList-2.840.0.ebuild:
+  ppc stable wrt bug #458122
+
+  24 Nov 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Module-CoreList-2.840.0.ebuild:
+  ia64 stable wrt bug #458122
+
+  23 Nov 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Module-CoreList-2.840.0.ebuild:
+  amd64 stable wrt bug #458122
+
+  22 Nov 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Module-CoreList-2.840.0.ebuild:
+  x86 stable wrt bug #458122
+
+  21 Nov 2013; Jeroen Roovers <jer@gentoo.org> Module-CoreList-2.840.0.ebuild:
+  Stable for HPPA (bug #458122).
+
+  21 Nov 2013; Mikle Kolyada <zlogene@gentoo.org>
+  Module-CoreList-2.840.0.ebuild:
+  alpha stable wrt bug #458122
+
+  19 Nov 2013; Vladimir Smirnov <civil@gentoo.org>
+  Module-CoreList-2.800.0.ebuild:
+  CoreList-2.800.0: Add blocker for <dev-lang/perl-5.16.3 Module doesn't contain
+  version definitions for perl 5.16.3 Bug #481170
+
+*Module-CoreList-3.000.000 (28 Oct 2013)
+
+  28 Oct 2013; Patrick Lauer <patrick@gentoo.org>
+  +Module-CoreList-3.000.000.ebuild:
+  Bump
+
+*Module-CoreList-2.970.0 (27 Aug 2013)
+
+  27 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +Module-CoreList-2.970.0.ebuild, -Module-CoreList-2.38.ebuild,
+  -Module-CoreList-2.41.ebuild, -Module-CoreList-2.430.ebuild,
+  -Module-CoreList-2.440.ebuild, -Module-CoreList-2.450.ebuild,
+  -Module-CoreList-2.460.0.ebuild, -Module-CoreList-2.490.0.ebuild,
+  -Module-CoreList-2.510.0.ebuild, -Module-CoreList-2.540.0.ebuild,
+  -Module-CoreList-2.570.0.ebuild, -Module-CoreList-2.660.0.ebuild,
+  -Module-CoreList-2.700.0.ebuild, -Module-CoreList-2.760.0.ebuild:
+  Bump
+
+*Module-CoreList-2.960.0 (24 Aug 2013)
+
+  24 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +Module-CoreList-2.960.0.ebuild:
+  Bump
+
+*Module-CoreList-2.940.0 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +Module-CoreList-2.940.0.ebuild:
+  Bump
+
+*Module-CoreList-2.840.0 (12 Mar 2013)
+
+  12 Mar 2013; Torsten Veller <tove@gentoo.org>
+  +Module-CoreList-2.840.0.ebuild:
+  Version bump
+
+  02 Mar 2013; Agostino Sarubbo <ago@gentoo.org> Module-CoreList-2.800.0.ebuild:
+  Stable for sh, wrt bug #458122
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> Module-CoreList-2.800.0.ebuild:
   Stable for sparc, wrt bug #458122

@@ -1,6 +1,60 @@
 # ChangeLog for dev-python/python-memcached
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-memcached/ChangeLog,v 1.23 2012/01/08 07:00:30 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-memcached/ChangeLog,v 1.35 2014/03/31 20:48:53 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> python-memcached-1.48-r1.ebuild,
+  python-memcached-1.53-r1.ebuild:
+  Add support for the new PyPy slotting.
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org>
+  python-memcached-1.53-r1.ebuild:
+  Stable for ppc, wrt bug #495632
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> python-memcached-1.53-r1.ebuild:
+  amd64 stable, bug #495632
+
+  23 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  python-memcached-1.53-r1.ebuild:
+  x86 stable wrt bug #495632
+
+  22 Oct 2013; Fabian Groffen <grobian@gentoo.org>
+  python-memcached-1.53-r1.ebuild:
+  Marked ~x64-macos, bug #487670
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> python-memcached-1.48-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*python-memcached-1.53-r1 (11 Aug 2013)
+
+  11 Aug 2013; Michał Górny <mgorny@gentoo.org>
+  +python-memcached-1.53-r1.ebuild:
+  Migrate to distutils-r1. Disable broken tests.
+
+*python-memcached-1.53 (08 Jul 2013)
+
+  08 Jul 2013; Patrick Lauer <patrick@gentoo.org> +python-memcached-1.53.ebuild:
+  Bump
+
+*python-memcached-1.52 (19 Jun 2013)
+
+  19 Jun 2013; Patrick Lauer <patrick@gentoo.org> +python-memcached-1.52.ebuild:
+  Bump
+
+*python-memcached-1.51 (28 May 2013)
+
+  28 May 2013; Patrick Lauer <patrick@gentoo.org> +python-memcached-1.51.ebuild:
+  Bump
+
+*python-memcached-1.48-r1 (22 May 2013)
+
+  22 May 2013; Ian Delaney <idella4@gentoo.org>
+  +python-memcached-1.48-r1.ebuild:
+  revbump, migrate -> distutils-r1, closes Bug #469856 by kensington
+
+*python-memcached-1.50 (22 May 2013)
+
+  22 May 2013; Patrick Lauer <patrick@gentoo.org> +python-memcached-1.50.ebuild:
+  Bump
 
 *python-memcached-1.48 (08 Jan 2012)
 
@@ -101,4 +155,3 @@
   24 Oct 2007; Robin H. Johnson <robbat2@gentoo.org> +metadata.xml,
   +python-memcached-1.40.ebuild:
   Initial commit. Ebuild by Robin H. Johnson <robbat2@gentoo.org>.
-

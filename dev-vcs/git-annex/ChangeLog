@@ -1,6 +1,63 @@
 # ChangeLog for dev-vcs/git-annex
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git-annex/ChangeLog,v 1.12 2012/12/16 12:42:31 slyfox Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git-annex/ChangeLog,v 1.24 2014/03/21 11:30:25 qnikst Exp $
+
+  21 Mar 2014; Alexander Vershilov <qnikst@gentoo.org>
+  git-annex-5.20140306-r1.ebuild:
+  change desktop-icon folder
+
+  18 Mar 2014; Alexander Vershilov <qnikst@gentoo.org>
+  git-annex-5.20140306-r1.ebuild:
+  move git-annex webapp desktop icon to utils, bug #486622
+
+*git-annex-5.20140306-r1 (15 Mar 2014)
+
+  15 Mar 2014; Alexander Vershilov <qnikst@gentoo.org>
+  +git-annex-5.20140306-r1.ebuild, -git-annex-5.20140306.ebuild:
+  fix assistant dependency, #504610
+
+*git-annex-5.20140306 (12 Mar 2014)
+
+  12 Mar 2014; Alexander Vershilov <qnikst@gentoo.org>
+  +git-annex-5.20140306.ebuild, -git-annex-3.20111203-r1.ebuild,
+  -git-annex-3.20120605.ebuild, -git-annex-5.20131130.ebuild, metadata.xml:
+  Add new version, drop old #500688
+
+  10 Feb 2014; Alexander Vershilov <qnikst@gentoo.org>
+  git-annex-5.20131130.ebuild:
+  add missing aeson dependency due to #495162
+
+  12 Dec 2013; Mark Wright <gienah@gentoo.org> git-annex-5.20131130.ebuild:
+  git-annex-5.20131130 ikiwiki dep conditional on doc use flag. install-mans
+  wants ikiwiki. It returns 0 and builds the man pages without ikiwiki.
+
+*git-annex-5.20131130 (11 Dec 2013)
+
+  11 Dec 2013; Mark Wright <gienah@gentoo.org> +files/git-annex.xpm,
+  +git-annex-5.20131130.ebuild, git-annex-4.20130815-r1.ebuild, metadata.xml:
+  Bump git-annex to 5.20131130
+
+  30 Sep 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Drop unneeded useflag description from metadata.xml
+
+*git-annex-4.20130815-r1 (29 Sep 2013)
+
+  29 Sep 2013; Alexander Vershilov <qnikst@gentoo.org>
+  +git-annex-4.20130815-r1.ebuild, -git-annex-4.20130815.ebuild:
+  drop android use flag (#484636)
+
+  28 Aug 2013; Alexander Vershilov <qnikst@gentoo.org> metadata.xml:
+  metadata fix, thanks to specing
+
+*git-annex-4.20130815 (26 Aug 2013)
+
+  26 Aug 2013; Alexander Vershilov <qnikst@gentoo.org>
+  +git-annex-4.20130815.ebuild, metadata.xml:
+  giv-annex-4.20130815 version bump
+
+  21 Jul 2013; Christoph Junghans <ottxor@gentoo.org>
+  git-annex-3.20121211-r2.ebuild:
+  added ~amd64-linux (tested by me)
 
 *git-annex-3.20121211-r2 (16 Dec 2012)
 

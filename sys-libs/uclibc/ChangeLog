@@ -1,6 +1,72 @@
 # ChangeLog for sys-libs/uclibc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/uclibc/ChangeLog,v 1.73 2013/02/07 21:31:48 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/uclibc/ChangeLog,v 1.88 2014/02/18 01:06:45 vapier Exp $
+
+*uclibc-0.9.33.2-r10 (18 Feb 2014)
+
+  18 Feb 2014; Mike Frysinger <vapier@gentoo.org> +uclibc-0.9.33.2-r10.ebuild:
+  Add more pread/pwrite fixes from upstream #500382 by Steev Klimaszewski.
+
+  02 Feb 2014; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag from metadata.xml
+
+  01 Feb 2014; Mike Frysinger <vapier@gentoo.org> -uclibc-0.9.28.3-r8.ebuild,
+  -uclibc-0.9.30.1-r1.ebuild, -uclibc-0.9.30.1.ebuild, -uclibc-0.9.30.ebuild,
+  -uclibc-0.9.33.1-r1.ebuild, -uclibc-0.9.33.1.ebuild:
+  Drop really old versions we no longer support.
+
+*uclibc-0.9.33.2-r9 (08 Jan 2014)
+
+  08 Jan 2014; Mike Frysinger <vapier@gentoo.org> +uclibc-0.9.33.2-r9.ebuild:
+  Add fix from upstream for marking ll_tzname vars local #497466 by David
+  Hendricks.
+
+  25 Dec 2013; Mike Frysinger <vapier@gentoo.org> uclibc-0.9.33.2-r8.ebuild:
+  Fast stabilize due to crasher in current stable #495256 by Anthony Basile.
+
+*uclibc-0.9.33.2-r8 (24 Dec 2013)
+
+  24 Dec 2013; Mike Frysinger <vapier@gentoo.org> +uclibc-0.9.33.2-r8.ebuild:
+  Update statfs64 patch from upstream #495256 by Anthony Basile.
+
+*uclibc-0.9.33.2-r7 (22 Dec 2013)
+
+  22 Dec 2013; Mike Frysinger <vapier@gentoo.org> +uclibc-0.9.33.2-r7.ebuild:
+  Add pread/pwrite fix #475920, eventfd fix #482866, and linux-headers fix
+  #490008.
+
+  22 Dec 2013; Mike Frysinger <vapier@gentoo.org> uclibc-0.9.33.2-r6.ebuild:
+  Stabilize for all.
+
+*uclibc-0.9.33.2-r6 (17 Jun 2013)
+
+  17 Jun 2013; Mike Frysinger <vapier@gentoo.org> +uclibc-0.9.33.2-r6.ebuild:
+  Drop m support for c/[ in scanf since it breaks netstat badly (matches what
+  upstream has done).
+
+*uclibc-0.9.33.2-r5 (17 Jun 2013)
+
+  17 Jun 2013; Mike Frysinger <vapier@gentoo.org> +uclibc-0.9.33.2-r5.ebuild:
+  Fix from upstream for f_frsize with statfs64 on 32bit arches.
+
+  17 Jun 2013; Mike Frysinger <vapier@gentoo.org> uclibc-0.9.33.2-r4.ebuild:
+  Stabilize for all.
+
+*uclibc-0.9.33.2-r4 (19 May 2013)
+
+  19 May 2013; Mike Frysinger <vapier@gentoo.org> +uclibc-0.9.33.2-r4.ebuild:
+  Backport posix_fallocate #458920 and socket.h #465792 changes from upstream.
+
+  19 May 2013; Mike Frysinger <vapier@gentoo.org> uclibc-9999.ebuild:
+  Drop cpu selection for most targets since it is either pointless (does
+  nothing) or just changes optimization flags.
+
+  07 May 2013; Anthony G. Basile <blueness@gentoo.org>
+  uclibc-0.9.33.2-r3.ebuild, uclibc-9999.ebuild:
+  Add epatch_user to -0.9.33.2-r3 and -9999
+
+  03 Mar 2013; Mike Frysinger <vapier@gentoo.org> uclibc-0.9.33.2-r3.ebuild:
+  Stabilize for all #458908 by Mark Reiche.
 
   07 Feb 2013; Mike Frysinger <vapier@gentoo.org> uclibc-0.9.33.2-r3.ebuild,
   uclibc-9999.ebuild:

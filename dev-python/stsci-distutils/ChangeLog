@@ -1,6 +1,45 @@
 # ChangeLog for dev-python/stsci-distutils
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/stsci-distutils/ChangeLog,v 1.8 2012/07/19 16:04:30 bicatali Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/stsci-distutils/ChangeLog,v 1.16 2014/03/31 21:00:47 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> stsci-distutils-0.3.2-r1.ebuild,
+  stsci-distutils-0.3.4.ebuild, stsci-distutils-0.3.7.ebuild:
+  Add support for the new PyPy slotting.
+
+*stsci-distutils-0.3.7 (28 Jan 2014)
+
+  28 Jan 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  +stsci-distutils-0.3.7.ebuild:
+  Version bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> stsci-distutils-0.3.2-r1.ebuild,
+  stsci-distutils-0.3.4.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*stsci-distutils-0.3.4 (10 Aug 2013)
+
+  10 Aug 2013; Patrick Lauer <patrick@gentoo.org> +stsci-distutils-0.3.4.ebuild:
+  Bump
+
+  24 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  -stsci-distutils-0.3.1.ebuild, -stsci-distutils-0.3.2.ebuild,
+  -stsci-distutils-0.3.ebuild, stsci-distutils-0.3.2-r1.ebuild:
+  Removed old
+
+  24 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org> metadata.xml,
+  stsci-distutils-0.3.2-r1.ebuild:
+  Added python-3.3
+
+*stsci-distutils-0.3.2-r1 (19 Apr 2013)
+
+  19 Apr 2013; Ian Delaney <idella4@gentoo.org>
+  +stsci-distutils-0.3.2-r1.ebuild:
+  migration -> distutils-r1
+
+*stsci-distutils-0.3.2 (02 Apr 2013)
+
+  02 Apr 2013; Patrick Lauer <patrick@gentoo.org> +stsci-distutils-0.3.2.ebuild:
+  Bump
 
 *stsci-distutils-0.3.1 (19 Jul 2012)
 

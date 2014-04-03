@@ -1,6 +1,35 @@
 # ChangeLog for perl-core/File-Temp
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/File-Temp/ChangeLog,v 1.57 2012/06/24 15:38:59 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/File-Temp/ChangeLog,v 1.64 2014/02/28 15:11:43 zlogene Exp $
+
+  28 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> File-Temp-0.230.100.ebuild,
+  File-Temp-0.230.400.ebuild:
+  Bump to EAPI=5
+
+  02 Feb 2014; Mike Frysinger <vapier@gentoo.org> File-Temp-0.220.0.ebuild,
+  File-Temp-0.230.100.ebuild, File-Temp-0.230.400.ebuild:
+  Add m68k/sh love.
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org> File-Temp-0.220.0.ebuild,
+  File-Temp-0.230.100.ebuild, File-Temp-0.230.400.ebuild:
+  Add arm64 love.
+
+  08 Dec 2013; Fabian Groffen <grobian@gentoo.org> File-Temp-0.230.400.ebuild:
+  Add missing Prefix keywords
+
+  05 Dec 2013; Michael Haubenwallner <haubi@gentoo.org>
+  File-Temp-0.230.400.ebuild:
+  add ~ppc-aix keyword
+
+*File-Temp-0.230.400 (28 Oct 2013)
+
+  28 Oct 2013; Patrick Lauer <patrick@gentoo.org> +File-Temp-0.230.400.ebuild:
+  Bump
+
+*File-Temp-0.230.100 (24 Aug 2013)
+
+  24 Aug 2013; Patrick Lauer <patrick@gentoo.org> +File-Temp-0.230.100.ebuild:
+  Bump
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

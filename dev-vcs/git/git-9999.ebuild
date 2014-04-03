@@ -1,17 +1,18 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git/git-9999.ebuild,v 1.41 2013/02/22 17:57:16 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git/git-9999.ebuild,v 1.56 2014/02/22 02:07:52 robbat2 Exp $
 
-EAPI=4
+EAPI=5
 
 GENTOO_DEPEND_ON_PERL=no
 
 # bug #329479: git-remote-testgit is not multiple-version aware
-PYTHON_DEPEND="python? 2"
+PYTHON_COMPAT=( python2_{6,7} )
 [[ ${PV} == *9999 ]] && SCM="git-2"
 EGIT_REPO_URI="git://git.kernel.org/pub/scm/git/git.git"
+EGIT_MASTER=master
 
-inherit toolchain-funcs eutils elisp-common perl-module bash-completion-r1 python ${SCM}
+inherit toolchain-funcs eutils elisp-common perl-module bash-completion-r1 python-single-r1 systemd ${SCM}
 
 MY_PV="${PV/_rc/.rc}"
 MY_P="${PN}-${MY_PV}"
@@ -40,14 +41,14 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+blksha1 +curl cgi doc emacs gnome-keyring +gpg gtk highlight +iconv +nls +pcre +perl +python ppcsha1 tk +threads +webdav xinetd cvs subversion test"
+IUSE="+blksha1 +curl cgi doc emacs gnome-keyring +gpg gtk highlight +iconv mediawiki +nls +pcre +perl +python ppcsha1 tk +threads +webdav xinetd cvs subversion test"
 
 # Common to both DEPEND and RDEPEND
 CDEPEND="
 	dev-libs/openssl
 	sys-libs/zlib
 	pcre? ( dev-libs/libpcre )
-	perl? ( dev-lang/perl[-build] )
+	perl? ( dev-lang/perl:=[-build(-)] )
 	tk? ( dev-lang/tk )
 	curl? (
 		net-misc/curl
@@ -58,6 +59,10 @@ CDEPEND="
 
 RDEPEND="${CDEPEND}
 	gpg? ( app-crypt/gnupg )
+	mediawiki? (
+		dev-perl/HTML-Tree
+		dev-perl/MediaWiki-API
+	)
 	perl? ( dev-perl/Error
 			dev-perl/Net-SMTP-SSL
 			dev-perl/Authen-SASL
@@ -67,9 +72,10 @@ RDEPEND="${CDEPEND}
 			)
 	python? ( gtk?
 	(
-		>=dev-python/pygtk-2.8
-		dev-python/pygtksourceview:2
-	) )"
+		>=dev-python/pygtk-2.8[${PYTHON_USEDEP}]
+		>=dev-python/pygtksourceview-2.10.1-r1:2[${PYTHON_USEDEP}]
+	)
+		${PYTHON_DEPS} )"
 
 # This is how info docs are created with Git:
 #   .txt/asciidoc --(asciidoc)---------> .xml/docbook
@@ -83,9 +89,8 @@ DEPEND="${CDEPEND}
 		sys-apps/texinfo
 		app-text/xmlto
 	)
-	test? (
-		app-crypt/gnupg
-	)"
+	nls? ( sys-devel/gettext )
+	test? (	app-crypt/gnupg	)"
 
 # Live ebuild builds man pages and HTML docs, additionally
 if [[ ${PV} == *9999 ]]; then
@@ -99,19 +104,21 @@ S="${WORKDIR}/${MY_P}"
 REQUIRED_USE="
 	cgi? ( perl )
 	cvs? ( perl )
+	mediawiki? ( perl )
 	subversion? ( perl )
 	webdav? ( curl )
+	gtk? ( python )
+	python? ( ${PYTHON_REQUIRED_USE} )
 "
 
 pkg_setup() {
-	if use subversion && has_version dev-vcs/subversion && built_with_use --missing false dev-vcs/subversion dso ; then
+	if use subversion && has_version "dev-vcs/subversion[dso]"; then
 		ewarn "Per Gentoo bugs #223747, #238586, when subversion is built"
 		ewarn "with USE=dso, there may be weird crashes in git-svn. You"
 		ewarn "have been warned."
 	fi
 	if use python ; then
-		python_set_active_version 2
-		python_pkg_setup
+		python-single-r1_pkg_setup
 	fi
 }
 
@@ -140,6 +147,9 @@ exportmakeopts() {
 	myopts="${myopts} OLD_ICONV="
 	myopts="${myopts} NO_EXTERNAL_GREP="
 
+	# For svn-fe
+	extlibs="-lz -lssl ${S}/xdiff/lib.a $(usex threads -lpthread '')"
+
 	# can't define this to null, since the entire makefile depends on it
 	sed -i -e '/\/usr\/local/s/BASIC_/#BASIC_/' Makefile
 
@@ -150,7 +160,8 @@ exportmakeopts() {
 	use tk \
 		|| myopts="${myopts} NO_TCLTK=YesPlease"
 	use pcre \
-		&& myopts="${myopts} USE_LIBPCRE=yes"
+		&& myopts="${myopts} USE_LIBPCRE=yes" \
+		&& extlibs="${extlibs} -lpcre"
 	use perl \
 		&& myopts="${myopts} INSTALLDIRS=vendor" \
 		|| myopts="${myopts} NO_PERL=YesPlease"
@@ -159,7 +170,8 @@ exportmakeopts() {
 	use subversion \
 		|| myopts="${myopts} NO_SVN_TESTS=YesPlease"
 	use threads \
-		&& myopts="${myopts} THREADED_DELTA_SEARCH=YesPlease"
+		&& myopts="${myopts} THREADED_DELTA_SEARCH=YesPlease" \
+		|| myopts="${myopts} NO_PTHREADS=YesPlease"
 	use cvs \
 		|| myopts="${myopts} NO_CVS=YesPlease"
 # Disabled until ~m68k-mint can be keyworded again
@@ -191,6 +203,7 @@ exportmakeopts() {
 		myopts="${myopts} NO_NSEC=YesPlease"
 
 	export MY_MAKEOPTS="${myopts}"
+	export EXTLIBS="${extlibs}"
 }
 
 src_unpack() {
@@ -211,21 +224,23 @@ src_unpack() {
 }
 
 src_prepare() {
-	# bug #418431 - stated for upstream 1.7.13. Developed by Michael Schwern,
-	# funded as a bounty by the Gentoo Foundation. Merged upstream in 1.8.0.
-	#epatch "${FILESDIR}"/git-1.7.12-git-svn-backport.patch
-
 	# bug #350330 - automagic CVS when we don't want it is bad.
-	epatch "${FILESDIR}"/git-1.7.12-optional-cvs.patch
+	epatch "${FILESDIR}"/git-1.9.0_rc3-optional-cvs.patch
+
+	# install mediawiki perl modules also in vendor_dir
+	# hack, needs better upstream solution
+	epatch "${FILESDIR}"/git-1.8.5-mw-vendor.patch
+
+	epatch_user
 
 	sed -i \
-		-e 's:^\(CFLAGS =\).*$:\1 $(OPTCFLAGS) -Wall:' \
-		-e 's:^\(LDFLAGS =\).*$:\1 $(OPTLDFLAGS):' \
-		-e 's:^\(CC = \).*$:\1$(OPTCC):' \
-		-e 's:^\(AR = \).*$:\1$(OPTAR):' \
-		-e "s:\(PYTHON_PATH = \)\(.*\)$:\1${EPREFIX}\2:" \
-		-e "s:\(PERL_PATH = \)\(.*\)$:\1${EPREFIX}\2:" \
-		Makefile || die "sed failed"
+		-e 's:^\(CFLAGS[[:space:]]*=\).*$:\1 $(OPTCFLAGS) -Wall:' \
+		-e 's:^\(LDFLAGS[[:space:]]*=\).*$:\1 $(OPTLDFLAGS):' \
+		-e 's:^\(CC[[:space:]]* =\).*$:\1$(OPTCC):' \
+		-e 's:^\(AR[[:space:]]* =\).*$:\1$(OPTAR):' \
+		-e "s:\(PYTHON_PATH[[:space:]]\+=[[:space:]]\+\)\(.*\)$:\1${EPREFIX}\2:" \
+		-e "s:\(PERL_PATH[[:space:]]\+=[[:space:]]\+\)\(.*\)$:\1${EPREFIX}\2:" \
+		Makefile contrib/svn-fe/Makefile || die "sed failed"
 
 	# Never install the private copy of Error.pm (bug #296310)
 	sed -i \
@@ -233,7 +248,7 @@ src_prepare() {
 		perl/Makefile.PL
 
 	# Fix docbook2texi command
-	sed -i 's/DOCBOOK2X_TEXI=docbook2x-texi/DOCBOOK2X_TEXI=docbook2texi.pl/' \
+	sed -r -i 's/DOCBOOK2X_TEXI[[:space:]]*=[[:space:]]*docbook2x-texi/DOCBOOK2X_TEXI = docbook2texi.pl/' \
 		Documentation/Makefile || die "sed failed"
 
 	# Fix git-subtree missing DESTDIR
@@ -247,7 +262,7 @@ git_emake() {
 	# bug #326625: PERL_PATH, PERL_MM_OPT
 	# bug #320647: PYTHON_PATH
 	PYTHON_PATH=""
-	use python && PYTHON_PATH="$(PYTHON -a)"
+	use python && PYTHON_PATH="${PYTHON}"
 	emake ${MY_MAKEOPTS} \
 		DESTDIR="${D}" \
 		OPTCFLAGS="${CFLAGS}" \
@@ -260,6 +275,7 @@ git_emake() {
 		PYTHON_PATH="${PYTHON_PATH}" \
 		PERL_MM_OPT="" \
 		GIT_TEST_OPTS="--no-color" \
+		V=1 \
 		"$@"
 	# This is the fix for bug #326625, but it also causes breakage, see bug
 	# #352693.
@@ -278,8 +294,7 @@ src_compile() {
 	git_emake || die "emake failed"
 
 	if use emacs ; then
-		elisp-compile contrib/emacs/git{,-blame}.el \
-			|| die "emacs modules failed"
+		elisp-compile contrib/emacs/git{,-blame}.el
 	fi
 
 	if use perl && use cgi ; then
@@ -310,7 +325,7 @@ src_compile() {
 
 	if use subversion ; then
 		cd "${S}"/contrib/svn-fe
-		git_emake || die "emake svn-fe failed"
+		git_emake EXTLIBS="${EXTLIBS}" || die "emake svn-fe failed"
 		if use doc ; then
 			git_emake svn-fe.{1,html} || die "emake svn-fe.1 svn-fe.html failed"
 		fi
@@ -325,6 +340,11 @@ src_compile() {
 	cd "${S}"/contrib/subtree
 	git_emake
 	use doc && git_emake doc
+
+	if use mediawiki ; then
+		cd "${S}"/contrib/mw-to-git
+		git_emake
+	fi
 }
 
 src_install() {
@@ -353,28 +373,29 @@ src_install() {
 	use doc && doinfo Documentation/{git,gitman}.info
 
 	newbashcomp contrib/completion/git-completion.bash ${PN}
-	newbashcomp contrib/completion/git-prompt.sh ${PN}-prompt
+	# Not really a bash-completion file (bug #477920)
+	dodoc contrib/completion/git-prompt.sh
 
 	if use emacs ; then
-		elisp-install ${PN} contrib/emacs/git.{el,elc} || die
-		elisp-install ${PN} contrib/emacs/git-blame.{el,elc} || die
-		#elisp-install ${PN}/compat contrib/emacs/vc-git.{el,elc} || die
+		elisp-install ${PN} contrib/emacs/git.{el,elc}
+		elisp-install ${PN} contrib/emacs/git-blame.{el,elc}
+		#elisp-install ${PN}/compat contrib/emacs/vc-git.{el,elc}
 		# don't add automatically to the load-path, so the sitefile
 		# can do a conditional loading
 		touch "${ED}${SITELISP}/${PN}/compat/.nosearch"
-		elisp-site-file-install "${FILESDIR}"/${SITEFILE} || die
+		elisp-site-file-install "${FILESDIR}"/${SITEFILE}
 	fi
 
 	if use python && use gtk ; then
-		dobin "${S}"/contrib/gitview/gitview
-		python_convert_shebangs ${PYTHON_ABI} "${ED}"/usr/bin/gitview
+		python_doscript "${S}"/contrib/gitview/gitview
 		dodoc "${S}"/contrib/gitview/gitview.txt
 	fi
 
 	#dobin contrib/fast-import/git-p4 # Moved upstream
 	#dodoc contrib/fast-import/git-p4.txt # Moved upstream
 	newbin contrib/fast-import/import-tars.perl import-tars
-	newbin contrib/git-resurrect.sh git-resurrect
+	exeinto /usr/libexec/git-core/
+	newexe contrib/git-resurrect.sh git-resurrect
 
 	# git-subtree
 	cd "${S}"/contrib/subtree
@@ -386,6 +407,12 @@ src_install() {
 	dodoc git-subtree.txt
 	cd "${S}"
 
+	if use mediawiki ; then
+		cd "${S}"/contrib/mw-to-git
+		git_emake install
+		cd "${S}"
+	fi
+
 	# git-diffall
 	dobin contrib/diffall/git-diffall
 	newdoc contrib/diffall/README git-diffall.txt
@@ -395,8 +422,14 @@ src_install() {
 	newdoc contrib/diff-highlight/README README.diff-highlight
 
 	# git-jump
-	dobin contrib/git-jump/git-jump
+	exeinto /usr/libexec/git-core/
+	doexe contrib/git-jump/git-jump
 	newdoc contrib/git-jump/README git-jump.txt
+
+	# git-contacts
+	exeinto /usr/libexec/git-core/
+	doexe contrib/contacts/git-contacts
+	dodoc contrib/contacts/git-contacts.txt
 
 	if use gnome-keyring ; then
 		cd "${S}"/contrib/credential/gnome-keyring
@@ -409,6 +442,13 @@ src_install() {
 		dodoc svn-fe.txt
 		use doc && doman svn-fe.1 && dohtml svn-fe.html
 		cd "${S}"
+	fi
+
+	# remote-helpers
+	if use python ; then
+		python_scriptinto /usr/libexec/git-core/
+		python_doscript "${S}"/contrib/remote-helpers/git-remote-{bzr,hg}
+		python_optimize
 	fi
 
 	dodir /usr/share/${PN}/contrib
@@ -429,7 +469,7 @@ src_install() {
 	# svnimport - use git-svn
 	# thunderbird-patch-inline - fixes thunderbird
 	for i in \
-		blameview buildsystems ciabot continuous convert-objects fast-import \
+		buildsystems convert-objects fast-import \
 		hg-to-git hooks remotes2config.sh rerere-train.sh \
 		stats vim workdir \
 		; do
@@ -468,8 +508,12 @@ src_install() {
 		newins "${FILESDIR}"/git-daemon.xinetd git-daemon
 	fi
 
-	newinitd "${FILESDIR}"/git-daemon.initd git-daemon
-	newconfd "${FILESDIR}"/git-daemon.confd git-daemon
+	if use !prefix ; then
+		newinitd "${FILESDIR}"/git-daemon-r1.initd git-daemon
+		newconfd "${FILESDIR}"/git-daemon.confd git-daemon
+		systemd_newunit "${FILESDIR}/git-daemon_at.service" "git-daemon@.service"
+		systemd_dounit "${FILESDIR}/git-daemon.socket"
+	fi
 
 	fixlocalpod
 }
@@ -479,13 +523,18 @@ src_test() {
 	local tests_cvs="t9200-git-cvsexportcommit.sh \
 					t9400-git-cvsserver-server.sh \
 					t9401-git-cvsserver-crlf.sh \
+					t9402-git-cvsserver-refs.sh \
 					t9600-cvsimport.sh \
 					t9601-cvsimport-vendor-branch.sh \
 					t9602-cvsimport-branches-tags.sh \
-					t9603-cvsimport-patchsets.sh"
-	local tests_perl="t5502-quickfetch.sh \
+					t9603-cvsimport-patchsets.sh \
+					t9604-cvsimport-timestamps.sh"
+	local tests_perl="t3701-add-interactive.sh \
+					t5502-quickfetch.sh \
 					t5512-ls-remote.sh \
-					t5520-pull.sh"
+					t5520-pull.sh \
+					t7106-reset-unborn-branch.sh \
+					t7501-commit.sh"
 	# Bug #225601 - t0004 is not suitable for root perm
 	# Bug #219839 - t1004 is not suitable for root perm
 	# t0001-init.sh - check for init notices EPERM*  fails
@@ -519,7 +568,7 @@ src_test() {
 			has_version dev-vcs/cvs && \
 			let cvs=$cvs+1
 		[[ $cvs -gt 1 ]] && \
-			built_with_use dev-vcs/cvs server && \
+			has_version "dev-vcs/cvs[server]" && \
 			let cvs=$cvs+1
 		if [[ $cvs -lt 3 ]]; then
 			einfo "Disabling CVS tests (needs dev-vcs/cvs[USE=server])"
@@ -577,7 +626,6 @@ showpkgdeps() {
 
 pkg_postinst() {
 	use emacs && elisp-site-regen
-	use python && python_mod_optimize git_remote_helpers
 	einfo "Please read /usr/share/bash-completion/git for Git bash command completion"
 	einfo "Please read /usr/share/bash-completion/git-prompt for Git bash prompt"
 	einfo "Note that the prompt bash code is now in the seperate script"
@@ -585,11 +633,10 @@ pkg_postinst() {
 	echo
 	showpkgdeps git-quiltimport "dev-util/quilt"
 	showpkgdeps git-instaweb \
-		"|| ( www-servers/lighttpd www-servers/apache )"
+		"|| ( www-servers/lighttpd www-servers/apache www-servers/nginx )"
 	echo
 }
 
 pkg_postrm() {
 	use emacs && elisp-site-regen
-	use python && python_mod_cleanup git_remote_helpers
 }

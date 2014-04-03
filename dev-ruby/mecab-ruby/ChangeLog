@@ -1,6 +1,48 @@
 # ChangeLog for dev-ruby/mecab-ruby
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/mecab-ruby/ChangeLog,v 1.29 2013/01/29 08:14:34 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/mecab-ruby/ChangeLog,v 1.41 2014/03/24 15:07:44 ago Exp $
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> mecab-ruby-0.996.ebuild:
+  Stable for ppc, wrt bug #501252
+
+  10 Mar 2014; Johannes Huber <johu@gentoo.org> mecab-ruby-0.996.ebuild:
+  x86 stable, bug #501252
+
+  07 Mar 2014; Pacho Ramos <pacho@gentoo.org> mecab-ruby-0.996.ebuild:
+  amd64 stable, bug #501252
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org> -mecab-ruby-0.97.ebuild,
+  -mecab-ruby-0.991.ebuild, -mecab-ruby-0.994.ebuild, -mecab-ruby-0.995.ebuild:
+  remove old ebuilds
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org> mecab-ruby-0.98-r1.ebuild:
+  x86 stable
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org> mecab-ruby-0.97.ebuild,
+  mecab-ruby-0.98-r1.ebuild, mecab-ruby-0.991.ebuild, mecab-ruby-0.994.ebuild,
+  mecab-ruby-0.995.ebuild, mecab-ruby-0.996.ebuild:
+  fix mecab version in (R)DEPEND
+
+  03 Aug 2013; Akinori Hattori <hattya@gentoo.org> mecab-ruby-0.996.ebuild:
+  remove unnecessary die
+
+  24 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mecab-ruby-0.98-r1.ebuild:
+  Stable for amd64, wrt bug #476152
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mecab-ruby-0.98-r1.ebuild:
+  Stable for ppc64, wrt bug #476152
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mecab-ruby-0.98-r1.ebuild:
+  Stable for ppc, wrt bug #476152
+
+  16 Jul 2013; Naohiro Aota <naota@gentoo.org> mecab-ruby-0.98-r1.ebuild,
+  mecab-ruby-0.991.ebuild, mecab-ruby-0.994.ebuild:
+  Export CXX to honor it. #476686; Update mecab dependency. #476684
+
+*mecab-ruby-0.996 (08 Jul 2013)
+
+  08 Jul 2013; Hans de Graaff <graaff@gentoo.org> +mecab-ruby-0.996.ebuild:
+  Version bump. Add ruby20. Document lack of ruby18.
 
 *mecab-ruby-0.995 (29 Jan 2013)
 

@@ -1,19 +1,48 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/package.use.mask,v 1.134 2013/09/02 17:13:42 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/package.use.mask,v 1.148 2014/03/15 10:26:55 pacho Exp $
+
+# Pacho Ramos <pacho@gentoo.org> (15 Mar 2014)
+# Missing keywords, bug #504672
+>=net-misc/vinagre-3.10 rdp
+
+# Pacho Ramos <pacho@gentoo.org> (22 Feb 2014)
+# Missing keywords, bug #495250
+>=gnome-base/gnome-extra-apps-3.10 tracker
+
+# Pacho Ramos <pacho@gentoo.org> (11 Jan 2014)
+sys-kernel/dracut -dracut_modules_systemd
+
+# Pacho Ramos <pacho@gentoo.org> (08 Jan 2014)
+# systemd[pam] cannot be provided for alpha, bug #438368
+gnome-base/gdm systemd
+sys-auth/pambase systemd
+
+# Pacho Ramos <pacho@gentoo.org> (02 Dec 2013)        
+# Missing keywords, bug #493156
+media-libs/libgphoto2 serial
+
+# Pacho Ramos <pacho@gentoo.org> (28 Nov 2013)
+# Missing keywords, bug #492820
+net-im/telepathy-connection-managers sipe
+
+# Pacho Ramos <pacho@gentoo.org> (13 Nov 2013)
+# Missing keywords, bug #478254
+>=gnome-base/gnome-3.8 classic
+
+# Mark Wright <gienah@gentoo.org> (26 Oct 2013)
+# template-haskell not yet available
+dev-haskell/dataenc test
+
+# Tom Wijsman <TomWij@gentoo.org> (16 Oct 2013)
+# Mask luajit on ~media-video/mpv-0.2.0 because it only has amd64 x86 keywords. See bug #488318.
+>=media-video/mpv-0.2.0 luajit
 
 # Pacho Ramos <pacho@gentoo.org> (01 Sep 2013)
 # CONFIG_AUDITSYSCALL=y is not implemented, bug #438368
 sys-apps/systemd pam
 sys-auth/consolekit pam
 sys-auth/pambase consolekit
-sys-auth/polkit pam
-
-# Pacho Ramos <pacho@gentoo.org> (25 Jul 2013)
-# Missing keywords, bug #444688
->=gnome-base/gnome-control-center-3.8 cups
->=gnome-base/gnome-core-apps-3.8 cups
->=gnome-base/gnome-3.8 cups
 
 # Pacho Ramos <pacho@gentoo.org> (20 Jul 2013)
 # Keywords pending, bug #476710

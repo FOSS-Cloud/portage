@@ -1,6 +1,168 @@
 # ChangeLog for gnome-base/gdm
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gdm/ChangeLog,v 1.365 2013/02/02 22:33:01 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gdm/ChangeLog,v 1.398 2014/03/29 21:09:09 tetromino Exp $
+
+  29 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org> gdm-3.8.4-r3.ebuild,
+  gdm-3.10.0.1.ebuild, gdm-3.10.0.1-r1.ebuild:
+  systemd now has subslots
+
+  20 Mar 2014; Pacho Ramos <pacho@gentoo.org> gdm-3.10.0.1-r1.ebuild:
+  --with-initial-vt=7 conflicts with plymouth, bug #453392 by Jan Vesely
+
+*gdm-3.10.0.1-r1 (19 Mar 2014)
+
+  19 Mar 2014; Pacho Ramos <pacho@gentoo.org> +gdm-3.10.0.1-r1.ebuild,
+  -files/3.2.1.1/gdm, -files/3.2.1.1/gdm-autologin,
+  -files/3.2.1.1/gdm-fingerprint, -files/3.2.1.1/gdm-password,
+  -files/3.2.1.1/gdm-smartcard, -files/3.2.1.1/gdm-welcome,
+  -files/3.2.1.1/gdm.service, -files/gdm-2.32.0-fix-vt-problems.patch,
+  -files/gdm-3.3.92.1-disable-accessibility.patch,
+  -files/gdm-3.6.0-fix-daemonize-regression.patch,
+  -files/gdm-3.6.2-gdm-slave.xml-unicode.patch,
+  -files/gdm-3.7.3.1-disable-accessibility.patch,
+  -files/gdm-3.7.90-fix-daemonize-regression.patch:
+  Lots of upstream fixes, drop obsolete files
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gdm-3.10.0.1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gdm-3.10.0.1.ebuild:
+  amd64 stable, bug 499954
+
+  28 Feb 2014; Pacho Ramos <pacho@gentoo.org> gdm-3.10.0.1.ebuild:
+  Not RDEPEND on coolkey and pam_pkcs11 as discussed on IRC and bugs #502204
+  #502200
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gdm-3.10.0.1.ebuild:
+  Fix wrong commit, bug 502160
+
+  01 Feb 2014; Pacho Ramos <pacho@gentoo.org> gdm-3.10.0.1.ebuild,
+  gdm-3.8.4-r3.ebuild:
+  Fix consolekit paths (#499434 by Ian Abbott)
+
+  03 Jan 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gdm-2.20.11-r1.ebuild, +files/gdm-2.20.11-underlinking.patch:
+  Fix underlinking failure (bug #496914, thanks to d_dart).
+
+*gdm-3.10.0.1 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +gdm-3.10.0.1.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gdm-3.8.4-r3.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gdm-3.8.4-r3.ebuild:
+  amd64 stable, bug #478252
+
+  07 Nov 2013; Pacho Ramos <pacho@gentoo.org> gdm-3.8.4-r3.ebuild, metadata.xml:
+  Remove smartcard USE flag and its pulled rdeps (#488784 by Alon Bar-Lev)
+
+*gdm-3.8.4-r3 (18 Oct 2013)
+
+  18 Oct 2013; Pacho Ramos <pacho@gentoo.org> +files/gdm-3.8.4-logo.patch,
+  +gdm-3.8.4-r3.ebuild, -gdm-3.8.4-r1.ebuild, -gdm-3.8.4-r2.ebuild:
+  Add optional branding support, drop old.
+
+*gdm-3.8.4-r2 (12 Oct 2013)
+
+  12 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/gdm-3.8.4-pam-systemd.patch, +gdm-3.8.4-r2.ebuild,
+  -gdm-3.6.2-r1.ebuild, -gdm-3.8.4.ebuild:
+  Provide a pam configuration that also works in non-systemd setups (#486822 by
+  Mike Auty), drop old.
+
+*gdm-3.8.4-r1 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +gdm-3.8.4-r1.ebuild:
+  >=openrc-0.12 and xdm init.d script from >-x11-base/xorg-server-1.14.3-r1
+  supports gdm-3.8 restarting (#463784 by Ian Stakenvicius, Chí-Thanh
+  Christopher Nguyễn, Alexander Vershilov, William Hubbs...). Handle
+  accessibility in a different way (#479516): xevie support disabled as it's
+  obsolete and broken, drop deps not needed for a long time due upstream
+  progressively dropping their support, remaining deps are only for fallback
+  greeter. Regarding orca.desktop autostart, it will only be started (confirmed
+  by me just now) when screen-reader-enabled gsetting is true.
+
+  11 Sep 2013; Pacho Ramos <pacho@gentoo.org> gdm-3.8.4.ebuild:
+  Rekeyword as bug #478076 is solved for ppc
+
+  08 Sep 2013; Pacho Ramos <pacho@gentoo.org> -gdm-3.8.3.1.ebuild,
+  gdm-3.8.4.ebuild:
+  Don't enable 'fallback' by default as it depends on obsolete stuff, upstream
+  wasn't caring much about it and will die in next cycle completely
+
+  02 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org> gdm-3.6.2-r1.ebuild:
+  gdm should not need pam_ck_connector.so (bug #483312, thanks to Samuli
+  Suominen).
+
+  18 Aug 2013; Patrick Lauer <patrick@gentoo.org> gdm-3.8.3.1.ebuild:
+  Whitespace
+
+*gdm-3.8.4 (31 Jul 2013)
+
+  31 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org> -gdm-3.6.2.ebuild,
+  -gdm-3.8.0.ebuild, +gdm-3.8.4.ebuild,
+  +files/gdm-3.8.4-fingerprint-auth.patch:
+  Version bump and fix invalid gdm-fingerprint.pam. Drop old.
+
+  28 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org> gdm-3.8.3.1.ebuild:
+  Add missing configure switch to handle fallback mode.
+
+  28 Jul 2013; Pacho Ramos <pacho@gentoo.org> gdm-3.8.3.1.ebuild:
+  Tell people that they need to run systemd
+
+  25 Jul 2013; Pacho Ramos <pacho@gentoo.org> gdm-3.8.3.1.ebuild:
+  Drop keywords #478076
+
+  17 Jul 2013; Pacho Ramos <pacho@gentoo.org> gdm-3.8.3.1.ebuild:
+  Changing perms of /run here doesn't make sense as they are regenerated on each
+  boot, anyway, looks like permissions are being properly handled and no
+  distribution is neither needing to change them via tmpfiles.d
+
+*gdm-3.8.3.1 (14 Jul 2013)
+
+  14 Jul 2013; Pacho Ramos <pacho@gentoo.org> +gdm-3.8.3.1.ebuild:
+  Version bump, use more upstream stuff (like exherbo pam.d files, systemd
+  units), systemd is required as upstream only cares about it (#463784) and we
+  will need systemd for other Gnome 3.8 parts (also, logind cannot be run
+  without systemd from >= 205).
+
+*gdm-3.6.2-r1 (20 May 2013)
+
+  20 May 2013; Gilles Dartiguelongue <eva@gentoo.org> +gdm-3.6.2-r1.ebuild:
+  Backport consolekit path fix, bug #461866.
+
+  05 May 2013; Justin Lecher <jlec@gentoo.org> gdm-3.6.2.ebuild,
+  gdm-3.8.0.ebuild:
+  Fix obsolete macros to work with automake-1.13, #468608
+
+*gdm-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/gdm-3.7.3.1-disable-accessibility.patch,
+  +files/gdm-3.7.90-fix-daemonize-regression.patch, +gdm-3.8.0.ebuild:
+  Version bump for Gnome 3.8
+
+  14 Mar 2013; Alexandre Rostovtsev <tetromino@gentoo.org> gdm-3.6.2.ebuild:
+  Remove unnecessary dependency on consolekit[pam] and pam[consolekit], thanks
+  to Samuli Suominen (bug #461688)
+
+  07 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> metadata.xml:
+  Remove unused or redundant USE flag description.
+
+  07 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -files/gdm-2.32.0-automagic-libxklavier-support.patch, -files/3.4.1/gdm,
+  -files/gdm-2.32.0-custom-session.patch, -files/3.4.1/gdm.service,
+  -files/gdm-2.32.0-fix-daemonize-regression.patch, -files/3.4.1/gdm-autologin,
+  -files/gdm-2.32.0-selinux-remove-attr.patch, -gdm-2.32.1-r1.ebuild,
+  -files/gdm-3.2.1.1-disable-accessibility.patch, -files/3.4.1/gdm-fingerprint,
+  -files/gdm-3.2.1.1-pam-fix-1.patch, -files/gdm-3.2.1.1-pam-fix-2.patch,
+  -gdm-3.4.1-r3.ebuild, -files/gdm-3.4.1-dconf-0.13.patch,
+  -files/3.4.1/gdm-password, -files/gdm-3.4.1-plymouth.patch,
+  -files/3.4.1/gdm-smartcard, -files/gdm-3.4.1-save-root-window.patch,
+  -files/3.4.1/gdm-welcome:
+  Clean up old revisions.
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gdm-3.6.2.ebuild:
   Add ~arm, wrt bug #449220

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License, v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/use.mask,v 1.112 2013/08/22 16:07:41 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/use.mask,v 1.115 2014/01/19 19:23:51 pacho Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -sparc
@@ -121,7 +121,6 @@ barcode
 xmms2
 gme
 aacplus
-systemd
 soundcloud
 devil
 gts
@@ -332,3 +331,14 @@ cg
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
 # virtual/opencl is not keyworded
 opencl
+
+# Unmask once sys-libs/libunwind gets ported & keyworded.
+unwind
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (10 Nov 2013)
+# sys-devel/llvm is not keyworded, bug #320221
+llvm
+
+# Pacho Ramos <pacho@gentoo.org> (19 Jan 2014)
+# Unmask systemd since it is keyworded here.  
+-systemd

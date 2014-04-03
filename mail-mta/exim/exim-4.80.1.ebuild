@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/exim/exim-4.80.1.ebuild,v 1.11 2013/02/28 17:49:32 zx2c4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/exim/exim-4.80.1.ebuild,v 1.15 2013/08/18 12:52:41 grobian Exp $
 
 EAPI="3"
 
@@ -35,7 +35,7 @@ COMMON_DEPEND=">=sys-apps/sed-4.0.5
 	ldap? ( >=net-nds/openldap-2.0.7 )
 	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql-base )
-	sasl? ( >=dev-libs/cyrus-sasl-2.1.14 )
+	sasl? ( >=dev-libs/cyrus-sasl-2.1.26-r2 )
 	selinux? ( sec-policy/selinux-exim )
 	spf? ( >=mail-filter/libspf2-1.2.5-r1 )
 	srs? ( mail-filter/libsrs_alt )
@@ -93,6 +93,13 @@ src_prepare() {
 		cp "${DISTDIR}"/exim_${DSN_EXIM_V}_dsn_${DSN_V}.patch . || die
 		epatch "${FILESDIR}"/${PN}-4.76-dsn.patch
 		epatch exim_${DSN_EXIM_V}_dsn_${DSN_V}.patch
+	fi
+
+	if use ipv6 ; then
+		# set a sensible default, bug #448314
+		sed -i \
+			-e '/^hostlist\s\+relay_from_hosts/s/\(127.0.0.1\)/\1 : ::::1/' \
+			src/configure.default || die
 	fi
 
 	# user Exim believes it should be
@@ -171,7 +178,7 @@ src_configure() {
 		myconf="${myconf} -lpam"
 	fi
 	if use sasl; then
-		sed -i "s:# CYRUS_SASLAUTHD_SOCKET=${EPREFIX}/var/state/saslauthd/mux:CYRUS_SASLAUTHD_SOCKET=${EPREFIX}/var/lib/sasl2/mux:"  Makefile
+		sed -i "s:# CYRUS_SASLAUTHD_SOCKET=${EPREFIX}/var/state/saslauthd/mux:CYRUS_SASLAUTHD_SOCKET=${EPREFIX}/run/saslauthd/mux:"  Makefile
 		sed -i "s:# AUTH_CYRUS_SASL=yes:AUTH_CYRUS_SASL=yes:" Makefile
 		myconf="${myconf} -lsasl2"
 	fi
@@ -225,14 +232,14 @@ src_configure() {
 
 	if use mysql; then
 		sed -i "s:# LOOKUP_MYSQL=yes:LOOKUP_MYSQL=yes:" Makefile
-		LOOKUP_INCLUDE="$LOOKUP_INCLUDE -I${EROOT}usr/include/mysql"
-		LOOKUP_LIBS="$LOOKUP_LIBS -lmysqlclient"
+		LOOKUP_INCLUDE="$LOOKUP_INCLUDE $(mysql_config --include)"
+		LOOKUP_LIBS="$LOOKUP_LIBS $(mysql_config --libs)"
 	fi
 
 	if use postgres; then
 		sed -i "s:# LOOKUP_PGSQL=yes:LOOKUP_PGSQL=yes:" Makefile
-		LOOKUP_INCLUDE="$LOOKUP_INCLUDE -I${EROOT}usr/include/postgresql"
-		LOOKUP_LIBS="$LOOKUP_LIBS -lpq"
+		LOOKUP_INCLUDE="$LOOKUP_INCLUDE -I$(pg_config --includedir)"
+		LOOKUP_LIBS="$LOOKUP_LIBS -L$(pg_config --libdir) -lpq"
 	fi
 
 	if use sqlite; then
@@ -354,5 +361,5 @@ pkg_postinst() {
 	einfo "Exim maintains some db files under its spool directory that need"
 	einfo "cleaning from time to time.  (${EROOT}var/spool/exim/db)"
 	einfo "Please use the exim_tidydb tool as documented in the Exim manual:"
-	einfo "http://www.exim.org/exim-html-current/doc/html/spec_html/ch50.html#SECThindatmai"
+	einfo "http://www.exim.org/exim-html-current/doc/html/spec_html/ch-exim_utilities.html#SECThindatmai"
 }

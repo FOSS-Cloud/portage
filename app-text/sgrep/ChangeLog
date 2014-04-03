@@ -1,6 +1,13 @@
 # ChangeLog for app-text/sgrep
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/sgrep/ChangeLog,v 1.11 2012/01/21 06:39:05 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/sgrep/ChangeLog,v 1.13 2014/01/02 15:02:39 tomwij Exp $
+
+  02 Jan 2014; Tom Wijsman <TomWij@gentoo.org> sgrep-1.94a.ebuild:
+  [QA] Shortened DESCRIPTION.
+
+  21 Jul 2013; Pacho Ramos <pacho@gentoo.org> -sgrep-1.92a.ebuild, metadata.xml:
+  Cleanup due http://gentoo.2317880.n4.nabble.com/sgml-herd-has-no-maintainers-
+  again-td259655.html
 
 *sgrep-1.94a (21 Jan 2012)
 
@@ -37,4 +44,3 @@
   +sgrep-1.92a.ebuild:
   Initial import. Ebuild submitted by Martin Blais <blais@furius.ca>,
   closing bug #41115.
-

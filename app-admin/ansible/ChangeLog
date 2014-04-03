@@ -1,6 +1,132 @@
 # ChangeLog for app-admin/ansible
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.11 2013/01/15 15:18:28 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.39 2014/03/17 10:26:52 pinkbyte Exp $
+
+*ansible-1.5.3 (17 Mar 2014)
+
+  17 Mar 2014; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.5.3.ebuild:
+  Version bump
+
+  17 Mar 2014; Sergey Popov <pinkbyte@gentoo.org> ansible-1.5.0.ebuild,
+  ansible-9999.ebuild:
+  Make dev-python/paramiko and dev-python/keyczar dependencies optional, let
+  users install them themselves, bug #504008
+
+  03 Mar 2014; Sergey Popov <pinkbyte@gentoo.org> -ansible-1.2.3.ebuild,
+  -ansible-1.3.3.ebuild, -ansible-1.3.4.ebuild, -ansible-1.4.1.ebuild,
+  -files/tests-ansible-1.4.1.patch:
+  Drop old versions
+
+  03 Mar 2014; Sergey Popov <pinkbyte@gentoo.org> ansible-1.4.3.ebuild:
+  Stable on amd64 and x86, wrt bug #502598
+
+*ansible-1.5.0 (03 Mar 2014)
+
+  03 Mar 2014; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.5.0.ebuild,
+  ansible-9999.ebuild:
+  Version bump, wrt bug #503298. Sync live ebuild, remove obsolete workaround
+  for tests, add dependency on dev-python/keyczar to support accelerated mode
+
+  03 Mar 2014; Sergey Popov <pinkbyte@gentoo.org> ansible-1.4.5.ebuild,
+  ansible-9999.ebuild:
+  Add PYTHON_USEDEP to dependencies
+
+*ansible-1.4.5 (03 Mar 2014)
+
+  03 Mar 2014; Sergey Popov <pinkbyte@gentoo.org> ansible-1.4.3.ebuild,
+  +ansible-1.4.5.ebuild, ansible-9999.ebuild:
+  Version bump to 1.4.5, fix HOMEPAGE and documentation url. Sync live ebuild
+
+  10 Jan 2014; Sergey Popov <pinkbyte@gentoo.org> ansible-1.3.4.ebuild:
+  Stable on amd64 and x86, wrt bug #495196
+
+*ansible-1.4.3 (29 Dec 2013)
+
+  29 Dec 2013; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.4.3.ebuild:
+  Version bump
+
+  09 Dec 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +files/tests-ansible-1.4.1.patch, ansible-1.4.1.ebuild:
+  tests work now (with patch)
+
+*ansible-1.4.1 (09 Dec 2013)
+
+  09 Dec 2013; Matthew Thode <prometheanfire@gentoo.org> +ansible-1.4.1.ebuild:
+  updated ansible to 1.4.1 with restricted tests due to
+  https://github.com/ansible/ansible/issues/5224
+
+*ansible-1.3.4 (22 Nov 2013)
+
+  22 Nov 2013; Sergey Popov <pinkbyte@gentoo.org> -ansible-1.2.1.ebuild,
+  +ansible-1.3.4.ebuild:
+  Version bump, drop old
+
+*ansible-1.3.3 (11 Oct 2013)
+
+  11 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.3.3.ebuild,
+  ansible-9999.ebuild:
+  Version bump, wrt bug #486098. Sync live ebuild
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.2.3.ebuild:
+  Stable for x86, wrt bug #482152
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.2.3.ebuild:
+  Stable for amd64, wrt bug #482152
+
+*ansible-1.2.3 (03 Sep 2013)
+
+  03 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.2.3.ebuild,
+  ansible-9999.ebuild:
+  Version bump, wrt bug #482152. Sync live ebuild
+
+  24 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> -ansible-1.0.ebuild,
+  -ansible-1.1.ebuild:
+  Drop vulnerable versions, wrt bug #475602
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.2.1.ebuild:
+  Stable for x86, wrt bug #475602
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.2.1.ebuild:
+  Stable for amd64, wrt bug #475602
+
+*ansible-1.2.1 (16 Jul 2013)
+
+  16 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.2.1.ebuild,
+  ansible-9999.ebuild:
+  Version bump, wrt bug #475602. Remove examples USE-flag due to upstream
+  changes. Sync live ebuild
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.0.ebuild:
+  Stable for x86, wrt bug #471226
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> ansible-1.0.ebuild:
+  Stable for amd64, wrt bug #471226
+
+*ansible-1.1 (25 May 2013)
+
+  25 May 2013; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.1.ebuild:
+  Version bump
+
+  25 May 2013; Sergey Popov <pinkbyte@gentoo.org> ansible-9999.ebuild:
+  Utilize readme.gentoo eclass, add missing die in src_test
+
+  25 May 2013; Sergey Popov <pinkbyte@gentoo.org> -ansible-0.9-r1.ebuild,
+  -files/ansible-0.9-distribution-fix.patch, metadata.xml:
+  Change maintainer, drop old version and deprecated USE flags descriptions
+
+  25 May 2013; Sergey Popov <pinkbyte@gentoo.org> ansible-9999.ebuild:
+  Remove manual installation of ansible modules, wrt bug #470890. Thanks to Jan
+  Pobrislo <ccx AT volny.cz> for discovering this issue
+
+  30 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Add upstream information, mark USE-flags 'sudo' and 'paramiko' as deprecated,
+  fix metadata indentation
+
+*ansible-1.0 (30 Mar 2013)
+
+  30 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> -ansible-0.7.2.ebuild,
+  -ansible-0.8.ebuild, +ansible-1.0.ebuild, ansible-9999.ebuild:
+  Version bump, wrt bug #461830. Sync live ebuild, drop old versions
 
   15 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> ansible-0.9-r1.ebuild:
   Fix docompress call in src_install

@@ -1,6 +1,16 @@
 # ChangeLog for sci-chemistry/xdsi
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/xdsi/ChangeLog,v 1.4 2012/01/31 08:30:01 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/xdsi/ChangeLog,v 1.7 2013/06/19 04:25:13 bicatali Exp $
+
+  19 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> metadata.xml:
+  Changed herd to sci-chemistry
+
+  20 May 2013; Justin Lecher <jlec@gentoo.org> xdsi-0.92-r1.ebuild:
+  Change license to a-r-r and RESTRICT=mirror, #470790
+
+  20 May 2013; Justin Lecher <jlec@gentoo.org> xdsi-0.92-r1.ebuild,
+  metadata.xml:
+  Fix HOMEPAGE
 
 *xdsi-0.92-r1 (31 Jan 2012)
 
@@ -21,4 +31,3 @@
   17 Feb 2010; Justin Lecher <jlec@gentoo.org>
   +files/0.91-gentoo.patch, +xdsi-0.91.ebuild, +metadata.xml:
   Initial addition
-

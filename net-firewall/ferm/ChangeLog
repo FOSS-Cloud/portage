@@ -1,6 +1,27 @@
 # ChangeLog for net-firewall/ferm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/ferm/ChangeLog,v 1.6 2012/10/17 04:59:29 kensington Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/ferm/ChangeLog,v 1.12 2013/06/13 09:10:46 dev-zero Exp $
+
+  13 Jun 2013; Tiziano Müller <dev-zero@gentoo.org> -ferm-2.1.1.ebuild:
+  Remove old.
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> ferm-2.1.2.ebuild:
+  Stable for ppc, wrt bug #470540
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> ferm-2.1.2.ebuild:
+  Stable for x86, wrt bug #470540
+
+  19 May 2013; Agostino Sarubbo <ago@gentoo.org> ferm-2.1.2.ebuild:
+  Stable for amd64, wrt bug #470540
+
+  16 Apr 2013; Tiziano Müller <dev-zero@gentoo.org> ferm-2.1.2.ebuild:
+  Does not install any perl lib, so use explicit ":*" instead of ":=" for perl
+  dep.
+
+*ferm-2.1.2 (16 Apr 2013)
+
+  16 Apr 2013; Tiziano Müller <dev-zero@gentoo.org> +ferm-2.1.2.ebuild:
+  Version bump.
 
   17 Oct 2012; Michael Palimaka <kensington@gentoo.org> -ferm-2.1.ebuild:
   Remove old.

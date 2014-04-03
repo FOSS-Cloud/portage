@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-applets/gnome-applets-2.32.1.1-r2.ebuild,v 1.1 2012/10/27 09:51:12 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-applets/gnome-applets-2.32.1.1-r2.ebuild,v 1.9 2014/01/05 08:40:17 tetromino Exp $
 
 EAPI="4"
 GCONF_DEBUG="no"
@@ -14,7 +14,7 @@ HOMEPAGE="http://www.gnome.org/"
 
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 ~arm ia64 ppc ppc64 sparc x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux"
 IUSE="+cpufreq gstreamer ipv6 networkmanager policykit"
 
 # TODO: configure says python stuff is optional
@@ -89,6 +89,9 @@ src_prepare() {
 	# gweather: fix NetworkManager support to compile, see upstream bug 636217 and bug 358043
 	epatch "${FILESDIR}"/${P}-dbus-fix.patch
 
+	# underlinking in mixer applet, bug #497118
+	epatch "${FILESDIR}/${P}-mixer-libm.patch"
+
 	# Invest applet tests need gconf/proxy/...
 	sed 's/^TESTS.*/TESTS=/g' -i invest-applet/invest/Makefile.am \
 		invest-applet/invest/Makefile.in || die "disabling invest tests failed"
@@ -96,6 +99,7 @@ src_prepare() {
 	python_clean_py-compile_files
 	python_convert_shebangs -r 2 .
 
+	rm missing || die # old missing script causes autoreconf warnings
 	eautoreconf
 	gnome2_src_prepare
 }

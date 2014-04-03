@@ -1,6 +1,58 @@
 # ChangeLog for games-strategy/wesnoth
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/wesnoth/ChangeLog,v 1.221 2013/01/13 11:40:17 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/wesnoth/ChangeLog,v 1.236 2013/12/31 07:29:23 mr_bones_ Exp $
+
+  31 Dec 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/wesnoth-1.10.4-boost.patch, -wesnoth-1.10.4.ebuild,
+  -wesnoth-1.10.6.ebuild:
+  old
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> wesnoth-1.10.7.ebuild:
+  Stable for x86, wrt bug #490648
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> wesnoth-1.10.7.ebuild:
+  Stable for ppc64, wrt bug #490648
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> wesnoth-1.10.7.ebuild:
+  Stable for ppc, wrt bug #490648
+
+  13 Nov 2013; Tony Vroon <chainsaw@gentoo.org> wesnoth-1.10.7.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #490648.
+
+  13 Sep 2013; Patrick Lauer <patrick@gentoo.org> wesnoth-1.10.7.ebuild:
+  Whitespace
+
+  12 Sep 2013; Michael Sterrett <mr_bones_@gentoo.org> wesnoth-1.10.7.ebuild:
+  respect LINGUAS (bug #483316)
+
+  26 Aug 2013; Michael Sterrett <mr_bones_@gentoo.org> -wesnoth-1.10.5.ebuild:
+  old
+
+*wesnoth-1.10.7 (19 Aug 2013)
+
+  19 Aug 2013; Michael Sterrett <mr_bones_@gentoo.org> +wesnoth-1.10.7.ebuild:
+  version bump
+
+  10 Jul 2013; Michael Sterrett <mr_bones_@gentoo.org> wesnoth-1.10.6.ebuild:
+  hide more packages behind the dedicated use flag
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> wesnoth-1.10.6.ebuild:
+  Stable for x86, wrt bug #473232
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> wesnoth-1.10.6.ebuild:
+  Stable for ppc, wrt bug #473232
+
+  19 Jun 2013; Chema Alonso <nimiux@gentoo.org> wesnoth-1.10.6.ebuild:
+  Stable for amd64 wrt bug #473232
+
+  11 Jun 2013; Michael Sterrett <mr_bones_@gentoo.org> wesnoth-1.10.6.ebuild:
+  use bigger icons (bug #472994)
+
+*wesnoth-1.10.6 (19 Mar 2013)
+
+  19 Mar 2013; Michael Sterrett <mr_bones_@gentoo.org> +wesnoth-1.10.6.ebuild:
+  version bump
 
   13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> wesnoth-1.10.5.ebuild:
   Stable for x86, wrt bug #449902

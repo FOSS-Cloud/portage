@@ -1,6 +1,48 @@
 # ChangeLog for sci-mathematics/glpk
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/glpk/ChangeLog,v 1.60 2013/02/21 16:53:29 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/glpk/ChangeLog,v 1.68 2014/03/24 17:46:25 bicatali Exp $
+
+*glpk-4.53 (24 Mar 2014)
+
+  24 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/glpk-4.53-debundle-system-libs.patch, +glpk-4.53.ebuild:
+  Version bump
+
+  05 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/glpk-4.52.1-mariadb-5.5.patch, glpk-4.45.ebuild, glpk-4.48.ebuild,
+  glpk-4.52.1-r1.ebuild:
+  Fixed bug #420095 when mariadb is selected, thanks Dennis Schridde for his
+  patch
+
+*glpk-4.52.1-r1 (16 Jan 2014)
+
+  16 Jan 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/glpk-4.52.1-debundle-amd.patch, +files/glpk-4.52.1-debundle-zlib.patch,
+  +glpk-4.52.1-r1.ebuild, -glpk-4.47.ebuild, -glpk-4.52.1.ebuild, metadata.xml:
+  Ubundle amd, colamd and zlib, removed old
+
+*glpk-4.52.1 (03 Dec 2013)
+
+  03 Dec 2013; Sébastien Fabbro <bicatali@gentoo.org> +glpk-4.52.1.ebuild,
+  -glpk-4.50.ebuild:
+  Version bump
+
+  18 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  glpk-4.48.ebuild, glpk-4.50.ebuild:
+  Keyword ~arm.
+
+  16 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> glpk-4.50.ebuild:
+  Updated slot for change of soname
+
+*glpk-4.50 (14 Jun 2013)
+
+  14 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> +glpk-4.50.ebuild:
+  Version bump
+
+*glpk-4.48 (23 Mar 2013)
+
+  23 Mar 2013; Sébastien Fabbro <bicatali@gentoo.org> +glpk-4.48.ebuild:
+  Version bump
 
   21 Feb 2013; Justin Lecher <jlec@gentoo.org> glpk-4.47.ebuild, metadata.xml:
   Drop la files

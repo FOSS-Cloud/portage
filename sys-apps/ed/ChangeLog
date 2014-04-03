@@ -1,6 +1,40 @@
 # ChangeLog for sys-apps/ed
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/ed/ChangeLog,v 1.98 2012/11/26 17:34:42 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/ed/ChangeLog,v 1.106 2014/02/27 20:14:08 ssuominen Exp $
+
+  27 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> ed-1.10.ebuild:
+  Use the unpacker_src_uri_depends() function to pull in either pdlzip or lzip
+  wrt #502990 by Denis Sokolovsky
+
+  27 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> ed-1.10.ebuild:
+  Use unpacker.eclass for lzip compressed releases.
+
+  22 Feb 2014; Akinori Hattori <hattya@gentoo.org> ed-1.10.ebuild:
+  keyword ~ia64 wrt bug #502020
+
+*ed-1.10 (21 Feb 2014)
+
+  21 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> +ed-1.10.ebuild:
+  Version bump.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> ed-1.6.ebuild, ed-1.8.ebuild,
+  ed-1.9.ebuild:
+  Add arm64 love.
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -ed-1.0.ebuild,
+  -ed-1.3.ebuild, -ed-1.4.ebuild, -ed-1.5.ebuild, -ed-1.7-r1.ebuild,
+  -files/ed-1.0-build.patch, -files/ed-1.2-build.patch:
+  Removed old versions and files.
+
+*ed-1.9 (24 Jun 2013)
+
+  24 Jun 2013; Mike Frysinger <vapier@gentoo.org> +ed-1.9.ebuild:
+  Version bump.
+
+*ed-1.8 (25 Apr 2013)
+
+  25 Apr 2013; Mike Frysinger <vapier@gentoo.org> +ed-1.8.ebuild:
+  Version bump.
 
 *ed-1.7-r1 (26 Nov 2012)
 

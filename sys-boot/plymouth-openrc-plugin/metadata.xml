@@ -2,6 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <maintainer>
-	<email>a3li@gentoo.org</email>
+	<email>maintainer-needed@gentoo.org</email>
+	<name>Default maintainer for orphaned packages</name>
 </maintainer>
 </pkgmetadata>

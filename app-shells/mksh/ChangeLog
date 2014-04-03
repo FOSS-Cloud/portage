@@ -1,6 +1,71 @@
 # ChangeLog for app-shells/mksh
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/ChangeLog,v 1.37 2013/02/22 08:42:22 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/ChangeLog,v 1.52 2014/03/12 02:30:50 patrick Exp $
+
+  12 Mar 2014; Patrick Lauer <patrick@gentoo.org> -mksh-44-r1.ebuild:
+  Remove old
+
+  23 Feb 2014; Agostino Sarubbo <ago@gentoo.org> mksh-48b.ebuild:
+  Stable for ppc, wrt bug #500492
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> mksh-48b.ebuild:
+  Stable for x86, wrt bug #500492
+
+  10 Feb 2014; Chema Alonso <nimiux@gentoo.org> mksh-48b.ebuild:
+  Stable for amd64 wrt bug #500492
+
+*mksh-49 (06 Feb 2014)
+
+  06 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> -mksh-40f.ebuild,
+  -mksh-41.ebuild, -mksh-41b.ebuild, -mksh-41c.ebuild, -mksh-42.ebuild,
+  -mksh-43.ebuild, -mksh-44.ebuild, -mksh-45.ebuild, -mksh-46.ebuild,
+  -mksh-47.ebuild, -mksh-48.ebuild, +mksh-49.ebuild:
+  Version bump. Removed old versions.
+
+*mksh-48b (21 Nov 2013)
+
+  21 Nov 2013; Patrick Lauer <patrick@gentoo.org> +mksh-48b.ebuild:
+  Bump
+
+*mksh-48 (15 Aug 2013)
+
+  15 Aug 2013; Patrick Lauer <patrick@gentoo.org> +mksh-48.ebuild:
+  Bump
+
+*mksh-47 (05 Aug 2013)
+
+  05 Aug 2013; Patrick Lauer <patrick@gentoo.org> +mksh-47.ebuild:
+  Bump
+
+*mksh-46 (04 May 2013)
+
+  04 May 2013; Patrick Lauer <patrick@gentoo.org> +mksh-46.ebuild:
+  Bump
+
+*mksh-45 (27 Apr 2013)
+
+  27 Apr 2013; Patrick Lauer <patrick@gentoo.org> +mksh-45.ebuild:
+  Bump
+
+  26 Apr 2013; Agostino Sarubbo <ago@gentoo.org> mksh-44-r1.ebuild:
+  Stable for ppc, wrt bug #467318
+
+  26 Apr 2013; Agostino Sarubbo <ago@gentoo.org> mksh-44-r1.ebuild:
+  Stable for x86, wrt bug #467318
+
+  26 Apr 2013; Agostino Sarubbo <ago@gentoo.org> mksh-44-r1.ebuild:
+  Stable for amd64, wrt bug #467318
+
+*mksh-44-r1 (07 Apr 2013)
+
+  07 Apr 2013; Patrick Lauer <patrick@gentoo.org> +mksh-44-r1.ebuild,
+  mksh-9999.ebuild:
+  Adding static useflag and klibc dependency as per upstream suggestion
+
+*mksh-44 (06 Mar 2013)
+
+  06 Mar 2013; Patrick Lauer <patrick@gentoo.org> +mksh-44.ebuild:
+  Bump
 
 *mksh-43 (22 Feb 2013)
 *mksh-41c (22 Feb 2013)

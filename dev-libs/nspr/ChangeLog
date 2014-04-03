@@ -1,6 +1,143 @@
 # ChangeLog for dev-libs/nspr
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/nspr/ChangeLog,v 1.226 2013/02/26 10:17:40 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/nspr/ChangeLog,v 1.262 2014/03/24 14:33:51 ago Exp $
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.4.ebuild:
+  Stable for ppc64, wrt bug #505072
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.4.ebuild:
+  Stable for alpha, wrt bug #505072
+
+  23 Mar 2014; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.4.ebuild:
+  Stable for ppc, wrt bug #505072
+
+  22 Mar 2014; Markus Meier <maekke@gentoo.org> nspr-4.10.4.ebuild:
+  arm stable, bug #505072
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.4.ebuild:
+  Stable for x86, wrt bug #505072
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.4.ebuild:
+  Stable for amd64, wrt bug #505072
+
+  22 Mar 2014; Jeroen Roovers <jer@gentoo.org> nspr-4.10.4.ebuild:
+  Stable for HPPA (bug #505072).
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> +nspr-4.10.2.ebuild:
+  Restore latest stable nspr ebuild.
+
+*nspr-4.10.4 (20 Mar 2014)
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> -nspr-4.10.2.ebuild,
+  +nspr-4.10.4.ebuild:
+  Version bump. Removed old.
+
+*nspr-4.10.3 (05 Feb 2014)
+
+  05 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> -nspr-4.10.1.ebuild,
+  +nspr-4.10.3.ebuild:
+  Version bump. Removed old.
+
+  01 Feb 2014; Mike Frysinger <vapier@gentoo.org> nspr-4.10.2.ebuild:
+  Mark m68k/s390/sh stable.
+
+  22 Jan 2014; Mike Frysinger <vapier@gentoo.org> nspr-4.10.2.ebuild:
+  Add arm64 love.
+
+  07 Dec 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.2.ebuild:
+  Stable for arm, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.2.ebuild:
+  Stable for ppc64, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.2.ebuild:
+  Stable for ppc, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.2.ebuild:
+  Stable for x86, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.2.ebuild:
+  Stable for amd64, wrt bug #489796
+
+  26 Nov 2013; Jeroen Roovers <jer@gentoo.org> nspr-4.10.2.ebuild:
+  Stable for HPPA too.
+
+*nspr-4.10.2 (18 Nov 2013)
+
+  18 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> -nspr-4.9.5.ebuild,
+  +nspr-4.10.2.ebuild, -files/nspr-4.6.1-config-1.patch,
+  -files/nspr-4.8-config.patch, -files/nspr-4.9-pkgconfig-gentoo.patch:
+  Version bump. Removed old.
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.ebuild:
+  Stable for sparc, wrt bug #486114
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.ebuild:
+  Stable for alpha, wrt bug #486114
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.ebuild:
+  Stable for ia64, wrt bug #486114
+
+  01 Oct 2013; Jeroen Roovers <jer@gentoo.org> nspr-4.10.ebuild:
+  Stable for HPPA (bug #486114).
+
+*nspr-4.10.1 (27 Sep 2013)
+
+  27 Sep 2013; Jory A. Pratt <anarchy@gentoo.org> +nspr-4.10.1.ebuild:
+  NVB to 4.10.1
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.ebuild:
+  Stable for ppc, wrt bug #479968
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.ebuild:
+  Stable for arm, wrt bug #479968
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.ebuild:
+  Stable for ppc64, wrt bug #479968
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.ebuild:
+  Stable for x86, wrt bug #479968
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.10.ebuild:
+  Stable for amd64, wrt bug #479968
+
+  20 Jun 2013; Patrick Lauer <patrick@gentoo.org> nspr-4.9.5.ebuild:
+  QA: Add s390 stable keyword as all other stable versions were pruned
+
+  19 Jun 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +files/nspr-4.7.0-prtime.patch:
+  Readded mistakenly removed patch.
+
+  19 Jun 2013; Lars Wendler <polynomial-c@gentoo.org> -nspr-4.8.8.ebuild,
+  -nspr-4.8.9.ebuild, -nspr-4.9.ebuild, -nspr-4.9.1.ebuild, -nspr-4.9.2.ebuild,
+  -nspr-4.9.2-r1.ebuild, -nspr-4.9.4.ebuild, -nspr-4.9.5-r1.ebuild,
+  -nspr-4.9.5-r2.ebuild, -nspr-4.9.6.ebuild, -files/nspr-4.6.1-config.patch,
+  -files/nspr-4.7.0-prtime.patch, -files/nspr-4.8.3-aix-soname.patch,
+  -files/nspr-4.8-pkgconfig-gentoo-2.patch,
+  -files/nspr-4.8-pkgconfig-gentoo-3.patch, -files/nspr-4.9.1-x32_v0.2.patch:
+  Removed old versions.
+
+*nspr-4.10 (19 Jun 2013)
+
+  19 Jun 2013; Jory A. Pratt <anarchy@gentoo.org> +nspr-4.10.ebuild:
+  Misc bug fixes, http://tinyurl.com/lvrhnoh
+
+*nspr-4.9.6 (29 Mar 2013)
+
+  29 Mar 2013; Jory A. Pratt <anarchy@gentoo.org> +nspr-4.9.6.ebuild:
+  Version bump, bmo #807883,782214,812085 includes aarch64 support
+
+*nspr-4.9.5-r2 (12 Mar 2013)
+
+  12 Mar 2013; Mike Frysinger <vapier@gentoo.org> +nspr-4.9.5-r2.ebuild:
+  Drop lib name shuffling since we no longer change the SONAME.  Upstream can
+  deal with this long term (moz bug 452873).
+
+*nspr-4.9.5-r1 (12 Mar 2013)
+
+  12 Mar 2013; <anarchy@gentoo.org> +nspr-4.9.5-r1.ebuild,
+  +files/nspr-4.9.5_nspr_config.patch:
+  Address concerns in bug #454576
 
   26 Feb 2013; Agostino Sarubbo <ago@gentoo.org> nspr-4.9.5.ebuild:
   Stable for alpha, wrt bug #455558

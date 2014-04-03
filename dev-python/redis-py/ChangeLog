@@ -1,6 +1,54 @@
 # ChangeLog for dev-python/redis-py
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/redis-py/ChangeLog,v 1.32 2013/01/23 15:57:13 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/redis-py/ChangeLog,v 1.44 2014/03/31 21:09:33 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> redis-py-2.7.2-r1.ebuild,
+  redis-py-2.7.4.ebuild, redis-py-2.7.5.ebuild, redis-py-2.7.6.ebuild,
+  redis-py-2.9.1.ebuild:
+  Add support for the new PyPy slotting.
+
+*redis-py-2.9.1 (06 Feb 2014)
+
+  06 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> +redis-py-2.9.1.ebuild:
+  Version bump and keyword amd64-linux and x86-linux
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> redis-py-2.7.2-r1.ebuild,
+  redis-py-2.7.4.ebuild, redis-py-2.7.5.ebuild, redis-py-2.7.6.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> redis-py-2.7.4.ebuild:
+  Stable for amd64, wrt bug #473554
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> redis-py-2.7.4.ebuild:
+  Stable for x86, wrt bug #473554
+
+*redis-py-2.7.6 (17 Jun 2013)
+
+  17 Jun 2013; Dirkjan Ochtman <djc@gentoo.org> +redis-py-2.7.6.ebuild:
+  Version bump redis-py to 2.7.6.
+
+*redis-py-2.7.5 (22 May 2013)
+
+  22 May 2013; Patrick Lauer <patrick@gentoo.org> +redis-py-2.7.5.ebuild:
+  Bump
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> redis-py-2.7.2-r1.ebuild:
+  Stable for x86, wrt bug #469662
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> redis-py-2.7.2-r1.ebuild:
+  Stable for amd64, wrt bug #469662
+
+*redis-py-2.7.4 (13 May 2013)
+
+  13 May 2013; Dirkjan Ochtman <djc@gentoo.org> +redis-py-2.7.4.ebuild:
+  Version bump redis-py to 2.7.4.
+
+  13 May 2013; Dirkjan Ochtman <djc@gentoo.org> -redis-py-2.4.12.ebuild,
+  -redis-py-2.4.13.ebuild, -redis-py-2.7.2.ebuild:
+  Remove old versions.
+
+  13 May 2013; Dirkjan Ochtman <djc@gentoo.org> metadata.xml:
+  Set remote-id.
 
   23 Jan 2013; Michał Górny <mgorny@gentoo.org> redis-py-2.7.2-r1.ebuild:
   Fix installing "tests" module.

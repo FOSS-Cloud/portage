@@ -1,6 +1,56 @@
 # ChangeLog for dev-libs/libpeas
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libpeas/ChangeLog,v 1.15 2013/02/02 22:26:12 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libpeas/ChangeLog,v 1.29 2014/03/09 11:55:39 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libpeas-1.9.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libpeas-1.9.0.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libpeas-1.9.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libpeas-1.9.0.ebuild:
+  arch stable, bug 888
+
+  02 Feb 2014; Pacho Ramos <pacho@gentoo.org> libpeas-1.9.0.ebuild:
+  spidermonkey was rekeyworded
+
+*libpeas-1.9.0 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +libpeas-1.9.0.ebuild,
+  -libpeas-1.6.2-r1.ebuild:
+  Version bump for Gnome 3.10, drop old
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> libpeas-1.8.1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> libpeas-1.8.1.ebuild:
+  amd64 stable, bug #478252
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> libpeas-1.8.1.ebuild:
+  keyword ~amd64-fbsd
+
+  25 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org> libpeas-1.8.1.ebuild:
+  Add missing dependencies and required use.
+
+  22 Jul 2013; Pacho Ramos <pacho@gentoo.org> -libpeas-1.8.0.ebuild,
+  libpeas-1.8.1.ebuild:
+  Works with python-3.3 (#475086 by Hristo Venev), drop old.
+
+*libpeas-1.8.1 (18 Jun 2013)
+
+  18 Jun 2013; Pacho Ramos <pacho@gentoo.org> +libpeas-1.8.1.ebuild:
+  Version bump
+
+*libpeas-1.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +libpeas-1.8.0.ebuild:
+  Version bump for Gnome 3.8
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -libpeas-1.6.2.ebuild:
+  Clean up old revision.
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libpeas-1.6.2-r1.ebuild:
   Add ~arm, wrt bug #449220

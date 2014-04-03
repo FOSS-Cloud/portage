@@ -1,6 +1,25 @@
 # ChangeLog for dev-perl/SNMP_Session
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/SNMP_Session/ChangeLog,v 1.28 2012/03/01 16:17:42 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/SNMP_Session/ChangeLog,v 1.33 2014/01/11 16:20:58 zlogene Exp $
+
+  11 Jan 2014;  <zlogene@gentoo.org> -SNMP_Session-1.13.ebuild,
+  SNMP_Session-1.13-r1.ebuild:
+  alpha/ia64/ppc64/ppc/sparc stable wrt bug #495462; Drop old
+
+  03 Jan 2014; Sergey Popov <pinkbyte@gentoo.org> SNMP_Session-1.13-r1.ebuild:
+  Stable on arm, wrt bug #495462
+
+  03 Jan 2014; Sergey Popov <pinkbyte@gentoo.org> SNMP_Session-1.13-r1.ebuild:
+  Stable on amd64 and x86, wrt bug #495462
+
+  01 Jan 2014; Jeroen Roovers <jer@gentoo.org> SNMP_Session-1.13-r1.ebuild:
+  Stable for HPPA (bug #495462).
+
+*SNMP_Session-1.13-r1 (26 Aug 2013)
+
+  26 Aug 2013; Ian Delaney <idella4@gentoo.org> +SNMP_Session-1.13-r1.ebuild,
+  SNMP_Session-1.13.ebuild:
+  revbump -> EAPI 5
 
   01 Mar 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Add missing cpan remote-id tags in metadata.xml (#406287)

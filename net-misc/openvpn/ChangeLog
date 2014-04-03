@@ -1,6 +1,125 @@
 # ChangeLog for net-misc/openvpn
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openvpn/ChangeLog,v 1.247 2013/02/20 23:45:57 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openvpn/ChangeLog,v 1.285 2013/09/26 17:32:05 ago Exp $
+
+  26 Sep 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.2.ebuild:
+  Stable for arm, wrt bug #484726
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.2.ebuild:
+  Stable for ppc, wrt bug #484726
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.2.ebuild:
+  Stable for sparc, wrt bug #484726
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.2.ebuild:
+  Stable for ppc64, wrt bug #484726
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.2.ebuild:
+  Stable for alpha, wrt bug #484726
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.2.ebuild:
+  Stable for x86, wrt bug #484726
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.2.ebuild:
+  Stable for amd64, wrt bug #484726
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.2.ebuild:
+  Stable for ia64, wrt bug #484726
+
+  13 Sep 2013; Jeroen Roovers <jer@gentoo.org> openvpn-2.3.2.ebuild:
+  Stable for HPPA (bug #484726).
+
+  26 Aug 2013; Dirkjan Ochtman <djc@gentoo.org> openvpn-2.3.2.ebuild:
+  No dies needed here.
+
+*openvpn-2.3.2 (10 Jun 2013)
+
+  10 Jun 2013; Dirkjan Ochtman <djc@gentoo.org> +openvpn-2.3.2.ebuild:
+  Version bump openvpn to 2.3.2 (bug 472542).
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for sh, wrt bug #468756
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #151880
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for s390, wrt bug #468756
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for s390, wrt bug #468364
+
+  11 May 2013; Jeroen Roovers <jer@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for HPPA (bug #468756).
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for sparc, wrt bug #468756
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for ppc, wrt bug #468756
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for ppc64, wrt bug #468756
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for ia64, wrt bug #468756
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for arm, wrt bug #468756
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for alpha, wrt bug #468756
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for x86, wrt bug #468756
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.1.ebuild:
+  Stable for amd64, wrt bug #468756
+
+  08 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for sh, wrt bug #468364
+
+  08 May 2013; Jeroen Roovers <jer@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for HPPA (bug #468364).
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for ppc64, wrt bug #468364
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for sparc, wrt bug #468364
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for ia64, wrt bug #468364
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for alpha, wrt bug #468364
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for arm, wrt bug #468364
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for ppc, wrt bug #468364
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for x86, wrt bug #468364
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.0.ebuild:
+  Stable for amd64, wrt bug #468364
+
+  03 May 2013; Dirkjan Ochtman <djc@gentoo.org> openvpn-2.3.1.ebuild:
+  Fix USE flag order for 2.3.1.
+
+  03 May 2013; Dirkjan Ochtman <djc@gentoo.org> openvpn-9999.ebuild:
+  Add polarssl for 9999 ebuild (thanks to josh.cepek@usa.net).
+
+*openvpn-2.3.1 (03 May 2013)
+
+  03 May 2013; Dirkjan Ochtman <djc@gentoo.org> +openvpn-2.3.1.ebuild:
+  Version bump to 2.3.1, add polarssl support (bug 463984, thanks to
+  josh.cepek@usa.net).
 
   20 Feb 2013; Zac Medico <zmedico@gentoo.org> openvpn-2.3.0.ebuild:
   Add ~arm-linux keyword.

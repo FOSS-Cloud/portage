@@ -1,6 +1,37 @@
 # ChangeLog for app-office/texmacs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/texmacs/ChangeLog,v 1.105 2012/09/16 04:52:45 grozin Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/texmacs/ChangeLog,v 1.111 2014/01/09 07:34:47 grozin Exp $
+
+*texmacs-1.0.7.21 (09 Jan 2014)
+
+  09 Jan 2014; Andrey Grozin <grozin@gentoo.org> -texmacs-1.0.7.16-r1.ebuild,
+  -texmacs-1.0.7.18.ebuild, -texmacs-1.0.7.19.ebuild, +texmacs-1.0.7.21.ebuild,
+  +files/texmacs-plugins-1.patch:
+  Version bump
+
+*texmacs-1.0.7.20 (14 Oct 2013)
+
+  14 Oct 2013; Andrey Grozin <grozin@gentoo.org> +texmacs-1.0.7.20.ebuild:
+  Version bump
+
+  01 May 2013; Andrey Grozin <grozin@gentoo.org> texmacs-1.0.7.19.ebuild:
+  Downloading from ftp.texmacs.org works again
+
+*texmacs-1.0.7.19 (28 Mar 2013)
+
+  28 Mar 2013; Andrey Grozin <grozin@gentoo.org> +texmacs-1.0.7.19.ebuild:
+  Version bump
+
+*texmacs-1.0.7.18 (23 Mar 2013)
+
+  23 Mar 2013; Andrey Grozin <grozin@gentoo.org> -texmacs-1.0.7.15-r1.ebuild,
+  -files/texmacs-1.0.7.15-tm-files.patch, texmacs-1.0.7.16-r1.ebuild,
+  +texmacs-1.0.7.18.ebuild, -files/texmacs-ldflags.patch:
+  Version bump; removed unused erroneous file in 1.0.7.16-r1 (closing #459430)
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> texmacs-1.0.7.15-r1.ebuild,
+  texmacs-1.0.7.16-r1.ebuild:
+  Move Qt dependencies to the new category
 
 *texmacs-1.0.7.16-r1 (16 Sep 2012)
 

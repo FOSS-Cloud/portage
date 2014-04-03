@@ -1,6 +1,76 @@
 # ChangeLog for app-arch/xz-utils
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/xz-utils/ChangeLog,v 1.61 2013/02/17 19:48:08 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/xz-utils/ChangeLog,v 1.79 2014/01/18 01:43:51 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> xz-utils-5.0.5-r1.ebuild,
+  xz-utils-5.1.3_alpha.ebuild, xz-utils-9999.ebuild:
+  Add arm64 love.
+
+  16 Jan 2014; Mike Frysinger <vapier@gentoo.org> xz-utils-5.0.5-r1.ebuild:
+  Mark m68k/s390/sh stable.
+
+  05 Jan 2014; Mike Frysinger <vapier@gentoo.org> xz-utils-5.0.5-r1.ebuild,
+  xz-utils-5.1.3_alpha.ebuild, xz-utils-9999.ebuild:
+  Use multilib_build_binaries to build binaries #489584 by Thomas Sachau.
+
+  04 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -xz-utils-4.999.9_beta.ebuild, -xz-utils-5.0.1.ebuild,
+  -xz-utils-5.0.1-r1.ebuild, -xz-utils-5.0.2.ebuild, -xz-utils-5.0.3.ebuild,
+  -xz-utils-5.0.4.ebuild, -xz-utils-5.0.4-r1.ebuild, -xz-utils-5.0.5.ebuild,
+  -files/xz-utils-5.0.1-xzgrep-typo.patch:
+  Removed old versions and files.
+
+  27 Dec 2013; Akinori Hattori <hattya@gentoo.org> xz-utils-5.0.5-r1.ebuild:
+  ia64 stable wrt bug #489362
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xz-utils-5.0.5-r1.ebuild:
+  Stable for sparc, wrt bug #489362
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xz-utils-5.0.5-r1.ebuild:
+  Stable for ppc64, wrt bug #489362
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xz-utils-5.0.5-r1.ebuild:
+  Stable for ppc, wrt bug #489362
+
+  29 Nov 2013; Markus Meier <maekke@gentoo.org> xz-utils-5.0.5-r1.ebuild:
+  arm stable, bug #489362
+
+  04 Nov 2013; Matt Turner <mattst88@gentoo.org> xz-utils-5.0.5-r1.ebuild:
+  alpha stable, bug 489362.
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> xz-utils-5.0.5-r1.ebuild:
+  Stable for x86, wrt bug #489362
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> xz-utils-5.0.5-r1.ebuild:
+  Stable for amd64, wrt bug #489362
+
+  31 Oct 2013; Jeroen Roovers <jer@gentoo.org> xz-utils-5.0.5-r1.ebuild:
+  Stable for HPPA (bug #489362).
+
+*xz-utils-5.1.3_alpha (28 Oct 2013)
+
+  28 Oct 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +xz-utils-5.1.3_alpha.ebuild:
+  Added alpha release as requested in bug #484068 by Christoph Junghans.
+
+  19 Oct 2013; Mike Frysinger <vapier@gentoo.org> xz-utils-5.0.5-r1.ebuild,
+  xz-utils-9999.ebuild:
+  Update LICENSE as pointed out by Marc MERLIN.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> xz-utils-5.0.5-r1.ebuild,
+  xz-utils-9999.ebuild:
+  Remove the unnecessary emul-linux blocker. My bad.
+
+*xz-utils-5.0.5-r1 (07 Aug 2013)
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> +xz-utils-5.0.5-r1.ebuild,
+  xz-utils-9999.ebuild:
+  Support multilib. Bug #474940, patch by Alexis Ballier.
+
+*xz-utils-5.0.5 (30 Jun 2013)
+
+  30 Jun 2013; Mike Frysinger <vapier@gentoo.org> +xz-utils-5.0.5.ebuild:
+  Version bump.
 
   17 Feb 2013; Zac Medico <zmedico@gentoo.org> xz-utils-5.0.4-r1.ebuild:
   Add ~arm-linux keyword.

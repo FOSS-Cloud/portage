@@ -1,6 +1,153 @@
 # ChangeLog for x11-drivers/xf86-video-virtualbox
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-virtualbox/ChangeLog,v 1.108 2013/02/28 16:04:47 polynomial-c Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-virtualbox/ChangeLog,v 1.135 2014/03/26 10:12:49 polynomial-c Exp $
+
+*xf86-video-virtualbox-4.3.10 (26 Mar 2014)
+
+  26 Mar 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.3.6.ebuild, +xf86-video-virtualbox-4.3.10.ebuild:
+  Version bump. Removed old.
+
+*xf86-video-virtualbox-4.2.24 (14 Mar 2014)
+
+  14 Mar 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +xf86-video-virtualbox-4.2.24.ebuild:
+  Version bump.
+
+*xf86-video-virtualbox-4.3.8 (26 Feb 2014)
+
+  26 Feb 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +xf86-video-virtualbox-4.3.8.ebuild,
+  +files/xf86-video-virtualbox-4.3.8-vboxvideo_compilefixes.patch:
+  Version bump.
+
+  23 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  xf86-video-virtualbox-4.2.22.ebuild, xf86-video-virtualbox-4.3.6.ebuild:
+  Added missing x11-proto/resourceproto and x11-proto/scrnsaverproto to DEPEND.
+  Thanks to Dominik Buerkle for reporting this in bug #499062.
+
+  17 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.2.18.ebuild, -xf86-video-virtualbox-4.2.20.ebuild,
+  -xf86-video-virtualbox-4.3.4.ebuild:
+  Security cleanup.
+
+  16 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-virtualbox-4.2.22.ebuild:
+  Stable for x86, wrt bug #498166
+
+  16 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-virtualbox-4.2.22.ebuild:
+  Stable for amd64, wrt bug #498166
+
+*xf86-video-virtualbox-4.2.22 (11 Jan 2014)
+
+  11 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +xf86-video-virtualbox-4.2.22.ebuild, xf86-video-virtualbox-4.3.6.ebuild,
+  +files/xf86-video-virtualbox-4.3.6-link-lazy.patch:
+  Version bump. Fixed link lazy patch (bug #494478).
+
+*xf86-video-virtualbox-4.3.6 (18 Dec 2013)
+
+  18 Dec 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.1.26.ebuild, -xf86-video-virtualbox-4.3.2.ebuild,
+  +xf86-video-virtualbox-4.3.6.ebuild:
+  Version bump. Removed old.
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  xf86-video-virtualbox-4.2.18.ebuild:
+  x86 stable, bug #480044
+
+*xf86-video-virtualbox-4.3.4 (30 Nov 2013)
+
+  30 Nov 2013; Lars Wendler <polynomial-c@gentoo.org>
+  xf86-video-virtualbox-4.2.20.ebuild, -xf86-video-virtualbox-4.3.0.ebuild,
+  +xf86-video-virtualbox-4.3.4.ebuild:
+  Version bump. Removed old. Let the driver compile against system xorg
+  headers. Thanks to Walter Meinl for the bug report and providing a patch in
+  bug #492942.
+
+*xf86-video-virtualbox-4.2.20 (29 Nov 2013)
+
+  29 Nov 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +xf86-video-virtualbox-4.2.20.ebuild:
+  Version bump.
+
+*xf86-video-virtualbox-4.3.2 (02 Nov 2013)
+
+  02 Nov 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +xf86-video-virtualbox-4.3.2.ebuild:
+  Version bump (bug #490070).
+
+  20 Oct 2013; Tony Vroon <chainsaw@gentoo.org>
+  xf86-video-virtualbox-4.2.18.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #480044.
+
+  15 Oct 2013; Lars Wendler <polynomial-c@gentoo.org>
+  xf86-video-virtualbox-4.1.26.ebuild, xf86-video-virtualbox-4.2.18.ebuild,
+  xf86-video-virtualbox-4.3.0.ebuild:
+  Make the build process verbose.
+
+*xf86-video-virtualbox-4.3.0 (15 Oct 2013)
+
+  15 Oct 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.2.16.ebuild, +xf86-video-virtualbox-4.3.0.ebuild:
+  Version bump. Removed old.
+
+*xf86-video-virtualbox-4.2.18 (08 Sep 2013)
+
+  08 Sep 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.2.14.ebuild, +xf86-video-virtualbox-4.2.18.ebuild:
+  Version bump. Removed old.
+
+*xf86-video-virtualbox-4.2.16 (08 Jul 2013)
+
+  08 Jul 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.2.12.ebuild, +xf86-video-virtualbox-4.2.16.ebuild:
+  Version bump. Removed old.
+
+*xf86-video-virtualbox-4.2.14 (24 Jun 2013)
+
+  24 Jun 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.1.24.ebuild, -xf86-video-virtualbox-4.2.10.ebuild,
+  +xf86-video-virtualbox-4.2.14.ebuild:
+  Version bump. Removed old.
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-virtualbox-4.1.26.ebuild:
+  Stable for x86, wrt bug #469044
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-virtualbox-4.1.26.ebuild:
+  Stable for amd64, wrt bug #469044
+
+  14 Apr 2013; Lars Wendler <polynomial-c@gentoo.org>
+  xf86-video-virtualbox-4.2.12.ebuild:
+  Fixed dependency on x11-base/xorg-server.
+
+*xf86-video-virtualbox-4.2.12 (13 Apr 2013)
+*xf86-video-virtualbox-4.1.26 (13 Apr 2013)
+
+  13 Apr 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +xf86-video-virtualbox-4.1.26.ebuild, -xf86-video-virtualbox-4.2.8.ebuild,
+  +xf86-video-virtualbox-4.2.12.ebuild:
+  Version bump. Removed old.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+*xf86-video-virtualbox-4.2.10 (15 Mar 2013)
+
+  15 Mar 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.2.6.ebuild, +xf86-video-virtualbox-4.2.10.ebuild:
+  Version bump. Removed old.
+
+  11 Mar 2013; Lars Wendler <polynomial-c@gentoo.org>
+  xf86-video-virtualbox-4.1.24.ebuild:
+  Version 4.1.24 works with xorg-server-1.13.
+
+  01 Mar 2013; Lars Wendler <polynomial-c@gentoo.org> Manifest:
+  Upstream replaced the source tarball once again (bug #459842).
 
 *xf86-video-virtualbox-4.2.8 (28 Feb 2013)
 

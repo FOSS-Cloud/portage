@@ -1,6 +1,21 @@
 # ChangeLog for dev-python/epsilon
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/epsilon/ChangeLog,v 1.28 2012/10/12 08:15:00 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/epsilon/ChangeLog,v 1.31 2014/01/28 03:48:16 idella4 Exp $
+
+*epsilon-0.7.0 (28 Jan 2014)
+
+  28 Jan 2014; Ian Delaney <idella4@gentoo.org> +epsilon-0.7.0.ebuild:
+  bump; drop py2.6 (fails some tests), update deps, add IUSE test + testrunner
+  dep + test phase
+
+*epsilon-0.6.0-r2 (09 Aug 2013)
+
+  09 Aug 2013; Michał Górny <mgorny@gentoo.org> +epsilon-0.6.0-r2.ebuild:
+  Migrate to twisted-r1.
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> epsilon-0.6.0.ebuild,
+  epsilon-0.6.0-r1.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
 
   12 Oct 2012; Patrick Lauer <patrick@gentoo.org> epsilon-0.6.0-r1.ebuild,
   epsilon-0.6.0.ebuild:

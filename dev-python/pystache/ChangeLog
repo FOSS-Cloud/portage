@@ -1,0 +1,15 @@
+# ChangeLog for dev-python/pystache
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pystache/ChangeLog,v 1.3 2014/02/11 17:20:49 bicatali Exp $
+
+  11 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> pystache-0.5.3.ebuild:
+  Added python-3.2, and removed simplejson (thanks kensington)
+
+  06 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> pystache-0.5.3.ebuild:
+  Added src_test
+
+*pystache-0.5.3 (06 Feb 2014)
+
+  06 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> +metadata.xml,
+  +pystache-0.5.3.ebuild:
+  Initial import

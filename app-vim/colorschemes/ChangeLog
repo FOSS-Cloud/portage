@@ -1,6 +1,36 @@
 # ChangeLog for app-vim/colorschemes
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-vim/colorschemes/ChangeLog,v 1.70 2013/01/24 23:02:38 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-vim/colorschemes/ChangeLog,v 1.80 2013/10/21 11:53:12 grobian Exp $
+
+  21 Oct 2013; Fabian Groffen <grobian@gentoo.org> colorschemes-20130124.ebuild:
+  Marked ~x64-macos, bug #486818
+
+  17 Jun 2013; Tim Harder <radhermit@gentoo.org> -colorschemes-20111107.ebuild:
+  Remove old.
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> colorschemes-20130124.ebuild:
+  Stable for sparc, wrt bug #469780
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> colorschemes-20130124.ebuild:
+  Stable for alpha, wrt bug #469780
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> colorschemes-20130124.ebuild:
+  Stable for ia64, wrt bug #469780
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> colorschemes-20130124.ebuild:
+  Stable for ppc64, wrt bug #469780
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> colorschemes-20130124.ebuild:
+  Stable for ppc, wrt bug #469780
+
+  15 May 2013; Jeroen Roovers <jer@gentoo.org> colorschemes-20130124.ebuild:
+  Stable for HPPA (bug #469780).
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> colorschemes-20130124.ebuild:
+  Stable for x86, wrt bug #469780
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> colorschemes-20130124.ebuild:
+  Stable for amd64, wrt bug #469780
 
 *colorschemes-20130124 (24 Jan 2013)
 
@@ -279,4 +309,3 @@
   13 Nov 2003; Ciaran McCreesh <ciaranm@gentoo.org>
   colorschemes-20031113.ebuild, metadata.xml:
   New ebuild
-

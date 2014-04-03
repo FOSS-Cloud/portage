@@ -1,6 +1,28 @@
 # ChangeLog for app-emulation/emul-linux-x86-compat
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-compat/ChangeLog,v 1.63 2013/02/25 18:39:06 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-compat/ChangeLog,v 1.68 2014/03/26 07:05:50 pacho Exp $
+
+  26 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-compat-20131008.ebuild:
+  Needs sys-libs/libstdc++-v3[multilib] (noticed after change due bug #435094)
+
+  22 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-compat-20131008.ebuild:
+  amd64 stable, bug #489898
+
+*emul-linux-x86-compat-20131008 (08 Oct 2013)
+
+  08 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-compat-20131008.ebuild,
+  -emul-linux-x86-compat-20121202.ebuild:
+  Version bump, drop old
+
+  22 Aug 2013; Michał Górny <mgorny@gentoo.org> metadata.xml:
+  Change maintainer to the Gentoo multilib project.
+
+  16 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-compat-20130224.ebuild:
+  amd64 stable, bug #461674
 
 *emul-linux-x86-compat-20130224 (25 Feb 2013)
 

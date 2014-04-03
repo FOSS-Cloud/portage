@@ -1,6 +1,41 @@
 # ChangeLog for sys-apps/entropy-server
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/entropy-server/ChangeLog,v 1.21 2012/09/27 11:00:34 lxnay Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/entropy-server/ChangeLog,v 1.30 2013/12/18 05:16:10 lxnay Exp $
+
+  18 Dec 2013; Fabio Erculiani <lxnay@gentoo.org> -entropy-server-216.ebuild:
+  drop older version 216
+
+*entropy-server-254 (18 Dec 2013)
+
+  18 Dec 2013; Fabio Erculiani <lxnay@gentoo.org> +entropy-server-254.ebuild:
+  version bump
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -entropy-server-189.ebuild:
+  drop older version 189
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -entropy-server-183.ebuild:
+  drop older version 183
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -entropy-server-144.ebuild:
+  drop older version 144
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -entropy-server-136.ebuild:
+  drop older version 136
+
+*entropy-server-216 (22 Aug 2013)
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> +entropy-server-216.ebuild:
+  version bump
+
+*entropy-server-189 (02 Apr 2013)
+
+  02 Apr 2013; Fabio Erculiani <lxnay@gentoo.org> +entropy-server-189.ebuild:
+  version bump
+
+*entropy-server-183 (14 Mar 2013)
+
+  14 Mar 2013; Fabio Erculiani <lxnay@gentoo.org> +entropy-server-183.ebuild:
+  version bump
 
 *entropy-server-144 (27 Sep 2012)
 

@@ -1,6 +1,60 @@
 # ChangeLog for virtual/leechcraft-storage-device-manager
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/leechcraft-storage-device-manager/ChangeLog,v 1.10 2013/02/16 21:33:00 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/leechcraft-storage-device-manager/ChangeLog,v 1.19 2014/04/02 18:43:21 zlogene Exp $
+
+  02 Apr 2014; Mikle Kolyada <zlogene@gentoo.org>
+  leechcraft-storage-device-manager-0.6.60.ebuild:
+  amd64 stable wrt bug #500914
+
+*leechcraft-storage-device-manager-0.6.60 (08 Jan 2014)
+
+  08 Jan 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-storage-device-manager-0.6.60.ebuild:
+  Bump to LeecChraft-0.6.60 release, thanks to 0xd34df00d.
+
+*leechcraft-storage-device-manager-0.6.0 (24 Sep 2013)
+
+  24 Sep 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-storage-device-manager-0.6.0.ebuild:
+  Bump LeechCraft to 0.6.0
+
+*leechcraft-storage-device-manager-0.5.99 (18 Jul 2013)
+
+  18 Jul 2013; <maks@gentoo.org>
+  +leechcraft-storage-device-manager-0.5.99.ebuild:
+  Bump virtual/leechcraft-storage-device-manager to 0.5.99, thanks to
+  0xd34df00d
+
+*leechcraft-storage-device-manager-0.5.98 (03 Jul 2013)
+
+  03 Jul 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-storage-device-manager-0.5.98.ebuild:
+  Bump LeechCraft to 0.5.98, thanks to 0xd34df00d.
+
+*leechcraft-storage-device-manager-0.5.97 (11 Jun 2013)
+
+  11 Jun 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-storage-device-manager-0.5.97.ebuild:
+  Bump LeechCraft suite to 0.5.97, thanks to 0xd34df00d.
+
+*leechcraft-storage-device-manager-0.5.96 (26 May 2013)
+
+  26 May 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-storage-device-manager-0.5.96.ebuild:
+  Bump LeechCraft suite to 0.5.96, thanks to 0xd34df00d
+
+*leechcraft-storage-device-manager-0.5.95 (02 May 2013)
+
+  02 May 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +leechcraft-storage-device-manager-0.5.95.ebuild:
+  Bump virtual/leechcraft-storage-device-manager to 0.5.95, thanks to
+  0xd34df00d
+
+  09 Mar 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  leechcraft-storage-device-manager-0.5.85.ebuild,
+  leechcraft-storage-device-manager-0.5.90.ebuild,
+  leechcraft-storage-device-manager-9999.ebuild:
+  Fix depends according to new LeechCraft category
 
   16 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
   leechcraft-storage-device-manager-0.5.90.ebuild:

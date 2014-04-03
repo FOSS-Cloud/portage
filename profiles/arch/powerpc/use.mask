@@ -9,6 +9,10 @@ klibc
 # Unmask the Altivec instruction set
 -altivec
 
+# Unmask ABI flags for this arch.
+-abi_ppc_32
+-abi_ppc_64
+
 # Incompatible Use Flags
 #
 # These use-flags are x86/amd64 only, please feel free to make a bug report if
@@ -190,10 +194,6 @@ d3d
 # mask wayland since dev-libs/wayland isn't keyworded
 wayland
 
-# Kacper Kowalik <xarthisius@gentoo.org> (25 Apr 2012)
-# sys-apps/systemd is not tested on ppc*
-systemd
-
 # Julian Ospald <hasufell@gentoo.org> (25 Apr 2012)
 # Masked because nvidia-texture-tools is not (tested) for PowerPC
 nvtt
@@ -209,6 +209,6 @@ clvm
 # for gnome 3.6 keywording
 -zeitgeist
 
-# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
-# virtual/opencl is not keyworded
-opencl
+# Pacho Ramos <pacho@gentoo.org> (08 Jan 2014)
+# Unmask systemd since it is keyworded here.
+-systemd

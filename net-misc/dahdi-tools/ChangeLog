@@ -1,6 +1,42 @@
 # ChangeLog for net-misc/dahdi-tools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi-tools/ChangeLog,v 1.23 2012/06/26 07:45:29 jdhore Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi-tools/ChangeLog,v 1.31 2014/02/22 08:07:45 ago Exp $
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> dahdi-tools-2.8.0.ebuild:
+  Stable for x86, wrt bug #499128
+
+*dahdi-tools-2.9.0.1 (14 Feb 2014)
+
+  14 Feb 2014; Tony Vroon <chainsaw@gentoo.org> +dahdi-tools-2.9.0.1.ebuild:
+  Partner to new 2.9 DAHDI release. Introduces new span assignment method that
+  can be activated with auto_assign_spans=0. Downstream patchset unchanged.
+
+  28 Jan 2014; Chema Alonso <nimiux@gentoo.org> dahdi-tools-2.8.0.ebuild:
+  Stable for amd64 wrt bug #499128
+
+*dahdi-tools-2.8.0 (04 Jan 2014)
+
+  04 Jan 2014; Tony Vroon <chainsaw@gentoo.org> +dahdi-tools-2.8.0.ebuild:
+  Version bump, as requested by Oliver Jaksch in bug #494442. Initial rediff by
+  Oliver Jaksch, with some finishing touches by Jaco Kroon.
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Voip herd is removed: http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+  08 May 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  -dahdi-tools-2.5.0.ebuild, -dahdi-tools-2.6.1.ebuild:
+  removing old ebuilds
+
+  08 May 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  dahdi-tools-2.6.2.ebuild:
+  amd64 x86 stable, bug #469024
+
+*dahdi-tools-2.6.2 (18 Mar 2013)
+
+  18 Mar 2013; Tony Vroon <chainsaw@gentoo.org> +dahdi-tools-2.6.2.ebuild:
+  Bugfix release, with an additional patch to fix compilation against >3.7
+  linux headers. Patches researched & forward ported by Oliver Jaksch, closes
+  bug #447896 & bug #461782.
 
   26 Jun 2012; Jeff Horelick <jdhore@gentoo.org> dahdi-tools-2.6.1.ebuild:
   marked x86 per bug 422143
@@ -124,4 +160,3 @@
   but HPEC functionality removed as the decision logic is not portable to
   X86 architectures and looks fragile. Failed to build with --as-needed,
   fixed and patch submitted as upstream Digium bug #14638.
-

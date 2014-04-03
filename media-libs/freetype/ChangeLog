@@ -1,6 +1,140 @@
 # ChangeLog for media-libs/freetype
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/freetype/ChangeLog,v 1.364 2013/02/28 23:17:21 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/freetype/ChangeLog,v 1.393 2014/03/28 03:19:02 jer Exp $
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> freetype-2.5.3-r1.ebuild:
+  Stable for HPPA (bug #504088).
+
+  17 Mar 2014; Michał Górny <mgorny@gentoo.org> freetype-2.5.3-r1.ebuild:
+  Add MULTILIB_USEDEP on harfbuzz.
+
+*freetype-2.5.3-r1 (16 Mar 2014)
+
+  16 Mar 2014; Ben de Groot <yngwin@gentoo.org> +freetype-2.5.3-r1.ebuild,
+  metadata.xml:
+  Add harfbuzz useflag to prevent circular dep (bug #504544)
+
+  12 Mar 2014; Ben de Groot <yngwin@gentoo.org> -freetype-2.4.11-r2.ebuild,
+  -freetype-2.4.12.ebuild, -freetype-2.5.2-r1.ebuild:
+  remove obsoleted versions
+
+*freetype-2.5.3 (10 Mar 2014)
+
+  10 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> +freetype-2.5.3.ebuild:
+  Security bump (bug #504088).
+
+*freetype-2.5.2-r1 (20 Jan 2014)
+
+  20 Jan 2014; Ben de Groot <yngwin@gentoo.org> +freetype-2.5.2-r1.ebuild,
+  -freetype-2.5.1.ebuild, -freetype-2.5.2.ebuild:
+  Fix png detection, bug #487138. Drop some older ebuilds.
+
+  09 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> freetype-2.5.2.ebuild:
+  Removed no longer needed ft2demos patch from ebuild.
+
+  09 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> metadata.xml:
+  Added myself as maintainer.
+
+*freetype-2.5.2 (09 Dec 2013)
+
+  09 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> +freetype-2.5.2.ebuild:
+  Version bump.
+
+  06 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> freetype-2.5.1.ebuild,
+  +files/ft2demos-2.5.1-compilefix.patch:
+  Fixed compilation with "utils" USE flag being enabled. Got rid of all
+  instances of MY_PV this time.
+
+  06 Dec 2013; Mike Gilbert <floppym@gentoo.org> freetype-2.5.1.ebuild:
+  Restore MY_PV variable.
+
+*freetype-2.5.1 (06 Dec 2013)
+
+  06 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> freetype-2.5.0.1.ebuild,
+  +freetype-2.5.1.ebuild, -files/freetype-1.4-glibc-2.10.patch,
+  -files/freetype-1.4_pre-contrib-destdir.patch,
+  -files/freetype-1.4_pre-malloc.patch,
+  -files/freetype-1.4_pre-silence-strict-aliasing.patch,
+  -files/freetype-1.4_pre-ttf2pk-tetex-3.patch,
+  -files/freetype-1.4_pre-ttf2tfm-segfault.patch,
+  -files/freetype-1.4_pre20080316-CVE-2006-1861.patch,
+  -files/freetype-1.4_pre20080316-CVE-2007-2754.patch,
+  -files/freetype-1.4_pre20080316-CVE-2008-1808.patch,
+  -files/freetype-1.4_pre20080316-LDLFAGS.patch,
+  -files/freetype-1.4_pre20080316-kpathsea_version.patch,
+  +files/freetype-2.5.1-TT_Load_Simple_Glyph_fix.patch:
+  Version bump. Cleaned up FILESDIR. Fixed inifinality patchfile source URI.
+
+  24 Oct 2013; Mark Wright <gienah@gentoo.org> freetype-2.5.0.1.ebuild:
+  if use png, then sed freetype2.pc to add the png lib, to fix bug 487646.
+
+  06 Oct 2013; Ryan Hill <dirtyepic@gentoo.org> freetype-2.5.0.1.ebuild:
+  Fix ftdemos directory name (bug #487048).
+
+*freetype-2.5.0.1 (05 Oct 2013)
+
+  05 Oct 2013; Ben de Groot <yngwin@gentoo.org> +freetype-2.5.0.1.ebuild:
+  Version bump, with thanks to Lars Wendler for the ebuild in bug 483264
+
+  05 Oct 2013; Ben de Groot <yngwin@gentoo.org> -freetype-2.4.9-r1.ebuild:
+  Remove vulnerable version, bug 448550
+
+  24 Aug 2013; Benda Xu <heroxbd@gentoo.org>
+  +files/freetype-2.4.12-clean-include.patch, freetype-2.4.12.ebuild:
+  fix include path output for freetype-config, bug 482172. Credits to Ben de
+  Groot for reviewing.
+
+  30 Jul 2013; Michał Górny <mgorny@gentoo.org> freetype-2.4.11-r2.ebuild,
+  freetype-2.4.12.ebuild:
+  Update the emul-linux blocker to support abi_x86_32 flag on emul-linux.
+
+  28 Jul 2013; Alexis Ballier <aballier@gentoo.org> freetype-2.4.12.ebuild:
+  use proper MULTILIB_USEDEP instead of emul libs
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+*freetype-2.4.12 (02 Jun 2013)
+
+  02 Jun 2013; Ben de Groot <yngwin@gentoo.org>
+  +files/freetype-2.4.12-set-adobe-cff-hinting-as-default.patch,
+  +freetype-2.4.12.ebuild, metadata.xml:
+  Version bump, with thanks to Mario Kicherer for his contributions in bug
+  #469904
+
+  27 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag from metadata
+
+  25 May 2013; Ben de Groot <yngwin@gentoo.org>
+  -freetype-1.4_pre20080316-r2.ebuild:
+  Remove old unsupported vulnerable slot 1 version, see bug #466308
+
+  04 May 2013; Michał Górny <mgorny@gentoo.org> freetype-2.4.11-r2.ebuild:
+  Forward-port the locale patch.
+
+  29 Apr 2013; Michal Gorny <mgorny@gentoo.org> metadata.xml:
+  Add multilib@ as the co-maintainer for multilib conversion.
+
+  26 Apr 2013; Ben de Groot <yngwin@gentoo.org>
+  freetype-1.4_pre20080316-r2.ebuild, freetype-2.4.11-r2.ebuild,
+  freetype-2.4.11.ebuild, freetype-2.4.9-r1.ebuild:
+  Fix license, bug 449698
+
+  05 Apr 2013; Ben de Groot <yngwin@gentoo.org>
+  +files/freetype-2.4.11-locale.patch, freetype-2.4.11.ebuild:
+  Add upstream patch to fix locale breakage (bug #454804). Punt unnecessary
+  epunt_cxx.
+
+  18 Mar 2013; Michał Górny <mgorny@gentoo.org> freetype-2.4.11-r2.ebuild:
+  Replace hacks with proper calls to multilib_for_best_abi.
+
+*freetype-2.4.11-r2 (12 Mar 2013)
+
+  12 Mar 2013; Michał Górny <mgorny@gentoo.org>
+  +files/freetype-2.4.11-sizeof-types.patch, +freetype-2.4.11-r2.ebuild,
+  -freetype-2.4.11-r1.ebuild:
+  Revert the header move, use biarch-config support provided upstream, plus a
+  failsafe-check. Acked by lu-zero.
 
   28 Feb 2013; Michał Górny <mgorny@gentoo.org> freetype-2.4.11-r1.ebuild:
   Build demos in the way recommended upstream.

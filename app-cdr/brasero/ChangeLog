@@ -1,6 +1,42 @@
 # ChangeLog for app-cdr/brasero
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/brasero/ChangeLog,v 1.150 2013/02/07 21:18:47 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/brasero/ChangeLog,v 1.159 2014/03/09 11:53:12 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> brasero-3.10.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> brasero-3.10.0.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> brasero-3.10.0.ebuild:
+  Fix wrong commit, bug 502160
+
+*brasero-3.10.0 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +brasero-3.10.0.ebuild,
+  -brasero-3.6.1.ebuild:
+  Version bump for Gnome 3.10, drop old
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> brasero-3.8.0.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> brasero-3.8.0.ebuild:
+  amd64 stable, bug #478252
+
+  18 May 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/brasero-3.8.0-tracker-detection.patch, brasero-3.8.0.ebuild:
+  Apply upstream patch for tracker detection (#464244 by Andreas Mielke).
+
+*brasero-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +brasero-3.8.0.ebuild:
+  Version bump for Gnome 3.8
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -files/0001-Fix-build-link-libbrasero-burn-against-libm-for-ceil.patch,
+  -files/brasero-2.91.6-build-plugins-against-local-library.patch,
+  -brasero-3.4.1.ebuild:
+  Clean up old revision.
 
   07 Feb 2013; Ulrich Müller <ulm@gentoo.org> brasero-3.6.1.ebuild:
   Move Creative Commons licenses to shorter names.

@@ -1,6 +1,86 @@
 # ChangeLog for www-servers/uwsgi
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/ChangeLog,v 1.39 2013/02/26 08:55:22 ultrabug Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/ChangeLog,v 1.54 2014/03/17 11:50:36 ultrabug Exp $
+
+*uwsgi-2.0.3 (17 Mar 2014)
+
+  17 Mar 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-2.0.2.ebuild,
+  +uwsgi-2.0.3.ebuild:
+  version bump
+
+*uwsgi-2.0.2 (27 Feb 2014)
+
+  27 Feb 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-2.0-r2.ebuild,
+  -uwsgi-2.0.1.ebuild, +uwsgi-2.0.2.ebuild:
+  version bump, drop old and bugged 2.0 versions
+
+*uwsgi-2.0.1 (10 Feb 2014)
+
+  10 Feb 2014; Ultrabug <ultrabug@gentoo.org> +uwsgi-2.0.1.ebuild:
+  version bump
+
+*uwsgi-2.0-r2 (30 Jan 2014)
+
+  30 Jan 2014; Tiziano Müller <dev-zero@gentoo.org> +uwsgi-2.0-r2.ebuild,
+  -uwsgi-2.0-r1.ebuild:
+  Fix compilation with USE=apache2 (bug #499482), add support for mono (bug
+  #473382), build rbthreads plugin with USE=ruby and build fiber with all
+  supported ruby versions (1.9,2.0,2.1).
+
+*uwsgi-2.0-r1 (22 Jan 2014)
+
+  22 Jan 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-2.0.ebuild,
+  +uwsgi-2.0-r1.ebuild:
+  Fix #498738 wrt xml and json USE flag detection thx to Zhixu Liu, rev bump
+
+  21 Jan 2014; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Whitespace.
+
+*uwsgi-2.0 (16 Jan 2014)
+
+  16 Jan 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-1.0.2.1.ebuild,
+  -uwsgi-1.2.6.ebuild, -uwsgi-1.9.6.ebuild, +uwsgi-2.0.ebuild,
+  -files/1.2.6-fixed-typecasting.patch, -files/uwsgi-1.0.2.1-no-werror.patch,
+  +files/gentoo.buildconf, -files/uwsgi.confd, -files/uwsgi.initd,
+  metadata.xml:
+  version bump introducing UWSGI_PLUGINS USE_EXPAND with help of @dev-zero fix
+  #497534 #497364 #488398 #484366 #469098 #469536, drop obsolete versions,
+  cleanup
+
+  26 Dec 2013; Ultrabug <ultrabug@gentoo.org> uwsgi-1.4.10.ebuild:
+  fix php5.5 support
+
+  04 Nov 2013; Ultrabug <ultrabug@gentoo.org> metadata.xml:
+  fix typo in metadata thx to @specing
+
+  07 Oct 2013; Tiziano Müller <dev-zero@gentoo.org> uwsgi-1.4.10.ebuild:
+  Bump LTS to 1.4.10 and add PHP-5.5 support
+
+*uwsgi-1.4.10 (10 Sep 2013)
+
+  10 Sep 2013; Ultrabug <ultrabug@gentoo.org> +uwsgi-1.4.10.ebuild:
+  version bump
+
+*uwsgi-1.9.6 (20 Apr 2013)
+
+  20 Apr 2013; Jason A. Donenfeld <zx2c4@gentoo.org> +uwsgi-1.9.6.ebuild:
+  Import testing branch.
+
+*uwsgi-1.4.9 (11 Mar 2013)
+
+  11 Mar 2013; Ultrabug <ultrabug@gentoo.org> +uwsgi-1.4.9.ebuild:
+  Version bump
+
+*uwsgi-1.4.8 (04 Mar 2013)
+
+  04 Mar 2013; Ultrabug <ultrabug@gentoo.org> +uwsgi-1.4.8.ebuild:
+  Version bump
+
+*uwsgi-1.4.6-r1 (01 Mar 2013)
+
+  01 Mar 2013; Ultrabug <ultrabug@gentoo.org> +uwsgi-1.4.6-r1.ebuild,
+  +files/uwsgi.confd-r3, +files/uwsgi.initd-r3:
+  Introduce UWSGI_GROUP and UWSGI_EMPEROR_GROUP conf.d variables
 
 *uwsgi-1.4.6 (26 Feb 2013)
 

@@ -1,6 +1,106 @@
 # ChangeLog for app-admin/eselect-php
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect-php/ChangeLog,v 1.38 2012/09/12 03:04:01 ottxor Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect-php/ChangeLog,v 1.67 2014/02/22 07:40:50 ago Exp $
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1-r3.ebuild:
+  Stable for sparc, wrt bug #501312
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1-r3.ebuild:
+  Stable for ppc, wrt bug #501312
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1-r3.ebuild:
+  Stable for ppc64, wrt bug #501312
+
+  17 Feb 2014; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1-r3.ebuild:
+  Stable for arm, wrt bug #501312
+
+  16 Feb 2014; Jeroen Roovers <jer@gentoo.org> eselect-php-0.7.1-r3.ebuild:
+  Stable for HPPA (bug #501312).
+
+  16 Feb 2014; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1-r3.ebuild:
+  Stable for ia64, wrt bug #501312
+
+  16 Feb 2014; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1-r3.ebuild:
+  Stable for alpha, wrt bug #501312
+
+  15 Feb 2014; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1-r3.ebuild:
+  Stable for x86, wrt bug #501312
+
+  15 Feb 2014; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1-r3.ebuild:
+  Stable for amd64, wrt bug #501312
+
+*eselect-php-0.7.1-r3 (02 Feb 2014)
+
+  02 Feb 2014; Pacho Ramos <pacho@gentoo.org> +eselect-php-0.7.1-r3.ebuild:
+  Rework systemd support (#439918)
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for s390, wrt bug #472558
+
+*eselect-php-0.7.1-r2 (30 Jul 2013)
+
+  30 Jul 2013; Ole Markus With <olemarkus@gentoo.org>
+  +eselect-php-0.7.1-r2.ebuild, +files/php-fpm-r1.init:
+  Fix fpm restart issue
+
+  28 Jul 2013; Ole Markus With <olemarkus@gentoo.org> eselect-php-0.6.2.ebuild,
+  files/php-fpm.conf:
+  Fixed the php-fpm.conf file
+
+*eselect-php-0.6.2 (28 Jul 2013)
+
+  28 Jul 2013; Ole Markus With <olemarkus@gentoo.org> +eselect-php-0.6.2.ebuild:
+  Revert a really bad cleanup
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for sparc, wrt bug #472558
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for sh, wrt bug #472558
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for arm, wrt bug #472558
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for alpha, wrt bug #472558
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for ppc64, wrt bug #472558
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for ppc, wrt bug #472558
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for ia64, wrt bug #472558
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for x86, wrt bug #472558
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for amd64, wrt bug #472558
+
+  06 Jul 2013; Jeroen Roovers <jer@gentoo.org> eselect-php-0.7.1.ebuild:
+  Stable for HPPA (bug #472558).
+
+*eselect-php-0.7.1 (10 Apr 2013)
+
+  10 Apr 2013; Ole Markus With <olemarkus@gentoo.org> +eselect-php-0.7.1.ebuild,
+  -eselect-php-0.7.0.ebuild:
+  Fix use of function before function definition
+
+  25 Mar 2013; Ole Markus With <olemarkus@gentoo.org> -eselect-php-0.6.4.ebuild,
+  -eselect-php-0.6.6.ebuild, -eselect-php-0.6.7.ebuild:
+  Removing older versions
+
+  25 Mar 2013; Ole Markus With <olemarkus@gentoo.org> eselect-php-0.7.0.ebuild:
+  Remove hard blocker
+
+*eselect-php-0.7.0 (23 Mar 2013)
+
+  23 Mar 2013; Ole Markus With <olemarkus@gentoo.org> +eselect-php-0.7.0.ebuild,
+  +files/70_mod_php5.conf-apache2, +files/php-fpm, +files/php-fpm.init,
+  metadata.xml:
+  Version bump. Resolving bug 323783, 389805 and 412913
 
   12 Sep 2012; Christoph Junghans <ottxor@gentoo.org> eselect-php-0.6.7.ebuild:
   added prefix keywords

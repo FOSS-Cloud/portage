@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/macchanger/macchanger-1.5.0-r2.ebuild,v 1.2 2012/09/03 21:41:18 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/macchanger/macchanger-1.5.0-r2.ebuild,v 1.5 2014/02/02 20:03:42 robbat2 Exp $
 
 DESCRIPTION="Utility for viewing/manipulating the MAC address of network interfaces"
 OUI_DATE="20091029" # Generated with tools/IEEE_OUI.py in the source
 OUI_FILE="OUI.list-${OUI_DATE}"
-HOMEPAGE="http://www.alobbs.com/macchanger"
+HOMEPAGE="https://github.com/alobbs/macchanger"
 SRC_URI="mirror://gnu/macchanger/${P}.tar.gz
 		 mirror://gentoo/${OUI_FILE}.gz"
 LICENSE="GPL-2"
@@ -17,7 +17,7 @@ DEPEND=""
 
 src_unpack() {
 	unpack ${P}.tar.gz
-	zcat ${DISTDIR}/${OUI_FILE}.gz >${S}/data/OUI.list || die "Failed to update OUI list"
+	zcat "${DISTDIR}"/${OUI_FILE}.gz >"${S}"/data/OUI.list || die "Failed to update OUI list"
 }
 
 src_compile() {

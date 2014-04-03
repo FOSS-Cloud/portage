@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/wiggle/wiggle-0.9.ebuild,v 1.4 2012/10/24 12:17:20 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/wiggle/wiggle-0.9.ebuild,v 1.6 2013/05/04 22:51:50 jlec Exp $
 
 EAPI=4
 
@@ -23,7 +23,7 @@ RDEPEND="
 	dev-util/patchutils
 	sys-apps/diffutils
 	sys-apps/findutils
-	sys-apps/gawk
+	virtual/awk
 	sys-apps/grep
 	sys-apps/less
 	sys-apps/sed
@@ -42,6 +42,10 @@ src_prepare() {
 
 	# Use prefixed time binary
 	sed -i "s:/usr/bin/time:${EPREFIX}/usr/bin/time:" dotest || die "sed failed on dotest"
+
+	sed \
+		-e "s:-lncurses:$($(tc-getPKG_CONFIG) --libs ncurses):g" \
+		-i Makefile || die
 
 	ht_fix_file p
 

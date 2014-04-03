@@ -1,6 +1,16 @@
 # ChangeLog for media-plugins/vdr-actuator
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-actuator/ChangeLog,v 1.10 2012/04/29 19:01:27 hd_brummy Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-actuator/ChangeLog,v 1.12 2014/01/02 17:22:26 hd_brummy Exp $
+
+  02 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  vdr-actuator-1.2.1.ebuild:
+  stable amd64 x86, wrt bug 495756
+
+*vdr-actuator-1.2.1 (31 Mar 2013)
+
+  31 Mar 2013; Joerg Bornkessel <hd_brummy@gentoo.org>
+  +vdr-actuator-1.2.1.ebuild:
+  bump
 
   29 Apr 2012; Joerg Bornkessel <hd_brummy@gentoo.org>
   vdr-actuator-1.1.1.ebuild:

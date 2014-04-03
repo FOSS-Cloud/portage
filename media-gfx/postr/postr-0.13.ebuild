@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/postr/postr-0.13.ebuild,v 1.2 2013/02/07 22:28:22 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/postr/postr-0.13.ebuild,v 1.5 2013/12/08 19:08:18 pacho Exp $
 
 EAPI="4"
 
@@ -15,7 +15,7 @@ HOMEPAGE="http://projects.gnome.org/postr/"
 
 LICENSE="GPL-2+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="gnome2"
 
 COMMON_DEPEND="dev-python/pygtk:2
@@ -29,7 +29,7 @@ RDEPEND="${COMMON_DEPEND}
 	dev-python/gtkspell-python
 	dev-python/libgnome-python
 	dev-python/pygobject:2
-	dev-python/twisted
+	dev-python/twisted-core
 	dev-python/twisted-web"
 DEPEND="${COMMON_DEPEND}
 	app-text/gnome-doc-utils

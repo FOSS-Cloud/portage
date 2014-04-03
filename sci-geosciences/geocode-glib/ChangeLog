@@ -1,6 +1,45 @@
 # ChangeLog for sci-geosciences/geocode-glib
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/geocode-glib/ChangeLog,v 1.9 2013/02/02 23:09:27 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/geocode-glib/ChangeLog,v 1.20 2014/03/09 12:04:12 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> geocode-glib-3.10.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> geocode-glib-3.10.0.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> geocode-glib-3.10.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> geocode-glib-3.10.0.ebuild:
+  arch stable, bug 888
+
+*geocode-glib-3.10.0 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +geocode-glib-3.10.0.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> geocode-glib-0.99.0.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> geocode-glib-0.99.0.ebuild:
+  amd64 stable, bug #478252
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  geocode-glib-0.99.0.ebuild, geocode-glib-0.99.1.ebuild:
+  Depend on libsoup-gnome again, clean up old revisions.
+
+  02 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  geocode-glib-0.99.1.ebuild:
+  Add missing gtk-doc-am build dependency.
+
+*geocode-glib-0.99.1 (01 Aug 2013)
+
+  01 Aug 2013; Pacho Ramos <pacho@gentoo.org> +geocode-glib-0.99.1.ebuild:
+  Version bump and skip tests as they need network (#424719 by flameeyes)
+
+  31 Mar 2013; Pacho Ramos <pacho@gentoo.org> geocode-glib-0.99.0.ebuild:
+  Adapt to libsoup-2.42 dropping gnome USE and splitting (#463702)
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> geocode-glib-0.99.0.ebuild:
   Add ~arm, wrt bug #449220

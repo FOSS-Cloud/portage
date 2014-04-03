@@ -1,6 +1,36 @@
 # ChangeLog for dev-libs/rasqal
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/rasqal/ChangeLog,v 1.81 2013/01/06 09:25:54 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/rasqal/ChangeLog,v 1.90 2014/03/01 22:12:53 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> rasqal-0.9.28.ebuild,
+  rasqal-0.9.29.ebuild, rasqal-0.9.30.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rasqal-0.9.29.ebuild:
+  Stable for sparc, wrt bug #464112
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rasqal-0.9.29.ebuild:
+  Stable for ia64, wrt bug #464112
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rasqal-0.9.29.ebuild:
+  Stable for alpha, wrt bug #464112
+
+  09 Apr 2013; Jeroen Roovers <jer@gentoo.org> rasqal-0.9.29.ebuild:
+  Stable for HPPA (bug #464112).
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rasqal-0.9.29.ebuild:
+  Stable for arm, wrt bug #464112
+
+  01 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> rasqal-0.9.30.ebuild:
+  There is no actual reason not to use eapi5.
+
+  01 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> rasqal-0.9.29.ebuild:
+  Stable on amd64, x86, ppc and ppc64 wrt bug#464112.
+
+*rasqal-0.9.30 (01 Apr 2013)
+
+  01 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> +rasqal-0.9.30.ebuild:
+  Version bump wrt bug#456406.
 
   06 Jan 2013; Agostino Sarubbo <ago@gentoo.org> rasqal-0.9.29.ebuild:
   Add ~sparc, wrt bug #449220

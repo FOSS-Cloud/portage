@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/unrealircd/unrealircd-3.2.9.ebuild,v 1.8 2013/01/27 07:31:25 binki Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/unrealircd/unrealircd-3.2.9.ebuild,v 1.11 2014/01/08 06:39:36 vapier Exp $
 
 EAPI=4
 
-inherit eutils ssl-cert versionator multilib
+inherit eutils ssl-cert versionator multilib user
 
 MY_P=Unreal${PV/_/-}
 
@@ -20,7 +20,7 @@ IUSE="curl ipv6 +extban-stacking +operoverride +spoof operoverride-verify +prefi
 
 RDEPEND="ssl? ( dev-libs/openssl )
 	zlib? ( sys-libs/zlib )
-	curl? ( net-misc/curl[ares] )
+	curl? ( net-misc/curl[adns] )
 	dev-libs/tre
 	>=net-dns/c-ares-1.7"
 DEPEND="${RDEPEND}

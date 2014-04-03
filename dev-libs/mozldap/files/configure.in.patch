@@ -1,5 +1,5 @@
---- configure.in.orig	2009-10-06 11:46:10.378924265 +0300
-+++ configure.in	2009-10-06 11:47:36.154924127 +0300
+--- a/configure.in
++++ b/configure.in
 @@ -42,7 +42,7 @@
  AC_PREREQ(2.12)
  AC_INIT(ldap/include/ldap.h)

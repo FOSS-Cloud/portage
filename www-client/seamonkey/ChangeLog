@@ -1,6 +1,197 @@
 # ChangeLog for www-client/seamonkey
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.439 2013/02/25 10:14:38 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.485 2014/04/02 18:10:20 axs Exp $
+
+  02 Apr 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> seamonkey-2.24.ebuild,
+  seamonkey-2.25.ebuild:
+  disable the forcing of ld.gold in the mozilla build system, bug 494364
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.25.ebuild:
+  Stable for x86, wrt bug #505072
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.25.ebuild:
+  Stable for amd64, wrt bug #505072
+
+*seamonkey-2.25 (20 Mar 2014)
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.25.ebuild:
+  Security bump (bug #505072).
+
+  22 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.22.1.ebuild,
+  -seamonkey-2.23.ebuild, -files/seamonkey-freetype251.patch:
+  Removed vulnerable versions.
+
+  15 Feb 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.24.ebuild:
+  Stable for amd64, wrt bug #500320
+
+  11 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> seamonkey-2.24.ebuild:
+  x86 stable wrt security bug #500320
+
+  10 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.24.ebuild:
+  Adjusted dependency on libpng.
+
+*seamonkey-2.24 (06 Feb 2014)
+
+  06 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.24.ebuild:
+  Security bump (bug #500320).
+
+  13 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.23.ebuild:
+  Added enigmail snapshot with new build system. This should fix bug #494088.
+
+  31 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.22.1.ebuild,
+  +files/seamonkey-freetype251.patch:
+  Fixed compilation with >=freetype-2.5.1
+
+  17 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.23.ebuild:
+  Update to latest patchset.
+
+  13 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.23.ebuild:
+  Use firefox-26 patchset.
+
+*seamonkey-2.23 (12 Dec 2013)
+
+  12 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.23.ebuild:
+  Version bump.
+
+  11 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.21.ebuild,
+  -seamonkey-2.21-r1.ebuild, -seamonkey-2.22.ebuild, -files/all-gentoo.js,
+  -files/enigmail_mailnews_extensions_genxpi.patch,
+  -files/moz24-drop-Wl-build-id.patch, metadata.xml:
+  Better description for "custom-optimization" USE flag. Removed old versions.
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.22.1.ebuild:
+  Stable for x86, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.22.1.ebuild:
+  Stable for amd64, wrt bug #489796
+
+*seamonkey-2.22.1 (18 Nov 2013)
+
+  18 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.22.1.ebuild:
+  Version bump.
+
+  04 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.22.ebuild:
+  Fixed dependencies on libpng (bug #490314) and sqlite.
+
+*seamonkey-2.22 (02 Nov 2013)
+
+  02 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.22.ebuild:
+  Security bump (bug #489796).
+
+  28 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.21.ebuild,
+  seamonkey-2.21-r1.ebuild:
+  Use latest ff patches.
+
+  28 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.21.ebuild,
+  seamonkey-2.21-r1.ebuild:
+  Fixed source URI for enigmail. Moved binutils from RDEPEND to DEPEND.
+
+*seamonkey-2.21-r1 (25 Oct 2013)
+
+  25 Oct 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +seamonkey-2.21-r1.ebuild:
+  Revision bump to integrate enigmail-1.6.
+
+  26 Sep 2013; Ian Stakenvicius <axs@gentoo.org>
+  +files/moz24-drop-Wl-build-id.patch, seamonkey-2.21.ebuild:
+  drop -Wl,--build-id from LDFLAGS, bug #465466
+
+  25 Sep 2013; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.20.ebuild,
+  seamonkey-2.21.ebuild:
+  Removed unused configure options and sed commands. Removed old ebuild.
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.21.ebuild:
+  Stable for x86, wrt bug #485258
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.21.ebuild:
+  Stable for amd64, wrt bug #485258
+
+*seamonkey-2.21 (18 Sep 2013)
+
+  18 Sep 2013; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.21.ebuild,
+  metadata.xml:
+  Security bump (bug #485258).
+
+  13 Aug 2013; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.17.ebuild,
+  -seamonkey-2.17.1.ebuild, -seamonkey-2.19.ebuild:
+  Removed old (vulnerable) versions.
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.20.ebuild:
+  Stable for x86, wrt bug #479968
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.20.ebuild:
+  Stable for amd64, wrt bug #479968
+
+*seamonkey-2.20 (07 Aug 2013)
+
+  07 Aug 2013; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.20.ebuild:
+  Security bump (bug #479968).
+
+*seamonkey-2.19 (12 Jul 2013)
+
+  12 Jul 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -seamonkey-2.18_beta4.ebuild, +seamonkey-2.19.ebuild,
+  +files/enigmail_mailnews_extensions_genxpi.patch:
+  Version bump. Removed old. Fixed bug #471968.
+
+*seamonkey-2.18_beta4 (30 May 2013)
+
+  30 May 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +seamonkey-2.18_beta4.ebuild:
+  Version bump to latest beta as upstream skipped release of 2.18 version.
+
+  16 Apr 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.17.ebuild,
+  seamonkey-2.17.1.ebuild:
+  Only depend on allowed sqlite versions (bug #465978).
+
+*seamonkey-2.17.1 (14 Apr 2013)
+
+  14 Apr 2013; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.16.2.ebuild,
+  +seamonkey-2.17.1.ebuild:
+  Version bump. Removed old.
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.17.ebuild:
+  Stable for x86, wrt bug #464226
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.17.ebuild:
+  Stable for amd64, wrt bug #464226
+
+  08 Apr 2013; Jory A. Pratt <anarchy@gentoo.org> seamonkey-2.17.ebuild:
+  Pax mark all unconditionally for hardened support
+
+*seamonkey-2.17 (03 Apr 2013)
+
+  03 Apr 2013; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.17.ebuild:
+  Version bump.
+
+  29 Mar 2013; Jory A. Pratt <anarchy@gentoo.org> seamonkey-2.16.2.ebuild:
+  Fix hardened support for jit
+
+  25 Mar 2013; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.16.2.ebuild:
+  Adjusted sqlite dependencies as requested in bug #462404.
+
+  15 Mar 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -seamonkey-2.0.14-r1.ebuild,
+  -files/seamonkey-2.0.14-curl7217-includes-fix.patch,
+  -files/seamonkey-2.3.1-scrollbar-mouse-interaction-improvement.patch,
+  -seamonkey-2.16.ebuild, -files/enigmail/70_enigmail-fix.patch,
+  -files/seamonkey-2.2-curl7217-includes-fix.patch, -seamonkey-2.4.1-r1.ebuild,
+  -files/firefox-15.0-fix-gstreamer-html5-crash.patch,
+  -files/Copy_xpcshell_only_if_tests_are_enabled.patch, metadata.xml:
+  Big cleanup requested by ago. All old, non-working and/or vulnerable versions
+  are now gone.
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.16.2.ebuild:
+  Stable for x86, wrt bug #460818
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.16.2.ebuild:
+  Stable for amd64, wrt bug #460818
+
+*seamonkey-2.16.2 (11 Mar 2013)
+
+  12 Mar 2013; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.15.1.ebuild,
+  -seamonkey-2.15.2.ebuild, +seamonkey-2.16.2.ebuild:
+  Security bump (bug #460818). Removed old.
 
   25 Feb 2013; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.16.ebuild:
   Stable for x86, wrt bug #458390

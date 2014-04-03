@@ -1,6 +1,40 @@
 # ChangeLog for dev-python/whoosh
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/whoosh/ChangeLog,v 1.11 2013/02/04 17:03:35 idella4 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/whoosh/ChangeLog,v 1.19 2014/03/31 20:47:43 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> whoosh-2.5.3.ebuild,
+  whoosh-2.5.4.ebuild, whoosh-2.5.7.ebuild:
+  Add support for the new PyPy slotting.
+
+*whoosh-2.5.7 (26 Mar 2014)
+
+  26 Mar 2014; Anthony G. Basile <blueness@gentoo.org> +whoosh-2.5.7.ebuild:
+  Version bump, bug #505830
+
+*whoosh-2.5.4 (23 Sep 2013)
+
+  23 Sep 2013; Patrick Lauer <patrick@gentoo.org> +whoosh-2.5.4.ebuild:
+  Bump
+
+*whoosh-2.5.3 (12 Sep 2013)
+
+  12 Sep 2013; Anthony G. Basile <blueness@gentoo.org> +whoosh-2.5.3.ebuild,
+  -whoosh-2.4.0.ebuild, -whoosh-2.4.1-r1.ebuild, -whoosh-2.5.0.ebuild:
+  Version bump, remove older unstables, fixes bug #484548
+
+  11 Sep 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Python herd added as maintainer
+
+*whoosh-2.5.0 (11 Sep 2013)
+
+  11 Sep 2013; Patrick Lauer <patrick@gentoo.org> +whoosh-2.5.0.ebuild:
+  Bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> whoosh-2.4.1-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   04 Feb 2013; Ian Delaney <idella4@gentoo.org> whoosh-2.4.1-r1.ebuild:
   Change of fix to Bug #454848 to setting of preferred in source build mode

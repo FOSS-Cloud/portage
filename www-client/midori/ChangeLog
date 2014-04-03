@@ -1,6 +1,81 @@
 # ChangeLog for www-client/midori
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/midori/ChangeLog,v 1.105 2013/02/06 18:18:15 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/midori/ChangeLog,v 1.121 2014/03/29 17:13:45 ssuominen Exp $
+
+  29 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  files/midori-0.5.7-underlinking.patch:
+  Link to upstream bug report.
+
+*midori-0.5.7 (29 Mar 2014)
+
+  29 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +files/midori-0.5.7-underlinking.patch, +midori-0.5.7.ebuild, metadata.xml:
+  Version bump wrt #492214 and add USE="granite" wrt #490040. Thanks to "A.
+  Person" for reporting both bugs.
+
+  04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org> midori-0.5.5.ebuild:
+  Add ~mips keyword.
+
+  05 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> -midori-0.5.4.ebuild:
+  old
+
+*midori-0.5.5 (05 Oct 2013)
+
+  05 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> +midori-0.5.5.ebuild:
+  Version bump wrt #486474 by "A. Person". Remove USE="nls" which only avoided
+  sys-devel/gettext dependency despite dev-util/intltool being always required
+  which has sys-devel/gettext as a dependency. Remove USE="gnome" since net-libs
+  /libsoup-gnome is now required always.
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> midori-0.5.4.ebuild:
+  Depend on libsoup-gnome again, clean up old revisions.
+
+  11 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> midori-0.5.4.ebuild:
+  Restore pax marking of /usr/bin/midori because net-libs/webkit-gtk[jit] is
+  broken again wrt #480290 by "A. Person"
+
+  31 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -files/midori-0.4.6-dl.patch, -midori-0.4.6-r1.ebuild, -midori-0.5.2.ebuild:
+  old
+
+*midori-0.5.4 (17 Jul 2013)
+
+  17 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> +midori-0.5.4.ebuild,
+  -midori-9999.ebuild:
+  Version bump. Remove live version because upstream migrated from git to
+  bazaar.
+
+  01 Jun 2013; Samuli Suominen <ssuominen@gentoo.org> -midori-0.5.0.ebuild:
+  old
+
+*midori-0.5.2 (01 Jun 2013)
+
+  01 Jun 2013; Samuli Suominen <ssuominen@gentoo.org> +midori-0.5.2.ebuild,
+  midori-9999.ebuild:
+  Version bump.
+
+  09 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> -midori-0.4.8.ebuild,
+  -files/midori-0.4.8-desktop_file_validation.patch, -midori-0.4.9.ebuild:
+  old
+
+*midori-0.5.0 (09 Apr 2013)
+
+  09 Apr 2013; Christoph Mende <angelos@gentoo.org> +midori-0.5.0.ebuild:
+  Version bump
+
+  31 Mar 2013; Pacho Ramos <pacho@gentoo.org> midori-0.4.9.ebuild,
+  midori-9999.ebuild:
+  Adapt to libsoup-2.42 dropping gnome USE and splitting (#463702)
+
+  29 Mar 2013; Christoph Mende <angelos@gentoo.org> midori-0.4.6-r1.ebuild,
+  midori-0.4.8.ebuild, midori-0.4.9.ebuild, midori-9999.ebuild:
+  Convert to vala.eclass
+
+*midori-0.4.9 (12 Mar 2013)
+
+  12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> +midori-0.4.9.ebuild,
+  midori-9999.ebuild, metadata.xml:
+  Version bump.
 
   06 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> midori-0.4.8.ebuild:
   Comment out the desktop file validation patch temporarily because the code is
@@ -440,4 +515,3 @@
 
   27 Mar 2008; Markus Ullmann <jokey@gentoo.org> +metadata.xml:
   Add ebuild for bug #215036
-

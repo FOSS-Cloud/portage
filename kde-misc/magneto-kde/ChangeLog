@@ -1,6 +1,41 @@
 # ChangeLog for kde-misc/magneto-kde
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/magneto-kde/ChangeLog,v 1.31 2012/09/27 11:04:36 lxnay Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-misc/magneto-kde/ChangeLog,v 1.40 2013/12/18 05:13:49 lxnay Exp $
+
+  18 Dec 2013; Fabio Erculiani <lxnay@gentoo.org> -magneto-kde-216.ebuild:
+  drop older version 216
+
+*magneto-kde-254 (18 Dec 2013)
+
+  18 Dec 2013; Fabio Erculiani <lxnay@gentoo.org> +magneto-kde-254.ebuild:
+  version bump
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -magneto-kde-189.ebuild:
+  drop older version 189
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -magneto-kde-183.ebuild:
+  drop older version 183
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -magneto-kde-144.ebuild:
+  drop older version 144
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -magneto-kde-136.ebuild:
+  drop older version 136
+
+*magneto-kde-216 (22 Aug 2013)
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> +magneto-kde-216.ebuild:
+  version bump
+
+*magneto-kde-189 (02 Apr 2013)
+
+  02 Apr 2013; Fabio Erculiani <lxnay@gentoo.org> +magneto-kde-189.ebuild:
+  version bump
+
+*magneto-kde-183 (14 Mar 2013)
+
+  14 Mar 2013; Fabio Erculiani <lxnay@gentoo.org> +magneto-kde-183.ebuild:
+  version bump
 
 *magneto-kde-144 (27 Sep 2012)
 

@@ -1,6 +1,68 @@
 # ChangeLog for mail-filter/opendkim
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/opendkim/ChangeLog,v 1.61 2013/02/26 09:04:38 eras Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/opendkim/ChangeLog,v 1.74 2014/03/19 09:58:42 eras Exp $
+
+*opendkim-2.9.1 (19 Mar 2014)
+
+  19 Mar 2014; Eray Aslan <eras@gentoo.org> +opendkim-2.9.1.ebuild,
+  metadata.xml:
+  Version bump - bug #504930
+
+*opendkim-2.9.0 (10 Dec 2013)
+
+  10 Dec 2013; Eray Aslan <eras@gentoo.org> +opendkim-2.9.0.ebuild:
+  Version bump
+
+  19 Sep 2013; Sven Vermeulen <swift@gentoo.org> opendkim-2.8.3.ebuild,
+  opendkim-2.8.4.ebuild:
+  Fix bug #485412 - Optionally depend on selinux-dkim (policy)
+
+  16 Jul 2013; Eray Aslan <eras@gentoo.org>
+  -files/opendkim-2.7.4-DisableCryptoInit.patch,
+  -files/opendkim-2.7.4-bsd.patch, -files/opendkim-2.8.0-berkeleydb.patch,
+  -files/opendkim-unbreak_upgrade.patch, -opendkim-2.7.4-r1.ebuild,
+  -opendkim-2.8.0-r1.ebuild, -opendkim-2.8.0.ebuild, -opendkim-2.8.1.ebuild,
+  -opendkim-2.8.2.ebuild:
+  Remove old
+
+  16 Jul 2013; Eray Aslan <eras@gentoo.org> opendkim-2.8.4.ebuild:
+  Fix config file location in opendkim-reportstats - bug #475952
+
+*opendkim-2.8.4 (16 Jul 2013)
+
+  16 Jul 2013; Eray Aslan <eras@gentoo.org> +opendkim-2.8.4.ebuild:
+  Version bump
+
+  27 Jun 2013; Agostino Sarubbo <ago@gentoo.org> opendkim-2.8.3.ebuild:
+  Stable for x86, wrt bug #474226
+
+  27 Jun 2013; Agostino Sarubbo <ago@gentoo.org> opendkim-2.8.3.ebuild:
+  Stable for amd64, wrt bug #474226
+
+*opendkim-2.8.3 (06 May 2013)
+
+  06 May 2013; Eray Aslan <eras@gentoo.org> +opendkim-2.8.3.ebuild,
+  metadata.xml:
+  Version bump
+
+*opendkim-2.8.2 (29 Mar 2013)
+
+  29 Mar 2013; Eray Aslan <eras@gentoo.org> +opendkim-2.8.2.ebuild:
+  Version bump
+
+*opendkim-2.8.1 (22 Mar 2013)
+
+  22 Mar 2013; Eray Aslan <eras@gentoo.org> +opendkim-2.8.1.ebuild:
+  Version bump
+
+  01 Mar 2013; Eray Aslan <eras@gentoo.org> metadata.xml:
+  Remove USE flag description
+
+*opendkim-2.8.0-r1 (01 Mar 2013)
+
+  01 Mar 2013; Eray Aslan <eras@gentoo.org>
+  +files/opendkim-2.8.0-berkeleydb.patch, +opendkim-2.8.0-r1.ebuild:
+  Fix building with older versions of libdb
 
 *opendkim-2.8.0 (26 Feb 2013)
 

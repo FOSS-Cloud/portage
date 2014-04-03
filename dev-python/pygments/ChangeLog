@@ -1,6 +1,70 @@
 # ChangeLog for dev-python/pygments
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pygments/ChangeLog,v 1.103 2013/02/28 14:12:45 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pygments/ChangeLog,v 1.122 2014/04/01 14:43:08 floppym Exp $
+
+  01 Apr 2014; Mike Gilbert <floppym@gentoo.org> pygments-1.6_p20140324.ebuild:
+  Build docs using sphinx, bug 506414 by Juergen Rose.
+
+  01 Apr 2014; Mike Gilbert <floppym@gentoo.org> pygments-1.6_p20140324.ebuild:
+  Restore python3.2, though it fails a few tests.
+
+*pygments-1.6_p20140324 (01 Apr 2014)
+
+  01 Apr 2014; Mike Gilbert <floppym@gentoo.org> +pygments-1.6_p20140324.ebuild:
+  Add a snapshot for python3.4 compat.
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> pygments-1.5-r1.ebuild,
+  pygments-1.6-r1.ebuild, pygments-1.6.ebuild:
+  Add support for the new PyPy slotting.
+
+*pygments-1.6-r1 (21 Mar 2014)
+
+  21 Mar 2014; Ian Delaney <idella4@gentoo.org> +pygments-1.6-r1.ebuild:
+  revbump; update to install bundled bash-completion, patch by E. Uggedal, fixes
+  Bug 01972 by E. Uggedal
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pygments-1.5-r1.ebuild,
+  pygments-1.6.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.6.ebuild:
+  Stable for sh, wrt bug #461162
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.6.ebuild:
+  Stable for sparc, wrt bug #461162
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.6.ebuild:
+  Stable for s390, wrt bug #461162
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.6.ebuild:
+  Stable for x86, wrt bug #461162
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.6.ebuild:
+  Stable for alpha, wrt bug #461162
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.6.ebuild:
+  Stable for ia64, wrt bug #461162
+
+  17 May 2013; Jeroen Roovers <jer@gentoo.org> pygments-1.6.ebuild:
+  Stable for HPPA (bug #461162).
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.6.ebuild:
+  Stable for arm, wrt bug #461162
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.6.ebuild:
+  Stable for ppc64, wrt bug #461162
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.6.ebuild:
+  Stable for ppc, wrt bug #461162
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.6.ebuild:
+  Stable for amd64, wrt bug #461162
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.5-r1.ebuild:
+  Stable for sh, wrt bug #455724
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> pygments-1.5-r1.ebuild:
+  Stable for arm, wrt bug #455724
 
   28 Feb 2013; Jeroen Roovers <jer@gentoo.org> pygments-1.5-r1.ebuild:
   Stable for HPPA (bug #455724).

@@ -1,6 +1,50 @@
 # ChangeLog for sys-apps/hwloc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwloc/ChangeLog,v 1.34 2013/02/28 14:32:57 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwloc/ChangeLog,v 1.45 2014/03/17 07:01:45 xarthisius Exp $
+
+  17 Mar 2014; Kacper Kowalik <xarthisius@gentoo.org> metadata.xml:
+  Remove myself from metadata.xml
+
+  28 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/hwloc-1.8.1-gl.patch, hwloc-1.8.1.ebuild:
+  Fixed underlinking for gl flag, thanks Andrew Savchenko bug #502956
+
+*hwloc-1.8.1 (16 Feb 2014)
+
+  16 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> +hwloc-1.8.1.ebuild,
+  metadata.xml:
+  Version bump. Fixes bug #499618 by <teidakankan@gmail.com>
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hwloc-1.6.1.ebuild:
+  Stable for alpha, wrt bug #484320
+
+  12 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hwloc-1.6.1.ebuild:
+  Stable for ia64, wrt bug #484320
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hwloc-1.6.1.ebuild:
+  Stable for sparc, wrt bug #484320
+
+  16 Nov 2013; Kacper Kowalik <xarthisius@gentoo.org> hwloc-1.7.2.ebuild:
+  whitespace
+
+*hwloc-1.7.2 (16 Nov 2013)
+
+  16 Nov 2013; Kacper Kowalik <xarthisius@gentoo.org> +hwloc-1.7.2.ebuild,
+  -hwloc-1.7.1.ebuild:
+  Version bump, drop old. Fixes #480642 by Juergen Rose <rose@rz.uni-
+  potsdam.de>. Thanks to LE GARREC Vincent <legarrec.vincent@gmail.com> and
+  Charlie Gehlin <charlie@gehlin.com> for their help.
+
+*hwloc-1.7.1 (09 Aug 2013)
+
+  09 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> +hwloc-1.7.1.ebuild,
+  metadata.xml:
+  Version bump wrt #469708 by Mario Kicherer <dev@kicherer.org>
+
+*hwloc-1.6.2 (21 Mar 2013)
+
+  21 Mar 2013; Alexey Shvetsov <alexxy@gentoo.org> +hwloc-1.6.2.ebuild:
+  Version bump for 1.6 series
 
   28 Feb 2013; Jeroen Roovers <jer@gentoo.org> hwloc-1.6.1.ebuild:
   Stable for HPPA (bug #458206).

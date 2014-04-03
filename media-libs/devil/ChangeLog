@@ -1,6 +1,12 @@
 # ChangeLog for media-libs/devil
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/devil/ChangeLog,v 1.59 2013/02/09 22:49:12 hasufell Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/devil/ChangeLog,v 1.61 2014/02/02 11:51:15 pinkbyte Exp $
+
+  02 Feb 2014; Sergey Popov <pinkbyte@gentoo.org> devil-1.7.8-r1.ebuild:
+  Add ~mips, wrt bug #499866
+
+  30 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> devil-1.7.8-r1.ebuild:
+  Add ~arm keyword
 
   09 Feb 2013; Julian Ospald <hasufell@gentoo.org> devil-1.7.8-r1.ebuild:
   add jpeg2k useflag wrt #455438

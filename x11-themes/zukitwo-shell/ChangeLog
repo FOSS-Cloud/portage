@@ -1,6 +1,36 @@
 # ChangeLog for x11-themes/zukitwo-shell
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/zukitwo-shell/ChangeLog,v 1.6 2012/12/27 19:14:41 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-themes/zukitwo-shell/ChangeLog,v 1.14 2014/03/09 12:05:29 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> zukitwo-shell-2013.12.10.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> zukitwo-shell-2013.12.10.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> zukitwo-shell-2013.12.10.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> zukitwo-shell-2013.12.10.ebuild:
+  arch stable, bug 888
+
+*zukitwo-shell-2013.12.10 (17 Dec 2013)
+
+  17 Dec 2013; Justin Lecher <jlec@gentoo.org>
+  +zukitwo-shell-2013.12.10.ebuild:
+  Version Bump
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> zukitwo-shell-2013.04.24.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> zukitwo-shell-2013.04.24.ebuild:
+  amd64 stable, bug #478252
+
+*zukitwo-shell-2013.04.24 (16 Jun 2013)
+
+  16 Jun 2013; Justin Lecher <jlec@gentoo.org>
+  +zukitwo-shell-2013.04.24.ebuild, metadata.xml:
+  Version BUmp
 
 *zukitwo-shell-2012.12.16 (27 Dec 2012)
 
@@ -41,4 +71,3 @@
   +metadata.xml:
   New package, split out from x11-themes/zukitwo to allow simultaneous support
   for zukitwo for gtk+-3.4 and gnome-shell-3.2.
-

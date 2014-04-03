@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/sparse/sparse-9999.ebuild,v 1.11 2012/05/24 02:37:51 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/sparse/sparse-9999.ebuild,v 1.13 2013/09/05 09:17:49 vapier Exp $
 
-EAPI="2"
+EAPI="4"
 
 inherit eutils multilib toolchain-funcs
 if [[ ${PV} == "9999" ]] ; then
@@ -23,24 +23,26 @@ fi
 
 LICENSE="OSL-1.1"
 SLOT="0"
-IUSE="gtk xml"
+IUSE="gtk llvm test xml"
 
 RDEPEND="gtk? ( x11-libs/gtk+:2 )
+	llvm? ( >=sys-devel/llvm-3.0 )
 	xml? ( dev-libs/libxml2 )"
 DEPEND="${RDEPEND}
 	gtk? ( virtual/pkgconfig )
 	xml? ( virtual/pkgconfig )"
 
 src_prepare() {
+	tc-export AR CC PKG_CONFIG
 	sed -i \
 		-e '/^PREFIX=/s:=.*:=/usr:' \
 		-e "/^LIBDIR=/s:/lib:/$(get_libdir):" \
-		-e '/^CFLAGS =/{s:=:+=:;s:-O2 -finline-functions::}' \
+		-e '/^CFLAGS =/{s:=:+= $(CPPFLAGS):;s:-O2 -finline-functions::}' \
+		-e "s:pkg-config:${PKG_CONFIG}:" \
 		Makefile || die
-	export MAKEOPTS+=" V=1 CC=$(tc-getCC) HAVE_GTK2=$(usex gtk) HAVE_LIBXML=$(usex xml)"
+	export MAKEOPTS+=" V=1 AR=${AR} CC=${CC} HAVE_GTK2=$(usex gtk) HAVE_LLVM=$(usex llvm) HAVE_LIBXML=$(usex xml)"
 }
 
-src_install() {
-	emake DESTDIR="${D}" install || die
-	dodoc FAQ README
+src_compile() {
+	emake $(usex test all all-installable)
 }

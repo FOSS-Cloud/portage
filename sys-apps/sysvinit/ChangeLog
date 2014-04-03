@@ -1,6 +1,69 @@
 # ChangeLog for sys-apps/sysvinit
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/sysvinit/ChangeLog,v 1.119 2013/02/26 14:52:30 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/sysvinit/ChangeLog,v 1.133 2014/02/15 06:27:22 ssuominen Exp $
+
+*sysvinit-2.88-r7 (15 Feb 2014)
+
+  15 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> +sysvinit-2.88-r7.ebuild:
+  Move last and lastb from sysvinit to util-linux wrt #491742 by Alexander Tsoy
+
+  21 Jan 2014; Mike Frysinger <vapier@gentoo.org> sysvinit-2.88-r4.ebuild,
+  sysvinit-2.88-r5.ebuild, sysvinit-2.88-r6.ebuild:
+  Configure default s390 consoles with TERM=dumb as these lack the ability to
+  interpret color sequences and the like.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> sysvinit-2.88-r4.ebuild,
+  sysvinit-2.88-r5.ebuild, sysvinit-2.88-r6.ebuild:
+  Add default console for arm64.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> sysvinit-2.88-r4.ebuild,
+  sysvinit-2.88-r5.ebuild, sysvinit-2.88-r6.ebuild:
+  Add arm64 love.
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -sysvinit-2.87-r3.ebuild,
+  -sysvinit-2.88.ebuild, -sysvinit-2.88-r1.ebuild, -sysvinit-2.88-r2.ebuild,
+  -sysvinit-2.88-r3.ebuild:
+  Removed old versions and files.
+
+  20 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> sysvinit-2.88-r6.ebuild:
+  Added an elog message about removed pidof tool.
+
+*sysvinit-2.88-r6 (20 Dec 2013)
+
+  20 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> +sysvinit-2.88-r6.ebuild:
+  Revbump to replace sysvinit's pidof with the rewritten one from
+  >=procps-3.3.9
+
+  29 Sep 2013; Mike Frysinger <vapier@gentoo.org> sysvinit-2.88-r5.ebuild:
+  Note that sys-apps/util-linux now carry many tools #483798 by Allen Parker.
+
+  05 May 2013; Mike Frysinger <vapier@gentoo.org> sysvinit-2.88-r4.ebuild,
+  sysvinit-2.88-r5.ebuild:
+  Fix blockers -- older sysvinit cannot be installed with newer util-linux.
+
+  04 May 2013; Samuli Suominen <ssuominen@gentoo.org> sysvinit-2.88-r4.ebuild,
+  sysvinit-2.88-r5.ebuild:
+  Fix blockers since -r4 can be installed with =sys-apps/util-linux-2.22*
+
+*sysvinit-2.88-r5 (04 May 2013)
+
+  04 May 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/sysvinit-2.88-shutdown-h.patch, +sysvinit-2.88-r5.ebuild,
+  sysvinit-2.88-r4.ebuild:
+  Make shutdown -h work the same as other inits #449354 by David Weber.  Stop
+  installing mesg/wall as util-linux installs them now #468144 by Samuli
+  Suominen.
+
+  20 Apr 2013; Mike Frysinger <vapier@gentoo.org> files/inittab-2.87,
+  sysvinit-2.88-r4.ebuild:
+  Deploy -L by default on serial ports, and cleanup arch inittab stuff as arrays
+  #466494 by Markos Chandras.
+
+  23 Mar 2013; Mike Frysinger <vapier@gentoo.org> sysvinit-2.88-r4.ebuild:
+  Mark m68k stable #458226.
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> sysvinit-2.88-r4.ebuild:
+  Stable for sh, wrt bug #458226
 
   26 Feb 2013; Agostino Sarubbo <ago@gentoo.org> sysvinit-2.88-r4.ebuild:
   Stable for s390, wrt bug #458226

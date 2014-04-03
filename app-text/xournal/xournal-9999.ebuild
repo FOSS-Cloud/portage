@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/xournal/xournal-9999.ebuild,v 1.3 2012/07/09 02:34:32 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/xournal/xournal-9999.ebuild,v 1.7 2013/05/02 16:18:50 dilfridge Exp $
 
-EAPI=4
+EAPI=5
 
 GCONF_DEBUG=no
 
@@ -32,7 +32,7 @@ else
 fi
 
 COMMONDEPEND="
-	app-text/poppler[cairo]
+	app-text/poppler:=[cairo]
 	dev-libs/atk
 	dev-libs/glib
 	gnome-base/libgnomecanvas
@@ -58,6 +58,9 @@ src_prepare() {
 	if ! use vanilla; then
 		sed -e "s:n       http:n       Gentoo release ${PVR}\\\\n       http:" -i "${S}"/src/xo-interface.c
 	fi
+	epatch "${FILESDIR}/${PN}-0.4.7-am113.patch"
+	epatch "${FILESDIR}/${PN}-0.4.7-am113-2.patch"
+	epatch "${FILESDIR}/${PN}-0.4.7-ar.patch"
 	eautoreconf
 }
 

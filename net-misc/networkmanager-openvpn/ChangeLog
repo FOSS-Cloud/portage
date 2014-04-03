@@ -1,6 +1,42 @@
 # ChangeLog for net-misc/networkmanager-openvpn
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager-openvpn/ChangeLog,v 1.38 2013/02/03 11:24:12 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager-openvpn/ChangeLog,v 1.45 2013/12/25 09:35:36 maekke Exp $
+
+  25 Dec 2013; Markus Meier <maekke@gentoo.org>
+  networkmanager-openvpn-0.9.8.4.ebuild:
+  add ~arm, bug #488578
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  networkmanager-openvpn-0.9.8.4.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  networkmanager-openvpn-0.9.8.4.ebuild:
+  amd64 stable, bug #478252
+
+*networkmanager-openvpn-0.9.8.4 (16 Sep 2013)
+
+  16 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  networkmanager-openvpn-0.9.6.0.ebuild, networkmanager-openvpn-0.9.8.2.ebuild,
+  +networkmanager-openvpn-0.9.8.4.ebuild:
+  Version bump, update license.
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org>
+  -networkmanager-openvpn-0.9.8.0.ebuild, metadata.xml:
+  Drop old, gnome team will take this
+
+*networkmanager-openvpn-0.9.8.2 (10 Jun 2013)
+
+  10 Jun 2013; Pacho Ramos <pacho@gentoo.org>
+  +networkmanager-openvpn-0.9.8.2.ebuild,
+  -networkmanager-openvpn-0.9.4.0.ebuild:
+  Version bump, drop old
+
+*networkmanager-openvpn-0.9.8.0 (07 Apr 2013)
+
+  07 Apr 2013; Pacho Ramos <pacho@gentoo.org>
+  +networkmanager-openvpn-0.9.8.0.ebuild:
+  Version bump for Gnome 3.8
 
   03 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due #333419

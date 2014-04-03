@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/gnat-gcc/gnat-gcc-4.5.4.ebuild,v 1.1 2012/09/26 13:40:52 george Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/gnat-gcc/gnat-gcc-4.5.4.ebuild,v 1.3 2013/11/25 03:09:48 nerdboy Exp $
 
 inherit gnatbuild
 
@@ -8,7 +8,7 @@ DESCRIPTION="GNAT Ada Compiler - gcc version"
 HOMEPAGE="http://gcc.gnu.org/"
 LICENSE="GMGPL"
 
-IUSE=""
+IUSE="doc"
 
 BOOT_SLOT="4.4"
 
@@ -30,6 +30,7 @@ RDEPEND=">=dev-libs/mpfr-3.0.1
 	>=sys-libs/ncurses-5.7"
 
 DEPEND="${RDEPEND}
+	doc? ( sys-apps/texinfo )
 	>=sys-devel/bison-1.875
 	>=sys-libs/glibc-2.8
 	>=sys-devel/binutils-2.20"
@@ -56,6 +57,18 @@ src_unpack() {
 }
 
 src_compile() {
+	# work-around for downgrading texinfo.  See bug #483192
+	if use doc ; then
+		if has_version ">=sys-apps/texinfo-5.1" ; then
+			ewarn "Disabling info docs.  Please downgrade texinfo to less than 5.x or"
+			ewarn "use ${PN}-4.6 instead (as upstream has only patched 4.6 and higher)."
+			epatch "${FILESDIR}"/${P}-tex-version-workaround.patch
+		fi
+	else
+		elog "Disabling info docs."
+		epatch "${FILESDIR}"/${P}-tex-version-workaround.patch
+	fi
+
 	# looks like gnatlib_and_tools and gnatlib_shared have become part of
 	# bootstrap
 	gnatbuild_src_compile configure make-tools bootstrap

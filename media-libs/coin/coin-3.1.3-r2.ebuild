@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/coin/coin-3.1.3-r2.ebuild,v 1.4 2013/02/14 22:13:20 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/coin/coin-3.1.3-r2.ebuild,v 1.7 2014/03/21 20:53:01 polynomial-c Exp $
 
 EAPI=5
 
@@ -13,7 +13,7 @@ HOMEPAGE="http://www.coin3d.org/"
 SRC_URI="ftp://ftp.coin3d.org/pub/coin/src/all/${MY_P}.tar.gz"
 
 LICENSE="|| ( GPL-2 PEL )"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="amd64 ppc x86 ~amd64-linux ~x86-linux"
 SLOT="0"
 IUSE="bzip2 debug doc javascript openal simage static-libs threads zlib"
 
@@ -29,7 +29,7 @@ RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXext
 	bzip2? ( app-arch/bzip2 )
-	javascript? ( dev-lang/spidermonkey )
+	javascript? ( dev-lang/spidermonkey:0 )
 	openal? ( media-libs/openal )
 	simage? ( media-libs/simage )
 	zlib? ( sys-libs/zlib )
@@ -45,6 +45,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.1.0-javascript.patch
 	"${FILESDIR}"/${P}-pkgconfig-partial.patch
 	"${FILESDIR}"/${P}-gcc-4.7.patch
+	"${FILESDIR}"/${P}-freetype251.patch
 )
 
 DOCS=(
@@ -56,7 +57,7 @@ src_configure() {
 	append-cppflags -I"${EPREFIX}/usr/include/freetype2"
 	# Prefer link-time linking over dlopen
 	local myeconfargs=(
-		htmldir="/usr/share/doc/${PF}/html"
+		htmldir="${EPREFIX}/usr/share/doc/${PF}/html"
 		--disable-dl-fontconfig
 		--disable-dl-freetype
 		--disable-dl-libbzip2
@@ -72,7 +73,7 @@ src_configure() {
 		--enable-dl-glu
 		--enable-dl-spidermonkey
 		--enable-system-expat
-		--includedir="/usr/include/${PN}"
+		--includedir="${EPREFIX}/usr/include/${PN}"
 		--with-fontconfig
 		--with-freetype
 		$(use_with bzip2)

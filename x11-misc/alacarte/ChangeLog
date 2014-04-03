@@ -1,6 +1,39 @@
 # ChangeLog for x11-misc/alacarte
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/alacarte/ChangeLog,v 1.117 2012/12/19 10:10:21 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/alacarte/ChangeLog,v 1.126 2014/03/09 12:05:01 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> alacarte-3.10.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> alacarte-3.10.0.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> alacarte-3.10.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> alacarte-3.10.0.ebuild:
+  arch stable, bug 888
+
+*alacarte-3.10.0 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +alacarte-3.10.0.ebuild,
+  -alacarte-0.13.4.ebuild, -alacarte-3.6.1-r1.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> alacarte-3.7.90.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> alacarte-3.7.90.ebuild:
+  amd64 stable, bug #478252
+
+  05 May 2013; Pacho Ramos <pacho@gentoo.org> alacarte-3.7.90.ebuild:
+  Drop comment as gnome-panel dep was removed in purpose because its requeriment
+  was lost in 3.7.x
+
+*alacarte-3.7.90 (05 May 2013)
+
+  05 May 2013; Pacho Ramos <pacho@gentoo.org> +alacarte-3.7.90.ebuild:
+  Version bump
 
 *alacarte-3.6.1-r1 (19 Dec 2012)
 
@@ -456,4 +489,3 @@
 
   07 Sep 2006; Daniel Gryniewicz <dang@gentoo.org> +alacarte-0.10.0.ebuild:
   New version for gnome 2.16
-

@@ -1,10 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/compton/compton-9999.ebuild,v 1.6 2013/01/29 11:19:36 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/compton/compton-9999.ebuild,v 1.8 2013/12/14 11:38:28 hasufell Exp $
 
 EAPI=5
 
-inherit toolchain-funcs git-2
+PYTHON_COMPAT=( python3_2 python3_3 )
+inherit toolchain-funcs python-r1 git-2
 
 DESCRIPTION="A compositor for X, and a fork of xcompmgr-dana"
 HOMEPAGE="http://github.com/chjj/compton"
@@ -15,9 +16,11 @@ EGIT_REPO_URI="git://github.com/chjj/compton.git"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="dbus +drm opengl +pcre"
+IUSE="dbus +drm opengl +pcre xinerama"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-COMMON_DEPEND="dev-libs/libconfig
+COMMON_DEPEND="${PYTHON_DEPS}
+	dev-libs/libconfig
 	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
@@ -27,10 +30,12 @@ COMMON_DEPEND="dev-libs/libconfig
 	x11-libs/libXrender
 	dbus? ( sys-apps/dbus )
 	opengl? ( virtual/opengl )
-	pcre? ( dev-libs/libpcre:3 )"
+	pcre? ( dev-libs/libpcre:3 )
+	xinerama? ( x11-libs/libXinerama )"
 RDEPEND="${COMMON_DEPEND}
 	x11-apps/xprop
-	x11-apps/xwininfo"
+	x11-apps/xwininfo
+	virtual/python-argparse[${PYTHON_USEDEP}]"
 DEPEND="${COMMON_DEPEND}
 	app-text/asciidoc
 	virtual/pkgconfig
@@ -40,12 +45,16 @@ DEPEND="${COMMON_DEPEND}
 nobuildit() { use $1 || echo yes ; }
 
 pkg_setup() {
-	tc-export CC
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		tc-export CC
+	fi
 }
 
 src_compile() {
 	emake docs
+
 	NO_DBUS=$(nobuildit dbus) \
+	NO_XINERAMA=$(nobuildit xinerama) \
 	NO_VSYNC_DRM=$(nobuildit drm) \
 	NO_VSYNC_OPENGL=$(nobuildit opengl) \
 	NO_REGEX_PCRE=$(nobuildit pcre) \
@@ -60,4 +69,5 @@ src_install() {
 		default
 	docinto examples
 	nonfatal dodoc compton.sample.conf dbus-examples/*
+	python_foreach_impl python_newscript bin/compton-convgen.py compton-convgen
 }

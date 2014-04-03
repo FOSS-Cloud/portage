@@ -1,6 +1,24 @@
 # ChangeLog for app-admin/pydf
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/pydf/ChangeLog,v 1.42 2012/10/16 21:59:28 maekke Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/pydf/ChangeLog,v 1.47 2014/03/06 10:27:09 ago Exp $
+
+  06 Mar 2014; Agostino Sarubbo <ago@gentoo.org> pydf-10-r1.ebuild:
+  Stable for ppc64, wrt bug #491900
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> pydf-10-r1.ebuild:
+  Stable for ppc, wrt bug #491900
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> pydf-10-r1.ebuild:
+  amd64 stable, bug #491900
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> pydf-10-r1.ebuild:
+  x86 stable wrt bug #491900
+
+*pydf-10-r1 (30 Jun 2013)
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> +pydf-10-r1.ebuild,
+  metadata.xml:
+  Bump to new python eclass
 
   16 Oct 2012; Markus Meier <maekke@gentoo.org> pydf-10.ebuild:
   add ~arm, bug #433655

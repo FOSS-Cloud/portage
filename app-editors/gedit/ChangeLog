@@ -1,6 +1,74 @@
 # ChangeLog for app-editors/gedit
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/gedit/ChangeLog,v 1.349 2013/02/07 21:35:46 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/gedit/ChangeLog,v 1.366 2014/03/09 11:53:42 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gedit-3.10.4.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gedit-3.10.4.ebuild:
+  amd64 stable, bug 499954
+
+*gedit-3.10.4 (06 Feb 2014)
+
+  06 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> +gedit-3.10.4.ebuild:
+  Version bump.
+
+  06 Feb 2014; Pacho Ramos <pacho@gentoo.org> gedit-2.30.4.ebuild:
+  Clean pyc files properly (#500506 by Fred)
+
+  05 Jan 2014; Alexandre Rostovtsev <tetromino@gentoo.org> gedit-2.30.4.ebuild,
+  +files/gedit-2.30.4-underlinking.patch:
+  Fix underlinking failure (bug #497110, thanks to d_dart).
+
+*gedit-3.10.3 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +gedit-3.10.3.ebuild:
+  Version bump for Gnome 3.10, drop old
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gedit-3.8.3.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gedit-3.8.3.ebuild:
+  amd64 stable, bug #478252
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> -gedit-3.6.2-r1.ebuild,
+  gedit-3.8.3.ebuild:
+  Clean up old revision. Add missing PYTHON_USEDEP on cairo.
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org> gedit-3.8.3.ebuild:
+  keyword ~amd64-fbsd
+
+  25 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org> gedit-3.8.3.ebuild:
+  Drop unneeded dependencies (per configure).
+
+  22 Jul 2013; Pacho Ramos <pacho@gentoo.org> -gedit-3.8.2.ebuild,
+  gedit-3.8.3.ebuild:
+  Works with python-3.3 (#475086 by Hristo Venev), drop old.
+
+*gedit-3.8.3 (25 Jun 2013)
+
+  25 Jun 2013; Pacho Ramos <pacho@gentoo.org> +gedit-3.8.3.ebuild,
+  -gedit-3.8.1.ebuild:
+  Version bump, drop old
+
+*gedit-3.8.2 (13 May 2013)
+
+  13 May 2013; Pacho Ramos <pacho@gentoo.org> +gedit-3.8.2.ebuild,
+  -gedit-3.8.0.ebuild:
+  Version bump, drop old
+
+*gedit-3.8.1 (28 Apr 2013)
+
+  28 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gedit-3.8.1.ebuild:
+  Version bump
+
+*gedit-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +gedit-3.8.0.ebuild:
+  Version bump for Gnome 3.8
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -gedit-3.4.2.ebuild:
+  Clean up old revision.
 
   07 Feb 2013; Ulrich Müller <ulm@gentoo.org> gedit-3.6.2-r1.ebuild:
   Move Creative Commons licenses to shorter names.

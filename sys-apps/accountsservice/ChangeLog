@@ -1,6 +1,65 @@
 # ChangeLog for sys-apps/accountsservice
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/ChangeLog,v 1.25 2013/01/07 00:39:40 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/ChangeLog,v 1.39 2014/03/29 22:01:34 tetromino Exp $
+
+  29 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  accountsservice-0.6.34.ebuild, accountsservice-0.6.35.ebuild:
+  systemd now has subslots
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.35.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.35.ebuild:
+  arch stable, bug 888
+
+  14 Feb 2014; Johannes Huber <johu@gentoo.org> accountsservice-0.6.35.ebuild:
+  x86 stable, bug #498930
+
+  25 Jan 2014; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.35.ebuild:
+  amd64 stable, bug #498930
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.34.ebuild:
+  x86 stable, bug #478252
+
+*accountsservice-0.6.35 (04 Dec 2013)
+
+  04 Dec 2013; Pacho Ramos <pacho@gentoo.org> +accountsservice-0.6.35.ebuild,
+  +files/accountsservice-0.6.35-gentoo-system-users.patch,
+  +files/accountsservice-0.6.35-nondelete-root.patch,
+  +files/accountsservice-0.6.35-older-glib.patch,
+  +files/accountsservice-0.6.35-user-logic.patch,
+  -accountsservice-0.6.30.ebuild,
+  -files/accountsservice-0.6.30-login-history-variant.patch,
+  -files/accountsservice-0.6.30-xsession-typo.patch:
+  Version bump, drop old
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.34.ebuild:
+  amd64 stable, bug #478252
+
+*accountsservice-0.6.34 (16 Jul 2013)
+
+  16 Jul 2013; Pacho Ramos <pacho@gentoo.org> +accountsservice-0.6.34.ebuild,
+  +files/accountsservice-0.6.34-gentoo-system-users.patch:
+  Version bump
+
+  06 Apr 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -accountsservice-0.6.22.ebuild:
+  Clean up old revision.
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  accountsservice-0.6.29-r1.ebuild:
+  Stable for arm, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  accountsservice-0.6.29-r1.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  accountsservice-0.6.29-r1.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  24 Mar 2013; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.30.ebuild:
+  Needs glib-2.34 per g_clear_pointer usage, bug #462938
 
 *accountsservice-0.6.30 (07 Jan 2013)
 

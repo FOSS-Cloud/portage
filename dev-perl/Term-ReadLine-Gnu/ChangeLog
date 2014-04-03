@@ -1,6 +1,34 @@
 # ChangeLog for dev-perl/Term-ReadLine-Gnu
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Term-ReadLine-Gnu/ChangeLog,v 1.25 2012/06/28 16:47:46 ranger Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Term-ReadLine-Gnu/ChangeLog,v 1.31 2014/03/09 07:01:56 vapier Exp $
+
+*Term-ReadLine-Gnu-1.220.0 (09 Mar 2014)
+
+  09 Mar 2014; Mike Frysinger <vapier@gentoo.org>
+  +Term-ReadLine-Gnu-1.220.0.ebuild:
+  Version bump for readline-6.3 support #503600 by Guillaume Castagnino.
+
+  14 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  -Term-ReadLine-Gnu-1.200.0-r1.ebuild, Term-ReadLine-Gnu-1.200.0-r2.ebuild:
+  sparc stable wrt bug #495482; Drop old
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  Term-ReadLine-Gnu-1.200.0-r2.ebuild:
+  Stable for ppc, wrt bug #495482
+
+  13 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Term-ReadLine-Gnu-1.200.0-r2.ebuild:
+  x86 stable wrt bug #495482
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org>
+  Term-ReadLine-Gnu-1.200.0-r2.ebuild:
+  amd64 stable, bug #495482
+
+*Term-ReadLine-Gnu-1.200.0-r2 (14 Sep 2013)
+
+  14 Sep 2013; Ian Delaney <idella4@gentoo.org>
+  +Term-ReadLine-Gnu-1.200.0-r2.ebuild:
+  revbump -> EAPI 5, add test invocation
 
   28 Jun 2012; Brent Baude <ranger@gentoo.org>
   Term-ReadLine-Gnu-1.200.0-r1.ebuild:

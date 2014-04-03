@@ -1,6 +1,21 @@
 # ChangeLog for app-admin/keepassx
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/keepassx/ChangeLog,v 1.58 2012/07/25 05:36:29 yngwin Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/keepassx/ChangeLog,v 1.62 2014/03/01 22:09:39 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> keepassx-2.0_alpha5.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  14 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  keepassx-2.0_alpha5.ebuild, +files/keepassx-2.0_alpha5-libgcrypt-1.6.0.patch:
+  libgcrypt-1.6.0 compatibility patch added.
+
+*keepassx-2.0_alpha5 (26 Dec 2013)
+
+  26 Dec 2013; Davide Pesavento <pesa@gentoo.org> +keepassx-2.0_alpha5.ebuild:
+  Version bump wrt bug 470584.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> keepassx-0.4.3.ebuild:
+  Move Qt dependencies to the new category
 
   25 Jul 2012; Ben de Groot <yngwin@gentoo.org> keepassx-0.4.3.ebuild,
   metadata.xml:

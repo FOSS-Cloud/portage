@@ -1,6 +1,49 @@
 # ChangeLog for net-dns/unbound
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/unbound/ChangeLog,v 1.53 2013/02/03 21:02:56 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-dns/unbound/ChangeLog,v 1.65 2014/01/14 14:00:24 ago Exp $
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> unbound-1.4.21-r1.ebuild:
+  Stable for x86, wrt bug #494572
+
+  10 Jan 2014; Pacho Ramos <pacho@gentoo.org> unbound-1.4.21-r1.ebuild:
+  amd64 stable, bug #494572
+
+*unbound-1.4.21-r1 (23 Nov 2013)
+
+  23 Nov 2013; Pacho Ramos <pacho@gentoo.org> +files/unbound-anchor.service,
+  +files/unbound.service, +files/unbound_at.service, +unbound-1.4.21-r1.ebuild:
+  Add unit file (#491712 by Emery Hemingway)
+
+  19 Nov 2013; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Added proxy-maintainers herd.
+
+*unbound-1.4.21 (21 Sep 2013)
+
+  21 Sep 2013; Tim Harder <radhermit@gentoo.org> +unbound-1.4.21.ebuild:
+  Version bump.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> unbound-1.4.20.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> unbound-1.4.20.ebuild:
+  Stable for x86, wrt bug #476038
+
+  12 Jul 2013; Agostino Sarubbo <ago@gentoo.org> unbound-1.4.20.ebuild:
+  Stable for amd64, wrt bug #476038
+
+  03 Jun 2013; Tim Harder <radhermit@gentoo.org> unbound-1.4.20.ebuild:
+  Add PYTHON_REQUIRED_USE for python-single-r1.
+
+  27 Mar 2013; Tim Harder <radhermit@gentoo.org> metadata.xml:
+  Remove proxy-maintainers from metadata.
+
+*unbound-1.4.20 (27 Mar 2013)
+
+  27 Mar 2013; Tim Harder <radhermit@gentoo.org> +unbound-1.4.20.ebuild:
+  Version bump, migrate to python-single-r1.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   03 Feb 2013; Tim Harder <radhermit@gentoo.org> metadata.xml:
   Add myself as a maintainer and indent metadata.

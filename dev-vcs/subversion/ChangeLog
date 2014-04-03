@@ -1,6 +1,135 @@
 # ChangeLog for dev-vcs/subversion
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/subversion/ChangeLog,v 1.128 2013/08/18 20:52:45 tommy Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/subversion/ChangeLog,v 1.164 2014/02/21 09:32:17 polynomial-c Exp $
+
+*subversion-1.8.8 (21 Feb 2014)
+
+  21 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> +subversion-1.8.8.ebuild:
+  Version bump.
+
+  28 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> subversion-1.8.5.ebuild:
+  Don't unconditionally depend on perl (bug #493240).
+
+  22 Jan 2014; Fabian Groffen <grobian@gentoo.org>
+  +files/subversion-1.8.5-swig-python-no-gnome-keyring.patch,
+  subversion-1.8.5.ebuild:
+  Finally fix compilation of swig-python module on Darwin
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> subversion-1.7.14.ebuild:
+  Mark s390/sh stable.
+
+  16 Jan 2014; Fabian Groffen <grobian@gentoo.org> subversion-1.8.5.ebuild:
+  Fix compilation on Solaris, help it find a proper python on Darwin
+
+  08 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  files/subversion-1.8.0-hpux-dso.patch:
+  Really fix hpux-dso patch this time. Thanks to Arfrever.
+
+  08 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> subversion-1.8.5.ebuild:
+  Really use pkg-config for finding serf.
+
+  08 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  files/subversion-1.8.0-hpux-dso.patch:
+  Fixed typo in hpux-dso patch.
+
+  06 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> subversion-1.8.5.ebuild,
+  metadata.xml:
+  Renamed "webdav-serf" USE flag to "http".
+
+*subversion-1.8.5 (06 Jan 2014)
+
+  06 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> +subversion-1.8.5.ebuild,
+  +files/subversion-1.8.0-hpux-dso.patch,
+  +files/subversion-1.8.1-revert_bdb6check.patch:
+  Long overdue 1.8 bump. Thanks to all contributiors in bug #474848.
+
+  29 Dec 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -subversion-1.7.13.ebuild:
+  Remove old
+
+  29 Dec 2013; Akinori Hattori <hattya@gentoo.org> subversion-1.7.14.ebuild:
+  ia64 stable wrt bug #491298
+
+  14 Dec 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.14.ebuild:
+  Stable for sparc, wrt bug #491298
+
+  08 Dec 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.14.ebuild:
+  Stable for alpha, wrt bug #491298
+
+  07 Dec 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.14.ebuild:
+  Stable for arm, wrt bug #491298
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.14.ebuild:
+  Stable for ppc64, wrt bug #491298
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.14.ebuild:
+  Stable for ppc, wrt bug #491298
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.14.ebuild:
+  Stable for x86, wrt bug #491298
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.14.ebuild:
+  Stable for amd64, wrt bug #491298
+
+  28 Nov 2013; Jeroen Roovers <jer@gentoo.org> subversion-1.7.14.ebuild:
+  Stable for HPPA (bug #491298).
+
+*subversion-1.7.14 (26 Nov 2013)
+
+  26 Nov 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +subversion-1.7.14.ebuild:
+  Version bump, bug 491298
+
+  22 Sep 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  subversion-1.7.13.ebuild:
+  Update sqlite version requirement, bug 414959
+
+  15 Sep 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -subversion-1.7.11.ebuild:
+  Drop old
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.13.ebuild:
+  Stable for sh, wrt bug #482166
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.13.ebuild:
+  Stable for s390, wrt bug #482166
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.13.ebuild:
+  Stable for alpha, wrt bug #482166
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.13.ebuild:
+  Stable for x86, wrt bug #482166
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.13.ebuild:
+  Stable for ia64, wrt bug #482166
+
+  09 Sep 2013; Markus Meier <maekke@gentoo.org> subversion-1.7.13.ebuild:
+  arm stable, bug #482166
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.13.ebuild:
+  Stable for sparc, wrt bug #482166
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> subversion-1.7.11.ebuild,
+  subversion-1.7.13.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.13.ebuild:
+  Stable for ppc64, wrt bug #482166
+
+  04 Sep 2013; Jeroen Roovers <jer@gentoo.org> subversion-1.7.13.ebuild:
+  Stable for HPPA (bug #482166).
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.13.ebuild:
+  Stable for amd64, wrt bug #482166
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> subversion-1.7.13.ebuild:
+  Stable for ppc, wrt bug #482166
+
+*subversion-1.7.13 (02 Sep 2013)
+
+  02 Sep 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +subversion-1.7.13.ebuild:
+  Version bump for bug 482166
 
   18 Aug 2013; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
   -subversion-1.7.9.ebuild, -subversion-1.7.10.ebuild,

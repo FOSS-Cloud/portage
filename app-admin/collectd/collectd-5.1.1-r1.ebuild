@@ -1,8 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/collectd/collectd-5.1.1-r1.ebuild,v 1.2 2012/12/05 04:16:54 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/collectd/collectd-5.1.1-r1.ebuild,v 1.4 2014/03/01 22:08:15 mgorny Exp $
 
 EAPI="4"
+
+GENTOO_DEPEND_ON_PERL="no"
 
 inherit eutils base linux-info perl-app autotools multilib user
 
@@ -47,7 +49,7 @@ unset plugin
 # Now come the dependencies.
 
 COMMON_DEPEND="
-	dev-libs/libgcrypt
+	dev-libs/libgcrypt:0
 	sys-devel/libtool
 	perl?					( dev-lang/perl[ithreads] ( || ( sys-devel/libperl[ithreads] >=sys-devel/libperl-5.10 ) ) )
 	collectd_plugins_apache?		( net-misc/curl )

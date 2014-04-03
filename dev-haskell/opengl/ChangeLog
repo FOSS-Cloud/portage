@@ -1,6 +1,18 @@
 # ChangeLog for dev-haskell/opengl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/opengl/ChangeLog,v 1.15 2012/11/18 12:53:31 gienah Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/opengl/ChangeLog,v 1.18 2014/01/26 11:39:17 ago Exp $
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> opengl-2.8.0.0.ebuild:
+  Stable for x86, wrt bug #480572
+
+  11 Aug 2013; Agostino Sarubbo <ago@gentoo.org> opengl-2.8.0.0.ebuild:
+  Stable for amd64, wrt bug #480572
+
+*opengl-2.8.0.0 (03 Apr 2013)
+
+  03 Apr 2013; Mark Wright <gienah@gentoo.org> +opengl-2.8.0.0.ebuild,
+  metadata.xml:
+  Bump opengl to 2.8.0.0
 
 *opengl-2.6.0.1 (18 Nov 2012)
 

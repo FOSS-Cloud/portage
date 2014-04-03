@@ -1,6 +1,50 @@
 # ChangeLog for sys-apps/razercfg
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/razercfg/ChangeLog,v 1.14 2013/02/05 13:54:50 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/razercfg/ChangeLog,v 1.23 2014/04/01 12:33:13 joker Exp $
+
+*razercfg-0.24 (01 Apr 2014)
+
+  01 Apr 2014; Christian Birchinger <joker@gentoo.org> +razercfg-0.24.ebuild:
+  Version bump. Systemd unit file path fixed.
+
+  23 Feb 2014; Christian Birchinger <joker@gentoo.org> -razercfg-0.22.ebuild:
+  Remove old version
+
+*razercfg-0.23 (23 Feb 2014)
+
+  23 Feb 2014; Christian Birchinger <joker@gentoo.org> +razercfg-0.23.ebuild:
+  Version bump
+
+  10 Jan 2014; Christian Birchinger <joker@gentoo.org> -razercfg-0.18.ebuild,
+  -razercfg-0.19.ebuild:
+  Remove old versions
+
+*razercfg-0.22-r1 (08 Jan 2014)
+
+  08 Jan 2014; Christian Birchinger <joker@gentoo.org>
+  +razercfg-0.22-r1.ebuild:
+  Force Python 2.x because the included scripts don't support Python 3.x
+
+*razercfg-0.22 (03 Jan 2014)
+
+  03 Jan 2014; Christian Birchinger <joker@gentoo.org> +razercfg-0.22.ebuild,
+  +files/razerd.init.d-r1:
+  Version bump. New version installs the systemd unit file by default.
+
+*razercfg-0.21 (31 Jul 2013)
+
+  31 Jul 2013; Christian Birchinger <joker@gentoo.org> +razercfg-0.21.ebuild:
+  Version bump
+
+*razercfg-0.20 (04 May 2013)
+
+  04 May 2013; Christian Birchinger <joker@gentoo.org> +razercfg-0.20.ebuild:
+  Version bump
+
+  20 Mar 2013; Christian Birchinger <joker@gentoo.org>
+  -files/razercfg-0.16-pidlogfix.patch, -razercfg-0.17.ebuild,
+  -razercfg-0.17_p20111028.ebuild:
+  Remove old versions and patches
 
   05 Feb 2013; Samuli Suominen <ssuominen@gentoo.org>
   razercfg-0.19_p20121013.ebuild:

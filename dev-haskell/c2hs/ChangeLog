@@ -1,6 +1,38 @@
 # ChangeLog for dev-haskell/c2hs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/c2hs/ChangeLog,v 1.55 2012/12/22 21:18:10 slyfox Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/c2hs/ChangeLog,v 1.65 2013/12/24 12:57:06 ago Exp $
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> c2hs-0.16.5.ebuild:
+  Stable for x86, wrt bug #491982
+
+  23 Dec 2013; Pacho Ramos <pacho@gentoo.org> c2hs-0.16.5.ebuild:
+  amd64 stable, bug #491982
+
+*c2hs-0.16.5 (13 Sep 2013)
+
+  13 Sep 2013; Mark Wright <gienah@gentoo.org> +c2hs-0.16.5.ebuild:
+  Bump c2hs to 0.16.5
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> c2hs-0.16.4.ebuild:
+  Stable for alpha, wrt bug #457270
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> c2hs-0.16.4.ebuild:
+  Stable for sparc, wrt bug #457270
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> c2hs-0.16.4.ebuild:
+  Stable for ia64, wrt bug #457270
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> c2hs-0.16.4.ebuild:
+  Stable for ppc64, wrt bug #457270
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> c2hs-0.16.4.ebuild:
+  Stable for ppc, wrt bug #457270
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> c2hs-0.16.4.ebuild:
+  Stable for x86, wrt bug #457270
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> c2hs-0.16.4.ebuild:
+  Stable for amd64, wrt bug #457270
 
 *c2hs-0.16.4 (22 Dec 2012)
 

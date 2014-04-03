@@ -1,6 +1,19 @@
 # ChangeLog for dev-python/pywcs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pywcs/ChangeLog,v 1.7 2012/10/16 09:03:59 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pywcs/ChangeLog,v 1.10 2014/02/05 23:49:00 bicatali Exp $
+
+  05 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> -pywcs-1.11.ebuild,
+  pywcs-1.11-r1.ebuild:
+  Removed old, worked the pyfits dependency
+
+*pywcs-1.11-r1 (24 Apr 2013)
+
+  24 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org> +pywcs-1.11-r1.ebuild,
+  files/pywcs-1.11-wcslib.patch:
+  Switched to distutils-r1, fixed pkg-config modversion in wcs unbundling patch
+
+  23 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org> pywcs-1.11.ebuild:
+  Block astropy
 
   16 Oct 2012; Patrick Lauer <patrick@gentoo.org> pywcs-1.11.ebuild:
   Restricting python 3.3

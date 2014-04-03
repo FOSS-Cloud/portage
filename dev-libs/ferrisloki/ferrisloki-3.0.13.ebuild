@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/ferrisloki/ferrisloki-3.0.13.ebuild,v 1.1 2013/02/05 07:25:18 dev-zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/ferrisloki/ferrisloki-3.0.13.ebuild,v 1.6 2013/09/12 17:21:16 ago Exp $
 
 EAPI="5"
 
-inherit eutils
+inherit eutils multilib
 
 DESCRIPTION="Loki C++ library from Modern C++ Design"
 HOMEPAGE="http://www.libferris.com/"
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/witme/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86 ~amd64-linux ~x86-linux"
 IUSE="static-libs stlport"
 
 RDEPEND="stlport? ( >=dev-libs/STLport-5 )
@@ -25,12 +25,15 @@ src_prepare() {
 	sed -i \
 		-e '/^CFLAGS/{s: -O3 : :g;s:-Wl,-O1 -Wl,--hash-style=both::;}' \
 		-e 's:-lstlport_gcc:-lstlport:' \
-		configure
+		configure || die
+
+	epatch_user
 }
 
 src_configure() {
 	econf \
-		--with-stlport=/usr/include/stlport \
+		--libdir="${EPREFIX}/usr/$(get_libdir)" \
+		--with-stlport="${EPREFIX}/usr/include/stlport" \
 		$(use_enable stlport) \
 		$(use_enable static-libs static)
 }

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/raspberrypi-userland/raspberrypi-userland-9999.ebuild,v 1.1 2013/02/02 00:57:27 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/raspberrypi-userland/raspberrypi-userland-9999.ebuild,v 1.2 2013/07/13 17:13:52 chithanh Exp $
 
 EAPI=5
 
@@ -51,4 +51,11 @@ src_configure() {
 src_install() {
 	cmake-utils_src_install
 	doenvd "${FILESDIR}"/04${PN}
+
+	# enable dynamic switching of the GL implementation
+	dodir /usr/lib/opengl
+	dosym ../../../opt/vc /usr/lib/opengl/${PN}
+
+	# tell eselect opengl that we do not have libGL
+	touch "${ED}"/opt/vc/.gles-only
 }

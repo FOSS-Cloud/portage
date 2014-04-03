@@ -1,6 +1,28 @@
 # ChangeLog for sci-biology/seaview
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/seaview/ChangeLog,v 1.47 2012/12/10 16:31:38 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/seaview/ChangeLog,v 1.54 2014/01/14 15:39:14 jlec Exp $
+
+  14 Jan 2014; Justin Lecher <jlec@gentoo.org> -seaview-4.3.3.ebuild:
+  Drop old
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> seaview-4.3.5.ebuild:
+  Stable for ppc, wrt bug #497216
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> seaview-4.3.5.ebuild:
+  Stable for x86, wrt bug #497216
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> seaview-4.3.5.ebuild:
+  amd64 stable, bug #497216
+
+  06 Jan 2014; Justin Lecher <jlec@gentoo.org> seaview-4.3.3.ebuild:
+  Punt base.eclass
+
+  06 Jan 2014; Justin Lecher <jlec@gentoo.org> seaview-4.3.5.ebuild:
+  Punt base.eclass; Bump EAPI to 5; add missing dep for pkg-config; Give some
+  PREFIX love; use tc-getPKG_CONFIG instead of plain pkg-config
+
+  11 Mar 2013; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Drop Andrey as maintainer so that bugs get assigned to sci-biology directly
 
   10 Dec 2012; Agostino Sarubbo <ago@gentoo.org> seaview-4.3.5.ebuild:
   Add ~ppc, wrt bug #432368

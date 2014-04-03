@@ -1,6 +1,19 @@
 # ChangeLog for app-emacs/bongo
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/bongo/ChangeLog,v 1.6 2009/10/16 17:48:46 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/bongo/ChangeLog,v 1.9 2014/03/07 07:32:31 ulm Exp $
+
+  07 Mar 2014; Ulrich Müller <ulm@gentoo.org> bongo-20110621.ebuild:
+  Remove taglib support, owing to outdated (ruby18) ruby-taglib, bug 492562.
+
+  12 Feb 2014; Ulrich Müller <ulm@gentoo.org> -bongo-20090713.ebuild:
+  Remove old.
+
+*bongo-20110621 (05 Apr 2013)
+
+  05 Apr 2013; Ulrich Müller <ulm@gentoo.org> -bongo-20070619-r2.ebuild,
+  bongo-20090713.ebuild, +bongo-20110621.ebuild,
+  +files/bongo-20110621-texinfo-5.patch:
+  Version bump. Fix build failure with texinfo-5.1, bug 464678. Remove old.
 
 *bongo-20090713 (16 Oct 2009)
 

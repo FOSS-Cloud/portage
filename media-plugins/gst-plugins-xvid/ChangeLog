@@ -1,6 +1,30 @@
 # ChangeLog for media-plugins/gst-plugins-xvid
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-xvid/ChangeLog,v 1.26 2013/02/07 13:30:47 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-xvid/ChangeLog,v 1.32 2013/08/27 19:29:44 aballier Exp $
+
+  27 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  gst-plugins-xvid-0.10.23.ebuild:
+  keyword ~amd64-fbsd
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-xvid-0.10.23.ebuild:
+  Stable for sparc, wrt bug #458994
+
+  30 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-xvid-0.10.23.ebuild:
+  Stable for alpha, wrt bug #458994
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-xvid-0.10.23.ebuild:
+  Stable for ia64, wrt bug #458994
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-xvid-0.10.23.ebuild:
+  Stable for arm, wrt bug #458994
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gst-plugins-xvid-0.10.22.ebuild:
+  Clean up old revisions.
 
   07 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
   gst-plugins-xvid-0.10.23.ebuild:

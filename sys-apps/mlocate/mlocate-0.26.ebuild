@@ -1,9 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/mlocate/mlocate-0.26.ebuild,v 1.1 2012/11/12 13:07:30 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/mlocate/mlocate-0.26.ebuild,v 1.12 2013/09/05 05:14:13 vapier Exp $
 
 EAPI=4
-inherit eutils user
+inherit eutils user toolchain-funcs
 
 DESCRIPTION="Merging locate is an utility to index and quickly search for files"
 HOMEPAGE="https://fedorahosted.org/mlocate/"
@@ -11,7 +11,7 @@ SRC_URI="https://fedorahosted.org/releases/m/l/mlocate/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 IUSE="nls selinux"
 
 RDEPEND="!sys-apps/slocate
@@ -30,7 +30,7 @@ src_configure() {
 }
 
 src_compile() {
-	emake groupname=locate
+	emake groupname=locate AR="$(tc-getAR)"
 }
 
 src_install() {

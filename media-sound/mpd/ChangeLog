@@ -1,6 +1,150 @@
 # ChangeLog for media-sound/mpd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/mpd/ChangeLog,v 1.304 2013/02/16 08:00:54 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/mpd/ChangeLog,v 1.340 2014/03/30 07:45:26 angelos Exp $
+
+  30 Mar 2014; Christoph Mende <angelos@gentoo.org> files/mpd.init:
+  Add --wait to init script to catch errors on startup
+
+  22 Mar 2014; Christoph Mende <angelos@gentoo.org>
+  -files/mpd-0.17.4-mikmod-crash.patch, -mpd-0.17.4-r2.ebuild,
+  -mpd-0.18.4.ebuild, -mpd-0.18.5.ebuild, -mpd-0.18.7.ebuild,
+  files/mpd.logrotate:
+  Remove old, fix init script when running mpd under a different user (bug
+  #497854)
+
+*mpd-0.18.9 (09 Mar 2014)
+
+  09 Mar 2014; Tim Harder <radhermit@gentoo.org> +mpd-0.18.9.ebuild:
+  Version bump.
+
+*mpd-0.18.8 (07 Feb 2014)
+
+  07 Feb 2014; Tim Harder <radhermit@gentoo.org> +mpd-0.18.8.ebuild:
+  Version bump. Fix conditional opus support (bug #498926).
+
+*mpd-0.18.7 (05 Feb 2014)
+
+  05 Feb 2014; Tim Harder <radhermit@gentoo.org> +mpd-0.18.7.ebuild:
+  Version bump (bug #499340).
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> mpd-0.18.5.ebuild:
+  add ~arm, bug #489962
+
+  25 Dec 2013; Markus Meier <maekke@gentoo.org> mpd-0.17.6.ebuild:
+  arm stable, bug #494196
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mpd-0.17.6.ebuild:
+  Stable for sparc, wrt bug #494196
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> mpd-0.17.6.ebuild:
+  amd64 stable, bug #494196
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mpd-0.17.6.ebuild:
+  Stable for ppc64, wrt bug #494196
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> mpd-0.17.6.ebuild:
+  Stable for ppc, wrt bug #494196
+
+  15 Dec 2013; Johannes Huber <johu@gentoo.org> mpd-0.17.6.ebuild:
+  x86 stable, bug #494196
+
+  14 Dec 2013; Jeroen Roovers <jer@gentoo.org> mpd-0.17.6.ebuild:
+  Stable for HPPA (bug #494196).
+
+*mpd-0.18.5 (13 Dec 2013)
+
+  13 Dec 2013; Christoph Mende <angelos@gentoo.org> +mpd-0.18.5.ebuild,
+  -mpd-0.18.3.ebuild:
+  Version bump, remove old
+
+  17 Nov 2013; Christoph Mende <angelos@gentoo.org> mpd-0.18.3.ebuild,
+  mpd-0.18.4.ebuild:
+  Add missing libmpdclient dependency (bug #491400)
+
+*mpd-0.18.4 (13 Nov 2013)
+
+  13 Nov 2013; Christoph Mende <angelos@gentoo.org> +mpd-0.18.4.ebuild,
+  -mpd-0.17.5.ebuild:
+  Version bump, remove old
+
+*mpd-0.18.3 (08 Nov 2013)
+
+  08 Nov 2013; Christoph Mende <angelos@gentoo.org> +mpd-0.18.3.ebuild,
+  -mpd-0.18.ebuild:
+  Version bump, remove old
+
+  01 Nov 2013; Jeroen Roovers <jer@gentoo.org> mpd-0.18.ebuild:
+  Marked ~hppa (bug #489962).
+
+*mpd-0.18 (31 Oct 2013)
+*mpd-0.17.6 (31 Oct 2013)
+
+  31 Oct 2013; Christoph Mende <angelos@gentoo.org> +mpd-0.17.6.ebuild,
+  +mpd-0.18.ebuild, -mpd-0.16.8.ebuild, -mpd-0.17.3.ebuild, -mpd-0.17.4.ebuild,
+  metadata.xml:
+  Version bump, remove old
+
+*mpd-0.17.5 (12 Sep 2013)
+
+  12 Sep 2013;  <christoph@gentoo.org> +mpd-0.17.5.ebuild, metadata.xml:
+  Version bump, rename aac USE flag to faad (bug #476604)
+
+  07 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  files/mpd-0.17.4-ffmpeg2.patch:
+  Add a note about upstream status
+
+  06 Aug 2013; Alexis Ballier <aballier@gentoo.org> mpd-0.17.4-r2.ebuild,
+  +files/mpd-0.17.4-ffmpeg2.patch:
+  Fix build with ffmpeg 2.0
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mpd-0.17.4-r2.ebuild:
+  Stable for ppc64, wrt bug #469472
+
+  02 Jul 2013; Jeroen Roovers <jer@gentoo.org> files/mpd.init:
+  Whitespace.
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mpd-0.17.4-r2.ebuild:
+  Stable for sh, wrt bug #469472
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> mpd-0.17.4-r2.ebuild:
+  Stable for sparc, wrt bug #469472
+
+  19 May 2013; Christoph Mende <angelos@gentoo.org> files/mpd.init:
+  Fix typo in init script (bug #470010)
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> mpd-0.17.4-r2.ebuild:
+  Stable for ppc, wrt bug #469472
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> mpd-0.17.4-r2.ebuild:
+  Stable for arm, wrt bug #469472
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> mpd-0.17.4-r2.ebuild:
+  Stable for x86, wrt bug #469472
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> mpd-0.17.4-r2.ebuild:
+  Stable for amd64, wrt bug #469472
+
+  13 May 2013; Jeroen Roovers <jer@gentoo.org> mpd-0.17.4-r2.ebuild:
+  Stable for HPPA (bug #469472).
+
+*mpd-0.17.4-r2 (10 Apr 2013)
+
+  10 Apr 2013; Christoph Mende <angelos@gentoo.org> +files/mpd.logrotate,
+  +mpd-0.17.4-r2.ebuild, -mpd-0.17.4-r1.ebuild, mpd-0.17.4.ebuild:
+  Add logrotate file (bug #337511)
+
+*mpd-0.17.4-r1 (10 Apr 2013)
+
+  10 Apr 2013; Christoph Mende <angelos@gentoo.org>
+  +files/mpd-0.17.4-mikmod-crash.patch, +mpd-0.17.4-r1.ebuild,
+  mpd-0.17.4.ebuild:
+  Fix segfault when trying to parse mod files with mikmod (bug #453928)
+
+*mpd-0.17.4 (09 Apr 2013)
+
+  09 Apr 2013; Christoph Mende <angelos@gentoo.org> +mpd-0.17.4.ebuild,
+  -mpd-0.17.1.ebuild, -mpd-0.17.2.ebuild:
+  Version bump, remove old
 
   16 Feb 2013; Pacho Ramos <pacho@gentoo.org> mpd-0.17.3.ebuild:
   Don't show elog messages always (#457596)

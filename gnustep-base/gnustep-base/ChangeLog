@@ -1,6 +1,35 @@
 # ChangeLog for gnustep-base/gnustep-base
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnustep-base/gnustep-base/ChangeLog,v 1.116 2012/12/28 23:52:25 voyageur Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnustep-base/gnustep-base/ChangeLog,v 1.121 2014/01/29 15:11:24 voyageur Exp $
+
+*gnustep-base-1.24.6 (29 Jan 2014)
+
+  29 Jan 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +gnustep-base-1.24.6.ebuild:
+  Version bump, drop postinst message (use @preserved-rebuild now)
+
+*gnustep-base-1.24.5 (26 Sep 2013)
+
+  26 Sep 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  +gnustep-base-1.24.5.ebuild:
+  Version bump
+
+*gnustep-base-1.24.4 (24 Apr 2013)
+
+  24 Apr 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  +gnustep-base-1.24.4.ebuild:
+  Version bump, minor bugfixes
+
+*gnustep-base-1.24.3 (08 Mar 2013)
+
+  08 Mar 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  +gnustep-base-1.24.3.ebuild:
+  Version bump, adds new implementations for XML, TLS/SSL, and sorting
+  algorithms
+
+  05 Mar 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  gnustep-base-1.24.0-r1.ebuild:
+  Use EAPI 5 and icu subslot, bug #455900
 
   28 Dec 2012; Bernard Cafarelli <voyageur@gentoo.org>
   gnustep-base-1.24.0-r1.ebuild,

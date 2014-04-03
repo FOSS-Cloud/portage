@@ -1,6 +1,39 @@
 # ChangeLog for dev-libs/mini-xml
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/mini-xml/ChangeLog,v 1.25 2013/02/18 19:14:46 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/mini-xml/ChangeLog,v 1.34 2014/03/27 11:59:29 nimiux Exp $
+
+  27 Mar 2014; Chema Alonso <nimiux@gentoo.org> mini-xml-2.8.ebuild:
+  Stable for amd64 wrt bug #502724
+
+  01 Feb 2014; Steev Klimaszewski <steev@gentoo.org> mini-xml-2.8.ebuild:
+  Add ~arm keyword. Tested by aholler on armv5
+
+*mini-xml-2.8 (20 Jan 2014)
+
+  20 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> +mini-xml-2.8.ebuild:
+  Version bump.
+
+  26 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -mini-xml-2.2.1.ebuild, -files/mini-xml-2.2.1-nostrip-flags.patch,
+  -mini-xml-2.6.ebuild, -mini-xml-2.7.ebuild:
+  Remove old
+
+  26 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  mini-xml-2.7-r1.ebuild:
+  Update SRC_URI
+
+  26 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org> mini-xml-2.2.1.ebuild,
+  mini-xml-2.6.ebuild, mini-xml-2.7.ebuild:
+  Update HOMEPAGE
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mini-xml-2.7-r1.ebuild:
+  Stable for ppc, wrt bug #463038
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mini-xml-2.7-r1.ebuild:
+  Stable for x86, wrt bug #463038
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mini-xml-2.7-r1.ebuild:
+  Stable for amd64, wrt bug #463038
 
 *mini-xml-2.7-r1 (18 Feb 2013)
 

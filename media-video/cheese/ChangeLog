@@ -1,6 +1,57 @@
 # ChangeLog for media-video/cheese
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/cheese/ChangeLog,v 1.68 2013/02/02 22:59:02 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/cheese/ChangeLog,v 1.80 2014/03/09 12:02:40 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> cheese-3.10.2.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> cheese-3.10.2.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> cheese-3.10.2.ebuild:
+  Fix wrong commit, bug 502160
+
+*cheese-3.10.2 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +cheese-3.10.2.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> cheese-3.8.3.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> cheese-3.8.3.ebuild:
+  amd64 stable, bug #478252
+
+  25 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> -cheese-3.6.2.ebuild,
+  -cheese-3.8.2.ebuild, cheese-3.8.3.ebuild:
+  Add vala to DEPEND, bug #482416. Remove old revisions.
+
+  01 Aug 2013; Alexandre Rostovtsev <tetromino@gentoo.org> cheese-3.8.2.ebuild,
+  cheese-3.8.3.ebuild:
+  Depend on >=clutter-gst-2.0.6 to avoid GLSL errors (bug #478702, thanks to
+  Jan Vesely).
+
+*cheese-3.8.3 (20 Jul 2013)
+
+  20 Jul 2013; Pacho Ramos <pacho@gentoo.org> +cheese-3.8.3.ebuild,
+  -cheese-3.8.1.ebuild:
+  Version bump, drop old
+
+*cheese-3.8.2 (14 May 2013)
+
+  14 May 2013; Pacho Ramos <pacho@gentoo.org> +cheese-3.8.2.ebuild,
+  -cheese-3.4.2.ebuild, -cheese-3.8.0.ebuild:
+  Version bump, drop old
+
+*cheese-3.8.1 (16 Apr 2013)
+
+  16 Apr 2013; Pacho Ramos <pacho@gentoo.org> +cheese-3.8.1.ebuild:
+  Version bump
+
+*cheese-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +cheese-3.8.0.ebuild:
+  Version bump for Gnome 3.8
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> cheese-3.6.2.ebuild:
   Add ~arm, wrt bug #449220

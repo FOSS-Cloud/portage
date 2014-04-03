@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/erlang/erlang-15.2.3.1.ebuild,v 1.2 2012/12/31 09:34:54 djc Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/erlang/erlang-15.2.3.1.ebuild,v 1.9 2013/11/16 08:54:30 dirtyepic Exp $
 
 EAPI=3
 WX_GTK_VER="2.8"
@@ -29,7 +29,7 @@ SRC_URI="http://www.erlang.org/download/${MY_P}-${ERL_VER[3]}.tar.gz
 
 LICENSE="ErlPL-1.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris"
+KEYWORDS="alpha amd64 ~arm ~ia64 ppc ppc64 sparc x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris"
 IUSE="compat-ethread doc emacs halfword hipe java kpoll odbc smp sctp ssl tk wxwidgets"
 
 RDEPEND=">=dev-lang/perl-5.6.1
@@ -38,7 +38,7 @@ RDEPEND=">=dev-lang/perl-5.6.1
 	java? ( >=virtual/jdk-1.2 )
 	odbc? ( dev-db/unixODBC )"
 DEPEND="${RDEPEND}
-	wxwidgets? ( x11-libs/wxGTK:2.8[opengl] virtual/glu )
+	wxwidgets? ( x11-libs/wxGTK:2.8[X,opengl] virtual/glu )
 	sctp? ( net-misc/lksctp-tools )
 	tk? ( dev-lang/tk )"
 
@@ -47,7 +47,6 @@ S="${WORKDIR}/${MY_P}"
 SITEFILE=50${PN}-gentoo.el
 
 pkg_setup() {
-	use wxwidgets && wxwidgets_pkg_setup
 	if use halfword ; then
 		use amd64 || die "halfword support is limited to amd64"
 	fi

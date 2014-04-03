@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/mozldap/mozldap-6.0.6-r2.ebuild,v 1.3 2012/07/11 18:16:29 lxnay Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/mozldap/mozldap-6.0.6-r2.ebuild,v 1.4 2013/03/14 17:08:10 lxnay Exp $
 
 EAPI="2"
 
@@ -51,7 +51,6 @@ src_configure() {
 
 src_install () {
 	# Their build system is royally fucked, as usual
-	cd "${S}"
 	sed -e "s,%libdir%,\$\{exec_prefix\}/$(get_libdir)/${PN},g" \
 	    -e "s,%prefix%,/usr,g" \
 	    -e "s,%major%,$(get_major_version ${PV}),g" \

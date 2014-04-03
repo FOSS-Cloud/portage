@@ -1,6 +1,59 @@
 # ChangeLog for media-libs/libwmf
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libwmf/ChangeLog,v 1.83 2012/05/12 06:59:58 pacho Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libwmf/ChangeLog,v 1.99 2013/10/13 14:55:58 pacho Exp $
+
+  13 Oct 2013; Pacho Ramos <pacho@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Drop unneeded dependencies (#483260 and fedora .spec file)
+
+  03 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Add gdk-pixbuf cache handling via gnome2-utils eclass, see bug #483128.
+
+  02 Jul 2013; Michael Palimaka <kensington@gentoo.org>
+  -libwmf-0.2.8.4-r4.ebuild:
+  Remove old.
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for sh, wrt bug #474248
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for s390, wrt bug #474248
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for sparc, wrt bug #474248
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for arm, wrt bug #474248
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for ia64, wrt bug #474248
+
+  26 Jun 2013; Justin Lecher <jlec@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Drop la files from modules, #474830
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for alpha, wrt bug #474248
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for amd64, wrt bug #474248
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for x86, wrt bug #474248
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for ppc64, wrt bug #474248
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for ppc, wrt bug #474248
+
+  23 Jun 2013; Jeroen Roovers <jer@gentoo.org> libwmf-0.2.8.4-r5.ebuild:
+  Stable for HPPA (bug #474248).
+
+*libwmf-0.2.8.4-r5 (04 May 2013)
+
+  04 May 2013; Justin Lecher <jlec@gentoo.org> +libwmf-0.2.8.4-r5.ebuild,
+  metadata.xml:
+  Fix obsolete macros to work with automake-1.13, #467462; move to
+  autotools-utils.eclass
 
   12 May 2012; Pacho Ramos <pacho@gentoo.org> libwmf-0.2.8.4-r4.ebuild:
   Fix typo, move from 'disable' to 'without' configure option, bug #415293 by

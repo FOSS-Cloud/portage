@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/akonadi-social-utils/akonadi-social-utils-0_p20120827.ebuild,v 1.1 2012/08/27 14:14:45 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-misc/akonadi-social-utils/akonadi-social-utils-0_p20120827.ebuild,v 1.3 2014/03/20 21:47:24 johu Exp $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep kdepimlibs semantic-desktop)
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop(+)')
 	dev-libs/qjson
 "
 DEPEND="

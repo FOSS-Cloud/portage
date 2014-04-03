@@ -1,6 +1,39 @@
 # ChangeLog for dev-util/bsdiff
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/bsdiff/ChangeLog,v 1.36 2011/12/18 19:44:59 phajdan.jr Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/bsdiff/ChangeLog,v 1.46 2013/06/29 16:19:22 ago Exp $
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bsdiff-4.3-r3.ebuild:
+  Stable for sparc, wrt bug #473558
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bsdiff-4.3-r3.ebuild:
+  Stable for ia64, wrt bug #473558
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bsdiff-4.3-r3.ebuild:
+  Stable for alpha, wrt bug #473558
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bsdiff-4.3-r3.ebuild:
+  Stable for ppc, wrt bug #473558
+
+  19 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> bsdiff-4.3-r3.ebuild:
+  Add ~arm keyword
+
+  17 Jun 2013; Mikle Kolyada <zlogene@gentoo.org> bsdiff-4.3-r3.ebuild:
+  x86 stable wrt bug #473558
+
+  17 Jun 2013; Jeroen Roovers <jer@gentoo.org> bsdiff-4.3-r3.ebuild:
+  Stable for HPPA (bug #473558).
+
+  17 Jun 2013; Mikle Kolyada <zlogene@gentoo.org> bsdiff-4.3-r3.ebuild:
+  amd64 stable wrt bug #473558
+
+*bsdiff-4.3-r3 (17 Jun 2013)
+
+  17 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> +bsdiff-4.3-r3.ebuild,
+  metadata.xml:
+  Revision bump: EAPI 5, add epatch_user, assign myself as maintainer
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due #122207
 
   18 Dec 2011; Pawel Hajdan jr <phajdan.jr@gentoo.org> bsdiff-4.3-r2.ebuild:
   x86 stable wrt bug #393707
@@ -130,4 +163,3 @@
   15 Nov 2003; Seemant Kulleen <seemant@gentoo.org> bsdiff-4.1.ebuild:
   binary suffix diff'er tool from FreeBSD. Ebuild submitted by: Brian Harring
   <bdharring@wisc.edu> in bug #33100
-

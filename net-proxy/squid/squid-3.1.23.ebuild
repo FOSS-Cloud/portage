@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/squid/squid-3.1.23.ebuild,v 1.1 2013/01/11 15:25:49 eras Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/squid/squid-3.1.23.ebuild,v 1.11 2013/03/09 19:07:42 ago Exp $
 
 EAPI=4
 inherit eutils pam toolchain-funcs autotools linux-info user
@@ -11,7 +11,7 @@ SRC_URI="http://www.squid-cache.org/Versions/v3/3.1/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd"
 IUSE="caps ipv6 pam ldap samba sasl kerberos nis radius ssl snmp selinux logrotate test \
 	ecap icap-client \
 	mysql postgres sqlite \
@@ -38,7 +38,8 @@ RDEPEND="${COMMON_DEPEND}
 	samba? ( net-fs/samba )
 	mysql? ( dev-perl/DBD-mysql )
 	postgres? ( dev-perl/DBD-Pg )
-	sqlite? ( dev-perl/DBD-SQLite )"
+	sqlite? ( dev-perl/DBD-SQLite )
+	!<=sci-biology/meme-4.8.1-r1"
 
 REQUIRED_USE="tproxy? ( caps )"
 

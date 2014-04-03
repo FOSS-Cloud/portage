@@ -1,6 +1,28 @@
 # ChangeLog for net-analyzer/tptest
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/tptest/ChangeLog,v 1.12 2010/09/20 18:32:35 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/tptest/ChangeLog,v 1.18 2013/10/26 20:06:15 pinkbyte Exp $
+
+  26 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> -tptest-3.1.7.ebuild:
+  Drop old vulnerable revision, wrt bug #261191
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> tptest-3.1.7-r2.ebuild:
+  Stable for sparc, wrt bug #261191
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> tptest-3.1.7-r2.ebuild:
+  Stable for ppc, wrt bug #261191
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> tptest-3.1.7-r2.ebuild:
+  Stable for x86, wrt bug #261191
+
+  05 Oct 2013; Agostino Sarubbo <ago@gentoo.org> tptest-3.1.7-r2.ebuild:
+  Stable for amd64, wrt bug #261191
+
+*tptest-3.1.7-r2 (04 Oct 2013)
+
+  04 Oct 2013; Chris Reffett <creffett@gentoo.org>
+  +files/tptest-3.1.7-getstatsfromlinevuln.patch, +tptest-3.1.7-r2.ebuild,
+  -tptest-3.1.7-r1.ebuild:
+  Security bump wrt bug 261191
 
 *tptest-3.1.7-r1 (20 Sep 2010)
 

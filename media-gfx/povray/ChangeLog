@@ -1,6 +1,57 @@
 # ChangeLog for media-gfx/povray
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/povray/ChangeLog,v 1.141 2012/12/30 16:34:56 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/povray/ChangeLog,v 1.154 2014/02/24 01:44:21 phajdan.jr Exp $
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> povray-3.7.0.0.ebuild:
+  x86 stable wrt bug #497970
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> povray-3.7.0.0.ebuild:
+  amd64 stable, bug #497970
+
+  13 Jan 2014; Jeroen Roovers <jer@gentoo.org> povray-3.7.0.0.ebuild:
+  Stable for HPPA (bug #497970).
+
+  26 Dec 2013; Patrick Lauer <patrick@gentoo.org> povray-3.7.0.0.ebuild:
+  Whitespace
+
+*povray-3.7.0.0 (26 Dec 2013)
+
+  26 Dec 2013; Justin Lecher <jlec@gentoo.org> +povray-3.7.0.0.ebuild,
+  +files/povray-3.7.0.0-automagic.patch,
+  +files/povray-3.7.0.0-boost-1.50.patch,
+  +files/povray-3.7.0.0-user-conf.patch, metadata.xml:
+  Version BUmp
+
+  26 Dec 2013; Justin Lecher <jlec@gentoo.org> povray-3.7.0_rc3.ebuild:
+  Backport fix for boost 1.5*, #494322
+
+  21 Oct 2013; Fabian Groffen <grobian@gentoo.org> povray-3.7.0_rc7.ebuild:
+  Marked ~x64-macos, bug #486818
+
+  09 Jul 2013; Justin Lecher <jlec@gentoo.org> povray-3.7.0_rc7.ebuild:
+  Add subslot for boost
+
+  29 Apr 2013; Christoph Junghans <ottxor@gentoo.org> povray-3.7.0_rc7.ebuild:
+  added ~arm (tested by me)
+
+*povray-3.7.0_rc7 (14 Mar 2013)
+
+  14 Mar 2013; Justin Lecher <jlec@gentoo.org> +povray-3.7.0_rc7.ebuild,
+  +files/povray-3.7.0_rc7-boost-1.50.patch,
+  +files/povray-3.7.0_rc7-user-conf.patch, metadata.xml:
+  Version Bump; fixes compilation problems with boost, #461542
+
+  05 Mar 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/povray-3.7.0_rc6-darwin-defaults.patch, povray-3.7.0_rc3.ebuild,
+  povray-3.7.0_rc6.ebuild:
+  added support for darwin
+
+  04 Mar 2013; Christoph Junghans <ottxor@gentoo.org>
+  -povray-3.7.0_rc5-r1.ebuild, povray-3.7.0_rc3.ebuild:
+  fixed build with boost-1.52 (bug #460238), also broken intermediate version
+
+  02 Mar 2013; Christoph Junghans <ottxor@gentoo.org> povray-3.7.0_rc6.ebuild:
+  added epatch_user to src_prepare
 
   30 Dec 2012; Raúl Porcel <armin76@gentoo.org> povray-3.7.0_rc5-r1.ebuild,
   povray-3.7.0_rc6.ebuild:

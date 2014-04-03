@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-simulation/singularity/singularity-0.30c.ebuild,v 1.4 2013/02/07 22:16:13 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-simulation/singularity/singularity-0.30c.ebuild,v 1.6 2013/06/29 17:00:40 slyfox Exp $
 
 EAPI=2
 inherit eutils games
@@ -16,7 +16,9 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="+music"
 
-RDEPEND="dev-python/pygame
+RDEPEND="=dev-lang/python-2*
+	dev-python/pygame
+	dev-python/numpy
 	media-libs/sdl-mixer[vorbis]"
 DEPEND="${RDEPEND}
 	app-arch/unzip"
@@ -31,7 +33,8 @@ src_install() {
 	if use music ; then
 		doins -r ../${MUSIC}/music || die "doins failed"
 	fi
-	games_make_wrapper ${PN} "python ${PN}.py" "${GAMES_DATADIR}/${PN}"
+	# uses python-2 style exceptions
+	games_make_wrapper ${PN} "python2 ${PN}.py" "${GAMES_DATADIR}/${PN}"
 	dodoc README.txt TODO Changelog AUTHORS
 	prepgamesdirs
 }

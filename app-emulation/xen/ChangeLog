@@ -1,6 +1,256 @@
 # ChangeLog for app-emulation/xen
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/ChangeLog,v 1.112 2013/02/27 08:03:21 idella4 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/ChangeLog,v 1.157 2014/03/23 03:23:43 idella4 Exp $
+
+  23 Mar 2014; Ian Delaney <idella4@gentoo.org>
+  Keyworded ~arm, this release provides broad support for the
+  arm arch, update efi patch, py2.6 support dropped (as of 4.3.2),
+  switch to git-2 eclass
+
+*xen-4.4.0 (23 Mar 2014)
+
+  23 Mar 2014; Yixun Lan <dlan@gentoo.org> +xen-4.4.0.ebuild,
+  +files/xen-4.4-efi.patch:
+  bump to 4.4.0
+
+  21 Feb 2014; Ian Delaney <idella4@gentoo.org> xen-4.2.3.ebuild,
+  xen-4.2.4.ebuild, xen-4.3.2.ebuild:
+  correct typos, tidy
+
+  20 Feb 2014; Yixun Lan <dlan@gentoo.org> -xen-4.2.2-r1.ebuild,
+  -xen-4.2.2-r4.ebuild, -xen-4.3.1-r1.ebuild, -xen-4.3.1-r4.ebuild:
+  clean old versions
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> xen-4.2.3.ebuild:
+  Stable for x86, wrt bug #500528
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> xen-4.2.3.ebuild:
+  Stable for amd64, wrt bug #500528
+
+*xen-4.3.2 (19 Feb 2014)
+*xen-4.2.4 (19 Feb 2014)
+
+  19 Feb 2014; Yixun Lan <dlan@gentoo.org> +xen-4.2.4.ebuild,
+  +xen-4.3.2.ebuild, metadata.xml:
+  revision bump 4.2.4, 4.3.2
+
+  16 Feb 2014; Agostino Sarubbo <ago@gentoo.org> xen-4.3.1-r5.ebuild:
+  Stable for amd64, wrt bug #500528
+
+*xen-4.2.3 (14 Feb 2014)
+
+  14 Feb 2014; Yixun Lan <dlan@gentoo.org> +xen-4.2.3.ebuild:
+  bumped, fix security bugs, see #500530 for details
+
+  12 Feb 2014; Tobias Heinlein <keytoaster@gentoo.org>
+  +files/xen-4.2-XSA-84.patch, +files/xen-4.2-XSA-85.patch, xen-4.2.2-r4.ebuild:
+  Commit missing patches for Xen 4.2.
+
+*xen-4.3.1-r4 (07 Feb 2014)
+
+  07 Feb 2014; Ian Delaney <idella4@gentoo.org> +xen-4.3.1-r4.ebuild:
+  Returned xen-4.3.1-r4.ebuild, sheduled for probable stablising soon
+
+*xen-4.3.1-r5 (07 Feb 2014)
+*xen-4.2.2-r4 (07 Feb 2014)
+
+  07 Feb 2014; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4.3-CVE-2014-263-XSA-84-85.patch, +xen-4.2.2-r4.ebuild,
+  +xen-4.3.1-r5.ebuild, -xen-4.2.2-r3.ebuild, -xen-4.3.1-r4.ebuild:
+  revbumps; Sec patches XSA 84, 85 added wrt Sec. Bugs #500536, 500528, rm old
+
+  24 Jan 2014; Yixun Lan <dlan@gentoo.org> -xen-4.2.2-r2.ebuild,
+  -xen-4.3.0-r5.ebuild, -xen-4.3.0-r6.ebuild, -xen-4.3.1-r2.ebuild,
+  -xen-4.3.1-r3.ebuild:
+  clean 4.3.0, and unstable ones
+
+*xen-4.3.1-r4 (24 Jan 2014)
+*xen-4.2.2-r3 (24 Jan 2014)
+
+  24 Jan 2014; Yixun Lan <dlan@gentoo.org> +xen-4.2.2-r3.ebuild,
+  +xen-4.3.1-r4.ebuild, +files/xen-4-XSA-83.patch, +files/xen-4.2-XSA-87.patch,
+  +files/xen-4.3-XSA-87.patch:
+  fix security bugs #499054, #499124
+
+*xen-4.2.2-r2 (17 Jan 2014)
+
+  17 Jan 2014; Yixun Lan <dlan@gentoo.org> +xen-4.2.2-r2.ebuild,
+  +files/xen-4.2-CVE-2013-4553-XSA-74.patch:
+  fix security bug #497084, previous missed version 4.2.2
+
+*xen-4.3.1-r3 (06 Jan 2014)
+*xen-4.3.0-r6 (06 Jan 2014)
+
+  06 Jan 2014; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4.3-CVE-2013-4553-XSA-74.patch,
+  +files/xen-CVE-2013-4554-XSA-76.patch, +files/xen-CVE-2013-6400-XSA-80.patch,
+  +xen-4.3.0-r6.ebuild, +xen-4.3.1-r3.ebuild:
+  add new sec patches, revbumps, patches prepared by dlan
+
+  01 Jan 2014; Tom Wijsman <TomWij@gentoo.org>
+  -files/xen-4-CVE-2012-5634-XSA-33.patch,
+  -files/xen-4-CVE-2013-0151-XSA-34_35.patch,
+  -files/xen-4-CVE-2013-0153-XSA-36.patch,
+  -files/xen-4-CVE-2013-0154-XSA-37.patch,
+  -files/xen-4-CVE-2013-1917-XSA-44.patch:
+  [QA] Remove unused files.
+
+  31 Dec 2013; Ian Delaney <idella4@gentoo.org> xen-4.3.0-r5.ebuild,
+  xen-4.3.1-r1.ebuild, xen-4.3.1-r2.ebuild:
+  After some further 'discussion', stabalised version corrected to resolve
+  residual QA issues, other ebuilds updated to follow suit
+
+*xen-4.3.1-r2 (16 Dec 2013)
+*xen-4.3.0-r5 (16 Dec 2013)
+
+  16 Dec 2013; Ian Delaney <idella4@gentoo.org> +xen-4.3.0-r5.ebuild,
+  +xen-4.3.1-r2.ebuild, -xen-4.3.0-r4.ebuild, metadata.xml:
+  KEYWORDS.dropped, x86, along with IUSE pae, in 4.3.x, wrt Bug #493944
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xen-4.3.1-r1.ebuild:
+  Stable for x86, wrt bug #486354
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xen-4.3.1-r1.ebuild:
+  Stable for amd64, wrt bug #486354
+
+*xen-4.3.0-r4 (06 Dec 2013)
+*xen-4.3.1-r1 (06 Dec 2013)
+
+  06 Dec 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-CVE-2013-6885-XSA-82.patch, +xen-4.3.0-r4.ebuild,
+  +xen-4.3.1-r1.ebuild, -xen-4.3.0-r3.ebuild, -xen-4.3.1.ebuild:
+  revbumps; add sec XSA-82.patch, remove old
+
+*xen-4.3.1 (24 Nov 2013)
+
+  24 Nov 2013; Ian Delaney <idella4@gentoo.org> +xen-4.3.1.ebuild:
+  bump
+
+*xen-4.3.0-r3 (22 Nov 2013)
+
+  22 Nov 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4.3-CVE-2013-6375-XSA-75.patch,
+  +files/xen-CVE-2013-6375-XSA-78.patch, +xen-4.3.0-r3.ebuild,
+  -xen-4.3.0-r1.ebuild, -xen-4.3.0-r2.ebuild, -xen-4.3.0.ebuild:
+  Adding more security patches to 4.3.0 from Bug #486354, drop old
+
+*xen-4.3.0-r2 (06 Nov 2013)
+
+  06 Nov 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-CVE-2013-4368-XSA-67.patch, +files/xen-CVE-2013-4375-XSA-71.patch,
+  +files/xen-CVE-2013-4494-XSA-73.patch, +xen-4.3.0-r2.ebuild,
+  xen-4.2.2-r1.ebuild, xen-4.3.0-r1.ebuild:
+  Adding more security patches to 4.3.0 from Bug #486354, 4.2.2 excluded again
+  for now
+
+  04 Oct 2013; Ian Delaney <idella4@gentoo.org> -xen-4.2.1-r4.ebuild:
+  remove old
+
+*xen-4.3.0-r1 (02 Oct 2013)
+
+  02 Oct 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-CVE-2013-1442-XSA-62.patch, +files/xen-CVE-2013-4355-XSA-63.patch,
+  +files/xen-CVE-2013-4356-XSA-64.patch, +files/xen-CVE-2013-4361-XSA-66.patch,
+  +xen-4.3.0-r1.ebuild:
+  Adding security patches to 4.3.0 from Bug #486354, 4.2.2 excluded (for now)
+  due to one sec. patch failing
+
+  28 Jul 2013; Jonathan Callen <jcallen@gentoo.org> xen-4.2.1-r4.ebuild,
+  xen-4.2.2-r1.ebuild, xen-4.3.0.ebuild:
+  Fix dependencies, add REQUIRED_USE, add missing eutils inherit (was inherited
+  indirectly)
+
+*xen-4.3.0 (21 Jul 2013)
+
+  21 Jul 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4.3-fix_dotconfig-gcc.patch, +xen-4.3.0.ebuild:
+  bump; Removed py2.6 by discretion, added upgraded patch, all sec patches
+  dropped (now inc. in source)
+
+  03 Jul 2013; Ian Delaney <idella4@gentoo.org> -xen-4.2.1-r3.ebuild,
+  -xen-4.2.2.ebuild:
+  remove old unsecure ebuilds wrt Bug 472214
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> xen-4.2.2-r1.ebuild:
+  Stable for x86, wrt bug #472214
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> xen-4.2.2-r1.ebuild:
+  Stable for amd64, wrt bug #472214
+
+  28 Jun 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4.2-CVE-2013-1432-XSA-58.patch, xen-4.2.1-r4.ebuild,
+  xen-4.2.2-r1.ebuild:
+  Add sec patch XSA-58 wrt Bug #472214, refrained from revbump since last 2 are
+  still poised for testing
+
+  27 Jun 2013; Ian Delaney <idella4@gentoo.org> xen-4.2.1-r4.ebuild:
+  correction to pacth name
+
+  26 Jun 2013; Ian Delaney <idella4@gentoo.org>
+  -files/xen-4-CVE-2012-4535-XSA-20.patch,
+  -files/xen-4-CVE-2012-4537-XSA-22.patch,
+  -files/xen-4-CVE-2012-4538-XSA-23.patch,
+  -files/xen-4-CVE-2012-4539-XSA-24.patch,
+  -files/xen-4-CVE-2012-5510-XSA-26.patch,
+  -files/xen-4-CVE-2012-5513-XSA-29.patch,
+  -files/xen-4-CVE-2012-5514-XSA-30.patch,
+  -files/xen-4-CVE-2012-5515-XSA-31.patch,
+  -files/xen-4-CVE-2012-5525-XSA-32.patch,
+  -files/xen-4-CVE-2013-0151-XSA-27_34_35.patch,
+  -files/xen-4-CVE-2013-1920-XSA-47.patch, -files/xen-4.1.1-iommu_sec_fix.patch:
+  drop disused patches
+
+*xen-4.2.1-r4 (26 Jun 2013)
+*xen-4.2.2-r1 (26 Jun 2013)
+
+  26 Jun 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4.2-2013-2076-XSA-52to54.patch, +xen-4.2.1-r4.ebuild,
+  +xen-4.2.2-r1.ebuild, -xen-4.2.0-r1.ebuild, -xen-4.2.0-r2.ebuild,
+  -xen-4.2.1-r1.ebuild, -xen-4.2.1-r2.ebuild:
+  revbump; add security patches XSA-52to54, remove old
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> xen-4.2.1-r3.ebuild:
+  Stable for x86, wrt bug #464724
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> xen-4.2.1-r3.ebuild:
+  Stable for amd64, wrt bug #464724
+
+  15 May 2013; Ian Delaney <idella4@gentoo.org> xen-4.2.1-r1.ebuild,
+  xen-4.2.1-r2.ebuild:
+  Manifests
+
+  15 May 2013; Ian Delaney <idella4@gentoo.org> xen-4.2.1-r1.ebuild,
+  xen-4.2.1-r2.ebuild, xen-4.2.2.ebuild:
+  epatch_user helper added wrt Bug #464052
+
+*xen-4.2.2 (15 May 2013)
+*xen-4.2.1-r3 (15 May 2013)
+
+  15 May 2013; Ian Delaney <idella4@gentoo.org>
+  +files/xen-4-CVE-2013-0153-XSA-36.patch,
+  +files/xen-4-CVE-2013-1917-XSA-44.patch,
+  +files/xen-4-CVE-2013-1918-XSA-45_1.patch,
+  +files/xen-4-CVE-2013-1918-XSA-45_2.patch,
+  +files/xen-4-CVE-2013-1918-XSA-45_3.patch,
+  +files/xen-4-CVE-2013-1918-XSA-45_4.patch,
+  +files/xen-4-CVE-2013-1918-XSA-45_5.patch,
+  +files/xen-4-CVE-2013-1918-XSA-45_6.patch,
+  +files/xen-4-CVE-2013-1918-XSA-45_7.patch,
+  +files/xen-4-CVE-2013-1920-XSA-47.patch, +xen-4.2.1-r3.ebuild,
+  +xen-4.2.2.ebuild, xen-4.2.1-r1.ebuild, xen-4.2.1-r2.ebuild:
+  revbump 4.2.1-r3; updated security patches, bump 4.2.2; updated security
+  patches
+
+  08 Mar 2013; Ian Delaney <idella4@gentoo.org> xen-4.2.0-r2.ebuild,
+  xen-4.2.1-r1.ebuild, xen-4.2.1-r2.ebuild:
+  Deps fixed addressing IUSE efi, fixes Bug #458947 by a.m!, tested by Paul
+  Freeman
+
+  07 Mar 2013; Ian Delaney <idella4@gentoo.org> files/xen-4.2-efi.patch,
+  xen-4.2.1-r2.ebuild:
+  Deps corrected in 4.2.1-r2, patch addressing efi upgraded for newly made efi
+  build, fixes Bug #458926 by Carlos Silva, patched prepared, tested by Paul
+  Freeman
 
   27 Feb 2013; Ian Delaney <idella4@gentoo.org> xen-4.2.0-r2.ebuild,
   xen-4.2.1-r2.ebuild:

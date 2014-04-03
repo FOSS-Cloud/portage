@@ -1,6 +1,35 @@
 # ChangeLog for net-voip/gnugk
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/gnugk/ChangeLog,v 1.9 2010/06/17 20:58:55 patrick Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-voip/gnugk/ChangeLog,v 1.14 2013/12/15 12:23:19 moult Exp $
+
+  15 Dec 2013; Dion Moult <moult@gentoo.org> -gnugk-2.2.7.ebuild,
+  -gnugk-2.2.8.ebuild:
+  <=net-voip/gnugk-2.2.8 removal (pending 11 July 2013), see #290062 and #290063
+  for reference.
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due voip herd removal:
+  http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+*gnugk-3.4 (01 Oct 2013)
+
+  01 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/gnugk-3.4-ptrace.patch, +gnugk-3.4.ebuild:
+  Version bump.
+
+*gnugk-3.3.4 (11 Jul 2013)
+
+  11 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +gnugk-3.3.4.ebuild:
+  Version bump.
+
+*gnugk-3.2.2 (06 Mar 2013)
+
+  06 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/gnugk-3.2.2-h323plus-buildopts.patch,
+  +files/gnugk-3.2.2-lua.cxx-toolkit_h.patch, +files/gnugk-3.2.2-ptrace.patch,
+  +gnugk-3.2.2.ebuild, -gnugk-2.2.5.ebuild, metadata.xml:
+  Version bump. Fixes bug #290067 and security bug #432756.
 
   17 Jun 2010; Patrick Lauer <patrick@gentoo.org> gnugk-2.2.5.ebuild,
   gnugk-2.2.7.ebuild, gnugk-2.2.8.ebuild:
@@ -85,4 +114,3 @@
   metadata.xml, files/gnugk-2.0.6-gentoo.diff, files/gnugk.confd,
   files/gnugk.rc6:
   initial import.
-

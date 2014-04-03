@@ -1,6 +1,41 @@
 # ChangeLog for net-firewall/pglinux
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/pglinux/ChangeLog,v 1.12 2012/12/26 02:09:42 jdhore Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/pglinux/ChangeLog,v 1.19 2014/03/22 19:37:29 nimiux Exp $
+
+  22 Mar 2014; Chema Alonso <nimiux@gentoo.org> pglinux-2.2.4.ebuild:
+  Stable for amd64 wrt bug #502364
+
+  09 Mar 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> pglinux-2.2.4.ebuild:
+  x86 stable wrt bug #502364
+
+*pglinux-2.2.4 (28 Jan 2014)
+
+  28 Jan 2014; Julian Ospald <hasufell@gentoo.org> +pglinux-2.2.4.ebuild:
+  version bump
+
+*pglinux-2.2.3 (02 Nov 2013)
+
+  02 Nov 2013; Julian Ospald <hasufell@gentoo.org> +pglinux-2.2.3.ebuild:
+  version bump
+
+*pglinux-2.2.2-r1 (23 Sep 2013)
+
+  23 Sep 2013; Julian Ospald <hasufell@gentoo.org> +pglinux-2.2.2-r1.ebuild,
+  +files/0-pglinux-2.2.2-gentoo-init.patch,
+  +files/1-pglinux-2.2.2-gentoo-init.patch,
+  +files/pglinux-2.2.2-path-variables.patch,
+  +files/0-pglinux-2.2.2-systemd.patch, +files/1-pglinux-2.2.2-systemd.patch,
+  +files/2-pglinux-2.2.2-systemd.patch, +files/3-pglinux-2.2.2-systemd.patch,
+  +files/4-pglinux-2.2.2-systemd.patch, +files/5-pglinux-2.2.2-systemd.patch,
+  +files/6-pglinux-2.2.2-systemd.patch:
+  add systemd support wrt #485674
+
+  03 May 2013; Julian Ospald <hasufell@gentoo.org> pglinux-2.2.2.ebuild:
+  ensure that empty pgl specific dirs are not removed by PM
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org>
+  pglinux-2.2.1_p20120711.ebuild, pglinux-2.2.2.ebuild:
+  Move Qt dependencies to the new category
 
   26 Dec 2012; Jeff Horelick <jdhore@gentoo.org> pglinux-2.2.2.ebuild:
   marked x86 per bug 448032

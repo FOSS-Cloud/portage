@@ -1,6 +1,20 @@
 # ChangeLog for dev-java/xom
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/xom/ChangeLog,v 1.67 2013/02/05 07:28:53 zerochaos Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/xom/ChangeLog,v 1.71 2014/03/07 23:23:36 pacho Exp $
+
+  07 Mar 2014; Pacho Ramos <pacho@gentoo.org> xom-1.2.10.ebuild:
+  amd64 stable, bug #492020
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> xom-1.2.10.ebuild:
+  x86 stable wrt bug #492020
+
+  28 Jul 2013; Fabian Groffen <grobian@gentoo.org> xom-1.2.10.ebuild:
+  Marked ~x64-macos, bug #435528
+
+*xom-1.2.10 (11 Jul 2013)
+
+  11 Jul 2013; Tom Wijsman <TomWij@gentoo.org> +xom-1.2.10.ebuild:
+  Version bump to 1.2.10.
 
   05 Feb 2013; Rick Farina <zerochaos@gentoo.org> xom-1.2.6-r1.ebuild:
   adding ~arm

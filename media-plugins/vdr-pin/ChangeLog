@@ -1,6 +1,15 @@
 # ChangeLog for media-plugins/vdr-pin
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-pin/ChangeLog,v 1.9 2010/12/02 16:14:05 hd_brummy Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-pin/ChangeLog,v 1.11 2014/02/23 20:37:11 hd_brummy Exp $
+
+  23 Feb 2014; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-pin-0.1.9.ebuild:
+  eapi=5; converted to vdr-plugin-2.eclass
+
+*vdr-pin-0.1.14 (05 Jun 2013)
+
+  05 Jun 2013; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-pin-0.1.14.ebuild,
+  +files/reccmds.pin.conf:
+  bump, need vdr-2.0.2-r1 with adapted extpatchng
 
   02 Dec 2010; Joerg Bornkessel <hd_brummy@gentoo.org>
   -vdr-pin-0.0.20.ebuild, vdr-pin-0.1.9.ebuild, files/vdr-pin-0.1.9.diff:

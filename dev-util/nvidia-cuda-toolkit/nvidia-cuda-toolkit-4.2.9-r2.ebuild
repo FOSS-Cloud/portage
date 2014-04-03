@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/nvidia-cuda-toolkit/nvidia-cuda-toolkit-4.2.9-r2.ebuild,v 1.4 2013/02/08 11:10:43 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/nvidia-cuda-toolkit/nvidia-cuda-toolkit-4.2.9-r2.ebuild,v 1.9 2014/03/31 20:15:43 jer Exp $
 
 EAPI=5
 
@@ -17,7 +17,7 @@ SRC_URI="
 	x86? ( ${CURI}/cudatoolkit_${PV}_linux_32_${DISTRO}.run )"
 
 SLOT="0"
-LICENSE="NVIDIA"
+LICENSE="NVIDIA-CUDA"
 KEYWORDS="-* amd64 x86 ~amd64-linux ~x86-linux"
 IUSE="debugger doc eclipse profiler"
 
@@ -29,6 +29,10 @@ RDEPEND="${DEPEND}
 		sys-devel/gcc:4.6
 		)
 	!<=x11-drivers/nvidia-drivers-270.41
+	|| (
+		>=x11-drivers/nvidia-drivers-331[uvm]
+		<x11-drivers/nvidia-drivers-331
+	)
 	debugger? ( sys-libs/libtermcap-compat )
 	profiler? ( >=virtual/jre-1.6 )"
 
@@ -104,7 +108,7 @@ src_install() {
 	dobin "${T}"/cuda-config
 }
 
-pkg_postinst() {
+pkg_postinst_check() {
 	local a b
 	a="$(version_sort $(cuda-config -s))"; a=( $a )
 	# greatest supported version
@@ -120,5 +124,11 @@ pkg_postinst() {
 			ewarn "--compiler-bindir=${EPREFIX}/usr/*pc-linux-gnu/gcc-bin/gcc${b}"
 			ewarn "to the nvcc compiler flags"
 			echo
+	fi
+}
+
+pkg_postinst() {
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		pkg_postinst_check
 	fi
 }

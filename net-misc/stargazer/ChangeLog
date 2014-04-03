@@ -1,6 +1,16 @@
 # ChangeLog for net-misc/stargazer
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/stargazer/ChangeLog,v 1.2 2013/02/24 19:23:13 tomwij Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/stargazer/ChangeLog,v 1.5 2014/01/08 06:37:14 vapier Exp $
+
+  08 Jan 2014; Mike Frysinger <vapier@gentoo.org> stargazer-2.408.ebuild:
+  Inherit the user eclass for enewuser/etc...
+
+  09 Jul 2013; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Removed myself from metadata.xml to avoid duplication, as I am part of proxy-
+  maintainers herd now.
+
+  03 Mar 2013; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Added the proxy-maintainers herd as requested on the dev ML.
 
   24 Feb 2013; Tom Wijsman <TomWij@gentoo.org> stargazer-2.408.ebuild:
   Corrected USE flag conditionals in pkg_postinst (accidental double negations),

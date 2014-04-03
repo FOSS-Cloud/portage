@@ -1,0 +1,14 @@
+# ChangeLog for dev-haskell/mono-traversable
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/mono-traversable/ChangeLog,v 1.2 2014/03/09 12:52:42 gienah Exp $
+
+*mono-traversable-0.4.0.1 (09 Mar 2014)
+
+  09 Mar 2014; Mark Wright <gienah@gentoo.org> +mono-traversable-0.4.0.1.ebuild:
+  Bump mono-traversable to 0.4.0.1
+
+*mono-traversable-0.1.0.0 (11 Dec 2013)
+
+  11 Dec 2013; Mark Wright <gienah@gentoo.org> +metadata.xml,
+  +mono-traversable-0.1.0.0.ebuild:
+  Add mono-traversable-0.1.0.0

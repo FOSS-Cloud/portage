@@ -1,6 +1,31 @@
 # ChangeLog for app-mobilephone/freesmee
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/freesmee/ChangeLog,v 1.10 2013/01/03 09:21:57 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/freesmee/ChangeLog,v 1.16 2013/06/21 18:46:00 ago Exp $
+
+*freesmee-0.83 (21 Jun 2013)
+
+  21 Jun 2013; Agostino Sarubbo <ago@gentoo.org> +freesmee-0.83.ebuild,
+  -files/freesmee.desktop, -freesmee-0.81.ebuild:
+  Version bump to 0.83. It fixes bug #457966
+
+*freesmee-9999 (21 Jun 2013)
+
+  21 Jun 2013; Agostino Sarubbo <ago@gentoo.org> +freesmee-9999.ebuild:
+  Add a live ebuild
+
+  26 Apr 2013; Agostino Sarubbo <ago@gentoo.org> metadata.xml:
+  Fix metadata.xml
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> -files/freesmee-gcc47.patch,
+  -files/freesmee-qt-4.8.1.patch, -freesmee-0.7-r3.ebuild:
+  Remove old
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> freesmee-0.7-r3.ebuild,
+  freesmee-0.81.ebuild:
+  Move Qt dependencies to the new category
 
   03 Jan 2013; Agostino Sarubbo <ago@gentoo.org> freesmee-0.81.ebuild:
   Add ~ppc, wrt bug #449956

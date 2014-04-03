@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/sysvinit/sysvinit-2.88-r4.ebuild,v 1.11 2013/02/26 14:52:30 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/sysvinit/sysvinit-2.88-r4.ebuild,v 1.20 2014/01/21 01:19:42 vapier Exp $
 
 EAPI="4"
 
@@ -12,11 +12,11 @@ SRC_URI="mirror://nongnu/${PN}/${P}dsf.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 s390 ~sh sparc x86"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 IUSE="selinux ibm static kernel_FreeBSD"
 
 RDEPEND="selinux? ( >=sys-libs/libselinux-1.28 )
-	!<sys-apps/util-linux-2.22"
+	!>=sys-apps/util-linux-2.23"
 DEPEND="${RDEPEND}
 	virtual/os-headers"
 
@@ -38,14 +38,17 @@ src_prepare() {
 	# Mung inittab for specific architectures
 	cd "${WORKDIR}"
 	cp "${FILESDIR}"/inittab-2.87 inittab || die "cp inittab"
-	local insert=""
-	use ppc && insert='#psc0:12345:respawn:/sbin/agetty 115200 ttyPSC0 linux'
-	use arm && insert='#f0:12345:respawn:/sbin/agetty 9600 ttyFB0 vt100'
-	use hppa && insert='b0:12345:respawn:/sbin/agetty 9600 ttyB0 vt100'
-	use s390 && insert='s0:12345:respawn:/sbin/agetty 38400 console'
+	local insert=()
+	use ppc && insert=( '#psc0:12345:respawn:/sbin/agetty 115200 ttyPSC0 linux' )
+	use arm && insert=( '#f0:12345:respawn:/sbin/agetty 9600 ttyFB0 vt100' )
+	use arm64 && insert=( 'f0:12345:respawn:/sbin/agetty 9600 ttyAMA0 vt100' )
+	use hppa && insert=( 'b0:12345:respawn:/sbin/agetty 9600 ttyB0 vt100' )
+	use s390 && insert=( 's0:12345:respawn:/sbin/agetty 38400 console dumb' )
 	if use ibm ; then
-		insert="${insert}#hvc0:2345:respawn:/sbin/agetty -L 9600 hvc0"$'\n'
-		insert="${insert}#hvsi:2345:respawn:/sbin/agetty -L 19200 hvsi0"
+		insert+=(
+			'#hvc0:2345:respawn:/sbin/agetty -L 9600 hvc0'
+			'#hvsi:2345:respawn:/sbin/agetty -L 19200 hvsi0'
+		)
 	fi
 	(use arm || use mips || use sh || use sparc) && sed -i '/ttyS0/s:#::' inittab
 	if use kernel_FreeBSD ; then
@@ -60,7 +63,9 @@ src_prepare() {
 			-e '/ttyS[01]/s:9600:115200:' \
 			inittab
 	fi
-	[[ -n ${insert} ]] && echo "# Architecture specific features"$'\n'"${insert}" >> inittab
+	if [[ ${#insert[@]} -gt 0 ]] ; then
+		printf '%s\n' '' '# Architecture specific features' "${insert[@]}" >> inittab
+	fi
 }
 
 src_compile() {

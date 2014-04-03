@@ -1,6 +1,14 @@
 # ChangeLog for media-sound/vmpk
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/vmpk/ChangeLog,v 1.16 2013/02/15 21:12:32 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/vmpk/ChangeLog,v 1.18 2013/04/18 10:44:24 aballier Exp $
+
+  18 Apr 2013; Alexis Ballier <aballier@gentoo.org> -vmpk-0.4.0.ebuild,
+  -vmpk-0.5.0.ebuild:
+  remove old
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> vmpk-0.4.0.ebuild,
+  vmpk-0.5.0.ebuild, vmpk-0.5.1.ebuild:
+  Move Qt dependencies to the new category
 
 *vmpk-0.5.1 (15 Feb 2013)
 

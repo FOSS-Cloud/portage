@@ -1,6 +1,169 @@
 # ChangeLog for mail-client/thunderbird-bin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/thunderbird-bin/ChangeLog,v 1.103 2013/02/24 11:31:34 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/thunderbird-bin/ChangeLog,v 1.143 2014/03/22 20:17:18 ago Exp $
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-24.4.0.ebuild:
+  Stable for x86, wrt bug #505072
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-24.4.0.ebuild:
+  Stable for amd64, wrt bug #505072
+
+*thunderbird-bin-24.4.0 (19 Mar 2014)
+
+  19 Mar 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-bin-24.4.0.ebuild:
+  version bump, security bug 505072
+
+*thunderbird-bin-24.3.0-r1 (04 Mar 2014)
+
+  04 Mar 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -thunderbird-bin-24.3.0.ebuild, +thunderbird-bin-24.3.0-r1.ebuild:
+  Revbump to fix dependency on libpng. Thanks to Ingo Schmitt for reporting
+  this via E-Mail.
+
+  22 Feb 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -thunderbird-bin-24.1.1.ebuild:
+  Removed vulnerable versions.
+
+  15 Feb 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-24.3.0.ebuild:
+  Stable for amd64, wrt bug #500320
+
+  11 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  thunderbird-bin-24.3.0.ebuild:
+  x86 stable wrt security bug #500320
+
+*thunderbird-bin-24.3.0 (07 Feb 2014)
+
+  07 Feb 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +thunderbird-bin-24.3.0.ebuild:
+  Security bump (bug #500320).
+
+  27 Nov 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-24.1.1.ebuild:
+  Stable for x86, wrt bug #491234
+
+  27 Nov 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-24.1.1.ebuild:
+  Stable for amd64, wrt bug #491234
+
+*thunderbird-bin-24.1.1 (21 Nov 2013)
+
+  21 Nov 2013; Jory A. Pratt <anarchy@gentoo.org>
+  +thunderbird-bin-24.1.1.ebuild, -thunderbird-bin-24.0.ebuild,
+  -thunderbird-bin-24.1.0.ebuild:
+  Security update, misc ui fixes
+
+*thunderbird-bin-17.0.10 (31 Oct 2013)
+*thunderbird-bin-24.1.0 (31 Oct 2013)
+
+  31 Oct 2013; Jeff Horelick <jdhore@gentoo.org>
+  +thunderbird-bin-17.0.10.ebuild, +thunderbird-bin-24.1.0.ebuild:
+  Version bump on both ESR branches
+
+  25 Sep 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -thunderbird-bin-17.0.8.ebuild:
+  Removed old.
+
+*thunderbird-bin-24.0 (24 Sep 2013)
+
+  24 Sep 2013; Ian Stakenvicius <axs@gentoo.org> +thunderbird-bin-24.0.ebuild:
+  version bump
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.9.ebuild:
+  Stable for x86, wrt bug #485258
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.9.ebuild:
+  Stable for amd64, wrt bug #485258
+
+*thunderbird-bin-17.0.9 (18 Sep 2013)
+
+  18 Sep 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -thunderbird-bin-17.0.5.ebuild, -thunderbird-bin-17.0.6.ebuild,
+  -thunderbird-bin-17.0.7.ebuild, +thunderbird-bin-17.0.9.ebuild:
+  Security bump (bug #485258). Removed old.
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.8.ebuild:
+  Stable for x86, wrt bug #479968
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.8.ebuild:
+  Stable for amd64, wrt bug #479968
+
+*thunderbird-bin-17.0.8 (07 Aug 2013)
+
+  07 Aug 2013; Ian Stakenvicius <axs@gentoo.org> +thunderbird-bin-17.0.8.ebuild:
+  version bump for security bug #479968
+
+  27 Jun 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.7.ebuild:
+  Stable for x86, wrt bug #474758
+
+  27 Jun 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.7.ebuild:
+  Stable for amd64, wrt bug #474758
+
+*thunderbird-bin-17.0.7 (26 Jun 2013)
+
+  26 Jun 2013; Jeff Horelick <jdhore@gentoo.org> +thunderbird-bin-17.0.7.ebuild:
+  Version bump
+
+  17 May 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.6.ebuild:
+  Stable for x86, wrt bug #469868
+
+  17 May 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.6.ebuild:
+  Stable for amd64, wrt bug #469868
+
+*thunderbird-bin-17.0.6 (15 May 2013)
+
+  15 May 2013; Jeff Horelick <jdhore@gentoo.org> +thunderbird-bin-17.0.6.ebuild:
+  Version bump
+
+  11 Apr 2013; Rick Farina <zerochaos@gentoo.org> thunderbird-bin-17.0.5.ebuild:
+  fix for 432236, add versioned dep on libpng-1.5*
+
+  11 Apr 2013; Rick Farina <zerochaos@gentoo.org> thunderbird-bin-17.0.5.ebuild:
+  adding new rdep as identified in bug #455832
+
+  11 Apr 2013; Rick Farina <zerochaos@gentoo.org> thunderbird-bin-17.0.5.ebuild:
+  fix minor whitespace damage, fix bug #431382
+
+  11 Apr 2013; Rick Farina <zerochaos@gentoo.org> thunderbird-bin-17.0.5.ebuild:
+  slightly better style for fix, and minor rename
+
+  11 Apr 2013; Rick Farina <zerochaos@gentoo.org> thunderbird-bin-17.0.5.ebuild:
+  fix bug 465494 and ship all icons properly
+
+  11 Apr 2013; Rick Farina <zerochaos@gentoo.org> thunderbird-bin-17.0.5.ebuild:
+  add missing rdepends per bug #457036
+
+  11 Apr 2013; Jeff Horelick <jdhore@gentoo.org>
+  -files/icon/thunderbird-bin-icon.png, thunderbird-bin-17.0.5.ebuild:
+  Remove binary icon, use icon from tarball instead. closes bug #370873
+
+  11 Apr 2013; Jeff Horelick <jdhore@gentoo.org>
+  -thunderbird-bin-10.0.10.ebuild, -thunderbird-bin-10.0.11.ebuild,
+  -thunderbird-bin-10.0.12.ebuild, -thunderbird-bin-15.0.1.ebuild,
+  -thunderbird-bin-16.0.2.ebuild, -thunderbird-bin-17.0.2.ebuild,
+  -thunderbird-bin-17.0.3.ebuild, -thunderbird-bin-17.0.4.ebuild,
+  -thunderbird-bin-17.0.ebuild:
+  Remove old
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.5.ebuild:
+  Stable for x86, wrt bug #464226
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.5.ebuild:
+  Stable for amd64, wrt bug #464226
+
+*thunderbird-bin-17.0.5 (03 Apr 2013)
+
+  03 Apr 2013; Jeff Horelick <jdhore@gentoo.org> +thunderbird-bin-17.0.5.ebuild:
+  Version bump
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.4.ebuild:
+  Stable for x86, wrt bug #460818
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.4.ebuild:
+  Stable for amd64, wrt bug #460818
+
+*thunderbird-bin-17.0.4 (08 Mar 2013)
+
+  08 Mar 2013; Ian Stakenvicius <axs@gentoo.org> +thunderbird-bin-17.0.4.ebuild:
+  version bump for security bug 460818
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-17.0.3.ebuild:
   Stable for x86, wrt bug #458390

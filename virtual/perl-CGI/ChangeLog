@@ -1,6 +1,21 @@
 # ChangeLog for virtual/perl-CGI
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-CGI/ChangeLog,v 1.111 2013/02/23 08:47:00 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-CGI/ChangeLog,v 1.115 2014/01/20 23:33:15 vapier Exp $
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Mark m68k stable.
+
+  29 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> -perl-CGI-3.510.ebuild,
+  -perl-CGI-3.520.ebuild, -perl-CGI-3.530.0.ebuild, -perl-CGI-3.540.0.ebuild,
+  -perl-CGI-3.550.0.ebuild, -perl-CGI-3.590.0-r1.ebuild,
+  -perl-CGI-3.600.0.ebuild:
+  drop old vulnerable versions wrt bug #443446
+
+  02 Mar 2013; Agostino Sarubbo <ago@gentoo.org> perl-CGI-3.630.0.ebuild:
+  Stable for sh, wrt bug #458122
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> perl-CGI-3.630.0.ebuild:
   Stable for sparc, wrt bug #458122

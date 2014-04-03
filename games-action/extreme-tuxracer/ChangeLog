@@ -1,6 +1,19 @@
 # ChangeLog for games-action/extreme-tuxracer
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/extreme-tuxracer/ChangeLog,v 1.12 2012/08/22 18:55:03 mr_bones_ Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-action/extreme-tuxracer/ChangeLog,v 1.15 2014/03/29 17:45:12 nimiux Exp $
+
+  29 Mar 2014; Chema Alonso <nimiux@gentoo.org> extreme-tuxracer-0.6.0.ebuild:
+  Stable for amd64 wrt bug #505030
+
+  24 Jan 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  extreme-tuxracer-0.6.0.ebuild:
+  add sdl-image dep (bug #499080)
+
+*extreme-tuxracer-0.6.0 (31 Dec 2013)
+
+  31 Dec 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  +extreme-tuxracer-0.6.0.ebuild:
+  version bump
 
   22 Aug 2012; Michael Sterrett <mr_bones_@gentoo.org>
   extreme-tuxracer-0.4.ebuild, extreme-tuxracer-0.5_beta.ebuild:

@@ -1,6 +1,26 @@
 # ChangeLog for xfce-extra/xfce4-power-manager
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-power-manager/ChangeLog,v 1.61 2012/11/28 12:19:07 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-power-manager/ChangeLog,v 1.65 2014/01/28 14:17:59 ago Exp $
+
+  28 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  xfce4-power-manager-1.2.0-r2.ebuild:
+  Stable for x86, wrt bug #496018
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org>
+  xfce4-power-manager-1.2.0-r2.ebuild:
+  amd64 stable, bug 496018
+
+  01 Dec 2013; Markus Meier <maekke@gentoo.org>
+  xfce4-power-manager-1.2.0-r2.ebuild:
+  add ~arm, bug #488570
+
+*xfce4-power-manager-1.2.0-r2 (24 Jul 2013)
+
+  24 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +xfce4-power-manager-1.2.0-r2.ebuild,
+  +files/xfce4-power-manager-1.2.0-brightness_level_gint32.patch:
+  Backport upstream patch for brightness level handling wrt #474092 by
+  Christoph Junghans
 
   28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org>
   xfce4-power-manager-1.2.0-r1.ebuild:
@@ -304,4 +324,3 @@
   10 Mar 2009; Christoph Mende <angelos@gentoo.org>
   +xfce4-power-manager-0.6.4.ebuild:
   Initial import
-

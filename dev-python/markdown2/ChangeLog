@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/markdown2
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/markdown2/ChangeLog,v 1.6 2013/02/02 12:22:53 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/markdown2/ChangeLog,v 1.9 2014/03/31 20:55:37 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> markdown2-2.1.0-r1.ebuild,
+  markdown2-2.2.0.ebuild:
+  Add support for the new PyPy slotting.
+
+*markdown2-2.2.0 (08 Jan 2014)
+
+  08 Jan 2014; Patrick Lauer <patrick@gentoo.org> +markdown2-2.2.0.ebuild:
+  Bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> markdown2-2.1.0-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
 
 *markdown2-2.1.0-r1 (02 Feb 2013)
 

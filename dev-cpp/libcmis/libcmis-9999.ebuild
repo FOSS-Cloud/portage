@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libcmis/libcmis-9999.ebuild,v 1.10 2013/01/31 15:34:17 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libcmis/libcmis-9999.ebuild,v 1.12 2013/08/09 08:51:25 scarabeus Exp $
 
 EAPI=5
 
@@ -14,7 +14,7 @@ HOMEPAGE="https://sourceforge.net/projects/libcmis/"
 [[ ${PV} == 9999 ]] || SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="|| ( GPL-2 LGPL-2 MPL-1.1 )"
-SLOT="0.3"
+SLOT="0.4"
 
 # Don't move KEYWORDS on the previous line or ekeyword won't work # 399061
 [[ ${PV} == 9999 ]] || \
@@ -24,7 +24,7 @@ IUSE="static-libs man test"
 
 RDEPEND="
 	!dev-cpp/libcmis:0
-	dev-libs/boost
+	dev-libs/boost:=
 	dev-libs/libxml2
 	net-misc/curl
 "

@@ -1,6 +1,64 @@
 # ChangeLog for net-misc/dhcp
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcp/ChangeLog,v 1.243 2013/04/14 11:44:39 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcp/ChangeLog,v 1.252 2014/02/24 02:06:48 phajdan.jr Exp $
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> dhcp-4.2.5_p1-r2.ebuild:
+  x86 stable wrt bug #499324
+
+  23 Feb 2014; Markus Meier <maekke@gentoo.org> dhcp-4.2.5_p1-r2.ebuild:
+  arm stable, bug #499324
+
+  20 Feb 2014; Chema Alonso <nimiux@gentoo.org> dhcp-4.2.5_p1-r2.ebuild:
+  Stable for amd64 wrt bug #499324
+
+  03 Feb 2014; Jeroen Roovers <jer@gentoo.org> dhcp-4.2.5_p1-r2.ebuild:
+  Stable for HPPA (bug #499324).
+
+  06 Jan 2014; Sergey Popov <pinkbyte@gentoo.org>
+  -files/dhcp-3.0.2-gmake.patch, -files/dhcp-3.0.3-dhclient-dbus.patch,
+  -files/dhcp-3.0.3-dhclient-hostname.patch,
+  -files/dhcp-3.0.3-dhclient-metric.patch,
+  -files/dhcp-3.0.3-dhclient-mtu.patch, -files/dhcp-3.0.3-dhclient-ntp.patch,
+  -files/dhcp-3.0.3-libdst.patch, -files/dhcp-3.0.3-no_isc_blurb.patch,
+  -files/dhcp-3.0.4-dhclient-stdin-conf.patch,
+  -files/dhcp-3.0.5-bpf-nofallback.patch,
+  -files/dhcp-3.1.0a1-dhclient-resolvconf.patch, -dhcp-3.1.2_p1.ebuild,
+  -files/dhcp-3.1.2_p1-CVE-2009-1892.patch, -dhcp-3.1.3_p1.ebuild,
+  -files/dhcp-4.0.1-dhclient-stdin-conf.patch, -dhcp-4.2.1_p1.ebuild,
+  -files/dhcp-4.2.1-dhclient-parse_option_param-Bad-format-a.patch,
+  -files/dhcp-4.2.1-dhclient-resolvconf.patch,
+  -files/dhcp-4.2.1-nogateway.patch, -dhcp-4.2.2.ebuild, -dhcp-4.2.2-r1.ebuild,
+  -dhcp-4.2.2-r2.ebuild, -dhcp-4.2.2-r3.ebuild, -dhcp-4.2.3_p1.ebuild,
+  -dhcp-4.2.3_p2.ebuild, -dhcp-4.2.4_p1.ebuild, -dhcp-4.2.4_p2.ebuild,
+  -dhcp-4.2.4_p2-r1.ebuild, -files/dhcpd.conf, -files/dhcpd.init2,
+  -files/dhcpd.init3, -files/dhcpd.init4, -files/dhcrelay.init,
+  -files/dhcrelay.init2:
+  Security cleanup, wrt bug #463848, acked by Tony Vroon
+
+*dhcp-4.2.5_p1-r2 (26 Dec 2013)
+
+  26 Dec 2013; Pacho Ramos <pacho@gentoo.org> +dhcp-4.2.5_p1-r2.ebuild,
+  +files/dhcpd.tmpfiles, +files/dhcpd4.service, +files/dhcpd6.service,
+  +files/dhcrelay4.service, +files/dhcrelay4.service.conf,
+  +files/dhcrelay6.service, +files/dhcrelay6.service.conf:
+  Add unit file (#490800)
+
+  28 Nov 2013; Mike Frysinger <vapier@gentoo.org> dhcp-4.2.5_p1.ebuild:
+  Mark ia64 stable #488790 by Pacho Ramos.
+
+  28 Nov 2013; Mike Frysinger <vapier@gentoo.org>
+  files/dhcp-4.2.1-dhclient-resolvconf.patch,
+  files/dhcp-4.2.2-dhclient-resolvconf.patch,
+  files/dhcp-4.2.5-iproute2-path.patch:
+  Fix syntax error in PEER_DNS patches #489980 by Aleksandr Karagodov.
+
+*dhcp-4.2.5_p1-r1 (28 Sep 2013)
+
+  28 Sep 2013; Mike Frysinger <vapier@gentoo.org> +dhcp-4.2.5_p1-r1.ebuild,
+  +files/dhcp-4.2.5-bindtodevice-inet6.patch,
+  +files/dhcp-4.2.5-iproute2-path.patch:
+  Import patch from Fedora for IPv6 interface binding #471142 by Jaak Ristioja.
+  Fix path to iproute2 ip program #480636 by cyberbat.
 
   14 Apr 2013; Agostino Sarubbo <ago@gentoo.org> dhcp-4.2.5_p1.ebuild:
   Stable for sh, wrt bug #463848

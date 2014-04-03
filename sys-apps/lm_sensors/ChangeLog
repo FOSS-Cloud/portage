@@ -1,6 +1,29 @@
 # ChangeLog for sys-apps/lm_sensors
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/lm_sensors/ChangeLog,v 1.137 2013/07/25 17:51:52 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/lm_sensors/ChangeLog,v 1.143 2013/11/24 08:24:53 pacho Exp $
+
+  24 Nov 2013; Pacho Ramos <pacho@gentoo.org> lm_sensors-3.3.3-r3.ebuild:
+  x86 stable, bug #480104
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lm_sensors-3.3.3-r3.ebuild:
+  Stable for ppc, wrt bug #480104
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lm_sensors-3.3.3-r3.ebuild:
+  Stable for sparc, wrt bug #480104
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lm_sensors-3.3.3-r3.ebuild:
+  Stable for alpha, wrt bug #480104
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> lm_sensors-3.3.3-r3.ebuild:
+  Stable for amd64, wrt bug #480104
+
+*lm_sensors-3.3.4-r1 (17 Sep 2013)
+*lm_sensors-3.3.3-r3 (17 Sep 2013)
+
+  17 Sep 2013; Pacho Ramos <pacho@gentoo.org> +lm_sensors-3.3.3-r3.ebuild,
+  +lm_sensors-3.3.4-r1.ebuild, -lm_sensors-3.3.3-r2.ebuild,
+  -lm_sensors-3.3.4.ebuild, files/sensord-4-init.d:
+  Fix init.d script (#455120 by Chris Mayo)
 
 *lm_sensors-3.3.4 (25 Jul 2013)
 

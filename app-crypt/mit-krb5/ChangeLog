@@ -1,6 +1,165 @@
 # ChangeLog for app-crypt/mit-krb5
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/mit-krb5/ChangeLog,v 1.352 2013/02/25 15:03:46 eras Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/mit-krb5/ChangeLog,v 1.398 2014/03/26 10:35:09 eras Exp $
+
+  26 Mar 2014; Eray Aslan <eras@gentoo.org>
+  +files/mit-krb5-1.12_warn_cflags.patch, mit-krb5-1.12.1.ebuild:
+  Do not build with -Werror - bug #498794
+
+  19 Jan 2014; Eray Aslan <eras@gentoo.org>
+  +files/mit-krb5-config_LDFLAGS.patch:
+  Add missing patch - bug #498582
+
+  19 Jan 2014; Eray Aslan <eras@gentoo.org>
+  +files/mit-krb5-1.12_uninitialized.patch:
+  Add missing patch - bug #498508
+
+*mit-krb5-1.12.1 (18 Jan 2014)
+
+  18 Jan 2014; Eray Aslan <eras@gentoo.org> +mit-krb5-1.12.1.ebuild:
+  Version bump
+
+  18 Nov 2013; Eray Aslan <eras@gentoo.org> -files/CVE-2002-2443.patch,
+  -mit-krb5-1.11.2-r1.ebuild, -mit-krb5-1.11.3.ebuild:
+  Remove vulnerable
+
+  16 Nov 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.4.ebuild:
+  Stable for sparc, wrt bug #490668
+
+  16 Nov 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.4.ebuild:
+  Stable for arm, wrt bug #490668
+
+  13 Nov 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.4.ebuild:
+  Stable for amd64, wrt bug #490668
+
+  13 Nov 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.4.ebuild:
+  Stable for x86, wrt bug #490668
+
+  13 Nov 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.4.ebuild:
+  Stable for alpha, wrt bug #490668
+
+  13 Nov 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.4.ebuild:
+  Stable for ppc64, wrt bug #490668
+
+  13 Nov 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.4.ebuild:
+  Stable for ppc, wrt bug #490668
+
+  12 Nov 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.4.ebuild:
+  Stable for ia64, wrt bug #490668
+
+  12 Nov 2013; Jeroen Roovers <jer@gentoo.org> mit-krb5-1.11.4.ebuild:
+  Stable for HPPA (bug #490668).
+
+*mit-krb5-1.11.4 (09 Nov 2013)
+
+  09 Nov 2013; Eray Aslan <eras@gentoo.org> +mit-krb5-1.11.4.ebuild:
+  Security bump - bug #490668
+
+  11 Oct 2013; Eray Aslan <eras@gentoo.org> mit-krb5-1.11.2-r1.ebuild,
+  mit-krb5-1.11.3.ebuild:
+  Fix build time python deps - bug #487556
+
+  11 Oct 2013; Eray Aslan <eras@gentoo.org> -mit-krb5-1.11.1.ebuild,
+  -mit-krb5-1.11.2.ebuild:
+  Remove old
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> mit-krb5-1.11.1.ebuild,
+  mit-krb5-1.11.2-r1.ebuild, mit-krb5-1.11.2.ebuild, mit-krb5-1.11.3.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  16 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> mit-krb5-1.11.3.ebuild:
+  Add ~mips keyword, wrt bug #412489
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for s390, wrt bug #469752
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for sparc, wrt bug #469752
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for sh, wrt bug #469752
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for ia64, wrt bug #469752
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for arm, wrt bug #469752
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for alpha, wrt bug #469752
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for ppc64, wrt bug #469752
+
+  04 Jul 2013; Jeroen Roovers <jer@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for HPPA (bug #469752).
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for ppc, wrt bug #469752
+
+  03 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for x86, wrt bug #469752
+
+  03 Jul 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.2-r1.ebuild:
+  Stable for amd64, wrt bug #469752
+
+*mit-krb5-1.11.3 (05 Jun 2013)
+
+  05 Jun 2013; Eray Aslan <eras@gentoo.org> +mit-krb5-1.11.3.ebuild,
+  files/mit-krb5-1.11_uninitialized.patch:
+  Version bump. Initialize some more variables - bug #471164
+
+*mit-krb5-1.11.2-r1 (14 May 2013)
+
+  14 May 2013; Eray Aslan <eras@gentoo.org> +files/CVE-2002-2443.patch,
+  +mit-krb5-1.11.2-r1.ebuild:
+  Security bump - bug #469752
+
+*mit-krb5-1.11.2 (19 Apr 2013)
+
+  19 Apr 2013; Eray Aslan <eras@gentoo.org> +mit-krb5-1.11.2.ebuild:
+  Version bump
+
+  03 Apr 2013; Eray Aslan <eras@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Fix libverto dependency - bug #464126
+
+  25 Mar 2013; Eray Aslan <eras@gentoo.org> -files/CVE-2012-1015.patch,
+  -files/mit-krb5kadmind.initd, -files/mit-krb5kdc.initd,
+  -files/mit-krb5kpropd.initd, -mit-krb5-1.9.4-r1.ebuild:
+  Remove vulnerable version
+
+  06 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for sh, wrt bug #458712
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for hppa, wrt bug #458712
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for sparc, wrt bug #458712
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for s390, wrt bug #458712
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for ia64, wrt bug #458712
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for alpha, wrt bug #458712
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for arm, wrt bug #458712
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for ppc64, wrt bug #458712
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for ppc, wrt bug #458712
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for x86, wrt bug #458712
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mit-krb5-1.11.1.ebuild:
+  Stable for amd64, wrt bug #458712
 
   25 Feb 2013; Eray Aslan <eras@gentoo.org> -files/CVE-2012-1014.patch,
   -files/mit-krb5-1.10.1_gcc470.patch,

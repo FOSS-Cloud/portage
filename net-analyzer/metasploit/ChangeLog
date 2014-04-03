@@ -1,6 +1,59 @@
 # ChangeLog for net-analyzer/metasploit
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/metasploit/ChangeLog,v 1.68 2013/01/15 17:19:47 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/metasploit/ChangeLog,v 1.81 2014/03/24 22:05:46 zerochaos Exp $
+
+  24 Mar 2014; Rick Farina <zerochaos@gentoo.org> metasploit-9999.ebuild:
+  update mdm dep
+
+  19 Mar 2014; Rick Farina <zerochaos@gentoo.org> metasploit-9999.ebuild:
+  remove bundled rb-readline due to multiple bugs, use upstream version instead
+
+  06 Mar 2014; Rick Farina <zerochaos@gentoo.org> metasploit-9999.ebuild:
+  replace failing patch with epatch_user
+
+  10 Feb 2014; Rick Farina <zerochaos@gentoo.org> metadata.xml,
+  metasploit-9999.ebuild:
+  adding optional oracle support
+
+*metasploit-4.8.2-r1 (10 Feb 2014)
+
+  10 Feb 2014; Rick Farina <zerochaos@gentoo.org> +metasploit-4.8.2-r1.ebuild,
+  metasploit-9999.ebuild:
+  closing bug 500404, syncing 9999 and tagged
+
+  30 Jan 2014; Rick Farina <zerochaos@gentoo.org> metasploit-4.8.2.ebuild:
+  fix for bug 499224
+
+  22 Jan 2014; Rick Farina <zerochaos@gentoo.org> metasploit-9999.ebuild:
+  fixing deps based on Gemfile
+
+  10 Jan 2014; Rick Farina <zerochaos@gentoo.org> metasploit-9999.ebuild:
+  attempt at more rubying the ebuild
+
+  24 Dec 2013; Rick Farina <zerochaos@gentoo.org> metasploit-9999.ebuild:
+  fixing deps for 9999
+
+*metasploit-4.8.2 (15 Dec 2013)
+
+  15 Dec 2013; Rick Farina <zerochaos@gentoo.org>
+  +files/agix_psexec_pull-2657.patch, +files/database.yml,
+  +metasploit-4.8.2.ebuild, metadata.xml, metasploit-9999.ebuild:
+  importing new metasploit from pentoo overlay, major changes, enjoy the ride
+
+  15 Dec 2013; Rick Farina <zerochaos@gentoo.org> -metasploit-4.0.0-r1.ebuild,
+  -metasploit-4.2.0.ebuild, -metasploit-4.3.0.ebuild, -metasploit-4.4.0.ebuild:
+  cleanup old ebuilds in prep for import of new ones
+
+  03 Nov 2013; Manuel Rüger <mrueg@gentoo.org> metasploit-4.0.0-r1.ebuild,
+  metasploit-4.2.0.ebuild, metasploit-4.3.0.ebuild, metasploit-4.4.0-r1.ebuild,
+  metasploit-4.4.0.ebuild, metasploit-9999.ebuild:
+  Non-maintainer update: Remove dependency on obsolete dev-ruby/postgres,
+  dependency for dev-ruby/pg is covered by dev-ruby/activerecord[postgres] so no
+  need to readd it. Acked by Rick Farina. Fixes bug #479688
+
+  10 Jul 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  metasploit-4.2.0.ebuild:
+  added dev-ruby/msgpack to RDEPEND, bug #411571
 
   15 Jan 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
   Fix maturity level.

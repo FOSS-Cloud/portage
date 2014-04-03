@@ -1,6 +1,54 @@
 # ChangeLog for app-admin/mcollective
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/mcollective/ChangeLog,v 1.10 2012/12/24 08:29:38 ramereth Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/mcollective/ChangeLog,v 1.22 2014/03/02 22:42:49 prometheanfire Exp $
+
+  02 Mar 2014; Matthew Thode <prometheanfire@gentoo.org>
+  -mcollective-2.2.0-r1.ebuild, -mcollective-2.2.0.ebuild,
+  -mcollective-2.2.4.ebuild:
+  getting rid of the old and jankey
+
+  02 Mar 2014; Agostino Sarubbo <ago@gentoo.org> mcollective-2.3.2.ebuild:
+  Stable for x86, wrt bug #491896
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> mcollective-2.3.2.ebuild:
+  amd64 stable, bug #491896
+
+*mcollective-2.3.2 (11 Dec 2013)
+
+  11 Dec 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +mcollective-2.3.2.ebuild:
+  version bump of mcollective 2.3.2
+
+  08 Dec 2013; Matthew Thode <prometheanfire@gentoo.org>
+  mcollective-2.2.4.ebuild:
+  added || die to sed
+
+  08 Dec 2013; Johannes Huber <johu@gentoo.org> mcollective-2.2.4.ebuild:
+  x86 stable, bug #491896
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mcollective-2.2.0-r1.ebuild:
+  Stable for x86, wrt bug #459290
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mcollective-2.2.0-r1.ebuild:
+  Stable for amd64, wrt bug #459290
+
+*mcollective-2.2.4 (16 Sep 2013)
+*mcollective-2.2.0-r1 (16 Sep 2013)
+
+  16 Sep 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +mcollective-2.2.0-r1.ebuild, +mcollective-2.2.4.ebuild, metadata.xml:
+  fixes for bug 459290 and verbump to 2.2.4
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> -mcollective-1.0.1.ebuild,
+  -mcollective-1.1.4.ebuild, -mcollective-1.2.1.ebuild,
+  -mcollective-2.0.0.ebuild, metadata.xml:
+  Cleanup due #66351
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mcollective-2.2.0.ebuild:
+  Stable for x86, wrt bug #457214
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mcollective-2.2.0.ebuild:
+  Stable for amd64, wrt bug #457214
 
 *mcollective-2.2.0 (24 Dec 2012)
 

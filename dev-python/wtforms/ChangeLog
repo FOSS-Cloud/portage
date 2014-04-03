@@ -1,6 +1,47 @@
 # ChangeLog for dev-python/wtforms
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/wtforms/ChangeLog,v 1.24 2013/01/28 09:49:30 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/wtforms/ChangeLog,v 1.35 2014/03/31 20:54:48 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> wtforms-1.0.3-r1.ebuild,
+  wtforms-1.0.4.ebuild, wtforms-1.0.5.ebuild:
+  Add support for the new PyPy slotting.
+
+*wtforms-1.0.5 (17 Sep 2013)
+
+  17 Sep 2013; Patrick Lauer <patrick@gentoo.org> +wtforms-1.0.5.ebuild:
+  Bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> wtforms-1.0.3-r1.ebuild,
+  wtforms-1.0.4.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> wtforms-1.0.4.ebuild:
+  Stable for amd64, wrt bug #474208
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> wtforms-1.0.4.ebuild:
+  Stable for x86, wrt bug #474208
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> wtforms-1.0.3.ebuild:
+  Stable for x86, wrt bug #461168
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> wtforms-1.0.3.ebuild:
+  Stable for amd64, wrt bug #461168
+
+*wtforms-1.0.4 (08 May 2013)
+
+  08 May 2013; Patrick Lauer <patrick@gentoo.org> +wtforms-1.0.4.ebuild:
+  Bump
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> wtforms-1.0.2.ebuild:
+  Stable for x86, wrt bug #456618
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> wtforms-1.0.2.ebuild:
+  Stable for amd64, wrt bug #456618
+
+*wtforms-1.0.3-r1 (16 Mar 2013)
+
+  16 Mar 2013; Ian Delaney <idella4@gentoo.org> +wtforms-1.0.3-r1.ebuild:
+  revbump migration -r1
 
 *wtforms-1.0.3 (28 Jan 2013)
 

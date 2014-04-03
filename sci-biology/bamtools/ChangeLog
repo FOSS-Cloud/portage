@@ -1,6 +1,25 @@
 # ChangeLog for sci-biology/bamtools
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/bamtools/ChangeLog,v 1.5 2013/02/28 20:00:59 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/bamtools/ChangeLog,v 1.10 2013/09/17 15:37:30 jlec Exp $
+
+*bamtools-2.3.0 (17 Sep 2013)
+
+  17 Sep 2013; Justin Lecher <jlec@gentoo.org> -bamtools-2.2.3.ebuild,
+  +bamtools-2.3.0.ebuild, +files/bamtools-2.3.0-unbundle.patch:
+  Version Bump, drop old, #482636; thanks Martin Mokrejš for the patch
+
+  27 Aug 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Update e-mail address.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+  11 Mar 2013; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Drop Andrey as maintainer so that bugs get assigned to sci-biology directly
+
+  01 Mar 2013; Justin Lecher <jlec@gentoo.org> bamtools-2.2.3.ebuild,
+  files/bamtools-2.2.3-unbundle.patch:
+  Update script and correct dep on jsoncpp
 
   28 Feb 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> bamtools-2.2.3.ebuild:
   Update jsoncpp dependency, bug #452234.
@@ -36,4 +55,3 @@
 
   24 Jun 2011; Justin Lecher <jlec@gentoo.org> bamtools-9999.ebuild:
   Moved from 'git' to 'git-2'
-

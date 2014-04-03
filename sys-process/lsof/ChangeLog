@@ -1,6 +1,26 @@
 # ChangeLog for sys-process/lsof
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/lsof/ChangeLog,v 1.94 2013/01/06 21:31:41 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-process/lsof/ChangeLog,v 1.98 2014/01/20 06:40:56 vapier Exp $
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org> lsof-4.85-r2.ebuild,
+  lsof-4.87-r1.ebuild:
+  Depend on virtual/pkgconfig when USE=rpc due to libtirpc functionality #498584
+  by palme3000.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> lsof-4.85-r2.ebuild,
+  lsof-4.87-r1.ebuild:
+  Add arm64 love.
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -lsof-4.82.ebuild,
+  -lsof-4.83.ebuild, -lsof-4.84.ebuild, -lsof-4.84-r1.ebuild,
+  -lsof-4.85.ebuild, -lsof-4.85-r1.ebuild, -lsof-4.86.ebuild,
+  -lsof-4.87.ebuild, -files/lsof-4.84-rpc.patch:
+  Removed old versions and files.
+
+*lsof-4.87-r1 (27 Apr 2013)
+
+  27 Apr 2013; Mike Frysinger <vapier@gentoo.org> +lsof-4.87-r1.ebuild:
+  Update to EAPI=4 and merge some random prefix changes #405973 by Dan Wallis.
 
 *lsof-4.87 (06 Jan 2013)
 

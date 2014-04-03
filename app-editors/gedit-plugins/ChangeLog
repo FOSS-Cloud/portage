@@ -1,6 +1,81 @@
 # ChangeLog for app-editors/gedit-plugins
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/gedit-plugins/ChangeLog,v 1.28 2012/12/16 21:43:34 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/gedit-plugins/ChangeLog,v 1.44 2014/03/09 11:53:36 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gedit-plugins-3.10.1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gedit-plugins-3.10.1.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gedit-plugins-3.10.1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gedit-plugins-3.10.1.ebuild:
+  arch stable, bug 888
+
+*gedit-plugins-3.10.1 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +gedit-plugins-3.10.1.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gedit-plugins-3.8.3-r1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gedit-plugins-3.8.3-r1.ebuild:
+  amd64 stable, bug #478252
+
+*gedit-plugins-3.8.3-r1 (26 Oct 2013)
+
+  26 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/gedit-plugins-3.8.3-terminal-background.patch,
+  +gedit-plugins-3.8.3-r1.ebuild, -gedit-plugins-3.8.2.ebuild,
+  -gedit-plugins-3.8.3.ebuild:
+  Adapt upstream patch from master to let terminal plugin work again
+
+  31 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  -gedit-plugins-3.6.1-r1.ebuild:
+  Remove old
+
+  25 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gedit-plugins-3.8.3.ebuild:
+  Add support python3_3.
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gedit-plugins-3.8.3.ebuild:
+  Add missing REQUIRED_USE handling for python.
+
+*gedit-plugins-3.8.3 (18 Jun 2013)
+
+  18 Jun 2013; Pacho Ramos <pacho@gentoo.org> +gedit-plugins-3.8.3.ebuild,
+  -gedit-plugins-3.8.1.ebuild, metadata.xml:
+  Version bump, drop old.
+
+*gedit-plugins-3.8.2 (26 May 2013)
+
+  26 May 2013; Pacho Ramos <pacho@gentoo.org> +gedit-plugins-3.8.2.ebuild,
+  -files/gedit-plugins-2.30.0-background-color.patch,
+  -files/gedit-plugins-2.30.0-commander-menu.patch,
+  -files/gedit-plugins-2.30.0-copy-paste.patch,
+  -files/gedit-plugins-2.30.0-edit-menu.patch,
+  -files/gedit-plugins-2.30.0-find-replace.patch,
+  -files/gedit-plugins-2.30.0-keybinding-toggle.patch,
+  -files/gedit-plugins-2.30.0-replace-all.patch, -gedit-plugins-3.8.0.ebuild:
+  Version bump, remove old
+
+*gedit-plugins-3.8.1 (28 Apr 2013)
+
+  28 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gedit-plugins-3.8.1.ebuild:
+  Version bump
+
+*gedit-plugins-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +gedit-plugins-3.8.0.ebuild:
+  Version bump for Gnome 3.8
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gedit-plugins-3.4.0.ebuild:
+  Clean up old revision.
 
 *gedit-plugins-3.6.1-r1 (16 Dec 2012)
 
@@ -155,5 +230,3 @@
   +metadata.xml:
   New ebuild, imported from bug #28470, thanks to Rajat Vig , Matt Jorde and
   Martin Klaffenboeck for their works.
-
-

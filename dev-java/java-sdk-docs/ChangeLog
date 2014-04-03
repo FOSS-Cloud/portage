@@ -1,6 +1,55 @@
 # ChangeLog for dev-java/java-sdk-docs
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/java-sdk-docs/ChangeLog,v 1.88 2013/02/14 13:14:36 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/java-sdk-docs/ChangeLog,v 1.97 2014/03/28 13:20:38 tomwij Exp $
+
+*java-sdk-docs-1.8.0.0 (28 Mar 2014)
+
+  28 Mar 2014; Tom Wijsman <TomWij@gentoo.org> +java-sdk-docs-1.8.0.0.ebuild:
+  Version bump to 1.8.0.0; for bug #505040, reported by wevrn5, contribution by
+  Krzysztof Miksa, reviewed and adjusted.
+
+*java-sdk-docs-1.7.0.51 (26 Feb 2014)
+
+  26 Feb 2014; Tom Wijsman <TomWij@gentoo.org> +java-sdk-docs-1.7.0.51.ebuild:
+  Version bump to 1.7.0.51, requested by cookiemon5ter on IRC.
+
+*java-sdk-docs-1.7.0.45 (19 Oct 2013)
+
+  19 Oct 2013; Tom Wijsman <TomWij@gentoo.org> +java-sdk-docs-1.7.0.45.ebuild:
+  Version bump to 1.7.0.45, fixes bug #67266 where Navid Zamani has reported
+  this.
+
+*java-sdk-docs-1.7.0.40-r1 (19 Sep 2013)
+
+  19 Sep 2013; Tom Wijsman <TomWij@gentoo.org>
+  +java-sdk-docs-1.7.0.40-r1.ebuild, -java-sdk-docs-1.7.0.40.ebuild:
+  Revision bump to 1.7.0.40-r1 for bug #67266, checksum change reported by
+  Ortwin Glueck.
+
+*java-sdk-docs-1.7.0.40 (18 Sep 2013)
+
+  18 Sep 2013; Tom Wijsman <TomWij@gentoo.org> +java-sdk-docs-1.7.0.40.ebuild:
+  Version bump to 1.7.0.40 for bug #67266, bump reported by Simon Gander.
+
+  29 Jun 2013; Tom Wijsman <TomWij@gentoo.org> java-sdk-docs-1.7.0.25.ebuild:
+  Stabilized 1.7.0.25 for oracle-jdk-bin and oracle-jre-bin. Permitted by ago.
+
+*java-sdk-docs-1.7.0.25 (22 Jun 2013)
+
+  22 Jun 2013; Tom Wijsman <TomWij@gentoo.org> +java-sdk-docs-1.7.0.25.ebuild:
+  Version bump to 1.7.0.25 for bug #67266, bump reported by Will W.
+
+*java-sdk-docs-1.7.0.21 (10 May 2013)
+
+  10 May 2013; Tom Wijsman <TomWij@gentoo.org> +java-sdk-docs-1.7.0.21.ebuild:
+  Version bump to 1.7.0.21. Fixes bug #468084 reported by Sven Müller (musv).
+
+*java-sdk-docs-1.7.0.17 (10 Mar 2013)
+
+  10 Mar 2013; Ralph Sennhauser <sera@gentoo.org> -java-sdk-docs-1.7.0.ebuild,
+  -java-sdk-docs-1.7.0.2.ebuild, -java-sdk-docs-1.7.0.4.ebuild,
+  -java-sdk-docs-1.7.0.6.ebuild, +java-sdk-docs-1.7.0.17.ebuild:
+  Bump, bug #67266
 
   14 Feb 2013; Agostino Sarubbo <ago@gentoo.org> java-sdk-docs-1.7.0.11.ebuild:
   Stable for x86, wrt bug #455174

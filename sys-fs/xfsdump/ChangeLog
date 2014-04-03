@@ -1,6 +1,54 @@
 # ChangeLog for sys-fs/xfsdump
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/xfsdump/ChangeLog,v 1.94 2013/01/06 23:23:06 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/xfsdump/ChangeLog,v 1.109 2014/01/19 10:28:30 ago Exp $
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.3.ebuild:
+  Stable for ppc64, wrt bug #495956
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.3.ebuild:
+  Stable for alpha, wrt bug #495956
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.3.ebuild:
+  Stable for ia64, wrt bug #495956
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.3.ebuild:
+  Stable for ppc, wrt bug #495956
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.3.ebuild:
+  Stable for x86, wrt bug #495956
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> xfsdump-3.1.3.ebuild:
+  amd64 stable, bug #495956
+
+  26 Dec 2013; Jeroen Roovers <jer@gentoo.org> xfsdump-3.1.3.ebuild:
+  Stable for HPPA (bug #495956).
+
+*xfsdump-3.1.3 (18 Oct 2013)
+
+  18 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> -xfsdump-3.0.1.ebuild,
+  -xfsdump-3.1.0.ebuild, +xfsdump-3.1.3.ebuild:
+  Version bump. Removed old.
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.2.ebuild:
+  Stable for hppa, wrt bug #457484
+
+  30 Mar 2013; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.2.ebuild:
+  Stable for alpha, wrt bug #457484
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.2.ebuild:
+  Stable for ia64, wrt bug #457484
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.2.ebuild:
+  Stable for ppc64, wrt bug #457484
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.2.ebuild:
+  Stable for ppc, wrt bug #457484
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.2.ebuild:
+  Stable for x86, wrt bug #457484
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> xfsdump-3.1.2.ebuild:
+  Stable for amd64, wrt bug #457484
 
 *xfsdump-3.1.2 (06 Jan 2013)
 

@@ -1,6 +1,70 @@
 # ChangeLog for media-video/totem
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/totem/ChangeLog,v 1.356 2013/02/02 23:00:08 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/totem/ChangeLog,v 1.371 2014/03/11 20:24:50 pacho Exp $
+
+  11 Mar 2014; Pacho Ramos <pacho@gentoo.org> -totem-3.8.2-r1.ebuild,
+  totem-3.10.1.ebuild:
+  Add missing DEPEND on yelp-tools (#504174 by nvinson), drop old
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> totem-3.10.1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> totem-3.10.1.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> totem-3.10.1.ebuild:
+  Fix wrong commit, bug 502160
+
+*totem-3.10.1 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +totem-3.10.1.ebuild,
+  -totem-3.6.3-r1.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> totem-3.8.2-r1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> totem-3.8.2-r1.ebuild:
+  amd64 stable, bug #478252
+
+  01 Sep 2013; Pacho Ramos <pacho@gentoo.org> totem-3.8.2-r1.ebuild:
+  Prevent pylint usage by tests, bug #482538
+
+*totem-3.8.2-r1 (14 Jul 2013)
+
+  14 Jul 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/totem-3.8.2-vimeo-compat.patch, +totem-3.8.2-r1.ebuild,
+  -totem-3.8.0.ebuild, -totem-3.8.2.ebuild:
+  Apply upstream patch to be compatible with vimeo videos, pass configure
+  options properly (#475878 by Mark R. Pariente), USE grilo needs grilo-plugins
+  (#475886 by Mark R. Pariente, confirmed by me and seen in Fedora .spec), drop
+  old and broken versions.
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org> totem-3.8.2.ebuild:
+  Apply team policy for configure and update gtk+ dependency per libgd
+  requirements.
+
+  02 Jun 2013; Jonathan Callen <abcd@gentoo.org> totem-3.6.3-r1.ebuild,
+  totem-3.8.0.ebuild, totem-3.8.2.ebuild:
+  Fix build with USE="-python", PYTHON_TARGETS="", and PYTHON_SINGLE_TARGET="";
+  ensure that when USE=python, PYTHON_TARGETS and PYTHON_SINGLE_TARGET are set
+  appropriately
+
+*totem-3.8.2 (14 May 2013)
+
+  14 May 2013; Pacho Ramos <pacho@gentoo.org> +totem-3.8.2.ebuild:
+  Version bump
+
+  12 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove obsolete useflag from metadata.xml
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -totem-3.4.3.ebuild:
+  Clean up old revision.
+
+*totem-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +totem-3.8.0.ebuild:
+  Version bump for Gnome 3.8
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> totem-3.6.3-r1.ebuild:
   Add ~arm, wrt bug #449220

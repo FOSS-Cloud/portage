@@ -1,6 +1,39 @@
 # ChangeLog for dev-vcs/cvs
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/cvs/ChangeLog,v 1.9 2013/02/18 04:41:20 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/cvs/ChangeLog,v 1.15 2014/01/30 15:25:23 grobian Exp $
+
+  30 Jan 2014; Fabian Groffen <grobian@gentoo.org> cvs-1.11.23.ebuild,
+  cvs-1.12.13.1-r2.ebuild:
+  Marked ~x64-macos
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org> cvs-1.12.12-r10.ebuild,
+  cvs-1.12.12-r6.ebuild, cvs-1.12.12-r7.ebuild, cvs-1.12.12-r8.ebuild,
+  cvs-1.12.12-r9.ebuild, cvs-1.12.13-r1.ebuild, cvs-1.12.13-r2.ebuild,
+  cvs-1.12.13.1-r1.ebuild, cvs-1.12.13.1-r2.ebuild, cvs-1.12.13.1.ebuild:
+  Fix cross-compiling due to AC_TRY_RUN.
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org> cvs-1.11.23.ebuild,
+  cvs-1.12.12-r10.ebuild, cvs-1.12.12-r6.ebuild, cvs-1.12.12-r7.ebuild,
+  cvs-1.12.12-r8.ebuild, cvs-1.12.12-r9.ebuild, cvs-1.12.13-r1.ebuild,
+  cvs-1.12.13-r2.ebuild, cvs-1.12.13.1-r1.ebuild, cvs-1.12.13.1-r2.ebuild,
+  cvs-1.12.13.1.ebuild:
+  Add arm64 love.
+
+*cvs-1.12.13.1-r2 (24 Apr 2013)
+
+  24 Apr 2013; Sergei Trofimovich <slyfox@gentoo.org> +cvs-1.12.13.1-r2.ebuild,
+  +files/cvs-1.12.13.1-fix-gnulib-SEGV-vasnprintf.patch:
+  Fixed SIGSEGV (writable %n is forbidden by glibc-2.3+).
+
+*cvs-1.12.13.1-r2 (24 Apr 2013)
+
+  24 Apr 2013; Sergei Trofimovich <slyfox@gentoo.org> +cvs-1.12.13.1-r2.ebuild,
+  +files/cvs-1.12.13.1-fix-gnulib-SEGV-vasnprintf.patch:
+  Fixed SIGSEGV (writable %n is forbidden by glibc-2.3+).
+
+  04 Apr 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/cvs-1.12.13.1-use-include_next.patch, cvs-1.12.13.1-r1.ebuild:
+  Fixed build failure (unknown type name 'intmax_t').
 
   18 Feb 2013; Zac Medico <zmedico@gentoo.org> cvs-1.12.12-r10.ebuild:
   Add ~arm-linux keyword.

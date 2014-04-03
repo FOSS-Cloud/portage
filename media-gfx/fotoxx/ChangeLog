@@ -1,6 +1,84 @@
 # ChangeLog for media-gfx/fotoxx
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/fotoxx/ChangeLog,v 1.47 2013/02/17 17:40:56 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/fotoxx/ChangeLog,v 1.61 2014/04/02 16:28:07 grozin Exp $
+
+*fotoxx-14.04 (02 Apr 2014)
+
+  02 Apr 2014; Andrey Grozin <grozin@gentoo.org> -fotoxx-13.12.ebuild,
+  +fotoxx-14.04.ebuild, -files/fotoxx-13.12.patch, +files/fotoxx-14.04.patch:
+  Version bump
+
+*fotoxx-14.02.2 (21 Feb 2014)
+
+  21 Feb 2014; Andrey Grozin <grozin@gentoo.org> +fotoxx-14.02.2.ebuild,
+  +files/fotoxx-14.02.2.patch:
+  Version bump
+
+*fotoxx-13.12 (25 Dec 2013)
+
+  25 Dec 2013; Andrey Grozin <grozin@gentoo.org> -fotoxx-13.01.ebuild,
+  -fotoxx-13.09.2.ebuild, +fotoxx-13.12.ebuild, -files/fotoxx-13.01.patch,
+  -files/fotoxx-13.09.2.patch, +files/fotoxx-13.12.patch:
+  Version bump
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> fotoxx-13.11.1.ebuild:
+  Stable for x86, wrt bug #461180
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> fotoxx-13.11.1.ebuild:
+  amd64 stable, bug #461180
+
+  12 Dec 2013; Justin Lecher <jlec@gentoo.org> fotoxx-13.01.ebuild,
+  fotoxx-13.09.2.ebuild, fotoxx-13.11.1.ebuild, metadata.xml:
+  Use newmenu from eutils.eclass
+
+*fotoxx-13.11.1 (12 Nov 2013)
+
+  12 Nov 2013; Andrey Grozin <grozin@gentoo.org> -fotoxx-13.08.1.ebuild,
+  +fotoxx-13.11.1.ebuild, -files/fotoxx-13.08.1.patch,
+  +files/fotoxx-13.11.1.patch:
+  Version bump, missing dependency added (closing #490018)
+
+*fotoxx-13.09.2 (12 Sep 2013)
+
+  12 Sep 2013; Andrey Grozin <grozin@gentoo.org> -fotoxx-13.04.ebuild,
+  -fotoxx-13.05.ebuild, -fotoxx-13.06.ebuild, +fotoxx-13.09.2.ebuild,
+  -files/fotoxx-13.04.patch, -files/fotoxx-13.05.patch,
+  -files/fotoxx-13.06.patch, +files/fotoxx-13.09.2.patch:
+  Version bump, cleaning old versions
+
+*fotoxx-13.08.1 (15 Aug 2013)
+
+  15 Aug 2013; Andrey Grozin <grozin@gentoo.org> +fotoxx-13.08.1.ebuild,
+  +files/fotoxx-13.08.1.patch:
+  Version bump
+
+*fotoxx-13.06 (05 Jun 2013)
+
+  05 Jun 2013; Andrey Grozin <grozin@gentoo.org> +fotoxx-13.06.ebuild,
+  +files/fotoxx-13.06.patch:
+  Version bump
+
+*fotoxx-13.05 (03 May 2013)
+
+  03 May 2013; Andrey Grozin <grozin@gentoo.org> -fotoxx-13.03.ebuild,
+  +fotoxx-13.05.ebuild, -files/fotoxx-13.03.patch, +files/fotoxx-13.05.patch:
+  Version bump
+
+*fotoxx-13.04 (03 Apr 2013)
+
+  03 Apr 2013; Andrey Grozin <grozin@gentoo.org> -fotoxx-13.02.ebuild,
+  -files/fotoxx-13.02.patch, +fotoxx-13.04.ebuild, +files/fotoxx-13.04.patch:
+  Version bump
+
+  22 Mar 2013; Andrey Grozin <grozin@gentoo.org> files/fotoxx-13.03.patch:
+  Fix linking with gold (bug #462286), thanks to Adrian.Bassett@hotmail.co.uk
+
+*fotoxx-13.03 (19 Mar 2013)
+
+  19 Mar 2013; Andrey Grozin <grozin@gentoo.org> -fotoxx-12.11.ebuild,
+  -files/fotoxx-12.11.patch, -fotoxx-12.12.ebuild, -files/fotoxx-12.12.patch,
+  +fotoxx-13.03.ebuild, +files/fotoxx-13.03.patch:
+  Version bump
 
   17 Feb 2013; Agostino Sarubbo <ago@gentoo.org> fotoxx-13.01.ebuild:
   Stable for x86, wrt bug #456944

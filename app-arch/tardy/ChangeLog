@@ -1,6 +1,27 @@
 # ChangeLog for app-arch/tardy
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/tardy/ChangeLog,v 1.18 2012/02/23 04:34:10 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/tardy/ChangeLog,v 1.23 2014/03/14 23:29:25 johu Exp $
+
+  14 Mar 2014; Johannes Huber <johu@gentoo.org> tardy-1.28.ebuild:
+  x86 stable, bug #499534
+
+  27 Feb 2014; Chema Alonso <nimiux@gentoo.org> tardy-1.28.ebuild:
+  Stable for amd64 wrt bug #499534
+
+  28 Jan 2014; Tim Harder <radhermit@gentoo.org> tardy-1.28.ebuild:
+  Add missing boost build dep.
+
+*tardy-1.28 (28 Jun 2013)
+
+  28 Jun 2013; Tim Harder <radhermit@gentoo.org> +tardy-1.28.ebuild,
+  +files/tardy-1.28-test-utc.patch:
+  Version bump.
+
+*tardy-1.27 (09 Jun 2013)
+
+  09 Jun 2013; Tim Harder <radhermit@gentoo.org> +tardy-1.27.ebuild,
+  +files/tardy-1.27-test-utc.patch:
+  Version bump.
 
   23 Feb 2012; Tim Harder <radhermit@gentoo.org> -tardy-1.16.ebuild,
   -files/tardy-1.16-gcc43.patch, -tardy-1.17-r1.ebuild,

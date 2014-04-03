@@ -1,6 +1,21 @@
 # ChangeLog for net-libs/openslp
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/openslp/ChangeLog,v 1.58 2012/07/08 15:34:38 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/openslp/ChangeLog,v 1.61 2014/03/30 10:18:52 pacho Exp $
+
+*openslp-1.2.1-r3 (30 Mar 2014)
+
+  30 Mar 2014; Pacho Ramos <pacho@gentoo.org> +files/slpd.service,
+  +openslp-1.2.1-r3.ebuild, openslp-2.0.0.ebuild:
+  Add unit file (#485028 by Reuben Martin)
+
+  15 Aug 2013; Patrick Lauer <patrick@gentoo.org> openslp-2.0.0.ebuild:
+  Fixing src_unpack / src_prepare
+
+*openslp-2.0.0 (12 Jul 2013)
+
+  12 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org> +openslp-2.0.0.ebuild,
+  +files/openslp-2.0.0-cflags.patch:
+  Untested version bump. Builds.
 
   08 Jul 2012; Raúl Porcel <armin76@gentoo.org> openslp-1.2.1-r2.ebuild:
   alpha/ia64/m68k/s390/sh/sparc wrt #419277

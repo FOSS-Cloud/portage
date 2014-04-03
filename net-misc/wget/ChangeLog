@@ -1,6 +1,48 @@
 # ChangeLog for net-misc/wget
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/wget/ChangeLog,v 1.174 2013/02/21 19:22:08 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/wget/ChangeLog,v 1.182 2014/01/23 07:41:32 polynomial-c Exp $
+
+*wget-1.15 (23 Jan 2014)
+
+  23 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> +wget-1.15.ebuild,
+  +files/wget-1.15-pkg-config.patch, +files/wget-1.15-test_fix.patch:
+  Version bump.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> wget-1.14-r1.ebuild,
+  wget-1.14.ebuild:
+  Add arm64 love.
+
+  13 Jan 2014; Mike Frysinger <vapier@gentoo.org> wget-1.14-r1.ebuild:
+  Cut over to new configure flags rather than set ac_cv_xxx vars directly
+  #497896 by James Le Cuirot.
+
+  04 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -wget-1.12-r3.ebuild,
+  -wget-1.13.3-r2.ebuild, -wget-1.13.4.ebuild, -wget-1.13.4-r1.ebuild,
+  -files/wget-1.12-CVE-2010-2252.patch, -files/wget-1.12-debug-tests.patch,
+  -files/wget-1.12-linking.patch, -files/wget-1.12-sae.patch,
+  -files/wget-1.12-sni.patch, -files/wget-1.13.4-no-gets.patch,
+  -files/wget-1.13-static-link-libz.patch, -files/wgetrc-ipv6:
+  Removed old versions and files.
+
+*wget-1.14-r1 (23 Dec 2013)
+
+  23 Dec 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/wget-1.14-gnutls-ssl.patch, +files/wget-1.14-pkg-config.patch,
+  +files/wget-1.14-wgetrc.patch, +wget-1.14-r1.ebuild:
+  Add fix from upstream for gnutls/ssl connection rejections #479948 by Scott
+  Bertilson. Document user agent issue in /etc/wgetrc wrt portage fetching
+  #327229. Update the pkg-config patch to cover more libraries #438912.
+
+  04 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> wget-1.14.ebuild,
+  +files/wget-1.14-texi2pod.patch:
+  Fixed building with >=perl-5.18 (bug #484022).
+
+  05 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  03 Mar 2013; Mike Frysinger <vapier@gentoo.org> wget-1.14.ebuild:
+  Drop openssl workarounds as the pkg-config patch should handle things for us
+  now #459080 by Julian Ospald.
 
   21 Feb 2013; Zac Medico <zmedico@gentoo.org> wget-1.14.ebuild:
   Add ~arm-linux keyword.

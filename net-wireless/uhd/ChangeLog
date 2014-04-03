@@ -1,6 +1,24 @@
 # ChangeLog for net-wireless/uhd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/uhd/ChangeLog,v 1.6 2012/12/27 04:53:40 zerochaos Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/uhd/ChangeLog,v 1.10 2014/02/22 00:32:38 zerochaos Exp $
+
+*uhd-3.7.0 (22 Feb 2014)
+*uhd-3.6.2 (22 Feb 2014)
+
+  22 Feb 2014; Rick Farina <zerochaos@gentoo.org> +uhd-3.6.2.ebuild,
+  +uhd-3.7.0.ebuild:
+  bump
+
+  16 Sep 2013; Rick Farina <zerochaos@gentoo.org> uhd-3.5.3.ebuild:
+  subslot dep on boost
+
+  05 Jun 2013; Rick Farina <zerochaos@gentoo.org> uhd-3.5.3.ebuild:
+  adding ~arm keyword
+
+*uhd-3.5.3 (30 May 2013)
+
+  30 May 2013; Rick Farina <zerochaos@gentoo.org> +uhd-3.5.3.ebuild:
+  now with more version bump
 
 *uhd-3.5.0 (27 Dec 2012)
 

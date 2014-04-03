@@ -1,6 +1,28 @@
 # ChangeLog for net-news/liferea
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-news/liferea/ChangeLog,v 1.235 2012/12/25 20:04:23 vostorga Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-news/liferea/ChangeLog,v 1.240 2013/12/26 14:48:07 maekke Exp $
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> liferea-1.10.3.ebuild:
+  add ~arm, bug #489108
+
+*liferea-1.10.3 (27 Oct 2013)
+
+  27 Oct 2013; Víctor Ostorga <vostorga@gentoo.org> +liferea-1.10.3.ebuild:
+  Liferea version bump
+
+*liferea-1.10.1a (01 Aug 2013)
+
+  01 Aug 2013; Sergei Trofimovich <slyfox@gentoo.org> +liferea-1.10.1a.ebuild:
+  Version bump (fixes #477052 upstream).
+
+*liferea-1.10.0 (13 Jul 2013)
+
+  13 Jul 2013; Tom Wijsman <TomWij@gentoo.org> +liferea-1.10.0.ebuild:
+  Version bump to 1.10.0. Fixes bug #455348, reported by and proxied commit for
+  Yurieni.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> liferea-1.8.8.ebuild:
   Stable for x86, wrt bug #441490

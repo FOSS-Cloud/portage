@@ -1,6 +1,39 @@
 # ChangeLog for app-text/rarian
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/rarian/ChangeLog,v 1.56 2012/08/08 18:36:54 tetromino Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/rarian/ChangeLog,v 1.67 2013/04/13 20:56:41 ago Exp $
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for s390, wrt bug #458984
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for sh, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  26 Mar 2013; Jeroen Roovers <jer@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for HPPA (bug #458984).
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> rarian-0.8.1-r2.ebuild:
+  Stable for amd64, wrt bug #458984
 
 *rarian-0.8.1-r2 (08 Aug 2012)
 
@@ -202,4 +235,3 @@
 
   21 Sep 2007; Daniel Gryniewicz <dang@gentoo.org> +rarian-0.6.0.ebuild:
   Rarian; conflicts with scrollkeeper
-

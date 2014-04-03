@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/photivo/photivo-9999.ebuild,v 1.2 2012/12/27 18:54:06 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/photivo/photivo-9999.ebuild,v 1.7 2013/12/17 21:13:39 hwoarang Exp $
 
 EAPI=4
 
@@ -9,16 +9,15 @@ inherit qt4-r2 mercurial
 DESCRIPTION="Photo processor for RAW and Bitmap images"
 HOMEPAGE="http://www.photivo.org"
 EHG_REPO_URI="https://photivo.googlecode.com/hg/"
-EHG_REVISION="default"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE="gimp"
 
-RDEPEND="x11-libs/qt-core:4
-	x11-libs/qt-gui:4
-	|| ( media-libs/jpeg:62 media-libs/libjpeg-turbo )
+RDEPEND="dev-qt/qtcore:4
+	dev-qt/qtgui:4
+	|| ( virtual/jpeg:62 media-libs/jpeg:62 )
 	media-gfx/exiv2
 	media-libs/cimg
 	media-libs/lcms:2
@@ -39,15 +38,15 @@ src_prepare() {
 	done
 
 	# useless check (no pkgconfig file is provided)
-	sed -e "/PKGCONFIG  += CImg/d" \
+	sed -e "/PKGCONFIG += CImg/d" \
 		-i photivoProject/photivoProject.pro || die
 	qt4-r2_src_prepare
 }
 
 src_configure() {
 	local config="WithSystemCImg"
-	if ! use gimp ; then
-		config+=" WithoutGimp"
+	if use gimp ; then
+		config+=" WithGimp"
 	fi
 
 	eqmake4 "CONFIG+=${config}"

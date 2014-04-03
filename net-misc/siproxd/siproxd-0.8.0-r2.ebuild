@@ -1,10 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/siproxd/siproxd-0.8.0-r2.ebuild,v 1.4 2011/09/04 13:50:44 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/siproxd/siproxd-0.8.0-r2.ebuild,v 1.6 2014/01/08 06:37:06 vapier Exp $
 
 EAPI="2"
 
-inherit eutils autotools
+inherit eutils autotools user
 
 DESCRIPTION="A proxy/masquerading daemon for the SIP protocol"
 HOMEPAGE="http://siproxd.sourceforge.net/"
@@ -17,7 +17,8 @@ IUSE="examples doc static"
 # TODO: debug can be used but dmalloc is breaking the build
 # upstream has been contacted, see bug 2649238 in their bugtracker
 
-RDEPEND=">=net-libs/libosip-3.0.0"
+RDEPEND=">=net-libs/libosip-3.0.0
+	<net-libs/libosip-4.0.0"
 #	debug? ( dev-libs/dmalloc[threads] )"
 DEPEND="${RDEPEND}
 	>=sys-devel/libtool-2.4

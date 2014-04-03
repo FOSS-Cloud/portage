@@ -1,6 +1,23 @@
 # ChangeLog for sci-chemistry/namd
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/namd/ChangeLog,v 1.16 2013/01/11 08:11:06 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/namd/ChangeLog,v 1.20 2013/12/13 19:39:42 nicolasbock Exp $
+
+  13 Dec 2013; Nicolas Bock <nicolasbock@gentoo.org> metadata.xml:
+  sci-chemistry/namd: Updated maintainer email to gentoo.org
+
+  30 Nov 2013; Christoph Junghans <ottxor@gentoo.org> namd-2.9-r1.ebuild:
+  fixed deps
+
+*namd-2.9-r1 (30 Nov 2013)
+
+  30 Nov 2013; Christoph Junghans <ottxor@gentoo.org> +namd-2.9-r1.ebuild:
+  clean up (fftw3, ldflags, no tcsh)
+
+*namd-2.9 (18 Oct 2013)
+
+  18 Oct 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/namd-2.9-gentoo.patch, +namd-2.9.ebuild, metadata.xml:
+  version bump
 
   11 Jan 2013; Justin Lecher <jlec@gentoo.org> files/namd-2.7-gentoo.patch,
   metadata.xml:
@@ -80,4 +97,3 @@
   +metadata.xml, +namd-2.6_beta1.ebuild:
   Initial import. Ebuild contributed by Markus Dittrich <markusle@gmail.com>
   (bug #108033).
-

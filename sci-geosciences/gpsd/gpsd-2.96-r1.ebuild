@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gpsd/gpsd-2.96-r1.ebuild,v 1.4 2012/08/12 08:19:50 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gpsd/gpsd-2.96-r1.ebuild,v 1.6 2014/01/06 15:02:22 jlec Exp $
 
 EAPI=3
 
 PYTHON_DEPEND="2:2.6"
 
-inherit python base autotools user
+inherit python autotools user eutils
 
 DESCRIPTION="GPS daemon and library to support USB/serial GPS devices and various GPS/mapping clients."
 HOMEPAGE="http://gpsd.berlios.de/"
@@ -36,7 +36,7 @@ RDEPEND="
 		dev-libs/dbus-glib
 	)
 	ntp? ( net-misc/ntp )
-	qt4? ( x11-libs/qt-gui:4 )"
+	qt4? ( dev-qt/qtgui:4 )"
 
 DEPEND="${RDEPEND}
 	app-text/xmlto
@@ -58,7 +58,8 @@ pkg_setup() {
 }
 
 src_prepare() {
-	base_src_prepare
+	epatch ${PATCHES[@]}
+	epatch_user
 	eautoreconf
 }
 

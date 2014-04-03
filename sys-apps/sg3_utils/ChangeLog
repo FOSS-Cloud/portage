@@ -1,6 +1,118 @@
 # ChangeLog for sys-apps/sg3_utils
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/sg3_utils/ChangeLog,v 1.83 2013/01/24 08:39:48 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/sg3_utils/ChangeLog,v 1.117 2014/01/26 12:19:06 ago Exp $
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.37.ebuild:
+  Stable for sparc, wrt bug #495932
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.37.ebuild:
+  Stable for ppc64, wrt bug #495932
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.37.ebuild:
+  Stable for alpha, wrt bug #495932
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.37.ebuild:
+  Stable for ia64, wrt bug #495932
+
+  14 Jan 2014; Mike Frysinger <vapier@gentoo.org> sg3_utils-1.37.ebuild:
+  Add s390 love.
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.37.ebuild:
+  Stable for ppc, wrt bug #495932
+
+  09 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> sg3_utils-1.37.ebuild:
+  amd64 stable (bug #495932).
+
+  09 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> sg3_utils-1.37.ebuild:
+  x86 stable (bug #495932).
+
+  04 Jan 2014; Mike Frysinger <vapier@gentoo.org> sg3_utils-1.37.ebuild:
+  Drop sdparm dep as the one script that used it was moved out a while ago
+  #496822 by Fernando V..
+
+  31 Dec 2013; Markus Meier <maekke@gentoo.org> sg3_utils-1.37.ebuild:
+  arm stable, bug #495932
+
+  27 Dec 2013; Jeroen Roovers <jer@gentoo.org> sg3_utils-1.37.ebuild:
+  Stable for HPPA (bug #495932).
+
+*sg3_utils-1.37 (16 Oct 2013)
+
+  16 Oct 2013; Robin H. Johnson <robbat2@gentoo.org> +sg3_utils-1.37.ebuild:
+  Bump.
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.36.ebuild:
+  Stable for ia64, wrt bug #477568
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.36.ebuild:
+  Stable for sparc, wrt bug #477568
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.36.ebuild:
+  Stable for alpha, wrt bug #477568
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.36.ebuild:
+  Stable for x86, wrt bug #477568
+
+  23 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.36.ebuild:
+  Stable for arm, wrt bug #477568
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.36.ebuild:
+  Stable for ppc64, wrt bug #477568
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.36.ebuild:
+  Stable for ppc, wrt bug #477568
+
+  22 Jul 2013; Jeroen Roovers <jer@gentoo.org> sg3_utils-1.36.ebuild:
+  Stable for HPPA (bug #477568).
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.36.ebuild:
+  Stable for amd64, wrt bug #477568
+
+*sg3_utils-1.36 (03 Jun 2013)
+
+  03 Jun 2013; Robin H. Johnson <robbat2@gentoo.org> +sg3_utils-1.36.ebuild:
+  Bump.
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.35.ebuild:
+  Stable for sh, wrt bug #463142
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.35.ebuild:
+  Stable for sparc, wrt bug #463142
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.35.ebuild:
+  Stable for x86, wrt bug #463142
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.35.ebuild:
+  Stable for alpha, wrt bug #463142
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.35.ebuild:
+  Stable for ia64, wrt bug #463142
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.35.ebuild:
+  Stable for arm, wrt bug #463142
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.35.ebuild:
+  Stable for ppc64, wrt bug #463142
+
+  16 May 2013; Jeroen Roovers <jer@gentoo.org> sg3_utils-1.35.ebuild:
+  Stable for HPPA (bug #463142).
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.35.ebuild:
+  Stable for ppc, wrt bug #463142
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> sg3_utils-1.35.ebuild:
+  Stable for amd64, wrt bug #463142
+
+  14 May 2013; Tim Harder <radhermit@gentoo.org> sg3_utils-1.33.ebuild:
+  Inherit multilib eclass for get_libdir usage.
+
+  14 May 2013; Tim Harder <radhermit@gentoo.org> -sg3_utils-1.25.ebuild,
+  -sg3_utils-1.26.ebuild, -sg3_utils-1.26-r1.ebuild,
+  -sg3_utils-1.27.20080726.ebuild, -sg3_utils-1.27.20080726-r1.ebuild,
+  -sg3_utils-1.27.20090411.ebuild, -sg3_utils-1.28.ebuild,
+  -sg3_utils-1.29.ebuild, -sg3_utils-1.30.ebuild, -sg3_utils-1.31.ebuild,
+  -sg3_utils-1.32.ebuild, -sg3_utils-1.34.ebuild:
+  Remove old.
 
 *sg3_utils-1.35 (24 Jan 2013)
 

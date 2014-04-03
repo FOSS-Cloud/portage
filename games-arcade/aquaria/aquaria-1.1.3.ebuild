@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/aquaria/aquaria-1.1.3.ebuild,v 1.3 2010/11/09 15:29:21 tupone Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-arcade/aquaria/aquaria-1.1.3.ebuild,v 1.5 2013/11/14 21:30:17 mr_bones_ Exp $
 
-inherit eutils games
+inherit unpacker eutils games
 
 DESCRIPTION="A 2D scroller set in a massive ocean world"
 HOMEPAGE="http://www.bit-blot.com/aquaria/"
@@ -18,7 +18,7 @@ DEPEND="app-arch/unzip"
 RDEPEND="x86? ( media-libs/libsdl >=media-libs/openal-1.5 )
 	amd64? ( app-emulation/emul-linux-x86-sdl )"
 
-S="${WORKDIR}/data"
+S=${WORKDIR}/data
 
 pkg_nofetch() {
 	echo
@@ -27,11 +27,7 @@ pkg_nofetch() {
 }
 
 src_unpack() {
-	# self unpacking zip archive; unzip warns about the exe stuff
-	local a="${DISTDIR}/${A}"
-	echo ">>> Unpacking ${a} to ${PWD}"
-	unzip -q "${a}"
-	[ $? -gt 1 ] && die "unpacking failed"
+	unpack_zip ${A}
 }
 
 src_install() {

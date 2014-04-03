@@ -1,6 +1,16 @@
 # ChangeLog for media-sound/sonic-visualiser
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/sonic-visualiser/ChangeLog,v 1.26 2012/06/24 04:11:08 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/sonic-visualiser/ChangeLog,v 1.28 2014/03/09 11:04:08 aballier Exp $
+
+*sonic-visualiser-2.3 (09 Mar 2014)
+
+  09 Mar 2014; Alexis Ballier <aballier@gentoo.org>
+  +sonic-visualiser-2.3.ebuild:
+  version bump
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org>
+  sonic-visualiser-1.9.ebuild:
+  Move Qt dependencies to the new category
 
   24 Jun 2012; Tim Harder <radhermit@gentoo.org> -sonic-visualiser-1.8.ebuild:
   Remove old.
@@ -130,4 +140,3 @@
   +files/sonic-visualiser-1.0-loarg.patch, +metadata.xml,
   +sonic-visualiser-1.0.ebuild:
   initial import, ebuild greatly inspired from the proaudio overlay
-

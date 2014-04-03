@@ -1,6 +1,33 @@
 # ChangeLog for dev-util/cunit
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/cunit/ChangeLog,v 1.31 2012/08/01 13:20:59 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/cunit/ChangeLog,v 1.39 2013/10/09 19:44:40 hasufell Exp $
+
+  09 Oct 2013; Julian Ospald <hasufell@gentoo.org> cunit-2.1_p2.ebuild:
+  link to ncurses explicitly to avoid breaking reverse deps
+
+  09 Oct 2013; Julian Ospald <hasufell@gentoo.org> cunit-2.1_p2.ebuild:
+  add ncurses useflag
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> cunit-2.1_p2.ebuild:
+  Remove ncurses support (bug #336901).
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> cunit-2.1_p2.ebuild:
+  Auto-remove .la.
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> cunit-2.1-r1.ebuild:
+  Remove empty DEPEND.
+
+*cunit-2.1_p2 (21 May 2013)
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> +cunit-2.1_p2.ebuild:
+  Version bump. Add ncurses support (bug #336901 by Tom Hendrikx). Add
+  IUSE=static-libs (bug #460794).
+
+  02 May 2013; Patrick Lauer <patrick@gentoo.org> cunit-2.1-r1.ebuild:
+  Automake 1.13 fix
+
+  08 Mar 2013; Agostino Sarubbo <ago@gentoo.org> cunit-2.1-r1.ebuild:
+  Stable for arm, wrt bug #456074
 
   01 Aug 2012; Alexis Ballier <aballier@gentoo.org> cunit-2.1-r1.ebuild:
   keyword ~amd64-fbsd

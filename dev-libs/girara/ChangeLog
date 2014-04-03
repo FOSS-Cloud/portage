@@ -1,6 +1,39 @@
 # ChangeLog for dev-libs/girara
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/girara/ChangeLog,v 1.22 2013/01/29 15:12:47 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/girara/ChangeLog,v 1.29 2014/03/30 15:51:32 ssuominen Exp $
+
+  30 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> -girara-0.1.4.ebuild,
+  -girara-0.1.5-r200.ebuild, -girara-0.1.5-r300.ebuild,
+  -girara-0.1.6-r200.ebuild, -girara-0.1.6-r300.ebuild:
+  old
+
+  09 Mar 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  girara-0.1.6-r300.ebuild:
+  x86 stable wrt bug #492030
+
+  07 Mar 2014; Pacho Ramos <pacho@gentoo.org> girara-0.1.6-r300.ebuild:
+  amd64 stable, bug #492030
+
+*girara-0.1.9-r300 (27 Nov 2013)
+*girara-0.1.9-r200 (27 Nov 2013)
+
+  27 Nov 2013; Samuli Suominen <ssuominen@gentoo.org> +girara-0.1.9-r200.ebuild,
+  +girara-0.1.9-r300.ebuild:
+  Version bump.
+
+  07 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> girara-0.1.5-r200.ebuild,
+  girara-0.1.6-r200.ebuild:
+  Force matching version of library and headers wrt #474604 by "teika"
+
+  28 Jun 2013; Alex Alexander <wired@gentoo.org> metadata.xml:
+  off the maintainer list
+
+*girara-0.1.6-r300 (13 Jun 2013)
+*girara-0.1.6-r200 (13 Jun 2013)
+
+  13 Jun 2013; Michael Weber <xmw@gentoo.org> +girara-0.1.6-r200.ebuild,
+  +girara-0.1.6-r300.ebuild, metadata.xml:
+  Version bump, adding myself as maint.
 
   29 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> girara-0.1.5-r300.ebuild:
   Block old version to avoid file collision wrt #454416 by Nikolaj Sjujskij

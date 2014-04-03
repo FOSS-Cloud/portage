@@ -1,6 +1,60 @@
 # ChangeLog for media-sound/clementine
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/clementine/ChangeLog,v 1.73 2013/02/03 16:46:17 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/clementine/ChangeLog,v 1.86 2014/03/12 13:19:50 ssuominen Exp $
+
+*clementine-1.2.2 (12 Mar 2014)
+
+  12 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> +clementine-1.2.2.ebuild,
+  +files/clementine-1.2.2-fix-build.patch,
+  +files/clementine-1.2.2-fix-build2.patch:
+  Version bump wrt #503822 by Nikoli
+
+  25 Jan 2014; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Whitespace.
+
+*clementine-1.2.1 (19 Dec 2013)
+
+  19 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> +clementine-1.2.1.ebuild:
+  Version bump (bug #493504). Thanks to Nikoli.
+
+  16 Nov 2013; Ryan Hill <dirtyepic@gentoo.org> clementine-1.2.0.ebuild:
+  Add app-crypt/qca dependency for bug #489850.
+
+*clementine-9999 (29 Oct 2013)
+*clementine-1.2.0 (29 Oct 2013)
+
+  29 Oct 2013; Maxim Koltsov <maksbotan@gentoo.org> +clementine-1.2.0.ebuild,
+  +clementine-9999.ebuild, clementine-1.1.1.ebuild, metadata.xml:
+  Make libechonest dependency subslotted, bump to 1.2.0 and add 9999 ebuild, bug
+  #488164. Delete old. Thanks to Nikoli.
+
+  05 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  clementine-1.0.1-r1.ebuild, clementine-1.1.1.ebuild:
+  Fix qtdbus dependency by Nikoli
+
+  10 Jul 2013; Patrick Lauer <patrick@gentoo.org> clementine-1.0.1-r1.ebuild,
+  clementine-1.1.1.ebuild:
+  Fixing qtgui deps for qt-4.8.5
+
+  12 May 2013; Samuli Suominen <ssuominen@gentoo.org> clementine-1.1.1.ebuild:
+  subslot operator for the dev-libs/protobuf depend
+
+  11 May 2013; Samuli Suominen <ssuominen@gentoo.org> clementine-1.1.1.ebuild:
+  Use subslot operator for the libplist and libimobiledevice dependencies.
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> clementine-1.1.1.ebuild:
+  Stable for x86, wrt bug #455314
+
+  20 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> clementine-1.0.1-r1.ebuild,
+  clementine-1.1.1.ebuild:
+  Change sqlite dependency, wrt bug #462394
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clementine-1.1.1.ebuild:
+  Stable for amd64, wrt bug #455314
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> clementine-1.0.1-r1.ebuild,
+  clementine-1.1.1.ebuild:
+  Move Qt dependencies to the new category
 
   03 Feb 2013; Samuli Suominen <ssuominen@gentoo.org>
   -clementine-1.0.1-r2.ebuild, -files/clementine-1.0.1-liblastfm-1.patch,

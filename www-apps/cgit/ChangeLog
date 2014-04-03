@@ -1,6 +1,45 @@
 # ChangeLog for www-apps/cgit
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/cgit/ChangeLog,v 1.13 2013/02/16 13:05:34 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/cgit/ChangeLog,v 1.23 2014/02/27 23:47:41 zx2c4 Exp $
+
+*cgit-0.10.1 (27 Feb 2014)
+
+  27 Feb 2014; Jason A. Donenfeld <zx2c4@gentoo.org> +cgit-0.10.1.ebuild:
+  Version bump.
+
+  05 Feb 2014; Jason A. Donenfeld <zx2c4@gentoo.org> -cgit-0.9.2.ebuild,
+  cgit-0.10.ebuild:
+  Remove old version and stabilize latest.
+
+  22 Jan 2014; Jason A. Donenfeld <zx2c4@gentoo.org> cgit-9999.ebuild:
+  Update new build options for latest git head.
+
+  21 Jan 2014; Jason A. Donenfeld <zx2c4@gentoo.org> cgit-9999.ebuild:
+  Remove variable to avoid maintainer confusion.
+
+*cgit-0.10 (21 Jan 2014)
+
+  21 Jan 2014; Jason A. Donenfeld <zx2c4@gentoo.org> +cgit-0.10.ebuild,
+  cgit-9999.ebuild, metadata.xml:
+  Version bump.
+
+  13 Oct 2013; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Updated Nikoli's e-mail address for easier automatic assignment.
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due #66351
+
+  30 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org> cgit-0.9.2.ebuild:
+  Dont forget to bump the git version too.
+
+*cgit-0.9.2 (27 May 2013)
+
+  27 May 2013; Jason A. Donenfeld <zx2c4@gentoo.org> +cgit-0.9.2.ebuild,
+  -cgit-0.9.1.ebuild:
+  Version bump, and remove old version with security vulnerability.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   16 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due bug #96436

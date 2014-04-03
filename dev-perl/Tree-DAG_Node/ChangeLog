@@ -1,6 +1,19 @@
 # ChangeLog for dev-perl/Tree-DAG_Node
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Tree-DAG_Node/ChangeLog,v 1.36 2013/02/08 18:48:57 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Tree-DAG_Node/ChangeLog,v 1.39 2013/10/12 13:28:18 zlogene Exp $
+
+  12 Oct 2013; Mikle Kolyada <zlogene@gentoo.org> Tree-DAG_Node-1.160.0.ebuild:
+  added missing test dependency: dev-perl/File-Slurp
+
+*Tree-DAG_Node-1.160.0 (13 Sep 2013)
+
+  13 Sep 2013; Patrick Lauer <patrick@gentoo.org> +Tree-DAG_Node-1.160.0.ebuild:
+  Bump
+
+*Tree-DAG_Node-1.130.0 (03 Sep 2013)
+
+  03 Sep 2013; Patrick Lauer <patrick@gentoo.org> +Tree-DAG_Node-1.130.0.ebuild:
+  Bump
 
 *Tree-DAG_Node-1.110.0 (08 Feb 2013)
 

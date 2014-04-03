@@ -1,6 +1,30 @@
 # ChangeLog for media-sound/aqualung
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/aqualung/ChangeLog,v 1.28 2013/01/20 10:05:03 billie Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/aqualung/ChangeLog,v 1.34 2014/03/24 17:33:45 billie Exp $
+
+  24 Mar 2014; Daniel Pielmeier <billie@gentoo.org>
+  aqualung-0.9_beta11-r2.ebuild,
+  +files/aqualung-0.9_beta11-avcodec_max_audio_frame_size.patch:
+  Fix bug #505330. Thanks to Bob Johnson for the report.
+
+  28 Jan 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -aqualung-0.9_beta11-r1.ebuild:
+  old
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> aqualung-0.9_beta11-r2.ebuild:
+  Stable for x86, wrt bug #497248
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> aqualung-0.9_beta11-r2.ebuild:
+  amd64 stable, bug #497248
+
+  22 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +files/aqualung-0.9_beta11-libav9.patch, aqualung-0.9_beta11-r2.ebuild:
+  Add libav9 patch to use new api instead of old one. Fixes bug#443242.
+
+  02 May 2013; Daniel Pielmeier <billie@gentoo.org>
+  aqualung-0.9_beta11-r2.ebuild,
+  +files/aqualung-0.9_beta11-automake-1.13.patch:
+  Fix building with automake-1.13. Thanks to Ulenrich in bug #468214.
 
   20 Jan 2013; Daniel Pielmeier <billie@gentoo.org>
   aqualung-0.9_beta11-r1.ebuild, aqualung-0.9_beta11-r2.ebuild:
@@ -137,4 +161,3 @@
   +files/new-ffmpeg-headers.patch, +metadata.xml,
   +aqualung-0.9_beta9_p1.ebuild:
   Initial import. Ebuild adapted from Maarten Maathuis in bug 88532.
-

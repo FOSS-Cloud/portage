@@ -1,6 +1,42 @@
 # ChangeLog for dev-perl/Config-Tiny
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Config-Tiny/ChangeLog,v 1.82 2012/06/24 12:59:28 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Config-Tiny/ChangeLog,v 1.92 2014/02/18 19:51:26 zlogene Exp $
+
+  18 Feb 2014; Mikle Kolyada <zlogene@gentoo.org>
+  -Config-Tiny-2.140.0-r1.ebuild, -Config-Tiny-2.140.0.ebuild,
+  Config-Tiny-2.160.0.ebuild:
+  ppc stable wrt bug #492100; Drop old.
+
+  18 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> Config-Tiny-2.160.0.ebuild:
+  ppc64 stable wrt bug #492100
+
+  18 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> Config-Tiny-2.160.0.ebuild:
+  sparc stable wrt bug #492100
+
+  18 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> Config-Tiny-2.160.0.ebuild:
+  x86 stable wrt bug #492100
+
+  18 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> Config-Tiny-2.160.0.ebuild:
+  amd64 stable wrt bug #492100
+
+  18 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> Config-Tiny-2.160.0.ebuild:
+  alpha stable wrt bug #492100
+
+  11 Feb 2014; Jeroen Roovers <jer@gentoo.org> Config-Tiny-2.160.0.ebuild:
+  Stable for HPPA (bug #492100).
+
+  11 Feb 2014; Akinori Hattori <hattya@gentoo.org> Config-Tiny-2.160.0.ebuild:
+  ia64 stable wrt bug #492100
+
+*Config-Tiny-2.160.0 (13 Sep 2013)
+
+  13 Sep 2013; Patrick Lauer <patrick@gentoo.org> +Config-Tiny-2.160.0.ebuild:
+  Bump
+
+*Config-Tiny-2.140.0-r1 (10 Sep 2013)
+
+  10 Sep 2013; Ian Delaney <idella4@gentoo.org> +Config-Tiny-2.140.0-r1.ebuild:
+  revbump -> EAPI 5
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

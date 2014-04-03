@@ -1,6 +1,37 @@
 # ChangeLog for dev-python/python-glanceclient
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-glanceclient/ChangeLog,v 1.4 2013/01/17 19:51:12 prometheanfire Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-glanceclient/ChangeLog,v 1.9 2014/03/19 23:06:34 bicatali Exp $
+
+  19 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  python-glanceclient-0.12.0.ebuild:
+  Keyword ~amd64-linux ~x86-linux
+
+*python-glanceclient-0.12.0 (30 Nov 2013)
+
+  30 Nov 2013; Ian Delaney <idella4@gentoo.org>
+  +python-glanceclient-0.12.0.ebuild, -python-glanceclient-0.10.0.ebuild,
+  python-glanceclient-0.10.0-r1.ebuild:
+  bump; update deps, remove old
+
+*python-glanceclient-0.10.0-r1 (28 Nov 2013)
+
+  28 Nov 2013; Ian Delaney <idella4@gentoo.org>
+  +python-glanceclient-0.10.0-r1.ebuild, metadata.xml:
+  switch herd, add IUSE doc, doc dep, update / uncomment test deps, add doc
+  build & install, update test phase, testing support by (good ol') Chicago
+
+*python-glanceclient-0.10.0 (11 Aug 2013)
+
+  11 Aug 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +python-glanceclient-0.10.0.ebuild, -python-glanceclient-0.7.0.ebuild,
+  -python-glanceclient-0.8.0.ebuild:
+  updateing python-glanceclient to 0.10.0 for bug 478836
+
+*python-glanceclient-0.8.0 (11 Mar 2013)
+
+  11 Mar 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +python-glanceclient-0.8.0.ebuild:
+  bumping python-glanceclient to 0.8.0
 
   17 Jan 2013; Matthew Thode <prometheanfire@gentoo.org> metadata.xml,
   python-glanceclient-0.7.0.ebuild:

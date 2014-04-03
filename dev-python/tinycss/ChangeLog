@@ -1,6 +1,19 @@
 # ChangeLog for dev-python/tinycss
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/tinycss/ChangeLog,v 1.2 2013/01/16 17:31:30 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/tinycss/ChangeLog,v 1.5 2013/09/16 08:10:43 patrick Exp $
+
+  16 Sep 2013; Patrick Lauer <patrick@gentoo.org> tinycss-0.3.ebuild:
+  Add more python targets
+
+*tinycss-0.3 (12 Sep 2013)
+
+  12 Sep 2013; Patrick Lauer <patrick@gentoo.org> +tinycss-0.3.ebuild:
+  Bump
+
+*tinycss-0.2-r2 (18 Apr 2013)
+
+  18 Apr 2013; Ian Delaney <idella4@gentoo.org> +tinycss-0.2-r2.ebuild:
+  migration -> distutils-r1.
 
 *tinycss-0.2-r1 (16 Jan 2013)
 

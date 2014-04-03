@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/aseprite/aseprite-9999.ebuild,v 1.1 2013/02/07 00:45:59 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-games/aseprite/aseprite-9999.ebuild,v 1.3 2013/08/10 15:00:11 tomwij Exp $
 
-EAPI=5
+EAPI="5"
 
 inherit cmake-utils flag-o-matic git-2
 
@@ -35,7 +35,7 @@ DOCS=( docs/quickref.odt
 	docs/files/picpro.txt )
 
 src_prepare() {
-	base_src_prepare
+	cmake-utils_src_prepare
 
 	# Fix to make flag-o-matic work.
 	if use debug ; then

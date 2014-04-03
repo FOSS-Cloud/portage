@@ -1,6 +1,36 @@
 # ChangeLog for sci-mathematics/agda
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/agda/ChangeLog,v 1.20 2012/12/28 05:47:39 gienah Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/agda/ChangeLog,v 1.26 2014/02/25 15:40:58 slyfox Exp $
+
+  25 Feb 2014; Sergei Trofimovich <slyfox@gentoo.org> -agda-1.0.2-r2.ebuild,
+  -agda-2.2.6-r1.ebuild, -files/50agda-gentoo.el,
+  -files/agda-1.0.2-upstream-fixes.patch, -files/agda-2.2.6-emacs.patch,
+  agda-2.3.2.2-r1.ebuild:
+  Drop old.
+
+*agda-2.3.2.2-r1 (10 Dec 2013)
+
+  10 Dec 2013; Mark Wright <gienah@gentoo.org> +agda-2.3.2.2-r1.ebuild:
+  Bump agda to 2.3.2.2-r1
+
+  19 Oct 2013; Mark Wright <gienah@gentoo.org> agda-2.3.2.1-r1.ebuild:
+  Byte-compile the emacs elisp files, to make Mx agda2-type-and-context work,
+  fixes https://code.google.com/p/agda/issues/detail?id=792. Loosen the alex
+  DEPEND.
+
+*agda-2.3.2.1-r1 (13 Sep 2013)
+
+  13 Sep 2013; Mark Wright <gienah@gentoo.org> +agda-2.3.2.1-r1.ebuild,
+  +files/agda-2.3.2.1-haskell-src-exts-1.14.patch:
+  Patch agda 2.3.2.1 for haskell-src-exts 1.14
+
+  19 Jun 2013; Sergei Trofimovich <slyfox@gentoo.org> -agda-2.3.0.ebuild:
+  Drop old.
+
+*agda-2.3.2-r5 (02 Apr 2013)
+
+  02 Apr 2013; Mark Wright <gienah@gentoo.org> +agda-2.3.2-r5.ebuild:
+  Loosen hashtables and quickcheck deps in agda 2.3.2-r5
 
 *agda-2.3.2-r2 (28 Dec 2012)
 

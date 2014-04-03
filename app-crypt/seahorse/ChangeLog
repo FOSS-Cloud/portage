@@ -1,6 +1,72 @@
 # ChangeLog for app-crypt/seahorse
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/seahorse/ChangeLog,v 1.163 2013/02/02 22:21:33 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/seahorse/ChangeLog,v 1.179 2014/03/16 00:01:32 pacho Exp $
+
+  16 Mar 2014; Pacho Ramos <pacho@gentoo.org> seahorse-3.10.2-r1.ebuild:
+  amd64 stable, bug #504582
+
+  15 Mar 2014; Pacho Ramos <pacho@gentoo.org> seahorse-3.10.2-r1.ebuild:
+  x86 stable, bug #504582
+
+*seahorse-3.10.2-r1 (15 Mar 2014)
+
+  15 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/seahorse-3.10.2-include-correct-headers-for-vala.patch,
+  +seahorse-3.10.2-r1.ebuild, -seahorse-3.10.1.ebuild:
+  Fix crash with patch approved by upstream, bug #504582 by 504582
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> seahorse-3.10.2.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> seahorse-3.10.2.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> seahorse-3.10.2.ebuild:
+  Fix wrong commit, bug 502160
+
+*seahorse-3.10.2 (06 Feb 2014)
+
+  06 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> +seahorse-3.10.2.ebuild:
+  Version bump.
+
+*seahorse-3.10.1 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +seahorse-3.10.1.ebuild:
+  Version bump for Gnome 3.10, drop old
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> seahorse-3.8.2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> seahorse-3.8.2.ebuild:
+  amd64 stable, bug #478252
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> -seahorse-3.6.3.ebuild,
+  -seahorse-3.8.1.ebuild:
+  Clean up old revisions.
+
+*seahorse-3.8.2 (14 May 2013)
+
+  14 May 2013; Pacho Ramos <pacho@gentoo.org> +seahorse-3.8.2.ebuild,
+  -seahorse-3.8.0.ebuild, seahorse-3.8.1.ebuild:
+  Version bump, drop old
+
+  21 Apr 2013; Pacho Ramos <pacho@gentoo.org> seahorse-3.8.1.ebuild:
+  Fix trailing whitespace causing ITSTOOL to be unset (#466610 by Arfrever
+  Frehtes Taifersar Arahesis)
+
+*seahorse-3.8.1 (19 Apr 2013)
+
+  19 Apr 2013; Pacho Ramos <pacho@gentoo.org> +seahorse-3.8.1.ebuild:
+  Version bump
+
+*seahorse-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +seahorse-3.8.0.ebuild:
+  Version bump for Gnome 3.8
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -seahorse-3.4.1.ebuild,
+  -files/seahorse-3.4.1-g_clear_object.patch:
+  Clean up old revision.
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> seahorse-3.6.3.ebuild:
   Add ~arm, wrt bug #449220

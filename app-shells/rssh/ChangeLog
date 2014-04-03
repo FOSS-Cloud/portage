@@ -1,6 +1,25 @@
 # ChangeLog for app-shells/rssh
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/rssh/ChangeLog,v 1.35 2013/01/05 21:35:40 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-shells/rssh/ChangeLog,v 1.40 2013/11/19 05:03:24 ottxor Exp $
+
+  19 Nov 2013; Christoph Junghans <ottxor@gentoo.org>
+  -files/rssh-2.3.3-envvars.patch, -rssh-2.3.3-r2.ebuild:
+  remove old (bug #445166)
+
+*rssh-2.3.4_p3 (19 Nov 2013)
+
+  19 Nov 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/rssh-2.3.4_p3-autotools.patch, +rssh-2.3.4_p3.ebuild, metadata.xml:
+  added support for rsync>=3 (bug #491258)
+
+  14 Nov 2013; Christoph Junghans <ottxor@gentoo.org> rssh-2.3.4.ebuild:
+  added epatch_user (related to bug #491258)
+
+  13 Nov 2013; Christoph Junghans <ottxor@gentoo.org> rssh-2.3.4.ebuild:
+  added ~arm (tested by me)
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> rssh-2.3.3-r2.ebuild:
+  Whitespace
 
   05 Jan 2013; Sergey Popov <pinkbyte@gentoo.org> rssh-2.3.4.ebuild:
   Respect CFLAGS, wrt bug #450458. Thanks to Diego Elio Pettenò for

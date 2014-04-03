@@ -1,6 +1,18 @@
 # ChangeLog for net-libs/libeXosip
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libeXosip/ChangeLog,v 1.25 2012/10/07 14:03:48 chithanh Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libeXosip/ChangeLog,v 1.27 2013/10/27 09:40:05 pacho Exp $
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> -libeXosip-3.6.0.ebuild,
+  metadata.xml:
+  Cleanup due voip herd removal:
+  http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+*libeXosip-4.0.0 (05 Mar 2013)
+
+  05 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +libeXosip-4.0.0.ebuild, -libeXosip-3.3.0.ebuild, libeXosip-3.5.0.ebuild,
+  libeXosip-3.6.0.ebuild:
+  Version bump.
 
 *libeXosip-3.6.0 (07 Oct 2012)
 

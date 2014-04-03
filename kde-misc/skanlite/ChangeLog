@@ -1,6 +1,33 @@
 # ChangeLog for kde-misc/skanlite
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/skanlite/ChangeLog,v 1.25 2012/11/14 20:18:45 johu Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-misc/skanlite/ChangeLog,v 1.32 2014/01/30 11:52:28 mrueg Exp $
+
+*skanlite-1.1-r1 (30 Jan 2014)
+
+  30 Jan 2014; Manuel Rüger <mrueg@gentoo.org> +skanlite-1.1-r1.ebuild:
+  Move gettext dependency to DEPEND. Thanks to Nikoli. Fixes bug #499766.
+
+*skanlite-1.1 (02 Jan 2014)
+
+  02 Jan 2014; Manuel Rüger <mrueg@gentoo.org> +skanlite-1.1.ebuild:
+  Version bump.
+
+  18 Apr 2013; Michael Palimaka <kensington@gentoo.org> -skanlite-0.9.ebuild:
+  Remove old.
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> skanlite-1.0.ebuild:
+  Stable for x86, wrt bug #465996
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> skanlite-1.0.ebuild:
+  Stable for amd64, wrt bug #465996
+
+  06 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org> skanlite-1.0.ebuild:
+  EAPI=5, libpng subslot
+
+*skanlite-1.0 (15 Mar 2013)
+
+  15 Mar 2013; Chris Reffett <creffett@gentoo.org> +skanlite-1.0.ebuild:
+  Version bump wrt bug 459892.
 
   14 Nov 2012; Johannes Huber <johu@gentoo.org> -skanlite-0.8.ebuild:
   Remove old.

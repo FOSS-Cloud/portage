@@ -1,6 +1,26 @@
 # ChangeLog for dev-lang/tuprolog
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/tuprolog/ChangeLog,v 1.49 2012/10/07 08:12:18 keri Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/tuprolog/ChangeLog,v 1.53 2013/07/15 12:12:45 keri Exp $
+
+*tuprolog-2.7.2 (15 Jul 2013)
+
+  15 Jul 2013; <keri@gentoo.org> +tuprolog-2.7.2.ebuild,
+  +files/tuprolog-2.7.2-javadocs.patch:
+  Version bump
+
+  10 Jul 2013; <keri@gentoo.org> +files/tuprolog-2.7.0-javadocs.patch:
+  Add missing javadocs patch. Closes #475810
+
+*tuprolog-2.7.0 (04 Jul 2013)
+
+  04 Jul 2013; <keri@gentoo.org> +tuprolog-2.7.0.ebuild:
+  Version bump
+
+*tuprolog-2.6.0 (15 May 2013)
+
+  15 May 2013; <keri@gentoo.org> +tuprolog-2.6.0.ebuild,
+  +files/tuprolog-2.6.0-javadocs.patch:
+  Version bump
 
   07 Oct 2012; <keri@gentoo.org> -tuprolog-2.1.1.ebuild,
   -files/tuprolog-2.1.1-java1.4.patch, -files/tuprolog-2.1.1-javadocs.patch,

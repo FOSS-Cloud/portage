@@ -1,6 +1,17 @@
 # ChangeLog for dev-perl/Module-Runtime
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Module-Runtime/ChangeLog,v 1.23 2012/09/09 16:27:57 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Module-Runtime/ChangeLog,v 1.26 2014/02/01 23:51:59 vapier Exp $
+
+  01 Feb 2014; Mike Frysinger <vapier@gentoo.org> Module-Runtime-0.13.0.ebuild:
+  Add arm64/m68k love.
+
+  05 Jan 2014; Markos Chandras <hwoarang@gentoo.org>
+  Module-Runtime-0.13.0.ebuild:
+  Add ~mips
+
+  08 Jul 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  Module-Runtime-0.13.0.ebuild:
+  ppc64 stable. bug #449576
 
   09 Sep 2012; Raúl Porcel <armin76@gentoo.org> Module-Runtime-0.13.0.ebuild:
   alpha/ia64/s390/sh/sparc stable wrt #418803

@@ -1,6 +1,40 @@
 # ChangeLog for dev-python/pycurl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pycurl/ChangeLog,v 1.80 2013/02/06 03:01:47 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pycurl/ChangeLog,v 1.91 2013/09/14 22:50:10 floppym Exp $
+
+  14 Sep 2013; Mike Gilbert <floppym@gentoo.org> pycurl-7.19.0-r3.ebuild:
+  Add -fno-strict-aliasing for python2.
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pycurl-7.19.0-r3.ebuild:
+  Stable for sparc, wrt bug #480650
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pycurl-7.19.0-r2.ebuild,
+  pycurl-7.19.0-r3.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pycurl-7.19.0-r3.ebuild:
+  Stable for ppc64, wrt bug #480650
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> pycurl-7.19.0-r3.ebuild:
+  Stable for alpha, wrt bug #480650
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pycurl-7.19.0-r3.ebuild:
+  Stable for ia64, wrt bug #480650
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pycurl-7.19.0-r3.ebuild:
+  Stable for ppc, wrt bug #480650
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pycurl-7.19.0-r3.ebuild:
+  Stable for arm, wrt bug #480650
+
+  15 Aug 2013; Jeroen Roovers <jer@gentoo.org> pycurl-7.19.0-r3.ebuild:
+  Stable for HPPA (bug #480650).
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pycurl-7.19.0-r3.ebuild:
+  Stable for x86, wrt bug #480650
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pycurl-7.19.0-r3.ebuild:
+  Stable for amd64, wrt bug #480650
 
 *pycurl-7.19.0-r3 (06 Feb 2013)
 

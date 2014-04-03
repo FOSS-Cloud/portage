@@ -1,10 +1,74 @@
 # ChangeLog for dev-util/global
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/global/ChangeLog,v 1.106 2013/02/18 08:32:53 naota Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/global/ChangeLog,v 1.123 2014/03/15 02:57:36 floppym Exp $
+
+*global-6.2.11 (15 Mar 2014)
+
+  15 Mar 2014; Mike Gilbert <floppym@gentoo.org> +global-6.2.11.ebuild:
+  Version bump. Ebuild by Arfrever.
+
+  11 Mar 2014; Mike Gilbert <floppym@gentoo.org> -global-6.2.8.ebuild,
+  -global-6.2.9.ebuild:
+  Remove per Arfrever.
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> global-6.2.10.ebuild:
+  Stable for ppc, wrt bug #502806
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> global-6.2.10.ebuild:
+  Stable for x86, wrt bug #502806
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> global-6.2.10.ebuild:
+  amd64 stable, bug #502806
+
+*global-6.2.10 (18 Jan 2014)
+
+  18 Jan 2014; Mike Gilbert <floppym@gentoo.org> +global-6.2.10.ebuild:
+  Version bump. Ebuild by Arfrever.
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> global-6.2.9.ebuild:
+  Stable for ppc, wrt bug #495670
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> global-6.2.9.ebuild:
+  Stable for x86, wrt bug #495670
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> global-6.2.9.ebuild:
+  amd64 stable, bug #495670
+
+  06 Jan 2014; Naohiro Aota <naota@gentoo.org> +files/global-6.2.9-tinfo.patch,
+  global-6.2.9.ebuild:
+  Add a patch to handle ncurses[tinfo]
+
+*global-6.2.9 (28 Aug 2013)
+
+  28 Aug 2013; Mike Gilbert <floppym@gentoo.org> +global-6.2.9.ebuild:
+  Version bump. Ebuild by Arfrever.
+
+  03 Jun 2013; Mike Gilbert <floppym@gentoo.org> -global-5.9.5.ebuild,
+  -global-5.9.7.ebuild, -global-6.1.ebuild, -global-6.2.1.ebuild,
+  -global-6.2.2.ebuild, -global-6.2.4.ebuild, -global-6.2.7-r1.ebuild,
+  -global-6.2.7.ebuild, -global-6.2.ebuild:
+  Remove old per Arfrever.
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> global-6.2.8.ebuild:
+  Stable for x86, wrt bug #470490
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> global-6.2.8.ebuild:
+  Stable for ppc, wrt bug #470490
+
+  20 May 2013; Chema Alonso <nimiux@gentoo.org> global-6.2.8.ebuild:
+  Stable for amd64 wrt bug #470490
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+*global-6.2.8 (05 Mar 2013)
+
+  05 Mar 2013; Mike Gilbert <floppym@gentoo.org> +global-6.2.8.ebuild:
+  Version bump. Ebuild by Arfrever.
 
 *global-6.2.7-r1 (18 Feb 2013)
 
-  18 Feb 2013; Naohiro Aota +global-6.2.7-r1.ebuild:
+  18 Feb 2013; Naohiro Aota <naota@gentoo.org> +global-6.2.7-r1.ebuild:
   Do not drop all .la files. #457856
 
 *global-6.2.7 (20 Jan 2013)

@@ -1,6 +1,28 @@
 # ChangeLog for x11-misc/xtrlock
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xtrlock/ChangeLog,v 1.22 2012/11/14 16:24:04 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xtrlock/ChangeLog,v 1.28 2014/01/13 15:29:04 jer Exp $
+
+*xtrlock-2.6 (13 Jan 2014)
+
+  13 Jan 2014; Jeroen Roovers <jer@gentoo.org> +xtrlock-2.6.ebuild:
+  Version bump.
+
+*xtrlock-2.5 (06 Jan 2014)
+
+  06 Jan 2014; Jeroen Roovers <jer@gentoo.org> +xtrlock-2.5.ebuild:
+  Version bump.
+
+  14 Sep 2013; Jeroen Roovers <jer@gentoo.org> -xtrlock-2.0-r3.ebuild:
+  Old.
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xtrlock-2.2.ebuild:
+  Stable for x86, wrt bug #484506
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xtrlock-2.2.ebuild:
+  Stable for ppc, wrt bug #484506
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xtrlock-2.2.ebuild:
+  Stable for amd64, wrt bug #484506
 
   14 Nov 2012; Jeroen Roovers <jer@gentoo.org> xtrlock-2.2.ebuild:
   Install debian/changelog.

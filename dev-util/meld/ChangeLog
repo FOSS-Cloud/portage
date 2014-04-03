@@ -1,6 +1,104 @@
 # ChangeLog for dev-util/meld
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/meld/ChangeLog,v 1.154 2012/11/25 10:51:59 eva Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/meld/ChangeLog,v 1.179 2014/03/09 11:56:46 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> meld-1.8.4.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> meld-1.8.4.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> meld-1.8.4.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> meld-1.8.4.ebuild:
+  arch stable, bug 888
+
+*meld-1.8.4 (06 Feb 2014)
+
+  06 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> +meld-1.8.4.ebuild:
+  Version bump.
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> meld-1.8.2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> meld-1.8.2.ebuild:
+  amd64 stable, bug #478252
+
+*meld-1.8.2 (18 Oct 2013)
+
+  18 Oct 2013; Pacho Ramos <pacho@gentoo.org> +meld-1.8.2.ebuild,
+  -meld-1.8.0.ebuild:
+  Version bump, drop old
+
+*meld-1.8.1 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +meld-1.8.1.ebuild,
+  -meld-1.7.4.ebuild, -meld-1.7.5.ebuild:
+  Version bump, drop old
+
+*meld-1.8.0 (15 Sep 2013)
+
+  15 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org> -meld-1.7.3.ebuild,
+  +meld-1.8.0.ebuild:
+  Version bump. Cleanup old revision.
+
+*meld-1.7.5 (01 Sep 2013)
+
+  01 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org> +meld-1.7.5.ebuild:
+  Version bump.
+
+*meld-1.7.4 (28 Jul 2013)
+
+  28 Jul 2013; Pacho Ramos <pacho@gentoo.org> +meld-1.7.4.ebuild,
+  -meld-1.7.2.ebuild:
+  Version bump, drop old
+
+*meld-1.7.3 (03 Jun 2013)
+
+  03 Jun 2013; Pacho Ramos <pacho@gentoo.org> +meld-1.7.3.ebuild,
+  -meld-1.6.0.ebuild, -meld-1.7.1.ebuild:
+  Version bump, drop old
+
+*meld-1.7.2 (22 Apr 2013)
+
+  22 Apr 2013; Pacho Ramos <pacho@gentoo.org> +meld-1.7.2.ebuild:
+  Version bump
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  31 Mar 2013; Alexandre Rostovtsev <tetromino@gentoo.org> meld-1.7.1.ebuild:
+  Fix .desktop file sed.
+
+*meld-1.7.1 (30 Mar 2013)
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> +meld-1.7.1.ebuild:
+  Version bump. Switch to python-single-r1.
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> meld-1.7.0.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  07 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -meld-1.6.1.ebuild:
+  Clean up old revisions.
 
 *meld-1.7.0 (25 Nov 2012)
 

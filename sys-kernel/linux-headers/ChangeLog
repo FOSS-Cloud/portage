@@ -1,6 +1,35 @@
 # ChangeLog for sys-kernel/linux-headers
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-headers/ChangeLog,v 1.399 2013/09/05 19:25:11 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-headers/ChangeLog,v 1.406 2014/04/01 06:25:59 vapier Exp $
+
+*linux-headers-3.14 (01 Apr 2014)
+
+  01 Apr 2014; Mike Frysinger <vapier@gentoo.org> +linux-headers-3.14.ebuild:
+  Version bump.
+
+  21 Mar 2014; Mike Frysinger <vapier@gentoo.org> linux-headers-3.13.ebuild:
+  Add a few more supported arches.
+
+*linux-headers-3.13 (22 Jan 2014)
+
+  22 Jan 2014; Mike Frysinger <vapier@gentoo.org> +linux-headers-3.13.ebuild:
+  Version bump.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> linux-headers-3.10.ebuild,
+  linux-headers-3.11.ebuild, linux-headers-3.12.ebuild,
+  linux-headers-3.9.ebuild:
+  Add arm64 keywords.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> linux-headers-3.9.ebuild:
+  Mark m68k/s390/sh stable.
+
+*linux-headers-3.12 (26 Nov 2013)
+
+  26 Nov 2013; Mike Frysinger <vapier@gentoo.org> +linux-headers-3.12.ebuild:
+  Version bump.
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> linux-headers-3.9.ebuild:
+  Stable for sparc, wrt bug #470648
 
   05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> linux-headers-3.9.ebuild:
   Stable for x86, wrt bug #470648

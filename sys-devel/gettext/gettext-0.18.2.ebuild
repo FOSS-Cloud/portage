@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gettext/gettext-0.18.2.ebuild,v 1.1 2013/01/11 04:34:51 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/gettext/gettext-0.18.2.ebuild,v 1.15 2014/01/18 06:13:43 vapier Exp $
 
 EAPI="2"
 
@@ -12,14 +12,14 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3 LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
-IUSE="acl -cvs doc emacs git java nls +cxx openmp static-libs elibc_glibc"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+IUSE="acl -cvs doc emacs git java nls +cxx ncurses openmp static-libs elibc_glibc"
 
 DEPEND="virtual/libiconv
 	dev-libs/libxml2
-	sys-libs/ncurses
 	dev-libs/expat
 	acl? ( virtual/acl )
+	ncurses? ( sys-libs/ncurses )
 	java? ( >=virtual/jdk-1.4 )"
 RDEPEND="${DEPEND}
 	!git? ( cvs? ( dev-vcs/cvs ) )
@@ -43,6 +43,9 @@ src_configure() {
 	fi
 	use cxx || export CXX=$(tc-getCC)
 
+	# Should be able to drop this hack in next release. #333887
+	tc-is-cross-compiler && export gl_cv_func_working_acl_get_file=yes
+
 	# --without-emacs: Emacs support is now in a separate package
 	# --with-included-glib: glib depends on us so avoid circular deps
 	# --with-included-libcroco: libcroco depends on glib which ... ^^^
@@ -59,6 +62,7 @@ src_configure() {
 		--with-included-libcroco \
 		--with-included-libunistring \
 		$(use_enable acl) \
+		$(use_enable ncurses curses) \
 		$(use_enable openmp) \
 		$(use_enable static-libs static) \
 		$(use_with git) \

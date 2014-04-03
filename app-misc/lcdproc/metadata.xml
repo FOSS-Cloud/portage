@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>lcd</herd>
 <maintainer>
-<email>maintainer-needed@gentoo.org</email>
+<email>xmw@gentoo.org</email>
+<name>Michael Weber</name>
 </maintainer>
 <longdescription lang="en">
   LCDproc is a piece of software that displays real-time system information
@@ -20,5 +20,7 @@
   <flag name='nfs'>Adds support for NFS file system</flag>
   <flag name='seamless-hbars'>Try to avoid gaps in horizontal bars</flag>
   <flag name='ftdi'>Enable support for FTDI connections in some selected LCD_DEVICES (currently hd44780)</flag>
+  <flag name='lcd_devices_sdeclcd'>Enable support for VLSYS M428 display</flag>
+  <flag name='lcd_devices_vlsys_m428'>Enable support for VLSYS M428 display</flag>
 </use>
 </pkgmetadata>

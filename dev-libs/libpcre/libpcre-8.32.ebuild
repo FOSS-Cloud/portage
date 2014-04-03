@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libpcre/libpcre-8.32.ebuild,v 1.2 2013/02/21 05:15:55 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libpcre/libpcre-8.32.ebuild,v 1.3 2013/04/28 02:22:45 vapier Exp $
 
 EAPI="4"
 
@@ -35,6 +35,10 @@ DEPEND="${RDEPEND}
 S=${WORKDIR}/${MY_P}
 
 src_prepare() {
+	local pc
+	for pc in *.pc.in ; do
+		echo "Libs.private: @PTHREAD_CFLAGS@" >> ${pc} #454478
+	done
 	sed -i -e "s:-lpcre ::" libpcrecpp.pc.in || die
 	elibtoolize
 }

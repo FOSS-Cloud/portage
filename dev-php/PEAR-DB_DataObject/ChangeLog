@@ -1,6 +1,59 @@
 # ChangeLog for dev-php/PEAR-DB_DataObject
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/PEAR-DB_DataObject/ChangeLog,v 1.46 2012/02/01 11:12:27 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-php/PEAR-DB_DataObject/ChangeLog,v 1.59 2014/03/19 15:21:14 ago Exp $
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org>
+  PEAR-DB_DataObject-1.11.2.ebuild:
+  Stable for alpha, wrt bug #495562
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org>
+  PEAR-DB_DataObject-1.11.2.ebuild:
+  Stable for sparc, wrt bug #495562
+
+  06 Mar 2014; Agostino Sarubbo <ago@gentoo.org>
+  PEAR-DB_DataObject-1.11.2.ebuild:
+  Stable for ppc64, wrt bug #495562
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org>
+  PEAR-DB_DataObject-1.11.2.ebuild:
+  Stable for ppc, wrt bug #495562
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> PEAR-DB_DataObject-1.11.2.ebuild:
+  amd64 stable, bug #495562
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  PEAR-DB_DataObject-1.11.2.ebuild:
+  x86 stable wrt bug #495562
+
+  14 Feb 2014; Akinori Hattori <hattya@gentoo.org>
+  PEAR-DB_DataObject-1.11.2.ebuild:
+  ia64 stable wrt bug #495562
+
+  11 Feb 2014; Jeroen Roovers <jer@gentoo.org>
+  PEAR-DB_DataObject-1.11.2.ebuild:
+  Stable for HPPA (bug #495562).
+
+  14 Nov 2013; Matti Bickel <mabi@gentoo.org> PEAR-DB_DataObject-1.11.2.ebuild:
+  version 1.11.2 can choose between PEAR-DB and PEAR-MDB2
+
+*PEAR-DB_DataObject-1.11.2 (14 Nov 2013)
+
+  14 Nov 2013; Matti Bickel <mabi@gentoo.org> +PEAR-DB_DataObject-1.11.2.ebuild:
+  version bump
+
+  20 May 2013; Ole Markus With <olemarkus@gentoo.org>
+  PEAR-DB_DataObject-1.9.6.ebuild:
+  revert removal of ppc64 stable keyword
+
+  20 May 2013; Ole Markus With <olemarkus@gentoo.org>
+  PEAR-DB_DataObject-1.9.6.ebuild:
+  Fix bad dependency for ppc64
+
+*PEAR-DB_DataObject-1.10.0 (24 Mar 2013)
+
+  24 Mar 2013; Matti Bickel <mabi@gentoo.org> +PEAR-DB_DataObject-1.10.0.ebuild,
+  -PEAR-DB_DataObject-1.8.7.ebuild:
+  cleanup, version bump
 
   01 Feb 2012; Samuli Suominen <ssuominen@gentoo.org>
   PEAR-DB_DataObject-1.9.6.ebuild:
@@ -213,4 +266,3 @@
   21 Jul 2005; Sebastian Bergmann <sebastian@gentoo.org> +metadata.xml,
   +PEAR-DB_DataObject-1.7.15.ebuild:
   Initial ebuild.
-

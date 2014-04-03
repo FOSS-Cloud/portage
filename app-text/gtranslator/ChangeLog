@@ -1,6 +1,22 @@
 # ChangeLog for app-text/gtranslator
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/gtranslator/ChangeLog,v 1.57 2012/12/30 00:07:33 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/gtranslator/ChangeLog,v 1.62 2014/02/22 21:05:59 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gtranslator-2.91.6.ebuild:
+  Fix wrong commit, bug 502160
+
+  25 Dec 2013; Pacho Ramos <pacho@gentoo.org> gtranslator-2.91.6.ebuild:
+  libpeas support for python2.6 was dropped
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gtranslator-2.91.6.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gtranslator-2.91.6.ebuild:
+  amd64 stable, bug #478252
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gtranslator-2.91.5.ebuild:
+  Clean up old revision.
 
 *gtranslator-2.91.6 (29 Dec 2012)
 

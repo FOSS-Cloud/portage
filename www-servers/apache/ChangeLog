@@ -1,6 +1,122 @@
 # ChangeLog for www-servers/apache
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/ChangeLog,v 1.232 2013/06/13 01:01:13 floppym Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/ChangeLog,v 1.260 2014/03/18 18:50:08 polynomial-c Exp $
+
+*apache-2.4.9 (18 Mar 2014)
+
+  18 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> -apache-2.4.6-r2.ebuild,
+  +apache-2.4.9.ebuild:
+  Security bump (bug #504990). Removed old.
+
+  19 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> -apache-2.4.6-r1.ebuild,
+  apache-2.4.6-r2.ebuild, apache-2.4.7.ebuild:
+  Moved use conditionals from global scope to pkg_setup() (bug #499260).
+  Removed old.
+
+  19 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> apache-2.2.26.ebuild:
+  Removed WANT_AUTOMAKE (bug #501518).
+
+  31 Jan 2014; Mike Frysinger <vapier@gentoo.org> apache-2.4.7.ebuild:
+  Declare mod_proxy_balancer dep on mod_proxy_balancer #460434 by Jaco Kroon.
+
+  31 Jan 2014; Mike Frysinger <vapier@gentoo.org> apache-2.2.24.ebuild,
+  apache-2.2.25.ebuild, apache-2.2.26.ebuild, apache-2.4.6-r1.ebuild,
+  apache-2.4.6-r2.ebuild, apache-2.4.7.ebuild:
+  Add arm64 love.
+
+  31 Jan 2014; Mike Frysinger <vapier@gentoo.org> apache-2.4.7.ebuild:
+  Add workaround for gen_test_char behavior when cross-compiling #385783 by
+  Bertrand Jacquin.
+
+  24 Jan 2014; Mike Frysinger <vapier@gentoo.org> apache-2.2.24.ebuild,
+  apache-2.2.25.ebuild, apache-2.2.26.ebuild, apache-2.4.6-r1.ebuild,
+  apache-2.4.6-r2.ebuild, apache-2.4.7.ebuild:
+  Disable dumb cross-compiling size check.
+
+  15 Jan 2014; Robin H. Johnson <robbat2@gentoo.org> apache-2.4.7.ebuild:
+  proxy_scgi should behind IfDefine PROXY as well, otherwise you get undefined
+  symbol: ap_proxy_canonenc.
+
+  26 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> apache-2.4.7.ebuild,
+  metadata.xml:
+  Fixed bug #492578. Moved latest 2.4 ebuild to EAPI-5. Added myself as
+  maintainer.
+
+*apache-2.4.7 (26 Nov 2013)
+
+  26 Nov 2013; Patrick Lauer <patrick@gentoo.org> +apache-2.4.7.ebuild:
+  Bump
+
+  22 Nov 2013; Lars Wendler <polynomial-c@gentoo.org>
+  files/gentoo-apache-2.2.23-initd_fixups.patch:
+  Fixed startup of apache when pidfile exists. Thanks to Roman Barczyński who
+  reported this in bug #492222.
+
+*apache-2.2.26 (20 Nov 2013)
+
+  20 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> +apache-2.2.26.ebuild:
+  Version bump.
+
+  07 Nov 2013; Lars Wendler <polynomial-c@gentoo.org> -apache-2.2.24-r1.ebuild,
+  apache-2.2.25.ebuild, -apache-2.4.4.ebuild, -apache-2.4.4-r3.ebuild,
+  -apache-2.4.6.ebuild, apache-2.4.6-r1.ebuild, apache-2.4.6-r2.ebuild,
+  +files/gentoo-apache-2.2.23-initd_fixups.patch:
+  Non-maintainer commit: Fixed problems with init script. Removed some older
+  ebuilds.
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.25.ebuild:
+  Stable for sh, wrt bug #476568
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.25.ebuild:
+  Stable for s390, wrt bug #476568
+
+  04 Aug 2013; Mike Gilbert <floppym@gentoo.org> files/apache.conf:
+  Create /run/apache_ssl_mutex directory via tmpfiles.d, bug 479658.
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.25.ebuild:
+  Stable for ia64, wrt bug #476568
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.25.ebuild:
+  Stable for sparc, wrt bug #476568
+
+*apache-2.4.6-r2 (01 Aug 2013)
+
+  01 Aug 2013; Michael Palimaka <kensington@gentoo.org> +apache-2.4.6-r2.ebuild:
+  Explicitly switch to /run everywhere to solve further issues when starting wrt
+  bug #438758.
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.25.ebuild:
+  Stable for alpha, wrt bug #476568
+
+  28 Jul 2013; Alexis Ballier <aballier@gentoo.org> apache-2.4.6-r1.ebuild:
+  keyword ~amd64-fbsd
+
+*apache-2.4.6-r1 (25 Jul 2013)
+
+  25 Jul 2013; Michael Palimaka <kensington@gentoo.org> +apache-2.4.6-r1.ebuild:
+  Fix "invalid mutex directory" error when starting wrt bug #438758.
+
+  23 Jul 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.25.ebuild:
+  Stable for arm, wrt bug #476568
+
+  22 Jul 2013; Jeroen Roovers <jer@gentoo.org> apache-2.2.25.ebuild:
+  Stable for HPPA (bug #476568).
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.25.ebuild:
+  Stable for ppc, wrt bug #476568
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> apache-2.2.25.ebuild:
+  Stable for amd64, wrt bug #476568
+
+*apache-2.4.6 (22 Jul 2013)
+
+  22 Jul 2013; Patrick Lauer <patrick@gentoo.org> +apache-2.4.6.ebuild:
+  Bump
+
+*apache-2.2.25 (18 Jul 2013)
+
+  18 Jul 2013; Lars Wendler <polynomial-c@gentoo.org> +apache-2.2.25.ebuild:
+  Security bump (permission granted by bonsaikitten).
 
   13 Jun 2013; Mike Gilbert <floppym@gentoo.org> apache-2.4.4-r3.ebuild:
   Don't install 00_systemd.conf since we don't install mod_systemd.so. Bug

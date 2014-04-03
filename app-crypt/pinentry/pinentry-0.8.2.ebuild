@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/pinentry/pinentry-0.8.2.ebuild,v 1.14 2013/02/20 23:42:23 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/pinentry/pinentry-0.8.2.ebuild,v 1.19 2014/01/20 20:25:47 vapier Exp $
 
 EAPI=5
 
-inherit multilib eutils flag-o-matic
+inherit autotools multilib eutils flag-o-matic
 
 DESCRIPTION="Collection of simple PIN or passphrase entry dialogs which utilize the Assuan protocol"
 HOMEPAGE="http://gnupg.org/aegypten2/index.html"
@@ -12,7 +12,7 @@ SRC_URI="mirror://gnupg/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="gtk ncurses qt4 caps static"
 
 RDEPEND="
@@ -20,10 +20,11 @@ RDEPEND="
 	caps? ( sys-libs/libcap )
 	gtk? ( x11-libs/gtk+:2 )
 	ncurses? ( sys-libs/ncurses )
-	qt4? ( >=x11-libs/qt-gui-4.4.1:4 )
+	qt4? ( >=dev-qt/qtgui-4.4.1:4 )
 	static? ( >=sys-libs/ncurses-5.7-r5[static-libs,-gpm] )
 "
 DEPEND="${RDEPEND}
+	sys-devel/gettext
 	gtk? ( virtual/pkgconfig )
 	qt4? ( virtual/pkgconfig )
 "
@@ -43,6 +44,10 @@ src_prepare() {
 			"${EPREFIX}"/usr/bin/moc ${f/.moc/.h} > ${f} || die
 		done
 	fi
+	epatch "${FILESDIR}/${P}-ncurses.patch"
+	epatch "${FILESDIR}/${P}-texi.patch"
+	sed -i 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' configure.ac || die
+	eautoreconf
 }
 
 src_configure() {

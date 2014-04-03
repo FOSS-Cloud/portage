@@ -1,6 +1,58 @@
 # ChangeLog for Gentoo/MIPS profile directory
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/ChangeLog,v 1.121 2013/09/02 07:02:22 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/ChangeLog,v 1.133 2014/03/19 00:16:05 dilfridge Exp $
+
+  19 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> +eapi, +mips64/eapi,
+  +mips64/multilib/eapi, +mips64/multilib/n32-n64/eapi,
+  +mips64/multilib/n32-o32/eapi, +mips64/multilib/n32/eapi,
+  +mips64/multilib/n64-n32/eapi, +mips64/multilib/n64-o32/eapi,
+  +mips64/multilib/n64/eapi, +mips64/multilib/o32-n32/eapi,
+  +mips64/multilib/o32-n64/eapi, +mips64/multilib/o32/eapi, +mips64/n32/eapi,
+  +mips64/n64/eapi, +mipsel/eapi, +mipsel/mips64el/eapi,
+  +mipsel/mips64el/multilib/eapi, +mipsel/mips64el/multilib/n32-n64/eapi,
+  +mipsel/mips64el/multilib/n32-o32/eapi, +mipsel/mips64el/multilib/n32/eapi,
+  +mipsel/mips64el/multilib/n64-n32/eapi,
+  +mipsel/mips64el/multilib/n64-o32/eapi, +mipsel/mips64el/multilib/n64/eapi,
+  +mipsel/mips64el/multilib/o32-n32/eapi,
+  +mipsel/mips64el/multilib/o32-n64/eapi, +mipsel/mips64el/multilib/o32/eapi,
+  +mipsel/mips64el/n32/eapi, +mipsel/mips64el/n64/eapi:
+  Increase EAPI to 5
+
+  06 Mar 2014; Markos Chandras <hwoarang@gentoo.org> use.mask:
+  Mask lz4 per #501600
+
+  02 Feb 2014; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
+  Mask nvtt USE flag in media-libs/devil
+
+  23 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> package.mask:
+  Remove old gentoo-sources entry.
+
+  23 Jan 2014; Markos Chandras <hwoarang@gentoo.org> use.mask:
+  Unmask ffmpeg MIPS use flags per #498082
+
+  14 Jan 2014; Mike Frysinger <vapier@gentoo.org> parent, use.mask:
+  Use unified arch/base/ like all other arches.
+
+  14 Jan 2014; Markos Chandras <hwoarang@gentoo.org> use.mask:
+  Remove old libnotify entry
+
+  08 Jan 2014; Ryan Hill <dirtyepic@gentoo.org> package.use.mask:
+  Mask webkit USE flag for wxGTK.
+
+  05 Jan 2014; Markos Chandras <hwoarang@gentoo.org> package.use.mask:
+  Masking dev-vcs/git mediawiki per #497068
+
+  24 Dec 2013; Anthony G. Basile <blueness@gentoo.org> package.mask:
+  Just drop to -mips for spidermonkey after talking to ssuominen, bug ##491294
+
+  23 Dec 2013; Anthony G. Basile <blueness@gentoo.org> package.mask:
+  Relax masking on spidermonkey after discussion with desktop folks
+
+  23 Dec 2013; Anthony G. Basile <blueness@gentoo.org> package.mask:
+  Mask >dev-lang/spidermonkey-1.8.5-r4 becuase of bug #491294
+
+  11 Oct 2013; Markos Chandras <hwoarang@gentoo.org> use.mask:
+  Mask m17n-lib for MIPS. Bug #485366
 
   02 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
   Mask webp USE-flag on media-libs/leptonica and app-text/tesseract, not tested

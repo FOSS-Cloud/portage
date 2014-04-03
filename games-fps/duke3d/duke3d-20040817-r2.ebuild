@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/duke3d/duke3d-20040817-r2.ebuild,v 1.11 2010/10/08 12:55:49 tupone Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-fps/duke3d/duke3d-20040817-r2.ebuild,v 1.13 2013/11/14 21:54:35 mr_bones_ Exp $
 
 EAPI=2
 fromcvs=0
@@ -8,9 +8,9 @@ ECVS_MODULE="duke3d"
 if [[ ${fromcvs} -eq 1 ]] ; then
 	ECVS_PASS="anonymous"
 	ECVS_SERVER="icculus.org:/cvs/cvsroot"
-	inherit cvs eutils flag-o-matic games
+	inherit unpacker cvs eutils flag-o-matic games
 else
-	inherit eutils flag-o-matic games
+	inherit unpacker eutils flag-o-matic games
 fi
 
 DEMO="3dduke13.zip"
@@ -38,7 +38,7 @@ DEPEND="${RDEPEND}
 	demo? ( app-arch/unzip )
 	!pic? ( x86? ( dev-lang/nasm ) )"
 
-S="${WORKDIR}/${PN}"
+S=${WORKDIR}/${PN}
 
 use_tf() { use ${1} && echo "true" || echo "false"; }
 
@@ -53,7 +53,7 @@ src_unpack() {
 	fi
 
 	if use demo ; then
-		unzip -qo DN3DSW13.SHR || die "unzip DN3DSW13.SHR failed"
+		unpack_zip DN3DSW13.SHR
 	fi
 }
 

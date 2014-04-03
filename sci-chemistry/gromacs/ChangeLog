@@ -1,6 +1,84 @@
 # ChangeLog for sci-chemistry/gromacs
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/gromacs/ChangeLog,v 1.120 2013/02/12 04:11:10 ottxor Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/gromacs/ChangeLog,v 1.139 2014/03/26 21:42:49 maekke Exp $
+
+  26 Mar 2014; Markus Meier <maekke@gentoo.org> gromacs-4.6.5.ebuild:
+  arm stable, bug #496632
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> gromacs-4.6.5.ebuild:
+  amd64 stable, bug #496632
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> gromacs-4.6.5.ebuild:
+  x86 stable wrt bug #496632
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gromacs-4.6.5.ebuild:
+  Stable for ppc64, wrt bug #496632
+
+  31 Dec 2013; Christoph Junghans <ottxor@gentoo.org>
+  -files/gromacs-4.5.5-cmake-cpp-asm.patch,
+  -files/gromacs-4.5.5-enable-see.patch,
+  -files/gromacs-4.5.7-cmake-cpp-asm.patch, -gromacs-4.5.5-r1.ebuild,
+  -gromacs-4.5.7.ebuild, -gromacs-4.6.3.ebuild, -gromacs-4.6.4.ebuild,
+  metadata.xml:
+  clean up
+
+*gromacs-4.6.5 (05 Dec 2013)
+
+  05 Dec 2013; Alexey Shvetsov <alexxy@gentoo.org> +gromacs-4.6.5.ebuild:
+  Version bump =D
+
+*gromacs-4.6.4 (13 Nov 2013)
+
+  13 Nov 2013; Christoph Junghans <ottxor@gentoo.org> +gromacs-4.6.4.ebuild:
+  version bump
+
+  02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gromacs-4.6.2.ebuild:
+  Stable for x86, wrt bug #472124
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gromacs-4.6.2.ebuild:
+  Stable for arm, wrt bug #472124
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> gromacs-4.6.2.ebuild:
+  Stable for alpha, wrt bug #472124
+
+*gromacs-4.6.3 (05 Jul 2013)
+
+  05 Jul 2013; Christoph Junghans <ottxor@gentoo.org> +gromacs-4.6.3.ebuild:
+  version bump
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> gromacs-4.6.2.ebuild:
+  Stable for ppc64, wrt bug #472124
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> gromacs-4.6.2.ebuild:
+  Stable for amd64, wrt bug #472124
+
+*gromacs-4.6.2 (01 Jun 2013)
+
+  01 Jun 2013; Christoph Junghans <ottxor@gentoo.org> +gromacs-4.6.2.ebuild,
+  -files/gromacs-4.6.1-openmm.patch, -gromacs-4.6.1.ebuild:
+  version bump
+
+  28 May 2013; Christoph Junghans <ottxor@gentoo.org> gromacs-4.6.1.ebuild:
+  fixed a typo, which prevented cuda build
+
+  05 May 2013; Christoph Junghans <ottxor@gentoo.org> gromacs-4.5.7.ebuild:
+  clean up fortran
+
+*gromacs-4.5.7 (03 May 2013)
+
+  03 May 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/gromacs-4.5.7-cmake-cpp-asm.patch, +gromacs-4.5.7.ebuild:
+  added recent 4.5.x version (bug #468454)
+
+  09 Mar 2013; Christoph Junghans <ottxor@gentoo.org> gromacs-4.6.1.ebuild:
+  fix cuda build (bug #460518)
+
+*gromacs-4.6.1 (06 Mar 2013)
+
+  06 Mar 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/gromacs-4.6.1-openmm.patch, +gromacs-4.6.1.ebuild, -gromacs-4.6.ebuild,
+  -gromacs-4.6_beta3-r1.ebuild:
+  version bump
 
   12 Feb 2013; Christoph Junghans <ottxor@gentoo.org> gromacs-4.6.ebuild,
   gromacs-4.6_beta3-r1.ebuild, metadata.xml:

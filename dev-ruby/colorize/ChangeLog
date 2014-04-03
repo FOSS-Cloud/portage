@@ -1,0 +1,25 @@
+# ChangeLog for dev-ruby/colorize
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/colorize/ChangeLog,v 1.5 2014/03/25 14:44:43 mrueg Exp $
+
+*colorize-0.7.0 (25 Mar 2014)
+
+  25 Mar 2014; Manuel Rüger <mrueg@gentoo.org> +colorize-0.7.0.ebuild:
+  Version bump.
+
+  28 Dec 2013; Hans de Graaff <graaff@gentoo.org> colorize-0.6.0.ebuild:
+  Add ruby21, jruby.
+
+  02 Nov 2013; Manuel Rüger <mrueg@gentoo.org> -colorize-0.5.8.ebuild:
+  Cleanup old.
+
+*colorize-0.6.0 (26 Sep 2013)
+
+  26 Sep 2013; Hans de Graaff <graaff@gentoo.org> +colorize-0.6.0.ebuild:
+  Version bump.
+
+*colorize-0.5.8 (14 Aug 2013)
+
+  14 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +colorize-0.5.8.ebuild,
+  +metadata.xml:
+  Initial version

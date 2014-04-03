@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxpanel/lxpanel-0.5.12.ebuild,v 1.2 2013/02/22 20:57:10 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxpanel/lxpanel-0.5.12.ebuild,v 1.7 2013/03/26 18:13:57 ago Exp $
 
 EAPI="4"
 
@@ -11,7 +11,7 @@ HOMEPAGE="http://lxde.org/"
 SRC_URI="mirror://sourceforge/lxde/LXPanel%20%28desktop%20panel%29/LXPanel%20${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS="~alpha ~amd64 ~arm ~ppc ~x86 ~x86-interix ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="~alpha amd64 arm ppc x86 ~x86-interix ~amd64-linux ~arm-linux ~x86-linux"
 SLOT="0"
 IUSE="+alsa wifi"
 RESTRICT="test"  # bug 249598
@@ -19,6 +19,9 @@ RESTRICT="test"  # bug 249598
 RDEPEND="x11-libs/gtk+:2
 	x11-libs/libXmu
 	x11-libs/libXpm
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/libX11
 	lxde-base/lxmenu-data
 	lxde-base/menu-cache
 	alsa? ( media-libs/alsa-lib )

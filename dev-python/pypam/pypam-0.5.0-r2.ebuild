@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pypam/pypam-0.5.0-r2.ebuild,v 1.3 2013/02/02 22:00:25 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pypam/pypam-0.5.0-r2.ebuild,v 1.5 2014/03/23 03:00:44 idella4 Exp $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
 
 inherit distutils-r1 flag-o-matic
 
@@ -16,7 +16,7 @@ SRC_URI="http://www.pangalactic.org/PyPAM/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE=""
 
 DEPEND=">=sys-libs/pam-0.64"

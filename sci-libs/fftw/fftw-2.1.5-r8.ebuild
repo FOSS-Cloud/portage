@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/fftw/fftw-2.1.5-r8.ebuild,v 1.15 2013/02/22 10:11:14 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/fftw/fftw-2.1.5-r8.ebuild,v 1.17 2013/05/03 14:19:13 jlec Exp $
 
 EAPI=4
 
@@ -51,7 +51,8 @@ src_prepare() {
 		"${FILESDIR}"/${P}-as-needed.patch \
 		"${FILESDIR}"/${P}-configure.in.patch \
 		"${FILESDIR}"/${P}-no-test.patch \
-		"${FILESDIR}"/${P}-cc.patch
+		"${FILESDIR}"/${P}-cc.patch \
+		"${FILESDIR}"/${P}-texinfo5.1.patch
 
 	# fix info files
 	for infofile in doc/fftw*info*; do
@@ -62,6 +63,8 @@ src_prepare() {
 			END-INFO-DIR-ENTRY
 		EOF
 	done
+
+	sed -i 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' configure.in || die
 
 	eautoreconf
 

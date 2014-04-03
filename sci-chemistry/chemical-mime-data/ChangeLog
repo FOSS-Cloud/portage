@@ -1,6 +1,20 @@
 # ChangeLog for sci-chemistry/chemical-mime-data
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/chemical-mime-data/ChangeLog,v 1.6 2012/05/04 07:02:34 jdhore Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/chemical-mime-data/ChangeLog,v 1.8 2013/06/20 19:04:07 jlec Exp $
+
+*chemical-mime-data-0.1.94-r2 (20 Jun 2013)
+
+  20 Jun 2013; Justin Lecher <jlec@gentoo.org>
+  +chemical-mime-data-0.1.94-r2.ebuild,
+  +files/chemical-mime-data-0.1.94-namespace-svg.patch,
+  +files/chemical-mime-data-0.1.94-pigz.patch,
+  +files/chemical-mime-data-0.1.94-turbomole.patch, metadata.xml:
+  Fix for sandbox violation, #464782; Add missing deps; Bump to EAPI=5 and
+  autotools-utils eclass; fix compatibility to pigz[symlink]; call fdo-mime
+  function in pkg_postrm
+
+  19 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> metadata.xml:
+  Changed herd to sci-chemistry
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org>
   chemical-mime-data-0.1.94.ebuild, chemical-mime-data-0.1.94-r1.ebuild:
@@ -28,4 +42,3 @@
   11 Dec 2007; Jeff Gardner <je_fro@gentoo.org> +metadata.xml,
   +chemical-mime-data-0.1.94.ebuild:
   Initial import
-

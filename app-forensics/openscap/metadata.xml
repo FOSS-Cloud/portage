@@ -8,8 +8,10 @@
 <description>Maintainer</description>
 </maintainer>
 <use>
+<flag name="gconf">Build the gconf independant probes</flag>
 <flag name="nss">Prefer NSS over libgcrypt as the crypto engine</flag>
 <flag name="rpm">Compiles the RPM probes</flag>
+<flag name="sce">Enables Script Check Engine (SCE) support</flag>
 <flag name="sql">Build the sql independant probes</flag>
 </use>
 <longdescription lang="en">

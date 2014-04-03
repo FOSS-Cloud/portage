@@ -1,6 +1,51 @@
 # ChangeLog for dev-haskell/cgi
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cgi/ChangeLog,v 1.24 2012/12/28 22:24:15 slyfox Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cgi/ChangeLog,v 1.35 2014/02/24 07:03:35 qnikst Exp $
+
+*cgi-3001.1.8.5 (24 Feb 2014)
+
+  24 Feb 2014; Alexander Vershilov <qnikst@gentoo.org> +cgi-3001.1.8.5.ebuild,
+  +files/cgi-3001.1.8.5-ghc78.patch, -cgi-3001.1.8.2.ebuild:
+  add new version, drop old
+
+*cgi-3001.1.8.4-r1 (11 Jan 2014)
+
+  11 Jan 2014; Sergei Trofimovich <slyfox@gentoo.org> +cgi-3001.1.8.4-r1.ebuild,
+  +files/cgi-3001.1.8.4-mci.patch:
+  Fix build failure against latest monadcatchio-mtl-0.3.1.0 (bug #497496 by
+  Jason Mours).
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> cgi-3001.1.8.4.ebuild:
+  Stable for x86, wrt bug #491984
+
+  23 Dec 2013; Pacho Ramos <pacho@gentoo.org> cgi-3001.1.8.4.ebuild:
+  amd64 stable, bug #491984
+
+*cgi-3001.1.8.4 (13 Sep 2013)
+
+  13 Sep 2013; Mark Wright <gienah@gentoo.org> +cgi-3001.1.8.4.ebuild,
+  metadata.xml:
+  Bump cgi to 3001.1.8.4
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cgi-3001.1.8.3.ebuild:
+  Stable for sparc, wrt bug #480558
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cgi-3001.1.8.3.ebuild:
+  Stable for x86, wrt bug #480558
+
+  04 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cgi-3001.1.8.3.ebuild:
+  Stable for ppc, wrt bug #480558
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> cgi-3001.1.8.3.ebuild:
+  Stable for alpha, wrt bug #480558
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cgi-3001.1.8.3.ebuild:
+  Stable for amd64, wrt bug #480558
+
+  18 Jun 2013; Sergei Trofimovich <slyfox@gentoo.org> -cgi-2006.9.6.ebuild,
+  -cgi-3001.1.1.ebuild, -cgi-3001.1.5.1.ebuild, -cgi-3001.1.7.1.ebuild,
+  -cgi-3001.1.7.4.ebuild:
+  Drop stable sparc. Drop old versions.
 
   28 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> cgi-3001.1.8.2.ebuild:
   Rekeyworded alpha/ppc/sparc.

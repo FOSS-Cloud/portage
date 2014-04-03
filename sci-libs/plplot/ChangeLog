@@ -1,6 +1,61 @@
 # ChangeLog for sci-libs/plplot
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/plplot/ChangeLog,v 1.47 2013/02/01 12:34:13 yngwin Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/plplot/ChangeLog,v 1.57 2014/03/27 04:32:36 bicatali Exp $
+
+  27 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> plplot-5.10.0.ebuild:
+  Bump minimum swig version for octave bindings, thanks disperato bug #503418.
+  Adjust library depedencies
+
+*plplot-5.10.0 (21 Feb 2014)
+
+  21 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> +plplot-5.10.0.ebuild:
+  Version bump
+
+*plplot-5.9.11-r1 (17 Jan 2014)
+
+  17 Jan 2014; Sébastien Fabbro <bicatali@gentoo.org> +plplot-5.9.11-r1.ebuild,
+  -files/plplot-5.9.11-config.patch, -plplot-5.9.11.ebuild:
+  Removing the plplot_config patch since it creates more problems than it solves
+  (bug #498234)
+
+*plplot-5.9.11 (16 Jan 2014)
+
+  16 Jan 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/plplot-5.9.11-config.patch, +files/plplot-5.9.11-multiarch.patch,
+  +files/plplot-5.9.11-ocaml.patch, +files/plplot-5.9.11-octave.patch,
+  +plplot-5.9.11.ebuild, -plplot-5.9.9-r1.ebuild, metadata.xml:
+  Version bump
+
+  16 Nov 2013; Ryan Hill <dirtyepic@gentoo.org> plplot-5.9.9-r1.ebuild,
+  plplot-5.9.9-r2.ebuild, plplot-5.9.10-r1.ebuild:
+  Remove wxwidgets_pkg_setup call (unnecessary with USE deps).
+
+  06 Nov 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  files/plplot-5.9.10-tcltk.patch:
+  Removed Id tag in patch, fixing bug #451294
+
+*plplot-5.9.10-r1 (05 Nov 2013)
+
+  05 Nov 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/plplot-5.9.10-haru.patch, +files/plplot-5.9.10-itcltk.patch,
+  +files/plplot-5.9.10-tcl86.patch, +files/plplot-5.9.10-tcltk.patch,
+  +plplot-5.9.10-r1.ebuild, -plplot-5.9.10.ebuild:
+  Fixed tcl/tk binding upgrade (bug #489728), add shared lib soversion slot, use
+  BUILD_DIR instead of CMAKE_BUILD_DIR, fixed calling libharu headers
+
+*plplot-5.9.10 (28 Oct 2013)
+
+  28 Oct 2013; Sébastien Fabbro <bicatali@gentoo.org> +plplot-5.9.10.ebuild,
+  metadata.xml:
+  Version bump
+
+*plplot-5.9.9-r2 (18 Apr 2013)
+
+  18 Apr 2013; Patrick Lauer <patrick@gentoo.org> +plplot-5.9.9-r2.ebuild:
+  Fix sanbox violation #464144
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> plplot-5.9.9-r1.ebuild:
+  Move Qt dependencies to the new category
 
   01 Feb 2013; Ben de Groot <yngwin@gentoo.org> plplot-5.9.9-r1.ebuild:
   Correct freefont path

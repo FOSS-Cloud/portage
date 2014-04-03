@@ -3,8 +3,8 @@
 <pkgmetadata>
 	<herd>virtualization</herd>
 	<maintainer>
-		<email>ramereth@gentoo.org</email>
-		<name>Lance Albertson</name>
+		<email>chutzpah@gentoo.org</email>
+		<name>Patrick McLean</name>
 	</maintainer>
 	<longdescription lang="en">
 	Ganeti is a cluster virtual server management software tool built on top of

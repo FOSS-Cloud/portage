@@ -1,6 +1,82 @@
 # ChangeLog for sys-auth/consolekit
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/consolekit/ChangeLog,v 1.150 2013/01/17 16:17:43 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/consolekit/ChangeLog,v 1.170 2014/03/15 12:33:36 ssuominen Exp $
+
+  15 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> consolekit-0.4.6.ebuild:
+  Install /etc/logrotate.d file wrt #374513 by Vladimir Berezhnoy
+
+  15 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> metadata.xml:
+  Add proper metadata for freedesktop-bugs@g.o
+
+  15 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> consolekit-0.4.6.ebuild:
+  Skip broken ~ dev-libs/glib-2.38 releases wrt #501330. Remove /var/run
+  directory from the image by rm -rf.
+
+  14 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -consolekit-0.4.5_p20120320-r1.ebuild, -consolekit-0.4.5_p20120320-r2.ebuild:
+  old
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> consolekit-0.4.6.ebuild:
+  Stable for sparc, wrt bug #480028
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> consolekit-0.4.6.ebuild:
+  Stable for ia64, wrt bug #480028
+
+  21 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> consolekit-0.4.6.ebuild,
+  metadata.xml:
+  Rename USE="systemd" by USE="systemd-units" to avoid conflict with systemd vs.
+  -systemd, package.use.mask and profiles.
+
+  21 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> consolekit-0.4.6.ebuild,
+  metadata.xml:
+  Introduce USE="systemd" to force installation of systemd unit files despite of
+  systemd-logind making it more or less obsolete (and remove SystemdService=
+  line from the .service file when required) wrt #478258
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> consolekit-0.4.6.ebuild:
+  Stable for x86, wrt bug #480028
+
+  13 Aug 2013; Agostino Sarubbo <ago@gentoo.org> consolekit-0.4.6.ebuild:
+  Stable for alpha, wrt bug #480028
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> consolekit-0.4.6.ebuild:
+  Stable for ppc64, wrt bug #480028
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> consolekit-0.4.6.ebuild:
+  Stable for arm, wrt bug #480028
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> consolekit-0.4.6.ebuild:
+  Stable for ppc, wrt bug #480028
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> consolekit-0.4.6.ebuild:
+  Stable for amd64, wrt bug #480028
+
+  07 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> consolekit-0.4.6.ebuild:
+  Stop blocking sys-apps/systemd (to let users switch between OpenRC and
+  ConsoleKit vs. systemd and systemd-logind without uninstalling one or the
+  another) wrt #478258 by Pacho Ramos
+
+*consolekit-0.4.6 (20 Jul 2013)
+
+  20 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> +consolekit-0.4.6.ebuild:
+  Version bump. This time conflict with sys-apps/systemd in favour of systemd-logind,
+  the correct configuration is USE="-consolekit systemd" if you want systemd.
+
+*consolekit-0.4.5_p20120320-r2 (16 Mar 2013)
+
+  16 Mar 2013; Samuli Suominen <ssuominen@gentoo.org>
+  consolekit-0.4.5_p20120320-r1.ebuild, +consolekit-0.4.5_p20120320-r2.ebuild:
+  Fix use of QA_MULTILIB_PATHS and revision bump because the helpers are also
+  used by gnome-base/gdm wrt #461866 by Alphat-PC
+
+  14 Mar 2013; Samuli Suominen <ssuominen@gentoo.org>
+  consolekit-0.4.5_p20120320-r1.ebuild:
+  Move udev-acl and other binaries out from /usr/libexec and move them over to
+  /usr/lib/ConsoleKit and set QA_MULTILIB_PATHS.
+
+  03 Mar 2013; Mike Frysinger <vapier@gentoo.org>
+  consolekit-0.4.5_p20120320-r1.ebuild:
+  Add s390 keywords #457078 by Michael Palimaka.
 
   17 Jan 2013; Samuli Suominen <ssuominen@gentoo.org>
   -consolekit-0.4.5_p20120320.ebuild:

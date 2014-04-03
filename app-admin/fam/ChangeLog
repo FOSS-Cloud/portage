@@ -1,6 +1,45 @@
 # ChangeLog for app-admin/fam
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/fam/ChangeLog,v 1.75 2012/02/25 15:54:05 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/fam/ChangeLog,v 1.87 2014/01/18 19:56:34 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> fam-2.7.0-r7.ebuild:
+  Stable for alpha, wrt bug #491888
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> fam-2.7.0-r7.ebuild:
+  Stable for ia64, wrt bug #491888
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> fam-2.7.0-r7.ebuild:
+  Stable for sparc, wrt bug #491888
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> fam-2.7.0-r7.ebuild:
+  Stable for ppc64, wrt bug #491888
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> fam-2.7.0-r7.ebuild:
+  Stable for ppc, wrt bug #491888
+
+  05 Dec 2013; Chema Alonso <nimiux@gentoo.org> fam-2.7.0-r7.ebuild:
+  Stable for amd64 wrt bug #491888
+
+  01 Dec 2013; Johannes Huber <johu@gentoo.org> fam-2.7.0-r7.ebuild:
+  x86 stable wrt bug #491888
+
+  30 Nov 2013; Markus Meier <maekke@gentoo.org> fam-2.7.0-r7.ebuild:
+  arm stable, bug #491888
+
+  24 Nov 2013; Jeroen Roovers <jer@gentoo.org> fam-2.7.0-r7.ebuild:
+  Stable for HPPA (bug #491888).
+
+  13 Oct 2013; Michał Górny <mgorny@gentoo.org> fam-2.7.0-r7.ebuild:
+  Explicitly call einstalldocs in multilib_src_install_all() to accomodate bug
+  #483304.
+
+*fam-2.7.0-r7 (01 Aug 2013)
+
+  01 Aug 2013; Jeroen Roovers <jer@gentoo.org> +fam-2.7.0-r7.ebuild:
+  Add multilib support by Alexis Ballier (bug #479318).
+
+  24 Apr 2013; Jeroen Roovers <jer@gentoo.org> fam-2.7.0-r6.ebuild:
+  Fix building with automake-1.13.
 
   25 Feb 2012; Samuli Suominen <ssuominen@gentoo.org> -fam-2.7.0-r5.ebuild,
   -files/fam-2.7.0-gcc41.patch, -files/fam-2.7.0-gcc43.patch,

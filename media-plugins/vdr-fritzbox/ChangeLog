@@ -1,6 +1,27 @@
 # ChangeLog for media-plugins/vdr-fritzbox
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-fritzbox/ChangeLog,v 1.23 2013/01/06 12:05:37 hd_brummy Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-fritzbox/ChangeLog,v 1.28 2014/03/01 22:14:39 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> vdr-fritzbox-1.5.2-r1.ebuild,
+  vdr-fritzbox-1.5.2.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  02 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  -vdr-fritzbox-1.4.1.ebuild, -vdr-fritzbox-1.4.2.ebuild,
+  -vdr-fritzbox-1.4.3.ebuild, vdr-fritzbox-1.5.2-r1.ebuild:
+  stable amd64 x86, wrt bug 495762
+
+*vdr-fritzbox-1.5.2-r1 (31 Mar 2013)
+
+  31 Mar 2013; Joerg Bornkessel <hd_brummy@gentoo.org>
+  +vdr-fritzbox-1.5.2-r1.ebuild:
+  bump, need >=vdr-1.7.34
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> vdr-fritzbox-1.5.2.ebuild:
+  Stable for x86, wrt bug #457392
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> vdr-fritzbox-1.5.2.ebuild:
+  Stable for amd64, wrt bug #457392
 
 *vdr-fritzbox-1.5.2 (06 Jan 2013)
 
@@ -143,4 +164,3 @@
   04 Jun 2007; Matthias Schwarzott <zzam@gentoo.org> +metadata.xml,
   +vdr-fritzbox-0.0.2.ebuild:
   Initial import of ebuild, thanks to Magnus <magnus.hinzke@gmx.net>.
-

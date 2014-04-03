@@ -1,6 +1,21 @@
 # ChangeLog for x11-wm/metacity
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/metacity/ChangeLog,v 1.275 2012/10/28 21:15:49 eva Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/metacity/ChangeLog,v 1.280 2014/02/22 22:54:57 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> metacity-2.34.13.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> metacity-2.34.13.ebuild:
+  arch stable, bug 888
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> metacity-2.34.13.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> metacity-2.34.13.ebuild:
+  amd64 stable, bug #478252
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -metacity-2.34.8.ebuild:
+  Clean up old revision.
 
 *metacity-2.34.13 (28 Oct 2012)
 

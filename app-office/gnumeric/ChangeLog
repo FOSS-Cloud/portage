@@ -1,6 +1,128 @@
 # ChangeLog for app-office/gnumeric
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/gnumeric/ChangeLog,v 1.238 2012/12/29 09:37:46 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/gnumeric/ChangeLog,v 1.267 2014/03/29 19:20:04 pacho Exp $
+
+*gnumeric-1.12.13 (29 Mar 2014)
+
+  29 Mar 2014; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.13.ebuild,
+  -gnumeric-1.12.11.ebuild, -gnumeric-1.12.8.ebuild:
+  Version bump, drop old
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnumeric-1.12.12.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnumeric-1.12.12.ebuild:
+  amd64 stable, bug 499954
+
+*gnumeric-1.12.12 (08 Mar 2014)
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.12.ebuild:
+  Version bump
+
+  01 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/gnumeric-1.12.11-missing-header.patch, -gnumeric-1.12.10.ebuild,
+  gnumeric-1.12.11.ebuild:
+  Add missing header (#502178 by David W Noon and approved by M Welinder), drop
+  old.
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnumeric-1.12.11.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnumeric-1.12.11.ebuild:
+  arch stable, bug 888
+
+*gnumeric-1.12.11 (17 Feb 2014)
+
+  17 Feb 2014; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.11.ebuild,
+  -gnumeric-1.12.9.ebuild:
+  Version bump, drop old
+
+*gnumeric-1.12.10 (15 Feb 2014)
+
+  15 Feb 2014; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.10.ebuild:
+  Version bump
+
+*gnumeric-1.12.9 (05 Jan 2014)
+
+  05 Jan 2014; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.9.ebuild,
+  -gnumeric-1.12.7.ebuild:
+  Version bump, drop old
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> gnumeric-1.12.8.ebuild:
+  add ~arm, bug #488724
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gnumeric-1.12.8.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gnumeric-1.12.8.ebuild:
+  amd64 stable, bug #478252
+
+*gnumeric-1.12.8 (10 Oct 2013)
+
+  10 Oct 2013; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.8.ebuild:
+  Version bump, drop old
+
+  29 Sep 2013; Pacho Ramos <pacho@gentoo.org> -gnumeric-1.12.3.ebuild,
+  -gnumeric-1.12.4.ebuild, -gnumeric-1.12.5.ebuild, gnumeric-1.12.7.ebuild:
+  Fix python handling (#480410 by Maciej Piechotka and mgorny), drop old
+
+*gnumeric-1.12.7 (01 Sep 2013)
+
+  01 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org> +gnumeric-1.12.7.ebuild:
+  Version bump.
+
+*gnumeric-1.12.5 (25 Aug 2013)
+
+  25 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> +gnumeric-1.12.5.ebuild,
+  metadata.xml:
+  Version bump. Add libgda:5 support.
+
+*gnumeric-1.12.4 (20 Jul 2013)
+
+  20 Jul 2013; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.4.ebuild,
+  -gnumeric-1.12.2.ebuild:
+  Version bump, drop old
+
+*gnumeric-1.12.3 (26 Jun 2013)
+
+  26 Jun 2013; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.3.ebuild,
+  -gnumeric-1.12.1.ebuild:
+  Version bump, drop old
+
+*gnumeric-1.12.2 (27 Apr 2013)
+
+  27 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.2.ebuild,
+  -gnumeric-1.10.17.ebuild:
+  Version bump, drop old
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for alpha, wrt bug #458984
+
+*gnumeric-1.12.1 (31 Mar 2013)
+
+  31 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> +gnumeric-1.12.1.ebuild:
+  Version bump.
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.0-r1.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -gnumeric-1.12.0.ebuild:
+  Clean up old revisions.
 
 *gnumeric-1.12.0-r1 (29 Dec 2012)
 

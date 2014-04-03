@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/awesome/awesome-3.4.15.ebuild,v 1.1 2013/02/11 16:24:41 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/awesome/awesome-3.4.15.ebuild,v 1.9 2013/12/27 14:16:45 maksbotan Exp $
 
 EAPI="3"
 CMAKE_MIN_VERSION="2.8"
@@ -12,7 +12,7 @@ SRC_URI="http://awesome.naquadah.org/download/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd"
+KEYWORDS="amd64 arm ppc ppc64 x86 ~x86-fbsd"
 IUSE="dbus doc elibc_FreeBSD gnome"
 
 COMMON_DEPEND=">=dev-lang/lua-5.1
@@ -22,6 +22,7 @@ COMMON_DEPEND=">=dev-lang/lua-5.1
 	x11-libs/cairo[xcb]
 	|| ( <x11-libs/libX11-1.3.99.901[xcb] >=x11-libs/libX11-1.3.99.901 )
 	>=x11-libs/libxcb-1.6
+	x11-libs/libXcursor
 	>=x11-libs/pango-1.19.3
 	>=x11-libs/startup-notification-0.10_p20110426
 	>=x11-libs/xcb-util-0.3.8
@@ -76,6 +77,9 @@ src_prepare() {
 
 	# bug  #408025
 	epatch "${FILESDIR}/${PN}-3.4.11-convert-path.patch"
+
+	#bug #465288
+	sed -e '/NoDisplay/d' -i awesome.desktop || die
 }
 
 src_configure() {
@@ -120,8 +124,7 @@ src_install() {
 		insinto /usr/share/gnome-session/sessions
 		doins "${FILESDIR}/${PN}-gnome.session" || die
 		# Application launcher
-		insinto /usr/share/applications
-		doins "${FILESDIR}/${PN}-gnome.desktop" || die
+		domenu "${FILESDIR}/${PN}-gnome.desktop" || die
 		# X Session
 		insinto /usr/share/xsessions/
 		doins "${FILESDIR}/${PN}-gnome-xsession.desktop" || die

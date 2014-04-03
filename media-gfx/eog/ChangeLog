@@ -1,6 +1,42 @@
 # ChangeLog for media-gfx/eog
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/eog/ChangeLog,v 1.302 2013/02/02 22:44:27 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/eog/ChangeLog,v 1.311 2014/03/09 12:01:30 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> eog-3.10.2.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> eog-3.10.2.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> eog-3.10.2.ebuild:
+  Fix wrong commit, bug 502160
+
+*eog-3.10.2 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +eog-3.10.2.ebuild,
+  -eog-3.6.2.ebuild, -eog-3.8.0.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> eog-3.8.2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> eog-3.8.2.ebuild:
+  amd64 stable, bug #478252
+
+*eog-3.8.2 (13 May 2013)
+
+  13 May 2013; Pacho Ramos <pacho@gentoo.org> +eog-3.8.2.ebuild:
+  Version bump
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -eog-3.4.3-r1.ebuild,
+  -files/eog-3.4.3-libm.patch, -files/eog-3.4.3-require-librsvg-2.36.2.patch,
+  -files/eog-3.6.0-eog.desktop.patch, eog-3.8.0.ebuild:
+  Clean up old revision.
+
+*eog-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +eog-3.8.0.ebuild:
+  Version bump for Gnome 3.8
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> eog-3.6.2.ebuild:
   Add ~arm, wrt bug #449220

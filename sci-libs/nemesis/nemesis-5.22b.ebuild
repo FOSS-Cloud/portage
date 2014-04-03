@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/nemesis/nemesis-5.22b.ebuild,v 1.1 2012/12/13 14:51:07 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/nemesis/nemesis-5.22b.ebuild,v 1.2 2013/07/18 07:21:30 jlec Exp $
 
 EAPI=4
 
@@ -18,7 +18,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="static-libs test"
 
-DEPEND="sci-libs/netcdf"
+DEPEND="
+	sci-libs/exodusii
+	sci-libs/netcdf"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/${MY_P}/${PN}
@@ -27,7 +29,7 @@ PATCHES=( "${FILESDIR}"/${P}-multilib.patch )
 
 src_prepare() {
 	find ../exodus -delete || die
-	base_src_prepare
+	cmake-utils_src_prepare
 }
 
 src_configure() {

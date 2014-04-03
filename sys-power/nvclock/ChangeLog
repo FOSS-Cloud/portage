@@ -1,6 +1,42 @@
 # ChangeLog for sys-power/nvclock
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/nvclock/ChangeLog,v 1.12 2012/09/05 08:12:47 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-power/nvclock/ChangeLog,v 1.19 2014/03/22 18:05:34 kensington Exp $
+
+  22 Mar 2014; Michael Palimaka <kensington@gentoo.org>
+  -files/nvclock-0.8_beta4-as-needed.patch,
+  -files/nvclock-0.8_beta4-flags.patch, -files/nvclock-0.8_beta4-headers.patch,
+  -files/nvclock-0.8_p20110102-make.patch, -nvclock-0.8_beta4-r4.ebuild:
+  Remove old.
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  nvclock-0.8_p20110102-r2.ebuild:
+  Stable for x86, wrt bug #494320
+
+  21 Dec 2013; Pacho Ramos <pacho@gentoo.org> nvclock-0.8_p20110102-r2.ebuild:
+  amd64 stable, bug #494320
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  nvclock-0.8_p20110102-r2.ebuild:
+  Stable for ppc, wrt bug #494320
+
+  15 Dec 2013; Tom Wijsman <TomWij@gentoo.org> -nvclock-0.8_p20110102-r1.ebuild,
+  nvclock-0.8_p20110102-r2.ebuild:
+  [QA] Create /usr/bin/ in image such that the rest of the src_install phase can
+  proceed; for bug #481244, reported by Alex Barker. Removed old revision.
+  Stabilization of newer version in bug #494320.
+
+  16 Aug 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Set new maintainer.
+
+*nvclock-0.8_p20110102-r2 (15 Aug 2013)
+
+  15 Aug 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/nvclock-0.8_p20110102-buffers.patch,
+  +files/nvclock-0.8_p20110102-desktop.patch,
+  +files/nvclock-0.8_p20110102-r1-make.patch, +nvclock-0.8_p20110102-r2.ebuild,
+  files/nvclock-0.8_p20110102-usleep.patch:
+  Fix gtk linkage against X libs.  Respect $AR settings.  Fix .desktop warnings.
+  Fix buffers overflows in random messages #364667 by Diego Elio Pettenò.
 
   05 Sep 2012; Justin Lecher <jlec@gentoo.org> nvclock-0.8_beta4-r4.ebuild,
   nvclock-0.8_p20110102-r1.ebuild:

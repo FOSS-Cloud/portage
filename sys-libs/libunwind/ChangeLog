@@ -1,6 +1,36 @@
 # ChangeLog for sys-libs/libunwind
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libunwind/ChangeLog,v 1.31 2013/01/25 17:19:56 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libunwind/ChangeLog,v 1.40 2014/02/16 02:12:30 vapier Exp $
+
+  16 Feb 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/libunwind-1.1-lzma.patch, libunwind-1.1.ebuild:
+  Fix lzma linkage #444050 by Marcin Mirosław.
+
+  12 Feb 2014; Jeroen Roovers <jer@gentoo.org> libunwind-1.1.ebuild:
+  Stable for HPPA (bug #461394).
+
+  24 Nov 2013; Sergey Popov <pinkbyte@gentoo.org> libunwind-1.1.ebuild:
+  Stable on x86, wrt bug #461394
+
+  30 Oct 2013; Mike Frysinger <vapier@gentoo.org> libunwind-1.1.ebuild:
+  Call elibtoolize to fix relinking issues when cross-compiling.
+
+  25 Oct 2013; Jeroen Roovers <jer@gentoo.org> libunwind-1.1.ebuild:
+  Marked ~hppa too.
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libunwind-1.1.ebuild:
+  Stable for ppc, wrt bug #461394
+
+  12 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> libunwind-1.1.ebuild:
+  Correct LIBLZMA="-lzma" with LIBLZMA="-llzma" (and edit both configure and
+  configure.ac to avoid running eautoreconf only for this) as per #444050 by
+  Marcin Mirosław
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libunwind-1.1.ebuild:
+  Stable for arm, wrt bug #461394
+
+  16 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> libunwind-1.1.ebuild:
+  Stable on amd64, wrt bug #461394
 
   25 Jan 2013; Mike Frysinger <vapier@gentoo.org> libunwind-1.1.ebuild,
   metadata.xml:

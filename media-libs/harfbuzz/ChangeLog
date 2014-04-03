@@ -1,6 +1,152 @@
 # ChangeLog for media-libs/harfbuzz
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/harfbuzz/ChangeLog,v 1.31 2013/02/27 23:34:03 ottxor Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/harfbuzz/ChangeLog,v 1.67 2014/03/04 19:40:30 vincent Exp $
+
+  04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org>
+  harfbuzz-0.9.26.ebuild:
+  Add ~mips keyword.
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> harfbuzz-9999.ebuild:
+  Update the live ebuild to use multilib.
+
+*harfbuzz-0.9.26-r1 (01 Mar 2014)
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> +harfbuzz-0.9.26-r1.ebuild:
+  Introduce multilib support as a dependency of pango, bug #488864.
+
+  22 Feb 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  harfbuzz-0.9.23.ebuild, harfbuzz-0.9.26.ebuild, harfbuzz-9999.ebuild:
+  Require >=gobject-introspection-1.34 (bug #497562, thanks to Søren).
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> harfbuzz-0.9.23.ebuild:
+  Fix wrong commit, bug 502160
+
+*harfbuzz-0.9.26 (22 Feb 2014)
+
+  22 Feb 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -harfbuzz-0.9.18-r1.ebuild, -harfbuzz-0.9.20.ebuild, harfbuzz-0.9.23.ebuild,
+  +harfbuzz-0.9.26.ebuild, harfbuzz-9999.ebuild,
+  -files/harfbuzz-0.9.18-ldadd.patch:
+  Version bump with improved Korean and Myanmar support and various bugfixes;
+  introspection support should be good enough now to enable by default. Fix
+  tests when python3 is the system python interpreter (bug #501844, thanks to
+  Émeric Maschino). Punt obsolete versions.
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> harfbuzz-0.9.23.ebuild:
+  arch stable, bug 888
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org> harfbuzz-0.9.12.ebuild,
+  harfbuzz-0.9.18-r1.ebuild, harfbuzz-0.9.20.ebuild, harfbuzz-0.9.23.ebuild,
+  harfbuzz-9999.ebuild:
+  Add s390 love #469982.
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> harfbuzz-0.9.23.ebuild:
+  Stable for HPPA (bug #478252).
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> harfbuzz-0.9.23.ebuild:
+  x86 stable, bug #478252
+
+  01 Dec 2013; Fabian Groffen <grobian@gentoo.org> harfbuzz-9999.ebuild:
+  Apply Solaris fixes to 9999 so I won't get caught by unpleasant surprise again
+
+  01 Dec 2013; Fabian Groffen <grobian@gentoo.org> harfbuzz-0.9.23.ebuild:
+  Restore 0.9.20 fixes for Solaris :(
+
+  01 Dec 2013; Fabian Groffen <grobian@gentoo.org> harfbuzz-0.9.23.ebuild:
+  Fix compilation some more on Solaris
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> harfbuzz-0.9.23.ebuild:
+  amd64 stable, bug #478252
+
+  14 Nov 2013; Matt Turner <mattst88@gentoo.org> harfbuzz-0.9.20.ebuild:
+  alpha stable, bug 476364.
+
+*harfbuzz-0.9.23 (11 Nov 2013)
+
+  11 Nov 2013; Tomáš Chvátal <scarabeus@gentoo.org> +harfbuzz-0.9.23.ebuild:
+  Version bump to latest.
+
+  24 Oct 2013; Jeroen Roovers <jer@gentoo.org> harfbuzz-0.9.20.ebuild:
+  Stable for HPPA (bug #476364).
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> harfbuzz-0.9.20.ebuild:
+  arm stable, bug #476364
+
+  12 Oct 2013; Markos Chandras <hwoarang@gentoo.org> harfbuzz-0.9.20.ebuild:
+  Add ~mips
+
+  13 Sep 2013; Fabian Groffen <grobian@gentoo.org> harfbuzz-0.9.20.ebuild:
+  Fix compilation on Solaris
+
+  11 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  harfbuzz-0.9.20.ebuild, harfbuzz-9999.ebuild:
+  ragel is not needed for non-live ebuilds (bug #484518, thanks to Lev Babiev).
+
+  10 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  harfbuzz-0.9.20.ebuild, harfbuzz-9999.ebuild:
+  Don't require gobject-introspection-common if we are not doing eautoreconf
+  (bug #484312, thanks to grey dot).
+
+*harfbuzz-0.9.20 (02 Sep 2013)
+
+  02 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -harfbuzz-0.9.17.ebuild, +harfbuzz-0.9.20.ebuild, harfbuzz-9999.ebuild:
+  Version bump; fixes various bugs, adds API docs and experimental
+  gobject-introspection support. Drop old.
+
+  13 Jul 2013; Fabian Groffen <grobian@gentoo.org> harfbuzz-0.9.18-r1.ebuild:
+  Fix linking on Solaris, same fix as necessary for Darwin
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> harfbuzz-0.9.12.ebuild:
+  Stable for alpha, wrt bug #470762
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> harfbuzz-0.9.12.ebuild:
+  Stable for arm, wrt bug #470762
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> harfbuzz-0.9.12.ebuild:
+  Stable for ppc64, wrt bug #470762
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> harfbuzz-0.9.12.ebuild:
+  Stable for sparc, wrt bug #470762
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> harfbuzz-0.9.12.ebuild:
+  Stable for ia64, wrt bug #470762
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> harfbuzz-0.9.12.ebuild:
+  Stable for ppc, wrt bug #470762
+
+  20 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> harfbuzz-0.9.18-r1.ebuild:
+  Remove double elibtoolize wrt bug#473006.
+
+  19 Jun 2013; Jeroen Roovers <jer@gentoo.org> harfbuzz-0.9.12.ebuild:
+  Stable for HPPA (bug #470762).
+
+*harfbuzz-0.9.18-r1 (06 Jun 2013)
+
+  06 Jun 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -harfbuzz-0.9.18.ebuild, +harfbuzz-0.9.18-r1.ebuild, harfbuzz-9999.ebuild:
+  Add a subslot due to ABI change (some symbols moved to libharfbuzz-icu), bug
+  #472416.
+
+*harfbuzz-0.9.18 (05 Jun 2013)
+
+  05 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +files/harfbuzz-0.9.18-ldadd.patch, +harfbuzz-0.9.18.ebuild,
+  harfbuzz-9999.ebuild, metadata.xml:
+  Version bump to 0.9.18 fixing bug#472346.
+
+*harfbuzz-0.9.17 (21 May 2013)
+
+  21 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> +harfbuzz-0.9.17.ebuild,
+  -harfbuzz-0.9.16.ebuild:
+  Version bump to 0.9.17 remove older testing as it had quite iusses with lo.
+  This could be stable candidate.
+
+*harfbuzz-0.9.16 (24 Apr 2013)
+
+  24 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> +harfbuzz-0.9.16.ebuild,
+  -harfbuzz-0.9.11.ebuild, harfbuzz-9999.ebuild:
+  Version bump to latest, remove oldest release.
 
   27 Feb 2013; Christoph Junghans <ottxor@gentoo.org> harfbuzz-0.9.12.ebuild,
   harfbuzz-9999.ebuild:

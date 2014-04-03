@@ -1,6 +1,47 @@
 # ChangeLog for net-news/rawdog
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-news/rawdog/ChangeLog,v 1.40 2011/01/07 16:25:35 arfrever Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-news/rawdog/ChangeLog,v 1.51 2014/03/19 15:24:08 ago Exp $
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> rawdog-2.18.ebuild:
+  Stable for alpha, wrt bug #495892
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org> rawdog-2.18.ebuild:
+  Stable for sparc, wrt bug #495892
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> rawdog-2.18.ebuild:
+  Stable for ppc, wrt bug #495892
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> rawdog-2.18.ebuild:
+  amd64 stable, bug #495892
+
+  23 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> rawdog-2.18.ebuild:
+  x86 stable wrt bug #495892
+
+  15 Feb 2014; Akinori Hattori <hattya@gentoo.org> rawdog-2.18.ebuild:
+  ia64 stable wrt bug #495892
+
+  11 Feb 2014; Jeroen Roovers <jer@gentoo.org> rawdog-2.18.ebuild:
+  Stable for HPPA (bug #495892).
+
+*rawdog-2.18 (17 Sep 2013)
+
+  17 Sep 2013; Patrick Lauer <patrick@gentoo.org> +rawdog-2.18.ebuild:
+  Bump
+
+*rawdog-2.17 (26 Aug 2013)
+
+  26 Aug 2013; Patrick Lauer <patrick@gentoo.org> +rawdog-2.17.ebuild:
+  Bump
+
+*rawdog-2.16 (22 Jul 2013)
+
+  22 Jul 2013; Patrick Lauer <patrick@gentoo.org> +rawdog-2.16.ebuild:
+  Bump
+
+*rawdog-2.14 (25 Jun 2013)
+
+  25 Jun 2013; Patrick Lauer <patrick@gentoo.org> +rawdog-2.14.ebuild:
+  Bump
 
   07 Jan 2011; Arfrever Frehtes Taifersar Arahesis <arfrever@gentoo.org>
   -rawdog-2.12.ebuild:
@@ -156,4 +197,3 @@
   Initial commit. Closing bug #35673. Thanks for David Dorward.
   Marked testing on all architectures, because it should work
   everywhere where python does.
-

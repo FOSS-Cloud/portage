@@ -1,6 +1,51 @@
 # ChangeLog for www-client/elinks
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/elinks/ChangeLog,v 1.155 2012/12/30 14:21:22 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/elinks/ChangeLog,v 1.168 2014/03/09 01:58:04 mrueg Exp $
+
+  09 Mar 2014; Manuel Rüger <mrueg@gentoo.org> -elinks-0.11.7.ebuild,
+  -elinks-0.12_pre5-r2.ebuild, -files/elinks-0.10.1-utf_8_io-default.patch,
+  -files/elinks-0.11.2-lua-5.patch, -files/elinks-0.11.3-lua-5.patch,
+  -files/elinks-0.12_pre5-ruby-config.patch:
+  Cleanup old.
+
+  30 Jan 2014; Fabian Groffen <grobian@gentoo.org> elinks-0.12_pre6.ebuild:
+  Marked ~x64-macos
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> elinks-0.12_pre6.ebuild:
+  Stable for sparc, wrt bug #450534
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> elinks-0.12_pre6.ebuild:
+  Stable for ppc64, wrt bug #450534
+
+  03 Sep 2013; Agostino Sarubbo <ago@gentoo.org> elinks-0.12_pre6.ebuild:
+  Stable for ia64, wrt bug #450534
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> elinks-0.12_pre6.ebuild:
+  Stable for alpha, wrt bug #450534
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> elinks-0.12_pre6.ebuild:
+  Stable for ppc, wrt bug #450534
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> elinks-0.12_pre6.ebuild:
+  Stable for x86, wrt bug #450534
+
+  30 Aug 2013; Agostino Sarubbo <ago@gentoo.org> elinks-0.12_pre6.ebuild:
+  Stable for amd64, wrt bug #450534
+
+  30 Aug 2013; Jeroen Roovers <jer@gentoo.org> elinks-0.12_pre6.ebuild:
+  Stable for HPPA (bug #450534).
+
+*elinks-0.12_pre6 (29 Aug 2013)
+
+  29 Aug 2013; Ian Stakenvicius <axs@gentoo.org> +elinks-0.12_pre6.ebuild:
+  bumped ebuild to _pre6 ; kept all patches for _pre5 in place since they all
+  still apply clean
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> elinks-0.12_pre5-r2.ebuild:
+  add ~arm, bug #477806
+
+  09 Aug 2013; Ian Stakenvicius <axs@gentoo.org> elinks-0.12_pre5-r2.ebuild:
+  Adjusted deps for dev-lang/spidermonkey to ensure SLOT=0
 
   30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> elinks-0.12_pre5-r2.ebuild:
   Stable for sparc, wrt bug #437196

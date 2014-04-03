@@ -1,6 +1,15 @@
 # ChangeLog for sci-biology/express
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/express/ChangeLog,v 1.3 2012/11/09 14:39:17 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/express/ChangeLog,v 1.5 2014/02/05 07:33:56 pinkbyte Exp $
+
+*express-0.9.5-r1 (05 Feb 2014)
+
+  05 Feb 2014; Sergey Popov <pinkbyte@gentoo.org> +express-0.9.5-r1.ebuild:
+  Revision bump: EAPI 5, add subslot to Boost dependency, fix underlinking on
+  Boost components, wrt bug #499038
+
+  11 Mar 2013; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Drop Andrey as maintainer so that bugs get assigned to sci-biology directly
 
   09 Nov 2012; Justin Lecher <jlec@gentoo.org> express-0.9.5.ebuild:
   Keyworded for ~x86; drop needless version restriction of boost, #440634

@@ -1,6 +1,101 @@
 # ChangeLog for media-libs/libgphoto2
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libgphoto2/ChangeLog,v 1.227 2013/02/04 20:10:55 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libgphoto2/ChangeLog,v 1.251 2014/03/28 02:28:33 jer Exp $
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> libgphoto2-2.5.3.1.ebuild:
+  Stable for HPPA (bug #499954).
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libgphoto2-2.5.3.1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libgphoto2-2.5.3.1.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libgphoto2-2.5.3.1.ebuild:
+  Fix wrong commit, bug 502160
+
+*libgphoto2-2.5.3.1 (09 Feb 2014)
+
+  09 Feb 2014; Pacho Ramos <pacho@gentoo.org> +libgphoto2-2.5.3.1.ebuild:
+  Version bump, use libusb-1 (#498178 by Nikoli)
+
+  06 Feb 2014; Michael Palimaka <kensington@gentoo.org>
+  libgphoto2-2.4.14-r1.ebuild, libgphoto2-2.5.2-r1.ebuild,
+  libgphoto2-2.5.2-r3.ebuild:
+  Pin virtual/jpeg to SLOT 0.
+
+*libgphoto2-2.5.2-r3 (03 Jan 2014)
+
+  03 Jan 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/libgphoto2-2.5.2-canon-s100.patch, +libgphoto2-2.5.2-r3.ebuild,
+  -libgphoto2-2.5.2-r2.ebuild:
+  Fix Canon S100 detection, bug #496754 by Nikolay Kichukov, drop old
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> libgphoto2-2.5.2-r1.ebuild:
+  Stable for HPPA (bug #478252).
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> libgphoto2-2.5.2-r1.ebuild:
+  x86 stable, bug #478252
+
+  05 Dec 2013; Jeroen Roovers <jer@gentoo.org> libgphoto2-2.5.2-r2.ebuild:
+  Marked ~hppa (bug #493156).
+
+*libgphoto2-2.5.2-r2 (02 Dec 2013)
+
+  02 Dec 2013; Pacho Ramos <pacho@gentoo.org> +libgphoto2-2.5.2-r2.ebuild,
+  metadata.xml:
+  Add serial USE flag (#493150 by emil karlson)
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> libgphoto2-2.5.2-r1.ebuild:
+  amd64 stable, bug #478252
+
+*libgphoto2-2.5.2-r1 (22 Nov 2013)
+
+  22 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/libgphoto2-2.5.2-libxml2-detection.patch,
+  +files/libgphoto2-2.5.2-libxml2-detection2.patch, +libgphoto2-2.5.2-r1.ebuild,
+  -libgphoto2-2.5.2.ebuild:
+  Apply important fixes: solve libxml2 detection, update configure options, rely
+  on udev >= 175, update cameras (#484276 by Nikoli and Evgeny Bobkin, also
+  solving #484276 by Michael Rowell); drop old.
+
+  10 Oct 2013; Pacho Ramos <pacho@gentoo.org> -libgphoto2-2.5.1.1.ebuild,
+  libgphoto2-2.5.2.ebuild:
+  Adapt elog message to systemd, drop old
+
+*libgphoto2-2.5.2 (03 Aug 2013)
+
+  03 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -libgphoto2-2.4.14.ebuild, +libgphoto2-2.5.2.ebuild:
+  Version bump. Drop old revision.
+
+  10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.4.14-r1.ebuild:
+  Stable for hppa, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.4.14-r1.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.4.14-r1.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -files/libgphoto2-2.4.11-fix-automagic.patch, -libgphoto2-2.5.0.ebuild:
+  Clean up old revision.
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.4.14-r1.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.4.14-r1.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.4.14-r1.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.4.14-r1.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.4.14-r1.ebuild:
+  Stable for amd64, wrt bug #458984
 
 *libgphoto2-2.5.1.1 (04 Feb 2013)
 

@@ -1,6 +1,29 @@
 # ChangeLog for app-admin/evtxtools
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/evtxtools/ChangeLog,v 1.8 2013/01/22 17:25:18 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/evtxtools/ChangeLog,v 1.14 2013/08/21 10:12:17 zlogene Exp $
+
+  21 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> -evtxtools-1.1.0.ebuild,
+  -evtxtools-1.1.1.ebuild:
+  drop old
+
+  21 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> evtxtools-1.1.1-r1.ebuild:
+  amd64/x86 stable wrt bug #481746
+
+*evtxtools-1.1.1-r1 (19 Aug 2013)
+
+  19 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> +evtxtools-1.1.1-r1.ebuild:
+  revbump: EAPI=5
+
+  09 Jun 2013; Mikle Kolyada <zlogene@gentoo.org> metadata.xml:
+  Reassigning due to Zlogene became Gentoo developer, remove proxy maintainers
+  herd and maksbotan
+
+  09 Jun 2013; Mikle Kolyada <zlogene@gentoo.org> evtxtools-1.1.0.ebuild,
+  evtxtools-1.1.1.ebuild:
+  add missing DEPEND: app-arch/unzip
+
+  28 May 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Assign new maintainer
 
   22 Jan 2013; Agostino Sarubbo <ago@gentoo.org> evtxtools-1.1.1.ebuild:
   Stable for x86, wrt bug #451696

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/avahi/avahi-0.6.30-r3.ebuild,v 1.15 2012/10/07 14:33:51 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/avahi/avahi-0.6.30-r3.ebuild,v 1.19 2014/01/19 21:27:11 moult Exp $
 
 EAPI="3"
 
@@ -27,7 +27,7 @@ COMMON_DEPEND=">=dev-libs/libdaemon-0.14
 	dev-libs/expat
 	dev-libs/glib:2
 	gdbm? ( sys-libs/gdbm )
-	qt4? ( x11-libs/qt-core:4 )
+	qt4? ( dev-qt/qtcore:4 )
 	gtk? ( >=x11-libs/gtk+-2.14.0:2 )
 	gtk3? ( x11-libs/gtk+:3 )
 	dbus? (
@@ -45,7 +45,7 @@ COMMON_DEPEND=">=dev-libs/libdaemon-0.14
 		gtk? ( >=dev-python/pygtk-2 )
 	)
 	bookmarks? (
-		dev-python/twisted
+		dev-python/twisted-core
 		dev-python/twisted-web
 	)
 	kernel_linux? ( sys-libs/libcap )"
@@ -54,7 +54,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 	doc? (
 		app-doc/doxygen
-		mono? ( >=virtual/monodoc-1.1.8 )
+		mono? ( >=dev-lang/mono-1.1.8 )
 	)"
 RDEPEND="${COMMON_DEPEND}
 	howl-compat? ( !net-misc/howl )
@@ -215,11 +215,5 @@ pkg_postinst() {
 		echo
 		elog "To use avahi-autoipd to configure your interfaces with IPv4LL (RFC3927)"
 		elog "addresses, just set config_<interface>=( autoipd ) in /etc/conf.d/net!"
-	fi
-
-	if use dbus; then
-		echo
-		elog "If this is your first install of avahi please reload your dbus config"
-		elog "with /etc/init.d/dbus reload before starting avahi-daemon!"
 	fi
 }

@@ -1,6 +1,80 @@
 # ChangeLog for net-p2p/ncdc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/ncdc/ChangeLog,v 1.29 2013/01/21 10:19:51 xmw Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/ncdc/ChangeLog,v 1.47 2014/02/11 20:39:49 xmw Exp $
+
+*ncdc-1.19 (11 Feb 2014)
+
+  11 Feb 2014; Michael Weber <xmw@gentoo.org> +ncdc-1.19.ebuild,
+  -ncdc-1.16.1.ebuild, -ncdc-1.17.ebuild, -ncdc-1.18.ebuild:
+  Version bump, new USE geoip
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> ncdc-1.18.1.ebuild:
+  Stable for x86, wrt bug #495896
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> ncdc-1.18.1.ebuild:
+  amd64 stable, bug #495896
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ncdc-1.17.ebuild:
+  Stable for x86, wrt bug #487768
+
+  14 Oct 2013; Tony Vroon <chainsaw@gentoo.org> ncdc-1.17.ebuild:
+  Marked stable on AMD64 based on arch tester report by Elijah "Armageddon" El
+  Lazkani in bug #487768.
+
+*ncdc-1.18.1 (12 Oct 2013)
+
+  12 Oct 2013; Michael Weber <xmw@gentoo.org> +ncdc-1.18.1.ebuild:
+  Version bump
+
+*ncdc-1.18 (02 Oct 2013)
+
+  02 Oct 2013; Michael Weber <xmw@gentoo.org> +ncdc-1.18.ebuild:
+  Version bump.
+
+  23 Jun 2013; Michael Weber <xmw@gentoo.org> ncdc-1.16.1.ebuild,
+  ncdc-1.17.ebuild, ncdc-9999.ebuild:
+  Respect AR (bug 470624)
+
+  20 Jun 2013; Michael Weber <xmw@gentoo.org> ncdc-1.16.1.ebuild,
+  ncdc-1.17.ebuild, ncdc-9999.ebuild:
+  Revert to LICENSE=MIT in accordance with upstream.
+
+  20 Jun 2013; Michael Weber <xmw@gentoo.org> ncdc-1.16.1.ebuild,
+  ncdc-1.17.ebuild, ncdc-9999.ebuild:
+  Define LICENSE as MIT-with-advertising, depend on perl for manpage creation,
+  econf now activates --disable-silent-rules.
+
+*ncdc-1.17 (15 Jun 2013)
+
+  15 Jun 2013; Michael Weber <xmw@gentoo.org> +ncdc-1.17.ebuild,
+  ncdc-1.16.1.ebuild, ncdc-9999.ebuild:
+  Version bump, update deps of live ebuild
+
+  06 Jun 2013; Michael Weber <xmw@gentoo.org> -ncdc-1.14.ebuild,
+  -ncdc-1.15.ebuild:
+  Drop old
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> ncdc-1.16.1.ebuild:
+  Stable for x86, wrt bug #470566
+
+  19 May 2013; Agostino Sarubbo <ago@gentoo.org> ncdc-1.16.1.ebuild:
+  Stable for amd64, wrt bug #470566
+
+*ncdc-1.16.1 (24 Mar 2013)
+
+  24 Mar 2013; Michael Weber <xmw@gentoo.org> +ncdc-1.16.1.ebuild, metadata.xml:
+  Version bump
+
+  23 Mar 2013; Michael Weber <xmw@gentoo.org> -ncdc-1.13.ebuild:
+  Drop old.
+
+  03 Mar 2013; Michael Weber <xmw@gentoo.org> ncdc-1.15.ebuild:
+  Fix ncurses[unicode] dependency (thanks Emery Hemingway, bug 460002)
+
+*ncdc-1.15 (02 Mar 2013)
+
+  02 Mar 2013; Michael Weber <xmw@gentoo.org> +ncdc-1.15.ebuild:
+  Version bump
 
   21 Jan 2013; Michael Weber <xmw@gentoo.org> ncdc-9999.ebuild:
   drop unsupported configure option

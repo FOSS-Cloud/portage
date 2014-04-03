@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/cmake-multilib.eclass,v 1.2 2013/04/13 19:15:04 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/cmake-multilib.eclass,v 1.4 2013/11/20 19:23:45 mgorny Exp $
 
 # @ECLASS: cmake-multilib.eclass
 # @MAINTAINER:
@@ -48,9 +48,14 @@ cmake-multilib_src_install() {
 	cmake-multilib_secure_install() {
 		cmake-utils_src_install "${@}"
 
-		# Make sure all headers are the same for each ABI.
-		multilib_check_headers
+		# Do multilib magic only when >1 ABI is used.
+		if [[ ${#MULTIBUILD_VARIANTS[@]} -gt 1 ]]; then
+			multilib_prepare_wrappers
+			# Make sure all headers are the same for each ABI.
+			multilib_check_headers
+		fi
 	}
 
 	multilib_foreach_abi cmake-multilib_secure_install "${@}"
+	multilib_install_wrappers
 }

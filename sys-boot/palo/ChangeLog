@@ -1,6 +1,58 @@
 # ChangeLog for sys-boot/palo
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/palo/ChangeLog,v 1.34 2013/01/30 21:00:40 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/palo/ChangeLog,v 1.47 2014/01/30 15:42:39 jer Exp $
+
+  30 Jan 2014; Jeroen Roovers <jer@gentoo.org> files/palo.conf:
+  Improve helpful comments.
+
+  23 Jan 2014; Jeroen Roovers <jer@gentoo.org> palo-1.92.ebuild,
+  palo-9999.ebuild:
+  Setting MACHINE= is not longer needed.
+
+  23 Jan 2014; Jeroen Roovers <jer@gentoo.org> -palo-1.91.ebuild,
+  -files/palo-9999-open.patch:
+  Old.
+
+  23 Jan 2014; Jeroen Roovers <jer@gentoo.org> palo-1.92.ebuild,
+  +files/palo-1.92-toolchain.patch:
+  Fix patching 1.92.
+
+  23 Jan 2014; Jeroen Roovers <jer@gentoo.org> palo-1.92.ebuild,
+  palo-9999.ebuild, files/palo-9999-toolchain.patch:
+  Add new HOMEPAGE. Fix live toolchain patch.
+
+  06 Dec 2013; Jeroen Roovers <jer@gentoo.org> palo-1.92.ebuild:
+  Stable for HPPA too.
+
+  21 Oct 2013; Jeroen Roovers <jer@gentoo.org> palo-1.92.ebuild:
+  Do not install palo.conf twice, but do install Changes debian/changelog and
+  TODO.
+
+*palo-1.92 (18 Oct 2013)
+
+  18 Oct 2013; Jeroen Roovers <jer@gentoo.org> +palo-1.92.ebuild,
+  palo-1.91.ebuild:
+  Version bump.
+
+  21 Jul 2013; Jeroen Roovers <jer@gentoo.org> palo-9999.ebuild:
+  Remove patches that have been applied upstream.
+
+*palo-1.91 (18 Jul 2013)
+
+  18 Jul 2013; Jeroen Roovers <jer@gentoo.org> +palo-1.91.ebuild:
+  Version bump.
+
+  18 Jul 2013; Jeroen Roovers <jer@gentoo.org> palo-9999.ebuild:
+  Drop remove-HOME-TERM patch. README is gone.
+
+  29 Jun 2013; Jeroen Roovers <jer@gentoo.org> palo-9999.ebuild:
+  README and README.html have the same content, so we only need one of them.
+
+*palo-9999 (29 Jun 2013)
+
+  29 Jun 2013; Jeroen Roovers <jer@gentoo.org> +files/palo-9999-open.patch,
+  +files/palo-9999-toolchain.patch, +palo-9999.ebuild:
+  Add live ebuild.
 
   30 Jan 2013; Jeroen Roovers <jer@gentoo.org> files/palo.conf:
   Make default root partition match Handbook.
@@ -166,4 +218,3 @@
 
   05 Feb 2003; Guy Martin <gmsoft@gentoo.org> palo-1.2_pre20030115.ebuild :
   Initial import.
-

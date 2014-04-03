@@ -1,6 +1,68 @@
 # ChangeLog for media-libs/audiofile
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/audiofile/ChangeLog,v 1.123 2013/02/24 20:23:53 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/audiofile/ChangeLog,v 1.142 2014/02/22 22:12:39 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> audiofile-0.3.6-r1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> audiofile-0.3.6-r1.ebuild:
+  arch stable, bug 888
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> audiofile-0.3.6-r1.ebuild:
+  Stable for HPPA (bug #478252).
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> audiofile-0.3.6-r1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> audiofile-0.3.6-r1.ebuild:
+  amd64 stable, bug #478252
+
+  26 Jun 2013; Alexis Ballier <aballier@gentoo.org> audiofile-0.3.6-r1.ebuild:
+  update emul-linux blocker
+
+*audiofile-0.3.6-r1 (02 May 2013)
+
+  02 May 2013; Michał Górny <mgorny@gentoo.org> +audiofile-0.3.6-r1.ebuild:
+  Introduce multilib support wrt bug #464704.
+
+  10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> audiofile-0.3.5.ebuild:
+  Stable for hppa, wrt bug #458984
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> audiofile-0.3.5.ebuild:
+  Stable for sh, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> audiofile-0.3.5.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> audiofile-0.3.5.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> audiofile-0.3.5.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> audiofile-0.3.5.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> audiofile-0.3.5.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> audiofile-0.3.5.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> audiofile-0.3.5.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> audiofile-0.3.5.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  07 Mar 2013; Tim Harder <radhermit@gentoo.org> audiofile-0.3.6.ebuild:
+  Fix LGPL license version.
+
+*audiofile-0.3.6 (07 Mar 2013)
+
+  07 Mar 2013; Tim Harder <radhermit@gentoo.org> +audiofile-0.3.6.ebuild,
+  +files/audiofile-0.3.6-system-gtest.patch:
+  Version bump, add flac use flag.
 
   24 Feb 2013; Samuli Suominen <ssuominen@gentoo.org> audiofile-0.3.5.ebuild:
   Set missing empty RDEPEND.

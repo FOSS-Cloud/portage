@@ -1,6 +1,74 @@
 # ChangeLog for media-libs/lcms
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/lcms/ChangeLog,v 1.150 2013/02/18 22:12:28 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/lcms/ChangeLog,v 1.167 2014/03/28 03:14:58 jer Exp $
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> lcms-1.19-r1.ebuild,
+  lcms-2.5-r1.ebuild:
+  Stable for HPPA (bug #504214).
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> lcms-2.5.ebuild:
+  Stable for alpha, wrt bug #488806
+
+  29 Dec 2013; Akinori Hattori <hattya@gentoo.org> lcms-2.5.ebuild:
+  ia64 stable wrt bug #488806
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> lcms-2.5.ebuild:
+  Stable for sparc, wrt bug #488806
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> lcms-2.5.ebuild:
+  Stable for ppc64, wrt bug #488806
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> lcms-2.5.ebuild:
+  Stable for ppc, wrt bug #488806
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org> lcms-2.5.ebuild:
+  x86 stable, bug #488806
+
+  29 Nov 2013; Markus Meier <maekke@gentoo.org> lcms-2.5.ebuild:
+  arm stable, bug #488806
+
+  16 Nov 2013; Pacho Ramos <pacho@gentoo.org> lcms-2.5.ebuild:
+  amd64 stable, bug #488806
+
+  11 Nov 2013; Jeroen Roovers <jer@gentoo.org> lcms-2.5.ebuild:
+  Stable for HPPA (bug #488806).
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> lcms-1.19-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  27 Aug 2013; Michael Palimaka <kensington@gentoo.org> lcms-1.19-r1.ebuild,
+  lcms-1.19.ebuild, lcms-2.3.ebuild, lcms-2.4.ebuild, lcms-2.5-r1.ebuild,
+  lcms-2.5.ebuild:
+  Pin virtual/jpeg SLOT to 0.
+
+  19 Aug 2013; Dirkjan Ochtman <djc@gentoo.org> metadata.xml:
+  Remove python from metadata (per conversation with mrueg in #gentoo-dev).
+
+*lcms-2.5-r1 (10 Aug 2013)
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org> +lcms-2.5-r1.ebuild:
+  Convert to multilib (only slot 2) and stack it for baselib r11
+
+*lcms-2.5 (03 Jul 2013)
+
+  03 Jul 2013; Tim Harder <radhermit@gentoo.org> -lcms-2.4-r1.ebuild,
+  +lcms-2.5.ebuild, -files/lcms-2.4-threading-plugin.patch:
+  Version bump and remove old.
+
+*lcms-2.4-r1 (07 Jun 2013)
+
+  07 Jun 2013; Timo Gurr <tgurr@gentoo.org> +lcms-2.4-r1.ebuild,
+  +files/lcms-2.4-threading-plugin.patch:
+  Revbump adding upstream patch required for ghostscript 9.07, EAPI5,
+  slot-operators, port to autotools-utils eclass.
+
+*lcms-1.19-r1 (05 May 2013)
+
+  05 May 2013; Andreas K. Huettel <dilfridge@gentoo.org> +lcms-1.19-r1.ebuild,
+  +files/lcms-1.19-fix-python3.2.patch,
+  +files/lcms-1.19-fix-swig-destructor.patch, metadata.xml:
+  Revision bump adding EAPI 5 and python-r1 support, and fixing the tests.
+  Thanks to Nikoli, maksobotan, and mgorny; bug 466248.
 
   18 Feb 2013; Zac Medico <zmedico@gentoo.org> lcms-2.4.ebuild:
   Add ~arm-linux keyword.

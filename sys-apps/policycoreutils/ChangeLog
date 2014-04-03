@@ -1,6 +1,127 @@
 # ChangeLog for sys-apps/policycoreutils
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/policycoreutils/ChangeLog,v 1.110 2012/12/30 15:12:00 swift Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/policycoreutils/ChangeLog,v 1.131 2014/01/20 20:08:51 swift Exp $
+
+  20 Jan 2014; Sven Vermeulen <swift@gentoo.org>
+  policycoreutils-2.2.5-r2.ebuild:
+  Stabilize for amd64 and x86
+
+*policycoreutils-2.1.14-r5 (12 Jan 2014)
+
+  12 Jan 2014; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.14-r5.ebuild:
+  Backport BUILD_DIR change to 2.1.14 (needed to have runscript_selinux follow
+  USE flag info)
+
+*policycoreutils-2.2.5-r2 (12 Jan 2014)
+
+  12 Jan 2014; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.2.5-r2.ebuild:
+  Use python builddir locations for installation, otherwise a non-built
+  directory will be used, dismissing all configuration variables mentioned
+  earlier
+
+  23 Dec 2013; Sven Vermeulen <swift@gentoo.org>
+  -policycoreutils-2.1.13-r3.ebuild, -policycoreutils-2.1.13-r4.ebuild,
+  -policycoreutils-2.1.13-r5.ebuild, -policycoreutils-2.1.13-r6.ebuild,
+  -policycoreutils-2.1.13-r7.ebuild, -policycoreutils-2.1.13-r8.ebuild,
+  -policycoreutils-2.1.13-r9.ebuild, -policycoreutils-2.1.13-r10.ebuild,
+  -policycoreutils-2.1.13-r11.ebuild:
+  Cleanup old versions
+
+*policycoreutils-2.2.5-r1 (10 Dec 2013)
+
+  10 Dec 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.2.5-r1.ebuild:
+  Adding 2.2.5 release
+
+*policycoreutils-2.2.1-r1 (04 Nov 2013)
+
+  04 Nov 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.2.1-r1.ebuild:
+  New policycoreutils release
+
+  04 Nov 2013; Sven Vermeulen <swift@gentoo.org>
+  policycoreutils-2.1.14-r4.ebuild:
+  Stabilize
+
+*policycoreutils-2.1.14-r4 (13 Aug 2013)
+
+  13 Aug 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.14-r4.ebuild:
+  Document setfiles in rlpkg, improve selocal resilience
+
+  07 Jul 2013; Sven Vermeulen <swift@gentoo.org>
+  -policycoreutils-2.1.10-r5.ebuild:
+  Summer cleaning
+
+*policycoreutils-2.1.14-r3 (07 Jul 2013)
+
+  07 Jul 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.14-r3.ebuild:
+  Switch to python-r1 eclass, add in mcstrans (bug #472912)
+
+  16 Jun 2013; Sven Vermeulen <swift@gentoo.org>
+  policycoreutils-2.1.14-r2.ebuild:
+  Stabilization
+
+  10 May 2013; Sven Vermeulen <swift@gentoo.org> metadata.xml:
+  Add in CPE data for policycoreutils, historical CVEs use redhat as
+  application vendor
+
+*policycoreutils-2.1.14-r2 (07 May 2013)
+
+  07 May 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.14-r2.ebuild:
+  Fix bugs 467268 (yum bindings), 468832 (key error), 468830 (mls range
+  dependency)
+
+*policycoreutils-2.1.14-r1 (25 Apr 2013)
+
+  25 Apr 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.14-r1.ebuild:
+  New upstream release
+
+*policycoreutils-2.1.13-r11 (19 Apr 2013)
+
+  19 Apr 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.13-r11.ebuild:
+  Add selocal command to policycoreutils
+
+*policycoreutils-2.1.13-r10 (16 Apr 2013)
+
+  16 Apr 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.13-r10.ebuild:
+  Fix bugs #463222 (newrole O_RDWR) and #464808 (hardcoded python3.1 in rlpkg)
+
+  16 Apr 2013; Sven Vermeulen <swift@gentoo.org>
+  -policycoreutils-2.1.10-r1.ebuild, -policycoreutils-2.1.10-r3.ebuild,
+  -policycoreutils-2.1.10-r4.ebuild, -policycoreutils-2.1.10.ebuild:
+  Some cleanup (older release unstables)
+
+  16 Apr 2013; Sven Vermeulen <swift@gentoo.org>
+  policycoreutils-2.1.13-r9.ebuild:
+  Stabilize policycoreutils-2.1.13-r9
+
+*policycoreutils-2.1.13-r9 (19 Mar 2013)
+
+  19 Mar 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.13-r9.ebuild:
+  Fix bug #457786 - Link runscript_selinux with crypt
+
+*policycoreutils-2.1.13-r8 (10 Mar 2013)
+
+  10 Mar 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.13-r8.ebuild:
+  Adding selinux_gentoo init script for initramfs and cpu/online support
+  (#456914)
+
+*policycoreutils-2.1.13-r7 (09 Mar 2013)
+
+  09 Mar 2013; Sven Vermeulen <swift@gentoo.org>
+  +policycoreutils-2.1.13-r7.ebuild:
+  Update policycoreutils-extras to fix build failure when not building with PAM
+  support, see bug #457786
 
 *policycoreutils-2.1.13-r6 (30 Dec 2012)
 

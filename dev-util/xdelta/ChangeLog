@@ -1,6 +1,41 @@
 # ChangeLog for dev-util/xdelta
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/xdelta/ChangeLog,v 1.90 2013/02/13 05:38:27 kensington Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/xdelta/ChangeLog,v 1.100 2014/01/28 19:59:32 mgorny Exp $
+
+*xdelta-3.0.8 (28 Jan 2014)
+
+  28 Jan 2014; Michał Górny <mgorny@gentoo.org> +xdelta-3.0.8.ebuild,
+  metadata.xml:
+  Version bump. Take over the maintainership.
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xdelta-3.0.6.ebuild:
+  Stable for sparc, wrt bug #495678
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xdelta-3.0.6.ebuild:
+  Stable for ppc64, wrt bug #495678
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xdelta-3.0.6.ebuild:
+  Stable for alpha, wrt bug #495678
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xdelta-3.0.6.ebuild:
+  Stable for ia64, wrt bug #495678
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xdelta-3.0.6.ebuild:
+  Stable for ppc, wrt bug #495678
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xdelta-3.0.6.ebuild:
+  Stable for x86, wrt bug #495678
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> xdelta-3.0.6.ebuild:
+  amd64 stable, bug #495678
+
+  26 Dec 2013; Jeroen Roovers <jer@gentoo.org> xdelta-3.0.6.ebuild:
+  Stable for HPPA (bug #495678).
+
+*xdelta-3.0.6 (17 Jun 2013)
+
+  17 Jun 2013; Lars Wendler <polynomial-c@gentoo.org> +xdelta-3.0.6.ebuild:
+  Non-maintainer commit: Version bump.
 
   13 Feb 2013; Michael Palimaka <kensington@gentoo.org> -xdelta-3.0.4.ebuild:
   Remove old.

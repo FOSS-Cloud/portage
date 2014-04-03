@@ -1,6 +1,18 @@
 # ChangeLog for net-misc/ttytter
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/ttytter/ChangeLog,v 1.6 2012/10/30 21:55:19 hwoarang Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/ttytter/ChangeLog,v 1.9 2013/09/14 10:05:09 ago Exp $
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ttytter-2.1.00.ebuild:
+  Stable for x86, wrt bug #475940
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> ttytter-2.1.00.ebuild:
+  Stable for amd64, wrt bug #475940
+
+*ttytter-2.1.00 (25 Mar 2013)
+
+  25 Mar 2013; Markos Chandras <hwoarang@gentoo.org> +ttytter-2.1.00.ebuild,
+  -ttytter-1.2.05.ebuild, -ttytter-2.0.03.ebuild:
+  Version bump. Remove old. Move to EAPI5. Switch to readme.gentoo eclass
 
 *ttytter-2.0.04 (30 Oct 2012)
 

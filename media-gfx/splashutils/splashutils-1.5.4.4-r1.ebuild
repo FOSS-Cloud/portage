@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/splashutils/splashutils-1.5.4.4-r1.ebuild,v 1.6 2012/12/11 14:50:49 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/splashutils/splashutils-1.5.4.4-r1.ebuild,v 1.9 2014/01/01 15:33:34 hwoarang Exp $
 
 EAPI="2"
 
@@ -33,8 +33,8 @@ SRC_URI="mirror://berlios/fbsplash/${PN}-lite-${PV}.tar.bz2
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
-RDEPEND="gpm? ( sys-libs/gpm )
+KEYWORDS="amd64 ~ppc x86"
+RDEPEND="gpm? ( sys-libs/gpm[static-libs] )
 	truetype? ( >=media-libs/freetype-2[static-libs]
 		|| ( <app-arch/bzip2-1.0.6-r3 app-arch/bzip2[static-libs] )
 		|| ( <sys-libs/zlib-1.2.5.1-r2 sys-libs/zlib[static-libs] ) )
@@ -43,7 +43,7 @@ RDEPEND="gpm? ( sys-libs/gpm )
 		media-libs/lcms:0[static-libs]
 		|| ( media-libs/libmng[static-libs] <media-libs/libmng-1.0.10-r1 )
 		)
-	virtual/jpeg[static-libs]
+	virtual/jpeg:0[static-libs]
 	>=sys-apps/baselayout-1.9.4-r5
 	app-arch/cpio
 	media-gfx/fbgrab

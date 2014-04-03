@@ -1,6 +1,50 @@
 # ChangeLog for app-text/djvu
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/djvu/ChangeLog,v 1.134 2013/02/16 12:27:40 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/djvu/ChangeLog,v 1.148 2014/02/07 21:59:22 zlogene Exp $
+
+  07 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> -djvu-3.5.24-r1.ebuild:
+  Drop insecure version.
+
+  27 Aug 2013; Michael Palimaka <kensington@gentoo.org> djvu-3.5.24-r1.ebuild,
+  djvu-3.5.25.3.ebuild:
+  Pin virtual/jpeg SLOT to 0.
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for sh, wrt bug #461076
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for sparc, wrt bug #461076
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for s390, wrt bug #461076
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for x86, wrt bug #461076
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for alpha, wrt bug #461076
+
+  17 May 2013; Agostino Sarubbo <ago@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for ia64, wrt bug #461076
+
+  17 May 2013; Jeroen Roovers <jer@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for HPPA (bug #461076).
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for arm, wrt bug #461076
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for ppc64, wrt bug #461076
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for ppc, wrt bug #461076
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> djvu-3.5.25.3.ebuild:
+  Stable for amd64, wrt bug #461076
+
+  21 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> djvu-3.5.25.3.ebuild:
+  Use prune_libtool_files to remove unnecessary libtool archive (.la) of
+  libdjvulibre.
 
   16 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due bug #96436

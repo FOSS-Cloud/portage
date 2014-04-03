@@ -1,6 +1,87 @@
 # ChangeLog for Gentoo eapi-5-files profile directory
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/eapi-5-files/ChangeLog,v 1.20 2013/08/31 10:03:49 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/eapi-5-files/ChangeLog,v 1.42 2014/03/27 21:20:12 dilfridge Exp $
+
+  27 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  Migrate several entries to base after review
+
+  22 Mar 2014; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask:
+  Transfer sys-boot/grub[libzfs] stable mask to base.
+
+  18 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  Migrate net-libs/libkolab entry to base
+
+  17 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  package.use.stable.mask:
+  Punt obsolete zukitwo entry.
+
+  16 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  Add deprecation comment
+
+  16 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  Migrate kde-base/kalzium entry to base
+
+  16 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -package.use.stable.force, -use.stable.force, -use.stable.mask:
+  Empty mask/force files have been moved to base profile directory
+
+  30 Jan 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  use.stable.mask:
+  Umask wayland flag for media-libs/mesa, bug #453304.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> package.use.stable.mask,
+  use.stable.mask:
+  Drop python 3.3 masks now that it is stable #474128.
+
+  03 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  The buggy libreoffice version was never stabilized and is now gone.
+
+  12 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  We only need to mask kde on lo-4.1.3.2 exactly, bug is fixed in later
+  versions
+
+  09 Dec 2013; <idella4@gentoo.org> 
+  package.use.stable.mask:
+  Re-mask IUSE ocaml for xen-tools
+
+  06 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  Mask kde integration of libreoffice
+
+  16 Nov 2013; Michał Górny <mgorny@gentoo.org> package.use.stable.mask:
+  Un-stable-mask all Python impls on python-exec. We are forcing them anyway,
+  and users are having issues due to un-masking them manually.
+
+  28 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> package.use.stable.mask:
+  Stable-mask USE 'cman' for sys-cluster/pacemaker
+
+  03 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  package.use.stable.mask:
+  We want to stabilize libsecret before gnome-keyring-3.
+
+  03 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  package.use.stable.mask:
+  Allow zukitwo to be stabilized before gnome-shell
+
+  26 Sep 2013; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask:
+  Remove the pillow mask (again).
+
+  26 Sep 2013; Ian Delaney <idella4@gentoo.org> package.use.stable.mask:
+  Remove invalid entry for xen-tools-4.2.1-r3 which was removed
+  04 Jul 2013 on stabilising xen-tools-4.2.2-r3.ebuild; see
+  Bug #484524
+
+  21 Sep 2013; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask:
+  Stable-mask sys-boot/grub[libzfs]
+
+  08 Sep 2013; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask:
+  Unmask python3 for virtual/python-imaging.
 
   31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> package.use.stable.mask:
   mask app-portage/eix[clang]

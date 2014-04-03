@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/features/64bit-native/package.mask,v 1.95 2013/06/22 13:25:35 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/features/64bit-native/package.mask,v 1.98 2014/04/01 15:43:44 tomwij Exp $
 
 # AMD64 Team <amd64@gentoo.org>
 # Mask packages that rely on amd64 multilib
@@ -52,8 +52,6 @@ dev-python/skype4py
 dev-util/android-sdk-update-manager
 dev-util/android-ndk
 dev-util/biew
-dev-util/dialogblocks
-dev-util/helpblocks
 games-action/cs2d
 games-action/descent3
 games-action/descent3-demo
@@ -148,19 +146,17 @@ games-strategy/majesty-demo
 games-strategy/savage-bin
 games-strategy/smac
 games-strategy/spaz
-games-strategy/x2
-games-strategy/x2-demo
 media-fonts/acroread-asianfonts
-media-gfx/picasa
 media-sound/shoutcast-server-bin
 media-sound/shoutcast-trans-bin
 media-sound/ventrilo-server-bin
 media-tv/huludesktop
-media-tv/livestation
 media-video/binkplayer
 media-video/tsmuxer
 net-im/skype
 net-im/skypetab-ng
+net-print/cndrvcups-common-lb
+net-print/cndrvcups-lb
 net-misc/icaclient
 net-misc/ps3mediaserver
 sci-biology/foldingathome
@@ -170,12 +166,10 @@ sci-chemistry/cyana
 sci-chemistry/icm
 sci-chemistry/icm-browser
 sci-chemistry/mars
-<sci-geosciences/googleearth-7.1
 sci-libs/ipp
 sys-apps/memtest86
 sys-apps/memtest86+
 sys-libs/lib-compat-loki
-<www-plugins/adobe-flash-11.0.1.60_beta201107131
 www-plugins/nspluginwrapper
 
 # AMD64 Team; <amd64@gentoo.org>

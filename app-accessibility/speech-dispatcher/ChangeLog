@@ -1,6 +1,101 @@
 # ChangeLog for app-accessibility/speech-dispatcher
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/speech-dispatcher/ChangeLog,v 1.81 2013/01/01 11:33:28 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/speech-dispatcher/ChangeLog,v 1.102 2014/03/31 20:26:38 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org>
+  speech-dispatcher-0.7.1-r2.ebuild:
+  Add support for the new PyPy slotting.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org>
+  speech-dispatcher-0.7.1-r2.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  Stable for ia64, wrt bug #478264
+
+  28 Aug 2013; William Hubbs <williamh@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  Fix python use flag in COMMON_DEPEND and REQUIRED_USE for bug #482528, thanks
+  to Mike Hiretsky.
+
+  25 Aug 2013; Jeroen Roovers <jer@gentoo.org> speech-dispatcher-0.8-r2.ebuild:
+  Stable for HPPA (bug #478264).
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  Stable for x86, wrt bug #478264
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  Stable for ppc64, wrt bug #478264
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  Stable for sparc, wrt bug #478264
+
+  02 Aug 2013; Markus Meier <maekke@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  arm stable, bug #478264
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  Stable for alpha, wrt bug #478264
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  Stable for amd64, wrt bug #478264
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  Stable for ppc, wrt bug #478264
+
+  26 Jul 2013; Christopher Brannon <teiresias@gentoo.org>
+  speech-dispatcher-0.7.1-r2.ebuild, -files/speech-dispatcher-0.7.1-doc.patch:
+  Remove a patch, because speech-dispatcher-0.7.1-r2 fails to build with
+  texinfo 5.1 when it is applied. See bug #465806.
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org>
+  speech-dispatcher-0.7.1-r2.ebuild, speech-dispatcher-0.8-r1.ebuild,
+  speech-dispatcher-0.8-r2.ebuild:
+  Fix usage of python-r1.eclass
+
+  22 May 2013; William Hubbs <williamh@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  fix dependencies for bug #469850
+
+  14 May 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  speech-dispatcher-0.8-r2.ebuild:
+  Add python3.3 to the list of supported python version, required for orca-3.8.
+
+*speech-dispatcher-0.8-r2 (04 Apr 2013)
+
+  04 Apr 2013; William Hubbs <williamh@gentoo.org>
+  +speech-dispatcher-0.8-r2.ebuild:
+  Drop unnecessary usage of autotools-utils and add support for
+  static-libs use flag, thanks to Samuli Suominen.
+
+*speech-dispatcher-0.8-r1 (28 Mar 2013)
+
+  28 Mar 2013; Justin Lecher <jlec@gentoo.org> -speech-dispatcher-0.8.ebuild,
+  +speech-dispatcher-0.8-r1.ebuild:
+  Drop pypy support as package only supports py3, #463602
+
+  28 Mar 2013; Justin Lecher <jlec@gentoo.org> speech-dispatcher-0.8.ebuild:
+  Add fix for not wanted maintainer-mode, #463600
+
+*speech-dispatcher-0.8 (27 Mar 2013)
+
+  27 Mar 2013; <neurogeek@gentoo.org> +speech-dispatcher-0.8.ebuild:
+  Version bump. Closes bug #463384. Thanks Pacho.
+
+*speech-dispatcher-0.7.1-r2 (17 Mar 2013)
+
+  17 Mar 2013; Justin Lecher <jlec@gentoo.org>
+  +speech-dispatcher-0.7.1-r2.ebuild, +files/speech-dispatcher-0.7.1-doc.patch,
+  +files/speech-dispatcher-0.7.1-gold.patch,
+  +files/speech-dispatcher-0.7.1-pthread.patch, metadata.xml:
+  Fix linking with gold, #442332; move to new python eclasses, #456978
 
   01 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
   speech-dispatcher-0.7.1-r1.ebuild:

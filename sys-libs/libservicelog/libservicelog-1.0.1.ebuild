@@ -1,6 +1,6 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libservicelog/libservicelog-1.0.1.ebuild,v 1.6 2010/01/18 14:56:52 ranger Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libservicelog/libservicelog-1.0.1.ebuild,v 1.7 2013/03/01 19:30:19 ranger Exp $
 
 inherit eutils autotools
 
@@ -10,7 +10,7 @@ HOMEPAGE="http://linux-diag.sourceforge.net/servicelog/"
 
 SLOT="0"
 LICENSE="IBM"
-KEYWORDS="ppc ~ppc64"
+KEYWORDS="ppc ppc64"
 IUSE=""
 
 DEPEND="dev-db/sqlite"

@@ -1,6 +1,44 @@
 # ChangeLog for perl-core/Scalar-List-Utils
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/Scalar-List-Utils/ChangeLog,v 1.59 2013/02/23 08:42:06 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/Scalar-List-Utils/ChangeLog,v 1.66 2014/01/19 20:48:40 vapier Exp $
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  Scalar-List-Utils-1.270.0.ebuild, Scalar-List-Utils-1.300.0.ebuild,
+  Scalar-List-Utils-1.310.0.ebuild, Scalar-List-Utils-1.320.0.ebuild,
+  Scalar-List-Utils-1.350.0.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  Scalar-List-Utils-1.270.0.ebuild:
+  Mark m68k stable.
+
+*Scalar-List-Utils-1.350.0 (28 Oct 2013)
+
+  28 Oct 2013; Patrick Lauer <patrick@gentoo.org>
+  +Scalar-List-Utils-1.350.0.ebuild:
+  Bump
+
+*Scalar-List-Utils-1.320.0 (05 Sep 2013)
+
+  05 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  +Scalar-List-Utils-1.320.0.ebuild:
+  Bump
+
+*Scalar-List-Utils-1.310.0 (24 Aug 2013)
+
+  24 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +Scalar-List-Utils-1.310.0.ebuild:
+  Bump
+
+*Scalar-List-Utils-1.300.0 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +Scalar-List-Utils-1.300.0.ebuild:
+  Bump
+
+  02 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  Scalar-List-Utils-1.270.0.ebuild:
+  Stable for sh, wrt bug #458122
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
   Scalar-List-Utils-1.270.0.ebuild:

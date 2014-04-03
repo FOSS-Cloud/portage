@@ -1,6 +1,73 @@
 # ChangeLog for x11-terms/rxvt-unicode
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/rxvt-unicode/ChangeLog,v 1.235 2013/02/27 07:51:05 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-terms/rxvt-unicode/ChangeLog,v 1.253 2014/03/04 20:29:55 vincent Exp $
+
+  04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org>
+  rxvt-unicode-9.19.ebuild:
+  Add ~mips keyword.
+
+  07 Jan 2014; Justin Lecher <jlec@gentoo.org> rxvt-unicode-9.18.ebuild,
+  rxvt-unicode-9.19.ebuild:
+  Add note about secondary-wheel and nano
+
+  11 Nov 2013; Jeroen Roovers <jer@gentoo.org>
+  files/rxvt-unicode-9.19-fading.patch:
+  Reference upstream confirmation.
+
+  08 Nov 2013; Alex Alexander <wired@gentoo.org> rxvt-unicode-9.19.ebuild,
+  +files/rxvt-unicode-9.19-secondary-wheel.patch:
+  updated secondary-wheel patch for rxvt-unicode-9.19 - bug #490686
+
+*rxvt-unicode-9.19 (06 Nov 2013)
+
+  06 Nov 2013; Jeroen Roovers <jer@gentoo.org> +rxvt-unicode-9.19.ebuild,
+  +files/rxvt-unicode-9.19-fading.patch:
+  Version bump.
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  08 Jun 2013; Jeroen Roovers <jer@gentoo.org> -rxvt-unicode-9.16.ebuild:
+  Old.
+
+  07 May 2013; Jeroen Roovers <jer@gentoo.org> -rxvt-unicode-9.17.ebuild:
+  Old.
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> rxvt-unicode-9.18.ebuild:
+  Stable for ppc64, wrt bug #468196
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> rxvt-unicode-9.18.ebuild:
+  Stable for sparc, wrt bug #468196
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> rxvt-unicode-9.18.ebuild:
+  Stable for ia64, wrt bug #468196
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> rxvt-unicode-9.18.ebuild:
+  Stable for alpha, wrt bug #468196
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> rxvt-unicode-9.18.ebuild:
+  Stable for arm, wrt bug #468196
+
+  03 May 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  rxvt-unicode-9.18.ebuild:
+  amd64 and x86 stable, wrt bug #468196
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> rxvt-unicode-9.18.ebuild:
+  Stable for ppc, wrt bug #468196
+
+  02 May 2013; Jeroen Roovers <jer@gentoo.org> rxvt-unicode-9.18.ebuild:
+  Stable for HPPA (bug #468196).
+
+*rxvt-unicode-9.18 (08 Apr 2013)
+
+  08 Apr 2013; Jeroen Roovers <jer@gentoo.org> +rxvt-unicode-9.18.ebuild:
+  Version bump.
+
+*rxvt-unicode-9.17 (03 Mar 2013)
+
+  03 Mar 2013; Jeroen Roovers <jer@gentoo.org> -rxvt-unicode-9.15.ebuild,
+  -rxvt-unicode-9.15-r1.ebuild, +rxvt-unicode-9.17.ebuild, metadata.xml:
+  Version bump (bug #460080).
 
   27 Feb 2013; Mike Frysinger <vapier@gentoo.org> rxvt-unicode-9.16.ebuild:
   Add arm lovin.

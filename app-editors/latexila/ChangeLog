@@ -1,6 +1,64 @@
 # ChangeLog for app-editors/latexila
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/latexila/ChangeLog,v 1.13 2012/11/25 21:16:32 eva Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/latexila/ChangeLog,v 1.28 2014/03/09 11:53:50 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> latexila-2.10.1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> latexila-2.10.1.ebuild:
+  amd64 stable, bug 499954
+
+  23 Feb 2014; Tom Wijsman <TomWij@gentoo.org> latexila-2.10.1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> latexila-2.10.1.ebuild:
+  arch stable, bug 888
+
+*latexila-2.10.1 (16 Feb 2014)
+
+  16 Feb 2014; Pacho Ramos <pacho@gentoo.org> +latexila-2.10.1.ebuild:
+  Version bump
+
+*latexila-2.10.0 (09 Feb 2014)
+
+  09 Feb 2014; Pacho Ramos <pacho@gentoo.org> +latexila-2.10.0.ebuild,
+  -latexila-2.6.2.ebuild, -latexila-2.8.1.ebuild:
+  Version bump, drop old
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> latexila-2.8.3.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> latexila-2.8.3.ebuild:
+  amd64 stable, bug #478252
+
+*latexila-2.8.3 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +latexila-2.8.3.ebuild,
+  -latexila-2.8.0.ebuild:
+  Version bump, drop old
+
+*latexila-2.8.1 (13 May 2013)
+
+  13 May 2013; Pacho Ramos <pacho@gentoo.org> +latexila-2.8.1.ebuild:
+  Version bump
+
+  26 Apr 2013; Pacho Ramos <pacho@gentoo.org> -latexila-2.4.1.ebuild,
+  metadata.xml:
+  Drop old
+
+*latexila-2.8.0 (29 Mar 2013)
+
+  29 Mar 2013; Pacho Ramos <pacho@gentoo.org> +latexila-2.8.0.ebuild:
+  Version bump for Gnome 3.8
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> latexila-2.6.2.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> latexila-2.6.2.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -latexila-2.6.1.ebuild:
+  Clean up old revision.
 
 *latexila-2.6.2 (25 Nov 2012)
 

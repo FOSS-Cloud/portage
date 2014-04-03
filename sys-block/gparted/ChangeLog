@@ -1,6 +1,46 @@
 # ChangeLog for sys-block/gparted
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/gparted/ChangeLog,v 1.120 2013/01/13 10:49:42 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/gparted/ChangeLog,v 1.131 2013/12/08 19:40:06 pacho Exp $
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gparted-0.16.2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gparted-0.16.2.ebuild:
+  amd64 stable, bug #478252
+
+*gparted-0.16.2 (26 Oct 2013)
+
+  26 Oct 2013; Pacho Ramos <pacho@gentoo.org> +gparted-0.16.2.ebuild:
+  Version bump
+
+  29 Sep 2013; Pacho Ramos <pacho@gentoo.org> gparted-0.16.1.ebuild:
+  Drop usage of deprecated gksu
+
+  02 Aug 2013; Markus Meier <maekke@gentoo.org> gparted-0.16.1.ebuild:
+  add ~arm, bug #473474
+
+  23 Jul 2013; Vicente Olivert Riera <vincent@gentoo.org> gparted-0.16.1.ebuild:
+  added ppc keyword, bug #473474
+
+*gparted-0.16.1 (10 May 2013)
+
+  10 May 2013; Gilles Dartiguelongue <eva@gentoo.org> +gparted-0.16.1.ebuild,
+  metadata.xml:
+  Version bump, bug #462676.
+
+  09 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> gparted-0.14.1.ebuild:
+  Remove sys-fs/device-mapper from || () syntax in favour of sys-fs/lvm2 wrt
+  #461382
+
+  09 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> -gparted-0.12.0.ebuild,
+  -gparted-0.14.0.ebuild:
+  old
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gparted-0.14.1.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gparted-0.14.1.ebuild:
+  Stable for amd64, wrt bug #458984
 
 *gparted-0.14.1 (13 Jan 2013)
 

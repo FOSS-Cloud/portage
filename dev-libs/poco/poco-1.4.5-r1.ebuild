@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/poco/poco-1.4.5-r1.ebuild,v 1.1 2012/12/21 13:15:07 tommy Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/poco/poco-1.4.5-r1.ebuild,v 1.5 2014/03/12 02:54:33 patrick Exp $
 
 EAPI="2"
 
@@ -9,13 +9,13 @@ inherit eutils toolchain-funcs flag-o-matic multilib versionator
 MY_P="${P/_}"
 MY_DOCP="${PN}-$(get_version_component_range 1-3)-all-doc"
 
-DESCRIPTION="C++ class libraries that simplify and accelerate the development of network-centric, portable applications"
+DESCRIPTION="C++ class libraries to simplify the development of network-centric, portable applications."
 HOMEPAGE="http://pocoproject.org/"
 SRC_URI="mirror://sourceforge/poco/${MY_P}-all.tar.bz2
 	doc? ( mirror://sourceforge/poco/${MY_DOCP}.zip )"
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 arm x86"
 IUSE="doc examples iodbc mysql odbc sqlite ssl test"
 
 DEPEND=">=dev-libs/libpcre-8.13

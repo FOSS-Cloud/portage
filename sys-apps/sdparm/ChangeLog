@@ -1,6 +1,24 @@
 # ChangeLog for sys-apps/sdparm
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/sdparm/ChangeLog,v 1.74 2013/02/17 21:37:46 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/sdparm/ChangeLog,v 1.78 2014/01/14 23:36:24 vapier Exp $
+
+  14 Jan 2014; Mike Frysinger <vapier@gentoo.org> sdparm-1.08-r1.ebuild:
+  Add s390 love.
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -sdparm-1.03.ebuild,
+  -sdparm-1.04.ebuild, -sdparm-1.05.ebuild, -sdparm-1.06.ebuild,
+  -sdparm-1.08.ebuild:
+  Removed old versions and files.
+
+*sdparm-1.08-r1 (02 Jan 2014)
+
+  02 Jan 2014; Mike Frysinger <vapier@gentoo.org> +sdparm-1.08-r1.ebuild:
+  Fix depend on sg3_utils #479578 by Eric F. GARIOUD.
+
+*sdparm-1.08 (10 Jun 2013)
+
+  10 Jun 2013; Tim Harder <radhermit@gentoo.org> +sdparm-1.08.ebuild:
+  Version bump.
 
   17 Feb 2013; Zac Medico <zmedico@gentoo.org> sdparm-1.07.ebuild:
   Add ~arm-linux keyword.

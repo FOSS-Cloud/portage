@@ -1,6 +1,27 @@
 # ChangeLog for gnome-extra/gnome-utils
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/gnome-utils/ChangeLog,v 1.232 2012/10/12 07:58:22 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/gnome-utils/ChangeLog,v 1.237 2014/02/22 22:00:08 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-utils-3.8.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gnome-utils-3.8.0.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gnome-utils-3.8.0.ebuild:
+  amd64 stable, bug #478252
+
+*gnome-utils-3.8.0 (22 Nov 2013)
+
+  22 Nov 2013; Pacho Ramos <pacho@gentoo.org> +gnome-utils-3.8.0.ebuild,
+  -gnome-utils-3.4.0.ebuild, -gnome-utils-3.6.0.ebuild:
+  Version bump, drop old
+
+*gnome-utils-3.6.0 (29 Mar 2013)
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-utils-3.2.1.ebuild, +gnome-utils-3.6.0.ebuild:
+  Clean up old revision. Version bump for Gnome 3.6.
 
   12 Oct 2012; Ulrich Müller <ulm@gentoo.org> gnome-utils-3.4.0.ebuild:
   Update LICENSE to "metapackage" non-license.

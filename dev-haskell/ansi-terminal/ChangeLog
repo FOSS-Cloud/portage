@@ -1,6 +1,59 @@
 # ChangeLog for dev-haskell/ansi-terminal
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/ansi-terminal/ChangeLog,v 1.18 2012/12/22 21:05:28 slyfox Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/ansi-terminal/ChangeLog,v 1.34 2014/02/21 19:36:43 slyfox Exp $
+
+*ansi-terminal-0.6.1.1 (21 Feb 2014)
+
+  21 Feb 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +ansi-terminal-0.6.1.1.ebuild, metadata.xml:
+  Version bump.
+
+  29 Aug 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.6.ebuild:
+  Stable for ia64, wrt bug #470352
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.6.ebuild:
+  Stable for x86, wrt bug #470352
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.6.ebuild:
+  Stable for ppc64, wrt bug #470352
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.6.ebuild:
+  Stable for sparc, wrt bug #470352
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.6.ebuild:
+  Stable for alpha, wrt bug #470352
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.6.ebuild:
+  Stable for ppc, wrt bug #470352
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.6.ebuild:
+  Stable for amd64, wrt bug #470352
+
+*ansi-terminal-0.6 (02 Apr 2013)
+
+  02 Apr 2013; Mark Wright <gienah@gentoo.org> +ansi-terminal-0.6.ebuild:
+  Bump ansi-terminal to 0.6
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.5.5.1.ebuild:
+  Stable for sparc, wrt bug #457268
+
+  30 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.5.5.1.ebuild:
+  Stable for alpha, wrt bug #457268
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.5.5.1.ebuild:
+  Stable for ia64, wrt bug #457268
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.5.5.1.ebuild:
+  Stable for ppc64, wrt bug #457268
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.5.5.1.ebuild:
+  Stable for ppc, wrt bug #457268
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.5.5.1.ebuild:
+  Stable for x86, wrt bug #457268
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ansi-terminal-0.5.5.1.ebuild:
+  Stable for amd64, wrt bug #457268
 
 *ansi-terminal-0.5.5.1 (22 Dec 2012)
 

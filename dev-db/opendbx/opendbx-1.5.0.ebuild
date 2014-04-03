@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/opendbx/opendbx-1.5.0.ebuild,v 1.1 2012/11/25 14:29:37 swegener Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/opendbx/opendbx-1.5.0.ebuild,v 1.3 2014/03/10 21:15:06 swegener Exp $
 
-EAPI="2"
+EAPI="5"
 
 inherit flag-o-matic multilib
 
@@ -15,7 +15,7 @@ SRC_URI="http://www.linuxnetworks.de/opendbx/download/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x64-solaris"
 IUSE="bindist firebird +mysql oracle postgres sqlite sqlite3"
 
 DEPEND="mysql? ( virtual/mysql )
@@ -23,13 +23,15 @@ DEPEND="mysql? ( virtual/mysql )
 	sqlite? ( <dev-db/sqlite-3 )
 	sqlite3? ( =dev-db/sqlite-3* )
 	oracle? ( dev-db/oracle-instantclient-basic )
-	!bindist? ( firebird? ( dev-db/firebird ) )"
+	firebird? ( dev-db/firebird )"
 RDEPEND="${DEPEND}"
+
+REQUIRED_USE="bindist? ( !firebird )"
 
 S="${WORKDIR}"/${MY_P}
 
 pkg_setup() {
-	if ! ( use !bindist && use firebird || use mysql || use oracle || use postgres || use sqlite || use sqlite3 )
+	if ! ( use firebird || use mysql || use oracle || use postgres || use sqlite || use sqlite3 )
 	then
 		ewarn "You should enable at least one of the following USE flags:"
 		ewarn "firebird, mysql, oracle, postgres, sqlite or sqlite3"

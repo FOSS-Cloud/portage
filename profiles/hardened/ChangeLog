@@ -1,6 +1,197 @@
 # ChangeLog for Gentoo/AMD64 profile directory
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/ChangeLog,v 1.8 2013/08/03 21:18:24 blueness Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/ChangeLog,v 1.44 2014/03/30 21:44:39 mgorny Exp $
+
+  30 Mar 2014; Michał Górny <mgorny@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Move abi_x86_32 package stable-mask to arch profile since it is EAPI=5 now.
+
+  30 Mar 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Mask abi_x86_32 for libxshmfence, bug #506056.
+
+  27 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> +eapi,
+  +linux/amd64/no-multilib/eapi, +linux/amd64/no-multilib/selinux/eapi,
+  +linux/amd64/selinux/eapi, +linux/amd64/x32/eapi, +linux/eapi,
+  +linux/musl/eapi, +linux/musl/mips/mipsel/eapi, +linux/uclibc/eapi,
+  +linux/uclibc/mips/mipsel/eapi, +linux/x86/selinux/eapi:
+  Increase EAPI to 5
+
+  26 Mar 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Mask multilib for wayland/weston, so they can go stable in bug #500368.
+
+  16 Mar 2014; Tom Wijsman <TomWij@gentoo.org>
+  linux/amd64/package.use.stable.mask, linux/x86/package.use.stable.mask:
+  Mask unstable USE flags on media-video/vlc, see security bug #499806.
+
+  09 Mar 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/amd64/use.force, linux/uclibc/amd64/use.mask,
+  linux/uclibc/x86/use.force, linux/uclibc/x86/use.mask,
+  linux/musl/amd64/use.force, linux/musl/amd64/use.mask,
+  linux/musl/x86/use.force, linux/musl/x86/use.mask:
+  hardened/linux/{uclibc,musl}/{amd64,x86}: force default abi flags
+
+  28 Feb 2014; Anthony G. Basile <blueness@gentoo.org> +linux/musl/mips/eapi,
+  +linux/musl/mips/make.defaults, +linux/musl/mips/mipsel/make.defaults,
+  +linux/musl/mips/mipsel/parent, +linux/musl/mips/parent,
+  +linux/musl/mips/use.force, +linux/musl/mips/use.mask:
+  Add hardened/linux/musl/mips and hardened/linux/musl/mips/mipsel
+
+  21 Feb 2014; Anthony G. Basile <blueness@gentoo.org>
+  +linux/musl/arm/armv7a/eapi, +linux/musl/arm/armv7a/make.defaults,
+  +linux/musl/arm/armv7a/parent, +linux/musl/arm/eapi,
+  +linux/musl/arm/make.defaults, +linux/musl/arm/parent,
+  +linux/musl/arm/use.force, +linux/musl/arm/use.mask:
+  Add hardened/linux/musl/arm/armv7a
+
+  17 Feb 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/x86/make.defaults:
+  Sandbox from hardened-dev::musl overlay works
+
+  11 Feb 2014; Anthony G. Basile <blueness@gentoo.org> linux/make.defaults:
+  Add xtpax to BOOTSTRAP_USE/USE in base hardened make.default, for
+  sys-apps/elfix
+
+  03 Feb 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/package.mask:
+  Remove -sys-libs/uclibc from hardened/linux/uclibc/package.mask, bug #500202
+
+  27 Jan 2014; Anthony G. Basile <blueness@gentoo.org> linux/musl/use.mask:
+  hardened/linux/musl: provide nls support with gettext
+
+  26 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/packages.build:
+  hardened/linux/musl: switch to dev-util/pkgconf which does better in musl
+
+  24 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/x86/make.defaults:
+  Move musl's linker path to gcc's specs file
+
+  24 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/make.defaults,
+  linux/musl/packages, linux/musl/packages.build, linux/musl/x86/make.defaults:
+  linux/musl: fix linker path and remove libiconv
+
+  23 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Fix qt packages category.
+
+  21 Jan 2014; Samuli Suominen <ssuominen@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Missing abi_x86_32 mask for dev-libs/libcdio-paranoia wrt #497246 by Pacho
+  Ramos
+
+  31 Dec 2013; Anthony G. Basile <blueness@gentoo.org>
+  +linux/arm/use.stable.mask:
+  Disable stable-mask for python3.3 flags on arm
+
+  30 Dec 2013; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/package.mask:
+  Bug #490008 is fixed, unmask >sys-kernel/linux-headers-3.9
+
+  25 Dec 2013; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/amd64/package.mask:
+  Unmask >sys-libs/uclibc-0.9.33.2-r4 since bug #495256 is fixed
+
+  24 Dec 2013; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/amd64/package.mask:
+  Mask >sys-libs/uclibc-0.9.33.2-r4 until bug #495256 is fixed
+
+  20 Dec 2013; Anthony G. Basile <blueness@gentoo.org>
+  -linux/amd64/desktop/deprecated, -linux/amd64/desktop/parent,
+  -linux/amd64/developer/deprecated, -linux/amd64/developer/parent,
+  -linux/amd64/server/deprecated, -linux/amd64/server/parent,
+  -linux/ia64/desktop/deprecated, -linux/ia64/desktop/parent,
+  -linux/ia64/developer/deprecated, -linux/ia64/developer/parent,
+  -linux/ia64/server/deprecated, -linux/ia64/server/parent,
+  -linux/powerpc/ppc32/desktop/deprecated, -linux/powerpc/ppc32/desktop/parent,
+  -linux/powerpc/ppc32/developer/deprecated,
+  -linux/powerpc/ppc32/developer/parent,
+  -linux/powerpc/ppc32/server/deprecated, -linux/powerpc/ppc32/server/parent,
+  -linux/powerpc/ppc64/32bit-userland/desktop/deprecated,
+  -linux/powerpc/ppc64/32bit-userland/desktop/parent,
+  -linux/powerpc/ppc64/32bit-userland/developer/deprecated,
+  -linux/powerpc/ppc64/32bit-userland/developer/parent,
+  -linux/powerpc/ppc64/32bit-userland/server/deprecated,
+  -linux/powerpc/ppc64/32bit-userland/server/parent,
+  -linux/powerpc/ppc64/64bit-userland/desktop/deprecated,
+  -linux/powerpc/ppc64/64bit-userland/desktop/parent,
+  -linux/powerpc/ppc64/64bit-userland/developer/deprecated,
+  -linux/powerpc/ppc64/64bit-userland/developer/parent,
+  -linux/powerpc/ppc64/64bit-userland/server/deprecated,
+  -linux/powerpc/ppc64/64bit-userland/server/parent,
+  -linux/powerpc/ppc64/desktop/deprecated, -linux/powerpc/ppc64/desktop/parent,
+  -linux/powerpc/ppc64/developer/deprecated,
+  -linux/powerpc/ppc64/developer/parent,
+  -linux/powerpc/ppc64/server/deprecated, -linux/powerpc/ppc64/server/parent,
+  -linux/x86/desktop/deprecated, -linux/x86/desktop/parent,
+  -linux/x86/developer/deprecated, -linux/x86/developer/parent,
+  -linux/x86/minimal/deprecated, -linux/x86/minimal/make.defaults,
+  -linux/x86/minimal/parent, -linux/x86/server/deprecated,
+  -linux/x86/server/parent:
+  Remove all deprecated /desktop /developer /server profiles
+
+  01 Dec 2013; Mike Gilbert <floppym@gentoo.org> +linux/amd64/use.stable.mask:
+  Disable stable-mask for python3.3 flags, bug 474128.
+
+  31 Oct 2013; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/package.mask:
+  Mask >sys-kernel/linux-headers-3.9 on uclibc, bug #490008
+
+  26 Oct 2013; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/mips/package.mask:
+  Unmask latest perl on uclibc/mips
+
+  22 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +linux/musl/amd64/eapi,
+  +linux/musl/x86/eapi:
+  Update all hardened musl arches to eapi 5
+
+  22 Oct 2013; Anthony G. Basile <blueness@gentoo.org>
+  +linux/uclibc/amd64/eapi, +linux/uclibc/arm/armv6j/eapi,
+  +linux/uclibc/arm/armv7a/eapi, +linux/uclibc/arm/eapi,
+  +linux/uclibc/mips/eapi, +linux/uclibc/ppc/eapi, +linux/uclibc/x86/eapi:
+  Update all hardened uclibc arches to eapi 5
+
+  22 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +linux/ia64/eapi:
+  Update ia64 to eapi 5
+
+  21 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +linux/powerpc/eapi,
+  +linux/powerpc/ppc32/eapi, +linux/powerpc/ppc64/32bit-userland/eapi,
+  +linux/powerpc/ppc64/64bit-userland/eapi, +linux/powerpc/ppc64/eapi:
+  Update powerpc to eapi 5
+
+  21 Oct 2013; Anthony G. Basile <blueness@gentoo.org> +linux/mips/eapi,
+  +linux/mips/mipsel/eapi, +linux/mips/mipsel/multilib/eapi,
+  +linux/mips/mipsel/multilib/n32/eapi, +linux/mips/mipsel/multilib/n64/eapi,
+  +linux/mips/mipsel/n32/eapi, +linux/mips/mipsel/n64/eapi,
+  +linux/mips/multilib/eapi, +linux/mips/multilib/n32/eapi,
+  +linux/mips/multilib/n64/eapi, +linux/mips/n32/eapi, +linux/mips/n64/eapi:
+  Update mips to eapi 5
+
+  21 Oct 2013; Anthony G. Basile <blueness@gentoo.org> linux/arm/armv4/eapi,
+  linux/arm/armv4t/eapi, linux/arm/armv5te/eapi, linux/arm/armv6j/eapi,
+  linux/arm/armv7a/eapi, linux/arm/armv7a/selinux/eapi, linux/arm/eapi:
+  Update arm to eapi 5
+
+  03 Oct 2013; Matt Turner <mattst88@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Drop unneeded libtxc_dxtn abi_x86_32 stable use mask.
+
+  24 Sep 2013; Michał Górny <mgorny@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Add missing abi_x86_32 masks as reported by Patrick Lauer.
+
+  24 Sep 2013; Michał Górny <mgorny@gentoo.org> linux/amd64/package.use.mask,
+  +linux/amd64/package.use.stable.mask:
+  Move the abi_x86_32 mask to stable.mask, since the profile is EAPI=5 now.
+
+  23 Sep 2013; Magnus Granberg <zorry@gentoo.org>
+  +linux/amd64/eapi +/linux/x86/eapi
+  update amd64 and x86 to eapi 5
+
+  22 Sep 2013; Michał Górny <mgorny@gentoo.org> linux/amd64/package.use.mask:
+  Mask abi_x86_32 on hardened as well, to make the way for stablereq.
 
   03 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
   linux/uclibc/mips/make.defaults:

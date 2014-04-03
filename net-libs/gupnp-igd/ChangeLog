@@ -1,6 +1,53 @@
 # ChangeLog for net-libs/gupnp-igd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gupnp-igd/ChangeLog,v 1.43 2012/12/01 17:59:08 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gupnp-igd/ChangeLog,v 1.55 2014/02/08 18:48:22 ago Exp $
+
+  08 Feb 2014; Agostino Sarubbo <ago@gentoo.org>
+  +files/gupnp-igd-0.2.2-underlinking.patch:
+  add back gupnp-igd-0.2.2-underlinking.patch
+
+*gupnp-igd-0.2.3 (06 Feb 2014)
+
+  06 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> -gupnp-igd-0.1.7.ebuild,
+  -gupnp-igd-0.1.11.ebuild, -gupnp-igd-0.2.1.ebuild, -gupnp-igd-0.2.2.ebuild,
+  +gupnp-igd-0.2.3.ebuild, -files/gupnp-igd-0.1.7-disable_static_modules.patch,
+  -files/gupnp-igd-0.1.7-make-382.patch,
+  -files/gupnp-igd-0.2.2-underlinking.patch:
+  Version bump. Clean up old revisions.
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gupnp-igd-0.2.2-r1.ebuild:
+  Stable for sparc, wrt bug #496626
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gupnp-igd-0.2.2-r1.ebuild:
+  Stable for x86, wrt bug #496626
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gupnp-igd-0.2.2-r1.ebuild:
+  Stable for ppc, wrt bug #496626
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gupnp-igd-0.2.2-r1.ebuild:
+  Stable for ppc64, wrt bug #496626
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gupnp-igd-0.2.2-r1.ebuild:
+  Stable for alpha, wrt bug #496626
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> gupnp-igd-0.2.2-r1.ebuild:
+  amd64 stable, bug #496626
+
+  16 Jan 2014; Jeroen Roovers <jer@gentoo.org> gupnp-igd-0.2.2-r1.ebuild:
+  Stable for HPPA (bug #496626).
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gupnp-igd-0.2.2-r1.ebuild:
+  Stable for ia64, wrt bug #496626
+
+  05 May 2013; Michał Górny <mgorny@gentoo.org> gupnp-igd-0.2.2-r1.ebuild:
+  Drop unnecessary PYTHON_USEDEP on gobject-introspection.
+
+*gupnp-igd-0.2.2-r1 (04 May 2013)
+
+  04 May 2013; Justin Lecher <jlec@gentoo.org> +gupnp-igd-0.2.2-r1.ebuild,
+  +files/gupnp-igd-0.2.2-underlinking.patch, metadata.xml:
+  Add fix for underlinking, fix obsolete macros in automake-1.13, #467888, fix
+  python handling, #450392
 
   01 Dec 2012; Raúl Porcel <armin76@gentoo.org> gupnp-igd-0.2.1.ebuild:
   alpha/ia64/sparc stable wrt #434300

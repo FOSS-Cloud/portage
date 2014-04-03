@@ -1,6 +1,26 @@
 # ChangeLog for dev-ruby/rexical
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rexical/ChangeLog,v 1.33 2013/02/25 17:47:49 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rexical/ChangeLog,v 1.38 2014/04/01 19:04:45 maekke Exp $
+
+  01 Apr 2014; Markus Meier <maekke@gentoo.org> rexical-1.0.5-r2.ebuild:
+  arm stable, bug #505916
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> rexical-1.0.5-r2.ebuild:
+  Stable for HPPA (bug #505916).
+
+*rexical-1.0.5-r3 (21 Mar 2014)
+
+  21 Mar 2014; Hans de Graaff <graaff@gentoo.org> +rexical-1.0.5-r3.ebuild:
+  Revision bump to add ruby21 support. Fix tests to work with newer minitest.
+  Drop ruby18.
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> rexical-1.0.5-r1.ebuild:
+  arm stable, bug #493780
+
+*rexical-1.0.5-r2 (06 Oct 2013)
+
+  06 Oct 2013; Hans de Graaff <graaff@gentoo.org> +rexical-1.0.5-r2.ebuild:
+  EAPI=5. Drop ree18. Add ruby20.
 
   25 Feb 2013; Hans de Graaff <graaff@gentoo.org> rexical-1.0.5-r1.ebuild:
   Add a blocker on app-admin/rex to avoid file collisions, bug 459116.

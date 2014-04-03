@@ -1,6 +1,49 @@
 # ChangeLog for app-misc/pax-utils
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/pax-utils/ChangeLog,v 1.144 2013/01/02 18:28:32 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/pax-utils/ChangeLog,v 1.156 2014/03/21 05:36:34 vapier Exp $
+
+*pax-utils-0.8.1 (21 Mar 2014)
+
+  21 Mar 2014; Mike Frysinger <vapier@gentoo.org> +pax-utils-0.8.1.ebuild,
+  -pax-utils-0.8.ebuild:
+  Fix bug in objdump handling with `scanelf -vT`.
+
+*pax-utils-0.8 (20 Mar 2014)
+
+  20 Mar 2014; Mike Frysinger <vapier@gentoo.org> +pax-utils-0.8.ebuild:
+  Version bump.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> pax-utils-0.7.ebuild:
+  Add arm64 love.
+
+  25 Dec 2013; Patrick Lauer <patrick@gentoo.org> pax-utils-0.7.ebuild:
+  Remove bogus stable keyword
+
+  23 Dec 2013; Mike Frysinger <vapier@gentoo.org> pax-utils-0.7.ebuild:
+  Stabilize for all #487676.
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org> pax-utils-0.7.ebuild:
+  x86 stable, bug #487676
+
+  27 Nov 2013; Markus Meier <maekke@gentoo.org> pax-utils-0.7.ebuild:
+  arm stable, bug #487676
+
+  09 Nov 2013; Pacho Ramos <pacho@gentoo.org> pax-utils-0.7.ebuild:
+  amd64 stable, bug #487676
+
+  21 Oct 2013; Benda Xu <heroxbd@gentoo.org> pax-utils-0.7.ebuild:
+  remove prepalldocs after EAPI bump
+
+  20 Oct 2013; Benda Xu <heroxbd@gentoo.org> pax-utils-0.7.ebuild:
+  Prefix support, bug 488460
+
+  17 Oct 2013; Jeroen Roovers <jer@gentoo.org> pax-utils-0.7.ebuild:
+  Stable for HPPA (bug #487676).
+
+*pax-utils-0.7 (07 Apr 2013)
+
+  07 Apr 2013; Mike Frysinger <vapier@gentoo.org> +pax-utils-0.7.ebuild:
+  Version bump.
 
 *pax-utils-0.6 (02 Jan 2013)
 

@@ -1,6 +1,43 @@
 # ChangeLog for sci-visualization/veusz
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/veusz/ChangeLog,v 1.40 2012/08/01 06:33:09 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-visualization/veusz/ChangeLog,v 1.47 2014/02/17 22:25:37 bicatali Exp $
+
+*veusz-1.20.1 (17 Feb 2014)
+
+  17 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> +veusz-1.20.1.ebuild:
+  Version bump
+
+  05 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> -veusz-1.17.1-r1.ebuild,
+  -veusz-1.18.ebuild, veusz-1.20.ebuild:
+  fits is now delivered by astropy
+
+*veusz-1.20 (29 Jan 2014)
+
+  29 Jan 2014; Sébastien Fabbro <bicatali@gentoo.org> +veusz-1.20.ebuild,
+  metadata.xml:
+  Version bump
+
+*veusz-1.18 (16 Jul 2013)
+
+  16 Jul 2013; Sébastien Fabbro <bicatali@gentoo.org> +veusz-1.18.ebuild,
+  -veusz-1.17.1.ebuild:
+  Version bump. Added test
+
+*veusz-1.17.1-r1 (24 Apr 2013)
+
+  24 Apr 2013; Sébastien Fabbro <bicatali@gentoo.org> +veusz-1.17.1-r1.ebuild,
+  -veusz-1.15.ebuild, -veusz-1.16.ebuild, -veusz-1.17.ebuild, metadata.xml:
+  Switched to distutils-r1, cleanup
+
+*veusz-1.17.1 (13 Apr 2013)
+
+  13 Apr 2013; Andrey Grozin <grozin@gentoo.org> +veusz-1.17.1.ebuild:
+  Version bump
+
+*veusz-1.17 (28 Mar 2013)
+
+  28 Mar 2013; Andrey Grozin <grozin@gentoo.org> +veusz-1.17.ebuild:
+  Version bump
 
   01 Aug 2012; Justin Lecher <jlec@gentoo.org> veusz-1.16.ebuild, metadata.xml:
   Restrict py3, jython, pypy due to missing compatibility, #428758, thanks

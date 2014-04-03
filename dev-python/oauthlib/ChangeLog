@@ -1,6 +1,58 @@
 # ChangeLog for dev-python/oauthlib
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/oauthlib/ChangeLog,v 1.22 2013/02/12 09:53:36 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/oauthlib/ChangeLog,v 1.32 2014/01/25 09:47:05 radhermit Exp $
+
+  25 Jan 2014; Tim Harder <radhermit@gentoo.org> -oauthlib-0.3.4.ebuild,
+  -oauthlib-0.3.6.ebuild, -oauthlib-0.3.7.ebuild, -oauthlib-0.3.8.ebuild,
+  -oauthlib-0.4.0.ebuild, -oauthlib-0.4.1.ebuild, -oauthlib-0.4.2.ebuild,
+  -oauthlib-0.5.0.ebuild, -oauthlib-0.5.1.ebuild:
+  Remove old.
+
+*oauthlib-0.6.1 (25 Jan 2014)
+
+  25 Jan 2014; Tim Harder <radhermit@gentoo.org> +oauthlib-0.6.1.ebuild:
+  Version bump.
+
+*oauthlib-0.6.0 (18 Sep 2013)
+
+  18 Sep 2013; Patrick Lauer <patrick@gentoo.org> +oauthlib-0.6.0.ebuild:
+  Bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> oauthlib-0.3.6.ebuild,
+  oauthlib-0.3.7.ebuild, oauthlib-0.3.8.ebuild, oauthlib-0.4.0.ebuild,
+  oauthlib-0.4.1.ebuild, oauthlib-0.4.2.ebuild, oauthlib-0.5.0.ebuild,
+  oauthlib-0.5.1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*oauthlib-0.5.1 (31 Jul 2013)
+
+  31 Jul 2013; Tim Harder <radhermit@gentoo.org> +oauthlib-0.5.1.ebuild:
+  Version bump.
+
+*oauthlib-0.5.0 (09 Jul 2013)
+
+  09 Jul 2013; Tim Harder <radhermit@gentoo.org> +oauthlib-0.5.0.ebuild:
+  Version bump.
+
+*oauthlib-0.4.2 (06 Jun 2013)
+
+  06 Jun 2013; Patrick Lauer <patrick@gentoo.org> +oauthlib-0.4.2.ebuild:
+  Bump
+
+*oauthlib-0.4.1 (22 May 2013)
+
+  22 May 2013; Patrick Lauer <patrick@gentoo.org> +oauthlib-0.4.1.ebuild:
+  Bump
+
+*oauthlib-0.4.0 (28 Mar 2013)
+
+  28 Mar 2013; Tim Harder <radhermit@gentoo.org> +oauthlib-0.4.0.ebuild:
+  Version bump.
+
+*oauthlib-0.3.8 (06 Mar 2013)
+
+  06 Mar 2013; Tim Harder <radhermit@gentoo.org> +oauthlib-0.3.8.ebuild:
+  Version bump.
 
 *oauthlib-0.3.7 (12 Feb 2013)
 

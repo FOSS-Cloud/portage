@@ -1,6 +1,39 @@
 # ChangeLog for net-nds/ypbind
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/ypbind/ChangeLog,v 1.75 2012/06/27 18:13:20 kensington Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-nds/ypbind/ChangeLog,v 1.85 2014/03/19 15:17:27 ago Exp $
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> ypbind-1.37.1.ebuild:
+  Stable for alpha, wrt bug #499314
+
+  18 Mar 2014; Agostino Sarubbo <ago@gentoo.org> ypbind-1.37.1.ebuild:
+  Stable for ia64, wrt bug #499314
+
+  14 Mar 2014; Agostino Sarubbo <ago@gentoo.org> ypbind-1.37.1.ebuild:
+  Stable for ppc64, wrt bug #499314
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> ypbind-1.37.1.ebuild:
+  Stable for x86, wrt bug #499314
+
+  09 Feb 2014; Chema Alonso <nimiux@gentoo.org> ypbind-1.37.1.ebuild:
+  Stable for amd64 wrt bug #499314
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> ypbind-1.37.1.ebuild:
+  Stable for ppc, wrt bug #499314
+
+  27 Jan 2014; Jeroen Roovers <jer@gentoo.org> ypbind-1.37.1.ebuild:
+  Stable for HPPA (bug #499314).
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> ypbind-1.37.1.ebuild:
+  Stable for sparc, wrt bug #499314
+
+*ypbind-1.37.1 (22 Dec 2013)
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> +files/ypbind.service,
+  +ypbind-1.37.1.ebuild:
+  Version bump, add systemd support (#493776)
+
+  08 Sep 2013; Markus Meier <maekke@gentoo.org> ypbind-1.33.ebuild:
+  add ~arm, bug #372871
 
   27 Jun 2012; Michael Palimaka <kensington@gentoo.org> -ypbind-1.32-r1.ebuild,
   -ypbind-1.32.ebuild:

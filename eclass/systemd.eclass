@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/systemd.eclass,v 1.26 2013/07/27 10:36:55 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/systemd.eclass,v 1.31 2013/10/22 15:14:40 mgorny Exp $
 
 # @ECLASS: systemd.eclass
 # @MAINTAINER:
@@ -12,20 +12,20 @@
 # @EXAMPLE:
 #
 # @CODE
-# inherit autotools-utils systemd
+# inherit systemd
 #
 # src_configure() {
 #	local myeconfargs=(
 #		--enable-foo
 #		--disable-bar
+#		"$(systemd_with_unitdir)"
 #	)
 #
-#	systemd_to_myeconfargs
-#	autotools-utils_src_configure
+#	econf "${myeconfargs[@]}"
 # }
 # @CODE
 
-inherit toolchain-funcs
+inherit eutils toolchain-funcs
 
 case ${EAPI:-0} in
 	0|1|2|3|4|5) ;;
@@ -106,33 +106,64 @@ systemd_get_utildir() {
 }
 
 # @FUNCTION: systemd_dounit
-# @USAGE: unit1 [...]
+# @USAGE: <unit>...
 # @DESCRIPTION:
 # Install systemd unit(s). Uses doins, thus it is fatal in EAPI 4
 # and non-fatal in earlier EAPIs.
 systemd_dounit() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local INSDESTTREE
-	insinto "$(_systemd_get_unitdir)"
-	doins "${@}"
+	(
+		insinto "$(_systemd_get_unitdir)"
+		doins "${@}"
+	)
 }
 
 # @FUNCTION: systemd_newunit
-# @USAGE: oldname newname
+# @USAGE: <old-name> <new-name>
 # @DESCRIPTION:
 # Install systemd unit with a new name. Uses newins, thus it is fatal
 # in EAPI 4 and non-fatal in earlier EAPIs.
 systemd_newunit() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local INSDESTTREE
-	insinto "$(_systemd_get_unitdir)"
-	newins "${@}"
+	(
+		insinto "$(_systemd_get_unitdir)"
+		newins "${@}"
+	)
+}
+
+# @FUNCTION: systemd_install_serviced
+# @USAGE: <conf-file> [<service.d>]
+# @DESCRIPTION:
+# Install the file <conf-file> as service.d/00gentoo.conf template.
+# The <service.d> argument specifies the configured service name.
+# If not specified, the configuration file name will be used with .conf
+# suffix stripped (e.g. foo.service.conf -> foo.service).
+systemd_install_serviced() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local src=${1}
+	local service=${2}
+
+	[[ ${src} ]] || die "No file specified"
+
+	if [[ ! ${service} ]]; then
+		[[ ${src} == *.conf ]] || die "Source file needs .conf suffix"
+		service=${src##*/}
+		service=${service%.conf}
+	fi
+	# avoid potentially common mistake
+	[[ ${service} == *.d ]] && die "Service must not have .d suffix"
+
+	(
+		insinto /etc/systemd/system/"${service}".d
+		newins "${src}" 00gentoo.conf
+	)
 }
 
 # @FUNCTION: systemd_dotmpfilesd
-# @USAGE: tmpfilesd1 [...]
+# @USAGE: <tmpfilesd>...
 # @DESCRIPTION:
 # Install systemd tmpfiles.d files. Uses doins, thus it is fatal
 # in EAPI 4 and non-fatal in earlier EAPIs.
@@ -144,13 +175,14 @@ systemd_dotmpfilesd() {
 			|| die 'tmpfiles.d files need to have .conf suffix.'
 	done
 
-	local INSDESTTREE
-	insinto /usr/lib/tmpfiles.d/
-	doins "${@}"
+	(
+		insinto /usr/lib/tmpfiles.d/
+		doins "${@}"
+	)
 }
 
 # @FUNCTION: systemd_newtmpfilesd
-# @USAGE: oldname newname.conf
+# @USAGE: <old-name> <new-name>.conf
 # @DESCRIPTION:
 # Install systemd tmpfiles.d file under a new name. Uses newins, thus it
 # is fatal in EAPI 4 and non-fatal in earlier EAPIs.
@@ -160,13 +192,14 @@ systemd_newtmpfilesd() {
 	[[ ${2} == *.conf ]] \
 		|| die 'tmpfiles.d files need to have .conf suffix.'
 
-	local INSDESTTREE
-	insinto /usr/lib/tmpfiles.d/
-	newins "${@}"
+	(
+		insinto /usr/lib/tmpfiles.d/
+		newins "${@}"
+	)
 }
 
 # @FUNCTION: systemd_enable_service
-# @USAGE: target service
+# @USAGE: <target> <service>
 # @DESCRIPTION:
 # Enable service in desired target, e.g. install a symlink for it.
 # Uses dosym, thus it is fatal in EAPI 4 and non-fatal in earlier
@@ -185,8 +218,55 @@ systemd_enable_service() {
 	dosym ../"${service}" "${ud}"/"${target}".wants/"${destname}"
 }
 
+# @FUNCTION: systemd_enable_ntpunit
+# @USAGE: <NN-name> <service>...
+# @DESCRIPTION:
+# Add an NTP service provider to the list of implementations
+# in timedated. <NN-name> defines the newly-created ntp-units.d priority
+# and name, while the remaining arguments list service units that will
+# be added to that file.
+#
+# Uses doins, thus it is fatal in EAPI 4 and non-fatal in earlier
+# EAPIs.
+#
+# Doc: http://www.freedesktop.org/wiki/Software/systemd/timedated/
+systemd_enable_ntpunit() {
+	debug-print-function ${FUNCNAME} "${@}"
+	if [[ ${#} -lt 2 ]]; then
+		die "Usage: systemd_enable_ntpunit <NN-name> <service>..."
+	fi
+
+	local ntpunit_name=${1}
+	local services=( "${@:2}" )
+
+	if [[ ${ntpunit_name} != [0-9][0-9]-* ]]; then
+		die "ntpunit.d file must be named NN-name where NN are digits."
+	elif [[ ${ntpunit_name} == *.list ]]; then
+		die "The .list suffix is appended implicitly to ntpunit.d name."
+	fi
+
+	local unitdir=$(systemd_get_unitdir)
+	local s
+	for s in "${services[@]}"; do
+		if [[ ! -f "${D}${unitdir}/${s}" ]]; then
+			die "ntp-units.d provider ${s} not installed (yet?) in \${D}."
+		fi
+		echo "${s}" >> "${T}"/${ntpunit_name}.list
+	done
+
+	(
+		insinto "$(_systemd_get_utildir)"/ntp-units.d
+		doins "${T}"/${ntpunit_name}.list
+	)
+	local ret=${?}
+
+	rm "${T}"/${ntpunit_name}.list || die
+
+	return ${ret}
+}
+
 # @FUNCTION: systemd_with_unitdir
-# @USAGE: [configure option]
+# @USAGE: [<configure-option-name>]
 # @DESCRIPTION:
 # Output '--with-systemdsystemunitdir' as expected by systemd-aware configure
 # scripts. This function always succeeds. Its output may be quoted in order
@@ -222,6 +302,9 @@ systemd_with_utildir() {
 # quoting automatically.
 systemd_to_myeconfargs() {
 	debug-print-function ${FUNCNAME} "${@}"
+
+	eqawarn 'systemd_to_myeconfargs() is deprecated and will be removed on 2013-10-11.'
+	eqawarn 'Please use $(systemd_with_unitdir) instead.'
 
 	myeconfargs=(
 		"${myeconfargs[@]}"

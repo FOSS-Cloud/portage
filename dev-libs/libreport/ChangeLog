@@ -1,6 +1,39 @@
 # ChangeLog for dev-libs/libreport
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libreport/ChangeLog,v 1.15 2012/10/04 14:49:28 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libreport/ChangeLog,v 1.22 2013/12/08 18:06:02 pacho Exp $
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> libreport-2.0.13-r1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> libreport-2.0.13-r1.ebuild:
+  amd64 stable, bug #478252
+
+*libreport-2.0.13-r1 (12 Sep 2013)
+
+  12 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -libreport-2.0.10.ebuild, +libreport-2.0.13-r1.ebuild,
+  -files/libreport-2.0.9-gentoo.patch,
+  -files/libreport-2.0.9-no-bugzilla.patch,
+  +files/libreport-2.0.13-json-c-0.11-pc.patch:
+  Really fix json-c-0.11 compatibility (bug #468610, thanks to Michał Górny
+  for the patch). Modernize ebuild. Drop old.
+
+  28 Apr 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  libreport-2.0.13.ebuild, +files/libreport-2.0.13-json-c-0.11.patch:
+  Fix building with json-c-0.11 (bug #467700, thanks to Markos Chandras for the
+  patch).
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libreport-2.0.13.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libreport-2.0.13.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -files/libreport-2.0.7-gentoo.patch,
+  -files/libreport-2.0.7-multiple-tabs.patch,
+  -files/libreport-2.0.7-no-bugzilla.patch, -libreport-2.0.9.ebuild:
+  Clean up old revision.
 
   04 Oct 2012; Agostino Sarubbo <ago@gentoo.org> libreport-2.0.10.ebuild:
   Stable for amd64, wrt bug #427544

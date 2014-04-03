@@ -1,6 +1,54 @@
 # ChangeLog for media-video/ffmpeg2theora
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg2theora/ChangeLog,v 1.56 2012/07/02 22:59:50 hanno Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg2theora/ChangeLog,v 1.68 2014/03/15 19:06:44 ssuominen Exp $
+
+  15 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -ffmpeg2theora-0.29.ebuild:
+  old
+
+  15 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +files/ffmpeg2theora-0.29-underlinking.patch, ffmpeg2theora-0.29-r1.ebuild:
+  Fix underlinking by always linking against -lm -ldl wrt #504698 by "Guy"
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg2theora-0.29-r1.ebuild:
+  Stable for x86, wrt bug #495818
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> ffmpeg2theora-0.29-r1.ebuild:
+  amd64 stable, bug #495818
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> ffmpeg2theora-0.29.ebuild:
+  Whitespace
+
+*ffmpeg2theora-0.29-r1 (12 Aug 2013)
+
+  12 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  +ffmpeg2theora-0.29-r1.ebuild, +files/ffmpeg2theora-0.29-ffmpeg2.patch,
+  +files/ffmpeg2theora-0.29-swr.patch:
+  Use upstream patch for swr, backport upstream fix for ffmpeg2 compat, bug
+  #476532, move myesconsargs setup to src_configure, drop debug useflag that
+  only adds debug cflags. Use correct order in the ffmpeg/libav dep since
+  upstream uses ffmpeg.
+
+  12 Aug 2013; Alexis Ballier <aballier@gentoo.org> -ffmpeg2theora-0.28.ebuild,
+  -ffmpeg2theora-0.28-r1.ebuild, -files/ffmpeg2theora-0.28-ffmpeg-0.10.patch:
+  remove old
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> ffmpeg2theora-0.28.ebuild,
+  ffmpeg2theora-0.28-r1.ebuild, ffmpeg2theora-0.29.ebuild:
+  depend on ffmpeg:0
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> ffmpeg2theora-0.29.ebuild:
+  Stable for x86, wrt bug #464560
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> ffmpeg2theora-0.29.ebuild:
+  Stable for amd64, wrt bug #464560
+
+  21 Apr 2013; Luca Barbato <lu_zero@gentoo.org> ffmpeg2theora-0.29.ebuild:
+  Fix libav support, remove stray requirement
+
+  04 Apr 2013; Alexis Ballier <aballier@gentoo.org> ffmpeg2theora-0.29.ebuild:
+  Depend on media-video/ffmpeg as it does not work with libav, bug #428106
+  which has been open for 8 months...
 
 *ffmpeg2theora-0.29 (02 Jul 2012)
 

@@ -1,0 +1,19 @@
+# ChangeLog for dev-libs/hyperleveldb
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/hyperleveldb/ChangeLog,v 1.3 2014/02/21 03:13:21 patrick Exp $
+
+*hyperleveldb-1.0.2 (21 Feb 2014)
+
+  21 Feb 2014; Patrick Lauer <patrick@gentoo.org> +hyperleveldb-1.0.2.ebuild:
+  Bump
+
+*hyperleveldb-1.0.1 (11 Dec 2013)
+
+  11 Dec 2013; Patrick Lauer <patrick@gentoo.org> +hyperleveldb-1.0.1.ebuild:
+  Bump
+
+*hyperleveldb-1.0.0 (20 Nov 2013)
+
+  20 Nov 2013; Patrick Lauer <patrick@gentoo.org> +hyperleveldb-1.0.0.ebuild,
+  +metadata.xml:
+  Initial import, dependency of dev-libs/replicant

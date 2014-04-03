@@ -1,6 +1,111 @@
 # ChangeLog for sys-libs/libselinux
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libselinux/ChangeLog,v 1.93 2012/12/30 15:17:46 swift Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libselinux/ChangeLog,v 1.115 2014/03/23 19:21:17 swift Exp $
+
+  23 Mar 2014; Sven Vermeulen <swift@gentoo.org> -libselinux-2.2.2-r3.ebuild,
+  -files/libselinux-2.2.2-build.patch:
+  Dropping incorrect builds
+
+*libselinux-2.2.2-r4 (23 Mar 2014)
+
+  23 Mar 2014; Sven Vermeulen <swift@gentoo.org> +libselinux-2.2.2-r4.ebuild:
+  Fix bug #504832 - audit2why.so failures due to dynamic linking
+
+*libselinux-2.2.2-r3 (08 Mar 2014)
+
+  08 Mar 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/libselinux-2.2.2-build.patch, +libselinux-2.2.2-r3.ebuild:
+  Clean up linking behavior #500674 by SpanKY.
+
+  04 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  libselinux-2.2.2-r2.ebuild:
+  Fix installation of python site-packages w/ multilib-strict by passing LIBDIR
+  to "make install" phase wrt #502954
+
+*libselinux-2.2.2-r2 (04 Mar 2014)
+
+  04 Mar 2014; Sven Vermeulen <swift@gentoo.org> +libselinux-2.2.2-r2.ebuild:
+  Fix bug #502544 - Honor multilib dir in pkgconfig file
+
+*libselinux-2.2.2-r1 (02 Feb 2014)
+
+  02 Feb 2014; Sven Vermeulen <swift@gentoo.org> +libselinux-2.2.2-r1.ebuild:
+  Fix bug #480960 (multilib support). Drop ruby eclass as it messes with
+  defaults and I do not understand it. Bump to 2.2.2 release
+
+  02 Feb 2014; Sven Vermeulen <swift@gentoo.org> libselinux-2.2.1-r1.ebuild:
+  Support python 3.3, see bug 499604
+
+  02 Feb 2014; Sven Vermeulen <swift@gentoo.org> libselinux-2.2.1-r1.ebuild:
+  Stabilize for amd64 and x86
+
+  20 Jan 2014; Sven Vermeulen <swift@gentoo.org> libselinux-2.2-r1.ebuild:
+  Stabilize for x86 and amd64
+
+  23 Dec 2013; Sven Vermeulen <swift@gentoo.org> -libselinux-2.1.12.ebuild,
+  -libselinux-2.1.12-r1.ebuild, -libselinux-2.1.12-r2.ebuild,
+  -libselinux-2.1.12-r3.ebuild:
+  Cleaning old version
+
+*libselinux-2.2.1-r1 (10 Dec 2013)
+
+  10 Dec 2013; Sven Vermeulen <swift@gentoo.org> +libselinux-2.2.1-r1.ebuild:
+  Adding 2.2.1 release
+
+*libselinux-2.2-r1 (04 Nov 2013)
+
+  04 Nov 2013; Sven Vermeulen <swift@gentoo.org> +libselinux-2.2-r1.ebuild:
+  New libselinux release
+
+  27 Oct 2013; Sven Vermeulen <swift@gentoo.org> libselinux-2.1.13-r4.ebuild:
+  Fix bug 488102 - Only call ruby-ng pkg_setup if USE=ruby is set
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> libselinux-2.1.13-r4.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  20 Aug 2013; Sven Vermeulen <swift@gentoo.org> libselinux-2.1.13-r4.ebuild:
+  Stabilize, the issue with file_contexts.local is important to get in stable
+
+  10 Aug 2013; Sven Vermeulen <swift@gentoo.org> libselinux-2.1.13-r4.ebuild:
+  Create (parent) directories for local file
+
+*libselinux-2.1.13-r4 (28 Jul 2013)
+
+  28 Jul 2013; Sven Vermeulen <swift@gentoo.org> +libselinux-2.1.13-r4.ebuild:
+  Migrate to python-r1, fix bug #473502
+
+  07 Jul 2013; Sven Vermeulen <swift@gentoo.org> -libselinux-2.1.9.ebuild,
+  -libselinux-2.1.9-r1.ebuild, -libselinux-2.1.9-r2.ebuild,
+  -libselinux-2.1.9-r3.ebuild:
+  Summer cleaning
+
+*libselinux-2.1.13-r3 (23 Jun 2013)
+
+  23 Jun 2013; Sven Vermeulen <swift@gentoo.org> +libselinux-2.1.13-r3.ebuild:
+  Fix bug 473714 (add libpthread in Libs)
+
+  16 Jun 2013; Sven Vermeulen <swift@gentoo.org> libselinux-2.1.13-r2.ebuild:
+  Stabilization
+
+*libselinux-2.1.13-r2 (25 Apr 2013)
+
+  25 Apr 2013; Sven Vermeulen <swift@gentoo.org> +libselinux-2.1.13-r1.ebuild,
+  +libselinux-2.1.13-r2.ebuild:
+  Fix bug #467258 - add selinux_current_policy_path
+
+*libselinux-2.1.13-r1 (25 Apr 2013)
+
+  25 Apr 2013; Sven Vermeulen <swift@gentoo.org> +libselinux-2.1.13-r1.ebuild:
+  New upstream release
+
+  16 Apr 2013; Sven Vermeulen <swift@gentoo.org> libselinux-2.1.12-r3.ebuild:
+  Stabilize libselinux-2.1.12-r3
+
+*libselinux-2.1.12-r3 (29 Mar 2013)
+
+  29 Mar 2013; Sven Vermeulen <swift@gentoo.org> +libselinux-2.1.12-r3.ebuild:
+  Fix error return codes (bug #462626) and Python3 failure if built with swig-1
+  (bug #463410)
 
   30 Dec 2012; Sven Vermeulen libselinux-2.1.12-r2.ebuild:
   Stabilize

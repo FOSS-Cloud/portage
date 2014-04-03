@@ -1,6 +1,79 @@
 # ChangeLog for app-text/gtkspell
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/gtkspell/ChangeLog,v 1.92 2012/12/06 06:50:07 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/gtkspell/ChangeLog,v 1.113 2014/03/28 02:05:54 jer Exp $
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> gtkspell-3.0.4.ebuild:
+  Stable for HPPA (bug #499954).
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gtkspell-3.0.4.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gtkspell-3.0.4.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gtkspell-3.0.4.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gtkspell-3.0.4.ebuild:
+  arch stable, bug 888
+
+*gtkspell-3.0.4 (09 Feb 2014)
+
+  09 Feb 2014; Pacho Ramos <pacho@gentoo.org> +gtkspell-3.0.4.ebuild,
+  -gtkspell-3.0.2.ebuild:
+  Version bump, drop old
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> gtkspell-3.0.3.ebuild:
+  Stable for HPPA (bug #478252).
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gtkspell-3.0.3.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gtkspell-3.0.3.ebuild:
+  amd64 stable, bug #478252
+
+*gtkspell-3.0.3 (25 Aug 2013)
+
+  25 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> +gtkspell-3.0.3.ebuild:
+  Version bump, bug #481212.
+
+*gtkspell-3.0.2 (03 Jun 2013)
+
+  03 Jun 2013; Pacho Ramos <pacho@gentoo.org> +gtkspell-3.0.2.ebuild,
+  metadata.xml:
+  Version bump (#471642 by teidakankan)
+
+  02 Apr 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gtkspell-3.0.0.ebuild, +files/gtkspell-3.0.2-GTK_SPELL_CFLAGS.patch:
+  Fix "@GTK_SPELL_CFLAGS@: No such file or directory" build failure (bug
+  #463674, thanks to Nick Novikov).
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gtkspell-3.0.0.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gtkspell-3.0.0.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gtkspell-3.0.0.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gtkspell-3.0.0.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gtkspell-3.0.0.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gtkspell-3.0.0.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  26 Mar 2013; Jeroen Roovers <jer@gentoo.org> gtkspell-3.0.0.ebuild:
+  Stable for HPPA (bug #458984).
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gtkspell-3.0.0.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gtkspell-3.0.0.ebuild:
+  Stable for amd64, wrt bug #458984
 
 *gtkspell-3.0.0 (06 Dec 2012)
 

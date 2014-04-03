@@ -1,6 +1,50 @@
 # ChangeLog for dev-ruby/rake-compiler
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rake-compiler/ChangeLog,v 1.60 2013/01/15 05:24:38 zerochaos Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rake-compiler/ChangeLog,v 1.71 2014/04/02 18:58:53 maekke Exp $
+
+  02 Apr 2014; Markus Meier <maekke@gentoo.org> rake-compiler-0.8.3.ebuild:
+  arm stable, bug #506292
+
+  02 Apr 2014; Jeroen Roovers <jer@gentoo.org> rake-compiler-0.8.3.ebuild:
+  Stable for HPPA (bug #506292).
+
+  21 Mar 2014; Hans de Graaff <graaff@gentoo.org> rake-compiler-0.9.2.ebuild:
+  Add ruby21 and skip tests for it to bootstrap rspec. Remove ruby18.
+
+  02 Jan 2014; Hans de Graaff <graaff@gentoo.org> rake-compiler-0.8.1.ebuild,
+  rake-compiler-0.8.1-r1.ebuild, rake-compiler-0.8.3.ebuild,
+  rake-compiler-0.9.1.ebuild, rake-compiler-0.9.2.ebuild:
+  Add back ruby18, dependencies still support this. Drop deprecated ree18.
+
+  01 Jan 2014; Patrick Lauer <patrick@gentoo.org> rake-compiler-0.9.1.ebuild,
+  rake-compiler-0.9.2.ebuild:
+  Remove ruby18 leftovers in the ebuilds
+
+  01 Jan 2014; Patrick Lauer <patrick@gentoo.org> rake-compiler-0.8.1-r1.ebuild,
+  rake-compiler-0.8.1.ebuild, rake-compiler-0.8.3.ebuild,
+  rake-compiler-0.9.1.ebuild, rake-compiler-0.9.2.ebuild:
+  Remove ruby18 target as dependencies lost support already
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> rake-compiler-0.8.1.ebuild:
+  arm stable, bug #493780
+
+*rake-compiler-0.9.2 (17 Dec 2013)
+
+  17 Dec 2013; Manuel Rüger <mrueg@gentoo.org> +rake-compiler-0.9.2.ebuild:
+  Version bump.
+
+  06 Oct 2013; Hans de Graaff <graaff@gentoo.org> rake-compiler-0.9.1.ebuild:
+  Add ruby20.
+
+*rake-compiler-0.9.1 (05 Aug 2013)
+
+  05 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +rake-compiler-0.9.1.ebuild:
+  Version bump
+
+*rake-compiler-0.8.3 (13 Apr 2013)
+
+  13 Apr 2013; Hans de Graaff <graaff@gentoo.org> +rake-compiler-0.8.3.ebuild:
+  Version bump.
 
   15 Jan 2013; Rick Farina <zerochaos@gentoo.org> rake-compiler-0.8.1-r1.ebuild,
   rake-compiler-0.8.1.ebuild:

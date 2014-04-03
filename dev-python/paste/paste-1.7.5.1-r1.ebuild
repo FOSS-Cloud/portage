@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/paste/paste-1.7.5.1-r1.ebuild,v 1.1 2013/02/12 23:37:32 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/paste/paste-1.7.5.1-r1.ebuild,v 1.6 2013/10/22 14:15:13 grobian Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
 
 inherit distutils-r1
 
@@ -17,7 +17,7 @@ SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~x86-interix ~amd64-linux ~x86-linux ~x86-macos ~sparc-solaris"
+KEYWORDS="~amd64 ~x86 ~x86-interix ~amd64-linux ~x86-linux ~x64-macos ~x86-macos ~sparc-solaris"
 IUSE="doc flup openid"
 
 RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
@@ -47,15 +47,23 @@ python_prepare_all() {
 	distutils-r1_python_prepare_all
 }
 
+python_compile() {
+	distutils-r1_python_compile egg_info --egg-base "${BUILD_DIR}/lib"
+}
+
 python_compile_all() {
-	"${PYTHON}" setup.py build_sphinx || die
+	use doc && esetup.py build_sphinx
 }
 
 python_test() {
-	nosetests || die "Tests fail with ${EPYTHON}"
+	nosetests -P || die "Tests fail with ${EPYTHON}"
+}
+
+python_install() {
+	distutils-r1_python_install egg_info --egg-base "${BUILD_DIR}/lib"
 }
 
 python_install_all() {
-	use doc && local HTML_DOCS=( build/sphinx/html/. )
+	use doc && local HTML_DOCS=( "${BUILD_DIR}"/sphinx/html/. )
 	distutils-r1_python_install_all
 }

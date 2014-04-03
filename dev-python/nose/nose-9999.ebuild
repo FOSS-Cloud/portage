@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/nose/nose-9999.ebuild,v 1.2 2013/01/08 18:40:41 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/nose/nose-9999.ebuild,v 1.9 2014/04/01 01:18:40 floppym Exp $
 
 EAPI=5
 
@@ -10,7 +10,7 @@ EGIT_REPO_URI="git://github.com/nose-devs/${PN}.git
 inherit git-2
 #endif
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7,3_1,3_2,3_3} pypy{1_8,1_9,2_0} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} pypy pypy2_0 )
 inherit distutils-r1 eutils
 
 DESCRIPTION="A unittest extension offering automatic test suite discovery and easy test authoring"
@@ -19,14 +19,14 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="doc examples test"
 
 RDEPEND="dev-python/coverage[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
 	doc? ( >=dev-python/sphinx-0.6 )
-	test? ( dev-python/twisted )"
+	test? ( dev-python/twisted-core )"
 
 #if LIVE
 SRC_URI=
@@ -87,11 +87,10 @@ python_install() {
 }
 
 python_install_all() {
+	local EXAMPLES=( examples/. )
+	distutils-r1_python_install_all
+
 	if use doc; then
-		dohtml -r -A txt doc/.build/html/*
-	fi
-	if use examples; then
-		insinto /usr/share/doc/${PF}
-		doins -r examples
+		dohtml -r -A txt doc/.build/html/.
 	fi
 }

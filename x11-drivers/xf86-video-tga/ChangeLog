@@ -1,6 +1,26 @@
 # ChangeLog for x11-drivers/xf86-video-tga
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-tga/ChangeLog,v 1.40 2012/12/30 14:51:30 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-tga/ChangeLog,v 1.45 2013/10/08 05:06:48 ago Exp $
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xf86-video-tga-1.2.2-r1.ebuild:
+  Stable for x86, wrt bug #475480
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xf86-video-tga-1.2.2-r1.ebuild:
+  Stable for ia64, wrt bug #475480
+
+  05 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xf86-video-tga-1.2.2-r1.ebuild:
+  Stable for alpha, wrt bug #475480
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xf86-video-tga-1.2.2-r1.ebuild:
+  Stable for amd64, wrt bug #475480
+
+*xf86-video-tga-1.2.2-r1 (12 Mar 2013)
+
+  12 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/xf86-video-tga-1.2.2-remove-mibstore_h.patch,
+  +xf86-video-tga-1.2.2-r1.ebuild, -xf86-video-tga-1.2.1.ebuild,
+  xf86-video-tga-1.2.2.ebuild:
+  Fix building against xorg-server-1.14
 
   30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> xf86-video-tga-1.2.2.ebuild:
   Stable for alpha, wrt bug #440872

@@ -1,6 +1,33 @@
 # ChangeLog for games-action/openclonk
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/openclonk/ChangeLog,v 1.7 2012/07/29 12:00:46 hasufell Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-action/openclonk/ChangeLog,v 1.14 2014/03/18 18:49:33 mr_bones_ Exp $
+
+  18 Mar 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/openclonk-5.2.2-zlib-1.2.6.patch, -openclonk-5.2.2.ebuild:
+  old
+
+*openclonk-5.3.3-r1 (06 Feb 2014)
+
+  06 Feb 2014; Julian Ospald <hasufell@gentoo.org> +openclonk-5.3.3-r1.ebuild,
+  +files/openclonk-5.3.3-xrandr-primary-output.patch:
+  revbump, fix crash bug wrt #500544
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> openclonk-5.3.3.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> openclonk-5.3.3.ebuild:
+  Stable for amd64, wrt bug #474374
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> openclonk-5.3.3.ebuild:
+  Stable for x86, wrt bug #474374
+
+  25 Jun 2013; Julian Ospald <hasufell@gentoo.org> openclonk-5.3.3.ebuild:
+  respect AR wrt #474786
+
+*openclonk-5.3.3 (11 Mar 2013)
+
+  11 Mar 2013; Julian Ospald <hasufell@gentoo.org> +openclonk-5.3.3.ebuild:
+  version bump
 
   29 Jul 2012; Julian Ospald <hasufell@gentoo.org> openclonk-5.2.2.ebuild,
   +files/openclonk-5.2.2-zlib-1.2.6.patch:
@@ -26,4 +53,3 @@
   08 May 2012; Julian Ospald <hasufell@gentoo.org> +openclonk-5.2.2.ebuild,
   +files/openclonk-wrapper-script.sh, +metadata.xml:
   initial import wrt #348149
-

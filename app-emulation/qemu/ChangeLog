@@ -1,6 +1,49 @@
 # ChangeLog for app-emulation/qemu
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.239 2013/09/05 18:20:53 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.248 2014/03/24 17:39:55 ssuominen Exp $
+
+  24 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> metadata.xml,
+  qemu-1.4.2.ebuild, qemu-1.5.3.ebuild, qemu-1.6.0-r1.ebuild, qemu-1.6.1.ebuild,
+  qemu-1.6.2.ebuild, qemu-1.7.0.ebuild, qemu-9999.ebuild:
+  Replace dependency to libusbx >= 1.0.13 with libusb >= 1.0.18 (because this is
+  where the libusbx code moved)
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> qemu-1.5.3.ebuild:
+  x86 stable wrt bug #483760
+
+  19 Jan 2014; Doug Goldstein <cardoe@gentoo.org> qemu-1.7.0.ebuild:
+  Nudge the SeaBIOS depend to the correct version for this release.
+
+  19 Jan 2014; Doug Goldstein <cardoe@gentoo.org> -qemu-1.5.2-r1.ebuild,
+  -qemu-1.5.2-r2.ebuild, -qemu-1.6.0.ebuild:
+  Cull some older versions
+
+*qemu-1.7.0 (19 Dec 2013)
+*qemu-1.6.2 (19 Dec 2013)
+
+  19 Dec 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/qemu-1.7.0-cflags.patch, +qemu-1.6.2.ebuild, +qemu-1.7.0.ebuild,
+  qemu-9999.ebuild:
+  Version bumps.
+
+*qemu-1.6.1 (21 Oct 2013)
+
+  21 Oct 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.6.1.ebuild,
+  metadata.xml:
+  Version bump. Fixes CVE-2013-4377 (bug #486352). Fix automagic depend on
+  libssh2 (bug #487918). Fix automagic depend on libusbx (bug #487810)
+
+*qemu-1.6.0-r1 (17 Sep 2013)
+
+  17 Sep 2013; Doug Goldstein <cardoe@gentoo.org> +qemu-1.6.0-r1.ebuild:
+  Initial work on the 1.6.x stable patch queue.
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> qemu-1.5.3.ebuild:
+  Stable for amd64, wrt bug #483760
+
+  06 Sep 2013; Doug Goldstein <cardoe@gentoo.org> qemu-1.6.0.ebuild:
+  arm, microblaze, ppc, and ppc64 softmmu targets require USE=fdt, patch from
+  Mike Gilbert <floppym@gentoo.org> fixes bug #482878
 
   05 Sep 2013; Michał Górny <mgorny@gentoo.org> qemu-1.4.2.ebuild,
   qemu-1.5.2-r1.ebuild, qemu-1.5.2-r2.ebuild, qemu-1.5.3.ebuild,

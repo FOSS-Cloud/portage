@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/deepseq/deepseq-1.3.0.1.ebuild,v 1.2 2012/09/28 10:01:49 qnikst Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/deepseq/deepseq-1.3.0.1.ebuild,v 1.9 2014/03/23 17:17:26 ago Exp $
 
-EAPI="4"
+EAPI=5
 
-CABAL_FEATURES="lib profile haddock hscolour"
-inherit haskell-cabal versionator
+CABAL_FEATURES="lib profile haddock hoogle hscolour"
+inherit haskell-cabal
 
 MY_P="${P/_pre*/}"
 
@@ -14,14 +14,14 @@ HOMEPAGE="http://hackage.haskell.org/package/deepseq"
 SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="BSD"
-SLOT="0"
-KEYWORDS=""
+SLOT="0/${PV}"
+KEYWORDS="~alpha amd64 ia64 ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE=""
 
-RDEPEND=">=dev-lang/ghc-6.10.1"
+RDEPEND=">=dev-lang/ghc-6.10.4:="
 DEPEND="${RDEPEND}
 		>=dev-haskell/cabal-1.6"
 
 S="${WORKDIR}/${MY_P}"
 
-CABAL_CORE_LIB_GHC_PV="7.6.* 7.7.*"
+CABAL_CORE_LIB_GHC_PV="7.6.* 7.7.20121101 7.7.20121213"

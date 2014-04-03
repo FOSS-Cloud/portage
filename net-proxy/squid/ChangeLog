@@ -1,6 +1,265 @@
 # ChangeLog for net-proxy/squid
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/squid/ChangeLog,v 1.383 2013/02/21 16:55:42 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/squid/ChangeLog,v 1.451 2014/03/11 21:01:40 eras Exp $
+
+  11 Mar 2014; Eray Aslan <eras@gentoo.org> metadata.xml, squid-3.4.4.ebuild:
+  Add esi USE flag - bug #501898
+
+*squid-3.4.4 (11 Mar 2014)
+*squid-3.3.12 (11 Mar 2014)
+
+  11 Mar 2014; Eray Aslan <eras@gentoo.org> +squid-3.3.12.ebuild,
+  +squid-3.4.4.ebuild:
+  Security bump - bug #504176
+
+  11 Mar 2014; Eray Aslan <eras@gentoo.org> metadata.xml, squid-3.4.3.ebuild:
+  Fix typo in USE flag and configure option: wccp2 -> wccpv2 - bug #382425
+
+*squid-3.4.3 (18 Feb 2014)
+
+  18 Feb 2014; Eray Aslan <eras@gentoo.org> +squid-3.4.3.ebuild, metadata.xml:
+  Version bump. Add htcp, wccp, wccp2 USE flags - bug #382425
+
+*squid-3.4.2 (18 Jan 2014)
+
+  18 Jan 2014; Eray Aslan <eras@gentoo.org> +files/squid.initd-r4,
+  +squid-3.4.2.ebuild:
+  Version bump - bug #498426.  Fix cache generation for rock storage - bug
+  #496578.  Thanks to Jochen Erwied. Fix pid file creation in /run - bug #496452
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> squid-3.3.8.ebuild:
+  Stable for alpha, wrt bug #486848
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> squid-3.3.8.ebuild:
+  Stable for ia64, wrt bug #486848
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.3.8.ebuild:
+  Stable for x86, wrt bug #486848
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.3.8.ebuild:
+  Stable for sparc, wrt bug #486848
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.3.8.ebuild:
+  Stable for ppc64, wrt bug #486848
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.3.8.ebuild:
+  Stable for ppc, wrt bug #486848
+
+*squid-3.3.11 (01 Dec 2013)
+
+  01 Dec 2013; Eray Aslan <eras@gentoo.org> +squid-3.3.11.ebuild:
+  Version bump
+
+  12 Nov 2013; Chema Alonso <nimiux@gentoo.org> squid-3.3.8.ebuild:
+  Stable for amd64 wrt bug #486848
+
+*squid-3.3.10 (11 Nov 2013)
+
+  11 Nov 2013; Eray Aslan <eras@gentoo.org> +squid-3.3.10.ebuild:
+  Version bump
+
+  20 Oct 2013; Markus Meier <maekke@gentoo.org> squid-3.3.8.ebuild:
+  arm stable, bug #486848
+
+  04 Oct 2013; Jeroen Roovers <jer@gentoo.org> squid-3.3.8.ebuild:
+  Stable for HPPA (bug #486848).
+
+*squid-3.3.9 (30 Sep 2013)
+
+  30 Sep 2013; Eray Aslan <eras@gentoo.org> +squid-3.3.9.ebuild:
+  Version bump
+
+  23 Sep 2013; Tom Wijsman <TomWij@gentoo.org> squid-3.2.13.ebuild,
+  squid-3.3.8.ebuild:
+  Moved SLOT=2 to SLOT=0.2 for version 0.0.2 of the net-libs/libecap dependency.
+
+  16 Sep 2013; Tom Wijsman <TomWij@gentoo.org> squid-3.3.8.ebuild:
+  Run eautoreconf using a single job, should fix bug #419685 and bug #482622;
+  reported by Ricardo, Patrick Lauer and more people.
+
+  23 Jul 2013; Eray Aslan <eras@gentoo.org> -squid-3.2.12.ebuild,
+  -squid-3.2.9.ebuild:
+  Remove vulnerable versions
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.13.ebuild:
+  Stable for sparc, wrt bug #476960
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.13.ebuild:
+  Stable for arm, wrt bug #476960
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.13.ebuild:
+  Stable for ppc, wrt bug #476960
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.13.ebuild:
+  Stable for ppc64, wrt bug #476960
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.13.ebuild:
+  Stable for ia64, wrt bug #476960
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.13.ebuild:
+  Stable for alpha, wrt bug #476960
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.13.ebuild:
+  Stable for x86, wrt bug #476960
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.13.ebuild:
+  Stable for amd64, wrt bug #476960
+
+  16 Jul 2013; Jeroen Roovers <jer@gentoo.org> squid-3.2.13.ebuild:
+  Stable for HPPA (bug #476960).
+
+  15 Jul 2013; Eray Aslan <eras@gentoo.org> -files/squid-3.3.3-ncsa_auth.patch,
+  -squid-3.2.10.ebuild, -squid-3.2.11.ebuild, -squid-3.2.9-r1.ebuild,
+  -squid-3.3.3-r1.ebuild, -squid-3.3.3.ebuild, -squid-3.3.4.ebuild,
+  -squid-3.3.5.ebuild, -squid-3.3.7.ebuild:
+  Remove vulnerable versions
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.12.ebuild:
+  Stable for arm, wrt bug #476562
+
+  14 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.12.ebuild:
+  Stable for alpha, wrt bug #476562
+
+*squid-3.3.8 (14 Jul 2013)
+*squid-3.2.13 (14 Jul 2013)
+
+  14 Jul 2013; Eray Aslan <eras@gentoo.org> +squid-3.2.13.ebuild,
+  +squid-3.3.8.ebuild:
+  Security bump
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.12.ebuild:
+  Stable for ppc64, wrt bug #476562
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.12.ebuild:
+  Stable for ppc, wrt bug #476562
+
+  13 Jul 2013; Jeroen Roovers <jer@gentoo.org> squid-3.2.12.ebuild:
+  Stable for HPPA (bug #476562).
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.12.ebuild:
+  Stable for x86, wrt bug #476562
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.12.ebuild:
+  Stable for amd64, wrt bug #476562
+
+*squid-3.3.7 (11 Jul 2013)
+*squid-3.2.12 (11 Jul 2013)
+
+  11 Jul 2013; Eray Aslan <eras@gentoo.org> +squid-3.2.12.ebuild,
+  +squid-3.3.7.ebuild:
+  Security bump
+
+*squid-3.3.5 (25 May 2013)
+
+  25 May 2013; Eray Aslan <eras@gentoo.org> +squid-3.3.5.ebuild:
+  Version bump
+
+*squid-3.2.11 (30 Apr 2013)
+
+  30 Apr 2013; Eray Aslan <eras@gentoo.org> +squid-3.2.11.ebuild:
+  Version bump
+
+*squid-3.2.10 (29 Apr 2013)
+*squid-3.3.4 (29 Apr 2013)
+
+  29 Apr 2013; Eray Aslan <eras@gentoo.org> +files/squid-3.3.4-gentoo.patch,
+  +squid-3.2.10.ebuild, +squid-3.3.4.ebuild:
+  Version bump
+
+  26 Apr 2013; Eray Aslan <eras@gentoo.org> squid-3.3.3-r1.ebuild:
+  Respect AR - bug #461730
+
+  26 Apr 2013; Eray Aslan <eras@gentoo.org> squid-3.3.3-r1.ebuild:
+  Fix and work around build failures with automake-1.13
+
+*squid-3.3.3-r1 (16 Apr 2013)
+*squid-3.2.9-r1 (16 Apr 2013)
+
+  16 Apr 2013; Eray Aslan <eras@gentoo.org> +files/squid-3.3.3-ncsa_auth.patch,
+  +squid-3.2.9-r1.ebuild, +squid-3.3.3-r1.ebuild:
+  Fix ncsa_auth with glibc-2.17 - bug #464406
+
+  03 Apr 2013; Eray Aslan <eras@gentoo.org> -files/squid.initd-logrotate-r2,
+  -files/squid.initd-r2, -squid-3.1.22.ebuild, -squid-3.2.5.ebuild,
+  -squid-3.2.6.ebuild, -squid-3.2.7.ebuild, -squid-3.2.8.ebuild,
+  -squid-3.3.1.ebuild, -squid-3.3.2.ebuild:
+  Remove old
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.9.ebuild:
+  Stable for ia64, wrt bug #461492
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.9.ebuild:
+  Stable for alpha, wrt bug #461492
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.9.ebuild:
+  Stable for sparc, wrt bug #461492
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.9.ebuild:
+  Stable for arm, wrt bug #461492
+
+  14 Mar 2013; Jeroen Roovers <jer@gentoo.org> squid-3.2.9.ebuild:
+  Stable for HPPA (bug #461492).
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.9.ebuild:
+  Stable for ppc64, wrt bug #461492
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.9.ebuild:
+  Stable for ppc, wrt bug #461492
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.9.ebuild:
+  Stable for x86, wrt bug #461492
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.9.ebuild:
+  Stable for amd64, wrt bug #461492
+
+*squid-3.3.3 (14 Mar 2013)
+*squid-3.2.9 (14 Mar 2013)
+
+  14 Mar 2013; Eray Aslan <eras@gentoo.org> +squid-3.2.9.ebuild,
+  +squid-3.3.3.ebuild:
+  Security bump - bug #461492
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.1.23.ebuild:
+  Stable for sparc, wrt bug #452584
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.1.23.ebuild:
+  Stable for ia64, wrt bug #452584
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.1.23.ebuild:
+  Stable for alpha, wrt bug #452584
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.1.23.ebuild:
+  Stable for ppc64, wrt bug #452584
+
+  08 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.1.23.ebuild:
+  Stable for arm, wrt bug #452584
+
+  04 Mar 2013; Brent Baude <ranger@gentoo.org> squid-3.1.23.ebuild:
+  Marking squid-3.1.23 ppc for bug 452584
+
+  04 Mar 2013; Jeroen Roovers <jer@gentoo.org> squid-3.1.23.ebuild:
+  Stable for HPPA (bug #452584).
+
+  04 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.1.23.ebuild:
+  Stable for x86, wrt bug #452584
+
+  04 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.1.23.ebuild:
+  Stable for amd64, wrt bug #452584
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> squid-3.2.6.ebuild:
+  Stable for sparc, wrt bug #457664
+
+*squid-3.2.8 (02 Mar 2013)
+*squid-3.3.2 (02 Mar 2013)
+
+  02 Mar 2013; Eray Aslan <eras@gentoo.org> +squid-3.2.8.ebuild,
+  +squid-3.3.2.ebuild:
+  Version bump
+
+  01 Mar 2013; Justin Lecher <jlec@gentoo.org> squid-3.1.22.ebuild,
+  squid-3.1.23.ebuild, squid-3.2.5.ebuild, squid-3.2.6.ebuild,
+  squid-3.2.7.ebuild, squid-3.3.1.ebuild, metadata.xml:
+  block all version of sci-biology/meme colliding with /usr/bin/purge, #458208
 
   21 Feb 2013; Jeroen Roovers <jer@gentoo.org> squid-3.2.6.ebuild:
   Stable for HPPA (bug #457664).

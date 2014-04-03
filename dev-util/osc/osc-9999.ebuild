@@ -1,11 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/osc/osc-9999.ebuild,v 1.7 2012/11/19 13:33:26 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/osc/osc-9999.ebuild,v 1.14 2014/02/25 12:40:00 scarabeus Exp $
 
 EAPI=5
 
 EGIT_REPO_URI="git://github.com/openSUSE/osc.git"
-PYTHON_DEPEND="2:2.6"
+
+PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_REQ_USE="xml"
 
 if [[ "${PV}" == "9999" ]]; then
 	EXTRA_ECLASS="git-2"
@@ -14,7 +16,8 @@ else
 	EXTRA_ECLASS="obs-download"
 fi
 
-inherit distutils ${EXTRA_ECLASS}
+DISTUTILS_SINGLE_IMPL=1
+inherit distutils-r1 ${EXTRA_ECLASS}
 unset EXTRA_ECLASS
 
 DESCRIPTION="Command line tool for Open Build Service"
@@ -25,31 +28,36 @@ HOMEPAGE="http://en.opensuse.org/openSUSE:OSC"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
-[[ "${PV}" == "9999" ]] || KEYWORDS="~amd64 ~x86"
+
+# Don't move KEYWORDS on the previous line or ekeyword won't work # 399061
+[[ "${PV}" == "9999" ]] || \
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	dev-python/urlgrabber
-	dev-python/pyxml
-	dev-python/elementtree
-	app-arch/rpm[python]
-	dev-python/m2crypto
+	dev-python/urlgrabber[${PYTHON_USEDEP}]
+	app-arch/rpm[python,${PYTHON_USEDEP}]
+	dev-python/m2crypto[${PYTHON_USEDEP}]
+	${PYTHON_DEPS}
 "
-RDEPEND="${DEPEND}
+PDEPEND="${DEPEND}
 	app-admin/sudo
 	dev-util/obs-service-meta
 "
 
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+src_prepare() {
+	epatch "${FILESDIR}"/${PN}-0.139.2-out-of-tree-build.patch
+	distutils-r1_src_prepare
 }
 
 src_install() {
-	distutils_src_install
+	distutils-r1_src_install
 	dosym osc-wrapper.py /usr/bin/osc
 	keepdir /usr/lib/osc/source_validators
 	cd "${ED}"/usr/
-	find . -type f -exec sed -i 's|/usr/bin/build|/usr/bin/suse-build|g'   {} +
-	find . -type f -exec sed -i 's|/usr/lib/build|/usr/share/suse-build|g' {} +
+	find . -type f -exec sed -i 's|/usr/bin/build|/usr/bin/suse-build|g'     {} +
+	find . -type f -exec sed -i 's|/usr/lib/build|/usr/libexec/suse-build|g' {} +
+	find . -type f -exec sed -i 's|/usr/lib/obs|/usr/libexec/obs|g'          {} +
 	rm -f "${ED}"/usr/share/doc/${PN}*/TODO*
 }

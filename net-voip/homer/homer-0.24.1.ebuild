@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/homer/homer-0.24.1.ebuild,v 1.2 2013/01/17 19:47:01 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-voip/homer/homer-0.24.1.ebuild,v 1.7 2013/08/11 22:59:22 aballier Exp $
 
 EAPI=4
 
-inherit eutils multilib
+inherit eutils multilib toolchain-funcs
 
 DESCRIPTION="Homer Conferencing (short: Homer) is a free SIP softphone with advanced audio and video support."
 HOMEPAGE="http://www.homer-conferencing.com"
@@ -18,7 +18,7 @@ if [[ ${PV} == *9999* ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/V${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 fi
 
 LICENSE="GPL-2"
@@ -33,11 +33,11 @@ DEPEND=">=dev-libs/openssl-1.0
 	media-libs/sdl-sound
 	media-libs/x264
 	net-libs/sofia-sip
-	virtual/ffmpeg[X]
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4
-	x11-libs/qt-multimedia:4
-	x11-libs/qt-webkit:4"
+	virtual/ffmpeg:0[X]
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
+	dev-qt/qtmultimedia:4
+	dev-qt/qtwebkit:4"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
@@ -47,6 +47,7 @@ src_prepare() {
 }
 
 src_compile() {
+	tc-export CXX
 	emake -C HomerBuild default \
 		INSTALL_PREFIX=/usr/bin \
 		INSTALL_LIBDIR=/usr/$(get_libdir) \

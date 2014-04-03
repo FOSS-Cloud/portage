@@ -1,6 +1,34 @@
 # ChangeLog for dev-libs/gdome2
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/gdome2/ChangeLog,v 1.44 2013/02/28 15:33:22 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/gdome2/ChangeLog,v 1.53 2013/04/10 08:52:45 pinkbyte Exp $
+
+  10 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> gdome2-0.8.1-r4.ebuild:
+  Respect AR, wrt bug #459844. Thanks to Agostino Sarubbo for discovering this
+  issue
+
+  03 Mar 2013; Michael Palimaka <kensington@gentoo.org> -gdome2-0.8.1-r3.ebuild:
+  Remove old.
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gdome2-0.8.1-r4.ebuild:
+  Stable for sparc, wrt bug #459628
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gdome2-0.8.1-r4.ebuild:
+  Stable for ppc, wrt bug #459628
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gdome2-0.8.1-r4.ebuild:
+  Stable for ppc64, wrt bug #459628
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gdome2-0.8.1-r4.ebuild:
+  Stable for alpha, wrt bug #459628
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gdome2-0.8.1-r4.ebuild:
+  Stable for ia64, wrt bug #459628
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gdome2-0.8.1-r4.ebuild:
+  Stable for x86, wrt bug #459628
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gdome2-0.8.1-r4.ebuild:
+  Stable for amd64, wrt bug #459628
 
   28 Feb 2013; Jeroen Roovers <jer@gentoo.org> gdome2-0.8.1-r4.ebuild:
   Stable for HPPA (bug #459628).

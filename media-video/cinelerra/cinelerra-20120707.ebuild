@@ -1,50 +1,54 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/cinelerra/cinelerra-20120707.ebuild,v 1.3 2012/10/17 03:25:31 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/cinelerra/cinelerra-20120707.ebuild,v 1.10 2014/02/10 16:56:28 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 inherit autotools eutils multilib flag-o-matic
 
 DESCRIPTION="The most advanced non-linear video editor and compositor"
 HOMEPAGE="http://www.cinelerra.org/"
-SRC_URI="http://dev.gentoo.org/~ssuominen/${P}.tar.xz"
+SRC_URI="mirror://gentoo/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~ppc x86"
 IUSE="3dnow alsa altivec css ieee1394 mmx opengl oss"
 
-RDEPEND="media-libs/a52dec
-	media-libs/faac
-	media-libs/faad2
+RDEPEND="media-libs/a52dec:=
+	media-libs/faac:=
+	media-libs/faad2:=
 	>=media-libs/freetype-2
-	media-libs/libdv
-	>=media-libs/libogg-1.2
-	media-libs/libpng:0
-	media-libs/libsndfile
-	>=media-libs/libtheora-1.1
-	>=media-libs/libvorbis-1.3
-	>=media-libs/openexr-1.5
-	media-libs/tiff:0
-	media-libs/x264
-	media-sound/lame
+	media-libs/libdv:=
+	>=media-libs/libogg-1.2:=
+	media-libs/libpng:0=
+	media-libs/libsndfile:=
+	>=media-libs/libtheora-1.1:=
+	>=media-libs/libvorbis-1.3:=
+	>=media-libs/openexr-1.5:=
+	media-libs/tiff:0=
+	media-libs/x264:=
+	media-sound/lame:=
 	>=media-video/mjpegtools-2
 	>=sci-libs/fftw-3
-	x11-libs/libX11
-	x11-libs/libXext
-	x11-libs/libXft
-	x11-libs/libXv
-	x11-libs/libXvMC
-	x11-libs/libXxf86vm
+	x11-libs/libX11:=
+	x11-libs/libXext:=
+	x11-libs/libXft:=
+	x11-libs/libXv:=
+	x11-libs/libXvMC:=
+	x11-libs/libXxf86vm:=
 	virtual/ffmpeg
-	virtual/jpeg
-	alsa? ( media-libs/alsa-lib )
+	|| ( media-video/ffmpeg:0 media-libs/libpostproc )
+	virtual/jpeg:0
+	alsa? ( media-libs/alsa-lib:= )
 	ieee1394? (
-		media-libs/libiec61883
-		>=sys-libs/libraw1394-1.2.0
-		>=sys-libs/libavc1394-0.5.0
+		media-libs/libiec61883:=
+		>=sys-libs/libraw1394-1.2.0:=
+		>=sys-libs/libavc1394-0.5.0:=
 		)
-	opengl? ( virtual/opengl )"
+	opengl? (
+		virtual/glu
+		virtual/opengl
+		)"
 DEPEND="${RDEPEND}
 	app-arch/xz-utils
 	virtual/pkgconfig
@@ -55,13 +59,19 @@ src_prepare() {
 		"${FILESDIR}"/${PN}-entry.patch \
 		"${FILESDIR}"/${PN}-ffmpeg.patch \
 		"${FILESDIR}"/${PN}-underlinking.patch \
-		"${FILESDIR}"/${PN}-ffmpeg-0.11.patch
+		"${FILESDIR}"/${PN}-ffmpeg-0.11.patch \
+		"${FILESDIR}"/${PN}-std_and_str_h.patch \
+		"${FILESDIR}"/${PN}-libav9.patch
+
+	if has_version '>=media-video/ffmpeg-2' ; then
+		epatch "${FILESDIR}"/${PN}-ffmpeg2.patch
+	fi
 
 	eautoreconf
 }
 
 src_configure() {
-	append-flags -D__STDC_CONSTANT_MACROS #321945
+	append-cppflags -D__STDC_CONSTANT_MACROS #321945
 	append-ldflags -Wl,-z,noexecstack #212959
 
 	econf \

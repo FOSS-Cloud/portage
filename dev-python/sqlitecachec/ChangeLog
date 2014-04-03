@@ -1,6 +1,17 @@
 # ChangeLog for dev-python/sqlitecachec
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/sqlitecachec/ChangeLog,v 1.5 2012/05/04 15:12:17 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/sqlitecachec/ChangeLog,v 1.8 2014/03/31 20:59:45 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> sqlitecachec-1.1.4-r1.ebuild:
+  Add support for the new PyPy slotting.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> sqlitecachec-1.1.4-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*sqlitecachec-1.1.4-r1 (04 May 2013)
+
+  04 May 2013; Mike Gilbert <floppym@gentoo.org> +sqlitecachec-1.1.4-r1.ebuild:
+  Convert to distutils-r1.
 
   04 May 2012; Patrick Lauer <patrick@gentoo.org> sqlitecachec-1.1.4.ebuild:
   Migrating dev-util/pkgconfig -> virtual/pkgconfig

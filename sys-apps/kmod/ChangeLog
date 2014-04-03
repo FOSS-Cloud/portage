@@ -1,6 +1,245 @@
 # ChangeLog for sys-apps/kmod
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/ChangeLog,v 1.75 2013/02/23 14:45:34 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/ChangeLog,v 1.138 2014/03/22 18:50:20 vapier Exp $
+
+  22 Mar 2014; Mike Frysinger <vapier@gentoo.org> kmod-16.ebuild,
+  kmod-9999.ebuild:
+  Mark arm64/m68k/s390/sh stable.
+
+  12 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/kmod-13-errno_syscall.patch, -kmod-13-r1.ebuild, -kmod-15-r1.ebuild,
+  -kmod-15.ebuild:
+  old
+
+  12 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> kmod-16.ebuild:
+  ppc64 stable wrt #500106
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org> kmod-16.ebuild:
+  Stable for sparc, wrt bug #500106
+
+  23 Feb 2014; Markus Meier <maekke@gentoo.org> kmod-16.ebuild:
+  arm stable, bug #500106
+
+  23 Feb 2014; Agostino Sarubbo <ago@gentoo.org> kmod-16.ebuild:
+  Stable for ppc, wrt bug #500106
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> kmod-16.ebuild:
+  Stable for x86, wrt bug #500106
+
+  20 Feb 2014; Pacho Ramos <pacho@gentoo.org> kmod-16.ebuild:
+  amd64 stable, bug #500106
+
+  20 Feb 2014; Akinori Hattori <hattya@gentoo.org> kmod-16.ebuild:
+  ia64 stable wrt bug #500106
+
+  11 Feb 2014; Matt Turner <mattst88@gentoo.org> kmod-16.ebuild:
+  alpha stable, bug 500106.
+
+  05 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> kmod-16.ebuild,
+  kmod-9999.ebuild:
+  Fix bash-completion directory by using bash-completion-r1.eclass. Temporarily
+  run non-9999 ebuilds as -j1 because of the -15-dynamic-kmod.patch wrt #494806
+
+  02 Feb 2014; Jeroen Roovers <jer@gentoo.org> kmod-16.ebuild:
+  Stable for HPPA (bug #500106).
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> kmod-15.ebuild:
+  Stable for sparc, wrt bug #487338
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> kmod-15.ebuild:
+  Stable for ppc64, wrt bug #487338
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> kmod-15.ebuild:
+  Stable for ppc, wrt bug #487338
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> kmod-15-r1.ebuild,
+  kmod-16.ebuild, kmod-9999.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> kmod-15-r1.ebuild:
+  Mark ia64/m68k/s390/sh stable #487338.
+
+  27 Dec 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-15.ebuild:
+  Use MERGE_TYPE to avoid the pkg_setup() based compiler version check wrt
+  #495228
+
+*kmod-16 (27 Dec 2013)
+
+  27 Dec 2013; Samuli Suominen <ssuominen@gentoo.org> +kmod-16.ebuild,
+  kmod-9999.ebuild:
+  Version bump (and synchronize with -9999)
+
+*kmod-15-r1 (09 Dec 2013)
+
+  09 Dec 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/kmod-15-dynamic-kmod.patch, +kmod-15-r1.ebuild:
+  Do not statically link libkmod #493630 by Nikoli.
+
+  08 Dec 2013; Markus Meier <maekke@gentoo.org> kmod-15.ebuild:
+  arm stable, bug #487338
+
+  01 Dec 2013; Johannes Huber <johu@gentoo.org> kmod-15.ebuild:
+  x86 stable, bug #487338
+
+  24 Nov 2013; Pacho Ramos <pacho@gentoo.org> kmod-15.ebuild:
+  amd64 stable, bug #487338
+
+  13 Nov 2013; Matt Turner <mattst88@gentoo.org> kmod-15.ebuild:
+  alpha stable, bug 487338.
+
+  12 Nov 2013; Jeroen Roovers <jer@gentoo.org> kmod-15.ebuild:
+  Stable for HPPA (bug #487338).
+
+  19 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-15.ebuild,
+  kmod-9999.ebuild:
+  Check compiler (preprocessor) version only if it's GNU GCC wrt #485310 by
+  "eroen"
+
+  25 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> -kmod-14-r1.ebuild,
+  -kmod-14-r2.ebuild:
+  old
+
+*kmod-15 (24 Aug 2013)
+
+  24 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> +kmod-15.ebuild:
+  Version bump.
+
+  24 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-13-r1.ebuild,
+  kmod-14-r1.ebuild, kmod-14-r2.ebuild, kmod-9999.ebuild:
+  Remove checks for CONFIG_MODULES and CONFIG_MODULE_UNLOAD and upgrade path
+  from sys-apps/module-init-tools wrt #462926 by Mike Frysinger. Bail out early
+  if the used compiler is too old wrt #481020.
+
+*kmod-14-r1 (16 Aug 2013)
+
+  16 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> +kmod-14-r1.ebuild:
+  Restore crippled version to tree because sys-apps/openrc >= 0.12 was
+  hardmasked for other reasons.
+
+  16 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> -files/static-nodes,
+  -kmod-14-r1.ebuild:
+  old
+
+  16 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-14-r2.ebuild,
+  kmod-9999.ebuild:
+  Block old OpenRC instead of depending on new one to prevent circular
+  dependency.
+
+*kmod-14-r2 (16 Aug 2013)
+
+  16 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> +kmod-14-r2.ebuild,
+  kmod-9999.ebuild:
+  Revision bump for OpenRC >= 0.12 to make the "static-nodes" -> "kmod-static-
+  nodes" switch for everyone.
+
+  09 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-14-r1.ebuild,
+  kmod-9999.ebuild, +files/kmod-static-nodes:
+  Rename static-nodes init script to kmod-static-nodes as suggested by WilliamH
+  earlier. Support OpenRC 0.12 and the new tmpfiles /dev support.
+  Proper revision bump is required after OpenRC 0.12 is in tree.
+
+  30 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> files/static-nodes:
+  Remove unrequired "need localmount" from the init script depend()
+
+  26 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> -kmod-12-r1.ebuild,
+  -kmod-14.ebuild:
+  old
+
+  26 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-13-r1.ebuild:
+  m68k stable wrt #470580
+
+  26 Jul 2013; William Hubbs <williamh@gentoo.org> files/static-nodes:
+  Style fixes for init script, convert multiple spaces at the start of lines to
+  tabs.
+
+  23 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> files/static-nodes:
+  Correct tmpfiles.setup init script name in depend()
+
+*kmod-14-r1 (23 Jul 2013)
+
+  23 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> +kmod-14-r1.ebuild,
+  kmod-9999.ebuild, metadata.xml, +files/static-nodes:
+  Import support for kmod tmpfiles.d static device node creation wrt #477856 by
+  Alexander Vershilov
+
+  04 Jul 2013; William Hubbs <williamh@gentoo.org> -kmod-13.ebuild:
+  remove old version
+
+*kmod-14 (04 Jul 2013)
+
+  04 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> +kmod-14.ebuild,
+  kmod-9999.ebuild:
+  Revert upstream commit that discontinued support for --enable-static in order
+  to get libkmod.a back for USE="static-libs" in sys-fs/udev (libudev.a) wrt
+  #472608. Version bump.
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kmod-13-r1.ebuild:
+  Stable for s390, wrt bug #470580
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kmod-13-r1.ebuild:
+  Stable for ppc64, wrt bug #470580
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kmod-13-r1.ebuild:
+  Stable for ppc, wrt bug #470580
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kmod-13-r1.ebuild:
+  Stable for sparc, wrt bug #470580
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kmod-13-r1.ebuild:
+  Stable for arm, wrt bug #470580
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kmod-13-r1.ebuild:
+  Stable for ia64, wrt bug #470580
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kmod-13-r1.ebuild:
+  Stable for alpha, wrt bug #470580
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kmod-13-r1.ebuild:
+  Stable for x86, wrt bug #470580
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kmod-13-r1.ebuild:
+  Stable for amd64, wrt bug #470580
+
+  14 Jun 2013; William Hubbs <williamh@gentoo.org> kmod-9999.ebuild:
+  always build  shared libraries
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kmod-13-r1.ebuild:
+  Stable for sh, wrt bug #470580
+
+  02 Jun 2013; Jeroen Roovers <jer@gentoo.org> kmod-13-r1.ebuild:
+  Stable for HPPA (bug #470580).
+
+*kmod-13-r1 (27 May 2013)
+
+  27 May 2013; Samuli Suominen <ssuominen@gentoo.org> +kmod-13-r1.ebuild,
+  +files/kmod-13-errno_syscall.patch:
+  Avoid calling syscall() with -1 patch from upstream for
+  http://bugs.funtoo.org/browse/FL-534 as requested by lxnay
+
+  10 Apr 2013; William Hubbs <williamh@gentoo.org> kmod-13.ebuild,
+  kmod-9999.ebuild:
+  drop --disable-silent-rules since it is part of eapi 5, thanks to Samuli
+  Suominen.
+
+*kmod-13 (10 Apr 2013)
+
+  10 Apr 2013; William Hubbs <williamh@gentoo.org> +kmod-13.ebuild,
+  kmod-9999.ebuild:
+  version bump, eapi bump and sync live ebuild.
+
+  26 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-12-r1.ebuild,
+  kmod-9999.ebuild:
+  Declare this package as VIRTUAL_MODUTILS=1 for use with linux-mod.eclass wrt
+  #462926
+
+  22 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> kmod-12-r1.ebuild,
+  kmod-9999.ebuild:
+  Sanitize upgrade path from sys-apps/module-init-tools by running
+  update_depmod() function from linux-mod.eclass, but skipping it if we are
+  upgrading or the /lib/modules directory with eg. modules.dep is missing.
+
+  06 Mar 2013; Raúl Porcel <armin76@gentoo.org> kmod-12-r1.ebuild:
+  m68k/s390/sh/sparc stable wrt #457568
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> kmod-12-r1.ebuild:
   Stable for alpha, wrt bug #457568

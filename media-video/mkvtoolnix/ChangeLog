@@ -1,6 +1,67 @@
 # ChangeLog for media-video/mkvtoolnix
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mkvtoolnix/ChangeLog,v 1.183 2013/01/21 04:47:17 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/mkvtoolnix/ChangeLog,v 1.197 2014/03/27 11:34:41 nimiux Exp $
+
+  27 Mar 2014; Chema Alonso <nimiux@gentoo.org> mkvtoolnix-6.6.0.ebuild:
+  Stable for amd64 wrt bug #496536
+
+*mkvtoolnix-6.7.0 (22 Jan 2014)
+
+  22 Jan 2014; Tim Harder <radhermit@gentoo.org> +mkvtoolnix-6.7.0.ebuild:
+  Version bump (bug #498368) and use wxGTK-3.
+
+*mkvtoolnix-6.6.0 (02 Dec 2013)
+
+  02 Dec 2013; Tim Harder <radhermit@gentoo.org> +mkvtoolnix-6.6.0.ebuild:
+  Version bump.
+
+*mkvtoolnix-6.5.0 (20 Oct 2013)
+
+  20 Oct 2013; Tim Harder <radhermit@gentoo.org> +mkvtoolnix-6.5.0.ebuild:
+  Version bump.
+
+  17 Sep 2013; Tim Harder <radhermit@gentoo.org> mkvtoolnix-6.4.1.ebuild:
+  Update libmatroska dep.
+
+*mkvtoolnix-6.4.1 (17 Sep 2013)
+
+  17 Sep 2013; Tim Harder <radhermit@gentoo.org> -mkvtoolnix-6.4.0.ebuild,
+  +mkvtoolnix-6.4.1.ebuild:
+  Version bump and remove old.
+
+*mkvtoolnix-6.4.0 (16 Sep 2013)
+
+  16 Sep 2013; Tim Harder <radhermit@gentoo.org> +mkvtoolnix-6.4.0.ebuild:
+  Version bump.
+
+*mkvtoolnix-6.3.0 (29 Jun 2013)
+
+  29 Jun 2013; Tim Harder <radhermit@gentoo.org> +mkvtoolnix-6.3.0.ebuild:
+  Version bump.
+
+  29 Apr 2013; Tim Harder <radhermit@gentoo.org> -mkvtoolnix-5.8.0.ebuild,
+  -mkvtoolnix-5.9.0.ebuild, -mkvtoolnix-6.0.0.ebuild, -mkvtoolnix-6.1.0.ebuild:
+  Remove old.
+
+*mkvtoolnix-6.2.0 (29 Apr 2013)
+
+  29 Apr 2013; Tim Harder <radhermit@gentoo.org> +mkvtoolnix-6.2.0.ebuild:
+  Version bump, drop bzip2 and lzo use flags since upstream dropped support.
+
+*mkvtoolnix-6.1.0-r1 (21 Mar 2013)
+
+  21 Mar 2013; Tim Harder <radhermit@gentoo.org> +mkvtoolnix-6.1.0-r1.ebuild:
+  Revision bump, update deps to use system libs for libebml and libmatroska
+  (fixes bug #461424 by dev-zero).
+
+*mkvtoolnix-6.1.0 (03 Mar 2013)
+
+  03 Mar 2013; Tim Harder <radhermit@gentoo.org> +mkvtoolnix-6.1.0.ebuild:
+  Version bump.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> mkvtoolnix-5.8.0.ebuild,
+  mkvtoolnix-5.9.0.ebuild, mkvtoolnix-6.0.0.ebuild:
+  Move Qt dependencies to the new category
 
 *mkvtoolnix-6.0.0 (21 Jan 2013)
 

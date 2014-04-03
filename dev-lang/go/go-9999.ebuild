@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/go/go-9999.ebuild,v 1.8 2012/10/29 15:57:40 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/go/go-9999.ebuild,v 1.16 2014/03/28 14:08:40 grobian Exp $
 
-EAPI=4
+EAPI=5
 
 export CTARGET=${CTARGET:-${CHOST}}
 
@@ -14,7 +14,7 @@ if [[ ${PV} = 9999 ]]; then
 else
 	SRC_URI="http://go.googlecode.com/files/go${PV}.src.tar.gz"
 	# Upstream only supports go on amd64, arm and x86 architectures.
-	KEYWORDS="-* ~amd64 ~arm ~x86"
+	KEYWORDS="-* ~amd64 ~arm ~x86 ~amd64-fbsd ~x86-fbsd"
 fi
 
 DESCRIPTION="A concurrent garbage collected and typesafe programming language"
@@ -24,15 +24,18 @@ LICENSE="BSD"
 SLOT="0"
 IUSE="bash-completion emacs vim-syntax zsh-completion"
 
-DEPEND="sys-apps/ed"
+DEPEND=""
 RDEPEND="bash-completion? ( app-shells/bash-completion )
 	emacs? ( virtual/emacs )
 	vim-syntax? ( || ( app-editors/vim app-editors/gvim ) )
 	zsh-completion? ( app-shells/zsh-completion )"
 
-	# The go language stores binary data for packages in *.a files.
-	# These are _NOT_ libraries, and should not be stripped.
-STRIP_MASK="/usr/lib/go/pkg/linux*/*.a"
+# The tools in /usr/lib/go should not cause the multilib-strict check to fail.
+QA_MULTILIB_PATHS="usr/lib/go/pkg/tool/.*/.*"
+
+# The go language uses *.a files which are _NOT_ libraries and should not be
+# stripped.
+STRIP_MASK="/usr/lib/go/pkg/linux*/*.a /usr/lib/go/pkg/freebsd*/*.a"
 
 if [[ ${PV} != 9999 ]]; then
 	S="${WORKDIR}"/go
@@ -41,14 +44,14 @@ fi
 src_prepare()
 {
 	if [[ ${PV} != 9999 ]]; then
-		epatch "${FILESDIR}"/${P}-hardened.patch
+		epatch "${FILESDIR}"/${P}-no-Werror.patch
 	fi
 	epatch_user
 }
 
 src_compile()
 {
-	export GOROOT_FINAL=/usr/lib/go
+	export GOROOT_FINAL="${EPREFIX}"/usr/lib/go
 	export GOROOT="$(pwd)"
 	export GOBIN="${GOROOT}/bin"
 	if [[ $CTARGET = armv5* ]]
@@ -123,9 +126,14 @@ pkg_postinst()
 	# linker are also checked - so we need to fix them too.
 	ebegin "fixing timestamps to avoid unnecessary rebuilds"
 	tref="usr/lib/go/pkg/*/runtime.a"
-	find "${ROOT}"usr/lib/go -type f \
-		-exec touch -r "${ROOT}"${tref} {} \;
+	find "${EROOT}"usr/lib/go -type f \
+		-exec touch -r "${EROOT}"${tref} {} \;
 	eend $?
+
+	if [[ ${PV} != 9999 && -n ${REPLACING_VERSIONS} &&
+		${REPLACING_VERSIONS} != ${PV} ]]; then
+		elog "Release notes are located at http://golang.org/doc/go${PV}"
+	fi
 }
 
 pkg_postrm()

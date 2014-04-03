@@ -1,6 +1,18 @@
 # ChangeLog for dev-perl/Net-CIDR
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Net-CIDR/ChangeLog,v 1.45 2013/01/06 15:54:38 tove Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Net-CIDR/ChangeLog,v 1.49 2013/09/10 11:24:39 pinkbyte Exp $
+
+  10 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> Net-CIDR-0.170.0.ebuild:
+  Add ~mips keyword
+
+  20 Aug 2013; Jeroen Roovers <jer@gentoo.org> Net-CIDR-0.170.0.ebuild:
+  Stable for HPPA (bug #449596).
+
+  19 Aug 2013; Mikle Kolyada <zlogene@gentoo.org> Net-CIDR-0.170.0.ebuild:
+  amd64/x86 stable wrt bug #449596
+
+  19 Aug 2013; Agostino Sarubbo <ago@gentoo.org> Net-CIDR-0.170.0.ebuild:
+  Stable for ppc, wrt bug #449596
 
   06 Jan 2013; Torsten Veller <tove@gentoo.org> -Net-CIDR-0.160.0.ebuild:
   Cleanup

@@ -1,6 +1,43 @@
 # ChangeLog for media-gfx/gnome-font-viewer
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/gnome-font-viewer/ChangeLog,v 1.4 2013/01/25 22:53:08 eva Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/gnome-font-viewer/ChangeLog,v 1.14 2014/03/09 12:01:34 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-font-viewer-3.10.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-font-viewer-3.10.0.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-font-viewer-3.10.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-font-viewer-3.10.0.ebuild:
+  arch stable, bug 888
+
+*gnome-font-viewer-3.10.0 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +gnome-font-viewer-3.10.0.ebuild,
+  -gnome-font-viewer-3.6.2.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gnome-font-viewer-3.8.0.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gnome-font-viewer-3.8.0.ebuild:
+  amd64 stable, bug #478252
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-font-viewer-3.8.0.ebuild:
+  Raise gtk+ dependency due to libgd.
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-font-viewer-3.6.1.ebuild:
+  Clean up old revision.
+
+*gnome-font-viewer-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +gnome-font-viewer-3.8.0.ebuild:
+  Version bump for Gnome 3.8
 
 *gnome-font-viewer-3.6.2 (25 Jan 2013)
 
@@ -25,4 +62,3 @@
   +gnome-font-viewer-3.4.0.ebuild, +metadata.xml:
   New separate gnome font viewer package, formerly part of
   gnome-extra/gnome-utils.
-

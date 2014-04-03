@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/spl-0.6.0_rc13-r2.ebuild,v 1.3 2013/02/11 23:25:16 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/spl-0.6.0_rc13-r2.ebuild,v 1.6 2013/04/17 13:26:26 ryao Exp $
 
 EAPI="4"
 AUTOTOOLS_AUTORECONF="1"
 
-inherit flag-o-matic linux-mod autotools-utils
+inherit flag-o-matic linux-info linux-mod autotools-utils
 
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-2
@@ -26,7 +26,8 @@ SLOT="0"
 IUSE="custom-cflags debug debug-log"
 RESTRICT="test"
 
-COMMON_DEPEND="virtual/awk"
+COMMON_DEPEND="dev-lang/perl
+	virtual/awk"
 
 DEPEND="${COMMON_DEPEND}"
 
@@ -37,6 +38,7 @@ AT_M4DIR="config"
 AUTOTOOLS_IN_SOURCE_BUILD="1"
 
 pkg_setup() {
+	linux-info_pkg_setup
 	CONFIG_CHECK="
 		!DEBUG_LOCK_ALLOC
 		!GRKERNSEC_HIDESYM

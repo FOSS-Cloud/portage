@@ -1,6 +1,75 @@
 # ChangeLog for x11-misc/colord
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/colord/ChangeLog,v 1.53 2013/01/22 07:23:43 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/colord/ChangeLog,v 1.72 2014/03/29 22:04:07 tetromino Exp $
+
+  29 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  colord-0.1.28.ebuild, colord-1.0.3.ebuild:
+  systemd now has subslots
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> colord-1.0.3.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> colord-1.0.3.ebuild:
+  arch stable, bug 888
+
+  10 Jan 2014; Pacho Ramos <pacho@gentoo.org> -colord-0.1.31.ebuild,
+  -colord-0.1.34.ebuild, colord-1.0.3.ebuild:
+  Fix dep on libusb introspection when needed (#497644 by Emile), drop old
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> colord-1.0.3.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> colord-1.0.3.ebuild:
+  amd64 stable, bug #478252
+
+  08 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  colord-0.1.28.ebuild, colord-0.1.31.ebuild, colord-0.1.34.ebuild,
+  colord-1.0.3.ebuild:
+  USE=gusb requires USE=udev (bug #482276, thanks to Cengiz Gunay).
+
+*colord-1.0.3 (25 Aug 2013)
+
+  25 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> +colord-1.0.3.ebuild:
+  Version bump, bug #480916.
+
+*colord-0.1.34 (30 Jun 2013)
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org> +colord-0.1.34.ebuild:
+  Version bump.
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org> colord-0.1.31.ebuild:
+  Add missing sane support, fix gtk-doc support per team policy, fix glib
+  dependency.
+
+  10 May 2013; Gilles Dartiguelongue <eva@gentoo.org> -colord-0.1.26.ebuild,
+  -colord-0.1.26-r1.ebuild:
+  Clean up old revisions.
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> colord-0.1.28.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> colord-0.1.28.ebuild:
+  Stable for ia64, wrt bug #458984
+
+*colord-0.1.31 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +colord-0.1.31.ebuild:
+  Version bump for Gnome 3.8
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> colord-0.1.28.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> colord-0.1.28.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> colord-0.1.28.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> colord-0.1.28.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> colord-0.1.28.ebuild:
+  Stable for amd64, wrt bug #458984
 
 *colord-0.1.28 (22 Jan 2013)
 

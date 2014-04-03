@@ -1,6 +1,40 @@
 # ChangeLog for dev-perl/net-server
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/net-server/ChangeLog,v 1.73 2012/10/05 15:41:08 ranger Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/net-server/ChangeLog,v 1.83 2014/03/10 10:55:36 zlogene Exp $
+
+  10 Mar 2014; Mikle Kolyada <zlogene@gentoo.org> -net-server-0.97.ebuild,
+  -net-server-0.990.0.ebuild, -net-server-2.6.0.ebuild:
+  Drop old
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> net-server-2.7.0.ebuild:
+  Stable for sparc, wrt bug #475794
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> net-server-2.7.0.ebuild:
+  Stable for ppc64, wrt bug #475794
+
+  13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> net-server-2.7.0.ebuild:
+  Stable for ppc, wrt bug #475794
+
+  08 Jul 2013; Jeroen Roovers <jer@gentoo.org> net-server-2.7.0.ebuild:
+  Stable for HPPA (bug #475794).
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> net-server-2.7.0.ebuild:
+  Stable for ia64, wrt bug #475794
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> net-server-2.7.0.ebuild:
+  Stable for alpha, wrt bug #475794
+
+  05 Jul 2013; Agostino Sarubbo <ago@gentoo.org> net-server-2.7.0.ebuild:
+  Stable for x86, wrt bug #475794
+
+  05 Jul 2013; Agostino Sarubbo <ago@gentoo.org> net-server-2.7.0.ebuild:
+  Stable for amd64, wrt bug #475794
+
+*net-server-2.7.0 (02 Mar 2013)
+
+  02 Mar 2013; Jason A. Donenfeld <zx2c4@gentoo.org> +net-server-2.7.0.ebuild:
+  Non-maintainer bump, but it's to fix a kind of time sensitive situation with
+  the erronious Net-Server and dkimproxy.
 
   05 Oct 2012; Brent Baude <ranger@gentoo.org> net-server-2.6.0.ebuild:
   Marking net-server-2.6.0 ppc for bug 412881

@@ -1,6 +1,15 @@
 # ChangeLog for Gentoo/sh profile directory
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sh/ChangeLog,v 1.90 2013/08/22 16:07:41 chithanh Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sh/ChangeLog,v 1.93 2014/03/19 00:18:39 dilfridge Exp $
+
+  19 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> +eapi:
+  Increase EAPI to 5
+
+  11 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> package.use.mask:
+  Masking dev-vcs/git mediawiki (bug #497068)
+
+  29 Sep 2013; Andreas K. Huettel <dilfridge@gentoo.org> make.defaults:
+  sh goes unstable/testing as per council decision
 
   22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
   Mask opencl flag due to lack of virtual/opencl keywording.

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/xtables-addons/xtables-addons-1.47.1.ebuild,v 1.1 2012/12/29 17:12:26 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/xtables-addons/xtables-addons-1.47.1.ebuild,v 1.5 2013/04/01 16:47:30 pinkbyte Exp $
 
 EAPI="5"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/xtables-addons/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="modules"
 
 MODULES="quota2 psd pknock lscan length2 ipv4options ipp2p iface gradm geoip fuzzy condition tee tarpit sysrq steal rawnat logmark ipmark echo dnetmap dhcpmac delude checksum chaos account"
@@ -67,6 +67,7 @@ pkg_setup()	{
 			ewarn "No IPV6 support in kernel. Disabling: ${SKIP_IPV6_MODULES}"
 		fi
 		kernel_is -lt 2 6 32 && die "${PN} requires kernel version >= 2.6.32"
+		kernel_is -ge 3 7 && die "${PN} requires kernel version < 3.7"
 		XA_check4internal_module tee "2 6 35" NETFILTER_XT_TARGET_TEE
 		XA_check4internal_module checksum "2 6 36" NETFILTER_XT_TARGET_CHECKSUM
 	fi
@@ -160,7 +161,7 @@ src_configure() {
 
 src_compile() {
 	emake CFLAGS="${CFLAGS}" CC="$(tc-getCC)" V=1
-	use modules && BUILD_TARGETS="modules" linux-mod_src_compile
+	use modules && BUILD_PARAMS="V=1" BUILD_TARGETS="modules" linux-mod_src_compile
 }
 
 src_install() {

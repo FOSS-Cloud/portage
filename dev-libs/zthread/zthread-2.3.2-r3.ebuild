@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/zthread/zthread-2.3.2-r3.ebuild,v 1.1 2013/02/19 10:13:10 dev-zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/zthread/zthread-2.3.2-r3.ebuild,v 1.7 2013/05/25 07:50:58 ago Exp $
 
 EAPI="5"
 
@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/zthread/${MY_P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~mips ~ppc ~sparc ~x86"
+KEYWORDS="alpha amd64 ~hppa ~mips ppc sparc x86"
 IUSE="debug doc kernel_linux static-libs"
 
 DEPEND="doc? ( app-doc/doxygen )"
@@ -29,6 +29,8 @@ src_prepare() {
 		"${FILESDIR}"/${P}-m4-quote.patch \
 		"${FILESDIR}"/${P}-automake-r2.patch \
 		"${FILESDIR}"/${P}-gcc47.patch
+
+	sed -i -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' configure.ac || die #467778
 
 	AT_M4DIR="share" eautoreconf
 }

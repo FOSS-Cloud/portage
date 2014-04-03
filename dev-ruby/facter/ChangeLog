@@ -1,6 +1,105 @@
 # ChangeLog for dev-ruby/facter
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/facter/ChangeLog,v 1.71 2013/02/08 14:31:31 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/facter/ChangeLog,v 1.93 2014/03/11 01:36:51 mrueg Exp $
+
+  11 Mar 2014; Manuel Rüger <mrueg@gentoo.org> facter-1.6.16.ebuild,
+  facter-1.6.18.ebuild:
+  Remove ree18.
+
+  02 Mar 2014; Manuel Rüger <mrueg@gentoo.org> facter-1.7.5-r1.ebuild:
+  Add ruby20 support. Fixes bug #503250
+
+  02 Mar 2014; Manuel Rüger <mrueg@gentoo.org> facter-1.7.5-r1.ebuild:
+  Add test removal back, because not everyone has access to /sys/block
+
+*facter-1.7.5-r1 (02 Mar 2014)
+
+  02 Mar 2014; Manuel Rüger <mrueg@gentoo.org> +facter-1.7.5-r1.ebuild:
+  Make tests work.
+
+*facter-1.7.5 (14 Feb 2014)
+
+  14 Feb 2014; Matthew Thode <prometheanfire@gentoo.org> +facter-1.7.5.ebuild:
+  just a bump
+
+  15 Jan 2014; Hans de Graaff <graaff@gentoo.org> -facter-1.6.17.ebuild,
+  -facter-1.7.2.ebuild:
+  Cleanup.
+
+*facter-1.7.4 (19 Dec 2013)
+
+  19 Dec 2013; Matthew Thode <prometheanfire@gentoo.org> +facter-1.7.4.ebuild:
+  update of facter to 1.7.4
+
+*facter-1.7.1-r1 (17 Sep 2013)
+
+  17 Sep 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +facter-1.7.1-r1.ebuild:
+  I accidently removed a stable facter, readding....
+
+*facter-1.6.18 (16 Sep 2013)
+
+  16 Sep 2013; Matthew Thode <prometheanfire@gentoo.org> +facter-1.6.18.ebuild:
+  update of 1.6 facter to 1.6.18
+
+*facter-1.7.3 (16 Sep 2013)
+
+  16 Sep 2013; Matthew Thode <prometheanfire@gentoo.org> +facter-1.7.3.ebuild,
+  -facter-1.7.1-r1.ebuild:
+  update of facter to 1.7.3
+
+  30 Aug 2013; Hans de Graaff <graaff@gentoo.org> facter-1.7.2.ebuild:
+  Add rspec constraint because puppet monkey patches are incompatible with
+  rspec 2.14.
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> facter-1.7.1-r1.ebuild:
+  Stable for sparc, wrt bug #477012
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> facter-1.7.1-r1.ebuild:
+  Stable for ppc, wrt bug #477012
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> facter-1.7.1-r1.ebuild:
+  Stable for x86, wrt bug #477012
+
+  20 Jul 2013; Agostino Sarubbo <ago@gentoo.org> facter-1.7.1-r1.ebuild:
+  Stable for amd64, wrt bug #477012
+
+  16 Jul 2013; Jeroen Roovers <jer@gentoo.org> facter-1.7.1-r1.ebuild:
+  Stable for HPPA (bug #477012).
+
+*facter-1.7.2 (16 Jul 2013)
+
+  16 Jul 2013; Hans de Graaff <graaff@gentoo.org> +facter-1.7.2.ebuild:
+  Version bump. Provide the custom facts directory in /etc/facter/facts.d
+
+  16 Jul 2013; Hans de Graaff <graaff@gentoo.org> -facter-1.6.0.ebuild,
+  -facter-1.7.0.ebuild, -facter-1.7.1.ebuild:
+  Cleanup.
+
+*facter-1.7.1-r1 (03 Jun 2013)
+
+  03 Jun 2013; Hans de Graaff <graaff@gentoo.org> +facter-1.7.1-r1.ebuild:
+  Actually apply the fix for the arp path. Drop ree18. Make sure the right
+  version of mocha is used to run specs, needed on ruby18.
+
+*facter-1.7.1 (31 May 2013)
+
+  31 May 2013; Tiziano Müller <dev-zero@gentoo.org> +facter-1.7.1.ebuild,
+  +files/facter-1.7.1-fix-proc-self-status.patch, metadata.xml:
+  Version bump to 1.7.1, add pciutils USE flag to make it possible to disable
+  that dependency on vservers.
+
+*facter-1.7.0 (27 Apr 2013)
+
+  27 Apr 2013; Hans de Graaff <graaff@gentoo.org> +facter-1.7.0.ebuild:
+  Version bump.
+
+*facter-1.6.17 (04 Mar 2013)
+
+  04 Mar 2013; Hans de Graaff <graaff@gentoo.org> +facter-1.6.17.ebuild,
+  +files/facter-1.6.17-ifconfig-path.patch:
+  Version bump. Depend on specific mocha version that does not blow up. Drop
+  requirement on old-output for net-tools. Fixes bug 456140.
 
   08 Feb 2013; Jeroen Roovers <jer@gentoo.org> facter-1.6.16.ebuild:
   Stable for HPPA (bug #446954).

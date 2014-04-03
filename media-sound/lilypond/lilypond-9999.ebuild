@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/lilypond/lilypond-9999.ebuild,v 1.2 2013/01/14 03:04:10 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/lilypond/lilypond-9999.ebuild,v 1.6 2014/02/04 07:31:03 radhermit Exp $
 
-EAPI="5"
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+EAPI=5
+PYTHON_COMPAT=( python{2_6,2_7} )
 
 inherit elisp-common autotools eutils git-2 python-single-r1
 
@@ -12,10 +12,11 @@ EGIT_REPO_URI="git://git.sv.gnu.org/lilypond.git"
 DESCRIPTION="GNU Music Typesetter"
 HOMEPAGE="http://lilypond.org/"
 
-SLOT="0"
 LICENSE="GPL-3 FDL-1.3"
-KEYWORDS=""
-IUSE="debug emacs profile vim-syntax"
+SLOT="0"
+LANGS=" ca cs da de el eo es fi fr it ja nl ru sv tr uk vi zh_TW"
+IUSE="debug emacs profile vim-syntax ${LANGS// / linguas_}"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND=">=app-text/ghostscript-gpl-8.15
 	>=dev-scheme/guile-1.8.2[deprecated,regex]
@@ -28,7 +29,10 @@ RDEPEND=">=app-text/ghostscript-gpl-8.15
 DEPEND="${RDEPEND}
 	app-text/t1utils
 	dev-lang/perl
-	dev-texlive/texlive-metapost
+	|| (
+		( >=dev-texlive/texlive-metapost-2013 >=dev-tex/metapost-1.803 )
+		<dev-texlive/texlive-metapost-2013
+	)
 	virtual/pkgconfig
 	media-gfx/fontforge
 	>=sys-apps/texinfo-4.11
@@ -42,10 +46,18 @@ RESTRICT="test"
 
 src_prepare() {
 	if ! use vim-syntax ; then
-		sed -i -e "s/vim//" GNUmakefile.in || die
+		sed -i 's/vim//' GNUmakefile.in || die
 	fi
 
-	sed -i -e "s/OPTIMIZE -g/OPTIMIZE/" aclocal.m4 || die
+	# respect CFLAGS
+	sed -i 's/OPTIMIZE -g/OPTIMIZE/' aclocal.m4 || die
+
+	for lang in ${LANGS}; do
+		use linguas_${lang} || rm po/${lang}.po || die
+	done
+
+	# respect AR
+	sed -i "s/^AR=ar/AR=$(tc-getAR)/" stepmake/stepmake/library-vars.make || die
 
 	eautoreconf
 }

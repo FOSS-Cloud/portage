@@ -1,6 +1,59 @@
 # ChangeLog for sci-biology/mafft
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/mafft/ChangeLog,v 1.9 2011/11/21 15:30:19 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/mafft/ChangeLog,v 1.20 2013/07/19 09:44:31 jlec Exp $
+
+  19 Jul 2013; Justin Lecher <jlec@gentoo.org> mafft-7.050.ebuild:
+  Keyword for ~-linux
+
+*mafft-7.050 (03 Jul 2013)
+
+  03 Jul 2013; Justin Lecher <jlec@gentoo.org> -mafft-6.240-r1.ebuild,
+  -mafft-6.707.ebuild, -mafft-6.811.ebuild, -mafft-7.037.ebuild,
+  -mafft-7.040.ebuild, -mafft-7.043.ebuild, -mafft-7.045.ebuild,
+  -mafft-7.046.ebuild, -mafft-7.047.ebuild, +mafft-7.050.ebuild:
+  Drop old; Bump version
+
+*mafft-7.047 (24 Jun 2013)
+
+  24 Jun 2013; Justin Lecher <jlec@gentoo.org> +mafft-7.047.ebuild:
+  Version Bump
+
+*mafft-7.046 (12 Jun 2013)
+
+  12 Jun 2013; Justin Lecher <jlec@gentoo.org> +mafft-7.046.ebuild:
+  version Bump
+
+  06 Jun 2013; Justin Lecher <jlec@gentoo.org> Manifest:
+  Update to new upstream tarball
+
+*mafft-7.045 (06 Jun 2013)
+
+  06 Jun 2013; Justin Lecher <jlec@gentoo.org> +mafft-7.045.ebuild:
+  Version Bump
+
+  26 May 2013; Justin Lecher <jlec@gentoo.org> mafft-7.043.ebuild:
+  Use append-cppflags for preprocessor flags
+
+*mafft-7.043 (26 May 2013)
+
+  26 May 2013; Justin Lecher <jlec@gentoo.org> mafft-7.040.ebuild,
+  +mafft-7.043.ebuild:
+  Version Bump, add test function
+
+*mafft-7.040 (21 May 2013)
+
+  21 May 2013; Justin Lecher <jlec@gentoo.org> mafft-7.037.ebuild,
+  +mafft-7.040.ebuild:
+  Version BUmp, drop unnecessary die
+
+  29 Apr 2013; Justin Lecher <jlec@gentoo.org> mafft-7.037.ebuild:
+  Fix USE=threads make flag magic
+
+*mafft-7.037 (29 Apr 2013)
+
+  29 Apr 2013; Justin Lecher <jlec@gentoo.org> +mafft-7.037.ebuild,
+  +files/mafft-7.037-respect.patch, metadata.xml:
+  Version Bump
 
   21 Nov 2011; Justin Lecher <jlec@gentoo.org> mafft-6.811.ebuild:
   keyworded for ~x86-macos ~x64-macos, tested by Johan Hattne #390123

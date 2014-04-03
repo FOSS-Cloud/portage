@@ -2,12 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>web-apps</herd>
+	<herd>proxy-maintainers</herd>
 	<maintainer>
-		<email>ramereth@gentoo.org</email>
-		<name>Lance Albertson</name>
-	</maintainer>
-	<maintainer>
-		<email>nikoli@lavabit.com</email>
+		<email>nikoli@gmx.us</email>
 		<name>Nikoli</name>
 	</maintainer>
 	<longdescription lang="en">
@@ -18,6 +15,8 @@
 	</longdescription>
 	<use>
 		<flag name="highlight">Enable source code highlighting</flag>
+		<flag name="lua">Enable support for Lua scripting</flag>
+		<flag name="jit">If the lua flag is enabled, jit uses LuaJIT instead of vanilla Lua</flag>
 	</use>
 </pkgmetadata>
 

@@ -1,8 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/havp/havp-0.92a-r1.ebuild,v 1.1 2013/01/10 17:26:47 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/havp/havp-0.92a-r1.ebuild,v 1.4 2013/10/12 14:10:05 tomwij Exp $
 
 EAPI=4
+
 inherit autotools eutils toolchain-funcs user
 
 DESCRIPTION="HTTP AntiVirus Proxy"
@@ -11,7 +12,7 @@ SRC_URI="http://www.server-side.de/download/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="clamav ssl"
 
 DEPEND="clamav? ( app-antivirus/clamav )"
@@ -24,6 +25,7 @@ pkg_setup() {
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-0.92a-run.patch
+	epatch "${FILESDIR}"/${PF}-pkg-config-libclamav.patch
 	sed -i configure.in -e '/^CFLAGS=/d' || die
 	eautoreconf
 }

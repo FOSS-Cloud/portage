@@ -1,6 +1,51 @@
 # ChangeLog for dev-ruby/locale
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/locale/ChangeLog,v 1.46 2013/01/15 05:30:13 zerochaos Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/locale/ChangeLog,v 1.57 2014/01/29 15:40:41 hattya Exp $
+
+  29 Jan 2014; Akinori Hattori <hattya@gentoo.org> locale-2.1.0-r1.ebuild:
+  keyword ~ia64 wrt bug #465948
+
+*locale-2.1.0-r1 (24 Jan 2014)
+
+  24 Jan 2014; Hans de Graaff <graaff@gentoo.org> +locale-2.1.0-r1.ebuild:
+  Add ruby20. Drop alpha, ia64, sparc keywords due to yard dependency, bug
+  465948.
+
+  24 Jan 2014; Hans de Graaff <graaff@gentoo.org> -locale-2.0.8.ebuild,
+  -locale-2.0.9.ebuild:
+  Cleanup.
+
+  24 Jan 2014; Hans de Graaff <graaff@gentoo.org> locale-2.1.0.ebuild:
+  Add missing keywords. Looks like we committed a earlier prepared locale 2.0.8
+  while keywords where added shortly before actually adding.
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> locale-2.0.5-r3.ebuild:
+  arm stable, bug #493780
+
+*locale-2.1.0 (15 Dec 2013)
+
+  15 Dec 2013; Manuel Rüger <mrueg@gentoo.org> +locale-2.1.0.ebuild:
+  Version bump.
+
+  26 Oct 2013; Hans de Graaff <graaff@gentoo.org> locale-2.0.9.ebuild:
+  Avoid failing test on jruby.
+
+*locale-2.0.9 (22 Sep 2013)
+
+  22 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +locale-2.0.9.ebuild:
+  Version bump.
+
+  23 Apr 2013; Hans de Graaff <graaff@gentoo.org> locale-2.0.8.ebuild:
+  Fix yard dependency issue by only building documentation when USE=doc, bug
+  461790.
+
+  02 Apr 2013; Patrick Lauer <patrick@gentoo.org> locale-2.0.8.ebuild:
+  Fixing deps #461790
+
+*locale-2.0.8 (14 Mar 2013)
+
+  14 Mar 2013; Hans de Graaff <graaff@gentoo.org> +locale-2.0.8.ebuild:
+  Version bump.
 
   15 Jan 2013; Rick Farina <zerochaos@gentoo.org> locale-2.0.5-r3.ebuild:
   adding ~arm keywords to net-analyzer/metasploit rdeps

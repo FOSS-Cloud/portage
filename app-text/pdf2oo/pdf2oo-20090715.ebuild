@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/pdf2oo/pdf2oo-20090715.ebuild,v 1.7 2010/06/15 16:19:24 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/pdf2oo/pdf2oo-20090715.ebuild,v 1.9 2013/03/18 10:17:10 kensington Exp $
 
-EAPI=2
+EAPI=5
 
 DESCRIPTION="Converts pdf files to odf"
 HOMEPAGE="http://sourceforge.net/projects/pdf2oo/"
@@ -20,6 +20,6 @@ RDEPEND="app-arch/zip
 S=${WORKDIR}/${PN}
 
 src_install() {
-	dobin pdf2oo || die
-	dodoc README || die
+	dobin pdf2oo
+	dodoc README
 }

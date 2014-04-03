@@ -1,6 +1,40 @@
 # ChangeLog for dev-python/pygtksourceview
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pygtksourceview/ChangeLog,v 1.50 2012/05/15 23:24:32 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pygtksourceview/ChangeLog,v 1.59 2014/02/22 21:23:41 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> pygtksourceview-2.10.1-r1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> pygtksourceview-2.10.1-r1.ebuild:
+  arch stable, bug 888
+
+  11 Dec 2013; Sergey Popov <pinkbyte@gentoo.org>
+  pygtksourceview-2.10.1-r1.ebuild:
+  Stable on arm, wrt bug #480306
+
+  09 Dec 2013; Mikle Kolyada <zlogene@gentoo.org>
+  pygtksourceview-2.10.1-r1.ebuild:
+  ia64 stable wrt bug #480306
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> pygtksourceview-2.10.1-r1.ebuild:
+  x86 stable, bug #478252
+
+  07 Dec 2013; Johannes Huber <johu@gentoo.org>
+  pygtksourceview-2.10.1-r1.ebuild:
+  x86 stable, bug #480306
+
+  09 Nov 2013; Pacho Ramos <pacho@gentoo.org> pygtksourceview-2.10.1-r1.ebuild:
+  amd64 stable, bug #480306
+
+  05 Nov 2013; Matt Turner <mattst88@gentoo.org>
+  pygtksourceview-2.10.1-r1.ebuild:
+  alpha stable, bugs 480306 and 490338.
+
+*pygtksourceview-2.10.1-r1 (30 Mar 2013)
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +pygtksourceview-2.10.1-r1.ebuild:
+  Switch to python-r1 and EAPI=5.
 
   15 May 2012; Alexis Ballier <aballier@gentoo.org>
   pygtksourceview-2.10.1.ebuild:
@@ -208,4 +242,3 @@
   10 Oct 2007; Rémi Cardona <remi@gentoo.org>
   +pygtksourceview-2.0.0.ebuild:
   new version for Gnome 2.20
-

@@ -1,6 +1,25 @@
 # ChangeLog for app-benchmarks/ltp
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-benchmarks/ltp/ChangeLog,v 1.21 2013/02/15 17:23:17 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-benchmarks/ltp/ChangeLog,v 1.25 2013/07/20 15:35:55 jer Exp $
+
+  20 Jul 2013; Jeroen Roovers <jer@gentoo.org> ltp-20130503.ebuild:
+  Marked ~hppa too.
+
+  19 Jul 2013; Jeroen Roovers <jer@gentoo.org> ltp-20130503.ebuild:
+  configure: --with open-posix-testsuite => --with-open-posix-testsuite
+
+*ltp-20130503 (18 May 2013)
+
+  18 May 2013; Markos Chandras <hwoarang@gentoo.org> +ltp-20130503.ebuild:
+  Version bump
+
+*ltp-20130109 (25 Mar 2013)
+
+  25 Mar 2013; Markos Chandras <hwoarang@gentoo.org> +ltp-20130109.ebuild,
+  metadata.xml:
+  Bump. Move from /usr/libexec/ to /opt/ because the runltp-path.patch is not
+  easy to maintain. Also move away from /usr as it may be mounted RO but runltp
+  writes to the ltp root directory (in this case /opt//)
 
   15 Feb 2013; Pacho Ramos <pacho@gentoo.org> ltp-20120903.ebuild:
   Don't show elog messages always (#457596)

@@ -1,6 +1,57 @@
 # ChangeLog for app-portage/layman
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/layman/ChangeLog,v 1.177 2013/01/22 15:48:01 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/layman/ChangeLog,v 1.187 2014/03/10 11:27:35 dolsen Exp $
+
+  10 Mar 2014; Brian Dolbec <dolsen@gentoo.org>
+  files/layman-2.0.0.svn_upgrade.patch:
+  Fix the layman-2.0.0.svn_upgrade.patch.
+
+*layman-2.0.0-r3 (10 Mar 2014)
+
+  10 Mar 2014; Brian Dolbec <dolsen@gentoo.org> -layman-2.0.0-r2.ebuild,
+  +layman-2.0.0-r3.ebuild, layman-9999.ebuild,
+  files/layman-2.0.0.svn_upgrade.patch:
+  Add sys-app/portage[${PYTHON_USEDEP}], fixes bug 503984,
+  tweak svn_upgrade patch to match final commit to git master.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> layman-2.0.0-r1.ebuild,
+  layman-2.0.0-r2.ebuild:
+  Add arm64/m68k/s390/sh love.
+
+*layman-2.0.0-r2 (07 Jan 2014)
+*layman-2.0.0-r1 (07 Jan 2014)
+
+  07 Jan 2014; Brian Dolbec <dolsen@gentoo.org> -layman-1.4.2-r3.ebuild,
+  -layman-2.0.0.ebuild, +layman-2.0.0-r1.ebuild, +layman-2.0.0-r2.ebuild,
+  -files/layman-1.4.2-manpage-corrections.patch,
+  -files/layman-1.4.2-python-compatbility-fix.patch,
+  +files/layman-2.0.0.svn_upgrade.patch:
+  Version bump to fix a USE flag rename in subversion-1.8.5.
+  bug # 497324. Second bump to patch the internal svn upgrade handling
+  code for the new svn. Remove old/deprecated version.
+
+  07 Jan 2014; Brian Dolbec <dolsen@gentoo.org> layman-1.4.2-r3.ebuild,
+  layman-2.0.0.ebuild, layman-9999.ebuild:
+  Update the subversion dep as per bug #497324. Subversion-185's new
+  "http" use flag.
+
+  14 Sep 2013; Mike Gilbert <floppym@gentoo.org> layman-2.0.0.ebuild:
+  Call distutils-r1_python_prepare_all.
+
+  10 Aug 2013; Brian Dolbec <dolsen@gentoo.org> layman-9999.ebuild:
+  Update RDEPENDS for new ssl verification deps. Fix python_prepare_all().
+
+  25 Jul 2013; Julian Ospald <hasufell@gentoo.org> layman-2.0.0.ebuild,
+  layman-9999.ebuild:
+  add pypy2_0 support
+
+  17 Jun 2013; Brian Dolbec <dolsen@gentoo.org> layman-2.0.0.ebuild,
+  layman-9999.ebuild:
+  Add virtual/argparse dep, Bug 469612.
+
+  17 Jun 2013; Brian Dolbec <dolsen@gentoo.org> -layman-2.0.0_rc5.ebuild,
+  layman-2.0.0.ebuild, layman-9999.ebuild:
+  Migrate to distutils-r1, remove old.
 
   22 Jan 2013; Jeroen Roovers <jer@gentoo.org> layman-2.0.0.ebuild:
   Stable for HPPA (bug #451200).

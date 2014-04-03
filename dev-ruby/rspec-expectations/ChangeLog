@@ -1,6 +1,53 @@
 # ChangeLog for dev-ruby/rspec-expectations
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec-expectations/ChangeLog,v 1.52 2013/02/24 08:44:12 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec-expectations/ChangeLog,v 1.61 2014/04/01 19:31:30 graaff Exp $
+
+*rspec-expectations-2.14.5-r1 (01 Apr 2014)
+
+  01 Apr 2014; Hans de Graaff <graaff@gentoo.org>
+  +rspec-expectations-2.14.5-r1.ebuild:
+  Add ruby21. Drop alpha, sparc keywords: bug 465948.
+
+  27 Mar 2014; Manuel Rüger <mrueg@gentoo.org>
+  -rspec-expectations-2.14.0.ebuild, -rspec-expectations-2.14.1.ebuild,
+  -rspec-expectations-2.14.2.ebuild:
+  Cleanup old.
+
+*rspec-expectations-2.14.5 (13 Feb 2014)
+
+  13 Feb 2014; Manuel Rüger <mrueg@gentoo.org>
+  +rspec-expectations-2.14.5.ebuild:
+  Version bump.
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org>
+  rspec-expectations-2.12.1.ebuild:
+  arm stable, bug #493780
+
+  06 Oct 2013; Hans de Graaff <graaff@gentoo.org>
+  rspec-expectations-2.14.2.ebuild:
+  Add ruby20.
+
+*rspec-expectations-2.14.2 (16 Aug 2013)
+
+  16 Aug 2013; Manuel Rüger <mrueg@gentoo.org>
+  +rspec-expectations-2.14.2.ebuild:
+  Version bump
+
+*rspec-expectations-2.14.1 (11 Aug 2013)
+
+  11 Aug 2013; Manuel Rüger <mrueg@gentoo.org>
+  +rspec-expectations-2.14.1.ebuild:
+  Version bump
+
+*rspec-expectations-2.14.0 (20 Jul 2013)
+
+  20 Jul 2013; Hans de Graaff <graaff@gentoo.org>
+  +rspec-expectations-2.14.0.ebuild:
+  Version bump.
+
+  20 Jul 2013; Hans de Graaff <graaff@gentoo.org>
+  -rspec-expectations-2.6.0-r1.ebuild:
+  Cleanup.
 
 *rspec-expectations-2.13.0 (24 Feb 2013)
 

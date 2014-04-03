@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-simulation/searchandrescue/searchandrescue-1.5.0.ebuild,v 1.1 2013/01/23 05:57:08 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-simulation/searchandrescue/searchandrescue-1.5.0.ebuild,v 1.5 2014/02/08 16:25:56 mr_bones_ Exp $
 
 EAPI=5
 inherit eutils flag-o-matic toolchain-funcs games
@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/searchandrescue/${MY_PN}-${PV}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE=""
 
 RDEPEND="x11-libs/libXxf86vm
@@ -42,9 +42,13 @@ src_unpack() {
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-build.patch
+	rm pconf/pconf || die
+	sed -i -e '/Wall/s/$/ $(CFLAGS)/' pconf/Makefile || die
 }
 
 src_configure() {
+	emake CC=$(tc-getCC) -C pconf pconf # Needed for the configure script
+
 	append-flags -DNEW_GRAPHICS -DHAVE_SDL_MIXER
 	export CPP="$(tc-getCXX)"
 	export CPPFLAGS="${CXXFLAGS}"
@@ -62,9 +66,8 @@ src_install() {
 	dodoc AUTHORS HACKING README
 	doicon sar/icons/SearchAndRescue.xpm
 	newicon sar/icons/SearchAndRescue.xpm ${PN}.xpm
-	cd "${WORKDIR}/data"
 	dodir "${GAMES_DATADIR}/${PN}"
-	cp -r * "${D}/${GAMES_DATADIR}/${PN}/" || die
+	cp -r "${WORKDIR}"/data/* "${D}/${GAMES_DATADIR}/${PN}/" || die
 	make_desktop_entry SearchAndRescue "SearchAndRescue" /usr/share/pixmaps/${PN}.xpm
 	prepgamesdirs
 }

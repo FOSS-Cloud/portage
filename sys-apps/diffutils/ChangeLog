@@ -1,6 +1,55 @@
 # ChangeLog for sys-apps/diffutils
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/diffutils/ChangeLog,v 1.78 2013/02/19 03:06:43 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/diffutils/ChangeLog,v 1.93 2014/01/18 05:12:18 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> diffutils-3.3.ebuild:
+  Add arm64 love.
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -diffutils-2.8.7-r2.ebuild, -diffutils-2.9.ebuild, -diffutils-2.9-r1.ebuild,
+  -diffutils-3.0.ebuild, -diffutils-3.1.ebuild, -diffutils-3.2.ebuild,
+  -files/diffutils-2.8.4-sdiff-no-waitpid.patch,
+  -files/diffutils-2.8.7-headers.patch, -files/diffutils-3.2-no-gets.patch:
+  Removed old versions and files.
+
+  29 Aug 2013; Jeroen Roovers <jer@gentoo.org> diffutils-3.3.ebuild:
+  Stable for HPPA (bug #477570).
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for x86, wrt bug #477570
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for s390, wrt bug #477570
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for ia64, wrt bug #477570
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for sparc, wrt bug #477570
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for alpha, wrt bug #477570
+
+  23 Jul 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for arm, wrt bug #477570
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for ppc64, wrt bug #477570
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for ppc, wrt bug #477570
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> diffutils-3.3.ebuild:
+  Stable for amd64, wrt bug #477570
+
+  04 Apr 2013; Mike Frysinger <vapier@gentoo.org> diffutils-3.3.ebuild:
+  Hack around bad upstream packaging w/gettext #464604 by Arfrever Frehtes
+  Taifersar Arahesis.
+
+*diffutils-3.3 (04 Apr 2013)
+
+  04 Apr 2013; Tim Harder <radhermit@gentoo.org> +diffutils-3.3.ebuild:
+  Version bump.
 
   19 Feb 2013; Zac Medico <zmedico@gentoo.org> diffutils-3.2.ebuild:
   Add ~arm-linux keyword.

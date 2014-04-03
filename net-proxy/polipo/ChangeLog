@@ -1,6 +1,24 @@
 # ChangeLog for net-proxy/polipo
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/polipo/ChangeLog,v 1.35 2011/12/31 21:11:37 idl0r Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/polipo/ChangeLog,v 1.39 2014/01/08 06:26:54 vapier Exp $
+
+  08 Jan 2014; Mike Frysinger <vapier@gentoo.org> polipo-9999.ebuild:
+  Inherit the user eclass for enewuser/etc...
+
+*polipo-1.0.4.1-r2 (02 May 2013)
+
+  02 May 2013; Tom Wijsman <TomWij@gentoo.org>
+  +files/polipo-1.0.4.1-dns-timeout-fix.patch, +polipo-1.0.4.1-r2.ebuild:
+  EAPI 5. Fix incorrect timeout reporting for domains that are available,
+  revision bump. Thanks to Andrew Savchenko for reporting. Fixes bug #389675.
+
+*polipo-9999 (31 Mar 2013)
+
+  31 Mar 2013; Tom Wijsman <TomWij@gentoo.org> +polipo-9999.ebuild:
+  Added live ebuild for polipo. Reported by Piotr Karbowski. Fixes bug #321549.
+
+  04 Mar 2013; Pavlos Ratis <dastergon@gentoo.org> polipo-1.0.4.1-r1.ebuild:
+  fixed QA issues, added GPL-2 to LICENSE, see bug #426130
 
 *polipo-1.0.4.1-r1 (31 Dec 2011)
 
@@ -173,4 +191,3 @@
   +files/polipo-0.9.8-gentoo.patch, +files/polipo.crond, +files/polipo.initd,
   +polipo-0.9.8.ebuild:
   Initial import from bug #79618.
-

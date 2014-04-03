@@ -1,6 +1,15 @@
 # ChangeLog for media-video/ttcut
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ttcut/ChangeLog,v 1.32 2013/02/02 16:47:42 billie Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/ttcut/ChangeLog,v 1.35 2014/03/01 22:43:38 billie Exp $
+
+  01 Mar 2014; Daniel Pielmeier <billie@gentoo.org> ttcut-0.19.6-r3.ebuild:
+  Depend on media-video/ffmpeg instead of virtual/ffmpeg. See bug #474348.
+
+  04 Mar 2013; Daniel Pielmeier <billie@gentoo.org> ttcut-0.19.6-r3.ebuild:
+  Switch to EAPI 5.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> ttcut-0.19.6-r3.ebuild:
+  Move Qt dependencies to the new category
 
   02 Feb 2013; Daniel Pielmeier <billie@gentoo.org> ttcut-0.19.6-r3.ebuild:
   Remove redundant calls to fdo-mime_desktop_database_update.
@@ -146,4 +155,3 @@
   +ttcut-0.11.4_alpha.ebuild:
   Imported into portage tree from sunrise overlay. It will be proxy maintained
   by Daniel Pielmeier.
-

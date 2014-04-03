@@ -1,6 +1,18 @@
 # ChangeLog for dev-java/netbeans-dlight
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/netbeans-dlight/ChangeLog,v 1.18 2013/02/21 15:45:41 fordfrog Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/netbeans-dlight/ChangeLog,v 1.20 2014/03/23 18:47:02 fordfrog Exp $
+
+*netbeans-dlight-8.0 (23 Mar 2014)
+
+  23 Mar 2014; Miroslav Šulc <fordfrog@gentoo.org>
+  +netbeans-dlight-8.0.ebuild:
+  new ebuild for version 8.0
+
+*netbeans-dlight-7.4 (16 Oct 2013)
+
+  16 Oct 2013; Miroslav Šulc <fordfrog@gentoo.org>
+  +netbeans-dlight-7.4.ebuild:
+  version bump
 
 *netbeans-dlight-7.3 (21 Feb 2013)
 

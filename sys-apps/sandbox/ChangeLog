@@ -1,6 +1,64 @@
 # ChangeLog for sys-apps/sandbox
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/sandbox/ChangeLog,v 1.166 2012/12/26 22:08:11 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/sandbox/ChangeLog,v 1.182 2014/01/18 01:59:21 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> sandbox-2.6-r1.ebuild:
+  Add arm64 love.
+
+  28 Nov 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/sandbox-2.6-no-pch.patch, sandbox-2.6-r1.ebuild:
+  Disable pch logic for now #425524 by J.C. Wren.
+
+  14 Nov 2013; Mike Frysinger <vapier@gentoo.org> sandbox-1.6-r2.ebuild,
+  sandbox-2.3-r1.ebuild, sandbox-2.4.ebuild, sandbox-2.5.ebuild,
+  sandbox-2.6-r1.ebuild:
+  Point HOMEPAGE to the sandbox page #475956 by Jonas Stein.
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> sandbox-2.6-r1.ebuild:
+  Mark m68k stable #472624.
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for sh, wrt bug #472624
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for s390, wrt bug #472624
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for sparc, wrt bug #472624
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for arm, wrt bug #472624
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for ia64, wrt bug #472624
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for alpha, wrt bug #472624
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for amd64, wrt bug #472624
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for x86, wrt bug #472624
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for ppc64, wrt bug #472624
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for ppc, wrt bug #472624
+
+  23 Jun 2013; Jeroen Roovers <jer@gentoo.org> sandbox-2.6-r1.ebuild:
+  Stable for HPPA (bug #472624).
+
+*sandbox-2.6-r1 (23 Mar 2013)
+
+  23 Mar 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/sandbox-2.6-check-empty-paths-at.patch,
+  +files/sandbox-2.6-desktop.patch, +files/sandbox-2.6-log-var.patch,
+  +files/sandbox-2.6-open-nofollow.patch,
+  +files/sandbox-2.6-static-close-fd.patch, +sandbox-2.6-r1.ebuild,
+  -sandbox-2.6.ebuild:
+  Apply random set of bugfixes.
 
   26 Dec 2012; Mike Frysinger <vapier@gentoo.org> sandbox-2.6.ebuild:
   Add epatch_user #413441#9.

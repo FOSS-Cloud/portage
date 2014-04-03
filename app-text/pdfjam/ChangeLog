@@ -1,6 +1,39 @@
 # ChangeLog for app-text/pdfjam
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/pdfjam/ChangeLog,v 1.37 2012/05/09 17:14:25 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/pdfjam/ChangeLog,v 1.48 2013/04/25 21:25:34 ago Exp $
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for sh, wrt bug #449298
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for s390, wrt bug #449298
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for sparc, wrt bug #449298
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for arm, wrt bug #449298
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for alpha, wrt bug #449298
+
+  19 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for ia64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for ppc64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for ppc, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for x86, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for amd64, wrt bug #449298
+
+  17 Apr 2013; Jeroen Roovers <jer@gentoo.org> pdfjam-2.08.ebuild:
+  Stable for HPPA (bug #449298).
 
   09 May 2012; Alexis Ballier <aballier@gentoo.org> pdfjam-2.08.ebuild:
   keyword ~amd64-fbsd
@@ -129,4 +162,3 @@
 
   30 Jul 2004; <pclouds@gentoo.org> +pdfjam-1.10.ebuild:
   new ebuild, submitted by Dominic Battre <dominic.battre@gmx.de> on bug 57567
-

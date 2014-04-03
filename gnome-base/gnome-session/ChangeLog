@@ -1,6 +1,81 @@
 # ChangeLog for gnome-base/gnome-session
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-session/ChangeLog,v 1.318 2013/02/03 00:46:43 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-session/ChangeLog,v 1.333 2014/03/29 21:00:14 tetromino Exp $
+
+  29 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-session-3.8.4-r1.ebuild, gnome-session-3.10.1.ebuild:
+  missing systemd build-time dep
+
+  29 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-session-3.8.4-r1.ebuild, gnome-session-3.10.1.ebuild:
+  systemd now has subslots.
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-session-3.10.1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-session-3.10.1.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-session-3.10.1.ebuild:
+  Fix wrong commit, bug 502160
+
+*gnome-session-3.10.1 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +gnome-session-3.10.1.ebuild,
+  -gnome-session-3.8.4.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gnome-session-3.8.4-r1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gnome-session-3.8.4-r1.ebuild:
+  amd64 stable, bug #478252
+
+*gnome-session-3.8.4-r1 (13 Nov 2013)
+
+  13 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/gnome-session-3.8.4-blacklist-nv25.patch,
+  +files/gnome-session-3.8.4-presence-crash.patch,
+  +gnome-session-3.8.4-r1.ebuild, -files/gnome-session-3.6.2-upower.patch,
+  -files/gnome-session-3.8.2.1-filter-nodisplay.patch,
+  -gnome-session-3.6.2-r2.ebuild, -gnome-session-3.8.2.1-r1.ebuild:
+  Fix a possible crash in the presence interface (from 3.8 branch), blacklist
+  nv25 (from 'master').
+
+*gnome-session-3.8.4 (31 Jul 2013)
+
+  31 Jul 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -gnome-session-3.8.2.1.ebuild, +gnome-session-3.8.4.ebuild:
+  Version bump with various bugfixes. Drop old.
+
+  28 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-session-3.8.2.1-r1.ebuild:
+  Drop unused pango dependency. gnome-desktop is needed at build time as well.
+
+*gnome-session-3.8.2.1-r1 (11 Jun 2013)
+
+  11 Jun 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/gnome-session-3.8.2.1-filter-nodisplay.patch,
+  +gnome-session-3.8.2.1-r1.ebuild, -gnome-session-3.8.1.ebuild:
+  Don't show desktop files with NoDisplay=true (from 'master'); drop old.
+
+*gnome-session-3.8.2.1 (15 May 2013)
+
+  15 May 2013; Pacho Ramos <pacho@gentoo.org> +gnome-session-3.8.2.1.ebuild,
+  -gnome-session-3.4.2.1.ebuild, -gnome-session-3.8.0.ebuild:
+  Version bump, drop old
+
+*gnome-session-3.8.1 (27 Apr 2013)
+
+  27 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gnome-session-3.8.1.ebuild,
+  -gnome-session-3.6.2-r1.ebuild:
+  Version bump, also allow people to configure startup apps, bug #464968,
+  upstream bug #663767. Drop old.
+
+*gnome-session-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +gnome-session-3.8.0.ebuild:
+  Version bump for Gnome 3.8
 
   03 Feb 2013; Alexandre Rostovtsev <tetromino@gentoo.org> metadata.xml:
   Switch to global systemd USE flag.

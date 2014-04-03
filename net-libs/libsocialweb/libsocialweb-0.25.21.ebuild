@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libsocialweb/libsocialweb-0.25.21.ebuild,v 1.8 2013/02/02 23:04:58 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libsocialweb/libsocialweb-0.25.21.ebuild,v 1.11 2014/01/22 21:35:47 eva Exp $
 
 EAPI="4"
 GCONF_DEBUG="no"
@@ -79,5 +79,7 @@ src_prepare() {
 	gnome2_src_prepare
 	use vala && vala_src_prepare
 
-	python_convert_shebangs 2 "${S}/tools/glib-ginterface-gen.py"
+	# Fix python shebang (FIXME: should be in utils-r1)
+	sed -e "/^#!/ s/python/${PYTHON}/" \
+		-i  "${S}/tools/glib-ginterface-gen.py" || die
 }

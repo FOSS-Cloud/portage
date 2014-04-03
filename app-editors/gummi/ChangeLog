@@ -1,6 +1,12 @@
 # ChangeLog for app-editors/gummi
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/gummi/ChangeLog,v 1.45 2013/02/15 17:29:38 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/gummi/ChangeLog,v 1.48 2014/01/03 22:53:20 hwoarang Exp $
+
+  03 Jan 2014; Markos Chandras <hwoarang@gentoo.org> gummi-9999.ebuild:
+  Add eautoreconf to simulate the upstream autogen.sh script. Bug #493056
+
+  22 Dec 2013; Markos Chandras <hwoarang@gentoo.org> -gummi-0.6.4.ebuild:
+  Remove old
 
   15 Feb 2013; Pacho Ramos <pacho@gentoo.org> gummi-0.6.5.ebuild:
   Don't show elog messages always (#457596)

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libsoundtouch/libsoundtouch-1.7.1.ebuild,v 1.6 2013/02/26 14:47:13 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libsoundtouch/libsoundtouch-1.7.1.ebuild,v 1.8 2014/01/25 09:06:33 radhermit Exp $
 
 EAPI=5
 inherit autotools eutils flag-o-matic
@@ -13,7 +13,7 @@ SRC_URI="http://www.surina.net/soundtouch/${P/lib}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm hppa ~mips ppc ppc64 x86"
+KEYWORDS="amd64 ~arm hppa ~mips ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-solaris"
 IUSE="sse2 static-libs"
 
 DEPEND="virtual/pkgconfig"
@@ -22,7 +22,8 @@ S=${WORKDIR}/${MY_PN}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-1.7.0-flags.patch
-	sed -i -e "s:^\(pkgdoc_DATA=\)COPYING.TXT :\1:" Makefile.am || die
+	sed -i "s:^\(pkgdoc_DATA=\)COPYING.TXT :\1:" Makefile.am || die
+	sed -i 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:g' configure.ac || die
 	eautoreconf
 }
 

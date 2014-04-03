@@ -1,6 +1,60 @@
 # ChangeLog for sys-apps/groff
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/groff/ChangeLog,v 1.129 2013/02/20 22:45:37 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/groff/ChangeLog,v 1.143 2014/01/18 19:29:26 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> groff-1.22.2.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> groff-1.22.2.ebuild:
+  Mark m68k/s390/sh stable.
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -groff-1.20.1-r1.ebuild,
+  -groff-1.20.1-r2.ebuild, -groff-1.20.1-r3.ebuild, -groff-1.21.ebuild,
+  -groff-1.21-r1.ebuild, -groff-1.22.1.ebuild,
+  -files/groff-1.20.1-Thtml-mem-leak.patch,
+  -files/groff-1.20.1-double-frees-mem-leaks.patch,
+  -files/groff-1.20.1-pdfmark-parallel.patch,
+  -files/groff-1.20.1-tmac-ec.patch, -files/groff-1.21-gnulib.patch,
+  -files/groff-1.21-gnulib-cross.patch, -files/groff-1.21-makefile.patch,
+  -files/groff-1.22.1-pdf-subdir.patch, -files/groff-1.22.1-pdf-symlink.patch:
+  Removed old versions and files.
+
+  07 Dec 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/groff-1.22.2-parallel-mom.patch, groff-1.22.2.ebuild:
+  Fix parallel build with gropdf #487276 by Jimmy C. Chau.
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> groff-1.22.2.ebuild:
+  Stable for sparc, wrt bug #386335
+
+  09 Oct 2013; Agostino Sarubbo <ago@gentoo.org> groff-1.22.2.ebuild:
+  Stable for ppc64, wrt bug #386335
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> groff-1.22.2.ebuild:
+  Stable for ppc, wrt bug #386335
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> groff-1.22.2.ebuild:
+  Stable for alpha, wrt bug #386335
+
+  06 Oct 2013; Jeroen Roovers <jer@gentoo.org> groff-1.22.2.ebuild:
+  Stable for HPPA (bug #386335).
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> groff-1.22.2.ebuild:
+  Stable for ia64, wrt bug #386335
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> groff-1.22.2.ebuild:
+  Stable for x86, wrt bug #386335
+
+  05 Oct 2013; Agostino Sarubbo <ago@gentoo.org> groff-1.22.2.ebuild:
+  Stable for amd64, wrt bug #386335
+
+  05 Oct 2013; Markus Meier <maekke@gentoo.org> groff-1.22.2.ebuild:
+  arm stable, bug #386335
+
+*groff-1.22.2 (09 Mar 2013)
+
+  09 Mar 2013; Tim Harder <radhermit@gentoo.org> +groff-1.22.2.ebuild:
+  Version bump (bug #460802), respect AR (bug #444092), and conditionally
+  remove broken symlink (bug #454196).
 
   20 Feb 2013; Zac Medico <zmedico@gentoo.org> groff-1.22.1.ebuild:
   Add ~arm-linux keyword.

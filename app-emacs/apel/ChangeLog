@@ -1,6 +1,32 @@
 # ChangeLog for app-emacs/apel
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/apel/ChangeLog,v 1.48 2011/05/10 09:50:15 naota Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/apel/ChangeLog,v 1.54 2014/03/23 10:14:24 ago Exp $
+
+  23 Mar 2014; Agostino Sarubbo <ago@gentoo.org> apel-10.8-r1.ebuild:
+  Stable for sparc, wrt bug #501480
+
+  12 Mar 2014; Chema Alonso <nimiux@gentoo.org> apel-10.8-r1.ebuild:
+  Stable for amd64 wrt bug #501480
+
+  09 Mar 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> apel-10.8-r1.ebuild:
+  x86 stable wrt bug #501480
+
+  18 Feb 2014; Jeroen Roovers <jer@gentoo.org> apel-10.8-r1.ebuild:
+  Stable for HPPA (bug #501480).
+
+  15 Jan 2014; Mark Wright <gienah@gentoo.org> apel-10.8-r1.ebuild:
+  Apply fixes for bug 495042 suggested by TomWij (thanks): one src_prepare,
+  correct FILESDIR mispelling, use ELISP_PATCHES.
+
+*apel-10.8-r1 (03 Oct 2013)
+
+  03 Oct 2013; Mark Wright <gienah@gentoo.org> +apel-10.8-r1.ebuild,
+  +files/apel-10.8-010_ikazuhiro.patch,
+  +files/apel-10.8-020_Prevent-fontset-error.patch,
+  +files/apel-10.8-040_make-temp-file-for-Emacs-24.3.50.patch:
+  Add patches, the changes are noted in the ChangeLog diffs included in the
+  patches. Which include fixes for emacs 24, apel is a dep of elscreen, part of
+  fix for bug 425258.
 
   10 May 2011; Naohiro Aota <naota@gentoo.org> apel-10.8.ebuild:
   Add ~x86-fbsd keyword
@@ -155,4 +181,3 @@
 
   29 Jun 2003; Daniel Ahlberg <aliz@gentoo.org> :
   Added missing changelog entry.
-

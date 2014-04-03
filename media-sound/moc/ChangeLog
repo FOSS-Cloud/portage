@@ -1,6 +1,39 @@
 # ChangeLog for media-sound/moc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/moc/ChangeLog,v 1.106 2012/12/03 10:21:27 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/moc/ChangeLog,v 1.115 2014/02/07 03:42:28 radhermit Exp $
+
+*moc-2.5.0_beta2 (07 Feb 2014)
+
+  07 Feb 2014; Tim Harder <radhermit@gentoo.org> +moc-2.5.0_beta2.ebuild:
+  Version bump.
+
+  07 Sep 2013; Tim Harder <radhermit@gentoo.org>
+  -moc-2.5.0_alpha4_p20111211.ebuild:
+  Remove old.
+
+*moc-2.5.0_beta1_p20130907 (07 Sep 2013)
+
+  07 Sep 2013; Tim Harder <radhermit@gentoo.org>
+  +moc-2.5.0_beta1_p20130907.ebuild:
+  Bump to new snapshot (fixes bug #484048).
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> moc-2.5.0_beta1-r1.ebuild:
+  Stable for sparc, wrt bug #464548
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> moc-2.5.0_beta1-r1.ebuild:
+  Stable for alpha, wrt bug #464548
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> moc-2.5.0_beta1-r1.ebuild:
+  Stable for ppc64, wrt bug #464548
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> moc-2.5.0_beta1-r1.ebuild:
+  Stable for ppc, wrt bug #464548
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> moc-2.5.0_beta1-r1.ebuild:
+  Stable for x86, wrt bug #464548
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> moc-2.5.0_beta1-r1.ebuild:
+  Stable for amd64, wrt bug #464548
 
   03 Dec 2012; Tim Harder <radhermit@gentoo.org> -moc-2.5.0_beta1.ebuild,
   -moc-2.5.0_alpha4_p20120501.ebuild, -moc-2.5.0_alpha4_p20120501-r1.ebuild,

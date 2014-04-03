@@ -1,6 +1,27 @@
 # ChangeLog for media-libs/schroedinger
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/schroedinger/ChangeLog,v 1.60 2012/05/15 13:42:36 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/schroedinger/ChangeLog,v 1.66 2013/08/10 16:10:41 aballier Exp $
+
+*schroedinger-1.0.11-r1 (10 Aug 2013)
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org>
+  +schroedinger-1.0.11-r1.ebuild:
+  convert to multilib
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> schroedinger-1.0.11.ebuild:
+  Stable for amd64, wrt bug #470768
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> schroedinger-1.0.11.ebuild:
+  Stable for x86, wrt bug #470768
+
+  19 Jun 2013; Jeroen Roovers <jer@gentoo.org> schroedinger-1.0.11.ebuild:
+  Stable for HPPA (bug #470768).
+
+  12 May 2013; Patrick Lauer <patrick@gentoo.org> -schroedinger-1.0.9.ebuild:
+  Remove version with unsatisfiable dependencies
+
+  03 May 2013; Justin Lecher <jlec@gentoo.org> schroedinger-1.0.11.ebuild:
+  Fix obsolete macros to work with automake-1.13, #468448
 
   15 May 2012; Alexis Ballier <aballier@gentoo.org> schroedinger-1.0.11.ebuild:
   keyword ~amd64-fbsd
@@ -258,4 +279,3 @@
   31 May 2006; Luca Barbato <lu_zero@gentoo.org> +metadata.xml,
   +schroedinger-0.2.0.0.ebuild:
   First commit, thanks to Ed Catmur <ed@catmur.co.uk> for the ebuild
-

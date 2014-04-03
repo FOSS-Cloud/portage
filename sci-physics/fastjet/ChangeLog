@@ -1,6 +1,15 @@
 # ChangeLog for sci-physics/fastjet
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-physics/fastjet/ChangeLog,v 1.6 2012/10/16 19:00:28 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-physics/fastjet/ChangeLog,v 1.8 2014/02/23 02:46:07 bicatali Exp $
+
+*fastjet-3.0.6 (23 Feb 2014)
+
+  23 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> +fastjet-3.0.6.ebuild:
+  Version bump
+
+  04 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> fastjet-3.0.3-r1.ebuild,
+  files/fastjet-3.0.3-system-siscone.patch, metadata.xml:
+  Fixed for newer automake (bug #472018), switch to EAPI5
 
   16 Oct 2012; Justin Lecher <jlec@gentoo.org> fastjet-3.0.3-r1.ebuild,
   metadata.xml:

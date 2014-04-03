@@ -1,6 +1,15 @@
 # ChangeLog for dev-perl/IMAP-Admin
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/IMAP-Admin/ChangeLog,v 1.11 2012/06/24 13:00:18 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/IMAP-Admin/ChangeLog,v 1.13 2013/12/08 10:51:48 zlogene Exp $
+
+  08 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> -IMAP-Admin-1.6.7.ebuild,
+  IMAP-Admin-1.6.7-r1.ebuild:
+  amd64/x86 stable wrt bug #492172
+
+*IMAP-Admin-1.6.7-r1 (26 Aug 2013)
+
+  26 Aug 2013; Ian Delaney <idella4@gentoo.org> +IMAP-Admin-1.6.7-r1.ebuild:
+  revbump -> EAPI 5, add IUSE examples
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

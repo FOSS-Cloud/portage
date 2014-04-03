@@ -1,6 +1,40 @@
 # ChangeLog for net-analyzer/snort
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/snort/ChangeLog,v 1.199 2012/12/30 21:16:14 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/snort/ChangeLog,v 1.204 2014/02/03 08:27:03 kumba Exp $
+
+*snort-2.9.6.0 (03 Feb 2014)
+*snort-2.9.5.6 (03 Feb 2014)
+*snort-2.9.4.6-r1 (03 Feb 2014)
+
+  03 Feb 2014; Joshua Kinard <kumba@gentoo.org> -snort-2.9.2.3-r1.ebuild,
+  -snort-2.9.4.6.ebuild, +snort-2.9.4.6-r1.ebuild, +snort-2.9.5.6.ebuild,
+  +snort-2.9.6.0.ebuild, -files/disabledynamic.patch, -files/snort.confd,
+  -files/snort.rc10, -files/snort.rc11, metadata.xml:
+  Removed EOL versions, cleaned up files/, added 2.9.5.6 and 2.9.6.0, removed
+  deprecated configure options and added newer ones. Fixes Bugs #485824 &
+  #472372.
+
+  18 Aug 2013; Patrick Lauer <patrick@gentoo.org> snort-2.9.4.6.ebuild:
+  Whitespace
+
+*snort-2.9.4.6 (31 May 2013)
+
+  31 May 2013; Patrick Lauer <patrick@gentoo.org> +snort-2.9.4.6.ebuild,
+  -snort-2.9.0.5.ebuild, -snort-2.9.1.ebuild, -snort-2.9.2.1.ebuild,
+  -snort-2.9.2.2.ebuild, -snort-2.9.2.3.ebuild:
+  Bump for #471826, remove old
+
+*snort-2.9.2.3-r1 (10 Apr 2013)
+
+  10 Apr 2013; Tony Vroon <chainsaw@gentoo.org> +snort-2.9.2.3-r1.ebuild,
+  +files/snort.rc12:
+  Init script fixes by Brian De Wolf to cease using deprecated opts variable,
+  closes bug #447780. /run tmpfs coping measures by Peter Wilmott close bug
+  #452786. Ebuild ported to EAPI 5, using REQUIRED_USE and dropping now
+  unnecessary die statements for ebuild helper functions.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> snort-2.9.2.3.ebuild:
   Add ~sparc, wrt to bug #407795

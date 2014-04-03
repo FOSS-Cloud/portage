@@ -1,6 +1,118 @@
 # ChangeLog for net-wireless/gnuradio
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/gnuradio/ChangeLog,v 1.21 2013/01/10 19:32:51 zerochaos Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/gnuradio/ChangeLog,v 1.41 2014/03/09 14:13:47 zerochaos Exp $
+
+*gnuradio-3.7.3 (09 Mar 2014)
+*gnuradio-3.7.2.2 (09 Mar 2014)
+
+  09 Mar 2014; Rick Farina <zerochaos@gentoo.org> +gnuradio-3.7.2.2.ebuild,
+  +gnuradio-3.7.3.ebuild, -gnuradio-3.6.5.1.ebuild, -gnuradio-3.7.2.1.ebuild:
+  bump, remove non-python-r1 ebuilds
+
+*gnuradio-3.6.5.1-r2 (05 Mar 2014)
+*gnuradio-3.7.2.1-r2 (05 Mar 2014)
+
+  05 Mar 2014; Rick Farina <zerochaos@gentoo.org> +gnuradio-3.6.5.1-r2.ebuild,
+  +gnuradio-3.7.2.1-r2.ebuild, -gnuradio-3.6.5.1-r1.ebuild,
+  -gnuradio-3.7.2.1-r1.ebuild, gnuradio-9999.ebuild:
+  fix python shebang issue thanks to mgorny, minor fixes
+
+  03 Mar 2014; Rick Farina <zerochaos@gentoo.org> gnuradio-3.6.5.1-r1.ebuild,
+  gnuradio-3.7.2.1-r1.ebuild, gnuradio-9999.ebuild:
+  python-single-r1 fixes, shouldn't affect installed users
+
+*gnuradio-3.7.2.1-r1 (03 Mar 2014)
+*gnuradio-3.6.5.1-r1 (03 Mar 2014)
+
+  03 Mar 2014; Rick Farina <zerochaos@gentoo.org> +gnuradio-3.6.5.1-r1.ebuild,
+  +gnuradio-3.7.2.1-r1.ebuild, gnuradio-9999.ebuild:
+  merge all versions together, remove base.eclass inherit and migrate, migrate
+  from python to python-single-r1
+
+  02 Mar 2014; Rick Farina <zerochaos@gentoo.org> -gnuradio-3.7.1.1.ebuild,
+  -gnuradio-3.7.2.ebuild:
+  remove old
+
+*gnuradio-3.7.2.1 (30 Nov 2013)
+
+  30 Nov 2013; Rick Farina <zerochaos@gentoo.org> +gnuradio-3.7.2.1.ebuild:
+  new bugfix release
+
+  18 Nov 2013; Rick Farina <zerochaos@gentoo.org> gnuradio-3.6.5.1.ebuild,
+  gnuradio-3.7.1.1.ebuild, gnuradio-3.7.2.ebuild, gnuradio-9999.ebuild:
+  fix disabling qt wrt bug #491392
+
+  18 Nov 2013; Rick Farina <zerochaos@gentoo.org> -gnuradio-3.7.0.ebuild,
+  -gnuradio-3.7.1.ebuild:
+  cleanup old ebuilds
+
+*gnuradio-3.7.2 (12 Nov 2013)
+*gnuradio-3.7.1.1 (12 Nov 2013)
+
+  12 Nov 2013; Rick Farina <zerochaos@gentoo.org> +gnuradio-3.7.1.1.ebuild,
+  +gnuradio-3.7.2.ebuild, gnuradio-3.7.1.ebuild, metadata.xml:
+  version bumps, tested against a few things, both seem to work well
+
+*gnuradio-3.7.1 (31 Aug 2013)
+
+  31 Aug 2013; Rick Farina <zerochaos@gentoo.org> +gnuradio-3.7.1.ebuild:
+  bump to 3.7.1, tested
+
+  10 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -gnuradio-3.6.2-r1.ebuild, -gnuradio-3.6.2.ebuild, -gnuradio-3.6.3.ebuild,
+  -gnuradio-3.6.4.1-r1.ebuild, -gnuradio-3.6.4.1.ebuild,
+  -gnuradio-3.6.4.2.ebuild, -gnuradio-3.6.4.ebuild, -gnuradio-3.6.5.ebuild,
+  gnuradio-3.6.5.1.ebuild, gnuradio-3.7.0.ebuild, gnuradio-9999.ebuild:
+  Use subslot dependencies for boost. Drop some old versions.
+
+*gnuradio-3.7.0 (07 Jul 2013)
+
+  07 Jul 2013; Rick Farina <zerochaos@gentoo.org> +gnuradio-3.7.0.ebuild:
+  adding gnuradio 3.7 (p.masked)
+
+*gnuradio-3.6.5.1 (29 Jun 2013)
+
+  29 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +gnuradio-3.6.5.1.ebuild:
+  Version bump.
+
+  05 Jun 2013; Rick Farina <zerochaos@gentoo.org> gnuradio-3.6.4.2.ebuild,
+  gnuradio-3.6.5.ebuild, gnuradio-9999.ebuild:
+  adding ~arm keyword
+
+  03 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  gnuradio-3.6.5.ebuild:
+  Disable test requiring gr-filter with USE="-filter".
+
+*gnuradio-3.6.4.2 (30 May 2013)
+*gnuradio-3.6.5 (30 May 2013)
+
+  30 May 2013; Rick Farina <zerochaos@gentoo.org> +gnuradio-3.6.4.2.ebuild,
+  +gnuradio-3.6.5.ebuild:
+  maintanence release update
+
+*gnuradio-3.6.4.1-r1 (20 Apr 2013)
+
+  20 Apr 2013; Rick Farina <zerochaos@gentoo.org> +gnuradio-3.6.4.1-r1.ebuild,
+  gnuradio-9999.ebuild:
+  adding new revisions for subslot support
+
+*gnuradio-3.6.4.1 (18 Mar 2013)
+
+  18 Mar 2013; Rick Farina <zerochaos@gentoo.org> +gnuradio-3.6.4.1.ebuild,
+  -gnuradio-3.5.3.2.ebuild, metadata.xml:
+  bugfix release, remove old ebuild
+
+*gnuradio-3.6.4 (12 Mar 2013)
+
+  12 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +gnuradio-3.6.4.ebuild, gnuradio-9999.ebuild, metadata.xml:
+  Version bump. Block known broken boost, bug #461578.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> gnuradio-3.5.3.2.ebuild,
+  gnuradio-3.6.2-r1.ebuild, gnuradio-3.6.2.ebuild, gnuradio-3.6.3.ebuild,
+  gnuradio-9999.ebuild:
+  Move Qt dependencies to the new category
 
 *gnuradio-3.6.3 (10 Jan 2013)
 

@@ -2,7 +2,5 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
-  <use>
-    <flag name="oldpim">Allow the use of non-akonadi kdepim-4.4</flag>
-  </use>
+	<maintainer><email>dilfridge@gentoo.org</email></maintainer>
 </pkgmetadata>

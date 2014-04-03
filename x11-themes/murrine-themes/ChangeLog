@@ -1,6 +1,14 @@
 # ChangeLog for x11-themes/murrine-themes
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/murrine-themes/ChangeLog,v 1.15 2012/11/17 16:29:53 blueness Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-themes/murrine-themes/ChangeLog,v 1.17 2014/03/11 20:10:39 pacho Exp $
+
+  11 Mar 2014; Pacho Ramos <pacho@gentoo.org> -murrine-themes-0.90.0-r1.ebuild,
+  metadata.xml:
+  Cleanup due #239126
+
+  22 May 2013; Anthony G. Basile <blueness@gentoo.org>
+  murrine-themes-0.98.0.ebuild:
+  Keyword ~arm, request by joost_op in #sabayon-dev
 
   17 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
   murrine-themes-0.98.0.ebuild:

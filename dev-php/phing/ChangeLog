@@ -1,6 +1,17 @@
 # ChangeLog for dev-php/phing
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/phing/ChangeLog,v 1.10 2012/07/03 14:48:05 mabi Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-php/phing/ChangeLog,v 1.13 2014/01/04 19:52:17 mabi Exp $
+
+*phing-2.6.1 (04 Jan 2014)
+
+  04 Jan 2014; Matti Bickel <mabi@gentoo.org> +phing-2.6.1.ebuild:
+  version bump
+
+  17 Aug 2013; Patrick Lauer <patrick@gentoo.org> -phing-2.4.5.ebuild:
+  QA: Punt version with broken deps
+
+  15 May 2013; Ole Markus With <olemarkus@gentoo.org> phing-2.4.9.ebuild:
+  Fix phing dependency on php's xsl extension
 
   03 Jul 2012; Matti Bickel <mabi@gentoo.org> phing-2.4.5.ebuild,
   phing-2.4.9.ebuild:
@@ -92,4 +103,3 @@
   15 Mar 2005; Sebastian Bergmann <sebastian@gentoo.org> +metadata.xml,
   +phing-2.0.0.ebuild:
   New ebuild.
-

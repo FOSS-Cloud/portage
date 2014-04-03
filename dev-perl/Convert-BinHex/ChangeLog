@@ -1,6 +1,42 @@
 # ChangeLog for dev-perl/Convert-BinHex
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Convert-BinHex/ChangeLog,v 1.19 2012/06/24 12:58:33 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Convert-BinHex/ChangeLog,v 1.30 2014/01/20 08:38:56 zlogene Exp $
+
+  19 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> Convert-BinHex-1.123.0.ebuild:
+  sparc stable wrt bug #492102
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> Convert-BinHex-1.123.0.ebuild:
+  Stable for ppc64, wrt bug #492102
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> Convert-BinHex-1.123.0.ebuild:
+  Stable for ia64, wrt bug #492102
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> Convert-BinHex-1.123.0.ebuild:
+  Stable for ppc, wrt bug #492102
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> Convert-BinHex-1.123.0.ebuild:
+  x86 stable wrt bug #492102
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> Convert-BinHex-1.123.0.ebuild:
+  amd64 stable wrt bug #492102
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> Convert-BinHex-1.123.0.ebuild:
+  alpha stable wrt bug #492102
+
+  01 Jan 2014; Jeroen Roovers <jer@gentoo.org> Convert-BinHex-1.123.0.ebuild:
+  Stable for HPPA (bug #492102).
+
+*Convert-BinHex-1.123.0 (13 Sep 2013)
+
+  13 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  +Convert-BinHex-1.123.0.ebuild:
+  Bump
+
+*Convert-BinHex-1.122.0 (03 Sep 2013)
+
+  03 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  +Convert-BinHex-1.122.0.ebuild:
+  Bump
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

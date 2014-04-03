@@ -1,6 +1,27 @@
 # ChangeLog for perl-core/Getopt-Long
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/Getopt-Long/ChangeLog,v 1.41 2012/08/27 17:40:29 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/Getopt-Long/ChangeLog,v 1.46 2013/11/17 11:10:05 grobian Exp $
+
+  17 Nov 2013; Fabian Groffen <grobian@gentoo.org> Getopt-Long-2.420.0.ebuild:
+  Marked ~x86-solaris
+
+*Getopt-Long-2.420.0 (28 Oct 2013)
+
+  28 Oct 2013; Patrick Lauer <patrick@gentoo.org> +Getopt-Long-2.420.0.ebuild:
+  Bump
+
+  20 Aug 2013; Fabian Groffen <grobian@gentoo.org> Getopt-Long-2.410.0.ebuild:
+  Marked ~x64-macos
+
+*Getopt-Long-2.410.0 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> +Getopt-Long-2.410.0.ebuild:
+  Bump
+
+*Getopt-Long-2.390.0 (13 Mar 2013)
+
+  13 Mar 2013; Torsten Veller <tove@gentoo.org> +Getopt-Long-2.390.0.ebuild:
+  Version bump
 
   27 Aug 2012; Raúl Porcel <armin76@gentoo.org> Getopt-Long-2.380.0.ebuild:
   arm/s390/sh stable

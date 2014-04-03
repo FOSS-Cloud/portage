@@ -1,6 +1,20 @@
 # ChangeLog for dev-python/simpy
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/simpy/ChangeLog,v 1.7 2012/08/26 09:09:27 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/simpy/ChangeLog,v 1.10 2014/03/12 07:17:48 jlec Exp $
+
+  12 Mar 2014; Justin Lecher <jlec@gentoo.org> simpy-3.0.3.ebuild:
+  Fix doc installation, #504184
+
+*simpy-3.0.3 (07 Mar 2014)
+
+  07 Mar 2014; Justin Lecher <jlec@gentoo.org> +simpy-3.0.3.ebuild:
+  Version Bump,# 503702
+
+*simpy-2.3.1-r1 (04 Jun 2013)
+
+  04 Jun 2013; Justin Lecher <jlec@gentoo.org> +simpy-2.3.1-r1.ebuild,
+  metadata.xml:
+  Bump to new python eclasses
 
 *simpy-2.3.1 (26 Aug 2012)
 

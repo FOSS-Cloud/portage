@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/razorqt-base/libqtxdg/libqtxdg-0.5.2.ebuild,v 1.1 2013/01/19 13:33:30 yngwin Exp $
+# $Header: /var/cvsroot/gentoo-x86/razorqt-base/libqtxdg/libqtxdg-0.5.2.ebuild,v 1.4 2013/04/05 14:40:32 ago Exp $
 
 EAPI=4
 inherit cmake-utils
@@ -15,7 +15,7 @@ if [[ ${PV} = *9999* ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="http://www.razor-qt.org/downloads/files/razorqt-${PV}.tar.bz2"
-	KEYWORDS="~amd64 ~ppc ~x86"
+	KEYWORDS="amd64 ~ppc x86"
 	S="${WORKDIR}/razorqt-${PV}"
 fi
 
@@ -24,8 +24,8 @@ SLOT="0"
 IUSE=""
 
 DEPEND="sys-apps/file
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
 	!<razorqt-base/razorqt-meta-0.5.0
 	!x11-wm/razorqt"
 RDEPEND="${DEPEND}

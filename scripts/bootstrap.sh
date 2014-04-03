@@ -1,7 +1,7 @@
 #!/bin/bash
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/scripts/bootstrap.sh,v 1.96 2012/10/23 02:25:23 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/scripts/bootstrap.sh,v 1.98 2014/03/13 16:11:27 williamh Exp $
 
 # people who were here:
 # (drobbins, 06 Jun 2003)
@@ -12,22 +12,25 @@
 # (azarah, Mar 2005)
 # (uberlord, May 2007)
 # (kumba, May 2007)
+# (williamh, Mar 2014)
 
 # sanity check
 [[ -e /etc/profile ]] && . /etc/profile
 
-if [[ -e /etc/init.d/functions.sh ]] ; then
+if [[ -e /lib/gentoo/functions.sh ]] ; then
+	source /lib/gentoo/functions.sh
+	elif [[ -e /etc/init.d/functions.sh ]] ; then
 	source /etc/init.d/functions.sh
-
-	# Use our own custom script, else logger cause things to
-	# 'freeze' if we do not have a system logger running
-	esyslog() {
-		:
-	}
 else
 	eerror() { echo "!!! $*"; }
 	einfo() { echo "* $*"; }
 fi
+
+# Use our own custom script, else logger cause things to
+# 'freeze' if we do not have a system logger running
+esyslog() {
+	:
+}
 
 show_status() {
 	local num=$1
@@ -52,7 +55,7 @@ v_echo() {
 	env "$@"
 }
 
-cvsver="$Header: /var/cvsroot/gentoo-x86/scripts/bootstrap.sh,v 1.96 2012/10/23 02:25:23 zmedico Exp $"
+cvsver="$Header: /var/cvsroot/gentoo-x86/scripts/bootstrap.sh,v 1.98 2014/03/13 16:11:27 williamh Exp $"
 cvsver=${cvsver##*,v }
 cvsver=${cvsver%%Exp*}
 cvsyear=${cvsver#* }
@@ -304,10 +307,6 @@ echo ---------------------------------------------------------------------------
 [[ -x /usr/sbin/gcc-config ]] && GCC_CONFIG="/usr/sbin/gcc-config"
 [[ -x /usr/bin/gcc-config  ]] && GCC_CONFIG="/usr/bin/gcc-config"
 
-# Make sure we automatically clean old instances, else we may run
-# into issues, bug #32140.
-export AUTOCLEAN="yes"
-
 # Allow portage to overwrite stuff
 export CONFIG_PROTECT="-*"
 
@@ -350,7 +349,6 @@ if [[ -n ${STRAP_RUN} ]] ; then
 	if [[ -x ${GCC_CONFIG} ]] && ${GCC_CONFIG} --get-current-profile &>/dev/null
 	then
 		# Make sure we get the old gcc unmerged ...
-		emerge --clean || cleanup 1
 		emerge --prune sys-devel/gcc || cleanup 1
 		# Make sure the profile and /lib/cpp and /usr/bin/cc are valid ...
 		${GCC_CONFIG} "$(${GCC_CONFIG} --get-current-profile)" &>/dev/null

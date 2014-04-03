@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/cairo-ocaml/cairo-ocaml-1.2.0.ebuild,v 1.1 2012/06/18 20:01:27 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/cairo-ocaml/cairo-ocaml-1.2.0.ebuild,v 1.3 2014/01/15 23:59:30 bicatali Exp $
 
-EAPI=4
+EAPI=5
 
 inherit eutils findlib autotools
 
@@ -11,13 +11,13 @@ HOMEPAGE="http://www.cairographics.org/cairo-ocaml/"
 SRC_URI="http://cgit.freedesktop.org/cairo-ocaml/snapshot/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
-SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+SLOT="0/${PV}"
+KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc examples gtk pango svg"
 
-RDEPEND="dev-lang/ocaml
+RDEPEND="dev-lang/ocaml:=
 	x11-libs/cairo
-	gtk? ( dev-ml/lablgtk:2 )
+	gtk? ( dev-ml/lablgtk:2= )
 	pango? ( x11-libs/pango )
 	svg? ( x11-libs/libsvg-cairo )"
 DEPEND="${RDEPEND}"

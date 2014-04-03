@@ -1,6 +1,26 @@
 # ChangeLog for app-emacs/jasmin
-# Copyright 2000-2008 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/jasmin/ChangeLog,v 1.14 2008/01/22 08:00:11 opfer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/jasmin/ChangeLog,v 1.19 2014/03/19 17:23:27 ulm Exp $
+
+  19 Mar 2014; Ulrich Müller <ulm@gentoo.org> -jasmin-1.2-r1.ebuild,
+  -files/60jasmin-gentoo.el:
+  Remove old.
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> jasmin-1.2-r2.ebuild:
+  Stable for alpha, wrt bug #500908
+
+  24 Feb 2014; Chema Alonso <nimiux@gentoo.org> jasmin-1.2-r2.ebuild:
+  Stable for amd64 wrt bug #500908
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> jasmin-1.2-r2.ebuild:
+  x86 stable wrt bug #500908
+
+*jasmin-1.2-r2 (29 Dec 2013)
+
+  29 Dec 2013; Ulrich Müller <ulm@gentoo.org> jasmin-1.2-r1.ebuild,
+  +jasmin-1.2-r2.ebuild, +files/50jasmin-gentoo.el:
+  Update site-init file. Bump EAPI to 5. Drop to unstable keyword on s390.
+  Specify LICENSE more precisely.
 
   22 Jan 2008; Christian Faulhammer <opfer@gentoo.org>
   -files/50jasmin-gentoo.el, -jasmin-1.2.ebuild:
@@ -45,4 +65,3 @@
   31 Oct 2003; <mkennedy@gentoo.org> jasmin-1.2.ebuild, metadata.xml,
   files/50jasmin-gentoo.el:
   initial import. ebuild contributed by Matthew Kennedy <mkennedy@gentoo.org>
-

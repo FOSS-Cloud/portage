@@ -1,6 +1,21 @@
 # ChangeLog for media-plugins/vdr-ttxtsubs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-ttxtsubs/ChangeLog,v 1.17 2012/01/02 18:38:57 hd_brummy Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-ttxtsubs/ChangeLog,v 1.20 2014/01/08 11:33:51 hd_brummy Exp $
+
+  08 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  vdr-ttxtsubs-0.1.0.ebuild:
+  converted to vdr-plugin-2.eclass
+
+
+  02 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  vdr-ttxtsubs-0.3.0.ebuild:
+  stable amd64 x86, wrt bug 495782
+
+*vdr-ttxtsubs-0.3.0 (31 Mar 2013)
+
+  31 Mar 2013; Joerg Bornkessel <hd_brummy@gentoo.org>
+  +vdr-ttxtsubs-0.3.0.ebuild:
+  bump, taken from vdr-devel overlay
 
   02 Jan 2012; Joerg Bornkessel <hd_brummy@gentoo.org>
   -vdr-ttxtsubs-0.0.5_p2-r1.ebuild, -vdr-ttxtsubs-0.0.8.ebuild,

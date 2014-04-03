@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/python-utils-r1.eclass,v 1.32 2013/09/05 09:59:52 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/python-utils-r1.eclass,v 1.52 2014/03/13 08:10:46 mgorny Exp $
 
 # @ECLASS: python-utils-r1
 # @MAINTAINER:
@@ -10,7 +10,7 @@
 # Based on work of: Krzysztof Pawlik <nelchael@gentoo.org>
 # @BLURB: Utility functions for packages with Python parts.
 # @DESCRIPTION:
-# An utility eclass providing functions to query Python implementations,
+# A utility eclass providing functions to query Python implementations,
 # install Python modules and scripts.
 #
 # This eclass does not set any metadata variables nor export any phase
@@ -21,7 +21,6 @@
 
 case "${EAPI:-0}" in
 	0|1|2|3|4|5)
-		# EAPI=4 makes die behavior clear
 		;;
 	*)
 		die "Unsupported EAPI=${EAPI} (unknown) for ${ECLASS}"
@@ -34,7 +33,7 @@ fi
 
 if [[ ! ${_PYTHON_UTILS_R1} ]]; then
 
-inherit multilib toolchain-funcs
+inherit eutils multilib toolchain-funcs
 
 # @ECLASS-VARIABLE: _PYTHON_ALL_IMPLS
 # @INTERNAL
@@ -42,8 +41,8 @@ inherit multilib toolchain-funcs
 # All supported Python implementations, most preferred last.
 _PYTHON_ALL_IMPLS=(
 	jython2_5 jython2_7
-	pypy2_0
-	python3_2 python3_3
+	pypy2_0 pypy
+	python3_2 python3_3 python3_4
 	python2_6 python2_7
 )
 
@@ -67,11 +66,16 @@ _python_impl_supported() {
 	# keep in sync with _PYTHON_ALL_IMPLS!
 	# (not using that list because inline patterns shall be faster)
 	case "${impl}" in
-		python2_[67]|python3_[23]|pypy2_0|jython2_[57])
+		python2_[67]|python3_[234]|pypy2_0|jython2_[57])
 			return 0
 			;;
 		pypy1_[89]|python2_5|python3_1)
 			return 1
+			;;
+		pypy)
+			if [[ ${EAPI:-0} == [01234] ]]; then
+				die "PyPy is supported in EAPI 5 and newer only."
+			fi
 			;;
 		*)
 			die "Invalid implementation in PYTHON_COMPAT: ${impl}"
@@ -195,6 +199,18 @@ _python_impl_supported() {
 # dev-lang/python:2.7[xml]
 # @CODE
 
+# @ECLASS-VARIABLE: PYTHON_SCRIPTDIR
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# The location where Python scripts must be installed for current impl.
+#
+# Set and exported on request using python_export().
+#
+# Example value:
+# @CODE
+# /usr/lib/python-exec/python2.7
+# @CODE
+
 # @FUNCTION: python_export
 # @USAGE: [<impl>] <variables>...
 # @DESCRIPTION:
@@ -217,6 +233,10 @@ python_export() {
 	case "${1}" in
 		python*|jython*)
 			impl=${1/_/.}
+			shift
+			;;
+		pypy)
+			impl=${1}
 			shift
 			;;
 		pypy-c*)
@@ -252,7 +272,7 @@ python_export() {
 						dir=/usr/$(get_libdir)/${impl}
 						;;
 					jython*)
-						dir=/usr/share/${impl}/Lib
+						dir=/usr/share/${impl/n/n-}/Lib
 						;;
 					pypy*)
 						dir=/usr/$(get_libdir)/${impl/-c/}
@@ -268,11 +288,11 @@ python_export() {
 					python*)
 						dir=/usr/include/${impl}
 						;;
-					jython*)
-						dir=/usr/share/${impl}/Include
-						;;
 					pypy*)
 						dir=/usr/$(get_libdir)/${impl/-c/}/include
+						;;
+					*)
+						die "${impl} lacks header files"
 						;;
 				esac
 
@@ -338,18 +358,27 @@ python_export() {
 			PYTHON_PKG_DEP)
 				local d
 				case ${impl} in
+					python2.6)
+						PYTHON_PKG_DEP='>=dev-lang/python-2.6.8-r3:2.6';;
+					python2.7)
+						PYTHON_PKG_DEP='>=dev-lang/python-2.7.5-r2:2.7';;
+					python3.2)
+						PYTHON_PKG_DEP='>=dev-lang/python-3.2.5-r2:3.2';;
+					python3.3)
+						PYTHON_PKG_DEP='>=dev-lang/python-3.3.2-r2:3.3';;
 					python*)
-						PYTHON_PKG_DEP='dev-lang/python';;
-					jython*)
-						PYTHON_PKG_DEP='dev-java/jython';;
-					pypy*)
-						PYTHON_PKG_DEP='virtual/pypy';;
+						PYTHON_PKG_DEP="dev-lang/python:${impl#python}";;
+					pypy-c2.0)
+						PYTHON_PKG_DEP='>=virtual/pypy-2.0.2:2.0';;
+					pypy)
+						PYTHON_PKG_DEP='virtual/pypy:0=';;
+					jython2.5)
+						PYTHON_PKG_DEP='>=dev-java/jython-2.5.3-r2:2.5';;
+					jython2.7)
+						PYTHON_PKG_DEP='dev-java/jython:2.7';;
 					*)
 						die "Invalid implementation: ${impl}"
 				esac
-
-				# slot
-				PYTHON_PKG_DEP+=:${impl##*[a-z-]}
 
 				# use-dep
 				if [[ ${PYTHON_REQ_USE} ]]; then
@@ -359,40 +388,15 @@ python_export() {
 				export PYTHON_PKG_DEP
 				debug-print "${FUNCNAME}: PYTHON_PKG_DEP = ${PYTHON_PKG_DEP}"
 				;;
+			PYTHON_SCRIPTDIR)
+				local dir
+				export PYTHON_SCRIPTDIR=${EPREFIX}/usr/lib/python-exec/${impl}
+				debug-print "${FUNCNAME}: PYTHON_SCRIPTDIR = ${PYTHON_SCRIPTDIR}"
+				;;
 			*)
 				die "python_export: unknown variable ${var}"
 		esac
 	done
-}
-
-# @FUNCTION: python_get_PYTHON
-# @USAGE: [<impl>]
-# @DESCRIPTION:
-# Obtain and print the path to the Python interpreter for the given
-# implementation. If no implementation is provided, ${EPYTHON} will
-# be used.
-#
-# If you just need to have PYTHON set (and exported), then it is better
-# to use python_export() directly instead.
-python_get_PYTHON() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	python_export "${@}" PYTHON
-	echo "${PYTHON}"
-}
-
-# @FUNCTION: python_get_EPYTHON
-# @USAGE: <impl>
-# @DESCRIPTION:
-# Obtain and print the EPYTHON value for the given implementation.
-#
-# If you just need to have EPYTHON set (and exported), then it is better
-# to use python_export() directly instead.
-python_get_EPYTHON() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	python_export "${@}" EPYTHON
-	echo "${EPYTHON}"
 }
 
 # @FUNCTION: python_get_sitedir
@@ -475,6 +479,19 @@ python_get_LIBS() {
 	echo "${PYTHON_LIBS}"
 }
 
+# @FUNCTION: python_get_scriptdir
+# @USAGE: [<impl>]
+# @DESCRIPTION:
+# Obtain and print the script install path for the given
+# implementation. If no implementation is provided, ${EPYTHON} will
+# be used.
+python_get_scriptdir() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	python_export "${@}" PYTHON_SCRIPTDIR
+	echo "${PYTHON_SCRIPTDIR}"
+}
+
 # @FUNCTION: _python_rewrite_shebang
 # @USAGE: [<EPYTHON>] <path>...
 # @INTERNAL
@@ -553,36 +570,36 @@ _python_rewrite_shebang() {
 _python_ln_rel() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local from=${1}
-	local to=${2}
+	local target=${1}
+	local symname=${2}
 
-	local frpath=${from%/*}/
-	local topath=${to%/*}/
-	local rel_path=
+	local tgpath=${target%/*}/
+	local sympath=${symname%/*}/
+	local rel_target=
 
-	while [[ ${topath} ]]; do
-		local frseg= toseg=
+	while [[ ${sympath} ]]; do
+		local tgseg= symseg=
 
-		while [[ ! ${frseg} && ${frpath} ]]; do
-			frseg=${frpath%%/*}
-			frpath=${frpath#${frseg}/}
+		while [[ ! ${tgseg} && ${tgpath} ]]; do
+			tgseg=${tgpath%%/*}
+			tgpath=${tgpath#${tgseg}/}
 		done
 
-		while [[ ! ${toseg} && ${topath} ]]; do
-			toseg=${topath%%/*}
-			topath=${topath#${toseg}/}
+		while [[ ! ${symseg} && ${sympath} ]]; do
+			symseg=${sympath%%/*}
+			sympath=${sympath#${symseg}/}
 		done
 
-		if [[ ${frseg} != ${toseg} ]]; then
-			rel_path=../${rel_path}${frseg:+${frseg}/}
+		if [[ ${tgseg} != ${symseg} ]]; then
+			rel_target=../${rel_target}${tgseg:+${tgseg}/}
 		fi
 	done
-	rel_path+=${frpath}${1##*/}
+	rel_target+=${tgpath}${target##*/}
 
-	debug-print "${FUNCNAME}: ${from} -> ${to}"
-	debug-print "${FUNCNAME}: rel_path = ${rel_path}"
+	debug-print "${FUNCNAME}: ${symname} -> ${target}"
+	debug-print "${FUNCNAME}: rel_target = ${rel_target}"
 
-	ln -fs "${rel_path}" "${to}"
+	ln -fs "${rel_target}" "${symname}"
 }
 
 # @FUNCTION: python_optimize
@@ -677,6 +694,69 @@ python_scriptinto() {
 	python_scriptroot=${1}
 }
 
+# @FUNCTION: python_doexe
+# @USAGE: <files>...
+# @DESCRIPTION:
+# Install the given executables into current python_scriptroot,
+# for the current Python implementation (${EPYTHON}).
+#
+# The executable will be wrapped properly for the Python implementation,
+# though no shebang mangling will be performed.
+python_doexe() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local f
+	for f; do
+		python_newexe "${f}" "${f##*/}"
+	done
+}
+
+# @FUNCTION: python_newexe
+# @USAGE: <path> <new-name>
+# Install the given executable into current python_scriptroot,
+# for the current Python implementation (${EPYTHON}).
+#
+# The executable will be wrapped properly for the Python implementation,
+# though no shebang mangling will be performed. It will be renamed
+# to <new-name>.
+python_newexe() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	[[ ${EPYTHON} ]] || die 'No Python implementation set (EPYTHON is null).'
+	[[ ${#} -eq 2 ]] || die "Usage: ${FUNCNAME} <path> <new-name>"
+
+	local d=${python_scriptroot:-${DESTTREE}/bin}
+	local wrapd=${d}
+
+	local f=${1}
+	local barefn=${2}
+	local newfn
+
+	if _python_want_python_exec2; then
+		local PYTHON_SCRIPTDIR
+		python_export PYTHON_SCRIPTDIR
+		d=${PYTHON_SCRIPTDIR#${EPREFIX}}
+		newfn=${barefn}
+	else
+		newfn=${barefn}-${EPYTHON}
+	fi
+
+	(
+		dodir "${wrapd}"
+		exeinto "${d}"
+		newexe "${f}" "${newfn}" || die
+	)
+
+	# install the wrapper
+	_python_ln_rel "${ED%/}"$(_python_get_wrapper_path) \
+		"${ED%/}/${wrapd}/${barefn}" || die
+
+	# don't use this at home, just call python_doscript() instead
+	if [[ ${_PYTHON_REWRITE_SHEBANG} ]]; then
+		_python_rewrite_shebang "${ED%/}/${d}/${newfn}"
+	fi
+}
+
 # @FUNCTION: python_doscript
 # @USAGE: <files>...
 # @DESCRIPTION:
@@ -684,8 +764,8 @@ python_scriptinto() {
 # for the current Python implementation (${EPYTHON}).
 #
 # All specified files must start with a 'python' shebang. The shebang
-# will be converted, the file will be renamed to be EPYTHON-suffixed
-# and a wrapper will be installed in place of the original name.
+# will be converted, and the files will be wrapped properly
+# for the Python implementation.
 #
 # Example:
 # @CODE
@@ -696,10 +776,8 @@ python_scriptinto() {
 python_doscript() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local f
-	for f; do
-		python_newscript "${f}" "${f##*/}"
-	done
+	local _PYTHON_REWRITE_SHEBANG=1
+	python_doexe "${@}"
 }
 
 # @FUNCTION: python_newscript
@@ -710,8 +788,8 @@ python_doscript() {
 # <new-name>.
 #
 # The file must start with a 'python' shebang. The shebang will be
-# converted, the file will be renamed to be EPYTHON-suffixed
-# and a wrapper will be installed in place of the <new-name>.
+# converted, and the file will be wrapped properly for the Python
+# implementation. It will be renamed to <new-name>.
 #
 # Example:
 # @CODE
@@ -722,26 +800,8 @@ python_doscript() {
 python_newscript() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ ${EPYTHON} ]] || die 'No Python implementation set (EPYTHON is null).'
-	[[ ${#} -eq 2 ]] || die "Usage: ${FUNCNAME} <path> <new-name>"
-
-	local d=${python_scriptroot:-${DESTTREE}/bin}
-	local INSDESTTREE INSOPTIONS
-
-	insinto "${d}"
-	insopts -m755
-
-	local f=${1}
-	local barefn=${2}
-
-	local newfn=${barefn}-${EPYTHON}
-
-	debug-print "${FUNCNAME}: ${f} -> ${d}/${newfn}"
-	newins "${f}" "${newfn}" || die
-	_python_rewrite_shebang "${ED}/${d}/${newfn}"
-
-	# install the wrapper
-	_python_ln_rel "${ED}"/usr/bin/python-exec "${ED}/${d}/${barefn}" || die
+	local _PYTHON_REWRITE_SHEBANG=1
+	python_newexe "${@}"
 }
 
 # @ECLASS-VARIABLE: python_moduleroot
@@ -954,6 +1014,40 @@ python_is_python3() {
 	[[ ${impl} ]] || die "python_is_python3: no impl nor EPYTHON"
 
 	[[ ${impl} == python3* ]]
+}
+
+# @FUNCTION: _python_want_python_exec2
+# @INTERNAL
+# @DESCRIPTION:
+# Check whether we should be using python-exec:2.
+_python_want_python_exec2() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	# EAPI 4 lacks slot operators, so just fix it on python-exec:2.
+	[[ ${EAPI} == 4 ]] && return 0
+
+	# Check if we cached the result, or someone put an override.
+	if [[ ! ${_PYTHON_WANT_PYTHON_EXEC2+1} ]]; then
+		has_version 'dev-lang/python-exec:2'
+		_PYTHON_WANT_PYTHON_EXEC2=$(( ! ${?} ))
+	fi
+
+	# Non-zero means 'yes', zero means 'no'.
+	[[ ${_PYTHON_WANT_PYTHON_EXEC2} != 0 ]]
+}
+
+# @FUNCTION: _python_get_wrapper_path
+# @INTERNAL
+# @DESCRIPTION:
+# Output path to proper python-exec slot.
+_python_get_wrapper_path() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	if _python_want_python_exec2; then
+		echo /usr/lib/python-exec/python-exec2
+	else
+		echo /usr/bin/python-exec
+	fi
 }
 
 _PYTHON_UTILS_R1=1

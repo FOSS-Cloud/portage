@@ -1,6 +1,29 @@
 # ChangeLog for dev-java/jython
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jython/ChangeLog,v 1.85 2013/01/30 18:09:06 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/jython/ChangeLog,v 1.90 2014/03/10 16:57:18 johu Exp $
+
+  10 Mar 2014; Johannes Huber <johu@gentoo.org> jython-2.2.1-r2.ebuild:
+  x86 stable, bug #315557
+
+  04 Mar 2014; Pacho Ramos <pacho@gentoo.org> jython-2.2.1-r2.ebuild:
+  amd64 stable, bug 315557
+
+*jython-2.5.3-r3 (21 Sep 2013)
+
+  21 Sep 2013; Tom Wijsman <TomWij@gentoo.org> +jython-2.5.3-r3.ebuild,
+  -jython-2.5.3-r1.ebuild:
+  Pick correct jnr-constants dependency, fixes bug #479760 reported by Denny
+  Reeh. Removed oldest revision.
+
+  26 Mar 2013; Tim Harder <radhermit@gentoo.org> jython-2.7_beta1.ebuild:
+  Fix ant-junit dependency.
+
+*jython-2.7_beta1 (07 Mar 2013)
+
+  07 Mar 2013; Tim Harder <radhermit@gentoo.org> +jython-2.7_beta1.ebuild,
+  +files/jython-2.7_beta1-ant.patch,
+  +files/jython-2.7_beta1-dont-always-recompile-classes.patch:
+  Version bump.
 
   30 Jan 2013; Agostino Sarubbo <ago@gentoo.org> jython-2.5.3-r2.ebuild:
   Stable for x86, wrt bug #451630

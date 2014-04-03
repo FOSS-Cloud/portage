@@ -1,6 +1,60 @@
 # ChangeLog for net-libs/libkolabxml
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libkolabxml/ChangeLog,v 1.13 2013/02/23 17:27:08 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libkolabxml/ChangeLog,v 1.28 2014/02/21 18:00:14 kensington Exp $
+
+*libkolabxml-1.0.1 (21 Feb 2014)
+
+  21 Feb 2014; Michael Palimaka <kensington@gentoo.org>
+  +libkolabxml-1.0.1.ebuild:
+  Version bump.
+
+  09 Jun 2013; Johannes Huber <johu@gentoo.org> -libkolabxml-0.8.3.ebuild:
+  Remove old.
+
+  08 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libkolabxml-0.8.4.ebuild:
+  Stable for ppc64, wrt bug #471392
+
+  06 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libkolabxml-0.8.4.ebuild:
+  Stable for ppc, wrt bug #471392
+
+  05 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libkolabxml-0.8.4.ebuild:
+  Stable for x86, wrt bug #471392
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libkolabxml-0.8.4.ebuild:
+  Stable for amd64, wrt bug #471392
+
+*libkolabxml-0.8.4 (10 May 2013)
+
+  10 May 2013; Johannes Huber <johu@gentoo.org> +libkolabxml-0.8.4.ebuild,
+  metadata.xml:
+  Version bump.
+
+  05 May 2013; Johannes Huber <johu@gentoo.org> -libkolabxml-0.8.1.ebuild:
+  Remove old.
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> libkolabxml-0.8.3.ebuild:
+  Stable for ppc64, wrt bug #466074
+
+  01 May 2013; Agostino Sarubbo <ago@gentoo.org> libkolabxml-0.8.3.ebuild:
+  Stable for ppc, wrt bug #466074
+
+  30 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libkolabxml-0.8.3.ebuild:
+  Stable for x86, wrt bug #466074
+
+  29 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libkolabxml-0.8.3.ebuild:
+  Stable for amd64, wrt bug #466074
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libkolabxml-0.8.1.ebuild:
+  Stable for ppc64, wrt bug #462890
+
+*libkolabxml-0.8.3 (18 Mar 2013)
+
+  18 Mar 2013; Michael Palimaka <kensington@gentoo.org>
+  +libkolabxml-0.8.3.ebuild:
+  Version bump.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> libkolabxml-0.8.1.ebuild:
+  Move Qt dependencies to the new category
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libkolabxml-0.8.1.ebuild:
   Add ~ppc64, wrt bug #455960

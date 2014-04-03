@@ -1,6 +1,18 @@
 # ChangeLog for sci-chemistry/pointless
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pointless/ChangeLog,v 1.34 2012/10/19 15:19:34 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pointless/ChangeLog,v 1.37 2013/08/16 06:48:51 jlec Exp $
+
+  16 Aug 2013; Justin Lecher <jlec@gentoo.org> pointless-1.6.14-r1.ebuild:
+  Add back python eclass
+
+*pointless-1.6.14-r1 (15 Aug 2013)
+
+  15 Aug 2013; Justin Lecher <jlec@gentoo.org> +pointless-1.6.14-r1.ebuild,
+  metadata.xml:
+  Bump EAPI, drop pointless python.eclass usage
+
+  19 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> metadata.xml:
+  Changed herd to sci-chemistry
 
   19 Oct 2012; Justin Lecher <jlec@gentoo.org> +pointless-1.6.14.ebuild,
   -pointless-1.6.15.ebuild:
@@ -160,4 +172,3 @@
   06 Feb 2010; Justin Lecher <jlec@gentoo.org>
   +pointless-1.4.8.ebuild, +metadata.xml:
   Splitted pointless from ccp4
-

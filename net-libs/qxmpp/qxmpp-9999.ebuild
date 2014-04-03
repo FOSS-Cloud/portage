@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/qxmpp/qxmpp-9999.ebuild,v 1.12 2013/01/14 16:53:52 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/qxmpp/qxmpp-9999.ebuild,v 1.15 2013/08/19 16:33:28 maksbotan Exp $
 
 EAPI=5
 
@@ -14,13 +14,14 @@ HOMEPAGE="http://code.google.com/p/qxmpp/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug doc test"
+IUSE="debug doc +speex test theora vpx"
 
-RDEPEND="x11-libs/qt-core:4
-	x11-libs/qt-gui:4
-	media-libs/speex"
+RDEPEND="dev-qt/qtcore:4
+	speex? ( media-libs/speex )
+	theora? ( media-libs/libtheora )
+	vpx? ( media-libs/libvpx )"
 DEPEND="${RDEPEND}
-	test? ( x11-libs/qt-test:4 )"
+	test? ( dev-qt/qttest:4 )"
 
 src_prepare(){
 	if ! use doc; then
@@ -37,13 +38,21 @@ src_prepare(){
 }
 
 src_configure(){
-	eqmake4 "${S}"/qxmpp.pro "PREFIX=${EPREFIX}/usr" "LIBDIR=$(get_libdir)"
+	local conf_speex
+	local conf_theora
+	local conf_vpx
+
+	use speex && conf_speex="QXMPP_USE_SPEEX=1"
+	use theora && conf_theora="QXMPP_USE_THEORA=1"
+	use vpx && conf_vpx="QXMPP_USE_VPX=1"
+
+	eqmake4 "${S}"/qxmpp.pro "PREFIX=${EPREFIX}/usr" "LIBDIR=$(get_libdir)" "${conf_speex}" "${conf_theora}" "${conf_vpx}"
 }
 
 src_install() {
 	qt4-r2_src_install
 	if use doc; then
 		# Use proper path for documentation
-		mv "${ED}"/usr/share/doc/${PN} "${ED}"/usr/share/doc/${P} || die "doc mv failed"
+		mv "${ED}"/usr/share/doc/${PN} "${ED}"/usr/share/doc/${PF} || die "doc mv failed"
 	fi
 }

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/vtk/vtk-5.10.1.ebuild,v 1.5 2013/01/17 21:15:03 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/vtk/vtk-5.10.1.ebuild,v 1.9 2013/07/23 14:12:22 kensington Exp $
 
 EAPI=3
 
@@ -40,8 +40,8 @@ RDEPEND="
 	x11-libs/libXt
 	cg? ( media-gfx/nvidia-cg-toolkit )
 	examples? (
-		x11-libs/qt-core:4[qt3support]
-		x11-libs/qt-gui:4[qt3support] )
+		dev-qt/qtcore:4[qt3support]
+		dev-qt/qtgui:4[qt3support] )
 	ffmpeg? ( virtual/ffmpeg )
 	java? ( >=virtual/jre-1.5 )
 	mpi? ( virtual/mpi[cxx,romio] )
@@ -50,11 +50,11 @@ RDEPEND="
 	postgres? ( dev-db/postgresql-base )
 	python? ( dev-python/sip )
 	qt4? (
-		x11-libs/qt-core:4
-		x11-libs/qt-gui:4
-		x11-libs/qt-opengl:4
-		x11-libs/qt-sql:4
-		x11-libs/qt-webkit:4
+		dev-qt/qtcore:4
+		|| ( ( >=dev-qt/qtgui-4.8.5:4 dev-qt/designer:4 ) <dev-qt/qtgui-4.8.5:4 )
+		dev-qt/qtopengl:4
+		dev-qt/qtsql:4
+		dev-qt/qtwebkit:4
 		python? ( dev-python/PyQt4	)
 		)
 	tk? ( dev-lang/tk )
@@ -78,6 +78,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.6.1-libav-0.8.patch
 	"${FILESDIR}"/${P}-tcl8.6.patch
 	"${FILESDIR}"/${P}-ffmpeg-1.patch
+	"${FILESDIR}"/${P}-libav-9.patch
 	)
 
 pkg_setup() {

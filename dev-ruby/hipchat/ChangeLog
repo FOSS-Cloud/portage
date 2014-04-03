@@ -1,0 +1,14 @@
+# ChangeLog for dev-ruby/hipchat
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hipchat/ChangeLog,v 1.2 2014/04/01 19:47:55 graaff Exp $
+
+*hipchat-1.1.0 (01 Apr 2014)
+
+  01 Apr 2014; Hans de Graaff <graaff@gentoo.org> +hipchat-1.1.0.ebuild:
+  Version bump.
+
+*hipchat-0.14.0 (13 Dec 2013)
+
+  13 Dec 2013; Manuel Rüger <mrueg@gentoo.org> +hipchat-0.14.0.ebuild,
+  +metadata.xml:
+  Import from dev-zero's overlay.

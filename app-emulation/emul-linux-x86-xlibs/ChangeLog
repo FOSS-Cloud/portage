@@ -1,6 +1,40 @@
 # ChangeLog for app-emulation/emul-linux-x86-xlibs
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-xlibs/ChangeLog,v 1.120 2013/02/26 22:59:48 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-xlibs/ChangeLog,v 1.127 2013/11/22 19:34:49 pacho Exp $
+
+  22 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-xlibs-20131008.ebuild:
+  amd64 stable, bug #489898
+
+*emul-linux-x86-xlibs-20131008 (08 Oct 2013)
+
+  08 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-xlibs-20131008.ebuild, -emul-linux-x86-xlibs-20121202.ebuild,
+  -emul-linux-x86-xlibs-20130224-r2.ebuild:
+  Version bump, drop old
+
+  22 Aug 2013; Michał Górny <mgorny@gentoo.org> metadata.xml:
+  Change maintainer to the Gentoo multilib project.
+
+  31 Jul 2013; Ulrich Müller <ulm@gentoo.org>
+  emul-linux-x86-xlibs-20130224-r2.ebuild:
+  Don't download sources if they are not being installed.
+
+  30 Jul 2013; Ulrich Müller <ulm@gentoo.org>
+  emul-linux-x86-xlibs-20130224-r2.ebuild:
+  Fix LICENSE.
+
+*emul-linux-x86-xlibs-20130224-r2 (30 Jul 2013)
+
+  30 Jul 2013; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-xlibs-20130224-r2.ebuild,
+  -emul-linux-x86-xlibs-20130224-r1.ebuild:
+  Add a new version using USE=abi_x86_32 to compatibly support both the
+  gx86-multilib users and emul-linux users.
+
+  16 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-xlibs-20130224.ebuild:
+  amd64 stable, bug #461674
 
 *emul-linux-x86-xlibs-20130224-r1 (26 Feb 2013)
 

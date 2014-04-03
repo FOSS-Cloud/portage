@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/osgi-core-api/osgi-core-api-4.3.ebuild,v 1.3 2012/05/09 17:09:40 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/osgi-core-api/osgi-core-api-4.3.ebuild,v 1.6 2014/02/12 02:36:33 radhermit Exp $
 
 EAPI=4
 
@@ -10,9 +10,9 @@ inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="OSGi Service Platform Core API (Companion Code)"
 HOMEPAGE="http://www.osgi.org/Specifications/HomePage"
-SRC_URI="http://www.osgi.org/download/r4v${PV//./}/osgi.core.jar -> ${P}-all.zip"
+SRC_URI="http://www.osgi.org/download/r4v${PV//./}/osgi.core-${PV}.0.jar -> ${P}-all.zip"
 
-LICENSE="Apache-2.0"
+LICENSE="Apache-2.0 OSGi-Specification-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""

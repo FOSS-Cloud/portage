@@ -1,6 +1,25 @@
 # ChangeLog for media-sound/mp3diags
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/mp3diags/ChangeLog,v 1.14 2012/12/05 10:35:07 kensington Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/mp3diags/ChangeLog,v 1.18 2014/03/28 16:19:36 mrueg Exp $
+
+*mp3diags-1.2.01 (28 Mar 2014)
+
+  28 Mar 2014; Manuel Rüger <mrueg@gentoo.org> +mp3diags-1.2.01.ebuild,
+  -mp3diags-1.0.11.076.ebuild, -mp3diags-1.1.21.080.ebuild:
+  Version bump. Cleanup old. Fixes bug #498790.
+
+  28 Mar 2014; Manuel Rüger <mrueg@gentoo.org> metadata.xml:
+  Add myself as maintainer.
+
+*mp3diags-1.1.21.080 (31 Mar 2013)
+
+  31 Mar 2013; Markos Chandras <hwoarang@gentoo.org>
+  +mp3diags-1.1.21.080.ebuild, -mp3diags-1.1.19.075.ebuild:
+  Version bump
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> mp3diags-1.0.11.076.ebuild,
+  mp3diags-1.0.12.079.ebuild, mp3diags-1.1.19.075.ebuild:
+  Move Qt dependencies to the new category
 
 *mp3diags-1.0.12.079 (05 Dec 2012)
 

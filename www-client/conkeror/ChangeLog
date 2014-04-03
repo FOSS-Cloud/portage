@@ -1,6 +1,32 @@
 # ChangeLog for www-client/conkeror
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/conkeror/ChangeLog,v 1.34 2013/02/17 22:34:54 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/conkeror/ChangeLog,v 1.39 2014/02/13 22:03:23 ulm Exp $
+
+*conkeror-1.0_pre20140212 (13 Feb 2014)
+
+  13 Feb 2014; Ulrich Müller <ulm@gentoo.org>
+  +conkeror-1.0_pre20140212.ebuild, +files/conkeror-r2.sh:
+  New snapshot, fixes bug 497024. Assign default for MOZ_PLUGIN_PATH in wrapper
+  script, fixes bug 497070. Thanks to Jauhien Piatlicki <piatlicki@gmail.com>.
+
+  04 Jan 2014; Ulrich Müller <ulm@gentoo.org> conkeror-1.0_pre20120223.ebuild,
+  -conkeror-1.0_pre20130711.ebuild, conkeror-1.0_pre20131017.ebuild:
+  Depend on <firefox-26 until bug 497024 is properly fixed. Remove old.
+
+*conkeror-1.0_pre20131017 (27 Oct 2013)
+
+  27 Oct 2013; Ulrich Müller <ulm@gentoo.org>
+  -conkeror-1.0_pre20130213.ebuild, +conkeror-1.0_pre20131017.ebuild:
+  New snapshot. Remove intermediate version.
+
+  17 Aug 2013; Ulrich Müller <ulm@gentoo.org> conkeror-1.0_pre20130711.ebuild:
+  Require >=firefox-bin-23.0, bug 481406.
+
+*conkeror-1.0_pre20130711 (12 Aug 2013)
+
+  12 Aug 2013; Ulrich Müller <ulm@gentoo.org>
+  -conkeror-1.0_pre20120527.ebuild, +conkeror-1.0_pre20130711.ebuild:
+  New snapshot.
 
 *conkeror-1.0_pre20130213 (17 Feb 2013)
 

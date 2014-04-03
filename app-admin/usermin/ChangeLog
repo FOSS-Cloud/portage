@@ -1,6 +1,39 @@
 # ChangeLog for app-admin/usermin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/usermin/ChangeLog,v 1.154 2013/01/30 04:13:29 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/usermin/ChangeLog,v 1.160 2014/03/17 23:56:41 tomwij Exp $
+
+*usermin-1.590 (17 Mar 2014)
+
+  17 Mar 2014; Tom Wijsman <TomWij@gentoo.org> +usermin-1.590.ebuild,
+  usermin-1.570.ebuild:
+  Version bump to 1.590; fixes bug #504784, reported by Frank Krömmelbein.
+
+  08 Jan 2014; Mike Frysinger <vapier@gentoo.org> usermin-1.540-r1.ebuild,
+  usermin-1.570.ebuild:
+  Inherit the user eclass for enewuser/etc...
+
+*usermin-1.570 (21 Nov 2013)
+
+  21 Nov 2013; Patrick Lauer <patrick@gentoo.org> +usermin-1.570.ebuild:
+  Bump
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> usermin-1.430.ebuild:
+  Fix inherit
+
+*usermin-1.540-r1 (03 Apr 2013)
+
+  03 Apr 2013; Tom Wijsman <TomWij@gentoo.org> +files/usermin-1.540-r1.init,
+  +usermin-1.540-r1.ebuild, metadata.xml, usermin-1.540.ebuild:
+  Introduced dependencies and USE conditional dependencies that are mentioned
+  through out the usermin code. Make usermin run under the usermin user instead
+  of root to avoid future security issues. EAPI 5, moved code from src_unpack to
+  src_prepare. Cleanup of the src_install function. Bump, updated init script to
+  run under the usermin user.
+
+*usermin-1.540 (13 Mar 2013)
+
+  13 Mar 2013; Tom Wijsman <TomWij@gentoo.org> +usermin-1.540.ebuild:
+  Non-maintainer commit, version bump to 1.540.
 
 *usermin-1.530 (30 Jan 2013)
 

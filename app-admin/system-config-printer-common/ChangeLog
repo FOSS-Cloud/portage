@@ -1,6 +1,90 @@
 # ChangeLog for app-admin/system-config-printer-common
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/system-config-printer-common/ChangeLog,v 1.86 2012/12/15 21:46:52 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/system-config-printer-common/ChangeLog,v 1.103 2014/02/22 20:53:31 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  system-config-printer-common-1.4.3.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  system-config-printer-common-1.4.3.ebuild:
+  arch stable, bug 888
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  system-config-printer-common-1.4.3.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  system-config-printer-common-1.4.3.ebuild:
+  amd64 stable, bug #478252
+
+*system-config-printer-common-1.4.3 (30 Oct 2013)
+*system-config-printer-common-1.3.13 (30 Oct 2013)
+
+  30 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/system-config-printer-common-1.3.13-split.patch,
+  +system-config-printer-common-1.3.13.ebuild,
+  +system-config-printer-common-1.4.3.ebuild,
+  -files/system-config-printer-common-1.3.9-split.patch,
+  -system-config-printer-common-1.4.1.ebuild:
+  Version bump, drop old.
+
+*system-config-printer-common-1.4.2 (20 Oct 2013)
+
+  20 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +system-config-printer-common-1.4.2.ebuild,
+  -system-config-printer-common-1.3.11-r1.ebuild:
+  Version bump
+
+*system-config-printer-common-1.4.1 (11 Aug 2013)
+
+  11 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +system-config-printer-common-1.4.1.ebuild,
+  +files/system-config-printer-common-1.4.1-split.patch:
+  464958 478656 Version bump, bug #464958. Move to python-single-r1 and EAPI=5.
+  Always install systemd unit files and fix path to udev helpers with an
+  updated 'split' patch, bug #478656.
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  system-config-printer-common-1.3.12.ebuild:
+  Stable for sh, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  system-config-printer-common-1.3.12.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  system-config-printer-common-1.3.12.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  system-config-printer-common-1.3.12.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  system-config-printer-common-1.3.12.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  system-config-printer-common-1.3.12.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  system-config-printer-common-1.3.12.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  system-config-printer-common-1.3.12.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  system-config-printer-common-1.3.12.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -system-config-printer-common-1.3.9-r2.ebuild,
+  -files/system-config-printer-common-1.3.9-cups_filters_path.patch:
+  Clean up old revision.
 
   15 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   system-config-printer-common-1.3.12.ebuild:

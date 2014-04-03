@@ -1,6 +1,16 @@
 # ChangeLog for media-radio/cwdaemon
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/cwdaemon/ChangeLog,v 1.21 2013/02/07 08:57:38 tomjbe Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-radio/cwdaemon/ChangeLog,v 1.23 2014/02/02 13:32:21 tomjbe Exp $
+
+*cwdaemon-0.10.0 (02 Feb 2014)
+
+  02 Feb 2014; Thomas Beierlein <tomjbe@gentoo.org> +cwdaemon-0.10.0.ebuild:
+  Version bump
+
+*cwdaemon-0.9.7 (26 Aug 2013)
+
+  26 Aug 2013; Patrick Lauer <patrick@gentoo.org> +cwdaemon-0.9.7.ebuild:
+  Bump
 
   07 Feb 2013; Thomas Beierlein <tomjbe@gentoo.org> cwdaemon-0.9.2.ebuild:
   Drop unneeded awk dep (bug #455734)
@@ -101,4 +111,3 @@
 
   27 Jun 2004; Robb Romans <killsoft@gentoo.org> +metadata.xml:
   Initial import.
-

@@ -1,6 +1,76 @@
 # ChangeLog for sys-apps/kexec-tools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kexec-tools/ChangeLog,v 1.46 2012/03/18 07:46:02 jlec Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kexec-tools/ChangeLog,v 1.61 2013/12/28 20:27:31 jlec Exp $
+
+  28 Dec 2013; Justin Lecher <jlec@gentoo.org> kexec-tools-9999.ebuild,
+  files/kexec.init-9999:
+  Propagate changes to live ebuild
+
+*kexec-tools-2.0.4-r3 (28 Dec 2013)
+
+  28 Dec 2013; Justin Lecher <jlec@gentoo.org> +kexec-tools-2.0.4-r3.ebuild,
+  +files/90_kexec:
+  Add postinst script for installkernel(8), #491044
+
+  12 Nov 2013; Justin Lecher <jlec@gentoo.org> kexec-tools-2.0.4-r1.ebuild,
+  kexec-tools-2.0.4-r2.ebuild, kexec-tools-9999.ebuild:
+  Fix missing deps and inter USE dependencies, thanks Arfrever spotting this
+
+  12 Nov 2013; Justin Lecher <jlec@gentoo.org> kexec-tools-2.0.4-r1.ebuild,
+  kexec-tools-2.0.4-r2.ebuild, kexec-tools-9999.ebuild,
+  +files/kexec-tools-2.0.4-out-of-source.patch:
+  Readd USE=zlib and fix out-of-source build, #490326
+
+  11 Nov 2013; Justin Lecher <jlec@gentoo.org> kexec-tools-2.0.4-r1.ebuild,
+  kexec-tools-2.0.4-r2.ebuild, kexec-tools-9999.ebuild:
+  Drop USE=zlib as it is always requiered, #490326
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> kexec-tools-2.0.4-r2.ebuild:
+  Stable for x86, wrt bug #486308
+
+  20 Oct 2013; Pacho Ramos <pacho@gentoo.org> kexec-tools-2.0.4-r2.ebuild:
+  amd64 stable, bug #486308
+
+  27 Sep 2013; Mike Frysinger <vapier@gentoo.org> files/README.Gentoo,
+  files/kexec-tools-2.0.0-respect-LDFLAGS.patch:
+  Tweak patch so we use CFLAGS when linking.
+
+*kexec-tools-2.0.4-r2 (21 Sep 2013)
+
+  21 Sep 2013; Justin Lecher <jlec@gentoo.org> +kexec-tools-2.0.4-r2.ebuild,
+  kexec-tools-9999.ebuild, -files/kexec.conf-2.0.3, -files/kexec.init-2.0.3,
+  +files/kexec.init-2.0.4-r2, +files/kexec.conf-9999, +files/kexec.init-9999,
+  files/kexec.conf, -files/kexec.init, -files/kexec.init-ng,
+  +files/kexec.service:
+  Add support for systemd, #478072; Fix issues with openrc init scripts,
+  #481506; thanks BobbyK for the patches
+
+  11 Aug 2013; Justin Lecher <jlec@gentoo.org> -kexec-tools-2.0.2-r1.ebuild,
+  -kexec-tools-2.0.3.ebuild, -kexec-tools-2.0.3-r1.ebuild:
+  Drop old, fixes #430610
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> kexec-tools-2.0.4-r1.ebuild:
+  Stable for x86, wrt bug #478070
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> kexec-tools-2.0.4-r1.ebuild:
+  Stable for amd64, wrt bug #478070
+
+  01 Apr 2013; Justin Lecher <jlec@gentoo.org> files/kexec.init-2.0.4:
+  Fix bashism in init script, #463752
+
+*kexec-tools-2.0.4-r1 (30 Mar 2013)
+
+  30 Mar 2013; Justin Lecher <jlec@gentoo.org> files/kexec.init-2.0.4,
+  -kexec-tools-2.0.4.ebuild, +kexec-tools-2.0.4-r1.ebuild:
+  Fix init script if no initrd is used, #463752
+
+*kexec-tools-2.0.4 (27 Mar 2013)
+
+  27 Mar 2013; Justin Lecher <jlec@gentoo.org> files/kexec.init-2.0.3,
+  +files/kexec.conf-2.0.4, +files/kexec.init-2.0.4, +kexec-tools-2.0.4.ebuild,
+  +files/kexec-tools-2.0.4-disable-kexec-test.patch, metadata.xml:
+  Version BUmp; drop bashism from initscript, #447548; enhanced detection of
+  kernel and initrd image, #412039
 
 *kexec-tools-2.0.3-r1 (18 Mar 2012)
 
@@ -256,4 +326,3 @@
   Justus Winter <justus@sunny-winter.de>, Radoslaw -AstralStorm- Szkodzinski
   <astralstorm@gmail.com>, Daniel Webert <rockoo@gmail.com> and Carlos Silva
   <r3pek@r3pek.homelinux.org> in bug 50313
-

@@ -1,6 +1,105 @@
 # ChangeLog for dev-util/glade
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/glade/ChangeLog,v 1.180 2013/01/29 01:49:26 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/glade/ChangeLog,v 1.205 2014/03/09 11:56:21 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> glade-3.16.1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> glade-3.16.1.ebuild:
+  amd64 stable, bug 499954
+
+  26 Feb 2014; Pacho Ramos <pacho@gentoo.org> glade-3.16.1.ebuild:
+  Add missing DEPEND (#502520 by Andrew Church)
+
+  26 Feb 2014; Pacho Ramos <pacho@gentoo.org> glade-3.16.1.ebuild:
+  Add missing DEPENDs (#502484 by Andrew Church)
+
+  23 Feb 2014; Pacho Ramos <pacho@gentoo.org> -glade-3.16.0.ebuild,
+  glade-3.16.1.ebuild:
+  Drop python-2.6 support as pygobject-3.10 did, drop old
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> glade-3.16.1.ebuild,
+  glade-3.8.4.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> glade-3.14.2.ebuild,
+  glade-3.16.1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> glade-3.14.2.ebuild,
+  glade-3.16.1.ebuild, glade-3.8.4.ebuild:
+  Fix wrong commit, bug 502160
+
+  11 Feb 2014; Justin Lecher <jlec@gentoo.org>
+  +files/glade-3.16.1-underlinking.patch, glade-3.16.1.ebuild:
+  Add fix for underlinking (https://bugzilla.gnome.org/show_bug.cgi?id=724104)
+
+*glade-3.16.1 (09 Feb 2014)
+
+  09 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> glade-3.16.0.ebuild,
+  +glade-3.16.1.ebuild:
+  Version bump.
+
+*glade-3.16.0 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +glade-3.16.0.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> glade-3.14.2.ebuild,
+  glade-3.8.4.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> glade-3.14.2.ebuild,
+  glade-3.8.4.ebuild:
+  amd64 stable, bug #478252
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> glade-3.14.2.ebuild:
+  arm stable, bug #476364
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> glade-3.8.4.ebuild:
+  arm stable, bug #476364
+
+*glade-3.8.4 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +glade-3.8.4.ebuild,
+  -glade-3.12.1.ebuild, -glade-3.8.2.ebuild:
+  Version bump, drop old
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> glade-3.12.2.ebuild,
+  glade-3.8.3.ebuild:
+  Stable for sh, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> glade-3.12.2.ebuild,
+  glade-3.8.3.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> glade-3.12.2.ebuild,
+  glade-3.8.3.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> glade-3.12.2.ebuild,
+  glade-3.8.3.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> glade-3.12.2.ebuild,
+  glade-3.8.3.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> glade-3.12.2.ebuild,
+  glade-3.8.3.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> glade-3.12.2.ebuild,
+  glade-3.8.3.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> glade-3.12.2.ebuild,
+  glade-3.8.3.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> glade-3.12.2.ebuild,
+  glade-3.8.3.ebuild:
+  Stable for amd64, wrt bug #458984
 
   29 Jan 2013; Alexis Ballier <aballier@gentoo.org> glade-3.14.2.ebuild:
   keyword ~amd64-fbsd

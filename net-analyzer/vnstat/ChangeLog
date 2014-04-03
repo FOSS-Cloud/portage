@@ -1,6 +1,12 @@
 # ChangeLog for net-analyzer/vnstat
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/vnstat/ChangeLog,v 1.62 2012/06/12 03:36:17 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/vnstat/ChangeLog,v 1.64 2014/02/22 02:50:18 jer Exp $
+
+  22 Feb 2014; Jeroen Roovers <jer@gentoo.org> vnstat-1.11-r2.ebuild:
+  Remove virtual/cron dependency by Alex Xu (bug #485286).
+
+  18 Sep 2013; Jeroen Roovers <jer@gentoo.org> -vnstat-1.10-r1.ebuild:
+  Old.
 
   12 Jun 2012; Zac Medico <zmedico@gentoo.org> vnstat-1.10-r1.ebuild,
   vnstat-1.11-r2.ebuild:

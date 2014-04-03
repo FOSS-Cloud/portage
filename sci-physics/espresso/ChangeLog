@@ -1,6 +1,24 @@
 # ChangeLog for sci-physics/espresso
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-physics/espresso/ChangeLog,v 1.12 2013/02/09 18:56:26 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-physics/espresso/ChangeLog,v 1.16 2013/12/11 12:44:33 jlec Exp $
+
+  11 Dec 2013; Justin Lecher <jlec@gentoo.org> espresso-3.2.0.ebuild:
+  Drop unnecessay dep
+
+  11 Dec 2013; Justin Lecher <jlec@gentoo.org> -espresso-3.1.0.ebuild,
+  -espresso-3.1.1.ebuild, -espresso-3.1.2.ebuild, espresso-3.2.0.ebuild,
+  metadata.xml:
+  Drop old; fix python handling
+
+*espresso-3.2.0 (11 May 2013)
+
+  11 May 2013; Christoph Junghans <ottxor@gentoo.org> +espresso-3.2.0.ebuild:
+  version bump
+
+*espresso-3.1.2 (09 Mar 2013)
+
+  09 Mar 2013; Christoph Junghans <ottxor@gentoo.org> +espresso-3.1.2.ebuild:
+  version bump
 
   09 Feb 2013; Pacho Ramos <pacho@gentoo.org> espresso-3.1.1.ebuild:
   Use readme.gentoo.eclass for elog message (#456068)

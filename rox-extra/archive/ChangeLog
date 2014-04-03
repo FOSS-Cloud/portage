@@ -1,6 +1,27 @@
 # ChangeLog for rox-extra/archive
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/rox-extra/archive/ChangeLog,v 1.23 2011/03/28 12:30:56 scarabeus Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/rox-extra/archive/ChangeLog,v 1.29 2014/03/23 13:52:26 kensington Exp $
+
+  23 Mar 2014; Michael Palimaka <kensington@gentoo.org> -archive-2.2.ebuild:
+  Remove old.
+
+  23 Mar 2014; Agostino Sarubbo <ago@gentoo.org> archive-2.3.ebuild:
+  Stable for x86, wrt bug #495912
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> archive-2.3.ebuild:
+  Stable for ppc, wrt bug #495912
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> archive-2.3.ebuild:
+  amd64 stable, bug #495912
+
+*archive-2.3 (26 Aug 2013)
+
+  26 Aug 2013; Patrick Lauer <patrick@gentoo.org> +archive-2.3.ebuild:
+  Bump
+
+  02 Mar 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due http://gentoo.2317880.n4.nabble.com/rox-herd-looks-inactive-for-a
+  -long-time-td257264.html
 
   28 Mar 2011; Tomáš Chvátal <scarabeus@gentoo.org> archive-2.2.ebuild:
   Do not depend on virtual/gzip but rather on app-arch/gzip.
@@ -93,4 +114,3 @@
   +archive-1.9.4.ebuild:
   First commit of archive rox app. Thanks to Alexander Simonov for the ebuild.
   (Bug #51996).
-

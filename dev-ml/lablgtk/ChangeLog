@@ -1,6 +1,24 @@
 # ChangeLog for dev-ml/lablgtk
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/lablgtk/ChangeLog,v 1.103 2012/12/30 15:07:35 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/lablgtk/ChangeLog,v 1.108 2014/01/16 00:02:18 bicatali Exp $
+
+  16 Jan 2014; Sébastien Fabbro <bicatali@gentoo.org> lablgtk-2.18.0.ebuild:
+  Keyworded amd64-linux, x86-linux
+
+*lablgtk-2.18.0 (12 Oct 2013)
+
+  12 Oct 2013; Alexis Ballier <aballier@gentoo.org> +lablgtk-2.18.0.ebuild:
+  version bump
+
+  19 Aug 2013; Alexis Ballier <aballier@gentoo.org> -lablgtk-2.14.2.ebuild:
+  remove old
+
+  02 Jun 2013; Ulrich Müller <ulm@gentoo.org> lablgtk-2.14.2.ebuild,
+  lablgtk-2.16.0.ebuild:
+  Fix license of examples, bug 448410.
+
+  10 Mar 2013; Alexis Ballier <aballier@gentoo.org> lablgtk-2.16.0.ebuild:
+  eapi5: define subslot, use slot deps on ocaml packages
 
   30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> lablgtk-2.16.0.ebuild:
   Stable for alpha, wrt bug #441202

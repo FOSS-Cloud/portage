@@ -1,6 +1,32 @@
 # ChangeLog for dev-cpp/atkmm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/atkmm/ChangeLog,v 1.32 2012/05/04 03:44:58 jdhore Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/atkmm/ChangeLog,v 1.40 2014/02/22 21:08:09 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> atkmm-2.22.7.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> atkmm-2.22.7.ebuild:
+  arch stable, bug 888
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> atkmm-2.22.7.ebuild:
+  Stable for HPPA (bug #478252).
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> atkmm-2.22.7.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> atkmm-2.22.7.ebuild:
+  amd64 stable, bug #478252
+
+  03 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org> atkmm-2.22.7.ebuild:
+  Fix glibmm dependency.
+
+*atkmm-2.22.7 (24 Apr 2013)
+
+  24 Apr 2013; Pacho Ramos <pacho@gentoo.org> +atkmm-2.22.7.ebuild:
+  Version bump
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -atkmm-2.22.5.ebuild:
+  Clean up old revision.
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org> atkmm-2.22.5.ebuild,
   atkmm-2.22.6.ebuild:
@@ -116,4 +142,3 @@
   30 Oct 2010; Pacho Ramos <pacho@gentoo.org> +atkmm-2.22.0.ebuild,
   +metadata.xml:
   C++ interface for the ATK library has been splitted off from gtkmm.
-

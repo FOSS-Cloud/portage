@@ -1,6 +1,25 @@
 # ChangeLog for media-sound/mangler
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/mangler/ChangeLog,v 1.22 2013/02/03 12:42:51 prometheanfire Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/mangler/ChangeLog,v 1.27 2014/01/14 13:54:39 ago Exp $
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> mangler-1.2.5-r1.ebuild:
+  Stable for x86, wrt bug #495796
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> mangler-1.2.5-r1.ebuild:
+  amd64 stable, bug #495796
+
+*mangler-1.2.5-r1 (18 Jun 2013)
+
+  18 Jun 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +mangler-1.2.5-r1.ebuild, -mangler-1.2.1.ebuild, -mangler-1.2.2.ebuild,
+  metadata.xml:
+  fixed the mangler not respecting cc bug 444046
+
+  10 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mangler-1.2.5.ebuild:
+  Stable for x86, wrt bug #461192
+
+  10 Mar 2013; Agostino Sarubbo <ago@gentoo.org> mangler-1.2.5.ebuild:
+  Stable for amd64, wrt bug #461192
 
   03 Feb 2013; Matthew Thode <prometheanfire@gentoo.org> mangler-1.2.5.ebuild:
   update to eapi5

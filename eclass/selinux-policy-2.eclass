@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/selinux-policy-2.eclass,v 1.19 2013/05/07 09:25:17 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/selinux-policy-2.eclass,v 1.21 2014/03/30 09:14:56 swift Exp $
 
 # Eclass for installing SELinux policy, and optionally
 # reloading the reference-policy based modules.
@@ -59,7 +59,7 @@
 extra_eclass=""
 case ${BASEPOL} in
 	9999)	extra_eclass="git-2";
-			EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/hardened-refpolicy.git";
+			EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/hardened-refpolicy.git https://git.overlays.gentoo.org/gitroot/proj/hardened-refpolicy.git";
 			EGIT_SOURCEDIR="${WORKDIR}/refpolicy";;
 esac
 
@@ -205,7 +205,14 @@ selinux-policy-2_src_prepare() {
 # Build the SELinux policy module (.pp file) for just the selected module, and
 # this for each SELinux policy mentioned in POLICY_TYPES
 selinux-policy-2_src_compile() {
+	local makeuse=""
+	for useflag in ${IUSE};
+	do
+		use ${useflag} && makeuse="${makeuse} -D use_${useflag}"
+	done
 	for i in ${POLICY_TYPES}; do
+		# Support USE flags in builds
+		export M4PARAM="${makeuse}"
 		# Parallel builds are broken, so we need to force -j1 here
 		emake -j1 NAME=$i -C "${S}"/${i} || die "${i} compile failed"
 	done

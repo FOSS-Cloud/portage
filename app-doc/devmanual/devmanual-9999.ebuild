@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-doc/devmanual/devmanual-9999.ebuild,v 1.6 2013/02/26 18:31:19 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-doc/devmanual/devmanual-9999.ebuild,v 1.9 2013/11/12 18:36:02 hwoarang Exp $
 
 EAPI=5
 
@@ -18,14 +18,26 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh
 IUSE=""
 
 DEPEND="dev-libs/libxslt
-	media-gfx/imagemagick[truetype]"
+	media-gfx/imagemagick[truetype,svg,png]"
 
 DOC_CONTENTS="In order to browse the Gentoo Development Guide in
 	offline mode, point your browser to the following url:
-	/usr/share/doc/devmanual-9999/html/index.html"
+	/usr/share/doc/devmanual/html/index.html"
+
+src_compile() {
+	# Imagemagick uses inkscape (if present) to delegate
+	# svg conversions.
+	# Inkscape uses g_get_user_config_dir () which in turn
+	# uses XDG_CONFIG_HOME to get the config directory for this
+	# user. See bug 463380
+	export XDG_CONFIG_HOME="${T}/inkscape_home"
+	emake
+}
 
 src_install() {
 	dohtml -r *
+	einfo "Creating symlink from ${P} to ${PN} for preserving bookmarks"
+	dosym /usr/share/doc/${P} /usr/share/doc/${PN}
 	readme.gentoo_create_doc
 }
 

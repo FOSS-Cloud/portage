@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/vigra/vigra-1.8.0.ebuild,v 1.2 2012/08/24 22:05:44 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/vigra/vigra-1.8.0.ebuild,v 1.4 2013/04/11 17:35:21 vincent Exp $
 
-EAPI=4
+EAPI=5
 
 PYTHON_DEPEND="python? 2:2.6"
 PYTHON_USE_WITH_OPT="python"
@@ -18,7 +18,7 @@ SRC_URI="http://hci.iwr.uni-heidelberg.de/vigra/${MY_P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="amd64 ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="doc +fftw +hdf5 +jpeg openexr +png +python test +tiff"
 
 RDEPEND="
@@ -26,9 +26,9 @@ RDEPEND="
 	fftw? ( sci-libs/fftw:3.0 )
 	hdf5? ( sci-libs/hdf5 )
 	jpeg? ( virtual/jpeg )
-	openexr? ( media-libs/openexr )
-	png? ( media-libs/libpng:0 )
-	tiff? ( media-libs/tiff:0 )
+	openexr? ( media-libs/openexr:= )
+	png? ( media-libs/libpng:0= )
+	tiff? ( media-libs/tiff:0= )
 "
 DEPEND="${RDEPEND}
 	doc? (

@@ -1,6 +1,54 @@
 # ChangeLog for net-voip/telepathy-haze
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/telepathy-haze/ChangeLog,v 1.37 2013/02/02 23:08:09 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-voip/telepathy-haze/ChangeLog,v 1.49 2014/02/22 22:36:18 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> telepathy-haze-0.8.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> telepathy-haze-0.8.0.ebuild:
+  arch stable, bug 888
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> telepathy-haze-0.8.0.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> telepathy-haze-0.8.0.ebuild:
+  amd64 stable, bug #478252
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> -telepathy-haze-0.7.1.ebuild,
+  metadata.xml:
+  Cleanup due voip herd removal:
+  http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+*telepathy-haze-0.8.0 (04 Oct 2013)
+
+  04 Oct 2013; Pacho Ramos <pacho@gentoo.org> +telepathy-haze-0.8.0.ebuild,
+  -files/001-handle_purple_account_request_password.patch,
+  -files/002-fix_resource_leakage.patch,
+  -files/003-fix_more_resource_leaks.patch, -telepathy-haze-0.7.0.ebuild:
+  Version bump, drop old
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> telepathy-haze-0.7.1.ebuild:
+  Add missing PYTHON_DEPS
+
+*telepathy-haze-0.7.1 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +telepathy-haze-0.7.1.ebuild:
+  Version bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> telepathy-haze-0.7.0.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*telepathy-haze-0.7.0 (21 Apr 2013)
+
+  21 Apr 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/001-handle_purple_account_request_password.patch,
+  +files/002-fix_resource_leakage.patch,
+  +files/003-fix_more_resource_leaks.patch, +telepathy-haze-0.7.0.ebuild:
+  Version bump, bug #466256 by Andreas Mielke
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -telepathy-haze-0.5.0.ebuild:
+  Clean up old revision.
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> telepathy-haze-0.6.0.ebuild:
   Add ~arm, wrt bug #449220

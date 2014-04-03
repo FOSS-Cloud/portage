@@ -1,6 +1,23 @@
 # ChangeLog for media-libs/tremor
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/tremor/ChangeLog,v 1.14 2013/02/23 10:21:07 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/tremor/ChangeLog,v 1.18 2013/12/29 15:59:35 aballier Exp $
+
+*tremor-0_pre20130223-r1 (29 Dec 2013)
+
+  29 Dec 2013; Alexis Ballier <aballier@gentoo.org>
+  +tremor-0_pre20130223-r1.ebuild:
+  convert to multilib, bug #496390
+
+  14 Oct 2013; Agostino Sarubbo <ago@gentoo.org> tremor-0_pre20120120.ebuild:
+  Stable for arm, wrt bug #480908
+
+  12 May 2013; Markus Meier <maekke@gentoo.org> tremor-0_pre20130223.ebuild:
+  add ~arm, bug #453200
+
+  11 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  tremor-0_pre20130223.ebuild:
+  Use AC_CONFIG_HEADERS instead of the obsolete AM_CONFIG_HEADER for
+  automake-1.13 compability by maekke
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> tremor-0_pre20120120.ebuild:
   Stable for hppa, wrt bug #458188

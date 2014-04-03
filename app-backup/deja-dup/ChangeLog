@@ -1,6 +1,89 @@
 # ChangeLog for app-backup/deja-dup
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/deja-dup/ChangeLog,v 1.29 2013/02/05 07:40:57 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-backup/deja-dup/ChangeLog,v 1.48 2014/03/28 14:40:21 jlec Exp $
+
+*deja-dup-30.0 (28 Mar 2014)
+
+  28 Mar 2014; Justin Lecher <jlec@gentoo.org> +deja-dup-30.0.ebuild:
+  Version Bump
+
+  06 Mar 2014; Justin Lecher <jlec@gentoo.org> -deja-dup-22.1.ebuild,
+  -deja-dup-26.0.ebuild, -deja-dup-27.3.1.ebuild, -deja-dup-29.1-r1.ebuild,
+  deja-dup-29.5.ebuild:
+  Update dep versions, #503542
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> deja-dup-29.5.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> deja-dup-29.5.ebuild:
+  arch stable, bug 888
+
+*deja-dup-29.5 (31 Jan 2014)
+
+  31 Jan 2014; Justin Lecher <jlec@gentoo.org> +deja-dup-29.5.ebuild,
+  +files/deja-dup-29.5-cmake.patch, -deja-dup-29.4.ebuild:
+  Version BUmp
+
+*deja-dup-29.4 (13 Jan 2014)
+
+  13 Jan 2014; Justin Lecher <jlec@gentoo.org> +deja-dup-29.4.ebuild:
+  Version Bump
+
+  24 Dec 2013; Tom Wijsman <TomWij@gentoo.org>
+  -files/deja-dup-23.2-add-missing-include.patch,
+  -files/deja-dup-25.1.1-desktop.patch:
+  [QA] Remove unused files.
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> deja-dup-28.0.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> deja-dup-28.0.ebuild:
+  amd64 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> deja-dup-28.0.ebuild:
+  28.0 doesn't compile with vala-0.22
+
+*deja-dup-29.1-r1 (19 Nov 2013)
+
+  19 Nov 2013; Justin Lecher <jlec@gentoo.org> -deja-dup-29.1.ebuild,
+  +deja-dup-29.1-r1.ebuild:
+  Fix RPATH usage, #491674
+
+  19 Nov 2013; Justin Lecher <jlec@gentoo.org> deja-dup-29.1.ebuild:
+  Set vala max version, #491586
+
+*deja-dup-29.1 (17 Nov 2013)
+
+  17 Nov 2013; Justin Lecher <jlec@gentoo.org> +deja-dup-29.1.ebuild,
+  +files/deja-dup-29.1-cmake-backport-1.patch,
+  +files/deja-dup-29.1-cmake-backport-2.patch:
+  Version BUmp
+
+*deja-dup-28.0 (25 Sep 2013)
+
+  25 Sep 2013; Justin Lecher <jlec@gentoo.org> +deja-dup-28.0.ebuild:
+  Version Bump
+
+  18 Sep 2013; Justin Lecher <jlec@gentoo.org> deja-dup-27.3.1.ebuild:
+  Add missing runtime dep on dconf, #483520
+
+*deja-dup-27.3.1 (20 Jun 2013)
+
+  20 Jun 2013; Justin Lecher <jlec@gentoo.org> +deja-dup-27.3.1.ebuild:
+  Version Bump
+
+  07 Apr 2013; Justin Lecher <jlec@gentoo.org> deja-dup-22.1.ebuild:
+  Add missing eclass phase functions calls
+
+  07 Apr 2013; Justin Lecher <jlec@gentoo.org> deja-dup-22.1.ebuild,
+  -deja-dup-24.0.ebuild, -deja-dup-25.1.1.ebuild, -deja-dup-25.3.ebuild,
+  -deja-dup-25.5.ebuild:
+  Drop old; make all ebuilds use vala.eclass, #463720
+
+*deja-dup-26.0 (28 Mar 2013)
+
+  28 Mar 2013; Justin Lecher <jlec@gentoo.org> +deja-dup-26.0.ebuild:
+  Version Bump
 
   05 Feb 2013; Justin Lecher <jlec@gentoo.org> -deja-dup-23.2.ebuild,
   -deja-dup-23.4.ebuild, deja-dup-25.1.1.ebuild, deja-dup-25.3.ebuild,
@@ -132,4 +215,3 @@
   +metadata.xml:
   New addition, thanks Alexander van der Mey, Yoan Blanc, Manuel Wiesinger,
   Helmut Eberharter writting the initial ebuilds, #259744
-

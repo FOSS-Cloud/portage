@@ -1,6 +1,104 @@
 # ChangeLog for x11-libs/libxcb
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libxcb/ChangeLog,v 1.110 2013/02/25 23:09:58 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libxcb/ChangeLog,v 1.134 2014/03/29 20:13:45 mattst88 Exp $
+
+  29 Mar 2014; Matt Turner <mattst88@gentoo.org> libxcb-1.10.ebuild:
+  alpha stable, bug #500368.
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> libxcb-1.10.ebuild:
+  Stable for HPPA (bug #500368).
+
+  27 Mar 2014; Agostino Sarubbo <ago@gentoo.org> libxcb-1.10.ebuild:
+  Stable for amd64, wrt bug #500368
+
+  26 Mar 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -files/libxcb-1.7-interix.patch, -files/libxcb-1.8-waitall-hang.patch,
+  -files/libxcb-1.8.1-multithread-deadlock.patch,
+  -files/libxcb-1.9-python-3-exception.patch,
+  -files/libxcb-1.9-python-3-iteritems.patch, -libxcb-1.7.ebuild,
+  -libxcb-1.8-r1.ebuild, -libxcb-1.8.1-r1.ebuild, -libxcb-1.8.1.ebuild,
+  -libxcb-1.8.ebuild, -libxcb-1.9-r1.ebuild, -libxcb-1.9.ebuild:
+  Remove old/vulnerable versions, bug #471098.
+
+  27 Jan 2014; Mike Gilbert <floppym@gentoo.org> libxcb-1.10.ebuild:
+  Drop python3_1 (again).
+
+*libxcb-1.10 (26 Jan 2014)
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org> +libxcb-1.10.ebuild:
+  Version bumped to 1.10, bug 496800.
+
+*libxcb-1.9.3-r1 (11 Jan 2014)
+
+  11 Jan 2014; Michał Górny <mgorny@gentoo.org> +libxcb-1.9.3-r1.ebuild:
+  Backport the python-any-r1 conversion from x11 overlay.
+
+*libxcb-1.9.1-r1 (23 Nov 2013)
+
+  23 Nov 2013; Mark Wright <gienah@gentoo.org>
+  +files/libxcb-1.9.1-conflicting-types-for-xcb_ge_event_t.patch,
+  +files/libxcb-1.9.1-list-object-has-no-attribute-lenfield_name.patch,
+  +libxcb-1.9.1-r1.ebuild:
+  Part of fix for bug 491496, thanks to Rion for reporting, thanks to gerardo
+  for the libxcb-list-object-has-no-attribute-lenfield_name.patch. libxcb-1.9.1
+  -conflicting-types-for-xcb_ge_event_t.patch by me. Fix bug 472032, thanks to
+  Myckel Habets for reporting.
+
+  12 Nov 2013; Matt Turner <mattst88@gentoo.org> libxcb-1.9.3.ebuild:
+  Update dependency on xcb-proto to make sure users get the fix for bug 490928.
+
+*libxcb-1.9.3 (09 Nov 2013)
+
+  09 Nov 2013; Matt Turner <mattst88@gentoo.org> +libxcb-1.9.3.ebuild:
+  Version bump to 1.9.3.
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.1.ebuild:
+  Stable for x86, wrt bug #475480
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.1.ebuild:
+  Stable for sparc, wrt bug #475480
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.1.ebuild:
+  Stable for ia64, wrt bug #475480
+
+  05 Oct 2013; Markus Meier <maekke@gentoo.org> libxcb-1.9.1.ebuild:
+  arm stable, bug #475480
+
+  05 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.1.ebuild:
+  Stable for alpha, wrt bug #475480
+
+  04 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.1.ebuild:
+  Stable for ppc64, wrt bug #475480
+
+  03 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.1.ebuild:
+  Stable for ppc, wrt bug #475480
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> libxcb-1.9.1.ebuild:
+  Stable for HPPA (bug #475480).
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libxcb-1.9.1.ebuild:
+  Stable for amd64, wrt bug #475480
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> libxcb-1.9-r1.ebuild,
+  libxcb-1.9.1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> libxcb-1.9-r1.ebuild,
+  libxcb-1.9.1.ebuild, metadata.xml:
+  Fix usage of python-r1.eclass
+
+  01 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  libxcb-1.9.1.ebuild, metadata.xml:
+  Add xkb USE flag, bug #471684.
+
+*libxcb-1.9.1 (01 Jun 2013)
+
+  01 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +libxcb-1.9.1.ebuild:
+  Version bump for security bug #471098.
+
+  06 Mar 2013; Michał Górny <mgorny@gentoo.org> libxcb-1.9-r1.ebuild:
+  Migrate to python-r1.
 
 *libxcb-1.9-r1 (25 Feb 2013)
 

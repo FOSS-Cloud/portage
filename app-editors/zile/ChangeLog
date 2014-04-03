@@ -1,6 +1,40 @@
 # ChangeLog for app-editors/zile
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/zile/ChangeLog,v 1.185 2013/01/12 12:40:14 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/zile/ChangeLog,v 1.195 2014/04/02 18:58:20 maekke Exp $
+
+  02 Apr 2014; Markus Meier <maekke@gentoo.org> zile-2.4.11.ebuild:
+  arm stable, bug #506330
+
+*zile-2.4.11 (02 Mar 2014)
+
+  02 Mar 2014; Ulrich Müller <ulm@gentoo.org> -zile-2.4.7.ebuild,
+  +zile-2.4.11.ebuild:
+  Version bump. Remove old.
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> zile-2.4.9.ebuild:
+  Stable for x86, wrt bug #470730
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> zile-2.4.9.ebuild:
+  Stable for ppc, wrt bug #470730
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> zile-2.4.9.ebuild:
+  Stable for arm, wrt bug #470730
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> zile-2.4.9.ebuild:
+  Stable for alpha, wrt bug #470730
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> zile-2.4.9.ebuild:
+  Stable for sparc, wrt bug #470730
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> zile-2.4.9.ebuild:
+  Stable for amd64, wrt bug #470730
+
+  20 May 2013; Ulrich Müller <ulm@gentoo.org> zile-2.3.24-r1.ebuild,
+  -zile-2.4.8.ebuild:
+  Drop ~x86-interix keyword, bug 384445. Remove intermediate version.
+
+  31 Mar 2013; Diego E. Pettenò <flameeyes@gentoo.org> zile-2.4.9.ebuild:
+  Add ~arm keyword.
 
   12 Jan 2013; Ulrich Müller <ulm@gentoo.org> zile-2.4.9.ebuild:
   Suppress false QA warning for help2man, bug 450278.

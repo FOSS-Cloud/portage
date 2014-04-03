@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gebabbel/gebabbel-0.4.ebuild,v 1.2 2012/08/01 15:57:59 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gebabbel/gebabbel-0.4.ebuild,v 1.4 2014/01/06 15:34:02 jlec Exp $
 
 EAPI=4
 
@@ -18,8 +18,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4[accessibility]
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4[accessibility]
 "
 RDEPEND="${DEPEND}
 	sci-geosciences/gpsbabel
@@ -32,7 +32,7 @@ PATCHES=(
 S=${WORKDIR}/${MY_P}
 
 src_prepare() {
-	base_src_prepare
+	qt4-r2_src_prepare
 	# do not mess with cflags
 	sed \
 		-e "/QMAKE_CXXFLAGS/s:=.*$:= ${CXXFLAGS}:g" \

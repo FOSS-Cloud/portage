@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/virtuoso-server/virtuoso-server-6.1.6.ebuild,v 1.5 2012/09/20 17:45:54 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/virtuoso-server/virtuoso-server-6.1.6.ebuild,v 1.7 2014/03/07 03:28:22 creffett Exp $
 
 EAPI=4
 
@@ -50,9 +50,12 @@ VOS_EXTRACT="
 	binsrc/tests
 "
 
-DOCS=(AUTHORS ChangeLog CREDITS INSTALL NEWS README)
+DOCS=( AUTHORS ChangeLog CREDITS INSTALL NEWS README )
 
-PATCHES=( "${FILESDIR}/${PN}-6.1.4-unbundle-minizip.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-6.1.4-unbundle-minizip.patch"
+	"${FILESDIR}/${PN}-6.1.6-am_config_header.patch"
+)
 
 src_prepare() {
 	sed -e '/^lib_LTLIBRARIES\s*=.*/s/lib_/noinst_/' -i binsrc/virtuoso/Makefile.am \
@@ -77,7 +80,7 @@ src_configure() {
 }
 
 src_install() {
-	virtuoso_src_install
+	default_src_install
 
 	keepdir /var/lib/virtuoso/db
 }

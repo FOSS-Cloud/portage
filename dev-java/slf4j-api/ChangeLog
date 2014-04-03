@@ -1,6 +1,24 @@
 # ChangeLog for dev-java/slf4j-api
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/slf4j-api/ChangeLog,v 1.18 2012/12/08 16:00:48 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/slf4j-api/ChangeLog,v 1.21 2014/03/12 01:54:02 radhermit Exp $
+
+*slf4j-api-1.7.6 (12 Mar 2014)
+
+  12 Mar 2014; Tim Harder <radhermit@gentoo.org> +slf4j-api-1.7.6.ebuild,
+  +files/1.7.6-build.xml:
+  Version bump.
+
+*slf4j-api-1.7.5-r1 (11 Mar 2014)
+
+  11 Mar 2014; Tim Harder <radhermit@gentoo.org> -slf4j-api-1.7.5.ebuild,
+  +slf4j-api-1.7.5-r1.ebuild, files/1.7.5-build.xml:
+  Properly remove stub classes that shouldn't be in the built jar.
+
+*slf4j-api-1.7.5 (30 Nov 2013)
+
+  30 Nov 2013; Johann Schmitz <ercpe@gentoo.org> +files/1.7.5-build.xml,
+  +slf4j-api-1.7.5.ebuild:
+  Updated slf4j-api to 1.7.5
 
   08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> slf4j-api-1.6.6.ebuild:
   Stable for ppc64, wrt bug #441172
@@ -66,4 +84,3 @@
   18 Jul 2008; Serkan Kaba <serkan@gentoo.org> +files/build.xml,
   +metadata.xml, +slf4j-api-1.5.2.ebuild:
   Initial ebuild. Fixes bug #230573.
-

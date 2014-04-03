@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/griffith/griffith-9999.ebuild,v 1.9 2013/01/17 16:37:57 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/griffith/griffith-9999.ebuild,v 1.11 2013/12/28 21:25:30 hwoarang Exp $
 
 EAPI="4"
 ESVN_REPO_URI="http://svn.berlios.de/svnroot/repos/griffith/trunk"
@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="doc"
 
-RDEPEND="dev-python/imaging
+RDEPEND="virtual/python-imaging
 	dev-util/glade:3
 	dev-python/pyxml
 	>=dev-python/pygtk-2.6.1:2
@@ -51,9 +51,6 @@ src_prepare() {
 	sed -i \
 		-e "s|locations\['lib'\], '..')|locations\['lib'\], '..', '..', 'share', 'griffith')|" \
 		lib/initialize.py || die "sed failed"
-
-	# this patch has to go upstream
-	epatch "${FILESDIR}"/fix_lib_path.patch
 }
 
 src_compile() {

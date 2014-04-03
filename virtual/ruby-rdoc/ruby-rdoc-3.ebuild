@@ -1,9 +1,9 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/ruby-rdoc/ruby-rdoc-3.ebuild,v 1.2 2011/11/27 19:27:39 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/ruby-rdoc/ruby-rdoc-3.ebuild,v 1.13 2014/01/26 13:06:41 ago Exp $
 
-EAPI=2
-USE_RUBY="ree18"
+EAPI=5
+USE_RUBY="ruby20"
 
 inherit ruby-ng
 
@@ -13,10 +13,10 @@ SRC_URI=""
 
 LICENSE=""
 SLOT="${USE_RUBY}"
-KEYWORDS="amd64 x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE=""
 
-RDEPEND="|| ( dev-ruby/rdoc[ruby_targets_ree18] dev-lang/ruby-enterprise )"
+RDEPEND="|| ( dev-ruby/rdoc[ruby_targets_ruby20] )"
 
 pkg_setup() { :; }
 src_unpack() { :; }

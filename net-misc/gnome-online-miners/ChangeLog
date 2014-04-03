@@ -1,0 +1,37 @@
+# ChangeLog for net-misc/gnome-online-miners
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/gnome-online-miners/ChangeLog,v 1.9 2014/03/30 10:30:28 pacho Exp $
+
+  30 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-online-miners-3.10.3.ebuild:
+  Fix RDEPEND on newer goa (#505888 by renato gallo)
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-online-miners-3.10.3.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-online-miners-3.10.3.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-online-miners-3.10.3.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-online-miners-3.10.3.ebuild:
+  arch stable, bug 888
+
+  15 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  -gnome-online-miners-3.10.2.ebuild, gnome-online-miners-3.10.3.ebuild:
+  Keyword on x86 (#495250), drop old
+
+*gnome-online-miners-3.10.3 (06 Feb 2014)
+
+  06 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-online-miners-3.10.3.ebuild:
+  Version bump.
+
+  27 Dec 2013; Pacho Ramos <pacho@gentoo.org> gnome-online-miners-3.10.2.ebuild:
+  Fix docdir
+
+*gnome-online-miners-3.10.2 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-online-miners-3.10.2.ebuild, +metadata.xml:
+  New package for Gnome 3.10

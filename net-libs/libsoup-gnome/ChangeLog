@@ -1,6 +1,59 @@
 # ChangeLog for net-libs/libsoup-gnome
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup-gnome/ChangeLog,v 1.85 2013/02/25 09:21:28 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup-gnome/ChangeLog,v 1.99 2014/03/09 12:03:26 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libsoup-gnome-2.44.2.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libsoup-gnome-2.44.2.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libsoup-gnome-2.44.2.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libsoup-gnome-2.44.2.ebuild:
+  arch stable, bug 888
+
+*libsoup-gnome-2.44.2 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/libsoup-gnome-2.44.2-system-lib.patch, +libsoup-gnome-2.44.2.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> libsoup-gnome-2.42.3.1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> libsoup-gnome-2.42.3.1.ebuild:
+  amd64 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> -libsoup-gnome-2.42.2.ebuild:
+  Drop old
+
+*libsoup-gnome-2.42.3.1 (15 Nov 2013)
+
+  15 Nov 2013; Pacho Ramos <pacho@gentoo.org> +libsoup-gnome-2.42.3.1.ebuild:
+  Version bump
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> libsoup-gnome-2.40.3.ebuild:
+  arm stable, bug #476364
+
+*libsoup-gnome-2.42.2 (29 Aug 2013)
+
+  29 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +libsoup-gnome-2.42.2.ebuild, +files/libsoup-gnome-2.42.2-system-lib.patch:
+  Version bump. Re-split libsoup for easier upgrade path, etc.
+
+  16 May 2013; Pacho Ramos <pacho@gentoo.org> libsoup-gnome-2.38.1.ebuild,
+  libsoup-gnome-2.40.3.ebuild:
+  Fix blockers placement
+
+  07 Apr 2013; Pacho Ramos <pacho@gentoo.org> libsoup-gnome-2.38.1.ebuild,
+  libsoup-gnome-2.40.3.ebuild:
+  Add proper blockers (#464722 by Kobboi)
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -libsoup-gnome-2.40.2.ebuild:
+  Clean up old revision.
 
   25 Feb 2013; Zac Medico <zmedico@gentoo.org> libsoup-gnome-2.40.2.ebuild,
   libsoup-gnome-2.40.3.ebuild:

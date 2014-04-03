@@ -1,6 +1,35 @@
 # ChangeLog for dev-ml/ocurl
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocurl/ChangeLog,v 1.11 2011/12/18 19:54:08 phajdan.jr Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocurl/ChangeLog,v 1.19 2014/02/13 16:00:43 aballier Exp $
+
+*ocurl-0.6.1 (13 Feb 2014)
+
+  13 Feb 2014; Alexis Ballier <aballier@gentoo.org> +ocurl-0.6.1.ebuild:
+  version bump
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ocurl-0.5.6.ebuild:
+  Stable for x86, wrt bug #492054
+
+  22 Dec 2013; Chema Alonso <nimiux@gentoo.org> ocurl-0.5.6.ebuild:
+  Stable for amd64 wrt bug #492054
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ocurl-0.5.6.ebuild:
+  Stable for ppc, wrt bug #492054
+
+*ocurl-0.5.6 (22 Jul 2013)
+
+  22 Jul 2013; Alexis Ballier <aballier@gentoo.org> +ocurl-0.5.6.ebuild:
+  version bump
+
+  22 Jul 2013; Alexis Ballier <aballier@gentoo.org> -ocurl-0.2.1.ebuild,
+  -ocurl-0.5.1.ebuild:
+  remove old
+
+  10 Jul 2013; Vicente Olivert Riera <vincent@gentoo.org> ocurl-0.5.3.ebuild:
+  ppc stable, bug #460110
+
+  10 Mar 2013; Alexis Ballier <aballier@gentoo.org> ocurl-0.5.3.ebuild:
+  eapi5: define subslot and add missing dep on ocaml:=[ocamlopt]
 
   18 Dec 2011; Pawel Hajdan jr <phajdan.jr@gentoo.org> ocurl-0.5.3.ebuild:
   x86 stable wrt bug #393761
@@ -45,4 +74,3 @@
   09 Mar 2005; Matthieu Sozeau <mattam@gentoo.org>
   +files/0.1.6-curl-helper.patch, +ocurl-0.1.6.ebuild:
   curl binding for ocaml.
-

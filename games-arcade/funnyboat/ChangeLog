@@ -1,6 +1,20 @@
 # ChangeLog for games-arcade/funnyboat
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/funnyboat/ChangeLog,v 1.12 2008/03/29 21:37:05 coldwind Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-arcade/funnyboat/ChangeLog,v 1.16 2013/09/05 19:44:55 mgorny Exp $
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> funnyboat-1.5-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  09 Jun 2013; Julian Ospald <hasufell@gentoo.org> funnyboat-1.5-r1.ebuild:
+  add PYTHON_REQUIRE_USE
+
+*funnyboat-1.5-r1 (09 Jun 2013)
+
+  09 Jun 2013; Julian Ospald <hasufell@gentoo.org> +funnyboat-1.5-r1.ebuild:
+  port to python-single-r1
+
+  08 Jun 2013; Sergei Trofimovich <slyfox@gentoo.org> funnyboat-1.5.ebuild:
+  Workaround python3 failure by requiring python2.
 
   29 Mar 2008; Santiago M. Mola <coldwind@gentoo.org> funnyboat-1.5.ebuild:
   amd64 stable
@@ -52,4 +66,3 @@
   +funnyboat-1.1.ebuild:
   initial commit - ebuild submitted by Cristiano Chiucchiolo and Alexandru Toma
   via bug #130333
-

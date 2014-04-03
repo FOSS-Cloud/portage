@@ -3,8 +3,8 @@
 <pkgmetadata>
 	<herd>web-apps</herd>
 	<maintainer>
-		<email>ramereth@gentoo.org</email>
-		<name>Lance Albertson</name>
+		<email>jmbsvicetto@gentoo.org</email>
+		<name>Jorge Manuel B. S. Vicetto</name>
 	</maintainer>
 	<longdescription lang="en">
 		DokuWiki is a standards compliant, simple to use Wiki, mainly aimed at

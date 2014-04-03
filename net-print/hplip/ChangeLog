@@ -1,6 +1,158 @@
 # ChangeLog for net-print/hplip
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.264 2013/02/24 10:52:07 billie Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.299 2014/03/07 16:28:09 billie Exp $
+
+  07 Mar 2014; Daniel Pielmeier <billie@gentoo.org> -hplip-3.14.1-r1.ebuild:
+  Remove old.
+
+*hplip-3.14.3 (07 Mar 2014)
+
+  07 Mar 2014; Daniel Pielmeier <billie@gentoo.org> +hplip-3.14.3.ebuild:
+  Version bump. This version adds a patch which removes the update and
+  uninstall python scripts as well as the auto-configuration/plug-in
+  installation related stuff from the udev rules. This should fix Gentoo bug
+  #434830 (Upstream bug https://bugs.launchpad.net/hplip/+bug/1080353).
+
+*hplip-3.14.1-r1 (05 Mar 2014)
+
+  05 Mar 2014; Daniel Pielmeier <billie@gentoo.org> +hplip-3.14.1-r1.ebuild:
+  Only depend on dev-python/dbus-python if USE=minimal. This fixes bug #449402.
+  Thanks to turtle for the report and Nick Bowler for the suggested dependency
+  change.
+
+  24 Jan 2014; Daniel Pielmeier <billie@gentoo.org> -hplip-3.12.10a.ebuild,
+  -hplip-3.13.9.ebuild, -hplip-3.13.11-r1.ebuild:
+  Remove old.
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hplip-3.14.1.ebuild:
+  Stable for ppc64, wrt bug #497722
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hplip-3.14.1.ebuild:
+  Stable for ppc, wrt bug #497722
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hplip-3.14.1.ebuild:
+  Stable for x86, wrt bug #497722
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> hplip-3.14.1.ebuild:
+  amd64 stable, bug #497722
+
+*hplip-3.14.1 (10 Jan 2014)
+
+  10 Jan 2014; Daniel Pielmeier <billie@gentoo.org> +hplip-3.14.1.ebuild:
+  Version bump.
+
+  05 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> hplip-3.12.10a.ebuild,
+  hplip-3.13.9.ebuild, hplip-3.13.11-r1.ebuild:
+  Fix foomatic dependency
+
+  27 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  hplip-3.13.11-r1.ebuild:
+  Whitespace fix for Patrick
+
+  27 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  hplip-3.13.11-r1.ebuild:
+  foomatic-filters is being integrated into cups-filters by upstream
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> hplip-3.13.9.ebuild:
+  Stable for ppc64, wrt bug #484474
+
+  30 Nov 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.10.ebuild,
+  -hplip-3.13.11.ebuild:
+  Remove old. Fix Changelog.
+
+*hplip-3.13.11-r1 (30 Nov 2013)
+
+  30 Nov 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.11-r1.ebuild:
+  Revision bump to fix bug #492486. Thanks to BT for the report and the patch.
+
+*hplip-3.13.11 (07 Nov 2013)
+
+  07 Nov 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.11.ebuild:
+  Version bump.
+
+*hplip-3.13.10 (14 Oct 2013)
+
+  14 Oct 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.10.ebuild:
+  Version bump.
+
+  14 Oct 2013; Tony Vroon <chainsaw@gentoo.org> hplip-3.13.9.ebuild:
+  Marked stable on AMD64 based on arch tester report by Elijah "Armageddon" El
+  Lazkani in bug #484474.
+
+  28 Sep 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.7.ebuild,
+  -hplip-3.13.8.ebuild:
+  Remove old.
+
+*hplip-3.13.9 (28 Sep 2013)
+
+  28 Sep 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.9.ebuild:
+  Version bump. Includes Red Hat's patch to fix CVE-2013-4325.
+
+  06 Sep 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.6.ebuild:
+  Remove old.
+
+*hplip-3.13.8 (06 Sep 2013)
+
+  06 Sep 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.8.ebuild:
+  Version bump.
+
+*hplip-3.13.7 (24 Jul 2013)
+
+  24 Jul 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.7.ebuild:
+  Version bump.
+
+  05 Jul 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.5.ebuild:
+  Remove old.
+
+*hplip-3.13.6 (24 Jun 2013)
+
+  24 Jun 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.6.ebuild:
+  Version bump.
+
+  09 Jun 2013; Daniel Pielmeier <billie@gentoo.org> hplip-3.13.5.ebuild:
+  Switch to virtual/python-imaging as hplip supports both pillow and imaging.
+  This fixes bug #472556. Thanks to Ivan Iraci for the report.
+
+  07 Jun 2013; Daniel Pielmeier <billie@gentoo.org> hplip-3.13.5.ebuild:
+  Add REQUIRED_USE needed by PYTHON_REQUIRED_USE and python-single-r1 eclass.
+
+  07 Jun 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.4.ebuild:
+  Remove old.
+
+*hplip-3.13.5 (18 May 2013)
+
+  18 May 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.5.ebuild:
+  Version bump.
+
+  01 May 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.2-r2.ebuild,
+  -hplip-3.13.3.ebuild:
+  Remove old.
+
+  12 Apr 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.2-r2.ebuild:
+  Remove old.
+
+*hplip-3.13.4 (12 Apr 2013)
+
+  12 Apr 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.4.ebuild:
+  Version bump.
+
+  06 Apr 2013; Daniel Pielmeier <billie@gentoo.org> hplip-3.13.3.ebuild:
+  Raise dbus dependency for new python-r1 eclass.
+
+*hplip-3.13.3 (08 Mar 2013)
+
+  08 Mar 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.3.ebuild:
+  Version bump.
+
+  01 Mar 2013; Daniel Pielmeier <billie@gentoo.org> -hplip-3.13.2-r1.ebuild:
+  Remove old.
+
+*hplip-3.13.2-r2 (01 Mar 2013)
+
+  01 Mar 2013; Daniel Pielmeier <billie@gentoo.org> +hplip-3.13.2-r2.ebuild:
+  Revison bump. Fix bug #458976. Wrong permissions again. This time for
+  /var/lib/hp/. Thanks to James for the report. Only remove /var/lib/hp/ if it
+  is world writeable.
 
   24 Feb 2013; Daniel Pielmeier <billie@gentoo.org> hplip-3.13.2-r1.ebuild:
   Use PYTHON_USEDEP for notify-python as it now uses python-r1.
@@ -1218,4 +1370,3 @@
   07 Jun 2005; Heinrich Wendel <lanius@gentoo.org> +metadata.xml,
   +hplip-0.9.3.ebuild:
   initial import, bug #73709
-

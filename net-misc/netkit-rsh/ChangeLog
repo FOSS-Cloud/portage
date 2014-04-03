@@ -1,6 +1,39 @@
 # ChangeLog for net-misc/netkit-rsh
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/netkit-rsh/ChangeLog,v 1.69 2013/01/27 19:56:31 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/netkit-rsh/ChangeLog,v 1.80 2013/06/02 08:38:23 ago Exp $
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for sh, wrt bug #463126
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for sparc, wrt bug #463126
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for s390, wrt bug #463126
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for x86, wrt bug #463126
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for alpha, wrt bug #463126
+
+  17 May 2013; Agostino Sarubbo <ago@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for ia64, wrt bug #463126
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for arm, wrt bug #463126
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for ppc64, wrt bug #463126
+
+  16 May 2013; Jeroen Roovers <jer@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for HPPA (bug #463126).
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for ppc, wrt bug #463126
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> netkit-rsh-0.17-r10.ebuild:
+  Stable for amd64, wrt bug #463126
 
 *netkit-rsh-0.17-r10 (27 Jan 2013)
 

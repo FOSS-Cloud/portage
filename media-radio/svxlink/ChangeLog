@@ -1,6 +1,61 @@
 # ChangeLog for media-radio/svxlink
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/svxlink/ChangeLog,v 1.21 2012/07/31 18:00:25 tomjbe Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-radio/svxlink/ChangeLog,v 1.35 2014/03/04 20:10:33 ago Exp $
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> svxlink-13.12.ebuild:
+  Stable for x86, wrt bug #502852
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> svxlink-13.12.ebuild:
+  amd64 stable, bug #502852
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> svxlink-13.03.ebuild,
+  svxlink-13.07.ebuild, svxlink-13.12.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+*svxlink-13.12 (25 Dec 2013)
+
+  25 Dec 2013; Thomas Beierlein <tomjbe@gentoo.org> -svxlink-13.06.ebuild,
+  +svxlink-13.12.ebuild:
+  Version bump. Drop old
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> svxlink-13.07.ebuild:
+  Stable for x86, wrt bug #488454
+
+  24 Oct 2013; Tony Vroon <chainsaw@gentoo.org> svxlink-13.07.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #488454.
+
+*svxlink-13.07 (26 Aug 2013)
+
+  26 Aug 2013; Patrick Lauer <patrick@gentoo.org> +svxlink-13.07.ebuild:
+  Bump
+
+  05 Jul 2013; Thomas Beierlein <tomjbe@gentoo.org> svxlink-13.03.ebuild,
+  svxlink-13.06.ebuild:
+  drop deprecated desktop category (bug #475730). Thanks ago
+
+  25 Jun 2013; Thomas Beierlein <tomjbe@gentoo.org> -svxlink-11.11.1.ebuild:
+  Remove old
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> svxlink-13.03.ebuild:
+  Stable for amd64, wrt bug #473468
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> svxlink-13.03.ebuild:
+  Stable for x86, wrt bug #473468
+
+*svxlink-13.06 (16 Jun 2013)
+
+  16 Jun 2013; Thomas Beierlein <tomjbe@gentoo.org> +svxlink-13.06.ebuild:
+  Version bump
+
+*svxlink-13.03 (10 May 2013)
+
+  10 May 2013; Thomas Beierlein <tomjbe@gentoo.org> +svxlink-13.03.ebuild,
+  metadata.xml:
+  Version bump. Drop redhatter (retired) from metadata.xml
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> svxlink-11.11.1.ebuild:
+  Move Qt dependencies to the new category
 
   31 Jul 2012; Thomas Beierlein <tomjbe@gentoo.org> svxlink-11.11.1.ebuild,
   +files/svxlink-11.11.1-gcc-47.patch:
@@ -99,4 +154,3 @@
   16 Dec 2007; Lars Weiler <pylon@gentoo.org> +files/kde.patch,
   +metadata.xml, +svxlink-070415.ebuild:
   New application for all those Gentoo ham-radio users out there.
-

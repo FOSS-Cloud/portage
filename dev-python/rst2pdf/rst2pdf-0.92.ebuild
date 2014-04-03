@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/rst2pdf/rst2pdf-0.92.ebuild,v 1.3 2012/09/12 12:22:31 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/rst2pdf/rst2pdf-0.92.ebuild,v 1.5 2013/11/15 12:28:50 yac Exp $
 
 EAPI="4"
 PYTHON_DEPEND="2"
@@ -19,9 +19,9 @@ KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND="dev-python/docutils
-	dev-python/imaging
+	virtual/python-imaging
 	dev-python/pygments
-	>=dev-python/reportlab-2.4"
+	<dev-python/reportlab-2.6"
 RDEPEND="${DEPEND}"
 
 DOCS="Contributors.txt CHANGES.txt README.txt doc/*"

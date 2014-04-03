@@ -1,6 +1,134 @@
 # ChangeLog for net-nntp/nzbget
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-nntp/nzbget/ChangeLog,v 1.57 2013/02/15 09:11:05 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-nntp/nzbget/ChangeLog,v 1.84 2014/03/05 22:13:59 swegener Exp $
+
+*nzbget-12.0-r1 (05 Mar 2014)
+
+  05 Mar 2014; Sven Wegener <swegener@gentoo.org> +nzbget-12.0-r1.ebuild:
+  Make WebUI work, including managing configuration, bug #501858 by Mike
+  Nerone.
+
+  04 Jan 2014; Tim Harder <radhermit@gentoo.org> -nzbget-9.1.ebuild,
+  -nzbget-12.0_pre906.ebuild, -nzbget-12.0_pre914.ebuild,
+  -nzbget-12.0_pre927.ebuild, -files/nzbget-0.7.0-underlinking.patch:
+  Remove old.
+
+*nzbget-12.0 (04 Jan 2014)
+
+  04 Jan 2014; Tim Harder <radhermit@gentoo.org> +nzbget-12.0.ebuild:
+  Version bump.
+
+*nzbget-12.0_pre927 (28 Dec 2013)
+
+  28 Dec 2013; Tim Harder <radhermit@gentoo.org> +nzbget-12.0_pre927.ebuild:
+  Version bump.
+
+*nzbget-12.0_pre914 (02 Dec 2013)
+
+  02 Dec 2013; Tim Harder <radhermit@gentoo.org> +nzbget-12.0_pre914.ebuild:
+  Version bump.
+
+  14 Nov 2013; Tim Harder <radhermit@gentoo.org> -nzbget-12.0_pre789.ebuild,
+  -nzbget-12.0_pre808.ebuild, -nzbget-12.0_pre860.ebuild,
+  -nzbget-12.0_pre883.ebuild:
+  Remove old.
+
+*nzbget-12.0_pre906 (14 Nov 2013)
+
+  14 Nov 2013; Tim Harder <radhermit@gentoo.org> +nzbget-12.0_pre906.ebuild:
+  Version bump.
+
+*nzbget-12.0_pre883 (03 Nov 2013)
+
+  03 Nov 2013; Tim Harder <radhermit@gentoo.org> +nzbget-12.0_pre883.ebuild:
+  Version bump.
+
+*nzbget-12.0_pre860 (08 Oct 2013)
+
+  08 Oct 2013; Tim Harder <radhermit@gentoo.org> +nzbget-12.0_pre860.ebuild:
+  Version bump.
+
+*nzbget-12.0_pre808 (05 Sep 2013)
+
+  05 Sep 2013; Tim Harder <radhermit@gentoo.org> +nzbget-12.0_pre808.ebuild:
+  Version bump.
+
+*nzbget-12.0_pre789 (26 Aug 2013)
+
+  26 Aug 2013; Tim Harder <radhermit@gentoo.org> +nzbget-12.0_pre789.ebuild:
+  Version bump.
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> nzbget-10.2.ebuild:
+  Stable for x86, wrt bug #472708
+
+  02 Jul 2013; Tim Harder <radhermit@gentoo.org> -nzbget-0.8.0.ebuild,
+  -nzbget-10.1.ebuild, -nzbget-11.0_pre684.ebuild, -nzbget-11.0_pre705.ebuild,
+  -nzbget-11.0_pre711.ebuild, -files/nzbget-0.7.0-openssl-1.patch:
+  Remove old.
+
+*nzbget-11.0 (02 Jul 2013)
+
+  02 Jul 2013; Tim Harder <radhermit@gentoo.org> +nzbget-11.0.ebuild,
+  +files/nzbget-11.0-header.patch:
+  Version bump.
+
+*nzbget-11.0_pre711 (18 Jun 2013)
+
+  18 Jun 2013; Tim Harder <radhermit@gentoo.org> +nzbget-11.0_pre711.ebuild:
+  Version bump.
+
+  13 Jun 2013; Chema Alonso <nimiux@gentoo.org> nzbget-10.2.ebuild:
+  Stable for amd64 wrt bug #472708
+
+*nzbget-11.0_pre705 (09 Jun 2013)
+
+  09 Jun 2013; Tim Harder <radhermit@gentoo.org> +nzbget-11.0_pre705.ebuild:
+  Version bump.
+
+*nzbget-11.0_pre684 (18 May 2013)
+
+  18 May 2013; Tim Harder <radhermit@gentoo.org> +nzbget-11.0_pre684.ebuild:
+  Version bump.
+
+*nzbget-10.2 (21 Apr 2013)
+
+  21 Apr 2013; Tim Harder <radhermit@gentoo.org> +nzbget-10.2.ebuild:
+  Version bump.
+
+*nzbget-10.1 (01 Apr 2013)
+
+  01 Apr 2013; Tim Harder <radhermit@gentoo.org> -nzbget-10.0_pre607.ebuild,
+  +nzbget-10.1.ebuild:
+  Version bump and remove old.
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> nzbget-9.1.ebuild:
+  Stable for x86, wrt bug #463132
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> nzbget-9.1.ebuild:
+  Stable for amd64, wrt bug #463132
+
+  26 Mar 2013; Tim Harder <radhermit@gentoo.org> -nzbget-10.0_pre567.ebuild,
+  -nzbget-10.0_pre577.ebuild:
+  Remove old.
+
+*nzbget-10.0_pre607 (26 Mar 2013)
+
+  26 Mar 2013; Tim Harder <radhermit@gentoo.org> +nzbget-10.0_pre607.ebuild:
+  Version bump.
+
+*nzbget-10.0_pre577 (15 Mar 2013)
+
+  15 Mar 2013; Tim Harder <radhermit@gentoo.org> +nzbget-10.0_pre577.ebuild:
+  Version bump.
+
+  02 Mar 2013; Tim Harder <radhermit@gentoo.org> -nzbget-9.0.ebuild,
+  -nzbget-9.1_pre538.ebuild, -nzbget-10.0_pre562.ebuild:
+  Remove old.
+
+*nzbget-10.0_pre567 (02 Mar 2013)
+
+  02 Mar 2013; Tim Harder <radhermit@gentoo.org> +nzbget-10.0_pre567.ebuild:
+  Version bump.
 
 *nzbget-10.0_pre562 (15 Feb 2013)
 
@@ -271,4 +399,3 @@
   17 Jun 2004; Sven Wegener <swegener@gentoo.org> +metadata.xml,
   +nzbget-0.1.1.ebuild:
   Initial import, ebuild written by me.
-

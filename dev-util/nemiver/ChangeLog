@@ -1,6 +1,33 @@
 # ChangeLog for dev-util/nemiver
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/nemiver/ChangeLog,v 1.46 2013/02/25 19:31:10 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/nemiver/ChangeLog,v 1.54 2014/03/09 11:56:51 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> nemiver-0.9.5.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> nemiver-0.9.5.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> nemiver-0.9.5.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> nemiver-0.9.5.ebuild:
+  arch stable, bug 888
+
+*nemiver-0.9.5 (09 Feb 2014)
+
+  09 Feb 2014; Pacho Ramos <pacho@gentoo.org> +nemiver-0.9.5.ebuild,
+  -files/nemiver-0.9.2-xml-validation.patch, -nemiver-0.9.2.ebuild:
+  Version bump, drop old
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> nemiver-0.9.4.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> nemiver-0.9.4.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  07 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -nemiver-0.9.3.ebuild:
+  Clean up old revision.
 
   25 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop remi from metadata (#458984#c8)

@@ -1,6 +1,52 @@
 # ChangeLog for dev-libs/libffi
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libffi/ChangeLog,v 1.164 2013/02/17 20:12:26 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libffi/ChangeLog,v 1.176 2014/03/29 19:51:30 mattst88 Exp $
+
+  29 Mar 2014; Matt Turner <mattst88@gentoo.org> libffi-3.0.13-r1.ebuild:
+  alpha stable, bug #497760.
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> libffi-3.0.13-r1.ebuild:
+  Stable for HPPA (bug #497760).
+
+  25 Mar 2014; Mike Frysinger <vapier@gentoo.org> libffi-3.0.11.ebuild,
+  libffi-3.0.12.ebuild, libffi-3.0.13-r1.ebuild, libffi-3.0.13.ebuild:
+  Mark arm64/m68k/s390/sh stable #497760.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> libffi-3.0.13-r1.ebuild:
+  Add arm64 love.
+
+  13 Oct 2013; Michał Górny <mgorny@gentoo.org> libffi-3.0.13-r1.ebuild:
+  Explicitly call einstalldocs in multilib_src_install_all() to accomodate bug
+  #483304.
+
+  30 Jul 2013; Alexis Ballier <aballier@gentoo.org> libffi-3.0.13-r1.ebuild:
+  improve the emul-libs blocker so that it is stacked for baselibs -r2.
+
+*libffi-3.0.13-r1 (15 Jul 2013)
+
+  15 Jul 2013; Julian Ospald <hasufell@gentoo.org> +libffi-3.0.13-r1.ebuild:
+  multilib conversion wrt #459072
+
+  22 May 2013; Magnus Granberg <zorry@gentoo.org>
+  files/libffi-3.0.13-emutramp_pax_proc.patch:
+  Update the emutramp_pax_proc patch with ChangeLog
+
+  18 May 2013; Magnus Granberg <zorry@gentoo.org> libffi-3.0.13.ebuild:
+  Did for get to run repoman commit for dev-lib/libffi
+
+  18 May 2013; Magnus Granberg <zorry@gentoo.org> libffi-3.0.13.ebuild,
+  +files/libffi-3.0.13-emutramp_pax_proc.patch:
+  Add patch to use /proc for pax mark on 3.0.13 #457194
+
+  28 Mar 2013; Mike Frysinger <vapier@gentoo.org> libffi-3.0.11.ebuild,
+  libffi-3.0.12.ebuild, libffi-3.0.13.ebuild:
+  Disable tooldir related hack that breaks --libdir usage #462814 by Thomas
+  Sachau.
+
+*libffi-3.0.13 (20 Mar 2013)
+
+  20 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> +libffi-3.0.13.ebuild:
+  Version bump.
 
   17 Feb 2013; Zac Medico <zmedico@gentoo.org> libffi-3.0.12.ebuild:
   Add ~arm-linux keyword.

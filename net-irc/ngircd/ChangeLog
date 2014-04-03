@@ -1,6 +1,21 @@
 # ChangeLog for net-irc/ngircd
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/ngircd/ChangeLog,v 1.55 2011/09/22 11:29:53 xarthisius Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-irc/ngircd/ChangeLog,v 1.59 2014/03/10 10:58:31 ssuominen Exp $
+
+  10 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> ngircd-17.1.ebuild:
+  Remove virtual/libc dependency.
+
+  08 Jan 2014; Mike Frysinger <vapier@gentoo.org> ngircd-0.12.1.ebuild,
+  ngircd-13.ebuild, ngircd-17.1.ebuild, ngircd-18.ebuild, ngircd-20.3.ebuild:
+  Inherit the user eclass for enewuser/etc...
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> ngircd-20.3.ebuild:
+  Stable for x86, wrt bug #482582
+
+*ngircd-20.3 (02 Oct 2013)
+
+  02 Oct 2013; Chris Reffett <creffett@gentoo.org> +ngircd-20.3.ebuild:
+  Security bump wrt bug 482582.
 
   22 Sep 2011; Kacper Kowalik <xarthisius@gentoo.org> ngircd-0.12.1.ebuild,
   ngircd-13.ebuild, ngircd-17.1.ebuild, ngircd-18.ebuild:
@@ -211,4 +226,3 @@
 
   19 Apr 2004; Chuck Short <zul@gentoo.org> :
   Initial version, ebuild written by me. Closes #47945.
-

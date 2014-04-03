@@ -1,6 +1,24 @@
 # ChangeLog for sys-boot/gnu-efi
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/gnu-efi/ChangeLog,v 1.19 2012/11/25 04:27:08 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/gnu-efi/ChangeLog,v 1.24 2014/03/15 19:56:24 vapier Exp $
+
+  15 Mar 2014; Mike Frysinger <vapier@gentoo.org> gnu-efi-3.0u.ebuild:
+  Avoid -maccumulate-outgoing-args on ia64 systems #503210 by Dennis Schridde.
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> gnu-efi-3.0s.ebuild:
+  Stable for ia64, wrt bug #450908
+
+*gnu-efi-3.0u (03 Jul 2013)
+
+  03 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +gnu-efi-3.0u.ebuild:
+  Version bump, bug #475532.
+
+  03 Jul 2013; Agostino Sarubbo <ago@gentoo.org> gnu-efi-3.0s.ebuild:
+  Stable for x86, wrt bug #450908
+
+  03 Jul 2013; Agostino Sarubbo <ago@gentoo.org> gnu-efi-3.0s.ebuild:
+  Stable for amd64, wrt bug #450908
 
 *gnu-efi-3.0s (25 Nov 2012)
 

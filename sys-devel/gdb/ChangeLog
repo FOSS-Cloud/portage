@@ -1,6 +1,119 @@
 # ChangeLog for sys-devel/gdb
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gdb/ChangeLog,v 1.238 2013/02/21 16:08:27 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/gdb/ChangeLog,v 1.266 2014/03/18 01:04:59 vapier Exp $
+
+  18 Mar 2014; Mike Frysinger <vapier@gentoo.org> gdb-7.7-r1.ebuild,
+  gdb-9999.ebuild:
+  Fix by Jonathan Callen for USE=-python handling #504830.
+
+*gdb-7.7-r1 (14 Mar 2014)
+
+  14 Mar 2014; Mike Frysinger <vapier@gentoo.org> +gdb-7.7-r1.ebuild,
+  -gdb-7.7.ebuild:
+  Add fix from upstream for handling of autoloading python printers #502108 by
+  Dennis Schridde.
+
+  14 Mar 2014; Mike Frysinger <vapier@gentoo.org> gdb-7.7.ebuild,
+  gdb-9999.ebuild:
+  Add epatch_user support.
+
+  14 Mar 2014; Mike Frysinger <vapier@gentoo.org> gdb-7.6.2.ebuild:
+  Mark alpha/ia64/m68k/ppc64/s390 stable #501528.
+
+  09 Mar 2014; Mike Frysinger <vapier@gentoo.org> gdb-7.7.ebuild,
+  gdb-9999.ebuild:
+  Convert python support to use python-single-r1 and allow python 2.7 and 3.3
+  versions #503852 by Nikoli.
+
+  08 Mar 2014; Mike Frysinger <vapier@gentoo.org> gdb-7.6.1.ebuild,
+  gdb-7.6.2.ebuild, gdb-7.6.ebuild, gdb-7.7.ebuild, gdb-9999.ebuild:
+  Clean up sysroot handling a bit -- no real functional changes.
+
+  08 Mar 2014; Mike Frysinger <vapier@gentoo.org> gdb-7.6.1.ebuild,
+  gdb-7.6.2.ebuild, gdb-7.6.ebuild, gdb-7.7.ebuild, gdb-9999.ebuild,
+  metadata.xml:
+  Add USE=lzma to control lzma linkage support #503850 by Nikoli.
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> gdb-7.6.2.ebuild:
+  Stable for ppc, wrt bug #501528
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> gdb-7.6.2.ebuild:
+  Stable for x86, wrt bug #501528
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> gdb-7.6.2.ebuild:
+  amd64 stable, bug #501528
+
+  28 Feb 2014; Markus Meier <maekke@gentoo.org> gdb-7.6.2.ebuild:
+  arm stable, bug #501528
+
+  17 Feb 2014; Jeroen Roovers <jer@gentoo.org> gdb-7.6.2.ebuild:
+  Stable for HPPA (bug #501528).
+
+*gdb-7.7 (06 Feb 2014)
+
+  06 Feb 2014; Mike Frysinger <vapier@gentoo.org> +gdb-7.7.ebuild:
+  Version bump.
+
+  06 Feb 2014; Mike Frysinger <vapier@gentoo.org> gdb-9999.ebuild:
+  Update to EAPI=4.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> gdb-7.6.2.ebuild,
+  gdb-9999.ebuild:
+  Add arm64 love.
+
+  14 Jan 2014; Mike Frysinger <vapier@gentoo.org> gdb-9999.ebuild:
+  Disable readline explicitly since we use the system one #498008 by octoploid.
+
+  14 Jan 2014; Mike Frysinger <vapier@gentoo.org> gdb-7.6.1.ebuild,
+  gdb-7.6.2.ebuild, gdb-7.6.ebuild, gdb-9999.ebuild:
+  Re-add m68k keywords.
+
+  14 Jan 2014; Mike Frysinger <vapier@gentoo.org> gdb-9999.ebuild:
+  Disable binutils subdirs due to combined git tree #498008 by octoploid.
+
+*gdb-7.6.2 (09 Dec 2013)
+
+  09 Dec 2013; Mike Frysinger <vapier@gentoo.org> +gdb-7.6.2.ebuild,
+  gdb-9999.ebuild:
+  Version bump.
+
+  20 Nov 2013; Mike Frysinger <vapier@gentoo.org> gdb-7.3.1-r1.ebuild,
+  gdb-7.3.1.ebuild, gdb-7.3.ebuild, gdb-7.4.1.ebuild, gdb-7.4.ebuild,
+  gdb-7.5.1.ebuild, gdb-7.5.ebuild, gdb-7.6.1.ebuild, gdb-7.6.ebuild,
+  gdb-9999.ebuild:
+  Update gdb git repo #490566 by octoploid.
+
+  29 Sep 2013; Mike Frysinger <vapier@gentoo.org> gdb-7.6.1.ebuild:
+  Add fix from upstream for building btrace on older systems #473522 by William
+  Throwe.
+
+  15 Sep 2013; Fabian Groffen <grobian@gentoo.org> gdb-7.6.1.ebuild,
+  gdb-9999.ebuild:
+  Fix configure on Darwin by using our own provided python-config iso gdb-
+  provided copy
+
+*gdb-7.6.1 (03 Sep 2013)
+
+  03 Sep 2013; Mike Frysinger <vapier@gentoo.org> +gdb-7.6.1.ebuild:
+  Version bump.
+
+  15 Aug 2013; Mike Frysinger <vapier@gentoo.org> gdb-7.5.1.ebuild:
+  Mark m68k stable #457796.
+
+  15 Aug 2013; Mike Frysinger <vapier@gentoo.org> gdb-7.6.ebuild:
+  Redo cpuid patch to work with older versions of patch (and not require up-to-
+  date git format support) #477276 by Another Mortal.
+
+  23 Jun 2013; Mike Frysinger <vapier@gentoo.org> gdb-7.6.ebuild:
+  Apply fix from upstream for cpuid on x86 on hardened systems #467806.
+
+*gdb-7.6 (26 Apr 2013)
+
+  26 Apr 2013; Mike Frysinger <vapier@gentoo.org> +gdb-7.6.ebuild:
+  Version bump.
+
+  12 Apr 2013; Jeroen Roovers <jer@gentoo.org> gdb-7.5.1.ebuild:
+  Stable for HPPA (bug #457796).
 
   21 Feb 2013; Agostino Sarubbo <ago@gentoo.org> gdb-7.5.1.ebuild:
   Stable for sparc, wrt bug #457796

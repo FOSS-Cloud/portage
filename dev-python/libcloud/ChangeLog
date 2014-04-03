@@ -1,6 +1,44 @@
 # ChangeLog for dev-python/libcloud
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/libcloud/ChangeLog,v 1.7 2012/11/29 06:56:59 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/libcloud/ChangeLog,v 1.15 2014/03/31 20:38:41 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> libcloud-0.12.4-r1.ebuild,
+  libcloud-0.13.2.ebuild, libcloud-0.14.1.ebuild:
+  Add support for the new PyPy slotting.
+
+*libcloud-0.14.1 (26 Feb 2014)
+
+  26 Feb 2014; Patrick McLean <chutzpah@gentoo.org> +libcloud-0.14.1.ebuild:
+  Version bump.
+
+*libcloud-0.13.2 (21 Oct 2013)
+
+  21 Oct 2013; Patrick Lauer <patrick@gentoo.org> +libcloud-0.13.2.ebuild:
+  Bump
+
+  22 Jul 2013; Michał Górny <mgorny@gentoo.org> -libcloud-0.11.1.ebuild,
+  -libcloud-0.11.3.ebuild, -libcloud-0.11.4.ebuild, -libcloud-0.12.3.ebuild,
+  -libcloud-0.12.4.ebuild, libcloud-0.12.4-r1.ebuild:
+  Change Python USEdep to ssl(+) due to change in dev-python/pypy. Drop old.
+
+  06 Jul 2013; Ian Delaney <idella4@gentoo.org> libcloud-0.12.4-r1.ebuild:
+  ebuild tidied, redundant entries removed, py3 support dropped on failing
+  testsuite with added dep emerged
+
+*libcloud-0.12.4-r1 (06 Jul 2013)
+
+  06 Jul 2013; Ian Delaney <idella4@gentoo.org> +libcloud-0.12.4-r1.ebuild:
+  revbump; migrate -> distutils-r1, add missing (optional) test dep
+
+*libcloud-0.12.4 (02 May 2013)
+
+  02 May 2013; Patrick Lauer <patrick@gentoo.org> +libcloud-0.12.4.ebuild:
+  Bump
+
+*libcloud-0.12.3 (02 Apr 2013)
+
+  02 Apr 2013; Patrick Lauer <patrick@gentoo.org> +libcloud-0.12.3.ebuild:
+  Bump
 
 *libcloud-0.11.4 (29 Nov 2012)
 

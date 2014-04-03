@@ -1,6 +1,15 @@
 # ChangeLog for media-libs/libmimic
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libmimic/ChangeLog,v 1.21 2012/10/02 21:24:51 maekke Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libmimic/ChangeLog,v 1.23 2013/10/27 10:01:21 pacho Exp $
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due voip herd removal:
+  http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+*libmimic-1.0.4-r2 (10 Aug 2013)
+
+  10 Aug 2013; Alexis Ballier <aballier@gentoo.org> +libmimic-1.0.4-r2.ebuild:
+  Convert to multilib, add static-libs useflag, stack it for medialibs r9
 
   02 Oct 2012; Markus Meier <maekke@gentoo.org> libmimic-1.0.4-r1.ebuild:
   arm stable, bug #427554
@@ -73,4 +82,3 @@
   21 May 2006; Stefan Schweizer <genstef@gentoo.org> +metadata.xml,
   +libmimic-1.0.4.ebuild:
   New ebuild libmimic, dep of gst-plugins-farsight, dep of tapioca, bug 127383
-

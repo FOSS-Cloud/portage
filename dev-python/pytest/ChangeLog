@@ -1,6 +1,151 @@
 # ChangeLog for dev-python/pytest
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pytest/ChangeLog,v 1.47 2013/02/26 06:33:12 idella4 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pytest/ChangeLog,v 1.89 2014/04/02 20:25:31 radhermit Exp $
+
+  02 Apr 2014; Tim Harder <radhermit@gentoo.org> pytest-2.5.2.ebuild:
+  Add python3_4 support.
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> pytest-2.3.4.ebuild,
+  pytest-2.3.5.ebuild, pytest-2.4.2.ebuild, pytest-2.5.2.ebuild:
+  Add support for the new PyPy slotting.
+
+  28 Mar 2014; Ian Delaney <idella4@gentoo.org> pytest-2.3.4.ebuild,
+  pytest-2.3.5.ebuild, pytest-2.4.2.ebuild, pytest-2.5.2.ebuild:
+  Add dep sphinx for doc build, fixes Bug #493480
+
+*pytest-2.5.2 (01 Feb 2014)
+
+  01 Feb 2014; Tim Harder <radhermit@gentoo.org> +pytest-2.5.2.ebuild:
+  Version bump.
+
+  09 Dec 2013; Mike Gilbert <floppym@gentoo.org> pytest-2.4.2.ebuild:
+  Restore pexpect dep, but exclude pypy.
+
+  09 Dec 2013; Mike Gilbert <floppym@gentoo.org> pytest-2.4.2.ebuild:
+  Drop dep on pexpect and restore pypy support.
+
+  07 Dec 2013; Patrick Lauer <patrick@gentoo.org> pytest-2.4.2.ebuild:
+  Adapt to changes in pexpect: drop pypy2_0 support, #491404
+
+  30 Nov 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/pytest-2.4.2-pexpect-3.0.patch, pytest-2.4.2.ebuild:
+  Fix pexpect-3.0 problems in tests.
+
+  17 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> pytest-2.4.2.ebuild:
+  added pytest-2.4.2 with restricted tests due to upstream bug
+
+  16 Nov 2013; Mike Gilbert <floppym@gentoo.org> pytest-2.4.2.ebuild:
+  Ignore silly test_simple.yml file when running tests. Thanks to idella4 for
+  testing.
+
+*pytest-2.4.2 (14 Nov 2013)
+
+  14 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> +pytest-2.4.2.ebuild:
+  pytest bump
+
+  22 Oct 2013; Fabian Groffen <grobian@gentoo.org> pytest-2.3.5.ebuild:
+  Marked ~x64-macos, bug #487670
+
+  14 Sep 2013; Mike Gilbert <floppym@gentoo.org> pytest-2.3.5.ebuild:
+  Call distutils-r1_python_install_all.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> pytest-2.3.4.ebuild,
+  pytest-2.3.5.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.5.ebuild:
+  Stable for x86, wrt bug #478344
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> pytest-2.3.4.ebuild,
+  pytest-2.3.5.ebuild:
+  Drop removed Python implementations from PYTHON_COMPAT.
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.5.ebuild:
+  Stable for s390, wrt bug #478344
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.5.ebuild:
+  Stable for ppc64, wrt bug #478344
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.5.ebuild:
+  Stable for ia64, wrt bug #478344
+
+  03 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.5.ebuild:
+  Stable for sparc, wrt bug #478344
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.5.ebuild:
+  Stable for alpha, wrt bug #478344
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.5.ebuild:
+  Stable for arm, wrt bug #478344
+
+  28 Jul 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.5.ebuild:
+  Stable for ppc, wrt bug #478344
+
+  27 Jul 2013; Jeroen Roovers <jer@gentoo.org> pytest-2.3.5.ebuild:
+  Stable for HPPA (bug #478344).
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.5.ebuild:
+  Stable for amd64, wrt bug #478344
+
+  12 May 2013; Mike Frysinger <vapier@gentoo.org> pytest-2.3.5.ebuild:
+  Add missing ~s390 #469242.
+
+*pytest-2.3.5 (10 May 2013)
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> +pytest-2.3.5.ebuild,
+  -pytest-2.0.2.ebuild, -pytest-2.0.3.ebuild, -pytest-2.1.1.ebuild,
+  -pytest-2.2.3.ebuild, -pytest-2.2.4.ebuild, -pytest-2.3.2-r1.ebuild,
+  -pytest-2.3.3-r1.ebuild, -pytest-2.3.3.ebuild:
+  Bump, remove old, drop s390 keywords until py catches up
+
+  10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.4.ebuild:
+  Stable for s390, wrt bug #458992
+
+  04 Apr 2013; Mike Gilbert <floppym@gentoo.org> -pytest-2.3.4-r1.ebuild:
+  Drop unnecessary revbump.
+
+  04 Apr 2013; Mike Gilbert <floppym@gentoo.org>
+  files/pytest-2.3.4-unicode.patch, pytest-2.3.4-r1.ebuild:
+  Fix python3.2 SyntaxError introduced by 'unicode' patch. Bug 462552.
+
+*pytest-2.3.4-r1 (04 Apr 2013)
+
+  04 Apr 2013; Patrick Lauer <patrick@gentoo.org> +pytest-2.3.4-r1.ebuild,
+  pytest-2.3.4.ebuild:
+  Restore stable keywords
+
+  04 Apr 2013; Ian Delaney <idella4@gentoo.org> pytest-2.3.4.ebuild:
+  Test suite fixed for py3, fixes Bug #462552, by patrick
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.4.ebuild:
+  Stable for hppa, wrt bug #462180
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.4.ebuild:
+  Stable for sh, wrt bug #462180
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.4.ebuild:
+  Stable for sparc, wrt bug #462180
+
+  30 Mar 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.4.ebuild:
+  Stable for alpha, wrt bug #462180
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.4.ebuild:
+  Stable for ia64, wrt bug #462180
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.4.ebuild:
+  Stable for ppc64, wrt bug #462180
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.4.ebuild:
+  Stable for ppc, wrt bug #462180
+
+  24 Mar 2013; Markus Meier <maekke@gentoo.org> pytest-2.3.4.ebuild:
+  arm stable, bug #462180
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.4.ebuild:
+  Stable for x86, wrt bug #462180
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> pytest-2.3.4.ebuild:
+  Stable for amd64, wrt bug #462180
 
   26 Feb 2013; Ian Delaney <idella4@gentoo.org>
   files/pytest-2.3.4-unicode.patch, pytest-2.3.4.ebuild:

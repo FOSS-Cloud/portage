@@ -1,39 +1,36 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect-python/eselect-python-99999999.ebuild,v 1.7 2012/04/26 14:53:20 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect-python/eselect-python-99999999.ebuild,v 1.14 2014/02/02 16:32:36 grobian Exp $
 
 # Keep the EAPI low here because everything else depends on it.
 # We want to make upgrading simpler.
 
-ESVN_PROJECT="eselect-python"
-ESVN_REPO_URI="https://overlays.gentoo.org/svn/proj/python/projects/eselect-python/trunk"
-
 if [[ ${PV} == "99999999" ]] ; then
-	inherit autotools subversion
+	inherit autotools git-r3
+	EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/${PN}.git"
 else
-	SRC_URI="mirror://gentoo/${P}.tar.bz2"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+	SRC_URI="mirror://gentoo/${P}.tar.bz2
+		http://dev.gentoo.org/~floppym/dist/${P}.tar.bz2"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~ppc-aix ~x64-freebsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 fi
 
 DESCRIPTION="Eselect module for management of multiple Python versions"
-HOMEPAGE="http://www.gentoo.org"
+HOMEPAGE="http://www.gentoo.org/proj/en/Python/"
 
 LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
 RDEPEND=">=app-admin/eselect-1.2.3"
-# Avoid autotool deps for released versions for circ dep issues.
-if [[ ${PV} == "99999999" ]] ; then
-	DEPEND="sys-devel/autoconf"
-else
-	DEPEND=""
-fi
 
 src_unpack() {
-	unpack ${A}
-	cd "${S}"
-	[[ -x configure ]] || eautoreconf
+	if [[ ${PV} == "99999999" ]] ; then
+		git-r3_src_unpack
+		cd "${S}"
+		eautoreconf
+	else
+		unpack ${A}
+	fi
 }
 
 src_install() {
@@ -41,16 +38,14 @@ src_install() {
 	emake DESTDIR="${D}" install || die
 }
 
-pkg_preinst() {
-	if has_version "<${CATEGORY}/${PN}-20090804" || ! has_version "${CATEGORY}/${PN}"; then
-		run_eselect_python_update="1"
-	fi
-}
-
 pkg_postinst() {
-	if [[ "${run_eselect_python_update}" == "1" ]]; then
-		ebegin "Running \`eselect python update\`"
-		eselect python update --ignore 3.0 --ignore 3.1 --ignore 3.2 > /dev/null
-		eend "$?"
+	if has_version 'dev-lang/python'; then
+		eselect python update --if-unset
+	fi
+	if has_version '=dev-lang/python-2*'; then
+		eselect python update --python2 --if-unset
+	fi
+	if has_version '=dev-lang/python-3*'; then
+		eselect python update --python3 --if-unset
 	fi
 }

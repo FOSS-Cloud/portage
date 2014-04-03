@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/netatalk/netatalk-2.2.3.ebuild,v 1.4 2012/10/07 13:18:02 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/netatalk/netatalk-2.2.3.ebuild,v 1.6 2014/03/01 22:29:42 mgorny Exp $
 
 EAPI="4"
 
@@ -17,7 +17,7 @@ IUSE="acl appletalk avahi cracklib cups debug kerberos ldap pam quota slp ssl st
 
 RDEPEND="
 	!app-editors/yudit
-	dev-libs/libgcrypt
+	dev-libs/libgcrypt:0
 	sys-apps/coreutils
 	>=sys-libs/db-4.2.52
 	acl? (
@@ -35,7 +35,6 @@ RDEPEND="
 	tcpd? ( sys-apps/tcp-wrappers )
 	"
 DEPEND="${RDEPEND}"
-PDEPEND="sys-apps/openrc"
 
 RESTRICT="test"
 

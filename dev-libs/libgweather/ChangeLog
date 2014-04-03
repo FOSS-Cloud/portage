@@ -1,6 +1,83 @@
 # ChangeLog for dev-libs/libgweather
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgweather/ChangeLog,v 1.88 2012/12/19 04:04:02 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgweather/ChangeLog,v 1.106 2014/03/09 11:55:35 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libgweather-3.10.2.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libgweather-3.10.2.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libgweather-3.10.2.ebuild,
+  libgweather-3.8.3.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libgweather-3.10.2.ebuild,
+  libgweather-3.8.3.ebuild:
+  arch stable, bug 888
+
+*libgweather-3.10.2 (06 Feb 2014)
+
+  06 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +libgweather-3.10.2.ebuild:
+  Version bump.
+
+*libgweather-3.10.1 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +libgweather-3.10.1.ebuild,
+  -libgweather-3.6.2.ebuild, -libgweather-3.8.2.ebuild, metadata.xml:
+  Version bump for Gnome 3.10, drop old
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> libgweather-3.8.3.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> libgweather-3.8.3.ebuild:
+  amd64 stable, bug #478252
+
+*libgweather-3.8.3 (26 Oct 2013)
+
+  26 Oct 2013; Pacho Ramos <pacho@gentoo.org> +libgweather-3.8.3.ebuild:
+  Version bump
+
+  01 Sep 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +libgweather-3.6.2.ebuild:
+  Re-add libgweather-3.6.2; it's needed for gnome-applets-3.6,
+  evolution-data-server-3.6, etc. (bug #483084, thanks to lluixhi).
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -libgweather-3.6.2.ebuild, -libgweather-3.8.1.ebuild,
+  libgweather-3.8.2.ebuild:
+  Clean up old revisions and deprecated comments.
+
+  25 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org> libgweather-3.8.2.ebuild:
+  Raise gtk-doc-am dependency per configure. changelog & configure states that
+  it is not using libsoup-gnome at all anymore.
+
+*libgweather-3.8.2 (13 May 2013)
+
+  13 May 2013; Pacho Ramos <pacho@gentoo.org> +libgweather-3.8.2.ebuild:
+  Version bump
+
+*libgweather-3.8.1 (20 Apr 2013)
+
+  20 Apr 2013; Pacho Ramos <pacho@gentoo.org> +libgweather-3.8.1.ebuild,
+  -libgweather-3.8.0.ebuild:
+  Version bump, drop old
+
+  07 Apr 2013; Pacho Ramos <pacho@gentoo.org> libgweather-3.8.0.ebuild:
+  Fix libsoup deps
+
+  31 Mar 2013; Pacho Ramos <pacho@gentoo.org> libgweather-3.8.0.ebuild:
+  Adapt to libsoup-2.42 dropping gnome USE and splitting (#463702)
+
+*libgweather-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +libgweather-3.8.0.ebuild:
+  Version bump for Gnome 3.8
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -libgweather-3.4.1.ebuild:
+  Clean up old revision.
 
   19 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   libgweather-3.4.1.ebuild:

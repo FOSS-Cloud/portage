@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/oidentd/oidentd-2.0.8-r4.ebuild,v 1.7 2012/09/30 16:26:50 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/oidentd/oidentd-2.0.8-r4.ebuild,v 1.9 2014/03/22 15:34:45 angelos Exp $
 
 inherit eutils systemd
 
 DESCRIPTION="Another (RFC1413 compliant) ident daemon"
-HOMEPAGE="http://dev.ojnk.net"
+HOMEPAGE="http://ojnk.sourceforge.net/"
 SRC_URI="mirror://sourceforge/ojnk/${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -43,7 +43,7 @@ src_install() {
 	newinitd "${FILESDIR}"/${PN}-2.0.7-init ${PN}
 	newconfd "${FILESDIR}"/${PN}-2.0.7-confd ${PN}
 
-	systemd_newunit "${FILESDIR}"/${PN}.service ${PN}@.service
+	systemd_newunit "${FILESDIR}"/${PN}_at.service ${PN}@.service
 	systemd_dounit "${FILESDIR}"/${PN}.socket
 }
 

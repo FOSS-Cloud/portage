@@ -1,6 +1,18 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/package.use.mask,v 1.57 2013/09/02 07:02:22 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/package.use.mask,v 1.60 2014/02/02 10:30:40 pinkbyte Exp $
+
+# Sergey Popov <pinkbyte@gentoo.org> (02 Feb 2014)
+# media-gfx/nvidia-texture-tools is not keyworded on mips
+media-libs/devil	nvtt
+
+# Ryan Hill <dirtyepic@gentoo.org> (07 Jan 2014)
+# req net-libs/webkit-gtk:2
+x11-libs/wxGTK webkit
+
+# Markos Chandras <hwoarang@gentoo.org> (05 Jan 2014)
+# Perl is heavily unkeyworded on MIPS. See 497068
+dev-vcs/git mediawiki
 
 # Sergey Popov <pinkbyte@gentoo.org> (02 Sep 2013)
 # Not tested

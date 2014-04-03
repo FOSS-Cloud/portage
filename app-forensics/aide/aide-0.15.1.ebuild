@@ -1,6 +1,6 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-forensics/aide/aide-0.15.1.ebuild,v 1.4 2011/08/12 21:25:29 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-forensics/aide/aide-0.15.1.ebuild,v 1.6 2014/03/01 23:07:16 mgorny Exp $
 
 EAPI="3"
 
@@ -19,11 +19,14 @@ DEPEND="acl? ( virtual/acl )
 	audit? ( sys-process/audit )
 	curl? ( net-misc/curl )
 	mhash? ( >=app-crypt/mhash-0.9.2 )
-	!mhash? ( dev-libs/libgcrypt )
+	!mhash? ( dev-libs/libgcrypt:0 )
 	nls? ( virtual/libintl )
 	postgres? ( dev-db/postgresql-base )
 	prelink? ( sys-devel/prelink )
-	selinux? ( sys-libs/libselinux )
+	selinux? (
+		sys-libs/libselinux
+		sec-policy/selinux-aide
+	)
 	xattr? ( sys-apps/attr )
 	zlib? ( sys-libs/zlib )"
 

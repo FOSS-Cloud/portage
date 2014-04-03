@@ -1,6 +1,58 @@
 # ChangeLog for media-gfx/simple-scan
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/simple-scan/ChangeLog,v 1.22 2012/12/20 05:29:52 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/simple-scan/ChangeLog,v 1.36 2014/03/09 12:01:52 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> simple-scan-3.10.2.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> simple-scan-3.10.2.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> simple-scan-3.10.2.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> simple-scan-3.10.2.ebuild:
+  arch stable, bug 888
+
+*simple-scan-3.10.2 (17 Feb 2014)
+
+  17 Feb 2014; Pacho Ramos <pacho@gentoo.org> +simple-scan-3.10.2.ebuild,
+  -simple-scan-3.6.0.ebuild, -simple-scan-3.6.1.ebuild:
+  Version bump (#501624 by Alessandro Capogna), drop old.
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> simple-scan-3.8.0.ebuild:
+  add ~arm, bug #489046
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> simple-scan-3.8.0.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> simple-scan-3.8.0.ebuild:
+  amd64 stable, bug #478252
+
+*simple-scan-3.8.0 (08 Sep 2013)
+
+  08 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +simple-scan-3.8.0.ebuild:
+  Version bump, bug #482482.
+
+*simple-scan-3.6.1 (26 Aug 2013)
+
+  26 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +simple-scan-3.6.1.ebuild:
+  Version bump.
+
+  05 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> simple-scan-3.6.0.ebuild:
+  Pull in correct SLOT of libjpeg for headers.
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -simple-scan-2.32.0.2.ebuild, -simple-scan-3.4.2.ebuild:
+  Clean up old revisions.
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> simple-scan-3.6.0.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> simple-scan-3.6.0.ebuild:
+  Stable for amd64, wrt bug #458984
 
   20 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   -simple-scan-3.2.1.ebuild, simple-scan-3.4.2.ebuild,
@@ -113,4 +165,3 @@
   26 May 2010; Fabian Köster (maestro_alubia) <f.koester@tarent.de>
   +simple-scan-2.31.1.ebuild, +metadata.xml:
   New Ebuild for bug 320737 thanks to sedzimir, BiNkl and Tommy[D]
-

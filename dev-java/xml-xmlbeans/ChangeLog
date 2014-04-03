@@ -1,6 +1,19 @@
 # ChangeLog for dev-java/xml-xmlbeans
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/xml-xmlbeans/ChangeLog,v 1.33 2013/02/05 07:30:30 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/xml-xmlbeans/ChangeLog,v 1.35 2013/09/17 17:15:56 tomwij Exp $
+
+*xml-xmlbeans-2.6.0 (17 Sep 2013)
+
+  17 Sep 2013; Tom Wijsman <TomWij@gentoo.org>
+  +files/xml-xmlbeans-2.6.0-jam.patch, +files/xml-xmlbeans-2.6.0-piccolo.patch,
+  +files/xml-xmlbeans-2.6.0-remove-jamsupport.patch, +xml-xmlbeans-2.6.0.ebuild:
+  Version bump to 2.6.0, imported from dmol overlay; made additional adjustments
+  like adding missing dependencies and simplifying maintenance. Fixes bug
+  #173129. Thanks to Kim, Arfrever, Karsten, dmol and Java herd for helping.
+
+  28 Jul 2013; Fabian Groffen <grobian@gentoo.org>
+  xml-xmlbeans-1.0.4_pre20041217-r1.ebuild:
+  Marked ~x64-macos, bug #435528
 
   05 Feb 2013; Rick Farina <zerochaos@gentoo.org>
   xml-xmlbeans-1.0.4_pre20041217-r1.ebuild,

@@ -1,6 +1,35 @@
 # ChangeLog for app-text/zathura
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/zathura/ChangeLog,v 1.48 2013/01/27 21:50:00 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/zathura/ChangeLog,v 1.55 2014/03/30 15:50:50 ssuominen Exp $
+
+  30 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> -zathura-0.2.1.ebuild,
+  -zathura-0.2.2.ebuild, -zathura-0.2.3.ebuild:
+  old
+
+*zathura-0.2.6 (27 Nov 2013)
+
+  27 Nov 2013; Samuli Suominen <ssuominen@gentoo.org> +zathura-0.2.6.ebuild,
+  zathura-9999.ebuild, metadata.xml:
+  Version bump wrt #483268 by Petr Pisar
+
+*zathura-9999 (22 Jun 2013)
+
+  22 Jun 2013; Michael Weber <xmw@gentoo.org> +zathura-9999.ebuild,
+  metadata.xml:
+  Add USE=+deprecated for gtk2 dependency, add live ebuild for gtk3 development.
+
+  19 Jun 2013; Alex Alexander <wired@gentoo.org> metadata.xml:
+  removed myself from maintainer list
+
+*zathura-0.2.3 (13 Jun 2013)
+
+  13 Jun 2013; Michael Weber <xmw@gentoo.org> +zathura-0.2.3.ebuild,
+  metadata.xml, zathura-0.2.2.ebuild:
+  Version bump, adding myself as maint.
+
+  12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> zathura-0.2.2.ebuild:
+  Include content of myzathuraconf also for testsuite wrt #454666 by Diego Elio
+  Pettenò
 
 *zathura-0.2.2 (27 Jan 2013)
 

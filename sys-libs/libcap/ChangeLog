@@ -1,6 +1,23 @@
 # ChangeLog for sys-libs/libcap
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libcap/ChangeLog,v 1.122 2013/02/17 07:58:20 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libcap/ChangeLog,v 1.126 2014/01/19 10:18:06 vapier Exp $
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org> libcap-2.22-r1.ebuild,
+  libcap-2.22-r2.ebuild, libcap-2.22.ebuild:
+  Add arm64 love.
+
+  03 Dec 2013; Mike Gilbert <floppym@gentoo.org> libcap-2.22-r2.ebuild:
+  Fix cross-compiles by exporting CC for the default ABI, bug 439258.
+
+  28 Nov 2013; Mike Frysinger <vapier@gentoo.org> libcap-2.22-r1.ebuild,
+  libcap-2.22-r2.ebuild, libcap-2.22.ebuild:
+  Force Gentoo mirrors for tarball as upstream is gone #491630 by Richard
+  Jackson.
+
+*libcap-2.22-r2 (25 Nov 2013)
+
+  25 Nov 2013; Michał Górny <mgorny@gentoo.org> +libcap-2.22-r2.ebuild:
+  Enable multilib support, bug #488286. Acked by Chainsaw.
 
   17 Feb 2013; Zac Medico <zmedico@gentoo.org> libcap-2.22-r1.ebuild:
   Add ~arm-linux keyword.

@@ -1,6 +1,62 @@
 # ChangeLog for app-backup/spideroak-bin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/spideroak-bin/ChangeLog,v 1.30 2013/01/24 04:31:50 blueness Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-backup/spideroak-bin/ChangeLog,v 1.42 2014/01/04 15:01:28 blueness Exp $
+
+*spideroak-bin-5.1.1 (04 Jan 2014)
+
+  04 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  +spideroak-bin-5.1.1.ebuild, -files/spideroak-bin-4.8.3-headless.patch,
+  -spideroak-bin-4.1.9860.ebuild, -spideroak-bin-4.8.3-r1.ebuild,
+  -spideroak-bin-5.0.1.ebuild, metadata.xml:
+  Version bump, bug #496932
+
+  24 Dec 2013; Tom Wijsman <TomWij@gentoo.org> -files/headless.patch,
+  -files/opt-path.patch:
+  [QA] Remove unused files.
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> spideroak-bin-5.0.3.ebuild:
+  Stable for x86, wrt bug #484160
+
+  10 Sep 2013; Agostino Sarubbo <ago@gentoo.org> spideroak-bin-5.0.3.ebuild:
+  Stable for amd64, wrt bug #484160
+
+*spideroak-bin-5.0.3 (21 Aug 2013)
+
+  21 Aug 2013; Anthony G. Basile <blueness@gentoo.org>
+  +spideroak-bin-5.0.3.ebuild:
+  Version bump, bug #481914
+
+  25 May 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/spideroak-bin-5.0.1-headless.patch, spideroak-bin-5.0.1.ebuild:
+  Fix broken patch, thanks oblikoamorale
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unused flag description from metadata
+
+*spideroak-bin-5.0.1 (06 May 2013)
+
+  06 May 2013; Anthony G. Basile <blueness@gentoo.org>
+  +spideroak-bin-5.0.1.ebuild, -files/spideroak-bin-4.7.9948-headless.patch,
+  -files/spideroak-bin-4.7.9948-opt-path.patch, -spideroak-bin-4.5.9941.ebuild,
+  -spideroak-bin-4.6.9945.ebuild, -spideroak-bin-4.7.9948.ebuild:
+  Version bump and clean older unstable, bug #468774
+
+  24 Mar 2013; Anthony G. Basile <blueness@gentoo.org>
+  spideroak-bin-4.8.3-r1.ebuild:
+  Fix patch name, thanks oblikoamorale
+
+  23 Mar 2013; Mike Frysinger <vapier@gentoo.org> spideroak-bin-4.1.9860.ebuild,
+  spideroak-bin-4.5.9941.ebuild, spideroak-bin-4.6.9945.ebuild,
+  spideroak-bin-4.7.9948.ebuild, spideroak-bin-4.8.3-r1.ebuild:
+  Use unpacker eclass for unpacking the .deb.  Fix changelog doc install.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org>
+  spideroak-bin-4.1.9860.ebuild, spideroak-bin-4.5.9941.ebuild,
+  spideroak-bin-4.6.9945.ebuild, spideroak-bin-4.7.9948.ebuild:
+  Move Qt dependencies to the new category
 
 *spideroak-bin-4.8.3-r1 (24 Jan 2013)
 

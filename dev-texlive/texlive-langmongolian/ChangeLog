@@ -1,6 +1,50 @@
 # ChangeLog for dev-texlive/texlive-langmongolian
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-texlive/texlive-langmongolian/ChangeLog,v 1.51 2012/07/27 02:35:26 aballier Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-texlive/texlive-langmongolian/ChangeLog,v 1.62 2013/04/25 21:28:31 ago Exp $
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for sh, wrt bug #449298
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for s390, wrt bug #449298
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for sparc, wrt bug #449298
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for arm, wrt bug #449298
+
+  20 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for alpha, wrt bug #449298
+
+  19 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for ia64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for ppc64, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for ppc, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for x86, wrt bug #449298
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for amd64, wrt bug #449298
+
+  17 Apr 2013; Jeroen Roovers <jer@gentoo.org>
+  texlive-langmongolian-2012.ebuild:
+  Stable for HPPA (bug #449298).
 
 *texlive-langmongolian-2012 (27 Jul 2012)
 
@@ -218,4 +262,3 @@
   14 Oct 2007; Alexis Ballier <aballier@gentoo.org> +metadata.xml,
   +texlive-langmongolian-2007.ebuild:
   initial import
-

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-freebsd/boot0/boot0-9.1.ebuild,v 1.1 2013/01/27 21:23:47 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-freebsd/boot0/boot0-9.1.ebuild,v 1.3 2013/08/27 23:08:11 aballier Exp $
 
 EAPI=2
 
@@ -21,6 +21,8 @@ DEPEND="=sys-freebsd/freebsd-mk-defs-${RV}*
 	=sys-freebsd/freebsd-lib-${RV}*"
 
 S="${WORKDIR}/sys/boot"
+
+PATCHES=( "${FILESDIR}/${PN}-9.2-gcc46.patch" )
 
 boot0_use_enable() {
 	use ${1} && mymakeopts="${mymakeopts} LOADER_${2}_SUPPORT=\"yes\""
@@ -44,6 +46,14 @@ src_prepare() {
 src_compile() {
 	strip-flags
 	append-flags "-fno-strict-aliasing"
+
+	cd "${WORKDIR}/lib/libstand" || die
+	freebsd_src_compile
+
+	cd "${S}"
+	CFLAGS="${CFLAGS} -I${WORKDIR}/lib/libstand"
+	LDFLAGS="${LDFLAGS} -L${WORKDIR}/lib/libstand"
+	export LIBSTAND="${WORKDIR}/lib/libstand/libstand.a"
 	NOFLAGSTRIP="yes" freebsd_src_compile
 }
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-pdf-viewer/claws-mail-pdf-viewer-0.9.3.ebuild,v 1.5 2013/01/03 01:18:19 fauli Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail-pdf-viewer/claws-mail-pdf-viewer-0.9.3.ebuild,v 1.7 2013/05/08 03:59:55 fauli Exp $
 
 EAPI=5
 
@@ -16,10 +16,10 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="x86 ~amd64"
 IUSE=""
-CDEPEND=">=mail-client/claws-mail-3.9.0"
+CDEPEND="~mail-client/claws-mail-3.9.0"
 RDEPEND="app-text/ghostscript-gpl"
 DEPEND="${CDEPEND}
-		app-text/poppler[cairo]
+		app-text/poppler:=[cairo]
 		virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"

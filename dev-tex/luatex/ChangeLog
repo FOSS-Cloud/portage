@@ -1,6 +1,69 @@
 # ChangeLog for dev-tex/luatex
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tex/luatex/ChangeLog,v 1.118 2013/02/24 18:03:39 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-tex/luatex/ChangeLog,v 1.136 2013/08/14 11:24:49 patrick Exp $
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> luatex-0.70.1-r2.ebuild:
+  Whitespace
+
+  01 Jul 2013; Alexis Ballier <aballier@gentoo.org> -luatex-0.74.0.ebuild:
+  remove old
+
+  01 Jul 2013; Alexis Ballier <aballier@gentoo.org> luatex-0.76.0.ebuild:
+  bump cairo and pixman deps to reflect reality of what is needed
+
+*luatex-0.76.0 (25 Jun 2013)
+
+  25 Jun 2013; Alexis Ballier <aballier@gentoo.org> +luatex-0.76.0.ebuild:
+  version bump, bug #460054
+
+  19 Apr 2013; Agostino Sarubbo <ago@gentoo.org> -luatex-0.70.1-r1.ebuild,
+  luatex-0.70.1-r2.ebuild:
+  Stable for alpha, ia64, s390, wrt to bug #449298
+
+  14 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org> -luatex-0.70.1.ebuild,
+  luatex-0.74.0.ebuild:
+  EAPI=5 and poppler subslot dependency; remove old
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> luatex-0.70.1-r2.ebuild:
+  Stable for sh, wrt bug #459866
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> luatex-0.70.1-r2.ebuild:
+  Stable for ppc64, wrt bug #459866
+
+  22 Mar 2013; Agostino Sarubbo <ago@gentoo.org> luatex-0.70.1-r2.ebuild:
+  Stable for ppc, wrt bug #459866
+
+  21 Mar 2013; Jeroen Roovers <jer@gentoo.org> luatex-0.70.1-r2.ebuild:
+  Stable for HPPA (bug #459866).
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> luatex-0.70.1-r2.ebuild:
+  Stable for sparc, wrt bug #459866
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> luatex-0.70.1-r2.ebuild:
+  Stable for arm, wrt bug #459866
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> luatex-0.70.1-r2.ebuild:
+  Stable for x86, wrt bug #459866
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> luatex-0.70.1-r2.ebuild:
+  Stable for amd64, wrt bug #459866
+
+  17 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  luatex-0.70.1-r2.ebuild:
+  Add poppler subslot dependency
+
+  10 Mar 2013; Ulrich Müller <ulm@gentoo.org> files/poppler022.patch:
+  Fix broken poppler022.patch by removing the hunk with svn ids, bug 461262.
+
+*luatex-0.70.1-r2 (10 Mar 2013)
+
+  10 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +files/poppler022.patch, +luatex-0.70.1-r2.ebuild:
+  Add experimental poppler-0.22 patch
+
+  09 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> luatex-0.70.1.ebuild,
+  luatex-0.70.1-r1.ebuild:
+  Explicitly request poppler <0.22
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> luatex-0.70.1-r1.ebuild:
   Stable for sh, wrt bug #452018

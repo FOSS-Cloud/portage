@@ -1,6 +1,31 @@
 # ChangeLog for net-libs/libosip
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libosip/ChangeLog,v 1.52 2013/02/14 22:08:06 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libosip/ChangeLog,v 1.58 2013/10/27 09:54:18 pacho Exp $
+
+*libosip-3.6.0 (27 Oct 2013)
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> +libosip-3.6.0.ebuild:
+  Needed by net-misc/siproxd
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> -libosip-3.5.0.ebuild,
+  -libosip-3.6.0.ebuild, metadata.xml:
+  Cleanup due voip herd removal:
+  http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libosip-4.0.0.ebuild:
+  Stable for x86, wrt bug #470554
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> libosip-4.0.0.ebuild:
+  Stable for ppc, wrt bug #470554
+
+  30 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libosip-4.0.0.ebuild:
+  Stable for amd64, wrt bug #470554
+
+*libosip-4.0.0 (05 Mar 2013)
+
+  05 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +libosip-4.0.0.ebuild, -libosip-2.2.2.ebuild, -libosip-3.3.0.ebuild:
+  Version bump.
 
   14 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libosip-3.6.0.ebuild:
   Stable for ppc, wrt bug #457420

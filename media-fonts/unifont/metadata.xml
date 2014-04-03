@@ -3,4 +3,8 @@
 <pkgmetadata>
 <herd>fonts</herd>
 <herd>cjk</herd>
+<use>
+	<flag name="fontforge">Use <pkg>media-gfx/fontforge</pkg> to build fonts from source</flag>
+	<flag name="utils">Install unifont utilities</flag>
+</use>
 </pkgmetadata>

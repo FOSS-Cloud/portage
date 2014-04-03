@@ -1,6 +1,96 @@
 # ChangeLog for dev-python/python-docs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-docs/ChangeLog,v 1.172 2012/12/01 19:55:21 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-docs/ChangeLog,v 1.192 2014/03/23 15:54:48 idella4 Exp $
+
+*python-docs-3.3.5 (23 Mar 2014)
+*python-docs-3.4.0 (23 Mar 2014)
+
+  23 Mar 2014; Ian Delaney <idella4@gentoo.org> +python-docs-3.3.5.ebuild,
+  +python-docs-3.4.0.ebuild:
+  New docs ebuilds for new versions
+
+*python-docs-3.3.4 (17 Feb 2014)
+*python-docs-2.6.9 (17 Feb 2014)
+*python-docs-2.7.6 (17 Feb 2014)
+
+  17 Feb 2014; Ian Delaney <idella4@gentoo.org> +python-docs-2.6.9.ebuild,
+  +python-docs-2.7.6.ebuild, +python-docs-3.3.4.ebuild:
+  bumps, advance EAPI -> 5
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> python-docs-2.7.3.ebuild,
+  python-docs-2.7.4.ebuild, python-docs-2.7.5.ebuild, python-docs-3.3.2.ebuild,
+  python-docs-3.3.3.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> python-docs-2.6.8.ebuild,
+  python-docs-2.7.3.ebuild, python-docs-3.1.5.ebuild, python-docs-3.2.3.ebuild,
+  python-docs-3.3.2.ebuild:
+  Mark m68k/s390/sh stable.
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> python-docs-3.3.2.ebuild:
+  Stable for ia64, wrt bug #474128
+
+*python-docs-3.3.3 (11 Jan 2014)
+
+  11 Jan 2014; Mike Gilbert <floppym@gentoo.org> +python-docs-3.3.3.ebuild:
+  Bump.
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> python-docs-3.3.2.ebuild:
+  Stable for ppc64, wrt bug #474128
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> python-docs-3.3.2.ebuild:
+  Stable for ppc, wrt bug #474128
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> python-docs-3.3.2.ebuild:
+  arm stable, bug #474128
+
+  15 Dec 2013; Agostino Sarubbo <ago@gentoo.org> python-docs-3.3.2.ebuild:
+  Stable for sparc, wrt bug #474128
+
+  13 Dec 2013; Matt Turner <mattst88@gentoo.org> python-docs-3.3.2.ebuild:
+  alpha stable, bug 474128.
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> python-docs-3.3.2.ebuild:
+  x86 stable, bug #474128
+
+  30 Nov 2013; Jeroen Roovers <jer@gentoo.org> python-docs-3.3.2.ebuild:
+  Stable for HPPA (bug #474128).
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> python-docs-3.3.2.ebuild:
+  amd64 stable, bug #474128
+
+  22 Oct 2013; Fabian Groffen <grobian@gentoo.org> python-docs-2.7.5.ebuild,
+  python-docs-3.2.5.ebuild, python-docs-3.3.2.ebuild:
+  Marked ~x64-macos, bug #487670
+
+*python-docs-3.3.2 (25 Jun 2013)
+*python-docs-2.7.5 (25 Jun 2013)
+*python-docs-3.2.5 (25 Jun 2013)
+
+  25 Jun 2013; Mike Gilbert <floppym@gentoo.org> +python-docs-2.7.5.ebuild,
+  +python-docs-3.2.5.ebuild, +python-docs-3.3.2.ebuild:
+  Bump.
+
+  09 May 2013; Mike Gilbert <floppym@gentoo.org> python-docs-3.3.1.ebuild:
+  Remove pkg_setup.
+
+*python-docs-2.7.4 (09 May 2013)
+*python-docs-3.3.1 (09 May 2013)
+*python-docs-3.2.4 (09 May 2013)
+
+  09 May 2013; Mike Gilbert <floppym@gentoo.org> +python-docs-2.7.4.ebuild,
+  +python-docs-3.2.4.ebuild, +python-docs-3.3.1.ebuild:
+  Version bump.
+
+  09 May 2013; Mike Gilbert <floppym@gentoo.org> -python-docs-2.6.6.ebuild,
+  -python-docs-2.6.7.ebuild, -python-docs-2.7.1.ebuild,
+  -python-docs-2.7.2.ebuild, -python-docs-3.1.3.ebuild,
+  -python-docs-3.1.4.ebuild, -python-docs-3.2.2.ebuild, -python-docs-3.2.ebuild:
+  Remove old.
+
+  09 May 2013; Mike Gilbert <floppym@gentoo.org> python-docs-2.6.8.ebuild,
+  python-docs-2.7.3.ebuild, python-docs-3.1.5.ebuild, python-docs-3.2.3.ebuild:
+  Stabilize on all archs.
 
   01 Dec 2012; Raúl Porcel <armin76@gentoo.org> python-docs-3.3.0.ebuild:
   alpha/ia64/m68k/s390/sh/sparc stable wrt #441296

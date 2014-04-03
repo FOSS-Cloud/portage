@@ -1,6 +1,32 @@
 # ChangeLog for dev-haskell/httpd-shed
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/httpd-shed/ChangeLog,v 1.7 2012/12/10 21:53:13 slyfox Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/httpd-shed/ChangeLog,v 1.14 2014/03/24 15:06:09 ago Exp $
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> httpd-shed-0.4-r1.ebuild:
+  Stable for ppc, wrt bug #495382
+
+  23 Mar 2014; Agostino Sarubbo <ago@gentoo.org> httpd-shed-0.4-r1.ebuild:
+  Stable for sparc, wrt bug #495382
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> httpd-shed-0.4-r1.ebuild:
+  Stable for ia64, wrt bug #495382
+
+  14 Mar 2014; Agostino Sarubbo <ago@gentoo.org> httpd-shed-0.4-r1.ebuild:
+  Stable for ppc64, wrt bug #495382
+
+  06 Mar 2014; Chema Alonso <nimiux@gentoo.org> httpd-shed-0.4-r1.ebuild:
+  Stable for amd64 wrt bug #495382
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  httpd-shed-0.4-r1.ebuild:
+  x86 stable wrt bug #495382
+
+*httpd-shed-0.4-r1 (20 Oct 2013)
+
+  20 Oct 2013; Mark Wright <gienah@gentoo.org>
+  +files/httpd-shed-0.4-network.patch, +httpd-shed-0.4-r1.ebuild:
+  Patch httpd-shed to fix Ambiguous occurrence 'sClose' with recent network
+  versions
 
   10 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> httpd-shed-0.4.ebuild:
   stable on alpha/ia64/sparc (bug #421351)

@@ -1,6 +1,31 @@
 # ChangeLog for dev-python/pywebkitgtk
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pywebkitgtk/ChangeLog,v 1.27 2012/05/04 15:12:15 patrick Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pywebkitgtk/ChangeLog,v 1.34 2013/06/26 23:05:58 floppym Exp $
+
+  26 Jun 2013; Mike Gilbert <floppym@gentoo.org> pywebkitgtk-1.1.8-r1.ebuild:
+  pywebkitgtk does not use the python bindings on libxslt. Thanks to Arfrever.
+
+  23 Jun 2013; Mike Gilbert <floppym@gentoo.org> pywebkitgtk-1.1.8-r1.ebuild:
+  Don't die in testing function; we should let virtualmake clean up after
+  itself.
+
+  23 Jun 2013; Mike Gilbert <floppym@gentoo.org> pywebkitgtk-1.1.8-r1.ebuild:
+  Use virtualx for the test suite.
+
+  23 Jun 2013; Mike Gilbert <floppym@gentoo.org> pywebkitgtk-1.1.8-r1.ebuild:
+  Use autotools-utils for out-of-source building, bug 474360.
+
+  23 Jun 2013; Ian Delaney <idella4@gentoo.org> pywebkitgtk-1.1.8-r1.ebuild:
+  rebuild whole migration, missing test phase added, resticted until 1 final
+  issue resolved, wrt Bug #474360
+
+*pywebkitgtk-1.1.8-r1 (22 Jun 2013)
+
+  22 Jun 2013; Ian Delaney <idella4@gentoo.org> +pywebkitgtk-1.1.8-r1.ebuild:
+  revbump, migrate -> python-r1
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   04 May 2012; Patrick Lauer <patrick@gentoo.org> pywebkitgtk-1.1.8.ebuild:
   Migrating dev-util/pkgconfig -> virtual/pkgconfig
@@ -116,4 +141,3 @@
   +pywebkitgtk-1.0.2.ebuild:
   Initial commit. Proxy mantained by me for Sergio Rodriguez
   <srinclan@gmail.com>
-

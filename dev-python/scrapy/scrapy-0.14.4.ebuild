@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/scrapy/scrapy-0.14.4.ebuild,v 1.3 2012/08/09 06:22:27 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/scrapy/scrapy-0.14.4.ebuild,v 1.5 2013/08/03 09:45:47 mgorny Exp $
 
 EAPI="4"
 
@@ -32,13 +32,13 @@ DEPEND="dev-python/setuptools
 	)"
 RDEPEND="dev-libs/libxml2[python]
 	boto? ( dev-python/boto )
-	dev-python/imaging
+	virtual/python-imaging
 	dev-python/lxml
 	ibl? ( dev-python/numpy )
 	ssl? ( dev-python/pyopenssl )
 	dev-python/setuptools
 	dev-python/simplejson
-	dev-python/twisted
+	dev-python/twisted-core
 	dev-python/twisted-conch
 	dev-python/twisted-mail
 	dev-python/twisted-web

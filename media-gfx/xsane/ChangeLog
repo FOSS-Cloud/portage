@@ -1,6 +1,36 @@
 # ChangeLog for media-gfx/xsane
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/xsane/ChangeLog,v 1.103 2012/12/16 17:47:09 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/xsane/ChangeLog,v 1.112 2014/01/18 19:55:52 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> xsane-0.999.ebuild:
+  Stable for alpha, wrt bug #491476
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xsane-0.999.ebuild:
+  Stable for sparc, wrt bug #491476
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xsane-0.999.ebuild:
+  Stable for ppc64, wrt bug #491476
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xsane-0.999.ebuild:
+  Stable for ppc, wrt bug #491476
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> xsane-0.999.ebuild:
+  x86 stable, bug #491476
+
+  19 Nov 2013; Chema Alonso <nimiux@gentoo.org> xsane-0.999.ebuild:
+  Stable for amd64 wrt bug #491476
+
+*xsane-0.999 (12 Sep 2013)
+
+  12 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +xsane-0.999.ebuild,
+  -files/MissingCapsFlag.patch:
+  Version bump. Drop unused patch.
+
+  06 Aug 2013; Markus Meier <maekke@gentoo.org> xsane-0.998-r1.ebuild:
+  add ~arm, bug #473828
+
+  21 Jul 2013; Pacho Ramos <pacho@gentoo.org> -xsane-0.998.ebuild, metadata.xml:
+  Cleanup due #473480
 
   16 Dec 2012; Raúl Porcel <armin76@gentoo.org> xsane-0.998-r1.ebuild:
   alpha/sparc stable wrt #442440

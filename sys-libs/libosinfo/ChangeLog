@@ -1,6 +1,37 @@
 # ChangeLog for sys-libs/libosinfo
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libosinfo/ChangeLog,v 1.23 2013/02/24 21:59:34 cardoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libosinfo/ChangeLog,v 1.30 2013/12/08 19:40:38 pacho Exp $
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> libosinfo-0.2.7.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> libosinfo-0.2.7.ebuild:
+  amd64 stable, bug #478252
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> libosinfo-0.2.6.ebuild,
+  libosinfo-0.2.7.ebuild:
+  Depend on libsoup-gnome again, clean up old revisions.
+
+*libosinfo-0.2.7 (27 Jun 2013)
+
+  27 Jun 2013; Pacho Ramos <pacho@gentoo.org> +libosinfo-0.2.7.ebuild,
+  -libosinfo-0.2.4.ebuild:
+  Version bump (#474930 by Travis Hansen), drop old.
+
+  31 Mar 2013; Pacho Ramos <pacho@gentoo.org> libosinfo-0.2.4.ebuild,
+  libosinfo-0.2.6.ebuild:
+  Adapt to libsoup-2.42 dropping gnome USE and splitting (#463702)
+
+*libosinfo-0.2.6 (30 Mar 2013)
+
+  30 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> +libosinfo-0.2.6.ebuild,
+  +files/libosinfo-0.2.6-destdir.patch:
+  Version bump wrt #460694. Use external pci.ids and usb.ids from
+  sys-apps/hwids. Fix $(DESTDIR) handling in data/Makefile.am.
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -libosinfo-0.2.2.ebuild,
+  -libosinfo-0.2.3.ebuild:
+  Clean up old revisions.
 
 *libosinfo-0.2.4 (24 Feb 2013)
 

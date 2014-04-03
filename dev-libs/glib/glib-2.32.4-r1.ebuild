@@ -1,10 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/glib/glib-2.32.4-r1.ebuild,v 1.11 2013/02/19 00:08:33 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/glib/glib-2.32.4-r1.ebuild,v 1.15 2013/08/14 04:19:30 tetromino Exp $
 
 EAPI="4"
-PYTHON_DEPEND="utils? 2"
-# Avoid runtime dependency on python when USE=test
+PYTHON_DEPEND="utils? 2" # Avoid runtime dependency on python when USE=test
 
 inherit autotools gnome.org libtool eutils flag-o-matic gnome2-utils multilib pax-utils python toolchain-funcs virtualx linux-info
 
@@ -24,7 +23,10 @@ RDEPEND="virtual/libiconv
 	sys-libs/zlib
 	|| (
 		>=dev-libs/elfutils-0.142
-		>=dev-libs/libelf-0.8.12 )
+		>=dev-libs/libelf-0.8.12
+		>=sys-freebsd/freebsd-lib-9.2_rc1
+		)
+	selinux? ( sys-libs/libselinux )
 	xattr? ( sys-apps/attr )
 	fam? ( virtual/fam )
 	utils? ( >=dev-util/gdbus-codegen-${PV} )"
@@ -109,6 +111,9 @@ src_prepare() {
 
 	# https://bugzilla.gnome.org/show_bug.cgi?id=679306
 	epatch "${FILESDIR}/${PN}-2.34.0-testsuite-skip-thread4.patch"
+
+	# build failure with automake-1.13; fixed upstream in 2.36
+	epatch "${FILESDIR}/${PN}-2.34.3-automake-1.13.patch"
 
 	epatch_user
 

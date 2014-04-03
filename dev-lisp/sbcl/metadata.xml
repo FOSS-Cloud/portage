@@ -12,6 +12,7 @@
     <description>second-maintainer</description>
   </maintainer>
   <herd>common-lisp</herd>
+  <herd>proxy-maintainers</herd>
   <longdescription>Steel Bank Common Lisp is an open source Common
   Lisp implementation. It provides an integrated native compiler,
   interpreter, and debugger. SBCL is a fork off of the main branch
@@ -30,6 +31,5 @@
     <flag name='asdf'>Include support for <pkg>dev-lisp/asdf in SBCL</pkg></flag>
     <flag name='ldb'>Include support for the SBCL low level debugger</flag>
     <flag name='pax_kernel'>Enable if the user plans to run the package under a pax enabled hardened kernel</flag>
-    <flag name='cobalt'>mips only: use mipsel binary instead of mips big endian binary to bootstrap</flag>
   </use>
 </pkgmetadata>

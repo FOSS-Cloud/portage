@@ -1,6 +1,38 @@
 # ChangeLog for dev-python/telepathy-python
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/telepathy-python/ChangeLog,v 1.38 2013/02/02 22:31:14 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/telepathy-python/ChangeLog,v 1.46 2014/02/22 21:24:33 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  telepathy-python-0.15.19-r1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  telepathy-python-0.15.19-r1.ebuild:
+  arch stable, bug 888
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  telepathy-python-0.15.19-r1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  telepathy-python-0.15.19-r1.ebuild:
+  amd64 stable, bug #478252
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Voip herd is removed: http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #137506
+
+*telepathy-python-0.15.19-r1 (30 Apr 2013)
+
+  30 Apr 2013; Justin Lecher <jlec@gentoo.org>
+  +telepathy-python-0.15.19-r1.ebuild, metadata.xml:
+  Move to python r1 eclasses
+
+  06 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -telepathy-python-0.15.17.ebuild:
+  Clean up old revision.
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
   telepathy-python-0.15.19.ebuild:

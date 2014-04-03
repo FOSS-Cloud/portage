@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>voip</herd>
 <maintainer>
         <email>neurogeek@gentoo.org</email>
         <name>Jesus Rivero</name>
-	<description>Assign to herd and CC me</description>
 </maintainer>
 	<use> 
 		<flag name="audio">Enable audio support</flag>
@@ -35,9 +33,6 @@
 		<flag name="wav">Enable WAVFILE support</flag>
 		<flag name="x264-static">Install x264 plugin statically linked with x264
 		</flag>
-		<!-- for 2.* -->
-		<flag name="noaudio">Disable audio codecs</flag>
-		<flag name="novideo">Disable video codecs</flag>
 		<!-- unused atm
 		<flag name="g711plc">Enable G711 Packet Loss Concealment</flag>
 		<flag name="msrp">Enable Message Session Relay Protocol</flag>

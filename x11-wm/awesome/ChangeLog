@@ -1,6 +1,65 @@
 # ChangeLog for x11-wm/awesome
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/awesome/ChangeLog,v 1.146 2013/02/11 16:24:41 maksbotan Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/awesome/ChangeLog,v 1.160 2014/03/31 17:14:12 maksbotan Exp $
+
+*awesome-3.5.3 (31 Mar 2014)
+
+  31 Mar 2014; Maxim Koltsov <maksbotan@gentoo.org> +awesome-3.5.3.ebuild,
+  +files/awesome-xsession.patch:
+  Bump to 3.5.3, update lgi dependency, add patch for desktop file, bug #506212.
+  Thanks to Bombino <teknocratdefunct@riseup.net>.
+
+  30 Mar 2014; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Fix e-mail address.
+
+  27 Dec 2013; Maxim Koltsov <maksbotan@gentoo.org> -awesome-3.4.11.ebuild,
+  -awesome-3.5.1.ebuild, awesome-3.4.15.ebuild, files/awesome-gnome.desktop,
+  files/awesome.desktop:
+  Add x11-libs/libXcursor dependency to 3.4 branch, bug #495058. Fix session
+  file, bug #495072. Delete old.
+
+  12 Dec 2013; Justin Lecher <jlec@gentoo.org> awesome-3.4.15.ebuild,
+  awesome-3.5.1.ebuild, awesome-3.5.2.ebuild, awesome-3.5.2-r1.ebuild,
+  metadata.xml:
+  Use domenu from eutils.eclass
+
+*awesome-3.5.2-r1 (27 Oct 2013)
+
+  27 Oct 2013; Maxim Koltsov <maksbotan@gentoo.org> +awesome-3.5.2-r1.ebuild,
+  +files/awesome-gnome-3.session, files/awesome-gnome.session:
+  Revision bump with gnome-3 specific session file, bug 478218.
+
+*awesome-3.5.2 (27 Oct 2013)
+
+  27 Oct 2013; Maxim Koltsov <maksbotan@gentoo.org> +awesome-3.5.2.ebuild:
+  Bump to 3.5.2, bug #488940.
+
+  10 Apr 2013; Maxim Koltsov <maksbotan@gentoo.org> -awesome-3.5-r1.ebuild,
+  awesome-3.4.15.ebuild:
+  Fix desktop file issue, bug #465288. Remove old versions.
+
+*awesome-3.5.1 (01 Apr 2013)
+
+  01 Apr 2013; Maxim Koltsov <maksbotan@gentoo.org> +awesome-3.5.1.ebuild:
+  Bump to 3.5.1, bug #464080. Thanks to Dimitri Semitsoglou-Tsiapos for report.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> awesome-3.4.15.ebuild:
+  Stable for arm, wrt bug #461538
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> awesome-3.4.15.ebuild:
+  Stable for ppc64, wrt bug #461538
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> awesome-3.4.15.ebuild:
+  Stable for ppc, wrt bug #461538
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> awesome-3.4.15.ebuild:
+  Stable for x86, wrt bug #461538
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> awesome-3.4.15.ebuild:
+  Stable for amd64, wrt bug #461538
 
 *awesome-3.4.15 (11 Feb 2013)
 

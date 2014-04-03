@@ -1,6 +1,26 @@
 # ChangeLog for app-misc/workrave
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/workrave/ChangeLog,v 1.87 2013/01/24 03:39:45 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/workrave/ChangeLog,v 1.93 2014/02/22 21:00:34 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> workrave-1.10.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> workrave-1.10.ebuild:
+  arch stable, bug 888
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> workrave-1.10.ebuild:
+  x86 stable, bug #478252
+
+  03 Dec 2013; Pacho Ramos <pacho@gentoo.org> workrave-1.10.ebuild:
+  gnome-shell dependency is not really needed (#493134 by Kevin Bryan)
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> workrave-1.10.ebuild:
+  amd64 stable, bug #478252
+
+*workrave-1.10 (07 Apr 2013)
+
+  07 Apr 2013; Pacho Ramos <pacho@gentoo.org> +workrave-1.10.ebuild:
+  Version bump
 
   24 Jan 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
   workrave-1.9.4-r1.ebuild:

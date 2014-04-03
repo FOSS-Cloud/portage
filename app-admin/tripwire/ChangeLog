@@ -1,6 +1,36 @@
 # ChangeLog for app-admin/tripwire
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/tripwire/ChangeLog,v 1.47 2012/09/20 19:31:43 nimiux Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/tripwire/ChangeLog,v 1.53 2013/09/26 10:46:50 nimiux Exp $
+
+  26 Sep 2013; Chema Alonso <nimiux@gentoo.org> tripwire-2.4.2.2-r2.ebuild,
+  -files/tripwire-2.4.2.2-twpol-GENERIC.patch,
+  +files/tripwire-twpol-GENERIC.patch, files/tripwire, metadata.xml:
+  Use the "tools" USE flag rather than "setup". Remove version from
+  twpol-GENERIC patch. Thanks to Chuck Seyboldt
+
+*tripwire-2.4.2.2-r2 (25 Sep 2013)
+
+  25 Sep 2013; Chema Alonso <nimiux@gentoo.org> +tripwire-2.4.2.2-r2.ebuild,
+  +files/tripwire-2.4.2.2-twpol-GENERIC.patch, +files/tripwire,
+  files/tripwire.txt, metadata.xml:
+  Revision bump. Clean up, update of files and inclusion of new "setup" USE
+  flag. Thanks to Chuck Seyboldt
+
+  03 Sep 2013; Chema Alonso <nimiux@gentoo.org> metadata.xml:
+  Fix tag for spanish description in metadata.xml. Thanks to Chuck Seyboldt
+
+  03 Sep 2013; Chema Alonso <nimiux@gentoo.org> tripwire-2.4.2.2.ebuild,
+  tripwire-2.4.2.2-r1.ebuild:
+  Remove unnecessary dependency on dev-util/patchutils. Thanks to Chuck
+  Seyboldt
+
+  01 May 2013; Chema Alonso <nimiux@gentoo.org> tripwire-2.4.2.2.ebuild,
+  tripwire-2.4.2.2-r1.ebuild, +files/tripwire-2.4.2.2-fix-configure.patch:
+  Fix configure for automake-1.13 wrt bug #467542 by axs
+
+  25 Apr 2013; Chema Alonso <nimiux@gentoo.org> -tripwire-2.4.2.ebuild,
+  -tripwire-2.4.2-r1.ebuild, -files/tripwire-2.4.2-version.patch:
+  Drop old versions
 
   20 Sep 2012; Chema Alonso <nimiux@gentoo.org>
   -files/tripwire-2.3.0-50-rfc822.patch, -files/tripwire-2.3.1-2-fhs.patch,

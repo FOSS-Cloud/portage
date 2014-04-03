@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/kismet/kismet-9999.ebuild,v 1.7 2013/02/08 06:20:07 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/kismet/kismet-9999.ebuild,v 1.11 2013/12/06 17:55:58 swift Exp $
 
 EAPI=5
 
@@ -24,13 +24,16 @@ DESCRIPTION="IEEE 802.11 wireless LAN sniffer"
 HOMEPAGE="http://www.kismetwireless.net/"
 
 LICENSE="GPL-2"
-SLOT="0"
-IUSE="+client +pcre speech +plugin-autowep +plugin-btscan plugin-dot15d4 +plugin-ptw +plugin-spectools +plugin-syslog +ruby +suid"
+SLOT="0/${PV}"
+IUSE="+client +pcre speech +plugin-autowep +plugin-btscan plugin-dot15d4 +plugin-ptw +plugin-spectools +plugin-syslog +ruby selinux +suid"
 
 RDEPEND="net-wireless/wireless-tools
 	kernel_linux? ( sys-libs/libcap
 			dev-libs/libnl:3
-			net-libs/libpcap[-netlink] )
+			|| (
+				<net-libs/libpcap-1.4.0[-netlink]
+				>=net-libs/libpcap-1.4.0
+			) )
 	pcre? ( dev-libs/libpcre )
 	suid? ( sys-libs/libcap )
 	client? ( sys-libs/ncurses )
@@ -38,7 +41,8 @@ RDEPEND="net-wireless/wireless-tools
 	ruby? ( dev-lang/ruby )
 	plugin-btscan? ( net-wireless/bluez )
 	plugin-dot15d4? ( virtual/libusb:0 )
-	plugin-spectools? ( net-wireless/spectools )"
+	plugin-spectools? ( net-wireless/spectools )
+	selinux? ( sec-policy/selinux-kismet )"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
@@ -62,7 +66,7 @@ src_compile() {
 	emake
 
 	if use plugin-autowep; then
-		cd "${S}"/plugin-autowep
+		cd "${S}"/restricted-plugin-autowep
 		KIS_SRC_DIR="${S}" emake
 	fi
 	if use plugin-btscan; then
@@ -74,7 +78,7 @@ src_compile() {
 		KIS_SRC_DIR="${S}" emake
 	fi
 	if use plugin-ptw; then
-		cd "${S}"/plugin-ptw
+		cd "${S}"/restricted-plugin-ptw
 		KIS_SRC_DIR="${S}" emake
 	fi
 	if use plugin-spectools; then
@@ -89,7 +93,7 @@ src_compile() {
 
 src_install() {
 	if use plugin-autowep; then
-		cd "${S}"/plugin-autowep
+		cd "${S}"/restricted-plugin-autowep
 		KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
 	fi
 	if use plugin-btscan; then
@@ -101,7 +105,7 @@ src_install() {
 		KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
 	fi
 	if use plugin-ptw; then
-		cd "${S}"/plugin-ptw
+		cd "${S}"/restricted-plugin-ptw
 		KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
 	fi
 	if use plugin-spectools; then

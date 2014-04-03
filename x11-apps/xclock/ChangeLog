@@ -1,6 +1,39 @@
 # ChangeLog for x11-apps/xclock
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-apps/xclock/ChangeLog,v 1.69 2012/08/26 16:36:18 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-apps/xclock/ChangeLog,v 1.79 2013/10/08 05:03:16 ago Exp $
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xclock-1.0.7.ebuild:
+  Stable for x86, wrt bug #475480
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xclock-1.0.7.ebuild:
+  Stable for sparc, wrt bug #475480
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xclock-1.0.7.ebuild:
+  Stable for ia64, wrt bug #475480
+
+  05 Oct 2013; Markus Meier <maekke@gentoo.org> xclock-1.0.7.ebuild:
+  arm stable, bug #475480
+
+  05 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xclock-1.0.7.ebuild:
+  Stable for alpha, wrt bug #475480
+
+  04 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xclock-1.0.7.ebuild:
+  Stable for ppc64, wrt bug #475480
+
+  03 Oct 2013; Agostino Sarubbo <ago@gentoo.org> xclock-1.0.7.ebuild:
+  Stable for ppc, wrt bug #475480
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> xclock-1.0.7.ebuild:
+  Stable for HPPA (bug #475480).
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> xclock-1.0.7.ebuild:
+  Stable for amd64, wrt bug #475480
+
+*xclock-1.0.7 (08 Sep 2013)
+
+  08 Sep 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xclock-1.0.7.ebuild, -xclock-1.0.5.ebuild:
+  Version bump, drop old.
 
   26 Aug 2012; Raúl Porcel <armin76@gentoo.org> xclock-1.0.6.ebuild:
   alpha/ia64/s390/sh/sparc stable wrt #419473
@@ -244,4 +277,3 @@
   08 Aug 2005; Donnie Berkholz <spyderous@gentoo.org>;
   +xclock-0.99.0.ebuild:
   Initial commit for modular X.
-

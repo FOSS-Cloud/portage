@@ -1,6 +1,39 @@
 # ChangeLog for dev-ml/bin-prot
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/bin-prot/ChangeLog,v 1.21 2013/02/09 00:29:07 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/bin-prot/ChangeLog,v 1.28 2014/02/13 16:12:59 aballier Exp $
+
+*bin-prot-109.53.03 (13 Feb 2014)
+
+  13 Feb 2014; Alexis Ballier <aballier@gentoo.org> +bin-prot-109.53.03.ebuild:
+  version bump
+
+*bin-prot-109.53.02 (19 Jan 2014)
+
+  19 Jan 2014; Alexis Ballier <aballier@gentoo.org> +bin-prot-109.53.02.ebuild:
+  version bump
+
+  16 Aug 2013; Alexis Ballier <aballier@gentoo.org> -bin-prot-109.08.00.ebuild,
+  -bin-prot-109.11.00.ebuild, -bin-prot-109.15.00.ebuild:
+  remove old
+
+*bin-prot-109.30.00 (22 Jul 2013)
+
+  22 Jul 2013; Alexis Ballier <aballier@gentoo.org> +bin-prot-109.30.00.ebuild:
+  version bump
+
+*bin-prot-109.15.00 (24 May 2013)
+
+  24 May 2013; Alexis Ballier <aballier@gentoo.org> +bin-prot-109.15.00.ebuild:
+  version bump
+
+*bin-prot-109.11.00 (06 Mar 2013)
+
+  06 Mar 2013; Alexis Ballier <aballier@gentoo.org> +bin-prot-109.11.00.ebuild:
+  version bump
+
+  02 Mar 2013; Alexis Ballier <aballier@gentoo.org> -bin-prot-108.00.01.ebuild,
+  -bin-prot-108.07.01.ebuild, -bin-prot-109.07.00.ebuild:
+  remove old
 
 *bin-prot-109.08.00 (09 Feb 2013)
 

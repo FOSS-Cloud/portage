@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/dnssec-nodes/dnssec-nodes-1.14.ebuild,v 1.1 2012/10/15 05:46:46 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/dnssec-nodes/dnssec-nodes-1.14.ebuild,v 1.2 2013/03/13 12:51:56 xmw Exp $
 
 EAPI=4
 
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="net-dns/dnssec-validator[threads]"
+RDEPEND="=net-dns/dnssec-validator-${PV}[threads]"
 DEPEND="${RDEPEND}"
 
 src_configure() {

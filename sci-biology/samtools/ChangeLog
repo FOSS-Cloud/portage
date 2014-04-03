@@ -1,6 +1,40 @@
 # ChangeLog for sci-biology/samtools
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/samtools/ChangeLog,v 1.10 2013/01/27 18:09:51 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/samtools/ChangeLog,v 1.17 2014/03/23 15:29:13 jlec Exp $
+
+*samtools-0.1.19-r2 (23 Mar 2014)
+
+  23 Mar 2014; Justin Lecher <jlec@gentoo.org> -samtools-0.1.19-r1.ebuild,
+  +samtools-0.1.19-r2.ebuild:
+  Fix symlink creation, thanks Martin Mokrejs telling me that
+
+  11 Feb 2014; Fabian Groffen <grobian@gentoo.org> samtools-0.1.19-r1.ebuild:
+  Reference correct library name on Darwin, thanks Linlin Yan in bug #491812
+
+*samtools-0.1.19-r1 (06 Dec 2013)
+
+  06 Dec 2013; Justin Lecher <jlec@gentoo.org> -samtools-0.1.19.ebuild,
+  +samtools-0.1.19-r1.ebuild, files/samtools-0.1.19-buildsystem.patch:
+  Fix underlinking
+
+  06 Dec 2013; Justin Lecher <jlec@gentoo.org> samtools-0.1.12.ebuild,
+  samtools-0.1.18.ebuild, samtools-0.1.18-r2.ebuild, samtools-0.1.18-r3.ebuild,
+  samtools-0.1.19.ebuild:
+  Keyword for *-linux, tested by me
+
+*samtools-0.1.19 (20 Sep 2013)
+
+  20 Sep 2013; Justin Lecher <jlec@gentoo.org> +samtools-0.1.19.ebuild,
+  +files/samtools-0.1.19-buildsystem.patch:
+  Version BUmp, #485450
+
+*samtools-0.1.18-r3 (29 Mar 2013)
+
+  29 Mar 2013; Justin Lecher <jlec@gentoo.org> +samtools-0.1.18-r3.ebuild:
+  Install bcftools and vcfutils.pl pointed out by mahnmut
+
+  11 Mar 2013; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Drop Andrey as maintainer so that bugs get assigned to sci-biology directly
 
 *samtools-0.1.18-r2 (27 Jan 2013)
 
@@ -61,4 +95,3 @@
 
   26 Feb 2009; Andrey Kislyuk <weaver@gentoo.org> ChangeLog:
   New package, ebuild written by me
-

@@ -1,6 +1,178 @@
 # ChangeLog for dev-db/mongodb
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/ChangeLog,v 1.56 2013/02/02 19:04:05 ultrabug Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/ChangeLog,v 1.87 2014/02/17 09:43:11 ultrabug Exp $
+
+*mongodb-2.2.7 (17 Feb 2014)
+
+  17 Feb 2014; Ultrabug <ultrabug@gentoo.org> mongodb-2.2.6-r1.ebuild,
+  +mongodb-2.2.7.ebuild, mongodb-2.4.6-r2.ebuild, mongodb-2.4.7.ebuild,
+  mongodb-2.4.8.ebuild, mongodb-2.4.9.ebuild:
+  version bump fix #499864, lower user disk requirement to 512M wrt #495242
+
+*mongodb-2.4.9 (13 Jan 2014)
+
+  13 Jan 2014; Ultrabug <ultrabug@gentoo.org> +mongodb-2.4.9.ebuild:
+  version bump
+
+  26 Dec 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.2.6-r1.ebuild,
+  mongodb-2.4.6-r2.ebuild, mongodb-2.4.7.ebuild, mongodb-2.4.8.ebuild:
+  Lower abusive CHECKREQS_DISK_BUILD requirement to 2400M wrt #495242
+
+  23 Dec 2013; Robin H. Johnson <robbat2@gentoo.org> mongodb-2.2.6-r1.ebuild,
+  mongodb-2.4.6-r2.ebuild, mongodb-2.4.7.ebuild, mongodb-2.4.8.ebuild:
+  MongoDB is a massive compile: 12GB in my portage build dir, and 2.4G on disk.
+  Users should be warned of this before starting, so they have enough space for
+  it.
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org> mongodb-2.4.6-r2.ebuild:
+  x86 stable, bug #488742
+
+  16 Nov 2013; Pacho Ramos <pacho@gentoo.org> mongodb-2.4.6-r2.ebuild:
+  amd64 stable, bug #488742
+
+*mongodb-2.4.8 (06 Nov 2013)
+
+  06 Nov 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.4.7.ebuild,
+  +mongodb-2.4.8.ebuild:
+  Version bump, fix #490054 thx to jonathon eastman and Rafał Mużyło
+
+  28 Oct 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.2.6.ebuild,
+  -mongodb-2.4.6.ebuild, -mongodb-2.4.6-r1.ebuild, mongodb-2.4.6-r2.ebuild,
+  mongodb-2.4.7.ebuild, metadata.xml:
+  fix gcc-4.8 compilation #482576 thx to @xarthisius, drop v8 dependent
+  ebuilds, update metadata
+
+*mongodb-2.4.7 (22 Oct 2013)
+
+  22 Oct 2013; Ultrabug <ultrabug@gentoo.org> +mongodb-2.4.7.ebuild:
+  version bump
+
+*mongodb-2.4.6-r2 (21 Oct 2013)
+*mongodb-2.2.6-r1 (21 Oct 2013)
+
+  21 Oct 2013; Ultrabug <ultrabug@gentoo.org> +mongodb-2.2.6-r1.ebuild,
+  +mongodb-2.4.6-r2.ebuild:
+  switch to bundled v8 as per chromium team request wrt #477300 #471582, drop
+  2.2.x v8 support as it was not bundled and experimental
+
+*mongodb-2.4.6-r1 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +files/mongodb.conf,
+  +files/mongodb.service, +mongodb-2.4.6-r1.ebuild:
+  Add unit file (#485442 by Peter Volkov)
+
+  30 Aug 2013; Benda Xu <heroxbd@gentoo.org> mongodb-2.4.6.ebuild:
+  add Prefix support for headers and libraries, bug 482178
+
+*mongodb-2.4.6 (21 Aug 2013)
+*mongodb-2.2.6 (21 Aug 2013)
+
+  21 Aug 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.0.7-r1.ebuild,
+  -mongodb-2.0.7-r2.ebuild, -mongodb-2.0.8-r1.ebuild, -mongodb-2.0.8-r2.ebuild,
+  -mongodb-2.2.0-r1.ebuild, -mongodb-2.2.0-r2.ebuild, -mongodb-2.2.4.ebuild,
+  +mongodb-2.2.6.ebuild, -mongodb-2.4.5.ebuild, -mongodb-2.4.6_rc1.ebuild,
+  +mongodb-2.4.6.ebuild, -files/mongodb-1.8.5-fix-smokepy.patch,
+  -files/mongodb-1.8-fix-scons.patch, -files/mongodb-2.2-fix-scons.patch,
+  -files/mongodb-2.2-fix-sconscript.patch,
+  -files/mongodb-2.4.4-fix-sharedclient.patch, -files/mongodb.initd,
+  -files/mongodb-linux3.patch, -files/mongos.initd, metadata.xml:
+  version bump, add embedded-v8 USE, drop critically bugged versions, drop
+  obsolete versions, filesdir cleanup
+
+*mongodb-2.4.6_rc1 (16 Aug 2013)
+
+  16 Aug 2013; Ultrabug <ultrabug@gentoo.org> +mongodb-2.4.6_rc1.ebuild,
+  +files/mongodb.initd-r1, +files/mongos.initd-r1:
+  fix v8 dep thx to Alex Brandt wrt #471582, fix #481172 wrt init scripts thx
+  to Bjoern Rennhak, version bump
+
+  18 Jul 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.4.5.ebuild:
+  block broken v8 versions
+
+  15 Jul 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.2.4.ebuild,
+  mongodb-2.4.5.ebuild:
+  add missing dep thx to thomas coquelin, fix #474846
+
+  04 Jul 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.4.4.ebuild:
+  drop CVE affected ebuilds wrt #475750
+
+*mongodb-2.4.5 (04 Jul 2013)
+
+  04 Jul 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.4.5_rc0.ebuild,
+  +mongodb-2.4.5.ebuild:
+  version bump, drop old
+
+*mongodb-2.4.5_rc0 (26 Jun 2013)
+
+  26 Jun 2013; Ultrabug <ultrabug@gentoo.org> +mongodb-2.4.5_rc0.ebuild,
+  +files/mongodb-2.4.5-fix-scons.patch:
+  RC version bump
+
+*mongodb-2.4.4 (05 Jun 2013)
+
+  05 Jun 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.4.2.ebuild,
+  -mongodb-2.4.3.ebuild, +mongodb-2.4.4.ebuild,
+  +files/mongodb-2.4.4-fix-sharedclient.patch,
+  -files/mongodb-2.4-fix-sharedclient.patch:
+  Version bump, drop old, fix #471784
+
+*mongodb-2.4.3 (24 Apr 2013)
+
+  24 Apr 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.4.1.ebuild,
+  +mongodb-2.4.3.ebuild:
+  Version bump, drop old
+
+  19 Apr 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.4.2.ebuild:
+  fix #461466 thx to Arfrever Frehtes Taifersar Arahesis
+
+*mongodb-2.4.2 (18 Apr 2013)
+
+  18 Apr 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.2.3-r1.ebuild,
+  +mongodb-2.4.2.ebuild, +files/mongodb-2.4-fix-sharedclient.patch:
+  Version bump, fix #465242 thx to Christoph Koke, drop old
+
+  16 Apr 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.4.1.ebuild:
+  fix openssl dep #465966
+
+*mongodb-2.2.4 (05 Apr 2013)
+
+  05 Apr 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.2.2-r2.ebuild,
+  +mongodb-2.2.4.ebuild:
+  Version 2.2.x bump
+
+*mongodb-2.4.1 (25 Mar 2013)
+
+  25 Mar 2013; Ultrabug <ultrabug@gentoo.org> -mongodb-2.4.0.ebuild,
+  +mongodb-2.4.1.ebuild:
+  Version bump, drop bugged version, add kerberos support, fix #462606
+
+  21 Mar 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.4.0.ebuild:
+  add missing dep for ssl USE flag
+
+*mongodb-2.4.0 (20 Mar 2013)
+
+  20 Mar 2013; Ultrabug <ultrabug@gentoo.org> +mongodb-2.4.0.ebuild,
+  metadata.xml:
+  Version bump, fix #461466 #421289, add ssl and sharedclient to IUSE
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+*mongodb-2.2.3-r1 (11 Mar 2013)
+*mongodb-2.2.2-r2 (11 Mar 2013)
+
+  11 Mar 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.2.0-r1.ebuild,
+  mongodb-2.2.0-r2.ebuild, -mongodb-2.2.1.ebuild, -mongodb-2.2.2-r1.ebuild,
+  +mongodb-2.2.2-r2.ebuild, -mongodb-2.2.3.ebuild, +mongodb-2.2.3-r1.ebuild,
+  +files/mongodb-2.2-fix-sharedclient.patch,
+  files/mongodb-2.2-fix-x86client.patch:
+  install the mongoclient shared library wrt #460764 for 2.2.x versions thx to
+  Balint SZENTE, drop useless version
+
+  05 Mar 2013; Ultrabug <ultrabug@gentoo.org> mongodb-2.0.7-r1.ebuild,
+  mongodb-2.0.7-r2.ebuild, mongodb-2.0.8-r1.ebuild, mongodb-2.0.8-r2.ebuild:
+  install the mongoclient shared library wrt #457694 for 2.0.x versions thx to
+  Balint SZENTE
 
 *mongodb-2.2.3 (02 Feb 2013)
 

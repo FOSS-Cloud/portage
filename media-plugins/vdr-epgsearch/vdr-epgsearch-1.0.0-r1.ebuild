@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-epgsearch/vdr-epgsearch-1.0.0-r1.ebuild,v 1.5 2012/12/15 13:27:34 hd_brummy Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-epgsearch/vdr-epgsearch-1.0.0-r1.ebuild,v 1.7 2014/01/23 10:10:10 hd_brummy Exp $
 
-EAPI="5"
+EAPI=5
 
 inherit vdr-plugin-2
 
-DESCRIPTION="Video Disk Recorder epgsearch plugin"
+DESCRIPTION="VDR Plugin: Searchtimer and replacement of the VDR program menu"
 HOMEPAGE="http://winni.vdr-developer.org/epgsearch"
 
 case ${P#*_} in
@@ -22,7 +22,7 @@ esac
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="pcre tre linguas_de"
 
 DEPEND=">=media-video/vdr-1.3.45
@@ -49,6 +49,8 @@ src_prepare() {
 	if has_version ">=media-video/vdr-1.7.33"; then
 		epatch "${FILESDIR}/${P}_vdr-1.7.33.diff"
 	fi
+
+	epatch "${FILESDIR}/${P}_vdr-2.1.2.diff"
 
 	# disable automagic deps
 	sed -i Makefile -e '/^AUTOCONFIG=/s/^/#/'

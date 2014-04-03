@@ -1,6 +1,23 @@
 # ChangeLog for dev-ruby/pkg-config
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/pkg-config/ChangeLog,v 1.19 2012/09/30 22:06:16 flameeyes Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/pkg-config/ChangeLog,v 1.23 2014/01/29 00:51:13 mrueg Exp $
+
+  29 Jan 2014; Manuel Rüger <mrueg@gentoo.org> -pkg-config-1.1.4-r1.ebuild,
+  -pkg-config-1.1.4.ebuild:
+  Cleanup old.
+
+*pkg-config-1.1.5 (13 Jan 2014)
+
+  13 Jan 2014; Manuel Rüger <mrueg@gentoo.org> +pkg-config-1.1.5.ebuild:
+  Version bump.
+
+  05 Dec 2013; Naohiro Aota <naota@gentoo.org> pkg-config-1.1.4-r1.ebuild:
+  Add ruby20 support
+
+*pkg-config-1.1.4-r1 (05 Oct 2013)
+
+  05 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +pkg-config-1.1.4-r1.ebuild:
+  Tests run now, but will fail.
 
   30 Sep 2012; Diego E. Pettenò <flameeyes@gentoo.org> pkg-config-1.1.4.ebuild:
   Add missing dependency on virtual/pkgconfig.

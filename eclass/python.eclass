@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/python.eclass,v 1.167 2013/07/27 11:17:44 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/python.eclass,v 1.169 2014/02/06 05:34:07 vapier Exp $
 
 # @ECLASS: python.eclass
 # @MAINTAINER:
@@ -30,6 +30,9 @@ _PYTHON_ECLASS_INHERITED="1"
 if ! has "${EAPI:-0}" 0 1 2 3 4 5; then
 	die "API of python.eclass in EAPI=\"${EAPI}\" not established"
 fi
+
+# Please do not add any new versions of Python here! Instead, please
+# focus on converting packages to use the new eclasses.
 
 _CPYTHON2_GLOBALLY_SUPPORTED_ABIS=(2.4 2.5 2.6 2.7)
 _CPYTHON3_GLOBALLY_SUPPORTED_ABIS=(3.1 3.2 3.3)
@@ -338,14 +341,14 @@ _python_initial_sanity_checks() {
 	if [[ "$(declare -p PYTHON_SANITY_CHECKS_EXECUTED 2> /dev/null)" != "declare -- PYTHON_SANITY_CHECKS_EXECUTED="* || " ${FUNCNAME[@]:1} " =~ " "(python_set_active_version|python_pkg_setup)" " && -z "${PYTHON_SKIP_SANITY_CHECKS}" ]]; then
 		# Ensure that /usr/bin/python and /usr/bin/python-config are valid.
 		if [[ "$(readlink "${EPREFIX}/usr/bin/python")" != "python-wrapper" ]]; then
-			eerror "'${EPREFIX}/usr/bin/python' is not valid symlink."
+			eerror "'${EPREFIX}/usr/bin/python' is not a valid symlink."
 			eerror "Use \`eselect python set \${python_interpreter}\` to fix this problem."
-			die "'${EPREFIX}/usr/bin/python' is not valid symlink"
+			die "'${EPREFIX}/usr/bin/python' is not a valid symlink"
 		fi
 		if [[ "$(<"${EPREFIX}/usr/bin/python-config")" != *"Gentoo python-config wrapper script"* ]]; then
-			eerror "'${EPREFIX}/usr/bin/python-config' is not valid script"
+			eerror "'${EPREFIX}/usr/bin/python-config' is not a valid script"
 			eerror "Use \`eselect python set \${python_interpreter}\` to fix this problem."
-			die "'${EPREFIX}/usr/bin/python-config' is not valid script"
+			die "'${EPREFIX}/usr/bin/python-config' is not a valid script"
 		fi
 	fi
 }
@@ -799,7 +802,7 @@ _python_calculate_PYTHON_ABIS() {
 
 			if has_version "=dev-lang/python-2*"; then
 				if [[ "$(readlink "${EPREFIX}/usr/bin/python2")" != "python2."* ]]; then
-					die "'${EPREFIX}/usr/bin/python2' is not valid symlink"
+					die "'${EPREFIX}/usr/bin/python2' is not a valid symlink"
 				fi
 
 				python2_version="$("${EPREFIX}/usr/bin/python2" -c 'from sys import version_info; print(".".join(str(x) for x in version_info[:2]))')"
@@ -822,7 +825,7 @@ _python_calculate_PYTHON_ABIS() {
 
 			if has_version "=dev-lang/python-3*"; then
 				if [[ "$(readlink "${EPREFIX}/usr/bin/python3")" != "python3."* ]]; then
-					die "'${EPREFIX}/usr/bin/python3' is not valid symlink"
+					die "'${EPREFIX}/usr/bin/python3' is not a valid symlink"
 				fi
 
 				python3_version="$("${EPREFIX}/usr/bin/python3" -c 'from sys import version_info; print(".".join(str(x) for x in version_info[:2]))')"

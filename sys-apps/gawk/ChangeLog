@@ -1,6 +1,65 @@
 # ChangeLog for sys-apps/gawk
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/gawk/ChangeLog,v 1.160 2013/02/19 03:07:42 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/gawk/ChangeLog,v 1.177 2014/02/18 18:58:12 ottxor Exp $
+
+  18 Feb 2014; Christoph Junghans <ottxor@gentoo.org> gawk-3.1.8.ebuild:
+  added blocker for >=virtual/awk-1
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> gawk-4.0.2.ebuild,
+  gawk-4.1.0.ebuild:
+  Add arm64 love.
+
+  16 Jan 2014; Mike Frysinger <vapier@gentoo.org> gawk-4.0.2.ebuild:
+  Mark m68k/s390/sh stable.
+
+  04 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -gawk-3.1.6.ebuild,
+  -gawk-3.1.7.ebuild, -gawk-4.0.0.ebuild, -gawk-4.0.1.ebuild,
+  -gawk-4.0.1-r1.ebuild, -files/autoconf-mktime-2.61.patch,
+  -files/gawk-3.1.3-getpgrp_void.patch, -files/gawk-3.1.6-gnuinfo.patch:
+  Removed old versions and files.
+
+  23 Dec 2013; Mike Frysinger <vapier@gentoo.org> gawk-4.0.2.ebuild:
+  Mark ia64 stable #467190.
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> gawk-4.0.2.ebuild:
+  Stable for ppc64, wrt bug #467190
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> gawk-4.0.2.ebuild:
+  Stable for ppc, wrt bug #467190
+
+  21 Dec 2013; Pacho Ramos <pacho@gentoo.org> gawk-4.0.2.ebuild:
+  amd64 stable, bug #467190
+
+  16 Dec 2013; Johannes Huber <johu@gentoo.org> gawk-4.0.2.ebuild:
+  x86 stable, bug #467190
+
+  16 Dec 2013; Matt Turner <mattst88@gentoo.org> gawk-4.0.2.ebuild:
+  alpha stable, bug 467190.
+
+  15 Dec 2013; Agostino Sarubbo <ago@gentoo.org> gawk-4.0.2.ebuild:
+  Stable for sparc, wrt bug #467190
+
+  09 Dec 2013; Jeroen Roovers <jer@gentoo.org> gawk-4.0.2.ebuild:
+  Stable for HPPA (bug #467190).
+
+  08 Dec 2013; Markus Meier <maekke@gentoo.org> gawk-4.0.2.ebuild:
+  arm stable, bug #467190
+
+  07 Dec 2013; Mike Frysinger <vapier@gentoo.org> gawk-4.1.0.ebuild:
+  Fix cross-compilation #493362 by Reuben Martin.
+
+  07 Dec 2013; Mike Frysinger <vapier@gentoo.org> gawk-4.1.0.ebuild,
+  metadata.xml:
+  Add USE=mpfr to control mpfr dependency.
+
+  19 Nov 2013; Michael Haubenwallner <haubi@gentoo.org> gawk-4.1.0.ebuild,
+  +files/gawk-4.1.0-ports.patch:
+  Add upstream patches for AIX support, bug#490266.
+
+*gawk-4.1.0 (13 May 2013)
+
+  13 May 2013; Mike Frysinger <vapier@gentoo.org> +gawk-4.1.0.ebuild:
+  Version bump.
 
   19 Feb 2013; Zac Medico <zmedico@gentoo.org> gawk-4.0.2.ebuild:
   Add ~arm-linux keyword.

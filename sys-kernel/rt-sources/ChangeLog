@@ -1,6 +1,63 @@
 # ChangeLog for sys-kernel/rt-sources
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/rt-sources/ChangeLog,v 1.15 2012/04/11 14:42:39 psomas Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/rt-sources/ChangeLog,v 1.26 2013/08/19 12:09:31 psomas Exp $
+
+*rt-sources-3.10.6_p3 (19 Aug 2013)
+*rt-sources-3.8.13_p15 (19 Aug 2013)
+*rt-sources-3.4.57_p72 (19 Aug 2013)
+
+  19 Aug 2013; <psomas@gentoo.org> -rt-sources-3.4.36_p50.ebuild,
+  +rt-sources-3.4.57_p72.ebuild, -rt-sources-3.6.11_p31.ebuild,
+  -rt-sources-3.8.13_p14.ebuild, +rt-sources-3.8.13_p15.ebuild,
+  +rt-sources-3.10.6_p3.ebuild:
+  Version bumps
+
+*rt-sources-3.8.13_p14 (31 Jul 2013)
+
+  31 Jul 2013; <psomas@gentoo.org> -rt-sources-3.8.4_p1.ebuild,
+  -rt-sources-3.8.11_p8.ebuild, +rt-sources-3.8.13_p14.ebuild:
+  Version bump
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+*rt-sources-3.8.11_p8 (09 May 2013)
+
+  09 May 2013; <psomas@gentoo.org> +rt-sources-3.8.11_p8.ebuild:
+  Version bump
+
+*rt-sources-3.4.36_p50 (28 Mar 2013)
+
+  28 Mar 2013; <psomas@gentoo.org> -rt-sources-3.4.33_p47.ebuild,
+  +rt-sources-3.4.36_p50.ebuild:
+  Version bump for 3.4
+
+  26 Mar 2013; <psomas@gentoo.org> -rt-sources-3.0.27_p46.ebuild,
+  -rt-sources-3.2.14_p24.ebuild:
+  Remove outdated ebuilds
+
+*rt-sources-3.8.4_p1 (26 Mar 2013)
+*rt-sources-3.6.11_p31 (26 Mar 2013)
+
+  26 Mar 2013; <psomas@gentoo.org> +rt-sources-3.6.11_p31.ebuild,
+  +rt-sources-3.8.4_p1.ebuild:
+  Version bump
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+  09 Mar 2013; Tom Wijsman <TomWij@gentoo.org> rt-sources-3.0.27_p46.ebuild,
+  rt-sources-3.2.14_p24.ebuild, rt-sources-3.4.33_p47.ebuild:
+  EAPI 5. Kernel sources and (gen)patches now use xz instead of bz2. Bug
+  #421721.
+
+  04 Mar 2013; <psomas@gentoo.org> -rt-sources-3.0.14_p31.ebuild:
+  Clean older ebuild
+
+*rt-sources-3.4.33_p47 (04 Mar 2013)
+
+  04 Mar 2013; <psomas@gentoo.org> +rt-sources-3.4.33_p47.ebuild, metadata.xml:
+  Version bump. Ebuild provided by Eric F. GARIOUD (bug #459240)
 
 *rt-sources-3.0.27_p46 (11 Apr 2012)
 
@@ -89,4 +146,3 @@
   17 Aug 2011; Stratos Psomadakis <psomas@gentoo.org>
   +rt-sources-3.0.1_p11.ebuild, +metadata.xml:
   New package and ebuild for the real-time kernel patchset
-

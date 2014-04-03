@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/shadow/shadow-4.1.5.1-r1.ebuild,v 1.2 2013/02/17 20:42:02 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/shadow/shadow-4.1.5.1-r1.ebuild,v 1.16 2014/01/18 04:48:18 vapier Exp $
 
-EAPI="2"
+EAPI=4
 
 inherit eutils libtool toolchain-funcs pam multilib
 
@@ -12,7 +12,7 @@ SRC_URI="http://pkg-shadow.alioth.debian.org/releases/${P}.tar.bz2"
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 IUSE="acl audit cracklib nls pam selinux skey xattr"
 
 RDEPEND="acl? ( sys-apps/acl )
@@ -67,7 +67,7 @@ set_login_opt() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" suidperms=4711 install || die
+	emake DESTDIR="${D}" suidperms=4711 install
 
 	# Remove libshadow and libmisc; see bug 37725 and the following
 	# comment from shadow's README.linux:
@@ -89,7 +89,7 @@ src_install() {
 	case $(tc-arch) in
 		ppc*)  devs="hvc0 hvsi0 ttyPSC0";;
 		hppa)  devs="ttyB0";;
-		arm)   devs="ttyFB0 ttySAC0 ttySAC1 ttySAC2 ttySAC3 ttymxc0 ttymxc1 ttyO0 ttyO1 ttyO2";;
+		arm)   devs="ttyFB0 ttySAC0 ttySAC1 ttySAC2 ttySAC3 ttymxc0 ttymxc1 ttymxc2 ttymxc3 ttyO0 ttyO1 ttyO2";;
 		sh)    devs="ttySC0 ttySC1";;
 	esac
 	[[ -n ${devs} ]] && printf '%s\n' ${devs} >> "${D}"/etc/securetty
@@ -115,15 +115,15 @@ src_install() {
 		set_login_opt LOGIN_RETRIES 3
 		set_login_opt ENCRYPT_METHOD SHA512
 	else
-		dopamd "${FILESDIR}"/pam.d-include/shadow || die
+		dopamd "${FILESDIR}"/pam.d-include/shadow
 
 		for x in chpasswd chgpasswd newusers; do
-			newpamd "${FILESDIR}"/pam.d-include/passwd ${x} || die
+			newpamd "${FILESDIR}"/pam.d-include/passwd ${x}
 		done
 
 		for x in chage chsh chfn \
 				 user{add,del,mod} group{add,del,mod} ; do
-			newpamd "${FILESDIR}"/pam.d-include/shadow ${x} || die
+			newpamd "${FILESDIR}"/pam.d-include/shadow ${x}
 		done
 
 		# comment out login.defs options that pam hates
@@ -178,8 +178,6 @@ src_install() {
 pkg_preinst() {
 	rm -f "${ROOT}"/etc/pam.d/system-auth.new \
 		"${ROOT}/etc/login.defs.new"
-
-	use pam && pam_epam_expand "${D}"/etc/pam.d/login
 }
 
 pkg_postinst() {

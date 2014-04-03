@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/tripwire/tripwire-2.4.2.2.ebuild,v 1.5 2012/05/18 09:02:43 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/tripwire/tripwire-2.4.2.2.ebuild,v 1.7 2013/09/03 15:01:36 nimiux Exp $
 
-EAPI=4
+EAPI=5
 
-inherit eutils flag-o-matic autotools
+inherit autotools eutils flag-o-matic
 
 DESCRIPTION="Open Source File Integrity Checker and IDS"
 HOMEPAGE="http://www.tripwire.org/"
@@ -18,7 +18,6 @@ IUSE="ssl static"
 
 DEPEND="sys-devel/automake
 	sys-devel/autoconf
-	dev-util/patchutils
 	ssl? ( dev-libs/openssl )"
 RDEPEND="virtual/cron
 	virtual/mta
@@ -27,6 +26,7 @@ RDEPEND="virtual/cron
 S="${WORKDIR}"/tripwire-"${PV}"-src
 
 src_prepare() {
+	epatch "${FILESDIR}"/"${P}"-fix-configure.patch
 	epatch "${FILESDIR}"/"${P}"-buildnum.patch
 
 	eautoreconf
@@ -37,9 +37,8 @@ src_configure() {
 	# see #32613, #45823, and others.
 	# 	-taviso@gentoo.org
 	strip-flags
-	append-flags -DCONFIG_DIR='"\"/etc/tripwire\""' -fno-strict-aliasing
-	einfo "Done."
-	chmod +x configure
+	append-cppflags -DCONFIG_DIR='"\"/etc/tripwire\""' -fno-strict-aliasing
+	chmod +x configure || die
 	econf $(use_enable ssl openssl) $(use_enable static)
 }
 

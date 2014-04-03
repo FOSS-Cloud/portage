@@ -1,6 +1,35 @@
 # ChangeLog for sci-libs/cfitsio
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/cfitsio/ChangeLog,v 1.60 2013/01/30 00:21:51 bicatali Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/cfitsio/ChangeLog,v 1.66 2014/02/05 23:54:54 bicatali Exp $
+
+  05 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> -cfitsio-3.340.ebuild,
+  cfitsio-3.360.ebuild:
+  Removed old, added fortran only if needed
+
+*cfitsio-3.360 (14 Jan 2014)
+
+  14 Jan 2014; Sébastien Fabbro <bicatali@gentoo.org> +cfitsio-3.360.ebuild:
+  Version bump
+
+  23 Sep 2013; Justin Lecher <jlec@gentoo.org> cfitsio-3.140.ebuild,
+  cfitsio-3.340.ebuild, cfitsio-3.350.ebuild, metadata.xml:
+  Use fortran-2.eclass
+
+*cfitsio-3.350 (03 Jul 2013)
+
+  03 Jul 2013; Sébastien Fabbro <bicatali@gentoo.org> +cfitsio-3.350.ebuild,
+  -cfitsio-3.310.ebuild, -cfitsio-3.330.ebuild:
+  Version bump
+
+*cfitsio-3.340 (20 Mar 2013)
+
+  20 Mar 2013; Sébastien Fabbro <bicatali@gentoo.org> +cfitsio-3.340.ebuild:
+  Version bump
+
+*cfitsio-3.330 (15 Mar 2013)
+
+  15 Mar 2013; Sébastien Fabbro <bicatali@gentoo.org> +cfitsio-3.330.ebuild:
+  Version bump
 
   30 Jan 2013; Sébastien Fabbro <bicatali@gentoo.org> -cfitsio-3.290.ebuild,
   -cfitsio-3.300-r1.ebuild:

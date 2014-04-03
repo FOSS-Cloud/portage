@@ -1,6 +1,85 @@
 # ChangeLog for sys-apps/gnome-disk-utility
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/gnome-disk-utility/ChangeLog,v 1.76 2012/12/24 16:26:33 eva Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/gnome-disk-utility/ChangeLog,v 1.94 2014/03/29 21:53:43 tetromino Exp $
+
+  29 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-disk-utility-3.8.2.ebuild, gnome-disk-utility-3.10.0.ebuild:
+  systemd now has subslots
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-disk-utility-3.10.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-disk-utility-3.10.0.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-disk-utility-3.10.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> gnome-disk-utility-3.10.0.ebuild,
+  gnome-disk-utility-3.8.2.ebuild:
+  Add missing gnome-common DEPEND, bug #498224 by Vikraman
+
+*gnome-disk-utility-3.10.0 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/gnome-disk-utility-3.10.0-kill-gsd-automagic.patch,
+  +files/gnome-disk-utility-3.10.0-raise-gsd-dependency.patch,
+  +gnome-disk-utility-3.10.0.ebuild, -gnome-disk-utility-3.0.2-r301.ebuild,
+  -gnome-disk-utility-3.4.1.ebuild, -gnome-disk-utility-3.6.1.ebuild,
+  -gnome-disk-utility-3.8.0.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gnome-disk-utility-3.8.2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gnome-disk-utility-3.8.2.ebuild:
+  amd64 stable, bug #478252
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> gnome-disk-utility-3.8.2.ebuild:
+  Rekeyword to stop the strange mix of keywords for every available version, I
+  cannot see any reference to reasons for dropping them, probably were dropped
+  due missing keywords on deps that were later keyworded and this was forgotten
+
+  10 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-disk-utility-3.8.2.ebuild,
+  +files/gnome-disk-utility-3.8.2-kill-gsd-automagic.patch,
+  +files/gnome-disk-utility-3.8.2-raise-gsd-dependency.patch:
+  Fix pseudo-automagic dependency on gnome-settings-daemon, bug #478820. 478820
+
+  27 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-disk-utility-3.8.2.ebuild:
+  Re-add systemd USE flag, other gtk based desktop might still need it.
+
+  27 Jul 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-disk-utility-3.8.2.ebuild:
+  Add missing USE dependency on libcanberra. systemd is not optional for
+  gnome3.8.
+
+  17 Jul 2013; Markus Meier <maekke@gentoo.org>
+  gnome-disk-utility-3.6.1.ebuild:
+  add ~arm, bug #471752
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-disk-utility-3.8.2.ebuild:
+  Add missing subslot operator.
+
+*gnome-disk-utility-3.8.2 (29 May 2013)
+
+  29 May 2013; Pacho Ramos <pacho@gentoo.org> +gnome-disk-utility-3.8.2.ebuild,
+  -gnome-disk-utility-2.32.1-r1.ebuild:
+  Version bump, remove old
+
+  17 May 2013; Matt Turner <mattst88@gentoo.org>
+  gnome-disk-utility-3.6.1.ebuild:
+  Added ~alpha.
+
+  02 Apr 2013; Pacho Ramos <pacho@gentoo.org> gnome-disk-utility-3.8.0.ebuild:
+  Fix g-s-d dependency, bug #463912 by Chris Mayo
+
+*gnome-disk-utility-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +gnome-disk-utility-3.8.0.ebuild:
+  Version bump for Gnome 3.8
 
 *gnome-disk-utility-3.6.1 (24 Dec 2012)
 

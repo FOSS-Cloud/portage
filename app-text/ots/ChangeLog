@@ -1,6 +1,36 @@
 # ChangeLog for app-text/ots
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/ots/ChangeLog,v 1.32 2012/08/05 20:51:32 blueness Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/ots/ChangeLog,v 1.40 2014/03/22 18:46:22 kensington Exp $
+
+  22 Mar 2014; Michael Palimaka <kensington@gentoo.org> -ots-0.5.0.ebuild:
+  Remove old.
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> ots-0.5.0-r1.ebuild:
+  Stable for alpha, wrt bug #494968
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> ots-0.5.0-r1.ebuild:
+  Stable for HPPA (bug #494968).
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ots-0.5.0-r1.ebuild:
+  Stable for ppc64, wrt bug #494968
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> ots-0.5.0-r1.ebuild:
+  Stable for ppc, wrt bug #494968
+
+  21 Dec 2013; Pacho Ramos <pacho@gentoo.org> ots-0.5.0-r1.ebuild:
+  x86 stable, bug #494968
+
+  21 Dec 2013; Pacho Ramos <pacho@gentoo.org> ots-0.5.0-r1.ebuild:
+  amd64 stable, bug #494968
+
+*ots-0.5.0-r1 (15 Oct 2013)
+
+  15 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/ots-0.5.0-automake-1.13.patch, +files/ots-0.5.0-fix-installation.patch,
+  +files/ots-0.5.0-fix-underlinking.patch, +ots-0.5.0-r1.ebuild,
+  -files/ots-0.4.2-gcc4.diff:
+  Fix library installation (#400623), underlinking, build with latest automake,
+  dicts installation.
 
   05 Aug 2012; Anthony G. Basile <blueness@gentoo.org> ots-0.5.0.ebuild:
   Keyword ~arm
@@ -111,4 +141,3 @@
   <nadav256@hotmail.com> requested this to be added in IRC, to me.  I didn't
   see bug #24079 by MG <markgilbert@hotpop.com> where he had submitted the
   ebuild for this. Apologies to him nd foser.
-

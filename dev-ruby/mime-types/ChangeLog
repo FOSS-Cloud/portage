@@ -1,6 +1,40 @@
 # ChangeLog for dev-ruby/mime-types
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/mime-types/ChangeLog,v 1.36 2013/02/12 11:33:37 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/mime-types/ChangeLog,v 1.44 2014/03/05 18:28:41 ago Exp $
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> mime-types-1.23.ebuild:
+  Stable for ppc, wrt bug #502272
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> mime-types-1.23.ebuild:
+  Stable for x86, wrt bug #502272
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> mime-types-1.23.ebuild:
+  amd64 stable, bug #502272
+
+*mime-types-1.25.1 (26 Nov 2013)
+
+  26 Nov 2013; Manuel Rüger <mrueg@gentoo.org> +mime-types-1.25.1.ebuild,
+  -mime-types-1.22.ebuild, -mime-types-1.25.ebuild:
+  Version bump. Cleanup old.
+
+  20 Nov 2013; Hans de Graaff <graaff@gentoo.org> -mime-types-1.20.1.ebuild,
+  -mime-types-1.21.ebuild:
+  Cleanup.
+
+*mime-types-1.25 (20 Nov 2013)
+
+  20 Nov 2013; Hans de Graaff <graaff@gentoo.org> +mime-types-1.25.ebuild:
+  Version bump.
+
+*mime-types-1.23 (18 Jul 2013)
+
+  18 Jul 2013; Hans de Graaff <graaff@gentoo.org> +mime-types-1.23.ebuild:
+  Version bump.
+
+*mime-types-1.22 (03 Apr 2013)
+
+  03 Apr 2013; Hans de Graaff <graaff@gentoo.org> +mime-types-1.22.ebuild:
+  Version bump.
 
 *mime-types-1.21 (12 Feb 2013)
 

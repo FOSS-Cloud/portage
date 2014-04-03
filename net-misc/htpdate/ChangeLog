@@ -1,6 +1,54 @@
 # ChangeLog for net-misc/htpdate
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/htpdate/ChangeLog,v 1.43 2012/02/09 10:46:53 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/htpdate/ChangeLog,v 1.56 2014/01/18 10:38:58 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> htpdate-1.0.7.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> htpdate-1.0.4.ebuild,
+  htpdate-1.0.7.ebuild:
+  Mark s390/sh stable.
+
+  22 Dec 2013; Mike Frysinger <vapier@gentoo.org> htpdate-1.0.7.ebuild:
+  Fix building on uclibc systems.
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> htpdate-1.0.7.ebuild:
+  Stable for ppc, wrt bug #490586
+
+  30 Nov 2013; Markus Meier <maekke@gentoo.org> htpdate-1.0.7.ebuild:
+  arm stable, bug #490586
+
+  17 Nov 2013; Sergey Popov <pinkbyte@gentoo.org> htpdate-1.0.7.ebuild:
+  Stable on amd64 and x86, wrt bug #490586
+
+  13 Nov 2013; Jeroen Roovers <jer@gentoo.org> htpdate-1.0.7.ebuild:
+  Stable for HPPA (bug #490586).
+
+  17 Oct 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Reassign due to maintainer becomes Gentoo developer, remove proxy maintainers
+  herd
+
+  23 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> htpdate-1.0.4.ebuild:
+  Drop stable keywords from s390 and sh
+
+*htpdate-1.0.7 (23 Sep 2013)
+
+  23 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> +htpdate-1.0.7.ebuild:
+  Version bump
+
+  12 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> htpdate-1.0.5.ebuild:
+  Add ~amd64-linux and ~x86-linux keywords
+
+*htpdate-1.0.5 (12 Aug 2013)
+
+  12 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> +htpdate-1.0.5.ebuild,
+  +files/htpdate.init-r1:
+  Version bump, wrt bug #479790. Thanks to Pavel Kazakov for ebuild and Lars
+  Wendler for updated init script
+
+  05 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Package will be maintained by Pavel Kazakov <nullishzero AT gmail.com>
+  through proxy maintainers
 
   09 Feb 2012; Pacho Ramos <pacho@gentoo.org> -htpdate-1.0.0.ebuild,
   metadata.xml:
@@ -181,4 +229,3 @@
   22 Jun 2005; Tobias Scherbaum <dertobi123@gentoo.org> +metadata.xml,
   +htpdate-0.8.2.ebuild:
   Initial ebuild thanks to Christian Hartmann in #96364.
-

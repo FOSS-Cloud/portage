@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain-binutils.eclass,v 1.123 2013/02/09 04:32:48 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain-binutils.eclass,v 1.131 2014/01/06 16:10:56 vapier Exp $
 #
 # Maintainer: Toolchain Ninjas <toolchain@gentoo.org>
 #
@@ -39,7 +39,7 @@ cvs)
 git)
 	extra_eclass="git-2"
 	BVER="git"
-	EGIT_REPO_URI="git://sourceware.org/git/binutils.git"
+	EGIT_REPO_URI="git://sourceware.org/git/binutils-gdb.git"
 	;;
 snap)
 	BVER=${PV/9999_pre}
@@ -50,7 +50,13 @@ snap)
 esac
 
 inherit eutils libtool flag-o-matic gnuconfig multilib versionator unpacker ${extra_eclass}
-EXPORT_FUNCTIONS src_unpack src_compile src_test src_install pkg_postinst pkg_postrm
+case ${EAPI:-0} in
+0|1)
+	EXPORT_FUNCTIONS src_unpack src_compile src_test src_install pkg_postinst pkg_postrm ;;
+2|3|4|5)
+	EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm ;;
+*) die "unsupported EAPI ${EAPI}" ;;
+esac
 
 export CTARGET=${CTARGET:-${CHOST}}
 if [[ ${CTARGET} == ${CHOST} ]] ; then
@@ -176,7 +182,7 @@ tc-binutils_apply_patches() {
 	# fix locale issues if possible #122216
 	if [[ -e ${FILESDIR}/binutils-configure-LANG.patch ]] ; then
 		einfo "Fixing misc issues in configure files"
-		for f in $(grep -l 'autoconf version 2.13' $(find "${S}" -name configure)) ; do
+		for f in $(find "${S}" -name configure -exec grep -l 'autoconf version 2.13' {} +) ; do
 			ebegin "  Updating ${f/${S}\/}"
 			patch "${f}" "${FILESDIR}"/binutils-configure-LANG.patch >& "${T}"/configure-patch.log \
 				|| eerror "Please file a bug about this"
@@ -201,15 +207,21 @@ tc-binutils_apply_patches() {
 
 toolchain-binutils_src_unpack() {
 	tc-binutils_unpack
+	case ${EAPI:-0} in
+	0|1) toolchain-binutils_src_prepare ;;
+	esac
+}
+
+toolchain-binutils_src_prepare() {
 	tc-binutils_apply_patches
 }
 
-toolchain-binutils_src_compile() {
-	# prevent makeinfo from running in releases.  it may not always be
-	# installed, and older binutils may fail with newer texinfo.
-	# besides, we never patch the doc files anyways, so regenerating
-	# in the first place is useless. #193364
-	find . '(' -name '*.info' -o -name '*.texi' ')' -print0 | xargs -0 touch -r .
+_eprefix_init() {
+	has "${EAPI:-0}" 0 1 2 && ED=${D} EPREFIX= EROOT=${ROOT}
+}
+
+toolchain-binutils_src_configure() {
+	_eprefix_init
 
 	# make sure we filter $LINGUAS so that only ones that
 	# actually work make it through #42033
@@ -262,7 +274,7 @@ toolchain-binutils_src_compile() {
 
 	use multitarget && myconf+=( --enable-targets=all --enable-64-bit-bfd )
 	[[ -n ${CBUILD} ]] && myconf+=( --build=${CBUILD} )
-	is_cross && myconf+=( --with-sysroot=/usr/${CTARGET} )
+	is_cross && myconf+=( --with-sysroot="${EPREFIX}"/usr/${CTARGET} )
 
 	# glibc-2.3.6 lacks support for this ... so rather than force glibc-2.5+
 	# on everyone in alpha (for now), we'll just enable it when possible
@@ -270,27 +282,51 @@ toolchain-binutils_src_compile() {
 	has_version ">=sys-libs/glibc-2.5" && myconf+=( --enable-secureplt )
 
 	myconf+=(
-		--prefix=/usr
+		--prefix="${EPREFIX}"/usr
 		--host=${CHOST}
 		--target=${CTARGET}
-		--datadir=${DATAPATH}
-		--infodir=${DATAPATH}/info
-		--mandir=${DATAPATH}/man
-		--bindir=${BINPATH}
-		--libdir=${LIBPATH}
-		--libexecdir=${LIBPATH}
-		--includedir=${INCPATH}
+		--datadir="${EPREFIX}"${DATAPATH}
+		--infodir="${EPREFIX}"${DATAPATH}/info
+		--mandir="${EPREFIX}"${DATAPATH}/man
+		--bindir="${EPREFIX}"${BINPATH}
+		--libdir="${EPREFIX}"${LIBPATH}
+		--libexecdir="${EPREFIX}"${LIBPATH}
+		--includedir="${EPREFIX}"${INCPATH}
 		--enable-obsolete
 		--enable-shared
 		--enable-threads
+		# Newer versions (>=2.24) make this an explicit option. #497268
+		--enable-install-libiberty
 		--disable-werror
 		--with-bugurl=http://bugs.gentoo.org/
 		$(use_enable static-libs static)
 		${EXTRA_ECONF}
+		# Disable modules that are in a combined binutils/gdb tree. #490566
+		--disable-{gdb,libdecnumber,readline,sim}
 	)
 	echo ./configure "${myconf[@]}"
 	"${S}"/configure "${myconf[@]}" || die
 
+	# Prevent makeinfo from running in releases.  It may not always be
+	# installed, and older binutils may fail with newer texinfo.
+	# Besides, we never patch the doc files anyways, so regenerating
+	# in the first place is useless. #193364
+	# For older versions, it means we don't get any info pages at all.
+	# Oh well, tough luck. #294617
+	if [[ -e ${S}/gas/doc/as.info ]] || ! version_is_at_least 2.24 ; then
+		sed -i \
+			-e '/^MAKEINFO/s:=.*:= true:' \
+			Makefile || die
+	fi
+}
+
+toolchain-binutils_src_compile() {
+	_eprefix_init
+	case ${EAPI:-0} in
+	0|1) toolchain-binutils_src_configure ;;
+	esac
+
+	cd "${MY_BUILDDIR}"
 	emake all || die "emake failed"
 
 	# only build info pages if we user wants them, and if
@@ -300,7 +336,7 @@ toolchain-binutils_src_compile() {
 	fi
 	# we nuke the manpages when we're left with junk
 	# (like when we bootstrap, no perl -> no manpages)
-	find . -name '*.1' -a -size 0 | xargs rm -f
+	find . -name '*.1' -a -size 0 -delete
 
 	# elf2flt only works on some arches / targets
 	if [[ -n ${ELF2FLT_VER} ]] && [[ ${CTARGET} == *linux* || ${CTARGET} == *-elf* ]] ; then
@@ -317,7 +353,7 @@ toolchain-binutils_src_compile() {
 				--with-bfd-include-dir=${MY_BUILDDIR}/bfd
 				--with-libbfd=${MY_BUILDDIR}/bfd/libbfd.a
 				--with-libiberty=${MY_BUILDDIR}/libiberty/libiberty.a
-				--with-binutils-ldscript-dir=${LIBPATH}/ldscripts
+				--with-binutils-ldscript-dir="${EPREFIX}"${LIBPATH}/ldscripts
 			)
 			echo ./configure "${myconf[@]}"
 			./configure "${myconf[@]}" || die
@@ -332,15 +368,16 @@ toolchain-binutils_src_test() {
 }
 
 toolchain-binutils_src_install() {
+	_eprefix_init
 	local x d
 
 	cd "${MY_BUILDDIR}"
-	emake DESTDIR="${D}" tooldir="${LIBPATH}" install || die
-	rm -rf "${D}"/${LIBPATH}/bin
-	use static-libs || find "${D}" -name '*.la' -delete
+	emake DESTDIR="${D}" tooldir="${EPREFIX}${LIBPATH}" install || die
+	rm -rf "${ED}"/${LIBPATH}/bin
+	use static-libs || find "${ED}" -name '*.la' -delete
 
 	# Newer versions of binutils get fancy with ${LIBPATH} #171905
-	cd "${D}"/${LIBPATH}
+	cd "${ED}"/${LIBPATH}
 	for d in ../* ; do
 		[[ ${d} == ../${BVER} ]] && continue
 		mv ${d}/* . || die
@@ -351,15 +388,15 @@ toolchain-binutils_src_install() {
 	# When something is built to cross-compile, it installs into
 	# /usr/$CHOST/ by default ... we have to 'fix' that :)
 	if is_cross ; then
-		cd "${D}"/${BINPATH}
+		cd "${ED}"/${BINPATH}
 		for x in * ; do
 			mv ${x} ${x/${CTARGET}-}
 		done
 
-		if [[ -d ${D}/usr/${CHOST}/${CTARGET} ]] ; then
-			mv "${D}"/usr/${CHOST}/${CTARGET}/include "${D}"/${INCPATH}
-			mv "${D}"/usr/${CHOST}/${CTARGET}/lib/* "${D}"/${LIBPATH}/
-			rm -r "${D}"/usr/${CHOST}/{include,lib}
+		if [[ -d ${ED}/usr/${CHOST}/${CTARGET} ]] ; then
+			mv "${ED}"/usr/${CHOST}/${CTARGET}/include "${ED}"/${INCPATH}
+			mv "${ED}"/usr/${CHOST}/${CTARGET}/lib/* "${ED}"/${LIBPATH}/
+			rm -r "${ED}"/usr/${CHOST}/{include,lib}
 		fi
 	fi
 	insinto ${INCPATH}
@@ -374,9 +411,9 @@ toolchain-binutils_src_install() {
 		splay-tree.h
 	)
 	doins "${libiberty_headers[@]/#/${S}/include/}" || die
-	if [[ -d ${D}/${LIBPATH}/lib ]] ; then
-		mv "${D}"/${LIBPATH}/lib/* "${D}"/${LIBPATH}/
-		rm -r "${D}"/${LIBPATH}/lib
+	if [[ -d ${ED}/${LIBPATH}/lib ]] ; then
+		mv "${ED}"/${LIBPATH}/lib/* "${ED}"/${LIBPATH}/
+		rm -r "${ED}"/${LIBPATH}/lib
 	fi
 
 	# Insert elf2flt where appropriate
@@ -386,7 +423,7 @@ toolchain-binutils_src_install() {
 		doins elf2flt.ld || die "doins elf2flt.ld failed"
 		exeinto ${BINPATH}
 		doexe elf2flt flthdr || die "doexe elf2flt flthdr failed"
-		mv "${D}"/${BINPATH}/{ld,ld.real} || die
+		mv "${ED}"/${BINPATH}/{ld,ld.real} || die
 		newexe ld-elf2flt ld || die "doexe ld-elf2flt failed"
 		newdoc README README.elf2flt
 	fi
@@ -411,15 +448,14 @@ toolchain-binutils_src_install() {
 	[[ -n ${src}${dst} ]] && FAKE_TARGETS="${FAKE_TARGETS} ${CTARGET/${src}/${dst}}"
 
 	# Generate an env.d entry for this binutils
-	cd "${S}"
 	insinto /etc/env.d/binutils
-	cat <<-EOF > env.d
+	cat <<-EOF > "${T}"/env.d
 		TARGET="${CTARGET}"
 		VER="${BVER}"
-		LIBPATH="${LIBPATH}"
+		LIBPATH="${EPREFIX}${LIBPATH}"
 		FAKE_TARGETS="${FAKE_TARGETS}"
 	EOF
-	newins env.d ${CTARGET}-${BVER}
+	newins "${T}"/env.d ${CTARGET}-${BVER}
 
 	# Handle documentation
 	if ! is_cross ; then
@@ -441,18 +477,20 @@ toolchain-binutils_src_install() {
 		dodoc opcodes/ChangeLog*
 	fi
 	# Remove shared info pages
-	rm -f "${D}"/${DATAPATH}/info/{dir,configure.info,standards.info}
+	rm -f "${ED}"/${DATAPATH}/info/{dir,configure.info,standards.info}
 	# Trim all empty dirs
-	find "${D}" -type d | xargs rmdir >& /dev/null
+	find "${ED}" -depth -type d -exec rmdir {} + 2>/dev/null
 }
 
 toolchain-binutils_pkg_postinst() {
+	_eprefix_init
 	# Make sure this ${CTARGET} has a binutils version selected
-	[[ -e ${ROOT}/etc/env.d/binutils/config-${CTARGET} ]] && return 0
+	[[ -e ${EROOT}/etc/env.d/binutils/config-${CTARGET} ]] && return 0
 	binutils-config ${CTARGET}-${BVER}
 }
 
 toolchain-binutils_pkg_postrm() {
+	_eprefix_init
 	local current_profile=$(binutils-config -c ${CTARGET})
 
 	# If no other versions exist, then uninstall for this
@@ -461,7 +499,7 @@ toolchain-binutils_pkg_postrm() {
 	#       rerun binutils-config if this is a remerge, as
 	#       we want the mtimes on the symlinks updated (if
 	#       it is the same as the current selected profile)
-	if [[ ! -e ${BINPATH}/ld ]] && [[ ${current_profile} == ${CTARGET}-${BVER} ]] ; then
+	if [[ ! -e ${EPREFIX}${BINPATH}/ld ]] && [[ ${current_profile} == ${CTARGET}-${BVER} ]] ; then
 		local choice=$(binutils-config -l | grep ${CTARGET} | awk '{print $2}')
 		choice=${choice//$'\n'/ }
 		choice=${choice/* }

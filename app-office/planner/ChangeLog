@@ -1,6 +1,41 @@
 # ChangeLog for app-office/planner
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/planner/ChangeLog,v 1.68 2012/07/15 16:26:56 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/planner/ChangeLog,v 1.77 2014/02/22 21:03:53 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> planner-0.14.6_p20130520.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> planner-0.14.6_p20130520.ebuild:
+  arch stable, bug 888
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> planner-0.14.6_p20130520.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> planner-0.14.6_p20130520.ebuild:
+  amd64 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> planner-0.14.6_p20130520.ebuild:
+  Doesn't like parallel install currently
+
+  25 Jun 2013; Pacho Ramos <pacho@gentoo.org> planner-0.14.6_p20130520.ebuild:
+  We need to set compile-warnings to a different value as it doesn't use
+  standard macro (#474610 by Juergen Rose).
+
+  20 May 2013; Gilles Dartiguelongue <eva@gentoo.org> planner-0.14.6.ebuild,
+  planner-0.14.6_p20130520.ebuild:
+  Fix typos from previous commit.
+
+*planner-0.14.6_p20130520 (20 May 2013)
+
+  20 May 2013; Gilles Dartiguelongue <eva@gentoo.org> planner-0.14.6.ebuild,
+  +planner-0.14.6_p20130520.ebuild:
+  Add a snapshot compatible with evolution-3.6, bug #448902. Fix compatibility
+  with automake-1.13, bug #467596.
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -files/planner-0.14.3-eds-plugin.patch, -planner-0.14.5.ebuild,
+  -files/planner-0.14.5-find-python.patch:
+  Clean up old revision.
 
   15 Jul 2012; Raúl Porcel <armin76@gentoo.org> planner-0.14.6.ebuild:
   alpha/sparc stable wrt #410611

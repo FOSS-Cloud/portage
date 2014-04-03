@@ -1,19 +1,17 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/fbless/fbless-9999.ebuild,v 1.1 2012/07/18 06:11:42 yngwin Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/fbless/fbless-9999.ebuild,v 1.2 2013/04/09 12:30:11 pinkbyte Exp $
 
-EAPI=4
-PYTHON_COMPAT="python2_7"
-inherit python-distutils-ng git-2
+EAPI=5
+
+EGIT_REPO_URI="git://github.com/matimatik/fbless.git"
+PYTHON_COMPAT=( python2_7 )
+PYTHON_REQ_USE="ncurses,xml"
+inherit distutils-r1 git-2
 
 DESCRIPTION="Python-based console fb2 reader with less-like interface"
 HOMEPAGE="https://github.com/matimatik/fbless"
-EGIT_REPO_URI="git://github.com/matimatik/fbless.git"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
-
-DEPEND="dev-lang/python:2.7[ncurses,xml]"
-RDEPEND="${DEPEND}"

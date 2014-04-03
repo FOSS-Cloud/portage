@@ -1,6 +1,64 @@
 # ChangeLog for net-libs/farstream
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/farstream/ChangeLog,v 1.16 2012/12/14 16:03:39 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/farstream/ChangeLog,v 1.33 2014/03/28 02:30:21 jer Exp $
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> farstream-0.2.3.ebuild:
+  Stable for HPPA (bug #499954).
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> farstream-0.2.3.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> farstream-0.2.3.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> farstream-0.2.3.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> farstream-0.2.3.ebuild:
+  arch stable, bug 888
+
+*farstream-0.2.3 (13 Dec 2013)
+
+  13 Dec 2013; Pacho Ramos <pacho@gentoo.org> +farstream-0.2.3.ebuild,
+  farstream-0.1.2-r1.ebuild, metadata.xml:
+  Version bump, disable parallel install for old version/slot (#434618)
+
+*farstream-0.1.2-r1 (27 Oct 2013)
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> +farstream-0.1.2-r1.ebuild:
+  Oops
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> -farstream-0.1.2-r1.ebuild,
+  metadata.xml:
+  Cleanup due voip herd removal:
+  http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+  10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> farstream-0.2.2.ebuild:
+  Stable for hppa, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> farstream-0.2.2.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> farstream-0.2.2.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> farstream-0.2.2.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> farstream-0.2.2.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> farstream-0.2.2.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> farstream-0.2.2.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> farstream-0.2.2.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> farstream-0.2.2.ebuild:
+  Stable for amd64, wrt bug #458984
 
   14 Dec 2012; Michał Górny <mgorny@gentoo.org> metadata.xml:
   Remove redundant USE=upnp description; it matches the global flag meaning.

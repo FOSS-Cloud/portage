@@ -1,6 +1,89 @@
 # ChangeLog for app-emulation/libguestfs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libguestfs/ChangeLog,v 1.24 2012/11/26 18:36:15 maksbotan Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libguestfs/ChangeLog,v 1.34 2014/03/08 13:15:42 zlogene Exp $
+
+  08 Mar 2014; Mikle Kolyada <zlogene@gentoo.org>
+  -files/1.20/0001_add_gentoo_names_to_configure.patch,
+  -files/1.20/0002_add_gentooway_to_remove_la_files.patch,
+  -files/1.20/0003_add_doc_more_option.patch,
+  -files/1.20/0004_add_icoutils_configure_drop_automagic.patch,
+  -files/1.20/0005_enable_gtk_docs_in_broken_autotools-utils-eclass.patch,
+  -files/1.20/0103_disable_php_bindings_makefile.patch,
+  -files/1.22/0001_add_gentoo_names_to_configure.patch,
+  -files/1.22/0002_add_gentooway_to_remove_la_files.patch,
+  -files/1.22/0003_add_doc_more_option.patch,
+  -files/1.22/0004_add_icoutils_configure_drop_automagic.patch,
+  -files/1.22/0005_enable_gtk_docs_in_broken_autotools-utils-eclass.patch,
+  -files/1.22/0103_disable_php_bindings_makefile.patch,
+  -libguestfs-1.20.6.ebuild, -libguestfs-1.22.7.ebuild:
+  Drop insecure versions (bug #488532)
+
+  20 Jan 2014; Maxim Koltsov <maksbotan@gentoo.org> libguestfs-1.24.0.ebuild:
+  Raise augeas dependency to 1.0.0, bug #498080.
+
+  31 Dec 2013; Tom Wijsman <TomWij@gentoo.org>
+  -files/1.17/0002-configure_ac_automagic.patch,
+  -files/1.18/0001_add_gentoo_names_to_configure.patch,
+  -files/1.18/0002_add_doc_more_option.patch,
+  -files/1.18/0002_add_gentooway_to_remove_la_files.patch,
+  -files/1.18/0003_add_icoutils_configure_drop_automagic.patch,
+  -files/1.18/0103_disable_php_bindings_makefile.patch:
+  [QA] Remove unused files.
+
+  27 Oct 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +files/1.24/0001_add_gentoo_names_to_configure.patch,
+  +files/1.24/0002_add_gentooway_to_remove_la_files.patch,
+  +files/1.24/0004_add_icoutils_configure_drop_automagic.patch,
+  +files/1.24/0005_enable_gtk_docs_in_broken_autotools-utils-eclass.patch,
+  +files/1.24/0103_disable_php_bindings_makefile.patch:
+  Add missing patches for 1.24, bug #489334.
+
+*libguestfs-1.22.7 (21 Oct 2013)
+*libguestfs-1.24.0 (21 Oct 2013)
+
+  21 Oct 2013; Alexander Vershilov <qnikst@gentoo.org>
+  +libguestfs-1.22.7.ebuild, +libguestfs-1.24.0.ebuild,
+  -libguestfs-1.16.34.ebuild, -libguestfs-1.18.11.ebuild,
+  -libguestfs-1.20.4.ebuild, -libguestfs-1.22.6.ebuild:
+  drop old, add new versions, request by slepnoga
+
+*libguestfs-1.22.6 (01 Oct 2013)
+
+  01 Oct 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +files/1.22/0001_add_gentoo_names_to_configure.patch,
+  +files/1.22/0002_add_gentooway_to_remove_la_files.patch,
+  +files/1.22/0003_add_doc_more_option.patch,
+  +files/1.22/0004_add_icoutils_configure_drop_automagic.patch,
+  +files/1.22/0005_enable_gtk_docs_in_broken_autotools-utils-eclass.patch,
+  +files/1.22/0103_disable_php_bindings_makefile.patch,
+  +libguestfs-1.22.6.ebuild:
+  Bump to 1.22.26, thanks to slepnoga
+
+*libguestfs-1.20.6 (24 Apr 2013)
+
+  24 Apr 2013; Maxim Koltsov <maksbotan@gentoo.org> +libguestfs-1.20.6.ebuild:
+  Bump to 1.20.6, add lua support. Thanks to slepnoga.
+
+  25 Mar 2013; Maxim Koltsov <maksbotan@gentoo.org>
+  +files/1.20/0001_add_gentoo_names_to_configure.patch,
+  +files/1.20/0002_add_gentooway_to_remove_la_files.patch,
+  +files/1.20/0003_add_doc_more_option.patch,
+  +files/1.20/0004_add_icoutils_configure_drop_automagic.patch,
+  +files/1.20/0005_enable_gtk_docs_in_broken_autotools-utils-eclass.patch,
+  +files/1.20/0103_disable_php_bindings_makefile.patch:
+  Add forgotten patches
+
+  25 Mar 2013; Maxim Koltsov <maksbotan@gentoo.org> -libguestfs-1.16.25.ebuild,
+  -libguestfs-1.18.10.ebuild, -libguestfs-1.18.9.ebuild:
+  Drop old, thanks to slepnoga
+
+*libguestfs-1.20.4 (25 Mar 2013)
+*libguestfs-1.16.34 (25 Mar 2013)
+*libguestfs-1.18.11 (25 Mar 2013)
+
+  25 Mar 2013; Maxim Koltsov <maksbotan@gentoo.org> +libguestfs-1.16.34.ebuild,
+  +libguestfs-1.18.11.ebuild, +libguestfs-1.20.4.ebuild:
+  Bump, bug #462370. Thanks to slepnoga.
 
 *libguestfs-1.18.10 (26 Nov 2012)
 

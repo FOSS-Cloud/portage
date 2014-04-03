@@ -1,6 +1,6 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/massxpert/massxpert-2.0.5.ebuild,v 1.2 2009/10/04 15:14:58 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/massxpert/massxpert-2.0.5.ebuild,v 1.4 2014/01/06 15:24:25 jlec Exp $
 
 EAPI="2"
 
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug doc"
 
-RDEPEND="x11-libs/qt-svg:4[debug?]"
+RDEPEND="dev-qt/qtsvg:4[debug?]"
 DEPEND="${DEPEND}
 	doc? ( virtual/latex-base )"
 
@@ -40,12 +40,11 @@ src_prepare() {
 }
 
 src_configure() {
-	append-ldflags $(no-as-needed)
-
-	mycmakeargs="
+	local mycmakeargs=(
 		-DBUILD_PROGRAM=1
-		-DBUILD_DATA=1"
-	use doc && mycmakeargs="${mycmakeargs} -DBUILD_USERMANUAL=1"
+		-DBUILD_DATA=1
+	)
+	use doc && mycmakeargs+=( -DBUILD_USERMANUAL=1 )
 
 	cmake-utils_src_configure
 }

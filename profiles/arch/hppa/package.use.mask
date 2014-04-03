@@ -1,8 +1,25 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/package.use.mask,v 1.129 2013/08/11 12:41:43 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/package.use.mask,v 1.137 2014/03/06 15:33:47 jer Exp $
 
 # DON'T TOUCH THIS FILE. Instead, file a bug and assign it to <hppa@gentoo.org>.
+
+# Jeroen Roovers <jer@gentoo.org> (6 Mar 2014)
+# USE=gui requires x11-libs/qscintilla,
+# USE=jit requires sys-devel/llvm (bug #503594)
+sci-mathematics/octave gui jit
+
+# Jeroen Roovers <jer@gentoo.org> (31 Jan 2014)
+# Mask x11-libs/libgksu dependency (bug #499900)
+xfce-extra/xfce4-taskmanager gksu
+
+# Julian Ospald <hasufell@gentoo.org> (23 Nov 2013)
+# needs app-arch/innoextract (bug #492326)
+games-fps/duke3d-data gog
+
+# Jeroen Roovers <jer@gentoo.org> (25 Oct 2013)
+# Building against libatomic_ops fails (bug #453704)
+sys-libs/libunwind libatomic
 
 # Jeroen Roovers <jer@gentoo.org> (23 Jul 2013)
 # graphite is not implemented on HPPA
@@ -21,10 +38,6 @@ media-libs/mesa r600-llvm-compiler
 # dev-python/restkit which is needed for dev-python/pyquery's test phase
 # (bug #452764)
 dev-python/pyquery test
-
-# Jeroen Roovers <jer@gentoo.org> (2 Jan 2013)
-# Mask sci-libs/proj for dev-perl/PDL (bug #417453)
-dev-perl/PDL proj
 
 # Jeroen Roovers <jer@gentoo.org> (2 Jan 2013)
 # Mask non-keyworded sci-libs/hdf5 for sci-mathematics/octave
@@ -54,7 +67,9 @@ dev-libs/libpcre jit
 # Arun Raghavan <ford_prefect@gentoo.org> (24 May 2012)
 # media-sound/pulseaudio needs PyQt4[dbus] for making the equalizer module
 # usable. Mask until this is available.
-media-sound/pulseaudio equalizer
+# Jeroen Roovers <jer@gentoo.org> (18 Feb 2014)
+# OSS is the only kernel audio interface that works on HPPA
+media-sound/pulseaudio equalizer -oss
 
 # Jeroen Roovers <jer@gentoo.org> (21 May 2012)
 # media-sound/lilypond has problems running mpost (bug #416961)
@@ -130,7 +145,7 @@ media-sound/mpd fluidsynth
 # Jeroen Roovers <jer@gentoo.org> (16 Sep 2008)
 # cpudetection and custom-cpuopts does not apply
 # to HPPA (bug #234629)
-media-video/mplayer cpudetection custom-cpuopts
+media-video/mplayer cpudetection
 
 # Jeroen Roovers <jer@gentoo.org> (16 Sep 2008)
 # app-text/xindy needs dev-lisp/clisp and clisp does not build (bug #229217)

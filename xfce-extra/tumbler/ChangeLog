@@ -1,6 +1,46 @@
 # ChangeLog for xfce-extra/tumbler
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-extra/tumbler/ChangeLog,v 1.48 2013/01/13 10:56:40 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/xfce-extra/tumbler/ChangeLog,v 1.59 2014/02/27 14:23:03 ssuominen Exp $
+
+*tumbler-0.1.30 (27 Feb 2014)
+
+  27 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> +tumbler-0.1.30.ebuild:
+  Version bump.
+
+  28 Jan 2014; Agostino Sarubbo <ago@gentoo.org> tumbler-0.1.29.ebuild:
+  Stable for x86, wrt bug #496018
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> tumbler-0.1.29.ebuild:
+  amd64 stable, bug 496018
+
+  31 Dec 2013; Markus Meier <maekke@gentoo.org> tumbler-0.1.29.ebuild:
+  arm stable, bug #496018
+
+  05 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> tumbler-0.1.29.ebuild:
+  Pull in correct SLOT of libjpeg for headers.
+
+  29 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> tumbler-0.1.29.ebuild:
+  Pull in the gst-plugins-meta package with USE="gstreamer" by Calchan
+
+  05 May 2013; Samuli Suominen <ssuominen@gentoo.org> -tumbler-0.1.28.ebuild:
+  old
+
+*tumbler-0.1.29 (05 May 2013)
+
+  05 May 2013; Samuli Suominen <ssuominen@gentoo.org> +tumbler-0.1.29.ebuild:
+  Version bump.
+
+  05 May 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -files/tumbler-0.1.27-cover.patch, -tumbler-0.1.27.ebuild:
+  old
+
+*tumbler-0.1.28 (05 May 2013)
+
+  05 May 2013; Samuli Suominen <ssuominen@gentoo.org> +tumbler-0.1.28.ebuild:
+  Version bump.
+
+  17 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> tumbler-0.1.27.ebuild:
+  Use subslot dependency for app-text/poppler wrt #462020
 
   13 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> -tumbler-0.1.26.ebuild:
   old

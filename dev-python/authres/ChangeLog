@@ -1,6 +1,40 @@
 # ChangeLog for dev-python/authres
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/authres/ChangeLog,v 1.10 2013/02/26 10:59:26 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/authres/ChangeLog,v 1.18 2014/03/31 21:02:13 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> authres-0.501.ebuild,
+  authres-0.600.ebuild, authres-0.601.ebuild, authres-0.602.ebuild:
+  Add support for the new PyPy slotting.
+
+  03 Mar 2014; Pacho Ramos <pacho@gentoo.org> authres-0.602.ebuild:
+  amd64 stable, bug #474176
+
+  23 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> authres-0.602.ebuild:
+  x86 stable wrt bug #474176
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> authres-0.501.ebuild,
+  authres-0.600.ebuild, authres-0.601.ebuild, authres-0.602.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*authres-0.602 (10 Aug 2013)
+
+  10 Aug 2013; Patrick Lauer <patrick@gentoo.org> +authres-0.602.ebuild:
+  Bump
+
+*authres-0.601 (02 May 2013)
+
+  02 May 2013; Patrick Lauer <patrick@gentoo.org> +authres-0.601.ebuild:
+  Bump
+
+*authres-0.600 (16 Apr 2013)
+
+  16 Apr 2013; Patrick Lauer <patrick@gentoo.org> +authres-0.600.ebuild:
+  Bump
+
+*authres-0.501 (05 Mar 2013)
+
+  05 Mar 2013; Ian Delaney <idella4@gentoo.org> +authres-0.501.ebuild:
+  bump
 
   26 Feb 2013; Agostino Sarubbo <ago@gentoo.org> authres-0.402.ebuild:
   Stable for x86, wrt bug #429028

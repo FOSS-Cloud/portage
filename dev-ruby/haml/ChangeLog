@@ -1,6 +1,50 @@
 # ChangeLog for dev-ruby/haml
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/haml/ChangeLog,v 1.82 2013/02/03 11:06:39 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/haml/ChangeLog,v 1.92 2014/03/08 08:04:30 pacho Exp $
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org> haml-3.1.8-r1.ebuild:
+  revert as the list is still incomplete
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org> haml-3.1.8-r1.ebuild:
+  amd64 stable, bug 483090
+
+  14 Oct 2013; Hans de Graaff <graaff@gentoo.org> haml-4.0.3.ebuild:
+  Use a version of minitest that is compatible with Rails 4.
+
+*haml-3.1.8-r2 (07 Oct 2013)
+
+  07 Oct 2013; Hans de Graaff <graaff@gentoo.org> +haml-3.1.8-r2.ebuild,
+  haml-4.0.3.ebuild:
+  Add a revision and hard blocker to ensure only the latest slot installs in
+  /usr/bin, fixing bug 487142.
+
+  06 Oct 2013; Hans de Graaff <graaff@gentoo.org> haml-3.1.8-r1.ebuild:
+  Drop tests from stable candidate so we can bootstrap a stable ruby19 rails
+  version.
+
+*haml-4.0.3 (06 Oct 2013)
+
+  06 Oct 2013; Hans de Graaff <graaff@gentoo.org> +haml-4.0.3.ebuild:
+  Version bump.
+
+  31 Aug 2013; Hans de Graaff <graaff@gentoo.org> -haml-3.1.6.ebuild,
+  -haml-3.1.8.ebuild:
+  Cleanup.
+
+*haml-3.1.8-r1 (13 Jun 2013)
+
+  13 Jun 2013; Hans de Graaff <graaff@gentoo.org> files/haml-3.1.6-sass.patch,
+  +haml-3.1.8-r1.ebuild:
+  Revision bump to install a gem specification with the same version
+  requirement as the ebuild.
+
+  13 Jun 2013; Hans de Graaff <graaff@gentoo.org> -files/haml-3.1.4-sass.patch:
+  Cleanup.
+
+*haml-3.1.8 (08 Mar 2013)
+
+  08 Mar 2013; Hans de Graaff <graaff@gentoo.org> +haml-3.1.8.ebuild:
+  Version bump.
 
   03 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due #63939

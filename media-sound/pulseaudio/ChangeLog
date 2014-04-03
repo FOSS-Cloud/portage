@@ -1,6 +1,142 @@
 # ChangeLog for media-sound/pulseaudio
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/ChangeLog,v 1.298 2013/02/20 11:12:06 ford_prefect Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/ChangeLog,v 1.328 2014/03/29 18:56:13 mgorny Exp $
+
+  29 Mar 2014; Michał Górny <mgorny@gentoo.org> pulseaudio-5.0.ebuild:
+  Enforce MULTILIB_USEDEP on systemd for libsystemd (past libsystemd-journal),
+  bug #502528.
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> pulseaudio-5.0.ebuild:
+  Stable for HPPA (bug #499954).
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> pulseaudio-5.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> pulseaudio-5.0.ebuild:
+  amd64 stable, bug 499954
+
+*pulseaudio-5.0 (06 Mar 2014)
+
+  06 Mar 2014; Gilles Dartiguelongue <eva@gentoo.org> +pulseaudio-5.0.ebuild:
+  Version bump. Bluetooth proximity module was removed.
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> pulseaudio-4.99.4-r1.ebuild:
+  Fix wrong commit, bug 502160
+
+*pulseaudio-4.99.4-r1 (21 Feb 2014)
+
+  21 Feb 2014; Pacho Ramos <pacho@gentoo.org> +pulseaudio-4.99.4-r1.ebuild,
+  -pulseaudio-4.0-r1.ebuild, -pulseaudio-4.99.4.ebuild:
+  tmpfiles conf file is only needed with system-wide for openRC init.d script
+  (#501870 by Pavel Volkov), only skip a test that fails due sandbox (#501846 by
+  Emeric Maschino). Drop old.
+
+  17 Feb 2014; Pacho Ramos <pacho@gentoo.org> pulseaudio-4.99.4.ebuild:
+  Adjust dep for openrc/systemd (#480748)
+
+  17 Feb 2014; Pacho Ramos <pacho@gentoo.org> pulseaudio-4.99.4.ebuild:
+  Add bug reference for test failure
+
+  17 Feb 2014; Vikraman Choudhury <vikraman@gentoo.org>
+  pulseaudio-4.99.4.ebuild:
+  Check CONFIG_SND_HDA_PREALLOC_SIZE for value >= 2048
+
+  16 Feb 2014; Jonathan Callen <jcallen@gentoo.org> pulseaudio-4.0-r1.ebuild,
+  pulseaudio-4.99.4.ebuild:
+  Ensure that configure "finds" libspeex on non-native arches (it isn't used,
+  but configure can fail if it isn't found).  Fixes bug #497158.
+
+*pulseaudio-4.99.4 (16 Feb 2014)
+
+  16 Feb 2014; Pacho Ramos <pacho@gentoo.org> +files/pulseaudio.service,
+  +files/pulseaudio.tmpfiles, +pulseaudio-4.99.4.ebuild,
+  -files/pulseaudio-0.9.21-armv5-build-fix.patch,
+  -files/pulseaudio-0.9.22-xcb-atom-2.patch,
+  -files/pulseaudio-0.9.22-xcb-atom.patch,
+  -files/pulseaudio-1.1-machine-id-fix.patch,
+  -files/pulseaudio-1.1-python3-fix.patch,
+  -files/pulseaudio-2.0-udev-symbols.patch,
+  -files/pulseaudio-3.0-json-c-fix.patch, -pulseaudio-3.0-r1.ebuild,
+  -pulseaudio-3.0.ebuild, -pulseaudio-9999.ebuild, metadata.xml:
+  Version bump, check for HIGHRES kernel option (#316137 by Anthoine Bourgeois),
+  use readme.gentoo.eclass (#440508 by poletti.marco), create /var/run/pulse
+  (#442852 by Alexander Tsoy), remove unneeded file when not using system-wide
+  that was causing warnings (#447694 by Francesco Turco), fix dependency of xen
+  USE (#455818 by Paul Freeman), fix automagic link on orc (#472226 by Bertrand
+  Jacquin), fix dependency on libpcre on some setups (#472228 by Bertrand
+  Jacquin), provide systemd unit file for system-wide support (#480748 by Tom
+  Wijsman). Drop old
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> pulseaudio-4.0.ebuild:
+  Stable for ia64, wrt bug #477662
+
+  23 Dec 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #221237
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> pulseaudio-4.0.ebuild:
+  Stable for ppc, wrt bug #477662
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> pulseaudio-4.0.ebuild:
+  Stable for ppc64, wrt bug #477662
+
+  15 Dec 2013; Agostino Sarubbo <ago@gentoo.org> pulseaudio-4.0.ebuild:
+  Stable for sparc, wrt bug #477662
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> pulseaudio-4.0.ebuild:
+  x86 stable, bug #477662
+
+  01 Dec 2013; Markus Meier <maekke@gentoo.org> pulseaudio-4.0.ebuild:
+  arm stable, bug #477662
+
+  30 Nov 2013; Michał Górny <mgorny@gentoo.org> pulseaudio-4.0-r1.ebuild,
+  pulseaudio-9999.ebuild:
+  Depend on alsa-plugins with multilib fix.
+
+*pulseaudio-4.0-r1 (30 Nov 2013)
+
+  30 Nov 2013; Michał Górny <mgorny@gentoo.org> +pulseaudio-4.0-r1.ebuild,
+  pulseaudio-9999.ebuild:
+  Introduce multilib support, bug #484252.
+
+  23 Nov 2013; Pacho Ramos <pacho@gentoo.org> pulseaudio-4.0.ebuild:
+  amd64 stable, bug #477662
+
+  09 Oct 2013; Jeroen Roovers <jer@gentoo.org> pulseaudio-4.0.ebuild:
+  Stable for HPPA (bug #477662).
+
+  09 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> pulseaudio-2.1-r1.ebuild,
+  pulseaudio-3.0-r1.ebuild, pulseaudio-3.0.ebuild, pulseaudio-4.0.ebuild,
+  pulseaudio-9999.ebuild:
+  If USE="hwdb" is missing from virtual/udev, it's always enabled.
+
+*pulseaudio-4.0 (03 Jun 2013)
+
+  03 Jun 2013; Arun Raghavan <ford_prefect@gentoo.org> +pulseaudio-4.0.ebuild,
+  pulseaudio-9999.ebuild:
+  Bump to 4.0 finel release, drop RC2.
+
+  01 May 2013; Arun Raghavan <ford_prefect@gentoo.org>
+  pulseaudio-2.1-r1.ebuild, pulseaudio-3.0.ebuild:
+  Restrict json-c version in older ebuilds since they are incompatible with
+  current unstable json-c 0.11.
+
+  01 May 2013; Arun Raghavan <ford_prefect@gentoo.org>
+  -pulseaudio-1.1-r1.ebuild:
+  Drop old version
+
+*pulseaudio-3.0-r1 (27 Apr 2013)
+
+  27 Apr 2013; Arun Raghavan <ford_prefect@gentoo.org>
+  +pulseaudio-3.0-r1.ebuild, +files/pulseaudio-3.0-json-c-fix.patch:
+  Fix compilation with json-c 0.11 (bug #467280).
+
+  10 Apr 2013; Vicente Olivert Riera <vincent@gentoo.org>
+  pulseaudio-1.1-r1.ebuild, pulseaudio-2.1-r1.ebuild, pulseaudio-3.0.ebuild,
+  pulseaudio-9999.ebuild:
+  Update to EAPI=5, wrt bug #437906
+
+  14 Mar 2013; Arun Raghavan <ford_prefect@gentoo.org> pulseaudio-9999.ebuild:
+  git master replaced gtk-2 with gtk-3 support. Adapt live ebuild for this.
 
   20 Feb 2013; Arun Raghavan <ford_prefect@gentoo.org> pulseaudio-3.0.ebuild,
   pulseaudio-9999.ebuild, metadata.xml:

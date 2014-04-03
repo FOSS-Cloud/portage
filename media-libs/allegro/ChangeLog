@@ -1,6 +1,22 @@
 # ChangeLog for media-libs/allegro
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/allegro/ChangeLog,v 1.141 2013/02/10 17:18:19 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/allegro/ChangeLog,v 1.145 2014/02/02 11:49:29 pinkbyte Exp $
+
+  02 Feb 2014; Sergey Popov <pinkbyte@gentoo.org> allegro-4.4.2-r1.ebuild:
+  Add ~mips, wrt bug #499866
+
+  08 Sep 2013; Ian Stakenvicius <axs@gentoo.org> allegro-5.0.8-r1.ebuild:
+  dropped multilib-use dep for openal as the openal multilib-build ebuild isn't
+  yet ready
+
+*allegro-5.0.8-r1 (06 Sep 2013)
+
+  06 Sep 2013; Ian Stakenvicius <axs@gentoo.org> +allegro-5.0.8-r1.ebuild:
+  converted to multilib-build at the request of an end-user; commit OKd by
+  radhermit
+
+  08 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> allegro-4.4.2-r1.ebuild:
+  Use subslot operator for the libpng dependency (and thus, libpng16 upgrade)
 
   10 Feb 2013; Agostino Sarubbo <ago@gentoo.org> allegro-5.0.8.ebuild:
   Stable for ppc, wrt bug #455488

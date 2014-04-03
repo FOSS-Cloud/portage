@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/mico/mico-9999.ebuild,v 1.4 2012/09/24 21:03:50 haubi Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/mico/mico-9999.ebuild,v 1.6 2014/02/19 14:10:04 haubi Exp $
 
 EAPI="3"
 
@@ -35,7 +35,7 @@ RESTRICT="test" #298101
 RDEPEND="
 	gtk?       ( x11-libs/gtk+:2 )
 	postgres?  ( dev-db/postgresql-base )
-	qt4?       ( x11-libs/qt-gui:4[qt3support] )
+	qt4?       ( dev-qt/qtgui:4[qt3support] )
 	ssl?       ( dev-libs/openssl )
 	tcl?       ( dev-lang/tcl )
 	X?         ( x11-libs/libXt )
@@ -122,6 +122,9 @@ src_configure() {
 
 src_install() {
 	emake INSTDIR="${ED}"usr SHARED_INSTDIR="${ED}"usr install LDCONFIG=: || die "install failed"
+	if [[ $(get_libdir) != lib ]]; then #500744
+		mv "${ED}"usr/lib "${ED}"usr/$(get_libdir) || die
+	fi
 
 	dodir /usr/share || die
 	mv "${ED}"usr/man "${ED}"usr/share || die

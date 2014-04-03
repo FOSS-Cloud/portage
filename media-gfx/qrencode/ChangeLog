@@ -1,6 +1,49 @@
 # ChangeLog for media-gfx/qrencode
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/qrencode/ChangeLog,v 1.32 2013/02/23 17:25:45 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/qrencode/ChangeLog,v 1.44 2014/02/06 09:33:43 jer Exp $
+
+  06 Feb 2014; Jeroen Roovers <jer@gentoo.org> qrencode-3.4.3.ebuild:
+  Marked ~hppa (bug #500422).
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> qrencode-3.3.1.ebuild:
+  Stable for alpha, wrt bug #487344
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> qrencode-3.3.1.ebuild:
+  Stable for sparc, wrt bug #498496
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> qrencode-3.3.1.ebuild:
+  Stable for ia64, wrt bug #498496
+
+  07 Jan 2014; Pacho Ramos <pacho@gentoo.org> qrencode-3.3.1.ebuild,
+  qrencode-3.4.3.ebuild:
+  Keyword on ia64 (#497252 by Emeric Maschino)
+
+  13 Nov 2013; Matt Turner <mattst88@gentoo.org> qrencode-3.4.3.ebuild:
+  Added ~alpha, bug 478076.
+
+  23 Oct 2013; Christian Birchinger <joker@gentoo.org> qrencode-3.4.3.ebuild:
+  No reason for a ~x86-fbsd drop found, re-adding keyword
+
+  23 Oct 2013; Christian Birchinger <joker@gentoo.org> -qrencode-3.4.1.ebuild,
+  -qrencode-3.4.2.ebuild:
+  Remove old versions
+
+*qrencode-3.4.3 (22 Aug 2013)
+
+  22 Aug 2013; Christian Birchinger <joker@gentoo.org> +qrencode-3.4.3.ebuild:
+  Version bump
+
+  22 Aug 2013; Christian Birchinger <joker@gentoo.org> -qrencode-3.1.1.ebuild,
+  -qrencode-3.2.0.ebuild:
+  Remove old versions
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> qrencode-3.3.1.ebuild:
+  Stable for ppc64, wrt bug #462890
+
+*qrencode-3.4.2 (03 Mar 2013)
+
+  03 Mar 2013; Christian Birchinger <joker@gentoo.org> +qrencode-3.4.2.ebuild:
+  Version bump
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> qrencode-3.3.1.ebuild,
   qrencode-3.4.1.ebuild:

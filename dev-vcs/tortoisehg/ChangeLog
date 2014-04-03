@@ -1,6 +1,125 @@
 # ChangeLog for dev-vcs/tortoisehg
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/tortoisehg/ChangeLog,v 1.33 2013/02/21 15:40:09 floppym Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/tortoisehg/ChangeLog,v 1.55 2014/04/02 14:44:29 polynomial-c Exp $
+
+*tortoisehg-2.11.2 (02 Apr 2014)
+
+  02 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> -tortoisehg-2.11.ebuild,
+  +tortoisehg-2.11.2.ebuild:
+  Version bump. Removed old.
+
+*tortoisehg-2.11.1 (05 Mar 2014)
+
+  05 Mar 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +tortoisehg-2.11.1.ebuild:
+  Version bump.
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> tortoisehg-2.10.2.ebuild:
+  amd64 stable, bug #500348
+
+*tortoisehg-2.11 (05 Feb 2014)
+
+  05 Feb 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -tortoisehg-2.10.1.ebuild, +tortoisehg-2.11.ebuild:
+  Version bump. Removed old.
+
+*tortoisehg-2.10.2 (17 Jan 2014)
+
+  17 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -tortoisehg-2.10.ebuild,
+  +tortoisehg-2.10.2.ebuild:
+  Version bump. Removed old.
+
+  06 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> tortoisehg-2.9.2.ebuild,
+  tortoisehg-2.10.ebuild, tortoisehg-2.10.1.ebuild:
+  Fixed minimum required mercurial version.
+
+*tortoisehg-2.10.1 (06 Dec 2013)
+
+  06 Dec 2013; Lars Wendler <polynomial-c@gentoo.org>
+  +tortoisehg-2.10.1.ebuild:
+  Version bump.
+
+*tortoisehg-2.10 (04 Nov 2013)
+
+  04 Nov 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -tortoisehg-2.9.1-r1.ebuild, +tortoisehg-2.10.ebuild:
+  Version bump. Removed old.
+
+*tortoisehg-2.9.2 (08 Oct 2013)
+
+  08 Oct 2013; Lars Wendler <polynomial-c@gentoo.org> -tortoisehg-2.9.ebuild,
+  +tortoisehg-2.9.2.ebuild:
+  Version bump. Removed old.
+
+*tortoisehg-2.9.1-r1 (27 Sep 2013)
+
+  27 Sep 2013; Lars Wendler <polynomial-c@gentoo.org> -tortoisehg-2.9.1.ebuild,
+  +tortoisehg-2.9.1-r1.ebuild, +files/tortoisehg-2.9.1-desktop_file.patch:
+  Install desktop file again.
+
+*tortoisehg-2.9.1 (06 Sep 2013)
+
+  06 Sep 2013; Lars Wendler <polynomial-c@gentoo.org> +tortoisehg-2.9.1.ebuild:
+  Version bump.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> tortoisehg-2.7.2.ebuild,
+  tortoisehg-2.8.2.ebuild, tortoisehg-2.9.ebuild, tortoisehg-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*tortoisehg-2.9 (11 Aug 2013)
+
+  11 Aug 2013; Lars Wendler <polynomial-c@gentoo.org> -tortoisehg-2.8.1.ebuild,
+  +tortoisehg-2.9.ebuild:
+  Version bump. Removed old.
+
+*tortoisehg-2.8.2 (15 Jul 2013)
+
+  15 Jul 2013; Lars Wendler <polynomial-c@gentoo.org> +tortoisehg-2.8.2.ebuild:
+  Version bump.
+
+*tortoisehg-2.8.1 (07 Jun 2013)
+
+  07 Jun 2013; Lars Wendler <polynomial-c@gentoo.org> -tortoisehg-2.7.1.ebuild,
+  -tortoisehg-2.7.1-r1.ebuild, -tortoisehg-2.8.ebuild,
+  +tortoisehg-2.8.1.ebuild:
+  Version bump. Removed old.
+
+  23 May 2013; Mike Gilbert <floppym@gentoo.org> tortoisehg-2.8.ebuild,
+  tortoisehg-9999.ebuild:
+  Add PYTHON_USEDEP to qscintilla-python dep, thanks to Nikoli.
+
+*tortoisehg-2.8 (07 May 2013)
+
+  07 May 2013; Mike Gilbert <floppym@gentoo.org> +tortoisehg-2.8.ebuild,
+  tortoisehg-9999.ebuild:
+  Version bump.
+
+*tortoisehg-2.7.2 (03 May 2013)
+
+  03 May 2013; Lars Wendler <polynomial-c@gentoo.org> -tortoisehg-2.6.2.ebuild,
+  -tortoisehg-2.7.ebuild, +tortoisehg-2.7.2.ebuild:
+  Version bump. Removed old.
+
+*tortoisehg-2.7.1-r1 (16 Mar 2013)
+
+  16 Mar 2013; Mike Gilbert <floppym@gentoo.org> +files/2.7.1-qtversion.patch,
+  +tortoisehg-2.7.1-r1.ebuild:
+  Add patch to fix silent failure with PyQt4-4.10.
+
+*tortoisehg-2.7.1 (08 Mar 2013)
+
+  08 Mar 2013; Lars Wendler <polynomial-c@gentoo.org> -tortoisehg-2.4.3.ebuild,
+  -tortoisehg-2.5.1.ebuild, -tortoisehg-2.6.1.ebuild,
+  -files/tortoisehg-2.6.1-missing_thg_script.patch, +tortoisehg-2.7.1.ebuild:
+  Version bump. Removed old.
+
+  05 Mar 2013; Mike Gilbert <floppym@gentoo.org> tortoisehg-2.7.ebuild,
+  tortoisehg-9999.ebuild:
+  Install mergetools.rc as documentation, bug 460364.
+
+  05 Mar 2013; Mike Gilbert <floppym@gentoo.org> tortoisehg-2.7.ebuild,
+  tortoisehg-9999.ebuild:
+  Rename svg logo used by desktop file, bug 460364.
 
   21 Feb 2013; Mike Gilbert <floppym@gentoo.org> tortoisehg-2.7.ebuild,
   tortoisehg-9999.ebuild:

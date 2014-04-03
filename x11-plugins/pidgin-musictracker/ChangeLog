@@ -1,6 +1,14 @@
 # ChangeLog for x11-plugins/pidgin-musictracker
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-plugins/pidgin-musictracker/ChangeLog,v 1.24 2011/08/12 21:46:12 xarthisius Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-plugins/pidgin-musictracker/ChangeLog,v 1.26 2014/03/09 01:12:55 mrueg Exp $
+
+  09 Mar 2014; Manuel Rüger <mrueg@gentoo.org>
+  -files/pidgin-musictracker-0.4.20-fortify-abort.patch,
+  -pidgin-musictracker-0.4.21-r1.ebuild, -pidgin-musictracker-0.4.21.ebuild:
+  Cleanup old.
+
+  27 Apr 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #215231
 
   12 Aug 2011; Kacper Kowalik <xarthisius@gentoo.org>
   pidgin-musictracker-0.4.22.ebuild:
@@ -118,4 +126,3 @@
   10 Feb 2009; Serkan Kaba <serkan@gentoo.org> +metadata.xml,
   +pidgin-musictracker-0.4.14.ebuild:
   Initial import. Thanks to people in bug #180771 for help.
-

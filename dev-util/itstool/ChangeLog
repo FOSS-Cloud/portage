@@ -1,6 +1,52 @@
 # ChangeLog for dev-util/itstool
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/itstool/ChangeLog,v 1.25 2013/02/25 08:34:12 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/itstool/ChangeLog,v 1.39 2014/03/28 02:23:36 jer Exp $
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> itstool-1.2.0-r1.ebuild:
+  Stable for HPPA (bug #499954).
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> itstool-1.2.0-r1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> itstool-1.2.0-r1.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> itstool-1.2.0-r1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> itstool-1.2.0-r1.ebuild:
+  arch stable, bug 888
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org> itstool-1.2.0-r1.ebuild,
+  itstool-1.2.0.ebuild:
+  Add s390 love #469982.
+
+*itstool-1.2.0-r1 (04 Dec 2013)
+
+  04 Dec 2013; Justin Lecher <jlec@gentoo.org> +itstool-1.2.0-r1.ebuild,
+  metadata.xml:
+  Bump to python-r1 eclass
+
+  29 Aug 2013; Jeroen Roovers <jer@gentoo.org> itstool-1.2.0.ebuild:
+  Stable for HPPA (bug #482886).
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> itstool-1.2.0.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> itstool-1.2.0.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> itstool-1.2.0.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> itstool-1.2.0.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> itstool-1.2.0.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> itstool-1.2.0.ebuild:
+  Stable for ppc, wrt bug #458984
 
   25 Feb 2013; Zac Medico <zmedico@gentoo.org> itstool-1.2.0.ebuild:
   Add ~arm-linux and ~x86-linux keywords.

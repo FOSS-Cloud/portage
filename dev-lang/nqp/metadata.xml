@@ -6,4 +6,8 @@
 		<email>patrick@gentoo.org</email>
 		<name>Patrick Lauer</name>
 	</maintainer>
+	<use>
+	<flag name='parrot'>Build the parrot backend (default)</flag> 
+	<flag name='moar'>Build the MoarVM backend (experimental/broken)</flag>
+	</use>
 </pkgmetadata>

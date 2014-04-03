@@ -1,6 +1,64 @@
 # ChangeLog for sci-chemistry/pymol
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol/ChangeLog,v 1.98 2013/01/30 08:51:20 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol/ChangeLog,v 1.110 2014/03/13 08:16:23 jlec Exp $
+
+*pymol-1.7.0.4-r1 (13 Mar 2014)
+
+  13 Mar 2014; Justin Lecher <jlec@gentoo.org> +pymol-1.7.0.4-r1.ebuild,
+  +files/pymol-1.7.0.4-fix-broken-label-scaling-on-Linux.patch:
+  Backport fix for broken labels
+
+*pymol-1.7.0.4 (10 Mar 2014)
+
+  10 Mar 2014; Justin Lecher <jlec@gentoo.org> +pymol-1.7.0.4.ebuild:
+  Version Bump
+
+  26 Jan 2014; Justin Lecher <jlec@gentoo.org> ChangeLog:
+  Update HOMEPAGE
+
+*pymol-1.7.0.1 (26 Jan 2014)
+
+  26 Jan 2014; Justin Lecher <jlec@gentoo.org> +pymol-1.7.0.1.ebuild:
+  Version Bump
+
+  26 Jan 2014; Justin Lecher <jlec@gentoo.org> pymol-1.5.0.3-r1.ebuild,
+  pymol-1.5.0.3-r2.ebuild, pymol-1.6.0_rc1.ebuild, pymol-1.6.0.0.ebuild,
+  pymol-1.6.0.0-r1.ebuild, pymol-1.6.0.0-r2.ebuild, pymol-1.7.0.0.ebuild:
+  Update HOMEPAGE
+
+  15 Jan 2014; Justin Lecher <jlec@gentoo.org> pymol-1.7.0.0.ebuild:
+  Supress unnecessary argparse import
+
+*pymol-1.7.0.0 (15 Jan 2014)
+
+  15 Jan 2014; Justin Lecher <jlec@gentoo.org> +pymol-1.7.0.0.ebuild:
+  Version Bump
+
+*pymol-1.6.0.0-r2 (16 Jul 2013)
+
+  16 Jul 2013; Justin Lecher <jlec@gentoo.org> +pymol-1.6.0.0-r2.ebuild,
+  +files/pymol-1.6.0.0-stereo.patch:
+  Backport fix for stereo flickering
+
+*pymol-1.6.0.0-r1 (18 Jun 2013)
+
+  18 Jun 2013; Justin Lecher <jlec@gentoo.org> +pymol-1.6.0.0-r1.ebuild,
+  +files/pymol-1.6.0.0-bg_rgb.patch, +files/pymol-1.6.0.0-labels.patch:
+  Add backports of upstream bugfixes
+
+*pymol-1.6.0.0 (12 Jun 2013)
+
+  12 Jun 2013; Justin Lecher <jlec@gentoo.org> +pymol-1.6.0.0.ebuild:
+  Version Bump
+
+*pymol-1.6.0_rc1 (25 Mar 2013)
+
+  25 Mar 2013; Justin Lecher <jlec@gentoo.org> pymol-1.5.0.3-r2.ebuild,
+  +pymol-1.6.0_rc1.ebuild:
+  Version Bump
+
+  19 Mar 2013; Justin Lecher <jlec@gentoo.org> pymol-1.5.0.3-r2.ebuild:
+  Prefix love
 
 *pymol-1.5.0.3-r2 (30 Jan 2013)
 

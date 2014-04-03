@@ -1,6 +1,88 @@
 # ChangeLog for x11-themes/gnome-themes-standard
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-themes-standard/ChangeLog,v 1.38 2013/02/25 21:13:10 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-themes-standard/ChangeLog,v 1.54 2014/03/09 12:05:21 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  gnome-themes-standard-3.10.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  gnome-themes-standard-3.10.0.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  gnome-themes-standard-3.10.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  gnome-themes-standard-3.10.0.ebuild:
+  arch stable, bug 888
+
+*gnome-themes-standard-3.8.4-r1 (27 Dec 2013)
+
+  27 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/gnome-themes-standard-3.8.4-menu-borders.patch,
+  +gnome-themes-standard-3.8.4-r1.ebuild:
+  Fix menu borders when not running with a composited WM (# by ac.serbanescu)
+
+*gnome-themes-standard-3.10.0 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-themes-standard-3.10.0.ebuild, -gnome-themes-standard-3.6.5.ebuild,
+  -gnome-themes-standard-3.8.2.ebuild, -gnome-themes-standard-3.8.3.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  gnome-themes-standard-3.8.4.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  gnome-themes-standard-3.8.4.ebuild:
+  amd64 stable, bug #478252
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org>
+  gnome-themes-standard-3.6.5.ebuild:
+  arm stable, bug #476364
+
+*gnome-themes-standard-3.8.4 (08 Sep 2013)
+
+  08 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-themes-standard-3.8.4.ebuild:
+  Version bump.
+
+*gnome-themes-standard-3.8.3 (28 Jul 2013)
+
+  28 Jul 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-themes-standard-3.8.3.ebuild, -gnome-themes-standard-3.8.1.ebuild:
+  Version bump, drop old
+
+*gnome-themes-standard-3.8.2 (23 Jul 2013)
+
+  23 Jul 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-themes-standard-3.8.2.ebuild:
+  Version bump
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-themes-standard-3.8.0.ebuild, gnome-themes-standard-3.8.1.ebuild:
+  Use dosym like in 3.6 ebuild. Drop old revision.
+
+*gnome-themes-standard-3.8.1 (18 Apr 2013)
+
+  18 Apr 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-themes-standard-3.8.1.ebuild, -gnome-themes-standard-3.6.2.ebuild:
+  Version bump, drop old
+
+*gnome-themes-standard-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  +gnome-themes-standard-3.8.0.ebuild:
+  Version bump for Gnome 3.8
+
+*gnome-themes-standard-3.6.5 (24 Mar 2013)
+
+  24 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-themes-standard-3.6.5.ebuild:
+  Version bump.
 
   25 Feb 2013; Zac Medico <zmedico@gentoo.org>
   gnome-themes-standard-3.6.2.ebuild:

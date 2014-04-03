@@ -1,6 +1,41 @@
 # ChangeLog for dev-util/kdevelop-php
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/kdevelop-php/ChangeLog,v 1.39 2012/12/22 14:48:24 kensington Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/kdevelop-php/ChangeLog,v 1.48 2014/03/12 12:12:48 johu Exp $
+
+*kdevelop-php-1.6.0 (12 Mar 2014)
+
+  12 Mar 2014; Johannes Huber <johu@gentoo.org> +kdevelop-php-1.6.0.ebuild:
+  Version bump, bug #493854.
+
+  09 Feb 2014; Johannes Huber <johu@gentoo.org> -kdevelop-php-1.5.1.ebuild:
+  Remove old.
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> kdevelop-php-1.5.2.ebuild:
+  Stable for x86, wrt bug #494008
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> kdevelop-php-1.5.2.ebuild:
+  amd64 stable, bug 494008
+
+*kdevelop-php-1.5.2 (31 Oct 2013)
+
+  31 Oct 2013; Johannes Huber <johu@gentoo.org> +kdevelop-php-1.5.2.ebuild:
+  Version bump.
+
+  21 Aug 2013; Michael Palimaka <kensington@gentoo.org>
+  -files/kdevelop-php-1.2.0-dbustests.patch, -kdevelop-php-1.4.1.ebuild:
+  Remove old.
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> kdevelop-php-1.5.1.ebuild:
+  Stable for x86, wrt bug #476510
+
+  12 Jul 2013; Agostino Sarubbo <ago@gentoo.org> kdevelop-php-1.5.1.ebuild:
+  Stable for amd64, wrt bug #476510
+
+*kdevelop-php-1.5.1 (08 Jun 2013)
+
+  08 Jun 2013; Maciej Mrozowski <reavertm@gentoo.org>
+  +kdevelop-php-1.5.1.ebuild:
+  Version bump, bug 467730.
 
   22 Dec 2012; Michael Palimaka <kensington@gentoo.org>
   -kdevelop-php-1.3.1.ebuild, -kdevelop-php-1.4.0.ebuild:

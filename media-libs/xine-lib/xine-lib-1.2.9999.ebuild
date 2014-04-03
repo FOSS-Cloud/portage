@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/xine-lib-1.2.9999.ebuild,v 1.20 2012/12/24 07:49:17 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/xine-lib-1.2.9999.ebuild,v 1.25 2013/09/25 08:47:58 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 
 inherit flag-o-matic libtool multilib
 
@@ -13,7 +13,7 @@ if [[ ${PV} == *9999* ]]; then
 	NLS_DEPEND="sys-devel/gettext"
 	NLS_RDEPEND="virtual/libintl"
 else
-	KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86 ~x86-fbsd"
+	KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd"
 	SRC_URI="mirror://sourceforge/xine/${P}.tar.xz"
 	NLS_IUSE="nls"
 	NLS_DEPEND="nls? ( sys-devel/gettext )"
@@ -25,13 +25,13 @@ HOMEPAGE="http://xine.sourceforge.net/"
 
 LICENSE="GPL-2"
 SLOT="1"
-IUSE="a52 aac aalib +alsa altivec bluray +css directfb dts dvb dxr3 fbcon flac fusion gtk imagemagick ipv6 jack libcaca mad +mmap mng modplug musepack opengl oss pulseaudio real samba sdl speex theora truetype v4l vcd vdpau vdr vidix +vis vorbis wavpack win32codecs +X +xcb xinerama +xv xvmc ${NLS_IUSE}"
+IUSE="a52 aac aalib +alsa altivec bluray +css directfb dts dvb dxr3 fbcon flac fusion gtk imagemagick ipv6 jack jpeg libcaca mad +mmap mng modplug musepack opengl oss pulseaudio samba sdl speex theora truetype v4l vaapi vcd vdpau vdr vidix +vis vorbis wavpack +X +xcb xinerama +xv xvmc ${NLS_IUSE}"
 
 RDEPEND="${NLS_RDEPEND}
 	dev-libs/libxdg-basedir
 	media-libs/libdvdnav
 	sys-libs/zlib
-	|| ( media-video/ffmpeg media-libs/libpostproc <media-video/libav-0.8.2-r1 )
+	|| ( media-video/ffmpeg:0 media-libs/libpostproc <media-video/libav-0.8.2-r1 )
 	virtual/ffmpeg
 	virtual/libiconv
 	a52? ( media-libs/a52dec )
@@ -48,6 +48,7 @@ RDEPEND="${NLS_RDEPEND}
 	gtk? ( x11-libs/gdk-pixbuf:2 )
 	imagemagick? ( || ( media-gfx/imagemagick media-gfx/graphicsmagick ) )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.100 )
+	jpeg? ( virtual/jpeg )
 	libcaca? ( media-libs/libcaca )
 	mad? ( media-libs/libmad )
 	mng? ( media-libs/libmng )
@@ -58,11 +59,6 @@ RDEPEND="${NLS_RDEPEND}
 		virtual/opengl
 		)
 	pulseaudio? ( media-sound/pulseaudio )
-	real? (
-		amd64? ( media-libs/amd64codecs )
-		x86? ( media-libs/win32codecs )
-		x86-fbsd? ( media-libs/win32codecs )
-		)
 	samba? ( net-fs/samba )
 	sdl? ( media-libs/libsdl )
 	speex? (
@@ -78,6 +74,7 @@ RDEPEND="${NLS_RDEPEND}
 		media-libs/freetype:2
 		)
 	v4l? ( media-libs/libv4l )
+	vaapi? ( x11-libs/libva )
 	vcd? (
 		>=media-video/vcdimager-0.7.23
 		dev-libs/libcdio[-minimal]
@@ -88,7 +85,6 @@ RDEPEND="${NLS_RDEPEND}
 		media-libs/libvorbis
 		)
 	wavpack? ( media-sound/wavpack )
-	win32codecs? ( media-libs/win32codecs )
 	X? (
 		x11-libs/libX11
 		x11-libs/libXext
@@ -125,6 +121,11 @@ src_prepare() {
 	else
 		elibtoolize
 	fi
+
+	local x
+	for x in 0 1 2 3; do
+		sed -i -e "/^O${x}_CFLAGS=\"-O${x}\"/d" configure || die
+	done
 }
 
 src_configure() {
@@ -156,6 +157,7 @@ src_configure() {
 		$(use_enable xinerama) \
 		$(use_enable xvmc) \
 		$(use_enable vdpau) \
+		$(use_enable vaapi) \
 		$(use_enable dvb) \
 		--disable-gnomevfs \
 		$(use_enable samba) \
@@ -166,13 +168,14 @@ src_configure() {
 		$(use_enable a52 a52dec) \
 		$(use_enable aac faad) \
 		$(use_enable gtk gdkpixbuf) \
+		$(use_enable jpeg libjpeg) \
 		$(use_enable dts) \
 		$(use_enable mad) \
 		$(use_enable modplug) \
 		$(use_enable musepack) \
 		$(use_enable mng) \
-		$(use_enable real real-codecs) \
-		$(use_enable win32codecs w32dll) \
+		--disable-real-codecs \
+		--disable-w32dll \
 		$(use_with truetype freetype) $(use_with truetype fontconfig) \
 		$(use_with X x) \
 		$(use_with alsa) \

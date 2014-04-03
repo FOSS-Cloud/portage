@@ -1,6 +1,57 @@
 # ChangeLog for dev-python/numexpr
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/numexpr/ChangeLog,v 1.9 2012/02/22 09:52:10 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/numexpr/ChangeLog,v 1.22 2014/02/21 23:08:23 bicatali Exp $
+
+  21 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> metadata.xml,
+  numexpr-2.3.1.ebuild:
+  Fixed src uri, added remote-id
+
+  21 Feb 2014; Justin Lecher <jlec@gentoo.org> numexpr-2.3.1.ebuild:
+  Fix nameing of doc files
+
+  21 Feb 2014; Justin Lecher <jlec@gentoo.org> numexpr-2.3.1.ebuild:
+  Fix nameing of doc files
+
+*numexpr-2.3.1 (21 Feb 2014)
+
+  21 Feb 2014; Justin Lecher <jlec@gentoo.org> +numexpr-2.3.1.ebuild:
+  Version Bump
+
+  14 Jan 2014; Justin Lecher <jlec@gentoo.org> -numexpr-2.1.ebuild,
+  -numexpr-2.2.ebuild:
+  Drop old
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> numexpr-2.2.2.ebuild:
+  Stable for x86, wrt bug #497870
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> numexpr-2.2.2.ebuild:
+  amd64 stable, bug #497870
+
+  12 Jan 2014; Justin Lecher <jlec@gentoo.org> numexpr-2.1.ebuild,
+  numexpr-2.2.ebuild, numexpr-2.2.2.ebuild, metadata.xml:
+  Fix src_prepare handling in distutils-r1.eclass
+
+*numexpr-2.2.2 (21 Oct 2013)
+
+  21 Oct 2013; Patrick Lauer <patrick@gentoo.org> +numexpr-2.2.2.ebuild:
+  Bump
+
+*numexpr-2.2 (01 Sep 2013)
+
+  01 Sep 2013; Kacper Kowalik <xarthisius@gentoo.org> +numexpr-2.2.ebuild:
+  Version bump
+
+  20 Jul 2013; Ian Delaney <idella4@gentoo.org> numexpr-2.1.ebuild:
+  update numpy in RDEPEND, fixes Bug #471850
+
+*numexpr-2.1 (28 Apr 2013)
+
+  28 Apr 2013; Kacper Kowalik <xarthisius@gentoo.org> +numexpr-2.1.ebuild,
+  -numexpr-2.0.1.ebuild:
+  Version bump, drop old. Migrate to distutils-r1
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   22 Feb 2012; Patrick Lauer <patrick@gentoo.org> numexpr-2.0.1.ebuild:
   Restricting pypy and jython
@@ -47,4 +98,3 @@
   +metadata.xml:
   Initial import wrt bug 302565. Ebuild written by Tim Cera
   <timcera@earthlink.net>
-

@@ -1,6 +1,108 @@
 # ChangeLog for dev-python/sqlalchemy
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/sqlalchemy/ChangeLog,v 1.97 2013/02/27 20:22:37 floppym Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/sqlalchemy/ChangeLog,v 1.120 2014/04/02 16:18:51 idella4 Exp $
+
+  02 Apr 2014; Ian Delaney <idella4@gentoo.org> sqlalchemy-0.9.2.ebuild:
+  Fix to rogue test in py3.2, fixes Bug #506486 by maekke
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> sqlalchemy-0.8.0.ebuild,
+  sqlalchemy-0.8.1.ebuild, sqlalchemy-0.8.2-r1.ebuild, sqlalchemy-0.8.2.ebuild,
+  sqlalchemy-0.8.3.ebuild, sqlalchemy-0.8.4.ebuild, sqlalchemy-0.9.1.ebuild,
+  sqlalchemy-0.9.2.ebuild:
+  Add support for the new PyPy slotting.
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> sqlalchemy-0.9.2.ebuild:
+  Stable for HPPA (bug #505840).
+
+  26 Mar 2014; Ian Delaney <idella4@gentoo.org> sqlalchemy-0.9.1.ebuild,
+  sqlalchemy-0.9.2.ebuild:
+  fix test phase, correction to install of examples, fixes Bug #499878 by eroen
+
+*sqlalchemy-0.9.2 (08 Feb 2014)
+
+  08 Feb 2014; Patrick Lauer <patrick@gentoo.org> +sqlalchemy-0.9.2.ebuild:
+  Bump
+
+*sqlalchemy-0.9.1 (08 Jan 2014)
+
+  08 Jan 2014; Patrick Lauer <patrick@gentoo.org> +sqlalchemy-0.9.1.ebuild:
+  Bump
+
+*sqlalchemy-0.8.4 (10 Dec 2013)
+
+  10 Dec 2013; Patrick Lauer <patrick@gentoo.org> +sqlalchemy-0.8.4.ebuild:
+  Bump
+
+*sqlalchemy-0.8.3 (26 Nov 2013)
+
+  26 Nov 2013; Patrick Lauer <patrick@gentoo.org> +sqlalchemy-0.8.3.ebuild:
+  Bump
+
+  31 Oct 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.7.9-r1.ebuild:
+  Remove backslash from KEYWORDS.
+
+  31 Oct 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.7.10.ebuild:
+  Remove backslash from KEYWORDS.
+
+*sqlalchemy-0.8.2-r1 (31 Oct 2013)
+
+  31 Oct 2013; Mike Gilbert <floppym@gentoo.org> +sqlalchemy-0.8.2-r1.ebuild,
+  sqlalchemy-0.8.2.ebuild:
+  Revbump for previous change.
+
+  31 Oct 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.8.2.ebuild:
+  Rearrange python_test to avoid calling 2to3 on source tree twice, bug 489518.
+  As a side effect, we can disable in-source builds.
+
+  30 Sep 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.7.10.ebuild:
+  Call distutils-r1_python_install_all
+
+*sqlalchemy-0.7.9-r1 (11 Sep 2013)
+
+  11 Sep 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +sqlalchemy-0.7.9-r1.ebuild:
+  revbump of sqlalchemy-0.7.9 to r1 for distutils-r1 support
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> sqlalchemy-0.8.0.ebuild,
+  sqlalchemy-0.8.1.ebuild, sqlalchemy-0.8.2.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  02 Sep 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.8.2.ebuild:
+  Cleanup python_test.
+
+  02 Sep 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.8.2.ebuild:
+  Fix -fno-strict-aliasing.
+
+*sqlalchemy-0.8.2 (08 Jul 2013)
+
+  08 Jul 2013; Patrick Lauer <patrick@gentoo.org> +sqlalchemy-0.8.2.ebuild:
+  Bump
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> sqlalchemy-0.8.1.ebuild:
+  Whitespace
+
+*sqlalchemy-0.8.1 (02 May 2013)
+
+  02 May 2013; Ian Delaney <idella4@gentoo.org>
+  +files/sqlalchemy-0.8.1-pypy-fixtests.patch, +sqlalchemy-0.8.1.ebuild:
+  bump
+
+  30 Apr 2013; Ian Delaney <idella4@gentoo.org> sqlalchemy-0.7.10.ebuild,
+  sqlalchemy-0.8.0.ebuild:
+  0.7.10, correct install phase. 0.8.0; Add py3, pypy support in exchange of
+  dropping IUSE firebird mssql mysql postgres, dep list adjusted accordingly,
+  -fno-strict-aliasing set excluded for py3, python_test adjusted accordingly,
+  install phase reduced using vars, postinst added offsetting dropping use flags
+  & informing user via elog && has_version
+
+  19 Mar 2013; Mike Gilbert <floppym@gentoo.org> sqlalchemy-0.8.0.ebuild:
+  Fixup deps and python_install_all function. Enable parallel build, but disable
+  parallel tests.
+
+*sqlalchemy-0.8.0 (17 Mar 2013)
+
+  17 Mar 2013; Patrick Lauer <patrick@gentoo.org> +sqlalchemy-0.8.0.ebuild:
+  Bump
 
   27 Feb 2013; Mike Gilbert <floppym@gentoo.org>
   +files/sqlalchemy-0.7-logging.handlers.patch,

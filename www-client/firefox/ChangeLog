@@ -1,6 +1,401 @@
 # ChangeLog for www-client/firefox
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/firefox/ChangeLog,v 1.217 2013/02/24 19:59:02 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/firefox/ChangeLog,v 1.320 2014/04/02 14:03:36 axs Exp $
+
+  02 Apr 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> firefox-28.0.ebuild:
+  disable the forcing of ld.gold in the mozilla build system, bug 494364
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> firefox-24.4.0.ebuild:
+  Stable for ppc64, wrt bug #505072
+
+  23 Mar 2014; Agostino Sarubbo <ago@gentoo.org> firefox-24.4.0.ebuild:
+  Stable for ppc, wrt bug #505072
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> firefox-24.4.0.ebuild:
+  Stable for x86, wrt bug #505072
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> firefox-24.4.0.ebuild:
+  Stable for amd64, wrt bug #505072
+
+  22 Mar 2014; Jeroen Roovers <jer@gentoo.org> firefox-24.4.0.ebuild:
+  Stable for HPPA (bug #505072).
+
+  22 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> firefox-28.0.ebuild:
+  Removed mirror restriction (bug #505304). Was added by accident during
+  testing of firefox-27.
+
+  21 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> firefox-28.0.ebuild:
+  Fixed dependency on libvpx (bug #505258).
+
+*firefox-28.0 (21 Mar 2014)
+
+  21 Mar 2014;  <anarchy@gentoo.org> +firefox-28.0.ebuild,
+  -firefox-27.0.1.ebuild, -firefox-27.0.ebuild:
+  Security bump for testing
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> firefox-24.3.0.ebuild,
+  firefox-27.0.ebuild, firefox-27.0.1.ebuild:
+  Fixed icu dependency.
+
+*firefox-24.4.0 (20 Mar 2014)
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> +firefox-24.4.0.ebuild:
+  Security bump (bug #505072).
+
+  07 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> firefox-24.3.0.ebuild:
+  Fixed dependency on dev-libs/nss (bug #503704).
+
+*firefox-27.0.1 (26 Feb 2014)
+
+  26 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> +firefox-27.0.1.ebuild:
+  Version bump (bug #502512).
+
+  22 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> -firefox-24.1.1.ebuild,
+  -firefox-24.2.0.ebuild, -firefox-26.0.ebuild:
+  Removed vulnerable versions.
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> firefox-24.3.0.ebuild:
+  Stable for ppc64, wrt bug #500320
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> firefox-24.3.0.ebuild:
+  Stable for arm, wrt bug #500320
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> firefox-24.3.0.ebuild:
+  Stable for ppc, wrt bug #500320
+
+  15 Feb 2014; Agostino Sarubbo <ago@gentoo.org> firefox-24.3.0.ebuild:
+  Stable for amd64, wrt bug #500320
+
+  11 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> firefox-24.3.0.ebuild:
+  x86 stable wrt security bug #500320
+
+  10 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> firefox-27.0.ebuild:
+  Another dependency fix (bug #500810).
+
+  10 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> firefox-27.0.ebuild:
+  Fixed dependencies (bug #500822).
+
+  10 Feb 2014; Jeroen Roovers <jer@gentoo.org> firefox-24.3.0.ebuild:
+  Stable for HPPA (bug #500320).
+
+*firefox-27.0 (09 Feb 2014)
+*firefox-24.3.0 (09 Feb 2014)
+
+  09 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> +firefox-24.3.0.ebuild,
+  +firefox-27.0.ebuild:
+  Security bump (bug #500320).
+
+  16 Dec 2013; Jory A. Pratt <anarchy@gentoo.org> firefox-26.0.ebuild:
+  Address bug #494162,494164
+
+  15 Dec 2013; Jory A. Pratt <anarchy@gentoo.org> firefox-24.2.0.ebuild:
+  Readd missing patch to disable buildid, bug #465466
+
+  13 Dec 2013; Jeroen Roovers <jer@gentoo.org> firefox-24.2.0.ebuild:
+  Stable for HPPA (bug #493850).
+
+*firefox-26.0 (13 Dec 2013)
+
+  13 Dec 2013; Jory A. Pratt <anarchy@gentoo.org> +firefox-26.0.ebuild,
+  -files/firefox-25.0-stack-grows-up.patch, -firefox-25.0.1.ebuild:
+  Version/Security bump, bug #493886,493850
+
+*firefox-24.2.0 (12 Dec 2013)
+
+  12 Dec 2013; Jory A. Pratt <anarchy@gentoo.org> +firefox-24.2.0.ebuild:
+  Security bump bug #493850, amd64 stable
+
+  11 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> metadata.xml:
+  Better description for "custom-optimization" USE flag.
+
+  07 Dec 2013; Agostino Sarubbo <ago@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for arm, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for ppc64, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for ppc, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for x86, wrt bug #489796
+
+  01 Dec 2013; Agostino Sarubbo <ago@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for amd64, wrt bug #489796
+
+  26 Nov 2013; Jeroen Roovers <jer@gentoo.org> firefox-24.1.1.ebuild:
+  Stable for HPPA too.
+
+*firefox-24.1.1 (19 Nov 2013)
+
+  19 Nov 2013; Jory A. Pratt <anarchy@gentoo.org> +firefox-24.1.1.ebuild,
+  -firefox-24.1.0-r1.ebuild:
+  Misc upstream fixes, updated deps on nss/nspr to match build requirements
+
+  18 Nov 2013; Jeroen Roovers <jer@gentoo.org> firefox-25.0.1.ebuild:
+  Readd stack direction patch. Again.
+
+*firefox-25.0.1 (18 Nov 2013)
+
+  18 Nov 2013; Jory A. Pratt <anarchy@gentoo.org> +firefox-25.0.1.ebuild,
+  -firefox-25.0-r1.ebuild:
+  Misc upstream bug fixes
+
+  08 Nov 2013; Jeroen Roovers <jer@gentoo.org> firefox-25.0-r1.ebuild,
+  +files/firefox-25.0-stack-grows-up.patch:
+  Fix systems where the stack grows up (bug #490746).
+
+*firefox-24.1.0-r1 (04 Nov 2013)
+*firefox-25.0-r1 (04 Nov 2013)
+
+  04 Nov 2013; Jory A. Pratt <anarchy@gentoo.org> +firefox-24.1.0-r1.ebuild,
+  +firefox-25.0-r1.ebuild, -files/bug-846986.patch,
+  -files/firefox-14.0_beta7-gst-aac-mp3.patch,
+  -files/firefox-14.0_beta7-gst-youtube-h264.patch,
+  -files/firefox-15.0-fix-gstreamer-html5-crash.patch,
+  -files/firefox-20-hppa.patch, -files/firefox-21-hppa.patch,
+  -files/moz24-drop-Wl-build-id.patch, -firefox-24.0-r1.ebuild:
+  New esr and testing release, security update
+
+  26 Oct 2013; Jory A. Pratt <anarchy@gentoo.org> firefox-24.0-r1.ebuild:
+  ia64 support, bug #487250
+
+  07 Oct 2013; Nirbheek Chauhan <nirbheek@gentoo.org> firefox-24.0-r1.ebuild:
+  Fix sqlite dependency
+
+  26 Sep 2013; Ian Stakenvicius <axs@gentoo.org> firefox-24.0-r1.ebuild:
+  fixed incorrect bug #
+
+  26 Sep 2013; Ian Stakenvicius <axs@gentoo.org>
+  +files/moz24-drop-Wl-build-id.patch, firefox-24.0-r1.ebuild:
+  drop -Wl,--build-id from LDFLAGS, bug #465466
+
+  25 Sep 2013; Lars Wendler <polynomial-c@gentoo.org> -firefox-17.0.8.ebuild:
+  Removed old.
+
+  24 Sep 2013; Jory A. Pratt <anarchy@gentoo.org> firefox-24.0-r1.ebuild:
+  Remove methodjit configure option, obsolete
+
+  24 Sep 2013; Jeroen Roovers <jer@gentoo.org> firefox-24.0-r1.ebuild:
+  Marked ~hppa too.
+
+*firefox-24.0-r1 (24 Sep 2013)
+
+  24 Sep 2013; Ian Stakenvicius <axs@gentoo.org> +firefox-24.0-r1.ebuild,
+  -firefox-24.0.ebuild:
+  Fix bug #485838 and bug #485816
+
+  24 Sep 2013; Jeroen Roovers <jer@gentoo.org> firefox-24.0.ebuild:
+  Marked ~hppa too.
+
+*firefox-24.0 (24 Sep 2013)
+
+  24 Sep 2013; Jory A. Pratt <anarchy@gentoo.org> +firefox-24.0.ebuild,
+  -firefox-23.0.ebuild, metadata.xml:
+  Testing security bump, next esr build for stable
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.9.ebuild:
+  Stable for ppc64, wrt bug #485258
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.9.ebuild:
+  Stable for ppc, wrt bug #485258
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.9.ebuild:
+  Stable for arm, wrt bug #485258
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.9.ebuild:
+  Stable for x86, wrt bug #485258
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.9.ebuild:
+  Stable for amd64, wrt bug #485258
+
+  20 Sep 2013; Rick Farina <zerochaos@gentoo.org> firefox-17.0.9.ebuild:
+  note bug 465728 when emake fails
+
+*firefox-17.0.9 (18 Sep 2013)
+
+  18 Sep 2013; Lars Wendler <polynomial-c@gentoo.org> -firefox-17.0.5.ebuild,
+  -firefox-17.0.6.ebuild, -firefox-17.0.7.ebuild, +firefox-17.0.9.ebuild:
+  Security bump (bug #485258). Removed old.
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.8.ebuild:
+  Stable for ppc, wrt bug #479968
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.8.ebuild:
+  Stable for arm, wrt bug #479968
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.8.ebuild:
+  Stable for ppc64, wrt bug #479968
+
+  15 Aug 2013; Raúl Porcel <armin76@gentoo.org> firefox-10.0.11.ebuild:
+  Bump patchset to include ia64 patches from bug 471622 and bug 471624, thanks
+  to Émeric Maschino <emeric dot maschino at gmail dot com>
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.8.ebuild:
+  Stable for x86, wrt bug #479968
+
+  12 Aug 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.8.ebuild:
+  Stable for amd64, wrt bug #479968
+
+  08 Aug 2013; Jeroen Roovers <jer@gentoo.org> firefox-23.0.ebuild:
+  Marked ~hppa too.
+
+  08 Aug 2013; Jeroen Roovers <jer@gentoo.org> firefox-23.0.ebuild:
+  Marked ~hppa too.
+
+*firefox-17.0.8 (07 Aug 2013)
+*firefox-23.0 (07 Aug 2013)
+
+  07 Aug 2013;  <anarchy@gentoo.org> +firefox-17.0.8.ebuild,
+  +firefox-23.0.ebuild, -firefox-21.0.ebuild, -firefox-22.0.ebuild:
+  Security bump, bug #479968
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.7.ebuild:
+  Stable for arm, wrt bug #474758
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.7.ebuild:
+  Stable for ppc64, wrt bug #474758
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.7.ebuild:
+  Stable for ppc, wrt bug #474758
+
+  28 Jun 2013; Jeroen Roovers <jer@gentoo.org> firefox-22.0.ebuild:
+  Marked ~hppa too.
+
+  27 Jun 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.7.ebuild:
+  Stable for x86, wrt bug #474758
+
+  27 Jun 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.7.ebuild:
+  Stable for amd64, wrt bug #474758
+
+*firefox-17.0.7 (26 Jun 2013)
+*firefox-22.0 (26 Jun 2013)
+
+  26 Jun 2013; Ian Stakenvicius <axs@gentoo.org> +firefox-17.0.7.ebuild,
+  +firefox-22.0.ebuild, -firefox-17.0.6-r1.ebuild:
+  version bump for security bug 474758 , remove old ~arch esr ebuild
+
+  20 Jun 2013; Jeroen Roovers <jer@gentoo.org> files/firefox-20-hppa.patch,
+  files/firefox-21-hppa.patch:
+  Add descriptive headers to the HPPA patches (bug #414297).
+
+  10 Jun 2013; Jory A. Pratt <anarchy@gentoo.org> firefox-17.0.6-r1.ebuild:
+  Define DICTPATH so system dictionaries are used
+
+  10 Jun 2013; Jory A. Pratt <anarchy@gentoo.org> firefox-21.0.ebuild:
+  Fix http url
+
+*firefox-17.0.6-r1 (10 Jun 2013)
+
+  10 Jun 2013; Jory A. Pratt <anarchy@gentoo.org> +firefox-17.0.6-r1.ebuild,
+  firefox-21.0.ebuild:
+  Add an http fallback, update hunspell patch
+
+  05 Jun 2013; Jeroen Roovers <jer@gentoo.org> firefox-17.0.5.ebuild,
+  firefox-17.0.6.ebuild, firefox-21.0.ebuild, +files/firefox-20-hppa.patch,
+  +files/firefox-21-hppa.patch:
+  Marked ~hppa (bug #414297).
+
+  28 May 2013; <anarchy@gentoo.org> +files/bug-846986.patch:
+  Add missing patch, bug #471568
+
+*firefox-21.0 (28 May 2013)
+
+  28 May 2013; <anarchy@gentoo.org> -firefox-20.0.1.ebuild,
+  +firefox-21.0.ebuild:
+  Security bump for ~arch users
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.6.ebuild:
+  Stable for ppc64, wrt bug #469868
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.6.ebuild:
+  Stable for arm, wrt bug #469868
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.6.ebuild:
+  Stable for ppc, wrt bug #469868
+
+  17 May 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.6.ebuild:
+  Stable for x86, wrt bug #469868
+
+  17 May 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.6.ebuild:
+  Stable for amd64, wrt bug #469868
+
+*firefox-17.0.6 (16 May 2013)
+
+  16 May 2013; Ian Stakenvicius <axs@gentoo.org> +firefox-17.0.6.ebuild:
+  version bump ESR for security bug 469868
+
+  16 Apr 2013; Lars Wendler <polynomial-c@gentoo.org> -firefox-17.0.4.ebuild,
+  firefox-17.0.5.ebuild, firefox-20.0.1.ebuild:
+  Only depend on allowed sqlite versions (bug #465978).
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.5.ebuild:
+  Stable for ppc64, wrt bug #464226
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.5.ebuild:
+  Stable for ppc, wrt bug #464226
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.5.ebuild:
+  Stable for arm, wrt bug #464226
+
+*firefox-20.0.1 (12 Apr 2013)
+
+  12 Apr 2013; Jory A. Pratt <anarchy@gentoo.org> -firefox-20.0.ebuild,
+  +firefox-20.0.1.ebuild:
+  Version bump, misc upstream bug fixes refer to release notes
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.5.ebuild:
+  Stable for x86, wrt bug #464226
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.5.ebuild:
+  Stable for amd64, wrt bug #464226
+
+*firefox-20.0 (05 Apr 2013)
+
+  05 Apr 2013; Jory A. Pratt <anarchy@gentoo.org> -firefox-19.0.2.ebuild,
+  +firefox-20.0.ebuild:
+  Security/Version bump, bug #464226. pax-mark unconditional even when no jit
+  is enabled, needs major rework.
+
+*firefox-17.0.5 (04 Apr 2013)
+
+  04 Apr 2013; Lars Wendler <polynomial-c@gentoo.org> +firefox-17.0.5.ebuild:
+  Version bump.
+
+  25 Mar 2013; Lars Wendler <polynomial-c@gentoo.org> firefox-10.0.11.ebuild,
+  -firefox-17.0.2.ebuild, -firefox-17.0.3.ebuild, firefox-17.0.4.ebuild,
+  -firefox-18.0.1.ebuild, firefox-19.0.2.ebuild:
+  Adjusted sqlite dependencies as requested in bug #462402. Removed old
+  versions. Dropped KEYWORDS from ancient ff-10.0.11 version.
+
+  24 Mar 2013; Jory A. Pratt <anarchy@gentoo.org> firefox-17.0.4.ebuild:
+  Fix ld.gold linker issues in elfhack, bug #460450
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.4.ebuild:
+  Stable for ppc64, wrt bug #460818
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.4.ebuild:
+  Stable for ppc, wrt bug #460818
+
+  14 Mar 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.4.ebuild:
+  Stable for arm, wrt bug #460818
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.4.ebuild:
+  Stable for x86, wrt bug #460818
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.4.ebuild:
+  Stable for amd64, wrt bug #460818
+
+*firefox-19.0.2 (11 Mar 2013)
+
+  11 Mar 2013; Ian Stakenvicius <axs@gentoo.org> +firefox-19.0.2.ebuild,
+  -firefox-19.0.ebuild:
+  version bump 19.x for security bug 460818, remove old
+
+*firefox-17.0.4 (08 Mar 2013)
+
+  08 Mar 2013; Ian Stakenvicius <axs@gentoo.org> +firefox-17.0.4.ebuild:
+  version bump ESR for security bug 460818
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> firefox-17.0.3.ebuild:
   Stable for arm, wrt bug #458390

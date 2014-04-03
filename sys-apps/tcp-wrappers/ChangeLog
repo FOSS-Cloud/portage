@@ -1,6 +1,45 @@
 # ChangeLog for sys-apps/tcp-wrappers
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/tcp-wrappers/ChangeLog,v 1.44 2013/02/17 20:06:54 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/tcp-wrappers/ChangeLog,v 1.55 2014/03/26 10:38:31 nimiux Exp $
+
+  26 Mar 2014; Chema Alonso <nimiux@gentoo.org> tcp-wrappers-7.6.22-r1.ebuild:
+  Stable for amd64 wrt bug #502920
+
+  16 Mar 2014; Markus Meier <maekke@gentoo.org> tcp-wrappers-7.6.22-r1.ebuild:
+  arm stable, bug #502920
+
+  16 Mar 2014; Mike Frysinger <vapier@gentoo.org> tcp-wrappers-7.6-r8.ebuild,
+  tcp-wrappers-7.6.22-r1.ebuild, tcp-wrappers-7.6.22.ebuild:
+  Mark arm64/m68k/s390/sh stable #502920.
+
+  16 Mar 2014; Jeroen Roovers <jer@gentoo.org> tcp-wrappers-7.6.22-r1.ebuild:
+  Stable for HPPA (bug #502920).
+
+  30 Jan 2014; Ian Stakenvicius <axs@gentoo.org> tcp-wrappers-7.6.22-r1.ebuild:
+  fixed multilib-build issue where append-cppflags is forgotten after
+  src_configure finishes, commit OKed by WilliamH
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> tcp-wrappers-7.6-r8.ebuild,
+  tcp-wrappers-7.6.22-r1.ebuild, tcp-wrappers-7.6.22.ebuild:
+  Add arm64 love.
+
+  14 Jan 2014; Fabian Groffen <grobian@gentoo.org>
+  tcp-wrappers-7.6.22-r1.ebuild:
+  Fix for Prefix
+
+*tcp-wrappers-7.6.22-r1 (25 Nov 2013)
+
+  25 Nov 2013; Michał Górny <mgorny@gentoo.org> +tcp-wrappers-7.6.22-r1.ebuild:
+  Enable multilib support, bug #488390. Acked by Chainsaw.
+
+  14 May 2013; Tim Harder <radhermit@gentoo.org> tcp-wrappers-7.6-r8.ebuild:
+  Inherit multilib eclass for get_libdir usage and drop empty DEPEND.
+
+  14 May 2013; Tim Harder <radhermit@gentoo.org> metadata.xml:
+  Remove proxy-maintainers from metadata.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   17 Feb 2013; Zac Medico <zmedico@gentoo.org> tcp-wrappers-7.6.22.ebuild:
   Add ~arm-linux keyword.

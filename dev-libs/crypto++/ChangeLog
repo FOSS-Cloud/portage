@@ -1,6 +1,74 @@
 # ChangeLog for dev-libs/crypto++
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/crypto++/ChangeLog,v 1.76 2012/11/04 19:41:44 c1pher Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/crypto++/ChangeLog,v 1.96 2014/03/19 13:52:25 ago Exp $
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> crypto++-5.6.2-r1.ebuild:
+  Stable for alpha, wrt bug #499322
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org> crypto++-5.6.2-r1.ebuild:
+  Stable for sparc, wrt bug #499322
+
+  06 Mar 2014; Agostino Sarubbo <ago@gentoo.org> crypto++-5.6.2-r1.ebuild:
+  Stable for ppc64, wrt bug #499322
+
+  25 Feb 2014; Chema Alonso <nimiux@gentoo.org> crypto++-5.6.2-r1.ebuild:
+  Stable for amd64 wrt bug #499322
+
+  23 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  crypto++-5.6.2-r1.ebuild:
+  x86 stable wrt bug #499322
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> crypto++-5.6.2-r1.ebuild:
+  Stable for ppc, wrt bug #499322
+
+  27 Jan 2014; Jeroen Roovers <jer@gentoo.org> crypto++-5.6.2-r1.ebuild:
+  Stable for HPPA (bug #499322).
+
+  14 Jan 2014; Fabian Groffen <grobian@gentoo.org> crypto++-5.6.2-r1.ebuild:
+  Use local libtool for both compile and install
+
+  31 Dec 2013; Sergei Trofimovich <slyfox@gentoo.org> crypto++-5.6.2-r1.ebuild:
+  Fix stdc++ underlinking (easy to reproduce with LDFLAGS=-Wl,--no-undefined).
+
+*crypto++-5.6.2-r1 (07 Dec 2013)
+
+  07 Dec 2013; Mike Frysinger <vapier@gentoo.org> +crypto++-5.6.2-r1.ebuild,
+  +files/crypto++-5.6.2-r1-make.patch:
+  Generate a local copy of libtool for building rather than using the system
+  copy.
+
+  14 Aug 2013; Fabian Groffen <grobian@gentoo.org> crypto++-5.6.2.ebuild:
+  Fixed and marked for ~x64-macos, bug #479554
+
+  13 Jul 2013; Sergey Popov <pinkbyte@gentoo.org> crypto++-5.6.2.ebuild:
+  Add ~arm keyword, wrt bug #469294
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> crypto++-5.6.2.ebuild:
+  Stable for sparc, wrt bug #465148
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> crypto++-5.6.2.ebuild:
+  Stable for alpha, wrt bug #465148
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> crypto++-5.6.2.ebuild:
+  Stable for amd64, wrt bug #465148
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> crypto++-5.6.2.ebuild:
+  Stable for x86, wrt bug #465148
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> crypto++-5.6.2.ebuild:
+  Stable for ppc64, wrt bug #465148
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> crypto++-5.6.2.ebuild:
+  Stable for ppc, wrt bug #465148
+
+  01 Jun 2013; Jeroen Roovers <jer@gentoo.org> crypto++-5.6.2.ebuild:
+  Stable for HPPA (bug #465148).
+
+*crypto++-5.6.2 (02 Mar 2013)
+
+  02 Mar 2013; Tim Harder <radhermit@gentoo.org> +crypto++-5.6.2.ebuild,
+  +files/crypto++-5.6.2-make.patch:
+  Version bump.
 
   04 Nov 2012; Dane Smith <c1pher@gentoo.org> crypto++-5.6.1-r1.ebuild,
   crypto++-5.6.1-r3.ebuild:

@@ -1,6 +1,57 @@
 # ChangeLog for app-misc/ddccontrol
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/ddccontrol/ChangeLog,v 1.29 2012/11/18 11:51:06 robbat2 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/ddccontrol/ChangeLog,v 1.39 2014/03/31 00:49:57 mrueg Exp $
+
+  30 Mar 2014; Manuel Rüger <mrueg@gentoo.org> -ddccontrol-0.4.2-r1.ebuild,
+  -ddccontrol-0.4.2-r2.ebuild, -ddccontrol-0.4.2_p20130703.ebuild,
+  -files/ddccontrol-0.4.2-automake.patch,
+  -files/ddccontrol-0.4.2-no-ddcpci.patch,
+  -files/ddccontrol-0.4.2-pciutils-libz.patch,
+  -files/ddccontrol-0.4.2-support-fglrx.patch:
+  Cleanup old. Drop stable ppc keyword.
+
+  09 Mar 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  ddccontrol-0.4.2_p20140105.ebuild:
+  x86 stable wrt bug #491922
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org> ddccontrol-0.4.2_p20140105.ebuild:
+  amd64 stable, bug 491922
+
+*ddccontrol-0.4.2_p20140105 (30 Jan 2014)
+
+  30 Jan 2014; Manuel Rüger <mrueg@gentoo.org>
+  +ddccontrol-0.4.2_p20140105.ebuild:
+  Add new snapshot.
+
+*ddccontrol-0.4.2_p20130703 (04 Jan 2014)
+
+  04 Jan 2014; Manuel Rüger <mrueg@gentoo.org>
+  +ddccontrol-0.4.2_p20130703.ebuild:
+  Add new snapshot.
+
+  03 Jan 2014; Manuel Rüger <mrueg@gentoo.org> -ddccontrol-0.1.3.ebuild,
+  -ddccontrol-0.2.ebuild, -ddccontrol-0.3-r1.ebuild, -ddccontrol-0.3-r2.ebuild,
+  -ddccontrol-0.3.ebuild, -ddccontrol-0.4.1.ebuild, -ddccontrol-0.4.2.ebuild,
+  -files/ddccontrol-0.3-fix-libpanelapplet-dep.patch,
+  -files/ddccontrol-0.3-u64-conflicting-types.patch,
+  -files/ddccontrol-asneeded.patch, ddccontrol-0.4.2-r2.ebuild, metadata.xml:
+  Take over maintenance. Cleanup old.
+
+  30 Jul 2013; Mike Frysinger <vapier@gentoo.org> ddccontrol-0.4.2-r2.ebuild:
+  Fix building with automake-1.13 #467574 by Ian Stakenvicius.
+
+*ddccontrol-0.4.2-r2 (10 Jul 2013)
+
+  10 Jul 2013; Manuel Rüger <mrueg@gentoo.org> +ddccontrol-0.4.2-r2.ebuild,
+  +files/ddccontrol-0.4.2-support-fglrx.patch:
+  Non-maintainer commit: Add support for fglrx (AMD ADL). Fix desktop file.
+  See bug #475568
+
+  08 Jul 2013; Michael Weber <xmw@gentoo.org> metadata.xml:
+  remove errorneous herd proxy-maint.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   18 Nov 2012; Robin H. Johnson <robbat2@gentoo.org> metadata.xml:
   Ensure upstream dev is in metadata.

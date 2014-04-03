@@ -1,6 +1,15 @@
 # ChangeLog for sci-geosciences/viking
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/viking/ChangeLog,v 1.22 2012/05/31 14:59:43 scarabeus Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/viking/ChangeLog,v 1.24 2014/01/06 14:54:03 jlec Exp $
+
+  06 Jan 2014; Justin Lecher <jlec@gentoo.org> -viking-1.3.ebuild,
+  viking-1.4.1.ebuild:
+  Drop old; punt base.eclass
+
+*viking-1.4.1 (01 Jul 2013)
+
+  01 Jul 2013; Andrey Grozin <grozin@gentoo.org> +viking-1.4.1.ebuild:
+  Version bump, closing #438316
 
 *viking-1.3 (31 May 2012)
 

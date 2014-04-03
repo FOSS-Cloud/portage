@@ -1,6 +1,136 @@
 # ChangeLog for dev-python/ipython
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ipython/ChangeLog,v 1.104 2013/02/11 15:59:01 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ipython/ChangeLog,v 1.136 2014/03/16 02:42:19 vapier Exp $
+
+  16 Mar 2014; Mike Frysinger <vapier@gentoo.org> ipython-1.2.1.ebuild:
+  Add ia64 love.
+
+*ipython-1.2.1 (07 Mar 2014)
+
+  07 Mar 2014; Justin Lecher <jlec@gentoo.org> +ipython-1.2.1.ebuild:
+  Version Bump
+
+*ipython-1.2.0 (21 Feb 2014)
+
+  21 Feb 2014; Justin Lecher <jlec@gentoo.org> +ipython-1.2.0.ebuild,
+  metadata.xml:
+  Version BUmp, tests fail with py3.3
+  https://github.com/ipython/ipython/issues/5182
+
+  16 Feb 2014; Mike Frysinger <vapier@gentoo.org> ipython-1.0.0.ebuild:
+  Mark arm stable.
+
+*ipython-1.1.0-r2 (12 Feb 2014)
+
+  12 Feb 2014; Michał Górny <mgorny@gentoo.org> +ipython-1.1.0-r2.ebuild:
+  Create versioned IPython symlinks alike Debian, bug #496010.
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org> ipython-1.0.0.ebuild:
+  x86 stable, bug #488738
+
+  29 Nov 2013; Pacho Ramos <pacho@gentoo.org> ipython-1.0.0.ebuild:
+  amd64 stable, bug #488738
+
+*ipython-1.1.0-r1 (17 Nov 2013)
+
+  17 Nov 2013; Michał Górny <mgorny@gentoo.org> +ipython-1.1.0-r1.ebuild:
+  Use complete PYTHON_USEDEP on pexpect since it supports Python 3 now.
+
+  15 Nov 2013; Mike Gilbert <floppym@gentoo.org> ipython-1.0.0.ebuild,
+  ipython-1.1.0.ebuild:
+  Use python_gen_useflags instead of PYTHON_COMPAT directly.
+
+  14 Nov 2013; Mike Gilbert <floppym@gentoo.org> ipython-1.0.0.ebuild,
+  ipython-1.1.0.ebuild:
+  Fix jinja dependency to allow more that one slot to satisfy it.
+
+*ipython-1.1.0 (23 Oct 2013)
+
+  23 Oct 2013; Kacper Kowalik <xarthisius@gentoo.org> +ipython-1.1.0.ebuild:
+  Version bump
+
+  26 Sep 2013; Mike Gilbert <floppym@gentoo.org>
+  +files/ipython-1.0.0-setuptools.patch, ipython-0.13.2.ebuild,
+  ipython-1.0.0.ebuild:
+  Add patch to ensure consistent setuptools behavior with python2.
+
+  15 Sep 2013; Markus Meier <maekke@gentoo.org> ipython-1.0.0.ebuild:
+  add ~arm, bug #481462
+
+  12 Sep 2013; Michał Górny <mgorny@gentoo.org> ipython-0.12-r1.ebuild,
+  ipython-0.13.2.ebuild, ipython-1.0.0.ebuild:
+  Replace virtual/pyparsing dep with dev-python/pyparsing. The split versions
+  were removed and all in-tree versions support all impls now.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> ipython-0.13.2.ebuild,
+  ipython-1.0.0.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  28 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> ipython-1.0.0.ebuild:
+  Use pure ln to fix path for PREFIX
+
+  28 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> ipython-1.0.0.ebuild:
+  Use EPREFIX instead of EROOT in python_install. Thanks to Arfrever for
+  reporting
+
+  28 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> ipython-1.0.0.ebuild:
+  Add the rest of the dependencies for nbconvert. Thanks to Arfrever for
+  reporting
+
+  28 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> ipython-1.0.0.ebuild:
+  Provide symlink to mathjax in order to  force notebook to use the local
+  version. Thanks to Arfrever for his insight in bug #481726
+
+  28 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> metadata.xml:
+  Fix typo in metadata. Thanks to Arfrever for noticing
+
+  27 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> -ipython-0.10.1.ebuild,
+  -ipython-0.10.ebuild, -ipython-0.12.1.ebuild, -ipython-0.13.1-r1.ebuild,
+  -ipython-0.13.1.ebuild, -ipython-0.13.ebuild, ipython-0.12-r1.ebuild,
+  ipython-0.13.2.ebuild, ipython-1.0.0.ebuild, metadata.xml:
+  Add missing dependencies. Fixes bug #481342 and #481726 by
+  <jcpetkovich@gmail.com> and Arfrever Frehtes Taifersar Arahesis
+  <arfrever.fta@gmail.com> respectively. Drop obsolete versions
+
+  20 Aug 2013; Fabian Groffen <grobian@gentoo.org> ipython-1.0.0.ebuild:
+  Marked *-macos, bug #481462
+
+  09 Aug 2013; Kacper Kowalik <xarthisius@gentoo.org> ipython-1.0.0.ebuild:
+  Fix S for latest tarball
+
+*ipython-1.0.0 (09 Aug 2013)
+
+  09 Aug 2013; Sébastien Fabbro <bicatali@gentoo.org> +ipython-1.0.0.ebuild,
+  metadata.xml:
+  Version bump
+
+  05 Aug 2013; Michał Górny <mgorny@gentoo.org> ipython-0.13.2.ebuild:
+  Turn setuptools into an RDEPEND, since pkg_resources are used.
+
+  30 Jun 2013; Mike Frysinger <vapier@gentoo.org> ipython-0.13.2.ebuild:
+  Add ~arm to latest version too.
+
+  06 Jun 2013; Mike Gilbert <floppym@gentoo.org> ipython-0.13.2.ebuild:
+  Add missing colon to PYTHONPATH.
+
+  06 Jun 2013; Ian Delaney <idella4@gentoo.org> ipython-0.13.2.ebuild:
+  Fix to testsuite wrt and fixes Bug #472152
+
+  10 May 2013; Markus Meier <maekke@gentoo.org> ipython-0.13.1-r1.ebuild:
+  add ~arm, bug #452764
+
+  07 May 2013; Mike Gilbert <floppym@gentoo.org> ipython-0.13.1-r1.ebuild,
+  ipython-0.13.2.ebuild:
+  Depend on setuptools, and add some migration code for 0.13.1-r1. Bug 468702 by
+  Coacher.
+
+*ipython-0.13.2 (27 Apr 2013)
+
+  27 Apr 2013; Patrick McLean <chutzpah@gentoo.org> +ipython-0.13.2.ebuild:
+  Version bump.
+
+  30 Mar 2013; Mike Gilbert <floppym@gentoo.org> ipython-0.13.1-r1.ebuild:
+  Quote patterns for python_gen_usedep.
 
 *ipython-0.13.1-r1 (11 Feb 2013)
 

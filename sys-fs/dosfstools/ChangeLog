@@ -1,6 +1,118 @@
 # ChangeLog for sys-fs/dosfstools
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/dosfstools/ChangeLog,v 1.112 2013/02/24 18:06:15 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/dosfstools/ChangeLog,v 1.140 2014/04/02 18:54:19 maekke Exp $
+
+  02 Apr 2014; Markus Meier <maekke@gentoo.org> dosfstools-3.0.26.ebuild:
+  arm stable, bug #506066
+
+*dosfstools-3.0.26 (08 Mar 2014)
+
+  08 Mar 2014; Tim Harder <radhermit@gentoo.org> +dosfstools-3.0.26.ebuild:
+  Version bump.
+
+*dosfstools-3.0.25 (18 Jan 2014)
+
+  18 Jan 2014; Tim Harder <radhermit@gentoo.org> +dosfstools-3.0.25.ebuild:
+  Version bump.
+
+  07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -dosfstools-3.0.12.ebuild, -dosfstools-3.0.13.ebuild,
+  -dosfstools-3.0.14.ebuild, -dosfstools-3.0.16.ebuild,
+  -dosfstools-3.0.20-r1.ebuild, -dosfstools-3.0.21.ebuild,
+  -dosfstools-3.0.23.ebuild, -files/dosfstools-3.0.12-name-ext.patch,
+  -files/dosfstools-3.0.13-reserved-sectors-hack.patch:
+  Removed old versions and files.
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.22.ebuild:
+  Stable for ppc64, wrt bug #486046
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.22.ebuild:
+  Stable for ppc, wrt bug #486046
+
+  17 Dec 2013; Raúl Porcel <armin76@gentoo.org> dosfstools-3.0.22.ebuild:
+  alpha/ia64/s390/sh/sparc stable wrt #486046
+
+*dosfstools-3.0.24 (23 Nov 2013)
+
+  23 Nov 2013; Tim Harder <radhermit@gentoo.org> +dosfstools-3.0.24.ebuild:
+  Version bump.
+
+*dosfstools-3.0.23 (15 Oct 2013)
+
+  15 Oct 2013; Tim Harder <radhermit@gentoo.org> +dosfstools-3.0.23.ebuild:
+  Version bump.
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> dosfstools-3.0.22.ebuild:
+  Stable for HPPA (bug #486046).
+
+  27 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> dosfstools-3.0.22.ebuild:
+  Stable on amd64/arm/x86 wrt bug #486046
+
+*dosfstools-3.0.22 (19 Jul 2013)
+
+  19 Jul 2013; Tim Harder <radhermit@gentoo.org> +dosfstools-3.0.22.ebuild:
+  Version bump.
+
+*dosfstools-3.0.21 (16 Jul 2013)
+
+  16 Jul 2013; Tim Harder <radhermit@gentoo.org> +dosfstools-3.0.21.ebuild,
+  +files/dosfstools-3.0.21-parallel-install.patch:
+  Version bump.
+
+*dosfstools-3.0.20-r1 (06 Jul 2013)
+
+  06 Jul 2013; Tim Harder <radhermit@gentoo.org> -dosfstools-3.0.20.ebuild,
+  +dosfstools-3.0.20-r1.ebuild,
+  +files/dosfstools-3.0.20-parallel-install.patch:
+  Revision bump and remove old. Fix parallel make deps to properly install
+  legacy symlinks (bug #475976).
+
+*dosfstools-3.0.20 (15 Jun 2013)
+
+  15 Jun 2013; Tim Harder <radhermit@gentoo.org> +dosfstools-3.0.20.ebuild,
+  +files/dosfstools-3.0.20-name-ext.patch:
+  Version bump.
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for sh, wrt bug #469358
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for sparc, wrt bug #469358
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for s390, wrt bug #469358
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for alpha, wrt bug #469358
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for ia64, wrt bug #469358
+
+  13 May 2013; Jeroen Roovers <jer@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for HPPA (bug #469358).
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for ppc64, wrt bug #469358
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for ppc, wrt bug #469358
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for arm, wrt bug #469358
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for x86, wrt bug #469358
+
+  11 May 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.16.ebuild:
+  Stable for amd64, wrt bug #469358
+
+  20 Mar 2013; Tim Harder <radhermit@gentoo.org> dosfstools-3.0.16.ebuild:
+  Update SRC_URI (bug #462422).
+
+*dosfstools-3.0.16 (09 Mar 2013)
+
+  09 Mar 2013; Tim Harder <radhermit@gentoo.org> +dosfstools-3.0.16.ebuild:
+  Version bump (bug #460032 by Manuel Rüger).
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.13.ebuild:
   Stable for sh, wrt bug #453716

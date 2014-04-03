@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/glib/glib-0.12.3.1.ebuild,v 1.5 2012/11/25 05:43:19 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/glib/glib-0.12.3.1.ebuild,v 1.7 2013/12/12 06:03:43 gienah Exp $
 
 EAPI=4
 
@@ -20,7 +20,7 @@ IUSE=""
 RDEPEND=">=dev-lang/ghc-6.10.1
 		dev-libs/glib:2"
 DEPEND="${RDEPEND}
-		dev-haskell/gtk2hs-buildtools"
+		dev-haskell/gtk2hs-buildtools:0"
 
 src_prepare() {
 	# c2hs ignores #if __GLASGOW_HASKELL__ >= 706

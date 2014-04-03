@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/salt/salt-9999.ebuild,v 1.2 2012/12/19 00:40:55 chutzpah Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/salt/salt-9999.ebuild,v 1.9 2014/02/27 00:02:32 chutzpah Exp $
 
 EAPI=5
 
 PYTHON_COMPAT=(python{2_6,2_7})
 
-inherit eutils distutils-r1
+inherit eutils distutils-r1 systemd
 
 DESCRIPTION="Salt is a remote execution and configuration manager."
 HOMEPAGE="http://saltstack.org/"
@@ -24,43 +24,59 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="ldap libvirt mongodb mysql openssl redis test"
+IUSE="ldap libvirt mako mongodb mysql openssl redis timelib test"
 
-RDEPEND=">=dev-python/pyzmq-2.1.9
-		dev-python/msgpack
-		dev-python/pyyaml
-		dev-python/m2crypto
-		dev-python/pycrypto
-		dev-python/pycryptopp
-		dev-python/jinja
-		ldap? ( dev-python/python-ldap )
-		openssl? ( dev-python/pyopenssl )
-		libvirt? ( app-emulation/libvirt[python] )
-		mongodb? ( dev-python/pymongo )
-		mysql? ( dev-python/mysql-python )
-		redis? ( dev-python/redis-py )"
+RDEPEND=">=dev-python/pyzmq-2.2.0[${PYTHON_USEDEP}]
+		dev-python/msgpack[${PYTHON_USEDEP}]
+		dev-python/pyyaml[${PYTHON_USEDEP}]
+		dev-python/m2crypto[${PYTHON_USEDEP}]
+		dev-python/pycrypto[${PYTHON_USEDEP}]
+		dev-python/pycryptopp[${PYTHON_USEDEP}]
+		dev-python/jinja[${PYTHON_USEDEP}]
+		dev-python/setuptools[${PYTHON_USEDEP}]
+		>=dev-python/libcloud-0.14.0[${PYTHON_USEDEP}]
+		sys-apps/pciutils
+		mako? ( dev-python/mako[${PYTHON_USEDEP}] )
+		ldap? ( dev-python/python-ldap[${PYTHON_USEDEP}] )
+		openssl? ( dev-python/pyopenssl[${PYTHON_USEDEP}] )
+		libvirt? ( || (
+			dev-python/libvirt-python[${PYTHON_USEDEP}]
+			app-emulation/libvirt[python,${PYTHON_USEDEP}]
+			)
+		)
+		mongodb? ( dev-python/pymongo[${PYTHON_USEDEP}] )
+		mysql? ( dev-python/mysql-python[${PYTHON_USEDEP}] )
+		redis? ( dev-python/redis-py[${PYTHON_USEDEP}] )
+		timelib? ( dev-python/timelib[${PYTHON_USEDEP}] )"
 DEPEND="test? (
+			dev-python/pip
 			dev-python/virtualenv
+			dev-python/SaltTesting
 			${RDEPEND}
 		)"
 
-src_prepare() {
-	sed -i '/install_requires=/ d' setup.py || die "sed failed"
+PATCHES=("${FILESDIR}/${PN}-0.17.1-tests-nonroot.patch")
+DOCS=(README.rst AUTHORS)
 
-	distutils-r1_src_prepare
+python_prepare() {
+	sed -i '/install_requires=/ d' setup.py || die "sed failed"
 }
 
-src_install() {
-	distutils-r1_src_install
+python_install_all() {
+	USE_SETUPTOOLS=1 distutils-r1_python_install_all
 
 	for s in minion master syndic; do
-		newinitd "${FILESDIR}"/${s}-initd-1 salt-${s}
+		newinitd "${FILESDIR}"/${s}-initd-3 salt-${s}
 		newconfd "${FILESDIR}"/${s}-confd-1 salt-${s}
+		systemd_dounit "${FILESDIR}"/salt-${s}.service
 	done
 
-	dodoc README.rst AUTHORS
+	insinto /etc/${PN}
+	doins conf/*
 }
 
 python_test() {
-	SHELL="/bin/bash" ./tests/runtests.py --unit-tests --no-report || die
+	# testsuite likes lots of files
+	ulimit -n 3072
+	USE_SETUPTOOLS=1 SHELL="/bin/bash" TMPDIR=/tmp ./tests/runtests.py --unit-tests --no-report --verbose || die
 }

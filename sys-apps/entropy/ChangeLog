@@ -1,6 +1,55 @@
 # ChangeLog for sys-apps/entropy
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/entropy/ChangeLog,v 1.31 2012/12/31 18:19:43 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/entropy/ChangeLog,v 1.44 2013/12/18 05:17:17 lxnay Exp $
+
+  18 Dec 2013; Fabio Erculiani <lxnay@gentoo.org> -entropy-216.ebuild:
+  drop older version 216
+
+*entropy-254 (18 Dec 2013)
+
+  18 Dec 2013; Fabio Erculiani <lxnay@gentoo.org> +entropy-254.ebuild:
+  version bump
+
+  23 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> entropy-216.ebuild:
+  Fix python-single-r1 usage as reported by hasufell in bug #482032
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -entropy-189.ebuild:
+  drop older version 189
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -entropy-183.ebuild:
+  drop older version 183
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -entropy-144.ebuild:
+  drop older version 144
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> -entropy-136.ebuild:
+  drop older version 136
+
+*entropy-216 (22 Aug 2013)
+
+  22 Aug 2013; Fabio Erculiani <lxnay@gentoo.org> +entropy-216.ebuild:
+  version bump
+
+*entropy-189 (02 Apr 2013)
+
+  02 Apr 2013; Fabio Erculiani <lxnay@gentoo.org> +entropy-189.ebuild:
+  version bump
+
+  20 Mar 2013; Fabio Erculiani <lxnay@gentoo.org> entropy-136.ebuild,
+  entropy-144.ebuild, entropy-183.ebuild:
+  call python_pkg_setup due to EAPI bump
+
+  20 Mar 2013; Fabio Erculiani <lxnay@gentoo.org> entropy-183.ebuild:
+  uniform keywords across versions
+
+  20 Mar 2013; Fabio Erculiani <lxnay@gentoo.org> entropy-136.ebuild,
+  entropy-144.ebuild, entropy-183.ebuild:
+  update dev-db/sqlite dependencies as per bug #462398
+
+*entropy-183 (14 Mar 2013)
+
+  14 Mar 2013; Fabio Erculiani <lxnay@gentoo.org> +entropy-183.ebuild:
+  version bump
 
   31 Dec 2012; Agostino Sarubbo <ago@gentoo.org> entropy-144.ebuild:
   Add ~ppc ~ppc64 ~ia64, wrt to bug #387959

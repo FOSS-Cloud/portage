@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/musl/musl-9999.ebuild,v 1.3 2012/12/26 19:16:47 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/musl/musl-9999.ebuild,v 1.8 2014/03/10 20:27:04 blueness Exp $
 
-EAPI=4
+EAPI=5
 
 inherit eutils flag-o-matic multilib toolchain-funcs
 if [[ ${PV} == "9999" ]] ; then
@@ -23,14 +23,17 @@ HOMEPAGE="http://www.musl-libc.org/"
 if [[ ${PV} != "9999" ]] ; then
 	PATCH_VER=""
 	SRC_URI="http://www.musl-libc.org/releases/${P}.tar.gz"
-	KEYWORDS="-* ~amd64 ~arm ~mips"
+	KEYWORDS="-* ~amd64 ~arm ~mips ~x86"
 fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="crosscompile_opts_headers-only"
+IUSE="crosscompile_opts_headers-only nls"
 
-S=${WORKDIR}/${MY_P}
+RDEPEND="nls? ( sys-devel/gettext )"
+if [[ ${CATEGORY} != cross-* ]] ; then
+	RDEPEND+=" sys-apps/getent"
+fi
 
 is_crosscompile() {
 	[[ ${CHOST} != ${CTARGET} ]]
@@ -79,13 +82,19 @@ src_install() {
 	if is_crosscompile ; then
 		dosym usr/include /usr/${CTARGET}/sys-include
 	fi
+
+	# If we are going to use gnu's gettext then we have to
+	# move musl's libintl out of the way.
+	use nls && mv "${D}"/usr/include/libintl{,-musl}.h
 }
 
 pkg_postinst() {
 	is_crosscompile && return 0
 
 	[ "${ROOT}" != "/" ] && return 0
-	# update cache before reloading init
+
+	# TODO: musl doesn't use ldconfig, instead here we can
+	# create sym links to libraries outside of /lib and /usr/lib
 	ldconfig
 	# reload init ...
 	/sbin/telinit U 2>/dev/null

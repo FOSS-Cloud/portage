@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/emacs-22.3-r10.ebuild,v 1.6 2012/10/24 18:52:43 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/emacs-22.3-r10.ebuild,v 1.8 2013/08/02 16:14:53 ulm Exp $
 
-EAPI=4
+EAPI=5
 WANT_AUTOMAKE="none"
 
 inherit autotools elisp-common eutils flag-o-matic
@@ -29,8 +29,8 @@ RDEPEND="sys-libs/ncurses
 		x11-libs/libXt
 		x11-misc/xbitmaps
 		gif? ( media-libs/giflib )
-		jpeg? ( virtual/jpeg )
-		png? ( >=media-libs/libpng-1.4:0 )
+		jpeg? ( virtual/jpeg:0= )
+		png? ( >=media-libs/libpng-1.4:0= )
 		tiff? ( media-libs/tiff )
 		xpm? ( x11-libs/libXpm )
 		gtk? ( x11-libs/gtk+:2 )

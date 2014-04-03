@@ -1,6 +1,50 @@
 # ChangeLog for dev-lang/tcl
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/tcl/ChangeLog,v 1.181 2013/02/25 21:39:15 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/tcl/ChangeLog,v 1.189 2014/01/20 07:34:30 jlec Exp $
+
+  20 Jan 2014; Justin Lecher <jlec@gentoo.org> tcl-8.5.13-r1.ebuild,
+  -tcl-8.5.14.ebuild, -tcl-8.5.15.ebuild, tcl-8.5.15-r1.ebuild,
+  -tcl-8.6.0-r1.ebuild, -tcl-8.6.1.ebuild:
+  Drop old; drop notification about threading support in favour of USE deps,
+  #498612
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org> tcl-8.5.13-r1.ebuild,
+  tcl-8.5.14.ebuild, tcl-8.5.15-r1.ebuild, tcl-8.5.15.ebuild,
+  tcl-8.6.0-r1.ebuild, tcl-8.6.1-r1.ebuild, tcl-8.6.1.ebuild:
+  Add arm64 love.
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org> tcl-8.5.13-r1.ebuild,
+  tcl-8.5.14.ebuild, tcl-8.5.15-r1.ebuild, tcl-8.5.15.ebuild,
+  tcl-8.6.0-r1.ebuild, tcl-8.6.1-r1.ebuild, tcl-8.6.1.ebuild:
+  Fix cross-compiling w/out compat funcs.
+
+  28 Dec 2013; Justin Lecher <jlec@gentoo.org> tcl-8.5.15-r1.ebuild,
+  tcl-8.6.1-r1.ebuild:
+  Exchange is_final_abi() by multilib_build_binaries(), thanks Tommy[D] telling
+  me about those things
+
+*tcl-8.6.1-r1 (26 Dec 2013)
+*tcl-8.5.15-r1 (26 Dec 2013)
+
+  26 Dec 2013; Justin Lecher <jlec@gentoo.org> +tcl-8.5.15-r1.ebuild,
+  +tcl-8.6.1-r1.ebuild:
+  Add multilib support, #496008 ; thanks Michael Mair-Keimberger for the patch
+
+  10 Oct 2013; Justin Lecher <jlec@gentoo.org> -tcl-8.5.10-r1.ebuild:
+  Drop old
+
+*tcl-8.6.1 (25 Sep 2013)
+*tcl-8.5.15 (25 Sep 2013)
+
+  25 Sep 2013; Justin Lecher <jlec@gentoo.org> +tcl-8.5.15.ebuild,
+  +tcl-8.6.1.ebuild, +files/tcl-8.6.1-conf.patch:
+  Version Bump
+
+*tcl-8.5.14 (01 May 2013)
+
+  01 May 2013; Justin Lecher <jlec@gentoo.org> +tcl-8.5.14.ebuild,
+  +files/tcl-8.5.14-conf.patch:
+  Version BUmp
 
   25 Feb 2013; Zac Medico <zmedico@gentoo.org> tcl-8.6.0-r1.ebuild:
   Add ~arm-linux keyword.

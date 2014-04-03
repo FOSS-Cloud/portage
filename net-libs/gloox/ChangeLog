@@ -1,6 +1,22 @@
 # ChangeLog for net-libs/gloox
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gloox/ChangeLog,v 1.17 2012/09/03 00:20:41 blueness Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gloox/ChangeLog,v 1.20 2014/03/02 22:28:03 pacho Exp $
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> gloox-1.0.9.ebuild:
+  amd64 stable, bug #495850
+
+*gloox-1.0.9 (18 Nov 2013)
+
+  18 Nov 2013; Manuel Rüger <mrueg@gentoo.org> +gloox-1.0.9.ebuild:
+  Version bump.
+
+*gloox-1.0.6 (05 Sep 2013)
+
+  05 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +gloox-1.0.6.ebuild,
+  -files/gloox-0.9.9.5-gcc43.patch, -files/gloox-0.9.9.5-gcc44.patch,
+  -files/gloox-res_query-check.patch, -gloox-0.9.8.ebuild,
+  -gloox-0.9.9.5.ebuild:
+  Version bump. Cleanup old. Fix bug #483572
 
   03 Sep 2012; Anthony G. Basile <blueness@gentoo.org> gloox-1.0.ebuild:
   Keyword ~arm, bug #343515
@@ -76,4 +92,3 @@
   22 Oct 2007; Markus Ullmann <jokey@gentoo.org> +metadata.xml,
   +gloox-0.8.4.ebuild:
   Initial import for dep of climm
-

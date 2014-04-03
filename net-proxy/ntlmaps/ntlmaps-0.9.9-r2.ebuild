@@ -1,8 +1,10 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/ntlmaps/ntlmaps-0.9.9-r2.ebuild,v 1.9 2008/02/28 20:22:57 wolf31o2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/ntlmaps/ntlmaps-0.9.9-r2.ebuild,v 1.11 2014/01/08 06:24:05 vapier Exp $
 
-inherit eutils
+EAPI=5
+
+inherit eutils user
 
 DESCRIPTION="NTLM proxy Authentication against MS proxy/web server"
 HOMEPAGE="http://ntlmaps.sourceforge.net/"
@@ -20,31 +22,26 @@ pkg_setup() {
 	enewuser ntlmaps -1 -1 -1 ntlmaps
 }
 
-src_unpack() {
-	unpack ${A}
-
+src_prepare() {
 	epatch "${FILESDIR}/${P}-gentoo.patch"
 
-	#stupid windoze style
-	cd "${S}"
-	sed -i -e 's/\r//' lib/*.py server.cfg *.txt doc/*.{txt,htm}
+	sed -i -e 's/\r//' lib/*.py server.cfg *.txt doc/*.{txt,htm} || die 'Failed to convert line endings.'
 }
 
 src_install() {
-	# exes ------------------------------------------------------------------
 	exeinto /usr/bin
-	newexe main.py ntlmaps || die "failed to install main program"
+	newexe main.py ntlmaps
 	insinto /usr/lib/ntlmaps
-	doins lib/* || die "failed to install python modules"
-	# doc -------------------------------------------------------------------
+	doins lib/*
+
 	dodoc *.txt doc/*.txt
 	dohtml doc/*
-	# conf ------------------------------------------------------------------
+
 	insopts -m0640 -g ntlmaps
 	insinto /etc/ntlmaps
 	doins server.cfg
 	newinitd "${FILESDIR}/ntlmaps.init" ntlmaps
-	# log -------------------------------------------------------------------
+
 	diropts -m 0770 -g ntlmaps
 	keepdir /var/log/ntlmaps
 }

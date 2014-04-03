@@ -1,6 +1,122 @@
 # ChangeLog for x11-libs/motif
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/motif/ChangeLog,v 1.10 2013/01/02 00:05:11 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/motif/ChangeLog,v 1.44 2014/02/07 19:50:54 ulm Exp $
+
+  07 Feb 2014; Ulrich Müller <ulm@gentoo.org> motif-2.3.4-r1.ebuild:
+  Remove alternative dependencies on emul-linux-x86-* packages.
+
+  21 Oct 2013; Fabian Groffen <grobian@gentoo.org> motif-2.3.4-r1.ebuild:
+  Marked ~x64-macos, bug #486818
+
+  08 Oct 2013; Ulrich Müller <ulm@gentoo.org> motif-2.2.3-r12.ebuild,
+  motif-2.3.4-r1.ebuild:
+  Update dependency on X libraries. Remove pkgconfig workaround.
+
+  23 Aug 2013; Ulrich Müller <ulm@gentoo.org> -motif-2.2.3-r11.ebuild,
+  -motif-2.3.4.ebuild, -files/motif-2.3.2-sanitise-paths.patch,
+  -files/motif-2.3.2-solaris-2.11.patch, -files/motif-2.3.4-solaris.patch:
+  Remove old.
+
+  06 Aug 2013; Ulrich Müller <ulm@gentoo.org> motif-2.2.3-r12.ebuild,
+  motif-2.3.4-r1.ebuild:
+  Restore stable x86 keyword, it had been dropped due to bug 468590.
+
+  06 Aug 2013; Ulrich Müller <ulm@gentoo.org> motif-2.3.4-r1.ebuild:
+  Require USE=development for emul-linux-x86-xlibs, needed for pkg-config.
+
+  05 Aug 2013; Ulrich Müller <ulm@gentoo.org> motif-2.3.4-r1.ebuild:
+  Workaround for missing pkgconfig files, bug 479876.
+
+  04 Aug 2013; Agostino Sarubbo <ago@gentoo.org> motif-2.2.3-r12.ebuild,
+  motif-2.3.4-r1.ebuild:
+  Stable for amd64, wrt bug #465788
+
+  02 Aug 2013; Ulrich Müller <ulm@gentoo.org> motif-2.3.4.ebuild,
+  motif-2.3.4-r1.ebuild:
+  Update dependency on virtual/jpeg.
+
+  01 Aug 2013; Ulrich Müller <ulm@gentoo.org> motif-2.2.3-r12.ebuild,
+  motif-2.3.4-r1.ebuild:
+  Update multilib dependencies for libiconv, jpeg, and libpng. Drop dependency
+  on emul-linux-x86-baselibs unless it is needed.
+
+  31 Jul 2013; Ulrich Müller <ulm@gentoo.org> motif-2.2.3-r12.ebuild,
+  motif-2.3.4-r1.ebuild:
+  Update blocker against emul-linux-x86-motif, bug 461916.
+
+  01 Jun 2013; Ulrich Müller <ulm@gentoo.org> motif-2.3.4-r1.ebuild,
+  -files/motif-2.3.4-automake-1.13.patch, -files/motif-2.3.4-fc-config.patch,
+  -files/motif-2.3.4-install-dirs.patch,
+  -files/motif-2.3.4-parallel-make.patch, -files/motif-2.3.4-solaris-11.patch:
+  Patchset moved to Gentoo mirrors.
+
+  13 May 2013; Ulrich Müller <ulm@gentoo.org> motif-2.3.4-r1.ebuild,
+  +files/motif-2.3.4-solaris-11.patch:
+  Apply Solaris patch unconditionally, bug 465426.
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> motif-2.3.4-r1.ebuild:
+  Stable for sparc, wrt bug #465788
+
+  04 May 2013; Ulrich Müller <ulm@gentoo.org> motif-2.2.3-r12.ebuild,
+  motif-2.3.4-r1.ebuild:
+  Drop to ~x86 because of broken dependencies, bug 468590.
+
+  01 May 2013; Ulrich Müller <ulm@gentoo.org> motif-2.2.3-r12.ebuild,
+  motif-2.3.4-r1.ebuild, +files/motif-2.3.4-automake-1.13.patch:
+  Fix build failure with automake 1.13, bug 467230.
+
+  01 May 2013; Agostino Sarubbo <ago@gentoo.org> motif-2.3.4-r1.ebuild:
+  Stable for sh, wrt bug #465788
+
+  01 May 2013; Agostino Sarubbo <ago@gentoo.org> motif-2.2.3-r12.ebuild,
+  motif-2.3.4-r1.ebuild:
+  Stable for x86, wrt bug #465788
+
+  25 Apr 2013; Ulrich Müller <ulm@gentoo.org> motif-2.2.3-r12.ebuild,
+  motif-2.3.4-r1.ebuild:
+  Require automake 1.12, bug 467230.
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> motif-2.3.4-r1.ebuild:
+  Stable for ia64, wrt bug #465788
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> motif-2.3.4-r1.ebuild:
+  Stable for alpha, wrt bug #465788
+
+  16 Apr 2013; Agostino Sarubbo <ago@gentoo.org> motif-2.3.4-r1.ebuild:
+  Stable for arm, wrt bug #465788
+
+  16 Apr 2013; Agostino Sarubbo <ago@gentoo.org> motif-2.3.4-r1.ebuild:
+  Stable for ppc64, wrt bug #465788
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> motif-2.3.4-r1.ebuild:
+  Stable for ppc, wrt bug #465788
+
+  15 Apr 2013; Jeroen Roovers <jer@gentoo.org> motif-2.3.4-r1.ebuild:
+  Stable for HPPA (bug #465788).
+
+  05 Apr 2013; Ulrich Müller <ulm@gentoo.org> motif-2.3.4-r1.ebuild:
+  Add slot operator to libpng dependency.
+
+  23 Mar 2013; Ulrich Müller <ulm@gentoo.org> motif-2.2.3-r12.ebuild,
+  motif-2.3.4-r1.ebuild:
+  More complete dependencies on X libraries.
+
+  18 Mar 2013; Ulrich Müller <ulm@gentoo.org> motif-2.3.4-r1.ebuild,
+  +files/motif-2.3.4-fc-config.patch:
+  Fix underlinking problem with ld GNU gold, caused by outdated fontconfig
+  test in configure, bug 462232.
+
+  16 Mar 2013; Ulrich Müller <ulm@gentoo.org> motif-2.3.4-r1.ebuild:
+  Install examples only once. Use default src_install function.
+
+*motif-2.3.4-r1 (15 Mar 2013)
+*motif-2.2.3-r12 (15 Mar 2013)
+
+  15 Mar 2013; Ulrich Müller <ulm@gentoo.org> +motif-2.2.3-r12.ebuild,
+  +motif-2.3.4-r1.ebuild, +files/motif-2.3.4-install-dirs.patch,
+  +files/motif-2.3.4-parallel-make.patch, metadata.xml:
+  Enable multilib. Fix parallel build failure. Bindings files moved from
+  /usr/lib to /usr/share. New motif22-compatibility USE flag.
 
   02 Jan 2013; Ulrich Müller <ulm@gentoo.org> -files/motif-2.3.2-darwin.patch,
   -files/motif-2.3.2-libpng14.patch, -motif-2.3.3-r1.ebuild,

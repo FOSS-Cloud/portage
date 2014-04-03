@@ -1,6 +1,32 @@
 # ChangeLog for net-analyzer/gnome-nettool
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/gnome-nettool/ChangeLog,v 1.119 2012/05/04 06:08:10 jdhore Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/gnome-nettool/ChangeLog,v 1.126 2014/02/22 22:21:08 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-nettool-3.8.1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-nettool-3.8.1.ebuild:
+  arch stable, bug 888
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gnome-nettool-3.8.1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gnome-nettool-3.8.1.ebuild:
+  amd64 stable, bug #478252
+
+*gnome-nettool-3.8.1 (01 Jun 2013)
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> +gnome-nettool-3.8.1.ebuild:
+  Version bump
+
+*gnome-nettool-3.8.0 (04 May 2013)
+
+  04 May 2013; Pacho Ramos <pacho@gentoo.org> +gnome-nettool-3.8.0.ebuild:
+  Version bump
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-nettool-3.0.1.ebuild:
+  Clean up old revision.
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org> gnome-nettool-2.32.0.ebuild,
   gnome-nettool-3.0.1.ebuild, gnome-nettool-3.2.0.ebuild:

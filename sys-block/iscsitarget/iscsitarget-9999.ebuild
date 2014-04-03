@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/iscsitarget/iscsitarget-9999.ebuild,v 1.1 2013/01/03 11:09:58 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/iscsitarget/iscsitarget-9999.ebuild,v 1.4 2013/10/03 17:50:56 ryao Exp $
 
 EAPI="4"
 
@@ -8,9 +8,9 @@ inherit linux-mod eutils flag-o-matic
 
 if [ ${PV} == "9999" ] ; then
 	inherit subversion
-	ESVN_REPO_URI="http://iscsitarget.svn.sourceforge.net/svnroot/iscsitarget/trunk"
+	ESVN_REPO_URI="http://svn.code.sf.net/p/iscsitarget/code/trunk"
 else
-	SRC_URI="http://dev.gentoo.org/~ryao/dist/${P}.tar.gz"
+	SRC_URI="http://dev.gentoo.org/~ryao/dist/${P}.tar.xz"
 	KEYWORDS="~amd64 ~ppc ~x86"
 fi
 
@@ -33,7 +33,7 @@ pkg_setup() {
 	kernel_is ge 2 6 14 || die "Linux 2.6.14 or newer required"
 
 	[ ${PV} != "9999" ] && \
-		{ kernel_is le 3 6 || die "Linux 3.6 is the latest supported version."; }
+		{ kernel_is le 3 11 || die "Linux 3.11 is the latest supported version."; }
 
 	linux-mod_pkg_setup
 }
@@ -43,21 +43,24 @@ src_prepare() {
 		# Fix build system to apply proper patches
 		epatch "${FILESDIR}/${PN}-1.4.20.2_p20130103-fix-3.2-support.patch"
 
-		# Apply kernel-specific patches
-		emake KSRC="${KERNEL_DIR}" patch || die
-
 		# Respect LDFLAGS. Bug #365735
 		epatch "${FILESDIR}/${PN}-1.4.20.2-respect-flags-v2.patch"
 
 		# Avoid use of WRITE_SAME_16 in Linux 2.6.32 and earlier
 		epatch "${FILESDIR}/${PN}-1.4.20.2_p20130103-restore-linux-2.6.32-support.patch"
 	fi
+
+	# Apply kernel-specific patches
+	emake KSRC="${KERNEL_DIR}" patch || die
+
+	epatch_user
 }
 
 src_compile() {
 	emake KSRC="${KERNEL_DIR}" usr || die
 
 	unset ARCH
+	filter-ldflags -Wl,*
 	emake KSRC="${KERNEL_DIR}" kernel || die
 }
 

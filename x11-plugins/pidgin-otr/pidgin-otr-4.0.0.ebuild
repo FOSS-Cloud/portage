@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-plugins/pidgin-otr/pidgin-otr-4.0.0.ebuild,v 1.1 2012/10/18 16:16:42 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-plugins/pidgin-otr/pidgin-otr-4.0.0.ebuild,v 1.3 2014/03/01 22:24:05 mgorny Exp $
 
-EAPI=4
+EAPI=5
 
 DESCRIPTION="(OTR) Messaging allows you to have private conversations over instant messaging"
 HOMEPAGE="http://www.cypherpunks.ca/otr/"
@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE=""
 
-RDEPEND="dev-libs/libgcrypt
+RDEPEND="dev-libs/libgcrypt:0
 	net-im/pidgin[gtk]
 	>=net-libs/libotr-4.0.0
 	x11-libs/gtk+:2"

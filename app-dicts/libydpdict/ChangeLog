@@ -1,6 +1,25 @@
 # ChangeLog for app-dicts/libydpdict
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-dicts/libydpdict/ChangeLog,v 1.7 2013/01/20 09:52:45 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-dicts/libydpdict/ChangeLog,v 1.13 2014/03/07 01:02:22 creffett Exp $
+
+  07 Mar 2014; Chris Reffett <creffett@gentoo.org> -libydpdict-0.99.3.ebuild:
+  Remove old
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> libydpdict-1.0.2.ebuild:
+  Stable for x86, wrt bug #499160
+
+  27 Jan 2014; Chema Alonso <nimiux@gentoo.org> libydpdict-1.0.2.ebuild:
+  Stable for amd64 wrt bug #499160
+
+  24 Jan 2014; Chris Reffett <creffett@gentoo.org> libydpdict-1.0.2.ebuild:
+  Remove extraneous || die
+
+  24 Jan 2014; Chris Reffett <creffett@gentoo.org> libydpdict-1.0.2.ebuild:
+  EAPI bump
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> -libydpdict-1.0.0.ebuild,
+  metadata.xml:
+  Cleanup due bug #137506
 
   20 Jan 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup fue retirement, bug #35242

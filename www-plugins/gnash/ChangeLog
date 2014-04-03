@@ -1,6 +1,44 @@
 # ChangeLog for www-plugins/gnash
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/gnash/ChangeLog,v 1.92 2013/02/15 16:04:48 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/gnash/ChangeLog,v 1.100 2013/12/04 11:24:48 chithanh Exp $
+
+  04 Dec 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  gnash-0.8.10_p20131019.ebuild:
+  Stable on amd64/x86
+
+*gnash-0.8.10_p20131019 (22 Oct 2013)
+
+  22 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +gnash-0.8.10_p20131019.ebuild:
+  New snapshot.
+
+*gnash-0.8.10_p20130822 (22 Aug 2013)
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/gnash-0.8.11-gettext-macro.patch, +gnash-0.8.10_p20130822.ebuild,
+  metadata.xml:
+  New snapshot. Adds ffmpeg-2.0 support, bug #480672.
+
+  10 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  gnash-0.8.10_p20120903-r1.ebuild:
+  Use subslot dependencies for boost.
+
+*gnash-0.8.10_p20120903-r1 (28 Mar 2013)
+
+  28 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +gnash-0.8.10_p20120903-r1.ebuild, -files/gnash-0.8.10-cve-2012-1175.patch,
+  -files/gnash-0.8.10-jemalloc-aslr-fix.patch, -gnash-0.8.10-r2.ebuild,
+  gnash-0.8.10_p20120903.ebuild:
+  Do not install eglinfo, bug #463654.
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnash-0.8.10_p20120903.ebuild:
+  Stable for x86, wrt bug #456328
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnash-0.8.10_p20120903.ebuild:
+  Stable for ppc, wrt bug #456328
+
+  05 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gnash-0.8.10_p20120903.ebuild:
+  Stable for amd64, wrt bug #456328
 
   15 Feb 2013; Alexis Ballier <aballier@gentoo.org>
   gnash-0.8.10_p20120903.ebuild, +files/gnash-0.8.10_p20120903-bytesfmt.patch,

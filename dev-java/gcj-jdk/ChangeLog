@@ -1,6 +1,27 @@
 # ChangeLog for dev-java/gcj-jdk
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/gcj-jdk/ChangeLog,v 1.11 2013/01/23 10:30:56 sera Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/gcj-jdk/ChangeLog,v 1.15 2014/01/18 09:30:11 polynomial-c Exp $
+
+  18 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -gcj-jdk-4.4.4-r1.ebuild,
+  -gcj-jdk-4.4.5-r1.ebuild, -gcj-jdk-4.4.6.ebuild:
+  [QA] Removed ebuilds which have no gcc counterpart anymore.
+
+  24 Dec 2013; Tom Wijsman <TomWij@gentoo.org> gcj-jdk-4.4.4-r1.ebuild,
+  gcj-jdk-4.4.5-r1.ebuild, gcj-jdk-4.4.6.ebuild, gcj-jdk-4.5.1-r1.ebuild,
+  gcj-jdk-4.5.2-r1.ebuild, gcj-jdk-4.5.3.ebuild, gcj-jdk-4.5.4-r1.ebuild,
+  gcj-jdk-4.5.4.ebuild, gcj-jdk-4.6.0.ebuild, gcj-jdk-4.6.1.ebuild,
+  gcj-jdk-4.6.2-r1.ebuild, gcj-jdk-4.6.3-r1.ebuild, gcj-jdk-4.6.3-r2.ebuild,
+  gcj-jdk-4.6.3-r3.ebuild, gcj-jdk-4.6.3.ebuild, gcj-jdk-4.7.2.ebuild,
+  gcj-jdk-4.7.3.ebuild:
+  Reflect gtk --> awt USE flag change of sys-devel/gcc.
+
+*gcj-jdk-4.7.3 (27 Jun 2013)
+
+  27 Jun 2013; Tom Wijsman <TomWij@gentoo.org> +gcj-jdk-4.7.3.ebuild:
+  Version bump to 4.7.3; fixes bug #473074, reported by Ivan Iraci.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
 *gcj-jdk-4.7.2 (23 Jan 2013)
 *gcj-jdk-4.6.3-r3 (23 Jan 2013)

@@ -1,6 +1,91 @@
 # ChangeLog for app-text/llpp
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/llpp/ChangeLog,v 1.34 2013/02/17 23:13:52 xmw Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/llpp/ChangeLog,v 1.57 2014/03/07 21:43:50 pacho Exp $
+
+  07 Mar 2014; Pacho Ramos <pacho@gentoo.org> llpp-17_p20140112.ebuild:
+  amd64 stable, bug 472532
+
+  23 Jan 2014; Michael Weber <xmw@gentoo.org> -llpp-12.ebuild, -llpp-16.ebuild,
+  -llpp-16_p20130828.ebuild:
+  Drop old stable and unstable versions for security issues (bug 498876)
+
+*llpp-17_p20140112 (22 Jan 2014)
+
+  22 Jan 2014; Michael Weber <xmw@gentoo.org> +llpp-17_p20140112.ebuild:
+  Version bump
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> llpp-15.ebuild:
+  amd64 stable, bug #472532
+
+  30 Aug 2013; Michael Weber <xmw@gentoo.org> llpp-16_p20130828.ebuild:
+  Put stable tarball on devspace, new checksum.
+
+*llpp-16_p20130828 (29 Aug 2013)
+
+  29 Aug 2013; Michael Weber <xmw@gentoo.org> +llpp-16_p20130828.ebuild:
+  Add snapshot versions for llpp and mupdf
+
+*llpp-16 (29 Aug 2013)
+
+  29 Aug 2013; Michael Weber <xmw@gentoo.org> +llpp-16.ebuild, llpp-15.ebuild,
+  llpp-9999.ebuild:
+  Version bump
+
+  28 Aug 2013; Michael Weber <xmw@gentoo.org> llpp-15.ebuild:
+  Adjust depend to =app-text/mupdf-1.2*
+
+  13 Jul 2013; Michael Weber <xmw@gentoo.org>
+  -files/llpp-9999-fz_drop_display_list.patch,
+  -files/llpp-9999-fz_new_text_page.patch,
+  -files/llpp-9999-mupdf-split-headers.patch,
+  -files/llpp-9999-mupdf_trailer.patch, llpp-12.ebuild,
+  llpp-13_p20121123.ebuild, llpp-15.ebuild, llpp-9999.ebuild:
+  Fix help text (thanks Thomas J. Moore, bug 476724), update live build.
+
+  16 Jun 2013; Michael Weber <xmw@gentoo.org> llpp-15.ebuild, llpp-9999.ebuild:
+  Add -lpthread for shared builds
+
+  16 Jun 2013; Michael Weber <xmw@gentoo.org>
+  +files/llpp-9999-fz_new_text_page.patch, llpp-9999.ebuild:
+  Update live build
+
+  13 Jun 2013; Michael Weber <xmw@gentoo.org> llpp-9999.ebuild:
+  Depend on SLOT=0 of media-libs/openjpeg (bug 440086)
+
+  13 Jun 2013; Michael Weber <xmw@gentoo.org> llpp-15.ebuild, llpp-9999.ebuild:
+  Improve static build
+
+  11 Jun 2013; Michael Weber <xmw@gentoo.org> llpp-15.ebuild, llpp-9999.ebuild:
+  deps handled by updated mupdf pkg-config files
+
+  07 Jun 2013; Michael Weber <xmw@gentoo.org> llpp-12.ebuild,
+  llpp-13_p20121123.ebuild, llpp-15.ebuild:
+  Use openjpeg:0
+
+  06 Jun 2013; Michael Weber <xmw@gentoo.org>
+  +files/llpp-9999-mupdf-trailer.patch, llpp-9999.ebuild:
+  Update live ebuild to openjpeg:2 and fix for latest mupdf
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> llpp-13_p20121123.ebuild:
+  Stable for ppc, wrt bug #463196
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> llpp-13_p20121123.ebuild:
+  Stable for x86, wrt bug #463196
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> llpp-13_p20121123.ebuild:
+  Stable for amd64, wrt bug #463196
+
+  25 Mar 2013; Michael Weber <xmw@gentoo.org> llpp-15.ebuild:
+  switch to fixed tarball.
+
+*llpp-15 (25 Mar 2013)
+
+  25 Mar 2013; Michael Weber <xmw@gentoo.org> +llpp-15.ebuild, llpp-9999.ebuild:
+  Version bump (git tag), adjust live ebuild depends.
+
+  25 Mar 2013; Michael Weber <xmw@gentoo.org> -llpp-13.ebuild,
+  llpp-13_p20121123.ebuild:
+  Drop old, adjust mupdf dependency
 
   17 Feb 2013; Michael Weber <xmw@gentoo.org> llpp-9999.ebuild:
   update live build to include utils.ml

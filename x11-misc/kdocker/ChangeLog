@@ -1,6 +1,29 @@
 # ChangeLog for x11-misc/kdocker
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/kdocker/ChangeLog,v 1.3 2012/12/20 17:23:42 kensington Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/kdocker/ChangeLog,v 1.8 2014/03/13 22:09:14 johu Exp $
+
+*kdocker-4.8-r2 (13 Mar 2014)
+
+  13 Mar 2014; Johannes Huber <johu@gentoo.org> +kdocker-4.8-r2.ebuild,
+  -kdocker-4.8-r1.ebuild:
+  Revision bump installs bash completion script to the correct location by
+  Samuel BAUER <samuel.bauer@yahoo.fr>, bug #504518.
+
+*kdocker-4.8-r1 (27 Oct 2013)
+
+  27 Oct 2013; Johannes Huber <johu@gentoo.org>
+  +files/kdocker-4.8-unbundle-qtsingleapplication.patch, +kdocker-4.8-r1.ebuild:
+  Revision bump uses system qtsingleapplication instead of bundled lib wrt bug
+  #489146.
+
+  11 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kdocker-4.8.ebuild:
+  Stable for x86, wrt bug #472986
+
+  11 Jun 2013; Agostino Sarubbo <ago@gentoo.org> kdocker-4.8.ebuild:
+  Stable for amd64, wrt bug #472986
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> kdocker-4.8.ebuild:
+  Move Qt dependencies to the new category
 
   20 Dec 2012; Michael Palimaka <kensington@gentoo.org> -kdocker-4.7.ebuild:
   Remove old.

@@ -1,6 +1,47 @@
 # ChangeLog for x11-misc/virtualgl
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/virtualgl/ChangeLog,v 1.10 2013/02/05 17:38:27 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/virtualgl/ChangeLog,v 1.19 2014/01/26 11:41:50 ago Exp $
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> virtualgl-2.3.2-r3.ebuild:
+  Stable for x86, wrt bug #480128
+
+*virtualgl-2.3.3 (11 Dec 2013)
+
+  11 Dec 2013; Pacho Ramos <pacho@gentoo.org> +virtualgl-2.3.3.ebuild:
+  Version bump and allow old emul set at the same time of native multilib
+  (#489056 by iamnr3)
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> virtualgl-2.3.2-r3.ebuild:
+  Stable for amd64, wrt bug #480128
+
+  06 Jul 2013; Pacho Ramos <pacho@gentoo.org> +files/vgl-helper.sh,
+  virtualgl-2.3.2-r3.ebuild:
+  Install vgl-helper.sh script
+
+*virtualgl-2.3.2-r3 (05 Jul 2013)
+
+  05 Jul 2013; Pacho Ramos <pacho@gentoo.org> +files/vgl.service,
+  +virtualgl-2.3.2-r3.ebuild, -virtualgl-2.3.2-r1.ebuild,
+  -virtualgl-2.3.2-r2.ebuild:
+  Install unit file and drop old.
+
+*virtualgl-2.3.2-r2 (26 May 2013)
+
+  26 May 2013; Pacho Ramos <pacho@gentoo.org> +files/vgl.initd-r2,
+  +virtualgl-2.3.2-r2.ebuild, -virtualgl-2.3.2.ebuild:
+  Fix running with gdm-3 (#469928, thanks a lot to Vadim A. Misbakh-Soloviov
+  (mva) for his help), drop old.
+
+*virtualgl-2.3.2-r1 (09 May 2013)
+
+  09 May 2013; Pacho Ramos <pacho@gentoo.org> +virtualgl-2.3.2-r1.ebuild:
+  Build multilib properly (#445784 by mgorny)
+
+  21 Apr 2013; Michał Górny <mgorny@gentoo.org> virtualgl-2.3.2.ebuild:
+  Support multilib libraries alternatively to emul-linux-x86-xlibs.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   05 Feb 2013; Pacho Ramos <pacho@gentoo.org> -virtualgl-2.3.1-r1.ebuild,
   virtualgl-2.3.2.ebuild:

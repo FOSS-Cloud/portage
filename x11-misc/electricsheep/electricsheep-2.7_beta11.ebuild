@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/electricsheep/electricsheep-2.7_beta11.ebuild,v 1.9 2012/09/05 08:13:55 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/electricsheep/electricsheep-2.7_beta11.ebuild,v 1.11 2014/01/21 02:19:38 creffett Exp $
 
-EAPI=2
+EAPI=5
 inherit eutils flag-o-matic autotools
 
 DESCRIPTION="realize the collective dream of sleeping computers from all over the internet"
@@ -16,7 +16,7 @@ KEYWORDS="amd64 x86"
 
 DEPEND="dev-libs/expat
 	>=gnome-base/libglade-2.5.0:2.0
-	virtual/ffmpeg
+	>=virtual/ffmpeg-0.10
 	sys-libs/zlib
 	>=x11-libs/gtk+-2.7.0:2
 	x11-libs/libX11"
@@ -36,7 +36,8 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-xdg-utils.patch \
 		"${FILESDIR}"/${PN}-gnome.patch \
 		"${FILESDIR}"/${P}-asneeded.patch \
-		"${FILESDIR}"/${PN}-ffmpeg.patch
+		"${FILESDIR}"/${PN}-ffmpeg.patch \
+		"${FILESDIR}"/${P}-ffmpeg1.patch
 	eautoreconf
 }
 

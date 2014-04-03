@@ -1,6 +1,29 @@
 # ChangeLog for media-plugins/vdr-graphtft
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-graphtft/ChangeLog,v 1.34 2013/01/24 13:05:14 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-graphtft/ChangeLog,v 1.37 2014/01/08 12:46:48 hd_brummy Exp $
+
+  08 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  -vdr-graphtft-0.3.2.24.ebuild, -files/vdr-graphtft-0.3.2.24_ffmpeg-0.5.diff,
+  -files/vdr-graphtft-0.3.2.24_gcc-4.4.x.diff,
+  -files/vdr-graphtft-0.3.2.24_gentoo.diff,
+  -files/vdr-graphtft-0.3.2.24_makefile.diff, -vdr-graphtft-0.3.4.ebuild,
+  -files/vdr-graphtft-0.3.4_ffmpeg-1.patch,
+  -files/vdr-graphtft-0.3.4_gcc-4.4.x.diff,
+  -files/vdr-graphtft-0.3.4_gentoo.diff,
+  -files/vdr-graphtft-0.3.4_vdr-1.7.26_ChannelSwitch.patch,
+  -files/vdr-1.7.27.diff:
+  cleanup
+
+  17 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> vdr-graphtft-0.3.7.ebuild:
+  Include mem.h so we build against libav9. Fixes bug#443228.
+
+*vdr-graphtft-0.3.7 (31 Mar 2013)
+
+  31 Mar 2013; Joerg Bornkessel <hd_brummy@gentoo.org>
+  +vdr-graphtft-0.3.7.ebuild, +files/vdr-graphtft-0.3.7_gcc-4.4.x.diff,
+  +files/vdr-graphtft-0.3.7_gentoo.diff,
+  +files/vdr-graphtft-0.3.7_makefile.diff:
+  bump
 
   24 Jan 2013; Alexis Ballier <aballier@gentoo.org> vdr-graphtft-0.3.4.ebuild,
   +files/vdr-graphtft-0.3.4_ffmpeg-1.patch:
@@ -195,4 +218,3 @@
   +vdr-graphtft-0.1.16_alpha.ebuild:
   initial ebuild, find older versions on overlay vdr-testing; Thanks to
   T.Kost, T.Dressler, S.Grebe for testing on graphtft-fe part
-

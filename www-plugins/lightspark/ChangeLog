@@ -1,6 +1,42 @@
 # ChangeLog for www-plugins/lightspark
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/lightspark/ChangeLog,v 1.50 2012/12/22 21:15:39 chithanh Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/lightspark/ChangeLog,v 1.55 2014/01/11 10:22:03 mgorny Exp $
+
+  11 Jan 2014; Michał Górny <mgorny@gentoo.org> lightspark-0.7.2-r1.ebuild:
+  Depend on llvm < 3.4, since 3.4 does not work.
+
+  23 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/lightspark-0.7.2-ffmpeg20.patch, lightspark-0.7.2-r1.ebuild:
+  Add ffmpeg-2 support, bug #492336.
+
+*lightspark-0.7.2-r1 (04 Oct 2013)
+
+  04 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/lightspark-0.7.2-llvm33.patch, +lightspark-0.7.2-r1.ebuild:
+  Drop obsolete elog message, bug #476478. Add patch from Fedora for llvm-3.3
+  compatibility, bug #479548.
+
+*lightspark-0.7.2 (19 Mar 2013)
+
+  19 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +lightspark-0.7.2.ebuild, -files/lightspark-0.5.7-llvm-3.1_0001.patch,
+  -files/lightspark-0.6.0.1-gcc-4.5_0000.patch,
+  -files/lightspark-0.6.0.1-gcc-4.5_0001.patch,
+  -files/lightspark-0.6.0.1-gcc-4.5_0002.patch,
+  -files/lightspark-0.6.0.1-gcc-4.5_0003.patch,
+  -files/lightspark-0.6.0.1-gcc-4.5_0004.patch,
+  -files/lightspark-0.6.0.1-gcc-4.5_0005.patch,
+  -files/lightspark-0.6.0.1-gcc-4.5_0006.patch,
+  -files/lightspark-0.7.0-libxmlpp-gles.patch,
+  -files/lightspark-0.7.0-llvm-3.2.patch, -lightspark-0.6.0.1.ebuild,
+  -lightspark-0.7.0.ebuild, lightspark-0.7.1.ebuild:
+  Version bump, restrict llvm version due to upstream #1157158.
+
+*lightspark-0.7.1 (04 Mar 2013)
+
+  04 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +lightspark-0.7.1.ebuild:
+  Version bump.
 
   22 Dec 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
   +files/lightspark-0.7.0-llvm-3.2.patch, lightspark-0.7.0.ebuild:

@@ -1,6 +1,105 @@
 # ChangeLog for dev-util/buildbot
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot/ChangeLog,v 1.125 2013/02/24 17:48:14 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot/ChangeLog,v 1.151 2014/02/24 01:45:39 phajdan.jr Exp $
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  buildbot-0.8.8-r2.ebuild:
+  x86 stable wrt bug #487736
+
+  23 Jan 2014; Chema Alonso <nimiux@gentoo.org> buildbot-0.8.8-r2.ebuild:
+  Stable for amd64 wrt bug #487736
+
+  21 Jan 2014; Mike Gilbert <floppym@gentoo.org> buildbot-0.8.8-r2.ebuild,
+  buildbot-9999.ebuild:
+  Add trailing slash on paths passed to dohtml to avoid doubling up the html
+  directory. Thanks to Arfrever.
+
+  21 Jan 2014; Markus Meier <maekke@gentoo.org> buildbot-0.8.8-r2.ebuild:
+  arm stable, bug #487736
+
+  21 Jan 2014; Markos Chandras <hwoarang@gentoo.org> buildbot-0.8.8-r2.ebuild,
+  buildbot-9999.ebuild:
+  Fix build for IUSE=doc and add missing sphinx dependency. Bug #498672
+
+  21 Jan 2014; Markus Meier <maekke@gentoo.org> buildbot-9999.ebuild:
+  add dev-python/python-dateutil test dependency to live ebuild too
+
+  21 Jan 2014; Markus Meier <maekke@gentoo.org> buildbot-0.8.8-r2.ebuild:
+  add missing dev-python/python-dateutil test dependency
+
+  20 Jan 2014; Jeroen Roovers <jer@gentoo.org> buildbot-0.8.8-r2.ebuild:
+  Stable for HPPA (bug #487736).
+
+  10 Dec 2013; Markos Chandras <hwoarang@gentoo.org> -buildbot-0.8.7_p1.ebuild,
+  buildbot-0.8.7_p1-r1.ebuild, -buildbot-0.8.8.ebuild,
+  buildbot-0.8.8-r2.ebuild, buildbot-9999.ebuild:
+  Drop dev-python/sqlalchemy dependency. The adjusted sqlalchemy-migrate will
+  pull the required version
+
+*buildbot-0.8.8-r2 (30 Sep 2013)
+
+  30 Sep 2013; Markos Chandras <hwoarang@gentoo.org> +buildbot-0.8.8-r2.ebuild,
+  -buildbot-0.8.8-r1.ebuild, buildbot-9999.ebuild, files/buildmaster.initd:
+  Add reload() function to the init script. Update live ebuild. Bug #486586
+
+*buildbot-0.8.8-r1 (28 Sep 2013)
+
+  28 Sep 2013; Pacho Ramos <pacho@gentoo.org> +buildbot-0.8.8-r1.ebuild,
+  +files/buildbot.service:
+  Add unit file (#486082 by Evgeniy Dushistov)
+
+  21 Sep 2013; Markos Chandras <hwoarang@gentoo.org> -buildbot-0.8.3_p1.ebuild,
+  -buildbot-0.8.6_p1.ebuild, -buildbot-0.8.7.ebuild:
+  remove old
+
+*buildbot-9999 (11 Sep 2013)
+
+  11 Sep 2013; Markos Chandras <hwoarang@gentoo.org> +buildbot-9999.ebuild:
+  Add buildbot live ebuild thanks to Alice Ferrazzi <alice.ferrazzi@gmail.com>.
+  Bug #484334
+
+*buildbot-0.8.8 (30 Aug 2013)
+
+  30 Aug 2013; Markos Chandras <hwoarang@gentoo.org> +buildbot-0.8.8.ebuild:
+  Version bump
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> buildbot-0.8.3_p1.ebuild,
+  buildbot-0.8.6_p1.ebuild, buildbot-0.8.7.ebuild, buildbot-0.8.7_p1.ebuild,
+  buildbot-0.8.7_p1-r1.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for s390, wrt bug #468148
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for x86, wrt bug #468148
+
+  08 May 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for sh, wrt bug #468148
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for ppc64, wrt bug #468148
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for sparc, wrt bug #468148
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for ia64, wrt bug #468148
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for alpha, wrt bug #468148
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for arm, wrt bug #468148
+
+  05 May 2013; Jeroen Roovers <jer@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for HPPA (bug #468148).
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for ppc, wrt bug #468148
+
+  02 May 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.7_p1-r1.ebuild:
+  Stable for amd64, wrt bug #468148
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> buildbot-0.8.6_p1.ebuild:
   Stable for sh, wrt bug #449426

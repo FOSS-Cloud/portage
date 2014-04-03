@@ -1,6 +1,47 @@
 # ChangeLog for media-video/transcode
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/transcode/ChangeLog,v 1.304 2012/09/06 05:02:42 ssuominen Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/transcode/ChangeLog,v 1.315 2013/12/10 12:39:25 polynomial-c Exp $
+
+  10 Dec 2013; Lars Wendler <polynomial-c@gentoo.org>
+  transcode-1.1.7-r3.ebuild, +files/transcode-1.1.7-freetype251.patch:
+  Fixed compilation with >=media-libs/freetype-2.5.1 (bug #493598).
+
+*transcode-1.1.7-r3 (20 Jul 2013)
+
+  20 Jul 2013; Alexis Ballier <aballier@gentoo.org> +transcode-1.1.7-r3.ebuild,
+  +files/transcode-1.1.7-ffmpeg2.patch,
+  +files/transcode-1.1.7-preset-force.patch:
+  Do not force using a preset. Fix build with ffmpeg-2.0. Fix segfaults
+  introduced by wrong usage of the av_dict API in the ffmpeg-0.11 patch. Add
+  missing fixes from the libav9 patch.
+
+*transcode-1.1.7-r2 (27 May 2013)
+
+  27 May 2013; Ian Whyman <thev00d00@gentoo.org>
+  +files/transcode-1.1.7-libav-9.patch, +transcode-1.1.7-r2.ebuild:
+  Add patch to make it build with newer libav/ffmpeg, thanks to Ji?� Moravec for
+  the patch #443214
+
+  10 Mar 2013; Alexis Ballier <aballier@gentoo.org> -transcode-1.1.7.ebuild:
+  remove old
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> transcode-1.1.7-r1.ebuild:
+  Stable for alpha, wrt bug #459454
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> transcode-1.1.7-r1.ebuild:
+  Stable for sparc, wrt bug #459454
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> transcode-1.1.7-r1.ebuild:
+  Stable for ppc64, wrt bug #459454
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> transcode-1.1.7-r1.ebuild:
+  Stable for ppc, wrt bug #459454
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> transcode-1.1.7-r1.ebuild:
+  Stable for x86, wrt bug #459454
+
+  03 Mar 2013; Agostino Sarubbo <ago@gentoo.org> transcode-1.1.7-r1.ebuild:
+  Stable for amd64, wrt bug #459454
 
   06 Sep 2012; Samuli Suominen <ssuominen@gentoo.org>
   -files/transcode-1.0.6-imagemagick.patch, -files/transcode-1.1.4-x264.patch,
@@ -44,7 +85,7 @@
 
   30 Jan 2012; Samuli Suominen <ssuominen@gentoo.org>
   +transcode-1.1.7-r1.ebuild, +files/transcode-1.1.7-ffmpeg-0.10.patch:
-  Fix building with media-video/ffmpeg >= 0.10 and USE="postproc" wrtt #401287
+  Fix building with media-video/ffmpeg >= 0.10 and USE="postproc" wrt #401287
   by Olaf Freyer
 
   04 Jan 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> transcode-1.1.7.ebuild:

@@ -1,6 +1,20 @@
 # ChangeLog for net-p2p/transmission-remote-gtk
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/transmission-remote-gtk/ChangeLog,v 1.16 2012/10/03 05:19:13 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/transmission-remote-gtk/ChangeLog,v 1.19 2014/03/03 23:51:46 pacho Exp $
+
+  03 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  transmission-remote-gtk-1.1.1.ebuild:
+  amd64 stable, bug #495898
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  transmission-remote-gtk-1.1.1.ebuild:
+  x86 stable wrt bug #495898
+
+*transmission-remote-gtk-1.1.1 (13 Jun 2013)
+
+  13 Jun 2013; Jeff Horelick <jdhore@gentoo.org>
+  +transmission-remote-gtk-1.1.1.ebuild, -transmission-remote-gtk-1.1.ebuild:
+  Version bump, remove old
 
   03 Oct 2012; Samuli Suominen <ssuominen@gentoo.org>
   transmission-remote-gtk-1.1.ebuild:
@@ -82,4 +96,3 @@
   18 Sep 2011; Samuli Suominen <ssuominen@gentoo.org>
   +transmission-remote-gtk-0.6.ebuild:
   Initial commit wrt #364721 by Jeff D. Horelick and Aleksey Frolov
-

@@ -1,6 +1,25 @@
 # ChangeLog for games-board/tetzle
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/tetzle/ChangeLog,v 1.8 2013/02/01 00:13:34 mr_bones_ Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-board/tetzle/ChangeLog,v 1.13 2014/03/20 22:25:44 mr_bones_ Exp $
+
+  20 Mar 2014; Michael Sterrett <mr_bones_@gentoo.org> -tetzle-2.0.0.ebuild:
+  old
+
+*tetzle-2.0.3 (19 Mar 2014)
+
+  19 Mar 2014; Michael Sterrett <mr_bones_@gentoo.org> +tetzle-2.0.3.ebuild:
+  version bump
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> tetzle-2.0.1.ebuild:
+  Stable for x86, wrt bug #490592
+
+  13 Nov 2013; Tony Vroon <chainsaw@gentoo.org> tetzle-2.0.1.ebuild:
+  Marked stable on AMD64 based on arch testing by Elijah "Armageddon" El
+  Lazkani in bug #490592.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> tetzle-2.0.0.ebuild,
+  tetzle-2.0.1.ebuild:
+  Move Qt dependencies to the new category
 
   01 Feb 2013; Michael Sterrett <mr_bones_@gentoo.org> tetzle-2.0.1.ebuild:
   whitespace

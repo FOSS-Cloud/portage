@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/mps/mps-1.106.2.ebuild,v 1.4 2012/11/25 21:54:19 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/mps/mps-1.106.2.ebuild,v 1.5 2013/05/15 04:13:43 patrick Exp $
 EAPI=4
 
 DESCRIPTION="Ravenbrook Memory Pool System"
@@ -31,7 +31,7 @@ src_compile() {
 }
 
 src_install() {
-	mkdir -p ${D}/usr/include/mps
-	cp ${S}/*.h ${D}/usr/include/mps
-	dolib.a ${S}/lii4gc/ci/*.a
+	mkdir -p "${D}"/usr/include/mps
+	cp "${S}"/*.h "${D}"/usr/include/mps
+	dolib.a "${S}"/lii4gc/ci/*.a
 }

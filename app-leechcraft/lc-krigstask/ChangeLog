@@ -1,0 +1,20 @@
+# ChangeLog for app-leechcraft/lc-krigstask
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-krigstask/ChangeLog,v 1.4 2014/04/02 17:42:59 zlogene Exp $
+
+  02 Apr 2014; Mikle Kolyada <zlogene@gentoo.org> lc-krigstask-0.6.60.ebuild:
+  amd64 stable wrt bug #500914
+
+*lc-krigstask-0.6.60 (08 Jan 2014)
+
+  08 Jan 2014; Maxim Koltsov <maksbotan@gentoo.org> +lc-krigstask-0.6.60.ebuild:
+  Bump to LeecChraft-0.6.60 release, thanks to 0xd34df00d.
+
+  17 Dec 2013; Sergey Popov <pinkbyte@gentoo.org> lc-krigstask-9999.ebuild:
+  Add missing dependency on x11-libs/libXcomposite
+
+*lc-krigstask-9999 (24 May 2013)
+
+  24 May 2013; Sergey Popov <pinkbyte@gentoo.org> +lc-krigstask-9999.ebuild,
+  +metadata.xml:
+  Initial commit, thanks to 0xd34df00d

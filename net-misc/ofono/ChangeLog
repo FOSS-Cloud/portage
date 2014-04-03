@@ -1,6 +1,54 @@
 # ChangeLog for net-misc/ofono
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/ofono/ChangeLog,v 1.46 2013/02/22 13:56:27 tomka Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/ofono/ChangeLog,v 1.60 2014/03/08 13:18:55 maekke Exp $
+
+  08 Mar 2014; Markus Meier <maekke@gentoo.org> ofono-1.14.ebuild:
+  arm stable, bug #502900
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> ofono-1.14.ebuild:
+  Stable for x86, wrt bug #502900
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> ofono-1.14.ebuild:
+  amd64 stable, bug #502900
+
+*ofono-1.14 (12 Jan 2014)
+
+  12 Jan 2014; Yixun Lan <dlan@gentoo.org> +ofono-1.14.ebuild,
+  -ofono-1.10-r1.ebuild, -ofono-1.10.ebuild, metadata.xml:
+  version bump 1.14 and drop old, update maintainer emails
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ofono-1.12.ebuild:
+  Stable for arm, wrt bug #464470
+
+  07 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ofono-1.12.ebuild:
+  Stable for x86, wrt bug #464470
+
+  07 Apr 2013; Agostino Sarubbo <ago@gentoo.org> ofono-1.12.ebuild:
+  Stable for amd64, wrt bug #464470
+
+  17 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> -ofono-1.0.ebuild:
+  Drop old stable version by maintainer's request wrt bug #445938
+
+  17 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ofono-1.10.ebuild:
+  Stable for arm, wrt bug #461802
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+*ofono-1.10-r1 (17 Mar 2013)
+
+  17 Mar 2013; Thomas Kahle <tomka@gentoo.org> +ofono-1.10-r1.ebuild,
+  ofono-1.12.ebuild:
+  1.10: QA and EAPI=5, 1.12: QA
+
+  16 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ofono-1.10.ebuild:
+  Stable for x86, wrt bug #461802
+
+  16 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ofono-1.10.ebuild:
+  Stable for amd64, wrt bug #461802
+
+  07 Mar 2013; Thomas Kahle <tomka@gentoo.org> metadata.xml:
+  Refix metadata for proxy maintainership
 
 *ofono-1.12 (22 Feb 2013)
 

@@ -1,8 +1,8 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/phxd/phxd-0.1.0_pre23092005.ebuild,v 1.6 2008/09/10 13:51:01 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/phxd/phxd-0.1.0_pre23092005.ebuild,v 1.8 2014/01/08 06:30:17 vapier Exp $
 
-inherit eutils
+inherit eutils user
 
 DESCRIPTION="Next generation Hotline server in python. kang's branch."
 HOMEPAGE="http://www.avaraline.net"
@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~ppc ~x86"
 IUSE=""
 
-DEPEND="dev-python/twisted
+DEPEND="dev-python/twisted-core
 	dev-python/twisted-web"
 
 RDEPEND=""

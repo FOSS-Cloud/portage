@@ -1,9 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/aspell/aspell-0.60.6.1.ebuild,v 1.9 2012/05/17 20:47:36 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/aspell/aspell-0.60.6.1.ebuild,v 1.13 2014/02/11 15:56:58 mr_bones_ Exp $
 
 EAPI=4
-
 inherit libtool eutils flag-o-matic autotools
 
 DESCRIPTION="A spell checker replacement for ispell"
@@ -44,18 +43,40 @@ RDEPEND="${COMMON_DEPEND}
 	!=app-dicts/aspell-en-0.5*"
 
 src_prepare() {
-	#epatch "${FILESDIR}/${PN}-0.60.3-templateinstantiations.patch"
-	epatch "${FILESDIR}/${PN}-0.60.5-nls.patch"
-	epatch "${FILESDIR}/${PN}-0.60.5-solaris.patch"
-	epatch "${FILESDIR}/${PN}-0.60.6-darwin-bundles.patch"
+	# fix for bug #467602
+	if has_version ">=sys-devel/automake-1.13" ; then
+		sed -i -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' \
+			"${S}"/configure.ac || die
+	fi
+
+	epatch \
+		"${FILESDIR}/${PN}-0.60.5-nls.patch" \
+		"${FILESDIR}/${PN}-0.60.5-solaris.patch" \
+		"${FILESDIR}/${PN}-0.60.6-darwin-bundles.patch"
 
 	rm m4/lt* m4/libtool.m4
 	eautoreconf
 	elibtoolize --reverse-deps
+
+	# Parallel install of libtool libraries doesn't always work.
+	# https://lists.gnu.org/archive/html/libtool/2011-03/msg00003.html
+	# This has to be after automake has run so that we don't clobber
+	# the default target that automake creates for us.
+	echo 'install-filterLTLIBRARIES: install-libLTLIBRARIES' >> Makefile.in || die
+
 }
 
 src_configure() {
-	econf \
+	# if ncurses is built with separate tinfo libs, then...
+	if has_version "sys-libs/ncurses[tinfo]" ; then
+		if has_version "sys-libs/ncurses[unicode]" ; then
+			CURSES_LIB="-lncursesw -ltinfow"
+		else
+			CURSES_LIB="-lncurses -ltinfo"
+		fi
+	fi
+
+	CURSES_LIB="${CURSES_LIB}" econf \
 		$(use_enable nls) \
 		--disable-static \
 		--sysconfdir="${EPREFIX}"/etc/aspell \
@@ -75,7 +96,7 @@ src_install() {
 	newexe scripts/ispell ispell-aspell
 	newexe scripts/spell spell-aspell
 
-	find "${ED}" -name '*.la' -exec rm -f {} +
+	find "${ED}" -name '*.la' -delete
 }
 
 pkg_postinst() {

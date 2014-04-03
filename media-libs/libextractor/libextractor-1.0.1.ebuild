@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libextractor/libextractor-1.0.1.ebuild,v 1.5 2013/01/11 20:42:15 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libextractor/libextractor-1.0.1.ebuild,v 1.7 2014/03/31 19:25:04 tomwij Exp $
 
 EAPI=4
 inherit eutils flag-o-matic multilib toolchain-funcs
@@ -38,8 +38,8 @@ RDEPEND="app-text/iso-codes
 	midi? ( media-libs/libsmf )
 	mpeg? ( media-libs/libmpeg2 )
 	qt4? (
-		x11-libs/qt-gui:4
-		x11-libs/qt-svg:4
+		dev-qt/qtgui:4
+		dev-qt/qtsvg:4
 		)
 	tidy? ( app-text/htmltidy )
 	tiff? ( media-libs/tiff:0 )
@@ -48,7 +48,7 @@ RDEPEND="app-text/iso-codes
 		media-libs/libvorbis
 		)
 	zlib? ( sys-libs/zlib )
-	!app-crypt/pkcrack
+	!<app-crypt/pkcrack-1.2.2-r1
 	!sci-biology/glimmer
 	!sci-chemistry/pdb-extract"
 DEPEND="${RDEPEND}

@@ -1,6 +1,10 @@
 # Unmask the flag which corresponds to ARCH.
 -s390
 
+# Unmask ABI flags for this arch.
+-abi_s390_32
+-abi_s390_64
+
 # Stuff we don't want/not tested
 pbins
 chicken
@@ -154,3 +158,6 @@ video_cards_vesa
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
 # virtual/opencl is not keyworded
 opencl
+
+# Unmask once sys-libs/libunwind gets ported & keyworded.
+unwind

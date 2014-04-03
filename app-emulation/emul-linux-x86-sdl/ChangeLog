@@ -1,6 +1,29 @@
 # ChangeLog for app-emulation/emul-linux-x86-sdl
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-sdl/ChangeLog,v 1.68 2013/02/25 18:48:03 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-sdl/ChangeLog,v 1.73 2013/12/30 07:45:42 aballier Exp $
+
+*emul-linux-x86-sdl-20131008-r1 (30 Dec 2013)
+
+  30 Dec 2013; Alexis Ballier <aballier@gentoo.org>
+  +emul-linux-x86-sdl-20131008-r1.ebuild, +files/remove-native:
+  new revision without openal, bug #484060
+
+  22 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-sdl-20131008.ebuild:
+  amd64 stable, bug #489898
+
+*emul-linux-x86-sdl-20131008 (08 Oct 2013)
+
+  08 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-sdl-20131008.ebuild, -emul-linux-x86-sdl-20121202.ebuild:
+  Version bump, drop old
+
+  22 Aug 2013; Michał Górny <mgorny@gentoo.org> metadata.xml:
+  Change maintainer to the Gentoo multilib project.
+
+  16 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-sdl-20130224.ebuild:
+  amd64 stable, bug #461674
 
 *emul-linux-x86-sdl-20130224 (25 Feb 2013)
 

@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/hiredis/hiredis-0.11.0.ebuild,v 1.1 2013/02/01 00:06:49 neurogeek Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/hiredis/hiredis-0.11.0.ebuild,v 1.5 2014/03/04 21:11:35 naota Exp $
 
 EAPI=4
 
-inherit eutils
+inherit eutils multilib
 
 DESCRIPTION="Minimalistic C client library for the Redis database"
 HOMEPAGE="http://github.com/redis/hiredis"
@@ -12,7 +12,7 @@ SRC_URI="http://github.com/redis/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~hppa ~x86 ~x86-fbsd ~x64-solaris"
 IUSE="debug"
 
 DEPEND=""
@@ -22,6 +22,9 @@ DOCS="CHANGELOG.md README.md"
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-disable-network-tests.patch"
+
+	# use GNU ld syntax on Solaris
+	sed -i -e '/DYLIB_MAKE_CMD=.* -G/d' Makefile || die
 }
 
 src_compile() {
@@ -38,6 +41,6 @@ src_test() {
 }
 
 src_install() {
-	emake PREFIX="${ED}/usr" install
+	emake PREFIX="${ED}/usr" LIBRARY_PATH="$(get_libdir)"  install
 	dodoc ${DOCS}
 }

@@ -1,6 +1,70 @@
 # ChangeLog for app-portage/portage-utils
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/portage-utils/ChangeLog,v 1.140 2013/02/18 02:23:05 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/portage-utils/ChangeLog,v 1.156 2014/03/22 05:31:11 vapier Exp $
+
+*portage-utils-0.53 (22 Mar 2014)
+
+  22 Mar 2014; Mike Frysinger <vapier@gentoo.org> +portage-utils-0.53.ebuild:
+  Fix crash in `qdepends -q` #504636 via Chromium OS.
+
+*portage-utils-0.52 (15 Mar 2014)
+
+  15 Mar 2014; Mike Frysinger <vapier@gentoo.org> +portage-utils-0.52.ebuild:
+  Fix crash in `qdepends -Q` #504636 by josef.95.
+
+*portage-utils-0.51 (11 Mar 2014)
+
+  11 Mar 2014; Mike Frysinger <vapier@gentoo.org> +portage-utils-0.51.ebuild:
+  Bug fix release.
+
+*portage-utils-0.50 (10 Mar 2014)
+
+  10 Mar 2014; Mike Frysinger <vapier@gentoo.org> +portage-utils-0.50.ebuild:
+  Version bump.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> portage-utils-0.41.ebuild:
+  Add arm64 love.
+
+  10 Jan 2014; Mike Frysinger <vapier@gentoo.org> portage-utils-0.41.ebuild:
+  Stabilize for all.
+
+  07 Jan 2014; Mike Frysinger <vapier@gentoo.org> portage-utils-0.41.ebuild:
+  Add epatch_user support.
+
+  17 Nov 2013; Fabian Groffen <grobian@gentoo.org>
+  +files/portage-utils-0.41-scandirat.patch, portage-utils-0.41.ebuild:
+  Add patch to fix e.g. qlist on Solaris
+
+  31 Oct 2013; Mike Gilbert <floppym@gentoo.org> portage-utils-0.41.ebuild:
+  Add vapier's devspace as a distfile fallback to prevent fetch failures.
+
+*portage-utils-0.41 (31 Oct 2013)
+
+  31 Oct 2013; Mike Frysinger <vapier@gentoo.org> +portage-utils-0.41.ebuild:
+  Fix minor profile var parsing bug.
+
+*portage-utils-0.40 (29 Sep 2013)
+
+  29 Sep 2013; Mike Frysinger <vapier@gentoo.org> +portage-utils-0.40.ebuild:
+  Version bump.
+
+  29 Sep 2013; Mike Frysinger <vapier@gentoo.org> portage-utils-0.30.ebuild:
+  Stabilize for all.
+
+  24 Aug 2013; Mike Frysinger <vapier@gentoo.org> portage-utils-0.30.ebuild:
+  Update HOMEPAGE #479006 by Alexander Berntsen.
+
+*portage-utils-0.30 (30 Apr 2013)
+
+  30 Apr 2013; Mike Frysinger <vapier@gentoo.org> +portage-utils-0.30.ebuild,
+  portage-utils-0.21.ebuild:
+  Version bump.
+
+  30 Apr 2013; Mike Frysinger <vapier@gentoo.org> portage-utils-0.21.ebuild:
+  Stabilize for all
+
+  29 Apr 2013; Mike Frysinger <vapier@gentoo.org> portage-utils-0.21.ebuild:
+  Show init messages on first install only #440420 by poletti.marco.
 
   18 Feb 2013; Mike Frysinger <vapier@gentoo.org> portage-utils-0.21.ebuild:
   Pull in xz-utils to unpack tarball #456740 by Brian Dolbec.

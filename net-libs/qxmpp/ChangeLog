@@ -1,6 +1,31 @@
 # ChangeLog for net-libs/qxmpp
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/qxmpp/ChangeLog,v 1.34 2013/02/17 18:42:40 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/qxmpp/ChangeLog,v 1.39 2014/04/02 16:41:40 zlogene Exp $
+
+  02 Apr 2014; Mikle Kolyada <zlogene@gentoo.org> qxmpp-0.7.6-r1.ebuild:
+  amd64 stable wrt bug #500914
+
+*qxmpp-0.8.0 (27 Mar 2014)
+
+  27 Mar 2014; Maxim Koltsov <maksbotan@gentoo.org> +qxmpp-0.8.0.ebuild:
+  Bump to 0.8.0, set new SRC_URI. Thanks to 0xd34df00d.
+
+*qxmpp-0.7.6-r1 (19 Aug 2013)
+
+  19 Aug 2013; Maxim Koltsov <maksbotan@gentoo.org> +qxmpp-0.7.6-r1.ebuild,
+  metadata.xml, qxmpp-9999.ebuild:
+  Introduce speex, theora and vpx use flags, update 9999 ebuild. Drop unneeded
+  dev-qt/qtgui dependecy. Thanks to 0xd34df00d.
+
+*qxmpp-0.7.6 (11 Mar 2013)
+
+  11 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> +qxmpp-0.7.6.ebuild,
+  qxmpp-9999.ebuild:
+  Version bump, sync live ebuild
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> qxmpp-0.7.4.ebuild,
+  qxmpp-0.7.5.ebuild, qxmpp-9999.ebuild:
+  Move Qt dependencies to the new category
 
   17 Feb 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
   Remove description for obsolete USE='extras'

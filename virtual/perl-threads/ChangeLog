@@ -1,6 +1,24 @@
 # ChangeLog for virtual/perl-threads
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-threads/ChangeLog,v 1.17 2012/12/22 18:27:47 ago Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-threads/ChangeLog,v 1.20 2013/10/28 05:09:36 patrick Exp $
+
+*perl-threads-1.890.0 (28 Oct 2013)
+
+  28 Oct 2013; Patrick Lauer <patrick@gentoo.org> +perl-threads-1.890.0.ebuild:
+  Bump
+
+  25 Aug 2013; Patrick Lauer <patrick@gentoo.org> -perl-threads-1.75.ebuild,
+  -perl-threads-1.76.ebuild, -perl-threads-1.77.ebuild,
+  -perl-threads-1.79.ebuild, -perl-threads-1.81.ebuild,
+  -perl-threads-1.820.ebuild, -perl-threads-1.830.0-r2.ebuild,
+  -perl-threads-1.850.0.ebuild:
+  Remove old
+
+*perl-threads-1.860.0-r2 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +perl-threads-1.860.0-r2.ebuild:
+  Import from perl-experimental overlay
 
   22 Dec 2012; Agostino Sarubbo <ago@gentoo.org> perl-threads-1.860.0-r1.ebuild:
   Add ~ppc, wrt bug #429088

@@ -1,6 +1,137 @@
 # ChangeLog for dev-libs/icu
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/icu/ChangeLog,v 1.228 2013/02/06 14:53:22 scarabeus Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/icu/ChangeLog,v 1.262 2014/01/01 21:03:36 dilfridge Exp $
+
+*icu-52.1 (01 Jan 2014)
+
+  01 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> +icu-52.1.ebuild:
+  Version bump, bug 496470, thanks to polynomial-c
+
+  27 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -files/icu-4.8.1.1-fix_ltr.patch, -files/icu-4.8.1-fix_binformat_fonts.patch,
+  -icu-51.1.ebuild, -icu-51.1-r1.ebuild:
+  Remove old
+
+*icu-51.2-r2 (26 Dec 2013)
+
+  26 Dec 2013; Michał Górny <mgorny@gentoo.org> +icu-51.2-r2.ebuild:
+  Introduce multilib support wrt bug #480422. Acked by scarabeus.
+
+  12 Nov 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.2-r1.ebuild:
+  Stable for ia64, wrt bug #486948
+
+  03 Nov 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.2-r1.ebuild:
+  Stable for sparc, wrt bug #486948
+
+  02 Nov 2013; Jeroen Roovers <jer@gentoo.org> icu-51.2-r1.ebuild:
+  Stable for HPPA (bug #486948).
+
+  02 Nov 2013; Andreas K. Huettel <dilfridge@gentoo.org> icu-51.1.ebuild,
+  icu-51.1-r1.ebuild, icu-51.2-r1.ebuild:
+  Add comment about subslot, see bug 464876
+
+  02 Nov 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.2-r1.ebuild:
+  Stable for arm, wrt bug #486948
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.2-r1.ebuild:
+  Stable for alpha, wrt bug #486948
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.2-r1.ebuild:
+  Stable for ppc64, wrt bug #486948
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.2-r1.ebuild:
+  Stable for ppc, wrt bug #486948
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.2-r1.ebuild:
+  Stable for x86, wrt bug #486948
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.2-r1.ebuild:
+  Stable for amd64, wrt bug #486948
+
+  30 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org> -icu-51.2.ebuild:
+  Remove old
+
+*icu-51.2-r1 (29 Oct 2013)
+*icu-51.1-r1 (29 Oct 2013)
+
+  29 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org> +icu-51.1-r1.ebuild,
+  +files/icu-51.1-CVE-2013-2924.patch, +icu-51.2-r1.ebuild:
+  Add patched versions of both subslots for bug 486948
+
+  24 Jul 2013; Alexis Ballier <aballier@gentoo.org> icu-51.2.ebuild:
+  Rekeyword x86-fbsd too...
+
+  24 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  -files/icu-51.2-fix_binformat_fonts.patch, icu-51.2.ebuild:
+  Remove the patches the LE path for them should not be executed nowdays.
+
+  24 Jul 2013; Mark Wright <gienah@gentoo.org>
+  +files/icu-51.2-fix_binformat_fonts.patch, icu-51.2.ebuild:
+  Bump icu-51.2-fix_binformat_fonts.patch for bug # 381327 upstream bug
+  http://bugs.icu-project.org/trac/ticket/8320
+
+  24 Jul 2013; Patrick Lauer <patrick@gentoo.org> icu-51.2.ebuild:
+  QA: Rekeywording for ~amd64-fbsd as all old versions were punted and #454796
+  claims to be fixed
+
+*icu-51.2 (23 Jul 2013)
+
+  23 Jul 2013; Tomáš Chvátal <scarabeus@gentoo.org> +icu-51.2.ebuild,
+  -files/icu-49.1.2-platforms.patch, -files/icu-50.1-char16_t.patch,
+  -files/icu-50.1.2-bsd.patch, -files/icu.7601.Indic-ccmp.patch,
+  -files/icu.8198.revert.icu5431.patch, -icu-49.1.2.ebuild, -icu-50.1-r2.ebuild,
+  -icu-50.1.2.ebuild:
+  Version bump to latest release, yay changed api/abi again without bump. Remove
+  overshadowed versions to keep life simpler.
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.1.ebuild:
+  Stable for s390, wrt bug #467452
+
+  08 May 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.1.ebuild:
+  Stable for sh, wrt bug #467452
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.1.ebuild:
+  Stable for ppc64, wrt bug #467452
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.1.ebuild:
+  Stable for sparc, wrt bug #467452
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.1.ebuild:
+  Stable for ia64, wrt bug #467452
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.1.ebuild:
+  Stable for alpha, wrt bug #467452
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.1.ebuild:
+  Stable for arm, wrt bug #467452
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.1.ebuild:
+  Stable for ppc, wrt bug #467452
+
+  27 Apr 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.1.ebuild:
+  Stable for x86, wrt bug #467452
+
+  27 Apr 2013; Agostino Sarubbo <ago@gentoo.org> icu-51.1.ebuild:
+  Stable for amd64, wrt bug #467452
+
+  27 Apr 2013; Jeroen Roovers <jer@gentoo.org> icu-51.1.ebuild:
+  Stable for HPPA (bug #467452).
+
+  06 Apr 2013; Anthony G. Basile <blueness@gentoo.org> icu-51.1.ebuild:
+  Fix subslot, bug #464876
+
+*icu-51.1 (06 Apr 2013)
+
+  06 Apr 2013; Anthony G. Basile <blueness@gentoo.org> +icu-51.1.ebuild:
+  Version bug, addresses bug #436364
+
+  06 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> -icu-50.1.1.ebuild,
+  icu-50.1-r2.ebuild, icu-50.1.2.ebuild:
+  Remove icu 50.1.1 which has broken abi, compared the abi between 50.1 and
+  50.1.2 and it seems they are equal so use the same subslot and for further
+  refference whomever touches this package must check the abi and adjust the
+  subslot correctly. If that won't be done I will bring my pitchfork and do
+  naughty stuff to such dev.
 
   06 Feb 2013; Tomáš Chvátal <scarabeus@gentoo.org> +files/icu-50.1.2-bsd.patch,
   icu-50.1.2.ebuild:

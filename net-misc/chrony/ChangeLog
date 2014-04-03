@@ -1,6 +1,145 @@
 # ChangeLog for net-misc/chrony
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/chrony/ChangeLog,v 1.92 2013/02/04 12:27:46 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/chrony/ChangeLog,v 1.130 2014/02/09 12:38:50 jer Exp $
+
+  09 Feb 2014; Jeroen Roovers <jer@gentoo.org> -chrony-1.29-r1.ebuild:
+  Old.
+
+  09 Feb 2014; Agostino Sarubbo <ago@gentoo.org> chrony-1.29.1.ebuild:
+  Stable for sparc, wrt bug #500258
+
+  09 Feb 2014; Agostino Sarubbo <ago@gentoo.org> chrony-1.29.1.ebuild:
+  Stable for ppc, wrt bug #500258
+
+  06 Feb 2014; Agostino Sarubbo <ago@gentoo.org> chrony-1.29.1.ebuild:
+  Stable for x86, wrt bug #500258
+
+  06 Feb 2014; Agostino Sarubbo <ago@gentoo.org> chrony-1.29.1.ebuild:
+  Stable for amd64, wrt bug #500258
+
+  05 Feb 2014; Jeroen Roovers <jer@gentoo.org> chrony-1.29.1.ebuild:
+  Stable for HPPA (bug #500258).
+
+*chrony-1.29.1 (04 Feb 2014)
+
+  04 Feb 2014; Jeroen Roovers <jer@gentoo.org> -chrony-1.29-r2.ebuild,
+  +chrony-1.29.1.ebuild:
+  Version bump (bug #500258).
+
+  14 Jan 2014; Jeroen Roovers <jer@gentoo.org> -chrony-1.29.ebuild:
+  Old.
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> chrony-1.29-r1.ebuild:
+  Stable for sparc, wrt bug #491702
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> chrony-1.29-r1.ebuild:
+  Stable for ppc, wrt bug #491702
+
+  30 Nov 2013; Johannes Huber <johu@gentoo.org> chrony-1.29-r1.ebuild:
+  x86 stable wrt bug #491702
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> chrony-1.29-r1.ebuild:
+  amd64 stable, bug #491702
+
+*chrony-1.29-r2 (22 Nov 2013)
+
+  22 Nov 2013; Jeroen Roovers <jer@gentoo.org> +chrony-1.29-r2.ebuild:
+  Install configuration files in /etc/chrony.
+
+  21 Nov 2013; Jeroen Roovers <jer@gentoo.org> chrony-1.29-r1.ebuild:
+  Stable for HPPA (bug #491702).
+
+  19 Nov 2013; Pacho Ramos <pacho@gentoo.org> chrony-1.29-r1.ebuild:
+  Use eclass function for the registering of ntp provider (#489044 by Kirill
+  Elagin)
+
+  02 Nov 2013; Sven Vermeulen <swift@gentoo.org> chrony-1.29.ebuild,
+  chrony-1.29-r1.ebuild:
+  Add dependency on selinux-chronyd (bug #488694)
+
+*chrony-1.29-r1 (21 Sep 2013)
+
+  21 Sep 2013; Pacho Ramos <pacho@gentoo.org> +chrony-1.29-r1.ebuild,
+  +files/chronyd.service-r1:
+  Improve unit file (#483456 by Stefan G. Weichinger)
+
+  28 Aug 2013; Jeroen Roovers <jer@gentoo.org> -chrony-1.27-r1.ebuild,
+  -files/chronyd.rc:
+  Old.
+
+  28 Aug 2013; Agostino Sarubbo <ago@gentoo.org> chrony-1.29.ebuild:
+  Stable for sparc, wrt bug #480364
+
+  11 Aug 2013; Jeroen Roovers <jer@gentoo.org> chrony-1.29.ebuild:
+  Stable for HPPA (bug #480364).
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> chrony-1.29.ebuild:
+  Stable for x86, wrt bug #480364
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> chrony-1.29.ebuild:
+  Stable for amd64, wrt bug #480364
+
+  10 Aug 2013; Agostino Sarubbo <ago@gentoo.org> chrony-1.29.ebuild:
+  Stable for ppc, wrt bug #480364
+
+  09 Aug 2013; Jeroen Roovers <jer@gentoo.org> chrony-1.29.ebuild:
+  Fix variable name. Add texinfo to DEPEND.
+
+*chrony-1.29 (09 Aug 2013)
+
+  09 Aug 2013; Jeroen Roovers <jer@gentoo.org> +chrony-1.29.ebuild,
+  -chrony-1.27-r2.ebuild, -chrony-1.28.ebuild:
+  Version bump (bug #480364).
+
+*chrony-1.28 (26 Jul 2013)
+
+  26 Jul 2013; Jeroen Roovers <jer@gentoo.org> +chrony-1.28.ebuild,
+  -chrony-1.28_pre1.ebuild:
+  Version bump.
+
+*chrony-1.28_pre1 (25 Jun 2013)
+
+  25 Jun 2013; Jeroen Roovers <jer@gentoo.org> +chrony-1.28_pre1.ebuild:
+  Version bump.
+
+*chrony-1.27-r2 (11 Jun 2013)
+
+  11 Jun 2013; Jeroen Roovers <jer@gentoo.org> +chrony-1.27-r2.ebuild:
+  Fix unneeded sed. Use usex.
+
+  05 Jun 2013; Jeroen Roovers <jer@gentoo.org> -chrony-1.26.ebuild,
+  -chrony-1.27.ebuild:
+  Old.
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> chrony-1.27-r1.ebuild:
+  Stable for sparc, wrt bug #470560
+
+  20 May 2013; Jeroen Roovers <jer@gentoo.org> chrony-1.27-r1.ebuild:
+  Stable for HPPA (bug #470560).
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> chrony-1.27-r1.ebuild:
+  Stable for ppc, wrt bug #470560
+
+  20 May 2013; Chema Alonso <nimiux@gentoo.org> chrony-1.27-r1.ebuild:
+  Stable for amd64 wrt bug #470560
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> chrony-1.27-r1.ebuild:
+  Stable for x86, wrt bug #470560
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> chrony-1.27.ebuild:
+  Stable for sparc, wrt bug #465066
+
+  09 Apr 2013; Jeroen Roovers <jer@gentoo.org> chrony-1.27.ebuild:
+  Stable for HPPA (bug #465066).
+
+  09 Apr 2013; Vicente Olivert Riera <vincent@gentoo.org> chrony-1.27.ebuild:
+  amd64, ppc and x86 stable, wrt bug #465066
+
+*chrony-1.27-r1 (08 Apr 2013)
+
+  08 Apr 2013; Jeroen Roovers <jer@gentoo.org> +files/50-chrony.list,
+  +chrony-1.27-r1.ebuild, +files/chronyd.service:
+  Add systemd support (bug #464948 by Enrico Tagliavini).
 
 *chrony-1.27 (04 Feb 2013)
 

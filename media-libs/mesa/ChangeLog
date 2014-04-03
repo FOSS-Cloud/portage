@@ -1,6 +1,394 @@
 # ChangeLog for media-libs/mesa
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.462 2013/02/27 06:06:13 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.547 2014/03/28 01:43:51 jer Exp $
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for HPPA (bug #500368).
+
+  27 Mar 2014; Agostino Sarubbo <ago@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for amd64, wrt bug #500368
+
+*mesa-10.0.4 (19 Mar 2014)
+
+  19 Mar 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.0.4.ebuild,
+  -mesa-10.0.3.ebuild:
+  Version bump to 10.0.4, bug #504668.
+
+  13 Mar 2014; Matt Turner <mattst88@gentoo.org> mesa-10.1.0.ebuild,
+  metadata.xml:
+  Add dri3 USE flag, and add udev as a dependency, bug #504356.
+
+  09 Mar 2014; Matt Turner <mattst88@gentoo.org> mesa-10.1.0.ebuild:
+  Update libxshmfence dependency to 1.1, bug #503932.
+
+  08 Mar 2014; Matt Turner <mattst88@gentoo.org> mesa-10.1.0.ebuild,
+  metadata.xml:
+  Remove non-existant openmax (available in next Mesa release) and correct llvm-
+  shared-libs flag, bug #503888.
+
+  08 Mar 2014; Matt Turner <mattst88@gentoo.org> -mesa-9.2.5.ebuild,
+  -mesa-10.0.2-r1.ebuild, -files/mesa-10.0.2-update-glxext.h.patch:
+  Drop old.
+
+*mesa-10.1.0 (08 Mar 2014)
+
+  08 Mar 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.1.0.ebuild,
+  metadata.xml:
+  Version bump to mesa-10.1.0.
+
+*mesa-9.2.5-r1 (24 Feb 2014)
+
+  24 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2.5-r1.ebuild, mesa-10.0.3.ebuild:
+  Warn against debug USE flag mismatch with llvm, bug #459306. Add REQUIRED_USE
+  for python, bug #472054. Find libLLVM in the correct path, bug #488216. Depend
+  on elfutils/libelf for radeon-llvm, bug #490092. Fix GLXFBConfig attibutes for
+  xorg state tracker, bug #492934. Always use C++ linking for libvdpau_r600, bug
+  #494970. Add runtime dependency on llvm when used as shared library, bug
+  #498812.
+
+  04 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-9.2.5.ebuild:
+  Fix llvm-3.4 patches, bug #497886. Add patch to make opencl build on ppc,
+  upstream #68504.
+
+*mesa-10.0.3 (03 Feb 2014)
+
+  03 Feb 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.0.3.ebuild:
+  Version bump to 10.0.3.
+
+  30 Jan 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-8.0.4-r1.ebuild:
+  Drop wayland support from old mesa, as it depends on obsolete wayland
+  versions.
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org>
+  files/mesa-10.0.2-update-glxext.h.patch:
+  Remove hunk from patch that CVS insists on changing on commit.
+
+  26 Jan 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-7.10.3.ebuild, mesa-7.11.2.ebuild, mesa-8.0.4-r1.ebuild,
+  mesa-9.0.3.ebuild, mesa-9.1.6.ebuild, mesa-9.2.5.ebuild:
+  Fix repoman warnings.
+
+  26 Jan 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  files/mesa-10.0.2-update-glxext.h.patch:
+  Fix glxext.h patch for good.
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org>
+  files/mesa-10.0.2-update-glxext.h.patch:
+  Fix patch, bug #499352.
+
+*mesa-10.0.2-r1 (26 Jan 2014)
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org>
+  +files/mesa-10.0.2-update-glxext.h.patch, +mesa-10.0.2-r1.ebuild,
+  -mesa-10.0.2.ebuild:
+  Update glxext.h for bug #491644.
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org> mesa-10.0.2.ebuild,
+  mesa-9.2.5.ebuild:
+  Check for libxml2 with --host-root, bug #499234. Thanks to James Le Cuirot
+  <chewi@aura-online.co.uk> for the patch.
+
+  11 Jan 2014; Michał Górny <mgorny@gentoo.org> mesa-9.1.6.ebuild,
+  mesa-9.2.5.ebuild:
+  Depend on llvm < 3.4 where 3.4 is not supported.
+
+  09 Jan 2014; Matt Turner <mattst88@gentoo.org> -mesa-10.0.0.ebuild,
+  -mesa-10.0.0_rc2.ebuild, -mesa-10.0.1.ebuild, -mesa-9.2.4.ebuild:
+  Remove old.
+
+  09 Jan 2014; Matt Turner <mattst88@gentoo.org> mesa-10.0.2.ebuild:
+  Add gbm to REQUIRED_USE for wayland, bug 491646.
+
+*mesa-10.0.2 (09 Jan 2014)
+
+  09 Jan 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.0.2.ebuild:
+  Version bump to 10.0.2.
+
+*mesa-9.2.5 (16 Dec 2013)
+
+  16 Dec 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2.5.ebuild:
+  Version bump.
+
+*mesa-10.0.1 (13 Dec 2013)
+
+  13 Dec 2013; Matt Turner <mattst88@gentoo.org> +mesa-10.0.1.ebuild:
+  Version bump to 10.0.1.
+
+  04 Dec 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-10.0.0.ebuild:
+  drop llvm-shared-libs requirement for opencl.
+
+*mesa-10.0.0 (01 Dec 2013)
+
+  01 Dec 2013; Matt Turner <mattst88@gentoo.org> +mesa-10.0.0.ebuild:
+  Version bump to 10.0.0.
+
+  29 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -mesa-9.2.0-r1.ebuild, -mesa-9.2.0.ebuild, -mesa-9.2.1.ebuild,
+  -mesa-9.2.2.ebuild, -mesa-9.2.3.ebuild, mesa-9.2.4.ebuild:
+  Add patches to fix building gallivm and clover against llvm-3.4, bug #488064
+  and bug #492828, and xorg state tracker against xorg-server-1.15, bug #492838.
+  Drop old 9.2 releases.
+
+  29 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-10.0.0_rc2.ebuild:
+  shared-llvm-libs is not required for opencl in mesa-10
+
+*mesa-10.0.0_rc2 (28 Nov 2013)
+*mesa-9.2.4 (28 Nov 2013)
+
+  28 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-10.0.0_rc2.ebuild, +mesa-9.2.4.ebuild, -mesa-10.0.0_rc1.ebuild,
+  metadata.xml:
+  Version bumps.
+
+  19 Nov 2013; Matt Turner <mattst88@gentoo.org> mesa-10.0.0_rc1.ebuild:
+  Fix typo, thanks mrueg.
+
+*mesa-10.0.0_rc1 (18 Nov 2013)
+*mesa-9.2.3 (18 Nov 2013)
+
+  18 Nov 2013; Matt Turner <mattst88@gentoo.org> +mesa-9.2.3.ebuild,
+  +mesa-10.0.0_rc1.ebuild:
+  Version bump to 9.2.3 and 10.0.0-rc1.
+
+*mesa-9.2.2 (03 Nov 2013)
+
+  03 Nov 2013; Matt Turner <mattst88@gentoo.org> +mesa-9.2.2.ebuild:
+  Version bump to mesa-9.2.2.
+
+  14 Oct 2013; Jeroen Roovers <jer@gentoo.org> mesa-7.10.3.ebuild,
+  mesa-7.11.2.ebuild, mesa-8.0.4-r1.ebuild, mesa-9.0.3.ebuild:
+  Drop HPPA keywording (bug #487714).
+
+  14 Oct 2013; Jeroen Roovers <jer@gentoo.org> mesa-7.10.3.ebuild,
+  mesa-7.11.2.ebuild, mesa-8.0.4-r1.ebuild, mesa-9.0.3.ebuild:
+  Drop HPPA keywording (bug #487714).
+
+*mesa-9.2.1 (13 Oct 2013)
+
+  13 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2.1.ebuild:
+  Version bump, bug #487634.
+
+  13 Oct 2013; Michał Górny <mgorny@gentoo.org> mesa-9.2.0-r1.ebuild:
+  Explicitly call einstalldocs in multilib_src_install_all() to accomodate bug
+  #483304.
+
+  13 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -mesa-9.0.1.ebuild, -mesa-9.0.2.ebuild, -mesa-9.1.1.ebuild,
+  -mesa-9.1.2-r1.ebuild, -mesa-9.1.2.ebuild, -mesa-9.1.3.ebuild,
+  -mesa-9.1.4.ebuild, -mesa-9.1.5.ebuild, -mesa-9.1.ebuild:
+  Drop some older versions for security bug #472280.
+
+  13 Oct 2013; Michał Górny <mgorny@gentoo.org> mesa-9.2.0-r1.ebuild:
+  Bump libclc dep for multilib.
+
+  08 Oct 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.6.ebuild:
+  Stable for x86, wrt bug #475480
+
+  07 Oct 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.6.ebuild:
+  Stable for sparc, wrt bug #475480
+
+  06 Oct 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.6.ebuild:
+  Stable for ia64, wrt bug #475480
+
+  05 Oct 2013; Markus Meier <maekke@gentoo.org> mesa-9.1.6.ebuild:
+  arm stable, bug #475480
+
+  05 Oct 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.6.ebuild:
+  Stable for alpha, wrt bug #475480
+
+  04 Oct 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.6.ebuild:
+  Stable for ppc64, wrt bug #475480
+
+  03 Oct 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.6.ebuild:
+  Stable for ppc, wrt bug #475480
+
+  02 Oct 2013; Jeroen Roovers <jer@gentoo.org> mesa-9.1.6.ebuild:
+  Stable for HPPA (bug #475480).
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.6.ebuild:
+  Stable for amd64, wrt bug #475480
+
+  21 Sep 2013; Michał Górny <mgorny@gentoo.org> mesa-9.2.0-r1.ebuild:
+  Fix renaming gallium drivers, bug #485614.
+
+*mesa-9.2.0-r1 (21 Sep 2013)
+
+  21 Sep 2013; Michał Górny <mgorny@gentoo.org> +mesa-9.2.0-r1.ebuild:
+  Convert to multilib.
+
+*mesa-9.2.0 (27 Aug 2013)
+
+  27 Aug 2013; Matt Turner <mattst88@gentoo.org> -mesa-9.2.0_rc2.ebuild,
+  +mesa-9.2.0.ebuild:
+  Version bump to 9.2.
+
+*mesa-9.2.0_rc2 (24 Aug 2013)
+
+  24 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2.0_rc2.ebuild, -mesa-9.2.0_rc1.ebuild:
+  Bump to new prerelease.
+
+  22 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-9.2.0_rc1.ebuild:
+  Relax REQUIRED_USE for opencl.
+
+*mesa-9.2.0_rc1 (21 Aug 2013)
+
+  21 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2.0_rc1.ebuild, -mesa-9.2_pre20130725.ebuild:
+  Add new release candidate, drop old snapshot.
+
+*mesa-9.2_pre20130725 (02 Aug 2013)
+
+  02 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/mesa-9.2-dont-require-llvm-for-r300.patch,
+  +mesa-9.2_pre20130725.ebuild, -mesa-9.2_pre20130515.ebuild,
+  -mesa-9.2_pre20130528.ebuild, -mesa-9.2_pre20130619.ebuild:
+  New snapshot. Drop some old ones.
+
+*mesa-9.1.6 (02 Aug 2013)
+
+  02 Aug 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.1.6.ebuild:
+  Version bump.
+
+*mesa-9.1.5 (29 Jul 2013)
+
+  29 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.1.5.ebuild:
+  Version bump, bug #477520.
+
+*mesa-9.1.4 (01 Jul 2013)
+
+  01 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.1.4.ebuild:
+  Version bump for security bug #472280.
+
+  22 Jun 2013; Matt Turner <mattst88@gentoo.org> mesa-9.2_pre20130619.ebuild:
+  Remove shared-glapi USE flag, bugs 458550 & 473526.
+
+*mesa-9.2_pre20130619 (19 Jun 2013)
+
+  19 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2_pre20130619.ebuild, metadata.xml:
+  New snapshot. Add opencl support, bug #439018.
+
+  09 Jun 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for sh, wrt bug #463430
+
+  01 Jun 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-9.0.3.ebuild, mesa-9.1.3.ebuild:
+  Require egl with wayland, bug #467882.
+
+*mesa-9.2_pre20130528 (28 May 2013)
+
+  28 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/eselect-mesa.conf.9.2, +mesa-9.2_pre20130528.ebuild:
+  New snapshot.
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for ppc, wrt bug #463430
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for s390, wrt bug #463430
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for ia64, wrt bug #463430
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for arm, wrt bug #463430
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for alpha, wrt bug #463430
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for sparc, wrt bug #463430
+
+  24 May 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for ppc64, wrt bug #463430
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for x86, wrt bug #463430
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for amd64, wrt bug #463430
+
+  23 May 2013; Jeroen Roovers <jer@gentoo.org> mesa-9.1.2-r1.ebuild:
+  Stable for HPPA (bug #463430).
+
+*mesa-9.1.3 (23 May 2013)
+
+  23 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.1.3.ebuild:
+  Version bump.
+
+*mesa-9.2_pre20130515 (15 May 2013)
+
+  15 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2_pre20130515.ebuild, -mesa-9.2_pre20130404.ebuild,
+  -mesa-9.2_pre20130427.ebuild, -mesa-9.2_pre20130509.ebuild:
+  New snapshot.
+
+  14 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-9.1.2-r1.ebuild:
+  Fix building against llvm-3.4
+
+*mesa-9.1.2-r1 (09 May 2013)
+*mesa-9.2_pre20130509 (09 May 2013)
+
+  09 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.1.2-r1.ebuild, +mesa-9.2_pre20130509.ebuild, mesa-7.10.3.ebuild,
+  mesa-7.11.2.ebuild, mesa-8.0.4-r1.ebuild, mesa-9.0.1.ebuild,
+  mesa-9.0.2.ebuild, mesa-9.0.3.ebuild:
+  Apply patch for bug #461696 and be more precise with llvm dependencies.
+
+  06 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-7.11.2.ebuild, mesa-8.0.4-r1.ebuild, mesa-9.0.1.ebuild,
+  mesa-9.0.2.ebuild, mesa-9.0.3.ebuild, mesa-9.1.2.ebuild:
+  Update patches/dependencies for llvm-3.3.
+
+*mesa-9.1.2 (02 May 2013)
+
+  02 May 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.1.2.ebuild:
+  Version bump.
+
+*mesa-9.2_pre20130427 (28 Apr 2013)
+
+  28 Apr 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2_pre20130427.ebuild:
+  New snapshot.
+
+*mesa-9.2_pre20130404 (05 Apr 2013)
+
+  05 Apr 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2_pre20130404.ebuild:
+  Add new prerelease snapshot with radeon UVD and Gallium3D HUD support.
+
+*mesa-9.1.1 (20 Mar 2013)
+
+  20 Mar 2013; Matt Turner <mattst88@gentoo.org> +mesa-9.1.1.ebuild:
+  Version bump.
+
+  19 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-9.1.ebuild:
+  Add patches for llvm-3.3 compatibility and depend on llvm with r600 shader
+  compiler enabled.
+
+  10 Mar 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-9.0.1.ebuild, mesa-9.0.2.ebuild, mesa-9.0.3.ebuild, mesa-9.1.ebuild:
+  mesa-9.0 xorg state tracker does not build against xorg-server-1.14. Add
+  subslot dependency to mesa-9.1.
+
+  06 Mar 2013; Michał Górny <mgorny@gentoo.org> mesa-9.1.ebuild:
+  Migrate to python-r1.
 
   27 Feb 2013; Zac Medico <zmedico@gentoo.org> mesa-9.1.ebuild:
   Add ~arm-linux keyword.

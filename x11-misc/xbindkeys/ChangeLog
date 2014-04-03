@@ -1,6 +1,14 @@
 # ChangeLog for x11-misc/xbindkeys
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xbindkeys/ChangeLog,v 1.61 2011/03/23 16:20:44 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xbindkeys/ChangeLog,v 1.63 2014/01/04 21:10:41 radhermit Exp $
+
+*xbindkeys-1.8.6 (04 Jan 2014)
+
+  04 Jan 2014; Tim Harder <radhermit@gentoo.org> +xbindkeys-1.8.6.ebuild:
+  Version bump.
+
+  08 Sep 2013; Michael Weber <xmw@gentoo.org> xbindkeys-1.8.5.ebuild:
+  Add ~arm keyword
 
 *xbindkeys-1.8.5 (23 Mar 2011)
 
@@ -233,4 +241,3 @@
   comments should well explained and written in clean English. The details about
   writing correct changelogs are explained in the skel.ChangeLog file which you
   can find in the root directory of the portage repository.
-

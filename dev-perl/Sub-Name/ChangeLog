@@ -1,6 +1,18 @@
 # ChangeLog for dev-perl/Sub-Name
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Sub-Name/ChangeLog,v 1.23 2013/01/13 12:50:23 maekke Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Sub-Name/ChangeLog,v 1.27 2014/02/23 14:53:17 naota Exp $
+
+  23 Feb 2014; Naohiro Aota <naota@gentoo.org> Sub-Name-0.50.0.ebuild:
+  Add ~x86-fbsd.
+
+  01 Feb 2014; Mike Frysinger <vapier@gentoo.org> Sub-Name-0.50.0.ebuild:
+  Add arm64 love.
+
+  05 Jan 2014; Markos Chandras <hwoarang@gentoo.org> Sub-Name-0.50.0.ebuild:
+  Add ~mips
+
+  05 Sep 2013; Mike Frysinger <vapier@gentoo.org> Sub-Name-0.50.0.ebuild:
+  Mark arm/s390/sh stable #479612.
 
   13 Jan 2013; Markus Meier <maekke@gentoo.org> Sub-Name-0.50.0.ebuild:
   add ~arm, bug #449762

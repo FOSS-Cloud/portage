@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/searchmonkey/searchmonkey-2.0.0.ebuild,v 1.4 2012/09/05 07:17:10 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/searchmonkey/searchmonkey-2.0.0.ebuild,v 1.7 2013/07/27 22:22:19 ago Exp $
 
 EAPI=4
 
@@ -15,12 +15,12 @@ SRC_URI="mirror://sourceforge/project/${PN}/${MY_PN^}/${PV}%20%5Bstable%5D/${MY_
 
 LICENSE="GPL-3"
 SLOT="2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4"
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4"
 DEPEND="${RDEPEND}
 	app-arch/unzip"
 

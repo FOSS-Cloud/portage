@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>desktop-wm</herd>
+	<maintainer><email>jer@gentoo.org</email></maintainer>
 	<longdescription>
 		Ratpoison is a simple Window Manager with no fat library dependencies,
 		no fancy graphics, no window decorations, and no rodent dependence. It
@@ -17,5 +17,6 @@
 	</longdescription>
 <use>
 	<flag name="history">Use <pkg>sys-libs/readline</pkg> for history handling</flag>
+	<flag name="sloppy">Install sloppy, a focus-follows-mouse implementation for ratpoison</flag>
 </use>
 </pkgmetadata>

@@ -1,6 +1,29 @@
 # ChangeLog for dev-perl/HTTP-Negotiate
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/HTTP-Negotiate/ChangeLog,v 1.20 2013/02/19 02:10:52 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/HTTP-Negotiate/ChangeLog,v 1.26 2014/01/24 09:48:57 zlogene Exp $
+
+  24 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> -HTTP-Negotiate-6.0.0.ebuild,
+  HTTP-Negotiate-6.0.1-r1.ebuild:
+  alpha/amd64/ia64/ppc64/sparc/x86 stable wrt bug #492170; Drop old.
+
+  23 Jan 2014; Markus Meier <maekke@gentoo.org> HTTP-Negotiate-6.0.1-r1.ebuild:
+  arm stable, bug #492170
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org> HTTP-Negotiate-6.0.0.ebuild,
+  HTTP-Negotiate-6.0.1-r1.ebuild:
+  Add arm64 love.
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> HTTP-Negotiate-6.0.1-r1.ebuild:
+  Stable for ppc, wrt bug #492170
+
+  20 Jan 2014; Jeroen Roovers <jer@gentoo.org> HTTP-Negotiate-6.0.1-r1.ebuild:
+  Stable for HPPA (bug #492170).
+
+*HTTP-Negotiate-6.0.1-r1 (12 Sep 2013)
+
+  12 Sep 2013; Ian Delaney <idella4@gentoo.org> +HTTP-Negotiate-6.0.1-r1.ebuild,
+  -HTTP-Negotiate-6.0.1.ebuild:
+  revbump -> EAPI 5, remove old
 
   19 Feb 2013; Zac Medico <zmedico@gentoo.org> HTTP-Negotiate-6.0.1.ebuild:
   Add ~arm-linux keyword.

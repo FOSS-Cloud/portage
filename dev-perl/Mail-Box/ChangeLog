@@ -1,6 +1,33 @@
 # ChangeLog for dev-perl/Mail-Box
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Mail-Box/ChangeLog,v 1.5 2012/12/09 17:20:37 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Mail-Box/ChangeLog,v 1.12 2014/03/03 23:42:03 pacho Exp $
+
+  03 Mar 2014; Pacho Ramos <pacho@gentoo.org> Mail-Box-2.109.0.ebuild:
+  amd64 stable, bug #495428
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> Mail-Box-2.109.0.ebuild:
+  x86 stable wrt bug #495428
+
+  14 Dec 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> Mail-Box-2.108.ebuild,
+  Mail-Box-2.109.0.ebuild:
+  dev-perl/Devel-GlobalDestruction is always required, not only for tests.
+  Fixes bug #488326.
+
+*Mail-Box-2.109.0 (03 Sep 2013)
+
+  03 Sep 2013; Patrick Lauer <patrick@gentoo.org> +Mail-Box-2.109.0.ebuild:
+  Bump
+
+*Mail-Box-2.108 (15 Aug 2013)
+
+  15 Aug 2013; Patrick Lauer <patrick@gentoo.org> +Mail-Box-2.108.ebuild:
+  Bump
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> Mail-Box-2.107.0.ebuild:
+  Stable for x86, wrt bug #456576
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> Mail-Box-2.107.0.ebuild:
+  Stable for amd64, wrt bug #456576
 
 *Mail-Box-2.107.0 (09 Dec 2012)
 

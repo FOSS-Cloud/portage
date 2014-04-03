@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/spl-0.6.0_rc12-r1.ebuild,v 1.5 2013/02/11 23:25:16 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/spl-0.6.0_rc12-r1.ebuild,v 1.9 2013/04/17 13:26:26 ryao Exp $
 
 EAPI="4"
 AUTOTOOLS_AUTORECONF="1"
 
-inherit flag-o-matic linux-mod autotools-utils
+inherit flag-o-matic linux-info linux-mod autotools-utils
 
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-2
@@ -13,7 +13,7 @@ if [[ ${PV} == "9999" ]] ; then
 else
 	inherit eutils versionator
 	MY_PV=$(replace_version_separator 3 '-')
-	SRC_URI="https://github.com/downloads/zfsonlinux/${PN}/${PN}-${MY_PV}.tar.gz"
+	SRC_URI="mirror://github/zfsonlinux/${PN}/${PN}-${MY_PV}.tar.gz"
 	S="${WORKDIR}/${PN}-${MY_PV}"
 	KEYWORDS="~amd64"
 fi
@@ -26,7 +26,8 @@ SLOT="0"
 IUSE="custom-cflags debug debug-log"
 RESTRICT="test"
 
-COMMON_DEPEND="virtual/awk"
+COMMON_DEPEND="dev-lang/perl
+	virtual/awk"
 
 DEPEND="${COMMON_DEPEND}"
 
@@ -37,6 +38,7 @@ AT_M4DIR="config"
 AUTOTOOLS_IN_SOURCE_BUILD="1"
 
 pkg_setup() {
+	linux-info_pkg_setup
 	CONFIG_CHECK="
 		!DEBUG_LOCK_ALLOC
 		!GRKERNSEC_HIDESYM

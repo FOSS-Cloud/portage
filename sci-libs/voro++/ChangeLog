@@ -1,0 +1,21 @@
+# ChangeLog for sci-libs/voro++
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/voro++/ChangeLog,v 1.4 2014/03/31 14:22:36 nimiux Exp $
+
+  31 Mar 2014; Chema Alonso <nimiux@gentoo.org> voro++-0.4.6-r1.ebuild:
+  Stable for amd64 wrt bug #504688
+
+*voro++-0.4.6-r1 (26 Feb 2014)
+
+  26 Feb 2014; Christoph Junghans <ottxor@gentoo.org> +voro++-0.4.6-r1.ebuild,
+  -voro++-0.4.6.ebuild, files/voro++-0.4.6-cmake.patch:
+  fixed installed headers
+
+  25 Feb 2014; Christoph Junghans <ottxor@gentoo.org> voro++-0.4.6.ebuild:
+  fixed multilib
+
+*voro++-0.4.6 (24 Feb 2014)
+
+  24 Feb 2014; Christoph Junghans <ottxor@gentoo.org>
+  +files/voro++-0.4.6-cmake.patch, +metadata.xml, +voro++-0.4.6.ebuild:
+  initial commit

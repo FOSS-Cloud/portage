@@ -1,6 +1,30 @@
 # ChangeLog for dev-ruby/shorturl
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/shorturl/ChangeLog,v 1.18 2012/05/01 18:24:14 armin76 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/shorturl/ChangeLog,v 1.24 2013/10/26 06:13:11 graaff Exp $
+
+  26 Oct 2013; Hans de Graaff <graaff@gentoo.org> shorturl-1.0.0-r1.ebuild:
+  Restrict tests since all of them require network connectivity.
+
+*shorturl-1.0.0-r1 (04 Oct 2013)
+
+  04 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +shorturl-1.0.0-r1.ebuild,
+  -files/shorturl-0.8.7+ruby-1.9.patch:
+  Drop old patches. Add ruby20 support.
+
+  14 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -shorturl-0.8.8-r1.ebuild,
+  -shorturl-0.8.8.ebuild:
+  Cleanup old.
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> shorturl-1.0.0.ebuild:
+  Stable for x86, wrt bug #483698
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> shorturl-1.0.0.ebuild:
+  Stable for amd64, wrt bug #483698
+
+*shorturl-1.0.0 (19 Apr 2013)
+
+  19 Apr 2013; Hans de Graaff <graaff@gentoo.org> +shorturl-1.0.0.ebuild:
+  Version bump.
 
   01 May 2012; Raúl Porcel <armin76@gentoo.org> shorturl-0.8.8.ebuild,
   shorturl-0.8.8-r1.ebuild:
@@ -76,4 +100,3 @@
   +shorturl-0.8.3.ebuild:
   Initial import of dev-ruby/shorturl, needed for net-irc/rbot with shorturl
   USE flag enabled.
-

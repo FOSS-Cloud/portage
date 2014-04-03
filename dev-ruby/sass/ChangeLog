@@ -1,6 +1,75 @@
 # ChangeLog for dev-ruby/sass
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/sass/ChangeLog,v 1.31 2013/02/24 13:35:09 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/sass/ChangeLog,v 1.47 2014/03/25 06:14:56 graaff Exp $
+
+*sass-3.2.18 (25 Mar 2014)
+
+  25 Mar 2014; Hans de Graaff <graaff@gentoo.org> +sass-3.2.18.ebuild:
+  Version bump.
+
+*sass-3.2.14 (25 Jan 2014)
+
+  25 Jan 2014; Hans de Graaff <graaff@gentoo.org> +sass-3.2.14.ebuild:
+  Version bump.
+
+  22 Dec 2013; Manuel Rüger <mrueg@gentoo.org> -sass-3.2.12-r1.ebuild,
+  -sass-3.2.12.ebuild:
+  Cleanup old.
+
+  22 Dec 2013; Anthony G. Basile <blueness@gentoo.org> sass-3.2.13.ebuild:
+  Keyword ~ppc64, bug #465948
+
+*sass-3.2.13 (21 Dec 2013)
+
+  21 Dec 2013; Hans de Graaff <graaff@gentoo.org> +sass-3.2.13.ebuild:
+  Version bump.
+
+*sass-3.2.12-r1 (27 Nov 2013)
+
+  27 Nov 2013; Hans de Graaff <graaff@gentoo.org> +sass-3.2.12-r1.ebuild:
+  Add ruby20. Drop ppc64 for bug 465948.
+
+  22 Nov 2013; Hans de Graaff <graaff@gentoo.org> -sass-3.2.10.ebuild,
+  -sass-3.2.11.ebuild:
+  Cleanup.
+
+*sass-3.2.12 (11 Oct 2013)
+
+  11 Oct 2013; Hans de Graaff <graaff@gentoo.org> +sass-3.2.12.ebuild:
+  Version bump.
+
+*sass-3.2.11 (30 Sep 2013)
+
+  30 Sep 2013; Hans de Graaff <graaff@gentoo.org> +sass-3.2.11.ebuild:
+  Version bump.
+
+*sass-3.2.10 (28 Jul 2013)
+
+  28 Jul 2013; Manuel Rüger <mrueg@gentoo.org> +sass-3.2.10.ebuild:
+  Version bump
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sass-3.2.9.ebuild:
+  Stable for x86, wrt bug #477478
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> sass-3.2.9.ebuild:
+  Stable for amd64, wrt bug #477478
+
+  20 Jul 2013; Hans de Graaff <graaff@gentoo.org> -sass-3.2.5.ebuild,
+  -sass-3.2.6.ebuild, -sass-3.2.7.ebuild:
+  Cleanup.
+
+*sass-3.2.9 (12 May 2013)
+
+  12 May 2013; Hans de Graaff <graaff@gentoo.org> +sass-3.2.9.ebuild:
+  Version bump.
+
+*sass-3.2.7 (18 Apr 2013)
+
+  18 Apr 2013; Hans de Graaff <graaff@gentoo.org> +sass-3.2.7.ebuild:
+  Version bump.
+
+  07 Mar 2013; Benedikt Böhm <hollow@gentoo.org> sass-3.1.21.ebuild:
+  add ~x86 needed by app-admin/chef-server-webui
 
 *sass-3.2.6 (24 Feb 2013)
 

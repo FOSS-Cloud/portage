@@ -1,37 +1,42 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/tatt/tatt-9999.ebuild,v 1.4 2011/09/13 13:54:56 tomka Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/tatt/tatt-9999.ebuild,v 1.7 2013/06/10 14:01:05 tomka Exp $
 
-EAPI="2"
-SUPPORT_PYTHON_ABIS="1"
-PYTHON_DEPEND="2:2.6"
+EAPI=5
 
-inherit distutils git-2
+#configobj does not support python-3
+PYTHON_COMPAT=( python2_6 python2_7 )
+
+inherit distutils-r1 git-2
 
 DESCRIPTION="tatt is an arch testing tool"
 HOMEPAGE="http://github.com/tom111/tatt"
-EGIT_REPO_URI="git://github.com/tom111/tatt.git"
+EGIT_REPO_URI="https://github.com/tom111/tatt.git \
+	git://github.com/tom111/tatt.git"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="+templates"
 
-DEPEND="dev-python/setuptools"
-RDEPEND="app-portage/eix
-		app-portage/gentoolkit
-		www-client/pybugz
-		dev-python/configobj"
-
-#configobj does not support python-3
-RESTRICT_PYTHON_ABIS="2.[45] 3.*"
+RDEPEND="
+	${PYTHON_DEPS}
+	app-portage/eix
+	app-portage/gentoolkit
+	www-client/pybugz
+	dev-python/configobj"
+DEPEND="
+	${RDEPEND}
+	dev-python/setuptools[${PYTHON_USEDEP}]"
 
 S="${WORKDIR}/${PN}"
 
-src_install() {
-	distutils_src_install
+python_install_all() {
+	distutils-r1_python_install_all
 	if use templates; then
 		insinto "/usr/share/${PN}"
-		doins -r templates || die
+		doins -r templates
 	fi
+	doman tatt.1
+	doman tatt.5
 }

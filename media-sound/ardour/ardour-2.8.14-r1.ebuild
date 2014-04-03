@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/ardour/ardour-2.8.14-r1.ebuild,v 1.3 2012/11/24 00:48:51 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/ardour/ardour-2.8.14-r1.ebuild,v 1.4 2013/03/18 12:34:30 nativemad Exp $
 
 EAPI=4
 inherit eutils flag-o-matic toolchain-funcs scons-utils
@@ -10,7 +10,7 @@ HOMEPAGE="http://ardour.org/"
 SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="2"
 KEYWORDS="~amd64 ~x86"
 IUSE="altivec curl debug nls lv2 sse"
 
@@ -80,5 +80,5 @@ src_install() {
 	escons install
 	doman ${PN}.1
 	newicon icons/icon/ardour_icon_mac.png ${PN}.png
-	make_desktop_entry ardour2 ardour AudioVideo
+	make_desktop_entry ardour2 ardour2 ardour AudioVideo
 }

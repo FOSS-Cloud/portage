@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/alsa-lib/alsa-lib-1.0.27.2.ebuild,v 1.2 2013/07/30 13:05:57 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/alsa-lib/alsa-lib-1.0.27.2.ebuild,v 1.8 2014/03/02 09:12:46 hattya Exp $
 
 EAPI=5
 
@@ -15,7 +15,7 @@ SRC_URI="mirror://alsaproject/lib/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha amd64 arm hppa ia64 ~mips ~ppc ~ppc64 ~sh ~sparc x86 ~amd64-linux ~x86-linux"
 IUSE="doc debug alisp python"
 
 RDEPEND="python? ( ${PYTHON_DEPS} )
@@ -32,9 +32,6 @@ pkg_setup() {
 
 src_prepare() {
 	find . -name Makefile.am -exec sed -i -e '/CFLAGS/s:-g -O2::' {} + || die
-	if [[ ${ABI} == ${DEFAULT_ABI} ]]; then
-		use python && { sed -i -e "s:python-config:$EPYTHON-config:" configure.in || die; }
-	fi
 	epatch_user
 	eautoreconf
 }
@@ -42,7 +39,7 @@ src_prepare() {
 multilib_src_configure() {
 	local myconf
 	# enable Python only on final ABI
-	if [[ ${ABI} == ${DEFAULT_ABI} ]]; then
+	if multilib_build_binaries; then
 		myconf="$(use_enable python)"
 	else
 		myconf="--disable-python"
@@ -65,7 +62,7 @@ multilib_src_configure() {
 multilib_src_compile() {
 	emake
 
-	if [[ ${ABI} == ${DEFAULT_ABI} ]] && use doc; then
+	if multilib_build_binaries && use doc; then
 		emake doc
 		fgrep -Zrl "${S}" doc/doxygen/html | \
 			xargs -0 sed -i -e "s:${S}::"
@@ -74,7 +71,7 @@ multilib_src_compile() {
 
 multilib_src_install() {
 	emake DESTDIR="${D}" install
-	if [[ ${ABI} == ${DEFAULT_ABI} ]] && use doc; then
+	if multilib_build_binaries && use doc; then
 		dohtml -r doc/doxygen/html/.
 	fi
 }

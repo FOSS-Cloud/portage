@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/gvfs-1.14.2.ebuild,v 1.7 2013/02/25 09:23:34 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/gvfs-1.14.2.ebuild,v 1.13 2014/03/29 22:32:41 tetromino Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -21,7 +21,7 @@ if [[ ${PV} = 9999 ]]; then
 	KEYWORDS=""
 	DOCS=""
 else
-	KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~sparc-solaris ~x86-solaris"
+	KEYWORDS="~alpha ~amd64 arm ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~sparc-solaris ~x86-solaris"
 	DOCS="AUTHORS ChangeLog NEWS MAINTAINERS README TODO" # ChangeLog.pre-1.2 README.commits
 fi
 
@@ -36,7 +36,7 @@ RDEPEND=">=dev-libs/glib-2.33.12:2
 	sys-apps/dbus
 	dev-libs/libxml2:2
 	net-misc/openssh
-	afp? ( >=dev-libs/libgcrypt-1.2.2:= )
+	afp? ( >=dev-libs/libgcrypt-1.2.2:0= )
 	archive? ( app-arch/libarchive:= )
 	avahi? ( >=net-dns/avahi-0.6 )
 	bluetooth? (
@@ -55,15 +55,16 @@ RDEPEND=">=dev-libs/glib-2.33.12:2
 	gtk? ( >=x11-libs/gtk+-3.0:3 )
 	http? ( >=net-libs/libsoup-gnome-2.26.0 )
 	ios? (
-		>=app-pda/libimobiledevice-1.1.0
-		>=app-pda/libplist-1 )
+		>=app-pda/libimobiledevice-1.1.0:=
+		>=app-pda/libplist-1:= )
 	samba? ( >=net-fs/samba-3.4.6[smbclient] )
-	systemd? ( sys-apps/systemd )
+	systemd? ( sys-apps/systemd:0= )
 	udev? (
 		cdda? ( || ( dev-libs/libcdio-paranoia <dev-libs/libcdio-0.90[-minimal] ) )
 		virtual/udev[gudev] )
 	udisks? ( >=sys-fs/udisks-1.97:2 )"
 DEPEND="${RDEPEND}
+	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
 	>=dev-util/intltool-0.40
 	virtual/pkgconfig
@@ -97,6 +98,8 @@ src_prepare() {
 	if use archive || ! use udev; then
 		# libgcrypt.m4 needed for eautoreconf, bug #399043
 		mv "${WORKDIR}/libgcrypt.m4" "${S}"/ || die
+
+		sed -i 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' configure.ac || die
 
 		[[ ${PV} = 9999 ]] || AT_M4DIR=. eautoreconf
 	fi

@@ -1,6 +1,22 @@
 # ChangeLog for x11-misc/notification-daemon
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/notification-daemon/ChangeLog,v 1.91 2013/02/25 09:16:17 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/notification-daemon/ChangeLog,v 1.96 2014/02/22 22:57:25 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> notification-daemon-0.7.6.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> notification-daemon-0.7.6.ebuild:
+  arch stable, bug 888
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> notification-daemon-0.7.6.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> notification-daemon-0.7.6.ebuild:
+  amd64 stable, bug #478252
+
+  15 Apr 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -notification-daemon-0.7.3.ebuild, -notification-daemon-0.7.4.ebuild:
+  old
 
   25 Feb 2013; Zac Medico <zmedico@gentoo.org> notification-daemon-0.7.6.ebuild:
   Add ~arm-linux keyword.

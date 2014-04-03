@@ -3,7 +3,6 @@
 # Allow the user to override command-line flags, bug #357629.
 # This is based on Debian's chromium-browser package, and is intended
 # to be consistent with Debian.
-shopt -s nullglob
 for f in /etc/chromium/*; do
     [[ -f ${f} ]] && source "${f}"
 done
@@ -26,6 +25,13 @@ case ":$PATH:" in
     export PATH="$PATH:$PROGDIR"
     ;;
 esac
+
+if [[ ${EUID} == 0 && -O ${XDG_CONFIG_HOME:-${HOME}} ]]; then
+	# Running as root with HOME owned by root.
+	# Pass --user-data-dir to work around upstream failsafe.
+	CHROMIUM_FLAGS="--user-data-dir=${XDG_CONFIG_HOME:-${HOME}/.config}/chromium
+		${CHROMIUM_FLAGS}"
+fi
 
 # Set the .desktop file name
 export CHROME_DESKTOP="chromium-browser-chromium.desktop"

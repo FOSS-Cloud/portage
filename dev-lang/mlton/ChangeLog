@@ -1,6 +1,20 @@
 # ChangeLog for dev-lang/mlton
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/mlton/ChangeLog,v 1.13 2012/12/14 11:09:19 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/mlton/ChangeLog,v 1.15 2014/01/15 08:13:28 gienah Exp $
+
+*mlton-20130715 (15 Jan 2014)
+
+  15 Jan 2014; Mark Wright <gienah@gentoo.org>
+  +files/mlton-20070826-no-execmem.patch, +files/mlton-20130715-no-PIE.patch,
+  +files/mlton-20130715-split-make-for-pax-mark.patch, +mlton-20130715.ebuild:
+  Bump to mlton-20130715, fixes bug 480750. Thanks to David Brown, jer and Jason
+  Mours for testing and suggestions.
+
+  25 Apr 2013; Mark Wright <gienah@gentoo.org>
+  +files/mlton-20100608-gmp-const.patch, mlton-20100608.ebuild:
+  Fix Bug 452558 - dev-lang/mlton-20100608 fails to build, unknown type name
+  '__gmp_const'.  Fixed by upstream:
+  https://github.com/MLton/mlton/commit/a658a1f4a76a01f568116598800f49b80cf8ee1a
 
   14 Dec 2012; Ulrich Müller <ulm@gentoo.org> mlton-20100608.ebuild:
   Fix LICENSE, see files in doc/license directory, bug 444982.
@@ -56,4 +70,3 @@
   10 Jun 2004; Matthieu Sozeau <mattam@gentoo.org> metadata.xml,
   mlton-20040227.ebuild, files/mlton-20040227-obsolete-flags.patch:
   New ebuild for source version of mlton (requires mlton-bin to compile).
-

@@ -1,6 +1,31 @@
 # ChangeLog for games-strategy/warzone2100
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/warzone2100/ChangeLog,v 1.77 2013/02/10 01:27:10 hasufell Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/warzone2100/ChangeLog,v 1.84 2014/03/18 00:52:10 mr_bones_ Exp $
+
+  18 Mar 2014; Michael Sterrett <mr_bones_@gentoo.org> warzone2100-3.1.1.ebuild:
+  add elog for working around bug #504924
+
+*warzone2100-3.1.1 (05 Feb 2014)
+
+  05 Feb 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/warzone2100-3.1.1-pkgconf.patch, +warzone2100-3.1.1.ebuild:
+  version bump (bug #500228)
+
+  07 Nov 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/warzone2100-2.3.9-pkgconf.patch, -warzone2100-2.3.9.ebuild:
+  old
+
+  29 Aug 2013; Michael Sterrett <mr_bones_@gentoo.org> warzone2100-3.1.0.ebuild:
+  respect AR (bug #477608)
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> warzone2100-3.1.0.ebuild:
+  Stable for x86, wrt bug #477424
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> warzone2100-3.1.0.ebuild:
+  Stable for amd64, wrt bug #477424
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> warzone2100-3.1.0.ebuild:
+  Move Qt dependencies to the new category
 
 *warzone2100-3.1.0 (10 Feb 2013)
 

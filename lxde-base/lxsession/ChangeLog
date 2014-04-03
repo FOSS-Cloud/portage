@@ -1,6 +1,73 @@
 # ChangeLog for lxde-base/lxsession
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxsession/ChangeLog,v 1.40 2013/02/23 02:35:05 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxsession/ChangeLog,v 1.58 2014/03/13 20:10:19 nullishzero Exp $
+
+  13 Mar 2014; Pavel Kazakov <nullishzero@gentoo.org>
+  lxsession-0.4.9.2-r2.ebuild, lxsession-0.4.9.2-r3.ebuild:
+  Changing VALA_MAX_API_VERSION to 0.22
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> lxsession-0.4.9.2-r1.ebuild:
+  Stable for ppc, wrt bug #495684
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> lxsession-0.4.9.2-r1.ebuild:
+  Stable for x86, wrt bug #495684
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> lxsession-0.4.9.2-r1.ebuild:
+  amd64 stable, bug #495684
+
+*lxsession-0.4.9.2-r3 (09 Jan 2014)
+
+  09 Jan 2014; Pavel Kazakov <nullishzero@gentoo.org>
+  +files/lxsession-0.4.9.2-fix-logind-dbus-calls.patch,
+  +lxsession-0.4.9.2-r3.ebuild:
+  Fix for bug #496880
+
+*lxsession-0.4.9.2-r2 (05 Jan 2014)
+
+  05 Jan 2014; Pavel Kazakov <nullishzero@gentoo.org>
+  +files/lxsession-0.4.9.2-configure.patch, +lxsession-0.4.9.2-r2.ebuild:
+  Fix for bug #497100
+
+  29 Dec 2013; Markus Meier <maekke@gentoo.org> lxsession-0.4.9.2-r1.ebuild:
+  arm stable, bug #495684
+
+*lxsession-0.4.9.2-r1 (23 Oct 2013)
+
+  23 Oct 2013; Pavel Kazakov <nullishzero@gentoo.org>
+  +lxsession-0.4.9.2-r1.ebuild:
+  Add run-time dependency on sys-apps/lsb-release (required by lxsession-
+  logout).
+
+  23 Oct 2013; Pavel Kazakov <nullishzero@gentoo.org> lxsession-0.4.9.2.ebuild:
+  Add dependency on sys-auth/polkit; bug #488054
+
+  17 Oct 2013; Markos Chandras <hwoarang@gentoo.org> lxsession-0.4.9.2.ebuild:
+  Add missing dependency to dev-libs/dbus-glib
+
+  17 Oct 2013; Pavel Kazakov <nullishzero@gentoo.org>
+  files/lxsession-0.4.9.2-makefile.patch:
+  Add upstream link to patch
+
+  17 Oct 2013; Pavel Kazakov <nullishzero@gentoo.org> lxsession-0.4.9.2.ebuild:
+  Add inherit eutils
+
+  17 Oct 2013; Pavel Kazakov <nullishzero@gentoo.org>
+  +files/lxsession-0.4.9.2-makefile.patch, lxsession-0.4.9.2.ebuild:
+  Add patch for bug #488082; patch thanks to Jacob Godserv.
+
+  08 Oct 2013; Markos Chandras <hwoarang@gentoo.org> lxsession-0.4.9.2.ebuild:
+  Add missing dev-libs/libgee:0 dependency thanks to Viktor Yu. Kovalskiy. Bug
+  #487312
+
+*lxsession-0.4.9.2 (07 Oct 2013)
+
+  07 Oct 2013; Markos Chandras <hwoarang@gentoo.org> +lxsession-0.4.9.2.ebuild:
+  Version bump
+
+  23 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> lxsession-0.4.6.1.ebuild,
+  metadata.xml:
+  Rename USE="udev" to USE="dbus upower" separating restart/shutdown vs.
+  hibernate/suspend into their own flags wrt #438478 by Dominique Michel
 
   23 Feb 2013; Zac Medico <zmedico@gentoo.org> lxsession-0.4.6.1.ebuild:
   Add ~arm-linux and ~x86-linux keywords.
@@ -88,30 +155,30 @@
   01 Jan 2011; Markos Chandras <hwoarang@gentoo.org> lxsession-0.4.4.ebuild:
   Stable on amd64 wrt bug #349762
 
-  31 Jul 2010; Tomáš Chvátal <scarabeus@gentoo.org>
+  31 Jul 2010; TomÃ¡Å¡ ChvÃ¡tal <scarabeus@gentoo.org>
   lxsession-0.4.3.ebuild, lxsession-0.4.4.ebuild:
   QA: Fix deps on lxde-common. Now it wont pull one fixed version but rather
   anything newer than that.
 
 *lxsession-0.4.4 (11 Apr 2010)
 
-  11 Apr 2010; Víctor Ostorga <vostorga@gentoo.org>
+  11 Apr 2010; VÃ­ctor Ostorga <vostorga@gentoo.org>
   +lxsession-0.4.4.ebuild:
   Version bump to 0.4.4, including fix for freedesktop.org autostart
   handling and LTSP (Linux terminal server project) support
 
 *lxsession-0.4.3 (21 Mar 2010)
 
-  21 Mar 2010; Víctor Ostorga <vostorga@gentoo.org>
+  21 Mar 2010; VÃ­ctor Ostorga <vostorga@gentoo.org>
   -lxsession-0.3.8.ebuild, -lxsession-0.4.2.ebuild, +lxsession-0.4.3.ebuild:
   Cleaning out unused versions, version bump to 0.4.3
 
-  14 Mar 2010; Víctor Ostorga <vostorga@gentoo.org> lxsession-0.4.2.ebuild:
+  14 Mar 2010; VÃ­ctor Ostorga <vostorga@gentoo.org> lxsession-0.4.2.ebuild:
   Adding sys-apps/dbus as RDEPEND
 
 *lxsession-0.4.2 (14 Mar 2010)
 
-  14 Mar 2010; Víctor Ostorga <vostorga@gentoo.org>
+  14 Mar 2010; VÃ­ctor Ostorga <vostorga@gentoo.org>
   +lxsession-0.4.2.ebuild:
   Version bump to 0.4.2
 
@@ -122,18 +189,18 @@
   lxsession-0.4.1.ebuild:
   stable x86, bug 306433
 
-  23 Feb 2010; Raúl Porcel <armin76@gentoo.org> lxsession-0.4.1.ebuild:
+  23 Feb 2010; RaÃºl Porcel <armin76@gentoo.org> lxsession-0.4.1.ebuild:
   arm stable wrt #306433
 
   23 Feb 2010; Markos Chandras <hwoarang@gentoo.org> lxsession-0.4.1.ebuild:
   Stable on amd64 wrt bug #306433
 
-  24 Jan 2010; Raúl Porcel <armin76@gentoo.org> lxsession-0.4.1.ebuild:
+  24 Jan 2010; RaÃºl Porcel <armin76@gentoo.org> lxsession-0.4.1.ebuild:
   Add ~arm
 
 *lxsession-0.4.1 (22 Jan 2010)
 
-  22 Jan 2010; Víctor Ostorga <vostorga@gentoo.org>
+  22 Jan 2010; VÃ­ctor Ostorga <vostorga@gentoo.org>
   +lxsession-0.4.1.ebuild:
   Version bump to 0.4.1
 
@@ -143,7 +210,7 @@
   20 Nov 2009; Markus Meier <maekke@gentoo.org> lxsession-0.3.8.ebuild:
   amd64/x86 stable, bug #292698
 
-  05 Nov 2009; Víctor Ostorga <vostorga@gentoo.org>
+  05 Nov 2009; VÃ­ctor Ostorga <vostorga@gentoo.org>
   -lxsession-0.3.6.ebuild:
   Cleaning out old ebuild
 

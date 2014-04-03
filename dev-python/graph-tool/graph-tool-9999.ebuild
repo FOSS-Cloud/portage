@@ -1,10 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/graph-tool/graph-tool-9999.ebuild,v 1.4 2013/02/10 11:06:44 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/graph-tool/graph-tool-9999.ebuild,v 1.6 2014/02/05 18:41:16 radhermit Exp $
 
 EAPI=5
-# python3 dropped until scipy reinstates support
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python{2_7,3_2,3_3} )
 
 inherit check-reqs eutils toolchain-funcs python-r1
 
@@ -23,18 +22,18 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="+cairo openmp"
 
-CDEPEND=">=dev-libs/boost-1.46.0[python]
+CDEPEND="${PYTHON_DEPS}
+	>=dev-libs/boost-1.46.0[python,${PYTHON_USEDEP}]
 	dev-libs/expat
 	dev-python/numpy[${PYTHON_USEDEP}]
 	sci-libs/scipy[${PYTHON_USEDEP}]
-	sci-mathematics/cgal
+	>=sci-mathematics/cgal-3.5
 	cairo? (
 		dev-cpp/cairomm
 		dev-python/pycairo[${PYTHON_USEDEP}]
 	)"
 RDEPEND="${CDEPEND}
-	dev-python/matplotlib[${PYTHON_USEDEP}]
-	media-gfx/graphviz[python]"
+	dev-python/matplotlib[${PYTHON_USEDEP}]"
 DEPEND="${CDEPEND}
 	dev-cpp/sparsehash
 	virtual/pkgconfig"
@@ -58,7 +57,7 @@ src_prepare() {
 }
 
 src_configure() {
-	python_foreach_impl run_in_build_dir \
+	python_parallel_foreach_impl run_in_build_dir \
 		econf \
 			--disable-static \
 			--disable-optimization \
@@ -67,11 +66,11 @@ src_configure() {
 }
 
 src_compile() {
-	python_foreach_impl run_in_build_dir default
+	python_parallel_foreach_impl run_in_build_dir default
 }
 
 src_install() {
-	python_foreach_impl run_in_build_dir default
+	python_parallel_foreach_impl run_in_build_dir default
 	prune_libtool_files --modules
 
 	# remove unwanted extra docs

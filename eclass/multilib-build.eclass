@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/multilib-build.eclass,v 1.18 2013/08/08 10:20:15 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/multilib-build.eclass,v 1.30 2014/03/31 15:32:22 mgorny Exp $
 
 # @ECLASS: multilib-build.eclass
 # @MAINTAINER:
@@ -28,13 +28,13 @@ inherit multibuild multilib
 # @ECLASS-VARIABLE: _MULTILIB_FLAGS
 # @INTERNAL
 # @DESCRIPTION:
-# The list of multilib flags and corresponding ABI values.
+# The list of multilib flags and corresponding ABI values. If the same
+# flag is reused for multiple ABIs (e.g. x86 on Linux&FreeBSD), multiple
+# ABIs may be separated by commas.
 _MULTILIB_FLAGS=(
-	abi_x86_32:x86
-	abi_x86_64:amd64
+	abi_x86_32:x86,x86_fbsd
+	abi_x86_64:amd64,amd64_fbsd
 	abi_x86_x32:x32
-	abi_x86_32:x86_fbsd
-	abi_x86_64:amd64_fbsd
 	abi_mips_n32:n32
 	abi_mips_n64:n64
 	abi_mips_o32:o32
@@ -75,13 +75,19 @@ multilib_get_enabled_abis() {
 	local abi i found
 	for abi in "${abis[@]}"; do
 		for i in "${_MULTILIB_FLAGS[@]}"; do
-			local m_abi=${i#*:}
+			local m_abis=${i#*:} m_abi
 			local m_flag=${i%:*}
 
-			if [[ ${m_abi} == ${abi} ]] && use "${m_flag}"; then
-				echo "${abi}"
-				found=1
-			fi
+			# split on ,; we can't switch IFS for function scope because
+			# paludis is broken (bug #486592), and switching it locally
+			# for the split is more complex than cheating like this
+			for m_abi in ${m_abis//,/ }; do
+				if [[ ${m_abi} == ${abi} ]] && use "${m_flag}"; then
+					echo "${abi}"
+					found=1
+					break 2
+				fi
+			done
 		done
 	done
 
@@ -231,6 +237,36 @@ multilib_copy_sources() {
 # )
 # @CODE
 
+# @ECLASS-VARIABLE: MULTILIB_CHOST_TOOLS
+# @DESCRIPTION:
+# A list of tool executables to preserve for each multilib ABI.
+# The listed executables will be renamed to ${CHOST}-${basename},
+# and the native variant will be symlinked to the generic name.
+#
+# This variable has to be a bash array. Paths shall be relative to
+# installation root (${ED}), and name regular files or symbolic
+# links to regular files. Recursive wrapping is not supported.
+#
+# If symbolic link is passed, both symlink path and symlink target
+# will be changed. As a result, the symlink target is expected
+# to be wrapped as well (either by listing in MULTILIB_CHOST_TOOLS
+# or externally).
+#
+# Please note that tool wrapping is *discouraged*. It is preferred to
+# install pkg-config files for each ABI, and require reverse
+# dependencies to use that.
+#
+# Packages that search for tools properly (e.g. using AC_PATH_TOOL
+# macro) will find the wrapper executables automatically. Other packages
+# will need explicit override of tool paths.
+#
+# Example:
+# @CODE
+# MULTILIB_CHOST_TOOLS=(
+#	/usr/bin/foo-config
+# )
+
+# @CODE
 # @FUNCTION: multilib_prepare_wrappers
 # @USAGE: [<install-root>]
 # @DESCRIPTION:
@@ -329,6 +365,33 @@ _EOF_
 				-i "${ED}/tmp/multilib-include${f}" || die
 		fi
 	done
+
+	for f in "${MULTILIB_CHOST_TOOLS[@]}"; do
+		# drop leading slash if it's there
+		f=${f#/}
+
+		local dir=${f%/*}
+		local fn=${f##*/}
+
+		if [[ -L ${root}/${f} ]]; then
+			# rewrite the symlink target
+			local target=$(readlink "${root}/${f}")
+			local target_dir
+			local target_fn=${target##*/}
+
+			[[ ${target} == */* ]] && target_dir=${target%/*}
+
+			ln -f -s "${target_dir+${target_dir}/}${CHOST}-${target_fn}" \
+				"${root}/${f}" || die
+		fi
+
+		mv "${root}/${f}" "${root}/${dir}/${CHOST}-${fn}" || die
+
+		# symlink the native one back
+		if multilib_build_binaries; then
+			ln -s "${CHOST}-${fn}" "${root}/${f}" || die
+		fi
+	done
 }
 
 # @FUNCTION: multilib_install_wrappers
@@ -365,15 +428,32 @@ multilib_install_wrappers() {
 # Determine whether the currently built ABI is the profile native.
 # Return true status (0) if that is true, otherwise false (1).
 #
-# This is often useful for configure calls when some of the options are
-# supposed to be disabled for multilib ABIs (like those used for
-# executables only).
+# This function is not intended to be used directly. Please use
+# multilib_build_binaries instead.
 multilib_is_native_abi() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	[[ ${#} -eq 0 ]] || die "${FUNCNAME}: too many arguments"
 
 	[[ ${ABI} == ${DEFAULT_ABI} ]]
+}
+
+# @FUNCTION: multilib_build_binaries
+# @DESCRIPTION:
+# Determine whether to build binaries for the currently built ABI.
+# Returns true status (0) if the currently built ABI is the profile
+# native or COMPLETE_MULTILIB variable is set to 'yes', otherwise
+# false (1).
+#
+# This is often useful for configure calls when some of the options are
+# supposed to be disabled for multilib ABIs (like those used for
+# executables only).
+multilib_build_binaries() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	[[ ${#} -eq 0 ]] || die "${FUNCNAME}: too many arguments"
+
+	[[ ${COMPLETE_MULTILIB} == yes ]] || multilib_is_native_abi
 }
 
 _MULTILIB_BUILD=1

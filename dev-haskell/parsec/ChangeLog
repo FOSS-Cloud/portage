@@ -1,6 +1,23 @@
 # ChangeLog for dev-haskell/parsec
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/parsec/ChangeLog,v 1.31 2012/12/30 15:02:33 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/parsec/ChangeLog,v 1.35 2014/03/05 10:40:39 qnikst Exp $
+
+*parsec-3.1.5 (05 Mar 2014)
+
+  05 Mar 2014; Alexander Vershilov <qnikst@gentoo.org> +parsec-3.1.5.ebuild,
+  -parsec-3.1.2-r1.ebuild:
+  add new version
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> parsec-3.1.4.ebuild:
+  Stable for x86, wrt bug #502686
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> parsec-3.1.4.ebuild:
+  amd64 stable, bug #502686
+
+*parsec-3.1.4 (10 Dec 2013)
+
+  10 Dec 2013; Mark Wright <gienah@gentoo.org> +parsec-3.1.4.ebuild:
+  Bump parsec to 3.1.4
 
   30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> parsec-3.1.3.ebuild:
   Stable for alpha, wrt bug #441158

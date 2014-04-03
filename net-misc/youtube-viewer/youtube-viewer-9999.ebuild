@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/youtube-viewer/youtube-viewer-9999.ebuild,v 1.11 2013/02/21 16:14:42 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/youtube-viewer/youtube-viewer-9999.ebuild,v 1.15 2013/12/26 16:39:47 hasufell Exp $
 
-EAPI=4
+EAPI=5
 
 inherit perl-module git-2
 
@@ -25,9 +25,11 @@ RDEPEND="
 	virtual/perl-File-Spec
 	virtual/perl-Getopt-Long
 	virtual/perl-Term-ANSIColor
+	virtual/perl-Text-ParseWords
+	virtual/perl-Text-Tabs+Wrap
 	gtk? (
+		dev-perl/File-ShareDir
 		>=dev-perl/gtk2-perl-1.244.0
-		!net-misc/gtk-youtube-viewer
 		virtual/freedesktop-icon-theme
 		x11-libs/gdk-pixbuf:2[X,jpeg]
 	)"
@@ -44,7 +46,10 @@ src_configure() { :; }
 src_compile() { :; }
 
 src_install() {
-	use gtk && local myconf="--gtk-youtube-viewer"
+	local myconf
+	if use gtk ; then
+		myconf="--gtk-youtube-viewer"
+	fi
 	perl-module_src_configure
 	perl-module_src_install
 }
@@ -54,12 +59,16 @@ pkg_postinst() {
 	einfo
 	elog "optional dependencies:"
 	elog "  dev-perl/LWP-Protocol-https or dev-perl/libwww-perl[ssl]"
+	elog "  and virtual/perl-MIME-Base64"
 	elog "    (for HTTPS protocol and login support)"
-	elog "  dev-perl/TermReadKey (to get the terminal width size)"
 	elog "  dev-perl/Term-ReadLine-Gnu (for a better STDIN support)"
+	elog "  dev-perl/Text-CharWidth (print the results in a fixed-width"
+	elog "    format (--fixed-width, -W))"
 	elog "  dev-perl/XML-Fast (faster XML to HASH conversion)"
 	elog "  net-misc/gcap (for retrieving Youtube closed captions)"
 	elog "  virtual/perl-File-Temp (for posting comments)"
-	elog "  virtual/perl-Scalar-List-Utils (to shuffle the playlists (--shuffle)"
+	elog "  virtual/perl-Scalar-List-Utils (to shuffle the playlists"
+	elog "    (--shuffle, -s))"
+	elog "  virtual/perl-threads (threads support)"
 	einfo
 }

@@ -1,6 +1,125 @@
 # ChangeLog for sys-kernel/spl
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/ChangeLog,v 1.45 2013/02/11 23:27:03 ryao Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/ChangeLog,v 1.67 2014/01/27 04:48:35 ryao Exp $
+
+*spl-0.6.2-r3 (27 Jan 2014)
+
+  27 Jan 2014; Richard Yao <ryao@gentoo.org> +spl-0.6.2-r3.ebuild:
+  Linux 3.13 support and some additional patches for SPARC support
+
+*spl-0.6.2-r2 (21 Nov 2013)
+
+  21 Nov 2013; Richard Yao <ryao@gentoo.org> +spl-0.6.2-r2.ebuild:
+  Linux 3.12 support
+
+  14 Oct 2013; Richard Yao <ryao@gentoo.org> spl-0.6.2-r1.ebuild:
+  Reverse stabilization of sys-kernel/spl-0.6.2-r1 (to avoid confusing users
+  because sys-fs/zfs stabilization was reversed at the last minute because of
+  bug #487746)
+
+  14 Oct 2013; Richard Yao <ryao@gentoo.org> spl-0.6.2-r1.ebuild:
+  Stabilize sys-kernel/spl-0.6.2-r1 on amd64 (indirectly required by sys-
+  boot/grub:2 stabilization)
+
+*spl-0.6.2-r1 (05 Oct 2013)
+
+  05 Oct 2013; Richard Yao <ryao@gentoo.org> +spl-0.6.2-r1.ebuild:
+  Improved 3.11 compatibility
+
+*spl-0.6.2 (23 Aug 2013)
+
+  23 Aug 2013; Richard Yao <ryao@gentoo.org> +spl-0.6.2.ebuild:
+  Version bump to 0.6.2
+
+  21 Aug 2013; Richard Yao <ryao@gentoo.org> spl-0.6.1-r3.ebuild:
+  Drop !USER_NS because !UIDGID_STRICT_TYPE_CHECKS is sufficient
+
+*spl-0.6.1-r3 (14 Jul 2013)
+
+  14 Jul 2013; Richard Yao <ryao@gentoo.org> +files/spl-0.6.1-builtin-fix.patch,
+  +files/spl-0.6.1-linux-3.10-compat.patch, +spl-0.6.1-r3.ebuild,
+  -spl-0.6.1-r1.ebuild, -spl-0.6.1-r2.ebuild, -spl-0.6.1.ebuild:
+  Linux 3.10 compatibility; Fix kernel builtin support
+
+  29 May 2013; Richard Yao <ryao@gentoo.org> spl-0.6.1-r2.ebuild,
+  spl-0.6.1.ebuild:
+  Add blocker against CONFIG_UIDGID_STRICT_TYPE_CHECKS
+
+  29 May 2013; Richard Yao <ryao@gentoo.org> spl-0.6.1-r2.ebuild,
+  spl-0.6.1.ebuild:
+  Do not permit builds with CONFIG_USER_NS
+
+  29 May 2013; Richard Yao <ryao@gentoo.org> spl-0.6.1-r2.ebuild,
+  spl-0.6.1.ebuild:
+  Fix typo in ebuild
+
+*spl-0.6.1-r2 (28 May 2013)
+
+  28 May 2013; Richard Yao <ryao@gentoo.org> +files/spl-0.6.1-fix-delay.patch,
+  +spl-0.6.1-r2.ebuild, spl-0.6.1.ebuild:
+  Fix delay()
+
+*spl-0.6.1-r1 (25 Apr 2013)
+
+  25 Apr 2013; Richard Yao <ryao@gentoo.org>
+  +files/spl-0.6.1-constify-ctl_table.patch, +spl-0.6.1-r1.ebuild,
+  spl-0.6.1.ebuild:
+  Patch 3.8 and later kernels for hardened compatibility, bug #463012
+
+  17 Apr 2013; Richard Yao <ryao@gentoo.org> spl-9999.ebuild:
+  Remove /usr/src/spl symlink from 9999 ebuild. sys-cluster/lustre (science
+  overlay) no longer needs it. It will be removed from versioned ebuilds
+  following future revision bumps.
+
+  17 Apr 2013; Richard Yao <ryao@gentoo.org> spl-9999.ebuild:
+  Update /usr/src/spl link to reflect upstream's new location
+
+  17 Apr 2013; Richard Yao <ryao@gentoo.org> spl-0.6.0_rc10.ebuild,
+  spl-0.6.0_rc11-r2.ebuild, spl-0.6.0_rc12-r1.ebuild, spl-0.6.0_rc13-r2.ebuild,
+  spl-0.6.0_rc14-r3.ebuild, spl-0.6.1.ebuild, spl-9999.ebuild:
+  Kbuild depends on dev-lang/perl
+
+*spl-0.6.1 (28 Mar 2013)
+
+  28 Mar 2013; Richard Yao <ryao@gentoo.org>
+  +files/spl-0.6.0_rc14-simplify-hostid-logic.patch, +spl-0.6.1.ebuild,
+  spl-9999.ebuild:
+  Version bump to 0.6.1; Simplify hostid logic
+
+*spl-0.6.0_rc14-r3 (23 Mar 2013)
+
+  23 Mar 2013; Richard Yao <ryao@gentoo.org>
+  +files/spl-0.6.0_rc14-no-cond_resched.patch, +spl-0.6.0_rc14-r3.ebuild,
+  -spl-0.6.0_rc14-r2.ebuild, spl-9999.ebuild:
+  Free memory more quickly under memory pressure; do not dodoc INSTALL
+  (deprecated upstream); fix /usr/src/spl symlink in 9999 ebuild (thanks
+  likewhoa)
+
+  20 Mar 2013; Richard Yao <ryao@gentoo.org> spl-9999.ebuild:
+  Remove dodoc INSTALL from 9999 ebuild to reflect upstream change.
+
+  16 Mar 2013; Richard Yao <ryao@gentoo.org> spl-0.6.0_rc10.ebuild,
+  spl-0.6.0_rc11-r2.ebuild, spl-0.6.0_rc12-r1.ebuild, spl-0.6.0_rc13-r2.ebuild,
+  spl-0.6.0_rc14-r2.ebuild, spl-9999.ebuild:
+  Switch back to linux-mod
+
+  16 Mar 2013; Richard Yao <ryao@gentoo.org>
+  -files/spl-0.6.0_rc14-symlink-headers.patch, spl-0.6.0_rc10.ebuild,
+  spl-0.6.0_rc11-r2.ebuild, spl-0.6.0_rc12-r1.ebuild, spl-0.6.0_rc13-r2.ebuild,
+  spl-0.6.0_rc14-r2.ebuild, spl-9999.ebuild:
+  Switch to linux-info eclass; Replace spl-0.6.0_rc14-symlink-headers.patch with
+  dosym in src_install()
+
+*spl-0.6.0_rc14-r2 (15 Mar 2013)
+
+  15 Mar 2013; Richard Yao <ryao@gentoo.org> +files/spl-0.6.0_rc14-hostid.patch,
+  +files/spl-0.6.0_rc14-linux-3.9-compat.patch,
+  +files/spl-0.6.0_rc14-symlink-headers.patch, +spl-0.6.0_rc14-r2.ebuild,
+  -spl-0.6.0_rc14-r1.ebuild, spl-0.6.0_rc10.ebuild, spl-0.6.0_rc11-r2.ebuild,
+  spl-0.6.0_rc12-r1.ebuild, spl-0.6.0_rc13-r2.ebuild, spl-9999.ebuild:
+  Linux 3.9 Support; Install symlinks to make building lustre easier for the
+  Gentoo Cluster team; dodoc miscellaneous documentation; Update github urls on
+  older ebuilds to make repoman happy
 
   11 Feb 2013; Richard Yao <ryao@gentoo.org> -spl-0.6.0_rc11.ebuild,
   -spl-0.6.0_rc12.ebuild, -spl-0.6.0_rc13-r1.ebuild, -spl-0.6.0_rc13.ebuild,

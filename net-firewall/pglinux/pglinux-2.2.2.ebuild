@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/pglinux/pglinux-2.2.2.ebuild,v 1.3 2012/12/26 02:09:42 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/pglinux/pglinux-2.2.2.ebuild,v 1.5 2013/05/03 16:43:51 hasufell Exp $
 
 EAPI=4
 
@@ -23,9 +23,9 @@ COMMON_DEPEND="
 	dbus? ( sys-apps/dbus )
 	zlib? ( sys-libs/zlib )
 	qt4? ( sys-auth/polkit-qt
-		x11-libs/qt-core:4
-		x11-libs/qt-dbus:4
-		x11-libs/qt-gui:4
+		dev-qt/qtcore:4
+		dev-qt/qtdbus:4
+		dev-qt/qtgui:4
 		|| ( kde-base/kdesu x11-libs/gksu x11-misc/ktsuss )
 	)"
 DEPEND="${COMMON_DEPEND}
@@ -74,6 +74,12 @@ src_configure() {
 		--with-iconsdir=/usr/share/icons/hicolor/128x128/apps \
 		--with-gentoo-init \
 		$(use_with qt4)
+}
+
+src_install() {
+	default
+	keepdir /var/{lib,log,spool}/pgl
+	rm -rf "${ED}"/tmp
 }
 
 pkg_preinst() {

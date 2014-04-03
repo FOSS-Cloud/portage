@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/spl-9999.ebuild,v 1.28 2013/02/06 01:45:21 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/spl-9999.ebuild,v 1.37 2013/04/17 14:30:09 ryao Exp $
 
 EAPI="4"
 AUTOTOOLS_AUTORECONF="1"
 
-inherit flag-o-matic linux-mod autotools-utils
+inherit flag-o-matic linux-info linux-mod autotools-utils
 
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-2
@@ -26,7 +26,8 @@ SLOT="0"
 IUSE="custom-cflags debug debug-log"
 RESTRICT="test"
 
-COMMON_DEPEND="virtual/awk"
+COMMON_DEPEND="dev-lang/perl
+	virtual/awk"
 
 DEPEND="${COMMON_DEPEND}"
 
@@ -37,6 +38,7 @@ AT_M4DIR="config"
 AUTOTOOLS_IN_SOURCE_BUILD="1"
 
 pkg_setup() {
+	linux-info_pkg_setup
 	CONFIG_CHECK="
 		!DEBUG_LOCK_ALLOC
 		!GRKERNSEC_HIDESYM
@@ -50,7 +52,7 @@ pkg_setup() {
 	kernel_is ge 2 6 26 || die "Linux 2.6.26 or newer required"
 
 	[ ${PV} != "9999" ] && \
-		{ kernel_is le 3 8 || die "Linux 3.8 is the latest supported version."; }
+		{ kernel_is le 3 9 || die "Linux 3.9 is the latest supported version."; }
 
 	check_extra_config
 }
@@ -61,12 +63,12 @@ src_prepare() {
 
 	if [ ${PV} != "9999" ]
 	then
-		# Fix x86 build failures on Linux 3.4 and later, bug #450646
-		epatch "${FILESDIR}/${P}-fix-atomic64-checks.patch"
-
-		# Fix autotools check that fails on ~ppc64
-		epatch "${FILESDIR}/${P}-fix-mutex-owner-check.patch"
+		# Be more like FreeBSD and Illumos when handling hostids
+		epatch "${FILESDIR}/${PN}-0.6.0_rc14-simplify-hostid-logic.patch"
 	fi
+
+	# splat is unnecessary unless we are debugging
+	use debug || sed -e 's/^subdir-m += splat$//' -i "${S}/module/Makefile.in"
 
 	autotools-utils_src_prepare
 }
@@ -88,19 +90,21 @@ src_configure() {
 	autotools-utils_src_configure
 }
 
-src_test() {
-	if [[ ! -e /proc/modules ]]
+src_install() {
+	autotools-utils_src_install
+	dodoc AUTHORS DISCLAIMER README.markdown
+}
+
+pkg_postinst() {
+	linux-mod_pkg_postinst
+
+	# Remove old modules
+	if [ -d "${EROOT}lib/modules/${KV_FULL}/addon/spl" ]
 	then
-		die  "Missing /proc/modules"
-	elif [[ $UID -ne 0 ]]
-	then
-		ewarn "Cannot run make check tests with FEATURES=userpriv."
-		ewarn "Skipping make check tests."
-	elif grep -q '^spl ' /proc/modules
-	then
-		ewarn "Cannot run make check tests with module spl loaded."
-		ewarn "Skipping make check tests."
-	else
-		autotools-utils_src_test
+		ewarn "${PN} now installs modules in ${EROOT}lib/modules/${KV_FULL}/extra/spl"
+		ewarn "Old modules were detected in ${EROOT}lib/modules/${KV_FULL}/addon/spl"
+		ewarn "Automatically removing old modules to avoid problems."
+		rm -r "${EROOT}lib/modules/${KV_FULL}/addon/spl" || die "Cannot remove modules"
+		rmdir --ignore-fail-on-non-empty "${EROOT}lib/modules/${KV_FULL}/addon"
 	fi
 }

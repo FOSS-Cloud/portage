@@ -1,6 +1,28 @@
 # ChangeLog for app-misc/uptimed
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/uptimed/ChangeLog,v 1.95 2013/02/28 13:50:44 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/uptimed/ChangeLog,v 1.100 2014/03/03 13:55:08 polynomial-c Exp $
+
+  03 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> files/uptimed.init:
+  Fixed pidfile location for non-linux systems.
+
+  04 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> files/uptimed.init:
+  Fixed pidfile location and removed obsolete code in init script.
+
+*uptimed-0.3.17-r2 (22 Dec 2013)
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> +uptimed-0.3.17-r2.ebuild,
+  -uptimed-0.3.17-r1.ebuild:
+  Revbump to prevent people from thinking this doesn't install a systemd unit
+  file while it does for a long time (#494706 by Roc Valles)
+
+  20 May 2013; Fabio Erculiani <lxnay@gentoo.org> uptimed-0.3.17-r1.ebuild,
+  +files/uptimed.service:
+  add systemd unit on behalf of the systemd team, fix bug #468898, overriding
+  unresponsive maintainer
+
+  29 Apr 2013; Lars Wendler <polynomial-c@gentoo.org>
+  -uptimed-0.3.16-r6.ebuild, uptimed-0.3.17-r1.ebuild:
+  Fix configure.ac for >=automake-1.13 (bug #467582). Removed old.
 
   28 Feb 2013; Jeroen Roovers <jer@gentoo.org> uptimed-0.3.17-r1.ebuild:
   Stable for HPPA (bug #457250).

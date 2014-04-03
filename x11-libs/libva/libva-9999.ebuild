@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva/libva-9999.ebuild,v 1.13 2013/02/14 19:08:51 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva/libva-9999.ebuild,v 1.20 2014/02/06 15:59:01 axs Exp $
 
-EAPI=4
+EAPI=5
 
 SCM=""
 if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
@@ -11,7 +11,8 @@ if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
 	EGIT_REPO_URI="git://anongit.freedesktop.org/vaapi/libva"
 fi
 
-inherit autotools ${SCM} multilib
+AUTOTOOLS_AUTORECONF="yes"
+inherit autotools-multilib ${SCM} multilib
 
 DESCRIPTION="Video Acceleration (VA) API for Linux"
 HOMEPAGE="http://www.freedesktop.org/wiki/Software/vaapi"
@@ -19,7 +20,7 @@ if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
 	SRC_URI=""
 	S="${WORKDIR}/${PN}"
 else
-	SRC_URI="http://cgit.freedesktop.org/vaapi/libva/snapshot/${P}.tar.bz2"
+	SRC_URI="http://www.freedesktop.org/software/vaapi/releases/libva/${P}.tar.bz2"
 fi
 
 LICENSE="MIT"
@@ -29,49 +30,54 @@ if [ "${PV%9999}" = "${PV}" ] ; then
 else
 	KEYWORDS=""
 fi
-IUSE="egl opengl wayland X"
+IUSE="+drm egl opengl vdpau wayland X"
+REQUIRED_USE="|| ( drm wayland X )"
 
 VIDEO_CARDS="dummy nvidia intel fglrx"
 for x in ${VIDEO_CARDS}; do
 	IUSE+=" video_cards_${x}"
 done
 
-RDEPEND=">=x11-libs/libdrm-2.4
+RDEPEND=">=x11-libs/libdrm-2.4[${MULTILIB_USEDEP}]
 	X? (
-		x11-libs/libX11
-		x11-libs/libXext
-		x11-libs/libXfixes
+		x11-libs/libX11[${MULTILIB_USEDEP}]
+		x11-libs/libXext[${MULTILIB_USEDEP}]
+		x11-libs/libXfixes[${MULTILIB_USEDEP}]
 	)
-	egl? ( media-libs/mesa[egl] )
-	opengl? ( virtual/opengl )
-	wayland? ( >=dev-libs/wayland-1 )"
+	egl? ( media-libs/mesa[egl,${MULTILIB_USEDEP}] )
+	opengl? ( virtual/opengl[${MULTILIB_USEDEP}] )
+	wayland? ( >=dev-libs/wayland-1[${MULTILIB_USEDEP}] )"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
-PDEPEND="video_cards_nvidia? ( x11-libs/libva-vdpau-driver )
-	video_cards_fglrx? ( x11-libs/xvba-video )
-	video_cards_intel? ( >=x11-libs/libva-intel-driver-1.0.18 )
+PDEPEND="video_cards_nvidia? ( x11-libs/libva-vdpau-driver[${MULTILIB_USEDEP}] )
+	vdpau? ( x11-libs/libva-vdpau-driver[${MULTILIB_USEDEP}] )
+	video_cards_fglrx? ( x11-libs/xvba-video[${MULTILIB_USEDEP}] )
+	video_cards_intel? ( >=x11-libs/libva-intel-driver-1.0.18[${MULTILIB_USEDEP}] )
 	"
 
 REQUIRED_USE="opengl? ( X )"
 
-src_prepare() {
-	eautoreconf
-}
+PATCHES=( "${FILESDIR}/${PN}-1.2.0-autotools-out-of-source-build.patch" )
+DOCS=( NEWS )
 
-src_configure() {
-	econf \
-		--disable-silent-rules \
-		--with-drivers-path="${EPREFIX}/usr/$(get_libdir)/va/drivers" \
-		$(use_enable video_cards_dummy dummy-driver) \
-		$(use_enable opengl glx) \
-		$(use_enable X x11) \
-		$(use_enable wayland) \
+MULTILIB_WRAPPED_HEADERS=(
+/usr/include/va/va_backend_glx.h
+/usr/include/va/va_x11.h
+/usr/include/va/va_dri2.h
+/usr/include/va/va_dricommon.h
+/usr/include/va/va_glx.h
+)
+
+multilib_src_configure() {
+	local myeconfargs=(
+		--with-drivers-path="${EPREFIX}/usr/$(get_libdir)/va/drivers"
+		$(use_enable video_cards_dummy dummy-driver)
+		$(use_enable opengl glx)
+		$(use_enable X x11)
+		$(use_enable wayland)
 		$(use_enable egl)
-}
-
-src_install() {
-	emake DESTDIR="${D}" install || die
-	dodoc NEWS || die
-	find "${D}" -name '*.la' -delete
+		$(use_enable drm)
+	)
+	autotools-utils_src_configure
 }

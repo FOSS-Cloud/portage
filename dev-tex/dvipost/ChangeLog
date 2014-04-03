@@ -1,6 +1,38 @@
 # ChangeLog for dev-tex/dvipost
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tex/dvipost/ChangeLog,v 1.30 2011/11/29 19:23:29 grobian Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-tex/dvipost/ChangeLog,v 1.40 2014/01/26 12:12:52 ago Exp $
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dvipost-1.1-r2.ebuild:
+  Stable for sparc, wrt bug #495652
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dvipost-1.1-r2.ebuild:
+  Stable for alpha, wrt bug #495652
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dvipost-1.1-r2.ebuild:
+  Stable for ia64, wrt bug #495652
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dvipost-1.1-r2.ebuild:
+  Stable for ppc64, wrt bug #495652
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dvipost-1.1-r2.ebuild:
+  Stable for ppc, wrt bug #495652
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dvipost-1.1-r2.ebuild:
+  Stable for x86, wrt bug #495652
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> dvipost-1.1-r2.ebuild:
+  amd64 stable, bug #495652
+
+  01 Jan 2014; Jeroen Roovers <jer@gentoo.org> dvipost-1.1-r2.ebuild:
+  Stable for HPPA (bug #495652).
+
+*dvipost-1.1-r2 (06 Jul 2013)
+
+  06 Jul 2013; Alexis Ballier <aballier@gentoo.org> +dvipost-1.1-r2.ebuild:
+  revbump to make sure everyone gets the texmf change
+
+  06 Jul 2013; Alexis Ballier <aballier@gentoo.org> dvipost-1.1-r1.ebuild:
+  honour TEXMF from latex-package.eclass
 
   29 Nov 2011; Fabian Groffen <grobian@gentoo.org> dvipost-1.1-r1.ebuild:
   Marked ~x86-macos and ~x64-macos, bug #392195
@@ -102,4 +134,3 @@
   +dvipost-1.0.ebuild, +dvipost-1.0-src_test.diff:
   Initial import. Ebuild submitted by Christopher Ford
   <ctford0@engr.uky.edu>, closing bug #47148.
-

@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/chemtool/chemtool-1.6.13.ebuild,v 1.2 2012/05/04 07:02:32 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/chemtool/chemtool-1.6.13.ebuild,v 1.6 2014/03/24 15:07:29 ago Exp $
 
 EAPI=4
 
- AUTOTOOLS_AUTORECONF=true
+AUTOTOOLS_AUTORECONF=true
 
 inherit autotools-utils eutils
 
@@ -14,7 +14,7 @@ SRC_URI="http://ruby.chemie.uni-freiburg.de/~martin/chemtool/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="emf gnome nls"
 
 RDEPEND="

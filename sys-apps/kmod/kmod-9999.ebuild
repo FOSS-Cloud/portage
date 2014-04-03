@@ -1,17 +1,17 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-9999.ebuild,v 1.48 2013/02/15 18:33:52 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-9999.ebuild,v 1.68 2014/02/05 09:46:31 ssuominen Exp $
 
-EAPI=4
+EAPI=5
+inherit bash-completion-r1 eutils multilib
 
-inherit autotools eutils libtool multilib linux-info
-
-if [[ ${PV} == 9999 ]]; then
+if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="git://git.kernel.org/pub/scm/utils/kernel/${PN}/${PN}.git"
-	inherit git-2
+	inherit autotools git-2
 else
 	SRC_URI="mirror://kernel/linux/utils/kernel/kmod/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+	inherit libtool
 fi
 
 DESCRIPTION="library and tools for managing linux kernel modules"
@@ -19,7 +19,7 @@ HOMEPAGE="http://git.kernel.org/?p=utils/kernel/kmod/kmod.git"
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="debug doc lzma static-libs +tools zlib"
+IUSE="debug doc lzma +openrc static-libs +tools zlib"
 
 # Upstream does not support running the test suite with custom configure flags.
 # I was also told that the test suite is intended for kmod developers.
@@ -30,6 +30,7 @@ RESTRICT="test"
 RDEPEND="!sys-apps/module-init-tools
 	!sys-apps/modutils
 	lzma? ( >=app-arch/xz-utils-5.0.4-r1 )
+	openrc? ( !<sys-apps/openrc-0.12 )
 	zlib? ( >=sys-libs/zlib-1.2.6 )" #427130
 DEPEND="${RDEPEND}
 	dev-libs/libxslt
@@ -37,14 +38,7 @@ DEPEND="${RDEPEND}
 	lzma? ( virtual/pkgconfig )
 	zlib? ( virtual/pkgconfig )"
 
-pkg_setup() {
-	CONFIG_CHECK="~MODULES ~MODULE_UNLOAD"
-
-	linux-info_pkg_setup
-}
-
-src_prepare()
-{
+src_prepare() {
 	if [ ! -e configure ]; then
 		if use doc; then
 			gtkdocize --copy --docdir libkmod/docs || die
@@ -53,26 +47,41 @@ src_prepare()
 		fi
 		eautoreconf
 	else
+		epatch "${FILESDIR}"/${PN}-15-dynamic-kmod.patch #493630
 		elibtoolize
 	fi
+
+	# Restore possibility of running --enable-static wrt #472608
+	sed -i \
+		-e '/--enable-static is not supported by kmod/s:as_fn_error:echo:' \
+		configure || die
 }
 
-src_configure()
-{
+src_configure() {
 	econf \
-		--disable-silent-rules \
 		--bindir=/bin \
-		--with-rootlibdir=/$(get_libdir) \
+		--with-rootlibdir="/$(get_libdir)" \
+		--enable-shared \
 		$(use_enable static-libs static) \
 		$(use_enable tools) \
 		$(use_enable debug) \
 		$(use_enable doc gtk-doc) \
 		$(use_with lzma xz) \
-		$(use_with zlib)
+		$(use_with zlib) \
+		--with-bashcompletiondir="$(get_bashcompdir)"
 }
 
-src_install()
-{
+src_compile() {
+	if [[ ${PV} == 9999* ]]; then
+		default
+	else
+		# Force -j1 because of -15-dynamic-kmod.patch, likely caused by lack of eautoreconf
+		# wrt #494806
+		emake -j1
+	fi
+}
+
+src_install() {
 	default
 	prune_libtool_files
 
@@ -95,4 +104,32 @@ src_install()
 
 	insinto /lib/modprobe.d
 	doins "${T}"/usb-load-ehci-first.conf #260139
+
+	use openrc && doinitd "${FILESDIR}"/kmod-static-nodes
+}
+
+pkg_postinst() {
+	if use openrc; then
+		if [[ -L ${ROOT}etc/runlevels/boot/static-nodes ]]; then
+			ewarn "Removing old conflicting static-nodes init script from the boot runlevel"
+			rm -f "${ROOT}"etc/runlevels/boot/static-nodes
+		fi
+
+		# Add kmod to the runlevel automatically if this is the first install of this package.
+		if [[ -z ${REPLACING_VERSIONS} ]]; then
+			if [[ -x ${ROOT}etc/init.d/kmod-static-nodes && -d ${ROOT}etc/runlevels/sysinit ]]; then
+				ln -s /etc/init.d/kmod-static-nodes "${ROOT}"/etc/runlevels/sysinit/kmod-static-nodes
+			fi
+		fi
+
+		if [[ -e ${ROOT}etc/runlevels/sysinit ]]; then
+			if [[ ! -e ${ROOT}etc/runlevels/sysinit/kmod-static-nodes ]]; then
+				ewarn
+				ewarn "You need to add kmod-static-nodes to the sysinit runlevel for"
+				ewarn "kernel modules to have required static nodes!"
+				ewarn "Run this command:"
+				ewarn "\trc-update add kmod-static-nodes sysinit"
+			fi
+		fi
+	fi
 }

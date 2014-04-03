@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/mediatomb/mediatomb-0.12.1-r5.ebuild,v 1.3 2013/01/26 18:32:49 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/mediatomb/mediatomb-0.12.1-r5.ebuild,v 1.7 2013/08/26 15:31:14 axs Exp $
 
 EAPI="4"
 inherit autotools eutils linux-info user
@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/mediatomb/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~x86"
+KEYWORDS="amd64 ~arm ~ppc x86"
 IUSE="+curl debug +exif +ffmpeg id3tag inotify +javascript lastfm libextractor +magic +mp4 mysql +sqlite +taglib thumbnail +zlib"
 REQUIRED_USE="
 	|| ( mysql sqlite )
@@ -25,7 +25,7 @@ REQUIRED_USE="
 
 DEPEND="mysql? ( virtual/mysql )
 	id3tag? ( media-libs/id3lib )
-	javascript? ( >=dev-lang/spidermonkey-1.8.5 )
+	javascript? ( >=dev-lang/spidermonkey-1.8.5:0 )
 	dev-libs/expat
 	taglib? ( media-libs/taglib )
 	sqlite? ( >=dev-db/sqlite-3 )
@@ -62,7 +62,7 @@ src_prepare() {
 	done
 	epatch "${FILESDIR}"/${P}-libmp4v2.patch
 	epatch "${FILESDIR}"/${P}-system-uuid.patch #270830
-	if has_version ">=dev-lang/spidermonkey-1.8.7" ; then
+	if has_version "~dev-lang/spidermonkey-1.8.7" ; then
 		epatch "${FILESDIR}"/${P}-mozjs187.patch #435394
 	fi
 	epatch "${FILESDIR}"/${P}-libextractor.patch #435394

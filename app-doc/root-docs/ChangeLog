@@ -1,6 +1,72 @@
 # ChangeLog for app-doc/root-docs
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-doc/root-docs/ChangeLog,v 1.28 2013/02/25 04:44:12 bicatali Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-doc/root-docs/ChangeLog,v 1.42 2014/03/28 18:48:01 bicatali Exp $
+
+  28 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  root-docs-5.34.18-r1.ebuild:
+  fixed for correct use flag api instead of html (bug #505930)
+
+*root-docs-5.34.18-r1 (26 Mar 2014)
+
+  26 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/root-docs-5.34.18-html.patch, +root-docs-5.34.18-r1.ebuild,
+  -root-docs-5.32.04.ebuild, -root-docs-5.34.09.ebuild,
+  -root-docs-5.34.10.ebuild, -root-docs-5.34.13.ebuild,
+  -root-docs-5.34.15.ebuild, metadata.xml:
+  Added standard root docs and trigger html api doc with api flag. Clean up.
+
+*root-docs-5.34.18 (18 Mar 2014)
+
+  18 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> +root-docs-5.34.18.ebuild:
+  Version bump
+
+*root-docs-5.34.15 (24 Feb 2014)
+
+  24 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> +root-docs-5.34.15.ebuild:
+  Version bump, adapted for prefix
+
+*root-docs-5.34.13 (05 Dec 2013)
+
+  05 Dec 2013; Andrew Savchenko <bircoph@gmail.com> +root-docs-5.34.13.ebuild:
+  Version bump.
+
+  07 Oct 2013; Andrew Savchenko <bircoph@gmail.com> root-docs-5.34.10.ebuild:
+  Omit unneeded howto messages.
+
+*root-docs-5.34.10 (04 Oct 2013)
+
+  04 Oct 2013; Andrew Savchenko <bircoph@gmail.com> -root-docs-5.34.09.ebuild,
+  +root-docs-5.34.10.ebuild:
+  Version bump per bug 486620. Remove old.
+
+  03 Jul 2013; Michael Weber <xmw@gentoo.org> -root-docs-5.34.07.ebuild,
+  -root-docs-5.34.08.ebuild:
+  Remove old version of 5.34 series, as requested by Andrew Savchenko.
+
+*root-docs-5.34.09 (29 Jun 2013)
+
+  29 Jun 2013; Michael Weber <xmw@gentoo.org> +root-docs-5.34.09.ebuild:
+  Version bump by Andrew Savchenko, imported from science overlay.
+
+*root-docs-5.34.08 (08 Jun 2013)
+
+  08 Jun 2013; Andrew Savchenko <bircoph@gmail.com> +root-docs-5.34.08.ebuild:
+  Version bump.
+
+  28 May 2013; Andrew Savchenko <bircoph@gmail.com> +root-docs-5.34.07.ebuild:
+  Fix sandbox violation on DRI systems: use addpredict instead of
+  switching to Xong GL interface.
+
+*root-docs-5.34.07 (23 May 2013)
+
+  23 May 2013; Sébastien Fabbro <bicatali@gentoo.org> +root-docs-5.34.07.ebuild:
+  Version bump
+
+  13 May 2013; Patrick Lauer <patrick@gentoo.org> -root-docs-5.34.03.ebuild:
+  Remove version with unsatisfiable deps
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml (forced because of broken rdeps)
 
 *root-docs-5.34.05 (23 Feb 2013)
 

@@ -1,6 +1,38 @@
 # ChangeLog for dev-ml/extlib
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/extlib/ChangeLog,v 1.21 2012/11/20 20:50:36 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/extlib/ChangeLog,v 1.30 2014/03/25 10:19:40 nimiux Exp $
+
+  25 Mar 2014; Chema Alonso <nimiux@gentoo.org> extlib-1.6.1.ebuild:
+  Stable for amd64 wrt bug #502730
+
+*extlib-1.6.1 (11 Dec 2013)
+
+  11 Dec 2013; Alexis Ballier <aballier@gentoo.org> +extlib-1.6.1.ebuild:
+  version bump
+
+  19 Aug 2013; Alexis Ballier <aballier@gentoo.org> -extlib-1.5.3.ebuild:
+  remove old
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> extlib-1.5.4.ebuild:
+  Stable for amd64, wrt bug #474170
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> extlib-1.5.4.ebuild:
+  Stable for x86, wrt bug #474170
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> extlib-1.5.4.ebuild:
+  Stable for ppc, wrt bug #474170
+
+*extlib-1.5.4 (08 May 2013)
+
+  08 May 2013; Alexis Ballier <aballier@gentoo.org> +extlib-1.5.4.ebuild:
+  version bump
+
+  10 Mar 2013; Alexis Ballier <aballier@gentoo.org> extlib-1.5.3.ebuild:
+  eapi5: define subslot, slot dep on ocaml, remove useless || die
+
+  10 Mar 2013; Alexis Ballier <aballier@gentoo.org> -extlib-1.5.2.ebuild,
+  -files/extlib-1.5.2-ocaml4.patch:
+  remove old
 
   20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> extlib-1.5.3.ebuild:
   Stable for x86, wrt bug #441200

@@ -3,8 +3,8 @@
 <pkgmetadata>
 	<herd>perl</herd>
 	<maintainer>
-		<email>rajiv@gentoo.org</email>
-		<name>Rajiv Aaron Manglani</name>
+		<email>radhermit@gentoo.org</email>
+		<name>Tim Harder</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="cpan">ack</remote-id>

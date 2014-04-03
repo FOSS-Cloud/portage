@@ -1,6 +1,59 @@
 # ChangeLog for perl-core/ExtUtils-MakeMaker
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/ExtUtils-MakeMaker/ChangeLog,v 1.50 2013/02/23 08:36:06 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/ExtUtils-MakeMaker/ChangeLog,v 1.61 2014/02/02 00:08:37 vapier Exp $
+
+  02 Feb 2014; Mike Frysinger <vapier@gentoo.org>
+  ExtUtils-MakeMaker-6.640.0.ebuild, ExtUtils-MakeMaker-6.720.0.ebuild,
+  ExtUtils-MakeMaker-6.740.0.ebuild, ExtUtils-MakeMaker-6.820.0.ebuild:
+  Add m68k love.
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  ExtUtils-MakeMaker-6.56-r1.ebuild, ExtUtils-MakeMaker-6.580.0.ebuild,
+  ExtUtils-MakeMaker-6.590.0.ebuild, ExtUtils-MakeMaker-6.620.0-r1.ebuild,
+  ExtUtils-MakeMaker-6.620.0.ebuild:
+  Add arm64 love.
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  ExtUtils-MakeMaker-6.640.0.ebuild, ExtUtils-MakeMaker-6.720.0.ebuild,
+  ExtUtils-MakeMaker-6.740.0.ebuild, ExtUtils-MakeMaker-6.820.0.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  ExtUtils-MakeMaker-6.56-r1.ebuild:
+  Mark sh stable.
+
+  25 Nov 2013;  <civil@gentoo.org> +files/6.82-delete_packlist_podlocal.patch,
+  ExtUtils-MakeMaker-6.820.0.ebuild:
+  Add new version of patch. Fixes #484294
+
+*ExtUtils-MakeMaker-6.820.0 (25 Nov 2013)
+
+  25 Nov 2013;  <civil@gentoo.org> +ExtUtils-MakeMaker-6.820.0.ebuild:
+  Version bump. Bug: #492440
+
+*ExtUtils-MakeMaker-6.740.0 (05 Sep 2013)
+
+  05 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  +ExtUtils-MakeMaker-6.740.0.ebuild:
+  Bump
+
+*ExtUtils-MakeMaker-6.720.0 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +ExtUtils-MakeMaker-6.720.0.ebuild:
+  Bump
+
+  20 Apr 2013; Matt Turner <mattst88@gentoo.org>
+  ExtUtils-MakeMaker-6.640.0.ebuild:
+  Added ~mips.
+
+  16 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  ExtUtils-MakeMaker-6.640.0.ebuild:
+  Stable for ppc64, wrt bug #456568
+
+  02 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  ExtUtils-MakeMaker-6.640.0.ebuild:
+  Stable for sh, wrt bug #458122
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
   ExtUtils-MakeMaker-6.640.0.ebuild:

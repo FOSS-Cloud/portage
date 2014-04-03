@@ -1,6 +1,24 @@
 # ChangeLog for dev-python/subvertpy
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/subvertpy/ChangeLog,v 1.50 2013/02/16 12:36:53 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/subvertpy/ChangeLog,v 1.55 2013/06/25 16:57:48 ago Exp $
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> subvertpy-0.9.1.ebuild:
+  Stable for amd64, wrt bug #473556
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> subvertpy-0.9.1.ebuild:
+  Stable for x86, wrt bug #473556
+
+  16 May 2013; Marien Zwart <marienz@gentoo.org> subvertpy-0.9.1.ebuild:
+  Fix DOCS to work with distutils-r1.
+
+*subvertpy-0.9.1 (15 May 2013)
+
+  15 May 2013; Dirkjan Ochtman <djc@gentoo.org> +subvertpy-0.9.1.ebuild:
+  Version bump to 0.9.1, convert to distutils-r1.
+
+  15 May 2013; Dirkjan Ochtman <djc@gentoo.org> -subvertpy-0.8.0.ebuild,
+  -subvertpy-0.8.9.ebuild:
+  Remove old versions.
 
   16 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due bug #96436

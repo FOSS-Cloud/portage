@@ -1,6 +1,51 @@
 # ChangeLog for games-board/pokerth
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/pokerth/ChangeLog,v 1.50 2013/02/24 11:30:42 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-board/pokerth/ChangeLog,v 1.61 2014/03/01 22:25:50 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> pokerth-1.0.1.ebuild,
+  pokerth-1.1.1.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+*pokerth-1.1.1 (22 Jan 2014)
+
+  22 Jan 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/pokerth-1.1.1-underlinking.patch, +pokerth-1.1.1.ebuild:
+  version bump
+
+  07 Nov 2013; Julian Ospald <hasufell@gentoo.org> -pokerth-1.0.ebuild,
+  +pokerth-1.0.1.ebuild:
+  re-add correct version, drop old
+
+  06 Nov 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/pokerth-1.0-underlinking.patch, -pokerth-1.0.1.ebuild:
+  old
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pokerth-1.0.1.ebuild:
+  Stable for x86, wrt bug #475228
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> pokerth-1.0.1.ebuild:
+  Stable for amd64, wrt bug #475228
+
+  29 Jun 2013; Michael Sterrett <mr_bones_@gentoo.org> pokerth-1.0.1.ebuild,
+  pokerth-1.0.ebuild:
+  add slot to libsdl dep
+
+  29 Jun 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/pokerth-0.9.5-underlinking.patch, -pokerth-0.9.5.ebuild:
+  old
+
+*pokerth-1.0.1 (23 May 2013)
+
+  23 May 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/pokerth-1.0.1-underlinking.patch, +pokerth-1.0.1.ebuild:
+  version bump (bug #471108)
+
+  08 May 2013; Vicente Olivert Riera <vincent@gentoo.org> pokerth-1.0.ebuild:
+  ~ppc keyword, bug #460772
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> pokerth-0.9.5.ebuild,
+  pokerth-1.0.ebuild:
+  Move Qt dependencies to the new category
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> pokerth-1.0.ebuild:
   Stable for x86, wrt bug #458640

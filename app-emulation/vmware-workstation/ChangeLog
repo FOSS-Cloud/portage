@@ -1,6 +1,86 @@
 # ChangeLog for app-emulation/vmware-workstation
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/vmware-workstation/ChangeLog,v 1.241 2013/01/07 21:00:19 vadimk Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/vmware-workstation/ChangeLog,v 1.255 2014/03/01 22:09:35 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org>
+  vmware-workstation-10.0.1.1379776-r1.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+*vmware-workstation-10.0.1.1379776-r1 (07 Jan 2014)
+
+  07 Jan 2014; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +vmware-workstation-10.0.1.1379776-r1.ebuild:
+  Add missing deps that depclean purges that @preserved-rebuild then gets.
+
+  31 Dec 2013; Tom Wijsman <TomWij@gentoo.org> -files/vmware-player.desktop,
+  -files/vmware-workstation.desktop:
+  [QA] Remove unused files.
+
+  02 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  vmware-workstation-10.0.0.1295980.ebuild,
+  vmware-workstation-10.0.1.1379776.ebuild,
+  vmware-workstation-8.0.5.893925.ebuild,
+  vmware-workstation-9.0.2.1031769-r1.ebuild:
+  Undo previous change. Brings its own libraries and that confuses portage, bug
+  493018
+
+  02 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  vmware-workstation-8.0.5.893925.ebuild,
+  vmware-workstation-9.0.2.1031769-r1.ebuild,
+  vmware-workstation-10.0.0.1295980.ebuild,
+  vmware-workstation-10.0.1.1379776.ebuild:
+  Add missing dependency on (old) gnome-keyring, found when it was updated to
+  gnome-keyring-3.8
+
+*vmware-workstation-10.0.1.1379776 (06 Nov 2013)
+
+  06 Nov 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +vmware-workstation-10.0.1.1379776.ebuild:
+  Version bump
+
+  02 Nov 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  vmware-workstation-10.0.0.1295980.ebuild:
+  Re-add keywords after testing
+
+  22 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org> -files/vmware-7.0.rc,
+  -vmware-workstation-7.1.6.744570.ebuild,
+  -vmware-workstation-9.0.2.1031769.ebuild:
+  Drop old
+
+*vmware-workstation-10.0.0.1295980 (19 Oct 2013)
+
+  19 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +vmware-workstation-10.0.0.1295980.ebuild, +files/vmware-10.0.rc,
+  +files/vmware-server-10.0.rc:
+  Version bump, added without keywords for testing. Bug 484098. Thanks to Billy
+  DeVincentis for the files.
+
+*vmware-workstation-9.0.2.1031769-r1 (24 Jul 2013)
+
+  24 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +vmware-workstation-9.0.2.1031769-r1.ebuild:
+  Add experimental systemd unit files, bug 411901
+
+  23 Jun 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -vmware-workstation-8.0.4.744019-r1.ebuild:
+  Drop old
+
+  22 Jun 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  vmware-workstation-7.1.6.744570.ebuild,
+  vmware-workstation-8.0.4.744019-r1.ebuild,
+  vmware-workstation-8.0.5.893925.ebuild,
+  vmware-workstation-9.0.2.1031769.ebuild:
+  Add init script license, bug 425902
+
+  16 Jun 2013; Vadim Kuznetsov vadimk@gentoo.org metadata.xml:
+  dropped myself as a maintainer. maintainer needed
+
+*vmware-workstation-9.0.2.1031769 (10 Mar 2013)
+
+  10 Mar 2013; Vadim Kuznetsov vadimk@gentoo.org
+  +vmware-workstation-9.0.2.1031769.ebuild,
+  -vmware-workstation-9.0.1.894247.ebuild:
+  vmware desktop 9.0.2 version bump. Bugs 459566, 458228, 460908.
 
   07 Jan 2013; Vadim Kuznetsov vadimk@gentoo.org
   vmware-workstation-9.0.1.894247.ebuild:

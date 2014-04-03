@@ -1,6 +1,29 @@
 # ChangeLog for media-gfx/openexr_viewers
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/openexr_viewers/ChangeLog,v 1.28 2012/05/05 07:00:23 jdhore Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/openexr_viewers/ChangeLog,v 1.32 2014/01/22 18:35:01 ssuominen Exp $
+
+*openexr_viewers-2.1.0 (22 Jan 2014)
+
+  22 Jan 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +openexr_viewers-2.1.0.ebuild:
+  Version bump.
+
+  22 Jan 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -openexr_viewers-2.0.0.ebuild:
+  old
+
+*openexr_viewers-2.0.1 (23 Jul 2013)
+
+  23 Jul 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +openexr_viewers-2.0.1.ebuild:
+  Version bump.
+
+*openexr_viewers-2.0.0 (12 Mar 2013)
+
+  12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +openexr_viewers-2.0.0.ebuild,
+  +files/openexr_viewers-2.0.0-nvidia-automagic.patch:
+  Version bump.
 
   05 May 2012; Jeff Horelick <jdhore@gentoo.org> openexr_viewers-1.0.2.ebuild:
   dev-util/pkgconfig -> virtual/pkgconfig
@@ -112,4 +135,3 @@
   +openexr_viewers-1.0.0.ebuild:
   Initial import, split of media-libs/openexr, thanks to : Arfrever Frehtes
   Taifersar Arahesis <Arfrever.FTA@GMail.Com> for the ebuilds, bug #189798
-

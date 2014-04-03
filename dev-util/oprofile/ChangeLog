@@ -1,6 +1,39 @@
 # ChangeLog for dev-util/oprofile
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/oprofile/ChangeLog,v 1.84 2013/02/16 13:26:59 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/oprofile/ChangeLog,v 1.94 2013/12/22 14:44:44 ago Exp $
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> oprofile-0.9.9.ebuild:
+  Stable for ppc64, wrt bug #467348
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> oprofile-0.9.9.ebuild:
+  Stable for ppc, wrt bug #467348
+
+*oprofile-0.9.9 (11 Nov 2013)
+
+  11 Nov 2013; Tom Wijsman <TomWij@gentoo.org> +oprofile-0.9.9.ebuild:
+  Version bump to 0.9.9.
+
+  12 May 2013; Agostino Sarubbo <ago@gentoo.org> oprofile-0.9.8.ebuild:
+  Stable for arm, wrt bug #467152
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> oprofile-0.9.8.ebuild:
+  Stable for alpha, wrt bug #467152
+
+  26 Apr 2013; Agostino Sarubbo <ago@gentoo.org> oprofile-0.9.8.ebuild:
+  Stable for sparc, wrt bug #467152
+
+  25 Apr 2013; Jeroen Roovers <jer@gentoo.org> oprofile-0.9.8.ebuild:
+  Stable for HPPA (bug #467152).
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org> oprofile-0.9.8.ebuild:
+  Stable for x86, wrt bug #467152
+
+  25 Apr 2013; Agostino Sarubbo <ago@gentoo.org> oprofile-0.9.8.ebuild:
+  Stable for amd64, wrt bug #467152
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> oprofile-0.9.7.ebuild,
+  oprofile-0.9.8.ebuild:
+  Move Qt dependencies to the new category
 
 *oprofile-0.9.8 (16 Feb 2013)
 

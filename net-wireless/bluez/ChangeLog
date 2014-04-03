@@ -1,6 +1,155 @@
 # ChangeLog for net-wireless/bluez
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/bluez/ChangeLog,v 1.159 2013/02/12 19:32:03 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/bluez/ChangeLog,v 1.196 2014/03/30 08:21:22 pacho Exp $
+
+  30 Mar 2014; Pacho Ramos <pacho@gentoo.org> +files/rfcomm-init.d-r1:
+  Fix rfcomm init.d script (#505786 by Christophe PEREZ and Bombino)
+
+*bluez-5.17 (30 Mar 2014)
+
+  30 Mar 2014; Pacho Ramos <pacho@gentoo.org> +bluez-5.17.ebuild:
+  Version bump
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> bluez-5.15.ebuild:
+  Stable for HPPA (bug #499954).
+
+*bluez-5.16 (12 Mar 2014)
+
+  12 Mar 2014; Pacho Ramos <pacho@gentoo.org> +bluez-5.16.ebuild,
+  -bluez-5.14-r1.ebuild:
+  Version bump, readline is needed when client is built (#504038 by Richard Li),
+  make udev optional (#504324 by Alexandre Rostovtsev and Joshua Kinard), drop
+  old.
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> bluez-5.15.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> bluez-5.15.ebuild:
+  amd64 stable, bug 499954
+
+*bluez-5.15 (27 Feb 2014)
+
+  27 Feb 2014; Pacho Ramos <pacho@gentoo.org> +bluez-5.15.ebuild:
+  Version bump (#502582 by Manuel Ruger)
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> bluez-5.14-r1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> bluez-5.14-r1.ebuild:
+  arch stable, bug 888
+
+*bluez-5.14-r1 (16 Feb 2014)
+
+  16 Feb 2014; Pacho Ramos <pacho@gentoo.org> +bluez-5.14-r1.ebuild,
+  +files/0001-obex-Use-GLib-helper-function-to-manipulate-paths.patch,
+  +files/0001-work-around-Logitech-diNovo-Edge-keyboard-firmware-i.patch,
+  +files/0002-autopair-Don-t-handle-the-iCade.patch,
+  +files/0004-agent-Assert-possible-infinite-loop.patch, -bluez-5.14.ebuild:
+  Apply some Fedora patches that also fix Logitech DiNovo Edge keyboard (#501120
+  by manwe)
+
+*bluez-5.14 (09 Feb 2014)
+
+  09 Feb 2014; Pacho Ramos <pacho@gentoo.org> +bluez-5.14.ebuild,
+  +files/0001-Allow-using-obexd-without-systemd-in-the-user-sessio.patch,
+  -bluez-4.101-r6.ebuild, -bluez-4.101-r7.ebuild, -bluez-5.12.ebuild,
+  -files/bluez-4.101-mgmt-update.patch, -files/bluez-4.101-network1.patch,
+  -files/bluez-4.101-network2.patch, -files/bluez-4.101-network3.patch,
+  -files/bluez-4.101-network4.patch:
+  Version bump, drop old
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r8.ebuild:
+  Stable for ppc64, wrt bug #496866
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r8.ebuild:
+  Stable for ppc, wrt bug #496866
+
+  09 Jan 2014; Christian Birchinger <joker@gentoo.org>
+  files/bluetooth-init.d-r3:
+  The bluez 5 bluetoothd doesn't fork into background. Use start-stop-daemon
+  --background to handle this.
+
+  07 Jan 2014; Jeroen Roovers <jer@gentoo.org> bluez-4.101-r8.ebuild:
+  Stable for HPPA (bug #496866).
+
+  05 Jan 2014; Markus Meier <maekke@gentoo.org> bluez-4.101-r8.ebuild:
+  arm stable, bug #496866
+
+  05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r8.ebuild:
+  Stable for x86, wrt bug #496866
+
+  03 Jan 2014; Pacho Ramos <pacho@gentoo.org> bluez-4.101-r8.ebuild:
+  amd64 stable, bug #496866
+
+*bluez-5.12 (23 Dec 2013)
+
+  23 Dec 2013; Gilles Dartiguelongue <eva@gentoo.org> +bluez-5.12.ebuild,
+  +files/bluetooth-init.d-r3, files/rfcomm-init.d, metadata.xml:
+  Version bump. Major ebuild update, see bug #452162.
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r7.ebuild:
+  Stable for ppc64, wrt bug #487748
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r7.ebuild:
+  Stable for ppc, wrt bug #487748
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org> bluez-4.101-r7.ebuild:
+  x86 stable, bug #487748
+
+*bluez-4.101-r8 (01 Dec 2013)
+
+  01 Dec 2013; Pacho Ramos <pacho@gentoo.org> +bluez-4.101-r8.ebuild,
+  -bluez-4.101-r5.ebuild, metadata.xml:
+  Make hid2hci optional and disabled by default (#405903#c2 by Alexander Holler)
+
+  27 Nov 2013; Markus Meier <maekke@gentoo.org> bluez-4.101-r7.ebuild:
+  arm stable, bug #487748
+
+  09 Nov 2013; Pacho Ramos <pacho@gentoo.org> bluez-4.101-r7.ebuild:
+  amd64 stable, bug #487748
+
+  28 Oct 2013; Jeroen Roovers <jer@gentoo.org> bluez-4.101-r7.ebuild:
+  Stable for HPPA (bug #487748).
+
+  06 Oct 2013; Pacho Ramos <pacho@gentoo.org> bluez-4.101-r7.ebuild:
+  Make autoreconf work with latest automake (#487042 by Arfrever Frehtes
+  Taifersar Arahesis)
+
+*bluez-4.101-r7 (03 Oct 2013)
+
+  03 Oct 2013; Pacho Ramos <pacho@gentoo.org> +bluez-4.101-r7.ebuild:
+  Apply Fedora patches including fixes and backports for bluez-4
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r6.ebuild:
+  Stable for ppc, wrt bug #481828
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r6.ebuild:
+  Stable for ppc64, wrt bug #481828
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r6.ebuild:
+  Stable for x86, wrt bug #481828
+
+  17 Sep 2013; Jeroen Roovers <jer@gentoo.org> bluez-4.101-r6.ebuild:
+  Stable for HPPA (bug #481828).
+
+  15 Sep 2013; Markus Meier <maekke@gentoo.org> bluez-4.101-r6.ebuild:
+  arm stable, bug #481828
+
+  15 Sep 2013; Agostino Sarubbo <ago@gentoo.org> bluez-4.101-r6.ebuild:
+  Stable for amd64, wrt bug #481828
+
+*bluez-4.101-r6 (20 Aug 2013)
+
+  20 Aug 2013; Pacho Ramos <pacho@gentoo.org> +bluez-4.101-r6.ebuild:
+  Stop reverting commit as current kernels in the tree need (#481496 by
+  Alexander Tsoy), simplify consolekit/systemd/plugdev handling
+
+  30 Jul 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> bluez-4.101-r5.ebuild,
+  metadata.xml:
+  Fix usage of python-r1.eclass
 
   12 Feb 2013; Pacho Ramos <pacho@gentoo.org> -bluez-4.101-r4.ebuild,
   -bluez-4.99.ebuild, -files/bluetooth-conf.d, -files/bluetooth-init.d,

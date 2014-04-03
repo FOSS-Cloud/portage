@@ -1,6 +1,44 @@
 # ChangeLog for net-misc/cfengine
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/cfengine/ChangeLog,v 1.160 2012/10/27 15:42:36 idl0r Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/cfengine/ChangeLog,v 1.168 2014/03/03 14:08:46 mschiff Exp $
+
+  03 Mar 2014; Marc Schiffbauer <mschiff@gentoo.org> cfengine-3.5.3.ebuild:
+  Fix configure with USE=,ysql for some users. Fixes bug #503022 (thanks
+  tonich)
+
+*cfengine-3.5.3 (27 Feb 2014)
+
+  27 Feb 2014; Marc Schiffbauer <mschiff@gentoo.org> +cfengine-3.5.3.ebuild,
+  +files/cfengine-3.5.3-ifconfig.patch:
+  Add 3.5.3 ebuild. Fixed USE=mysql. Removed html and tests USE flags. Fixes
+  #491838. Should fix #464358
+
+*cfengine-3.4.5 (22 Feb 2014)
+
+  22 Feb 2014; Marc Schiffbauer <mschiff@gentoo.org> +cfengine-3.4.5.ebuild,
+  +files/cfengine-3.4.5-acl.patch, +files/cfengine-3.4.5-ifconfig.patch,
+  -cfengine-3.4.4.ebuild, -files/cfengine-3.4.4-acl.patch,
+  -files/cfengine-3.4.4-ifconfig.patch:
+  Bump 3.4.4 -> 3.4.5. DEP cleanup. Should fix #464358
+
+  22 Feb 2014; Marc Schiffbauer <mschiff@gentoo.org> metadata.xml:
+  added myself as maintainer
+
+  22 Feb 2014; Christian Ruppert <idl0r@gentoo.org> metadata.xml:
+  Update metadata.xml; I maintain 2.x only
+
+  23 Dec 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #66351
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> cfengine-2.2.10-r4.ebuild,
+  cfengine-3.2.4.ebuild:
+  Stable for ppc64, wrt bug #416433
+
+*cfengine-3.4.4 (28 Mar 2013)
+
+  28 Mar 2013; Christian Ruppert <idl0r@gentoo.org> +cfengine-3.4.4.ebuild,
+  +files/cfengine-3.4.4-acl.patch, +files/cfengine-3.4.4-ifconfig.patch:
+  Version bump, bug 462664 also fixes the ifconfig path, bug 444532
 
 *cfengine-3.3.9 (27 Oct 2012)
 

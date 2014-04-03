@@ -1,6 +1,32 @@
 # ChangeLog for dev-libs/dee
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/dee/ChangeLog,v 1.15 2013/02/07 08:27:06 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/dee/ChangeLog,v 1.23 2013/12/08 20:00:03 pacho Exp $
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> dee-1.0.14-r2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> dee-1.0.14-r2.ebuild:
+  amd64 stable, bug #478252
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> dee-1.0.14-r2.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  29 May 2013; Justin Lecher <jlec@gentoo.org> dee-1.0.14-r2.ebuild:
+  Fix usage of new python r1 eclasses (missing PYTHON_REQUIRED_USE)
+
+  24 Apr 2013; Justin Lecher <jlec@gentoo.org> dee-1.0.14-r2.ebuild:
+  vala_depend is a function not a variable
+
+  10 Apr 2013; Justin Lecher <jlec@gentoo.org> dee-1.0.14-r2.ebuild:
+  Fix correct usage of vala.eclass, #464322
+
+  03 Apr 2013; Justin Lecher <jlec@gentoo.org> dee-1.0.14-r2.ebuild:
+  Fix installation of examples, #464374
+
+*dee-1.0.14-r2 (03 Apr 2013)
+
+  03 Apr 2013; Justin Lecher <jlec@gentoo.org> +dee-1.0.14-r2.ebuild:
+  Add correct handling of vala and introspection
 
 *dee-1.0.14-r1 (07 Feb 2013)
 

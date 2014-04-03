@@ -1,26 +1,26 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/coq/coq-8.4_p1.ebuild,v 1.2 2013/01/15 19:25:21 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/coq/coq-8.4_p1.ebuild,v 1.6 2014/01/23 08:17:49 jlec Exp $
 
-EAPI="4"
+EAPI="5"
 
 inherit eutils multilib
 
 MY_PV=${PV/_p/pl}
 MY_P=${PN}-${MY_PV}
 
-DESCRIPTION="Coq is a proof assistant written in O'Caml"
+DESCRIPTION="Proof assistant written in O'Caml"
 HOMEPAGE="http://coq.inria.fr/"
 SRC_URI="http://${PN}.inria.fr/V${MY_PV}/files/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE="gtk debug +ocamlopt doc camlp5"
 
-RDEPEND=">=dev-lang/ocaml-3.11.2[ocamlopt?]
-	camlp5? ( >=dev-ml/camlp5-6.02.3[ocamlopt?] )
-	gtk? ( >=dev-ml/lablgtk-2.10.1[ocamlopt?] )"
+RDEPEND=">=dev-lang/ocaml-3.11.2:=[ocamlopt?]
+	camlp5? ( >=dev-ml/camlp5-6.02.3:=[ocamlopt?] )
+	gtk? ( >=dev-ml/lablgtk-2.10.1:=[ocamlopt?] )"
 DEPEND="${RDEPEND}
 	doc? (
 		media-libs/netpbm[png,zlib]

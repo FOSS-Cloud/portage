@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+  <herd>gnome</herd>
   <herd>sound</herd>
-  <maintainer>
-    <email>ford_prefect@gentoo.org</email>
-    <name>Arun Raghavan</name>
-  </maintainer>
   <use>
     <flag name="X">
       Build the X11 publish module to export PulseAudio information

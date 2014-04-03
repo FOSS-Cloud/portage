@@ -1,12 +1,12 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/flumotion/flumotion-0.8.1.ebuild,v 1.5 2011/03/30 20:30:11 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/flumotion/flumotion-0.8.1.ebuild,v 1.7 2014/01/08 06:04:33 vapier Exp $
 
 EAPI=3
 
 PYTHON_DEPEND="2:2.6"
 
-inherit eutils flag-o-matic multilib python toolchain-funcs virtualx # AC_CHECK_PROG for Xvfb
+inherit eutils user flag-o-matic multilib python toolchain-funcs virtualx # AC_CHECK_PROG for Xvfb
 
 DESCRIPTION="Flumotion Streaming server"
 HOMEPAGE="http://www.flumotion.net/"
@@ -30,7 +30,7 @@ RDEPEND="dev-python/gst-python:0.10
 	dev-python/kiwi
 	dev-python/pycairo
 	=dev-python/pygtk-2*
-	dev-python/twisted
+	dev-python/twisted-core
 	media-libs/gstreamer:0.10
 	media-libs/gst-plugins-base:0.10
 	media-libs/gst-plugins-good:0.10

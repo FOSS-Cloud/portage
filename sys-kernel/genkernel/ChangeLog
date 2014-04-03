@@ -1,6 +1,115 @@
 # ChangeLog for sys-kernel/genkernel
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/genkernel/ChangeLog,v 1.352 2013/01/27 12:03:10 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/genkernel/ChangeLog,v 1.376 2014/04/01 03:13:47 ryao Exp $
+
+  01 Apr 2014; Richard Yao <ryao@gentoo.org> genkernel-3.4.49.ebuild:
+  Stable for amd64, wrt bug #506404
+
+*genkernel-3.4.49 (17 Mar 2014)
+
+  17 Mar 2014; Richard Yao <ryao@gentoo.org> +genkernel-3.4.49.ebuild,
+  -genkernel-3.4.16.1.ebuild, -genkernel-3.4.16.ebuild,
+  -genkernel-3.4.20.ebuild, -genkernel-3.4.21.2.ebuild,
+  -genkernel-3.4.22.1.ebuild, -genkernel-3.4.23.1.ebuild,
+  -genkernel-3.4.24.ebuild, -genkernel-3.4.24_p1.ebuild,
+  -genkernel-3.4.24_p2.ebuild, -genkernel-3.4.25.1.ebuild,
+  -genkernel-3.4.26.ebuild, -genkernel-3.4.27.ebuild, -genkernel-3.4.28.ebuild,
+  -genkernel-3.4.29.ebuild, -genkernel-3.4.32.ebuild,
+  -genkernel-3.4.33.1.ebuild, -genkernel-3.4.34.ebuild,
+  -genkernel-3.4.35.ebuild, -genkernel-3.4.36.ebuild, -genkernel-3.4.37.ebuild,
+  -genkernel-3.4.38.ebuild, -genkernel-3.4.40.ebuild, -genkernel-3.4.41.ebuild,
+  -genkernel-3.4.42.ebuild, -genkernel-3.4.43.ebuild,
+  -genkernel-3.4.44.1.ebuild, -genkernel-3.4.44.2.ebuild,
+  -genkernel-3.4.45.ebuild, -genkernel-3.4.46.1.ebuild,
+  -genkernel-3.4.46.ebuild, -genkernel-3.4.47.ebuild, genkernel-9999.ebuild:
+  Version bump to 3.4.49; Remove legacy genkernel versions
+
+*genkernel-3.4.48 (27 Feb 2014)
+
+  27 Feb 2014; Richard Yao <ryao@gentoo.org> +genkernel-3.4.48.ebuild:
+  Version bump to 3.4.48
+
+  27 Aug 2013; Jeroen Roovers <jer@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for HPPA (bug #473202).
+
+  17 Jun 2013; Jeroen Roovers <jer@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Revert HPPA stable (bug #473202).
+
+  17 Jun 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for x86, wrt bug #473202
+
+  17 Jun 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for sparc, wrt bug #473202
+
+  17 Jun 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for s390, wrt bug #473202
+
+  17 Jun 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for ppc, wrt bug #473202
+
+  17 Jun 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for ppc64, wrt bug #473202
+
+  17 Jun 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for ia64, wrt bug #473202
+
+  17 Jun 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for hppa, wrt bug #473202
+
+  17 Jun 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for arm, wrt bug #473202
+
+  17 Jun 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for amd64, wrt bug #473202
+
+  17 Jun 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.1.ebuild:
+  Stable for alpha, wrt bug #473202
+
+*genkernel-3.4.45.1 (14 Jun 2013)
+
+  14 Jun 2013; Robin H. Johnson <robbat2@gentoo.org> +genkernel-3.4.45.1.ebuild:
+  Per bug #473202, backport some of the fixes for a quick stable: USB3 #458606,
+  #452888; RTC: #444932; Docs: #432956; switch_root: #422471; pax-utils-0.6
+  support for newer lddtree.
+
+*genkernel-3.4.47 (09 Jun 2013)
+
+  09 Jun 2013; Richard Yao <ryao@gentoo.org> +genkernel-3.4.47.ebuild,
+  -genkernel-3.4.46.1-r1.ebuild, genkernel-3.4.46.1.ebuild,
+  genkernel-9999.ebuild:
+  Bump genkernel to 3.4.47
+
+*genkernel-3.4.46.1-r1 (06 Jun 2013)
+
+  06 Jun 2013; Mike Auty <ikelos@gentoo.org> +genkernel-3.4.46.1-r1.ebuild:
+  Remove the requirement on <app-misc/pax-utils-0.5 since it's no longer
+  necessary (see bug 450688).
+
+  06 Jun 2013; Richard Yao <ryao@gentoo.org> metadata.xml:
+  Change USE=crypt description to indicate that it is obsolete. Also, fix typo
+  in cryptsetup description.
+
+*genkernel-3.4.46.1 (04 Jun 2013)
+
+  04 Jun 2013; Richard Yao <ryao@gentoo.org> +genkernel-3.4.46.1.ebuild:
+  Version bump.
+
+*genkernel-3.4.46 (03 Jun 2013)
+
+  03 Jun 2013; Richard Yao <ryao@gentoo.org> +genkernel-3.4.46.ebuild:
+  Version bump.
+
+  21 May 2013; Patrick Lauer <patrick@gentoo.org> genkernel-3.4.45.ebuild:
+  Collapse pax-utils blockers/dependencies to make portage able to resolve
+  dependencies #469648
+
+  01 Apr 2013; Richard Yao <ryao@gentoo.org> genkernel-3.4.33.1.ebuild,
+  genkernel-3.4.34.ebuild, genkernel-3.4.35.ebuild, genkernel-3.4.36.ebuild,
+  genkernel-3.4.37.ebuild, genkernel-3.4.38.ebuild, genkernel-3.4.40.ebuild,
+  genkernel-3.4.41.ebuild, genkernel-3.4.42.ebuild, genkernel-3.4.43.ebuild,
+  genkernel-3.4.44.1.ebuild, genkernel-3.4.44.2.ebuild, genkernel-3.4.45.ebuild,
+  genkernel-9999.ebuild:
+  Block app-misc/pax-utils-0.5 in genkernel 3.4.33.1 and later, bug #442024
 
   27 Jan 2013; Agostino Sarubbo <ago@gentoo.org> genkernel-3.4.45.ebuild:
   Stable for alpha, wrt bug #441004

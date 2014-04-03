@@ -1,6 +1,25 @@
 # ChangeLog for dev-db/oracle-instantclient-sqlplus
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/oracle-instantclient-sqlplus/ChangeLog,v 1.35 2012/11/15 19:47:11 haubi Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-db/oracle-instantclient-sqlplus/ChangeLog,v 1.39 2013/05/25 11:11:27 ago Exp $
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  oracle-instantclient-sqlplus-11.2.0.3-r1.ebuild:
+  Stable for x86, wrt bug #470348
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org>
+  oracle-instantclient-sqlplus-11.2.0.3-r1.ebuild:
+  Stable for amd64, wrt bug #470348
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org>
+  oracle-instantclient-sqlplus-11.2.0.2.ebuild:
+  Whitespace
+
+*oracle-instantclient-sqlplus-11.2.0.3-r1 (08 Mar 2013)
+
+  08 Mar 2013; Michael Haubenwallner <haubi@gentoo.org>
+  +oracle-instantclient-sqlplus-11.2.0.3-r1.ebuild:
+  sqlplus binary needs pax-mark for hardened, bug#456694.
+  Credits to Hugo Mildenberger at web.de.
 
   15 Nov 2012; Michael Haubenwallner <haubi@gentoo.org>
   oracle-instantclient-sqlplus-11.2.0.3.ebuild:
@@ -192,4 +211,3 @@
   22 Mar 2004; Don Seiler <rizzo@gentoo.org>; metadata.xml,
   oracle-instantclient-sqlplus-10.1.0.2.ebuild:
   Initial import, thanks to Jamis Buck for the good work.  Bug #43813
-

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/xtide/xtide-2.13.ebuild,v 1.1 2013/02/10 21:08:30 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/xtide/xtide-2.13.ebuild,v 1.4 2013/10/27 08:39:43 hasufell Exp $
 
 EAPI=5
 
@@ -12,10 +12,11 @@ SRC_URI="ftp://ftp.flaterco.com/xtide/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="media-libs/libpng:0
+DEPEND="media-fonts/font-schumacher-misc
+	media-libs/libpng:0
 	>=sci-geosciences/libtcd-2.2.5_p2
 	x11-libs/libX11
 	>=x11-libs/libXaw-1.0.3
@@ -27,7 +28,7 @@ src_install() {
 	dobin xtide tide xttpd
 	doman *.[18]
 
-	echo 'HFILE_PATH=/usr/share/harmonics/' > 50xtide_harm
+	echo 'HFILE_PATH=/usr/share/harmonics' > 50xtide_harm
 	doenvd 50xtide_harm
 
 	newicon -s 48 iconsrc/icon_48x48_orig.png ${PN}.png

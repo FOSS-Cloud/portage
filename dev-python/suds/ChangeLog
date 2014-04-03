@@ -1,6 +1,20 @@
 # ChangeLog for dev-python/suds
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/suds/ChangeLog,v 1.7 2011/05/06 08:44:48 tomka Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/suds/ChangeLog,v 1.11 2013/10/04 16:20:09 mgorny Exp $
+
+  04 Oct 2013; Michał Górny <mgorny@gentoo.org> suds-0.4-r1.ebuild:
+  Fix the distutils-r1 conversion.
+
+*suds-0.4-r1 (12 Sep 2013)
+
+  12 Sep 2013; Matthew Thode <prometheanfire@gentoo.org> +suds-0.4-r1.ebuild:
+  distutils-r1 support
+
+  03 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> suds-0.4.ebuild:
+  Keyword amd64-linux and x86-linux
+
+  01 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #151880
 
   06 May 2011; Thomas Kahle <tomka@gentoo.org> suds-0.4.ebuild:
   x86 stable per bug 361883
@@ -28,4 +42,3 @@
   30 May 2010; Cédric Krier <cedk@gentoo.org> +suds-0.3.9.ebuild,
   +metadata.xml:
   New build for bug #309099
-

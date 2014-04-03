@@ -1,6 +1,130 @@
 # ChangeLog for sys-auth/polkit
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/ChangeLog,v 1.135 2013/02/23 15:02:03 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/ChangeLog,v 1.169 2014/03/15 12:20:18 ssuominen Exp $
+
+  15 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> metadata.xml:
+  Add proper metadata for freedesktop-bugs@g.o
+
+*polkit-0.112-r2 (15 Mar 2014)
+
+  15 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> +polkit-0.112-r2.ebuild:
+  USE="jit" to determine which pax-mark, if any, should be applied wrt #485910
+
+  11 Mar 2014; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due #239126
+
+  25 Feb 2014; Markus Meier <maekke@gentoo.org> polkit-0.112-r1.ebuild:
+  arm stable, bug #500758
+
+  23 Feb 2014; Pacho Ramos <pacho@gentoo.org> polkit-0.112-r1.ebuild:
+  x86 stable, bug #500758
+
+  23 Feb 2014; Pacho Ramos <pacho@gentoo.org> polkit-0.112-r1.ebuild:
+  amd64 stable, bug #500758
+
+  28 Dec 2013; Anthony G. Basile <blueness@gentoo.org> polkit-0.112-r1.ebuild:
+  Fix ia64 where the order of the configure options was overridden by mips,
+  thanks Arfrever
+
+  27 Dec 2013; Anthony G. Basile <blueness@gentoo.org> polkit-0.112-r1.ebuild:
+  Because sometimes portage is stupid
+
+  24 Dec 2013; Anthony G. Basile <blueness@gentoo.org> polkit-0.112-r1.ebuild:
+  Fix dependence on spidermonkey for mips, bug #495168
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.112.ebuild:
+  Stable for sparc, wrt bug #484486
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.112.ebuild:
+  Stable for alpha, wrt bug #484486
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.112.ebuild:
+  Stable for ia64, wrt bug #484486
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.112.ebuild:
+  Stable for ppc64, wrt bug #484486
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.112.ebuild:
+  Stable for ppc, wrt bug #484486
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.112.ebuild:
+  Stable for arm, wrt bug #484486
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.112.ebuild:
+  Stable for x86, wrt bug #484486
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.112.ebuild:
+  Stable for amd64, wrt bug #484486
+
+  19 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> -polkit-0.110-r1.ebuild,
+  -files/polkit-0.110-CVE-2013-4288.patch:
+  old
+
+*polkit-0.112-r1 (19 Sep 2013)
+
+  19 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> +polkit-0.112-r1.ebuild,
+  polkit-0.112.ebuild:
+  -r0 is for stabilization w/ mozjs185 and -r1 is for ~arch with mozjs 17.0
+
+  19 Sep 2013; Doug Goldstein <cardoe@gentoo.org> -polkit-0.111-r1.ebuild:
+  Remove vulnerable version
+
+*polkit-0.110-r1 (19 Sep 2013)
+
+  19 Sep 2013; Doug Goldstein <cardoe@gentoo.org>
+  +files/polkit-0.110-CVE-2013-4288.patch, +polkit-0.110-r1.ebuild:
+  Bump for CVE-2013-4288
+
+*polkit-0.112 (19 Sep 2013)
+
+  19 Sep 2013; Doug Goldstein <cardoe@gentoo.org> +polkit-0.112.ebuild:
+  Bump for CVE-2013-4288
+
+  10 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> polkit-0.110.ebuild,
+  polkit-0.111-r1.ebuild:
+  Stop forcing USE="consolekit systemd" for sys-auth/pambase in PDEPEND because
+  CONFIG_AUDITSYSCALL=y is not possible on every arch and the dependency was
+  always more about convinience than being strict requirement.
+
+  09 Aug 2013; Ian Stakenvicius <axs@gentoo.org> -polkit-0.111.ebuild:
+  dropped polkit-111 in favour of -r1 now that spidermonkey-17 is unmasked, as
+  per ssuominen's approval
+
+  09 Aug 2013; Ian Stakenvicius <axs@gentoo.org> polkit-0.110.ebuild,
+  polkit-0.111-r1.ebuild:
+  Adjusted deps for dev-lang/spidermonkey to ensure SLOT=0
+
+*polkit-0.111-r1 (08 Aug 2013)
+
+  08 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> +polkit-0.111-r1.ebuild:
+  Force use of dev-lang/spidermonkey:17 because automagic dependencies are bad.
+
+*polkit-0.111 (15 May 2013)
+
+  15 May 2013; Samuli Suominen <ssuominen@gentoo.org> +polkit-0.111.ebuild:
+  Version bump by "okias" from Freenode
+
+  19 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> -polkit-0.107-r1.ebuild,
+  -files/polkit-0.107-fallback.patch:
+  old
+
+  19 Mar 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.110.ebuild:
+  Stable for sh, wrt bug #452688
+
+  12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org>
+  files/polkit-0.110-W_define.patch:
+  Include link to upstream bug.
+
+  12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> polkit-0.110.ebuild,
+  +files/polkit-0.110-W_define.patch:
+  Fix missing #include <sys/wait.h> for #define's of WIFEXITED, WEXITSTATUS,
+  WIFSIGNALED and WTERMSIG (to fix building on arch "sh")
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.110.ebuild:
+  Stable for sparc, wrt bug #452688
+
+  03 Mar 2013; Mike Frysinger <vapier@gentoo.org> polkit-0.110.ebuild:
+  Add s390 keywords #457078 by Michael Palimaka.
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> polkit-0.110.ebuild:
   Stable for alpha, wrt bug #452688

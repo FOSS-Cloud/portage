@@ -1,6 +1,111 @@
 # ChangeLog for net-im/gajim
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/gajim/ChangeLog,v 1.172 2013/02/23 10:32:18 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-im/gajim/ChangeLog,v 1.196 2014/03/18 13:30:12 jlec Exp $
+
+*gajim-0.16_rc1 (18 Mar 2014)
+
+  18 Mar 2014; Justin Lecher <jlec@gentoo.org> +gajim-0.16_rc1.ebuild:
+  Version Bump
+
+  06 Mar 2014; Justin Lecher <jlec@gentoo.org> gajim-0.15.4.ebuild,
+  gajim-0.16_beta1.ebuild, gajim-0.16_beta2.ebuild, gajim-0.16_beta2-r1.ebuild:
+  Fix deps to be OR indstead of AND, #503476
+
+  06 Mar 2014; Justin Lecher <jlec@gentoo.org> gajim-0.15.4.ebuild,
+  gajim-0.16_beta1.ebuild, gajim-0.16_beta2.ebuild, gajim-0.16_beta2-r1.ebuild:
+  Allow kde-base/kwalletmanager as an alternative to kwallet, #503476
+
+*gajim-0.16_beta2-r1 (06 Mar 2014)
+
+  06 Mar 2014; Justin Lecher <jlec@gentoo.org> +gajim-0.16_beta2-r1.ebuild,
+  +files/gajim-0.16_beta2-pyopenssl-backport-1.patch,
+  +files/gajim-0.16_beta2-pyopenssl-backport-2.patch:
+  Backport fixes for latest pyopenssl, #503190
+
+  19 Feb 2014; Jeroen Roovers <jer@gentoo.org> gajim-0.15.3-r1.ebuild,
+  gajim-0.15.4.ebuild, gajim-0.16_beta1.ebuild, gajim-0.16_beta2.ebuild:
+  Drop HPPA keywording (bug #414777).
+
+  09 Jan 2014; Justin Lecher <jlec@gentoo.org> gajim-0.16_beta2.ebuild:
+  Fix version of python-nbxmpp in deps
+
+*gajim-0.16_beta2 (09 Jan 2014)
+
+  09 Jan 2014; Justin Lecher <jlec@gentoo.org> +gajim-0.16_beta2.ebuild:
+  Version Bump
+
+  17 Nov 2013; Justin Lecher <jlec@gentoo.org> -gajim-0.16_alpha1.ebuild,
+  -gajim-0.16_alpha2.ebuild, gajim-0.16_beta1.ebuild:
+  Drop alpha versions
+
+  17 Nov 2013; Justin Lecher <jlec@gentoo.org> -gajim-0.16_alpha1.ebuild,
+  -gajim-0.16_alpha2.ebuild:
+  Drop alpha versions
+
+*gajim-0.16_beta1 (17 Sep 2013)
+
+  17 Sep 2013; Justin Lecher <jlec@gentoo.org> +gajim-0.16_beta1.ebuild:
+  Version BUmp
+
+*gajim-0.16_alpha2 (28 Jul 2013)
+
+  28 Jul 2013; Justin Lecher <jlec@gentoo.org> +gajim-0.16_alpha2.ebuild:
+  Bump to second alpha
+
+*gajim-0.16_alpha1 (28 Jul 2013)
+
+  28 Jul 2013; Justin Lecher <jlec@gentoo.org> +gajim-0.16_alpha1.ebuild:
+  Add alpha version
+
+  13 Jun 2013; Justin Lecher <jlec@gentoo.org> gajim-0.15.4.ebuild:
+  Make gnome-keyring support accessible with complete gnome desktop, #472930;
+  thanks Aline Freitas for patch
+
+  29 May 2013; Justin Lecher <jlec@gentoo.org> gajim-0.15.3-r1.ebuild,
+  gajim-0.15.4.ebuild:
+  Add missing python to DEPs and REQUIERED_USE
+
+*gajim-0.15.4 (26 May 2013)
+
+  26 May 2013; Justin Lecher <jlec@gentoo.org> +gajim-0.15.4.ebuild:
+  Version BUmp
+
+  23 Apr 2013; Justin Lecher <jlec@gentoo.org> -gajim-0.15.2-r3.ebuild,
+  -gajim-0.15.2-r4.ebuild, -gajim-0.15.3.ebuild:
+  Drop old
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gajim-0.15.3-r1.ebuild:
+  Stable for sparc, wrt bug #465198
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gajim-0.15.3-r1.ebuild:
+  Stable for ia64, wrt bug #465198
+
+  18 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gajim-0.15.3-r1.ebuild:
+  Stable for alpha, wrt bug #465198
+
+  16 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gajim-0.15.3-r1.ebuild:
+  Stable for ppc64, wrt bug #465198
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gajim-0.15.3-r1.ebuild:
+  Stable for ppc, wrt bug #465198
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gajim-0.15.3-r1.ebuild:
+  Stable for x86, wrt bug #465198
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gajim-0.15.3-r1.ebuild:
+  Stable for amd64, wrt bug #465198
+
+*gajim-0.15.3-r1 (21 Mar 2013)
+
+  21 Mar 2013; Justin Lecher <jlec@gentoo.org> +gajim-0.15.3-r1.ebuild,
+  +files/gajim-0.15.3-starttls.patch:
+  Backport upstream patch for servers without STARTTLS support, #462294
+
+*gajim-0.15.3 (18 Mar 2013)
+
+  18 Mar 2013; Justin Lecher <jlec@gentoo.org> +gajim-0.15.3.ebuild,
+  +files/gajim-0.15.3-roster.patch:
+  Version BUmp; include backport of last tab closed fix, #461248
 
 *gajim-0.15.2-r4 (23 Feb 2013)
 

@@ -1,6 +1,35 @@
 # ChangeLog for dev-ruby/gem_plugin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/gem_plugin/ChangeLog,v 1.32 2013/01/15 05:11:51 zerochaos Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/gem_plugin/ChangeLog,v 1.41 2014/02/01 04:27:51 hattya Exp $
+
+  01 Feb 2014; Akinori Hattori <hattya@gentoo.org> gem_plugin-0.2.3-r2.ebuild:
+  ia64 stable wrt bug #493780
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> gem_plugin-0.2.3-r2.ebuild:
+  arm stable, bug #493780
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> gem_plugin-0.2.3-r2.ebuild:
+  Stable for HPPA (bug #493780).
+
+*gem_plugin-0.2.3-r3 (05 Oct 2013)
+
+  05 Oct 2013; Manuel Rüger <mrueg@gentoo.org> +gem_plugin-0.2.3-r3.ebuild:
+  Tests run now, but will fail.
+
+  14 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -gem_plugin-0.2.3-r1.ebuild:
+  Cleanup old.
+
+  14 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gem_plugin-0.2.3-r2.ebuild:
+  Stable for x86, wrt bug #483700
+
+  12 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gem_plugin-0.2.3-r2.ebuild:
+  Stable for ppc, wrt bug #483700
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gem_plugin-0.2.3-r2.ebuild:
+  Stable for ppc64, wrt bug #483700
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> gem_plugin-0.2.3-r2.ebuild:
+  Stable for amd64, wrt bug #483700
 
   15 Jan 2013; Rick Farina <zerochaos@gentoo.org> gem_plugin-0.2.3-r1.ebuild,
   gem_plugin-0.2.3-r2.ebuild:

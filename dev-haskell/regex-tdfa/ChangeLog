@@ -1,0 +1,14 @@
+# ChangeLog for dev-haskell/regex-tdfa
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/regex-tdfa/ChangeLog,v 1.2 2014/03/12 20:48:55 qnikst Exp $
+
+*regex-tdfa-1.2.0 (12 Mar 2014)
+
+  12 Mar 2014; Alexander Vershilov <qnikst@gentoo.org> +regex-tdfa-1.2.0.ebuild:
+  new version
+
+*regex-tdfa-1.1.8 (26 Aug 2013)
+
+  26 Aug 2013; Alexander Vershilov <qnikst@gentoo.org> +metadata.xml,
+  +regex-tdfa-1.1.8.ebuild:
+  dev-haskell/regex-tdfa: 1.1.8

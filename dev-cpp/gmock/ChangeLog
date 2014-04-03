@@ -1,6 +1,28 @@
 # ChangeLog for dev-cpp/gmock
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gmock/ChangeLog,v 1.14 2012/08/28 21:52:08 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gmock/ChangeLog,v 1.20 2014/03/27 02:35:20 vapier Exp $
+
+*gmock-1.7.0-r1 (27 Mar 2014)
+
+  27 Mar 2014; Mike Frysinger <vapier@gentoo.org> +gmock-1.7.0-r1.ebuild:
+  Add multilib build support.
+
+  14 Feb 2014; Akinori Hattori <hattya@gentoo.org> gmock-1.6.0.ebuild:
+  ia64 stable wrt bug #493400
+
+*gmock-1.7.0 (12 Jan 2014)
+
+  12 Jan 2014; Ryan Hill <dirtyepic@gentoo.org> +gmock-1.7.0.ebuild:
+  Version bump (bug #490406 by Jauhien Piatlicki).
+
+  09 Dec 2013; Jeroen Roovers <jer@gentoo.org> gmock-1.6.0.ebuild:
+  Stable for HPPA (bug #493400).
+
+  19 Oct 2013; Mike Frysinger <vapier@gentoo.org> gmock-1.6.0.ebuild:
+  Add keywords for everyone.
+
+  07 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> gmock-1.6.0.ebuild:
+  Stable on arm, wrt bug #478210
 
   28 Aug 2012; Mike Frysinger <vapier@gentoo.org>
   +files/gmock-1.4.0-more-gcc-4.7.patch, gmock-1.4.0.ebuild:

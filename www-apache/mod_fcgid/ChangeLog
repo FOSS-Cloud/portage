@@ -1,6 +1,36 @@
 # ChangeLog for www-apache/mod_fcgid
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_fcgid/ChangeLog,v 1.54 2012/11/27 19:17:47 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_fcgid/ChangeLog,v 1.62 2014/02/07 20:08:42 creffett Exp $
+
+*mod_fcgid-2.3.9-r1 (07 Feb 2014)
+
+  07 Feb 2014; Chris Reffett <creffett@gentoo.org> +mod_fcgid-2.3.9-r1.ebuild:
+  Revision bump: bump EAPI, use emake instead of make, fix DESCRIPTION, split
+  configure step into src_configure
+
+  07 Feb 2014; Chris Reffett <creffett@gentoo.org> -mod_fcgid-2.3.7.ebuild:
+  Drop vulnerable versions wrt bug 487314
+
+  17 Jan 2014; Agostino Sarubbo <ago@gentoo.org> mod_fcgid-2.3.9.ebuild:
+  Stable for ppc, wrt bug #487314
+
+  16 Jan 2014; Agostino Sarubbo <ago@gentoo.org> mod_fcgid-2.3.9.ebuild:
+  Stable for x86, wrt bug #487314
+
+  16 Jan 2014; Agostino Sarubbo <ago@gentoo.org> mod_fcgid-2.3.9.ebuild:
+  Stable for amd64, wrt bug #487314
+
+*mod_fcgid-2.3.9 (14 Jan 2014)
+
+  14 Jan 2014; Hanno Boeck <hanno@gentoo.org> +mod_fcgid-2.3.9.ebuild:
+  Bump, fixes CVE-2013-4365.
+
+  23 Dec 2013; Pacho Ramos <pacho@gentoo.org> -mod_fcgid-2.3.5.ebuild,
+  -mod_fcgid-2.3.6.ebuild, metadata.xml:
+  Cleanup due bug #66351
+
+  09 Jul 2013; Jeroen Roovers <jer@gentoo.org> mod_fcgid-2.3.7.ebuild:
+  Marked ~hppa (bug #475912).
 
   27 Nov 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop apache herd as discussed in http://www.gossamer-

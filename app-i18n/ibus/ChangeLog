@@ -1,6 +1,94 @@
 # ChangeLog for app-i18n/ibus
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/ibus/ChangeLog,v 1.120 2013/02/09 16:22:33 naota Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/ibus/ChangeLog,v 1.143 2014/03/09 12:05:43 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> ibus-1.5.5.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> ibus-1.5.5.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> ibus-1.5.5.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> ibus-1.5.5.ebuild:
+  arch stable, bug 888
+
+*ibus-1.5.5 (22 Jan 2014)
+
+  22 Jan 2014; Yixun Lan <dlan@gentoo.org> +ibus-1.5.5.ebuild:
+  version bump to 1.5.5
+
+  06 Jan 2014; Naohiro Aota <naota@gentoo.org> ibus-1.5.2.ebuild,
+  ibus-1.5.3.ebuild, ibus-1.5.4-r1.ebuild:
+  Add missing dependency: x11-libs/libnotify #480168 ;Quote ${T}
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> ibus-1.5.2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> ibus-1.5.2.ebuild:
+  amd64 stable, bug #478252
+
+  26 Nov 2013; Naohiro Aota <naota@gentoo.org> ibus-1.5.4-r1.ebuild:
+  Force USE=dconf. #490646
+
+*ibus-1.5.4-r1 (17 Nov 2013)
+
+  17 Nov 2013; Naohiro Aota <naota@gentoo.org> +ibus-1.5.4-r1.ebuild,
+  -ibus-1.5.4.ebuild:
+  Call gnome2_schemas_{savelist,update} to update schemas properly. #490646
+
+*ibus-1.5.4 (04 Nov 2013)
+
+  04 Nov 2013; Naohiro Aota <naota@gentoo.org> +ibus-1.5.4.ebuild:
+  Version bump. #485798
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> ibus-1.5.2.ebuild,
+  ibus-1.5.3.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*ibus-1.5.3 (03 Aug 2013)
+
+  03 Aug 2013; Naohiro Aota <naota@gentoo.org> +ibus-1.5.3.ebuild:
+  Verion bump wrt #478526
+
+  30 Jul 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  28 Jul 2013; Naohiro Aota <naota@gentoo.org> ibus-1.5.2.ebuild:
+  Fix bashcomp installation method. #477822
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> ibus-1.5.2.ebuild, metadata.xml:
+  Fix usage of python-r1.eclass
+
+  14 May 2013; Naohiro Aota <naota@gentoo.org> ibus-1.4.1.ebuild,
+  ibus-1.4.2.ebuild, ibus-1.5.2.ebuild:
+  Add missing x11-misc/setxkbmap dependency. #469634
+
+  14 May 2013; Naohiro Aota <naota@gentoo.org> -ibus-1.5.1-r1.ebuild,
+  -ibus-1.5.1-r2.ebuild, -ibus-1.5.1.ebuild:
+  Drop old version.
+
+*ibus-1.5.2 (04 May 2013)
+
+  04 May 2013; Naohiro Aota <naota@gentoo.org> +ibus-1.5.2.ebuild:
+  Version bump wrt #468348
+
+  03 May 2013; Naohiro Aota <naota@gentoo.org> -ibus-1.4.99.20121006.ebuild:
+  Drop old development version.
+
+  03 May 2013; Naohiro Aota <naota@gentoo.org> ibus-1.4.1.ebuild,
+  ibus-1.4.2.ebuild:
+  Migrate to vala.eclass #463720
+
+  05 Apr 2013; Naohiro Aota <naota@gentoo.org> ibus-1.5.1-r2.ebuild:
+  Depend on gnome-base/gconf. #464562
+
+*ibus-1.5.1-r2 (03 Apr 2013)
+
+  03 Apr 2013; Naohiro Aota <naota@gentoo.org>
+  +files/ibus-1.5.1-use-system-keyboard-layout.patch, +ibus-1.5.1-r2.ebuild:
+  Add patch to respect system keyboard layout. #460796
 
 *ibus-1.5.1-r1 (09 Feb 2013)
 

@@ -1,6 +1,29 @@
 # ChangeLog for dev-scheme/tinyscheme
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-scheme/tinyscheme/ChangeLog,v 1.12 2013/02/02 12:30:31 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-scheme/tinyscheme/ChangeLog,v 1.17 2014/03/24 15:02:25 ago Exp $
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> tinyscheme-1.41.ebuild:
+  Stable for ppc, wrt bug #323263
+
+  17 Mar 2014; Chema Alonso <nimiux@gentoo.org> tinyscheme-1.41.ebuild:
+  Stable for amd64 wrt bug #323263
+
+  09 Mar 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> tinyscheme-1.41.ebuild:
+  x86 stable wrt bug #323263
+
+*tinyscheme-1.41 (11 Dec 2013)
+
+  11 Dec 2013; Panagiotis Christopoulos <pchrist@gentoo.org>
+  +tinyscheme-1.41.ebuild, +files/tinyscheme-1.41-makefile.patch:
+  Bump to 1.41 contains various fixes for bug #334649, bug #455294, bug
+  #455296, bug #455298, bug #455300 and bug #493694, thanks to Agostino Sarubbo
+  (ago at gentoo dot org) for reporting the QA issues. Special thanks to
+  Michael Mair-Keimberger (iamnr3) who made the patches in bug #455296. Prefix
+  (darwin) keywords dropped cause logic inside the ebuild has changed and the
+  ebuild needs rekeywording.
+
+  07 Sep 2013; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Newline.
 
   02 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup up due #154183

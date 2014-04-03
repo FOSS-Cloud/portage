@@ -1,6 +1,51 @@
 # ChangeLog for app-backup/bacula
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/bacula/ChangeLog,v 1.152 2013/01/13 11:32:26 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-backup/bacula/ChangeLog,v 1.163 2014/02/01 19:32:54 pacho Exp $
+
+*bacula-5.2.13-r2 (01 Feb 2014)
+
+  01 Feb 2014; Pacho Ramos <pacho@gentoo.org> +bacula-5.2.13-r2.ebuild,
+  -bacula-5.2.13-r1.ebuild:
+  Fix systemd unit files, bug #497748
+
+*bacula-5.2.13-r1 (11 Jan 2014)
+
+  11 Jan 2014; Pacho Ramos <pacho@gentoo.org> +bacula-5.2.13-r1.ebuild:
+  Install upstream unit files (#497748 by Khumba)
+
+  20 May 2013; Jeroen Roovers <jer@gentoo.org> bacula-5.0.3-r3.ebuild,
+  bacula-5.2.12.ebuild, bacula-5.2.13.ebuild:
+  Remove HPPA keywording (bug #409229).
+
+  01 May 2013; Thomas Beierlein <tomjbe@gentoo.org> bacula-5.2.13.ebuild:
+  Fix logrotate config file (bug 258187, comment #4). Thanks Ortwin.
+
+  23 Apr 2013; Thomas Beierlein <tomjbe@gentoo.org> bacula-5.2.13.ebuild:
+  Fix desktop file category (bug #466688). Use CXXFLAGS instead CFLAGS (bug
+  466694). Thanks ago for reporting
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bacula-5.2.13.ebuild:
+  Stable for sparc, wrt bug #466636
+
+  22 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bacula-5.2.13.ebuild:
+  Stable for ppc, wrt bug #466636
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bacula-5.2.13.ebuild:
+  Stable for x86, wrt bug #466636
+
+  21 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bacula-5.2.13.ebuild:
+  Stable for amd64, wrt bug #466636
+
+*bacula-5.2.13 (14 Mar 2013)
+
+  14 Mar 2013; Thomas Beierlein <tomjbe@gentoo.org> +bacula-5.2.13.ebuild:
+  Version bump.
+  Add USE=examples as requested by bug #457504.
+  Add info about state of SQLite support (bug #445540).
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> bacula-5.0.3-r3.ebuild,
+  bacula-5.2.12.ebuild:
+  Move Qt dependencies to the new category
 
   13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> bacula-5.0.3-r3.ebuild:
   Stable for x86, wrt bug #447608

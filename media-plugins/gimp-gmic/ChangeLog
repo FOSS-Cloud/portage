@@ -1,6 +1,81 @@
 # ChangeLog for media-plugins/gimp-gmic
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gimp-gmic/ChangeLog,v 1.27 2013/01/29 06:52:46 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gimp-gmic/ChangeLog,v 1.41 2014/03/27 04:47:47 radhermit Exp $
+
+*gimp-gmic-1.5.8.5 (27 Mar 2014)
+
+  27 Mar 2014; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.8.5.ebuild:
+  Version bump.
+
+*gimp-gmic-1.5.8.4 (19 Mar 2014)
+
+  19 Mar 2014; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.8.4.ebuild,
+  +files/gmic-1.5.8.4-makefile.patch:
+  Version bump.
+
+*gimp-gmic-1.5.8.3 (11 Feb 2014)
+
+  11 Feb 2014; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.8.3.ebuild,
+  +files/gmic-1.5.8.3-makefile.patch:
+  Version bump.
+
+*gimp-gmic-1.5.8.2 (27 Jan 2014)
+
+  27 Jan 2014; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.8.2.ebuild:
+  Version bump.
+
+  20 Dec 2013; Tim Harder <radhermit@gentoo.org> -gimp-gmic-1.5.5.1.ebuild,
+  -gimp-gmic-1.5.5.2.ebuild, -gimp-gmic-1.5.6.1.ebuild,
+  -gimp-gmic-1.5.7.1.ebuild, -files/gmic-1.5.2.2-makefile.patch,
+  -files/gmic-1.5.7.1-makefile.patch:
+  Remove old.
+
+*gimp-gmic-1.5.8.1 (18 Dec 2013)
+
+  18 Dec 2013; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.8.1.ebuild:
+  Version bump.
+
+*gimp-gmic-1.5.8.0 (11 Dec 2013)
+
+  11 Dec 2013; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.8.0.ebuild,
+  +files/gmic-1.5.8.0-makefile.patch:
+  Version bump.
+
+  21 Sep 2013; Tim Harder <radhermit@gentoo.org> gimp-gmic-1.5.7.1.ebuild:
+  Explicitly dep on libpng slot and add threads use flag dep to fftw (bug
+  #485524).
+
+*gimp-gmic-1.5.7.1 (20 Sep 2013)
+
+  20 Sep 2013; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.7.1.ebuild,
+  +files/gmic-1.5.7.1-makefile.patch:
+  Version bump.
+
+*gimp-gmic-1.5.6.1 (04 Jul 2013)
+
+  04 Jul 2013; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.6.1.ebuild:
+  Version bump.
+
+  03 May 2013; Tim Harder <radhermit@gentoo.org> -gimp-gmic-1.5.2.2.ebuild,
+  -gimp-gmic-1.5.2.4.ebuild, -gimp-gmic-1.5.2.5.ebuild,
+  -gimp-gmic-1.5.3.0.ebuild, -gimp-gmic-1.5.4.0.ebuild,
+  -gimp-gmic-1.5.5.0.ebuild:
+  Remove old.
+
+*gimp-gmic-1.5.5.2 (03 May 2013)
+
+  03 May 2013; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.5.2.ebuild:
+  Version bump.
+
+*gimp-gmic-1.5.5.1 (30 Mar 2013)
+
+  30 Mar 2013; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.5.1.ebuild:
+  Version bump.
+
+*gimp-gmic-1.5.5.0 (10 Mar 2013)
+
+  10 Mar 2013; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.5.5.0.ebuild:
+  Version bump.
 
 *gimp-gmic-1.5.4.0 (29 Jan 2013)
 

@@ -1,6 +1,47 @@
 # ChangeLog for dev-tcltk/tcllib
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/tcllib/ChangeLog,v 1.35 2013/02/20 15:37:43 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/tcllib/ChangeLog,v 1.47 2013/10/10 09:51:46 jlec Exp $
+
+  10 Oct 2013; Justin Lecher <jlec@gentoo.org> -tcllib-1.14.ebuild,
+  -tcllib-1.15.ebuild:
+  Drop old
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> tcllib-1.15-r1.ebuild:
+  Stable for s390, wrt bug #470478
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> tcllib-1.15-r1.ebuild:
+  Stable for x86, wrt bug #470478
+
+  26 May 2013; Agostino Sarubbo <ago@gentoo.org> tcllib-1.15-r1.ebuild:
+  Stable for ppc, wrt bug #470478
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> tcllib-1.15-r1.ebuild:
+  Stable for alpha, wrt bug #470478
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> tcllib-1.15-r1.ebuild:
+  Stable for sparc, wrt bug #470478
+
+  23 May 2013; Agostino Sarubbo <ago@gentoo.org> tcllib-1.15-r1.ebuild:
+  Stable for amd64, wrt bug #470478
+
+  22 May 2013; Agostino Sarubbo <ago@gentoo.org> tcllib-1.15-r1.ebuild:
+  Stable for ia64, wrt bug #470478
+
+  21 May 2013; Jeroen Roovers <jer@gentoo.org> tcllib-1.15-r1.ebuild:
+  Stable for HPPA (bug #470478).
+
+*tcllib-1.15-r1 (05 Mar 2013)
+
+  05 Mar 2013; Justin Lecher <jlec@gentoo.org> +tcllib-1.15-r1.ebuild:
+  Add backports for test failures and manpage collision
+
+  04 Mar 2013; Justin Lecher <jlec@gentoo.org> tcllib-1.15.ebuild:
+  Clean collision fix
+
+  02 Mar 2013; Justin Lecher <jlec@gentoo.org> tcllib-1.14.ebuild,
+  +files/tcllib-1.14-test.patch, tcllib-1.15.ebuild,
+  +files/tcllib-1.15-tcl8.6-test.patch:
+  Fix test, #458454; remove colliding manpages, #458544
 
 *tcllib-1.15 (20 Feb 2013)
 

@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/knode/knode-4.4.11.1.ebuild,v 1.7 2012/12/08 12:04:15 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/knode/knode-4.4.11.1.ebuild,v 1.10 2014/03/20 21:54:09 dilfridge Exp $
 
-EAPI=4
+EAPI=5
 
 KMNAME="kdepim"
 inherit kde4-meta

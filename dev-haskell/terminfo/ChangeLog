@@ -1,6 +1,31 @@
 # ChangeLog for dev-haskell/terminfo
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/terminfo/ChangeLog,v 1.26 2013/02/13 21:26:15 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/terminfo/ChangeLog,v 1.34 2013/03/31 10:27:09 ago Exp $
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> terminfo-0.3.2.5.ebuild:
+  Stable for sparc, wrt bug #456518
+
+  30 Mar 2013; Agostino Sarubbo <ago@gentoo.org> terminfo-0.3.2.5.ebuild:
+  Stable for alpha, wrt bug #456518
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> terminfo-0.3.2.5.ebuild:
+  Stable for ia64, wrt bug #456518
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> terminfo-0.3.2.5.ebuild:
+  Stable for ppc64, wrt bug #456518
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> terminfo-0.3.2.5.ebuild:
+  Stable for ppc, wrt bug #456518
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> terminfo-0.3.2.5.ebuild:
+  Stable for x86, wrt bug #456518
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> terminfo-0.3.2.5.ebuild:
+  Stable for amd64, wrt bug #456518
+
+  01 Mar 2013; Sergei Trofimovich <slyfox@gentoo.org> terminfo-0.3.2.3.ebuild:
+  Backport build fix from bug #454216 to stable (bug #459668 by Diego Elio
+  Pettenò).
 
   13 Feb 2013; Sergei Trofimovich <slyfox@gentoo.org>
   +files/terminfo-0.3.2.5-tinfo.patch, -terminfo-0.3.1.1.ebuild,

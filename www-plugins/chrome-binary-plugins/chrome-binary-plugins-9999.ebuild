@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/chrome-binary-plugins/chrome-binary-plugins-9999.ebuild,v 1.6 2013/02/28 11:18:16 zx2c4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/chrome-binary-plugins/chrome-binary-plugins-9999.ebuild,v 1.11 2013/12/04 03:58:55 floppym Exp $
 
 EAPI=4
 
@@ -8,23 +8,26 @@ inherit multilib unpacker
 
 DESCRIPTION="Binary plugins -- native API Flash and PDF -- from Google Chrome for use in Chromium."
 HOMEPAGE="http://www.google.com/chrome"
+SLOT="unstable"
 URI_BASE="https://dl.google.com/linux/direct/"
-URI_BASE_NAME="google-chrome-unstable_current_"
+URI_BASE_NAME="google-chrome-${SLOT}_current_"
 SRC_URI="" # URI is left blank on live ebuild
-RESTRICT="bindist mirror strip"
 
 LICENSE="google-chrome"
-SLOT="0"
 KEYWORDS="" # KEYWORDS is also left blank on live ebuild
 IUSE="+flash +pdf"
+RESTRICT="bindist mirror strip"
 
-DEPEND="www-client/chromium"
-RDEPEND="${DEPEND}"
+RDEPEND="www-client/chromium"
 
-S="${WORKDIR}/opt/google/chrome"
+for x in 0 beta stable unstable; do
+	if [[ ${SLOT} != ${x} ]]; then
+		RDEPEND+=" !${CATEGORY}/${PN}:${x}"
+	fi
+done
 
-QA_FLAGS_IGNORED="/usr/$(get_libdir)/chromium-browser/PepperFlash/libpepflashplayer.so
-				  /usr/$(get_libdir)/chromium-browser/libpdf.so"
+S="${WORKDIR}/opt/google/chrome-${SLOT}"
+QA_PREBUILT="*"
 
 src_unpack() {
 	# We have to do this inside of here, since it's a live ebuild. :-(
@@ -61,15 +64,4 @@ src_install() {
 		insinto /etc/chromium/
 		doins pepper-flash
 	fi
-}
-
-pkg_postinst() {
-	use flash || return
-
-	einfo
-	einfo "To enable Flash for Chromium, source	${ROOT}etc/chromium/pepper-flash"
-	einfo "inside ${ROOT}etc/chromium/default. You may run this as root:"
-	einfo
-	einfo "  # echo . ${ROOT}etc/chromium/pepper-flash >> ${ROOT}etc/chromium/default"
-	einfo
 }

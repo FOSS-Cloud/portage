@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/freeradius/freeradius-2.2.0.ebuild,v 1.5 2013/02/11 15:24:55 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/freeradius/freeradius-2.2.0.ebuild,v 1.8 2014/01/03 12:06:30 naota Exp $
 
 EAPI=4
 
@@ -16,12 +16,12 @@ SRC_URI="ftp://ftp.freeradius.org/pub/radius/${MY_P}.tar.gz
 	http://dev.gentoo.org/~flameeyes/${PN}/${P}-patches-${PATCHSET}.tar.xz"
 HOMEPAGE="http://www.freeradius.org/"
 
-KEYWORDS="amd64 ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="amd64 ~ppc ~ppc64 ~sparc x86 ~x86-fbsd"
 LICENSE="GPL-2"
 SLOT="0"
 
 IUSE="bindist debug firebird kerberos ldap mysql
-pam postgres ssl pcap readline ruby sqlite python odbc iodbc
+pam postgres ssl pcap readline sqlite python odbc iodbc
 oracle"
 
 RDEPEND="!net-dialup/cistronradius
@@ -33,13 +33,12 @@ RDEPEND="!net-dialup/cistronradius
 	readline? ( sys-libs/readline )
 	pcap? ( net-libs/libpcap )
 	mysql? ( virtual/mysql )
-	postgres? ( dev-db/postgresql-server )
+	postgres? ( dev-db/postgresql-base )
 	firebird? ( dev-db/firebird )
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	ssl? ( dev-libs/openssl )
 	ldap? ( net-nds/openldap )
 	kerberos? ( virtual/krb5 )
-	ruby? ( dev-lang/ruby:1.8 )
 	sqlite? ( dev-db/sqlite:3 )
 	odbc? ( dev-db/unixODBC )
 	iodbc? ( dev-db/libiodbc )
@@ -70,7 +69,8 @@ src_prepare() {
 	use kerberos || rm -r src/modules/rlm_krb5
 	use pam || rm -r src/modules/rlm_pam
 	use python || rm -r src/modules/rlm_python
-	use ruby || rm -r src/modules/rlm_ruby
+	# Do not install ruby rlm module, bug #483108
+	rm -r src/modules/rlm_ruby
 
 	# these are all things we don't have in portage/I don't want to deal
 	# with myself

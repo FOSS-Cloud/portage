@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/dockmanager/dockmanager-0.1.0.ebuild,v 1.3 2012/05/05 04:53:51 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/dockmanager/dockmanager-0.1.0.ebuild,v 1.6 2013/04/09 18:25:19 ago Exp $
 
 EAPI=3
 PYTHON_DEPEND="2"
 RESTRICT_PYTHON_ABIS="3.*"
-inherit gnome2 python
+inherit gnome2 python vala
 
 DESCRIPTION="dock-independent helper scripts"
 HOMEPAGE="https://launchpad.net/dockmanager"
@@ -13,7 +13,7 @@ SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="debug"
 
 RDEPEND="dev-libs/dbus-glib
@@ -21,8 +21,8 @@ RDEPEND="dev-libs/dbus-glib
 	x11-libs/gtk+:2
 	x11-libs/libdesktop-agnostic"
 DEPEND="${RDEPEND}
-	virtual/pkgconfig
-	dev-lang/vala:0.10"
+	$(vala_depend)
+	virtual/pkgconfig"
 
 pkg_setup() {
 	DOCS="AUTHORS"

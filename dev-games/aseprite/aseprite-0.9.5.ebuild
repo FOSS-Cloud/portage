@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/aseprite/aseprite-0.9.5.ebuild,v 1.1 2013/02/07 00:45:59 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-games/aseprite/aseprite-0.9.5.ebuild,v 1.4 2013/07/18 20:48:51 creffett Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="http://aseprite.googlecode.com/files/aseprite-${PV}.tar.xz"
 
 LICENSE="GPL-2 FTL"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="debug memleak static test"
 
@@ -37,7 +37,7 @@ DOCS=( docs/quickref.odt
 	docs/files/picpro.txt )
 
 src_prepare() {
-	base_src_prepare
+	cmake-utils_src_prepare
 
 	# Fix to make flag-o-matic work.
 	if use debug ; then

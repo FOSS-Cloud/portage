@@ -1,6 +1,24 @@
 # ChangeLog for media-gfx/dispcalgui
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/dispcalgui/ChangeLog,v 1.18 2012/12/14 11:57:32 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/dispcalgui/ChangeLog,v 1.22 2014/03/04 20:10:14 ago Exp $
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> dispcalgui-1.2.7.0.ebuild:
+  Stable for x86, wrt bug #495696
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> dispcalgui-1.2.7.0.ebuild:
+  amd64 stable, bug #495696
+
+  15 Aug 2013; Patrick Lauer <patrick@gentoo.org> dispcalgui-1.2.7.0.ebuild:
+  Whitespace
+
+*dispcalgui-1.2.7.0 (10 May 2013)
+
+  10 May 2013; Markos Chandras <hwoarang@gentoo.org> +dispcalgui-1.2.7.0.ebuild,
+  +files/dispcalgui-1.2.7.0-wxversion-select.patch, -dispcalgui-1.1.0.0.ebuild,
+  -dispcalgui-1.1.2.1.ebuild, dispcalgui-0.9.9.1.ebuild,
+  dispcalgui-1.1.2.9.ebuild:
+  Version bump. Thanks to Marios Andreopoulos <opensource@andmarios.com>. Fixes
+  bug #449302
 
 *dispcalgui-1.1.2.9 (14 Dec 2012)
 

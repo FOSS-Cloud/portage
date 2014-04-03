@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/qutim/qutim-0.3.1.ebuild,v 1.5 2012/10/19 16:10:42 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-im/qutim/qutim-0.3.1.ebuild,v 1.8 2014/04/02 16:09:09 kensington Exp $
 
 EAPI=4
 
@@ -16,7 +16,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="aspell awn ayatana crypt dbus debug doc histman hunspell irc jabber kde kinetic mrim
-	multimedia oscar otr phonon purple qml sdl +ssl telepathy vkontakte webkit +xscreensaver"
+	multimedia oscar otr phonon purple qml sdl +ssl vkontakte webkit +xscreensaver"
 
 REQUIRED_USE="
 	oscar? ( ssl )
@@ -27,24 +27,24 @@ QT_PV="4.7.0:4"
 
 CDEPEND="
 	x11-libs/libqxt
-	>=x11-libs/qt-core-${QT_PV}[ssl?]
-	>=x11-libs/qt-gui-${QT_PV}
-	>=x11-libs/qt-script-${QT_PV}
+	>=dev-qt/qtcore-${QT_PV}[ssl?]
+	>=dev-qt/qtgui-${QT_PV}
+	>=dev-qt/qtscript-${QT_PV}
 	aspell? ( app-text/aspell )
-	awn? ( >=x11-libs/qt-dbus-${QT_PV} )
+	awn? ( >=dev-qt/qtdbus-${QT_PV} )
 	ayatana? ( >=dev-libs/libindicate-qt-0.2.2 )
 	crypt? ( app-crypt/qca:2 )
-	dbus? ( >=x11-libs/qt-dbus-${QT_PV} )
-	debug? ( >=x11-libs/qt-declarative-${QT_PV} )
-	histman? ( >=x11-libs/qt-sql-${QT_PV} )
+	dbus? ( >=dev-qt/qtdbus-${QT_PV} )
+	debug? ( >=dev-qt/qtdeclarative-${QT_PV} )
+	histman? ( >=dev-qt/qtsql-${QT_PV} )
 	hunspell? ( app-text/hunspell )
 	jabber? (
 		app-crypt/qca:2
 		>=net-libs/jreen-1.1.0
 	)
 	kde? ( kde-base/kdelibs:4 )
-	kinetic? ( >=x11-libs/qt-declarative-${QT_PV} )
-	multimedia? ( >=x11-libs/qt-multimedia-${QT_PV} )
+	kinetic? ( >=dev-qt/qtdeclarative-${QT_PV} )
+	multimedia? ( >=dev-qt/qtmultimedia-${QT_PV} )
 	oscar? ( app-crypt/qca:2 )
 	otr? (
 		>=net-libs/libotr-3.2.0
@@ -52,17 +52,16 @@ CDEPEND="
 	)
 	phonon? (
 		kde? ( media-libs/phonon )
-		!kde? ( || ( >=x11-libs/qt-phonon-${QT_PV} media-libs/phonon ) )
+		!kde? ( || ( >=dev-qt/qtphonon-${QT_PV} media-libs/phonon ) )
 	)
 	purple? ( net-im/pidgin )
 	qml? (
-		>=x11-libs/qt-declarative-${QT_PV}
-		>=x11-libs/qt-opengl-${QT_PV}
+		>=dev-qt/qtdeclarative-${QT_PV}
+		>=dev-qt/qtopengl-${QT_PV}
 	)
 	sdl? ( media-libs/sdl-mixer )
-	telepathy? ( =net-libs/telepathy-qt-0.8* )
-	vkontakte? ( >=x11-libs/qt-webkit-${QT_PV} )
-	webkit? ( >=x11-libs/qt-webkit-${QT_PV} )
+	vkontakte? ( >=dev-qt/qtwebkit-${QT_PV} )
+	webkit? ( >=dev-qt/qtwebkit-${QT_PV} )
 	xscreensaver? ( x11-libs/libXScrnSaver )
 "
 DEPEND="${CDEPEND}
@@ -78,7 +77,7 @@ RDEPEND="${CDEPEND}
 DOCS=( AUTHORS ChangeLog )
 
 src_prepare() {
-	base_src_prepare
+	cmake-utils_src_prepare
 
 	# fix automagic dep on libXScrnSaver
 	if ! use xscreensaver; then
@@ -126,7 +125,6 @@ src_configure() {
 		$(cmake-utils_use mrim)
 		$(cmake-utils_use oscar)
 		$(cmake-utils_use purple QUETZAL)
-		$(cmake-utils_use telepathy ASTRAL)
 		$(cmake-utils_use vkontakte)
 	)
 	cmake-utils_src_configure

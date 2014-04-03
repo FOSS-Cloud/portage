@@ -1,6 +1,37 @@
 # ChangeLog for net-analyzer/tcpreplay
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/tcpreplay/ChangeLog,v 1.45 2012/04/12 04:04:47 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/tcpreplay/ChangeLog,v 1.52 2014/03/01 15:37:20 jer Exp $
+
+*tcpreplay-4.0.3 (01 Mar 2014)
+
+  01 Mar 2014; Jeroen Roovers <jer@gentoo.org> -tcpreplay-4.0.2.ebuild,
+  +tcpreplay-4.0.3.ebuild:
+  Version bump, fixes compile failure (bug #503048).
+
+  01 Feb 2014; Jeroen Roovers <jer@gentoo.org> tcpreplay-4.0.2.ebuild:
+  Add new HOMEPAGE.
+
+  31 Jan 2014; Jeroen Roovers <jer@gentoo.org> tcpreplay-4.0.2.ebuild:
+  Set NICs to local loopback for src_test() (bug #359353).
+
+  31 Jan 2014; Jeroen Roovers <jer@gentoo.org> tcpreplay-3.4.4-r1.ebuild:
+  Revisit sys-devel/autogen dependency.
+
+*tcpreplay-4.0.2 (31 Jan 2014)
+
+  31 Jan 2014; Jeroen Roovers <jer@gentoo.org> -tcpreplay-3.4.4-r2.ebuild,
+  -tcpreplay-3.5.0_beta1.ebuild, +tcpreplay-4.0.2.ebuild,
+  -files/tcpreplay-3.4.4-cross-compile.patch:
+  Version bump (bug #499824).
+
+  29 May 2013; Jeroen Roovers <jer@gentoo.org> tcpreplay-3.5.0_beta1.ebuild:
+  Fix comment. Remove extraneous whitespace.
+
+*tcpreplay-3.5.0_beta1 (29 May 2013)
+
+  29 May 2013; Jeroen Roovers <jer@gentoo.org> -tcpreplay-3.4.5_beta2.ebuild,
+  -tcpreplay-3.4.5_beta3.ebuild, +tcpreplay-3.5.0_beta1.ebuild:
+  Version bump.
 
 *tcpreplay-3.4.4-r2 (12 Apr 2012)
 

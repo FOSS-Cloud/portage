@@ -1,6 +1,16 @@
 # ChangeLog for app-emacs/uptimes
-# Copyright 2002-2007 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/uptimes/ChangeLog,v 1.19 2007/11/27 06:22:00 ulm Exp $
+# Copyright 2002-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/uptimes/ChangeLog,v 1.21 2014/03/31 13:43:53 nimiux Exp $
+
+  31 Mar 2014; Chema Alonso <nimiux@gentoo.org> uptimes-2.3-r2.ebuild:
+  Stable for amd64 wrt bug #504838
+
+*uptimes-2.3-r2 (15 Feb 2014)
+
+  15 Feb 2014; Ulrich Müller <ulm@gentoo.org> +uptimes-2.3-r2.ebuild,
+  +files/50uptimes-gentoo.el:
+  Update ebuild to EAPI 5. Use readme.gentoo.eclass. Move site-init file to
+  default name. Specify LICENSE more precisely.
 
   27 Nov 2007; Ulrich Mueller <ulm@gentoo.org> -files/50uptimes-gentoo.el,
   -uptimes-2.3.ebuild:

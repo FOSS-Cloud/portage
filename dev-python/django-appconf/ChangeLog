@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/django-appconf
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/django-appconf/ChangeLog,v 1.3 2012/11/13 11:39:10 idella4 Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/django-appconf/ChangeLog,v 1.8 2013/06/30 21:54:24 tampakrap Exp $
+
+  30 Jun 2013; Theo Chatzimichos <tampakrap@gentoo.org>
+  django-appconf-0.6.ebuild:
+  Fix tests
+
+  25 Jun 2013; Ian Delaney <idella4@gentoo.org> django-appconf-0.6.ebuild:
+  add required rdep six
+
+  31 May 2013; Mike Gilbert <floppym@gentoo.org> django-appconf-0.6.ebuild:
+  Make python_test do something useful.
+
+  20 May 2013; Ian Delaney <idella4@gentoo.org> django-appconf-0.6.ebuild:
+  proper fix to test phase
+
+*django-appconf-0.6 (18 May 2013)
+
+  18 May 2013; Ian Delaney <idella4@gentoo.org> +django-appconf-0.6.ebuild,
+  +files/docs.patch:
+  bump
 
   14 Nov 2012; Ian Delaney <idella4@gentoo.org> metadata.xml:
   Updating maintainer, metadata.xml

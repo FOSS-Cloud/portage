@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/mediastreamer-x264/mediastreamer-x264-1.4.2.ebuild,v 1.1 2012/11/19 20:50:10 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/mediastreamer-x264/mediastreamer-x264-1.4.2.ebuild,v 1.3 2014/02/04 08:53:55 ssuominen Exp $
 
-EAPI="4"
+EAPI=5
 
 MY_P="msx264-${PV}"
 
@@ -15,10 +15,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
-DEPEND=">=media-libs/mediastreamer-2.7.0[video]
-	>=media-libs/x264-0.0.20100118
+RDEPEND=">=media-libs/mediastreamer-2.7.0:=[video]
+	>=media-libs/x264-0.0.20100118:=
 	virtual/ffmpeg"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 S=${WORKDIR}/${MY_P}
 

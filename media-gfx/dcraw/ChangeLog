@@ -1,6 +1,24 @@
 # ChangeLog for media-gfx/dcraw
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/dcraw/ChangeLog,v 1.86 2013/02/16 12:41:38 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/dcraw/ChangeLog,v 1.90 2014/01/21 21:42:15 radhermit Exp $
+
+*dcraw-9.20 (21 Jan 2014)
+
+  21 Jan 2014; Tim Harder <radhermit@gentoo.org> +dcraw-9.20.ebuild:
+  Version bump (bug #498852).
+
+*dcraw-9.19 (23 Nov 2013)
+
+  23 Nov 2013; Tim Harder <radhermit@gentoo.org> +dcraw-9.19.ebuild,
+  metadata.xml:
+  Version bump, add myself as maintainer.
+
+  15 Oct 2013; Pacho Ramos <pacho@gentoo.org> -dcraw-9.05.ebuild,
+  -dcraw-9.12.ebuild, dcraw-9.17.ebuild:
+  Use readme.gentoo.eclass, drop old
+
+  03 Mar 2013; Wolfram Schlich <wschlich@gentoo.org> metadata.xml:
+  removed myself from metadata.xml
 
   16 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due bug #96436

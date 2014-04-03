@@ -1,6 +1,32 @@
 # ChangeLog for dev-ruby/serialport
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/serialport/ChangeLog,v 1.7 2012/11/09 18:35:36 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/serialport/ChangeLog,v 1.13 2014/03/12 11:01:20 mrueg Exp $
+
+  12 Mar 2014; Manuel Rüger <mrueg@gentoo.org> -serialport-1.1.0.ebuild,
+  -serialport-1.2.3.ebuild:
+  Cleanup old.
+
+  09 Mar 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> serialport-1.3.0.ebuild:
+  x86 stable wrt bug #503688
+
+  07 Mar 2014; Pacho Ramos <pacho@gentoo.org> serialport-1.3.0.ebuild:
+  amd64 stable, bug #503688
+
+*serialport-1.3.0 (26 Nov 2013)
+
+  26 Nov 2013; Manuel Rüger <mrueg@gentoo.org> +serialport-1.3.0.ebuild,
+  -serialport-1.2.1.ebuild:
+  Version bump.
+
+*serialport-1.2.3 (05 Nov 2013)
+
+  05 Nov 2013; Manuel Rüger <mrueg@gentoo.org> +serialport-1.2.3.ebuild:
+  Version bump.
+
+*serialport-1.2.1 (26 Oct 2013)
+
+  26 Oct 2013; Hans de Graaff <graaff@gentoo.org> +serialport-1.2.1.ebuild:
+  Version bump.
 
   09 Nov 2012; Agostino Sarubbo <ago@gentoo.org> serialport-1.1.0.ebuild:
   Add ~amd64, wrt bug #442128

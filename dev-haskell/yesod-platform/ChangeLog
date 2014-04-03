@@ -1,0 +1,24 @@
+# ChangeLog for dev-haskell/yesod-platform
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/yesod-platform/ChangeLog,v 1.4 2014/03/09 13:24:55 gienah Exp $
+
+*yesod-platform-1.2.7.2 (09 Mar 2014)
+
+  09 Mar 2014; Mark Wright <gienah@gentoo.org> +yesod-platform-1.2.7.2.ebuild:
+  Bump yesod-platform to 1.2.7.2
+
+*yesod-platform-1.2.5.1 (13 Dec 2013)
+
+  13 Dec 2013; Mark Wright <gienah@gentoo.org> +yesod-platform-1.2.5.1.ebuild:
+  Bump yesod-platform to 1.2.5.1
+
+*yesod-platform-1.2.5 (11 Dec 2013)
+
+  11 Dec 2013; Mark Wright <gienah@gentoo.org> +yesod-platform-1.2.5.ebuild:
+  Bump yesod-platform to 1.2.5
+
+*yesod-platform-1.2.4.2 (13 Sep 2013)
+
+  13 Sep 2013; Mark Wright <gienah@gentoo.org> +metadata.xml,
+  +yesod-platform-1.2.4.2.ebuild:
+  Add yesod-platform

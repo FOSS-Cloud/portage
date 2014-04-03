@@ -1,6 +1,47 @@
 # ChangeLog for dev-python/icalendar
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/icalendar/ChangeLog,v 1.23 2013/02/22 08:26:04 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/icalendar/ChangeLog,v 1.34 2014/03/31 21:14:15 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> icalendar-3.3.ebuild,
+  icalendar-3.4.ebuild, icalendar-3.5.ebuild, icalendar-3.6.1.ebuild:
+  Add support for the new PyPy slotting.
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> icalendar-3.5.ebuild:
+  amd64 stable, bug #450172
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> icalendar-3.5.ebuild:
+  x86 stable wrt bug #450172
+
+*icalendar-3.6.1 (28 Jan 2014)
+
+  28 Jan 2014; Ian Delaney <idella4@gentoo.org> +icalendar-3.6.1.ebuild:
+  bump
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> icalendar-3.3.ebuild,
+  icalendar-3.4.ebuild, icalendar-3.5.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*icalendar-3.5 (08 Jul 2013)
+
+  08 Jul 2013; Patrick Lauer <patrick@gentoo.org> +icalendar-3.5.ebuild:
+  Bump
+
+  08 Jul 2013; Ian Delaney <idella4@gentoo.org> icalendar-3.4.ebuild:
+  Shift deps to RDEPEND, fixes Bug #475824
+
+  23 Jun 2013; Ian Delaney <idella4@gentoo.org> icalendar-3.4.ebuild:
+  upgrade ebuild re eclass
+
+  16 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due #79409
+
+*icalendar-3.4 (02 May 2013)
+
+  02 May 2013; Patrick Lauer <patrick@gentoo.org> +icalendar-3.4.ebuild:
+  Bump
+
+  09 Mar 2013; Ian Delaney <idella4@gentoo.org> icalendar-3.3.ebuild:
+  pypy support added
 
 *icalendar-3.3 (22 Feb 2013)
 

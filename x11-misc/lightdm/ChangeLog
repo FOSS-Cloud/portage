@@ -1,6 +1,115 @@
 # ChangeLog for x11-misc/lightdm
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/lightdm/ChangeLog,v 1.61 2013/02/03 19:25:55 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/lightdm/ChangeLog,v 1.82 2014/02/24 08:28:47 hwoarang Exp $
+
+*lightdm-1.9.6 (24 Feb 2014)
+
+  24 Feb 2014; Markos Chandras <hwoarang@gentoo.org> +lightdm-1.9.6.ebuild,
+  -lightdm-1.9.5.ebuild:
+  Version bump
+
+  23 Dec 2013; Markus Meier <maekke@gentoo.org> lightdm-1.8.5.ebuild:
+  arm stable, bug #492796
+
+  22 Dec 2013; Markos Chandras <hwoarang@gentoo.org> -lightdm-1.7.16.ebuild,
+  -lightdm-1.7.18.ebuild:
+  Remove ebuilds affected by CVE-2013-4459. Bug #493716
+
+*lightdm-1.8.5-r1 (22 Dec 2013)
+
+  22 Dec 2013; Markos Chandras <hwoarang@gentoo.org> +lightdm-1.8.5-r1.ebuild,
+  lightdm-1.9.5.ebuild:
+  Remove apparmor profiles per #494426. Thanks to Balazs Nemeth
+  <jobbara.artalmatlan@gmail.com>
+
+  11 Dec 2013; Pacho Ramos <pacho@gentoo.org> lightdm-1.8.5.ebuild:
+  amd64/x86 stable, bug #492796
+
+  11 Dec 2013; Markos Chandras <hwoarang@gentoo.org> lightdm-1.8.5.ebuild,
+  lightdm-1.9.5.ebuild:
+  Add RESTRICT=test per 493968
+
+*lightdm-1.9.5 (07 Dec 2013)
+
+  07 Dec 2013; Markos Chandras <hwoarang@gentoo.org> +lightdm-1.9.5.ebuild,
+  -lightdm-1.9.3.ebuild:
+  Version bump
+
+*lightdm-1.8.5 (17 Nov 2013)
+*lightdm-1.9.3 (17 Nov 2013)
+
+  17 Nov 2013; Markos Chandras <hwoarang@gentoo.org> +lightdm-1.8.5.ebuild,
+  +lightdm-1.9.3.ebuild, -lightdm-1.8.1.ebuild:
+  Version bump
+
+*lightdm-1.8.1 (11 Oct 2013)
+
+  11 Oct 2013; Markos Chandras <hwoarang@gentoo.org> +lightdm-1.8.1.ebuild:
+  Version bump
+
+*lightdm-1.7.18 (09 Oct 2013)
+
+  09 Oct 2013; Markos Chandras <hwoarang@gentoo.org> +lightdm-1.7.18.ebuild,
+  -lightdm-1.7.15.ebuild:
+  Version bump
+
+*lightdm-1.7.16 (20 Sep 2013)
+
+  20 Sep 2013; Patrick McLean <chutzpah@gentoo.org> +lightdm-1.7.16.ebuild:
+  Version bump, fixes bug #479660.
+
+*lightdm-1.7.15 (11 Sep 2013)
+*lightdm-1.4.3 (11 Sep 2013)
+*lightdm-1.6.2 (11 Sep 2013)
+
+  11 Sep 2013; Markos Chandras <hwoarang@gentoo.org> +lightdm-1.4.3.ebuild,
+  +lightdm-1.6.2.ebuild, +lightdm-1.7.15.ebuild, -lightdm-1.6.0.ebuild,
+  -lightdm-1.7.7.ebuild, -lightdm-1.7.9.ebuild:
+  Version bump. Bug #484328 and #484590
+
+*lightdm-1.6.0 (22 Aug 2013)
+
+  22 Aug 2013; Markos Chandras <hwoarang@gentoo.org> +lightdm-1.6.0.ebuild:
+  Bring 1.6.0 to the tree as a temporary solution for the 1.7.X problems in bug
+  #479660. This version should restore the consolekit problems for non-systemd
+  users
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> lightdm-1.4.0-r2.ebuild:
+  Stable for x86, wrt bug #480132
+
+  17 Aug 2013; Agostino Sarubbo <ago@gentoo.org> lightdm-1.4.0-r2.ebuild:
+  Stable for amd64, wrt bug #480132
+
+*lightdm-1.7.9 (16 Aug 2013)
+
+  16 Aug 2013; Markos Chandras <hwoarang@gentoo.org> +lightdm-1.7.9.ebuild:
+  Version bump
+
+*lightdm-1.7.7 (30 Jul 2013)
+
+  30 Jul 2013; Markos Chandras <hwoarang@gentoo.org>
+  +files/lightdm-1.7.7-session-wrapper.patch, +lightdm-1.7.7.ebuild,
+  -lightdm-1.3.3.ebuild, -lightdm-1.4.0-r1.ebuild, lightdm-1.0.11.ebuild,
+  lightdm-1.2.2-r3.ebuild, lightdm-1.4.0-r2.ebuild, lightdm-1.4.0.ebuild:
+  Version bump. Remove old. Fix gobject-introspection dependencies. Bug #471448
+
+  25 May 2013; Ben de Groot <yngwin@gentoo.org> metadata.xml:
+  Remove myself as maintainer, bug #412697
+
+*lightdm-1.4.0-r2 (18 May 2013)
+
+  18 May 2013; Markos Chandras <hwoarang@gentoo.org> +files/lightdm.service,
+  +lightdm-1.4.0-r2.ebuild:
+  Revbump to add systemd unit file. Thanks to Fabio Erculiani
+  <lxnay@gentoo.org>. Bug #412697
+
+  09 May 2013; Markus Meier <maekke@gentoo.org> lightdm-1.4.0-r1.ebuild:
+  add ~arm, bug #454326
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> lightdm-1.0.11.ebuild,
+  lightdm-1.2.2-r3.ebuild, lightdm-1.3.3.ebuild, lightdm-1.4.0-r1.ebuild,
+  lightdm-1.4.0.ebuild:
+  Move Qt dependencies to the new category
 
   03 Feb 2013; Agostino Sarubbo <ago@gentoo.org> lightdm-1.4.0-r1.ebuild:
   Add ~ppc, wrt bug #454326

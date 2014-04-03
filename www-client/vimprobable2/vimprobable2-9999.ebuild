@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/vimprobable2/vimprobable2-9999.ebuild,v 1.2 2013/01/08 09:21:51 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/vimprobable2/vimprobable2-9999.ebuild,v 1.3 2013/05/26 09:53:29 radhermit Exp $
 
-EAPI=4
+EAPI=5
 
 inherit toolchain-funcs git-2
 
@@ -14,8 +14,6 @@ HOMEPAGE="http://www.vimprobable.org/"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
-IUSE=""
 
 RDEPEND="net-libs/libsoup:2.4
 	net-libs/webkit-gtk:2

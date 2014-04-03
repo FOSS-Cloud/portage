@@ -1,6 +1,38 @@
 # ChangeLog for net-libs/libsocialweb
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libsocialweb/ChangeLog,v 1.19 2013/02/02 23:04:58 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libsocialweb/ChangeLog,v 1.28 2014/03/09 12:03:22 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libsocialweb-0.25.21-r1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libsocialweb-0.25.21-r1.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libsocialweb-0.25.21-r1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libsocialweb-0.25.21-r1.ebuild:
+  arch stable, bug 888
+
+*libsocialweb-0.25.21-r1 (22 Jan 2014)
+
+  22 Jan 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  libsocialweb-0.25.21.ebuild, +libsocialweb-0.25.21-r1.ebuild:
+  EAPI bump and switch to python*-r1 eclass.
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  libsocialweb-0.25.21.ebuild:
+  Depend on libsoup-gnome again.
+
+  21 Jul 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  update USE flags desc
+
+  31 Mar 2013; Pacho Ramos <pacho@gentoo.org> libsocialweb-0.25.21.ebuild:
+  Adapt to libsoup-2.42 dropping gnome USE and splitting (#463702)
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -libsocialweb-0.25.20.ebuild:
+  Clean up old revision.
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> libsocialweb-0.25.21.ebuild:
   Add ~arm, wrt bug #449220

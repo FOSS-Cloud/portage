@@ -1,6 +1,12 @@
 # ChangeLog for dev-games/mygui
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/mygui/ChangeLog,v 1.4 2013/01/13 11:40:06 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-games/mygui/ChangeLog,v 1.6 2014/03/08 23:17:25 hasufell Exp $
+
+  08 Mar 2014; Julian Ospald <hasufell@gentoo.org> mygui-3.2.0-r1.ebuild:
+  add subslot dep for dev-games/ogre
+
+  10 Dec 2013; Julian Ospald <hasufell@gentoo.org> mygui-3.2.0-r1.ebuild:
+  bump eapi, use system version of FindFreetype.cmake
 
   13 Jan 2013; Agostino Sarubbo <ago@gentoo.org> mygui-3.2.0-r1.ebuild:
   Stable for x86, wrt bug #449772

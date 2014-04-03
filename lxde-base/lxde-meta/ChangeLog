@@ -1,6 +1,34 @@
 # ChangeLog for lxde-base/lxde-meta
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxde-meta/ChangeLog,v 1.52 2013/01/26 17:46:03 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxde-meta/ChangeLog,v 1.60 2014/03/16 13:20:58 hwoarang Exp $
+
+  16 Mar 2014; Markos Chandras <hwoarang@gentoo.org> lxde-meta-0.5.5-r4.ebuild:
+  Fix bug #503678 for real this time
+
+*lxde-meta-0.5.5-r4 (16 Mar 2014)
+
+  16 Mar 2014; Markos Chandras <hwoarang@gentoo.org> +lxde-meta-0.5.5-r4.ebuild:
+  libfm-1.2.0 now provides lxshortcut. Bug #503678. Patch by Johannes Janssen
+  <mail@johannes-janssen.de>
+
+  09 Oct 2013; Markos Chandras <hwoarang@gentoo.org> lxde-meta-0.5.5-r3.ebuild:
+  Depend either on old (lxsession+lxsession-edit) or the new lxsession. Bug
+  487359
+
+  11 May 2013; Markos Chandras <hwoarang@gentoo.org> -lxde-meta-0.5.5-r2.ebuild:
+  remove old
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> lxde-meta-0.5.5-r3.ebuild:
+  Stable for ppc, wrt bug #460178
+
+  24 Mar 2013; Markus Meier <maekke@gentoo.org> lxde-meta-0.5.5-r3.ebuild:
+  arm stable, bug #460178
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> lxde-meta-0.5.5-r3.ebuild:
+  Stable for x86, wrt bug #460178
+
+  04 Mar 2013; Chema Alonso <nimiux@gentoo.org> lxde-meta-0.5.5-r3.ebuild:
+  Stable for amd64 wrt bug #460178
 
 *lxde-meta-0.5.5-r3 (26 Jan 2013)
 

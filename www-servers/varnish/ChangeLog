@@ -1,6 +1,107 @@
 # ChangeLog for www-servers/varnish
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/varnish/ChangeLog,v 1.53 2012/11/22 20:54:53 blueness Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-servers/varnish/ChangeLog,v 1.75 2014/03/31 21:25:22 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> varnish-3.0.5-r3.ebuild,
+  varnish-3.0.5-r4.ebuild:
+  Add support for the new PyPy slotting.
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> varnish-3.0.5-r3.ebuild:
+  Stable for x86, wrt bug #501384
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> varnish-3.0.5-r3.ebuild:
+  amd64 stable, bug #501384
+
+  01 Mar 2014; Anthony G. Basile <blueness@gentoo.org> -varnish-3.0.5-r1.ebuild:
+  Remove older revbump
+
+*varnish-3.0.5-r4 (01 Mar 2014)
+
+  01 Mar 2014; Anthony G. Basile <blueness@gentoo.org> +files/varnishd.confd-r2,
+  +files/varnishd.initd-r2, +varnish-3.0.5-r4.ebuild:
+  Set logformat, bug #502972
+
+*varnish-3.0.5-r3 (16 Jan 2014)
+
+  16 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  +files/varnish-3.0.5-fix-python-path.patch,
+  +files/varnish-3.0.5-path-to-vmod_vcc.patch, +varnish-3.0.5-r3.ebuild,
+  -varnish-3.0.5-r2.ebuild:
+  Account for bug #498274
+
+*varnish-3.0.5-r2 (16 Jan 2014)
+
+  16 Jan 2014; Anthony G. Basile <blueness@gentoo.org> +varnish-3.0.5-r2.ebuild:
+  Install vmod.py for bug #498268
+
+*varnish-3.0.5-r1 (20 Dec 2013)
+
+  20 Dec 2013; Anthony G. Basile <blueness@gentoo.org> +files/varnishd.service,
+  +varnish-3.0.5-r1.ebuild:
+  Add systemd unit file, bug #494708.  Thanks Roc Vallès!
+
+  06 Dec 2013; Anthony G. Basile <blueness@gentoo.org>
+  -files/varnish-3.0.2-automagic.patch, -files/varnish-3.0.3-automagic.patch,
+  -files/varnishd.confd, -files/varnishd.initd, -varnish-3.0.2-r1.ebuild,
+  -varnish-3.0.3-r1.ebuild, -varnish-3.0.4-r1.ebuild, -varnish-3.0.4.ebuild:
+  Cleanup, security bug #489944
+
+  06 Dec 2013; Agostino Sarubbo <ago@gentoo.org> varnish-3.0.5.ebuild:
+  Stable for x86, wrt bug #489944
+
+  06 Dec 2013; Agostino Sarubbo <ago@gentoo.org> varnish-3.0.5.ebuild:
+  Stable for amd64, wrt bug #489944
+
+*varnish-3.0.5 (03 Dec 2013)
+
+  03 Dec 2013; Anthony G. Basile <blueness@gentoo.org> +varnish-3.0.5.ebuild:
+  Version bump
+
+*varnish-3.0.4-r1 (08 Jul 2013)
+
+  08 Jul 2013; Anthony G. Basile <blueness@gentoo.org> +files/varnishd.confd-r1,
+  +files/varnishd.initd-r1, +varnish-3.0.4-r1.ebuild:
+  Add sanity test and reload functionality to init.d script, bug #475600
+
+  21 Jun 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/varnish-3.0.4-fix-automake-1.13.patch, varnish-3.0.4.ebuild:
+  Fix for automake-1.13, bug #468070
+
+  18 Jun 2013; Anthony G. Basile <blueness@gentoo.org> files/varnishd.confd:
+  Be more explicit in varnishd.confd, bug #461624
+
+  16 Jun 2013; Anthony G. Basile <blueness@gentoo.org> ChangeLog:
+  Fix failed gpg signature
+
+  16 Jun 2013; Anthony G. Basile <blueness@gentoo.org> varnish-3.0.4.ebuild:
+  Dep on either libedit or readline, drop useless dep on docutils
+
+*varnish-3.0.4 (16 Jun 2013)
+
+  16 Jun 2013; Anthony G. Basile <blueness@gentoo.org>
+  +files/varnish-3.0.4-automagic.patch, +varnish-3.0.4.ebuild:
+  Version bump
+
+  19 Mar 2013; Anthony G. Basile <blueness@gentoo.org>
+  files/varnish-3.0.3-automagic.patch:
+  Fix AC_CHECK_LIB for malloc_conf in jemalloc-2 and -3, bug #461638
+
+*varnish-3.0.3-r1 (14 Mar 2013)
+
+  14 Mar 2013; Anthony G. Basile <blueness@gentoo.org> +varnish-3.0.3-r1.ebuild,
+  -varnish-3.0.3.ebuild, files/varnish-3.0.3-automagic.patch, metadata.xml:
+  Remove bundled jemalloc and fix automagic dependency, bug #461638
+
+  14 Mar 2013; Anthony G. Basile <blueness@gentoo.org>
+  -files/varnish-2.0.4-link-order.patch,
+  -files/varnish-2.0.4-virtual-ncsa.patch,
+  -files/varnish-2.1.4-find-rst2man.py.patch,
+  -files/varnish-2.1.4-virtual-ncsa.patch, -varnish-2.0.4-r1.ebuild:
+  Remove older stable
+
+  14 Mar 2013; Anthony G. Basile <blueness@gentoo.org> files/varnishd.confd,
+  files/varnishd.initd:
+  Increase number of open files, bug #459142
 
   22 Nov 2012; Anthony G. Basile <blueness@gentoo.org>
   +files/varnish-3.0.3-pthread-uclibc.patch, varnish-3.0.3.ebuild:

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol/pymol-1.5.0.3-r2.ebuild,v 1.1 2013/01/30 08:51:20 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol/pymol-1.5.0.3-r2.ebuild,v 1.4 2014/01/26 08:03:18 jlec Exp $
 
 EAPI=5
 
@@ -10,7 +10,7 @@ PYTHON_REQ_USE="tk"
 inherit distutils-r1 fdo-mime prefix versionator
 
 DESCRIPTION="A Python-extensible molecular graphics system"
-HOMEPAGE="http://pymol.sourceforge.net/"
+HOMEPAGE="http://www.pymol.org/"
 SRC_URI="
 	http://dev.gentoo.org/~jlec/distfiles/${P}.tar.xz
 	http://dev.gentoo.org/~jlec/distfiles/${PN}-icons.tar.xz"
@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE="apbs numpy vmd web"
 
 DEPEND="
-	dev-python/numpy
+	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/pmw[${PYTHON_USEDEP}]
 	media-libs/freetype:2
 	media-libs/glew
@@ -78,7 +78,7 @@ python_install_all() {
 	# These environment variables should not go in the wrapper script, or else
 	# it will be impossible to use the PyMOL libraries from Python.
 	cat >> "${T}"/20pymol <<- EOF
-		PYMOL_PATH="${EPREFIX}/$(python_get_sitedir)/${PN}"
+		PYMOL_PATH="$(python_get_sitedir)/${PN}"
 		PYMOL_DATA="${EPREFIX}/usr/share/pymol/data"
 		PYMOL_SCRIPTS="${EPREFIX}/usr/share/pymol/scripts"
 	EOF

@@ -1,6 +1,39 @@
 # ChangeLog for virtual/perl-ExtUtils-Command
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-ExtUtils-Command/ChangeLog,v 1.32 2013/02/19 22:04:42 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-ExtUtils-Command/ChangeLog,v 1.39 2014/01/19 20:34:13 vapier Exp $
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  perl-ExtUtils-Command-1.170.0-r3.ebuild,
+  perl-ExtUtils-Command-1.170.0-r4.ebuild, perl-ExtUtils-Command-1.180.0.ebuild:
+  Add arm64 love.
+
+  30 Dec 2013; Mikle Kolyada <zlogene@gentoo.org>
+  -perl-ExtUtils-Command-1.16.ebuild:
+  Drop old
+
+*perl-ExtUtils-Command-1.180.0 (18 Sep 2013)
+
+  18 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  +perl-ExtUtils-Command-1.180.0.ebuild:
+  Bump
+
+*perl-ExtUtils-Command-1.170.0-r4 (06 Sep 2013)
+
+  06 Sep 2013; Patrick Lauer <patrick@gentoo.org>
+  +perl-ExtUtils-Command-1.170.0-r4.ebuild:
+  Fix dependencies for perl-5.18 #483796
+
+  20 Apr 2013; Matt Turner <mattst88@gentoo.org>
+  perl-ExtUtils-Command-1.170.0-r3.ebuild:
+  Added ~mips.
+
+  16 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  perl-ExtUtils-Command-1.170.0-r3.ebuild:
+  Stable for ppc64, wrt bug #456568
+
+  02 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  perl-ExtUtils-Command-1.170.0-r3.ebuild:
+  Stable for sh, wrt bug #458122
 
   19 Feb 2013; Agostino Sarubbo <ago@gentoo.org>
   perl-ExtUtils-Command-1.170.0-r3.ebuild:

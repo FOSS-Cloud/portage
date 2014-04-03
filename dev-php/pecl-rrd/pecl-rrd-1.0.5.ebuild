@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-rrd/pecl-rrd-1.0.5.ebuild,v 1.1 2012/02/22 22:04:03 mabi Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-rrd/pecl-rrd-1.0.5.ebuild,v 1.2 2013/07/19 14:13:06 olemarkus Exp $
 
-EAPI=4
+EAPI=5
 
 inherit php-ext-pecl-r2
 

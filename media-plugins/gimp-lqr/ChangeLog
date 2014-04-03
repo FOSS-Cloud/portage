@@ -1,6 +1,16 @@
 # ChangeLog for media-plugins/gimp-lqr
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gimp-lqr/ChangeLog,v 1.5 2012/02/24 18:39:40 phajdan.jr Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gimp-lqr/ChangeLog,v 1.7 2013/11/17 23:59:41 phajdan.jr Exp $
+
+  17 Nov 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> gimp-lqr-0.7.1.ebuild,
+  gimp-lqr-0.7.2.ebuild:
+  Depend on dev-util/intltool, bug #485676 by Nikoli.
+
+*gimp-lqr-0.7.2 (07 Aug 2013)
+
+  07 Aug 2013; Justin Lecher <jlec@gentoo.org> +gimp-lqr-0.7.2.ebuild,
+  +files/gimp-lqr-0.7.2-no-deprecated.patch, metadata.xml:
+  Version Bump
 
   24 Feb 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> gimp-lqr-0.7.1.ebuild,
   +files/gimp-lqr-no-deprecated.patch:

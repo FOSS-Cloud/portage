@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/ibus-qt/ibus-qt-1.3.1.ebuild,v 1.7 2013/02/10 23:57:43 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/ibus-qt/ibus-qt-1.3.1.ebuild,v 1.10 2013/11/11 08:14:10 jlec Exp $
 
 EAPI="5"
 inherit cmake-utils eutils multilib
@@ -12,14 +12,14 @@ SRC_URI="http://ibus.googlecode.com/files/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 IUSE="doc"
 
 RDEPEND=">=app-i18n/ibus-1.3.7
 	>=sys-apps/dbus-1.2
 	x11-libs/libX11
-	>=x11-libs/qt-core-4.5:4
-	>=x11-libs/qt-dbus-4.5:4"
+	>=dev-qt/qtcore-4.5:4
+	>=dev-qt/qtdbus-4.5:4"
 DEPEND="${RDEPEND}
 	>=dev-libs/icu-4:=
 	dev-util/cmake
@@ -30,12 +30,13 @@ S="${WORKDIR}/${MY_P}"
 
 DOCS="AUTHORS README TODO"
 
-mycmakeargs="-DLIBDIR=$(get_libdir) -DDOCDIR=/usr/share/doc/${PF} all"
+mycmakeargs="-DLIBDIR=$(get_libdir) -DDOCDIR=${EPREFIX}/usr/share/doc/${PF} all"
 
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-1.2.0.20091217-doc.patch" \
 		"${FILESDIR}"/${PN}-1.3.1-display-unset.patch \
-		"${FILESDIR}"/${PN}-1.3.1-gold.patch
+		"${FILESDIR}"/${PN}-1.3.1-gold.patch \
+		"${FILESDIR}"/${PN}-1.3.1-qvariant.patch
 }
 
 src_compile() {

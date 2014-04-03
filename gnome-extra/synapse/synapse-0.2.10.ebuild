@@ -1,12 +1,14 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/synapse/synapse-0.2.10.ebuild,v 1.5 2012/08/27 07:28:03 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/synapse/synapse-0.2.10.ebuild,v 1.9 2014/01/19 15:20:08 jlec Exp $
 
-EAPI=4
+EAPI=5
 
 AUTOTOOLS_AUTORECONF=true
+VALA_MIN_API_VERSION=0.14
+VALA_MAX_API_VERSION=0.20
 
-inherit gnome2 autotools-utils gnome2-utils
+inherit gnome2 autotools-utils gnome2-utils vala
 
 DESCRIPTION="A program launcher in the style of GNOME Do"
 HOMEPAGE="http://launchpad.net/synapse-project/"
@@ -19,7 +21,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="plugins +zeitgeist"
 
 RDEPEND="
-	dev-lang/vala:0.14
 	dev-libs/libgee:0
 	dev-libs/glib:2
 	dev-libs/json-glib
@@ -41,6 +42,7 @@ RDEPEND="
 		)"
 	#ayatana? ( dev-libs/libappindicator )
 DEPEND="${RDEPEND}
+	$(vala_depend)
 	dev-util/intltool
 	virtual/pkgconfig"
 
@@ -54,7 +56,8 @@ pkg_preinst() {
 }
 
 src_prepare() {
-	sed -i -e 's/GNOME/GNOME;GTK/' data/synapse.desktop.in
+	sed -i -e 's/GNOME/GNOME;GTK/' data/synapse.desktop.in || die
+	vala_src_prepare
 	autotools-utils_src_prepare
 }
 
@@ -63,7 +66,6 @@ src_configure() {
 		--enable-indicator=no
 		$(use_enable plugins librest yes)
 		$(use_enable zeitgeist)
-		VALAC="$(type -P valac-0.14)"
 		)
 	autotools-utils_src_configure
 }

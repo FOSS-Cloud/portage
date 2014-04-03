@@ -1,6 +1,93 @@
 # ChangeLog for dev-util/android-sdk-update-manager
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/android-sdk-update-manager/ChangeLog,v 1.44 2013/01/20 00:16:18 rich0 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/android-sdk-update-manager/ChangeLog,v 1.60 2014/03/19 17:25:31 rich0 Exp $
+
+*android-sdk-update-manager-22.6.1 (19 Mar 2014)
+
+  19 Mar 2014; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-22.6.1.ebuild:
+  bump
+
+*android-sdk-update-manager-22.6 (19 Mar 2014)
+
+  19 Mar 2014; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-22.6.ebuild:
+  bump
+
+  20 Nov 2013; Richard Freeman <rich0@gentoo.org> +files/80-android.rules,
+  android-sdk-update-manager-22.3.ebuild,
+  +files/android-sdk-update-manager.desktop:
+  Add desktop entry and udev rule. Thanks to C.J. Wijtmans. 491508
+
+*android-sdk-update-manager-22.3 (02 Nov 2013)
+
+  02 Nov 2013; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-22.3.ebuild:
+  Bump
+
+*android-sdk-update-manager-22.2.1 (25 Sep 2013)
+
+  25 Sep 2013; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-22.2.1.ebuild:
+  Bump - 485958
+
+*android-sdk-update-manager-22.0.5-r1 (16 Sep 2013)
+
+  16 Sep 2013; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-22.0.5-r1.ebuild:
+  Set ANDROID_HOME - bug 484976 - thanks to Florian Schmaus.
+
+*android-sdk-update-manager-22.0.5 (14 Aug 2013)
+
+  14 Aug 2013; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-22.0.5.ebuild:
+  bump - 480954
+
+*android-sdk-update-manager-22.0.4 (24 Jul 2013)
+
+  24 Jul 2013; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-22.0.4.ebuild:
+  Bump - 477946.
+
+  13 Jun 2013; Richard Freeman <rich0@gentoo.org>
+  android-sdk-update-manager-22.0.1-r1.ebuild:
+  Permissions fix, 473198 - thanks to Nikita Kozlov for patch.
+
+  11 Jun 2013; Richard Freeman <rich0@gentoo.org>
+  android-sdk-update-manager-22.0.1-r1.ebuild:
+  Fix SWT version-detection logic to ignore 4.2.
+
+  10 Jun 2013; Richard Freeman <rich0@gentoo.org>
+  android-sdk-update-manager-22.0.1-r1.ebuild:
+  Fix issue with rebuild loop.
+
+*android-sdk-update-manager-22.0.1-r1 (10 Jun 2013)
+
+  10 Jun 2013; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-22.0.1-r1.ebuild:
+  Fix SWT dep - 470840.
+
+*android-sdk-update-manager-22.0.1 (01 Jun 2013)
+
+  01 Jun 2013; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-22.0.1.ebuild:
+  Bump - 471944
+
+  29 May 2013; Richard Freeman <rich0@gentoo.org>
+  android-sdk-update-manager-22.ebuild:
+  Additional permissions fix - 471654
+
+*android-sdk-update-manager-22 (20 May 2013)
+
+  20 May 2013; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-22.ebuild:
+  Bump, permissions fix - 470668,463446.
+
+*android-sdk-update-manager-21.1 (03 Mar 2013)
+
+  03 Mar 2013; Richard Freeman <rich0@gentoo.org>
+  +android-sdk-update-manager-21.1.ebuild:
+  bump - 460076
 
   20 Jan 2013; Richard Freeman <rich0@gentoo.org>
   -android-sdk-update-manager-17.ebuild, -android-sdk-update-manager-20.ebuild,

@@ -1,6 +1,110 @@
 # ChangeLog for www-client/rekonq
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/rekonq/ChangeLog,v 1.57 2013/01/28 15:57:41 kensington Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/rekonq/ChangeLog,v 1.85 2014/03/04 20:47:26 mrueg Exp $
+
+  04 Mar 2014; Manuel Rüger <mrueg@gentoo.org> -rekonq-2.4.0.ebuild:
+  Cleanup old.
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> rekonq-2.4.2.ebuild:
+  Stable for x86, wrt bug #502506
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> rekonq-2.4.2.ebuild:
+  amd64 stable, bug #502506
+
+  29 Jan 2014; Manuel Rüger <mrueg@gentoo.org> -rekonq-2.3.2.ebuild:
+  Cleanup old.
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> rekonq-2.4.0.ebuild:
+  Stable for x86, wrt bug #497676
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> rekonq-2.4.0.ebuild:
+  amd64 stable, bug #497676
+
+*rekonq-2.4.2 (12 Jan 2014)
+
+  12 Jan 2014; Manuel Rüger <mrueg@gentoo.org> +rekonq-2.4.2.ebuild:
+  Version bump.
+
+*rekonq-2.4.0 (16 Nov 2013)
+
+  16 Nov 2013; Johannes Huber <johu@gentoo.org> +rekonq-2.4.0.ebuild:
+  Version bump.
+
+  31 Jul 2013; Michael Palimaka <kensington@gentoo.org> -rekonq-2.3.0.ebuild:
+  Remove old.
+
+  29 Jul 2013; Agostino Sarubbo <ago@gentoo.org> rekonq-2.3.2.ebuild:
+  Stable for x86, wrt bug #477634
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> rekonq-2.3.2.ebuild:
+  Stable for amd64, wrt bug #477634
+
+  25 Jul 2013; Johannes Huber <johu@gentoo.org> -rekonq-2.3.1.ebuild,
+  rekonq-2.3.0.ebuild, rekonq-2.3.2.ebuild:
+  Add missing rdep by Nikoli <nikoli@lavabit.com> wrt bug #369371.
+
+*rekonq-2.3.2 (30 Jun 2013)
+
+  30 Jun 2013; Johannes Huber <johu@gentoo.org> +rekonq-2.3.2.ebuild:
+  Version bump.
+
+*rekonq-2.3.1 (23 Jun 2013)
+
+  23 Jun 2013; Johannes Huber <johu@gentoo.org> +rekonq-2.3.1.ebuild:
+  Version bump.
+
+  05 Jun 2013; Johannes Huber <johu@gentoo.org> -rekonq-2.2.1.ebuild:
+  Remove old.
+
+  05 Jun 2013; Agostino Sarubbo <ago@gentoo.org> rekonq-2.3.0.ebuild:
+  Stable for x86, wrt bug #471392
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> rekonq-2.3.0.ebuild:
+  Stable for amd64, wrt bug #471392
+
+  30 May 2013; Michael Palimaka <kensington@gentoo.org> rekonq-2.2.1.ebuild,
+  rekonq-2.3.0.ebuild:
+  Add USE dependency default in preparation for the removal of the semantic-
+  desktop USE flag. Remove semantic-desktop USE flag from testing versions.
+
+*rekonq-2.3.0 (02 May 2013)
+
+  02 May 2013; Johannes Huber <johu@gentoo.org> +rekonq-2.3.0.ebuild:
+  Version bump by Manuel Rüger <gentoo@rueg.eu> and me.
+
+  02 May 2013; Johannes Huber <johu@gentoo.org> -rekonq-2.1.ebuild,
+  -rekonq-2.2.ebuild:
+  Remove old.
+
+  30 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rekonq-2.2.1.ebuild:
+  Stable for x86, wrt bug #466074
+
+  29 Apr 2013; Agostino Sarubbo <ago@gentoo.org> rekonq-2.2.1.ebuild:
+  Stable for amd64, wrt bug #466074
+
+*rekonq-2.2.1 (20 Mar 2013)
+
+  20 Mar 2013; Michael Palimaka <kensington@gentoo.org> +rekonq-2.2.1.ebuild:
+  Version bump wrt bug #462112.
+
+  04 Mar 2013; Michael Palimaka <kensington@gentoo.org> rekonq-2.2.ebuild:
+  KDE 4.10 is required.
+
+  04 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org> rekonq-2.1.ebuild,
+  rekonq-2.2.ebuild:
+  Actually cs is present.
+
+*rekonq-2.2 (03 Mar 2013)
+
+  03 Mar 2013; Michael Palimaka <kensington@gentoo.org> +rekonq-2.2.ebuild,
+  -rekonq-2.0.ebuild:
+  Version bump wrt bug #459990. Remove old.
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> rekonq-2.1.ebuild:
+  Stable for x86, wrt bug #459894
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> rekonq-2.1.ebuild:
+  Stable for amd64, wrt bug #459894
 
 *rekonq-2.1 (28 Jan 2013)
 

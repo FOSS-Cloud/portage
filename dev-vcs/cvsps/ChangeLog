@@ -1,6 +1,23 @@
 # ChangeLog for dev-vcs/cvsps
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/cvsps/ChangeLog,v 1.18 2013/01/23 11:59:08 slyfox Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/cvsps/ChangeLog,v 1.22 2014/03/13 20:09:09 ottxor Exp $
+
+  13 Mar 2014; Christoph Junghans <ottxor@gentoo.org> cvsps-3.13.ebuild:
+  added ~x64-macos (tested by me)
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org> cvsps-2.1-r1.ebuild,
+  cvsps-2.1.ebuild, cvsps-2.2_beta1.ebuild, cvsps-3.10.ebuild,
+  cvsps-3.13.ebuild:
+  Add arm64 love.
+
+*cvsps-3.13 (28 Dec 2013)
+
+  28 Dec 2013; Sergei Trofimovich <slyfox@gentoo.org> +cvsps-3.13.ebuild:
+  Version bump (and deprecated by upstream in favour of cvs-fast-export
+  http://esr.ibiblio.org/?p=5167).
+
+  26 Jul 2013; Sergei Trofimovich <slyfox@gentoo.org> -cvsps-3.7.ebuild:
+  Removed old.
 
 *cvsps-3.10 (23 Jan 2013)
 

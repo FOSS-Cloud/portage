@@ -1,6 +1,44 @@
 # ChangeLog for app-text/libwpg
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/libwpg/ChangeLog,v 1.16 2012/08/05 21:02:39 blueness Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/libwpg/ChangeLog,v 1.28 2013/06/21 12:25:40 scarabeus Exp $
+
+  21 Jun 2013; Tomáš Chvátal <scarabeus@gentoo.org> -libwpg-0.2.1.ebuild:
+  Drop older.
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> libwpg-0.2.2.ebuild:
+  Stable for ppc64, wrt bug #467450
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> libwpg-0.2.2.ebuild:
+  Stable for sparc, wrt bug #467450
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> libwpg-0.2.2.ebuild:
+  Stable for ia64, wrt bug #467450
+
+  06 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> libwpg-0.2.2.ebuild:
+  Use .xz instead of bz2.
+
+  05 May 2013; Agostino Sarubbo <ago@gentoo.org> libwpg-0.2.2.ebuild:
+  Stable for alpha, wrt bug #467450
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> libwpg-0.2.2.ebuild:
+  Stable for ppc, wrt bug #467450
+
+  27 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libwpg-0.2.2.ebuild:
+  Stable for x86, wrt bug #467450
+
+  27 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libwpg-0.2.2.ebuild:
+  Stable for amd64, wrt bug #467450
+
+  27 Apr 2013; Jeroen Roovers <jer@gentoo.org> libwpg-0.2.2.ebuild:
+  Stable for HPPA (bug #467450).
+
+  19 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> metadata.xml:
+  Cleanup metadata.xml.
+
+*libwpg-0.2.2 (19 Apr 2013)
+
+  19 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> +libwpg-0.2.2.ebuild:
+  Version bump to latest.
 
   05 Aug 2012; Anthony G. Basile <blueness@gentoo.org> libwpg-0.2.1.ebuild:
   Keyword ~arm
@@ -128,4 +166,3 @@
   01 May 2009; Tomas Chvatal <scarabeus@gentoo.org> +libwpg-0.1.3.ebuild,
   +metadata.xml:
   Initial commit. Required for koffice-2
-

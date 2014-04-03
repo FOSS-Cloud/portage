@@ -1,23 +1,30 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/cups/cups-9999.ebuild,v 1.21 2012/11/06 13:59:52 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/cups/cups-9999.ebuild,v 1.52 2014/03/01 22:33:47 mgorny Exp $
 
-EAPI=4
+EAPI=5
 
-PYTHON_DEPEND="python? 2:2.5"
+PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit autotools base fdo-mime gnome2-utils flag-o-matic linux-info multilib pam python user versionator java-pkg-opt-2 systemd
+inherit autotools base fdo-mime gnome2-utils flag-o-matic linux-info \
+	multilib pam python-single-r1 user versionator java-pkg-opt-2 systemd \
+	toolchain-funcs
 
-MY_P=${P/_beta/b}
-MY_PV=${PV/_beta/b}
+MY_P=${P/_rc/rc}
+MY_P=${MY_P/_beta/b}
+MY_PV=${PV/_rc/rc}
+MY_PV=${MY_PV/_beta/b}
 
-if [[ "${PV}" != "9999" ]]; then
-	SRC_URI="mirror://easysw/${PN}/${MY_PV}/${MY_P}-source.tar.bz2"
-	KEYWORDS="~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~x86 ~amd64-fbsd"
-else
-	inherit subversion
-	ESVN_REPO_URI="http://svn.easysw.com/public/cups/trunk"
+if [[ ${PV} == *9999 ]]; then
+	inherit git-2
+	EGIT_REPO_URI="http://www.cups.org/cups.git"
+	if [[ ${PV} != 9999 ]]; then
+		EGIT_BRANCH=branch-${PV/.9999}
+	fi
 	KEYWORDS=""
+else
+	SRC_URI="http://www.cups.org/software/${MY_PV}/${MY_P}-source.tar.bz2"
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~m68k-mint"
 fi
 
 DESCRIPTION="The Common Unix Printing System"
@@ -25,12 +32,12 @@ HOMEPAGE="http://www.cups.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="acl avahi dbus debug +filters gnutls java kerberos pam
-	python selinux +ssl static-libs systemd +threads usb X xinetd zeroconf"
+IUSE="acl dbus debug gnutls java kerberos lprng-compat pam
+	python selinux +ssl static-libs +threads usb X xinetd zeroconf"
 
-LANGS="ca es ja"
+LANGS="ca es fr it ja ru"
 for X in ${LANGS} ; do
-	IUSE="${IUSE} linguas_${X}"
+	IUSE="${IUSE} +linguas_${X}"
 done
 
 RDEPEND="
@@ -41,24 +48,24 @@ RDEPEND="
 			sys-apps/attr
 		)
 	)
-	avahi? ( net-dns/avahi )
 	dbus? ( sys-apps/dbus )
 	java? ( >=virtual/jre-1.6 )
 	kerberos? ( virtual/krb5 )
+	!lprng-compat? ( !net-print/lprng )
 	pam? ( virtual/pam )
+	python? ( ${PYTHON_DEPS} )
 	selinux? ( sec-policy/selinux-cups )
 	ssl? (
 		gnutls? (
-			dev-libs/libgcrypt
+			dev-libs/libgcrypt:0
 			net-libs/gnutls
 		)
 		!gnutls? ( >=dev-libs/openssl-0.9.8g )
 	)
-	systemd? ( sys-apps/systemd )
-	usb? ( virtual/libusb:0 )
+	usb? ( virtual/libusb:1 )
 	X? ( x11-misc/xdg-utils )
 	xinetd? ( sys-apps/xinetd )
-	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )
+	zeroconf? ( net-dns/avahi )
 "
 
 DEPEND="${RDEPEND}
@@ -67,12 +74,15 @@ DEPEND="${RDEPEND}
 
 PDEPEND="
 	app-text/ghostscript-gpl[cups]
-	>=app-text/poppler-0.12.3-r3[utils]
-	net-print/cups-filters
-	filters? ( net-print/foomatic-filters )
+	app-text/poppler[utils]
+	>=net-print/cups-filters-1.0.43
 "
 
-REQUIRED_USE="gnutls? ( ssl )"
+REQUIRED_USE="
+	gnutls? ( ssl )
+	python? ( ${PYTHON_REQUIRED_USE} )
+	usb? ( threads )
+"
 
 # upstream includes an interactive test which is a nono for gentoo
 RESTRICT="test"
@@ -83,8 +93,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.6.0-dont-compress-manpages.patch"
 	"${FILESDIR}/${PN}-1.6.0-fix-install-perms.patch"
 	"${FILESDIR}/${PN}-1.4.4-nostrip.patch"
-	"${FILESDIR}/${PN}-1.5.0-systemd-socket.patch"		# systemd support
-	"${FILESDIR}/${PN}-1.5.2-browsing.patch"		# browsing off by default
+	"${FILESDIR}/${PN}-1.5.0-systemd-socket-2.patch"	# systemd support
 )
 
 pkg_setup() {
@@ -92,11 +101,7 @@ pkg_setup() {
 	enewuser lp -1 -1 -1 lp
 	enewgroup lpadmin 106
 
-	# python 3 is no-go
-	if use python; then
-		python_set_active_version 2
-		python_pkg_setup
-	fi
+	use python && python-single-r1_pkg_setup
 
 	if use kernel_linux; then
 		linux-info_pkg_setup
@@ -144,11 +149,8 @@ src_prepare() {
 src_configure() {
 	export DSOFLAGS="${LDFLAGS}"
 
-	# locale support
-	strip-linguas ${LANGS}
-	if [ -z "${LINGUAS}" ] ; then
-		export LINGUAS=none
-	fi
+	einfo LANGS=\"${LANGS}\"
+	einfo LINGUAS=\"${LINGUAS}\"
 
 	local myconf
 	if use ssl ; then
@@ -163,16 +165,23 @@ src_configure() {
 		"
 	fi
 
+	if tc-is-static-only; then
+		myconf+="
+			--disable-shared
+		"
+	fi
+
 	econf \
-		--libdir=/usr/$(get_libdir) \
-		--localstatedir=/var \
+		--libdir="${EPREFIX}"/usr/$(get_libdir) \
+		--localstatedir="${EPREFIX}"/var \
+		--with-rundir="${EPREFIX}"/run/cups \
 		--with-cups-user=lp \
 		--with-cups-group=lp \
-		--with-docdir=/usr/share/cups/html \
+		--with-docdir="${EPREFIX}"/usr/share/cups/html \
 		--with-languages="${LINGUAS}" \
 		--with-system-groups=lpadmin \
 		$(use_enable acl) \
-		$(use_enable avahi) \
+		$(use_enable zeroconf avahi) \
 		$(use_enable dbus) \
 		$(use_enable debug) \
 		$(use_enable debug debug-guards) \
@@ -181,21 +190,21 @@ src_configure() {
 		$(use_enable static-libs static) \
 		$(use_enable threads) \
 		$(use_enable usb libusb) \
-		$(use_enable zeroconf dnssd) \
+		--disable-dnssd \
 		$(use_with java) \
 		--without-perl \
 		--without-php \
-		$(use_with python) \
+		$(use_with python python "${PYTHON}") \
 		$(use_with xinetd xinetd /etc/xinetd.d) \
 		--enable-libpaper \
-		$(use_with systemd systemdsystemunitdir "$(systemd_get_unitdir)") \
+		--with-systemdsystemunitdir="$(systemd_get_unitdir)" \
 		${myconf}
 
 	# install in /usr/libexec always, instead of using /usr/lib/cups, as that
 	# makes more sense when facing multilib support.
-	sed -i -e 's:SERVERBIN.*:SERVERBIN = "$(BUILDROOT)"/usr/libexec/cups:' Makedefs || die
-	sed -i -e 's:#define CUPS_SERVERBIN.*:#define CUPS_SERVERBIN "/usr/libexec/cups":' config.h || die
-	sed -i -e 's:cups_serverbin=.*:cups_serverbin=/usr/libexec/cups:' cups-config || die
+	sed -i -e "s:SERVERBIN.*:SERVERBIN = \"\$\(BUILDROOT\)${EPREFIX}/usr/libexec/cups\":" Makedefs || die
+	sed -i -e "s:#define CUPS_SERVERBIN.*:#define CUPS_SERVERBIN \"${EPREFIX}/usr/libexec/cups\":" config.h || die
+	sed -i -e "s:cups_serverbin=.*:cups_serverbin=\"${EPREFIX}/usr/libexec/cups\":" cups-config || die
 }
 
 src_install() {
@@ -214,10 +223,10 @@ src_install() {
 
 	# install our init script
 	local neededservices
-	use avahi && neededservices+=" avahi-daemon"
+	use zeroconf && neededservices+=" avahi-daemon"
 	use dbus && neededservices+=" dbus"
 	[[ -n ${neededservices} ]] && neededservices="need${neededservices}"
-	cp "${FILESDIR}"/cupsd.init.d "${T}"/cupsd || die
+	cp "${FILESDIR}"/cupsd.init.d-r1 "${T}"/cupsd || die
 	sed -i \
 		-e "s/@neededservices@/$neededservices/" \
 		"${T}"/cupsd || die
@@ -241,19 +250,33 @@ src_install() {
 	fi
 
 	keepdir /usr/libexec/cups/driver /usr/share/cups/{model,profiles} \
-		/var/cache/cups /var/cache/cups/rss /var/log/cups \
-		/var/spool/cups/tmp
+		/var/log/cups /var/spool/cups/tmp
 
 	keepdir /etc/cups/{interfaces,ppd,ssl}
 
 	use X || rm -r "${ED}"/usr/share/applications
 
 	# create /etc/cups/client.conf, bug #196967 and #266678
-	echo "ServerName /var/run/cups/cups.sock" >> "${ED}"/etc/cups/client.conf
+	echo "ServerName ${EPREFIX}/run/cups/cups.sock" >> "${ED}"/etc/cups/client.conf
 
 	# the following files are now provided by cups-filters:
 	rm -r "${ED}"/usr/share/cups/banners || die
 	rm -r "${ED}"/usr/share/cups/data/testprint || die
+
+	# the following are created by the init script
+	rm -r "${ED}"/var/cache/cups || die
+	rm -r "${ED}"/run || die
+
+	# for the special case of running lprng and cups together, bug 467226
+	if use lprng-compat ; then
+		rm -fv "${ED}"/usr/bin/{lp*,cancel}
+		rm -fv "${ED}"/usr/sbin/lp*
+		rm -fv "${ED}"/usr/share/man/man1/{lp*,cancel*}
+		rm -fv "${ED}"/usr/share/man/man8/lp*
+		ewarn "Not installing lp... binaries, since the lprng-compat useflag is set."
+		ewarn "Unless you plan to install an exotic server setup, you most likely"
+		ewarn "do not want this. Disable the useflag then and all will be fine."
+	fi
 }
 
 pkg_preinst() {
@@ -265,23 +288,29 @@ pkg_postinst() {
 	gnome2_icon_cache_update
 	fdo-mime_desktop_database_update
 
-	echo
-	elog "For information about installing a printer and general cups setup"
-	elog "take a look at: http://www.gentoo.org/doc/en/printing-howto.xml"
-	echo
-	elog "Network browsing for printers is now switched off by default in the config file."
-	elog "To (re-)enable it, edit /etc/cups/cupsd.conf and set \"Browsing On\", "
-	elog "afterwards re-start or reload cups."
-	echo
-
 	# not slotted - at most one value
+	if ! [[ "${REPLACING_VERSIONS}" ]]; then
+		echo
+		elog "For information about installing a printer and general cups setup"
+		elog "take a look at: http://www.gentoo.org/doc/en/printing-howto.xml"
+		echo
+	fi
+
 	if [[ "${REPLACING_VERSIONS}" ]] && [[ "${REPLACING_VERSIONS}" < "1.6" ]]; then
 		echo
 		elog "CUPS-1.6 no longer supports automatic remote printers or implicit classes"
 		elog "via the CUPS, LDAP, or SLP protocols, i.e. \"network browsing\"."
-		elog "You will have to find printers using zeroconf/avahi instead, or enter"
-		elog "the location manually."
+		elog "You will have to find printers using zeroconf/avahi instead, enter"
+		elog "the location manually, or run cups-browsed from net-print/cups-filters"
+		elog "which re-adds that functionality as a separate daemon."
 		echo
+	fi
+
+	if [[ "${REPLACING_VERSIONS}" == "1.6.2-r4" ]]; then
+		ewarn
+		ewarn "You are upgrading from the broken version net-print/cups-1.6.2-r4."
+		ewarn "Please rebuild net-print/cups-filters now to make sure everything is OK."
+		ewarn
 	fi
 }
 

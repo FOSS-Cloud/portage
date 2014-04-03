@@ -1,6 +1,27 @@
 # ChangeLog for x11-misc/evolvotron
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/evolvotron/ChangeLog,v 1.24 2012/10/30 20:59:00 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/evolvotron/ChangeLog,v 1.30 2013/09/05 19:24:10 ago Exp $
+
+  05 Sep 2013; Agostino Sarubbo <ago@gentoo.org> evolvotron-0.6.2.ebuild:
+  Stable for x86, wrt bug #482722
+
+  31 Aug 2013; Agostino Sarubbo <ago@gentoo.org> evolvotron-0.6.2.ebuild:
+  Stable for amd64, wrt bug #482722
+
+  27 Aug 2013; Jeroen Roovers <jer@gentoo.org> evolvotron-0.6.2.ebuild:
+  Fix RDEPEND.
+
+  27 Aug 2013; Jeroen Roovers <jer@gentoo.org> evolvotron-0.6.3.ebuild:
+  Remove unneeded python build dependency.
+
+*evolvotron-0.6.3 (27 Aug 2013)
+
+  27 Aug 2013; Jeroen Roovers <jer@gentoo.org> +evolvotron-0.6.3.ebuild:
+  Version bump.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> evolvotron-0.6.1.ebuild,
+  evolvotron-0.6.2.ebuild:
+  Move Qt dependencies to the new category
 
 *evolvotron-0.6.2 (30 Oct 2012)
 
@@ -100,4 +121,3 @@
   evolvotron-0.2.2.ebuild:
   initial commit; ebuild based on the one submitted by Matija Suklje via
   bug 29421
-

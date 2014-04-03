@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/wget/wget-1.14.ebuild,v 1.11 2013/02/21 19:22:08 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/wget/wget-1.14.ebuild,v 1.14 2014/01/18 05:35:17 vapier Exp $
 
 EAPI="4"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://gnu/wget/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="debug gnutls idn ipv6 nls ntlm pcre +ssl static uuid zlib"
 
 LIB_DEPEND="idn? ( net-dns/libidn[static-libs(+)] )
@@ -35,7 +35,8 @@ REQUIRED_USE="ntlm? ( !gnutls ssl ) gnutls? ( ssl )"
 DOCS=( AUTHORS MAILING-LIST NEWS README doc/sample.wgetrc )
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-1.13.4-openssl-pkg-config.patch
+	epatch "${FILESDIR}"/${PN}-1.13.4-openssl-pkg-config.patch \
+		"${FILESDIR}"/${P}-texi2pod.patch
 	eautoreconf
 }
 
@@ -46,9 +47,6 @@ src_configure() {
 	# the included gnutls -- force ioctl.h to include this header
 	[[ ${CHOST} == *-solaris* ]] && append-flags -DBSD_COMP=1
 
-	# the configure script contains a few hacks to workaround openssl
-	# build limitations.  disable those, and use openssl's pkg-config.
-	eval export ac_cv_lib_{z_compress,dl_{dlopen,shl_load}}=no
 	# some libraries tests lack configure options :( #432468
 	eval export ac_cv_{header_pcre_h,lib_pcre_pcre_compile}=$(usex pcre)
 	eval export ac_cv_{header_uuid_uuid_h,lib_uuid_uuid_generate}=$(usex uuid)

@@ -1,6 +1,57 @@
 # ChangeLog for app-benchmarks/siege
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-benchmarks/siege/ChangeLog,v 1.55 2012/08/08 19:38:48 ranger Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-benchmarks/siege/ChangeLog,v 1.68 2014/04/02 14:37:38 jer Exp $
+
+  02 Apr 2014; Jeroen Roovers <jer@gentoo.org> siege-3.0.6.ebuild:
+  Stable for HPPA (bug #502612).
+
+  23 Feb 2014; Agostino Sarubbo <ago@gentoo.org> siege-3.0.3.ebuild:
+  Stable for ppc, wrt bug #491904
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> siege-3.0.3.ebuild:
+  Stable for x86, wrt bug #491904
+
+  15 Feb 2014; Chema Alonso <nimiux@gentoo.org> siege-3.0.3.ebuild:
+  Stable for amd64 wrt bug #491904
+
+  11 Feb 2014; Jeroen Roovers <jer@gentoo.org> siege-3.0.3.ebuild:
+  Stable for HPPA (bug #491904).
+
+  30 Jan 2014; Fabian Groffen <grobian@gentoo.org> siege-3.0.6.ebuild:
+  Fixed for Prefix, marked ~x64-macos
+
+*siege-3.0.6 (14 Jan 2014)
+
+  14 Jan 2014; Patrick Lauer <patrick@gentoo.org> +siege-3.0.6.ebuild:
+  Bump
+
+*siege-3.0.5 (27 Nov 2013)
+
+  27 Nov 2013; Patrick Lauer <patrick@gentoo.org> +siege-3.0.5.ebuild:
+  Bump
+
+*siege-3.0.3 (13 Sep 2013)
+
+  13 Sep 2013; Patrick Lauer <patrick@gentoo.org> +siege-3.0.3.ebuild:
+  Bump
+
+*siege-3.0.2 (25 Jul 2013)
+
+  25 Jul 2013; Patrick Lauer <patrick@gentoo.org> +siege-3.0.2.ebuild:
+  Bump
+
+*siege-3.0.1 (23 May 2013)
+
+  23 May 2013; Patrick Lauer <patrick@gentoo.org> +siege-3.0.1.ebuild:
+  Bump
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> siege-3.0.0.ebuild:
+  Whitespace
+
+*siege-3.0.0 (10 May 2013)
+
+  10 May 2013; Patrick Lauer <patrick@gentoo.org> +siege-3.0.0.ebuild:
+  Bump
 
   08 Aug 2012; Brent Baude <ranger@gentoo.org> siege-2.72.ebuild:
   Marking siege-2.72 ppc for bug 418517

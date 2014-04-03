@@ -1,6 +1,45 @@
 # ChangeLog for net-wireless/hostapd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/hostapd/ChangeLog,v 1.136 2013/01/21 10:42:21 gurligebis Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/hostapd/ChangeLog,v 1.145 2014/03/21 19:47:14 gurligebis Exp $
+
+  21 Mar 2014; <gurligebis@gentoo.org> files/hostapd-init.d:
+  Improving init.d script and moved from /var/run to /run, fixing bug #505166
+
+*hostapd-2.1 (12 Feb 2014)
+
+  12 Feb 2014; <gurligebis@gentoo.org> -hostapd-2.0.ebuild,
+  +hostapd-2.1.ebuild:
+  Bumping to 2.1
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> hostapd-2.0-r1.ebuild:
+  Stable for ppc, wrt bug #485340
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> hostapd-2.0-r1.ebuild:
+  Stable for x86, wrt bug #485340
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> hostapd-2.0-r1.ebuild:
+  Stable for amd64, wrt bug #485340
+
+*hostapd-2.0-r1 (31 Aug 2013)
+
+  31 Aug 2013; Pacho Ramos <pacho@gentoo.org> +files/hostapd.service,
+  +hostapd-2.0-r1.ebuild:
+  Add unit file (#483014 by Yichao Zhou)
+
+  15 May 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Fix metadata.xml
+
+  29 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  -files/hostapd-1.0-libnl_path_fix.patch,
+  -files/hostapd-1.0-tls_length_fix.patch,
+  -files/hostapd-1.1-libnl_path_fix.patch,
+  -files/hostapd-1.1-tls_length_fix.patch, -hostapd-1.0-r4.ebuild,
+  -hostapd-1.1.ebuild, hostapd-2.0.ebuild:
+  Stabilise 2.0 on amd64 x86 and ppc. Drop overshadowed versions.
+
+  29 Apr 2013; Tomáš Chvátal <scarabeus@gentoo.org> hostapd-2.0.ebuild:
+  Drop debug useflag. As without it all messages are muted, which kills any
+  chance to see what is happening there. Resolves bug#454084.
 
 *hostapd-2.0 (21 Jan 2013)
 

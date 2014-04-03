@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/libzdb/libzdb-2.11.1.ebuild,v 1.1 2013/01/09 13:37:40 lordvan Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/libzdb/libzdb-2.11.1.ebuild,v 1.6 2013/05/20 08:23:36 ago Exp $
 
 EAPI="4"
 
@@ -12,16 +12,15 @@ SRC_URI="http://www.tildeslash.com/${PN}/dist/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
-IUSE="debug doc mysql postgres +sqlite +sqliteunlock ssl static-libs"
+KEYWORDS="amd64 x86"
+IUSE="debug doc mysql postgres +sqlite ssl static-libs"
 REQUIRED_USE=" || ( postgres mysql sqlite )"
 
 RESTRICT=test
 
 RDEPEND="mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql-base )
-	sqlite? ( >=dev-db/sqlite-3 )
-	sqliteunlock? ( >=dev-db/sqlite-3.6.12[unlock-notify] )
+	sqlite? ( >=dev-db/sqlite-3.7:3[unlock-notify(+)] )
 	ssl? ( dev-libs/openssl )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
@@ -41,11 +40,8 @@ src_configure() {
 		myconf="${myconf} --enable-protected"
 	fi
 
-	if ( use sqlite ); then
-		myconf="${myconf} --with-sqlite=${EPREFIX}/usr/"
-		if has_version 'dev-db/sqlite[unlock-notify]'; then
-			myconf="${myconf} --enable-sqliteunlock"
-		fi
+	if use sqlite; then
+		myconf="${myconf} --with-sqlite=${EPREFIX}/usr/ --enable-sqliteunlock"
 	else
 		myconf="${myconf} --without-sqlite"
 	fi

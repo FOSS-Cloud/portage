@@ -1,6 +1,41 @@
 # ChangeLog for dev-haskell/hslogger
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hslogger/ChangeLog,v 1.16 2012/12/07 10:35:20 slyfox Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hslogger/ChangeLog,v 1.25 2014/03/03 23:36:57 pacho Exp $
+
+  03 Mar 2014; Pacho Ramos <pacho@gentoo.org> hslogger-1.2.1-r2.ebuild:
+  amd64 stable, bug #491990
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  hslogger-1.2.1-r2.ebuild:
+  x86 stable wrt bug #491990
+
+  22 Feb 2014; Sergei Trofimovich <slyfox@gentoo.org> hslogger-1.2.3.ebuild:
+  Resore accidentally dropped ~amd64-linux.
+
+*hslogger-1.2.3 (21 Feb 2014)
+
+  21 Feb 2014; Sergei Trofimovich <slyfox@gentoo.org> +hslogger-1.2.3.ebuild,
+  -hslogger-1.1.5.ebuild, metadata.xml:
+  Version bump.
+
+  24 Nov 2013; Alexander Vershilov <qnikst@gentoo.org> hslogger-1.2.1-r2.ebuild:
+  Restore ~amd64-linux keyword for hslogger-1.2.1-r2
+
+*hslogger-1.2.1-r2 (13 Aug 2013)
+
+  13 Aug 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/hslogger-1.2.1-dev-log-rdetect.patch, +hslogger-1.2.1-r2.ebuild:
+  Fix /dev/log to be Stream or Datagram at runtime (fixes ganeti logger for
+  certain users).
+
+  21 Jul 2013; Christoph Junghans <ottxor@gentoo.org> hslogger-1.2.1.ebuild:
+  added ~amd64-linux (tested by me)
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hslogger-1.2.1.ebuild:
+  Stable for x86, wrt bug #456494
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> hslogger-1.2.1.ebuild:
+  Stable for amd64, wrt bug #456494
 
   07 Dec 2012; Sergei Trofimovich <slyfox@gentoo.org> hslogger-1.1.5.ebuild:
   Get rid of 'dev-haskell/time' depend as it's a ghc's core library.

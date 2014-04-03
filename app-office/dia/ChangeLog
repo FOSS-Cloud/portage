@@ -1,6 +1,43 @@
 # ChangeLog for app-office/dia
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/dia/ChangeLog,v 1.154 2012/10/28 15:22:42 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/dia/ChangeLog,v 1.163 2014/03/11 11:22:46 polynomial-c Exp $
+
+  11 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> dia-0.97.2-r1.ebuild,
+  dia-0.97.2-r2.ebuild, +files/dia-0.97.2-freetype251.patch:
+  Fixed compilation with >=freetype-2.5.1 (bug #493604).
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> dia-0.97.2-r2.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> dia-0.97.2-r2.ebuild:
+  arch stable, bug 888
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> dia-0.97.2-r2.ebuild:
+  Stable for HPPA (bug #478252).
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> dia-0.97.2-r2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> dia-0.97.2-r2.ebuild:
+  amd64 stable, bug #478252
+
+  22 Sep 2013; Pacho Ramos <pacho@gentoo.org> dia-0.97.2-r2.ebuild:
+  --enable-gnome only adds support for deprecated stuff, bugs #442294 and
+  #485668
+
+*dia-0.97.2-r2 (22 Sep 2013)
+
+  22 Sep 2013; Pacho Ramos <pacho@gentoo.org> +dia-0.97.2-r2.ebuild,
+  +files/dia-0.97.2-glib2.36.patch,
+  +files/dia-0.97.2-implicit-declaration.patch:
+  Migrate to new python eclasses, improve desktop file translations, drop
+  unneeded libgnome* deps, let it compile with latest automake, don't mess with
+  localedir, fix glib-2.36 compat, apply upstream patch to fix some warnings.
+
+  05 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -dia-0.97.1.ebuild,
+  -files/dia-0.97.1-libpng15.patch, -dia-0.97.2.ebuild,
+  -files/dia-0.97-acinclude-python-fixes.patch:
+  Clean up old revisions.
 
   28 Oct 2012; Raúl Porcel <armin76@gentoo.org> dia-0.97.2-r1.ebuild:
   ia64/sparc stable wrt #427544

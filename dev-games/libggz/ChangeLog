@@ -1,6 +1,12 @@
 # ChangeLog for dev-games/libggz
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/libggz/ChangeLog,v 1.33 2012/08/25 07:30:28 tupone Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-games/libggz/ChangeLog,v 1.35 2014/03/01 22:32:00 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> libggz-0.0.14.1.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  16 Jan 2014; Anthony G. Basile <blueness@gentoo.org> libggz-0.0.14.1.ebuild:
+  Keyword ~mips
 
   25 Aug 2012; Alfredo Tupone <tupone@gentoo.org> libggz-0.0.14.1.ebuild,
   +files/libggz-0.0.14.1-gnutls3.patch:

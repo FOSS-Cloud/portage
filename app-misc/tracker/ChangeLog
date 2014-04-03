@@ -1,6 +1,100 @@
 # ChangeLog for app-misc/tracker
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/tracker/ChangeLog,v 1.144 2013/02/02 22:22:59 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/tracker/ChangeLog,v 1.164 2013/12/08 17:42:54 pacho Exp $
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.16.4.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.16.4.ebuild:
+  amd64 stable, bug #478252
+
+*tracker-0.16.4 (23 Nov 2013)
+
+  23 Nov 2013; Pacho Ramos <pacho@gentoo.org> +tracker-0.16.4.ebuild,
+  -tracker-0.16.2.ebuild:
+  Version bump, drop old
+
+*tracker-0.16.3 (10 Nov 2013)
+
+  10 Nov 2013; Pacho Ramos <pacho@gentoo.org> +tracker-0.16.3.ebuild,
+  -tracker-0.14.5.ebuild, -tracker-0.16.1.ebuild, metadata.xml:
+  Version bump, drop old, this is being only maintained by gnome team for a long
+  time.
+
+*tracker-0.16.2 (01 Aug 2013)
+
+  01 Aug 2013; Pacho Ramos <pacho@gentoo.org> +tracker-0.16.2.ebuild,
+  -tracker-9999.ebuild:
+  Version bump, drop old
+
+  14 May 2013; Gilles Dartiguelongue <eva@gentoo.org> tracker-0.14.5.ebuild,
+  -tracker-0.16.0.ebuild, tracker-0.16.1.ebuild:
+  Move vala_depend to DEPEND, add missing libgif configure switch (kill
+  automagic), uncomment test workaround which was reported upstream.
+
+  05 May 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.16.1.ebuild:
+  Really use vala.eclass (reported by Ewgeny B via mail)
+
+  03 May 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.16.1.ebuild:
+  Update tests handling
+
+  02 May 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.14.5.ebuild:
+  Run eautoreconf also for 0.14 (#367975#c49)
+
+*tracker-0.16.1 (01 May 2013)
+
+  01 May 2013; Pacho Ramos <pacho@gentoo.org> +tracker-0.16.1.ebuild:
+  Version bump
+
+  28 Apr 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.16.0.ebuild:
+  Add an eautoreconf call to prevent compilation problems caused by upstream
+  refusing to use upstream libtool and using patched Debian one instead
+  (#367975)
+
+  09 Apr 2013; Gilles Dartiguelongue <eva@gentoo.org> -tracker-0.14.4.ebuild,
+  tracker-0.14.5.ebuild, tracker-0.16.0.ebuild, tracker-9999.ebuild:
+  Clean up live bits from non-live ebuilds. Raise totem-pl-parser dependency,
+  bug #461220. Use slotted libgrss. Clean up old revision.
+
+  06 Apr 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  tracker-0.14.4.ebuild, tracker-0.14.5.ebuild, tracker-0.16.0.ebuild,
+  tracker-9999.ebuild:
+  Fix libpng dependencies in 0.14.x, alphabetize a few things in 0.16.0, and
+  update live ebuild.
+
+  05 Apr 2013; Pacho Ramos <pacho@gentoo.org> tracker-0.16.0.ebuild:
+  Fix subslot dep on libpng
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> tracker-0.14.4.ebuild,
+  tracker-0.14.5.ebuild, tracker-0.16.0.ebuild, tracker-9999.ebuild:
+  Set slot for gupnp-dlna.
+
+*tracker-0.16.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +tracker-0.16.0.ebuild,
+  metadata.xml:
+  Version bump for Gnome 3.8
+
+  28 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> tracker-0.14.4.ebuild,
+  tracker-0.14.5.ebuild, tracker-9999.ebuild:
+  Adjust sqlite dependency, bug #462388
+
+  04 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -files/tracker-0.12.3-strigi.patch, -tracker-0.12.10-r1.ebuild,
+  -files/tracker-0.14.2-icu-no-LC_ALL.patch, -tracker-0.14.3.ebuild,
+  tracker-0.14.5.ebuild:
+  Clean up old revisions. Remove unneeded extra blank lines.
+
+*tracker-0.14.5 (04 Mar 2013)
+
+  04 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> +tracker-0.14.5.ebuild,
+  tracker-9999.ebuild:
+  Version bump. Switch to python-any-r1, revisit test restrictions, add
+  subslot.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> tracker-0.12.10-r1.ebuild,
+  tracker-0.14.3.ebuild, tracker-0.14.4.ebuild, tracker-9999.ebuild:
+  Move Qt dependencies to the new category
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> tracker-0.14.4.ebuild:
   Add ~arm, wrt bug #449220

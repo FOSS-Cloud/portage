@@ -1,6 +1,61 @@
 # ChangeLog for dev-util/d-feet
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/d-feet/ChangeLog,v 1.17 2013/01/25 23:39:42 eva Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/d-feet/ChangeLog,v 1.31 2014/03/09 11:56:07 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> d-feet-0.3.8.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> d-feet-0.3.8.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> d-feet-0.3.8.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> d-feet-0.3.8.ebuild:
+  arch stable, bug 888
+
+*d-feet-0.3.8 (09 Feb 2014)
+
+  09 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> +d-feet-0.3.8.ebuild:
+  Version bump.
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> d-feet-0.3.6-r1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> d-feet-0.3.6-r1.ebuild:
+  amd64 stable, bug #478252
+
+*d-feet-0.3.6-r1 (18 Nov 2013)
+
+  18 Nov 2013; Pacho Ramos <pacho@gentoo.org> +d-feet-0.3.6-r1.ebuild,
+  -d-feet-0.3.6.ebuild:
+  Convert shebangs to force python2 usage (#491274 by Maciej Piechotka)
+
+  02 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org> d-feet-0.3.6.ebuild:
+  Work around gettext-0.18.3.1 causing sandbox failures in eautoreconf (bug
+  #484554).
+
+  01 Sep 2013; Pacho Ramos <pacho@gentoo.org> -d-feet-0.1.15.ebuild,
+  -d-feet-0.3.3.ebuild, d-feet-0.3.6.ebuild:
+  Add missing dep on yelp-tools (#482428 by Marc Burkhardt), drop old.
+
+*d-feet-0.3.6 (20 Jul 2013)
+
+  20 Jul 2013; Pacho Ramos <pacho@gentoo.org> +d-feet-0.3.6.ebuild,
+  -d-feet-0.3.5.ebuild:
+  Version bump, drop old
+
+  10 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Add gnome as backup herd as agreed with maintainer (#438974)
+
+*d-feet-0.3.5 (09 Jun 2013)
+
+  09 Jun 2013; Doug Goldstein <cardoe@gentoo.org> +d-feet-0.3.5.ebuild,
+  -d-feet-0.3.1.ebuild:
+  Version bump and remove older version.
+
+  09 Jun 2013; Doug Goldstein <cardoe@gentoo.org> metadata.xml:
+  Update maintainer info
 
 *d-feet-0.3.3 (25 Jan 2013)
 

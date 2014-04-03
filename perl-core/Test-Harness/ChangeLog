@@ -1,6 +1,31 @@
 # ChangeLog for perl-core/Test-Harness
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/Test-Harness/ChangeLog,v 1.82 2013/02/23 08:43:50 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/Test-Harness/ChangeLog,v 1.88 2014/01/20 20:46:24 vapier Exp $
+
+  20 Jan 2014; Mike Frysinger <vapier@gentoo.org> Test-Harness-3.260.0.ebuild,
+  Test-Harness-3.280.0.ebuild, Test-Harness-3.290.0.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> Test-Harness-3.260.0.ebuild:
+  Mark m68k stable.
+
+  30 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> -Test-Harness-3.17.ebuild,
+  -Test-Harness-3.22.ebuild, -Test-Harness-3.230.0.ebuild,
+  -Test-Harness-3.250.0.ebuild:
+  Drop old
+
+*Test-Harness-3.290.0 (28 Oct 2013)
+
+  28 Oct 2013; Patrick Lauer <patrick@gentoo.org> +Test-Harness-3.290.0.ebuild:
+  Bump
+
+*Test-Harness-3.280.0 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> +Test-Harness-3.280.0.ebuild:
+  Bump
+
+  02 Mar 2013; Agostino Sarubbo <ago@gentoo.org> Test-Harness-3.260.0.ebuild:
+  Stable for sh, wrt bug #458122
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> Test-Harness-3.260.0.ebuild:
   Stable for sparc, wrt bug #458122

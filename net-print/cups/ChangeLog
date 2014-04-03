@@ -1,6 +1,323 @@
 # ChangeLog for net-print/cups
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/cups/ChangeLog,v 1.519 2013/02/08 15:27:09 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-print/cups/ChangeLog,v 1.598 2014/03/01 22:33:47 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> cups-1.7.1.ebuild,
+  cups-9999.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  23 Feb 2014; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag description from metadata.xml
+
+  22 Feb 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -files/cups-1.6.2-statedir.patch, -cups-1.6.4.ebuild, cups-9999.ebuild:
+  Remove old; propagate keywords to live ebuild
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> cups-1.7.1.ebuild:
+  Stable for sparc, wrt bug #501198
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> cups-1.7.1.ebuild:
+  Stable for ppc64, wrt bug #501198
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> cups-1.7.1.ebuild:
+  Stable for alpha, wrt bug #501198
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> cups-1.7.1.ebuild:
+  Stable for arm, wrt bug #501198
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> cups-1.7.1.ebuild:
+  Stable for ppc, wrt bug #501198
+
+  16 Feb 2014; Agostino Sarubbo <ago@gentoo.org> cups-1.7.1.ebuild:
+  Stable for ia64, wrt bug #501198
+
+  16 Feb 2014; Agostino Sarubbo <ago@gentoo.org> cups-1.7.1.ebuild:
+  Stable for x86, wrt bug #501198
+
+  16 Feb 2014; Agostino Sarubbo <ago@gentoo.org> cups-1.7.1.ebuild:
+  Stable for amd64, wrt bug #501198
+
+  13 Feb 2014; Jeroen Roovers <jer@gentoo.org> cups-1.7.1.ebuild:
+  Stable for HPPA (bug #501198).
+
+  12 Feb 2014; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.4.ebuild:
+  Allow newer cups-filters to replace foomatic-filters here too.
+
+  24 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.4.ebuild,
+  cups-1.7.1.ebuild, cups-9999.ebuild:
+  The libusb backend hard-requires threading, bug 497194
+
+  18 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.6.2-r5.ebuild,
+  -files/cups-1.6.3-colord-profile.patch, -cups-1.7.0-r1.ebuild,
+  -files/pdftops-1.20.gentoo, -files/cupsd.init.d:
+  Remove old
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> cups-1.6.4.ebuild:
+  Stable for alpha, wrt bug #489914
+
+  17 Jan 2014; Patrick Lauer <patrick@gentoo.org> cups-1.7.1.ebuild,
+  cups-9999.ebuild:
+  Whitespace
+
+  16 Jan 2014; Fabian Groffen <grobian@gentoo.org> cups-1.7.1.ebuild,
+  cups-9999.ebuild:
+  Fixed for and marked ~m68k-mint, bug #498100
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> cups-1.6.4.ebuild:
+  Stable for ia64, wrt bug #489914
+
+*cups-1.7.1 (12 Jan 2014)
+
+  12 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.6.9999.ebuild,
+  -cups-1.7.0.ebuild, +cups-1.7.1.ebuild, cups-9999.ebuild,
+  files/cupsd.init.d-r1:
+  Version bump; remove old
+
+*cups-1.7.0-r1 (01 Jan 2014)
+
+  01 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> +cups-1.7.0-r1.ebuild:
+  Revision bump to remove filters useflag and dependency on foomatic-filters
+
+  29 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-9999.ebuild:
+  Depend on newer cups-filters that integrate foomatic, and drop filters useflag
+
+  26 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2-r5.ebuild:
+  Update SRC_URI
+
+  26 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  -files/cups-1.4.4-dont-compress-manpages.patch,
+  -files/cups-1.4.4-perl-includes.patch, -files/cups-1.4.4-php-destdir.patch,
+  -files/cups-1.5.0-systemd-socket.patch, -files/cups-1.5.2-browsing.patch,
+  -files/cups-1.5.2-linkperl.patch, -cups-1.5.3.ebuild,
+  -files/cups-1.5.3-fix-install-perms.patch:
+  Drop cups-1.5, bug 428356 was filed 07/2012
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.4.ebuild:
+  Stable for sparc, wrt bug #489914
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.4.ebuild:
+  Stable for ppc64, wrt bug #489914
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.4.ebuild:
+  Stable for ppc, wrt bug #489914
+
+  29 Nov 2013; Markus Meier <maekke@gentoo.org> cups-1.6.4.ebuild:
+  arm stable, bug #489914
+
+  11 Nov 2013; Jeroen Roovers <jer@gentoo.org> cups-1.6.4.ebuild:
+  Stable for HPPA (bug #489914).
+
+  31 Oct 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.4.ebuild:
+  Stable for x86, wrt bug #489914
+
+  31 Oct 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.4.ebuild:
+  Stable for amd64, wrt bug #489914
+
+*cups-1.7.0 (30 Oct 2013)
+
+  30 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.6.3-r2.ebuild,
+  -cups-1.7_rc1.ebuild, +cups-1.7.0.ebuild, cups-9999.ebuild:
+  Version bump; remove old
+
+  22 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2-r5.ebuild:
+  Drop stable keywords on unstable-only arches
+
+  21 Oct 2013; Fabian Groffen <grobian@gentoo.org> cups-1.7_rc1.ebuild,
+  cups-9999.ebuild:
+  Fix cups.sock location for Prefix, bug #488204
+
+*cups-1.6.4 (01 Oct 2013)
+
+  01 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org> +cups-1.6.4.ebuild:
+  Version bump
+
+  30 Sep 2013; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.5.2-r4.ebuild,
+  -files/cups-1.4.4-fix-install-perms.patch, -files/cups-1.5.2-threads.patch,
+  -files/cups-1.5.2-threads2.patch:
+  Drop old
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> cups-1.6.3-r2.ebuild,
+  cups-1.6.9999.ebuild, cups-1.7_rc1.ebuild, cups-9999.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  14 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.6.3-r1.ebuild,
+  cups-1.5.2-r4.ebuild, cups-1.5.3.ebuild:
+  Clean up
+
+  14 Aug 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.3-r2.ebuild,
+  cups-1.6.9999.ebuild, cups-9999.ebuild:
+  Re-add nonsensically dropped ~s390
+
+  06 Aug 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for s390, wrt bug #442926
+
+*cups-1.6.3-r2 (25 Jul 2013)
+
+  25 Jul 2013; Michał Górny <mgorny@gentoo.org> +cups-1.6.3-r2.ebuild,
+  cups-1.6.9999.ebuild, cups-1.7_rc1.ebuild, cups-9999.ebuild:
+  Migrate to python-single-r1, bug #478136.
+
+  25 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.5.2-r4.ebuild,
+  cups-1.5.3.ebuild:
+  Drop as many keywords as possible in old versions.
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for sparc, wrt bug #442926
+
+  22 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for sh, wrt bug #442926
+
+  13 Jul 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag description from metadata.xml
+
+*cups-1.6.3-r1 (12 Jul 2013)
+
+  12 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.6.3.ebuild,
+  +cups-1.6.3-r1.ebuild, +files/cups-1.6.3-colord-profile.patch,
+  cups-1.6.9999.ebuild, cups-1.7_rc1.ebuild, cups-9999.ebuild:
+  Add colord profile fix from Debian, bug 475714
+
+*cups-1.7_rc1 (12 Jul 2013)
+
+  12 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org> +cups-1.7_rc1.ebuild,
+  cups-9999.ebuild:
+  Fix build of master and add 1.7rc1 without keywords
+
+  12 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.9999.ebuild,
+  cups-9999.ebuild:
+  Whitespace
+
+*cups-1.6.9999 (12 Jul 2013)
+
+  12 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org> +cups-1.6.9999.ebuild,
+  cups-9999.ebuild:
+  Make live ebuild branch-capable and add live ebuild for stable branch 1.6
+
+*cups-1.6.3 (12 Jul 2013)
+
+  12 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org> +cups-1.6.3.ebuild,
+  cups-9999.ebuild:
+  Update SRC_URI and VCS; version bump
+
+  12 Jul 2013; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.5.0.ebuild:
+  No e-mail reply from contact. Removing.
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for ia64, wrt bug #442926
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for arm, wrt bug #442926
+
+  06 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for alpha, wrt bug #442926
+
+  05 Jul 2013; Jeroen Roovers <jer@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for HPPA (bug #442926).
+
+  04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for ppc64, wrt bug #442926
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for ppc, wrt bug #442926
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for x86, wrt bug #442926
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.2-r5.ebuild:
+  Stable for amd64, wrt bug #442926
+
+  28 Jun 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2-r5.ebuild,
+  cups-9999.ebuild:
+  Simplify elog output logic
+
+  26 Jun 2013; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.6.2-r3.ebuild:
+  Clean up
+
+*cups-1.6.2-r5 (14 May 2013)
+
+  14 May 2013; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.6.2-r4.ebuild,
+  +cups-1.6.2-r5.ebuild, cups-9999.ebuild:
+  Let's put some sanity into the prefix directory offsets. Bug 469846.
+
+*cups-1.6.2-r3 (14 May 2013)
+
+  14 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> +cups-1.6.2-r3.ebuild:
+  Restore 1.6.2-r3 as requested by dillfridge.
+
+  12 May 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.5.3.ebuild,
+  cups-1.6.2-r4.ebuild, cups-9999.ebuild:
+  Depend on correct libusb slot, bug 434440
+
+  11 May 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2-r4.ebuild,
+  cups-9999.ebuild:
+  Add prefix support (dir offsets), bug 416217
+
+*cups-1.6.2-r4 (05 May 2013)
+
+  05 May 2013; Michał Górny <mgorny@gentoo.org> +cups-1.6.2-r4.ebuild,
+  -cups-1.6.2-r3.ebuild, cups-9999.ebuild:
+  Add the "cancel" executable to the lprng-compat flag as well.
+
+  03 May 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2-r3.ebuild,
+  cups-9999.ebuild, metadata.xml:
+  Support simultaneous installation of cups and lprng, bug 467226
+
+*cups-1.6.2-r3 (11 Apr 2013)
+
+  11 Apr 2013; Fabio Erculiani <lxnay@gentoo.org>
+  files/cups-1.5.0-systemd-socket-2.patch, -cups-1.6.2-r2.ebuild,
+  +cups-1.6.2-r3.ebuild:
+  fix systemd units path variable setup, see bug #465474
+
+*cups-1.6.2-r2 (10 Apr 2013)
+
+  10 Apr 2013; Fabio Erculiani <lxnay@gentoo.org>
+  +files/cups-1.5.0-systemd-socket-2.patch, -cups-1.6.2-r1.ebuild,
+  +cups-1.6.2-r2.ebuild, cups-9999.ebuild:
+  detect systemd at runtime and try not to fail if it's not found, this makes
+  possible to support systems with both systemd and openrc installed
+
+  01 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org> -cups-1.6.1.ebuild,
+  -cups-1.6.2.ebuild:
+  Clean up
+
+  01 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2-r1.ebuild,
+  cups-9999.ebuild:
+  Remove avahi useflag, use only zeroconf useflag for full avahi interface
+
+*cups-1.6.2-r1 (01 Apr 2013)
+
+  01 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org> +cups-1.6.2-r1.ebuild,
+  +files/cups-1.6.2-statedir.patch, cups-9999.ebuild, +files/cupsd.init.d-r1:
+  Move /var/run/cups to /run/cups, bug 451756
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2.ebuild,
+  cups-9999.ebuild:
+  Fix LINGUAS logic, bug 452896
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.5.2-r4.ebuild,
+  cups-1.5.3.ebuild:
+  Remove non-functional localizations
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.5.2-r4.ebuild:
+  Remove de locale since it is nonfunctional, bug 450220
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2.ebuild,
+  cups-9999.ebuild:
+  EAPI bump to 5, clean up elog messages, (also) bug 440502
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-1.6.2.ebuild,
+  cups-9999.ebuild:
+  Fix linguas list
+
+*cups-1.6.2 (24 Mar 2013)
+
+  24 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> +cups-1.6.2.ebuild,
+  cups-9999.ebuild:
+  Version bump
+
+  17 Mar 2013; Andreas K. Huettel <dilfridge@gentoo.org> cups-9999.ebuild:
+  Update keyword list from 1.6.1
 
   08 Feb 2013; Agostino Sarubbo <ago@gentoo.org> cups-1.6.1.ebuild:
   Add ~sh, wrt bug #449220

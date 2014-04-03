@@ -1,6 +1,75 @@
 # ChangeLog for xfce-base/xfdesktop
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-base/xfdesktop/ChangeLog,v 1.224 2012/11/28 12:30:40 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/xfce-base/xfdesktop/ChangeLog,v 1.242 2014/03/31 17:46:11 ssuominen Exp $
+
+*xfdesktop-4.11.5 (31 Mar 2014)
+
+  31 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> +xfdesktop-4.11.5.ebuild:
+  Version bump.
+
+  18 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/xfdesktop-4.11.3-always-pull-in-dbus-glib.patch,
+  -xfdesktop-4.11.3.ebuild:
+  old
+
+*xfdesktop-4.11.4 (18 Mar 2014)
+
+  18 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> +xfdesktop-4.11.4.ebuild:
+  Version bump.
+
+  12 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +files/xfdesktop-4.11.3-always-pull-in-dbus-glib.patch,
+  xfdesktop-4.11.3.ebuild:
+  Always pull in dev-libs/dbus-glib because there are 3 source files always
+  using it without #ifdef of anykind.
+
+*xfdesktop-4.11.3 (11 Mar 2014)
+
+  11 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> +xfdesktop-4.11.3.ebuild:
+  Prerelease version bump.
+
+  05 May 2013; Samuli Suominen <ssuominen@gentoo.org> -xfdesktop-4.10.0.ebuild:
+  old
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xfdesktop-4.10.2.ebuild:
+  Stable for sparc, wrt bug #465286
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xfdesktop-4.10.2.ebuild:
+  Stable for ia64, wrt bug #465286
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xfdesktop-4.10.2.ebuild:
+  Stable for arm, wrt bug #465286
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xfdesktop-4.10.2.ebuild:
+  Stable for alpha, wrt bug #465286
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xfdesktop-4.10.2.ebuild:
+  Stable for ppc64, wrt bug #465286
+
+  12 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xfdesktop-4.10.2.ebuild:
+  Stable for ppc, wrt bug #465286
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xfdesktop-4.10.2.ebuild:
+  Stable for x86, wrt bug #465286
+
+  11 Apr 2013; Agostino Sarubbo <ago@gentoo.org> xfdesktop-4.10.2.ebuild:
+  Stable for amd64, wrt bug #465286
+
+  10 Apr 2013; Jeroen Roovers <jer@gentoo.org> xfdesktop-4.10.2.ebuild:
+  Stable for HPPA (bug #465286).
+
+  09 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> -xfdesktop-4.10.1.ebuild:
+  old
+
+*xfdesktop-4.10.2 (11 Mar 2013)
+
+  11 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> +xfdesktop-4.10.2.ebuild:
+  Version bump.
+
+*xfdesktop-4.10.1 (05 Mar 2013)
+
+  05 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> +xfdesktop-4.10.1.ebuild:
+  Version bump.
 
   28 Nov 2012; Samuli Suominen <ssuominen@gentoo.org> xfdesktop-4.10.0.ebuild:
   EAPI5
@@ -855,4 +924,3 @@
 
   13 Jun 2003; Brad Cowan <bcowan@gentoo.org> xfdesktop-3.90.0.ebuild:
   Initial import.
-

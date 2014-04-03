@@ -1,6 +1,55 @@
 # ChangeLog for sys-auth/nss_ldap
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/nss_ldap/ChangeLog,v 1.73 2012/09/30 17:13:47 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/nss_ldap/ChangeLog,v 1.85 2014/03/03 00:26:20 prometheanfire Exp $
+
+*nss_ldap-265-r4 (03 Mar 2014)
+
+  03 Mar 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +nss_ldap-265-r4.ebuild, -nss_ldap-265-r3.ebuild:
+  final fix for bug 465954
+
+*nss_ldap-265-r3 (17 Feb 2014)
+
+  17 Feb 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +files/nss_ldap-265-fbsd.patch,
+  +files/nss_ldap-265-missing-entries-oneshot.patch, +nss_ldap-265-r3.ebuild:
+  fixing bug 465954 and bug 449940 in 265-r3
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> nss_ldap-265-r2.ebuild:
+  Stable for sparc, wrt bug #438692
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> nss_ldap-265-r2.ebuild:
+  Stable for ppc, wrt bug #438692
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> nss_ldap-265-r2.ebuild:
+  Stable for ppc64, wrt bug #438692
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> nss_ldap-265-r2.ebuild:
+  Stable for ia64, wrt bug #438692
+
+  09 Jan 2014; Patrick Lauer <patrick@gentoo.org> nss_ldap-265-r2.ebuild:
+  Stable for amd64 and x86 #438692
+
+  07 Jan 2014; Jeroen Roovers <jer@gentoo.org> nss_ldap-265-r2.ebuild:
+  Do not install COPYING.
+
+  07 Jan 2014; Jeroen Roovers <jer@gentoo.org> nss_ldap-265-r2.ebuild:
+  Stable for HPPA (bug #438692).
+
+  03 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> metadata.xml:
+  adding myself to maintainers
+
+  20 Jun 2013; Benda Xu <heroxbd@gentoo.org> nss_ldap-265-r2.ebuild:
+  default var PORTAGE_{USER,GROUP} to root, as they are only defined in Prefix.
+  closing bug 473776. Thanks to Spooky Ghost and Bernd Feige.
+
+*nss_ldap-265-r2 (18 Jun 2013)
+
+  18 Jun 2013; Benda Xu <heroxbd@gentoo.org>
+  +files/nss_ldap-265-installdir.patch, +files/nss_ldap-265-pthread.patch,
+  +nss_ldap-265-r2.ebuild:
+  fix __libc_lock_lock  symbol against >=glibc-2.16 (bug 438692, thanks to
+  Dennis Schridde). bump to EAPI 5 and add Prefix support.
 
   30 Sep 2012; Raúl Porcel <armin76@gentoo.org> nss_ldap-265-r1.ebuild:
   alpha/ia64/sparc stable wrt #429208

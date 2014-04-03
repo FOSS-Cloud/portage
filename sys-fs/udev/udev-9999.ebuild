@@ -1,27 +1,23 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.178 2013/02/17 19:12:21 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.292 2014/03/28 18:32:16 mgorny Exp $
 
-EAPI=4
+EAPI=5
 
-KV_min=2.6.32
+inherit autotools bash-completion-r1 eutils linux-info multilib toolchain-funcs versionator multilib-minimal
 
-inherit autotools eutils linux-info multilib systemd toolchain-funcs versionator
-
-if [[ ${PV} = 9999* ]]
-then
+if [[ ${PV} = 9999* ]]; then
 	EGIT_REPO_URI="git://anongit.freedesktop.org/systemd/systemd"
 	inherit git-2
 else
 	patchset=
 	SRC_URI="http://www.freedesktop.org/software/systemd/systemd-${PV}.tar.xz"
-	if [[ -n "${patchset}" ]]
-		then
+	if [[ -n "${patchset}" ]]; then
 				SRC_URI="${SRC_URI}
-					http://dev.gentoo.org/~williamh/dist/${P}-patches-${patchset}.tar.bz2
-					http://dev.gentoo.org/~ssuominen/${P}-patches-${patchset}.tar.bz2"
+					http://dev.gentoo.org/~ssuominen/${P}-patches-${patchset}.tar.xz
+					http://dev.gentoo.org/~williamh/dist/${P}-patches-${patchset}.tar.xz"
 			fi
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 fi
 
 DESCRIPTION="Linux dynamic and persistent device naming support (aka userspace devfs)"
@@ -29,115 +25,103 @@ HOMEPAGE="http://www.freedesktop.org/wiki/Software/systemd"
 
 LICENSE="LGPL-2.1 MIT GPL-2"
 SLOT="0"
-IUSE="acl doc gudev hwdb introspection keymap +kmod +openrc selinux static-libs"
+IUSE="acl doc +firmware-loader gudev introspection +kmod +openrc selinux static-libs"
 
 RESTRICT="test"
 
 COMMON_DEPEND=">=sys-apps/util-linux-2.20
 	acl? ( sys-apps/acl )
-	gudev? ( >=dev-libs/glib-2 )
+	gudev? ( >=dev-libs/glib-2.22[${MULTILIB_USEDEP}] )
 	introspection? ( >=dev-libs/gobject-introspection-1.31.1 )
-	kmod? ( >=sys-apps/kmod-12 )
+	kmod? ( >=sys-apps/kmod-16 )
 	selinux? ( >=sys-libs/libselinux-2.1.9 )
 	!<sys-libs/glibc-2.11
-	!<sys-apps/systemd-${PV}"
-
+	!sys-apps/gentoo-systemd-integration
+	!sys-apps/systemd
+	abi_x86_32? (
+		!<=app-emulation/emul-linux-x86-baselibs-20130224-r7
+		!app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)]
+	)"
 DEPEND="${COMMON_DEPEND}
+	dev-util/gperf
+	sys-libs/libcap
 	virtual/os-headers
 	virtual/pkgconfig
-	!<sys-kernel/linux-headers-${KV_min}
-	doc? ( >=dev-util/gtk-doc-1.18 )
-	keymap? ( dev-util/gperf )"
-
-if [[ ${PV} = 9999* ]]
-then
+	!<sys-devel/make-3.82-r4
+	!<sys-kernel/linux-headers-2.6.32
+	doc? ( >=dev-util/gtk-doc-1.18 )"
+# Try with `emerge -C docbook-xml-dtd` to see the build failure without DTDs
+if [[ ${PV} = 9999* ]]; then
 	DEPEND="${DEPEND}
+		app-text/docbook-xml-dtd:4.2
+		app-text/docbook-xml-dtd:4.5
 		app-text/docbook-xsl-stylesheets
 		dev-libs/libxslt
-		dev-util/gperf
 		>=dev-util/intltool-0.50"
 fi
-
 RDEPEND="${COMMON_DEPEND}
-	openrc? ( !<sys-apps/openrc-0.9.9 )
-	!sys-apps/coldplug
-	!<sys-fs/lvm2-2.02.97-r1
-	!sys-fs/device-mapper
-	!<sys-fs/udev-init-scripts-22
-	!<sys-kernel/dracut-017-r1
-	!<sys-kernel/genkernel-3.4.25
+	!<sys-fs/lvm2-2.02.103
 	!<sec-policy/selinux-base-2.20120725-r10"
-
-PDEPEND=">=virtual/udev-197-r1
-	hwdb? ( >=sys-apps/hwids-20130114[udev] )
-	openrc? ( >=sys-fs/udev-init-scripts-19-r1 )"
+PDEPEND=">=sys-apps/hwids-20140304[udev]
+	openrc? ( >=sys-fs/udev-init-scripts-26 )"
 
 S=${WORKDIR}/systemd-${PV}
 
-QA_MULTILIB_PATHS="lib/systemd/systemd-udevd"
+# The multilib-build.eclass doesn't handle situation where the installed headers
+# are different in ABIs. In this case, we install libgudev headers in native
+# ABI but not for non-native ABI.
+multilib_check_headers() { :; }
 
-udev_check_KV()
-{
-	if kernel_is lt ${KV_min//./ }
-	then
-		return 1
-	fi
-	return 0
-}
-
-check_default_rules()
-{
+check_default_rules() {
 	# Make sure there are no sudden changes to upstream rules file
 	# (more for my own needs than anything else ...)
-	local udev_rules_md5=66bb698deeae64ab444b710baf54a412
+	local udev_rules_md5=6bd3d421b9b6acd0e2d87ad720d6a389
 	MD5=$(md5sum < "${S}"/rules/50-udev-default.rules)
 	MD5=${MD5/  -/}
-	if [[ ${MD5} != ${udev_rules_md5} ]]
-	then
+	if [[ ${MD5} != ${udev_rules_md5} ]]; then
 		eerror "50-udev-default.rules has been updated, please validate!"
 		eerror "md5sum: ${MD5}"
 		die "50-udev-default.rules has been updated, please validate!"
 	fi
 }
 
-pkg_setup()
-{
-	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD"
-
+pkg_setup() {
+	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD ~EPOLL ~FHANDLE ~NET"
 	linux-info_pkg_setup
 
-	if ! udev_check_KV
-	then
-		eerror "Your kernel version (${KV_FULL}) is too old to run ${P}"
-		eerror "It must be at least ${KV_min}!"
+	# Based on README from tarball:
+	local MINKV=3.0
+	# These arch's have the mandatory accept4() function support in Linux 2.6.32*, see:
+	# $ grep -r define.*accept4 linux-2.6.32*/*
+	if use amd64 || use ia64 || use mips || use sparc || use x86; then
+		MINKV=2.6.32
 	fi
 
-	KV_FULL_SRC=${KV_FULL}
-	get_running_version
-	if ! udev_check_KV
-	then
-		eerror
-		eerror "Your running kernel version (${KV_FULL}) is too old"
-		eerror "for this version of udev."
-		eerror "You must upgrade your kernel or downgrade udev."
+	if kernel_is -lt ${MINKV//./ }; then
+		eerror "Your running kernel is too old to run this version of ${P}"
+		eerror "You need to upgrade kernel at least to ${MINKV}"
 	fi
 }
 
-src_prepare()
-{
+src_prepare() {
+	if ! [[ ${PV} = 9999* ]]; then
+		# secure_getenv() disable for non-glibc systems wrt bug #443030
+		if ! [[ $(grep -r secure_getenv * | wc -l) -eq 22 ]]; then
+			eerror "The line count for secure_getenv() failed, see bug #443030"
+			die
+		fi
+	fi
+
 	# backport some patches
-	if [[ -n "${patchset}" ]]
-	then
+	if [[ -n "${patchset}" ]]; then
 		EPATCH_SUFFIX=patch EPATCH_FORCE=yes epatch
 	fi
 
-	# These are missing from upstream 50-udev-default.rules
 	cat <<-EOF > "${T}"/40-gentoo.rules
-	# Propably unrequired, check how it is with OSS/OSS4, then remove
-	SUBSYSTEM=="snd", GROUP="audio"
 	# Gentoo specific usb group
 	SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", GROUP="usb"
-	# Keep this for Linux 2.6.32 support wrt #457868
+	# Keep this for Linux 2.6.32 kernels with incomplete devtmpfs support because
+	# accept4() function is supported for some arch's wrt #457868
 	SUBSYSTEM=="mem", KERNEL=="null|zero|full|random|urandom", MODE="0666"
 	EOF
 
@@ -151,22 +135,18 @@ src_prepare()
 		eval export {MSG{FMT,MERGE},XGETTEXT}=/bin/true
 	fi
 
-	# apply user patches
-	epatch_user
-
 	# compile with older versions of gcc #451110
 	version_is_at_least 4.6 $(gcc-version) || \
 		sed -i 's:static_assert:alsdjflkasjdfa:' src/shared/macro.h
 
-	# change rules back to group uucp instead of dialout for now
-	sed -e 's/GROUP="dialout"/GROUP="uucp"/' \
-		-i rules/*.rules \
-	|| die "failed to change group dialout to uucp"
+	# change rules back to group uucp instead of dialout for now wrt #454556
+	sed -i -e 's/GROUP="dialout"/GROUP="uucp"/' rules/*.rules || die
 
-	if [[ ! -e configure ]]
-	then
-		if use doc
-		then
+	# apply user patches
+	epatch_user
+
+	if [[ ! -e configure ]]; then
+		if use doc; then
 			gtkdocize --docdir docs || die "gtkdocize failed"
 		else
 			echo 'EXTRA_DIST =' > docs/gtk-doc.make
@@ -177,19 +157,10 @@ src_prepare()
 		elibtoolize
 	fi
 
-	if [[ ${PV} = 9999* ]]; then
-		# secure_getenv() disable for non-glibc systems wrt bug #443030
-		if ! [[ $(grep -r secure_getenv * | wc -l) -eq 23 ]]; then
-			eerror "The line count for secure_getenv() failed, see bug #443030"
-			die
-		fi
-
-		# gperf disable if keymaps are not requested wrt bug #452760
-		if ! [[ $(grep -i gperf Makefile.am | wc -l) -eq 27 ]]; then
-			eerror "The line count for gperf references failed, see bug 452760"
-			die
-		fi
-	fi
+	# Restore possibility of running --enable-static wrt #472608
+	sed -i \
+		-e '/--enable-static is not supported by systemd/s:as_fn_error:echo:' \
+		configure || die
 
 	if ! use elibc_glibc; then #443030
 		echo '#define secure_getenv(x) NULL' >> config.h.in
@@ -197,278 +168,247 @@ src_prepare()
 	fi
 }
 
-src_configure()
-{
-	use keymap || export ac_cv_path_GPERF=true #452760
+multilib_src_configure() {
+	tc-export CC #463846
+	export cc_cv_CFLAGS__flto=no #502950
 
+	# Keep sorted by ./configure --help and only pass --disable flags
+	# when *required* to avoid external deps or unnecessary compile
 	local econf_args
-
 	econf_args=(
 		ac_cv_search_cap_init=
-		ac_cv_header_sys_capability_h=yes
-		DBUS_CFLAGS=' '
-		DBUS_LIBS=' '
-		--bindir=/bin
-		--docdir=/usr/share/doc/${PF}
 		--libdir=/usr/$(get_libdir)
-		--with-html-dir=/usr/share/doc/${PF}/html
-		--with-rootprefix=
-		--with-rootlibdir=/$(get_libdir)
-		--disable-audit
-		--disable-coredump
-		--disable-hostnamed
-		--disable-ima
-		--disable-libcryptsetup
-		--disable-localed
-		--disable-logind
-		--disable-myhostname
+		--docdir=/usr/share/doc/${PF}
 		--disable-nls
-		--disable-pam
-		--disable-quotacheck
-		--disable-readahead
-		--enable-split-usr
-		--disable-tcpwrap
-		--disable-timedated
+		--disable-python-devel
+		--disable-dbus
+		--disable-seccomp
 		--disable-xz
-		--disable-silent-rules
+		--disable-pam
+		--disable-xattr
+		--disable-gcrypt
+		--disable-audit
+		--disable-libcryptsetup
+		--disable-qrencode
+		--disable-microhttpd
+		--disable-gnutls
+		--disable-readahead
+		--disable-quotacheck
+		--disable-logind
 		--disable-polkit
-		$(use_enable acl)
-		$(use_enable doc gtk-doc)
+		--disable-myhostname
 		$(use_enable gudev)
-		$(use_enable keymap)
-		$(use_enable kmod)
-		$(use_enable selinux)
-		$(use_enable static-libs static)
+		--enable-split-usr
+		--with-html-dir=/usr/share/doc/${PF}/html
+		--without-python
+		--with-bashcompletiondir="$(get_bashcompdir)"
+		--with-rootprefix=
 	)
-	if use introspection; then
+	# Use pregenerated copies when possible wrt #480924
+	if ! [[ ${PV} = 9999* ]]; then
 		econf_args+=(
-			--enable-introspection=$(usex introspection)
+			--disable-manpages
 		)
 	fi
-	econf "${econf_args[@]}"
+	if multilib_build_binaries; then
+		econf_args+=(
+			$(use_enable static-libs static)
+			$(use_enable doc gtk-doc)
+			$(use_enable introspection)
+			$(use_enable acl)
+			$(use_enable kmod)
+			$(use_enable selinux)
+			--with-rootlibdir=/$(get_libdir)
+		)
+	else
+		econf_args+=(
+			--disable-static
+			--disable-gtk-doc
+			--disable-introspection
+			--disable-acl
+			--disable-kmod
+			--disable-selinux
+			--disable-manpages
+			--with-rootlibdir=/usr/$(get_libdir)
+		)
+	fi
+	use firmware-loader && econf_args+=( --with-firmware-path="/lib/firmware/updates:/lib/firmware" )
+
+	ECONF_SOURCE=${S} econf "${econf_args[@]}"
 }
 
-src_compile()
-{
+multilib_src_compile() {
 	echo 'BUILT_SOURCES: $(BUILT_SOURCES)' > "${T}"/Makefile.extra
 	emake -f Makefile -f "${T}"/Makefile.extra BUILT_SOURCES
-	local targets=(
-		systemd-udevd
-		udevadm
-		libudev.la
-		ata_id
-		cdrom_id
-		collect
-		scsi_id
-		v4l_id
-		accelerometer
-		mtd_probe
-		man/udev.7
-		man/udevadm.8
-		man/systemd-udevd.8
-		man/systemd-udevd.service.8
-	)
-	use keymap && targets+=( keymap )
-	use gudev && targets+=( libgudev-1.0.la )
 
-	emake "${targets[@]}"
-	if use doc
-	then
-		emake -C docs/libudev
-		use gudev && emake -C docs/gudev
+	# Most of the parallel build problems were solved by >=sys-devel/make-3.82-r4,
+	# but not everything -- separate building of the binaries as a workaround,
+	# which will force internal libraries required for the helpers to be built
+	# early enough, like eg. libsystemd-shared.la
+	if multilib_build_binaries; then
+		local lib_targets=( libudev.la )
+		use gudev && lib_targets+=( libgudev-1.0.la )
+		emake "${lib_targets[@]}"
+
+		local exec_targets=(
+			systemd-udevd
+			udevadm
+		)
+		emake "${exec_targets[@]}"
+
+		local helper_targets=(
+			ata_id
+			cdrom_id
+			collect
+			scsi_id
+			v4l_id
+			accelerometer
+			mtd_probe
+		)
+		emake "${helper_targets[@]}"
+
+		if [[ ${PV} = 9999* ]]; then
+			local man_targets=(
+				man/systemd.link.5
+				man/udev.7
+				man/udevadm.8
+				man/systemd-udevd.service.8
+			)
+			emake "${man_targets[@]}"
+		fi
+
+		if use doc; then
+			emake -C docs/libudev
+			use gudev && emake -C docs/gudev
+		fi
+	else
+		local lib_targets=( libudev.la )
+		use gudev && lib_targets+=( libgudev-1.0.la )
+		emake "${lib_targets[@]}"
 	fi
 }
 
-src_install()
-{
-	local lib_LTLIBRARIES="libudev.la" \
-		pkgconfiglib_DATA="src/libudev/libudev.pc"
+multilib_src_install() {
+	if multilib_build_binaries; then
+		local lib_LTLIBRARIES="libudev.la" \
+			pkgconfiglib_DATA="src/libudev/libudev.pc"
 
-	local targets=(
-		install-libLTLIBRARIES
-		install-includeHEADERS
-		install-libgudev_includeHEADERS
-		install-binPROGRAMS
-		install-rootlibexecPROGRAMS
-		install-udevlibexecPROGRAMS
-		install-dist_systemunitDATA
-		install-dist_udevconfDATA
-		install-dist_udevhomeSCRIPTS
-		install-dist_udevkeymapDATA
-		install-dist_udevkeymapforcerelDATA
-		install-dist_udevrulesDATA
-		install-girDATA
-		install-man3
-		install-man7
-		install-man8
-		install-nodist_systemunitDATA
-		install-pkgconfiglibDATA
-		install-sharepkgconfigDATA
-		install-typelibsDATA
-		install-dist_docDATA
-		libudev-install-hook
-	)
+		local targets=(
+			install-libLTLIBRARIES
+			install-includeHEADERS
+			install-libgudev_includeHEADERS
+			install-rootbinPROGRAMS
+			install-rootlibexecPROGRAMS
+			install-udevlibexecPROGRAMS
+			install-dist_udevconfDATA
+			install-dist_udevrulesDATA
+			install-girDATA
+			install-pkgconfiglibDATA
+			install-sharepkgconfigDATA
+			install-typelibsDATA
+			install-dist_docDATA
+			libudev-install-hook
+			install-directories-hook
+			install-dist_bashcompletionDATA
+			install-dist_networkDATA
+		)
 
-	if use gudev
-	then
-		lib_LTLIBRARIES+=" libgudev-1.0.la"
-		pkgconfiglib_DATA+=" src/gudev/gudev-1.0.pc"
+		if use gudev; then
+			lib_LTLIBRARIES+=" libgudev-1.0.la"
+			pkgconfiglib_DATA+=" src/gudev/gudev-1.0.pc"
+		fi
+
+		# add final values of variables:
+		targets+=(
+			rootlibexec_PROGRAMS=systemd-udevd
+			rootbin_PROGRAMS=udevadm
+			lib_LTLIBRARIES="${lib_LTLIBRARIES}"
+			pkgconfiglib_DATA="${pkgconfiglib_DATA}"
+			INSTALL_DIRS='$(sysconfdir)/udev/rules.d \
+					$(sysconfdir)/udev/hwdb.d \
+					$(sysconfdir)/systemd/network'
+			dist_bashcompletion_DATA="shell-completion/bash/udevadm"
+			dist_network_DATA="network/99-default.link"
+		)
+		emake -j1 DESTDIR="${D}" "${targets[@]}"
+
+		if use doc; then
+			emake -C docs/libudev DESTDIR="${D}" install
+			use gudev && emake -C docs/gudev DESTDIR="${D}" install
+		fi
+
+		if [[ ${PV} = 9999* ]]; then
+			doman man/{systemd.link.5,udev.7,udevadm.8,systemd-udevd.service.8}
+		else
+			doman "${S}"/man/{systemd.link.5,udev.7,udevadm.8,systemd-udevd.service.8}
+		fi
+	else
+		local lib_LTLIBRARIES="libudev.la" \
+			pkgconfiglib_DATA="src/libudev/libudev.pc" \
+			include_HEADERS="src/libudev/libudev.h"
+
+		local targets=(
+			install-libLTLIBRARIES
+			install-includeHEADERS
+			install-pkgconfiglibDATA
+		)
+
+		if use gudev; then
+			lib_LTLIBRARIES+=" libgudev-1.0.la"
+			pkgconfiglib_DATA+=" src/gudev/gudev-1.0.pc"
+		fi
+
+		targets+=(
+			lib_LTLIBRARIES="${lib_LTLIBRARIES}"
+			pkgconfiglib_DATA="${pkgconfiglib_DATA}"
+			include_HEADERS="${include_HEADERS}"
+			)
+		emake -j1 DESTDIR="${D}" "${targets[@]}"
 	fi
+}
 
-	# add final values of variables:
-	targets+=(
-		rootlibexec_PROGRAMS=systemd-udevd
-		bin_PROGRAMS=udevadm
-		lib_LTLIBRARIES="${lib_LTLIBRARIES}"
-		MANPAGES="man/udev.7 man/udevadm.8 \
-				man/systemd-udevd.service.8"
-		MANPAGES_ALIAS="man/systemd-udevd.8"
-		dist_systemunit_DATA="units/systemd-udevd-control.socket \
-				units/systemd-udevd-kernel.socket"
-		nodist_systemunit_DATA="units/systemd-udevd.service \
-				units/systemd-udev-trigger.service \
-				units/systemd-udev-settle.service"
-		pkgconfiglib_DATA="${pkgconfiglib_DATA}"
-		systemunitdir="$(systemd_get_unitdir)"
-	)
-	emake DESTDIR="${D}" "${targets[@]}"
-	if use doc
-	then
-		emake -C docs/libudev DESTDIR="${D}" install
-		use gudev && emake -C docs/gudev DESTDIR="${D}" install
-	fi
+multilib_src_install_all() {
 	dodoc TODO
 
 	prune_libtool_files --all
-	rm -f "${D}"/lib/udev/rules.d/99-systemd.rules
-	rm -rf "${D}"/usr/share/doc/${PF}/LICENSE.*
+	rm -f \
+		"${D}"/lib/udev/rules.d/99-systemd.rules \
+		"${D}"/usr/share/doc/${PF}/{LICENSE.*,GVARIANT-SERIALIZATION,DIFFERENCES,PORTING-DBUS1,sd-shutdown.h}
 
-	# install gentoo-specific rules
+	# see src_prepare() for content of 40-gentoo.rules
 	insinto /lib/udev/rules.d
 	doins "${T}"/40-gentoo.rules
 
-	# install udevadm symlink
-	dosym ../bin/udevadm /sbin/udevadm
-
-	# move udevd where it should be and remove unlogical /lib/systemd
-	mv "${ED}"/lib/systemd/systemd-udevd "${ED}"/sbin/udevd || die
-	rm -r "${ED}"/lib/systemd
-
-	# install compability symlink for systemd and initramfs tools
-	dosym /sbin/udevd "$(systemd_get_utildir)"/systemd-udevd
-	find "${ED}/$(systemd_get_unitdir)" -name '*.service' -exec \
-		sed -i -e "/ExecStart/s:/lib/systemd:$(systemd_get_utildir):" {} +
-
-	docinto gentoo
-	dodoc "${FILESDIR}"/80-net-name-slot.rules
-	docompress -x /usr/share/doc/${PF}/gentoo/80-net-name-slot.rules
+	# maintainer note: by not letting the upstream build-sys create the .so
+	# link, you also avoid a parallel make problem
+	mv "${D}"/usr/share/man/man8/systemd-udevd{.service,}.8
 }
 
-pkg_preinst()
-{
+pkg_preinst() {
 	local htmldir
 	for htmldir in gudev libudev; do
-		if [[ -d ${ROOT}usr/share/gtk-doc/html/${htmldir} ]]
-		then
-			rm -rf "${ROOT}"usr/share/gtk-doc/html/${htmldir}
+		if [[ -d ${ROOT%/}/usr/share/gtk-doc/html/${htmldir} ]]; then
+			rm -rf "${ROOT%/}"/usr/share/gtk-doc/html/${htmldir}
 		fi
-		if [[ -d ${D}/usr/share/doc/${PF}/html/${htmldir} ]]
-		then
+		if [[ -d ${D}/usr/share/doc/${PF}/html/${htmldir} ]]; then
 			dosym ../../doc/${PF}/html/${htmldir} \
 				/usr/share/gtk-doc/html/${htmldir}
 		fi
 	done
-	preserve_old_lib /{,usr/}$(get_libdir)/libudev$(get_libname 0)
 }
 
-# This function determines if a directory is a mount point.
-# It was lifted from dracut.
-ismounted()
-{
-	while read a m a; do
-		[[ $m = $1 ]] && return 0
-	done < "${ROOT}"/proc/mounts
-	return 1
-}
-
-pkg_postinst()
-{
-	mkdir -p "${ROOT}"run
-
-	net_rules="${ROOT}"etc/udev/rules.d/80-net-name-slot.rules
-	copy_net_rules() {
-		[[ -f ${net_rules} ]] || cp "${ROOT}"usr/share/doc/${PF}/gentoo/80-net-name-slot.rules "${net_rules}"
-	}
-
-	if [[ ${REPLACING_VERSIONS} ]] && [[ ${REPLACING_VERSIONS} < 197 ]]; then
-		ewarn "Because this is a upgrade we disable the new predictable network interface"
-		ewarn "name scheme by default."
-		copy_net_rules
-	fi
-
-	if has_version sys-apps/biosdevname; then
-		ewarn "Because sys-apps/biosdevname is installed we disable the new predictable"
-		ewarn "network interface name scheme by default."
-		copy_net_rules
-	fi
+pkg_postinst() {
+	mkdir -p "${ROOT%/}"/run
 
 	# "losetup -f" is confused if there is an empty /dev/loop/, Bug #338766
 	# So try to remove it here (will only work if empty).
-	rmdir "${ROOT}"dev/loop 2>/dev/null
-	if [[ -d ${ROOT}dev/loop ]]
-	then
+	rmdir "${ROOT%/}"/dev/loop 2>/dev/null
+	if [[ -d ${ROOT%/}/dev/loop ]]; then
 		ewarn "Please make sure your remove /dev/loop,"
 		ewarn "else losetup may be confused when looking for unused devices."
 	fi
 
-	# people want reminders, I'll give them reminders.  Odds are they will
-	# just ignore them anyway...
-
-	# 64-device-mapper.rules now gets installed by sys-fs/device-mapper
-	# remove it if user don't has sys-fs/device-mapper installed, 27 Jun 2007
-	if [[ -f ${ROOT}etc/udev/rules.d/64-device-mapper.rules ]] &&
-		! has_version sys-fs/device-mapper
-	then
-			rm -f "${ROOT}"etc/udev/rules.d/64-device-mapper.rules
-			einfo "Removed unneeded file 64-device-mapper.rules"
-	fi
-
-	if [[ ${REPLACING_VERSIONS} ]] && [[ ${REPLACING_VERSIONS} < 189 ]]; then
-		ewarn
-		ewarn "Upstream has removed the persistent-cd rules"
-		ewarn "generator. If you need persistent names for these devices,"
-		ewarn "place udev rules for them in ${ROOT}etc/udev/rules.d."
-	fi
-
-	if ismounted /usr
-	then
-		ewarn
-		ewarn "Your system has /usr on a separate partition. This means"
-		ewarn "you will need to use an initramfs to pre-mount /usr before"
-		ewarn "udev runs."
-		ewarn
-		ewarn "If this is not set up before your next reboot, udev may work;"
-		ewarn "However, you also may experience failures which are very"
-		ewarn "difficult to troubleshoot."
-		ewarn
-		ewarn "For a more detailed explanation, see the following URL:"
-		ewarn "http://www.freedesktop.org/wiki/Software/systemd/separate-usr-is-broken"
-		ewarn
-		ewarn "For more information on setting up an initramfs, see the"
-		ewarn "following URL:"
-		ewarn "http://www.gentoo.org/doc/en/initramfs-guide.xml"
-	fi
-
-	if [ -n "${net_rules}" ]; then
-			ewarn
-			ewarn "udev-197 and newer introduces a new method of naming network"
-			ewarn "interfaces. The new names are a very significant change, so"
-			ewarn "they are disabled by default on live systems."
-			ewarn "Please see the contents of ${net_rules} for more"
-			ewarn "information on this feature."
-	fi
-
-	local fstab="${ROOT}"etc/fstab dev path fstype rest
+	local fstab="${ROOT%/}"/etc/fstab dev path fstype rest
 	while read -r dev path fstype rest; do
 		if [[ ${path} == /dev && ${fstype} != devtmpfs ]]; then
 			ewarn "You need to edit your /dev line in ${fstab} to have devtmpfs"
@@ -477,8 +417,7 @@ pkg_postinst()
 		fi
 	done < "${fstab}"
 
-	if [[ -d ${ROOT}usr/lib/udev ]]
-	then
+	if [[ -d ${ROOT%/}/usr/lib/udev ]]; then
 		ewarn
 		ewarn "Please re-emerge all packages on your system which install"
 		ewarn "rules and helpers in /usr/lib/udev. They should now be in"
@@ -489,29 +428,89 @@ pkg_postinst()
 		ewarn "Note that qfile can be found in app-portage/portage-utils"
 	fi
 
-	old_net_rules=${ROOT}etc/udev/rules.d/70-persistent-net.rules
-	if [[ -f ${old_net_rules} ]]; then
-		ewarn "You still have ${old_net_rules} in place from previous udev release."
-		ewarn "Upstream has removed the possibility of renaming to existing"
-		ewarn "network interfaces. For example, it's not possible to assign based"
-		ewarn "on MAC address to existing interface eth0."
-		ewarn "See http://bugs.gentoo.org/453494 for more information."
-		ewarn "Rename your file to something else starting with 70- to silence"
-		ewarn "this warning."
+	local old_cd_rules="${ROOT%/}"/etc/udev/rules.d/70-persistent-cd.rules
+	local old_net_rules="${ROOT%/}"/etc/udev/rules.d/70-persistent-net.rules
+	for old_rules in "${old_cd_rules}" "${old_net_rules}"; do
+		if [[ -f ${old_rules} ]]; then
+			ewarn
+			ewarn "File ${old_rules} is from old udev installation but if you still use it,"
+			ewarn "rename it to something else starting with 70- to silence this deprecation"
+			ewarn "warning."
+		fi
+	done
+
+	elog
+	elog "Starting from version >= 197 the new predictable network interface names are"
+	elog "used by default, see:"
+	elog "http://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames"
+	elog "http://cgit.freedesktop.org/systemd/systemd/tree/src/udev/udev-builtin-net_id.c"
+	elog
+	elog "Example command to get the information for the new interface name before booting"
+	elog "(replace <ifname> with, for example, eth0):"
+	elog "# udevadm test-builtin net_id /sys/class/net/<ifname> 2> /dev/null"
+	elog
+	elog "You can use either kernel parameter \"net.ifnames=0\", create empty"
+	elog "file /etc/systemd/network/99-default.link, or symlink it to /dev/null"
+	elog "to disable the feature."
+
+	if has_version 'sys-apps/biosdevname'; then
+		ewarn
+		ewarn "You can replace the functionality of sys-apps/biosdevname which has been"
+		ewarn "detected to be installed with the new predictable network interface names."
 	fi
 
 	ewarn
 	ewarn "You need to restart udev as soon as possible to make the upgrade go"
 	ewarn "into effect."
 	ewarn "The method you use to do this depends on your init system."
-	ewarn
-
-	preserve_old_lib_notify /{,usr/}$(get_libdir)/libudev$(get_libname 0)
+	if has_version 'sys-apps/openrc'; then
+		ewarn "For sys-apps/openrc users it is:"
+		ewarn "# /etc/init.d/udev --nodeps restart"
+	fi
 
 	elog
-	elog "For more information on udev on Gentoo, writing udev rules, and"
-	elog "         fixing known issues visit:"
-	elog "         http://www.gentoo.org/doc/en/udev-guide.xml"
+	elog "For more information on udev on Gentoo, upgrading, writing udev rules, and"
+	elog "fixing known issues visit:"
+	elog "http://wiki.gentoo.org/wiki/Udev"
+	elog "http://wiki.gentoo.org/wiki/Udev/upgrade"
 
-	use hwdb && udevadm hwdb --update --root="${ROOT%/}"
+	# If user has disabled 80-net-name-slot.rules using a empty file or a symlink to /dev/null,
+	# do the same for 80-net-setup-link.rules to keep the old behavior
+	local net_move=no
+	local net_name_slot_sym=no
+	local net_rules_path="${ROOT%/}"/etc/udev/rules.d
+	local net_name_slot="${net_rules_path}"/80-net-name-slot.rules
+	local net_setup_link="${net_rules_path}"/80-net-setup-link.rules
+	if [[ -e ${net_setup_link} ]]; then
+		net_move=no
+	else
+		[[ -f ${net_name_slot} && $(sed -e "/^#/d" -e "/^\W*$/d" ${net_name_slot} | wc -l) == 0 ]] && net_move=yes
+		if [[ -L ${net_name_slot} && $(readlink ${net_name_slot}) == /dev/null ]]; then
+			net_move=yes
+			net_name_slot_sym=yes
+		fi
+	fi
+	if [[ ${net_move} == yes ]]; then
+		ebegin "Copying ${net_name_slot} to ${net_setup_link}"
+
+		if [[ ${net_name_slot_sym} == yes ]]; then
+			ln -nfs /dev/null "${net_setup_link}"
+		else
+			cp "${net_name_slot}" "${net_setup_link}"
+		fi
+		eend $?
+	fi
+
+	# Update hwdb database in case the format is changed by udev version.
+	if has_version 'sys-apps/hwids[udev]'; then
+		udevadm hwdb --update --root="${ROOT%/}"
+		# Only reload when we are not upgrading to avoid potential race w/ incompatible hwdb.bin and the running udevd
+		if [[ -z ${REPLACING_VERSIONS} ]]; then
+			# http://cgit.freedesktop.org/systemd/systemd/commit/?id=1fab57c209035f7e66198343074e9cee06718bda
+			if [[ ${ROOT} != "" ]] && [[ ${ROOT} != "/" ]]; then
+				return 0
+			fi
+			udevadm control --reload
+		fi
+	fi
 }

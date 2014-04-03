@@ -1,6 +1,97 @@
 # ChangeLog for app-office/texmaker
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/texmaker/ChangeLog,v 1.117 2013/01/29 18:44:41 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/texmaker/ChangeLog,v 1.139 2014/01/27 14:59:49 jlec Exp $
+
+  27 Jan 2014; Justin Lecher <jlec@gentoo.org> texmaker-4.1.1.ebuild:
+  Add missing USE dep
+
+*texmaker-4.1.1 (06 Jan 2014)
+
+  06 Jan 2014; Justin Lecher <jlec@gentoo.org> -texmaker-4.0.2.ebuild,
+  -texmaker-4.0.3.ebuild, -texmaker-4.0.4.ebuild, -texmaker-4.0.4-r1.ebuild,
+  +texmaker-4.1.1.ebuild:
+  Version Bump, #497266; drop old
+
+*texmaker-4.1 (03 Nov 2013)
+
+  03 Nov 2013; Justin Lecher <jlec@gentoo.org> +texmaker-4.1.ebuild,
+  +files/texmaker-4.1-unbundle.patch:
+  Version BUmp, #490220
+
+*texmaker-4.0.4-r1 (26 Oct 2013)
+
+  26 Oct 2013; Justin Lecher <jlec@gentoo.org> +texmaker-4.0.4-r1.ebuild,
+  +files/texmaker-4.0.4-unbundle.patch, +files/texmakerx_my.pri:
+  Use system dev-qt/qtsingleapplication, #489154
+
+*texmaker-4.0.4 (17 Sep 2013)
+
+  17 Sep 2013; Justin Lecher <jlec@gentoo.org> +texmaker-4.0.4.ebuild:
+  Version Bump, #483442
+
+*texmaker-4.0.3 (29 Jul 2013)
+
+  29 Jul 2013; Justin Lecher <jlec@gentoo.org> +texmaker-4.0.3.ebuild,
+  +files/texmaker-4.0.3-hunspell.patch:
+  Version Bump
+
+*texmaker-4.0.2 (11 May 2013)
+
+  11 May 2013; Justin Lecher <jlec@gentoo.org> +texmaker-4.0.2.ebuild:
+  Version BUmp, #469362
+
+  07 May 2013; Justin Lecher <jlec@gentoo.org> -texmaker-3.5.2-r1.ebuild,
+  -texmaker-4.0.ebuild:
+  Drop old
+
+  07 May 2013; Agostino Sarubbo <ago@gentoo.org> texmaker-4.0.1.ebuild:
+  Stable for ppc64, wrt bug #467478
+
+  03 May 2013; Agostino Sarubbo <ago@gentoo.org> texmaker-4.0.1.ebuild:
+  Stable for ppc, wrt bug #467478
+
+  27 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texmaker-4.0.1.ebuild:
+  Stable for x86, wrt bug #467478
+
+  27 Apr 2013; Agostino Sarubbo <ago@gentoo.org> texmaker-4.0.1.ebuild:
+  Stable for amd64, wrt bug #467478
+
+  18 Mar 2013; Justin Lecher <jlec@gentoo.org> texmaker-4.0.1.ebuild:
+  Add some more PREFIX love
+
+*texmaker-4.0.1 (18 Mar 2013)
+
+  18 Mar 2013; Justin Lecher <jlec@gentoo.org> +texmaker-4.0.1.ebuild,
+  +files/texmaker-4.0.1-hunspell.patch:
+  Version Bump
+
+  17 Mar 2013; Justin Lecher <jlec@gentoo.org> texmaker-4.0.ebuild:
+  Add subslot operator for app-text/poppler, #462020
+
+  13 Mar 2013; Justin Lecher <jlec@gentoo.org> -texmaker-3.3.4.ebuild,
+  -texmaker-3.5.2.ebuild:
+  DRop old
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> texmaker-3.5.2-r1.ebuild:
+  Stable for ppc64, wrt bug #461072
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> texmaker-3.5.2-r1.ebuild:
+  Stable for ppc, wrt bug #461072
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> texmaker-3.5.2-r1.ebuild:
+  Stable for x86, wrt bug #461072
+
+  13 Mar 2013; Agostino Sarubbo <ago@gentoo.org> texmaker-3.5.2-r1.ebuild:
+  Stable for amd64, wrt bug #461072
+
+*texmaker-4.0 (12 Mar 2013)
+
+  12 Mar 2013; Justin Lecher <jlec@gentoo.org> +texmaker-4.0.ebuild:
+  Version Bump, #461476
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> texmaker-3.3.4.ebuild,
+  texmaker-3.5.2-r1.ebuild, texmaker-3.5.2.ebuild:
+  Move Qt dependencies to the new category
 
 *texmaker-3.5.2-r1 (29 Jan 2013)
 

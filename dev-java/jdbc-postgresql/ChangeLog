@@ -1,6 +1,46 @@
 # ChangeLog for dev-java/jdbc-postgresql
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jdbc-postgresql/ChangeLog,v 1.47 2013/02/23 11:01:05 fordfrog Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/jdbc-postgresql/ChangeLog,v 1.54 2014/01/26 11:05:50 ago Exp $
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  jdbc-postgresql-9.2_p1003.ebuild:
+  Stable for x86, wrt bug #457960
+
+*jdbc-postgresql-9.3_p1100 (24 Jan 2014)
+*jdbc-postgresql-9.2_p1004 (24 Jan 2014)
+
+  24 Jan 2014; Ralph Sennhauser <sera@gentoo.org>
+  -jdbc-postgresql-8.3_p605.ebuild, -jdbc-postgresql-9.0_p801.ebuild,
+  -jdbc-postgresql-9.1_p901.ebuild, -jdbc-postgresql-9.1_p902.ebuild,
+  -jdbc-postgresql-9.2_p1002.ebuild, +jdbc-postgresql-9.2_p1004.ebuild,
+  +jdbc-postgresql-9.3_p1100.ebuild:
+  Version bump #496144
+  Remove old
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  jdbc-postgresql-9.2_p1003.ebuild:
+  Stable for ppc, wrt bug #457960
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  jdbc-postgresql-9.2_p1003.ebuild:
+  Stable for ppc64, wrt bug #457960
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> jdbc-postgresql-9.2_p1003.ebuild:
+  amd64 stable, bug #457960
+
+*jdbc-postgresql-9.2_p1003 (30 Nov 2013)
+
+  30 Nov 2013; Tom Wijsman <TomWij@gentoo.org>
+  +jdbc-postgresql-9.2_p1003.ebuild:
+  Version bump to 9.2_p1003. EAPI 5. Fixes bug #489082, reported by Gordon
+  Pettey (petteyg359).
+
+  19 Sep 2013; Aaron W. Swenson <titanofold@gentoo.org>
+  jdbc-postgresql-8.3_p603.ebuild, jdbc-postgresql-8.3_p605.ebuild,
+  jdbc-postgresql-8.4_p701-r1.ebuild, jdbc-postgresql-9.0_p801.ebuild,
+  jdbc-postgresql-9.1_p901.ebuild, jdbc-postgresql-9.1_p902.ebuild,
+  jdbc-postgresql-9.2_p1002.ebuild:
+  Direct readers to wiki.gentoo.org instead of the defunct gentoo-wiki.com.
 
 *jdbc-postgresql-9.2_p1002 (23 Feb 2013)
 
@@ -242,4 +282,3 @@
   +jdbc-postgresql-8.0_p318.ebuild, +jdbc-postgresql-8.1_p408.ebuild,
   +jdbc-postgresql-8.2_p504.ebuild:
   Created new ebuilds that will replace jdbc3-postgresql package, bug #157973.
-

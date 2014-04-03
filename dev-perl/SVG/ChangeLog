@@ -1,6 +1,29 @@
 # ChangeLog for dev-perl/SVG
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/SVG/ChangeLog,v 1.52 2013/02/18 20:43:21 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/SVG/ChangeLog,v 1.59 2014/03/05 15:28:01 ago Exp $
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> SVG-2.590.0.ebuild:
+  Stable for ppc, wrt bug #495466
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> SVG-2.590.0.ebuild:
+  amd64 stable, bug #495466
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> SVG-2.590.0.ebuild:
+  x86 stable wrt bug #495466
+
+*SVG-2.590.0 (15 Aug 2013)
+
+  15 Aug 2013; Patrick Lauer <patrick@gentoo.org> +SVG-2.590.0.ebuild:
+  Bump
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> SVG-2.540.0.ebuild:
+  Stable for ppc, wrt bug #463060
+
+  15 May 2013; Agostino Sarubbo <ago@gentoo.org> SVG-2.540.0.ebuild:
+  Stable for x86, wrt bug #463060
+
+  15 May 2013; Agostino Sarubbo <ago@gentoo.org> SVG-2.540.0.ebuild:
+  Stable for amd64, wrt bug #463060
 
   18 Feb 2013; Agostino Sarubbo <ago@gentoo.org> SVG-2.530.0.ebuild:
   Stable for ppc, wrt bug #458136

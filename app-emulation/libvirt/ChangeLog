@@ -1,6 +1,153 @@
 # ChangeLog for app-emulation/libvirt
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/ChangeLog,v 1.318 2013/09/05 18:20:53 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/ChangeLog,v 1.354 2014/03/01 22:08:30 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> libvirt-1.1.3.3.ebuild,
+  libvirt-1.2.1.ebuild, libvirt-9999.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  27 Jan 2014; Doug Goldstein <cardoe@gentoo.org> -libvirt-1.1.3-r1.ebuild,
+  -libvirt-1.1.3.1.ebuild, -libvirt-1.2.0-r1.ebuild:
+  Remove older vulnerable versions.
+
+  25 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-1.1.3.3.ebuild,
+  libvirt-1.2.1.ebuild:
+  Stable for amd64, wrt bug #498534
+
+  25 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-1.1.3.3.ebuild,
+  libvirt-1.2.1.ebuild:
+  Stable for x86, wrt bug #498534
+
+  22 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-1.2.0-r1.ebuild:
+  Stable for x86, wrt bug #496204
+
+  22 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-1.2.0-r1.ebuild:
+  Stable for amd64, wrt bug #496204
+
+  19 Jan 2014; Doug Goldstein <cardoe@gentoo.org> -libvirt-1.0.5.6.ebuild,
+  -libvirt-1.1.3-r2.ebuild, -libvirt-1.1.4.ebuild, -libvirt-1.2.0.ebuild:
+  Remove a slew of older versions
+
+*libvirt-1.1.3.3 (19 Jan 2014)
+
+  19 Jan 2014; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.1.3.3.ebuild:
+  Bump stable series to fix outstanding CVEs.
+
+*libvirt-1.2.1 (19 Jan 2014)
+
+  19 Jan 2014; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.2.1.ebuild:
+  Version bump. Fix CVE-2013-6458, CVE-2014-0028, CVE-2014-1447
+
+*libvirt-1.2.0-r1 (29 Dec 2013)
+
+  29 Dec 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.2.0-r1.ebuild:
+  Bump for CVE-2013-6436 and CVE-2013-6457
+
+  07 Dec 2013; Chema Alonso <nimiux@gentoo.org> libvirt-1.1.3.1.ebuild:
+  Stable for amd64 wrt bug #491458
+
+  03 Dec 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.2.0.ebuild:
+  Each version adds more symbols into the shared library which the bindings will
+  need to be rebuilt to expose.
+
+*libvirt-1.2.0 (03 Dec 2013)
+
+  03 Dec 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.2.0.ebuild,
+  libvirt-9999.ebuild:
+  Version bump. Python bindings are now in their own package called dev-python
+  /libvirt-python. Update the live ebuild to the latest changes from 1.2.0.
+
+  11 Nov 2013; Mike Gilbert <floppym@gentoo.org> libvirt-1.1.4.ebuild,
+  libvirt-9999.ebuild:
+  Don't call python setup function if python use flag is disabled.
+
+*libvirt-1.1.3.1 (06 Nov 2013)
+
+  06 Nov 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.1.3.1.ebuild:
+  Bump the stable series.
+
+*libvirt-1.1.4 (04 Nov 2013)
+
+  04 Nov 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.1.4.ebuild:
+  Version bump
+
+*libvirt-1.1.3-r2 (25 Oct 2013)
+
+  25 Oct 2013; Doug Goldstein <cardoe@gentoo.org> +files/libvirtd.init-r13,
+  +files/virtlockd.init, +libvirt-1.1.3-r2.ebuild:
+  Add init script for virtlockd
+
+  25 Oct 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.0.5.6.ebuild:
+  Add back stable marking for stable series after talking to ago
+
+  25 Oct 2013; Doug Goldstein <cardoe@gentoo.org> -libvirt-1.1.2-r1.ebuild,
+  -libvirt-1.1.2-r3.ebuild, -libvirt-1.1.3.ebuild:
+  Remove older versions vulnerable to CVE-2013-4400 and CVE-2013-4401.
+
+  25 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.1.3-r1.ebuild:
+  Stable for x86, wrt bug #489374
+
+  25 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.1.3-r1.ebuild:
+  Stable for amd64, wrt bug #489374
+
+*libvirt-1.1.3-r1 (22 Oct 2013)
+
+  22 Oct 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.1.3-r1.ebuild:
+  Fix for CVE-2013-4400 and CVE-2013-4401.
+
+  13 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.1.3.ebuild:
+  Stable for x86, wrt bug #487684
+
+  12 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.1.3.ebuild:
+  Stable for amd64, wrt bug #487684
+
+*libvirt-1.1.3 (10 Oct 2013)
+
+  10 Oct 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.1.3.ebuild:
+  Version bump
+
+  02 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.1.2-r3.ebuild:
+  Stable for x86, wrt bug #484488
+
+  02 Oct 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.1.2-r3.ebuild:
+  Stable for amd64, wrt bug #484488
+
+*libvirt-1.0.5.6 (24 Sep 2013)
+
+  24 Sep 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.0.5.6.ebuild:
+  Add back stable version that was over zealously removed.
+
+*libvirt-1.1.2-r3 (24 Sep 2013)
+
+  24 Sep 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.1.2-r3.ebuild,
+  -libvirt-1.1.2-r2.ebuild:
+  Bump for supplimental fixup to CVE-2013-4311
+
+*libvirt-1.1.2-r2 (20 Sep 2013)
+
+  20 Sep 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.1.2-r2.ebuild:
+  Bump for CVE-2013-4311 and CVE-2013-4296
+
+  10 Sep 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.1.2-r1.ebuild:
+  Request USER_NS as libvirt is capable with working with it now.
+
+  10 Sep 2013; Doug Goldstein <cardoe@gentoo.org> libvirt-1.1.2-r1.ebuild:
+  Add SECURITYFS to the list of required kernel options. bug #484446
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> -libvirt-1.0.5.4.ebuild,
+  -libvirt-1.1.1-r1.ebuild, -libvirt-1.1.1-r5.ebuild, -libvirt-1.1.2.ebuild:
+  Remove old
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.1.2-r1.ebuild:
+  Stable for amd64, wrt bug #484014
+
+  07 Sep 2013; Agostino Sarubbo <ago@gentoo.org> libvirt-1.1.2-r1.ebuild:
+  Stable for x86, wrt bug #484014
+
+*libvirt-1.1.2-r1 (06 Sep 2013)
+
+  06 Sep 2013; Doug Goldstein <cardoe@gentoo.org> +libvirt-1.1.2-r1.ebuild:
+  Bump to fix CVE-2013-4297.
 
   05 Sep 2013; Michał Górny <mgorny@gentoo.org> libvirt-1.1.1-r1.ebuild,
   libvirt-1.1.1-r5.ebuild, libvirt-1.1.2.ebuild, libvirt-9999.ebuild:

@@ -1,6 +1,49 @@
 # ChangeLog for app-portage/ufed
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/ufed/ChangeLog,v 1.94 2013/02/05 18:10:33 fuzzyray Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/ufed/ChangeLog,v 1.101 2014/03/19 19:41:46 fuzzyray Exp $
+
+*ufed-0.91 (19 Mar 2014)
+
+  19 Mar 2014; Paul Varner <fuzzyray@gentoo.org> +ufed-0.91.ebuild:
+  Version bump for bug fixes and enhancements. See
+  http://git.overlays.gentoo.org/gitweb/?p=proj/ufed.git;a=summary
+  for full list of changes.
+
+*ufed-0.90_rc2-r1 (11 Sep 2013)
+
+  11 Sep 2013; Paul Varner <fuzzyray@gentoo.org> +ufed-0.90_rc2-r1.ebuild,
+  +files/ufed-0.90_rc2-get_portdir_from_portageq.patch:
+  Revision bump to add patch to get PORTDIR from portageq (Bug 478318).
+
+*ufed-0.90_rc2 (12 Apr 2013)
+
+  12 Apr 2013; Paul Varner <fuzzyray@gentoo.org> +ufed-0.90_rc2.ebuild:
+  Version bump to fix bugs 464328 and 464714.
+  See http://git.overlays.gentoo.org/gitweb/?p=proj/ufed.git;a=summary
+  for detailed changes in this release.
+
+  03 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> ufed-9999.ebuild:
+  Pull in virtual/pkgconfig wrt #464328
+
+*ufed-0.90_rc1 (26 Mar 2013)
+
+  26 Mar 2013; Paul Varner <fuzzyray@gentoo.org> +ufed-0.90_rc1.ebuild:
+  Version bump for first release candidate version. See
+  http://git.overlays.gentoo.org/gitweb/?p=proj/ufed.git;a=summary for
+  detailed changes in this release.
+
+  26 Mar 2013; Paul Varner <fuzzyray@gentoo.org> -ufed-0.40-r6.ebuild,
+  -ufed-0.40-r10.ebuild, -ufed-0.40-r11.ebuild, -ufed-0.40.1.ebuild,
+  -ufed-0.40.1-r1.ebuild, -files/ufed-0.40.1-make.globals-path.patch,
+  -ufed-0.40.2.ebuild, -files/ufed-0.40-comments.patch,
+  -files/ufed-0.40-masked.patch, -files/ufed-0.40-multiple-inheritance.patch,
+  -files/ufed-0.40-noremove.patch, -files/ufed-0.40-packageusemask.patch,
+  -files/ufed-0.40-source.patch, -files/ufed-0.40-termsize.patch,
+  -files/ufed-0.40-termsize-2.patch, -files/ufed-0.40-useorder.patch:
+  Remove old unused versions.
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   05 Feb 2013; Paul Varner <fuzzyray@gentoo.org> ufed-9999.ebuild:
   Remove usage of prefix eclass, since ufed makefile now handles it natively.

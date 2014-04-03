@@ -1,6 +1,32 @@
 # ChangeLog for media-libs/wxsvg
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/wxsvg/ChangeLog,v 1.39 2012/12/16 13:50:43 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/wxsvg/ChangeLog,v 1.45 2014/01/23 04:30:03 dirtyepic Exp $
+
+*wxsvg-1.2.1 (23 Jan 2014)
+
+  23 Jan 2014; Ryan Hill <dirtyepic@gentoo.org> -wxsvg-1.1.9.ebuild,
+  +wxsvg-1.2.1.ebuild:
+  Version bump (bug #498902).
+
+*wxsvg-1.1.15 (10 Jun 2013)
+
+  10 Jun 2013; Ryan Hill <dirtyepic@gentoo.org> +wxsvg-1.1.15.ebuild:
+  Version bump for bug #472508.
+
+  07 Apr 2013; Agostino Sarubbo <ago@gentoo.org> wxsvg-1.1.13.ebuild:
+  Stable for x86, wrt bug #464454
+
+  07 Apr 2013; Agostino Sarubbo <ago@gentoo.org> wxsvg-1.1.13.ebuild:
+  Stable for amd64, wrt bug #464454
+
+*wxsvg-1.1.13 (01 Mar 2013)
+
+  01 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> +wxsvg-1.1.13.ebuild:
+  Version bump.
+
+  01 Mar 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -files/wxsvg-1.1.2-libav.patch, -wxsvg-1.1.6.ebuild:
+  old
 
   16 Dec 2012; Agostino Sarubbo <ago@gentoo.org> wxsvg-1.1.9.ebuild:
   Stable for x86, wrt bug #441384

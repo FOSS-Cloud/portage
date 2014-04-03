@@ -1,6 +1,38 @@
 # ChangeLog for app-admin/procinfo
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/procinfo/ChangeLog,v 1.23 2010/01/20 17:04:03 cla Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/procinfo/ChangeLog,v 1.33 2014/03/22 18:23:53 kensington Exp $
+
+  22 Mar 2014; Michael Palimaka <kensington@gentoo.org> -procinfo-18-r1.ebuild:
+  Remove old.
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> procinfo-18-r2.ebuild:
+  Stable for alpha, wrt bug #491898
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> procinfo-18-r2.ebuild:
+  Stable for sparc, wrt bug #491898
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> procinfo-18-r2.ebuild:
+  Stable for ppc64, wrt bug #491898
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> procinfo-18-r2.ebuild:
+  Stable for ppc, wrt bug #491898
+
+  08 Dec 2013; Johannes Huber <johu@gentoo.org> procinfo-18-r2.ebuild:
+  x86 stable, bug #491898
+
+  03 Dec 2013; Chema Alonso <nimiux@gentoo.org> procinfo-18-r2.ebuild:
+  Stable for amd64 wrt bug #491898
+
+  30 Nov 2013; Markus Meier <maekke@gentoo.org> procinfo-18-r2.ebuild:
+  arm stable, bug #491898
+
+  23 Nov 2013; Jeroen Roovers <jer@gentoo.org> procinfo-18-r2.ebuild:
+  Stable for HPPA (bug #491898).
+
+*procinfo-18-r2 (24 Jul 2013)
+
+  24 Jul 2013; Jeroen Roovers <jer@gentoo.org> +procinfo-18-r2.ebuild:
+  Fix building against sys-libs/ncurses[tinfo] (bug #461240).
 
   20 Jan 2010; Dawid Węgliński <cla@gentoo.org> procinfo-18-r1.ebuild,
   +files/procinfo-18-stat.patch:

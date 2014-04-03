@@ -1,9 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/atomix/atomix-2.14.0.ebuild,v 1.7 2012/05/04 04:45:28 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-puzzle/atomix/atomix-2.14.0.ebuild,v 1.9 2013/12/07 21:39:56 tupone Exp $
 
-EAPI=2
-inherit gnome2
+EAPI=5
+GNOME_TARBALL_SUFFIX=bz2
+inherit autotools gnome2
 
 DESCRIPTION="a game where you build full molecules, from simple inorganic to extremely complex organic ones"
 HOMEPAGE="http://ftp.gnome.org/pub/GNOME/sources/atomix/"
@@ -30,3 +31,13 @@ DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.17"
 
 DOCS="AUTHORS ChangeLog NEWS README"
+
+src_prepare() {
+	sed -i \
+		-e '/Icon/s/\.png//' \
+		-e '/Categories/s/PuzzleGame;//' \
+		atomix.desktop.in || die
+	epatch "${FILESDIR}"/${P}-underlink.patch
+	eautoreconf
+	gnome2_src_prepare
+}

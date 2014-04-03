@@ -1,6 +1,38 @@
 # ChangeLog for net-dns/rbldnsd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/rbldnsd/ChangeLog,v 1.20 2012/10/09 11:58:31 naota Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-dns/rbldnsd/ChangeLog,v 1.28 2013/12/12 14:12:35 mjo Exp $
+
+  12 Dec 2013; Michael Orlitzky <mjo@gentoo.org> rbldnsd-0.997a.ebuild:
+  Add missing PYTHON_REQUIRED_USE when tests are enabled.
+
+*rbldnsd-0.997a (12 Dec 2013)
+
+  12 Dec 2013; Michael Orlitzky <mjo@gentoo.org> +files/confd-0.997a,
+  +files/initd-0.997a, +files/rbldnsd-0.997a-robust-ipv6-test-support.patch,
+  +rbldnsd-0.997a.ebuild:
+  Version bump fixing bugs #485536 and #493354 in the process.
+
+  04 Dec 2013; Michael Orlitzky <mjo@gentoo.org> metadata.xml:
+  Remove proxy-maintainers herd, use @gentoo.org email address for maintainer,
+  and rewrap longdescription.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> rbldnsd-0.997.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  09 Jul 2013; Jeroen Roovers <jer@gentoo.org> rbldnsd-0.997.ebuild:
+  Marked ~hppa (bug #476198).
+
+*rbldnsd-0.997 (08 Jul 2013)
+
+  08 Jul 2013; Michael Weber <xmw@gentoo.org> +files/confd-0.997,
+  +files/initd-0.997, +rbldnsd-0.997.ebuild:
+  Version bump by Michael Orlitzky (bug 475348).
+
+  02 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due bug #328951
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   09 Oct 2012;  <naota@gentoo.org> rbldnsd-0.996b.ebuild:
   Add ~x86-fbsd. #237130

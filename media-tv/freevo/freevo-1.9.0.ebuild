@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/freevo/freevo-1.9.0.ebuild,v 1.14 2013/02/23 21:53:04 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/freevo/freevo-1.9.0.ebuild,v 1.18 2014/03/09 13:09:53 hasufell Exp $
 
 EAPI="3"
 PYTHON_DEPEND="2:2.5"
@@ -15,12 +15,12 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc x86"
-IUSE="directfb cdparanoia doc dvd encode fbcon flac gphoto2 jpeg lame lirc matrox mixer nls tv tvtime vorbis xine X"
+IUSE="directfb cdparanoia doc dvd encode fbcon flac gphoto2 jpeg lame lirc matrox mixer nls tv vorbis xine X"
 
 RDEPEND="dev-python/beautifulsoup:python-2
-	dev-python/imaging
+	virtual/python-imaging
 	dev-python/pygame
-	>=dev-python/twisted-2.5
+	>=dev-python/twisted-core-2.5
 	>=dev-python/twisted-web-0.6
 	net-zope/zope-interface
 
@@ -48,8 +48,7 @@ RDEPEND="dev-python/beautifulsoup:python-2
 	lirc? ( app-misc/lirc >=dev-python/pylirc-0.0.3 )
 	matrox? ( >=media-video/matroxset-0.3 )
 	mixer? ( media-sound/aumix )
-	tv? (	media-tv/xmltv
-		tvtime? ( media-tv/tvtime ) )
+	tv? ( media-tv/xmltv )
 	xine? ( media-video/xine-ui )
 	vorbis? ( media-sound/vorbis-tools )"
 
@@ -67,6 +66,8 @@ pkg_setup() {
 }
 
 src_prepare() {
+	epatch "${FILESDIR}"/${P}-PIL.patch
+
 	distutils_src_prepare
 	python_convert_shebangs -r 2 .
 }

@@ -1,6 +1,60 @@
 # ChangeLog for sys-libs/db
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/db/ChangeLog,v 1.334 2012/11/25 19:23:39 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/db/ChangeLog,v 1.345 2014/01/18 04:14:32 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> db-1.85-r3.ebuild,
+  db-3.2.9_p2.ebuild, db-4.2.52_p5-r1.ebuild, db-4.3.29_p1-r1.ebuild,
+  db-4.4.20_p4-r1.ebuild, db-4.5.20_p2-r1.ebuild, db-4.6.21_p4.ebuild,
+  db-4.7.25_p4.ebuild, db-4.8.30.ebuild, db-5.0.32.ebuild, db-5.1.29.ebuild,
+  db-5.2.42.ebuild, db-5.3.21.ebuild, db-5.3.28.ebuild, db-6.0.20-r1.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> db-4.8.30.ebuild:
+  Mark m68k/s390/sh stable.
+
+*db-5.3.28 (15 Jan 2014)
+
+  15 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> db-4.8.30.ebuild,
+  +db-5.3.28.ebuild, -db-6.0.20.ebuild, db-6.0.20-r1.ebuild:
+  Version bump. Removed EAPI-5 ebuild (not allowed for base-system packages).
+  Converted some ebuilds to EAPI-4.
+
+  05 Jan 2014; Robin H. Johnson <robbat2@gentoo.org> -db-4.2.52_p5.ebuild,
+  -db-4.3.29_p1.ebuild, -db-4.4.20_p4.ebuild, -db-4.5.20_p2.ebuild,
+  -db-4.7.25_p3.ebuild, -db-4.8.24.ebuild, -db-4.8.26.ebuild,
+  -db-5.0.21-r1.ebuild, -db-5.0.26.ebuild, -db-5.1.19-r2.ebuild,
+  -db-5.1.25.ebuild, -db-5.2.28.ebuild, -db-5.2.36.ebuild:
+  Cleanup old versions.
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> db-4.8.30.ebuild:
+  Stable for sparc, wrt bug #483184
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> db-4.8.30.ebuild:
+  Stable for ppc64, wrt bug #483184
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> db-4.8.30.ebuild:
+  Stable for alpha, wrt bug #483184
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> db-4.8.30.ebuild:
+  Stable for ia64, wrt bug #483184
+
+  30 Aug 2013; Jeroen Roovers <jer@gentoo.org> db-4.8.30.ebuild:
+  Stable for HPPA too.
+
+*db-6.0.20-r1 (10 Jul 2013)
+
+  10 Jul 2013; Robin H. Johnson <robbat2@gentoo.org> +db-6.0.20-r1.ebuild,
+  +files/db-6.0.20-test-link.patch, db-5.2.42.ebuild, db-5.3.21.ebuild:
+  Maintainer bump per #gentoo-infra discussion of July 4th. Patch massively
+  reduces storage requirement for running tests, but they still have two
+  failures: "repmgr_start:invalid argument"; "FAIL: condition {[stat_field $env
+  rep_stat \"Startup complete\"]}".
+
+*db-6.0.20 (10 Jul 2013)
+
+  10 Jul 2013; Lars Wendler <polynomial-c@gentoo.org> +db-6.0.20.ebuild,
+  +files/db-6.0.19-sqlite-configure-path.patch:
+  Non-maintainer commit: Version bump (bug #474602).
 
   25 Nov 2012; Ulrich Müller <ulm@gentoo.org> db-1.85-r3.ebuild,
   db-3.2.9_p2.ebuild, db-4.2.52_p5.ebuild, db-4.2.52_p5-r1.ebuild,

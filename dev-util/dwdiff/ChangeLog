@@ -1,6 +1,28 @@
 # ChangeLog for dev-util/dwdiff
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/dwdiff/ChangeLog,v 1.9 2013/02/07 09:55:14 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/dwdiff/ChangeLog,v 1.13 2014/01/05 18:00:05 polynomial-c Exp $
+
+*dwdiff-2.0.9 (05 Jan 2014)
+
+  05 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -dwdiff-2.0.8.ebuild,
+  +dwdiff-2.0.9.ebuild, -files/dwdiff-2.0.8-configure_fix.patch:
+  Version bump. Removed old.
+
+  05 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
+  files/dwdiff-2.0.8-configure_fix.patch:
+  Simplified patch.
+
+*dwdiff-2.0.8 (04 Jan 2014)
+
+  04 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -dwdiff-2.0.4-r1.ebuild,
+  +dwdiff-2.0.8.ebuild, +files/dwdiff-2.0.8-configure_fix.patch:
+  Version bump. Removed old.
+
+*dwdiff-2.0.7 (02 Jan 2014)
+
+  02 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -dwdiff-2.0.4.ebuild,
+  +dwdiff-2.0.7.ebuild, +files/dwdiff-2.0.7-configure_fixes.patch:
+  Version bump. Fixed broken configure script (bug #496736). Removed old.
 
 *dwdiff-2.0.4-r1 (07 Feb 2013)
 

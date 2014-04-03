@@ -1,10 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/stunnel/stunnel-4.44.ebuild,v 1.8 2011/10/29 18:55:27 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/stunnel/stunnel-4.44.ebuild,v 1.10 2014/03/06 16:42:13 blueness Exp $
 
-EAPI="2"
+EAPI="5"
 
-inherit autotools ssl-cert eutils
+inherit autotools ssl-cert eutils user
 
 DESCRIPTION="TLS/SSL - Port Wrapper"
 HOMEPAGE="http://stunnel.mirt.net/"

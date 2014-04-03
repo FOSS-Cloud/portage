@@ -1,6 +1,27 @@
 # ChangeLog for net-irc/iroffer-dinoex
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/iroffer-dinoex/ChangeLog,v 1.3 2013/02/25 18:35:58 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/iroffer-dinoex/ChangeLog,v 1.8 2013/06/15 21:51:46 zlogene Exp $
+
+  15 Jun 2013; Mikle Kolyada <zlogene@gentoo.org> iroffer-dinoex-3.29.ebuild:
+  x86 stable wrt bug #473266
+
+  15 Jun 2013; Mikle Kolyada <zlogene@gentoo.org> iroffer-dinoex-3.29.ebuild:
+  amd64 stable wrt bug #473266
+
+  06 Jun 2013; Mikle Kolyada <zlogene@gentoo.org>
+  -iroffer-dinoex-3.28-r1.ebuild:
+  drop old
+
+  06 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Reassigning due to Zlogene became Gentoo developer, remove proxy maintainers
+  herd
+
+*iroffer-dinoex-3.29 (11 May 2013)
+
+  11 May 2013; Sergey Popov <pinkbyte@gentoo.org> -iroffer-dinoex-3.28.ebuild,
+  +iroffer-dinoex-3.29.ebuild, +files/iroffer-dinoex-3.29-config.patch:
+  Version bump, wrt bug #460998, thanks to Sébastien P. <sebastien.picavet AT
+  gmail.com> and Mikle Kolyada <zlog.gentoo AT gmail.com>, drop old
 
 *iroffer-dinoex-3.28-r1 (25 Feb 2013)
 
@@ -21,4 +42,3 @@
   Initial commit, wrt bug #426616. Ebuild made by Mikle Kolyada, who will
   maintain this package through proxy maintainers. Logrotate script was picked
   up from sunrise overlay
-

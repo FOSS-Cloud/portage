@@ -1,6 +1,50 @@
 # ChangeLog for dev-ruby/gherkin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/gherkin/ChangeLog,v 1.49 2013/01/31 07:35:16 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/gherkin/ChangeLog,v 1.61 2014/02/01 05:01:29 hattya Exp $
+
+  01 Feb 2014; Akinori Hattori <hattya@gentoo.org> gherkin-2.11.6.ebuild:
+  ia64 stable wrt bug #493780
+
+  01 Feb 2014; Akinori Hattori <hattya@gentoo.org> gherkin-2.12.0-r1.ebuild,
+  gherkin-2.12.0.ebuild:
+  keyword ~ia64 wrt bug #471306
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gherkin-2.11.6.ebuild:
+  Stable for x86, wrt bug #493780
+
+*gherkin-2.12.0-r1 (20 Jan 2014)
+
+  20 Jan 2014; Hans de Graaff <graaff@gentoo.org> +gherkin-2.12.0-r1.ebuild:
+  Add back -O0 optimization since this may fix crashes with the C-based lexers.
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> gherkin-2.11.6.ebuild:
+  amd64 stable, bug 493780
+
+  02 Jan 2014; Hans de Graaff <graaff@gentoo.org> gherkin-2.11.6.ebuild:
+  Add alpha keyword that did not get included in a version bump.
+
+  02 Jan 2014; Hans de Graaff <graaff@gentoo.org> gherkin-2.11.6.ebuild,
+  gherkin-2.12.0.ebuild:
+  Add back ruby18, dependencies still support this. Drop deprecated ree18.
+
+  01 Jan 2014; Patrick Lauer <patrick@gentoo.org> gherkin-2.11.6.ebuild,
+  gherkin-2.12.0.ebuild:
+  Remove ruby18 target as dependencies lost support already
+
+  31 Dec 2013; Hans de Graaff <graaff@gentoo.org> -gherkin-1.0.30-r1.ebuild,
+  -gherkin-2.7.3.ebuild, -gherkin-2.11.5.ebuild:
+  Cleanup.
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> gherkin-2.11.6.ebuild:
+  arm stable, bug #493780
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> gherkin-2.11.6.ebuild:
+  Stable for HPPA (bug #493780).
+
+*gherkin-2.12.0 (26 May 2013)
+
+  26 May 2013; Hans de Graaff <graaff@gentoo.org> +gherkin-2.12.0.ebuild:
+  Version bump. Dropped ia64,sparc keywords for new dependencies, bug 471306.
 
 *gherkin-2.11.6 (31 Jan 2013)
 

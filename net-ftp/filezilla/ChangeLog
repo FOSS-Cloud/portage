@@ -1,6 +1,93 @@
 # ChangeLog for net-ftp/filezilla
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-ftp/filezilla/ChangeLog,v 1.95 2013/01/21 15:54:24 voyageur Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-ftp/filezilla/ChangeLog,v 1.115 2014/03/28 16:53:05 voyageur Exp $
+
+*filezilla-3.8.0 (28 Mar 2014)
+
+  28 Mar 2014; Bernard Cafarelli <voyageur@gentoo.org> +filezilla-3.8.0.ebuild:
+  Version bump
+
+*filezilla-3.7.4.1 (12 Feb 2014)
+
+  12 Feb 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +filezilla-3.7.4.1.ebuild:
+  Version bump, bugfixes
+
+*filezilla-3.7.4 (10 Feb 2014)
+
+  10 Feb 2014; Bernard Cafarelli <voyageur@gentoo.org> +filezilla-3.7.4.ebuild,
+  +files/filezilla-3.7.4-debug.patch:
+  Version bump, adds SOCKS4 support
+
+  21 Sep 2013; Fabian Groffen <grobian@gentoo.org> filezilla-3.7.3.ebuild:
+  Fix doins call, .app is bundle (directory)
+
+  11 Sep 2013; Bernard Cafarelli <voyageur@gentoo.org> -filezilla-3.5.3.ebuild,
+  -filezilla-3.6.0.2-r1.ebuild, -filezilla-3.7.0.1.ebuild,
+  -filezilla-3.7.0.2.ebuild, -filezilla-3.7.1.ebuild, -filezilla-3.7.2.ebuild,
+  -files/filezilla-3.6.0.2-tests_link.patch:
+  Remove vulnerable versions, security bug #482672
+
+  06 Sep 2013; Agostino Sarubbo <ago@gentoo.org> filezilla-3.7.3.ebuild:
+  Stable for sparc, wrt bug #482672
+
+  01 Sep 2013; Agostino Sarubbo <ago@gentoo.org> filezilla-3.7.3.ebuild:
+  Stable for ppc, wrt bug #482672
+
+  29 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> filezilla-3.7.3.ebuild:
+  Stable on amd64 and x86, wrt bug #482672
+
+*filezilla-3.7.3 (09 Aug 2013)
+
+  09 Aug 2013; Bernard Cafarelli <voyageur@gentoo.org> +filezilla-3.7.3.ebuild:
+  Version bump for additional CVEs: CVE-2013-4206, CVE-2013-4207, CVE-2013-4208
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> filezilla-3.7.2.ebuild:
+  Stable for x86, wrt bug #479880
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> filezilla-3.7.2.ebuild:
+  Stable for ppc, wrt bug #479880
+
+  08 Aug 2013; Agostino Sarubbo <ago@gentoo.org> filezilla-3.7.2.ebuild:
+  Stable for sparc, wrt bug #479880
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> filezilla-3.7.2.ebuild:
+  Stable for amd64, wrt bug #479880
+
+  07 Aug 2013; Bernard Cafarelli <voyageur@gentoo.org> filezilla-3.7.2.ebuild:
+  >=3.6.0.2 fixed gnutls-2.x support, fix dependency for stabling
+
+*filezilla-3.7.2 (07 Aug 2013)
+
+  07 Aug 2013; Bernard Cafarelli <voyageur@gentoo.org> +filezilla-3.7.2.ebuild:
+  Version bump for security bug #479880
+
+  17 Jul 2013; Markus Meier <maekke@gentoo.org> filezilla-3.7.1.ebuild:
+  add ~arm, bug #473470
+
+*filezilla-3.7.1 (19 Jun 2013)
+
+  19 Jun 2013; Bernard Cafarelli <voyageur@gentoo.org> +filezilla-3.7.1.ebuild:
+  Version bump, updated translations
+
+*filezilla-3.7.0.2 (27 May 2013)
+
+  27 May 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  +filezilla-3.7.0.2.ebuild:
+  Version bump
+
+*filezilla-3.7.0.1 (12 May 2013)
+
+  12 May 2013; Bernard Cafarelli <voyageur@gentoo.org> -filezilla-3.6.0.ebuild,
+  -filezilla-3.6.0.1.ebuild, -filezilla-3.6.0.2.ebuild,
+  +filezilla-3.7.0.1.ebuild:
+  Version bump, drop previous 3.6.x versions, bug #469356
+
+*filezilla-3.6.0.2-r1 (16 Mar 2013)
+
+  16 Mar 2013; Christoph Junghans <ottxor@gentoo.org>
+  +filezilla-3.6.0.2-r1.ebuild:
+  added prefix support (bug #461292)
 
   21 Jan 2013; Bernard Cafarelli <voyageur@gentoo.org>
   filezilla-3.6.0.2.ebuild, +files/filezilla-3.6.0.2-tests_link.patch:
@@ -497,4 +584,3 @@
   22 Dec 2007; Jason Smathers <jsin@gentoo.org> +filezilla-3.0.4.ebuild:
   New ebuild, thanks to the users whom contributed:  Matthew Schultz, Kalidarn,
   Paul Bredbury, zhoumi, Alois Hammer, and Pham Ngoc Hai.  Bug #89290
-

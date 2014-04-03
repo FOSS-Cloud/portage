@@ -1,6 +1,45 @@
 # ChangeLog for media-libs/chromaprint
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/chromaprint/ChangeLog,v 1.7 2013/02/16 16:54:21 lu_zero Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/chromaprint/ChangeLog,v 1.17 2014/03/04 20:17:40 ago Exp $
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> chromaprint-1.1.ebuild:
+  Stable for x86, wrt bug #500882
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> chromaprint-1.1.ebuild:
+  amd64 stable, bug #500882
+
+  10 Feb 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +files/chromaprint-1.1-libav_build_fix_for_tools.patch,
+  chromaprint-1.1.ebuild:
+  Apply upstream patch from bug 498194 to fix build with certain versions of
+  media-video/libav wrt #498194 by Laurent Bachelier
+
+  14 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> chromaprint-1.1.ebuild,
+  +files/chromaprint-1.1-ffmpeg2.patch:
+  Fixed compilation with ffpmeg-2 when "tools" USE flag is enabled (bug
+  #472966).
+
+*chromaprint-1.1 (24 Nov 2013)
+
+  24 Nov 2013; Justin Lecher <jlec@gentoo.org> -chromaprint-1.0.ebuild,
+  +chromaprint-1.1.ebuild, +files/chromaprint-1.1-gtest.patch, metadata.xml:
+  Version Bump and drop old (Changelog says: "Fixed potential DoS attack in 
+  fingerprint decompression code."), fixes #490364; fix gtest detection, #490852
+
+  17 Nov 2013; Alexis Ballier <aballier@gentoo.org> chromaprint-1.0.ebuild:
+  keyword ~amd64-fbsd
+
+*chromaprint-1.0 (03 Nov 2013)
+
+  03 Nov 2013; Ben de Groot <yngwin@gentoo.org> +chromaprint-1.0.ebuild,
+  +files/chromaprint-1.0-libav9.patch:
+  version bump, bug #489918
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> chromaprint-0.7.ebuild:
+  Stable for x86, wrt bug #464532
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> chromaprint-0.7.ebuild:
+  Stable for amd64, wrt bug #464532
 
   16 Feb 2013; Luca Barbato <lu_zero@gentoo.org> chromaprint-0.7.ebuild,
   +files/chromaprint-0.7-libav9.patch:

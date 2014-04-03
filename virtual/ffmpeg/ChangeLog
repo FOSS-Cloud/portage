@@ -1,6 +1,22 @@
 # ChangeLog for virtual/ffmpeg
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/ffmpeg/ChangeLog,v 1.48 2013/01/16 12:40:02 scarabeus Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/ffmpeg/ChangeLog,v 1.53 2014/02/23 19:45:47 maekke Exp $
+
+  23 Feb 2014; Markus Meier <maekke@gentoo.org> ffmpeg-9.ebuild:
+  arm stable, bug #499368
+
+  27 Jan 2014; Jeroen Roovers <jer@gentoo.org> ffmpeg-9.ebuild:
+  Stable for HPPA (bug #499368).
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> ffmpeg-0.10.3.ebuild,
+  ffmpeg-9.ebuild:
+  depend on slot 0 for ffmpeg
+
+  24 Jun 2013; Alexis Ballier <aballier@gentoo.org> ffmpeg-9.ebuild:
+  take ffmpeg dep down to 1.0 as it is unmasked
+
+  14 Apr 2013; Luca Barbato <lu_zero@gentoo.org> ffmpeg-9.ebuild, metadata.xml:
+  Expose opus support
 
 *ffmpeg-9 (16 Jan 2013)
 

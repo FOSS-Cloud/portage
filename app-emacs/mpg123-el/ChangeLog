@@ -1,6 +1,21 @@
 # ChangeLog for app-emacs/mpg123-el
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/mpg123-el/ChangeLog,v 1.36 2012/11/20 20:43:21 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/mpg123-el/ChangeLog,v 1.40 2014/03/24 15:13:57 ago Exp $
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> mpg123-el-1.59.ebuild:
+  Stable for ppc, wrt bug #505454
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> mpg123-el-1.59.ebuild:
+  Stable for x86, wrt bug #505454
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> mpg123-el-1.59.ebuild:
+  Stable for amd64, wrt bug #505454
+
+*mpg123-el-1.59 (20 Feb 2014)
+
+  20 Feb 2014; Ulrich Müller <ulm@gentoo.org> -mpg123-el-1.55.ebuild,
+  +mpg123-el-1.59.ebuild:
+  Version bump.
 
   20 Nov 2012; Agostino Sarubbo <ago@gentoo.org> mpg123-el-1.58.ebuild:
   Stable for x86, wrt bug #441070

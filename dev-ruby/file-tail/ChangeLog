@@ -1,6 +1,18 @@
 # ChangeLog for dev-ruby/file-tail
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/file-tail/ChangeLog,v 1.9 2012/10/05 10:07:55 graaff Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/file-tail/ChangeLog,v 1.12 2013/11/09 19:44:07 mrueg Exp $
+
+  09 Nov 2013; Manuel Rüger <mrueg@gentoo.org> -file-tail-1.0.12.ebuild:
+  Cleanup old.
+
+*file-tail-1.0.12-r1 (02 Nov 2013)
+
+  02 Nov 2013; Manuel Rüger <mrueg@gentoo.org> +file-tail-1.0.12-r1.ebuild:
+  Add ruby20 target.
+
+  04 Sep 2013; Manuel Rüger <mrueg@gentoo.org> -file-tail-1.0.10.ebuild,
+  -file-tail-1.0.11.ebuild, -file-tail-1.0.8.ebuild:
+  Cleanup old.
 
 *file-tail-1.0.12 (05 Oct 2012)
 

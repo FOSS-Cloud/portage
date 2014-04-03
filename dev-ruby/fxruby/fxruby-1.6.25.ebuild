@@ -1,9 +1,9 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/fxruby/fxruby-1.6.25.ebuild,v 1.10 2013/01/08 08:47:15 nativemad Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/fxruby/fxruby-1.6.25.ebuild,v 1.12 2013/12/25 09:38:03 patrick Exp $
 
 EAPI=4
-USE_RUBY="ruby18 ruby19"
+USE_RUBY="ruby19"
 
 RUBY_FAKEGEM_NAME="fxruby"
 
@@ -31,8 +31,6 @@ ruby_add_bdepend "dev-ruby/hoe"
 
 all_ruby_prepare() {
 	sed -i -e '/\[:compile\]/d' Rakefile || die
-	sed -i -e 's:libs, "fxscintilla":libs, "fxscintilla-1.6":g' \
-		 ext/fox16/extconf.rb || die "sed error"
 	einfo "Avoid -O0 builds"
 	sed -i -e 's:-O0 -I:-I:' \
 		ext/fox16/extconf.rb || die "Can't fix forced -O0"

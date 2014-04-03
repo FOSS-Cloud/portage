@@ -1,10 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/files/eblits/common.eblit,v 1.29 2012/12/28 19:00:51 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/files/eblits/common.eblit,v 1.34 2014/01/16 17:38:31 vapier Exp $
 
 alt_prefix() {
 	is_crosscompile && echo /usr/${CTARGET}
 }
+
+: ${ED:=${D}}
+: ${EROOT:=${ROOT}}
 
 # We need to be able to set alternative headers for
 # compiling for non-native platform
@@ -153,6 +156,9 @@ setup_flags() {
 	strip-unsupported-flags
 	filter-flags -m32 -m64 -mabi=*
 
+	# Bug 492892.
+	filter-flags -frecord-gcc-switches
+
 	unset CBUILD_OPT CTARGET_OPT
 	if has_multilib_profile ; then
 		CTARGET_OPT=$(get_abi_CTARGET)
@@ -177,7 +183,7 @@ setup_flags() {
 	# building glibc with SSP is fraught with difficulty, especially
 	# due to __stack_chk_fail_local which would mean significant changes
 	# to the glibc build process. See bug #94325 #293721
-	use hardened && gcc-specs-ssp && append-cflags $(test-flags-CC -fno-stack-protector)
+	gcc-specs-ssp && append-cflags $(test-flags-CC -fno-stack-protector)
 
 	if use hardened && gcc-specs-pie ; then
 		# Force PIC macro definition for all compilations since they're all
@@ -246,9 +252,14 @@ use_multiarch() {
 	local bver nver
 	bver=$($(tc-getLD ${CTARGET}) -v | sed -n -r '1{s:[^0-9]*::;s:^([0-9.]*).*:\1:;p}')
 	case $(tc-arch ${CTARGET}) in
-		amd64|x86) nver="2.20" ;;
-		sparc)     nver="2.21" ;;
-		*)         return 1 ;;
+	amd64|x86) nver="2.20" ;;
+	arm)       nver="2.22" ;;
+	hppa)      nver="2.23" ;;
+	ppc|ppc64) nver="2.20" ;;
+	# ifunc was added in 2.23, but glibc also needs machinemode which is in 2.24.
+	s390)      nver="2.24" ;;
+	sparc)     nver="2.21" ;;
+	*)         return 1 ;;
 	esac
 	version_is_at_least ${nver} ${bver}
 }

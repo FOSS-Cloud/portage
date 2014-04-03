@@ -1,6 +1,41 @@
 # ChangeLog for media-gfx/graphviz
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphviz/ChangeLog,v 1.270 2013/02/22 20:56:24 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphviz/ChangeLog,v 1.278 2014/02/06 12:19:14 kensington Exp $
+
+  06 Feb 2014; Michael Palimaka <kensington@gentoo.org>
+  graphviz-2.26.3-r3.ebuild, graphviz-2.26.3-r4.ebuild, graphviz-2.28.0.ebuild,
+  graphviz-2.34.0.ebuild, graphviz-2.36.0.ebuild:
+  Pin virtual/jpeg to SLOT 0.
+
+*graphviz-2.36.0 (31 Jan 2014)
+
+  31 Jan 2014; Tim Harder <radhermit@gentoo.org> +graphviz-2.36.0.ebuild:
+  Version bump.
+
+*graphviz-2.34.0 (19 Nov 2013)
+
+  19 Nov 2013; Steve Arnold <nerdboy@gentoo.org> +graphviz-2.34.0.ebuild,
+  +files/graphviz-2.34.0-Xaw-configure.patch,
+  +files/graphviz-2.34.0-dot-pangocairo-link.patch, metadata.xml:
+  Updated to current upstream stable; closes Bug 453692. Tested on x86 
+  and amd64 (new USE flags in various combinations, but not *all* of 
+  them).
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> graphviz-2.28.0.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  15 Aug 2013; Fabian Groffen <grobian@gentoo.org> graphviz-2.28.0.ebuild:
+  Marked ~x64-solaris
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> graphviz-2.28.0.ebuild,
+  metadata.xml:
+  Fix usage of python-r1.eclass
+
+  10 Mar 2013; Michał Górny <mgorny@gentoo.org> graphviz-2.28.0.ebuild:
+  Convert to python-single-r1. Bug #457686.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> graphviz-2.28.0.ebuild:
+  Move Qt dependencies to the new category
 
   22 Feb 2013; Zac Medico <zmedico@gentoo.org> graphviz-2.28.0.ebuild:
   Add ~arm-linux keyword.

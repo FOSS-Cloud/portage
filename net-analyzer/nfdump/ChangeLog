@@ -1,6 +1,24 @@
 # ChangeLog for net-analyzer/nfdump
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nfdump/ChangeLog,v 1.31 2012/11/05 12:53:20 jer Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nfdump/ChangeLog,v 1.35 2013/08/14 12:48:31 jer Exp $
+
+*nfdump-1.6.10_p1 (14 Aug 2013)
+
+  14 Aug 2013; Jeroen Roovers <jer@gentoo.org> -nfdump-1.6.5.ebuild,
+  -nfdump-1.6.6.ebuild, -nfdump-1.6.8.ebuild, +nfdump-1.6.10_p1.ebuild:
+  Version bump (bug #481022 by Alexandr Tiurin).
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nfdump-1.6.9.ebuild:
+  Stable for amd64, wrt bug #470536
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> nfdump-1.6.9.ebuild:
+  Stable for x86, wrt bug #470536
+
+*nfdump-1.6.9 (07 Mar 2013)
+
+  07 Mar 2013; Sergey Popov <pinkbyte@gentoo.org> +nfdump-1.6.9.ebuild,
+  metadata.xml:
+  Version bump, bring back USE='readpcap'
 
   05 Nov 2012; Jeroen Roovers <jer@gentoo.org> nfdump-1.6.8.ebuild:
   USE=nftrack requires net-analyzer/rrdtool.
@@ -135,4 +153,3 @@
   27 Mar 2006; Markus Ullmann <jokey@gentoo.org> +metadata.xml,
   +nfdump-1.5.ebuild:
   Initial import wrt bug #123710
-

@@ -1,14 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/webapp-config/webapp-config-9999.ebuild,v 1.1 2013/02/18 17:44:32 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/webapp-config/webapp-config-9999.ebuild,v 1.6 2013/09/05 18:15:49 mgorny Exp $
 
 EAPI="5"
 
-# We need to fix 'import md5' for the tests before
-# we can be 3.x compat.  Uncomment when done.
-#PYTHON_COMPAT=( python{2_5,2_6,2_7,3_1,3_2} )
-
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy2_0 )
 
 inherit distutils-r1
 
@@ -27,21 +23,26 @@ HOMEPAGE="http://sourceforge.net/projects/webapp-config/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
+IUSE="+portage"
 
 DEPEND="app-text/xmlto"
-RDEPEND=""
-PYTHON_MODNAME="WebappConfig"
+RDEPEND="portage? ( sys-apps/portage[${PYTHON_USEDEP}] )"
 
-src_compile() {
-	BUILD_DIR="${WORKDIR}/${P}_build"
-	distutils-r1_python_compile
+python_compile_all() {
 	emake -C doc/
 }
 
-src_install() {
-	python_export_best
+python_install() {
+	# According to this discussion:
+	# http://mail.python.org/pipermail/distutils-sig/2004-February/003713.html
+	# distutils does not provide for specifying two different script install
+	# locations. Since we only install one script here the following should
+	# be ok
 	distutils-r1_python_install --install-scripts="/usr/sbin"
+}
+
+python_install_all() {
+	distutils-r1_python_install_all
 
 	insinto /etc/vhosts
 	doins config/webapp-config
@@ -49,19 +50,17 @@ src_install() {
 	keepdir /usr/share/webapps
 	keepdir /var/db/webapps
 
-	dodoc AUTHORS TODO
+	dodoc AUTHORS
 	doman doc/*.[58]
 	dohtml doc/*.[58].html
 }
 
 python_test() {
 	PYTHONPATH="." "${PYTHON}" WebappConfig/tests/dtest.py \
-		|| die "Tests fail with ${EPYTHON}";
+		|| die "Testing failed with ${EPYTHON}"
 }
 
 pkg_postinst() {
-	distutils-r1_pkg_postinst
-
 	elog "Now that you have upgraded webapp-config, you **must** update your"
 	elog "config files in /etc/vhosts/webapp-config before you emerge any"
 	elog "packages that use webapp-config."

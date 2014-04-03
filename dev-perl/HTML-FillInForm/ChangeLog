@@ -1,6 +1,16 @@
 # ChangeLog for dev-perl/HTML-FillInForm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/HTML-FillInForm/ChangeLog,v 1.29 2012/06/24 13:00:05 tove Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/HTML-FillInForm/ChangeLog,v 1.31 2013/12/19 08:28:20 zlogene Exp $
+
+  19 Dec 2013; Mikle Kolyada <zlogene@gentoo.org>
+  HTML-FillInForm-2.200.0.ebuild:
+  amd64/x86 stable wrt bug #492162
+
+*HTML-FillInForm-2.200.0 (25 Aug 2013)
+
+  25 Aug 2013; Patrick Lauer <patrick@gentoo.org>
+  +HTML-FillInForm-2.200.0.ebuild:
+  Bump
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

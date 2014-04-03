@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libdrm/libdrm-2.4.42.ebuild,v 1.2 2013/02/27 05:40:26 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libdrm/libdrm-2.4.42.ebuild,v 1.4 2013/04/20 20:35:12 chithanh Exp $
 
 EAPI=5
 inherit xorg-2

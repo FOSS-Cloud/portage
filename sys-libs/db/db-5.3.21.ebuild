@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/db/db-5.3.21.ebuild,v 1.2 2012/11/25 19:23:39 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/db/db-5.3.21.ebuild,v 1.4 2014/01/18 04:14:32 vapier Exp $
 
 EAPI=2
 inherit eutils db flag-o-matic java-pkg-opt-2 autotools multilib
@@ -28,7 +28,7 @@ done
 
 LICENSE="Sleepycat"
 SLOT="5.3"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~sparc-fbsd ~x86-fbsd"
 IUSE="doc java cxx tcl test"
 
 # the entire testsuite needs the TCL functionality
@@ -64,6 +64,10 @@ src_prepare() {
 	# sqlite configure call has an extra leading ..
 	# upstreamed:5.2.36, missing in 5.3.x
 	epatch "${FILESDIR}"/${PN}-5.2.28-sqlite-configure-path.patch
+
+	# The upstream testsuite copies .lib and the binaries for each parallel test
+	# core, ~300MB each. This patch uses links instead, saves a lot of space.
+	epatch "${FILESDIR}"/${PN}-6.0.20-test-link.patch
 
 	# Upstream release script grabs the dates when the script was run, so lets
 	# end-run them to keep the date the same.

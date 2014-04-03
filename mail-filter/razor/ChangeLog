@@ -1,6 +1,36 @@
 # ChangeLog for mail-filter/razor
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/razor/ChangeLog,v 1.97 2012/03/25 15:01:01 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/razor/ChangeLog,v 1.106 2014/03/19 15:25:58 ago Exp $
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> razor-2.85-r2.ebuild:
+  Stable for alpha, wrt bug #495688
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org> razor-2.85-r2.ebuild:
+  Stable for sparc, wrt bug #495688
+
+  06 Mar 2014; Agostino Sarubbo <ago@gentoo.org> razor-2.85-r2.ebuild:
+  Stable for ppc64, wrt bug #495688
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> razor-2.85-r2.ebuild:
+  Stable for ppc, wrt bug #495688
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> razor-2.85-r2.ebuild:
+  amd64 stable, bug #495688
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> razor-2.85-r2.ebuild:
+  x86 stable wrt bug #495688
+
+  11 Feb 2014; Jeroen Roovers <jer@gentoo.org> razor-2.85-r2.ebuild:
+  Stable for HPPA (bug #495688).
+
+*razor-2.85-r2 (01 Sep 2013)
+
+  01 Sep 2013; Ian Delaney <idella4@gentoo.org> +razor-2.85-r2.ebuild,
+  -razor-2.84.ebuild, -razor-2.85.ebuild:
+  revbump -> EAPI 5, add invocation of tests & install of docs folder content
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   25 Mar 2012; Raúl Porcel <armin76@gentoo.org> razor-2.84.ebuild,
   razor-2.85.ebuild, razor-2.85-r1.ebuild:

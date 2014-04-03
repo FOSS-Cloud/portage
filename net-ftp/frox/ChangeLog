@@ -1,6 +1,31 @@
 # ChangeLog for net-ftp/frox
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-ftp/frox/ChangeLog,v 1.20 2012/07/29 17:18:36 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-ftp/frox/ChangeLog,v 1.26 2014/01/14 13:56:06 ago Exp $
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> frox-0.7.18-r5.ebuild:
+  Stable for x86, wrt bug #495844
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> frox-0.7.18-r5.ebuild:
+  amd64 stable, bug #495844
+
+  01 Sep 2013; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Bertrand Jacquin steps up as a proxied maintainer for this package.
+
+  17 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> frox-0.7.18-r4.ebuild,
+  frox-0.7.18-r5.ebuild:
+  QA: add missing user eclass to 'inherit' call, escape some variables, remove
+  redundant 'die' in epatch
+
+  17 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> -frox-0.7.18-r2.ebuild:
+  Drop old
+
+*frox-0.7.18-r5 (17 Jun 2013)
+
+  17 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> +frox-0.7.18-r5.ebuild,
+  +files/frox-0.7.18-config.patch, +files/frox.initd:
+  Revision bump: EAPI 5, epatch_user, remove unneeded MY_P, clean up in
+  src_install, set proper category for frox.conf manpages. Updated initscript,
+  fix for bug #450204
 
   29 Jul 2012; Raúl Porcel <armin76@gentoo.org> frox-0.7.18-r2.ebuild,
   frox-0.7.18-r4.ebuild:
@@ -84,4 +109,3 @@
   +frox-0.7.17.ebuild, +metadata.xml:
   Initial import as per bug #50674. Ebuild by Ludovic CINTRAT
   <ludovic.cintrat@wanadoo.fr>
-

@@ -1,6 +1,19 @@
 # ChangeLog for dev-php/pecl-geoip
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-geoip/ChangeLog,v 1.5 2012/12/04 10:57:53 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-geoip/ChangeLog,v 1.8 2014/01/18 18:48:36 pacho Exp $
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> pecl-geoip-1.0.8-r2.ebuild:
+  amd64 stable, bug #488854
+
+*pecl-geoip-1.0.8-r2 (26 Jul 2013)
+
+  26 Jul 2013; Ole Markus With <olemarkus@gentoo.org>
+  +pecl-geoip-1.0.8-r2.ebuild:
+  Adding 5.5 support, removing 5.3 support
+
+  05 Mar 2013; Ole Markus With <olemarkus@gentoo.org>
+  -pecl-geoip-1.0.7-r1.ebuild:
+  Version bump
 
   04 Dec 2012;  <ago@gentoo.org> pecl-geoip-1.0.8-r1.ebuild:
   Stable for x86, wrt bug #438738

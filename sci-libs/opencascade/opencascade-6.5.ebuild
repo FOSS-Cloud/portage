@@ -1,8 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/opencascade/opencascade-6.5.ebuild,v 1.3 2012/09/16 10:18:52 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/opencascade/opencascade-6.5.ebuild,v 1.5 2013/04/27 18:15:48 xmw Exp $
 
 EAPI=4
+
 inherit autotools eutils check-reqs multilib java-pkg-opt-2 flag-o-matic
 
 DESCRIPTION="Software development platform for CAD/CAE, 3D surface/solid modeling and data exchange"
@@ -15,24 +16,25 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug doc examples gl2ps java"
 
 DEPEND="
+	dev-lang/tcl
+	dev-lang/tk
+	dev-tcltk/itcl
+	dev-tcltk/itk
+	dev-tcltk/tix
 	media-libs/ftgl
 	virtual/glu
 	virtual/opengl
 	x11-libs/libXmu
-	>=dev-lang/tcl-8.4
-	>=dev-lang/tk-8.4
-	>=dev-tcltk/itcl-3.2
-	>=dev-tcltk/itk-3.2
-	>=dev-tcltk/tix-8.4.2
 	gl2ps? ( x11-libs/gl2ps )
+	java? ( >=virtual/jdk-0 )
 "
 RDEPEND=${DEPEND}
 
 S=${WORKDIR}/ros
 
-RESTRICT="bindist mirror"
 # http://bugs.gentoo.org/show_bug.cgi?id=352435
 # http://www.gentoo.org/foundation/en/minutes/2011/20110220_trustees.meeting_log.txt
+RESTRICT="bindist mirror"
 
 CHECKREQS_MEMORY="256M"
 CHECKREQS_DISK_BUILD="3584M"
@@ -58,10 +60,6 @@ pkg_setup() {
 src_prepare() {
 	java-pkg-opt-2_src_prepare
 
-	sed \
-		-e '/AM_C_PROTOTYPES/d' \
-		-i configure.* || die
-
 	# Substitute with our ready-made env.sh script
 	cp -f "${FILESDIR}"/env.sh.template env.sh || die
 
@@ -81,12 +79,18 @@ src_prepare() {
 		-e "s:VAR_TCL:tcl${tcl_version}:g" env.sh \
 			|| die "itk, itcl, tix, tk and tcl version tweaking failed!"
 
-	epatch "${FILESDIR}"/${P}-ftgl.patch
-	epatch "${FILESDIR}"/${P}-fixed-DESTDIR.patch
+	epatch \
+		"${FILESDIR}"/${P}-ftgl.patch \
+		"${FILESDIR}"/${P}-fixed-DESTDIR.patch \
+		"${FILESDIR}"/${P}-tcl8.6.patch
 
 	source env.sh
 
 	append-cxxflags "-fpermissive"
+
+	sed -e "/^AM_C_PROTOTYPES/d" \
+		-e "s/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/" \
+		-i configure.* || die
 
 	eautoreconf
 }

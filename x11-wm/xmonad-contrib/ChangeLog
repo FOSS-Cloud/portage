@@ -1,6 +1,29 @@
 # ChangeLog for x11-wm/xmonad-contrib
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/xmonad-contrib/ChangeLog,v 1.21 2013/01/02 00:01:47 slyfox Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/xmonad-contrib/ChangeLog,v 1.26 2014/02/21 19:29:34 slyfox Exp $
+
+  21 Feb 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/xmonad-contrib-0.11.2-ghc-7.8.patch, xmonad-contrib-0.11.2.ebuild:
+  Add ghc-7.8 support.
+
+  29 Jul 2013; Agostino Sarubbo <ago@gentoo.org> xmonad-contrib-0.11.2.ebuild:
+  Stable for x86, wrt bug #478288
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> xmonad-contrib-0.11.2.ebuild:
+  Stable for amd64, wrt bug #478288
+
+*xmonad-contrib-0.11.2 (27 Jul 2013)
+
+  27 Jul 2013; Sergei Trofimovich <slyfox@gentoo.org>
+  +xmonad-contrib-0.11.2.ebuild:
+  Version bump (fixes CVE-2013-1436).
+
+*xmonad-contrib-0.11.1 (04 Apr 2013)
+
+  04 Apr 2013; Mark Wright <gienah@gentoo.org> +xmonad-contrib-0.11.1.ebuild,
+  metadata.xml:
+  Thanks to eternalfuzzy1 for reporting, fix Bug 464496 - x11-wm/xmonad-
+  contrib-0.11.1 version bump (fixes compile error with latest dev-haskell/x11).
 
 *xmonad-contrib-0.11 (02 Jan 2013)
 

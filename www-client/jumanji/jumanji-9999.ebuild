@@ -1,40 +1,50 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/jumanji/jumanji-9999.ebuild,v 1.7 2012/12/18 11:23:26 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/jumanji/jumanji-9999.ebuild,v 1.8 2013/06/22 12:20:11 xmw Exp $
 
-EAPI=2
+EAPI=5
 
-inherit flag-o-matic git-2 toolchain-funcs
+inherit eutils savedconfig git-2 toolchain-funcs
 
-DESCRIPTION="webkit based browser"
+DESCRIPTION="highly customizable and functional web browser with minimalistic and space saving interface"
 HOMEPAGE="http://pwmt.org/projects/jumanji"
-SRC_URI=""
 EGIT_REPO_URI="git://pwmt.org/jumanji.git"
+EGIT_BRANCH=develop
 
 LICENSE="ZLIB"
-SLOT="0"
+SLOT="develop"
 KEYWORDS=""
-IUSE=""
+IUSE="+deprecated"
 
-RDEPEND=">=dev-libs/glib-2.22.4:2
-	>=dev-libs/libunique-1.1.6:1
-	>=net-libs/libsoup-2.30.2:2.4
-	>=net-libs/webkit-gtk-1.2.1:2
-	>=x11-libs/gtk+-2.18.6:2"
+RDEPEND="dev-db/sqlite:3
+	dev-libs/glib:2
+	!deprecated? (
+		dev-libs/girara:3
+		net-libs/webkit-gtk:3
+		x11-libs/gtk+:3 )
+	deprecated? (
+		dev-libs/girara:2
+		net-libs/webkit-gtk:2
+		x11-libs/gtk+:2 )
+	!${CATEGORY}/${PN}:0"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_prepare() {
-	# respect CFLAGS
-	sed -i -e '/${CC}/s:${CFLAGS}:\0 ${INCS}:' Makefile || die
+	use deprecated && \
+		epatch "${FILESDIR}"/${PN}-0.0.0_p20130103-gtk2.patch
+
+	restore_config config.h
 }
 
 src_compile() {
-	tc-export CC
-	append-cflags -std=c99
-	emake CFLAGS="${CFLAGS}" DFLAGS="" SFLAGS="" all || die
+	emake CC="$(tc-getCC)" SFLAGS="" VERBOSE=1 || \
+		die "emake failed$(usex savedconfig ",please check the configfile" "")"
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
+	default
+	make_desktop_entry ${PN}
+
+	save_config config.h
 }

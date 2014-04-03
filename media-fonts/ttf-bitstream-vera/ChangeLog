@@ -1,6 +1,14 @@
 # ChangeLog for media-fonts/ttf-bitstream-vera
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-fonts/ttf-bitstream-vera/ChangeLog,v 1.25 2011/02/06 21:22:48 leio Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-fonts/ttf-bitstream-vera/ChangeLog,v 1.27 2014/01/18 12:09:10 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org>
+  ttf-bitstream-vera-1.10-r3.ebuild:
+  Add arm64 love.
+
+  21 Oct 2013; Fabian Groffen <grobian@gentoo.org>
+  ttf-bitstream-vera-1.10-r3.ebuild:
+  Marked ~x64-macos, bug #486818
 
   06 Feb 2011; Mart Raudsepp <leio@gentoo.org>
   ttf-bitstream-vera-1.10-r3.ebuild:

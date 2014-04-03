@@ -1,6 +1,82 @@
 # ChangeLog for sys-fs/fuse
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse/ChangeLog,v 1.174 2013/02/17 20:27:32 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse/ChangeLog,v 1.197 2014/01/18 19:54:53 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.3.ebuild:
+  Stable for alpha, wrt bug #489102
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.3.ebuild:
+  Stable for ia64, wrt bug #489102
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.3.ebuild:
+  Stable for sparc, wrt bug #489102
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.3.ebuild:
+  Stable for ppc64, wrt bug #489102
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.3.ebuild:
+  Stable for ppc, wrt bug #489102
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> fuse-2.9.3.ebuild:
+  x86 stable, bug #489102
+
+  29 Nov 2013; Markus Meier <maekke@gentoo.org> fuse-2.9.3.ebuild:
+  arm stable, bug #489102
+
+  23 Nov 2013; Chema Alonso <nimiux@gentoo.org> fuse-2.9.3.ebuild:
+  Stable for amd64 wrt bug #489102
+
+  25 Oct 2013; Jeroen Roovers <jer@gentoo.org> fuse-2.9.3.ebuild:
+  Stable for HPPA (bug #489102).
+
+  19 Oct 2013; Mike Frysinger <vapier@gentoo.org> fuse-2.9.3.ebuild:
+  Add m68k/mips/s390/sh love.
+
+  21 Jul 2013; Tim Harder <radhermit@gentoo.org> -fuse-2.8.6.ebuild,
+  -fuse-2.8.7.ebuild, -fuse-2.9.0.ebuild, -fuse-2.9.1.ebuild,
+  -fuse-2.9.1-r1.ebuild:
+  Remove old.
+
+*fuse-2.9.3 (21 Jul 2013)
+
+  21 Jul 2013; Tim Harder <radhermit@gentoo.org> +fuse-2.9.3.ebuild:
+  Version bump, add examples use flag.
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  15 Mar 2013; Jeroen Roovers <jer@gentoo.org> fuse-2.9.2.ebuild:
+  Stable for HPPA (bug #460564).
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.2.ebuild:
+  Stable for sparc, wrt bug #460564
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.2.ebuild:
+  Stable for ia64, wrt bug #460564
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.2.ebuild:
+  Stable for alpha, wrt bug #460564
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.2.ebuild:
+  Stable for ppc, wrt bug #460564
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.2.ebuild:
+  Stable for ppc64, wrt bug #460564
+
+  08 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.2.ebuild:
+  Stable for arm, wrt bug #460564
+
+  07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.2.ebuild:
+  Stable for x86, wrt bug #460564
+
+  07 Mar 2013; Agostino Sarubbo <ago@gentoo.org> fuse-2.9.2.ebuild:
+  Stable for amd64, wrt bug #460564
+
+  06 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> fuse-2.9.2.ebuild:
+  Since oldest util-linux in tree is 2.19.1 and --fake --no-canonicalize for
+  mount and umount has worked since 2.18 assume it's present to avoid sandbox
+  violation with mtab writability wrt #438250 by Attila Tóth and Canek Peláez
+  Valdés
 
   17 Feb 2013; Zac Medico <zmedico@gentoo.org> fuse-2.8.6.ebuild,
   fuse-2.8.7.ebuild, fuse-2.9.0.ebuild, fuse-2.9.1-r1.ebuild, fuse-2.9.1.ebuild,

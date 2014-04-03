@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/colord/colord-0.1.28.ebuild,v 1.1 2013/01/22 07:23:43 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/colord/colord-0.1.28.ebuild,v 1.10 2014/03/29 22:04:07 tetromino Exp $
 
 EAPI="5"
 VALA_MIN_API_VERSION="0.18"
@@ -14,9 +14,11 @@ SRC_URI="http://www.freedesktop.org/software/colord/releases/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0/1" # subslot = libcolord soname version
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm ia64 ~mips ppc ppc64 ~sparc x86 ~x86-fbsd"
 IUSE="doc examples extra-print-profiles +gusb +introspection systemd +udev vala"
-REQUIRED_USE="vala? ( introspection )"
+REQUIRED_USE="
+	gusb? ( udev )
+	vala? ( introspection )"
 
 COMMON_DEPEND="
 	dev-db/sqlite:3=
@@ -25,7 +27,7 @@ COMMON_DEPEND="
 	>=sys-auth/polkit-0.103
 	gusb? ( >=dev-libs/libgusb-0.1.1 )
 	introspection? ( >=dev-libs/gobject-introspection-0.9.8 )
-	systemd? ( >=sys-apps/systemd-44 )
+	systemd? ( >=sys-apps/systemd-44:0= )
 	udev? ( virtual/udev:=[gudev] )"
 RDEPEND="${COMMON_DEPEND}
 	!media-gfx/shared-color-profiles"

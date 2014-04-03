@@ -1,6 +1,23 @@
 # ChangeLog for sys-boot/os-prober
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/os-prober/ChangeLog,v 1.16 2013/01/05 22:52:56 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/os-prober/ChangeLog,v 1.20 2013/07/27 06:19:46 jcallen Exp $
+
+  27 Jul 2013; Jonathan Callen <jcallen@gentoo.org> metadata.xml:
+  Update metadata.xml to reflect new email address
+
+*os-prober-1.62 (18 Jul 2013)
+
+  18 Jul 2013;  <maks@gentoo.org> +os-prober-1.62.ebuild:
+  Bump to 1.62, adding support for EFI. Thanks to Ben Kohler, bug #477312.
+
+*os-prober-1.57-r1 (07 Apr 2013)
+
+  07 Apr 2013; Jonathan Callen <abcd@gentoo.org> +os-prober-1.57-r1.ebuild:
+  Replace calls to grub-mount with grub2-mount, as we rename it in Gentoo (to
+  allow parallel installation of grub:0)
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
 *os-prober-1.57 (05 Jan 2013)
 

@@ -1,6 +1,36 @@
 # ChangeLog for media-libs/opengtl
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/opengtl/ChangeLog,v 1.15 2013/02/19 18:05:42 chithanh Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/opengtl/ChangeLog,v 1.22 2014/01/11 09:14:50 mgorny Exp $
+
+  11 Jan 2014; Michał Górny <mgorny@gentoo.org> opengtl-0.9.18.ebuild:
+  Depend on llvm < 3.4, since 3.4 is not supported.
+
+  20 Aug 2013; Chris Reffett <creffett@gentoo.org> opengtl-0.9.18.ebuild:
+  Add conditional patch for building with llvm-3.3, bug 474818
+
+  20 Apr 2013; Johannes Huber <johu@gentoo.org>
+  -files/opengtl-0.9.17-gcc-4.7.patch, -files/opengtl-0.9.17-ldflags.patch,
+  -opengtl-0.9.17.ebuild:
+  Remove old.
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> opengtl-0.9.18.ebuild:
+  Stable for x86, wrt bug #465994
+
+  15 Apr 2013; Agostino Sarubbo <ago@gentoo.org> opengtl-0.9.18.ebuild:
+  Stable for amd64, wrt bug #465994
+
+  15 Apr 2013; Michael Palimaka <kensington@gentoo.org>
+  +files/opengtl-0.9.18-memcpy.patch, opengtl-0.9.18.ebuild:
+  Fix build with libpng-1.6. Add subslot dependency on libpng.
+
+*opengtl-0.9.18 (14 Mar 2013)
+
+  14 Mar 2013; Michael Palimaka <kensington@gentoo.org>
+  +files/opengtl-0.9.18-underlinking.patch, +opengtl-0.9.18.ebuild,
+  -opengtl-0.9.16.ebuild, opengtl-0.9.17.ebuild:
+  Version bump wrt bug #460930, fixing bug #453420. Fix underlinking wrt bug
+  #450160. Don't strip RPATH created after linking since LLVM libraries are not
+  in the standard search path. Restrict tests wrt bug #377995. Remove old.
 
   19 Feb 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
   opengtl-0.9.17.ebuild:

@@ -1,22 +1,22 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/kscope/kscope-1.9.4-r1.ebuild,v 1.2 2011/08/07 18:36:32 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/kscope/kscope-1.9.4-r1.ebuild,v 1.5 2013/04/17 09:03:44 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 
 inherit eutils multilib qt4-r2
 
-DESCRIPTION="Source Editing Environment for KDE"
+DESCRIPTION="Source Editing Environment based on Qt"
 HOMEPAGE="http://kscope.sourceforge.net/"
 SRC_URI="mirror://sourceforge/kscope/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ~ppc ~sparc x86"
 IUSE=""
 
-RDEPEND="x11-libs/qt-core:4
-	x11-libs/qt-gui:4
+RDEPEND="dev-qt/qtcore:4
+	dev-qt/qtgui:4
 	x11-libs/qscintilla"
 DEPEND="${RDEPEND}"
 

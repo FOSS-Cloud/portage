@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/baselayout-prefix/baselayout-prefix-1.12.14-r1.ebuild,v 1.2 2012/08/11 10:19:18 heroxbd Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/baselayout-prefix/baselayout-prefix-1.12.14-r1.ebuild,v 1.4 2014/01/08 06:16:00 vapier Exp $
 
 EAPI=3
 
-inherit eutils toolchain-funcs multilib prefix flag-o-matic
+inherit eutils toolchain-funcs multilib prefix flag-o-matic user
 
 # last part in e.g. 1.12.14.1704
 PVER=1709
@@ -40,7 +40,7 @@ src_prepare() {
 	cd "${S}"
 	eprefixify \
 		etc/env.d/00basic \
-		etc/profile \
+		etc/profile
 
 	# add the host OS MANPATH
 	echo 'MANPATH="/usr/share/man"' > etc/env.d/99basic || die "can't make file"

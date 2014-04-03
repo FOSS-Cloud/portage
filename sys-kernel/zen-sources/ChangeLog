@@ -1,6 +1,49 @@
 # ChangeLog for sys-kernel/zen-sources
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/zen-sources/ChangeLog,v 1.58 2012/12/15 10:55:44 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/zen-sources/ChangeLog,v 1.66 2014/02/18 21:17:50 hwoarang Exp $
+
+*zen-sources-3.13.9999 (18 Feb 2014)
+
+  18 Feb 2014; Markos Chandras <hwoarang@gentoo.org>
+  +zen-sources-3.13.9999.ebuild, metadata.xml:
+  Version bump. Thanks to Daniel Weiss who will proxy-maintain it from now on
+
+*zen-sources-3.12.9999 (15 Nov 2013)
+
+  15 Nov 2013; Markos Chandras <hwoarang@gentoo.org>
+  +zen-sources-3.12.9999.ebuild:
+  Version bump
+
+*zen-sources-3.11.9999 (21 Sep 2013)
+
+  21 Sep 2013; Markos Chandras <hwoarang@gentoo.org>
+  +zen-sources-3.11.9999.ebuild:
+  Version bump
+
+*zen-sources-3.10.9999 (12 Jul 2013)
+
+  12 Jul 2013; Markos Chandras <hwoarang@gentoo.org>
+  +zen-sources-3.10.9999.ebuild, -zen-sources-3.6.9999.ebuild,
+  -zen-sources-3.7.9999.ebuild:
+  Version bump. Remove old ebuilds. Bug #475898
+
+  09 Jun 2013; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Add upstream CPE tag (security info) from ChromiumOS.
+
+  21 May 2013; Alex Alexander <wired@gentoo.org> metadata.xml:
+  not maintaining this anymore, removed myself from metadata.xml
+
+*zen-sources-3.9.9999 (18 May 2013)
+
+  18 May 2013; Markos Chandras <hwoarang@gentoo.org>
+  +zen-sources-3.9.9999.ebuild:
+  Version bump
+
+*zen-sources-3.8.9999 (09 Mar 2013)
+
+  09 Mar 2013; Markos Chandras <hwoarang@gentoo.org>
+  +zen-sources-3.8.9999.ebuild:
+  Version bump. Bug #460898
 
   15 Dec 2012; Markos Chandras <hwoarang@gentoo.org>
   zen-sources-3.6.9999.ebuild, zen-sources-3.7.9999.ebuild:

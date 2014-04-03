@@ -1,6 +1,54 @@
 # ChangeLog for net-misc/dahdi
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi/ChangeLog,v 1.48 2013/02/21 10:39:33 chainsaw Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi/ChangeLog,v 1.59 2014/02/22 08:07:40 ago Exp $
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> dahdi-2.8.0.1.ebuild:
+  Stable for x86, wrt bug #499128
+
+*dahdi-2.9.0 (14 Feb 2014)
+
+  14 Feb 2014; Tony Vroon <chainsaw@gentoo.org> +dahdi-2.9.0.ebuild:
+  Updated firmware package for TE133 & TE134, introduces support for TE131 &
+  TE132. Introduces new span assignment method that can be activated with
+  auto_assign_spans=0. Downstream patchset unchanged.
+
+  28 Jan 2014; Chema Alonso <nimiux@gentoo.org> dahdi-2.8.0.1.ebuild:
+  Stable for amd64 wrt bug #499128
+
+*dahdi-2.8.0.1 (04 Jan 2014)
+
+  04 Jan 2014; Tony Vroon <chainsaw@gentoo.org> +dahdi-2.8.0.1.ebuild:
+  Version bump, as requested by Oliver Jaksch in bug #494436. Initial rediff by
+  Oliver Jaksch, with some finishing touches by Jaco Kroon.
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> dahdi-2.7.0.1.ebuild:
+  Stable for x86, wrt bug #493206
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> dahdi-2.7.0.1.ebuild:
+  amd64 stable, bug #493206
+
+  27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due voip herd removal:
+  http://article.gmane.org/gmane.linux.gentoo.devel/88434
+
+*dahdi-2.7.0.1 (23 Sep 2013)
+
+  23 Sep 2013; Tony Vroon <chainsaw@gentoo.org> +dahdi-2.7.0.1.ebuild:
+  Version bump.
+
+  08 May 2013; Tony Vroon <chainsaw@gentoo.org> -dahdi-2.5.0.2-r4.ebuild,
+  -dahdi-2.6.1.ebuild, -dahdi-2.6.1-r1.ebuild, -dahdi-2.6.1-r2.ebuild,
+  -dahdi-2.6.1-r3.ebuild:
+  Remove ebuilds that are no longer usable, for bug #469024.
+
+  08 May 2013; Vicente Olivert Riera <vincent@gentoo.org> dahdi-2.6.2.ebuild:
+  amd64 x86 stable, bug #469024
+
+*dahdi-2.6.2 (18 Mar 2013)
+
+  18 Mar 2013; Tony Vroon <chainsaw@gentoo.org> +dahdi-2.6.2.ebuild:
+  Bugfix release; two of the downstream fixes have made it across. Patch
+  research & forward porting by Oliver Jaksch. Closes bug #461780.
 
 *dahdi-2.6.1-r3 (21 Feb 2013)
 

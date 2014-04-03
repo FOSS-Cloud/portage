@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/flac/flac-1.2.1-r4.ebuild,v 1.3 2012/05/15 13:39:06 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/flac/flac-1.2.1-r4.ebuild,v 1.14 2014/03/19 13:46:49 ago Exp $
 
 EAPI=2
 inherit autotools eutils
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz
 
 LICENSE="BSD FDL-1.2 GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="3dnow altivec +cxx debug ogg sse static-libs"
 
 RDEPEND="ogg? ( >=media-libs/libogg-1.1.3 )"
@@ -32,6 +32,9 @@ src_prepare() {
 		"${FILESDIR}"/${P}-ogg-m4.patch
 
 	cp "${WORKDIR}"/*.m4 m4 || die
+
+	# bug 466990
+	sed -i "s/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/" configure.in || die
 
 	AT_M4DIR="m4" eautoreconf
 }
@@ -53,7 +56,7 @@ src_configure() {
 
 src_test() {
 	if [ $UID != 0 ]; then
-		emake check || die
+		emake -j1 check || die
 	else
 		ewarn "Tests will fail if ran as root, skipping."
 	fi

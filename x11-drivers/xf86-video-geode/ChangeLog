@@ -1,6 +1,35 @@
 # ChangeLog for x11-drivers/xf86-video-geode
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-geode/ChangeLog,v 1.20 2013/01/30 18:08:45 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-geode/ChangeLog,v 1.25 2014/02/24 20:55:01 chithanh Exp $
+
+  24 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/xf86-video-geode-2.11.15-xf86Modes-include.patch,
+  +files/xf86-video-geode-2.11.15-xf86Modes-include2.patch,
+  xf86-video-geode-2.11.14-r1.ebuild, xf86-video-geode-2.11.15.ebuild:
+  Fix building against xorg-server-1.15
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-geode-2.11.14-r1.ebuild:
+  Stable for x86, wrt bug #487946
+
+*xf86-video-geode-2.11.15 (13 Oct 2013)
+
+  13 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +xf86-video-geode-2.11.15.ebuild:
+  Version bump.
+
+*xf86-video-geode-2.11.14-r1 (03 Jul 2013)
+
+  03 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/xf86-video-geode-2.11.14-remove-mibstore_h.patch,
+  +xf86-video-geode-2.11.14-r1.ebuild:
+  Add patch to fix building against xorg-server-1.14, bug #461536.
+
+  04 Mar 2013; Mart Raudsepp <leio@gentoo.org>
+  -xf86-video-geode-2.11.12.ebuild, -xf86-video-geode-2.11.13.ebuild,
+  xf86-video-geode-2.11.14.ebuild, metadata.xml:
+  Remove old. Specify in descriptions the driver is for GX2 and LX, not GX as
+  in GX1
 
   30 Jan 2013; Agostino Sarubbo <ago@gentoo.org>
   xf86-video-geode-2.11.14.ebuild:

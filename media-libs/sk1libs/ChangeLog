@@ -1,6 +1,36 @@
 # ChangeLog for media-libs/sk1libs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/sk1libs/ChangeLog,v 1.18 2012/09/11 03:02:14 ottxor Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/sk1libs/ChangeLog,v 1.26 2014/03/28 03:15:20 jer Exp $
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> sk1libs-0.9.1-r3.ebuild:
+  Stable for HPPA (bug #504214).
+
+  25 Dec 2013; Markus Meier <maekke@gentoo.org> sk1libs-0.9.1-r3.ebuild:
+  add ~arm, bug #488592
+
+  10 Dec 2013; Lars Wendler <polynomial-c@gentoo.org> sk1libs-0.9.1-r3.ebuild:
+  Fixed compilation with >=media-libs/freetype-2.5.1 (bug #493588).
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> sk1libs-0.9.1-r2.ebuild,
+  sk1libs-0.9.1-r3.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  07 Aug 2013; Michał Górny <mgorny@gentoo.org> sk1libs-0.9.1-r2.ebuild:
+  Drop removed Python implementations from PYTHON_COMPAT.
+
+  06 May 2013; Justin Lecher <jlec@gentoo.org> sk1libs-0.9.1-r3.ebuild:
+  Add more PYTHON_USEDEP, thanks Nikoli
+
+*sk1libs-0.9.1-r3 (24 Apr 2013)
+
+  24 Apr 2013; Justin Lecher <jlec@gentoo.org> +sk1libs-0.9.1-r3.ebuild:
+  Fix problems with double prefixes reported by Johan Hattne
+
+*sk1libs-0.9.1-r2 (18 Apr 2013)
+
+  18 Apr 2013; Justin Lecher <jlec@gentoo.org> +sk1libs-0.9.1-r2.ebuild,
+  metadata.xml:
+  Bump to distutils-r1.eclass, #466278; thanks Nikoli for a first patch
 
   11 Sep 2012; Christoph Junghans <ottxor@gentoo.org> sk1libs-0.9.1-r1.ebuild:
   added ~x86-linux

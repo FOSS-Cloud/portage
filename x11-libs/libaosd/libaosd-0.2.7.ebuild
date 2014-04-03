@@ -1,17 +1,17 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libaosd/libaosd-0.2.7.ebuild,v 1.2 2013/01/14 08:25:14 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libaosd/libaosd-0.2.7.ebuild,v 1.6 2014/02/27 12:05:57 ssuominen Exp $
 
-EAPI=3
+EAPI=5
 inherit autotools-utils
 
 DESCRIPTION="An advanced on screen display (OSD) library"
-HOMEPAGE="http://www.atheme.org/project/libaosd"
-SRC_URI="http://distfiles.atheme.org/${P}.tgz"
+HOMEPAGE="https://github.com/atheme/libaosd"
+SRC_URI="https://github.com/atheme/${PN}/archive/0.2.7.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="pango +tools xcomposite"
 
 RDEPEND="x11-libs/cairo
@@ -25,8 +25,12 @@ DEPEND="${RDEPEND}"
 AUTOTOOLS_IN_SOURCE_BUILD=1
 DOCS=( Changelog )
 
+src_prepare() {
+	AT_M4DIR=m4 eautoreconf
+}
+
 src_configure() {
-	myeconfargs=(
+	local myeconfargs=(
 		$(use_enable tools glib)
 		$(use_enable pango pangocairo)
 		$(use_enable xcomposite)

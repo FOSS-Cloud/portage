@@ -1,6 +1,78 @@
 # ChangeLog for media-gfx/shotwell
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/shotwell/ChangeLog,v 1.50 2013/02/05 07:35:51 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/shotwell/ChangeLog,v 1.68 2014/02/21 14:24:55 jlec Exp $
+
+  21 Feb 2014; Justin Lecher <jlec@gentoo.org> -shotwell-0.13.1-r2.ebuild,
+  -shotwell-0.14.0-r1.ebuild, -shotwell-0.14.1.ebuild, -shotwell-0.15.0.ebuild:
+  Drop old
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> shotwell-0.15.1.ebuild:
+  Stable for x86, wrt bug #500720
+
+  09 Feb 2014; Pacho Ramos <pacho@gentoo.org> shotwell-0.15.1.ebuild:
+  amd64 stable, bug #500720
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> shotwell-0.14.1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> shotwell-0.14.1.ebuild:
+  amd64 stable, bug #478252
+
+*shotwell-0.15.1 (20 Nov 2013)
+
+  20 Nov 2013; Justin Lecher <jlec@gentoo.org> shotwell-0.15.0.ebuild,
+  +shotwell-0.15.1.ebuild:
+  Version BUmp and fix deps, #491732; thanks Mark R. Pariente for the patch
+
+  26 Oct 2013; Justin Lecher <jlec@gentoo.org> shotwell-0.15.0.ebuild:
+  Update deps, thanks Mao PU for the patch; #489464
+
+*shotwell-0.15.0 (08 Oct 2013)
+
+  08 Oct 2013; Justin Lecher <jlec@gentoo.org> +shotwell-0.15.0.ebuild:
+  Version Bump, thanks Mark R. Pariente for the patch
+
+  04 Oct 2013; Alexandre Rostovtsev <tetromino@gentoo.org>
+  shotwell-0.13.1-r2.ebuild, shotwell-0.14.0-r1.ebuild, shotwell-0.14.1.ebuild:
+  Fails to build with >=vala-0.22
+
+  01 Sep 2013; Pacho Ramos <pacho@gentoo.org> shotwell-0.14.1.ebuild:
+  Add missing subslot dep
+
+  01 Aug 2013; Justin Lecher <jlec@gentoo.org> shotwell-0.13.1-r2.ebuild,
+  shotwell-0.14.0-r1.ebuild:
+  Use libraw subslotting for all versions, #479328
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> shotwell-0.14.1.ebuild:
+  Fix subslotting for libraw
+
+  26 Jun 2013; Justin Lecher <jlec@gentoo.org> shotwell-0.14.1.ebuild,
+  +files/shotwell-0.14.1-libraw.patch:
+  Backport compatibility fix for libraw-0.15, #474708
+
+  08 May 2013; Justin Lecher <jlec@gentoo.org> shotwell-0.13.1-r2.ebuild,
+  shotwell-0.14.0-r1.ebuild, shotwell-0.14.1.ebuild:
+  Add missing dep on gnome-base/dconf to avoid crashing of shotwell, #468688
+
+*shotwell-0.14.1 (29 Apr 2013)
+
+  29 Apr 2013; Justin Lecher <jlec@gentoo.org> +shotwell-0.14.1.ebuild:
+  Version BUmp, #467854
+
+  07 Apr 2013; Justin Lecher <jlec@gentoo.org> -shotwell-0.12.3.ebuild,
+  -shotwell-0.13.1.ebuild, -shotwell-0.13.1-r1.ebuild:
+  Drop old, fixes #463720
+
+*shotwell-0.14.0-r1 (21 Mar 2013)
+
+  21 Mar 2013; Justin Lecher <jlec@gentoo.org> -shotwell-0.14.0.ebuild,
+  +shotwell-0.14.0-r1.ebuild:
+  Install in /usr not in /usr/local, #462556
+
+*shotwell-0.14.0 (19 Mar 2013)
+
+  19 Mar 2013; Justin Lecher <jlec@gentoo.org> +shotwell-0.14.0.ebuild:
+  Version Bump
 
   05 Feb 2013; Justin Lecher <jlec@gentoo.org> shotwell-0.13.1-r1.ebuild,
   shotwell-0.13.1-r2.ebuild:

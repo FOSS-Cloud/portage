@@ -1,6 +1,114 @@
 # ChangeLog for x11-libs/qwt
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/qwt/ChangeLog,v 1.104 2013/02/22 16:32:52 bicatali Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/qwt/ChangeLog,v 1.129 2014/01/07 07:04:18 jlec Exp $
+
+  07 Jan 2014; Justin Lecher <jlec@gentoo.org> +qwt-6.0.0.ebuild:
+  Readd old version to fix broken deps, #497326
+
+  06 Jan 2014; Justin Lecher <jlec@gentoo.org> -qwt-5.2.1.ebuild,
+  -qwt-6.0.0.ebuild:
+  Dorp old
+
+  06 Jan 2014; Agostino Sarubbo <ago@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.1.0.ebuild:
+  Stable for sparc, wrt bug #491138
+
+  02 Jan 2014; Justin Lecher <jlec@gentoo.org> qwt-5.2.1.ebuild,
+  -qwt-5.2.3.ebuild, -qwt-5.2.3-r1.ebuild, -qwt-6.0.2.ebuild,
+  -qwt-6.0.2-r1.ebuild, -qwt-6.0.2-r2.ebuild, qwt-6.1.0.ebuild:
+  Add blocker to avoid file collision, #496714
+
+  29 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.1.0.ebuild:
+  Stable for ppc64, wrt bug #491138
+
+  29 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.1.0.ebuild:
+  Stable for ppc, wrt bug #491138
+
+  29 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.1.0.ebuild:
+  Stable for x86, wrt bug #491138
+
+  29 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.1.0.ebuild:
+  Stable for x86, wrt bug #491138
+
+  29 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.1.0.ebuild:
+  Stable for amd64, wrt bug #491138
+
+  29 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.1.0.ebuild:
+  Stable for amd64, wrt bug #491138
+
+  29 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.1.0.ebuild:
+  Stable for amd64, wrt bug #491138
+
+  29 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.1.0.ebuild:
+  Stable for x86, wrt bug #491138
+
+  09 Dec 2013; Justin Lecher <jlec@gentoo.org> qwt-5.2.1.ebuild,
+  qwt-5.2.3.ebuild, qwt-5.2.3-r1.ebuild, qwt-5.2.3-r2.ebuild, qwt-6.0.0.ebuild,
+  qwt-6.0.2.ebuild, qwt-6.0.2-r1.ebuild, qwt-6.0.2-r2.ebuild, qwt-6.1.0.ebuild:
+  Remove broken or too generic man pages, #356369
+
+  19 Nov 2013; Jeroen Roovers <jer@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.1.0.ebuild:
+  Stable for HPPA (bug #491138).
+
+  13 Nov 2013; Jeroen Roovers <jer@gentoo.org> qwt-5.2.3-r2.ebuild:
+  Marked ~hppa (bug #490926).
+
+  10 Nov 2013; Justin Lecher <jlec@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.0.2-r1.ebuild:
+  Add missing dep on dev-qt/designer, #490926
+
+  10 Jul 2013; Patrick Lauer <patrick@gentoo.org> qwt-6.1.0.ebuild:
+  Fixing qtgui/designer deps for qt-4.8.5
+
+*qwt-6.1.0 (04 Jul 2013)
+
+  04 Jul 2013; Justin Lecher <jlec@gentoo.org> +qwt-6.1.0.ebuild:
+  Version Bump
+
+  05 Jun 2013; Rick Farina <zerochaos@gentoo.org> qwt-5.2.1.ebuild,
+  qwt-5.2.3-r1.ebuild, qwt-5.2.3-r2.ebuild, qwt-5.2.3.ebuild:
+  adding ~arm keyword
+
+  12 Mar 2013; Justin Lecher <jlec@gentoo.org> qwt-6.0.2-r2.ebuild:
+  USe more multibuild.eclass functions
+
+  06 Mar 2013; Justin Lecher <jlec@gentoo.org> qwt-5.2.3-r2.ebuild,
+  qwt-6.0.2-r2.ebuild:
+  Fix collision of example installation
+
+*qwt-6.0.2-r2 (06 Mar 2013)
+*qwt-5.2.3-r2 (06 Mar 2013)
+
+  06 Mar 2013; Justin Lecher <jlec@gentoo.org> +qwt-5.2.3-r2.ebuild,
+  +qwt-6.0.2-r2.ebuild:
+  Enhance building static-libs by using multibuild.eclass
+
+*qwt-6.0.2-r1 (05 Mar 2013)
+*qwt-5.2.3-r1 (05 Mar 2013)
+
+  05 Mar 2013; Justin Lecher <jlec@gentoo.org> +qwt-5.2.3-r1.ebuild,
+  +files/qwt-5.2.3-install_qt.patch, +qwt-6.0.2-r1.ebuild:
+  Fix installation location for designer and plugin stuff, #460256; add
+  static-libs support, #260324
+
+*qwt-5.2.3 (04 Mar 2013)
+
+  04 Mar 2013; Justin Lecher <jlec@gentoo.org> +qwt-5.2.3.ebuild,
+  -qwt-6.0.1.ebuild, -qwt-6.0.1-r1.ebuild, metadata.xml:
+  Version Bump, #460200; build static libs, #260324
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> qwt-5.2.1.ebuild,
+  qwt-6.0.0.ebuild, qwt-6.0.1-r1.ebuild, qwt-6.0.1.ebuild, qwt-6.0.2.ebuild:
+  Move Qt dependencies to the new category
 
   22 Feb 2013; Sébastien Fabbro <bicatali@gentoo.org> qwt-6.0.2.ebuild:
   Keyword amd64-linux and x86-linux

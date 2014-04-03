@@ -1,6 +1,116 @@
 # ChangeLog for dev-python/requests
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/requests/ChangeLog,v 1.32 2013/01/11 18:13:15 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/requests/ChangeLog,v 1.56 2014/04/02 21:11:55 radhermit Exp $
+
+  02 Apr 2014; Tim Harder <radhermit@gentoo.org> requests-2.2.1.ebuild:
+  Add python3_4 support.
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> requests-1.2.2.ebuild,
+  requests-1.2.3.ebuild, requests-2.0.0.ebuild, requests-2.0.1.ebuild,
+  requests-2.1.0.ebuild, requests-2.2.0.ebuild, requests-2.2.1.ebuild:
+  Add support for the new PyPy slotting.
+
+  06 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> requests-2.2.1.ebuild:
+  Keyword amd64-linux and x86-linux
+
+*requests-2.2.1 (23 Jan 2014)
+
+  23 Jan 2014; Tim Harder <radhermit@gentoo.org> +requests-2.2.1.ebuild:
+  Version bump.
+
+*requests-2.2.0 (23 Jan 2014)
+
+  23 Jan 2014; Tim Harder <radhermit@gentoo.org> +requests-2.2.0.ebuild,
+  +files/requests-2.2.0-system-chardet.patch:
+  Version bump. Drop python3.2 support since it was dropped upstream and tests
+  fail.
+
+*requests-2.1.0 (10 Dec 2013)
+
+  10 Dec 2013; Patrick Lauer <patrick@gentoo.org> +requests-2.1.0.ebuild:
+  Bump
+
+  02 Nov 2013; Markos Chandras <hwoarang@gentoo.org> requests-2.0.1.ebuild:
+  Add ~mips
+
+*requests-2.0.1 (26 Oct 2013)
+
+  26 Oct 2013; Dirkjan Ochtman <djc@gentoo.org> +requests-2.0.1.ebuild:
+  Version bump requests to 2.0.1 (bug 489388).
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> requests-1.2.3.ebuild:
+  Stable for x86, wrt bug #470630
+
+  29 Sep 2013; Agostino Sarubbo <ago@gentoo.org> requests-1.2.3.ebuild:
+  Stable for amd64, wrt bug #470630
+
+*requests-1.2.2 (25 Sep 2013)
+
+  25 Sep 2013; Mike Gilbert <floppym@gentoo.org> +requests-1.2.2.ebuild:
+  Restore requests-1.2.2 to satisfy the silly dependency set in python-
+  cinderclient.
+
+*requests-2.0.0 (25 Sep 2013)
+
+  25 Sep 2013; Dirkjan Ochtman <djc@gentoo.org> +requests-2.0.0.ebuild:
+  Version bump requests to 2.0.0.
+
+  25 Sep 2013; Dirkjan Ochtman <djc@gentoo.org> -requests-0.14.2.ebuild,
+  -requests-1.0.4.ebuild, -requests-1.1.0.ebuild, -requests-1.2.0.ebuild,
+  -requests-1.2.1.ebuild, -requests-1.2.2.ebuild:
+  Remove old versions.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> requests-1.0.4.ebuild,
+  requests-1.1.0.ebuild, requests-1.2.0.ebuild, requests-1.2.1.ebuild,
+  requests-1.2.2.ebuild, requests-1.2.3.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  11 Aug 2013; Jeroen Roovers <jer@gentoo.org> requests-1.2.3.ebuild:
+  Marked ~hppa too.
+
+*requests-1.2.3 (01 Jun 2013)
+
+  01 Jun 2013; Tim Harder <radhermit@gentoo.org> +requests-1.2.3.ebuild:
+  Version bump.
+
+*requests-1.2.2 (22 May 2013)
+
+  22 May 2013; Patrick Lauer <patrick@gentoo.org> +requests-1.2.2.ebuild:
+  Bump
+
+*requests-1.2.1 (21 May 2013)
+
+  21 May 2013; Tim Harder <radhermit@gentoo.org> +requests-1.2.1.ebuild,
+  +files/requests-1.2.1-urllib3-py3.patch:
+  Version bump.
+
+  16 May 2013; Markus Meier <maekke@gentoo.org> requests-1.2.0.ebuild:
+  add ~arm, bug #447650
+
+  29 Apr 2013; Ian Delaney <idella4@gentoo.org> requests-1.2.0.ebuild:
+  pypy support added
+
+*requests-1.2.0 (31 Mar 2013)
+
+  31 Mar 2013; Tim Harder <radhermit@gentoo.org> +requests-1.2.0.ebuild,
+  +files/requests-1.2.0-system-cacerts.patch,
+  +files/requests-1.2.0-system-libs.patch:
+  Version bump.
+
+  28 Mar 2013; Michał Górny <mgorny@gentoo.org> requests-0.14.2-r1.ebuild,
+  requests-1.1.0.ebuild:
+  Clean up global vars in the ebuild. Sync the -r1 backport to the fresh ebuild.
+  Fix byte-compiling being explicitly disabled by the old version (bug #463574).
+
+*requests-0.14.2-r1 (25 Mar 2013)
+
+  25 Mar 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +requests-0.14.2-r1.ebuild:
+  updating requests-0.14.2 to support distutils-r1
+
+  24 Mar 2013; Mike Gilbert <floppym@gentoo.org>
+  -files/requests-1.1.0-workaround-sandbox-bug.patch, requests-1.1.0.ebuild:
+  Remove sandbox workaround.
 
   11 Jan 2013; Tim Harder <radhermit@gentoo.org> requests-1.1.0.ebuild,
   +files/requests-1.1.0-workaround-sandbox-bug.patch:

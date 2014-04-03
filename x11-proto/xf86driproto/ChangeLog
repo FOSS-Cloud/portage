@@ -1,6 +1,20 @@
 # ChangeLog for x11-proto/xf86driproto
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-proto/xf86driproto/ChangeLog,v 1.53 2013/02/27 05:51:40 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-proto/xf86driproto/ChangeLog,v 1.57 2014/03/29 20:02:13 mattst88 Exp $
+
+  29 Mar 2014; Matt Turner <mattst88@gentoo.org> xf86driproto-2.1.1-r1.ebuild:
+  alpha stable, bug #500368.
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> xf86driproto-2.1.1-r1.ebuild:
+  Stable for HPPA (bug #500368).
+
+  27 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xf86driproto-2.1.1-r1.ebuild:
+  Stable for amd64, wrt bug #500368
+
+*xf86driproto-2.1.1-r1 (21 Sep 2013)
+
+  21 Sep 2013; Michał Górny <mgorny@gentoo.org> +xf86driproto-2.1.1-r1.ebuild:
+  Convert to multilib.
 
   27 Feb 2013; Zac Medico <zmedico@gentoo.org> xf86driproto-2.1.1.ebuild:
   Add ~arm-linux keyword.

@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/backlite/backlite-1.0.3-r1.ebuild,v 1.4 2013/01/22 17:30:36 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/backlite/backlite-1.0.3-r1.ebuild,v 1.9 2014/03/01 22:39:54 billie Exp $
 
-EAPI=4
+EAPI=5
 
 inherit qt4-r2 eutils
 
@@ -21,9 +21,10 @@ IUSE="mplayer"
 # DEPEND="media-libs/libdvdread"
 
 DEPEND=">=media-libs/libmpeg2-0.5.1
-	virtual/ffmpeg
-	x11-libs/qt-gui:4[dbus]
-	|| ( x11-libs/qt-phonon:4 media-libs/phonon )"
+	media-video/ffmpeg
+	dev-qt/qtgui:4
+	dev-qt/qtdbus:4
+	|| ( dev-qt/qtphonon:4 media-libs/phonon )"
 
 RDEPEND="${DEPEND}
 	media-video/dvdauthor

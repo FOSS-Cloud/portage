@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/qastools/qastools-0.17.2.ebuild,v 1.1 2012/05/09 16:17:38 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/qastools/qastools-0.17.2.ebuild,v 1.3 2013/07/02 13:45:22 kensington Exp $
 
-EAPI=4
+EAPI=5
 
-inherit base cmake-utils
+inherit cmake-utils
 
 MY_P=${PN}_${PV}
 
@@ -23,18 +23,18 @@ for X in ${LANGS} ; do
 done
 
 RDEPEND="media-libs/alsa-lib
-	>=x11-libs/qt-core-4.6:4
-	>=x11-libs/qt-gui-4.6:4
-	>=x11-libs/qt-svg-4.6:4"
+	>=dev-qt/qtcore-4.6:4
+	>=dev-qt/qtgui-4.6:4
+	>=dev-qt/qtsvg-4.6:4"
 DEPEND="${RDEPEND}
 	app-arch/xz-utils"
 
 S=${WORKDIR}/${MY_P}
 
-DOCS="CHANGELOG README TODO"
+DOCS=( CHANGELOG README TODO )
 
 src_prepare() {
-	base_src_prepare
+	cmake-utils_src_prepare
 
 	local lang
 	for lang in ${LANGS} ; do

@@ -1,6 +1,26 @@
 # ChangeLog for media-sound/gpodder
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/gpodder/ChangeLog,v 1.29 2012/07/31 13:51:33 yngwin Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/gpodder/ChangeLog,v 1.34 2014/03/14 06:28:14 ssuominen Exp $
+
+  14 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> gpodder-3.6.0.ebuild:
+  Pull in sys-apps/iproute2 wrt #503968 until upstream has more flexible
+  ifconfig code.
+
+  05 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> -gpodder-3.2.0.ebuild:
+  old
+
+*gpodder-3.6.0 (05 Mar 2014)
+
+  05 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> +gpodder-3.6.0.ebuild:
+  Version bump wrt #448466 by "Coran", Iván Atienza and David Parrish
+
+  28 May 2013; Samuli Suominen <ssuominen@gentoo.org> gpodder-3.2.0.ebuild:
+  Punt unused dev-python/imaging dependency wrt #471570 by Arfrever Frehtes
+  Taifersar Arahesis
+
+  28 May 2013; Samuli Suominen <ssuominen@gentoo.org> -gpodder-2.15.ebuild,
+  -gpodder-2.20.1.ebuild:
+  old
 
 *gpodder-3.2.0 (31 Jul 2012)
 *gpodder-2.20.1 (31 Jul 2012)

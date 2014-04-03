@@ -1,6 +1,103 @@
 # ChangeLog for sci-geosciences/gpsd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gpsd/ChangeLog,v 1.93 2012/12/11 17:54:23 axs Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gpsd/ChangeLog,v 1.119 2014/01/06 15:02:22 jlec Exp $
+
+  06 Jan 2014; Justin Lecher <jlec@gentoo.org> gpsd-2.95-r1.ebuild,
+  gpsd-2.96-r1.ebuild, metadata.xml:
+  Punt base.eclass
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.9-r1.ebuild:
+  Stable for ppc64, wrt bug #486298
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.9-r1.ebuild:
+  Stable for ppc, wrt bug #486298
+
+*gpsd-3.10 (23 Nov 2013)
+
+  23 Nov 2013; Mike Frysinger <vapier@gentoo.org> +files/gpsd-3.10-dbus.patch,
+  +files/gpsd-3.10-rpath.patch, +files/gpsd-3.10-udev-install.patch,
+  +gpsd-3.10.ebuild, gpsd-9999.ebuild:
+  Version bump.
+
+  01 Nov 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.9-r1.ebuild:
+  Stable for x86, wrt bug #486298
+
+  19 Oct 2013; Pacho Ramos <pacho@gentoo.org> gpsd-3.9-r1.ebuild:
+  amd64 stable, bug #486298
+
+  18 Oct 2013; Markus Meier <maekke@gentoo.org> gpsd-3.9-r1.ebuild:
+  arm stable, bug #486298
+
+*gpsd-3.9-r1 (14 Sep 2013)
+
+  14 Sep 2013; Pacho Ramos <pacho@gentoo.org> +gpsd-3.9-r1.ebuild:
+  Install upstream unit files (#482596)
+
+  27 Aug 2013; Mike Gilbert <floppym@gentoo.org> gpsd-9999.ebuild:
+  Refactor python-stuff in src_prepare into python_prepare_all.
+
+  26 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.9.ebuild:
+  Stable for ppc, wrt bug #468262
+
+  25 Aug 2013; Mike Gilbert <floppym@gentoo.org> gpsd-9999.ebuild:
+  Fix the live ebuild and convert to distutils-r1.
+
+  24 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.9.ebuild:
+  Stable for ppc64, wrt bug #468262
+
+  24 Aug 2013; Markus Meier <maekke@gentoo.org> gpsd-3.9.ebuild:
+  arm stable, bug #468262
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.9.ebuild:
+  Stable for x86, wrt bug #468262
+
+  23 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.9.ebuild:
+  Stable for amd64, wrt bug #468262
+
+*gpsd-3.9 (01 May 2013)
+
+  01 May 2013; Mike Frysinger <vapier@gentoo.org> +gpsd-3.9.ebuild:
+  Version bump.
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.7.ebuild:
+  Stable for ppc64, wrt bug #463428
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.7.ebuild:
+  Stable for ppc, wrt bug #463428
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.7.ebuild:
+  Stable for arm, wrt bug #463428
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.7.ebuild:
+  Stable for x86, wrt bug #463428
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gpsd-3.7.ebuild:
+  Stable for amd64, wrt bug #463428
+
+  30 Mar 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/gpsd-3.7-no-export-t.patch, +files/gpsd-3.8-no-export-t.patch,
+  gpsd-3.7.ebuild, gpsd-3.8.ebuild, gpsd-9999.ebuild:
+  Fix building when USE="-dbus -shm -sockets" #463850 by Agostino Sarubbo.
+
+  27 Mar 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/gpsd-3.7-gps_regress.patch, gpsd-3.7.ebuild, gpsd-3.8.ebuild,
+  gpsd-9999.ebuild:
+  Fix build error when USE=-sockets #441760 by Conrad Kostecki.
+
+  27 Mar 2013; Mike Frysinger <vapier@gentoo.org> gpsd-3.8.ebuild,
+  gpsd-9999.ebuild, metadata.xml:
+  Sync gpsd protocol list with current source #461622 by Thomas Witt.
+
+*gpsd-3.8 (11 Mar 2013)
+
+  11 Mar 2013; Mike Frysinger <vapier@gentoo.org> +files/gpsd-3.8-ldflags.patch,
+  +files/gpsd-3.8-libgps.patch, +files/gpsd-3.8-udev.patch, +gpsd-3.8.ebuild,
+  gpsd-9999.ebuild:
+  Version bump.
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> gpsd-2.95-r1.ebuild,
+  gpsd-2.96-r1.ebuild, gpsd-3.6.ebuild, gpsd-3.7.ebuild, gpsd-9999.ebuild:
+  Move Qt dependencies to the new category
 
   11 Dec 2012; Ian Stakenvicius <axs@gentoo.org> gpsd-3.7.ebuild,
   gpsd-9999.ebuild:

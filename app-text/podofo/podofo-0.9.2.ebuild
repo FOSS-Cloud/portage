@@ -1,27 +1,29 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/podofo/podofo-0.9.2.ebuild,v 1.2 2013/02/28 15:03:15 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/podofo/podofo-0.9.2.ebuild,v 1.11 2014/03/11 10:06:48 polynomial-c Exp $
 
-EAPI=2
+EAPI=5
 inherit cmake-utils flag-o-matic multilib toolchain-funcs
 
 DESCRIPTION="PoDoFo is a C++ library to work with the PDF file format."
 HOMEPAGE="http://sourceforge.net/projects/podofo/"
-SRC_URI="mirror://sourceforge/podofo/${P}.tar.gz"
+SRC_URI="mirror://sourceforge/podofo/${P}.tar.gz
+	http://dev.gentoo.org/~polynomial-c/${PN}-0.9.2-freetype251.patch"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
-IUSE="+boost debug test"
+KEYWORDS="amd64 hppa ppc ppc64 ~sparc x86"
+IUSE="+boost idn debug test"
 
-RDEPEND="dev-lang/lua
-	dev-libs/openssl
-	media-libs/fontconfig
-	media-libs/freetype:2
-	virtual/jpeg
-	>=media-libs/libpng-1.4:0
-	media-libs/tiff:0
-	sys-libs/zlib"
+RDEPEND="dev-lang/lua:=
+	idn? ( net-dns/libidn:= )
+	dev-libs/openssl:0=
+	media-libs/fontconfig:=
+	media-libs/freetype:2=
+	virtual/jpeg:0=
+	media-libs/libpng:0=
+	media-libs/tiff:0=
+	sys-libs/zlib:="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	boost? ( dev-util/boost-build )
@@ -30,10 +32,13 @@ DEPEND="${RDEPEND}
 DOCS="AUTHORS ChangeLog TODO"
 
 src_prepare() {
+	epatch "${DISTDIR}"/${PN}-0.9.2-freetype251.patch
+
 	local x sed_args
 
 	sed -i \
 		-e "s:LIBDIRNAME \"lib\":LIBDIRNAME \"$(get_libdir)\":" \
+		-e "s:LIBIDN_FOUND:HAVE_LIBIDN:g" \
 		CMakeLists.txt || die
 
 	# Use pkg-config to find headers for bug #459404.
@@ -106,6 +111,7 @@ src_configure() {
 		"-DWANT_FONTCONFIG=1"
 		"-DUSE_STLPORT=0"
 		$(cmake-utils_use_want boost)
+		$(cmake-utils_use_has idn LIBIDN)
 		$(cmake-utils_use_has test CPPUNIT)
 		)
 

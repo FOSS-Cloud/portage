@@ -1,6 +1,79 @@
 # ChangeLog for net-proxy/haproxy
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/haproxy/ChangeLog,v 1.74 2012/12/29 03:03:45 idl0r Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/haproxy/ChangeLog,v 1.89 2014/03/27 22:28:51 idl0r Exp $
+
+*haproxy-1.4.25 (27 Mar 2014)
+
+  27 Mar 2014; Christian Ruppert <idl0r@gentoo.org> +haproxy-1.4.25.ebuild:
+  Version bump
+
+*haproxy-1.5_beta22 (03 Feb 2014)
+
+  03 Feb 2014; Christian Ruppert <idl0r@gentoo.org>
+  -haproxy-1.5_beta19-r1.ebuild, +haproxy-1.5_beta22.ebuild:
+  Version bump
+
+*haproxy-1.5_beta21 (17 Dec 2013)
+
+  17 Dec 2013; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5_beta20.ebuild,
+  +haproxy-1.5_beta21.ebuild:
+  Version bump.
+
+*haproxy-1.5_beta20 (16 Dec 2013)
+
+  16 Dec 2013; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.4.23.ebuild,
+  -haproxy-1.5_beta19.ebuild, +haproxy-1.5_beta20.ebuild:
+  Version bump. Cleanup.
+
+*haproxy-1.5_beta19-r1 (17 Sep 2013)
+
+  17 Sep 2013; Tom Wijsman <TomWij@gentoo.org> +haproxy-1.5_beta19-r1.ebuild,
+  haproxy-9999.ebuild, metadata.xml:
+  Revision bump. Add systemd service unit. Add tools USE flag that install halog
+  and iprange. EAPI 5. Part of the changes are contributed by Bertrand Jacquin
+  (beber), fixes bug #466404.
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> haproxy-1.4.24.ebuild:
+  Stable for ppc, wrt bug #473674
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> haproxy-1.4.24.ebuild:
+  Stable for x86, wrt bug #473674
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> haproxy-1.4.24.ebuild:
+  Stable for amd64, wrt bug #473674
+
+*haproxy-1.5_beta19 (29 Jun 2013)
+*haproxy-1.4.24 (29 Jun 2013)
+
+  29 Jun 2013; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.4.22.ebuild,
+  +haproxy-1.4.24.ebuild, -haproxy-1.5_beta18.ebuild,
+  +haproxy-1.5_beta19.ebuild:
+  Version bumps, cleanup. Fixes CVE-2013-2175, bug 473674
+
+*haproxy-9999 (13 May 2013)
+
+  13 May 2013; Christian Ruppert <idl0r@gentoo.org> +haproxy-9999.ebuild:
+  Add haproxy live ebuild
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> haproxy-1.4.23.ebuild:
+  Stable for ppc, wrt bug #464340
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> haproxy-1.4.23.ebuild:
+  Stable for x86, wrt bug #464340
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> haproxy-1.4.23.ebuild:
+  Stable for amd64, wrt bug #464340
+
+*haproxy-1.5_beta18 (04 Apr 2013)
+*haproxy-1.4.23 (04 Apr 2013)
+
+  04 Apr 2013; Christian Ruppert <idl0r@gentoo.org> +haproxy-1.4.23.ebuild,
+  -haproxy-1.5_beta17.ebuild, +haproxy-1.5_beta18.ebuild:
+  Version bump, CVE-2013-1912
+
+  02 Apr 2013; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.4.21.ebuild,
+  -haproxy-1.5_beta15.ebuild, -files/haproxy.initd-r1:
+  Cleanup
 
   29 Dec 2012; Christian Ruppert <idl0r@gentoo.org> haproxy-1.4.21.ebuild,
   haproxy-1.4.22.ebuild, haproxy-1.5_beta15.ebuild, haproxy-1.5_beta17.ebuild:

@@ -1,6 +1,23 @@
 # ChangeLog for x11-libs/gtk+extra
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/gtk+extra/ChangeLog,v 1.43 2012/08/05 08:45:41 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/gtk+extra/ChangeLog,v 1.48 2014/02/22 22:45:06 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gtk+extra-3.0.5.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gtk+extra-3.0.5.ebuild:
+  arch stable, bug 888
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gtk+extra-3.0.5.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gtk+extra-3.0.5.ebuild:
+  amd64 stable, bug #478252
+
+*gtk+extra-3.0.5 (03 Oct 2013)
+
+  03 Oct 2013; Pacho Ramos <pacho@gentoo.org> +gtk+extra-3.0.5.ebuild:
+  Version bump
 
   05 Aug 2012; Samuli Suominen <ssuominen@gentoo.org>
   -gtk+extra-2.1.2-r1.ebuild, -files/gtk+extra-2.1.2-build.patch,

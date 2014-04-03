@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/pulseaudio-2.1-r1.ebuild,v 1.13 2013/01/01 18:46:40 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/pulseaudio-2.1-r1.ebuild,v 1.16 2013/08/09 19:19:40 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 
 inherit eutils flag-o-matic user versionator toolchain-funcs udev
 
@@ -45,7 +45,7 @@ RDEPEND=">=media-libs/libsndfile-1.0.20
 		>=sys-apps/dbus-1.0.0
 	)
 	asyncns? ( net-libs/libasyncns )
-	udev? ( >=virtual/udev-143[hwdb] )
+	udev? ( >=virtual/udev-143[hwdb(+)] )
 	realtime? ( sys-auth/rtkit )
 	equalizer? (
 		sci-libs/fftw:3.0
@@ -58,7 +58,7 @@ RDEPEND=">=media-libs/libsndfile-1.0.20
 	webrtc-aec? ( media-libs/webrtc-audio-processing )
 	xen? ( app-emulation/xen )
 	systemd? ( >=sys-apps/systemd-39 )
-	dev-libs/json-c
+	<dev-libs/json-c-0.11
 	>=sys-devel/libtool-2.2.4" # it's a valid RDEPEND, libltdl.so is used
 
 DEPEND="${RDEPEND}

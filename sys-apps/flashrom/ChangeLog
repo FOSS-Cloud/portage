@@ -1,6 +1,45 @@
 # ChangeLog for sys-apps/flashrom
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/flashrom/ChangeLog,v 1.33 2013/02/03 13:26:08 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/flashrom/ChangeLog,v 1.43 2014/03/31 14:39:23 nimiux Exp $
+
+  31 Mar 2014; Chema Alonso <nimiux@gentoo.org> flashrom-0.9.7.ebuild:
+  Stable for amd64 wrt bug #504112
+
+  26 Mar 2014; Markus Meier <maekke@gentoo.org> flashrom-0.9.7.ebuild:
+  arm stable, bug #504112
+
+  14 Feb 2014; Sven Wegener <swegener@gentoo.org> flashrom-9999.ebuild:
+  Drop ChangeLog.
+
+  20 Dec 2013; Mike Frysinger <vapier@gentoo.org> flashrom-0.9.7.ebuild,
+  flashrom-9999.ebuild, metadata.xml:
+  Add support for USE=static from ChromiumOS.  Kill off USE=doc as it only
+  installs already generated txt files.
+
+  01 Dec 2013; Mike Frysinger <vapier@gentoo.org> flashrom-0.9.7.ebuild,
+  flashrom-9999.ebuild:
+  Change back to virtual/libusb:0 as that is what the source explicitly checks
+  for.
+
+  28 Nov 2013; Mike Frysinger <vapier@gentoo.org> flashrom-0.9.7.ebuild,
+  flashrom-9999.ebuild:
+  Sync the 9999 and non-9999 ebuilds.
+
+  09 Nov 2013; Christian Ruppert <idl0r@gentoo.org> -flashrom-0.9.4.ebuild,
+  -flashrom-0.9.5.2.ebuild, -flashrom-0.9.6.ebuild:
+  Cleanup
+
+*flashrom-0.9.7 (09 Nov 2013)
+
+  09 Nov 2013; Christian Ruppert <idl0r@gentoo.org> +flashrom-0.9.7.ebuild,
+  flashrom-9999.ebuild, metadata.xml:
+  Bump, bug 488220
+
+  14 May 2013; Agostino Sarubbo <ago@gentoo.org> flashrom-0.9.6.1.ebuild:
+  Stable for arm, wrt bug #454024
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   03 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup after talking with leio

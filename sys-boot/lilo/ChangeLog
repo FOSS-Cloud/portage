@@ -1,6 +1,31 @@
 # ChangeLog for sys-boot/lilo
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/lilo/ChangeLog,v 1.72 2013/02/24 12:12:35 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/lilo/ChangeLog,v 1.78 2014/03/12 05:13:18 phajdan.jr Exp $
+
+  09 Mar 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> lilo-24.0.ebuild:
+  x86 stable wrt bug #503058
+
+  23 Sep 2013; Tony Vroon <chainsaw@gentoo.org> metadata.xml:
+  Taking LILO back under my wing as it seems to have been abandoned.
+
+*lilo-24.0 (23 Sep 2013)
+
+  23 Sep 2013; Tony Vroon <chainsaw@gentoo.org> +lilo-24.0.ebuild,
+  +files/lilo-24.0-novga.patch:
+  Version bump, as requested by Tomasz Golinski in bug #473366. Rediffed
+  "novga" patch by Ben Kohler closes bug #452862. Upstream changelog confirms
+  that this fixes the GCC 4.8 build failure reported by nzqr in bug #471274.
+
+  09 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> lilo-22.8-r2.ebuild,
+  lilo-23.2-r1.ebuild, lilo-23.2-r2.ebuild, metadata.xml:
+  Remove sys-fs/device-mapper from || () syntax in favour of sys-fs/lvm2 wrt
+  #461382
+
+  04 Mar 2013; Agostino Sarubbo <ago@gentoo.org> lilo-23.2-r2.ebuild:
+  Stable for x86, wrt bug #436916
+
+  04 Mar 2013; Agostino Sarubbo <ago@gentoo.org> lilo-23.2-r2.ebuild:
+  Stable for amd64, wrt bug #436916
 
   24 Feb 2013; Agostino Sarubbo <ago@gentoo.org> lilo-22.8-r2.ebuild:
   Stable for amd64, wrt bug #436916

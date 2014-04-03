@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/flex/flex-2.5.37.ebuild,v 1.13 2013/02/19 03:23:43 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/flex/flex-2.5.37.ebuild,v 1.15 2014/01/18 03:14:16 vapier Exp $
 
 EAPI="3"
 
-inherit eutils flag-o-matic
+inherit eutils flag-o-matic toolchain-funcs
 
 if [[ ${PV} == *_p* ]] ; then
 	DEB_DIFF=${PN}_${PV/_p/-}
@@ -18,7 +18,7 @@ SRC_URI="mirror://sourceforge/flex/${MY_P}.tar.bz2
 
 LICENSE="FLEX"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~arm-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~arm-linux ~x86-linux"
 IUSE="nls static test"
 
 # We want bison explicitly and not yacc in general #381273
@@ -33,6 +33,7 @@ src_prepare() {
 	[[ -n ${DEB_DIFF} ]] && epatch "${WORKDIR}"/${DEB_DIFF}.diff
 	epatch "${FILESDIR}"/${P}-proto.patch
 	epatch "${FILESDIR}"/${P}-tests.patch #429954
+	sed -i "/^AR =/s:=.*:= $(tc-getAR):" Makefile.in || die #444086
 }
 
 src_configure() {

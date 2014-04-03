@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/drizzle/drizzle-7.2.4.ebuild,v 1.2 2012/11/11 02:18:49 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/drizzle/drizzle-7.2.4.ebuild,v 1.5 2014/03/01 22:26:02 mgorny Exp $
 
 EAPI=5
 
@@ -26,12 +26,12 @@ RDEPEND="tcmalloc? ( dev-util/google-perftools )
 		>=dev-libs/libevent-1.4
 		>=dev-libs/protobuf-2.1.0
 		dev-libs/libaio
-		>=dev-libs/boost-1.52.0-r1[threads]
+		>=dev-libs/boost-1.52.0-r1:=[threads]
 		gearman? ( >=sys-cluster/gearmand-0.12 )
 		pam? ( sys-libs/pam )
 		curl? ( net-misc/curl )
 		memcache? ( >=dev-libs/libmemcached-0.39 )
-		md5? ( >=dev-libs/libgcrypt-1.4.2 )
+		md5? ( >=dev-libs/libgcrypt-1.4.2:0 )
 		ldap? ( net-nds/openldap )
 		v8? ( dev-lang/v8 )
 		!dev-db/libdrizzle"
@@ -52,12 +52,15 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-7.2.3-libtool.patch
-	epatch "${FILESDIR}"/${PN}-7.2.3+automake-1.12.patch
-	epatch "${FILESDIR}"/${PN}-7.2.4+boost-1.50.patch
+	epatch \
+		"${FILESDIR}/${PN}-7.2.3-libtool.patch" \
+		"${FILESDIR}/${PN}-7.2.3+automake-1.12.patch" \
+		"${FILESDIR}/${PN}-7.2.4+boost-1.50.patch" \
+		"${FILESDIR}/${P}-fix-boost_thread-detection.patch"
 
 	python_convert_shebangs -r 2 .
 
+	epatch_user
 	eautoreconf
 }
 

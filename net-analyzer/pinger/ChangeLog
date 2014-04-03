@@ -1,6 +1,32 @@
 # ChangeLog for net-analyzer/pinger
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/pinger/ChangeLog,v 1.17 2012/05/04 06:08:11 jdhore Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/pinger/ChangeLog,v 1.23 2013/12/18 17:38:36 jer Exp $
+
+  18 Dec 2013; Jeroen Roovers <jer@gentoo.org> pinger-0.32e.ebuild:
+  REQUIRED_USE ought to support "at-least-one-of".
+
+  18 Dec 2013; Jeroen Roovers <jer@gentoo.org> pinger-0.32e.ebuild,
+  files/pinger-0.32e-tinfo.patch:
+  While we are at it, make ncurses optional, too.
+
+  18 Dec 2013; Jeroen Roovers <jer@gentoo.org> pinger-0.32e.ebuild,
+  files/pinger-0.32e-tinfo.patch:
+  Fix the patch or ncurses will not be used after all. Reinstate mistakenly
+  overridden default src_install().
+
+  18 Dec 2013; Jeroen Roovers <jer@gentoo.org> pinger-0.32e.ebuild,
+  +files/pinger-0.32e-tinfo.patch:
+  Fix building against sys-libs/ncurses[tinfo].
+
+  18 Dec 2013; Jeroen Roovers <jer@gentoo.org> pinger-0.32e.ebuild,
+  +files/gtk-2.0.m4, -files/disable_gtk.patch:
+  With USE=-gtk, AM_PATH_GTK_2_0 still needs to get expanded, so add gtk-2.0.m4
+  (bug #494636 by broot).
+
+*pinger-0.32e (17 Aug 2013)
+
+  17 Aug 2013; Jeroen Roovers <jer@gentoo.org> +pinger-0.32e.ebuild:
+  Version bump.
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org> pinger-0.32d.ebuild:
   dev-util/pkgconfig -> virtual/pkgconfig
@@ -68,4 +94,3 @@
   03 Jun 2005; Otavio Piske <angusyoung@gentoo.org> +pinger-0.30.ebuild:
   Ebuild for pinger, initial release. Thanks to Mikel Olasagasti
   <hey_neken@euskal.org> for submitting the ebuild.
-

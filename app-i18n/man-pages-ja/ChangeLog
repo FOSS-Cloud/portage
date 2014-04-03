@@ -1,6 +1,59 @@
 # ChangeLog for app-i18n/man-pages-ja
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/man-pages-ja/ChangeLog,v 1.43 2013/02/21 16:11:30 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/man-pages-ja/ChangeLog,v 1.59 2014/01/30 20:28:15 vapier Exp $
+
+  30 Jan 2014; Mike Frysinger <vapier@gentoo.org> man-pages-ja-20070515.ebuild,
+  man-pages-ja-20101110-r1.ebuild, man-pages-ja-20101110.ebuild,
+  man-pages-ja-20111020.ebuild, man-pages-ja-20130215.ebuild,
+  man-pages-ja-20131015.ebuild:
+  Add arm64 love.
+
+*man-pages-ja-20131015 (06 Jan 2014)
+
+  06 Jan 2014; Naohiro Aota <naota@gentoo.org> +man-pages-ja-20131015.ebuild:
+  version bump #488442
+
+  02 Jul 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20130215.ebuild:
+  Stable for sh, wrt bug #470326
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20130215.ebuild:
+  Stable for s390, wrt bug #470326
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20130215.ebuild:
+  Stable for sparc, wrt bug #470326
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20130215.ebuild:
+  Stable for arm, wrt bug #470326
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20130215.ebuild:
+  Stable for ia64, wrt bug #470326
+
+  26 Jun 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20130215.ebuild:
+  Stable for alpha, wrt bug #470326
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20130215.ebuild:
+  Stable for ppc64, wrt bug #470326
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20130215.ebuild:
+  Stable for ppc, wrt bug #470326
+
+  10 Jun 2013; Sergey Popov <pinkbyte@gentoo.org> man-pages-ja-20130215.ebuild:
+  Stable on amd64 and x86, wrt bug #470326
+
+  10 Jun 2013; Jeroen Roovers <jer@gentoo.org> man-pages-ja-20130215.ebuild:
+  Stable for HPPA (bug #470326).
+
+  07 May 2013; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  Remove accidently added proxy-maintainers herd
+
+  07 May 2013; Sergey Popov <pinkbyte@gentoo.org> man-pages-ja-20111020.ebuild:
+  Stable on m68k, wrt bug #457620, acked by vapier
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+  01 Mar 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20111020.ebuild:
+  Stable for sh, wrt bug #457620
 
   21 Feb 2013; Agostino Sarubbo <ago@gentoo.org> man-pages-ja-20111020.ebuild:
   Stable for sparc, wrt bug #457620

@@ -1,21 +1,20 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/file/file-9999.ebuild,v 1.2 2013/01/16 03:44:29 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/file/file-9999.ebuild,v 1.6 2014/03/27 03:30:14 vapier Exp $
 
 EAPI="4"
-PYTHON_DEPEND="python? *"
-SUPPORT_PYTHON_ABIS="1"
-RESTRICT_PYTHON_ABIS="*-jython"
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy2_0 )
+DISTUTILS_OPTIONAL=1
 
-inherit eutils distutils libtool toolchain-funcs
+inherit eutils distutils-r1 libtool toolchain-funcs multilib-minimal
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="git://github.com/glensc/file.git"
-	inherit autotools git-2
+	inherit autotools git-r3
 else
 	SRC_URI="ftp://ftp.astron.com/pub/file/${P}.tar.gz
 		ftp://ftp.gw.com/mirrors/pub/unix/file/${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 fi
 
 DESCRIPTION="identify a file's format by scanning binary data for patterns"
@@ -25,10 +24,10 @@ LICENSE="BSD-2"
 SLOT="0"
 IUSE="python static-libs zlib"
 
-RDEPEND="zlib? ( sys-libs/zlib )"
-DEPEND="${RDEPEND}"
-
-PYTHON_MODNAME="magic.py"
+DEPEND="python? ( ${PYTHON_DEPS} )
+	zlib? ( sys-libs/zlib )"
+RDEPEND="${DEPEND}
+	python? ( !dev-python/python-magic )"
 
 src_prepare() {
 	[[ ${PV} == "9999" ]] && eautoreconf
@@ -38,23 +37,23 @@ src_prepare() {
 	mv python/README{,.python}
 }
 
-wd() { echo "${WORKDIR}"/build-${CHOST}; }
-do_configure() {
-	ECONF_SOURCE=${S}
-
-	mkdir "$(wd)"
-	pushd "$(wd)" >/dev/null
-
-	econf "$@"
-
-	popd >/dev/null
+multilib_src_configure() {
+	ECONF_SOURCE=${S} \
+	ac_cv_header_zlib_h=$(usex zlib) \
+	ac_cv_lib_z_gzopen=$(usex zlib)
+	econf \
+		$(use_enable static-libs static)
 }
+
 src_configure() {
 	# when cross-compiling, we need to build up our own file
 	# because people often don't keep matching host/target
 	# file versions #362941
 	if tc-is-cross-compiler && ! ROOT=/ has_version ~${CATEGORY}/${P} ; then
+		mkdir -p "${WORKDIR}"/build
+		cd "${WORKDIR}"/build
 		tc-export_build_env BUILD_C{C,XX}
+		ECONF_SOURCE=${S} \
 		ac_cv_header_zlib_h=no \
 		ac_cv_lib_z_gzopen=no \
 		CHOST=${CBUILD} \
@@ -64,38 +63,41 @@ src_configure() {
 		LDFLAGS="${BUILD_LDFLAGS} -static" \
 		CC=${BUILD_CC} \
 		CXX=${BUILD_CXX} \
-		do_configure --disable-shared
+		econf --disable-shared
 	fi
 
-	export ac_cv_header_zlib_h=$(usex zlib) ac_cv_lib_z_gzopen=$(usex zlib)
-	do_configure $(use_enable static-libs static)
+	multilib-minimal_src_configure
 }
 
-do_make() {
-	emake -C "$(wd)" "$@"
+multilib_src_compile() {
+	if multilib_build_binaries ; then
+		emake
+	else
+		emake -C src libmagic.la
+	fi
 }
+
 src_compile() {
 	if tc-is-cross-compiler && ! ROOT=/ has_version ~${CATEGORY}/${P} ; then
-		CHOST=${CBUILD} do_make -C src file
-		PATH=$(CHOST=${CBUILD} wd)/src:${PATH}
+		emake -C "${WORKDIR}"/build/src file
+		PATH="${WORKDIR}/build/src:${PATH}"
 	fi
-	do_make
+	multilib-minimal_src_compile
 
-	use python && cd python && distutils_src_compile
+	use python && cd python && distutils-r1_src_compile
 }
 
-src_install() {
-	do_make DESTDIR="${D}" install
+multilib_src_install() {
+	if multilib_build_binaries ; then
+		default
+	else
+		emake -C src install-{includeHEADERS,libLTLIBRARIES} DESTDIR="${D}"
+	fi
+}
+
+multilib_src_install_all() {
 	dodoc ChangeLog MAINT README
 
-	use python && cd python && distutils_src_install
+	use python && cd python && distutils-r1_src_install
 	prune_libtool_files
-}
-
-pkg_postinst() {
-	use python && distutils_pkg_postinst
-}
-
-pkg_postrm() {
-	use python && distutils_pkg_postrm
 }

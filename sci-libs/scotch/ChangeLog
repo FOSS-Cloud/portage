@@ -1,6 +1,27 @@
 # ChangeLog for sci-libs/scotch
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/scotch/ChangeLog,v 1.11 2013/02/07 17:30:59 bicatali Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/scotch/ChangeLog,v 1.18 2014/03/18 20:39:01 bicatali Exp $
+
+  18 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> scotch-6.0.0.ebuild:
+  Fixed possible underlinking, bug #502588
+
+  26 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> scotch-6.0.0.ebuild:
+  Fixed typo thanks Bernhard Dunkl bug #502410
+
+  03 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> scotch-6.0.0.ebuild:
+  Fixed bug #499168, thanks jer and getryx, add sub-slot
+
+  02 Jul 2013; Justin Bronder <jsbronder@gentoo.org> scotch-6.0.0.ebuild:
+  Remove fix for #462602. Handled in sys-cluster/openmpi now.
+
+  19 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org> scotch-6.0.0.ebuild:
+  More as-needed fix for the mpi case
+
+  13 Jun 2013; Justin Bronder <jsbronder@gentoo.org> scotch-6.0.0.ebuild:
+  Don't let openmpi override malloc, works around sandbox issue in #462602
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   07 Feb 2013; Sébastien Fabbro <bicatali@gentoo.org>
   files/scotch-6.0.0-as-needed.patch:

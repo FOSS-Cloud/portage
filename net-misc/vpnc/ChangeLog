@@ -1,6 +1,88 @@
 # ChangeLog for net-misc/vpnc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/vpnc/ChangeLog,v 1.103 2013/02/06 15:25:07 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/vpnc/ChangeLog,v 1.127 2014/03/01 22:26:53 mgorny Exp $
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> vpnc-0.5.3_p527-r1.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  08 Feb 2014; Justin Lecher <jlec@gentoo.org> vpnc-0.5.3_p527-r1.ebuild:
+  Set subslot for libgcrypt
+
+  27 Sep 2013; Justin Lecher <jlec@gentoo.org> -vpnc-0.5.3_p527.ebuild:
+  Drop old
+
+  26 Sep 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527-r1.ebuild:
+  Stable for arm, wrt bug #480266
+
+  25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527-r1.ebuild:
+  Stable for ppc, wrt bug #480266
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527-r1.ebuild:
+  Stable for sparc, wrt bug #480266
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527-r1.ebuild:
+  Stable for ppc64, wrt bug #480266
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527-r1.ebuild:
+  Stable for x86, wrt bug #480266
+
+  21 Sep 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527-r1.ebuild:
+  Stable for amd64, wrt bug #480266
+
+  09 Aug 2013; Justin Lecher <jlec@gentoo.org> files/vpnc.service:
+  Fix calls of up/down scripts in systemD unit
+
+*vpnc-0.5.3_p527-r1 (07 Aug 2013)
+
+  07 Aug 2013; Justin Lecher <jlec@gentoo.org> +vpnc-0.5.3_p527-r1.ebuild,
+  +files/vpnc.service, +files/vpnc-tmpfiles.conf:
+  Add systemD support, #479354
+
+  05 Jun 2013; Justin Lecher <jlec@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Drop USE=-caps restriction for libgcrypt as it was removed, #472392; this
+  also make #467744 obsolete
+
+  01 May 2013; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  removed unused local USE-description: 'hybrid-auth'
+
+  01 May 2013; Justin Lecher <jlec@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Do not allow caps support for libgcrypt, #467744
+
+  21 Apr 2013; Christian Faulhammer <fauli@gentoo.org> metadata.xml:
+  remove myself as maintainer
+
+  13 Apr 2013; Justin Lecher <jlec@gentoo.org> -vpnc-0.5.3.ebuild,
+  -vpnc-0.5.3_p451.ebuild, -vpnc-0.5.3_p457-r1.ebuild,
+  -vpnc-0.5.3_p457-r2.ebuild, -vpnc-0.5.3_p514.ebuild:
+  Drop old
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for sparc, wrt bug #463990
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for x86, wrt bug #463990
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for arm, wrt bug #463990
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for ppc64, wrt bug #463990
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for ppc, wrt bug #463990
+
+  03 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vpnc-0.5.3_p527.ebuild:
+  Stable for amd64, wrt bug #463990
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+*vpnc-0.5.3_p527 (14 Mar 2013)
+
+  14 Mar 2013; Justin Lecher <jlec@gentoo.org> +vpnc-0.5.3_p527.ebuild,
+  metadata.xml:
+  Bump to latest upstream rev, fix resolv.conf handling, #406141; fix test,
+  #442174; add myself as maintainer
 
   06 Feb 2013; Justin Lecher <jlec@gentoo.org> vpnc-0.5.3_p514.ebuild,
   metadata.xml:
@@ -449,4 +531,3 @@
 
   03 Feb 2004; Hanno Boeck <hanno@gentoo.org> vpnc-0.2_pre7.ebuild:
   Free client for Cisco VPN routing software.
-

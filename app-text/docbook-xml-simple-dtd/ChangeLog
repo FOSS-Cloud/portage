@@ -1,6 +1,46 @@
 # ChangeLog for app-text/docbook-xml-simple-dtd
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/docbook-xml-simple-dtd/ChangeLog,v 1.57 2012/12/13 16:23:27 floppym Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/docbook-xml-simple-dtd/ChangeLog,v 1.67 2014/01/18 19:58:09 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xml-simple-dtd-4.1.2.5-r2.ebuild:
+  Stable for alpha, wrt bug #491938
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xml-simple-dtd-4.1.2.5-r2.ebuild:
+  Stable for ia64, wrt bug #491938
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xml-simple-dtd-4.1.2.5-r2.ebuild:
+  Stable for x86, wrt bug #491938
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xml-simple-dtd-4.1.2.5-r2.ebuild:
+  Stable for sparc, wrt bug #491938
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xml-simple-dtd-4.1.2.5-r2.ebuild:
+  Stable for ppc64, wrt bug #491938
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xml-simple-dtd-4.1.2.5-r2.ebuild:
+  Stable for ppc, wrt bug #491938
+
+  20 Dec 2013; Chema Alonso <nimiux@gentoo.org>
+  docbook-xml-simple-dtd-4.1.2.5-r2.ebuild:
+  Stable for amd64 wrt bug #491938
+
+  01 Dec 2013; Markus Meier <maekke@gentoo.org>
+  docbook-xml-simple-dtd-4.1.2.5-r2.ebuild:
+  arm stable, bug #491938
+
+  26 Nov 2013; Jeroen Roovers <jer@gentoo.org>
+  docbook-xml-simple-dtd-4.1.2.5-r2.ebuild:
+  Stable for HPPA (bug #491938).
+
+  21 Jul 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due http://gentoo.2317880.n4.nabble.com/sgml-herd-has-no-maintainers-
+  again-td259655.html
 
   13 Dec 2012; Mike Gilbert <floppym@gentoo.org>
   docbook-xml-simple-dtd-1.0-r2.ebuild,

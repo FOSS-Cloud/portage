@@ -1,6 +1,48 @@
 # ChangeLog for app-arch/pigz
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/pigz/ChangeLog,v 1.26 2012/10/07 10:20:45 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/pigz/ChangeLog,v 1.37 2014/01/23 00:16:23 radhermit Exp $
+
+*pigz-2.3.1-r1 (23 Jan 2014)
+
+  23 Jan 2014; Tim Harder <radhermit@gentoo.org> +pigz-2.3.1-r1.ebuild,
+  +files/0001-Do-not-return-non-zero-exit-code-when-warnings-issue.patch:
+  Don't return an error exit status when decompressing zero-padded files (bug
+  #417657).
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> pigz-2.3.1.ebuild:
+  Add arm64 love.
+
+  03 Jan 2014; Sergey Popov <pinkbyte@gentoo.org> -pigz-2.2.4.ebuild:
+  Security cleanup, wrt bug #457794
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> pigz-2.3.1.ebuild:
+  Stable for x86, wrt bug #494416
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> pigz-2.3.1.ebuild:
+  amd64 stable, bug #494416
+
+*pigz-2.3.1 (04 Nov 2013)
+
+  04 Nov 2013; Tim Harder <radhermit@gentoo.org> +pigz-2.3.1.ebuild:
+  Version bump.
+
+  20 Sep 2013; Jeroen Roovers <jer@gentoo.org> pigz-2.3.ebuild:
+  Marked ~hppa too.
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> pigz-2.3.ebuild:
+  Stable for x86, wrt bug #470604
+
+  19 May 2013; Markos Chandras <hwoarang@gentoo.org> pigz-2.3.ebuild:
+  Stable on amd64 wrt bug #470604
+
+  07 Mar 2013; Steev Klimaszewski <steev@gentoo.org> pigz-2.3.ebuild:
+  Add ~arm keyword. Tested on Cortex A15, and A9.
+
+*pigz-2.3 (07 Mar 2013)
+
+  07 Mar 2013; Tim Harder <radhermit@gentoo.org> +pigz-2.3.ebuild,
+  +files/pigz-2.3-make.patch:
+  Version bump.
 
   07 Oct 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Drop maintainer due retirement, #274113

@@ -1,6 +1,130 @@
 # ChangeLog for app-antivirus/clamav
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-antivirus/clamav/ChangeLog,v 1.441 2013/02/26 14:50:41 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-antivirus/clamav/ChangeLog,v 1.471 2014/01/27 12:32:56 lordvan Exp $
+
+*clamav-0.98.1 (27 Jan 2014)
+
+  27 Jan 2014; <lordvan@gentoo.org> -clamav-0.97.7.ebuild,
+  -clamav-0.97.8.ebuild, -clamav-0.97.8-r2.ebuild, +clamav-0.98.1.ebuild,
+  -files/clamav-0.97-nls.patch:
+  cleanout old versions and version bump to 0.98.1 - fixes bug #498354
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> clamav-0.97.8-r2.ebuild:
+  Stable for ppc64, wrt bug #480038
+
+  07 Dec 2013; Pacho Ramos <pacho@gentoo.org> clamav-0.97.8-r2.ebuild:
+  x86 stable, bug #480038
+
+  29 Nov 2013; Sergey Popov <pinkbyte@gentoo.org> clamav-0.97.8.ebuild:
+  QA: set keywords according to bug #470090
+
+  09 Oct 2013; Kacper Kowalik <xarthisius@gentoo.org> clamav-0.97.7.ebuild,
+  clamav-0.97.8-r2.ebuild, clamav-0.97.8.ebuild, clamav-0.98.ebuild:
+  Fix typo in -mminimal-toc wrt #487414 by Agostino Sarubbo <ago@gentoo.org>
+
+  05 Oct 2013; Jeroen Roovers <jer@gentoo.org> clamav-0.98.ebuild:
+  Stable for HPPA (bug #470090).
+
+  05 Oct 2013; Jeroen Roovers <jer@gentoo.org> clamav-0.98.ebuild:
+  Disable fanotify support (until it is fixed, bug #487016).
+
+  03 Oct 2013; Eray Aslan <eras@gentoo.org> clamav-0.98.ebuild:
+  Fix config file move - bug #486624
+
+  28 Sep 2013; Chema Alonso <nimiux@gentoo.org> clamav-0.97.8-r2.ebuild:
+  Stable for amd64 wrt bug #480038
+
+  28 Sep 2013; Jeroen Roovers <jer@gentoo.org> clamav-0.97.8-r2.ebuild:
+  Stable for HPPA (bug #480038).
+
+*clamav-0.98 (27 Sep 2013)
+
+  27 Sep 2013; Eray Aslan <eras@gentoo.org> +clamav-0.98.ebuild,
+  +files/clamd.conf-r1, +files/clamd.initd-r6:
+  Version bump - bug #485728. Use ionice in init script - bug #469484. Add
+  database update notice for first time clamav usage - bug #483284.
+
+*clamav-0.97.8-r2 (08 Sep 2013)
+
+  08 Sep 2013; Pacho Ramos <pacho@gentoo.org> +clamav-0.97.8-r2.ebuild,
+  +files/freshclamd.service, -clamav-0.97.8-r1.ebuild:
+  Install a service for freshclamd (#477540 by Harris Landgarten)
+
+*clamav-0.97.8-r1 (06 Jul 2013)
+
+  06 Jul 2013; Pacho Ramos <pacho@gentoo.org> +clamav-0.97.8-r1.ebuild,
+  +files/clamav-milter.service, +files/clamd.service, +files/clamd_at.service,
+  +files/tmpfiles.d/clamav.conf:
+  Add unit files (#475858, thanks to Tim Harder for his help)
+
+  12 Jun 2013; Tim Harder <radhermit@gentoo.org> clamav-0.97.7.ebuild,
+  clamav-0.97.8.ebuild:
+  Properly apply patches from FILESDIR using epatch (bug #472788).
+
+  12 Jun 2013; Tim Harder <radhermit@gentoo.org> -clamav-0.97.5-r1.ebuild,
+  -clamav-0.97.6.ebuild, -clamav-0.97.6-r1.ebuild, -clamav-0.97.6-r2.ebuild,
+  -clamav-0.97.6-r3.ebuild, -clamav-0.97.7-r1.ebuild, -clamav-0.97.7-r2.ebuild,
+  -files/clamd.initd, -files/clamd.initd-r1, -files/clamd.initd-r2,
+  -files/clamd.initd-r4:
+  Remove old.
+
+*clamav-0.97.8 (23 Apr 2013)
+
+  23 Apr 2013; <lordvan@gentoo.org> +clamav-0.97.8.ebuild:
+  new version
+
+  16 Apr 2013; Eray Aslan <eras@gentoo.org> files/clamd.initd-r5:
+  Check pid file directory before starting freshclam - bug #333783
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> clamav-0.97.7.ebuild:
+  Stable for sparc, wrt bug #462278
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> clamav-0.97.7.ebuild:
+  Stable for ia64, wrt bug #462278
+
+*clamav-0.97.7-r2 (01 Apr 2013)
+
+  01 Apr 2013; Eray Aslan <eras@gentoo.org> +clamav-0.97.7-r2.ebuild,
+  +files/clamd.initd-r5:
+  Hopefully fix log file permission - bug #463208
+
+  27 Mar 2013; Eray Aslan <eras@gentoo.org> files/clamd.initd-r4:
+  Populate variables at the top
+
+*clamav-0.97.7-r1 (25 Mar 2013)
+
+  25 Mar 2013; Eray Aslan <eras@gentoo.org> +clamav-0.97.7-r1.ebuild,
+  +files/clamd.initd-r4:
+  Fix log file permissions - bug #463208
+
+  24 Mar 2013; Jeroen Roovers <jer@gentoo.org> clamav-0.97.7.ebuild:
+  Stable for HPPA (bug #462278).
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clamav-0.97.7.ebuild:
+  Stable for alpha, wrt bug #462278
+
+  23 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clamav-0.97.7.ebuild:
+  Stable for ppc64, wrt bug #462278
+
+  22 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clamav-0.97.7.ebuild:
+  Stable for ppc, wrt bug #462278
+
+  22 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clamav-0.97.7.ebuild:
+  Stable for x86, wrt bug #462278
+
+  22 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clamav-0.97.7.ebuild:
+  Stable for amd64, wrt bug #462278
+
+*clamav-0.97.7 (18 Mar 2013)
+
+  18 Mar 2013; Eray Aslan <eras@gentoo.org> +clamav-0.97.7.ebuild:
+  Version bump
+
+*clamav-0.97.6-r3 (01 Mar 2013)
+
+  01 Mar 2013; Eray Aslan <eras@gentoo.org> +clamav-0.97.6-r3.ebuild,
+  +files/clamd.initd-r3:
+  Be nice to gentoo/bsd - bug #459686
 
   26 Feb 2013; Jeroen Roovers <jer@gentoo.org> clamav-0.97.6-r2.ebuild:
   Stable for HPPA (bug #457144).

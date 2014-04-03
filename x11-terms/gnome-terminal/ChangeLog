@@ -1,6 +1,125 @@
 # ChangeLog for x11-terms/gnome-terminal
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/gnome-terminal/ChangeLog,v 1.257 2013/02/25 09:14:40 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-terms/gnome-terminal/ChangeLog,v 1.284 2014/03/25 04:08:58 tetromino Exp $
+
+  25 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-terminal-3.10.2.ebuild, +files/gnome-terminal-3.10.2-sys-wait.h.patch:
+  Add patch to fix build on non-glibc systems as requested by blueness on irc.
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-terminal-3.10.2.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-terminal-3.10.2.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-terminal-3.10.2.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-terminal-3.10.2.ebuild:
+  arch stable, bug 888
+
+  02 Jan 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  gnome-terminal-2.32.1-r1.ebuild:
+  Fix underlinking failure (bug #496804, thanks to M8R-u38wij).
+
+*gnome-terminal-3.10.2 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +gnome-terminal-3.10.2.ebuild,
+  -gnome-terminal-3.6.2.ebuild, -gnome-terminal-3.8.3.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gnome-terminal-3.8.4.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gnome-terminal-3.8.4.ebuild:
+  amd64 stable, bug #478252
+
+*gnome-terminal-3.8.4 (08 Jul 2013)
+
+  08 Jul 2013; Pacho Ramos <pacho@gentoo.org> +gnome-terminal-3.8.4.ebuild,
+  -files/gnome-terminal-2.22.0-default_shell.patch,
+  -gnome-terminal-3.8.2.ebuild:
+  Version bump, drop old
+
+  30 Jun 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-terminal-3.8.3.ebuild:
+  Add missing dependency.
+
+*gnome-terminal-3.8.3 (10 Jun 2013)
+
+  10 Jun 2013; Pacho Ramos <pacho@gentoo.org> +gnome-terminal-3.8.3.ebuild:
+  Version bump, drop old
+
+  18 May 2013; Pacho Ramos <pacho@gentoo.org> -gnome-terminal-3.8.1.ebuild,
+  gnome-terminal-3.8.2.ebuild:
+  Explain people how to use latest vte.sh (needing to be sure latest version of
+  this script is installed, since it has changed a lot in last vte versions),
+  see bug #468094. Drop old.
+
+*gnome-terminal-3.8.2 (13 May 2013)
+
+  13 May 2013; Pacho Ramos <pacho@gentoo.org> +gnome-terminal-3.8.2.ebuild,
+  -gnome-terminal-3.8.0.ebuild:
+  Version bump, drop old
+
+*gnome-terminal-3.8.1 (18 Apr 2013)
+
+  18 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gnome-terminal-3.8.1.ebuild,
+  -gnome-terminal-2.32.1.ebuild, -gnome-terminal-3.6.1-r2.ebuild:
+  Version bump, drop old
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-terminal-2.32.1-r1.ebuild:
+  Stable for sh, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-terminal-2.32.1-r1.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-terminal-2.32.1-r1.ebuild:
+  Stable for alpha, wrt bug #458984
+
+*gnome-terminal-3.6.2 (31 Mar 2013)
+
+  31 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-terminal-3.6.2.ebuild:
+  Version bump, translation updates.
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-terminal-2.32.1.ebuild, -gnome-terminal-3.4.1.1-r1.ebuild,
+  -gnome-terminal-3.6.1-r1.ebuild:
+  Clean up old revisions.
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-terminal-2.32.1-r1.ebuild:
+  Stable for ia64, wrt bug #458984
+
+*gnome-terminal-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +gnome-terminal-3.8.0.ebuild,
+  metadata.xml:
+  Version bump for Gnome 3.8
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-terminal-2.32.1-r1.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-terminal-2.32.1-r1.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-terminal-2.32.1-r1.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-terminal-2.32.1-r1.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  gnome-terminal-2.32.1-r1.ebuild:
+  Stable for amd64, wrt bug #458984
 
   25 Feb 2013; Zac Medico <zmedico@gentoo.org> gnome-terminal-3.6.1-r2.ebuild:
   Add ~arm-linux keyword.

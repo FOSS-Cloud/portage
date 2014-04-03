@@ -1,6 +1,32 @@
 # ChangeLog for dev-ruby/rcairo
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rcairo/ChangeLog,v 1.79 2012/12/25 09:15:25 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rcairo/ChangeLog,v 1.85 2014/01/07 07:10:08 graaff Exp $
+
+  07 Jan 2014; Hans de Graaff <graaff@gentoo.org> -rcairo-1.12.3.ebuild,
+  -rcairo-1.12.4.ebuild:
+  Cleanup.
+
+*rcairo-1.12.8 (07 Jan 2014)
+
+  07 Jan 2014; Hans de Graaff <graaff@gentoo.org> +rcairo-1.12.8.ebuild:
+  Version bump.
+
+  05 Dec 2013; Naohiro Aota <naota@gentoo.org> rcairo-1.12.6.ebuild:
+  Add ruby20 support.
+
+*rcairo-1.12.6 (20 Jul 2013)
+
+  20 Jul 2013; Hans de Graaff <graaff@gentoo.org> +rcairo-1.12.6.ebuild:
+  Version bump.
+
+*rcairo-1.12.4 (14 Apr 2013)
+
+  14 Apr 2013; Hans de Graaff <graaff@gentoo.org> +rcairo-1.12.4.ebuild:
+  Version bump.
+
+  14 Apr 2013; Hans de Graaff <graaff@gentoo.org> -rcairo-1.10.0-r3.ebuild,
+  -rcairo-1.12.2.ebuild:
+  Cleanup.
 
 *rcairo-1.12.3 (25 Dec 2012)
 
@@ -324,4 +350,3 @@
   21 Nov 2005; Tom Payne <twp@gentoo.org> +metadata.xml,
   +rcairo-1.0.0.ebuild:
   Initial version.
-

@@ -1,6 +1,59 @@
 # ChangeLog for www-client/links
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/links/ChangeLog,v 1.188 2013/01/04 10:08:56 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/links/ChangeLog,v 1.203 2014/02/07 23:55:36 creffett Exp $
+
+  07 Feb 2014; Chris Reffett <creffett@gentoo.org> metadata.xml:
+  Remove unused USE description
+
+  07 Feb 2014; Tim Harder <radhermit@gentoo.org> -links-2.7.ebuild,
+  -links-2.8.ebuild:
+  Remove insecure versions.
+
+  12 Jan 2014; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for ia64, wrt bug #493138
+
+  29 Dec 2013; Markus Meier <maekke@gentoo.org> links-2.8-r1.ebuild:
+  arm stable, bug #493138
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for sparc, wrt bug #493138
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for x86, wrt bug #493138
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for alpha, wrt bug #493138
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> links-2.8-r1.ebuild:
+  amd64 stable, bug #493138
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for ppc64, wrt bug #493138
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> links-2.8-r1.ebuild:
+  Stable for ppc, wrt bug #493138
+
+  19 Dec 2013; Jeroen Roovers <jer@gentoo.org> links-2.8-r1.ebuild:
+  Stable for HPPA (bug #493138).
+
+*links-2.8-r1 (04 Oct 2013)
+
+  04 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> +links-2.8-r1.ebuild:
+  Use updated security patch verify-ssl-certs-510417.diff from Debian patchset
+  2.8-1
+
+*links-2.8 (23 Sep 2013)
+
+  23 Sep 2013; Samuli Suominen <ssuominen@gentoo.org> +links-2.8.ebuild:
+  Version bump.
+
+  27 Aug 2013; Michael Palimaka <kensington@gentoo.org> links-2.7.ebuild:
+  Pin virtual/jpeg SLOT to 0.
+
+  24 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> links-2.7.ebuild:
+  Remove broken 045e.png from the tarball wrt #466190#c12. Use
+  AC_CONFIG_HEADERS instead of obsolete AM_CONFIG_HEADER wrt #467020 by
+  Alphat-PC. Use subslot operator for the libpng dependency.
 
   04 Jan 2013; Samuli Suominen <ssuominen@gentoo.org> -links-2.6.ebuild:
   old

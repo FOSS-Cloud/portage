@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libstdc++-v3/libstdc++-v3-3.3.6-r1.ebuild,v 1.3 2012/07/23 16:01:24 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libstdc++-v3/libstdc++-v3-3.3.6-r1.ebuild,v 1.12 2014/02/16 19:29:29 vapier Exp $
 
 inherit eutils flag-o-matic libtool multilib
 
@@ -98,6 +98,9 @@ do_filter_flags() {
 	filter-flags -fno-strict-overflow
 	filter-flags -fstrict-overflow
 
+	# Bug #442784
+	filter-flags '-W*'
+
 	# ...sure, why not?
 	strip-unsupported-flags
 
@@ -113,8 +116,11 @@ SRC_URI="ftp://gcc.gnu.org/pub/gcc/releases/gcc-${PV}/gcc-${PV}.tar.bz2
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~hppa ~mips ~ppc -ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="amd64 ~mips ppc -ppc64 sparc x86 ~x86-fbsd"
 IUSE="multilib nls"
+
+DEPEND="sys-devel/bison"
+RDEPEND=""
 
 S=${WORKDIR}/gcc-${PV}
 

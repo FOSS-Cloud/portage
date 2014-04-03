@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/udev-init-scripts-9999.ebuild,v 1.18 2013/01/29 17:31:13 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/udev-init-scripts-9999.ebuild,v 1.25 2014/04/02 20:29:21 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 
 inherit eutils
 
@@ -20,15 +20,14 @@ IUSE=""
 
 if [ "${PV}" != "9999" ]; then
 	SRC_URI="http://dev.gentoo.org/~williamh/dist/${P}.tar.bz2"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 fi
 
 RESTRICT="test"
 
-DEPEND="virtual/pkgconfig"
 RDEPEND=">=virtual/udev-180
-	sys-apps/openrc
 	!<sys-fs/udev-186"
+DEPEND="${RDEPEND}"
 
 src_prepare()
 {
@@ -44,12 +43,12 @@ pkg_postinst()
 		if [[ -x "${ROOT}"etc/init.d/udev \
 			&& -d "${ROOT}"etc/runlevels/sysinit ]]
 		then
-			ln -s "${ROOT}"etc/init.d/udev "${ROOT}"/etc/runlevels/sysinit/udev
+			ln -s /etc/init.d/udev "${ROOT}"/etc/runlevels/sysinit/udev
 		fi
 		if [[ -x "${ROOT}"etc/init.d/udev-mount \
 			&& -d "${ROOT}"etc/runlevels/sysinit ]]
 		then
-			ln -s "${ROOT}"etc/init.d/udev-mount \
+			ln -s /etc/init.d/udev-mount \
 				"${ROOT}"etc/runlevels/sysinit/udev-mount
 		fi
 	fi
@@ -77,7 +76,8 @@ pkg_postinst()
 		fi
 	fi
 
-	if [[ -x $(type -P rc-update) ]] && rc-update show | grep udev-postmount | grep -qs 'boot\|default\|sysinit'; then
+	if ! has_version "sys-fs/eudev[rule-generator]" && \
+	[[ -x $(type -P rc-update) ]] && rc-update show | grep udev-postmount | grep -qs 'boot\|default\|sysinit'; then
 		ewarn "The udev-postmount service has been removed because the reasons for"
 		ewarn "its existance have been removed upstream."
 		ewarn "Please remove it from your runlevels."

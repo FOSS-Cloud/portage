@@ -1,6 +1,30 @@
 # ChangeLog for media-gfx/rawstudio
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/rawstudio/ChangeLog,v 1.28 2013/02/07 22:29:07 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/rawstudio/ChangeLog,v 1.34 2013/09/29 11:31:55 pacho Exp $
+
+  29 Sep 2013; Pacho Ramos <pacho@gentoo.org> rawstudio-2.0-r1.ebuild:
+  Use subslot for libgphoto2 (#455500)
+
+  18 Aug 2013; Samuli Suominen <ssuominen@gentoo.org>
+  -files/rawstudio-1.2-glibc-2.10.patch, -rawstudio-1.2.ebuild,
+  -rawstudio-2.0.ebuild:
+  old
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> rawstudio-2.0-r1.ebuild:
+  Stable for x86, wrt bug #479810
+
+  07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> rawstudio-2.0-r1.ebuild:
+  Stable for amd64, wrt bug #479810
+
+  05 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> rawstudio-2.0-r1.ebuild:
+  Update the libjpeg dependency to use correct SLOT.
+
+*rawstudio-2.0-r1 (19 Jun 2013)
+
+  19 Jun 2013; Samuli Suominen <ssuominen@gentoo.org> +rawstudio-2.0-r1.ebuild,
+  +files/rawstudio-2.0-icon.patch:
+  Patch for fixing the path to the singular rawstudio.png wrt #389397 by
+  Merlijn Wajer and "mjbjr"
 
   07 Feb 2013; Ulrich Müller <ulm@gentoo.org> rawstudio-1.2.ebuild,
   rawstudio-2.0.ebuild:
@@ -121,4 +145,3 @@
   +files/rawstudio-0.6-desktop-entry.patch, +rawstudio-0.6.ebuild:
   Initial commit wrt #144237. Thanks to Jonas Pedersen, Lasse Bigum, Bolek
   Tekielski and Torsten Rehn.
-

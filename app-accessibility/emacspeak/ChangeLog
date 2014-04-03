@@ -1,6 +1,57 @@
 # ChangeLog for app-accessibility/emacspeak
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/emacspeak/ChangeLog,v 1.47 2010/12/03 18:35:56 williamh Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/emacspeak/ChangeLog,v 1.56 2014/03/19 22:07:36 teiresias Exp $
+
+*emacspeak-39.0-r2 (19 Mar 2014)
+
+  19 Mar 2014; Christopher Brannon <teiresias@gentoo.org>
+  +emacspeak-39.0-r2.ebuild:
+  Fix dependency. Emacspeak 39.0 won't work with < app-editors/emacs-24.
+  Closes bug #505074.
+
+  19 Mar 2014; William Hubbs <williamh@gentoo.org> metadata.xml:
+  fix maintainer
+
+  08 Feb 2014; Christopher Brannon <teiresias@gentoo.org>
+  -emacspeak-30.0.ebuild, -emacspeak-31.0.ebuild, -emacspeak-33.0.ebuild,
+  -files/emacspeak-33.0-greader-garbage.patch,
+  -files/emacspeak-33.0-respect-ldflags.patch, -emacspeak-38.0.ebuild:
+  Remove old versions.
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> emacspeak-39.0-r1.ebuild:
+  Stable for x86, wrt bug #498384
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> emacspeak-39.0-r1.ebuild:
+  Stable for ppc, wrt bug #498384
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> emacspeak-39.0-r1.ebuild:
+  amd64 stable, bug #498384
+
+*emacspeak-39.0-r1 (12 Dec 2013)
+
+  12 Dec 2013; Christopher Brannon <teiresias@gentoo.org>
+  -emacspeak-39.0.ebuild, +emacspeak-39.0-r1.ebuild, emacspeak-9999.ebuild:
+  Fix replacing of directory with symlink.
+
+  Upgrading to 39.0 was broken unless you forced it.
+  Revbumping to insure that emacspeak will be installed properly
+  for everyone.
+
+*emacspeak-39.0 (11 Dec 2013)
+
+  11 Dec 2013; Christopher Brannon <teiresias@gentoo.org>
+  +emacspeak-39.0.ebuild, emacspeak-9999.ebuild:
+  Add ebuild for emacspeak 39.0.
+  Move servers/ out of /usr/share, since it can contain ELF files
+  (closes bug #298012).
+  Remove the /usr/bin/emacspeak script downstream, since it is known to
+  be broken.
+
+*emacspeak-38.0 (09 Jul 2013)
+
+  09 Jul 2013; William Hubbs <williamh@gentoo.org> +emacspeak-38.0.ebuild,
+  emacspeak-9999.ebuild:
+  Version bump for bug #476188. Thanks to Chris Brannon. Also sync live ebuild.
 
   03 Dec 2010; William Hubbs <williamh@gentoo.org> emacspeak-33.0.ebuild,
   emacspeak-9999.ebuild:

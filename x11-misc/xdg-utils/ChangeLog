@@ -1,6 +1,96 @@
 # ChangeLog for x11-misc/xdg-utils
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdg-utils/ChangeLog,v 1.107 2012/09/29 17:06:18 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdg-utils/ChangeLog,v 1.130 2014/03/24 15:11:02 ago Exp $
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for ppc, wrt bug #503488
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for alpha, wrt bug #503488
+
+  18 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for ia64, wrt bug #503488
+
+  14 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for ppc64, wrt bug #503488
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for sparc, wrt bug #503488
+
+  08 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  xdg-utils-1.1.0_rc2.ebuild:
+  arm/x86 stable wrt #503488
+
+  07 Mar 2014; Pacho Ramos <pacho@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  amd64 stable, bug #503488
+
+  07 Mar 2014; Jeroen Roovers <jer@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for HPPA (bug #503488).
+
+  24 Feb 2014; Samuli Suominen <ssuominen@gentoo.org>
+  xdg-utils-1.1.0_rc2.ebuild:
+  Run xmlto with the --skip-validation option wrt #502166
+
+  10 Feb 2014; Samuli Suominen <ssuominen@gentoo.org>
+  xdg-utils-1.1.0_rc2.ebuild:
+  Remove now bogus maintainer comment from the ebuild since the _rc2 tarball is
+  distclean.
+
+  08 Feb 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -xdg-utils-1.1.0_rc1_p20120319.ebuild, -xdg-utils-1.1.0_rc1_p20120916.ebuild:
+  old
+
+*xdg-utils-1.1.0_rc2 (08 Feb 2014)
+
+  08 Feb 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +xdg-utils-1.1.0_rc2.ebuild:
+  Version bump.
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  Stable for alpha, wrt bug #492490
+
+  27 Dec 2013; Akinori Hattori <hattya@gentoo.org>
+  xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  ia64 stable wrt bug #492490
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  Stable for sparc, wrt bug #492490
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  Stable for ppc64, wrt bug #492490
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org>
+  xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  Stable for ppc, wrt bug #492490
+
+  06 Dec 2013; Markus Meier <maekke@gentoo.org>
+  xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  arm stable, bug #492490
+
+  30 Nov 2013; Johannes Huber <johu@gentoo.org>
+  xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  x86 stable wrt bug #492490
+
+  26 Nov 2013; Jeroen Roovers <jer@gentoo.org>
+  xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  Stable for HPPA (bug #492490).
+
+  25 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  amd64 stable, bug #492490
+
+  22 Sep 2013; Benda Xu <heroxbd@gentoo.org>
+  xdg-utils-1.1.0_rc1_p20120916.ebuild, xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  Prefix support for env.d files, bug 485580.
+
+*xdg-utils-1.1.0_rc1_p20130921 (21 Sep 2013)
+
+  21 Sep 2013; Samuli Suominen <ssuominen@gentoo.org>
+  +xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  New snapshot.
 
   29 Sep 2012; Samuli Suominen <ssuominen@gentoo.org>
   -xdg-utils-1.1.0_rc1_p20120823.ebuild:
@@ -437,4 +527,3 @@
   18 Aug 2006; Stefan Schweizer <genstef@gentoo.org> +metadata.xml,
   +xdg-utils-1.0_beta3.ebuild:
   New ebuild, thanks to bmg for parts of the description
-

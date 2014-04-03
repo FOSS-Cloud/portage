@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/prosody/prosody-0.8.2.ebuild,v 1.4 2012/10/21 09:10:40 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-im/prosody/prosody-0.8.2.ebuild,v 1.6 2014/01/27 02:21:51 zx2c4 Exp $
 
 EAPI="2"
 
@@ -13,7 +13,7 @@ SRC_URI="http://prosody.im/downloads/source/${PN}-${MY_PV}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 x86"
+KEYWORDS="amd64 x86"
 IUSE="libevent mysql postgres sqlite ssl zlib"
 
 DEPEND="net-im/jabber-base
@@ -59,7 +59,7 @@ src_configure() {
 
 src_install() {
 	DESTDIR="${D}" emake install || die "make failed"
-	newinitd "${FILESDIR}/${PN}".initd ${PN}
+	newinitd "${FILESDIR}/${PN}".initd.old ${PN}
 }
 
 src_test() {

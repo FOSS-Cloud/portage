@@ -1,6 +1,38 @@
 # ChangeLog for app-office/openoffice-bin
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/openoffice-bin/ChangeLog,v 1.261 2012/09/25 01:14:55 chithanh Exp $
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/openoffice-bin/ChangeLog,v 1.268 2013/10/12 15:08:54 chithanh Exp $
+
+  12 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -openoffice-bin-3.4.1.ebuild, -openoffice-bin-4.0.0-r1.ebuild:
+  Remove vulnerable versions, bug #478284.
+
+  11 Oct 2013; Agostino Sarubbo <ago@gentoo.org> openoffice-bin-4.0.1.ebuild:
+  Stable for x86, wrt bug #478284
+
+  11 Oct 2013; Agostino Sarubbo <ago@gentoo.org> openoffice-bin-4.0.1.ebuild:
+  Stable for amd64, wrt bug #478284
+
+*openoffice-bin-4.0.1 (03 Oct 2013)
+
+  03 Oct 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +openoffice-bin-4.0.1.ebuild:
+  Version bump.
+
+*openoffice-bin-4.0.0-r1 (24 Jul 2013)
+
+  24 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +openoffice-bin-4.0.0-r1.ebuild, -openoffice-bin-4.0.0.ebuild:
+  Fix quoting in sed which broke .desktop files
+
+  23 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  openoffice-bin-4.0.0.ebuild:
+  Fix printeradmin, bug #437530. Remove javaldx again if not needed.
+
+*openoffice-bin-4.0.0 (23 Jul 2013)
+
+  23 Jul 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +openoffice-bin-4.0.0.ebuild:
+  Version bump. Also fixes bug #456066 and bug #476088.
 
   25 Sep 2012; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
   -openoffice-bin-3.4.0-r2.ebuild:

@@ -1,6 +1,107 @@
 # ChangeLog for net-irc/inspircd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/inspircd/ChangeLog,v 1.70 2013/02/19 22:33:07 nimiux Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-irc/inspircd/ChangeLog,v 1.95 2014/03/05 10:10:26 nimiux Exp $
+
+  05 Mar 2014; Chema Alonso <nimiux@gentoo.org> -inspircd-2.0.13.ebuild,
+  -files/inspircd-2.0.13-fix-path-builds.patch, -files/inspircd-2.0.13-init,
+  -inspircd-2.0.14.ebuild, -files/inspircd-2.0.14-fix-path-builds.patch,
+  -files/inspircd-2.0.14-init:
+  Drop old
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.15.ebuild:
+  Stable for x86, wrt bug #502390
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> inspircd-2.0.15.ebuild:
+  amd64 stable, bug #502390
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> inspircd-2.0.13.ebuild,
+  inspircd-2.0.14.ebuild, inspircd-2.0.15.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+*inspircd-2.0.15 (27 Jan 2014)
+
+  27 Jan 2014; Chema Alonso <nimiux@gentoo.org> +inspircd-2.0.15.ebuild,
+  +files/inspircd-2.0.15-fix-path-builds.patch, +files/inspircd-2.0.15-init:
+  Version bump
+
+  08 Jan 2014; Mike Frysinger <vapier@gentoo.org> inspircd-2.0.13.ebuild,
+  inspircd-2.0.14.ebuild:
+  Inherit the user eclass for enewuser/etc...
+
+  08 Dec 2013; Johannes Huber <johu@gentoo.org> inspircd-2.0.14.ebuild:
+  x86 stable, bug #487044
+
+  14 Oct 2013; Tony Vroon <chainsaw@gentoo.org> inspircd-2.0.14.ebuild:
+  Marked stable on AMD64 based on arch tester report by Elijah "Armageddon" El
+  Lazkani in bug #487044.
+
+*inspircd-2.0.14 (31 Aug 2013)
+
+  31 Aug 2013; Chema Alonso <nimiux@gentoo.org> +inspircd-2.0.14.ebuild,
+  +files/inspircd-2.0.14-fix-path-builds.patch, +files/inspircd-2.0.14-init:
+  Version bump
+
+  31 Aug 2013; Chema Alonso <nimiux@gentoo.org> -inspircd-2.0.11.ebuild,
+  -files/inspircd-2.0.11-fix-path-builds.patch, -files/inspircd-2.0.11-init,
+  -inspircd-2.0.12.ebuild, -files/inspircd-2.0.12-fix-path-builds.patch,
+  -files/inspircd-2.0.12-init:
+  Drop old
+
+  28 Aug 2013; Chema Alonso <nimiux@gentoo.org> inspircd-2.0.13.ebuild:
+  Fix USE flags wrt bug #481612 by El Goretto
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.13.ebuild:
+  Stable for x86, wrt bug #476066
+
+  07 Jul 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.13.ebuild:
+  Stable for amd64, wrt bug #476066
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.12.ebuild:
+  Stable for amd64, wrt bug #473018
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.12.ebuild:
+  Stable for x86, wrt bug #473018
+
+*inspircd-2.0.13 (06 Jun 2013)
+
+  06 Jun 2013; Chema Alonso <nimiux@gentoo.org> +inspircd-2.0.13.ebuild,
+  +files/inspircd-2.0.13-fix-path-builds.patch, +files/inspircd-2.0.13-init:
+  Revision bump
+
+  11 May 2013; Chema Alonso <nimiux@gentoo.org> -inspircd-2.0.10.ebuild,
+  -inspircd-2.0.10-r1.ebuild, -files/inspircd-2.0.10-fix-path-builds.patch,
+  -files/inspircd-2.0.10-init:
+  Clean old
+
+*inspircd-2.0.12 (11 May 2013)
+
+  11 May 2013; Chema Alonso <nimiux@gentoo.org> +inspircd-2.0.12.ebuild,
+  +files/inspircd-2.0.12-fix-path-builds.patch, +files/inspircd-2.0.12-init:
+  Revision bump
+
+  10 May 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.11.ebuild:
+  Stable for x86, wrt bug #469200
+
+  10 May 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.11.ebuild:
+  Stable for amd64, wrt bug #469200
+
+*inspircd-2.0.11 (08 Apr 2013)
+
+  08 Apr 2013; Chema Alonso <nimiux@gentoo.org> +inspircd-2.0.11.ebuild,
+  +files/inspircd-2.0.11-fix-path-builds.patch, +files/inspircd-2.0.11-init:
+  Version bump
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.10-r1.ebuild:
+  Stable for x86, wrt bug #463112
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> inspircd-2.0.10-r1.ebuild:
+  Stable for amd64, wrt bug #463112
+
+  17 Mar 2013; Chema Alonso <nimiux@gentoo.org> metadata.xml:
+  Update maintainer info
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
 *inspircd-2.0.10-r1 (19 Feb 2013)
 

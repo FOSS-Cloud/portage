@@ -1,6 +1,22 @@
 # ChangeLog for media-plugins/vdr-skinsoppalusikka
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-skinsoppalusikka/ChangeLog,v 1.35 2011/01/17 17:30:58 hd_brummy Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-skinsoppalusikka/ChangeLog,v 1.38 2014/02/23 21:01:01 hd_brummy Exp $
+
+  23 Feb 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  vdr-skinsoppalusikka-1.6.4.ebuild:
+  eapi=5; converted to vdr-plugin-2.eclass
+
+*vdr-skinsoppalusikka-2.0.0 (11 Apr 2013)
+
+  11 Apr 2013; Joerg Bornkessel <hd_brummy@gentoo.org>
+  -vdr-skinsoppalusikka-1.7.9.ebuild, +vdr-skinsoppalusikka-2.0.0.ebuild:
+  bump; cleanup
+
+*vdr-skinsoppalusikka-1.7.9 (31 Mar 2013)
+
+  31 Mar 2013; Joerg Bornkessel <hd_brummy@gentoo.org>
+  +vdr-skinsoppalusikka-1.7.9.ebuild:
+  bump, taken from vdr-devel overlay
 
   17 Jan 2011; Joerg Bornkessel <hd_brummy@gentoo.org>
   -vdr-skinsoppalusikka-1.0.6.ebuild, -vdr-skinsoppalusikka-1.1.5.ebuild,

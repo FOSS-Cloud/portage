@@ -1,6 +1,27 @@
 # ChangeLog for sys-process/cronutils
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/cronutils/ChangeLog,v 1.6 2012/12/24 08:19:21 ramereth Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-process/cronutils/ChangeLog,v 1.11 2014/03/04 19:57:43 ago Exp $
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> cronutils-1.5.ebuild:
+  Stable for x86, wrt bug #502938
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> cronutils-1.5.ebuild:
+  amd64 stable, bug #502938
+
+*cronutils-1.5 (23 Dec 2013)
+
+  23 Dec 2013; Tim Harder <radhermit@gentoo.org> +cronutils-1.5.ebuild,
+  metadata.xml:
+  Version bump, add myself as maintainer.
+
+  23 Dec 2013; Pacho Ramos <pacho@gentoo.org> -cronutils-1.1.ebuild,
+  metadata.xml:
+  Cleanup due bug #66351
+
+*cronutils-1.4 (11 Jun 2013)
+
+  11 Jun 2013; Lars Wendler <polynomial-c@gentoo.org> +cronutils-1.4.ebuild:
+  Non-maintainer commit: Version bump.
 
   24 Dec 2012; Lance Albertson <ramereth@gentoo.org> cronutils-1.2.ebuild:
   mark stable

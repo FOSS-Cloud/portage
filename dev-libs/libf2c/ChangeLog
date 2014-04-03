@@ -1,6 +1,32 @@
 # ChangeLog for dev-libs/libf2c
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libf2c/ChangeLog,v 1.55 2012/11/06 06:33:37 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libf2c/ChangeLog,v 1.62 2014/02/03 09:34:00 jlec Exp $
+
+  03 Feb 2014; Justin Lecher <jlec@gentoo.org>
+  -files/20070912-link-shared-libf2c-correctly.patch,
+  -files/20090407-main.patch:
+  Drop old patches
+
+  26 Jun 2013; Justin Lecher <jlec@gentoo.org> -libf2c-20110801-r2.ebuild:
+  Drop old
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libf2c-20110801-r3.ebuild:
+  Stable for amd64, wrt bug #469000
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libf2c-20110801-r3.ebuild:
+  Stable for x86, wrt bug #469000
+
+  25 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libf2c-20110801-r3.ebuild:
+  Stable for ppc64, wrt bug #469000
+
+  24 Jun 2013; Agostino Sarubbo <ago@gentoo.org> libf2c-20110801-r3.ebuild:
+  Stable for ppc, wrt bug #469000
+
+*libf2c-20110801-r3 (08 May 2013)
+
+  08 May 2013; Justin Lecher <jlec@gentoo.org> +libf2c-20110801-r3.ebuild,
+  +files/libf2c-20110801-64bit-long.patch, metadata.xml:
+  Fix long on 64bit systems, #468352
 
   06 Nov 2012; Ulrich Müller <ulm@gentoo.org> libf2c-20110801-r2.ebuild:
   LICENSE is "HPND" according to Notice in tarball.

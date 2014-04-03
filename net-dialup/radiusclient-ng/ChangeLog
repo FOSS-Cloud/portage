@@ -1,6 +1,21 @@
 # ChangeLog for net-dialup/radiusclient-ng
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/radiusclient-ng/ChangeLog,v 1.21 2009/03/03 21:05:37 mrness Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/radiusclient-ng/ChangeLog,v 1.24 2014/03/03 23:50:31 pacho Exp $
+
+  03 Mar 2014; Pacho Ramos <pacho@gentoo.org> radiusclient-ng-0.5.6-r1.ebuild:
+  amd64 stable, bug #495836
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  radiusclient-ng-0.5.6-r1.ebuild:
+  x86 stable wrt bug #495836
+
+*radiusclient-ng-0.5.6-r1 (11 Nov 2013)
+
+  11 Nov 2013; Sergey Popov <pinkbyte@gentoo.org>
+  +radiusclient-ng-0.5.6-r1.ebuild,
+  +files/radiusclient-ng-0.5.6-cross-compile.patch:
+  Revision bump: EAPI 5, autotools-utils eclass, add fix for cross compilation
+  wrt bug #373365, thanks to Bertrand Jacquin <beber AT meleeweb.net>
 
   03 Mar 2009; Alin Năstac <mrness@gentoo.org>
   radiusclient-ng-0.5.6.ebuild:
@@ -96,4 +111,3 @@
   +files/pkgsysconfdir-install.patch, +metadata.xml,
   +radiusclient-ng-0.5.0.ebuild:
   Initial import from bug #78386.
-

@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/tribler/tribler-6.0.3.ebuild,v 1.4 2013/02/18 19:01:32 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/tribler/tribler-6.0.3.ebuild,v 1.6 2013/08/11 22:59:17 aballier Exp $
 
 EAPI="4"
 PYTHON_DEPEND="2"
 PYTHON_USE_WITH="sqlite"
 
-inherit eutils python
+inherit eutils python unpacker
 
 MY_PV="${PN}_${PV}_all"
 
@@ -30,7 +30,7 @@ RDEPEND="
 	dev-python/wxpython
 	vlc? (
 			media-video/vlc
-			media-video/ffmpeg
+			media-video/ffmpeg:0
 		)"
 
 DEPEND="${RDEPEND}
@@ -43,13 +43,6 @@ QA_PREBUILT="/usr/share/tribler/swift"
 pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
-}
-
-src_unpack() {
-	for i in ${A}; do
-		unpack ${i}
-		unpack ./data.tar.gz
-	done
 }
 
 src_prepare() {

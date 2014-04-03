@@ -1,6 +1,73 @@
 # ChangeLog for dev-libs/libxslt
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libxslt/ChangeLog,v 1.258 2013/02/21 03:40:54 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libxslt/ChangeLog,v 1.277 2014/03/04 05:53:10 tetromino Exp $
+
+  04 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  files/libxslt-1.1.28-libgcrypt-config.patch:
+  Update patch
+
+*libxslt-1.1.28-r2 (04 Mar 2014)
+
+  04 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -libxslt-1.1.28.ebuild, +libxslt-1.1.28-r2.ebuild,
+  +files/libxslt-1.1.28-libgcrypt-config.patch:
+  Add multilib support (bug #480402, thanks to David Heidelberger (okias) and
+  Michał Górny). Punt old.
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> libxslt-1.1.28-r1.ebuild,
+  libxslt-1.1.28.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Add arm64 love.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  30 Jun 2013; Justin Lecher <jlec@gentoo.org> libxslt-1.1.28-r1.ebuild,
+  metadata.xml:
+  Fix usage of python-r1.eclass
+
+  13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for s390, wrt bug #458984
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for sh, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  26 Mar 2013; Jeroen Roovers <jer@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for HPPA (bug #458984).
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r1.ebuild:
+  Stable for amd64, wrt bug #458984
+
+  12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> libxslt-1.1.28.ebuild,
+  libxslt-1.1.28-r1.ebuild:
+  Remove useless use of epunt_cxx wrt #460980 by Roman Žilka
+
+  06 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -libxslt-1.1.27.ebuild,
+  -files/libxslt-1.1.27-python-includes.patch:
+  Clean up old revision.
 
   21 Feb 2013; Zac Medico <zmedico@gentoo.org> libxslt-1.1.28-r1.ebuild:
   Fix for prefix and add ~arm-linux + ~x86-linux keywords.

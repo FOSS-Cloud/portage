@@ -1,6 +1,40 @@
 # ChangeLog for dev-vcs/gitg
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/gitg/ChangeLog,v 1.20 2012/06/11 09:19:31 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/gitg/ChangeLog,v 1.26 2014/03/15 15:04:20 sping Exp $
+
+  15 Mar 2014; Sebastian Pipping <sping@gentoo.org> gitg-0.3.2.ebuild:
+  eautoreconf needs GNOME_COMPILE_WARNINGS from
+  /usr/share/aclocal/gnome-compiler-flags.m4 to rebuild configure script (bug
+  #504070)
+
+*gitg-0.3.2 (08 Feb 2014)
+
+  08 Feb 2014; Justin Lecher <jlec@gentoo.org> +gitg-0.3.2.ebuild,
+  metadata.xml:
+  Version Bump, #497358; thanks for Mark R. Pariente, Konstantin and Jesús
+  Pérez (Chuso) working on the ebuild
+
+  18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gitg-0.2.7.ebuild:
+  Stable for x86, wrt bug #478274
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> gitg-0.2.7.ebuild:
+  Stable for amd64, wrt bug #478274
+
+*gitg-0.2.7 (13 Apr 2013)
+
+  13 Apr 2013; Mike Auty <ikelos@gentoo.org> -gitg-0.2.5.ebuild,
+  gitg-0.2.6.ebuild, +gitg-0.2.7.ebuild:
+  Bump gitg to 0.2.7 and block 0.2.6 from gnome-3.8 libraries due to a
+  segfault. Fixes bug 465526.
+
+*gitg-0.2.6 (29 Mar 2013)
+
+  29 Mar 2013; Tomáš Chvátal <scarabeus@gentoo.org>
+  +files/gitg-0.2.6-fix-libreoffice.patch, +gitg-0.2.6.ebuild,
+  -files/gitg-0.2.1-fix-disable-debug.patch, -gitg-0.1.0.ebuild,
+  -gitg-0.2.2.ebuild, -gitg-0.2.4.ebuild:
+  Version bump to latest and add patch to make it work with huge repos
+  (libreoffice). Drop overshadowed packages to reduce versions clutter.
 
   11 Jun 2012; Agostino Sarubbo <ago@gentoo.org> gitg-0.1.2.ebuild:
   Stable for amd64, wrt bug #419893
@@ -134,4 +168,3 @@
   08 Mar 2009; Mike Auty <ikelos@gentoo.org> +metadata.xml,
   +gitg-0.0.1.ebuild:
   Initial import, ebuild courtesy of Thorsten Vollmer (bug 258741).
-

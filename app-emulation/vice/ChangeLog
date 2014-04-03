@@ -1,6 +1,30 @@
 # ChangeLog for app-emulation/vice
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/vice/ChangeLog,v 1.87 2013/01/24 14:40:00 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/vice/ChangeLog,v 1.93 2013/06/04 20:41:32 mr_bones_ Exp $
+
+  04 Jun 2013; Michael Sterrett <mr_bones_@gentoo.org> vice-2.4.ebuild:
+  punt custom arg checking function (bug #471260)
+
+  26 May 2013; Michael Sterrett <mr_bones_@gentoo.org> vice-2.4.ebuild:
+  disable-dependency-tracking is passed by default with eapi5
+
+  10 May 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/vice-2.4-autotools.patch, files/vice-2.3-libav.patch,
+  files/vice-2.3-notexi.patch, files/vice-2.4-arm.patch,
+  files/vice-2.4-buffer.patch, files/vice-2.4-ffmpeg-1.patch, vice-2.4.ebuild:
+  fix building with new automake (bug #467562)
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vice-2.4.ebuild:
+  Stable for x86, wrt bug #464624
+
+  05 Apr 2013; Agostino Sarubbo <ago@gentoo.org> vice-2.4.ebuild:
+  Stable for amd64, wrt bug #464624
+
+  05 Apr 2013; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/vice-2.4-buffer.patch, files/vice-2.3-libav.patch,
+  files/vice-2.3-notexi.patch, files/vice-2.4-arm.patch,
+  files/vice-2.4-ffmpeg-1.patch, vice-2.4.ebuild:
+  fix buffer overflow (bug #464708)
 
   24 Jan 2013; Alexis Ballier <aballier@gentoo.org> vice-2.4.ebuild,
   +files/vice-2.4-ffmpeg-1.patch:

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+<herd>proxy-maintainers</herd>
 <maintainer>
 	<email>devurandom@gmx.net</email>
 	<name>Dennis Schridde</name>
@@ -12,7 +13,5 @@
 </maintainer>
 <use>
 	<flag name='headless'>Build without graphic frontend</flag>
-	<flag name='qt-bundled'>Use bundled Qt4 libraries</flag>
-	<flag name='system-libs'>Use the system libraries rather than bundled</flag>
 </use>
 </pkgmetadata>

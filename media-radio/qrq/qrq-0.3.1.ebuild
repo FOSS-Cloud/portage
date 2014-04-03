@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/qrq/qrq-0.3.1.ebuild,v 1.1 2013/01/30 06:26:38 tomjbe Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-radio/qrq/qrq-0.3.1.ebuild,v 1.4 2013/07/30 14:25:52 tomjbe Exp $
 
-EAPI="2"
+EAPI="5"
 
 inherit toolchain-funcs
 
@@ -12,7 +12,7 @@ SRC_URI="http://fkurz.net/ham/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="pulseaudio"
 
 DEPEND="sys-libs/ncurses
@@ -34,6 +34,6 @@ src_compile() {
 }
 
 src_install() {
-	emake $CONF DESTDIR="${D}/usr" install || die
-	dodoc AUTHORS ChangeLog README || die
+	emake $CONF DESTDIR="${D}/usr" install
+	dodoc AUTHORS ChangeLog README
 }

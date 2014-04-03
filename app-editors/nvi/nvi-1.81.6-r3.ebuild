@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/nvi/nvi-1.81.6-r3.ebuild,v 1.14 2012/06/17 22:37:23 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/nvi/nvi-1.81.6-r3.ebuild,v 1.15 2013/07/09 22:23:51 neurogeek Exp $
 
-EAPI=1
+EAPI=5
 
 inherit autotools db-use eutils flag-o-matic
 
@@ -22,7 +22,7 @@ done
 
 DESCRIPTION="Vi clone"
 HOMEPAGE="https://sites.google.com/a/bostic.com/keithbostic/nvi"
-SRC_URI="http://www.kotnet.org/~skimo/nvi/devel/${P}.tar.bz2"
+SRC_URI="http://garage.linux.student.kuleuven.be/~skimo/nvi/devel/${P}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"
@@ -30,7 +30,7 @@ KEYWORDS="alpha amd64 hppa ~mips ppc ppc64 sparc x86"
 IUSE="perl tcl unicode"
 
 DEPEND="|| ( ${DBDEPENDS} )
-	>=sys-libs/ncurses-5.6-r2
+	>=sys-libs/ncurses-5.6-r2[tinfo]
 	perl? ( dev-lang/perl )
 	tcl? ( !unicode? ( >=dev-lang/tcl-8.5 ) )"
 RDEPEND="${DEPEND}
@@ -46,9 +46,7 @@ pkg_setup() {
 	fi
 }
 
-src_unpack() {
-	unpack ${A}
-	cd ${P}
+src_prepare() {
 	epatch "${FILESDIR}"/${P}-db44.patch
 	epatch "${FILESDIR}"/${P}-db.patch
 	epatch "${FILESDIR}"/${P}-perl-as-needed.patch

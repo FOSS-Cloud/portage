@@ -1,6 +1,19 @@
 # ChangeLog for dev-ml/ocaml-sqlite3
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocaml-sqlite3/ChangeLog,v 1.31 2012/12/08 12:16:31 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocaml-sqlite3/ChangeLog,v 1.34 2014/01/19 12:44:04 aballier Exp $
+
+*ocaml-sqlite3-2.0.5 (19 Jan 2014)
+
+  19 Jan 2014; Alexis Ballier <aballier@gentoo.org>
+  +ocaml-sqlite3-2.0.5.ebuild:
+  version bump
+
+  03 Mar 2013; Alexis Ballier <aballier@gentoo.org> ocaml-sqlite3-2.0.4.ebuild:
+  eapi5 and define subslot
+
+  03 Mar 2013; Alexis Ballier <aballier@gentoo.org>
+  -ocaml-sqlite3-2.0.2.ebuild, -ocaml-sqlite3-2.0.3.ebuild:
+  remove old
 
 *ocaml-sqlite3-2.0.4 (08 Dec 2012)
 

@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/tsmuxer/tsmuxer-1.10.6-r1.ebuild,v 1.7 2012/09/24 00:45:45 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/tsmuxer/tsmuxer-1.10.6-r1.ebuild,v 1.10 2014/03/10 14:31:55 kensington Exp $
 
-EAPI="4"
+EAPI=5
 
 inherit eutils base qt4-r2
 
@@ -24,17 +24,48 @@ DEPEND="|| (
 )"
 RDEPEND="
 	x86? (
-		sys-libs/glibc
 		media-libs/freetype:2
 		qt4? (
-			x11-libs/qt-gui:4
-			media-libs/libpng:1.2
+			dev-libs/glib:2
+			dev-qt/qtcore:4
+			dev-qt/qtgui:4
+			media-libs/fontconfig
+			x11-libs/libICE
+			x11-libs/libSM
+			x11-libs/libX11
+			x11-libs/libXext
+			x11-libs/libXrender
 		)
 	)
 	amd64? (
-		app-emulation/emul-linux-x86-xlibs
-		app-emulation/emul-linux-x86-baselibs
-		qt4? ( >=app-emulation/emul-linux-x86-qtlibs-20081109 )
+		|| (
+			media-libs/freetype:2[abi_x86_32(-)]
+			app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
+		)
+		qt4? (
+			|| (
+				app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
+				(
+					media-libs/fontconfig[abi_x86_32(-)]
+					x11-libs/libICE[abi_x86_32(-)]
+					x11-libs/libSM[abi_x86_32(-)]
+					x11-libs/libX11[abi_x86_32(-)]
+					x11-libs/libXext[abi_x86_32(-)]
+					x11-libs/libXrender[abi_x86_32(-)]
+				)
+			)
+			|| (
+				dev-libs/glib:2[abi_x86_32(-)]
+				app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)]
+			)
+			|| (
+				(
+					dev-qt/qtcore:4[abi_x86_32(-)]
+					dev-qt/qtgui:4[abi_x86_32(-)]
+				)
+				app-emulation/emul-linux-x86-qtlibs[-abi_x86_32(-)]
+			)
+		)
 	)"
 
 # cli is linked to freetype, when it will be fixed,

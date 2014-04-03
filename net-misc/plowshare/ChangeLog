@@ -1,6 +1,39 @@
 # ChangeLog for net-misc/plowshare
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/plowshare/ChangeLog,v 1.21 2012/08/17 16:51:21 kensington Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/plowshare/ChangeLog,v 1.27 2014/03/14 14:04:04 voyageur Exp $
+
+  14 Mar 2014; Bernard Cafarelli <voyageur@gentoo.org> plowshare-1.0.0.ebuild:
+  Host tarball as a workaround for #504512, thanks James Cloos
+  <cloos@jhcloos.com>
+
+*plowshare-1.0.0 (10 Mar 2014)
+*plowshare-0_p20131130 (10 Mar 2014)
+
+  10 Mar 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +plowshare-0_p20131130.ebuild, +plowshare-1.0.0.ebuild,
+  -plowshare-20130520.ebuild, -plowshare-20131130.ebuild:
+  Version bump, rename older ebuild for new upstream versioning
+
+*plowshare-20131130 (05 Jan 2014)
+
+  05 Jan 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  -plowshare-20120609-r2.ebuild, +plowshare-20131130.ebuild:
+  Version bump, drop old
+
+  09 Aug 2013; Ian Stakenvicius <axs@gentoo.org> plowshare-20120609-r2.ebuild,
+  plowshare-20130520.ebuild:
+  Adjusted deps for dev-lang/spidermonkey to ensure SLOT=0
+
+  15 Jun 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  plowshare-20130520.ebuild:
+  Fix typo with USE=-javascript, spotted by Francisco Vazquez
+  <fjvazquezaraujo@gmail.com> in bug #473268
+
+*plowshare-20130520 (13 Jun 2013)
+
+  13 Jun 2013; Bernard Cafarelli <voyageur@gentoo.org>
+  +plowshare-20130520.ebuild, metadata.xml:
+  Adding myself to maintainers, version bump (bash4-only version)
 
   17 Aug 2012; Michael Palimaka <kensington@gentoo.org>
   -plowshare-20120609-r1.ebuild, -plowshare-20120609.ebuild:

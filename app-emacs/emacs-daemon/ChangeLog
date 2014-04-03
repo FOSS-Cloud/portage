@@ -1,6 +1,57 @@
 # ChangeLog for app-emacs/emacs-daemon
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-daemon/ChangeLog,v 1.58 2012/10/04 07:53:06 naota Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-daemon/ChangeLog,v 1.73 2014/02/02 11:28:25 ulm Exp $
+
+*emacs-daemon-0.21 (02 Feb 2014)
+
+  02 Feb 2014; Ulrich Müller <ulm@gentoo.org> +emacs-daemon-0.21.ebuild:
+  Version bump.
+
+  29 Dec 2013; Ulrich Müller <ulm@gentoo.org> emacs-daemon-0.20.ebuild:
+  Drop to unstable keyword on s390 and sh.
+
+  14 Jul 2013; Ulrich Müller <ulm@gentoo.org> -emacs-daemon-0.19.ebuild,
+  emacs-daemon-0.20.ebuild:
+  Update HOMEPAGE. Remove old.
+
+  02 Jun 2013; Agostino Sarubbo <ago@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for sh, wrt bug #469880
+
+  25 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for sparc, wrt bug #469880
+
+  20 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for s390, wrt bug #469880
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for alpha, wrt bug #469880
+
+  18 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for ia64, wrt bug #469880
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for arm, wrt bug #469880
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for ppc64, wrt bug #469880
+
+  16 May 2013; Jeroen Roovers <jer@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for HPPA (bug #469880).
+
+  16 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for ppc, wrt bug #469880
+
+  15 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for x86, wrt bug #469880
+
+  15 May 2013; Agostino Sarubbo <ago@gentoo.org> emacs-daemon-0.20.ebuild:
+  Stable for amd64, wrt bug #469880
+
+*emacs-daemon-0.20 (23 Mar 2013)
+
+  23 Mar 2013; Ulrich Müller <ulm@gentoo.org> -emacs-daemon-0.18.ebuild,
+  emacs-daemon-0.19.ebuild, +emacs-daemon-0.20.ebuild:
+  Version bump. Specify LICENSE more precisely. Remove old.
 
   04 Oct 2012;  <naota@gentoo.org> emacs-daemon-0.19.ebuild:
   Add ~x86-fbsd wrt bug #263222

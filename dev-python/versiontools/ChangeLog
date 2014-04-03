@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/versiontools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/versiontools/ChangeLog,v 1.5 2012/11/13 10:23:54 idella4 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/versiontools/ChangeLog,v 1.8 2014/03/31 20:32:29 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> versiontools-1.9.1-r1.ebuild:
+  Add support for the new PyPy slotting.
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org> versiontools-1.9.1-r1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+*versiontools-1.9.1-r1 (21 Mar 2013)
+
+  21 Mar 2013; Ian Delaney <idella4@gentoo.org> +versiontools-1.9.1-r1.ebuild:
+  migration revbump, IUSE doc dropped due to build accessing python.org to fetch
+  inventory
 
   14 Nov 2012; Ian Delaney <idella4@gentoo.org> metadata.xml:
   Updating maintainer, metadata.xml

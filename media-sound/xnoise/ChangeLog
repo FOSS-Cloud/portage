@@ -1,6 +1,42 @@
 # ChangeLog for media-sound/xnoise
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/xnoise/ChangeLog,v 1.30 2013/02/23 19:02:29 angelos Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/xnoise/ChangeLog,v 1.37 2014/03/22 20:39:37 angelos Exp $
+
+  22 Mar 2014; Christoph Mende <angelos@gentoo.org> xnoise-0.2.21.ebuild:
+  Fix QA warnings in xnoise.desktop
+
+*xnoise-0.2.21 (22 Mar 2014)
+
+  22 Mar 2014; Christoph Mende <angelos@gentoo.org> +xnoise-0.2.21.ebuild,
+  -xnoise-0.2.19.ebuild, xnoise-9999.ebuild:
+  Version bump, remove old, update live ebuild
+
+*xnoise-0.2.20 (13 Dec 2013)
+
+  13 Dec 2013; Christoph Mende <angelos@gentoo.org> +xnoise-0.2.20.ebuild,
+  -xnoise-0.2.18.ebuild:
+  Version bump, remove old
+
+*xnoise-0.2.19 (31 Oct 2013)
+
+  31 Oct 2013; Christoph Mende <angelos@gentoo.org> -xnoise-0.2.17.ebuild,
+  +xnoise-0.2.19.ebuild:
+  Version bump, remove old
+
+*xnoise-0.2.18 (11 May 2013)
+
+  11 May 2013; Christoph Mende <angelos@gentoo.org> +xnoise-0.2.18.ebuild,
+  -xnoise-0.2.15.ebuild, xnoise-9999.ebuild:
+  Version bump, update live ebuild
+
+  29 Mar 2013; Christoph Mende <angelos@gentoo.org> xnoise-9999.ebuild:
+  Convert to vala.eclass
+
+*xnoise-0.2.17 (16 Mar 2013)
+
+  16 Mar 2013; Christoph Mende <angelos@gentoo.org> +xnoise-0.2.17.ebuild,
+  -xnoise-0.2.14.ebuild, xnoise-9999.ebuild:
+  Version bump, remove old
 
   23 Feb 2013;  <christoph@gentoo.org> xnoise-0.2.14.ebuild,
   xnoise-0.2.15.ebuild, xnoise-9999.ebuild:

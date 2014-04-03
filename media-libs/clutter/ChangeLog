@@ -1,6 +1,92 @@
 # ChangeLog for media-libs/clutter
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter/ChangeLog,v 1.63 2013/02/02 22:45:55 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter/ChangeLog,v 1.83 2014/03/09 12:02:02 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> clutter-1.16.4-r1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> clutter-1.16.4-r1.ebuild:
+  amd64 stable, bug 499954
+
+*clutter-1.16.4-r1 (08 Mar 2014)
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org> +clutter-1.16.4-r1.ebuild,
+  +files/clutter-1.16.4-buffer-age.patch, -clutter-1.16.2.ebuild:
+  Avoid screen flickering with nvidia drivers (#503560 by brutester), drop old.
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> clutter-1.16.4.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> clutter-1.16.4.ebuild:
+  arch stable, bug 888
+
+*clutter-1.16.4 (06 Feb 2014)
+
+  06 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> +clutter-1.16.4.ebuild:
+  Version bump.
+
+*clutter-1.16.2 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +clutter-1.16.2.ebuild,
+  -clutter-1.14.4-r1.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> clutter-1.14.6.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> clutter-1.14.6.ebuild:
+  amd64 stable, bug #478252
+
+*clutter-1.14.6 (21 Nov 2013)
+
+  21 Nov 2013; Pacho Ramos <pacho@gentoo.org> +clutter-1.14.6.ebuild,
+  -clutter-1.12.2-r1.ebuild, -clutter-1.14.4.ebuild,
+  -files/clutter-1.12.2-array-bounds.patch:
+  Version bump, drop old
+
+*clutter-1.14.4-r1 (20 Jul 2013)
+
+  20 Jul 2013; Pacho Ramos <pacho@gentoo.org> +clutter-1.14.4-r1.ebuild,
+  -clutter-1.14.2.ebuild:
+  Apply upstream fixes from 1.14 branch
+
+*clutter-1.12.2-r1 (05 Jun 2013)
+
+  05 Jun 2013; Justin Lecher <jlec@gentoo.org> +clutter-1.12.2-r1.ebuild,
+  +files/clutter-1.12.2-array-bounds.patch, metadata.xml:
+  Backport patch to fix segfault due to unrespected array bounds, #469196
+
+*clutter-1.14.4 (15 May 2013)
+
+  15 May 2013; Pacho Ramos <pacho@gentoo.org> +clutter-1.14.4.ebuild,
+  -clutter-1.14.0.ebuild:
+  Version bump, drop old
+
+*clutter-1.14.2 (17 Apr 2013)
+
+  17 Apr 2013; Pacho Ramos <pacho@gentoo.org> +clutter-1.14.2.ebuild:
+  Version bump
+
+  29 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org> -clutter-1.8.4.ebuild,
+  -clutter-1.10.8.ebuild:
+  Clean up old revisions.
+
+*clutter-1.14.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +clutter-1.14.0.ebuild:
+  Version bump for Gnome 3.8
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clutter-1.12.2.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clutter-1.12.2.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clutter-1.12.2.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> clutter-1.12.2.ebuild:
+  Stable for amd64, wrt bug #458984
 
   02 Feb 2013; Agostino Sarubbo <ago@gentoo.org> clutter-1.12.2.ebuild:
   Add ~arm, wrt bug #449220

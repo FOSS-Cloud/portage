@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/scribus/scribus-1.4.2-r2.ebuild,v 1.2 2013/02/07 12:55:18 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/scribus/scribus-1.4.2-r2.ebuild,v 1.4 2013/07/02 13:55:01 jlec Exp $
 
 EAPI=5
 
@@ -34,8 +34,8 @@ COMMON_DEPEND="
 	media-libs/tiff:0
 	net-print/cups
 	sys-libs/zlib[minizip]
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
 	virtual/jpeg
 	cairo? ( x11-libs/cairo[X,svg] )
 	pdf? ( app-text/podofo )
@@ -66,7 +66,7 @@ src_prepare() {
 		-e 's:\(${CMAKE_INSTALL_PREFIX}\):./\1:g' \
 		-i resources/templates/CMakeLists.txt || die
 
-	base_src_prepare
+	cmake-utils_src_prepare
 }
 
 src_configure() {

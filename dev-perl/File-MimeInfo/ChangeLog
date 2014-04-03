@@ -1,6 +1,47 @@
 # ChangeLog for dev-perl/File-MimeInfo
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/File-MimeInfo/ChangeLog,v 1.74 2012/06/24 12:59:14 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/File-MimeInfo/ChangeLog,v 1.86 2014/02/22 08:54:48 zlogene Exp $
+
+  22 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> -File-MimeInfo-0.150.0.ebuild,
+  -File-MimeInfo-0.160.0.ebuild, File-MimeInfo-0.170.0.ebuild:
+  ppc64 stable wrt bug #492148; Drop old.
+
+  22 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> File-MimeInfo-0.170.0.ebuild:
+  sparc stable wrt bug #492148
+
+  22 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> File-MimeInfo-0.210.0.ebuild:
+  Fix for MODULE_VERSION variable
+
+*File-MimeInfo-0.210.0 (22 Feb 2014)
+
+  22 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> +File-MimeInfo-0.210.0.ebuild:
+  Version bump
+
+  22 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> File-MimeInfo-0.170.0.ebuild:
+  x86 stable wrt bug #492148
+
+  22 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> File-MimeInfo-0.170.0.ebuild:
+  amd64 stable wrt bug #492148
+
+  22 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> File-MimeInfo-0.170.0.ebuild:
+  alpha stable wrt bug #492148
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> File-MimeInfo-0.170.0.ebuild:
+  Stable for ppc, wrt bug #492148
+
+  30 Jan 2014; Markus Meier <maekke@gentoo.org> File-MimeInfo-0.170.0.ebuild:
+  arm stable, bug #492148
+
+  28 Jan 2014; Akinori Hattori <hattya@gentoo.org> File-MimeInfo-0.170.0.ebuild:
+  ia64 stable wrt bug #492148
+
+  28 Jan 2014; Jeroen Roovers <jer@gentoo.org> File-MimeInfo-0.170.0.ebuild:
+  Stable for HPPA (bug #492148).
+
+*File-MimeInfo-0.170.0 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> +File-MimeInfo-0.170.0.ebuild:
+  Bump
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

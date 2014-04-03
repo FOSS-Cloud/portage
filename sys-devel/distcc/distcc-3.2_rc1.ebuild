@@ -1,11 +1,11 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/distcc/distcc-3.2_rc1.ebuild,v 1.5 2013/02/12 09:09:20 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/distcc/distcc-3.2_rc1.ebuild,v 1.7 2014/01/19 01:53:44 vapier Exp $
 
 EAPI="3"
 PYTHON_DEPEND="2:2.5"
 
-inherit autotools eutils fdo-mime flag-o-matic multilib python toolchain-funcs user
+inherit autotools eutils fdo-mime flag-o-matic multilib python systemd toolchain-funcs user
 
 MY_P="${P/_}"
 DESCRIPTION="a program to distribute compilation of C code across several machines on a network"
@@ -14,7 +14,7 @@ SRC_URI="http://distcc.googlecode.com/files/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~sparc-fbsd ~x86-fbsd"
 IUSE="avahi crossdev gnome gssapi gtk hardened ipv6 selinux xinetd"
 
 RESTRICT="test"
@@ -99,6 +99,8 @@ src_install() {
 	dobin "${FILESDIR}/3.0/distcc-config" || die
 
 	newinitd "${FILESDIR}/3.1/init" distccd || die
+	systemd_dounit "${FILESDIR}/distccd.service"
+	systemd_install_serviced "${FILESDIR}/distccd.service.conf"
 
 	cp "${FILESDIR}/3.0/conf" "${T}/distccd" || die
 	if use avahi; then
@@ -107,6 +109,8 @@ src_install() {
 		# Enable zeroconf support in distccd
 		DISTCCD_OPTS="\${DISTCCD_OPTS} --zeroconf"
 		EOF
+
+		sed -i '/ExecStart/ s|$| --zeroconf|' "${ED}"/usr/lib/systemd/system/distccd.service || die
 	fi
 	doconfd "${T}/distccd" || die
 

@@ -1,6 +1,17 @@
 # ChangeLog for media-plugins/vdr-prefermenu
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-prefermenu/ChangeLog,v 1.8 2009/03/12 20:49:50 zzam Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-prefermenu/ChangeLog,v 1.10 2014/02/23 20:39:10 hd_brummy Exp $
+
+  23 Feb 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  -vdr-prefermenu-0.6.6-r1.ebuild:
+  cleanup old; depended on vdr-plugin.eclass
+
+*vdr-prefermenu-0.6.6-r2 (26 Nov 2013)
+
+  26 Nov 2013; Joerg Bornkessel <hd_brummy@gentoo.org>
+  -vdr-prefermenu-0.6.4.ebuild, -vdr-prefermenu-0.6.6.ebuild,
+  +vdr-prefermenu-0.6.6-r2.ebuild, +files/prefermenu.mk:
+  fixed wrt bug #420883 #414177
 
   12 Mar 2009; Matthias Schwarzott <zzam@gentoo.org>
   vdr-prefermenu-0.6.6-r1.ebuild:

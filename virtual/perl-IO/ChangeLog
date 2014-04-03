@@ -1,6 +1,18 @@
 # ChangeLog for virtual/perl-IO
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-IO/ChangeLog,v 1.36 2012/04/28 02:36:56 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-IO/ChangeLog,v 1.39 2014/01/19 21:05:45 vapier Exp $
+
+  19 Jan 2014; Mike Frysinger <vapier@gentoo.org> perl-IO-1.25.ebuild,
+  perl-IO-1.280.0.ebuild:
+  Add arm64 love.
+
+  31 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> perl-IO-1.25.ebuild:
+  Drop perl-5.10* dependency
+
+*perl-IO-1.280.0 (14 Aug 2013)
+
+  14 Aug 2013; Patrick Lauer <patrick@gentoo.org> +perl-IO-1.280.0.ebuild:
+  Bump
 
   28 Apr 2012; Alexis Ballier <aballier@gentoo.org> perl-IO-1.25.ebuild:
   keyword ~amd64-fbsd
@@ -122,4 +134,3 @@
   06 Nov 2006; Michael Cummings <mcummings@gentoo.org> +metadata.xml,
   +perl-IO-1.20.ebuild, +perl-IO-1.23.01.ebuild:
   Virtual for perl-core/IO
-

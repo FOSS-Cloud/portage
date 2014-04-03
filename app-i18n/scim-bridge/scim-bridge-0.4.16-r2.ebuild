@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/scim-bridge/scim-bridge-0.4.16-r2.ebuild,v 1.5 2012/07/08 19:43:42 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/scim-bridge/scim-bridge-0.4.16-r2.ebuild,v 1.7 2013/04/21 10:20:56 lxnay Exp $
 
 EAPI="2"
 
-inherit autotools eutils multilib
+inherit autotools eutils gnome2-utils multilib
 
 DESCRIPTION="Yet another IM-client of SCIM"
 HOMEPAGE="http://www.scim-im.org/projects/scim_bridge"
@@ -23,23 +23,14 @@ RDEPEND=">=app-i18n/scim-1.4.6
 		>=x11-libs/pango-1.1
 	)
 	qt4? (
-		x11-libs/qt-gui:4
-		x11-libs/qt-core:4
+		dev-qt/qtgui:4
+		dev-qt/qtcore:4
 		>=x11-libs/pango-1.1
 	)"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	dev-util/intltool
 	doc? ( app-doc/doxygen )"
-
-update_gtk_immodules() {
-	local GTK2_CONFDIR
-	has_multilib_profile && GTK2_CONFDIR="/etc/gtk-2.0/${CHOST}"
-	GTK2_CONFDIR=${GTK2_CONFDIR:=/etc/gtk-2.0/}
-	if [ -x /usr/bin/gtk-query-immodules-2.0 ] ; then
-		/usr/bin/gtk-query-immodules-2.0 > "${ROOT}/${GTK2_CONFDIR}/gtk.immodules"
-	fi
-}
 
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-0.4.15.2-qt4.patch"
@@ -88,9 +79,9 @@ pkg_postinst() {
 	elog " $ export GTK_IM_MODULE=scim-bridge"
 	elog " $ export QT_IM_MODULE=scim-bridge"
 	elog
-	use gtk && update_gtk_immodules
+	use gtk && gnome2_query_immodules_gtk2
 }
 
 pkg_postrm() {
-	use gtk && update_gtk_immodules
+	use gtk && gnome2_query_immodules_gtk2
 }

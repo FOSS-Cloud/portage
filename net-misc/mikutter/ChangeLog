@@ -1,6 +1,48 @@
 # ChangeLog for net-misc/mikutter
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/mikutter/ChangeLog,v 1.33 2013/02/20 15:35:05 naota Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/mikutter/ChangeLog,v 1.41 2014/03/22 08:29:28 naota Exp $
+
+*mikutter-0.2.2.1537 (22 Mar 2014)
+
+  22 Mar 2014; Naohiro Aota <naota@gentoo.org>
+  +files/mikutter-0.2.2.1537-disable-bundler.patch, +mikutter-0.2.2.1537.ebuild,
+  files/mikutter:
+  version bump
+
+*mikutter-0.2.2.1476 (16 Jan 2014)
+
+  16 Jan 2014; Naohiro Aota <naota@gentoo.org> +mikutter-0.2.2.1476.ebuild:
+  version bump
+
+*mikutter-0.2.2.1430 (25 Dec 2013)
+
+  25 Dec 2013; Naohiro Aota <naota@gentoo.org>
+  +files/mikutter-0.2.2.1430-cairo.patch, +mikutter-0.2.2.1430.ebuild:
+  version bump
+
+  18 Nov 2013; Naohiro Aota <naota@gentoo.org> mikutter-0.2.2.1410.ebuild:
+  Include Gemfile
+
+*mikutter-0.2.2.1410 (04 Nov 2013)
+
+  04 Nov 2013; Naohiro Aota <naota@gentoo.org> +mikutter-0.2.2.1410.ebuild:
+  version bump
+
+*mikutter-0.2.2.1328 (06 Sep 2013)
+
+  06 Sep 2013; Naohiro Aota <naota@gentoo.org> +mikutter-0.2.2.1328.ebuild:
+  version bump
+
+  27 Apr 2013; Naohiro Aota <naota@gentoo.org> files/mikutter:
+  Specific to ruby1.9
+
+*mikutter-0.2.1.1141 (31 Mar 2013)
+
+  31 Mar 2013; Naohiro Aota <naota@gentoo.org> +mikutter-0.2.1.1141.ebuild,
+  -mikutter-0.0.4.690.ebuild, -mikutter-0.1.0.723.ebuild,
+  -mikutter-0.1.1.780.ebuild, -mikutter-0.1.1.863.ebuild,
+  -mikutter-0.2.1.1127.ebuild, files/mikutter, mikutter-9999.ebuild:
+  Version bump wrt #460858
 
 *mikutter-0.2.1.1127 (20 Feb 2013)
 

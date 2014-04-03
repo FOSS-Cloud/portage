@@ -1,6 +1,48 @@
 # ChangeLog for sci-mathematics/pari
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/pari/ChangeLog,v 1.93 2013/02/02 07:38:40 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/pari/ChangeLog,v 1.104 2014/03/06 17:26:35 jer Exp $
+
+  06 Mar 2014; Jeroen Roovers <jer@gentoo.org> pari-2.3.5.ebuild,
+  pari-2.5.0-r3.ebuild, pari-2.5.1.ebuild, pari-2.5.1-r1.ebuild,
+  pari-2.5.2.ebuild, pari-2.5.3.ebuild, pari-2.5.4.ebuild:
+  Remove unneeded HPPA settings.
+
+  27 Jan 2014; Justin Lecher <jlec@gentoo.org> -pari-2.3.4-r1.ebuild,
+  metadata.xml:
+  Drop old
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> pari-2.3.5.ebuild:
+  Stable for sparc, wrt bug #494330
+
+  24 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> pari-2.3.5.ebuild:
+  x86 stable wrt bug #494330
+
+  20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> pari-2.3.5.ebuild:
+  Stable for ppc, wrt bug #494330
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> pari-2.3.5.ebuild:
+  Stable for ppc64, wrt bug #494330
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> pari-2.3.5.ebuild:
+  Stable for alpha, wrt bug #494330
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> pari-2.3.5.ebuild:
+  amd64 stable, bug #494330
+
+  22 Dec 2013; Jeroen Roovers <jer@gentoo.org> pari-2.3.5.ebuild:
+  Stable for HPPA (bug #494330).
+
+*pari-2.5.4 (11 Jun 2013)
+
+  11 Jun 2013; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/pari-2.5.4-polred.patch, +files/pari-2.5.4-slow_determinant.patch,
+  +pari-2.5.4.ebuild:
+  Version bump, also closing bug #472362, thanks Martin von Gagern and Francois
+  Bissey
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> pari-2.5.1-r1.ebuild,
+  pari-2.5.2.ebuild, pari-2.5.3.ebuild:
+  Move Qt dependencies to the new category
 
 *pari-2.5.3 (02 Feb 2013)
 

@@ -1,6 +1,29 @@
 # ChangeLog for dev-perl/File-HomeDir
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/File-HomeDir/ChangeLog,v 1.88 2012/11/04 15:20:22 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/File-HomeDir/ChangeLog,v 1.94 2014/03/03 17:40:00 zlogene Exp $
+
+  03 Mar 2014; Mikle Kolyada <zlogene@gentoo.org> -File-HomeDir-0.980.0.ebuild,
+  -File-HomeDir-0.990.0.ebuild, -File-HomeDir-1.0.0.ebuild:
+  Drop old.
+
+  03 Mar 2014; Mikle Kolyada <zlogene@gentoo.org> File-HomeDir-1.0.0-r1.ebuild:
+  alpha/arm/ppc64/ppc/sparc/x86 stable wrt bug #502740
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> File-HomeDir-1.0.0-r1.ebuild:
+  amd64 stable, bug #502740
+
+  02 Mar 2014; Akinori Hattori <hattya@gentoo.org> File-HomeDir-1.0.0-r1.ebuild:
+  ia64 stable wrt bug #502740
+
+*File-HomeDir-1.0.0-r1 (22 Dec 2013)
+
+  22 Dec 2013; Mikle Kolyada <zlogene@gentoo.org> +File-HomeDir-1.0.0-r1.ebuild,
+  metadata.xml:
+  Revision bump: EAPI=5; Implement new 'xdg' use flag wrt bug #486938. Thanks to
+  Kent Fredric for discovering this issue.
+
+  03 Sep 2013; Mikle Kolyada <zlogene@gentoo.org> File-HomeDir-1.0.0.ebuild:
+  alpha/amd64/ia64/ppc/ppc64/sparc/x86 stable wrt bug #449584
 
 *File-HomeDir-1.0.0 (04 Nov 2012)
 

@@ -1,6 +1,38 @@
 # ChangeLog for sci-visualization/spyview
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/spyview/ChangeLog,v 1.21 2012/08/11 15:53:48 dilfridge Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-visualization/spyview/ChangeLog,v 1.29 2014/01/23 16:12:13 dilfridge Exp $
+
+  23 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  spyview-20111018.ebuild, spyview-20130823.ebuild:
+  Need fltk with opengl support, bug 499034
+
+  06 Jan 2014; Justin Lecher <jlec@gentoo.org> spyview-20111018.ebuild,
+  spyview-20130823.ebuild, metadata.xml:
+  Punt base.eclass
+
+  03 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  spyview-20130823.ebuild:
+  Crashes all the time. Something is broken, remove amd64 keyword.
+
+  28 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  spyview-20130823.ebuild:
+  Add boost subslot dependency
+
+*spyview-20130823 (25 Oct 2013)
+
+  25 Oct 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  +spyview-20130823.ebuild, -spyview-20110803.ebuild:
+  Version bump; remove old
+
+  27 Jul 2013; Agostino Sarubbo <ago@gentoo.org> spyview-20111018.ebuild:
+  Stable for x86, wrt bug #477164
+
+  21 Jul 2013; Agostino Sarubbo <ago@gentoo.org> spyview-20111018.ebuild:
+  Stable for amd64, wrt bug #477164
+
+  06 Apr 2013; Andreas K. Huettel <dilfridge@gentoo.org>
+  spyview-20110803.ebuild, spyview-20111018.ebuild:
+  Does not actually use libpng
 
   11 Aug 2012; Andreas K. Huettel <dilfridge@gentoo.org>
   spyview-20111018.ebuild:
@@ -103,4 +135,3 @@
   +spyview-20100203.ebuild, +files/spyview-includes.patch, +metadata.xml:
   Moved from sunrise overlay. Thanks to Andreas K. Huettel (dilfridge)
   <mail@akhuettel.de> for the ebuild. Fixes bug #283449
-

@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/ownpaste/ownpaste-9999.ebuild,v 1.4 2012/12/26 23:30:45 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/ownpaste/ownpaste-9999.ebuild,v 1.5 2013/07/24 17:48:45 mgorny Exp $
 
-EAPI=4
+EAPI=5
 
-PYTHON_COMPAT="python2_7"
+PYTHON_COMPAT=( python2_7 )
 
 HG_ECLASS=""
 if [[ ${PV} = *9999* ]]; then
@@ -12,7 +12,7 @@ if [[ ${PV} = *9999* ]]; then
 	EHG_REPO_URI="http://hg.rafaelmartins.eng.br/ownpaste/"
 fi
 
-inherit python-distutils-ng ${HG_ECLASS}
+inherit distutils-r1 ${HG_ECLASS}
 
 DESCRIPTION="Private pastebin (server-side implementation)"
 HOMEPAGE="http://ownpaste.rtfd.org/ http://pypi.python.org/pypi/ownpaste"
@@ -28,32 +28,27 @@ if [[ ${PV} = *9999* ]]; then
 	KEYWORDS=""
 fi
 
-RDEPEND="dev-python/setuptools
-	>=dev-python/flask-0.8
-	>=dev-python/flask-script-0.3.3
-	>=dev-python/flask-sqlalchemy-0.15
-	>=dev-python/jinja-2.6
-	>=dev-python/werkzeug-0.8
-	>=dev-python/sqlalchemy-migrate-0.7.2
-	dev-python/pygments
-	dev-python/pytz"
+RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+	>=dev-python/flask-0.8[${PYTHON_USEDEP}]
+	>=dev-python/flask-script-0.3.3[${PYTHON_USEDEP}]
+	>=dev-python/flask-sqlalchemy-0.15[${PYTHON_USEDEP}]
+	>=dev-python/jinja-2.6[${PYTHON_USEDEP}]
+	>=dev-python/werkzeug-0.8[${PYTHON_USEDEP}]
+	>=dev-python/sqlalchemy-migrate-0.7.2[${PYTHON_USEDEP}]
+	dev-python/pygments[${PYTHON_USEDEP}]
+	dev-python/pytz[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
-	doc? ( dev-python/sphinx )"
+	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
 
-src_compile() {
-	python-distutils-ng_src_compile
-
+python_compile_all() {
 	if use doc; then
 		einfo 'building documentation'
 		emake -C docs html
 	fi
 }
 
-src_install() {
-	python-distutils-ng_src_install
+python_install_all() {
+	use doc && local HTML_DOCS=( docs/_build/html/. )
 
-	if use doc; then
-		einfo 'installing documentation'
-		dohtml -r "${S}/docs/_build/html/"*
-	fi
+	distutils-r1_python_install_all
 }

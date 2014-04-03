@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/k9copy/k9copy-2.3.8.ebuild,v 1.4 2012/05/16 07:52:27 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/k9copy/k9copy-2.3.8.ebuild,v 1.6 2014/02/26 09:23:17 kensington Exp $
 
 EAPI=4
 
@@ -27,7 +27,7 @@ DEPEND="
 	media-libs/libdvdread
 	media-libs/libmpeg2
 	media-libs/xine-lib
-	virtual/ffmpeg
+	media-video/ffmpeg
 "
 RDEPEND="${DEPEND}
 	media-video/dvdauthor
@@ -36,6 +36,11 @@ RDEPEND="${DEPEND}
 DOCS=( README )
 
 S=${WORKDIR}/${MY_P}
+
+PATCHES=(
+	"${FILESDIR}/${P}-ffmpeg-0.11.patch"
+	"${FILESDIR}/${P}-includepaths.patch"
+	)
 
 pkg_postinst() {
 	kde4-base_pkg_postinst

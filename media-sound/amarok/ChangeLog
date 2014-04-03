@@ -1,6 +1,86 @@
 # ChangeLog for media-sound/amarok
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/amarok/ChangeLog,v 1.447 2013/02/10 17:15:55 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/amarok/ChangeLog,v 1.468 2014/03/14 14:47:58 johu Exp $
+
+*amarok-2.8.0-r1 (14 Mar 2014)
+
+  14 Mar 2014; Johannes Huber <johu@gentoo.org> +amarok-2.8.0-r1.ebuild,
+  +files/amarok-2.8.0-gmock-1.7.patch:
+  Revision bump marks pax on /usr/bin/amarok, bug #481592. Adds a patch to
+  unbreak build of tests with gmock-1.7.
+
+  13 Dec 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag from metadata.xml
+
+  12 Dec 2013; Patrick Lauer <patrick@gentoo.org> -amarok-2.7.1-r1.ebuild:
+  Remove old version with unsatisfied dependencies
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> amarok-2.8.0.ebuild:
+  Stable for ppc, wrt bug #484884
+
+  09 Dec 2013; Agostino Sarubbo <ago@gentoo.org> amarok-2.8.0.ebuild:
+  Stable for x86, wrt bug #484884
+
+  08 Dec 2013; Agostino Sarubbo <ago@gentoo.org> amarok-2.8.0.ebuild:
+  Stable for amd64, wrt bug #484884
+
+  23 Nov 2013; Johannes Huber <johu@gentoo.org> amarok-2.8.0.ebuild:
+  Restore USE semantic-desktop. Add virtual dbus for test.
+
+  21 Aug 2013; Michael Palimaka <kensington@gentoo.org> -amarok-2.5.0-r4.ebuild,
+  -amarok-2.6.0.ebuild, -amarok-2.7.0.ebuild, -amarok-2.7.1.ebuild,
+  -files/amarok-2.5.0-fix-context-view-on-startup.patch,
+  -files/amarok-2.5.0-kde48.patch, -files/amarok-2.5.0-qtdebug.patch:
+  Remove old.
+
+*amarok-2.7.1-r1 (19 Aug 2013)
+
+  19 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +amarok-2.7.1-r1.ebuild:
+  Straight to stable revision bump, as KDE SC 4.11.0 and <amarok-2.8 don't work
+  well together
+
+  18 Aug 2013; Manuel Rüger <mrueg@gentoo.org> amarok-2.8.0.ebuild:
+  Style fixes
+
+*amarok-2.8.0 (18 Aug 2013)
+
+  18 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +amarok-2.8.0.ebuild:
+  Version bump
+
+  01 Jul 2013; Agostino Sarubbo <ago@gentoo.org> amarok-2.7.1.ebuild:
+  Stable for ppc, wrt bug #473942
+
+  30 Jun 2013; Agostino Sarubbo <ago@gentoo.org> amarok-2.7.1.ebuild:
+  Stable for x86, wrt bug #473942
+
+  29 Jun 2013; Agostino Sarubbo <ago@gentoo.org> amarok-2.7.1.ebuild:
+  Stable for amd64, wrt bug #473942
+
+  30 May 2013; Michael Palimaka <kensington@gentoo.org> amarok-2.7.1.ebuild:
+  Remove semantic-desktop USE flag from testing version.
+
+*amarok-2.7.1 (30 May 2013)
+
+  30 May 2013; Tomáš Chvátal <scarabeus@gentoo.org> +amarok-2.7.1.ebuild:
+  Update to 2.7.1.
+
+  30 May 2013; Michael Palimaka <kensington@gentoo.org> amarok-2.5.0-r4.ebuild,
+  amarok-2.6.0.ebuild, amarok-2.7.0.ebuild:
+  Add USE dependency default in preparation for the removal of the semantic-
+  desktop USE flag.
+
+  10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> amarok-2.7.0.ebuild:
+  Stable for x86, wrt bug #455312
+
+  10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> amarok-2.7.0.ebuild:
+  Stable for ppc, wrt bug #455312
+
+  10 Apr 2013; Agostino Sarubbo <ago@gentoo.org> amarok-2.7.0.ebuild:
+  Stable for amd64, wrt bug #455312
+
+  02 Mar 2013; Markos Chandras <hwoarang@gentoo.org> amarok-2.5.0-r4.ebuild,
+  amarok-2.6.0.ebuild, amarok-2.7.0.ebuild:
+  Move Qt dependencies to the new category
 
   10 Feb 2013; Agostino Sarubbo <ago@gentoo.org> amarok-2.6.0.ebuild:
   Stable for ppc, wrt bug #441392

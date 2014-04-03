@@ -1,6 +1,38 @@
 # ChangeLog for media-libs/openexr
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/openexr/ChangeLog,v 1.87 2012/05/09 17:00:17 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/openexr/ChangeLog,v 1.94 2014/01/22 18:29:37 ssuominen Exp $
+
+*openexr-2.1.0 (22 Jan 2014)
+
+  22 Jan 2014; Samuli Suominen <ssuominen@gentoo.org> +openexr-2.1.0.ebuild:
+  Version bump.
+
+  22 Jan 2014; Samuli Suominen <ssuominen@gentoo.org> -openexr-2.0.0.ebuild,
+  -openexr-2.0.1.ebuild:
+  old
+
+*openexr-2.0.1-r1 (11 Aug 2013)
+
+  11 Aug 2013; Alexis Ballier <aballier@gentoo.org> +openexr-2.0.1-r1.ebuild:
+  Convert to multilib. Do not dobin imfexamples, it actually installs a libtool
+  wrapper so is sort of useless. Do not compress the examples.
+
+  23 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> openexr-2.0.1.ebuild:
+  Don't use ${PV} as subslot; use 2.0.1 instead since it's propably same for
+  2.0.2.
+
+*openexr-2.0.1 (23 Jul 2013)
+
+  23 Jul 2013; Samuli Suominen <ssuominen@gentoo.org> +openexr-2.0.1.ebuild:
+  Version bump.
+
+  12 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> openexr-2.0.0.ebuild:
+  Use subslot 0/20 based on SONAME.
+
+*openexr-2.0.0 (11 Mar 2013)
+
+  11 Mar 2013; Samuli Suominen <ssuominen@gentoo.org> +openexr-2.0.0.ebuild:
+  Version bump.
 
   09 May 2012; Alexis Ballier <aballier@gentoo.org> openexr-1.7.0.ebuild:
   keyword ~amd64-fbsd
@@ -320,4 +352,3 @@
   comments should well explained and written in clean English. The details about
   writing correct changelogs are explained in the skel.ChangeLog file which you
   can find in the root directory of the portage repository.
-

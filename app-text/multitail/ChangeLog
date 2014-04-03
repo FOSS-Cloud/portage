@@ -1,6 +1,77 @@
 # ChangeLog for app-text/multitail
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/multitail/ChangeLog,v 1.95 2013/02/25 19:07:13 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/multitail/ChangeLog,v 1.114 2014/03/02 09:09:02 hattya Exp $
+
+  02 Mar 2014; Akinori Hattori <hattya@gentoo.org> multitail-5.2.13.ebuild:
+  ia64 stable wrt bug #491948
+
+  26 Feb 2014; Jeroen Roovers <jer@gentoo.org> multitail-5.2.13.ebuild:
+  Stable for HPPA (bug #491948).
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> multitail-5.2.13.ebuild:
+  x86 stable wrt bug #491948
+
+*multitail-6.2.1 (16 Feb 2014)
+
+  16 Feb 2014; Justin Lecher <jlec@gentoo.org> +multitail-6.2.1.ebuild:
+  Version Bump
+
+*multitail-6.2 (14 Feb 2014)
+
+  14 Feb 2014; Justin Lecher <jlec@gentoo.org> +multitail-6.2.ebuild:
+  Version Bump
+
+*multitail-6.1 (13 Feb 2014)
+
+  13 Feb 2014; Justin Lecher <jlec@gentoo.org> +multitail-6.1.ebuild:
+  Version Bump
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> multitail-5.2.13.ebuild:
+  amd64 stable, bug #491948
+
+*multitail-6.0 (27 Nov 2013)
+
+  27 Nov 2013; Justin Lecher <jlec@gentoo.org> +multitail-6.0.ebuild,
+  +files/multitail-6.0-as-needed.patch:
+  Version BUmp
+
+  23 Nov 2013; Jeroen Roovers <jer@gentoo.org> multitail-5.2.13.ebuild:
+  Set RESTRICT=test and restore KEYWORDS (bug #492270).
+
+  22 Nov 2013; Justin Lecher <jlec@gentoo.org> multitail-5.2.13.ebuild:
+  Add missing deps for tests
+
+*multitail-5.2.13 (20 Jun 2013)
+
+  20 Jun 2013; Justin Lecher <jlec@gentoo.org> +multitail-5.2.13.ebuild,
+  +files/multitail-5.2.13-as-needed.patch:
+  Version Bump
+
+  09 Mar 2013; Justin Lecher <jlec@gentoo.org> -multitail-5.2.9.ebuild,
+  -multitail-5.2.10.ebuild, -multitail-5.2.11.ebuild:
+  Drop old
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> multitail-5.2.12.ebuild:
+  Stable for sparc, wrt bug #456470
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> multitail-5.2.12.ebuild:
+  Stable for ia64, wrt bug #456470
+
+  09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> multitail-5.2.12.ebuild:
+  Stable for ppc, wrt bug #456470
+
+  06 Mar 2013; Jeroen Roovers <jer@gentoo.org> multitail-5.2.12.ebuild:
+  Stable for HPPA (bug #456470).
+
+  06 Mar 2013; Agostino Sarubbo <ago@gentoo.org> multitail-5.2.12.ebuild:
+  Stable for x86, wrt bug #456470
+
+  06 Mar 2013; Agostino Sarubbo <ago@gentoo.org> multitail-5.2.12.ebuild:
+  Stable for amd64, wrt bug #456470
+
+  04 Mar 2013; Justin Lecher <jlec@gentoo.org> multitail-5.2.12.ebuild,
+  +files/multitail-5.2.12-as-needed.patch:
+  Add fix for ncurses[tinfo], #459206
 
   25 Feb 2013; Justin Lecher <jlec@gentoo.org> multitail-5.2.9.ebuild,
   multitail-5.2.10.ebuild, multitail-5.2.11.ebuild, multitail-5.2.12.ebuild:

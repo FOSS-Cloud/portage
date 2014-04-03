@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cabal/cabal-1.16.0.3.ebuild,v 1.1 2012/11/14 22:35:43 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cabal/cabal-1.16.0.3.ebuild,v 1.9 2014/02/22 09:04:02 slyfox Exp $
 
 EAPI=5
 
@@ -19,7 +19,7 @@ SRC_URI="mirror://hackage/packages/archive/${MY_PN}/${PV}/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
 IUSE=""
 
 RDEPEND=">=dev-lang/ghc-6.10.4:="
@@ -34,10 +34,7 @@ DEPEND="${RDEPEND}
 
 RESTRICT="test" # Fails own tests
 
-RDEPEND="${RDEPEND}
-		virtual/pkgconfig"
-# cabal uses dev-util/pkgconfig using runtime to resolve C dependencies, so
-# repoman's RDEPEND.suspect QA does not apply here
+RDEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${MY_PN}-${MY_PV}"
 

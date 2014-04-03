@@ -1,6 +1,146 @@
 # ChangeLog for gnome-base/gvfs
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/ChangeLog,v 1.201 2013/02/25 09:23:34 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/ChangeLog,v 1.237 2014/03/29 22:32:41 tetromino Exp $
+
+  29 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org> gvfs-1.14.2.ebuild,
+  gvfs-1.16.4.ebuild, gvfs-1.18.3.ebuild:
+  systemd now has subslots
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gvfs-1.18.3.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gvfs-1.18.3.ebuild:
+  amd64 stable, bug 499954
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> gvfs-1.12.3-r1.ebuild,
+  gvfs-1.14.2.ebuild, gvfs-1.16.4.ebuild, gvfs-1.18.3.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gvfs-1.18.3.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Jan 2014; Gilles Dartiguelongue <eva@gentoo.org> gvfs-1.14.2.ebuild,
+  gvfs-1.16.4.ebuild, gvfs-1.18.3.ebuild:
+  Add missing dependency on XSL dtd, bug #498850.
+
+*gvfs-1.18.3 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +gvfs-1.18.3.ebuild,
+  -gvfs-1.16.3-r1.ebuild, metadata.xml:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gvfs-1.16.4.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gvfs-1.16.4.ebuild:
+  amd64 stable, bug #478252
+
+*gvfs-1.16.4 (14 Nov 2013)
+
+  14 Nov 2013; Pacho Ramos <pacho@gentoo.org> +gvfs-1.16.4.ebuild,
+  -files/gvfs-1.16.0-expose-archive-backend.patch, -gvfs-1.16.3.ebuild:
+  Version bump, drop old, samba-4 ebuilds have a different name for 'client'
+
+  17 Oct 2013; Markus Meier <maekke@gentoo.org> gvfs-1.14.2.ebuild:
+  arm stable, bug #476364
+
+*gvfs-1.16.3-r1 (14 Oct 2013)
+
+  14 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/gvfs-1.16.3-emit-signal.patch, +gvfs-1.16.3-r1.ebuild:
+  Fix samba hangs, bug #488024 by Ian Abbott
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> -gvfs-1.16.2.ebuild,
+  gvfs-1.16.3.ebuild:
+  Depend on libsoup-gnome again, clean up old revisions.
+
+  29 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> gvfs-1.16.2.ebuild,
+  gvfs-1.16.3.ebuild:
+  Correct double REQUIRED_USE in the ebuild (that was there even before last
+  commit)
+
+  29 Aug 2013; Samuli Suominen <ssuominen@gentoo.org> gvfs-1.16.2.ebuild,
+  gvfs-1.16.3.ebuild:
+  Make USE="udisks" require USE="udev" wrt #482764 by Michael Weber
+
+  03 Aug 2013; Michał Górny <mgorny@gentoo.org> gvfs-1.16.2.ebuild,
+  gvfs-1.16.3.ebuild:
+  Move dev-python/twisted to dev-python/twisted-core.
+
+*gvfs-1.16.3 (14 Jun 2013)
+
+  14 Jun 2013; Pacho Ramos <pacho@gentoo.org> +gvfs-1.16.3.ebuild,
+  -gvfs-1.16.1.ebuild:
+  Version bump, drop old
+
+*gvfs-1.16.2 (26 May 2013)
+
+  26 May 2013; Pacho Ramos <pacho@gentoo.org> +gvfs-1.16.2.ebuild:
+  Version bump
+
+  11 May 2013; Samuli Suominen <ssuominen@gentoo.org> gvfs-1.14.2.ebuild,
+  gvfs-1.16.1.ebuild:
+  Use subslot operator for the libplist and libimobiledevice dependencies.
+
+  05 May 2013; Justin Lecher <jlec@gentoo.org> gvfs-1.14.2.ebuild,
+  gvfs-1.16.1.ebuild:
+  Fix obsolete macros to work with automake-1.13, #468660
+
+  28 Apr 2013; Pacho Ramos <pacho@gentoo.org> -gvfs-1.16.0.ebuild,
+  gvfs-1.16.1.ebuild:
+  Fix deps (reported by shiznix via IRC)
+
+*gvfs-1.16.1 (25 Apr 2013)
+
+  25 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gvfs-1.16.1.ebuild,
+  -gvfs-1.12.3.ebuild:
+  Version bump, rely on libgcrypt.m4 provided by libgcrypt to be sure we use
+  latest upstream file, drop expose archive backend changes as upstream
+  disagrees with its utility
+  (https://bugzilla.gnome.org/show_bug.cgi?id=602147#c9) and me too. Drop old.
+
+  09 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gvfs-1.12.3-r1.ebuild:
+  Stable for sh, wrt bug #458984
+
+  07 Apr 2013; Pacho Ramos <pacho@gentoo.org> gvfs-1.16.0.ebuild:
+  Fix libsoup deps
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gvfs-1.12.3-r1.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> gvfs-1.12.3-r1.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  31 Mar 2013; Pacho Ramos <pacho@gentoo.org> gvfs-1.16.0.ebuild:
+  Adapt to libsoup-2.42 dropping gnome USE and splitting (#463702)
+
+  31 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/gvfs-1.16.0-expose-archive-backend.patch, gvfs-1.16.0.ebuild:
+  Add mtp support (#463794 by plaes) and update archive patch with current
+  fedora one (#463878 by Torsten Stets).
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gvfs-1.12.3-r1.ebuild:
+  Stable for ia64, wrt bug #458984
+
+*gvfs-1.16.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +gvfs-1.16.0.ebuild, metadata.xml:
+  Version bump for Gnome 3.8
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gvfs-1.12.3-r1.ebuild:
+  Stable for arm, wrt bug #458984
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gvfs-1.12.3-r1.ebuild:
+  Stable for ppc64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gvfs-1.12.3-r1.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gvfs-1.12.3-r1.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> gvfs-1.12.3-r1.ebuild:
+  Stable for amd64, wrt bug #458984
 
   25 Feb 2013; Zac Medico <zmedico@gentoo.org> gvfs-1.14.2.ebuild:
   Add ~arm-linux keyword.

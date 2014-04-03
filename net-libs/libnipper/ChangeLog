@@ -1,6 +1,14 @@
 # ChangeLog for net-libs/libnipper
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libnipper/ChangeLog,v 1.10 2011/03/19 20:08:13 scarabeus Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libnipper/ChangeLog,v 1.12 2014/03/29 21:54:56 ikelos Exp $
+
+  29 Mar 2014; Mike Auty <ikelos@gentoo.org> libnipper-0.12.6-r1.ebuild,
+  +files/libnipper-0.12.6-multilib-strict.patch:
+  Fix multilib-strict issues with libnipper.
+
+  03 Mar 2013; Ryan Hill <dirtyepic@gentoo.org> libnipper-0.12.6-r1.ebuild,
+  +files/libnipper-0.12.6-gcc47.patch:
+  Fix build with GCC 4.7 (bug #423813).
 
   19 Mar 2011; Tomáš Chvátal <scarabeus@gentoo.org>
   -libnipper-0.12.4.ebuild, -libnipper-0.12.5.ebuild, -libnipper-0.12.6.ebuild,

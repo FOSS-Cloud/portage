@@ -3,13 +3,15 @@
 <pkgmetadata>
   <herd>python</herd>
   <herd>sci</herd>
-  <longdescription lang="en">HDF5 for Python (h5py) is a general-purpose simple Python interface to the
+  <longdescription lang="en">
+  HDF5 for Python (h5py) is a general-purpose simple Python interface to the
   Hierarchical Data Format library, version 5. Existing Python and
   Numpy concepts are used for the interface. Almost all HDF5 features
   are available from Python, including things like compound datatypes
   (as used with Numpy recarray types), HDF5 attributes, hyperslab and
   point-based I/O, and more recent features in HDF 1.8 like resizable
-  datasets and recursive iteration over entire files. </longdescription>
+  datasets and recursive iteration over entire files.
+</longdescription>
   <upstream>
     <remote-id type="google-code">h5py</remote-id>
   </upstream>

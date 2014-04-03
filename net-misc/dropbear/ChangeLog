@@ -1,6 +1,91 @@
 # ChangeLog for net-misc/dropbear
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dropbear/ChangeLog,v 1.97 2012/08/12 03:56:20 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dropbear/ChangeLog,v 1.117 2014/03/10 00:24:19 vapier Exp $
+
+*dropbear-2014.63 (10 Mar 2014)
+
+  10 Mar 2014; Mike Frysinger <vapier@gentoo.org> +dropbear-2014.63.ebuild:
+  Version bump.
+
+  31 Dec 2013; Tim Harder <radhermit@gentoo.org> -dropbear-2012.55.ebuild,
+  -dropbear-2013.56.ebuild, -dropbear-2013.57.ebuild, -dropbear-2013.58.ebuild,
+  -files/dropbear-0.53.1-link.patch:
+  Remove old, vulnerable versions (bug #487682).
+
+  22 Dec 2013; Mike Frysinger <vapier@gentoo.org> dropbear-2013.60.ebuild:
+  Add multicall install fixes to stable version too.
+
+  09 Dec 2013; Mike Frysinger <vapier@gentoo.org>
+  +files/dropbear-2013.62-multi-install-man.patch,
+  +files/dropbear-2013.62-multi-no-relink.patch, dropbear-2013.62.ebuild:
+  Fix build/install when USE=multicall.
+
+  09 Dec 2013; Mike Frysinger <vapier@gentoo.org> dropbear-2013.60.ebuild,
+  dropbear-2013.62.ebuild:
+  Fix symlink install when USE=multicall #493270 by Lars.
+
+*dropbear-2013.62 (03 Dec 2013)
+
+  03 Dec 2013; Mike Frysinger <vapier@gentoo.org> +dropbear-2013.62.ebuild:
+  Version bump.
+
+  23 Nov 2013; Tim Harder <radhermit@gentoo.org> Manifest:
+  Fix manifest.
+
+  19 Nov 2013; Agostino Sarubbo <ago@gentoo.org> dropbear-2013.60.ebuild:
+  Stable for arm, wrt bug #487682
+
+  19 Nov 2013; Agostino Sarubbo <ago@gentoo.org> dropbear-2013.60.ebuild:
+  Stable for alpha, wrt bug #487682
+
+  19 Nov 2013; Jeroen Roovers <jer@gentoo.org> dropbear-2013.60.ebuild:
+  Stable for HPPA (bug #487682).
+
+  17 Nov 2013; Agostino Sarubbo <ago@gentoo.org> dropbear-2013.60.ebuild:
+  Stable for ppc64, wrt bug #487682
+
+  17 Nov 2013; Agostino Sarubbo <ago@gentoo.org> dropbear-2013.60.ebuild:
+  Stable for ppc, wrt bug #487682
+
+  17 Nov 2013; Agostino Sarubbo <ago@gentoo.org> dropbear-2013.60.ebuild:
+  Stable for x86, wrt bug #487682
+
+  17 Nov 2013; Agostino Sarubbo <ago@gentoo.org> dropbear-2013.60.ebuild:
+  Stable for amd64, wrt bug #487682
+
+*dropbear-2013.60 (16 Oct 2013)
+
+  16 Oct 2013; Mike Frysinger <vapier@gentoo.org> +dropbear-2013.60.ebuild,
+  -dropbear-2013.59.ebuild, -files/dropbear-2013.59-exec-prefix.patch,
+  -files/dropbear-2013.59-scp-inst.patch:
+  Version bump.
+
+*dropbear-2013.59 (12 Oct 2013)
+
+  12 Oct 2013; Mike Frysinger <vapier@gentoo.org> +dropbear-2013.59.ebuild,
+  +files/dropbear-2013.59-exec-prefix.patch,
+  +files/dropbear-2013.59-scp-inst.patch:
+  Version bump #487682 by Agostino Sarubbo.
+
+  25 Sep 2013; Anthony G. Basile <blueness@gentoo.org> -dropbear-0.52-r1.ebuild,
+  -dropbear-0.52.ebuild, -dropbear-0.53.1.ebuild, -dropbear-2011.54.ebuild:
+  Remove older vulnerable versions, bug #328409
+
+*dropbear-2013.58 (18 Apr 2013)
+
+  18 Apr 2013; Mike Frysinger <vapier@gentoo.org> +dropbear-2013.58.ebuild:
+  Version bump.
+
+*dropbear-2013.57 (15 Apr 2013)
+
+  15 Apr 2013; Mike Frysinger <vapier@gentoo.org> +dropbear-2013.57.ebuild:
+  Version bump.
+
+*dropbear-2013.56 (23 Mar 2013)
+
+  23 Mar 2013; Mike Frysinger <vapier@gentoo.org> +dropbear-2013.56.ebuild,
+  metadata.xml:
+  Version bump.
 
   12 Aug 2012; Mike Frysinger <vapier@gentoo.org> dropbear-0.52-r1.ebuild,
   dropbear-0.52.ebuild, dropbear-0.53.1.ebuild, dropbear-2011.54.ebuild,

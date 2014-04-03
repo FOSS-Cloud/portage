@@ -1,6 +1,45 @@
 # ChangeLog for kde-misc/synaptiks
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/synaptiks/ChangeLog,v 1.35 2012/10/29 16:38:10 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-misc/synaptiks/ChangeLog,v 1.45 2014/03/14 06:24:37 kensington Exp $
+
+  14 Mar 2014; Michael Palimaka <kensington@gentoo.org>
+  synaptiks-0.8.1-r4.ebuild:
+  Cosmetics.
+
+  15 Dec 2013; Johannes Huber <johu@gentoo.org> synaptiks-0.8.1-r2.ebuild,
+  synaptiks-0.8.1-r4.ebuild:
+  Remove dep on kde-base/kdesdk-scripts by eliasp.
+
+*synaptiks-0.8.1-r4 (18 Aug 2013)
+
+  18 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +synaptiks-0.8.1-r4.ebuild,
+  -synaptiks-0.8.1-r3.ebuild:
+  Improved distutils-r1 conversion. Thanks to Michał Górny
+
+  16 Aug 2013; Manuel Rüger <mrueg@gentoo.org> synaptiks-0.8.1-r3.ebuild:
+  Fix the conversion. Committed to early.
+
+*synaptiks-0.8.1-r3 (16 Aug 2013)
+
+  16 Aug 2013; Manuel Rüger <mrueg@gentoo.org> +synaptiks-0.8.1-r3.ebuild:
+  Migrate to distutils-r1
+
+  02 May 2013; Johannes Huber <johu@gentoo.org> -synaptiks-0.8.1.ebuild:
+  Remove old.
+
+  30 Apr 2013; Agostino Sarubbo <ago@gentoo.org> synaptiks-0.8.1-r2.ebuild:
+  Stable for x86, wrt bug #466074
+
+  29 Apr 2013; Agostino Sarubbo <ago@gentoo.org> synaptiks-0.8.1-r2.ebuild:
+  Stable for amd64, wrt bug #466074
+
+*synaptiks-0.8.1-r2 (11 Mar 2013)
+
+  11 Mar 2013; Chris Reffett <creffett@gentoo.org>
+  +files/synaptiks-0.8.1-removedfeatures.patch, +synaptiks-0.8.1-r2.ebuild,
+  files/synaptiks-0.8.1-templatesfix.patch:
+  Move from KDE overlay. Revision bump, add patch to remove support for
+  deprecated synaptics features wrt bug 461364. EAPI bump.
 
   29 Oct 2012; Michał Górny <mgorny@gentoo.org> synaptiks-0.8.1.ebuild:
   Use virtual for argparse.

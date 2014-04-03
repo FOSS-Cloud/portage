@@ -1,6 +1,73 @@
 # ChangeLog for media-gfx/gthumb
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/gthumb/ChangeLog,v 1.158 2012/12/05 22:18:46 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/gthumb/ChangeLog,v 1.173 2014/03/29 19:29:49 pacho Exp $
+
+*gthumb-3.2.7 (29 Mar 2014)
+
+  29 Mar 2014; Pacho Ramos <pacho@gentoo.org> +gthumb-3.2.7.ebuild,
+  -gthumb-3.2.3.ebuild, -gthumb-3.2.4.ebuild:
+  Version bump, drop old
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gthumb-3.2.6.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gthumb-3.2.6.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gthumb-3.2.6.ebuild:
+  Fix wrong commit, bug 502160
+
+*gthumb-3.2.6 (09 Feb 2014)
+
+  09 Feb 2014; Pacho Ramos <pacho@gentoo.org> +gthumb-3.2.6.ebuild:
+  Version bump
+
+  26 Dec 2013; Markus Meier <maekke@gentoo.org> gthumb-3.2.4.ebuild:
+  add ~arm, bug #489048
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gthumb-3.2.4.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gthumb-3.2.4.ebuild:
+  amd64 stable, bug #478252
+
+*gthumb-3.2.4 (15 Oct 2013)
+
+  15 Oct 2013; Pacho Ramos <pacho@gentoo.org> +gthumb-3.2.4.ebuild,
+  -files/gthumb-3.2.0-configure-option.patch, -gthumb-3.0.2.ebuild,
+  -gthumb-3.2.2.ebuild:
+  Version bump, drop old
+
+  30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org> gthumb-3.2.2.ebuild,
+  gthumb-3.2.3.ebuild:
+  Depend on libsoup-gnome again, clean up old revisions.
+
+*gthumb-3.2.3 (11 Jul 2013)
+
+  11 Jul 2013; Pacho Ramos <pacho@gentoo.org> +gthumb-3.2.3.ebuild,
+  -gthumb-3.2.1.ebuild:
+  Version bump, drop old
+
+*gthumb-3.2.2 (13 May 2013)
+
+  13 May 2013; Pacho Ramos <pacho@gentoo.org> +gthumb-3.2.2.ebuild,
+  -gthumb-3.2.0.ebuild:
+  Version bump, drop old
+
+*gthumb-3.2.1 (18 Apr 2013)
+
+  18 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gthumb-3.2.1.ebuild:
+  Version bump
+
+  31 Mar 2013; Pacho Ramos <pacho@gentoo.org> gthumb-3.2.0.ebuild:
+  Adapt to libsoup-2.42 dropping gnome USE and splitting (#463702)
+
+*gthumb-3.2.0 (29 Mar 2013)
+
+  29 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  +files/gthumb-3.2.0-configure-option.patch, +gthumb-3.2.0.ebuild,
+  metadata.xml:
+  Version bump for Gnome 3.8
 
   05 Dec 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
   -files/gthumb-no-brasero3.patch, gthumb-2.14.4.ebuild, -gthumb-3.0.0.ebuild,

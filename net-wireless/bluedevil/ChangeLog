@@ -1,6 +1,81 @@
 # ChangeLog for net-wireless/bluedevil
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/bluedevil/ChangeLog,v 1.34 2013/02/23 17:27:50 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/bluedevil/ChangeLog,v 1.56 2014/03/09 12:05:53 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> bluedevil-2.0_rc1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> bluedevil-2.0_rc1.ebuild:
+  amd64 stable, bug 499954
+
+*bluedevil-2.0_rc1 (04 Feb 2014)
+
+  04 Feb 2014; Manuel Rüger <mrueg@gentoo.org> +bluedevil-2.0_rc1.ebuild:
+  Add bluez-5 compatible release candidate.
+
+  30 Jan 2014; Manuel Rüger <mrueg@gentoo.org> bluedevil-1.3.2.ebuild:
+  Depend on libbluedevil-1 only. Fixes bug #499786.
+
+  30 Jan 2014; Manuel Rüger <mrueg@gentoo.org> -bluedevil-1.3.1.ebuild:
+  Cleanup old.
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> bluedevil-1.3.2.ebuild:
+  amd64 stable, bug 492690
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> bluedevil-1.3.2.ebuild:
+  amd64 stable, bug 492690
+
+  24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.2.ebuild:
+  Stable for x86, wrt bug #492690
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.2.ebuild:
+  Stable for ppc64, wrt bug #492690
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.2.ebuild:
+  Stable for ppc, wrt bug #492690
+
+*bluedevil-1.3.2 (04 Sep 2013)
+
+  04 Sep 2013; Manuel Rüger <mrueg@gentoo.org> +bluedevil-1.3.2.ebuild:
+  Version bump.
+
+  09 Jun 2013; Johannes Huber <johu@gentoo.org> -bluedevil-1.3.ebuild,
+  -files/bluedevil-1.2.4-desktop.patch:
+  Remove old.
+
+  08 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.1.ebuild:
+  Stable for ppc64, wrt bug #471392
+
+  06 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.1.ebuild:
+  Stable for ppc, wrt bug #471392
+
+  05 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.1.ebuild:
+  Stable for x86, wrt bug #471392
+
+  04 Jun 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.1.ebuild:
+  Stable for amd64, wrt bug #471392
+
+  21 Apr 2013; Johannes Huber <johu@gentoo.org> bluedevil-1.3.1.ebuild:
+  Raise deps on net-libs/libbluedevil to fix build on mixed stable/testing
+  systems by Manuel Rüger <gentoo@rueg.eu>.
+
+*bluedevil-1.3.1 (20 Apr 2013)
+
+  20 Apr 2013; Johannes Huber <johu@gentoo.org> +bluedevil-1.3.1.ebuild,
+  -bluedevil-1.2.4.ebuild:
+  Version bump by Manuel Rüger <gentoo@rueg.eu> +me. Remove old.
+
+  02 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.ebuild:
+  Stable for ppc64, wrt bug #462890
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.ebuild:
+  Stable for ppc, wrt bug #462890
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.ebuild:
+  Stable for x86, wrt bug #462890
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.ebuild:
+  Stable for amd64, wrt bug #462890
 
   23 Feb 2013; Agostino Sarubbo <ago@gentoo.org> bluedevil-1.3.ebuild:
   Add ~ppc64, wrt bug #455960

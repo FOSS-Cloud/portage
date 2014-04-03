@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-forensics/libewf/libewf-20130128.ebuild,v 1.1 2013/02/10 20:39:13 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-forensics/libewf/libewf-20130128.ebuild,v 1.6 2013/07/27 02:01:23 zerochaos Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="http://libewf.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/2"
-KEYWORDS="~amd64 ~hppa ~ppc ~x86"
+KEYWORDS="amd64 hppa ppc x86"
 # upstream bug #2597171, pyewf has implicit declarations
 #IUSE="debug python rawio unicode"
 IUSE="debug ewf +fuse rawio +ssl static-libs +uuid unicode zlib"
@@ -39,6 +39,8 @@ src_configure() {
 		$(use_with zlib)
 		# autodetects bzip2 but does not use
 		--without-bzip2
+		#if we don't force disable this then it fails to build against new libbfio
+		--without-libbfio
 		$(use_with ssl openssl)
 		$(use_with uuid libuuid)
 		$(use_with fuse libfuse)

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup-gnome/libsoup-gnome-2.38.1.ebuild,v 1.12 2012/10/28 16:28:49 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup-gnome/libsoup-gnome-2.38.1.ebuild,v 1.14 2013/05/16 18:16:55 pacho Exp $
 
 EAPI="4"
 GCONF_DEBUG="yes"
@@ -23,10 +23,13 @@ IUSE="debug +introspection"
 RDEPEND="~net-libs/libsoup-${PV}[introspection?]
 	|| ( gnome-base/libgnome-keyring <gnome-base/gnome-keyring-2.29.4 )
 	dev-db/sqlite:3
-	introspection? ( >=dev-libs/gobject-introspection-0.9.5 )"
+	introspection? ( >=dev-libs/gobject-introspection-0.9.5 )
+	!>=net-libs/libsoup-2.42
+"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	>=dev-util/gtk-doc-am-1.10"
+	>=dev-util/gtk-doc-am-1.10
+"
 
 S=${WORKDIR}/${MY_P}
 

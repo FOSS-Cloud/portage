@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/rubinius/rubinius-1.2.4.20110705.ebuild,v 1.5 2012/10/22 16:54:56 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/rubinius/rubinius-1.2.4.20110705.ebuild,v 1.7 2014/03/23 07:07:45 graaff Exp $
 
 EAPI=4
 inherit eutils flag-o-matic multilib versionator
@@ -23,11 +23,18 @@ RDEPEND="sys-libs/readline
 	sys-libs/zlib"
 DEPEND="${RDEPEND}
 	sys-devel/bison
-	dev-lang/ruby:1.8
+	dev-lang/ruby:1.9
 	dev-ruby/rake"
 
 pkg_setup() {
 	unset RUBYOPT
+}
+
+src_prepare() {
+	# Drop error CFLAGS per Gentoo policy.
+	sed -i -e '/Werror/ s:^:#:' rakelib/blueprint.rb || die
+
+	sed -i -e 's/-ggdb3//' vm/test/one.sh vm/external_libs/libtommath/makefile vm/external_libs/libgdtoa/Makefile rakelib/ext_helper.rb lib/rbconfig.rb lib/ext/melbourne/extconf.rb || die
 }
 
 src_configure() {

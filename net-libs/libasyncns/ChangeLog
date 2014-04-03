@@ -1,6 +1,42 @@
 # ChangeLog for net-libs/libasyncns
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libasyncns/ChangeLog,v 1.34 2012/12/20 17:40:53 hasufell Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libasyncns/ChangeLog,v 1.45 2014/03/22 19:30:53 kensington Exp $
+
+  22 Mar 2014; Michael Palimaka <kensington@gentoo.org>
+  -libasyncns-0.8-r2.ebuild:
+  Remove old.
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libasyncns-0.8-r3.ebuild:
+  Stable for sparc, wrt bug #495852
+
+  19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libasyncns-0.8-r3.ebuild:
+  Stable for ppc64, wrt bug #495852
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libasyncns-0.8-r3.ebuild:
+  Stable for alpha, wrt bug #495852
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libasyncns-0.8-r3.ebuild:
+  Stable for ia64, wrt bug #495852
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libasyncns-0.8-r3.ebuild:
+  Stable for ppc, wrt bug #495852
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libasyncns-0.8-r3.ebuild:
+  Stable for x86, wrt bug #495852
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> libasyncns-0.8-r3.ebuild:
+  amd64 stable, bug #495852
+
+  31 Dec 2013; Markus Meier <maekke@gentoo.org> libasyncns-0.8-r3.ebuild:
+  arm stable, bug #495852
+
+  25 Dec 2013; Jeroen Roovers <jer@gentoo.org> libasyncns-0.8-r3.ebuild:
+  Stable for HPPA (bug #495852).
+
+*libasyncns-0.8-r3 (26 Oct 2013)
+
+  26 Oct 2013; Alexis Ballier <aballier@gentoo.org> +libasyncns-0.8-r3.ebuild:
+  convert to multilib, by Reinis Danne, bug #488278
 
   20 Dec 2012; Julian Ospald <hasufell@gentoo.org> libasyncns-0.8-r2.ebuild:
   fix missing doc compression wrt #447936

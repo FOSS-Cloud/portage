@@ -1,6 +1,53 @@
 # ChangeLog for dev-haskell/binary
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/binary/ChangeLog,v 1.25 2012/11/18 01:02:35 gienah Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/binary/ChangeLog,v 1.40 2014/03/24 15:03:30 ago Exp $
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> binary-0.7.1.0.ebuild:
+  Stable for ppc, wrt bug #491980
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> binary-0.7.1.0.ebuild:
+  Stable for ia64, wrt bug #491980
+
+  14 Mar 2014; Agostino Sarubbo <ago@gentoo.org> binary-0.7.1.0.ebuild:
+  Stable for ppc64, wrt bug #491980
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org> binary-0.7.1.0.ebuild:
+  Stable for sparc, wrt bug #491980
+
+  07 Mar 2014; Pacho Ramos <pacho@gentoo.org> binary-0.7.1.0.ebuild:
+  amd64 stable, bug #491980
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> binary-0.7.1.0.ebuild:
+  x86 stable wrt bug #491980
+
+  21 Feb 2014; Sergei Trofimovich <slyfox@gentoo.org> binary-0.7.1.0.ebuild:
+  Marked as ghc-7.8 core lib.
+
+*binary-0.7.1.0 (25 Aug 2013)
+
+  25 Aug 2013; Alexander Vershilov <qnikst@gentoo.org> +binary-0.7.1.0.ebuild:
+  dev-haskell/binary: bump up to 0.7.1.0
+
+  31 Mar 2013; Agostino Sarubbo <ago@gentoo.org> binary-0.5.1.1.ebuild:
+  Stable for sparc, wrt bug #456486
+
+  30 Mar 2013; Agostino Sarubbo <ago@gentoo.org> binary-0.5.1.1.ebuild:
+  Stable for alpha, wrt bug #456486
+
+  28 Mar 2013; Agostino Sarubbo <ago@gentoo.org> binary-0.5.1.1.ebuild:
+  Stable for ia64, wrt bug #456486
+
+  27 Mar 2013; Agostino Sarubbo <ago@gentoo.org> binary-0.5.1.1.ebuild:
+  Stable for ppc64, wrt bug #456486
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org> binary-0.5.1.1.ebuild:
+  Stable for ppc, wrt bug #456486
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> binary-0.5.1.1.ebuild:
+  Stable for x86, wrt bug #456486
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org> binary-0.5.1.1.ebuild:
+  Stable for amd64, wrt bug #456486
 
 *binary-0.5.1.1 (18 Nov 2012)
 

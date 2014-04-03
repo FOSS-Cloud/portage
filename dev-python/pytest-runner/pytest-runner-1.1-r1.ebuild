@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pytest-runner/pytest-runner-1.1-r1.ebuild,v 1.2 2013/01/06 23:11:44 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pytest-runner/pytest-runner-1.1-r1.ebuild,v 1.4 2014/03/31 20:33:14 mgorny Exp $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_5,2_6,2_7,3_1,3_2,3_3} pypy{1_9,2_0} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy pypy2_0 )
 
 inherit distutils-r1
 

@@ -1,6 +1,23 @@
 # ChangeLog for net-libs/daq
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/daq/ChangeLog,v 1.21 2012/12/30 21:06:48 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/daq/ChangeLog,v 1.25 2014/02/03 07:33:22 kumba Exp $
+
+*daq-2.0.2 (03 Feb 2014)
+
+  03 Feb 2014; Joshua Kinard <kumba@gentoo.org> -daq-0.5.ebuild,
+  daq-0.6.2.ebuild, daq-0.6.2-r1.ebuild, daq-2.0.0.ebuild, +daq-2.0.2.ebuild:
+  EAPI=4, Bump to 2.0.2, and remove 0.5.
+
+*daq-2.0.0 (31 May 2013)
+
+  31 May 2013; Patrick Lauer <patrick@gentoo.org> +daq-2.0.0.ebuild:
+  Bump
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
+
+  17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Add proxy-maintainers to metadata.xml
 
   30 Dec 2012; Agostino Sarubbo <ago@gentoo.org> daq-0.6.2-r1.ebuild:
   Add ~sparc, wrt to bug #407795

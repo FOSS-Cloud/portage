@@ -1,9 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/acct/acct-6.5.5-r2.ebuild,v 1.11 2013/01/06 11:13:40 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/acct/acct-6.5.5-r2.ebuild,v 1.13 2013/08/08 02:01:18 mr_bones_ Exp $
 
-EAPI="2"
-
+EAPI=3
 inherit eutils autotools
 
 DESCRIPTION="GNU system accounting utilities"
@@ -12,12 +11,13 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="alpha amd64 ~arm hppa ~ia64 ~mips ppc ~ppc64 ~sparc x86"
+KEYWORDS="alpha amd64 ~arm hppa ~ia64 ~mips ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-6.5.5-cross-compile.patch
-	epatch "${FILESDIR}"/${PN}-6.5.5-no-gets.patch
+	epatch \
+		"${FILESDIR}"/${PN}-6.5.5-cross-compile.patch \
+		"${FILESDIR}"/${PN}-6.5.5-no-gets.patch
 	eautoreconf
 }
 
@@ -35,9 +35,9 @@ src_install() {
 	newins "${FILESDIR}"/acct.logrotate acct || die
 
 	# sys-apps/sysvinit already provides this
-	rm "${D}"/usr/bin/last "${D}"/usr/share/man/man1/last.1 || die
+	rm "${ED}"/usr/bin/last "${ED}"/usr/share/man/man1/last.1 || die
 
 	# accton in / is only a temp workaround for #239748
 	dodir /sbin
-	mv "${D}"/usr/sbin/accton "${D}"/sbin/ || die
+	mv "${ED}"/usr/sbin/accton "${ED}"/sbin/ || die
 }

@@ -1,6 +1,19 @@
 # ChangeLog for dev-ruby/async_sinatra
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/async_sinatra/ChangeLog,v 1.6 2012/12/14 16:08:57 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/async_sinatra/ChangeLog,v 1.9 2014/03/08 02:05:18 mrueg Exp $
+
+  08 Mar 2014; Manuel Rüger <mrueg@gentoo.org> -async_sinatra-1.0.0.ebuild,
+  -files/async_sinatra-0.4.0-rack.patch,
+  -files/async_sinatra-1.0.0-extended-sinatra.patch:
+  Cleanup old.
+
+*async_sinatra-1.1.0 (25 Dec 2013)
+
+  25 Dec 2013; Hans de Graaff <graaff@gentoo.org> +async_sinatra-1.1.0.ebuild:
+  Version bump.
+
+  11 Aug 2013; Hans de Graaff <graaff@gentoo.org> -async_sinatra-0.4.0.ebuild:
+  Cleanup.
 
 *async_sinatra-1.0.0 (14 Dec 2012)
 
@@ -33,4 +46,3 @@
   19 Apr 2010; Diego E. Pettenò <flameeyes@gentoo.org>
   +async_sinatra-0.1.5.ebuild, +metadata.xml:
   Initial import of async_sinatra gem.
-

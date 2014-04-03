@@ -3,8 +3,8 @@
 <pkgmetadata>
 	<herd>sci-electronics</herd>
 	<maintainer>
-		<email>nixphoeni@gentoo.org</email>
-		<name>Joe Sapp</name>
+		<email>idl0r@gentoo.org</email>
+		<name>Christian Ruppert</name>
 	</maintainer>
 	<longdescription>EAGLE (Easily Applicable Graphical Layout Editor)
 		is a powerful tool for creating printed circuit boards (PCBs).

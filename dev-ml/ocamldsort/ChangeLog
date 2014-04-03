@@ -1,6 +1,18 @@
 # ChangeLog for dev-ml/ocamldsort
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocamldsort/ChangeLog,v 1.12 2013/02/04 13:04:46 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocamldsort/ChangeLog,v 1.16 2013/08/19 13:43:16 aballier Exp $
+
+  19 Aug 2013; Alexis Ballier <aballier@gentoo.org> -ocamldsort-0.15.0.ebuild:
+  remove old
+
+  19 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ocamldsort-0.16.0.ebuild:
+  Stable for x86, wrt bug #461110
+
+  12 Mar 2013; Agostino Sarubbo <ago@gentoo.org> ocamldsort-0.16.0.ebuild:
+  Stable for ppc, wrt bug #461110
+
+  10 Mar 2013; Alexis Ballier <aballier@gentoo.org> ocamldsort-0.16.0.ebuild:
+  slot dep on ocaml
 
 *ocamldsort-0.16.0 (04 Feb 2013)
 
@@ -46,4 +58,3 @@
   04 Oct 2004; Matthieu Sozeau <mattam@gentoo.org> +ocamldsort-0.14.2
   +metadata.xml:
   New ebuild, ocaml dependency sorter. Fixes bug #25343.
-

@@ -1,6 +1,40 @@
 # ChangeLog for rox-base/zeroinstall-injector
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/rox-base/zeroinstall-injector/ChangeLog,v 1.35 2012/12/07 19:44:14 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/rox-base/zeroinstall-injector/ChangeLog,v 1.43 2014/03/22 18:19:27 kensington Exp $
+
+  22 Mar 2014; Michael Palimaka <kensington@gentoo.org>
+  -zeroinstall-injector-0.49.ebuild:
+  Remove old.
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  zeroinstall-injector-1.11.ebuild:
+  Stable for sparc, wrt bug #495910
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  zeroinstall-injector-1.11.ebuild:
+  Stable for alpha, wrt bug #495910
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  zeroinstall-injector-1.11.ebuild:
+  Stable for ppc, wrt bug #495910
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  zeroinstall-injector-1.11.ebuild:
+  Stable for x86, wrt bug #495910
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> zeroinstall-injector-1.11.ebuild:
+  amd64 stable, bug #495910
+
+*zeroinstall-injector-1.11 (28 Mar 2013)
+
+  28 Mar 2013; Tom Wijsman <TomWij@gentoo.org>
+  +zeroinstall-injector-1.11.ebuild:
+  Version bump to 1.11. EAPI 5. Non maintainer commit. Fixes bug #377339.
+
+  02 Mar 2013; Pacho Ramos <pacho@gentoo.org>
+  -zeroinstall-injector-0.43-r1.ebuild, metadata.xml:
+  Cleanup due http://gentoo.2317880.n4.nabble.com/rox-herd-looks-inactive-for-a
+  -long-time-td257264.html
 
   07 Dec 2012; Agostino Sarubbo <ago@gentoo.org>
   zeroinstall-injector-0.49.ebuild:
@@ -156,4 +190,3 @@
   +files/global.cfg, +metadata.xml, +zeroinstall-injector-0.31.ebuild:
   New package: Zeroinstall Injector allows regular users to install software
   themselves
-

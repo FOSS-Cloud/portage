@@ -1,6 +1,43 @@
 # ChangeLog for Gentoo/hppa profile
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/ChangeLog,v 1.195 2013/08/22 14:13:40 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/ChangeLog,v 1.207 2014/03/19 00:14:04 dilfridge Exp $
+
+  19 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> +eapi:
+  Increase EAPI to 5
+
+  06 Mar 2014; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Mask USE=gui and USE=jit for sci-mathematics/octave (bug #503594).
+
+  18 Feb 2014; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Unmask USE=oss as nothing else works properly.
+
+  31 Jan 2014; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Mask x11-libs/libgksu dependency for xfce-extra/xfce4-taskmanager (bug
+  #499900).
+
+  23 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> package.use.mask
+  Remove obsolete dev-perl/PDL[proj] entry. See bug #497328 for more info.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> make.defaults:
+  Drop python targets hacks now that base/ has it #474128.
+
+  30 Nov 2013; Jeroen Roovers <jer@gentoo.org> make.defaults:
+  Mask dev-lang/python-3.2*, unmask dev-lang/python-3.3* targets (bug #474128).
+
+  24 Nov 2013; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Properly describe mask entry (bug #492326).
+
+  10 Nov 2013; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask llvm flag as sys-devel/llvm is not keyworded, bug #320221.
+
+  25 Oct 2013; Jeroen Roovers <jer@gentoo.org> use.mask:
+  Unmask USE=unwind (bug #453704).
+
+  25 Oct 2013; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Mask USE=libatomic for sys-libs/libunwind (bug #453704).
+
+  14 Oct 2013; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Remove obsolete entry USE=custom-cpuopts.
 
   22 Aug 2013; Jeroen Roovers <jer@gentoo.org> use.mask:
   Mask USE=opencl (bug #482096).

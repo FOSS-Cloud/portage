@@ -1,6 +1,43 @@
 # ChangeLog for dev-vcs/darcs
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/darcs/ChangeLog,v 1.44 2013/02/09 18:58:52 slyfox Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/darcs/ChangeLog,v 1.54 2014/02/22 07:56:09 slyfox Exp $
+
+  22 Feb 2014; Sergei Trofimovich <slyfox@gentoo.org> -darcs-2.8.0.ebuild,
+  -files/darcs-2.8.0-mtl-2.1.patch:
+  Drop old (bug #502074 by Patrick Lauer).
+
+*darcs-2.8.4-r3 (21 Feb 2014)
+
+  21 Feb 2014; Sergei Trofimovich <slyfox@gentoo.org> +darcs-2.8.4-r3.ebuild,
+  +files/darcs-2.8.4-ghc-7.8-part-1.patch:
+  Add basic ghc-7.8 support.
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> darcs-2.8.4.ebuild:
+  Stable for alpha, wrt bug #485656
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> darcs-2.8.4.ebuild:
+  Stable for ia64, wrt bug #485656
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> darcs-2.8.4.ebuild:
+  Stable for ppc, wrt bug #485656
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> darcs-2.8.4.ebuild:
+  Stable for ppc64, wrt bug #485656
+
+  30 Sep 2013; Agostino Sarubbo <ago@gentoo.org> darcs-2.8.4.ebuild:
+  Stable for x86, wrt bug #485656
+
+  23 Sep 2013; Agostino Sarubbo <ago@gentoo.org> darcs-2.8.4.ebuild:
+  Stable for sparc, wrt bug #485656
+
+  22 Sep 2013; Agostino Sarubbo <ago@gentoo.org> darcs-2.8.4.ebuild:
+  Stable for amd64, wrt bug #485656
+
+  06 Apr 2013; Sergei Trofimovich <slyfox@gentoo.org> -darcs-2.8.3-r1.ebuild,
+  -files/darcs-2.8.1-tar-0.4.patch, -files/darcs-2.8.3-ghc-7.6.patch.bz2,
+  -files/darcs-2.8.3-hack-for-haskeline-0.7-breaks-non-utf8.patch,
+  -files/darcs-2.8.3-tf-0.8.patch:
+  Drop binary data from tree along with old darcs (bug #464180 by Michał Górny).
 
 *darcs-2.8.4 (09 Feb 2013)
 

@@ -1,6 +1,69 @@
 # ChangeLog for net-im/telepathy-mission-control
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/telepathy-mission-control/ChangeLog,v 1.81 2013/02/22 20:01:25 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-im/telepathy-mission-control/ChangeLog,v 1.96 2014/02/22 22:23:01 pacho Exp $
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  telepathy-mission-control-5.14.1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  telepathy-mission-control-5.14.1.ebuild:
+  arch stable, bug 888
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org>
+  telepathy-mission-control-5.14.1.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org>
+  telepathy-mission-control-5.14.1.ebuild:
+  amd64 stable, bug #478252
+
+  26 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  telepathy-mission-control-5.14.1.ebuild:
+  Python is needed even without tests, bug #489466 by Eternal Sorrow
+
+  10 Oct 2013; Pacho Ramos <pacho@gentoo.org>
+  telepathy-mission-control-5.14.1.ebuild:
+  Python is only needed to run tests (#487568 by mgorny)
+
+  05 Sep 2013; Michał Górny <mgorny@gentoo.org>
+  telepathy-mission-control-5.14.0-r1.ebuild,
+  telepathy-mission-control-5.14.1.ebuild:
+  Clean up PYTHON_COMPAT from old implementations.
+
+  21 Jul 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  connman is a global USE flag now
+
+*telepathy-mission-control-5.14.1 (04 May 2013)
+
+  04 May 2013; Pacho Ramos <pacho@gentoo.org>
+  +telepathy-mission-control-5.14.1.ebuild,
+  -telepathy-mission-control-5.12.3.ebuild:
+  Version bump, drop old
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  telepathy-mission-control-5.14.0-r1.ebuild:
+  Stable for sparc, wrt bug #458984
+
+  01 Apr 2013; Agostino Sarubbo <ago@gentoo.org>
+  telepathy-mission-control-5.14.0-r1.ebuild:
+  Stable for alpha, wrt bug #458984
+
+  29 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  telepathy-mission-control-5.14.0-r1.ebuild:
+  Stable for ia64, wrt bug #458984
+
+  26 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  telepathy-mission-control-5.14.0-r1.ebuild:
+  Stable for ppc, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  telepathy-mission-control-5.14.0-r1.ebuild:
+  Stable for x86, wrt bug #458984
+
+  25 Mar 2013; Agostino Sarubbo <ago@gentoo.org>
+  telepathy-mission-control-5.14.0-r1.ebuild:
+  Stable for amd64, wrt bug #458984
 
   22 Feb 2013; Zac Medico <zmedico@gentoo.org>
   telepathy-mission-control-5.14.0-r1.ebuild:

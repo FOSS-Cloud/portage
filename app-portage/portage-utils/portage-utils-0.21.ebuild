@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/portage-utils/portage-utils-0.21.ebuild,v 1.3 2013/02/18 02:23:05 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/portage-utils/portage-utils-0.21.ebuild,v 1.5 2013/04/30 04:23:55 vapier Exp $
 
 EAPI="3"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://gentoo/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="static"
 
 DEPEND="app-arch/xz-utils"
@@ -57,10 +57,12 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	elog "${EPREFIX}/etc/portage/postsync.d/q-reinitialize has been installed for convenience"
-	elog "If you wish for it to be automatically run at the end of every --sync:"
-	elog "   # chmod +x ${EPREFIX}/etc/portage/postsync.d/q-reinitialize"
-	elog "Normally this should only take a few seconds to run but file systems"
-	elog "such as ext3 can take a lot longer.  To disable, simply do:"
-	elog "   # chmod -x ${EPREFIX}/etc/portage/postsync.d/q-reinitialize"
+	if [[ -z ${REPLACING_VERSIONS} ]] ; then
+		elog "${EPREFIX}/etc/portage/postsync.d/q-reinitialize has been installed for convenience"
+		elog "If you wish for it to be automatically run at the end of every --sync:"
+		elog "   # chmod +x ${EPREFIX}/etc/portage/postsync.d/q-reinitialize"
+		elog "Normally this should only take a few seconds to run but file systems"
+		elog "such as ext3 can take a lot longer.  To disable, simply do:"
+		elog "   # chmod -x ${EPREFIX}/etc/portage/postsync.d/q-reinitialize"
+	fi
 }

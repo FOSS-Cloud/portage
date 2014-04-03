@@ -1,6 +1,22 @@
 # ChangeLog for dev-libs/jsoncpp
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/jsoncpp/ChangeLog,v 1.6 2013/02/28 20:04:34 phajdan.jr Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/jsoncpp/ChangeLog,v 1.10 2014/02/28 00:17:19 vapier Exp $
+
+*jsoncpp-0.6.0_rc2 (28 Feb 2014)
+
+  28 Feb 2014; Mike Frysinger <vapier@gentoo.org> +jsoncpp-0.6.0_rc2.ebuild:
+  Version bump #499612 by Zoltan Kovacs.
+
+  17 Nov 2013; Pawel Hajdan jr <phajdan.jr@gentoo.org> -jsoncpp-0.5.0.ebuild,
+  jsoncpp-0.5.0-r1.ebuild:
+  Only setup python for USE=doc, bug #487574 by mgorny. Also tested by John W.
+  Newman. Remove old.
+
+  04 Apr 2013; Agostino Sarubbo <ago@gentoo.org> jsoncpp-0.5.0-r1.ebuild:
+  Stable for x86, wrt bug #463426
+
+  04 Apr 2013; Agostino Sarubbo <ago@gentoo.org> jsoncpp-0.5.0-r1.ebuild:
+  Stable for amd64, wrt bug #463426
 
 *jsoncpp-0.5.0-r1 (28 Feb 2013)
 
@@ -26,4 +42,3 @@
   29 Dec 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> +jsoncpp-0.5.0.ebuild,
   +metadata.xml:
   Initial import.
-

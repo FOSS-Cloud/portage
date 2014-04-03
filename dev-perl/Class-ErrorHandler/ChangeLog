@@ -1,6 +1,40 @@
 # ChangeLog for dev-perl/Class-ErrorHandler
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Class-ErrorHandler/ChangeLog,v 1.26 2012/06/24 12:59:07 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Class-ErrorHandler/ChangeLog,v 1.34 2014/01/02 12:53:14 zlogene Exp $
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Class-ErrorHandler-0.30.0.ebuild:
+  sparc stable wrt bug #492090
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Class-ErrorHandler-0.30.0.ebuild:
+  ppc4 stable wrt bug #492090
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Class-ErrorHandler-0.30.0.ebuild:
+  ia64 stable wrt bug #492090
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Class-ErrorHandler-0.30.0.ebuild:
+  alpha stable wrt bug #492090
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Class-ErrorHandler-0.30.0.ebuild:
+  x86 stable wrt bug #492090
+
+  02 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Class-ErrorHandler-0.30.0.ebuild:
+  amd64 stable wrt bug #492090
+
+  01 Jan 2014; Jeroen Roovers <jer@gentoo.org>
+  Class-ErrorHandler-0.30.0.ebuild:
+  Stable for HPPA (bug #492090).
+
+*Class-ErrorHandler-0.30.0 (05 Sep 2013)
+
+  05 Sep 2013; Mikle Kolyada <zlogene@gentoo.org>
+  +Class-ErrorHandler-0.30.0.ebuild:
+  version bump, close bug #483674
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

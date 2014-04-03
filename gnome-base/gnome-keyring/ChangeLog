@@ -1,6 +1,76 @@
 # ChangeLog for gnome-base/gnome-keyring
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-keyring/ChangeLog,v 1.227 2013/02/25 09:18:12 zmedico Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-keyring/ChangeLog,v 1.243 2014/03/09 11:58:33 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-keyring-3.10.1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-keyring-3.10.1.ebuild:
+  amd64 stable, bug 499954
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> gnome-keyring-2.32.1-r1.ebuild,
+  gnome-keyring-3.10.1.ebuild, gnome-keyring-3.8.2.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-keyring-3.10.1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome-keyring-3.10.1.ebuild:
+  arch stable, bug 888
+
+*gnome-keyring-3.10.1 (24 Dec 2013)
+
+  24 Dec 2013; Pacho Ramos <pacho@gentoo.org> +gnome-keyring-3.10.1.ebuild,
+  -gnome-keyring-3.6.3.ebuild, -gnome-keyring-3.8.1.ebuild:
+  Version bump for Gnome 3.10
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> gnome-keyring-3.8.2.ebuild:
+  x86 stable, bug #478252
+
+  30 Nov 2013; Pacho Ramos <pacho@gentoo.org> gnome-keyring-3.8.2.ebuild:
+  amd64 stable, bug #478252
+
+  09 Sep 2013; Patrick Lauer <patrick@gentoo.org> gnome-keyring-3.8.2.ebuild:
+  Whitespace
+
+  08 Sep 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-keyring-3.8.2.ebuild:
+  Fix tests on first install, bug #482554.
+
+  10 May 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-keyring-3.6.3.ebuild, metadata.xml:
+  Add longdescription, bug #463542. Use fcaps eclass instead of custom code,
+  bug #468258.
+
+*gnome-keyring-3.8.2 (05 May 2013)
+
+  05 May 2013; Pacho Ramos <pacho@gentoo.org> +gnome-keyring-3.8.2.ebuild,
+  -gnome-keyring-3.8.0.ebuild:
+  Version bump, drop old
+
+*gnome-keyring-3.8.1 (28 Apr 2013)
+
+  28 Apr 2013; Pacho Ramos <pacho@gentoo.org> +gnome-keyring-3.8.1.ebuild,
+  -gnome-keyring-3.6.2.ebuild:
+  Version bump, use fcaps.eclass (#454908 by SpanKY), fix dependencies (#467416
+  by Tolga Dalman), drop unexisting configure options. Drop old
+
+*gnome-keyring-3.6.3 (30 Mar 2013)
+
+  30 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-keyring-3.6.3.ebuild, gnome-keyring-3.8.0.ebuild:
+  Version bump.
+
+*gnome-keyring-3.8.0 (28 Mar 2013)
+
+  28 Mar 2013; Pacho Ramos <pacho@gentoo.org> +gnome-keyring-3.8.0.ebuild:
+  Version bump for Gnome 3.8
+
+  07 Mar 2013; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-keyring-3.4.1-r1.ebuild,
+  -files/gnome-keyring-3.4.1-gpg-cache-method-1.patch,
+  -files/gnome-keyring-3.4.1-gpg-cache-method-2.patch:
+  Clean up old revision.
 
   25 Feb 2013; Zac Medico <zmedico@gentoo.org> gnome-keyring-3.6.2.ebuild:
   Add ~arm-linux keyword.
