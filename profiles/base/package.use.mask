@@ -1,10 +1,44 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/package.use.mask,v 1.540 2014/01/13 17:31:25 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/package.use.mask,v 1.556 2014/04/06 16:56:41 mgorny Exp $
 
 # This file requires >=portage-2.1.1
 # New entries go on top.
 #
+
+# Julian Ospald <hasufell@gentoo.org> (06 Apr 2014)
+# broken wrt #501582
+<net-misc/openvpn-9999 polarssl
+
+# Mike Gilbert <floppym@gentoo.org> (27 Mar 2014)
+# sys-libs/libseccomp is not keyworded on many archs.
+sys-apps/systemd seccomp
+
+# Ben de Groot <yngwin@gentoo.org> (21 Mar 2014)
+# harfbuzz multilib ebuild is still masked
+media-libs/freetype harfbuzz
+
+# Manuel Rüger <mrueg@gentoo.org> (07 Mar 2014)
+# Mask ruby18-only compatible flags
+# Bugs: 483104, 483102
+=dev-ruby/rubygems-1.8* server
+media-libs/libcaca ruby
+=dev-vcs/subversion-1.7* ruby
+media-sound/podcatcher bittorrent
+
+# Michał Górny <mgorny@gentoo.org> (27 Feb 2014)
+# Very experimental with unstable kernel- and userspace API.
+# Lacks proper policy support that makes it very unsecure.
+# Suitable only for testing.
+sys-apps/systemd kdbus
+
+# Mike Frysinger <vapier@gentoo.org> (03 Feb 2014)
+# Upstream says to not use this for now.
+dev-libs/elfutils threads
+
+# Mike Gilbert <floppym@gentoo.org> (01 Feb 2014)
+# Build failures (bug 499072)
+=www-client/chromium-33* aura
 
 # Andreas K. Huettel <dilfridge@gentoo.org> (4 Jan 2014)
 # Mask until dependencies are keyworded (bug 497068)
@@ -107,10 +141,10 @@ app-editors/gvim luajit racket
 # Alexis Ballier <aballier@gentoo.org> (11 Aug 2013)
 # Multilib migrated version for binary compatibility.
 # Those useflags have deps that are not migrated yet.
-=media-video/ffmpeg-0.10* libass frei0r gnutls rtmp vaapi sdl openssl
+=media-video/ffmpeg-0.10* libass frei0r gnutls rtmp sdl openssl
 
 # Kacper Kowalik <xarthisius@gentoo.org> (09 Aug 2013)
-# Doesn't work on most profiles. Easier to mask here and 
+# Doesn't work on most profiles. Easier to mask here and
 # unmask in particular profiles
 sys-apps/hwloc cuda gl opencl
 
@@ -164,11 +198,6 @@ app-leechcraft/leechcraft-meta unstable
 >=dev-db/mariadb-galera-5.5 pbxt
 >=dev-db/percona-server-5.5 pbxt
 >=dev-db/google-mysql-5.5 pbxt
-
-# XFCE <xfce@gentoo.org> (01 Jun 2013)
-# Masked temporarily while waiting for >=net-libs/webkit-gtk-2 unmasking from
-# profiles/package.mask
->=www-client/midori-0.5.2 webkit2
 
 # Kacper Kowalik <xarthisius@gentoo.org> (19 May 2013)
 # Fails to build, haven't had time to debug
@@ -255,8 +284,8 @@ app-misc/tracker eds
 sci-chemistry/gromacs cuda mkl openmm
 
 # Zac Medico <zmedico@gentoo.org> (13 Jun 2012)
-# Mask USE=pypy2_0 for sys-apps/portage, since pypy has limited KEYWORDS.
-sys-apps/portage pypy2_0
+# Mask USE=pypy* for sys-apps/portage, since pypy has limited KEYWORDS.
+sys-apps/portage pypy pypy2_0
 
 # Jory A. Pratt <anarchy@gentoo.org> (15 Dec 2012)
 # PGO is known to be busted with most configurations
@@ -331,11 +360,6 @@ dev-db/firebird client
 # Andreas K. Huettel <dilfridge@gentoo.org> (25 Mai 2012)
 # Requires icc which does not emerge (distfile unavailable)
 media-libs/opencv ipp
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (10 May 2012)
-# This entry can be removed by anyone after gnome-panel-3.* is stabilized
-# Mask to allow stabilization (bug #414983)
-=app-misc/gnote-0.8.2 applet
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (02 May 2012)
 # Causes crashes and build failures, not needed by any package, bug #412177
@@ -470,11 +494,6 @@ media-video/mplayer2 bluray
 #
 # Mask pdnsd's Linux-specific USE flags.
 net-dns/pdnsd isdn urandom
-
-# Gilles Dartiguelongue <eva@gentoo.org> (26 Mar 2011)
-# Mask due to unsatisfied dependencies
-# applet is required for the search panel applet
->=app-misc/tracker-0.10 applet
 
 # Raúl Porcel <armin76@gentoo.org> (13 Feb 2011)
 # Masked until devs know how to use repoman

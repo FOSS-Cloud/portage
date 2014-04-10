@@ -1,6 +1,43 @@
 # ChangeLog for www-client/midori
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/midori/ChangeLog,v 1.118 2013/10/05 08:33:53 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/midori/ChangeLog,v 1.126 2014/04/07 16:59:24 ssuominen Exp $
+
+  07 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> midori-0.5.5.ebuild:
+  Remove GTK+-3.x and WebKit2 support from 0.5.5 since it doesn't build with
+  latest GTK+-3.x anymore, and 0.5.5 is by design a legacy version for people
+  having problems with 0.5.8.
+
+  07 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> midori-0.5.8.ebuild:
+  Make USE="granite" which pulls GTK+-3.x dev-libs/granite depend on
+  USE="-deprecated" for GTK+-3.x www-client/midori.
+
+  07 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> midori-0.5.8.ebuild:
+  USE="introspection" is requiring net-libs/webkit-gtk:2 for webkit-1.0.pc,
+  therefore disable USE="introspection" by default and make it require
+  USE="deprecated" wrt #507036 by "Vladimir"
+
+  05 Apr 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/midori-0.5.7-underlinking.patch, -midori-0.5.7.ebuild:
+  old
+
+*midori-0.5.8 (05 Apr 2014)
+
+  05 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> +midori-0.5.8.ebuild:
+  Version bump.
+
+  29 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  files/midori-0.5.7-underlinking.patch:
+  Link to upstream bug report.
+
+*midori-0.5.7 (29 Mar 2014)
+
+  29 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +files/midori-0.5.7-underlinking.patch, +midori-0.5.7.ebuild, metadata.xml:
+  Version bump wrt #492214 and add USE="granite" wrt #490040. Thanks to "A.
+  Person" for reporting both bugs.
+
+  04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org> midori-0.5.5.ebuild:
+  Add ~mips keyword.
 
   05 Oct 2013; Samuli Suominen <ssuominen@gentoo.org> -midori-0.5.4.ebuild:
   old

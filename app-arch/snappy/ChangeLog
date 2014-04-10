@@ -1,6 +1,31 @@
 # ChangeLog for app-arch/snappy
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/snappy/ChangeLog,v 1.10 2013/11/21 07:57:56 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/snappy/ChangeLog,v 1.16 2014/04/03 18:22:16 vapier Exp $
+
+*snappy-1.1.2-r1 (03 Apr 2014)
+
+  03 Apr 2014; Mike Frysinger <vapier@gentoo.org> +snappy-1.1.2-r1.ebuild:
+  Convert to autotools-multilib #504756 by David Heidelberger.
+
+*snappy-1.1.2 (11 Mar 2014)
+
+  11 Mar 2014; Tim Harder <radhermit@gentoo.org> +snappy-1.1.2.ebuild,
+  metadata.xml:
+  Version bump, add myself as a maintainer.
+
+  11 Mar 2014; Pacho Ramos <pacho@gentoo.org> -snappy-1.0.3.ebuild,
+  -snappy-1.0.4.ebuild, -snappy-1.0.5.ebuild, -snappy-1.1.0.ebuild,
+  metadata.xml:
+  Cleanup due #239126
+
+  24 Feb 2014; Chema Alonso <nimiux@gentoo.org> snappy-1.1.1.ebuild:
+  Stable for amd64 wrt bug #495326
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> snappy-1.1.1.ebuild:
+  x86 stable wrt bug #495326
+
+  16 Feb 2014; Markus Meier <maekke@gentoo.org> snappy-1.1.1.ebuild:
+  arm stable, bug #495326
 
 *snappy-1.1.1 (21 Nov 2013)
 

@@ -1,6 +1,24 @@
 # ChangeLog for dev-ruby/hoe
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hoe/ChangeLog,v 1.147 2014/01/19 10:04:02 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hoe/ChangeLog,v 1.152 2014/04/05 23:32:10 mrueg Exp $
+
+  05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> hoe-2.12.5.ebuild,
+  hoe-2.13.0-r1.ebuild, hoe-3.9.0.ebuild:
+  Remove ree18 and ruby18 target.
+
+  10 Mar 2014; Manuel Rüger <mrueg@gentoo.org> -hoe-2.13.0.ebuild:
+  Cleanup unused.
+
+  01 Mar 2014; Hans de Graaff <graaff@gentoo.org> hoe-3.9.0.ebuild:
+  Add back amd64-fbsd keyword that got dropped by accident.
+
+*hoe-3.9.0 (01 Mar 2014)
+
+  01 Mar 2014; Hans de Graaff <graaff@gentoo.org> +hoe-3.9.0.ebuild:
+  Version bump.
+
+  01 Feb 2014; Akinori Hattori <hattya@gentoo.org> hoe-2.13.0-r1.ebuild:
+  ia64 stable wrt bug #490180
 
   19 Jan 2014; Pacho Ramos <pacho@gentoo.org> hoe-2.13.0-r1.ebuild:
   amd64 stable, bug 490180

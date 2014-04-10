@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/tntnet/tntnet-2.2.ebuild,v 1.1 2013/06/28 19:42:16 zzam Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/tntnet/tntnet-2.2.ebuild,v 1.3 2014/03/01 22:14:27 mgorny Exp $
 
 EAPI="5"
 
@@ -20,13 +20,13 @@ RDEPEND="=dev-libs/cxxtools-2.2*
 	ssl? (
 		gnutls? (
 			>=net-libs/gnutls-1.2.0
-			dev-libs/libgcrypt
+			dev-libs/libgcrypt:0
 		)
 		!gnutls? ( dev-libs/openssl )
 	)"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	examples? ( app-arch/zip )"
+	app-arch/zip"
 
 src_prepare() {
 	# Both fixed in the next release

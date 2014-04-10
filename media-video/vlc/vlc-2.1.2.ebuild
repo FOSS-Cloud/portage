@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.1.2.ebuild,v 1.2 2013/12/20 20:01:29 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.1.2.ebuild,v 1.6 2014/03/12 16:15:16 tomwij Exp $
 
 EAPI="5"
 
@@ -58,8 +58,8 @@ RDEPEND="
 		!<media-video/ffmpeg-1.2:0
 		dev-libs/libgpg-error:0
 		net-dns/libidn:0
-		>=sys-devel/gettext-0.18.3:0
 		>=sys-libs/zlib-1.2.5.1-r2:0[minizip]
+		virtual/libintl:0
 		a52? ( >=media-libs/a52dec-0.7.4-r3:0 )
 		aalib? ( media-libs/aalib:0 )
 		alsa? ( >=media-libs/alsa-lib-1.0.24:0 )
@@ -143,7 +143,7 @@ RDEPEND="
 		v4l? ( media-libs/libv4l:0 )
 		vaapi? ( x11-libs/libva:0 virtual/ffmpeg[vaapi] )
 		vcdx? ( >=dev-libs/libcdio-0.78.2:0 >=media-video/vcdimager-0.7.22:0 )
-		vdpau? ( >=x11-libs/libvdpau-0.6:0 !<media-video/libav-9.11 )
+		vdpau? ( >=x11-libs/libvdpau-0.6:0 !<media-video/libav-10_beta1 )
 		vorbis? ( media-libs/libvorbis:0 )
 		X? ( x11-libs/libX11:0 )
 		x264? ( >=media-libs/x264-0.0.20090923:0= )
@@ -156,7 +156,8 @@ DEPEND="${RDEPEND}
 	kde? ( >=kde-base/kdelibs-4:4 )
 	xcb? ( x11-proto/xproto:0 )
 	app-arch/xz-utils:0
-	virtual/pkgconfig:0
+	>=sys-devel/gettext-0.18.3:*
+	virtual/pkgconfig:*
 "
 
 REQUIRED_USE="

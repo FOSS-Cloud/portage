@@ -1,6 +1,15 @@
 # ChangeLog for net-libs/libkvkontakte
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libkvkontakte/ChangeLog,v 1.40 2014/01/19 15:40:32 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libkvkontakte/ChangeLog,v 1.42 2014/03/21 21:24:30 johu Exp $
+
+*libkvkontakte-3.5.0-r1 (21 Mar 2014)
+
+  21 Mar 2014; Johannes Huber <johu@gentoo.org> +libkvkontakte-3.5.0-r1.ebuild,
+  -libkvkontakte-3.2.0.ebuild:
+  Revision bump to EAPI 5. Remove old.
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libkvkontakte-3.5.0.ebuild:
+  Stable for x86, wrt bug #493578
 
   19 Jan 2014; Pacho Ramos <pacho@gentoo.org> libkvkontakte-3.5.0.ebuild:
   amd64 stable, bug 493578

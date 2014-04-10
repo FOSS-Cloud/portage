@@ -1,6 +1,25 @@
 # ChangeLog for games-emulation/dolphin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/dolphin/ChangeLog,v 1.13 2013/11/17 22:38:30 twitch153 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-emulation/dolphin/ChangeLog,v 1.19 2014/03/19 03:06:38 twitch153 Exp $
+
+  19 Mar 2014; Devan Franchini <twitch153@gentoo.org> dolphin-9999.ebuild:
+  Adds gtest to saved External directories.
+
+  18 Mar 2014; Devan Franchini <twitch153@gentoo.org> dolphin-4.0.ebuild:
+  Removes unnecessary S variable, bug #504964
+
+  17 Feb 2014; Devan Franchini <twitch153@gentoo.org> dolphin-3.5.ebuild,
+  dolphin-4.0.ebuild:
+  Changes SRC_URI to appropriate location, adds mirror restriction for 4.0
+
+  07 Feb 2014; Devan Franchini <twitch153@gentoo.org> dolphin-9999.ebuild:
+  Updates REPO_URI and alters Readme.txt to proper Readme.md file
+
+  25 Jan 2014; Devan Franchini <twitch153@gentoo.org> dolphin-9999.ebuild:
+  Saves external GL folder from removal
+
+  24 Jan 2014; Devan Franchini <twitch153@gentoo.org> dolphin-9999.ebuild:
+  Removes deletion of CLRun dir, and updates dependency for glew
 
   17 Nov 2013; Devan Franchini <twitch153@gentoo.org> dolphin-3.5.ebuild,
   dolphin-4.0.ebuild, dolphin-9999.ebuild:

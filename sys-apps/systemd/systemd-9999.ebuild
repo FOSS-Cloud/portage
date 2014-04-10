@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.80 2014/01/20 22:53:07 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.103 2014/03/31 19:01:25 floppym Exp $
 
 EAPI=5
 
@@ -13,7 +13,7 @@ inherit git-r3
 #endif
 
 AUTOTOOLS_PRUNE_LIBTOOL_FILES=all
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python{2_7,3_2,3_3} )
 inherit autotools-utils bash-completion-r1 fcaps linux-info multilib \
 	multilib-minimal pam python-single-r1 systemd toolchain-funcs udev \
 	user
@@ -23,11 +23,11 @@ HOMEPAGE="http://www.freedesktop.org/wiki/Software/systemd"
 SRC_URI="http://www.freedesktop.org/software/systemd/${P}.tar.xz"
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
-SLOT="0/1"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+SLOT="0/2"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="acl audit cryptsetup doc +firmware-loader gcrypt gudev http introspection
-	+kdbus +kmod lzma pam policykit python qrcode selinux tcpd test
-	vanilla xattr"
+	kdbus +kmod lzma pam policykit python qrcode +seccomp selinux ssl
+	test vanilla xattr"
 
 MINKV="3.0"
 
@@ -38,15 +38,16 @@ COMMON_DEPEND=">=sys-apps/util-linux-2.20:0=
 	cryptsetup? ( >=sys-fs/cryptsetup-1.6:0= )
 	gcrypt? ( >=dev-libs/libgcrypt-1.4.5:0= )
 	gudev? ( dev-libs/glib:2=[${MULTILIB_USEDEP}] )
-	http? ( net-libs/libmicrohttpd:0= )
+	http? ( >=net-libs/libmicrohttpd-0.9.33:0= )
 	introspection? ( >=dev-libs/gobject-introspection-1.31.1:0= )
 	kmod? ( >=sys-apps/kmod-15:0= )
 	lzma? ( app-arch/xz-utils:0=[${MULTILIB_USEDEP}] )
 	pam? ( virtual/pam:= )
 	python? ( ${PYTHON_DEPS} )
 	qrcode? ( media-gfx/qrencode:0= )
+	seccomp? ( sys-libs/libseccomp:0= )
 	selinux? ( sys-libs/libselinux:0= )
-	tcpd? ( sys-apps/tcp-wrappers:0= )
+	ssl? ( >=net-libs/gnutls-3.1.4:0= )
 	xattr? ( sys-apps/attr:0= )
 	abi_x86_32? ( !<=app-emulation/emul-linux-x86-baselibs-20130224-r9
 		!app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)] )"
@@ -59,7 +60,7 @@ RDEPEND="${COMMON_DEPEND}
 		<sys-apps/sysvinit-2.88-r4
 	)
 	!sys-auth/nss-myhostname
-	!<sys-libs/glibc-2.10
+	!<sys-libs/glibc-2.14
 	!sys-fs/udev"
 
 # sys-apps/daemon: the daemon only (+ build-time lib dep for tests)
@@ -72,9 +73,6 @@ PDEPEND=">=sys-apps/dbus-1.6.8-r1:0
 # Newer linux-headers needed by ia64, bug #480218
 DEPEND="${COMMON_DEPEND}
 	app-arch/xz-utils:0
-	app-text/docbook-xml-dtd:4.2
-	app-text/docbook-xsl-stylesheets
-	dev-libs/libxslt:0
 	dev-util/gperf
 	>=dev-util/intltool-0.50
 	>=sys-devel/binutils-2.23.1
@@ -83,33 +81,40 @@ DEPEND="${COMMON_DEPEND}
 	ia64? ( >=sys-kernel/linux-headers-3.9 )
 	virtual/pkgconfig
 	doc? ( >=dev-util/gtk-doc-1.18 )
+	python? ( dev-python/lxml[${PYTHON_USEDEP}] )
 	test? ( >=sys-apps/dbus-1.6.8-r1:0 )"
 
 #if LIVE
 DEPEND="${DEPEND}
+	app-text/docbook-xml-dtd:4.2
+	app-text/docbook-xml-dtd:4.5
+	app-text/docbook-xsl-stylesheets
+	dev-libs/libxslt:0
 	dev-libs/gobject-introspection
 	>=dev-libs/libgcrypt-1.4.5:0"
 
 SRC_URI=
 KEYWORDS=
+#endif
 
 src_prepare() {
+#if LIVE
 	if use doc; then
 		gtkdocize --docdir docs/ || die
 	else
 		echo 'EXTRA_DIST =' > docs/gtk-doc.make
 	fi
 
+#endif
 	# Bug 463376
 	sed -i -e 's/GROUP="dialout"/GROUP="uucp"/' rules/*.rules || die
 
 	autotools-utils_src_prepare
 }
-#endif
 
 pkg_pretend() {
 	local CONFIG_CHECK="~AUTOFS4_FS ~BLK_DEV_BSG ~CGROUPS ~DEVTMPFS ~DMIID
-		~EPOLL ~FANOTIFY ~FHANDLE ~INOTIFY_USER ~IPV6 ~NET ~PROC_FS
+		~EPOLL ~FANOTIFY ~FHANDLE ~INOTIFY_USER ~IPV6 ~NET ~NET_NS ~PROC_FS
 		~SECCOMP ~SIGNALFD ~SYSFS ~TIMERFD
 		~!IDE ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2
 		~!GRKERNSEC_PROC"
@@ -159,6 +164,10 @@ pkg_setup() {
 
 multilib_src_configure() {
 	local myeconfargs=(
+		# disable -flto since it is an optimization flag
+		# and makes distcc less effective
+		cc_cv_CFLAGS__flto=no
+
 		--disable-maintainer-mode
 		--localstatedir=/var
 		--with-pamlibdir=$(getpam_mod_dir)
@@ -186,10 +195,12 @@ multilib_src_configure() {
 		$(use_enable lzma xz)
 		$(use_enable pam)
 		$(use_enable policykit polkit)
+		$(use_with python)
 		$(use_enable python python-devel)
 		$(use_enable qrcode qrencode)
+		$(use_enable seccomp)
 		$(use_enable selinux)
-		$(use_enable tcpd tcpwrap)
+		$(use_enable ssl gnutls)
 		$(use_enable test tests)
 		$(use_enable xattr)
 
@@ -210,6 +221,14 @@ multilib_src_configure() {
 		)
 	fi
 
+	# Added for testing; this is UNSUPPORTED by the Gentoo systemd team!
+	if [[ -n ${ROOTPREFIX+set} ]]; then
+		myeconfargs+=(
+			--with-rootprefix="${ROOTPREFIX}"
+			--with-rootlibdir="${ROOTPREFIX}/$(get_libdir)"
+		)
+	fi
+
 	if ! multilib_is_native_abi; then
 		myeconfargs+=(
 			ac_cv_search_cap_init=
@@ -220,16 +239,18 @@ multilib_src_configure() {
 			--disable-acl
 			--disable-audit
 			--disable-gcrypt
+			--disable-gnutls
 			--disable-gtk-doc
 			--disable-introspection
 			--disable-kmod
 			--disable-libcryptsetup
 			--disable-microhttpd
+			--disable-networkd
 			--disable-pam
 			--disable-polkit
 			--disable-qrencode
+			--disable-seccomp
 			--disable-selinux
-			--disable-tcpwrap
 			--disable-tests
 			--disable-xattr
 			--disable-xz
@@ -280,6 +301,9 @@ multilib_src_install() {
 
 	if multilib_is_native_abi; then
 		emake "${mymakeopts[@]}" install
+		# Even with --enable-networkd, it's not right to have this running by default
+		# when it's unconfigured.
+		rm -f "${D}"/etc/systemd/system/multi-user.target.wants/systemd-networkd.service
 	else
 		mymakeopts+=(
 			install-libLTLIBRARIES
@@ -292,6 +316,11 @@ multilib_src_install() {
 
 		emake "${mymakeopts[@]}"
 	fi
+
+	# install compat pkg-config files
+	local pcfiles=( src/compat-libs/libsystemd-{daemon,id128,journal,login}.pc )
+	emake "${mymakeopts[@]}" install-pkgconfiglibDATA \
+		pkgconfiglib_DATA="${pcfiles[*]}"
 }
 
 multilib_src_install_all() {
@@ -320,7 +349,7 @@ migrate_locale() {
 	local locale_conf="${EROOT%/}/etc/locale.conf"
 
 	if [[ ! -L ${locale_conf} && ! -e ${locale_conf} ]]; then
-		# if locale.conf does not exist...
+		# If locale.conf does not exist...
 		if [[ -e ${envd_locale} ]]; then
 			# ...either copy env.d/??locale if there's one
 			ebegin "Moving ${envd_locale} to ${locale_conf}"
@@ -358,6 +387,34 @@ migrate_locale() {
 	fi
 }
 
+migrate_net_name_slot() {
+	# If user has disabled 80-net-name-slot.rules using a empty file or a symlink to /dev/null,
+	# do the same for 80-net-setup-link.rules to keep the old behavior
+	local net_move=no
+	local net_name_slot_sym=no
+	local net_rules_path="${EROOT%/}"/etc/udev/rules.d
+	local net_name_slot="${net_rules_path}"/80-net-name-slot.rules
+	local net_setup_link="${net_rules_path}"/80-net-setup-link.rules
+	if [[ -e ${net_setup_link} ]]; then
+		net_move=no
+	elif [[ -f ${net_name_slot} && $(sed -e "/^#/d" -e "/^\W*$/d" ${net_name_slot} | wc -l) == 0 ]]; then
+		net_move=yes
+	elif [[ -L ${net_name_slot} && $(readlink ${net_name_slot}) == /dev/null ]]; then
+		net_move=yes
+		net_name_slot_sym=yes
+	fi
+	if [[ ${net_move} == yes ]]; then
+		ebegin "Copying ${net_name_slot} to ${net_setup_link}"
+
+		if [[ ${net_name_slot_sym} == yes ]]; then
+			ln -nfs /dev/null "${net_setup_link}"
+		else
+			cp "${net_name_slot}" "${net_setup_link}"
+		fi
+		eend $? || FAIL=1
+	fi
+}
+
 pkg_postinst() {
 	enewgroup systemd-journal
 	if use http; then
@@ -380,6 +437,9 @@ pkg_postinst() {
 	# Bug 465468, make sure locales are respect, and ensure consistency
 	# between OpenRC & systemd
 	migrate_locale
+
+	# Migrate 80-net-name-slot.rules -> 80-net-setup-link.rules
+	migrate_net_name_slot
 
 	if [[ ${FAIL} ]]; then
 		eerror "One of the postinst commands failed. Please check the postinst output"

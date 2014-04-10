@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/file-roller/file-roller-3.10.2.1.ebuild,v 1.1 2013/12/24 15:21:05 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/file-roller/file-roller-3.10.2.1.ebuild,v 1.6 2014/03/09 11:53:07 pacho Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -14,7 +14,7 @@ HOMEPAGE="http://fileroller.sourceforge.net/"
 LICENSE="GPL-2+ CC-BY-SA-3.0"
 SLOT="0"
 IUSE="nautilus packagekit"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux"
 
 # gdk-pixbuf used extensively in the source
 # cairo used in eggtreemultidnd.c
@@ -46,7 +46,7 @@ DEPEND="${RDEPEND}
 DISABLE_AUTOFORMATTING="yes"
 DOC_CONTENTS="
 ${PN} is a frontend for several archiving utilities. If you want a
-particular achive format support, see ${HOMEPAGE}
+particular archive format support, see ${HOMEPAGE}
 and install the relevant package. For example:
 7-zip   - app-arch/p7zip
 ace     - app-arch/unace

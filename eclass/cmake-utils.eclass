@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/cmake-utils.eclass,v 1.101 2013/12/24 14:54:26 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/cmake-utils.eclass,v 1.106 2014/03/26 13:12:39 kensington Exp $
 
 # @ECLASS: cmake-utils.eclass
 # @MAINTAINER:
@@ -372,16 +372,15 @@ _modify-cmakelists() {
 enable_cmake-utils_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
-    debug-print "$FUNCNAME: PATCHES=$PATCHES"
+	debug-print "$FUNCNAME: PATCHES=$PATCHES"
 
-    pushd "${S}" > /dev/null
-    [[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
-		
+	pushd "${S}" >/dev/null
+	[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
+
 	debug-print "$FUNCNAME: applying user patches"
-    epatch_user
+	epatch_user
 
-    popd > /dev/null
-
+	popd >/dev/null
 }
 
 # @VARIABLE: mycmakeargs
@@ -458,7 +457,7 @@ enable_cmake-utils_src_configure() {
 
 			ELSE ()
 
-			SET(CMAKE_PREFIX_PATH "${EPREFIX}${PREFIX}" CACHE STRING ""FORCE)
+			SET(CMAKE_PREFIX_PATH "${EPREFIX}${PREFIX}" CACHE STRING "" FORCE)
 			SET(CMAKE_SKIP_BUILD_RPATH OFF CACHE BOOL "" FORCE)
 			SET(CMAKE_SKIP_RPATH OFF CACHE BOOL "" FORCE)
 			SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE CACHE BOOL "")
@@ -509,11 +508,11 @@ enable_cmake-utils_src_configure() {
 		"${MYCMAKEARGS}"
 	)
 
-	pushd "${BUILD_DIR}" > /dev/null
+	pushd "${BUILD_DIR}" >/dev/null
 	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is ${mycmakeargs_local[*]}"
 	echo "${CMAKE_BINARY}" "${cmakeargs[@]}" "${CMAKE_USE_DIR}"
 	"${CMAKE_BINARY}" "${cmakeargs[@]}" "${CMAKE_USE_DIR}" || die "cmake failed"
-	popd > /dev/null
+	popd >/dev/null
 }
 
 enable_cmake-utils_src_compile() {
@@ -523,6 +522,28 @@ enable_cmake-utils_src_compile() {
 	cmake-utils_src_make "$@"
 }
 
+_ninjaopts_from_makeopts() {
+	if [[ ${NINJAOPTS+set} == set ]]; then
+		return 0
+	fi
+	local ninjaopts=()
+	set -- ${MAKEOPTS}
+	while (( $# )); do
+		case $1 in
+			-j|-l|-k)
+				ninjaopts+=( $1 $2 )
+				shift 2
+				;;
+			-j*|-l*|-k*)
+				ninjaopts+=( $1 )
+				shift 1
+				;;
+			*) shift ;;
+		esac
+	done
+	export NINJAOPTS="${ninjaopts[*]}"
+}
+
 # @FUNCTION: ninja_src_make
 # @INTERNAL
 # @DESCRIPTION:
@@ -530,14 +551,18 @@ enable_cmake-utils_src_compile() {
 ninja_src_make() {
 	debug-print-function ${FUNCNAME} "$@"
 
-		[[ -e build.ninja ]] || die "Makefile not found. Error during configure stage."
+	[[ -e build.ninja ]] || die "build.ninja not found. Error during configure stage."
 
-		if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
-		# TODO: get load average from portage (-l option)
-		ninja ${MAKEOPTS} -v "$@" || die
+	_ninjaopts_from_makeopts
+
+	if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
+		set -- ninja ${NINJAOPTS} -v "$@"
 	else
-		ninja "$@" || die
+		set -- ninja ${NINJAOPTS} "$@"
 	fi
+
+	echo "$@"
+	"$@" || die
 }
 
 # @FUNCTION: emake_src_make
@@ -547,11 +572,11 @@ ninja_src_make() {
 emake_src_make() {
 	debug-print-function ${FUNCNAME} "$@"
 
-		[[ -e Makefile ]] || die "Makefile not found. Error during configure stage."
+	[[ -e Makefile ]] || die "Makefile not found. Error during configure stage."
 
-		if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
+	if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
 		emake VERBOSE=1 "$@" || die
-		else
+	else
 		emake "$@" || die
 	fi
 
@@ -565,37 +590,37 @@ cmake-utils_src_make() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
-	pushd "${BUILD_DIR}" > /dev/null
+	pushd "${BUILD_DIR}" >/dev/null
 
-	${CMAKE_MAKEFILE_GENERATOR}_src_make $@
+	${CMAKE_MAKEFILE_GENERATOR}_src_make "$@"
 
-	popd > /dev/null
+	popd >/dev/null
 }
 
 enable_cmake-utils_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
-	pushd "${BUILD_DIR}" > /dev/null
+	pushd "${BUILD_DIR}" >/dev/null
 	DESTDIR="${D}" ${CMAKE_MAKEFILE_GENERATOR} install "$@" || die "died running ${CMAKE_MAKEFILE_GENERATOR} install"
-	popd > /dev/null
+	popd >/dev/null
 
-	pushd "${S}" > /dev/null
-    #Install docs, copied from base_src_install_docs
+	pushd "${S}" >/dev/null
+	# Install docs, copied from base_src_install_docs
 	local x
 
-    if [[ "$(declare -p DOCS 2>/dev/null 2>&1)" == "declare -a"* ]]; then
-        for x in "${DOCS[@]}"; do
-            debug-print "$FUNCNAME: docs: creating document from ${x}"
-            dodoc "${x}" || die "dodoc failed"
-        done
-    fi
-    if [[ "$(declare -p HTML_DOCS 2>/dev/null 2>&1)" == "declare -a"* ]]; then
-        for x in "${HTML_DOCS[@]}"; do
-            debug-print "$FUNCNAME: docs: creating html document from ${x}"
-            dohtml -r "${x}" || die "dohtml failed"
-        done
-    fi
+	if [[ "$(declare -p DOCS 2>/dev/null 2>&1)" == "declare -a"* ]]; then
+		for x in "${DOCS[@]}"; do
+			debug-print "$FUNCNAME: docs: creating document from ${x}"
+			dodoc "${x}" || die "dodoc failed"
+		done
+	fi
+	if [[ "$(declare -p HTML_DOCS 2>/dev/null 2>&1)" == "declare -a"* ]]; then
+		for x in "${HTML_DOCS[@]}"; do
+			debug-print "$FUNCNAME: docs: creating html document from ${x}"
+			dohtml -r "${x}" || die "dohtml failed"
+		done
+	fi
 
 	# Backward compatibility, for non-array variables
 	if [[ -n "${DOCS}" ]] && [[ "$(declare -p DOCS 2>/dev/null 2>&1)" != "declare -a"* ]]; then
@@ -605,21 +630,21 @@ enable_cmake-utils_src_install() {
 		dohtml -r ${HTML_DOCS} || die "dohtml failed"
 	fi
 
-	popd > /dev/null
+	popd >/dev/null
 }
 
 enable_cmake-utils_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
-	pushd "${BUILD_DIR}" > /dev/null
+	pushd "${BUILD_DIR}" >/dev/null
 	[[ -e CTestTestfile.cmake ]] || { echo "No tests found. Skipping."; return 0 ; }
 
 	[[ -n ${TEST_VERBOSE} ]] && myctestargs+=( --extra-verbose --output-on-failure )
 
 	if ctest "${myctestargs[@]}" "$@" ; then
 		einfo "Tests succeeded."
-		popd > /dev/null
+		popd >/dev/null
 		return 0
 	else
 		if [[ -n "${CMAKE_YES_I_WANT_TO_SEE_THE_TEST_LOG}" ]] ; then
@@ -634,7 +659,7 @@ enable_cmake-utils_src_test() {
 		fi
 
 		# die might not die due to nonfatal
-		popd > /dev/null
+		popd >/dev/null
 		return 1
 	fi
 }

@@ -1,6 +1,171 @@
 # ChangeLog for x11-drivers/nvidia-drivers
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/ChangeLog,v 1.514 2014/01/17 16:14:05 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/ChangeLog,v 1.546 2014/04/09 16:05:24 jer Exp $
+
+*nvidia-drivers-337.12 (09 Apr 2014)
+
+  09 Apr 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-331.49-r3.ebuild,
+  nvidia-drivers-334.21-r3.ebuild, +nvidia-drivers-337.12.ebuild,
+  -files/nvidia-drivers-334.21-linux-3.14.patch:
+  Version bump.
+
+  08 Apr 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/nvidia-drivers-334.21-linux-3.14.patch,
+  nvidia-drivers-334.21-r3.ebuild:
+  Add patch to fix building w/linux-3.14 #506466 by tman. Also switch over to
+  default unpack from unpacker eclass.
+
+  07 Apr 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-331.49-r3.ebuild,
+  nvidia-drivers-334.21-r3.ebuild:
+  Stable for AMD64 x86 too.
+
+*nvidia-drivers-334.21-r3 (31 Mar 2014)
+*nvidia-drivers-331.49-r3 (31 Mar 2014)
+
+  31 Mar 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-331.49-r2.ebuild, +nvidia-drivers-331.49-r3.ebuild,
+  -nvidia-drivers-334.21-r2.ebuild, +nvidia-drivers-334.21-r3.ebuild,
+  files/nvidia-uvm.conf:
+  Use remove instead of softdep in nvidia-uvm.conf (bug #506168).
+
+  31 Mar 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-96.43.23.ebuild,
+  nvidia-drivers-173.14.39.ebuild, nvidia-drivers-304.121.ebuild,
+  nvidia-drivers-331.49.ebuild, nvidia-drivers-331.49-r2.ebuild,
+  nvidia-drivers-334.21.ebuild, nvidia-drivers-334.21-r2.ebuild, metadata.xml:
+  Update DESCRIPTION, remove duplicate <longdescription>.
+
+*nvidia-drivers-334.21-r2 (29 Mar 2014)
+*nvidia-drivers-331.49-r2 (29 Mar 2014)
+
+  29 Mar 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-331.49-r1.ebuild, +nvidia-drivers-331.49-r2.ebuild,
+  -nvidia-drivers-334.21-r1.ebuild, +nvidia-drivers-334.21-r2.ebuild,
+  +files/nvidia-uvm.conf:
+  Add a modprobe.d script for the UVM driver by Alexander Monakov (bug
+  #506168).
+
+  20 Mar 2014; Jeroen Roovers <jer@gentoo.org> -nvidia-drivers-304.119.ebuild,
+  nvidia-drivers-304.121.ebuild:
+  Stable for AMD64 x86 too.
+
+*nvidia-drivers-334.21-r1 (20 Mar 2014)
+*nvidia-drivers-331.49-r1 (20 Mar 2014)
+
+  20 Mar 2014; Jeroen Roovers <jer@gentoo.org>
+  +nvidia-drivers-331.49-r1.ebuild, +nvidia-drivers-334.21-r1.ebuild:
+  Install nvidia-modprobe setuid and symlink in /usr/bin (bug #505092 by
+  weihan3).
+
+  17 Mar 2014; Kacper Kowalik <xarthisius@gentoo.org> metadata.xml:
+  Remove myself from metadata.xml
+
+  14 Mar 2014; Jeroen Roovers <jer@gentoo.org> -nvidia-drivers-331.38.ebuild:
+  Old.
+
+  14 Mar 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-334.21.ebuild:
+  Stable for AMD64 x86 too.
+
+*nvidia-drivers-304.121 (11 Mar 2014)
+
+  11 Mar 2014; Jeroen Roovers <jer@gentoo.org> +nvidia-drivers-304.121.ebuild:
+  Version bump.
+
+  03 Mar 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-331.49.ebuild,
+  -nvidia-drivers-334.16-r7.ebuild:
+  Stable for AMD64 x86 too.
+
+*nvidia-drivers-334.21 (03 Mar 2014)
+
+  03 Mar 2014; Jeroen Roovers <jer@gentoo.org> +nvidia-drivers-334.21.ebuild:
+  Version bump.
+
+  28 Feb 2014; Mike Frysinger <vapier@gentoo.org> nvidia-drivers-331.38.ebuild,
+  nvidia-drivers-331.49.ebuild, nvidia-drivers-334.16-r7.ebuild:
+  Update license to newer version.
+
+  19 Feb 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-331.49.ebuild:
+  Raise supported kernel version dependency.
+
+*nvidia-drivers-331.49 (19 Feb 2014)
+
+  19 Feb 2014; Jeroen Roovers <jer@gentoo.org> +nvidia-drivers-331.49.ebuild:
+  Version bump.
+
+*nvidia-drivers-334.16-r7 (18 Feb 2014)
+
+  18 Feb 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-334.16-r6.ebuild, +nvidia-drivers-334.16-r7.ebuild:
+  Run linux-mod_pkg_setup after MODULE_NAMES but before BUILD_PARAMS is set
+  (bug #501676 by Olivier Huber).
+
+  17 Feb 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-334.16-r6.ebuild:
+  Whitespace.
+
+*nvidia-drivers-334.16-r6 (17 Feb 2014)
+
+  17 Feb 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-334.16-r5.ebuild, +nvidia-drivers-334.16-r6.ebuild:
+  Set up MODULE_NAMES so that nvidia-uvm gets built first (bug #501540).
+
+  17 Feb 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-334.16-r5.ebuild:
+  Invert if/else.
+
+  17 Feb 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-334.16-r5.ebuild,
+  metadata.xml:
+  Install the Unified Memory kernel module (nvidia-uvm) (bug #501540 by Andreas
+  Steinmetz).
+
+*nvidia-drivers-334.16-r5 (10 Feb 2014)
+
+  10 Feb 2014; Jeroen Roovers <jer@gentoo.org> +nvidia-drivers-334.16-r5.ebuild,
+  -nvidia-drivers-334.16-r4.ebuild:
+  Install the correct libGLESv2.so in multilib cases (bug #500866 by Enrico
+  Tagliavini).
+
+*nvidia-drivers-334.16-r4 (08 Feb 2014)
+
+  08 Feb 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-334.16-r3.ebuild, +nvidia-drivers-334.16-r4.ebuild:
+  Install libnvidia-eglcore.so too (bug #500708 by Mariusz Ceier).
+
+*nvidia-drivers-334.16-r3 (08 Feb 2014)
+
+  08 Feb 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-334.16-r2.ebuild, +nvidia-drivers-334.16-r3.ebuild:
+  Install libGLESv2.so differently.
+
+*nvidia-drivers-334.16-r2 (07 Feb 2014)
+
+  07 Feb 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-334.16-r1.ebuild, +nvidia-drivers-334.16-r2.ebuild:
+  Install libnvidia-fbc.so only for native ABI.
+
+  07 Feb 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-334.16-r1.ebuild:
+  Do not install libnvidia-fbc.so (bug #500634).
+
+*nvidia-drivers-334.16-r1 (07 Feb 2014)
+
+  07 Feb 2014; Jeroen Roovers <jer@gentoo.org> -nvidia-drivers-334.16.ebuild,
+  +nvidia-drivers-334.16-r1.ebuild:
+  Install some missing libraries.
+
+*nvidia-drivers-334.16 (07 Feb 2014)
+
+  07 Feb 2014; Jeroen Roovers <jer@gentoo.org> +nvidia-drivers-334.16.ebuild:
+  Version bump.
+
+  05 Feb 2014; Jeroen Roovers <jer@gentoo.org> -nvidia-drivers-304.117.ebuild,
+  nvidia-drivers-304.119.ebuild:
+  Stable for AMD64 x86 too.
+
+*nvidia-drivers-304.119 (27 Jan 2014)
+
+  27 Jan 2014; Jeroen Roovers <jer@gentoo.org> +nvidia-drivers-304.119.ebuild:
+  Version bump.
+
+  23 Jan 2014; Jeroen Roovers <jer@gentoo.org> -nvidia-drivers-319.76.ebuild,
+  -nvidia-drivers-331.20.ebuild, nvidia-drivers-331.38.ebuild:
+  Stable for AMD64 x86 too.
 
   17 Jan 2014; Jeroen Roovers <jer@gentoo.org> -nvidia-drivers-319.82.ebuild:
   Superseded by 331.38 for GeForce 820M support.

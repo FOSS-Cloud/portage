@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/pdns/pdns-3.3.1.ebuild,v 1.1 2013/12/19 16:34:57 ultrabug Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/pdns/pdns-3.3.1.ebuild,v 1.4 2014/03/12 05:12:06 phajdan.jr Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="http://downloads.powerdns.com/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 # other possible flags:
 # db2: we lack the dep
@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~x86"
 # xdb: (almost) dead, surely not supported
 
 IUSE="botan cryptopp debug doc ldap lua mydns mysql odbc opendbx postgres remote
-remote-http sqlite static tools tinydns"
+remote-http sqlite static tools tinydns test"
 
 REQUIRED_USE="mydns? ( mysql )"
 
@@ -100,6 +100,7 @@ src_configure() {
 		--with-pgsql-includes=/usr/include \
 		--with-pgsql-lib=/usr/$(get_libdir) \
 		--with-mysql-lib=/usr/$(get_libdir) \
+		$(use_enable test unit-tests) \
 		$(use_with lua) \
 		$(use_enable static static-binaries) \
 		$(use_enable tools) \

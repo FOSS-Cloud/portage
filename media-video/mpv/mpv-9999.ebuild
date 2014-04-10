@@ -1,17 +1,19 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mpv/mpv-9999.ebuild,v 1.37 2014/01/08 23:46:46 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mpv/mpv-9999.ebuild,v 1.43 2014/04/07 18:12:28 ssuominen Exp $
 
 EAPI=5
 
 EGIT_REPO_URI="https://github.com/mpv-player/mpv.git"
 
-inherit base waf-utils pax-utils
+inherit eutils waf-utils pax-utils fdo-mime gnome2-utils
 [[ ${PV} == *9999* ]] && inherit git-r3
+
+WAF_V="1.7.15"
 
 DESCRIPTION="Video player based on MPlayer/mplayer2"
 HOMEPAGE="http://mpv.io/"
-SRC_URI="https://waf.googlecode.com/files/waf-1.7.13"
+SRC_URI="https://waf.googlecode.com/files/waf-${WAF_V}"
 [[ ${PV} == *9999* ]] || \
 SRC_URI+=" https://github.com/mpv-player/mpv/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -49,6 +51,7 @@ RDEPEND+="
 	sys-libs/ncurses
 	sys-libs/zlib
 	X? (
+		x11-libs/libX11
 		x11-libs/libXext
 		x11-libs/libXxf86vm
 		opengl? ( virtual/opengl )
@@ -63,10 +66,8 @@ RDEPEND+="
 	bluray? ( >=media-libs/libbluray-0.2.1 )
 	bs2b? ( media-libs/libbs2b )
 	cdio? (
-		|| (
-			dev-libs/libcdio-paranoia
-			<dev-libs/libcdio-0.90[-minimal]
-		)
+		dev-libs/libcdio
+		dev-libs/libcdio-paranoia
 	)
 	dvb? ( virtual/linuxtv-dvb-headers )
 	dvd? (
@@ -76,10 +77,10 @@ RDEPEND+="
 	enca? ( app-i18n/enca )
 	iconv? ( virtual/libiconv )
 	jack? ( media-sound/jack-audio-connection-kit )
-	jpeg? ( virtual/jpeg )
+	jpeg? ( virtual/jpeg:0 )
 	ladspa? ( media-libs/ladspa-sdk )
 	libass? (
-		>=media-libs/libass-0.9.10[enca?,fontconfig]
+		>=media-libs/libass-0.9.10:=[enca?,fontconfig]
 		virtual/ttf-fonts
 	)
 	libcaca? ( >=media-libs/libcaca-0.99_beta18 )
@@ -109,7 +110,7 @@ RDEPEND+="
 	samba? ( net-fs/samba )
 	v4l? ( media-libs/libv4l )
 	wayland? (
-		>=dev-libs/wayland-1.2.0
+		>=dev-libs/wayland-1.3.0
 		media-libs/mesa[egl,wayland]
 		>=x11-libs/libxkbcommon-0.3.0
 	)
@@ -150,12 +151,12 @@ src_unpack() {
 		default_src_unpack
 	fi
 
-	cp "${DISTDIR}"/waf-1.7.13 "${S}"/waf || die
+	cp "${DISTDIR}"/waf-${WAF_V} "${S}"/waf || die
 	chmod 0755 "${S}"/waf || die
 }
 
 src_prepare() {
-	base_src_prepare
+	epatch_user
 }
 
 src_configure() {
@@ -166,7 +167,7 @@ src_configure() {
 	waf-utils_src_configure \
 		--disable-build-date \
 		--disable-debug-build \
-		--disable-sdl \
+		--disable-sdl1 \
 		--disable-sdl2 \
 		--disable-rsound \
 		$(use_enable encode encoding) \
@@ -228,4 +229,18 @@ src_install() {
 	if use luajit; then
 		pax-mark -m "${ED}"usr/bin/mpv
 	fi
+}
+
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
 }

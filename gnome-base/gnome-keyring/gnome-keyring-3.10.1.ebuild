@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-keyring/gnome-keyring-3.10.1.ebuild,v 1.1 2013/12/24 16:30:51 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-keyring/gnome-keyring-3.10.1.ebuild,v 1.6 2014/03/09 11:58:33 pacho Exp $
 
 EAPI="5"
 GCONF_DEBUG="yes" # Not gnome macro but similar
@@ -14,13 +14,13 @@ HOMEPAGE="http://live.gnome.org/GnomeKeyring"
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 IUSE="+caps debug pam selinux"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~sparc-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~sparc-solaris ~x86-solaris"
 
 RDEPEND="
 	>=app-crypt/gcr-3.5.3:=[gtk]
 	>=dev-libs/glib-2.32.0:2
 	app-misc/ca-certificates
-	>=dev-libs/libgcrypt-1.2.2:=
+	>=dev-libs/libgcrypt-1.2.2:0=
 	>=sys-apps/dbus-1.1.1
 	caps? ( sys-libs/libcap-ng )
 	pam? ( virtual/pam )

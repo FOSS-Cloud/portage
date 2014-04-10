@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/udev-init-scripts-26.ebuild,v 1.15 2014/01/18 05:16:49 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/udev-init-scripts-26.ebuild,v 1.19 2014/04/03 18:37:57 ssuominen Exp $
 
 EAPI=5
 
@@ -25,9 +25,13 @@ fi
 
 RESTRICT="test"
 
-DEPEND="virtual/pkgconfig"
-RDEPEND=">=virtual/udev-180
-	!<sys-fs/udev-186"
+# net.sh and 90-network.rules are part of >=net-misc/netifrc-0.2.1:
+RDEPEND="sys-apps/openrc
+	>=virtual/udev-180
+	!<sys-fs/udev-186
+	!>=net-misc/netifrc-0.2.1"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 src_prepare()
 {
@@ -76,7 +80,8 @@ pkg_postinst()
 		fi
 	fi
 
-	if [[ -x $(type -P rc-update) ]] && rc-update show | grep udev-postmount | grep -qs 'boot\|default\|sysinit'; then
+	if ! has_version "sys-fs/eudev[rule-generator]" && \
+	[[ -x $(type -P rc-update) ]] && rc-update show | grep udev-postmount | grep -qs 'boot\|default\|sysinit'; then
 		ewarn "The udev-postmount service has been removed because the reasons for"
 		ewarn "its existance have been removed upstream."
 		ewarn "Please remove it from your runlevels."

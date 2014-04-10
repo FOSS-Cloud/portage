@@ -1,6 +1,70 @@
 # ChangeLog for net-analyzer/fail2ban
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/fail2ban/ChangeLog,v 1.118 2013/12/21 15:30:25 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/fail2ban/ChangeLog,v 1.134 2014/04/01 13:40:34 jer Exp $
+
+  01 Apr 2014; Jeroen Roovers <jer@gentoo.org> fail2ban-0.8.13.ebuild:
+  Stable for HPPA (bug #503306).
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> fail2ban-0.9.0-r1.ebuild:
+  Add support for the new PyPy slotting.
+
+*fail2ban-0.8.13 (20 Mar 2014)
+
+  20 Mar 2014; Jeroen Roovers <jer@gentoo.org> -fail2ban-0.8.12-r1.ebuild,
+  +fail2ban-0.8.13.ebuild:
+  Version bump.
+
+  18 Mar 2014; Jeroen Roovers <jer@gentoo.org> fail2ban-0.9.0-r1.ebuild:
+  Add more useful suggestions in pkg_postinst() (bug #504926 by Jaakko
+  Perttilä).
+
+*fail2ban-0.9.0-r1 (17 Mar 2014)
+
+  17 Mar 2014; Jeroen Roovers <jer@gentoo.org> -fail2ban-0.9.0.ebuild,
+  +fail2ban-0.9.0-r1.ebuild, +files/fail2ban-0.9.0-python3-regex.patch:
+  Apply upstream patch for broken regex with dev-lang/python:3.
+
+  15 Mar 2014; Jeroen Roovers <jer@gentoo.org>
+  files/fail2ban-0.9.0-empty-run-dir.patch:
+  Clean up patch.
+
+*fail2ban-0.9.0 (15 Mar 2014)
+
+  15 Mar 2014; Jeroen Roovers <jer@gentoo.org> +fail2ban-0.9.0.ebuild,
+  +files/fail2ban-0.9.0-empty-run-dir.patch:
+  Version bump (bug #497334).
+
+*fail2ban-0.8.12-r1 (13 Feb 2014)
+
+  13 Feb 2014; Jeroen Roovers <jer@gentoo.org> +fail2ban-0.8.12-r1.ebuild:
+  Install jail.conf(5) (bug #501116 by Balint SZENTE).
+
+  09 Feb 2014; Jeroen Roovers <jer@gentoo.org> -fail2ban-0.8.10-r2.ebuild:
+  Old.
+
+  09 Feb 2014; Agostino Sarubbo <ago@gentoo.org> fail2ban-0.8.12.ebuild:
+  Stable for ppc64, wrt bug #499802
+
+  04 Feb 2014; Jeroen Roovers <jer@gentoo.org> fail2ban-0.8.12.ebuild:
+  Update DESCRIPTION.
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> fail2ban-0.8.12.ebuild:
+  Stable for ppc, wrt bug #499802
+
+  01 Feb 2014; Agostino Sarubbo <ago@gentoo.org> fail2ban-0.8.12.ebuild:
+  Stable for x86, wrt bug #499802
+
+  01 Feb 2014; Agostino Sarubbo <ago@gentoo.org> fail2ban-0.8.12.ebuild:
+  Stable for amd64, wrt bug #499802
+
+  01 Feb 2014; Jeroen Roovers <jer@gentoo.org> fail2ban-0.8.12.ebuild:
+  Stable for HPPA (bug #499802).
+
+*fail2ban-0.8.12 (30 Jan 2014)
+
+  30 Jan 2014; Jeroen Roovers <jer@gentoo.org> -fail2ban-0.8.11.ebuild,
+  +fail2ban-0.8.12.ebuild:
+  Version bump (bug #499802).
 
 *fail2ban-0.8.11 (21 Dec 2013)
 

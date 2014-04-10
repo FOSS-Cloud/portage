@@ -1,6 +1,42 @@
 # ChangeLog for net-misc/tor
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/tor/ChangeLog,v 1.399 2014/01/22 18:27:28 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/tor/ChangeLog,v 1.408 2014/03/24 13:22:00 blueness Exp $
+
+  24 Mar 2014; Anthony G. Basile <blueness@gentoo.org>
+  +files/tor-0.2.4.21-fix-unittest-disable-curve25519.patch,
+  tor-0.2.4.21.ebuild:
+  Fix USE=-ecc unit test, bug #505174
+
+  20 Mar 2014; Anthony G. Basile <blueness@gentoo.org> metadata.xml:
+  Fix metadata descriptions, thanks nickm
+
+*tor-0.2.4.21 (02 Mar 2014)
+
+  02 Mar 2014; Anthony G. Basile <blueness@gentoo.org> +tor-0.2.4.21.ebuild,
+  -tor-0.2.5.1_alpha-r2.ebuild:
+  Version bump and remove older alpha
+
+*tor-0.2.5.2_alpha (13 Feb 2014)
+
+  13 Feb 2014; Anthony G. Basile <blueness@gentoo.org>
+  +tor-0.2.5.2_alpha.ebuild:
+  Bump alpha branch
+
+  02 Feb 2014; Anthony G. Basile <blueness@gentoo.org> -tor-0.2.3.25.ebuild,
+  -tor-0.2.4.19.ebuild:
+  Cleanup vulnerable version, bug #498760
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> tor-0.2.4.20.ebuild:
+  Stable for ppc, wrt bug #498760
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> tor-0.2.4.20.ebuild:
+  Stable for sparc, wrt bug #498760
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> tor-0.2.4.20.ebuild:
+  Stable for ppc64, wrt bug #498760
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> tor-0.2.4.20.ebuild:
+  Stable for arm, wrt bug #498760
 
   22 Jan 2014; Agostino Sarubbo <ago@gentoo.org> tor-0.2.4.20.ebuild:
   Stable for x86, wrt bug #498760

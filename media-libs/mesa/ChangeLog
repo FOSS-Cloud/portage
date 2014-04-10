@@ -1,6 +1,101 @@
 # ChangeLog for media-libs/mesa
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.528 2014/01/11 11:15:22 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.549 2014/04/08 20:03:06 ago Exp $
+
+  08 Apr 2014; Agostino Sarubbo <ago@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for ppc, wrt bug #500368
+
+  06 Apr 2014; Agostino Sarubbo <ago@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for x86, wrt bug #500368
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for HPPA (bug #500368).
+
+  27 Mar 2014; Agostino Sarubbo <ago@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for amd64, wrt bug #500368
+
+*mesa-10.0.4 (19 Mar 2014)
+
+  19 Mar 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.0.4.ebuild,
+  -mesa-10.0.3.ebuild:
+  Version bump to 10.0.4, bug #504668.
+
+  13 Mar 2014; Matt Turner <mattst88@gentoo.org> mesa-10.1.0.ebuild,
+  metadata.xml:
+  Add dri3 USE flag, and add udev as a dependency, bug #504356.
+
+  09 Mar 2014; Matt Turner <mattst88@gentoo.org> mesa-10.1.0.ebuild:
+  Update libxshmfence dependency to 1.1, bug #503932.
+
+  08 Mar 2014; Matt Turner <mattst88@gentoo.org> mesa-10.1.0.ebuild,
+  metadata.xml:
+  Remove non-existant openmax (available in next Mesa release) and correct llvm-
+  shared-libs flag, bug #503888.
+
+  08 Mar 2014; Matt Turner <mattst88@gentoo.org> -mesa-9.2.5.ebuild,
+  -mesa-10.0.2-r1.ebuild, -files/mesa-10.0.2-update-glxext.h.patch:
+  Drop old.
+
+*mesa-10.1.0 (08 Mar 2014)
+
+  08 Mar 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.1.0.ebuild,
+  metadata.xml:
+  Version bump to mesa-10.1.0.
+
+*mesa-9.2.5-r1 (24 Feb 2014)
+
+  24 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-9.2.5-r1.ebuild, mesa-10.0.3.ebuild:
+  Warn against debug USE flag mismatch with llvm, bug #459306. Add REQUIRED_USE
+  for python, bug #472054. Find libLLVM in the correct path, bug #488216. Depend
+  on elfutils/libelf for radeon-llvm, bug #490092. Fix GLXFBConfig attibutes for
+  xorg state tracker, bug #492934. Always use C++ linking for libvdpau_r600, bug
+  #494970. Add runtime dependency on llvm when used as shared library, bug
+  #498812.
+
+  04 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-9.2.5.ebuild:
+  Fix llvm-3.4 patches, bug #497886. Add patch to make opencl build on ppc,
+  upstream #68504.
+
+*mesa-10.0.3 (03 Feb 2014)
+
+  03 Feb 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.0.3.ebuild:
+  Version bump to 10.0.3.
+
+  30 Jan 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-8.0.4-r1.ebuild:
+  Drop wayland support from old mesa, as it depends on obsolete wayland
+  versions.
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org>
+  files/mesa-10.0.2-update-glxext.h.patch:
+  Remove hunk from patch that CVS insists on changing on commit.
+
+  26 Jan 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-7.10.3.ebuild, mesa-7.11.2.ebuild, mesa-8.0.4-r1.ebuild,
+  mesa-9.0.3.ebuild, mesa-9.1.6.ebuild, mesa-9.2.5.ebuild:
+  Fix repoman warnings.
+
+  26 Jan 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  files/mesa-10.0.2-update-glxext.h.patch:
+  Fix glxext.h patch for good.
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org>
+  files/mesa-10.0.2-update-glxext.h.patch:
+  Fix patch, bug #499352.
+
+*mesa-10.0.2-r1 (26 Jan 2014)
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org>
+  +files/mesa-10.0.2-update-glxext.h.patch, +mesa-10.0.2-r1.ebuild,
+  -mesa-10.0.2.ebuild:
+  Update glxext.h for bug #491644.
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org> mesa-10.0.2.ebuild,
+  mesa-9.2.5.ebuild:
+  Check for libxml2 with --host-root, bug #499234. Thanks to James Le Cuirot
+  <chewi@aura-online.co.uk> for the patch.
 
   11 Jan 2014; Michał Górny <mgorny@gentoo.org> mesa-9.1.6.ebuild,
   mesa-9.2.5.ebuild:

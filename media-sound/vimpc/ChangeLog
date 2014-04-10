@@ -1,6 +1,24 @@
 # ChangeLog for media-sound/vimpc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/vimpc/ChangeLog,v 1.15 2014/01/14 13:55:03 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/vimpc/ChangeLog,v 1.19 2014/03/22 12:27:24 angelos Exp $
+
+*vimpc-0.09.1 (22 Mar 2014)
+
+  22 Mar 2014; Christoph Mende <angelos@gentoo.org> +vimpc-0.09.1.ebuild,
+  -vimpc-0.08.1.ebuild:
+  Version bump, remove old
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> vimpc-0.09.0.ebuild:
+  Stable for x86, wrt bug #502858
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> vimpc-0.09.0.ebuild:
+  amd64 stable, bug #502858
+
+*vimpc-0.09.0 (24 Jan 2014)
+
+  24 Jan 2014; Christoph Mende <angelos@gentoo.org> +vimpc-0.09.0.ebuild,
+  -vimpc-0.07.2.ebuild, metadata.xml:
+  Version bump, remove old
 
   14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> vimpc-0.08.1.ebuild:
   Stable for x86, wrt bug #495810

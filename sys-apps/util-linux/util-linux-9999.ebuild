@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/util-linux/util-linux-9999.ebuild,v 1.51 2014/01/18 05:14:28 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/util-linux/util-linux-9999.ebuild,v 1.53 2014/03/14 15:59:41 vapier Exp $
 
 EAPI="4"
 
@@ -22,13 +22,13 @@ fi
 DESCRIPTION="Various useful Linux utilities"
 HOMEPAGE="http://www.kernel.org/pub/linux/utils/util-linux/"
 
-LICENSE="GPL-2 GPL-3 LGPL-2.1 BSD-4 MIT public-domain"
+LICENSE="GPL-2 LGPL-2.1 BSD-4 MIT public-domain"
 SLOT="0"
 IUSE="bash-completion caps +cramfs cytune fdformat ncurses nls pam python selinux slang static-libs +suid test tty-helpers udev unicode"
 
 RDEPEND="!sys-process/schedutils
 	!sys-apps/setarch
-	!<sys-apps/sysvinit-2.88-r5
+	!<sys-apps/sysvinit-2.88-r7
 	!sys-block/eject
 	!<sys-libs/e2fsprogs-libs-1.41.8
 	!<sys-fs/e2fsprogs-1.41.8
@@ -91,7 +91,6 @@ src_configure() {
 		$(use_enable fdformat) \
 		--with-ncurses=$(usex ncurses $(usex unicode auto yes) no) \
 		--disable-kill \
-		--disable-last \
 		--disable-login \
 		$(use_enable tty-helpers mesg) \
 		--disable-nologin \

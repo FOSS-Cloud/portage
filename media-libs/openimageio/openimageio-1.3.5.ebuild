@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/openimageio/openimageio-1.3.5.ebuild,v 1.1 2013/10/25 12:37:01 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/openimageio/openimageio-1.3.5.ebuild,v 1.3 2014/02/17 06:41:48 ssuominen Exp $
 
 EAPI=5
 
@@ -33,7 +33,10 @@ RDEPEND="dev-libs/boost[python?]
 	gif? ( media-libs/giflib )
 	jpeg2k? ( >=media-libs/openjpeg-1.5:0= )
 	colorio? ( >=media-libs/opencolorio-1.0.7:= )
-	opencv? ( >=media-libs/opencv-2.3:= )
+	opencv? (
+		>=media-libs/opencv-2.3:=
+		python? ( || ( <media-libs/opencv-2.4.8 >=media-libs/opencv-2.4.8[python,${PYTHON_USEDEP}] ) )
+	)
 	opengl? (
 		virtual/glu
 		virtual/opengl
@@ -56,6 +59,8 @@ pkg_setup() {
 }
 
 src_prepare() {
+	epatch "${FILESDIR}"/${P}-openexr-2.x.patch
+
 	# remove bundled code to make it build
 	# https://github.com/OpenImageIO/oiio/issues/403
 	rm */pugixml* || die

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/avidemux-core/avidemux-core-2.6.2-r1.ebuild,v 1.6 2013/08/11 21:42:55 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/avidemux-core/avidemux-core-2.6.2-r1.ebuild,v 1.8 2014/03/10 14:13:47 ssuominen Exp $
 
 EAPI="5"
 
@@ -50,7 +50,10 @@ DEPEND="
 	nls? ( sys-devel/gettext )
 	virtual/pkgconfig
 "
-
+RDEPEND="
+	nls? ( virtual/libintl:0 )
+	$RDEPEND
+"
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {

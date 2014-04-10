@@ -1,17 +1,17 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libcdio/libcdio-0.92.ebuild,v 1.1 2014/01/21 07:56:40 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libcdio/libcdio-0.92.ebuild,v 1.4 2014/04/05 20:35:26 jer Exp $
 
 EAPI=5
-inherit eutils multilib-minimal
+inherit eutils libtool multilib-minimal
 
 DESCRIPTION="A library to encapsulate CD-ROM reading and control"
 HOMEPAGE="http://www.gnu.org/software/libcdio/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
+SLOT="0/15" # subslot is based on SONAME
+KEYWORDS="~alpha ~amd64 ~arm hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE="cddb +cxx minimal static-libs test"
 
 RDEPEND="
@@ -38,6 +38,8 @@ src_prepare() {
 	sed \
 		-e "s:-lncurses:$($(tc-getPKG_CONFIG) --libs ncurses):g" \
 		-i configure || die
+
+	elibtoolize # to prevent -L/usr/lib ending up in the linker line wrt 499510
 }
 
 multilib_src_configure() {

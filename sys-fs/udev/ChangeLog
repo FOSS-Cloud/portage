@@ -1,6 +1,216 @@
 # ChangeLog for sys-fs/udev
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/ChangeLog,v 1.979 2014/01/18 05:16:48 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/ChangeLog,v 1.1024 2014/04/08 21:01:41 ssuominen Exp $
+
+  08 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Finetune the 80-net-name-slot.rules migration code a bit and remove
+  unnecessary "then" since net_move=no is already declared above.
+
+  05 Apr 2014; Jeroen Roovers <jer@gentoo.org> udev-212-r1.ebuild:
+  Stable for HPPA (bug #505962).
+
+  03 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> udev-212-r1.ebuild,
+  udev-9999.ebuild:
+  Punt USE="openrc" and always pull in sys-fs/udev-init-scripts to match
+  behavior of sys-apps/systemd's ebuild.
+
+  29 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-212.ebuild:
+  old
+
+  29 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-212-r1.ebuild:
+  Pull in more recent linux-headers wrt #506110 by Piotr Szymaniak.
+  Do this only for 212 purposely, because git has been reworked.
+
+  28 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-212-r1.ebuild:
+  Fix building with uClibc and missing (or incompatible) locale_t, thanks to
+  Mike Frysinger for helping with the patch.
+
+  28 Mar 2014; Michał Górny <mgorny@gentoo.org> udev-208.ebuild,
+  udev-212-r1.ebuild, udev-212.ebuild, udev-9999.ebuild:
+  Remove needless PDEPEND on virtual/udev and friends, and therefore the
+  resulting dependency cycle.
+
+  28 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-212-r1.ebuild,
+  udev-9999.ebuild:
+  Pull in virtual/libudev and virtual/libgudev like we do for virtual/udev in
+  PDEPEND.
+
+*udev-212-r1 (28 Mar 2014)
+
+  28 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-212-r1.ebuild,
+  udev-9999.ebuild:
+  Support building libgudev-1.0.so with ABI_X86 for the new virtual/libgudev.
+
+  26 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-211.ebuild:
+  old
+
+*udev-212 (26 Mar 2014)
+
+  26 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-212.ebuild,
+  udev-9999.ebuild:
+  Version bump. Don't force -Wl,-fuse-ld=bfd for ia64 anymore as upstream split
+  the -lresolv requiring library to it's own wrt #504700. Start passing systemd
+  specific --disable-gnutls to avoid libgnutls dependency for minimal build and
+  stop passing removed --disable-tcpwrap.
+
+  19 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-211.ebuild,
+  udev-9999.ebuild:
+  Temporarily use ld.bfd for ia64 wrt #504700; note: waiting for upstream to
+  merge a patch.
+
+  12 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-210.ebuild:
+  old
+
+*udev-211 (12 Mar 2014)
+
+  12 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-211.ebuild,
+  udev-9999.ebuild:
+  Version bump.
+
+  12 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Stop overwriting libudev.so, since git is working again after http://cgit.free
+  desktop.org/systemd/systemd/commit/?id=0ce91e4e3ba60d5c87307c1be4a3f6095790c4c
+  2
+
+  07 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-210.ebuild,
+  udev-9999.ebuild:
+  Update sys-apps/hwids dependency to 20140304 for 20-net-ifname.hwdb
+
+  07 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Overwrite libudev.so symlink (for now) because upstream commit http://cgit.fre
+  edesktop.org/systemd/systemd/commit/Makefile.am?id=e2438b7a321de8050f5db679359
+  9a1668c91ccf5 broke it by introducing use of --relative for ln. The bug is
+  only visible when setting eg. --with-rootlibdir=/lib away from /usr to
+  alternative location together with the use of $(DESTDIR) with multiple
+  directory levels.
+
+  07 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Punt kdbus documentation which are irrelevant to sys-fs/udev.
+
+  05 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-208.ebuild,
+  udev-210.ebuild, udev-9999.ebuild:
+  Block sys-apps/gentoo-systemd-integration because of
+  /lib/udev/rules.d/40-gentoo.rules file collision.
+
+  04 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-210.ebuild,
+  udev-9999.ebuild:
+  Disable -flto because it's an optimization that breaks distcc, hinders debug
+  info and is causing sys-apps/portage to print bogus QA warning wrt #502950
+
+  02 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Punt /sbin/udevadm compability symlink which has been removed from sys-
+  apps/systemd with 207's ebuild without bugs filed. The consumers should be
+  fixed to not hardcode the path.
+
+  02 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-210.ebuild,
+  udev-9999.ebuild:
+  Use "${ROOT%/}"/path/to consistently everywhere, thanks to "floppym"
+  for pointing it out.
+
+  02 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-210.ebuild,
+  udev-9999.ebuild:
+  Migrate 80-net-name-slot.rules to 80-net-setup-link.rules in
+  /etc/udev/rules.d if it's empty or a symlink to /dev/null wrt #503140
+  by Jorge Manuel B. S. Vicetto
+
+  01 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> udev-210.ebuild,
+  udev-9999.ebuild:
+  Restore ac_cv_search_cap_init= as an econf argument since we only need the
+  libcap at build time for the sys/capability.h, not cap_init() from -lcap wrt
+  #503100 by "Philipp"
+
+  26 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-210.ebuild,
+  udev-9999.ebuild:
+  Pull in sys-libs/libcap but only in DEPEND for sys/capability.h because
+  nothing in sys-fs/udev links against the actual library wrt #502548
+
+  26 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Install systemd.link(5) manpage since the information for configuring
+  99-default.link moved to there from udev(7) wrt http://cgit.freedesktop.org/sy
+  stemd/systemd/commit/?id=1ff28eaee33d9d0cee46bd176b6d6f8805c95036
+
+  25 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-210.ebuild:
+  Release >=sys-fs/udev-210 to ~arch since the information about the network
+  interface configuration filename change was released as a Portage news item.
+
+  25 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-210.ebuild,
+  udev-9999.ebuild:
+  Punt entire CONFIG_DMIID check which seems to be more optional than README
+  seems to suggest, and the feature isn't available for every arch.
+
+  25 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-210.ebuild,
+  udev-9999.ebuild:
+  Check CONFIG_DMIID only for amd64, ia64 and x86.
+
+  25 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-209.ebuild:
+  old
+
+*udev-210 (25 Feb 2014)
+
+  25 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-210.ebuild:
+  Version bump.
+
+  24 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-209.ebuild,
+  udev-9999.ebuild:
+  Update kernel req. CONFIG_NET and CONFIG_DMIID (dmi is used in
+  60-keyboard.rules for example) from README.
+
+  24 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-209.ebuild,
+  udev-9999.ebuild:
+  Stop installing udevd.8 since we don't install the legacy /sbin/udevd anymore
+  and instead of creating a .so manpage link from systemd-udevd.service.8 to
+  systemd-udevd.8, rename the file directly to systemd-udevd.8 since we don't
+  install the systemd-udevd.service from sys-fs/udev.
+
+  24 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Upstream uses --rootprefix= now for networkdir= so stop overriding it.
+  Override dist_network_DATA= to only install 99-default.link since upstream
+  started installing something called 80-container-host0.network for systemd-
+  nspawn which we will ignore with sys-fs/udev.
+
+  21 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-209.ebuild,
+  udev-9999.ebuild:
+  Create empty /etc/systemd/network. Restore --disable-logind to avoid
+  installation of 70-uaccess.rules and 70-power-switch.rules.
+
+  21 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-209.ebuild,
+  udev-9999.ebuild:
+  Document the possibility of overriding 99-default.link in
+  /etc/systemd/network.
+
+*udev-209 (21 Feb 2014)
+
+  21 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-209.ebuild:
+  Version bump without KEYWORDS because the 80-net-name-slot.rules ->
+  99-default.link change needs some documentation work.
+
+  21 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Use bash-completion-r1.eclass to determine directory for udevadm.
+  Since /lib/udev/rules.d/80-net-name-slot.rules was replaced with
+  /lib/systemd/network/99-default.link, start installing udevd as
+  systemd-udevd to it's original location at /lib/systemd too.
+  Sort configure flags based on ./configure --help and pass only
+  required --disable flags for ebuild readability.
+
+  16 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Check for CONFIG_FHANDLE wrt http://cgit.freedesktop.org/systemd/systemd/commi
+  t/?id=5d31974e44b8fa163f859d8467a3667ed52056d0
+
+  02 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-204.ebuild,
+  metadata.xml:
+  old
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> udev-208.ebuild:
+  Stable for sparc, wrt bug #487340
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> udev-208.ebuild:
+  Stable for ia64, wrt bug #487340
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> udev-208.ebuild:
+  Stable for ppc64, wrt bug #487340
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> udev-208.ebuild:
+  Stable for ppc, wrt bug #487340
 
   18 Jan 2014; Mike Frysinger <vapier@gentoo.org> udev-208.ebuild,
   udev-9999.ebuild:

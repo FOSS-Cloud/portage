@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gdm/gdm-3.10.0.1.ebuild,v 1.1 2013/12/24 16:21:56 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gdm/gdm-3.10.0.1.ebuild,v 1.6 2014/03/29 21:09:09 tetromino Exp $
 
 EAPI="5"
 GNOME2_LA_PUNT="yes"
@@ -21,7 +21,7 @@ LICENSE="
 
 SLOT="0"
 IUSE="accessibility audit branding fprint +introspection ipv6 plymouth selinux smartcard +systemd tcpd test xinerama"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sh ~sparc x86"
 
 # NOTE: x11-base/xorg-server dep is for X_SERVER_PATH etc, bug #295686
 # nspr used by smartcard extension
@@ -51,10 +51,10 @@ COMMON_DEPEND="
 	>=x11-misc/xdg-utils-1.0.2-r3
 
 	virtual/pam
-	systemd? ( >=sys-apps/systemd-186[pam] )
+	systemd? ( >=sys-apps/systemd-186:0=[pam] )
 	!systemd? (
 		>=x11-base/xorg-server-1.14.3-r1
-		sys-auth/consolekit
+		>=sys-auth/consolekit-0.4.5_p20120320-r2
 		!<sys-apps/openrc-0.12
 	)
 	sys-auth/pambase[systemd?]
@@ -83,9 +83,6 @@ RDEPEND="${COMMON_DEPEND}
 	fprint? (
 		sys-auth/fprintd
 		sys-auth/pam_fprint )
-	smartcard? (
-		app-crypt/coolkey
-		sys-auth/pam_pkcs11 )
 
 	!gnome-extra/fast-user-switch-applet
 "
@@ -106,7 +103,10 @@ DOC_CONTENTS="
 	\n
 	For passwordless login to unlock your keyring, you need to install
 	sys-auth/pambase with USE=gnome-keyring and set an empty password
-	on your keyring. Use app-crypt/seahorse for that.
+	on your keyring. Use app-crypt/seahorse for that.\n
+	\n
+	You may need to install app-crypt/coolkey and sys-auth/pam_pkcs11
+	for smartcard support
 "
 
 pkg_setup() {
@@ -159,6 +159,7 @@ src_configure() {
 		--enable-authentication-scheme=pam \
 		--with-default-pam-config=exherbo \
 		--with-at-spi-registryd-directory="${EPREFIX}"/usr/libexec \
+		--with-consolekit-directory=${EPREFIX}/usr/lib/ConsoleKit \
 		--with-initial-vt=7 \
 		--without-xevie \
 		$(use_with audit libaudit) \

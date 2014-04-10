@@ -1,6 +1,22 @@
 # ChangeLog for sys-kernel/linux-docs
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-docs/ChangeLog,v 1.41 2013/10/31 12:23:09 mpagano Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-docs/ChangeLog,v 1.43 2014/04/06 15:05:29 vapier Exp $
+
+  06 Apr 2014; Mike Frysinger <vapier@gentoo.org> linux-docs-3.13.5.ebuild:
+  Add arm64 love.
+
+*linux-docs-3.13.5 (25 Feb 2014)
+*linux-docs-3.12.13 (25 Feb 2014)
+*linux-docs-3.10.32 (25 Feb 2014)
+*linux-docs-3.4.82 (25 Feb 2014)
+*linux-docs-3.2.55 (25 Feb 2014)
+
+  25 Feb 2014; Mike Pagano <mpagano@gentoo.org> -linux-docs-3.0.101.ebuild,
+  +linux-docs-3.2.55.ebuild, -linux-docs-3.4.67.ebuild,
+  +linux-docs-3.4.82.ebuild, -linux-docs-3.10.17.ebuild,
+  +linux-docs-3.10.32.ebuild, -linux-docs-3.11.6.ebuild,
+  +linux-docs-3.12.13.ebuild, +linux-docs-3.13.5.ebuild:
+  Version bumps, remove old
 
 *linux-docs-3.11.6 (31 Oct 2013)
 *linux-docs-3.10.17 (31 Oct 2013)
@@ -195,4 +211,3 @@
   +linux-docs-2.4.32.ebuild, +linux-docs-2.6.16.ebuild:
   Initial versions of split-out Linux kernel documentation (man pages, HTML
   docs). Will eventually fix bug #131648.
-

@@ -1,6 +1,27 @@
 # ChangeLog for app-arch/tar
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/tar/ChangeLog,v 1.196 2014/01/18 01:55:14 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/tar/ChangeLog,v 1.202 2014/02/20 18:02:38 maekke Exp $
+
+  20 Feb 2014; Markus Meier <maekke@gentoo.org> tar-1.27.1-r2.ebuild:
+  arm stable, bug #496212
+
+*tar-1.27.1-r2 (19 Feb 2014)
+
+  19 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> -tar-1.27.1-r1.ebuild,
+  +tar-1.27.1-r2.ebuild:
+  Revbump to EAPI-4. Committed straight to stable where -r1 was stable.
+
+  19 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> tar-1.27.1-r1.ebuild:
+  Added missing die calls.
+
+  19 Feb 2014; Chema Alonso <nimiux@gentoo.org> tar-1.27.1-r1.ebuild:
+  Stable for amd64 wrt bug #496212
+
+  08 Feb 2014; Akinori Hattori <hattya@gentoo.org> tar-1.27.1-r1.ebuild:
+  ia64 stable wrt bug #496212
+
+  04 Feb 2014; Jeroen Roovers <jer@gentoo.org> tar-1.27.1-r1.ebuild:
+  Stable for HPPA (bug #496212).
 
   18 Jan 2014; Mike Frysinger <vapier@gentoo.org> tar-1.26-r1.ebuild,
   tar-1.27-r2.ebuild, tar-1.27.1-r1.ebuild, tar-1.27.1.ebuild:

@@ -1,6 +1,81 @@
 # ChangeLog for Gentoo/AMD64 profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/ChangeLog,v 1.28 2014/01/21 07:33:43 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/ChangeLog,v 1.44 2014/03/30 21:44:39 mgorny Exp $
+
+  30 Mar 2014; Michał Górny <mgorny@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Move abi_x86_32 package stable-mask to arch profile since it is EAPI=5 now.
+
+  30 Mar 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Mask abi_x86_32 for libxshmfence, bug #506056.
+
+  27 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> +eapi,
+  +linux/amd64/no-multilib/eapi, +linux/amd64/no-multilib/selinux/eapi,
+  +linux/amd64/selinux/eapi, +linux/amd64/x32/eapi, +linux/eapi,
+  +linux/musl/eapi, +linux/musl/mips/mipsel/eapi, +linux/uclibc/eapi,
+  +linux/uclibc/mips/mipsel/eapi, +linux/x86/selinux/eapi:
+  Increase EAPI to 5
+
+  26 Mar 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Mask multilib for wayland/weston, so they can go stable in bug #500368.
+
+  16 Mar 2014; Tom Wijsman <TomWij@gentoo.org>
+  linux/amd64/package.use.stable.mask, linux/x86/package.use.stable.mask:
+  Mask unstable USE flags on media-video/vlc, see security bug #499806.
+
+  09 Mar 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/amd64/use.force, linux/uclibc/amd64/use.mask,
+  linux/uclibc/x86/use.force, linux/uclibc/x86/use.mask,
+  linux/musl/amd64/use.force, linux/musl/amd64/use.mask,
+  linux/musl/x86/use.force, linux/musl/x86/use.mask:
+  hardened/linux/{uclibc,musl}/{amd64,x86}: force default abi flags
+
+  28 Feb 2014; Anthony G. Basile <blueness@gentoo.org> +linux/musl/mips/eapi,
+  +linux/musl/mips/make.defaults, +linux/musl/mips/mipsel/make.defaults,
+  +linux/musl/mips/mipsel/parent, +linux/musl/mips/parent,
+  +linux/musl/mips/use.force, +linux/musl/mips/use.mask:
+  Add hardened/linux/musl/mips and hardened/linux/musl/mips/mipsel
+
+  21 Feb 2014; Anthony G. Basile <blueness@gentoo.org>
+  +linux/musl/arm/armv7a/eapi, +linux/musl/arm/armv7a/make.defaults,
+  +linux/musl/arm/armv7a/parent, +linux/musl/arm/eapi,
+  +linux/musl/arm/make.defaults, +linux/musl/arm/parent,
+  +linux/musl/arm/use.force, +linux/musl/arm/use.mask:
+  Add hardened/linux/musl/arm/armv7a
+
+  17 Feb 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/x86/make.defaults:
+  Sandbox from hardened-dev::musl overlay works
+
+  11 Feb 2014; Anthony G. Basile <blueness@gentoo.org> linux/make.defaults:
+  Add xtpax to BOOTSTRAP_USE/USE in base hardened make.default, for
+  sys-apps/elfix
+
+  03 Feb 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/package.mask:
+  Remove -sys-libs/uclibc from hardened/linux/uclibc/package.mask, bug #500202
+
+  27 Jan 2014; Anthony G. Basile <blueness@gentoo.org> linux/musl/use.mask:
+  hardened/linux/musl: provide nls support with gettext
+
+  26 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/packages.build:
+  hardened/linux/musl: switch to dev-util/pkgconf which does better in musl
+
+  24 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/x86/make.defaults:
+  Move musl's linker path to gcc's specs file
+
+  24 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/make.defaults,
+  linux/musl/packages, linux/musl/packages.build, linux/musl/x86/make.defaults:
+  linux/musl: fix linker path and remove libiconv
+
+  23 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
+  linux/amd64/package.use.stable.mask:
+  Fix qt packages category.
 
   21 Jan 2014; Samuli Suominen <ssuominen@gentoo.org>
   linux/amd64/package.use.stable.mask:

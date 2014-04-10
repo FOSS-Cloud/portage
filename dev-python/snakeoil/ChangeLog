@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/snakeoil
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/snakeoil/ChangeLog,v 1.65 2013/10/30 19:21:36 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/snakeoil/ChangeLog,v 1.69 2014/04/04 07:27:46 radhermit Exp $
+
+  04 Apr 2014; Tim Harder <radhermit@gentoo.org> snakeoil-9999.ebuild:
+  Use github repo.
+
+  04 Apr 2014; Tim Harder <radhermit@gentoo.org> snakeoil-9999.ebuild:
+  Add python3_4 support.
+
+  24 Mar 2014; Michał Górny <mgorny@gentoo.org> snakeoil-9999.ebuild:
+  Switch to single+tags in order to handle clones more efficiently, bug #503708.
+
+  05 Mar 2014; Michał Górny <mgorny@gentoo.org> snakeoil-9999.ebuild:
+  Require EGIT_MIN_CLONE_TYPE=single due to server limitations.
 
   30 Oct 2013; Michał Górny <mgorny@gentoo.org> snakeoil-0.5.2.ebuild:
   Update the dep to use dev-lang/python-exec.

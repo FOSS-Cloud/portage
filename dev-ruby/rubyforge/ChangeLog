@@ -1,6 +1,13 @@
 # ChangeLog for dev-ruby/rubyforge
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rubyforge/ChangeLog,v 1.102 2014/01/19 10:03:34 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rubyforge/ChangeLog,v 1.104 2014/04/05 14:40:38 mrueg Exp $
+
+  05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> rubyforge-2.0.4-r2.ebuild,
+  rubyforge-2.0.4-r3.ebuild:
+  Remove ree18 and ruby18 target. Remove virtual/ruby-test-unit.
+
+  01 Feb 2014; Akinori Hattori <hattya@gentoo.org> rubyforge-2.0.4-r3.ebuild:
+  ia64 stable wrt bug #490180
 
   19 Jan 2014; Pacho Ramos <pacho@gentoo.org> rubyforge-2.0.4-r3.ebuild:
   amd64 stable, bug 490180

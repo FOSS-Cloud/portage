@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/pycparser
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pycparser/ChangeLog,v 1.13 2013/12/07 19:14:14 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pycparser/ChangeLog,v 1.19 2014/04/02 20:55:09 radhermit Exp $
+
+  02 Apr 2014; Tim Harder <radhermit@gentoo.org> pycparser-2.10.ebuild:
+  Add python3_4 support.
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> pycparser-2.09.1-r1.ebuild,
+  pycparser-2.10.ebuild:
+  Add support for the new PyPy slotting.
+
+  22 Mar 2014; Markos Chandras <hwoarang@gentoo.org> pycparser-2.10.ebuild:
+  Add ~mips. Bug #503094
+
+  04 Mar 2014; Naohiro Aota <naota@gentoo.org> pycparser-2.10.ebuild:
+  Add ~x86-fbsd wrt bug #503094
+
+  03 Mar 2014; Jeroen Roovers <jer@gentoo.org> pycparser-2.10.ebuild:
+  Marked ~hppa (bug #503094).
+
+  11 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> pycparser-2.10.ebuild:
+  Keyword amd64-linux and x86-linux
 
   07 Dec 2013; Pacho Ramos <pacho@gentoo.org> pycparser-2.10.ebuild:
   x86 stable, bug #488738

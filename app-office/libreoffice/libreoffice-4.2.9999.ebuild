@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-4.2.9999.ebuild,v 1.3 2013/12/27 18:15:15 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-4.2.9999.ebuild,v 1.10 2014/03/27 09:13:17 scarabeus Exp $
 
 EAPI=5
 
@@ -97,6 +97,7 @@ COMMON_DEPEND="
 	app-arch/unzip
 	>=app-text/hunspell-1.3.2-r3
 	app-text/mythes
+	app-text/libabw
 	>=app-text/libexttextcat-3.2
 	app-text/libebook
 	app-text/libetonyek
@@ -116,7 +117,7 @@ COMMON_DEPEND="
 	>=dev-libs/hyphen-2.7.1
 	>=dev-libs/icu-4.8.1.1:=
 	>=dev-libs/libatomic_ops-7.2d
-	>=dev-libs/liborcus-0.5.1:=
+	=dev-libs/liborcus-0.5*:=
 	>=dev-libs/nspr-4.8.8
 	>=dev-libs/nss-3.12.9
 	>=dev-lang/perl-5.0
@@ -208,7 +209,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/cppunit
 	>=dev-util/gperf-3
 	dev-util/intltool
-	>=dev-util/mdds-0.9.1:=
+	>=dev-util/mdds-0.10.2:=
 	virtual/pkgconfig
 	net-misc/npapi-sdk
 	>=sys-apps/findutils-4.4.2
@@ -236,6 +237,9 @@ DEPEND="${COMMON_DEPEND}
 PATCHES=(
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-3.7-system-pyuno.patch"
+
+	# staged for git master
+	"${FILESDIR}/${PN}-4.2.0.4-curl-config.patch"
 )
 
 REQUIRED_USE="
@@ -400,7 +404,7 @@ src_configure() {
 			--without-system-hsqldb
 			--with-ant-home="${ANT_HOME}"
 			--with-jdk-home=$(java-config --jdk-home 2>/dev/null)
-			--with-jvm-path="${EPREFIX}/usr/$(get_libdir)/"
+			--with-jvm-path="${EPREFIX}/usr/lib/"
 		"
 
 		use libreoffice_extensions_scripting-beanshell && \

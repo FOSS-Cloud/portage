@@ -1,6 +1,16 @@
 # ChangeLog for app-vim/syntastic
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-vim/syntastic/ChangeLog,v 1.7 2014/01/05 10:46:21 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-vim/syntastic/ChangeLog,v 1.9 2014/03/20 04:59:08 radhermit Exp $
+
+*syntastic-3.4.0 (20 Mar 2014)
+
+  20 Mar 2014; Tim Harder <radhermit@gentoo.org> +syntastic-3.4.0.ebuild:
+  Version bump.
+
+*syntastic-3.3.0 (22 Jan 2014)
+
+  22 Jan 2014; Tim Harder <radhermit@gentoo.org> +syntastic-3.3.0.ebuild:
+  Version bump (bug #498964).
 
   05 Jan 2014; Agostino Sarubbo <ago@gentoo.org> syntastic-3.2.0.ebuild:
   Stable for x86, wrt bug #495360

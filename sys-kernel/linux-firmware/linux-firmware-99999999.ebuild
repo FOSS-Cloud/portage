@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-firmware/linux-firmware-99999999.ebuild,v 1.30 2013/09/05 05:46:37 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-firmware/linux-firmware-99999999.ebuild,v 1.33 2014/04/06 14:45:32 vapier Exp $
 
 EAPI=5
 inherit savedconfig
@@ -12,7 +12,7 @@ if [[ ${PV} == 99999999* ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="mirror://gentoo/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 fi
 
 DESCRIPTION="Linux firmware files"
@@ -56,6 +56,9 @@ RDEPEND="!savedconfig? (
 		!sys-firmware/iwl6005-ucode
 		!sys-firmware/iwl6030-ucode
 		!sys-firmware/iwl6050-ucode
+		!sys-firmware/iwl3160-ucode
+		!sys-firmware/iwl7260-ucode
+		!sys-firmware/iwl3160-7260-bt-ucode
 		!x11-drivers/radeon-ucode
 	)"
 #add anything else that collides to this

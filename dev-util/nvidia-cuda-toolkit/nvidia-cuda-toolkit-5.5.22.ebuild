@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/nvidia-cuda-toolkit/nvidia-cuda-toolkit-5.5.22.ebuild,v 1.7 2013/12/22 14:04:53 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/nvidia-cuda-toolkit/nvidia-cuda-toolkit-5.5.22.ebuild,v 1.10 2014/03/31 20:15:43 jer Exp $
 
 EAPI=5
 
@@ -17,13 +17,17 @@ SRC_URI="
 
 SLOT="0/${PV}"
 LICENSE="NVIDIA-CUDA"
-KEYWORDS="-* amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="-* amd64 x86 ~amd64-linux ~x86-linux"
 IUSE="debugger doc eclipse profiler"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 	sys-devel/gcc:4.7[cxx]
 	!<=x11-drivers/nvidia-drivers-270.41
+	|| (
+		>=x11-drivers/nvidia-drivers-331[uvm]
+		<x11-drivers/nvidia-drivers-331
+	)
 	debugger? (
 		sys-libs/libtermcap-compat
 		sys-libs/ncurses[tinfo]

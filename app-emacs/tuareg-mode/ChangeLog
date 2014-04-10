@@ -1,6 +1,21 @@
 # ChangeLog for app-emacs/tuareg-mode
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/tuareg-mode/ChangeLog,v 1.41 2012/06/14 05:42:34 xmw Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/tuareg-mode/ChangeLog,v 1.44 2014/04/05 11:07:57 ago Exp $
+
+  05 Apr 2014; Agostino Sarubbo <ago@gentoo.org> tuareg-mode-2.0.7.ebuild:
+  Stable for x86, wrt bug #504562
+
+  31 Mar 2014; Chema Alonso <nimiux@gentoo.org> tuareg-mode-2.0.7.ebuild:
+  Stable for amd64 wrt bug #504562
+
+*tuareg-mode-2.0.7 (13 Feb 2014)
+
+  13 Feb 2014; Ulrich Müller <ulm@gentoo.org> -tuareg-mode-1.45.6.ebuild,
+  tuareg-mode-2.0.1.ebuild, -tuareg-mode-2.0.4.ebuild,
+  tuareg-mode-2.0.6.ebuild, +tuareg-mode-2.0.7.ebuild,
+  +files/50tuareg-mode-gentoo-2.0.6.el:
+  Version bump. Fix ocamldebug autoloading in site-init file. Specify LICENSE
+  more precisely. Remove old.
 
   14 Jun 2012; Michael Weber <xmw@gentoo.org> tuareg-mode-2.0.1.ebuild:
   ppc stable (bug 379637)
@@ -177,4 +192,3 @@
   files/50tuareg-mode.el:
   Initial import. Thanks to Matthieu Sozeau <mattam@altern.org> and
   Pierre-Loi:c Garoche for submitting the ebuild. This closes Bug #30397
-

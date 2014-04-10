@@ -1,6 +1,18 @@
 # ChangeLog for sci-geosciences/geocode-glib
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/geocode-glib/ChangeLog,v 1.16 2013/12/24 16:44:14 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/geocode-glib/ChangeLog,v 1.20 2014/03/09 12:04:12 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> geocode-glib-3.10.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> geocode-glib-3.10.0.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> geocode-glib-3.10.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> geocode-glib-3.10.0.ebuild:
+  arch stable, bug 888
 
 *geocode-glib-3.10.0 (24 Dec 2013)
 

@@ -1,6 +1,39 @@
 # ChangeLog for www-client/seamonkey
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.476 2014/01/13 17:30:22 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.485 2014/04/02 18:10:20 axs Exp $
+
+  02 Apr 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> seamonkey-2.24.ebuild,
+  seamonkey-2.25.ebuild:
+  disable the forcing of ld.gold in the mozilla build system, bug 494364
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.25.ebuild:
+  Stable for x86, wrt bug #505072
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.25.ebuild:
+  Stable for amd64, wrt bug #505072
+
+*seamonkey-2.25 (20 Mar 2014)
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.25.ebuild:
+  Security bump (bug #505072).
+
+  22 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.22.1.ebuild,
+  -seamonkey-2.23.ebuild, -files/seamonkey-freetype251.patch:
+  Removed vulnerable versions.
+
+  15 Feb 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.24.ebuild:
+  Stable for amd64, wrt bug #500320
+
+  11 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> seamonkey-2.24.ebuild:
+  x86 stable wrt security bug #500320
+
+  10 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.24.ebuild:
+  Adjusted dependency on libpng.
+
+*seamonkey-2.24 (06 Feb 2014)
+
+  06 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.24.ebuild:
+  Security bump (bug #500320).
 
   13 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.23.ebuild:
   Added enigmail snapshot with new build system. This should fix bug #494088.

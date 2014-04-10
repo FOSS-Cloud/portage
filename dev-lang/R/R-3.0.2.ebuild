@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/R-3.0.2.ebuild,v 1.3 2013/11/03 20:38:32 mattst88 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/R-3.0.2.ebuild,v 1.6 2014/04/07 11:58:36 heroxbd Exp $
 
 EAPI=5
 
@@ -26,7 +26,7 @@ CDEPEND="
 	virtual/blas
 	|| ( >=sys-apps/coreutils-8.15 sys-freebsd/freebsd-bin app-misc/realpath )
 	cairo? ( x11-libs/cairo[X] x11-libs/pango )
-	icu? ( dev-libs/icu )
+	icu? ( dev-libs/icu:= )
 	jpeg? ( virtual/jpeg:0 )
 	lapack? ( virtual/lapack )
 	perl? ( dev-lang/perl )
@@ -157,6 +157,8 @@ src_configure() {
 		$(use_with readline) \
 		$(use_with tiff libtiff) \
 		$(use_with tk tcltk) \
+		$(use_with tk tk-config "${EPREFIX}"/usr/lib/tkConfig.sh) \
+		$(use_with tk tcl-config "${EPREFIX}"/usr/lib/tclConfig.sh) \
 		$(use_with X x)
 }
 

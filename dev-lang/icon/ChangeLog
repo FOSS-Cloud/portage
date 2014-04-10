@@ -1,6 +1,27 @@
 # ChangeLog for dev-lang/icon
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/icon/ChangeLog,v 1.50 2013/02/09 09:08:13 grobian Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/icon/ChangeLog,v 1.57 2014/03/12 09:55:44 ago Exp $
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org> icon-9.5.0.ebuild:
+  Stable for sparc, wrt bug #470260
+
+  06 Mar 2014; Agostino Sarubbo <ago@gentoo.org> icon-9.5.0.ebuild:
+  Stable for ppc64, wrt bug #470260
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> icon-9.5.0.ebuild:
+  Stable for ppc, wrt bug #470260
+
+  01 Mar 2014; Pacho Ramos <pacho@gentoo.org> icon-9.5.0.ebuild:
+  amd64 stable, bug #470260
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> icon-9.5.0.ebuild:
+  x86 stable wrt bug #470260
+
+  11 Feb 2014; Akinori Hattori <hattya@gentoo.org> icon-9.5.0.ebuild:
+  ia64 stable wrt bug #470260
+
+  08 Feb 2014; Jeroen Roovers <jer@gentoo.org> icon-9.5.0.ebuild:
+  Stable for HPPA (bug #470260).
 
   09 Feb 2013; Fabian Groffen <grobian@gentoo.org> icon-9.5.0.ebuild:
   Fix install location for Prefix

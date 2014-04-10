@@ -1,6 +1,26 @@
 # ChangeLog for net-fs/nfs-utils
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/nfs-utils/ChangeLog,v 1.240 2014/01/18 20:02:58 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/nfs-utils/ChangeLog,v 1.243 2014/02/03 14:30:24 vapier Exp $
+
+  03 Feb 2014; Mike Frysinger <vapier@gentoo.org> nfs-utils-1.2.9-r3.ebuild:
+  Drop librpcsecgss dep as it is not used when libtirpc is utilized (which we
+  do) #493912#8 by Joakim Tjernlund.
+
+*nfs-utils-1.2.9-r3 (02 Feb 2014)
+
+  02 Feb 2014; Mike Frysinger <vapier@gentoo.org> +nfs-utils-1.2.9-r3.ebuild:
+  Drop gssglue support as libtirpc itself no longer supports it #493912 by
+  Torsten Kaiser.
+
+*nfs-utils-1.2.9-r2 (01 Feb 2014)
+
+  01 Feb 2014; Pacho Ramos <pacho@gentoo.org> +files/nfs-utils.conf,
+  +files/nfsd.service-r1, +files/proc-fs-nfsd.mount, +files/rpc-gssd.service,
+  +files/rpc-idmapd.service, +files/rpc-mountd.service-r1,
+  +files/rpc-statd.service-r2, +files/rpc-svcgssd.service,
+  +files/var-lib-nfs-rpc_pipefs.mount, +nfs-utils-1.2.9-r2.ebuild:
+  Ensure needed dirs are present, add/improve unit files (#497640 and #497642 by
+  Alexander Tsoy)
 
   18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> nfs-utils-1.2.9.ebuild:
   Stable for alpha, wrt bug #493422

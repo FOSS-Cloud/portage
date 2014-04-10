@@ -1,6 +1,34 @@
 # ChangeLog for dev-vcs/git-cola
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git-cola/ChangeLog,v 1.19 2014/01/19 19:04:32 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git-cola/ChangeLog,v 1.25 2014/03/16 10:35:49 jlec Exp $
+
+*git-cola-2.0.1 (16 Mar 2014)
+
+  16 Mar 2014; Justin Lecher <jlec@gentoo.org> +git-cola-2.0.1.ebuild:
+  Version Bump
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> git-cola-1.9.4.ebuild:
+  amd64 stable, bug #495680
+
+*git-cola-2.0.0 (24 Feb 2014)
+
+  24 Feb 2014; Justin Lecher <jlec@gentoo.org> +git-cola-2.0.0.ebuild:
+  Version Bump
+
+  21 Feb 2014; Justin Lecher <jlec@gentoo.org> -git-cola-1.8.3.ebuild,
+  -git-cola-1.8.5.ebuild, -git-cola-1.9.1.ebuild, -git-cola-1.9.3.ebuild,
+  -git-cola-1.9.3-r1.ebuild, git-cola-1.9.4.ebuild:
+  Fix html doc installation, #472048; drop old
+
+*git-cola-1.9.4 (31 Jan 2014)
+
+  31 Jan 2014; Justin Lecher <jlec@gentoo.org> +git-cola-1.9.4.ebuild:
+  Version Bump
+
+*git-cola-1.9.3-r1 (29 Jan 2014)
+
+  29 Jan 2014; Justin Lecher <jlec@gentoo.org> +git-cola-1.9.3-r1.ebuild:
+  Fix broken documentation paths, #499658
 
   19 Jan 2014; Justin Lecher <jlec@gentoo.org> git-cola-1.9.1.ebuild,
   git-cola-1.9.3.ebuild:

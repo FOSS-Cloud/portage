@@ -1,12 +1,29 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/package.use.mask,v 1.155 2014/01/19 19:59:41 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/package.use.mask,v 1.160 2014/03/15 10:26:55 pacho Exp $
+
+# Pacho Ramos <pacho@gentoo.org> (15 Mar 2014)
+# Missing keywords, bug #504672
+>=net-misc/vinagre-3.10 rdp
+
+# Pacho Ramos <pacho@gentoo.org> (22 Feb 2014)
+# Missing keywords, bug #495250
+>=gnome-base/gnome-extra-apps-3.10 tracker
+
+# Pacho Ramos <pacho@gentoo.org> (10 Feb 2014)
+# Missing keywords, bug #495254
+>=dev-libs/totem-pl-parser-3.10 quvi
+>=media-video/totem-3.10 flash
+
+# Raúl Porcel <armin76@gentoo.org> (1 Feb 2014)
+# Sigbuses
+net-misc/openssh hpn
 
 # Pacho Ramos <pacho@gentoo.org> (19 Jan 2014)  
 # Missing keywords, bug #478254
 gnome-base/gnome classic
 
-# Pacho Ramos <pacho@gentoo.org> (19 Jan 2013)  
+# Pacho Ramos <pacho@gentoo.org> (19 Jan 2014)  
 sys-kernel/dracut -dracut_modules_systemd 
 
 # Pacho Ramos <pacho@gentoo.org> (02 Dec 2013)        

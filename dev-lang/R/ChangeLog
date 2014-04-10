@@ -1,6 +1,27 @@
 # ChangeLog for dev-lang/R
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/ChangeLog,v 1.229 2014/01/15 12:17:57 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/ChangeLog,v 1.234 2014/04/07 11:58:36 heroxbd Exp $
+
+  07 Apr 2014; Benda Xu <heroxbd@gentoo.org> R-3.0.2.ebuild, R-3.0.3.ebuild:
+  bug 505904 by Robert McGehee: revert the blas library configure update for bug
+  499356. I missunderstood the purpose of this option.
+
+  19 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> R-3.0.3.ebuild:
+  Re-added the autoconf since we modify the configure.ac
+
+*R-3.0.3 (19 Mar 2014)
+
+  19 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> +R-3.0.3.ebuild,
+  R-3.0.1-r1.ebuild, files/R-2.11.1-parallel.patch,
+  files/R-2.13.1-zlib_header_fix.patch, files/R-3.0.0-rmath-shared.patch:
+  Version bump
+
+  02 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> R-3.0.2.ebuild:
+  Add subslot dependency on dev-libs/icu
+
+  17 Feb 2014; Benda Xu <heroxbd@gentoo.org> R-3.0.2.ebuild:
+  Pass correct blas path to configure, pass {tk,tcl}-config scripts to configure
+  explicitly for Prefix. Credits to Michael Schubert, bug 499356.
 
   15 Jan 2014; Justin Lecher <jlec@gentoo.org> -R-2.10.1.ebuild,
   -R-2.15.3.ebuild:

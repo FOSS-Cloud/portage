@@ -1,6 +1,33 @@
 # ChangeLog for dev-java/icedtea
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea/ChangeLog,v 1.113 2013/12/10 18:32:55 tomwij Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea/ChangeLog,v 1.118 2014/04/06 13:30:21 ago Exp $
+
+*icedtea-7.2.4.6 (06 Apr 2014)
+
+  06 Apr 2014; Agostino Sarubbo <ago@gentoo.org> +files/icedtea-7-ecj_jar.patch,
+  +icedtea-7.2.4.6.ebuild, metadata.xml:
+  Version bump requested by Andrew, fix bug #500176 readding dev-java/ant-core
+  as DEPEND
+
+*icedtea-6.1.13.2 (06 Apr 2014)
+
+  06 Apr 2014; Agostino Sarubbo <ago@gentoo.org> +icedtea-6.1.13.2.ebuild,
+  icedtea-6.1.12.7.ebuild, icedtea-6.1.13.1.ebuild, icedtea-7.2.4.5.ebuild:
+  Version bump requested by Andrew, fix bug #500176 readding dev-java/ant-core
+  as DEPEND
+
+*icedtea-7.2.4.5 (03 Feb 2014)
+
+  03 Feb 2014; Ralph Sennhauser <sera@gentoo.org> +icedtea-7.2.4.5.ebuild:
+  Version bump
+
+  30 Jan 2014; Ralph Sennhauser <sera@gentoo.org> icedtea-6.1.13.1.ebuild:
+  Fix sandbox violation #499746
+
+*icedtea-6.1.13.1 (29 Jan 2014)
+
+  29 Jan 2014; Ralph Sennhauser <sera@gentoo.org> +icedtea-6.1.13.1.ebuild:
+  Security bump #499464
 
   10 Dec 2013; Tom Wijsman <TomWij@gentoo.org> -icedtea-6.1.12.4.ebuild,
   -icedtea-6.1.12.5.ebuild, -icedtea-6.1.12.6.ebuild, -icedtea-7.2.3.12.ebuild,

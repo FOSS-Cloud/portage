@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/emacs-23.4-r6.ebuild,v 1.6 2014/01/16 17:48:57 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/emacs-23.4-r6.ebuild,v 1.9 2014/04/06 22:08:14 ulm Exp $
 
 EAPI=5
 WANT_AUTOMAKE="none"
@@ -10,7 +10,7 @@ inherit autotools elisp-common eutils flag-o-matic multilib readme.gentoo
 DESCRIPTION="The extensible, customizable, self-documenting real-time display editor"
 HOMEPAGE="http://www.gnu.org/software/emacs/"
 SRC_URI="mirror://gnu/emacs/${P}.tar.bz2
-	http://dev.gentoo.org/~ulm/emacs/${P}-patches-9.tar.xz"
+	http://dev.gentoo.org/~ulm/emacs/${P}-patches-10.tar.xz"
 
 LICENSE="GPL-3+ FDL-1.3+ BSD HPND MIT W3C unicode PSF-2"
 SLOT="23"
@@ -81,6 +81,9 @@ S="${WORKDIR}/emacs-${FULL_VERSION}"
 src_prepare() {
 	EPATCH_SUFFIX=patch epatch
 	epatch_user
+
+	sed -i -e "/^\\.so/s/etags/&-${EMACS_SUFFIX}/" doc/man/ctags.1 \
+		|| die "unable to sed ctags.1"
 
 	if ! use alsa; then
 		# ALSA is detected even if not requested by its USE flag.
@@ -290,7 +293,7 @@ src_install () {
 	use X && DOC_CONTENTS+="\\n\\nYou need to install some fonts for Emacs.
 		Installing media-fonts/font-adobe-{75,100}dpi on the X server's
 		machine would satisfy basic Emacs requirements under X11.
-		See also https://wiki.gentoo.org/wiki/Project:Emacs/Xft_support
+		See also https://wiki.gentoo.org/wiki/Xft_support_for_GNU_Emacs
 		for how to enable anti-aliased fonts."
 	use aqua && DOC_CONTENTS+="\\n\\nEmacs${EMACS_SUFFIX#emacs}.app is in
 		\"${EPREFIX}/Applications/Gentoo\". You may want to copy or symlink

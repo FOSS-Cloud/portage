@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ati-drivers-13.12.ebuild,v 1.1 2013/12/27 12:47:52 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ati-drivers-13.12.ebuild,v 1.4 2014/04/06 10:11:08 ago Exp $
 
 EAPI=5
 
@@ -19,7 +19,7 @@ FOLDER_PREFIX="common/"
 IUSE="debug +modules multilib qt4 static-libs pax_kernel"
 
 LICENSE="AMD GPL-2 QPL-1.0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 
 RESTRICT="bindist test"
 
@@ -306,6 +306,9 @@ src_prepare() {
 
 	# Fix build on new kernels
 	epatch "${FILESDIR}/ati-drivers-13.12-acpi.patch"
+
+	# Add support for linux-3.13. See #498766
+	epatch "${FILESDIR}/ati-drivers-linux-3.13-acpi-handle.patch"
 
 	# Compile fix, https://bugs.gentoo.org/show_bug.cgi?id=454870
 	use pax_kernel && epatch "${FILESDIR}/const-notifier-block.patch"

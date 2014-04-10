@@ -1,6 +1,28 @@
 # ChangeLog for net-print/hplip
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.295 2014/01/19 10:33:13 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/ChangeLog,v 1.299 2014/03/07 16:28:09 billie Exp $
+
+  07 Mar 2014; Daniel Pielmeier <billie@gentoo.org> -hplip-3.14.1-r1.ebuild:
+  Remove old.
+
+*hplip-3.14.3 (07 Mar 2014)
+
+  07 Mar 2014; Daniel Pielmeier <billie@gentoo.org> +hplip-3.14.3.ebuild:
+  Version bump. This version adds a patch which removes the update and
+  uninstall python scripts as well as the auto-configuration/plug-in
+  installation related stuff from the udev rules. This should fix Gentoo bug
+  #434830 (Upstream bug https://bugs.launchpad.net/hplip/+bug/1080353).
+
+*hplip-3.14.1-r1 (05 Mar 2014)
+
+  05 Mar 2014; Daniel Pielmeier <billie@gentoo.org> +hplip-3.14.1-r1.ebuild:
+  Only depend on dev-python/dbus-python if USE=minimal. This fixes bug #449402.
+  Thanks to turtle for the report and Nick Bowler for the suggested dependency
+  change.
+
+  24 Jan 2014; Daniel Pielmeier <billie@gentoo.org> -hplip-3.12.10a.ebuild,
+  -hplip-3.13.9.ebuild, -hplip-3.13.11-r1.ebuild:
+  Remove old.
 
   19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hplip-3.14.1.ebuild:
   Stable for ppc64, wrt bug #497722

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.0.5.ebuild,v 1.10 2013/11/10 15:41:55 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.0.5.ebuild,v 1.13 2014/03/26 15:50:36 tomwij Exp $
 
 EAPI="5"
 
@@ -83,7 +83,7 @@ RDEPEND="
 		flac? ( media-libs/libogg >=media-libs/flac-1.1.2 )
 		fluidsynth? ( media-sound/fluidsynth )
 		fontconfig? ( media-libs/fontconfig )
-		gcrypt? ( >=dev-libs/libgcrypt-1.2.0 )
+		gcrypt? ( >=dev-libs/libgcrypt-1.2.0:0 )
 		gme? ( media-libs/game-music-emu )
 		gnome? ( gnome-base/gnome-vfs )
 		gnutls? ( >=net-libs/gnutls-2.0.0 )
@@ -132,7 +132,7 @@ RDEPEND="
 		swscale? ( virtual/ffmpeg )
 		taglib? ( >=media-libs/taglib-1.5 sys-libs/zlib )
 		theora? ( >=media-libs/libtheora-1.0_beta3 )
-		truetype? ( media-libs/freetype virtual/ttf-fonts
+		truetype? ( <media-libs/freetype-2.5.3 virtual/ttf-fonts
 			!fontconfig? ( media-fonts/dejavu ) )
 		twolame? ( media-sound/twolame )
 		udev? ( virtual/udev )
@@ -154,7 +154,7 @@ DEPEND="${RDEPEND}
 	kde? ( >=kde-base/kdelibs-4 )
 	xcb? ( x11-proto/xproto )
 	app-arch/xz-utils
-	virtual/pkgconfig"
+	virtual/pkgconfig:*"
 
 REQUIRED_USE="
 	aalib? ( X )

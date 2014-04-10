@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/metasploit/metasploit-9999.ebuild,v 1.9 2014/01/22 16:12:33 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/metasploit/metasploit-9999.ebuild,v 1.14 2014/03/24 22:05:46 zerochaos Exp $
 
 EAPI="5"
 
@@ -25,7 +25,7 @@ DESCRIPTION="Advanced open-source framework for developing, testing, and using v
 HOMEPAGE="http://www.metasploit.org/"
 SLOT="9999"
 LICENSE="BSD"
-IUSE="development +java lorcon +pcap test"
+IUSE="development +java lorcon oracle +pcap test"
 
 #multiple known bugs with tests reported upstream and ignored
 #http://dev.metasploit.com/redmine/issues/8418 - worked around (fix user creation when possible)
@@ -35,16 +35,18 @@ RUBY_COMMON_DEPEND="virtual/ruby-ssl
 	dev-ruby/activesupport:3.2
 	dev-ruby/activerecord:3.2
 	dev-ruby/json
-	>=dev-ruby/metasploit_data_models-0.16.9
+	>=dev-ruby/metasploit_data_models-0.17.0
 	dev-ruby/msgpack
 	dev-ruby/nokogiri
 	dev-ruby/builder:3
 	>=dev-ruby/pg-0.11
 	=dev-ruby/packetfu-1.1.9
+	dev-ruby/rb-readline
 	dev-ruby/robots
 	dev-ruby/kissfft
 	java? ( dev-ruby/rjb )
 	lorcon? ( net-wireless/lorcon[ruby] )
+	oracle? ( dev-ruby/ruby-oci8 )
 	pcap? ( dev-ruby/pcaprub
 		dev-ruby/network_interface )
 	dev-ruby/bundler
@@ -108,12 +110,19 @@ pkg_setup() {
 }
 
 all_ruby_unpack() {
-	git-r3_src_unpack
+	if [[ ${PV} == "9999" ]] ; then
+		git-r3_src_unpack
+	else
+		default_src_unpack
+		mv "${WORKDIR}"/all/msf3/* "${WORKDIR}"/all
+		rm -r msf3
+	fi
 }
 
 all_ruby_prepare() {
 	# add psexec patch from pull request 2657 to allow custom exe templates from any files, bypassing most AVs
-	epatch "${FILESDIR}/agix_psexec_pull-2657.patch"
+	#epatch "${FILESDIR}/agix_psexec_pull-2657.patch"
+	epatch_user
 
 	#unbundle johntheripper, at least it now defaults to running the system version
 	rm -r data/john/run.*
@@ -129,6 +138,11 @@ all_ruby_prepare() {
 	#we regen this file in each_ruby_prepare
 	rm Gemfile.lock
 	#The Gemfile contains real known deps
+	#add our dep on upstream rb-readline instead of bundled one
+	sed -i "/gem 'packetfu'/a #use upstream readline instead of bundled\ngem 'rb-readline'" Gemfile || die
+	#remove the bundled readline
+	#https://github.com/rapid7/metasploit-framework/pull/3105
+	rm lib/rbreadline.rb
 	#now we edit the Gemfile based on use flags
 	#even if we pass --without=blah bundler still calculates the deps and messes us up
 	if ! use pcap; then
@@ -157,7 +171,7 @@ all_ruby_prepare() {
 	echo "echo \"[*]\"" >> msfupdate
 	echo "echo \"\"" >> msfupdate
 	if [[ ${PV} == "9999" ]] ; then
-		echo "ESVN_REVISION=HEAD emerge --oneshot \"=${CATEGORY}/${PF}\"" >> msfupdate
+		echo "emerge --oneshot \"=${CATEGORY}/${PF}\"" >> msfupdate
 	else
 		echo "echo \"Unable to update tagged version of metasploit.\"" >> msfupdate
 		echo "echo \"If you want the latest please install and eselect the live version (metasploit9999)\"" >> msfupdate
@@ -196,18 +210,30 @@ each_ruby_install() {
 	rm -rf spec
 	rm -rf test
 
+	#I'm 99% sure that this will only work for as long as we only support one ruby version.  Creativity will be needed if we wish to support multiple.
 	# should be as simple as copying everything into the target...
 	dodir /usr/$(get_libdir)/${PN}${SLOT}
 	cp -R * "${ED}"/usr/$(get_libdir)/${PN}${SLOT} || die "Copy files failed"
 	rm -Rf "${ED}"/usr/$(get_libdir)/${PN}${SLOT}/documentation "${ED}"/usr/$(get_libdir)/${PN}${SLOT}/README.md
 	fowners -R root:0 /
 
+}
+
+all_ruby_install() {
 	# do not remove LICENSE, bug #238137
 	dodir /usr/share/doc/${PF}
 	cp -R {documentation,README.md} "${ED}"/usr/share/doc/${PF} || die
 	dosym /usr/share/doc/${PF}/documentation /usr/$(get_libdir)/${PN}${SLOT}/documentation
 
 	fperms +x /usr/$(get_libdir)/${PN}${SLOT}/msfupdate
+
+	#tell revdep-rebuild to ignore binaries meant for the target
+	dodir /etc/revdep-rebuild
+	cat <<-EOF > "${ED}"/etc/revdep-rebuild/99-metasploit${SLOT}
+		#These dirs contain prebuilt binaries for running on the TARGET not the HOST
+		SEARCH_DIRS_MASK="/usr/lib*/${PN}${SLOT}/data/meterpreter"
+		SEARCH_DIRS_MASK="/usr/lib*/${PN}${SLOT}/data/exploits"
+	EOF
 }
 
 pkg_postinst() {

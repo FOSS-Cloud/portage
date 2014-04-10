@@ -1,6 +1,23 @@
 # ChangeLog for app-portage/porticron
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/porticron/ChangeLog,v 1.33 2014/01/11 11:21:47 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/porticron/ChangeLog,v 1.37 2014/03/31 07:37:00 pinkbyte Exp $
+
+  31 Mar 2014; Sergey Popov <pinkbyte@gentoo.org>
+  porticron-0.7_p20140126.ebuild:
+  Stable on x86, wrt bug #505148
+
+  29 Mar 2014; Chema Alonso <nimiux@gentoo.org> porticron-0.7_p20140126.ebuild:
+  Stable for amd64 wrt bug #505148
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> porticron-0.7_p20140126.ebuild:
+  Stable for HPPA (bug #505148).
+
+*porticron-0.7_p20140126 (06 Feb 2014)
+
+  06 Feb 2014; Michael Weber <xmw@gentoo.org>
+  +files/porticron-0.7_p20140126-portage-2.2.8.patch,
+  +porticron-0.7_p20140126.ebuild:
+  Add portage 2.2.8 patch by pinkybyte
 
 *porticron-0.7_p20131113 (11 Jan 2014)
 

@@ -1,6 +1,24 @@
 # ChangeLog for media-gfx/simple-scan
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/simple-scan/ChangeLog,v 1.31 2013/12/26 14:46:12 maekke Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/simple-scan/ChangeLog,v 1.36 2014/03/09 12:01:52 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> simple-scan-3.10.2.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> simple-scan-3.10.2.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> simple-scan-3.10.2.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> simple-scan-3.10.2.ebuild:
+  arch stable, bug 888
+
+*simple-scan-3.10.2 (17 Feb 2014)
+
+  17 Feb 2014; Pacho Ramos <pacho@gentoo.org> +simple-scan-3.10.2.ebuild,
+  -simple-scan-3.6.0.ebuild, -simple-scan-3.6.1.ebuild:
+  Version bump (#501624 by Alessandro Capogna), drop old.
 
   26 Dec 2013; Markus Meier <maekke@gentoo.org> simple-scan-3.8.0.ebuild:
   add ~arm, bug #489046

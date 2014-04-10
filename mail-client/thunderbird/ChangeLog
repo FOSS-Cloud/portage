@@ -1,6 +1,61 @@
 # ChangeLog for mail-client/thunderbird
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/thunderbird/ChangeLog,v 1.261 2013/12/15 21:08:45 anarchy Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/thunderbird/ChangeLog,v 1.276 2014/03/24 14:33:55 ago Exp $
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.4.0.ebuild:
+  Stable for ppc64, wrt bug #505072
+
+  23 Mar 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.4.0.ebuild:
+  Stable for ppc, wrt bug #505072
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.4.0.ebuild:
+  Stable for x86, wrt bug #505072
+
+  22 Mar 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.4.0.ebuild:
+  Stable for amd64, wrt bug #505072
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org>
+  thunderbird-24.3.0.ebuild, thunderbird-24.4.0.ebuild:
+  Fixed icu dependency.
+
+*thunderbird-24.4.0 (20 Mar 2014)
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +thunderbird-24.4.0.ebuild:
+  Security bump (bug #505072).
+
+  08 Mar 2014;  <anarchy@gentoo.org> metadata.xml:
+  Fix bindist description to represent thunderbird and not firefox
+
+  22 Feb 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -thunderbird-24.1.1.ebuild, -thunderbird-24.2.0.ebuild:
+  Removed vulnerable versions.
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.3.0.ebuild:
+  Stable for ppc64, wrt bug #500320
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.3.0.ebuild:
+  Stable for arm, wrt bug #500320
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.3.0.ebuild:
+  Stable for ppc, wrt bug #500320
+
+  18 Feb 2014; Lars Wendler <polynomial-c@gentoo.org>
+  thunderbird-24.3.0.ebuild:
+  Fixed dependencies (bug #501378).
+
+  15 Feb 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.3.0.ebuild:
+  Stable for amd64, wrt bug #500320
+
+  11 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  thunderbird-24.3.0.ebuild:
+  x86 stable wrt security bug #500320
+
+*thunderbird-24.3.0 (07 Feb 2014)
+
+  07 Feb 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +thunderbird-24.3.0.ebuild:
+  Security bump (bug #500320).
 
   15 Dec 2013; Jory A. Pratt <anarchy@gentoo.org> thunderbird-24.2.0.ebuild:
   Readd missing patch to disable buildid, bug #465466

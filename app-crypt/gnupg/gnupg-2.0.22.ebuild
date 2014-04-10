@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/gnupg/gnupg-2.0.22.ebuild,v 1.13 2014/01/18 09:23:09 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/gnupg/gnupg-2.0.22.ebuild,v 1.15 2014/04/03 19:45:39 haubi Exp $
 
 EAPI="5"
 
@@ -13,12 +13,12 @@ SRC_URI="mirror://gnupg/gnupg/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="adns bzip2 doc ldap nls mta readline static selinux smartcard usb"
 
 COMMON_DEPEND_LIBS="
 	>=dev-libs/libassuan-2
-	>=dev-libs/libgcrypt-1.4
+	>=dev-libs/libgcrypt-1.4:0
 	>=dev-libs/libgpg-error-1.11
 	>=dev-libs/libksba-1.0.7
 	>=dev-libs/pth-1.3.7
@@ -36,7 +36,7 @@ DEPEND="${COMMON_DEPEND_LIBS}
 	${COMMON_DEPEND_BINS}
 	static? (
 		>=dev-libs/libassuan-2[static-libs]
-		>=dev-libs/libgcrypt-1.4[static-libs]
+		>=dev-libs/libgcrypt-1.4:0[static-libs]
 		>=dev-libs/libgpg-error-1.7[static-libs]
 		>=dev-libs/libksba-1.0.7[static-libs]
 		>=dev-libs/pth-1.3.7[static-libs]

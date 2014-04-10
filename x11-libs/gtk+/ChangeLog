@@ -1,6 +1,39 @@
 # ChangeLog for x11-libs/gtk+
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/gtk+/ChangeLog,v 1.693 2014/01/20 21:23:54 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/gtk+/ChangeLog,v 1.701 2014/04/06 10:15:57 pacho Exp $
+
+*gtk+-3.10.8 (06 Apr 2014)
+
+  06 Apr 2014; Pacho Ramos <pacho@gentoo.org> +gtk+-3.10.8.ebuild:
+  Version bump
+
+*gtk+-2.24.23 (29 Mar 2014)
+
+  29 Mar 2014; Pacho Ramos <pacho@gentoo.org> +gtk+-2.24.23.ebuild,
+  -gtk+-2.24.16.ebuild, -gtk+-3.10.6.ebuild, -gtk+-3.8.7.ebuild:
+  Version bump, drop old
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> gtk+-3.10.7.ebuild:
+  Stable for HPPA (bug #499954).
+
+  17 Mar 2014; Julian Ospald <hasufell@gentoo.org> gtk+-3.10.7.ebuild,
+  +files/gtk+-3.10.7-clang.patch:
+  fix build with clang wrt #504228
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gtk+-3.10.7.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gtk+-3.10.7.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> gtk+-2.24.22.ebuild,
+  gtk+-3.10.7.ebuild:
+  Fix wrong commit, bug 502160
+
+*gtk+-3.10.7 (06 Feb 2014)
+
+  06 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> +gtk+-3.10.7.ebuild:
+  Version bump. Add more examples behing USE=examples.
 
   20 Jan 2014; Pacho Ramos <pacho@gentoo.org> gtk+-2.24.22.ebuild,
   gtk+-3.10.6.ebuild:

@@ -1,6 +1,30 @@
 # ChangeLog for dev-libs/gobject-introspection
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/gobject-introspection/ChangeLog,v 1.103 2013/12/23 22:54:05 eva Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/gobject-introspection/ChangeLog,v 1.109 2014/03/30 10:43:14 pacho Exp $
+
+  30 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  virtual/pkgconfig needed at runtime too (#505408 by James Le Cuirot)
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Stable for HPPA (bug #499954).
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Akinori Hattori <hattya@gentoo.org>
+  gobject-introspection-1.36.0-r1.ebuild:
+  ia64 stable wrt bug #494132
 
 *gobject-introspection-1.38.0 (23 Dec 2013)
 

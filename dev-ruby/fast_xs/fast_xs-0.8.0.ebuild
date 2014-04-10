@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/fast_xs/fast_xs-0.8.0.ebuild,v 1.15 2013/12/26 18:56:59 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/fast_xs/fast_xs-0.8.0.ebuild,v 1.17 2014/04/05 14:20:03 mrueg Exp $
 
 EAPI=4
 
-USE_RUBY="ruby18 ree18 ruby19"
+USE_RUBY="ruby19"
 
 RUBY_FAKEGEM_TASK_DOC="docs"
 RUBY_FAKEGEM_DOCDIR="doc"
@@ -24,11 +24,8 @@ IUSE=""
 ruby_add_bdepend "doc? ( >=dev-ruby/hoe-2.3.2 )"
 ruby_add_bdepend "test? (
 	>=dev-ruby/hoe-2.3.2
-	virtual/ruby-test-unit
 	dev-ruby/rack
 )"
-
-USE_RUBY="ruby18" ruby_add_bdepend "test? ( www-servers/mongrel )"
 
 RUBY_PATCHES=( "${P}+ruby-1.9.patch" )
 

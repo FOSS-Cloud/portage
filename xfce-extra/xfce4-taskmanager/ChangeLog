@@ -1,6 +1,21 @@
 # ChangeLog for xfce-extra/xfce4-taskmanager
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-taskmanager/ChangeLog,v 1.64 2014/01/19 19:04:44 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-taskmanager/ChangeLog,v 1.67 2014/01/31 15:38:30 jer Exp $
+
+  31 Jan 2014; Jeroen Roovers <jer@gentoo.org> xfce4-taskmanager-1.0.1.ebuild:
+  Marked ~hppa (bug #499900).
+
+*xfce4-taskmanager-1.0.1 (31 Jan 2014)
+
+  31 Jan 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +xfce4-taskmanager-1.0.1.ebuild, metadata.xml:
+  Version bump. Use x11-libs/libgksu despite of bug #425156 because it's the
+  library xfce4-taskmanager is using, not the command, making it harder to
+  replace.
+
+  28 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
+  xfce4-taskmanager-1.0.0-r1.ebuild:
+  Stable for x86, wrt bug #496018
 
   19 Jan 2014; Pacho Ramos <pacho@gentoo.org> xfce4-taskmanager-1.0.0-r1.ebuild:
   amd64 stable, bug 496018

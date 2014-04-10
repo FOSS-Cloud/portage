@@ -1,6 +1,31 @@
 # ChangeLog for x11-themes/light-themes
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/light-themes/ChangeLog,v 1.21 2013/12/08 19:54:09 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-themes/light-themes/ChangeLog,v 1.27 2014/03/09 12:05:25 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> light-themes-0.1.93-r4.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> light-themes-0.1.93-r4.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> light-themes-0.1.93-r4.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> light-themes-0.1.93-r4.ebuild:
+  arch stable, bug 888
+
+*light-themes-0.1.93-r4 (16 Feb 2014)
+
+  16 Feb 2014; Pacho Ramos <pacho@gentoo.org> +light-themes-0.1.93-r4.ebuild,
+  -light-themes-0.1.93-r3.ebuild:
+  Add more colorized stuff (#499506 by David Abbott)
+
+*light-themes-0.1.93-r3 (02 Feb 2014)
+
+  02 Feb 2014; Pacho Ramos <pacho@gentoo.org> +light-themes-0.1.93-r3.ebuild,
+  -light-themes-0.1.8.32.ebuild, -light-themes-0.1.93.ebuild:
+  Provide icons with a Gentoo-style coloring by David Abbott (#499506), thanks
+  to Ulrich Muller for his help with licensing. Drop old.
 
   08 Dec 2013; Pacho Ramos <pacho@gentoo.org> light-themes-0.1.93-r2.ebuild:
   x86 stable, bug #478252

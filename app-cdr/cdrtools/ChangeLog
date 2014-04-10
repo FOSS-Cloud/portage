@@ -1,6 +1,37 @@
 # ChangeLog for app-cdr/cdrtools
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdrtools/ChangeLog,v 1.331 2014/01/21 02:50:56 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdrtools/ChangeLog,v 1.338 2014/04/05 10:53:08 armin76 Exp $
+
+  05 Apr 2014; Raúl Porcel <armin76@gentoo.org> cdrtools-3.01_alpha23.ebuild:
+  Add support for arm64
+
+  24 Mar 2014; Daniel Pielmeier <billie@gentoo.org>
+  -cdrtools-3.01_alpha22.ebuild:
+  Remove old.
+
+*cdrtools-3.01_alpha23 (07 Mar 2014)
+
+  07 Mar 2014; Daniel Pielmeier <billie@gentoo.org>
+  +cdrtools-3.01_alpha23.ebuild:
+  Version bump.
+
+  01 Mar 2014; Daniel Pielmeier <billie@gentoo.org>
+  -cdrtools-3.01_alpha21.ebuild:
+  Remove old.
+
+  29 Jan 2014; Mike Frysinger <vapier@gentoo.org> cdrtools-3.01_alpha17.ebuild,
+  cdrtools-3.01_alpha21.ebuild, cdrtools-3.01_alpha22.ebuild:
+  Fix clean up of _p.mk files (bug added in recent commit).
+
+  24 Jan 2014; Daniel Pielmeier <billie@gentoo.org> -cdrtools-3.00.ebuild,
+  -cdrtools-3.01_alpha19.ebuild:
+  Remove old.
+
+*cdrtools-3.01_alpha22 (24 Jan 2014)
+
+  24 Jan 2014; Daniel Pielmeier <billie@gentoo.org>
+  +cdrtools-3.01_alpha22.ebuild:
+  Version bump.
 
   21 Jan 2014; Mike Frysinger <vapier@gentoo.org> cdrtools-3.01_alpha17.ebuild,
   cdrtools-3.01_alpha19.ebuild, cdrtools-3.01_alpha21.ebuild:

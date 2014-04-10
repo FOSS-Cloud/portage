@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/quimup/quimup-1.3.1.ebuild,v 1.1 2013/12/13 20:19:38 angelos Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/quimup/quimup-1.3.1.ebuild,v 1.3 2014/04/09 11:58:26 nimiux Exp $
 
 EAPI=5
 inherit eutils qt4-r2
@@ -13,12 +13,13 @@ SRC_URI="mirror://sourceforge/musicpd/${MY_P}_src.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-qt/qtgui:4
+RDEPEND="dev-qt/qtgui:4
 	>=media-libs/libmpdclient-2.3"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 S=${WORKDIR}/${MY_P}
 

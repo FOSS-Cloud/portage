@@ -1,6 +1,41 @@
 # ChangeLog for dev-libs/elfutils
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/elfutils/ChangeLog,v 1.175 2014/01/18 02:44:19 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/elfutils/ChangeLog,v 1.187 2014/03/23 17:17:02 ago Exp $
+
+  23 Mar 2014; Agostino Sarubbo <ago@gentoo.org> elfutils-0.158.ebuild:
+  Stable for sparc, wrt bug #500178
+
+  06 Mar 2014; Agostino Sarubbo <ago@gentoo.org> elfutils-0.158.ebuild:
+  Stable for ppc64, wrt bug #500178
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> elfutils-0.158.ebuild:
+  Stable for ppc, wrt bug #500178
+
+  27 Feb 2014; Richard Freeman <rich0@gentoo.org> elfutils-0.158.ebuild:
+  amd64 stable - 500178
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> elfutils-0.158.ebuild:
+  x86 stable wrt bug #500178
+
+  23 Feb 2014; Markus Meier <maekke@gentoo.org> elfutils-0.158.ebuild:
+  arm stable, bug #500178
+
+  18 Feb 2014; Mike Frysinger <vapier@gentoo.org> elfutils-0.158.ebuild:
+  Mark m68k/s390/sh stable #500178.
+
+  11 Feb 2014; Matt Turner <mattst88@gentoo.org> elfutils-0.158.ebuild:
+  alpha stable, bug 500178.
+
+  08 Feb 2014; Akinori Hattori <hattya@gentoo.org> elfutils-0.158.ebuild:
+  ia64 stable wrt bug #500178
+
+  03 Feb 2014; Jeroen Roovers <jer@gentoo.org> elfutils-0.158.ebuild:
+  Stable for HPPA (bug #500178).
+
+  03 Feb 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/elfutils-0.158-tests-backtrace-native-core.patch,
+  elfutils-0.158.ebuild:
+  Fix from upstream for backtrace tests #497566 by eroen.
 
   18 Jan 2014; Mike Frysinger <vapier@gentoo.org> elfutils-0.158.ebuild:
   Add arm64 love.

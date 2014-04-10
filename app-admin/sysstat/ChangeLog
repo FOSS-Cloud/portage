@@ -1,6 +1,23 @@
 # ChangeLog for app-admin/sysstat
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/sysstat/ChangeLog,v 1.256 2014/01/18 20:03:40 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/sysstat/ChangeLog,v 1.259 2014/03/21 15:48:09 jer Exp $
+
+*sysstat-10.3.1 (21 Mar 2014)
+
+  21 Mar 2014; Jeroen Roovers <jer@gentoo.org> +sysstat-10.3.1.ebuild:
+  Version bump.
+
+*sysstat-10.2.1-r1 (01 Feb 2014)
+
+  01 Feb 2014; Jeroen Roovers <jer@gentoo.org> -sysstat-10.2.1.ebuild,
+  +sysstat-10.2.1-r1.ebuild:
+  Fix systemd unit install location (bug #499948 by bx).
+
+*sysstat-10.2.1 (25 Jan 2014)
+
+  25 Jan 2014; Jeroen Roovers <jer@gentoo.org> -sysstat-10.0.5.ebuild,
+  +sysstat-10.2.1.ebuild:
+  Version bump.
 
   18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> sysstat-10.2.0.ebuild:
   Stable for alpha, wrt bug #494248

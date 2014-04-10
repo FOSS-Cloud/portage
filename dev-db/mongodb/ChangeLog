@@ -1,6 +1,27 @@
 # ChangeLog for dev-db/mongodb
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/ChangeLog,v 1.86 2014/01/13 11:15:48 ultrabug Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/ChangeLog,v 1.90 2014/04/09 15:42:11 ultrabug Exp $
+
+  09 Apr 2014; Ultrabug <ultrabug@gentoo.org> mongodb-2.4.10-r1.ebuild:
+  quick typo on elog
+
+*mongodb-2.4.10-r1 (09 Apr 2014)
+
+  09 Apr 2014; Ultrabug <ultrabug@gentoo.org> -mongodb-2.4.10.ebuild,
+  +mongodb-2.4.10-r1.ebuild, +files/mms-agent.initd-r1:
+  update mms-agent, drop useless version
+
+*mongodb-2.4.10 (08 Apr 2014)
+
+  08 Apr 2014; Ultrabug <ultrabug@gentoo.org> +mongodb-2.4.10.ebuild:
+  version bump
+
+*mongodb-2.2.7 (17 Feb 2014)
+
+  17 Feb 2014; Ultrabug <ultrabug@gentoo.org> mongodb-2.2.6-r1.ebuild,
+  +mongodb-2.2.7.ebuild, mongodb-2.4.6-r2.ebuild, mongodb-2.4.7.ebuild,
+  mongodb-2.4.8.ebuild, mongodb-2.4.9.ebuild:
+  version bump fix #499864, lower user disk requirement to 512M wrt #495242
 
 *mongodb-2.4.9 (13 Jan 2014)
 

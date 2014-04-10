@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libfm/libfm-9999.ebuild,v 1.37 2013/12/30 10:35:40 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libfm/libfm-9999.ebuild,v 1.40 2014/03/16 10:32:42 hwoarang Exp $
 
 EAPI=5
 
@@ -13,17 +13,23 @@ DESCRIPTION="A library for file management"
 HOMEPAGE="http://pcmanfm.sourceforge.net/"
 
 LICENSE="GPL-2"
-SLOT="0/4.7.1" #copy ABI_VERSION because it seems upstream change it randomly
-IUSE="debug doc examples udisks vala"
+SLOT="0/4.0.0" #copy ABI_VERSION because it seems upstream change it randomly
+IUSE="+automount debug doc examples udisks vala"
 KEYWORDS=""
 
 COMMON_DEPEND=">=dev-libs/glib-2.18:2
 	>=x11-libs/gtk+-2.16:2
 	>=lxde-base/menu-cache-0.3.2:="
 RDEPEND="${COMMON_DEPEND}
+	!lxde-base/lxshortcut
 	x11-misc/shared-mime-info
-	udisks? ( || ( gnome-base/gvfs[udev,udisks] gnome-base/gvfs[udev,gdu] ) )
-	!udisks? ( gnome-base/gvfs[udev] )"
+	automount? (
+		udisks? ( || (
+			gnome-base/gvfs[udev,udisks]
+			gnome-base/gvfs[udev,gdu]
+		) )
+		!udisks? ( gnome-base/gvfs[udev] )
+	)"
 DEPEND="${COMMON_DEPEND}
 	vala? ( $(vala_depend) )
 	doc? (
@@ -35,9 +41,11 @@ DEPEND="${COMMON_DEPEND}
 
 DOCS=( AUTHORS TODO )
 
+REQUIRED_USE="udisks? ( automount )"
+
 src_prepare() {
 	if ! use doc; then
-		sed -ie '/SUBDIRS=/s#docs##' "${S}"/Makefile.am || die "sed failed"
+		sed -ie '/^SUBDIR.*=/s#docs##' "${S}"/Makefile.am || die "sed failed"
 		sed -ie '/^[[:space:]]*docs/d' configure.ac || die "sed failed"
 	else
 		gtkdocize --copy || die

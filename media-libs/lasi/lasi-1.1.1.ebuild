@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/lasi/lasi-1.1.1.ebuild,v 1.12 2013/07/13 09:06:03 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/lasi/lasi-1.1.1.ebuild,v 1.14 2014/03/17 13:06:21 polynomial-c Exp $
 
 EAPI=4
 
@@ -15,7 +15,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 hppa ppc ppc64 sparc x86 ~amd64-fbsd ~amd64-linux ~x86-fbsd ~x86-linux"
+KEYWORDS="alpha amd64 hppa ~mips ppc ppc64 sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="doc examples"
 
 RDEPEND="
@@ -30,6 +30,7 @@ S=${WORKDIR}/${MY_P}
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.1.0-cmake.patch
 	"${FILESDIR}"/${PN}-1.1.0-pkgconfig.patch
+	"${FILESDIR}"/${PN}-1.1.1-freetype251.patch
 	)
 
 src_prepare() {

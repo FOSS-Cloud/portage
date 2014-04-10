@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libxls/libxls-0.3.0_pre107.ebuild,v 1.2 2012/05/04 18:35:43 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libxls/libxls-0.3.0_pre107.ebuild,v 1.5 2014/03/03 23:57:27 pacho Exp $
 
-EAPI="3"
+EAPI=5
 
 inherit autotools
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="virtual/libintl
@@ -31,8 +31,8 @@ src_configure() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
-	dodoc AUTHORS TODO || die
-	dohtml doc/homepage/*.{css,html} || die
+	emake DESTDIR="${D}" install
+	dodoc AUTHORS TODO
+	dohtml doc/homepage/*.{css,html}
 	find "${ED}" -name '*.la' -delete || die
 }

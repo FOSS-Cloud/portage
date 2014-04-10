@@ -1,6 +1,19 @@
 # ChangeLog for sys-kernel/linux-firmware
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-firmware/ChangeLog,v 1.90 2014/01/18 16:33:56 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-firmware/ChangeLog,v 1.93 2014/04/06 14:45:32 vapier Exp $
+
+  06 Apr 2014; Mike Frysinger <vapier@gentoo.org>
+  linux-firmware-20130728.ebuild, linux-firmware-20131230.ebuild,
+  linux-firmware-99999999.ebuild:
+  Add arm64 love.
+
+  25 Jan 2014; Mark Wright <gienah@gentoo.org> linux-firmware-20130728.ebuild,
+  linux-firmware-20131230.ebuild, linux-firmware-99999999.ebuild:
+  Add blockers against iwl3160-ucode, iwl3160-7260-bt-ucode.
+
+  23 Jan 2014; Mark Wright <gienah@gentoo.org> linux-firmware-20130728.ebuild,
+  linux-firmware-20131230.ebuild, linux-firmware-99999999.ebuild:
+  Add blockers against iwl7260, bug #489714.
 
 *linux-firmware-20131230 (18 Jan 2014)
 

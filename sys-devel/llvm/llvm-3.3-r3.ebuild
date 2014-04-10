@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-3.3-r3.ebuild,v 1.1 2014/01/06 13:08:40 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-3.3-r3.ebuild,v 1.8 2014/03/31 21:21:24 mgorny Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} pypy2_0 )
+PYTHON_COMPAT=( python{2_6,2_7} pypy pypy2_0 )
 
 inherit cmake-utils eutils flag-o-matic multilib multilib-minimal \
 	python-r1 toolchain-funcs pax-utils check-reqs
@@ -18,7 +18,7 @@ SRC_URI="http://llvm.org/releases/${PV}/${P}.src.tar.gz
 
 LICENSE="UoI-NCSA"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="amd64 arm ppc ppc64 x86 ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos"
 IUSE="clang debug doc gold +libffi multitarget ocaml python
 	+static-analyzer test udis86 xml video_cards_radeon
 	kernel_Darwin kernel_FreeBSD"
@@ -372,7 +372,7 @@ src_install() {
 	multilib-minimal_src_install
 
 	# Remove unnecessary headers on FreeBSD, bug #417171
-	use kernel_FreeBSD && use clang && rm "${ED}"usr/lib/clang/${PV}/include/{arm_neon,std,float,iso,limits,tgmath,varargs}*.h
+	use kernel_FreeBSD && use clang && rm "${ED}"usr/lib/clang/${PV}/include/{std,float,iso,limits,tgmath,varargs}*.h
 }
 
 multilib_src_install() {

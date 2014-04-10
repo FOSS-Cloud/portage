@@ -1,6 +1,25 @@
 # ChangeLog for dev-vcs/gitg
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/gitg/ChangeLog,v 1.24 2013/08/18 13:26:33 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/gitg/ChangeLog,v 1.28 2014/04/05 20:49:13 ikelos Exp $
+
+  05 Apr 2014; Mike Auty <ikelos@gentoo.org> -gitg-0.0.6.ebuild,
+  -gitg-0.1.2.ebuild, gitg-0.2.6.ebuild, gitg-0.2.7.ebuild, gitg-0.3.2.ebuild:
+  Fix up dependencies (bug 506590 and bug 501696), and clear out old versions.
+
+  03 Apr 2014; Sebastian Pipping <sping@gentoo.org> metadata.xml:
+  Remove myself as a maintainer
+
+  15 Mar 2014; Sebastian Pipping <sping@gentoo.org> gitg-0.3.2.ebuild:
+  eautoreconf needs GNOME_COMPILE_WARNINGS from
+  /usr/share/aclocal/gnome-compiler-flags.m4 to rebuild configure script (bug
+  #504070)
+
+*gitg-0.3.2 (08 Feb 2014)
+
+  08 Feb 2014; Justin Lecher <jlec@gentoo.org> +gitg-0.3.2.ebuild,
+  metadata.xml:
+  Version Bump, #497358; thanks for Mark R. Pariente, Konstantin and Jesús
+  Pérez (Chuso) working on the ebuild
 
   18 Aug 2013; Agostino Sarubbo <ago@gentoo.org> gitg-0.2.7.ebuild:
   Stable for x86, wrt bug #478274

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/gvfs-1.16.4.ebuild,v 1.3 2013/12/08 18:36:55 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/gvfs-1.16.4.ebuild,v 1.6 2014/03/29 22:32:41 tetromino Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -24,7 +24,7 @@ RDEPEND="
 	sys-apps/dbus
 	dev-libs/libxml2:2
 	net-misc/openssh
-	afp? ( >=dev-libs/libgcrypt-1.2.2:= )
+	afp? ( >=dev-libs/libgcrypt-1.2.2:0= )
 	archive? ( app-arch/libarchive:= )
 	avahi? ( >=net-dns/avahi-0.6 )
 	bluetooth? (
@@ -47,7 +47,7 @@ RDEPEND="
 		>=app-pda/libplist-1:= )
 	mtp? ( >=media-libs/libmtp-1.1.5 )
 	samba? ( || ( >=net-fs/samba-3.4.6[smbclient] >=net-fs/samba-4.0.0[client] ) )
-	systemd? ( sys-apps/systemd )
+	systemd? ( sys-apps/systemd:0= )
 	udev? (
 		cdda? ( || ( dev-libs/libcdio-paranoia <dev-libs/libcdio-0.90[-minimal] ) )
 		virtual/udev[gudev] )
@@ -55,6 +55,7 @@ RDEPEND="
 	gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.7.1 )
 "
 DEPEND="${RDEPEND}
+	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
 	>=dev-util/intltool-0.40
 	virtual/pkgconfig
@@ -63,7 +64,7 @@ DEPEND="${RDEPEND}
 	test? (
 		>=dev-python/twisted-core-12.3.0
 		net-analyzer/netcat )
-	!udev? ( >=dev-libs/libgcrypt-1.2.2 )
+	!udev? ( >=dev-libs/libgcrypt-1.2.2:0 )
 "
 # libgcrypt.m4, provided by libgcrypt, needed for eautoreconf, bug #399043
 # test dependencies needed per https://bugzilla.gnome.org/700162

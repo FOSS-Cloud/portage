@@ -1,6 +1,19 @@
 # ChangeLog for app-cdr/k9copy
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/k9copy/ChangeLog,v 1.73 2013/03/03 14:18:45 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/k9copy/ChangeLog,v 1.76 2014/04/04 07:47:15 johu Exp $
+
+  04 Apr 2014; Johannes Huber <johu@gentoo.org>
+  +files/k9copy-2.3.8-ffmpeg-2.1.patch, k9copy-2.3.8-r1.ebuild:
+  Add patch to fix build with ffmpeg-2.2 by eroen <eroen@faith.eroen.eu>, bug
+  #505196.
+
+*k9copy-2.3.8-r1 (19 Mar 2014)
+
+  19 Mar 2014; Johannes Huber <johu@gentoo.org> +k9copy-2.3.8-r1.ebuild:
+  Revision bump to EAPI 5.
+
+  26 Feb 2014; Michael Palimaka <kensington@gentoo.org> k9copy-2.3.8.ebuild:
+  Depend on media-video/ffmpeg instead of virtual/ffmpeg wrt bug #474394.
 
   03 Mar 2013; Alexis Ballier <aballier@gentoo.org> k9copy-2.3.8.ebuild,
   +files/k9copy-2.3.8-ffmpeg-0.11.patch,

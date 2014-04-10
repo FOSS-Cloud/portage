@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ruby/ruby-2.0.0_p353.ebuild,v 1.8 2014/01/04 13:29:54 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/ruby/ruby-2.0.0_p353.ebuild,v 1.11 2014/04/09 08:57:36 graaff Exp $
 
 EAPI=5
 
@@ -33,7 +33,7 @@ SRC_URI="mirror://ruby/2.0/${MY_P}.tar.bz2
 		 http://dev.gentoo.org/~flameeyes/ruby-team/${PN}-patches-${PATCHSET}.tar.bz2"
 
 LICENSE="|| ( Ruby-BSD BSD-2 )"
-KEYWORDS="~alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="berkdb debug doc examples gdbm ipv6 +rdoc rubytests socks5 ssl tk xemacs ncurses +readline"
 
 RDEPEND="
@@ -216,7 +216,7 @@ pkg_postinst() {
 
 	elog
 	elog "To switch between available Ruby profiles, execute as root:"
-	elog "\teselect ruby set ruby(18|19|...)"
+	elog "\teselect ruby set ruby(19|20|...)"
 	elog
 }
 

@@ -1,6 +1,22 @@
 # ChangeLog for sys-apps/accountsservice
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/ChangeLog,v 1.34 2013/12/08 19:38:29 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/ChangeLog,v 1.39 2014/03/29 22:01:34 tetromino Exp $
+
+  29 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  accountsservice-0.6.34.ebuild, accountsservice-0.6.35.ebuild:
+  systemd now has subslots
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.35.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.35.ebuild:
+  arch stable, bug 888
+
+  14 Feb 2014; Johannes Huber <johu@gentoo.org> accountsservice-0.6.35.ebuild:
+  x86 stable, bug #498930
+
+  25 Jan 2014; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.35.ebuild:
+  amd64 stable, bug #498930
 
   08 Dec 2013; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.34.ebuild:
   x86 stable, bug #478252

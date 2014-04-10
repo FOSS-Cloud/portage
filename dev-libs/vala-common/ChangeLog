@@ -1,6 +1,15 @@
 # ChangeLog for dev-libs/vala-common
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/vala-common/ChangeLog,v 1.35 2013/12/22 15:47:37 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/vala-common/ChangeLog,v 1.38 2014/03/31 16:55:17 bicatali Exp $
+
+  31 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> vala-common-0.22.1.ebuild:
+  Keyword amd64-linux
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> vala-common-0.22.1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> vala-common-0.22.1.ebuild:
+  arch stable, bug 888
 
   22 Dec 2013; Jeroen Roovers <jer@gentoo.org> vala-common-0.22.1.ebuild:
   Stable for HPPA (bug #478252).

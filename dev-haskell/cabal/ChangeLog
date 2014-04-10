@@ -1,6 +1,35 @@
 # ChangeLog for dev-haskell/cabal
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cabal/ChangeLog,v 1.94 2013/11/15 02:37:08 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cabal/ChangeLog,v 1.102 2014/03/27 06:40:26 slyfox Exp $
+
+  27 Mar 2014; Sergei Trofimovich <slyfox@gentoo.org> cabal-1.18.1.3.ebuild:
+  Drop depend on cabal itself (bug #505844 by August Hörandl).
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> cabal-1.18.1.2.ebuild:
+  Stable for ppc, wrt bug #495370
+
+*cabal-1.18.1.3 (24 Mar 2014)
+
+  24 Mar 2014; Alexander Vershilov <qnikst@gentoo.org> +cabal-1.18.1.3.ebuild,
+  -cabal-1.18.0.ebuild:
+  add new version, drop old
+
+  23 Mar 2014; Agostino Sarubbo <ago@gentoo.org> cabal-1.18.1.2.ebuild:
+  Stable for sparc, wrt bug #495370
+
+  14 Mar 2014; Agostino Sarubbo <ago@gentoo.org> cabal-1.18.1.2.ebuild:
+  Stable for ppc64, wrt bug #495370
+
+  06 Mar 2014; Chema Alonso <nimiux@gentoo.org> cabal-1.18.1.2.ebuild:
+  Stable for amd64 wrt bug #495370
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> cabal-1.18.1.2.ebuild:
+  x86 stable wrt bug #495370
+
+  22 Feb 2014; Sergei Trofimovich <slyfox@gentoo.org> cabal-1.14.0.ebuild,
+  cabal-1.16.0.3.ebuild:
+  Drop 'virtual/pkgconfig' from RDEPEND. We have moved them to packages that
+  need it.
 
   15 Nov 2013; Patrick Lauer <patrick@gentoo.org> cabal-1.18.1.2.ebuild:
   Whitespace

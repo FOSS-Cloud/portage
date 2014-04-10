@@ -1,6 +1,18 @@
 # ChangeLog for sci-astronomy/esorex
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-astronomy/esorex/ChangeLog,v 1.10 2013/07/25 17:26:47 bicatali Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-astronomy/esorex/ChangeLog,v 1.12 2014/04/04 15:50:20 bicatali Exp $
+
+*esorex-3.10.2 (04 Apr 2014)
+
+  04 Apr 2014; Sebastien Fabbro <fabbros@gentoo.org> +esorex-3.10.2.ebuild,
+  -esorex-3.10-r1.ebuild, -esorex-3.10.ebuild:
+  Version bump
+
+*esorex-3.10-r2 (04 Mar 2014)
+
+  04 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> +esorex-3.10-r2.ebuild,
+  +files/esorex-3.10-cpl60_compat.patch, files/esorex-3.10-fix-autotools.patch:
+  Fixed autoreconf bug #503222, add cpl6 compatibility patch
 
 *esorex-3.10-r1 (25 Jul 2013)
 

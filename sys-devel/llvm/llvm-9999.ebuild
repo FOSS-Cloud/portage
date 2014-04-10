@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-9999.ebuild,v 1.78 2014/01/15 18:08:11 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-9999.ebuild,v 1.82 2014/04/07 20:59:49 mgorny Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} pypy{1_9,2_0} )
+PYTHON_COMPAT=( python{2_6,2_7} pypy pypy2_0 )
 
 inherit cmake-utils eutils flag-o-matic git-r3 multilib multilib-minimal \
 	python-r1 toolchain-funcs pax-utils check-reqs
@@ -202,9 +202,6 @@ multilib_src_configure() {
 		$(use_enable libffi)
 	)
 
-	if use clang; then
-		conf_flags+=( --with-clang-resource-dir=../lib/clang/3.5 )
-	fi
 	# well, it's used only by clang executable c-index-test
 	if multilib_build_binaries && use clang && use xml; then
 		conf_flags+=( XML2CONFIG="$(tc-getPKG_CONFIG) libxml-2.0" )

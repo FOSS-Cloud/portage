@@ -1,6 +1,24 @@
 # ChangeLog for net-libs/libsocialweb
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libsocialweb/ChangeLog,v 1.23 2013/08/30 22:50:39 eva Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libsocialweb/ChangeLog,v 1.28 2014/03/09 12:03:22 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libsocialweb-0.25.21-r1.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> libsocialweb-0.25.21-r1.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libsocialweb-0.25.21-r1.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org> libsocialweb-0.25.21-r1.ebuild:
+  arch stable, bug 888
+
+*libsocialweb-0.25.21-r1 (22 Jan 2014)
+
+  22 Jan 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  libsocialweb-0.25.21.ebuild, +libsocialweb-0.25.21-r1.ebuild:
+  EAPI bump and switch to python*-r1 eclass.
 
   30 Aug 2013; Gilles Dartiguelongue <eva@gentoo.org>
   libsocialweb-0.25.21.ebuild:

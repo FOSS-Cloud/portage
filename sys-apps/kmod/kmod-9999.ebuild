@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-9999.ebuild,v 1.67 2014/01/18 04:33:50 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-9999.ebuild,v 1.72 2014/04/08 09:08:23 ssuominen Exp $
 
 EAPI=5
-inherit eutils multilib
+inherit bash-completion-r1 eutils multilib
 
 if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="git://git.kernel.org/pub/scm/utils/kernel/${PN}/${PN}.git"
@@ -33,10 +33,13 @@ RDEPEND="!sys-apps/module-init-tools
 	openrc? ( !<sys-apps/openrc-0.12 )
 	zlib? ( >=sys-libs/zlib-1.2.6 )" #427130
 DEPEND="${RDEPEND}
-	dev-libs/libxslt
 	doc? ( dev-util/gtk-doc )
 	lzma? ( virtual/pkgconfig )
 	zlib? ( virtual/pkgconfig )"
+if [[ ${PV} == 9999* ]]; then
+	DEPEND="${DEPEND}
+		dev-libs/libxslt"
+fi
 
 src_prepare() {
 	if [ ! -e configure ]; then
@@ -58,6 +61,8 @@ src_prepare() {
 }
 
 src_configure() {
+	# TODO: --disable-python is only because the ebuild hasn't been ported over to
+	# python-r1.eclass yet
 	econf \
 		--bindir=/bin \
 		--with-rootlibdir="/$(get_libdir)" \
@@ -65,9 +70,21 @@ src_configure() {
 		$(use_enable static-libs static) \
 		$(use_enable tools) \
 		$(use_enable debug) \
+		--disable-python \
 		$(use_enable doc gtk-doc) \
 		$(use_with lzma xz) \
-		$(use_with zlib)
+		$(use_with zlib) \
+		--with-bashcompletiondir="$(get_bashcompdir)"
+}
+
+src_compile() {
+	if [[ ${PV} == 9999* ]]; then
+		default
+	else
+		# Force -j1 because of -15-dynamic-kmod.patch, likely caused by lack of eautoreconf
+		# wrt #494806
+		emake -j1
+	fi
 }
 
 src_install() {
@@ -99,20 +116,23 @@ src_install() {
 
 pkg_postinst() {
 	if use openrc; then
-		if [[ -L ${ROOT}etc/runlevels/boot/static-nodes ]]; then
+		if [[ -L ${ROOT%/}/etc/runlevels/boot/static-nodes ]]; then
 			ewarn "Removing old conflicting static-nodes init script from the boot runlevel"
-			rm -f "${ROOT}"etc/runlevels/boot/static-nodes
+			rm -f "${ROOT%/}"/etc/runlevels/boot/static-nodes
 		fi
 
 		# Add kmod to the runlevel automatically if this is the first install of this package.
 		if [[ -z ${REPLACING_VERSIONS} ]]; then
-			if [[ -x ${ROOT}etc/init.d/kmod-static-nodes && -d ${ROOT}etc/runlevels/sysinit ]]; then
-				ln -s /etc/init.d/kmod-static-nodes "${ROOT}"/etc/runlevels/sysinit/kmod-static-nodes
+			if [[ ! -d ${ROOT%/}/etc/runlevels/sysinit ]]; then
+				mkdir -p "${ROOT%/}"/etc/runlevels/sysinit
+			fi
+			if [[ -x ${ROOT%/}/etc/init.d/kmod-static-nodes ]]; then
+				ln -s /etc/init.d/kmod-static-nodes "${ROOT%/}"/etc/runlevels/sysinit/kmod-static-nodes
 			fi
 		fi
 
-		if [[ -e ${ROOT}etc/runlevels/sysinit ]]; then
-			if [[ ! -e ${ROOT}etc/runlevels/sysinit/kmod-static-nodes ]]; then
+		if [[ -e ${ROOT%/}/etc/runlevels/sysinit ]]; then
+			if [[ ! -e ${ROOT%/}/etc/runlevels/sysinit/kmod-static-nodes ]]; then
 				ewarn
 				ewarn "You need to add kmod-static-nodes to the sysinit runlevel for"
 				ewarn "kernel modules to have required static nodes!"

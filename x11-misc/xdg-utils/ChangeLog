@@ -1,6 +1,54 @@
 # ChangeLog for x11-misc/xdg-utils
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdg-utils/ChangeLog,v 1.118 2014/01/18 20:01:40 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdg-utils/ChangeLog,v 1.131 2014/04/06 10:15:24 ssuominen Exp $
+
+  06 Apr 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -xdg-utils-1.1.0_rc1_p20130921.ebuild:
+  old
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for ppc, wrt bug #503488
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for alpha, wrt bug #503488
+
+  18 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for ia64, wrt bug #503488
+
+  14 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for ppc64, wrt bug #503488
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for sparc, wrt bug #503488
+
+  08 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  xdg-utils-1.1.0_rc2.ebuild:
+  arm/x86 stable wrt #503488
+
+  07 Mar 2014; Pacho Ramos <pacho@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  amd64 stable, bug #503488
+
+  07 Mar 2014; Jeroen Roovers <jer@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for HPPA (bug #503488).
+
+  24 Feb 2014; Samuli Suominen <ssuominen@gentoo.org>
+  xdg-utils-1.1.0_rc2.ebuild:
+  Run xmlto with the --skip-validation option wrt #502166
+
+  10 Feb 2014; Samuli Suominen <ssuominen@gentoo.org>
+  xdg-utils-1.1.0_rc2.ebuild:
+  Remove now bogus maintainer comment from the ebuild since the _rc2 tarball is
+  distclean.
+
+  08 Feb 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -xdg-utils-1.1.0_rc1_p20120319.ebuild, -xdg-utils-1.1.0_rc1_p20120916.ebuild:
+  old
+
+*xdg-utils-1.1.0_rc2 (08 Feb 2014)
+
+  08 Feb 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +xdg-utils-1.1.0_rc2.ebuild:
+  Version bump.
 
   18 Jan 2014; Agostino Sarubbo <ago@gentoo.org>
   xdg-utils-1.1.0_rc1_p20130921.ebuild:

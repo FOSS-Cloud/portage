@@ -1,6 +1,25 @@
 # ChangeLog for sys-apps/hwloc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwloc/ChangeLog,v 1.41 2014/01/19 13:46:48 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwloc/ChangeLog,v 1.46 2014/04/08 08:47:02 alexxy Exp $
+
+*hwloc-1.9 (08 Apr 2014)
+
+  08 Apr 2014; Alexey Shvetsov <alexxy@gentoo.org> +hwloc-1.9.ebuild,
+  -hwloc-1.4.2.ebuild, -hwloc-1.5.ebuild:
+  [sys-apps/hwloc] Version bump
+
+  17 Mar 2014; Kacper Kowalik <xarthisius@gentoo.org> metadata.xml:
+  Remove myself from metadata.xml
+
+  28 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  +files/hwloc-1.8.1-gl.patch, hwloc-1.8.1.ebuild:
+  Fixed underlinking for gl flag, thanks Andrew Savchenko bug #502956
+
+*hwloc-1.8.1 (16 Feb 2014)
+
+  16 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> +hwloc-1.8.1.ebuild,
+  metadata.xml:
+  Version bump. Fixes bug #499618 by <teidakankan@gmail.com>
 
   19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hwloc-1.6.1.ebuild:
   Stable for alpha, wrt bug #484320

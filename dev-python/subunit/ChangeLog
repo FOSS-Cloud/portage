@@ -1,6 +1,24 @@
 # ChangeLog for dev-python/subunit
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/subunit/ChangeLog,v 1.37 2013/12/15 19:38:36 floppym Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/subunit/ChangeLog,v 1.41 2014/04/03 00:48:16 idella4 Exp $
+
+  03 Apr 2014; Ian Delaney <idella4@gentoo.org> subunit-0.0.18.ebuild:
+  Drop py2.6, restrict test phase until new dep for tests is keyworded, see Bug
+  506332
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> subunit-0.0.10-r1.ebuild,
+  subunit-0.0.15-r1.ebuild, subunit-0.0.15.ebuild, subunit-0.0.16.ebuild,
+  subunit-0.0.18.ebuild:
+  Add support for the new PyPy slotting.
+
+*subunit-0.0.18 (27 Mar 2014)
+
+  27 Mar 2014; Matthew Thode <prometheanfire@gentoo.org> +subunit-0.0.18.ebuild:
+  dev-python/subunit-0.0.18 added for pbr, which will be added for
+  keystoneclient which will be added for heatclient and on
+
+  19 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> subunit-0.0.9.ebuild:
+  Keyword ~amd64-linux ~x86-linux
 
   15 Dec 2013; Mike Gilbert <floppym@gentoo.org> subunit-0.0.16.ebuild:
   Make static libs optional.

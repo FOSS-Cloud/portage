@@ -1,6 +1,49 @@
 # ChangeLog for dev-perl/Spreadsheet-WriteExcel
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Spreadsheet-WriteExcel/ChangeLog,v 1.74 2013/08/15 06:56:54 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Spreadsheet-WriteExcel/ChangeLog,v 1.84 2014/02/10 15:35:45 zlogene Exp $
+
+  10 Feb 2014; Mikle Kolyada <zlogene@gentoo.org>
+  -Spreadsheet-WriteExcel-2.370.0.ebuild,
+  -Spreadsheet-WriteExcel-2.380.0.ebuild, Spreadsheet-WriteExcel-2.390.0.ebuild:
+  ppc stable wrt bug #495472; Drop old.
+
+  10 Feb 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Spreadsheet-WriteExcel-2.390.0.ebuild:
+  ppc64 stable wrt bug #495472
+
+  10 Feb 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Spreadsheet-WriteExcel-2.390.0.ebuild:
+  ia64 stable wrt bug #495472
+
+  10 Feb 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Spreadsheet-WriteExcel-2.390.0.ebuild:
+  sparc stable wrt bug #495472
+
+  10 Feb 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Spreadsheet-WriteExcel-2.390.0.ebuild:
+  arm stable wrt bug #495472
+
+  08 Feb 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Spreadsheet-WriteExcel-2.390.0.ebuild:
+  x86 stable wrt bug #495472
+
+  08 Feb 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Spreadsheet-WriteExcel-2.390.0.ebuild:
+  amd64 stable wrt bug #495472
+
+  08 Feb 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Spreadsheet-WriteExcel-2.390.0.ebuild:
+  alpha stable wrt bug #495472
+
+  04 Feb 2014; Jeroen Roovers <jer@gentoo.org>
+  Spreadsheet-WriteExcel-2.390.0.ebuild:
+  Stable for HPPA (bug #495472).
+
+*Spreadsheet-WriteExcel-2.400.0 (04 Feb 2014)
+
+  04 Feb 2014; Mikle Kolyada <zlogene@gentoo.org>
+  +Spreadsheet-WriteExcel-2.400.0.ebuild:
+  Version bump
 
 *Spreadsheet-WriteExcel-2.390.0 (15 Aug 2013)
 

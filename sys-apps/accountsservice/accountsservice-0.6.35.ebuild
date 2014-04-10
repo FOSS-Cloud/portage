@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/accountsservice-0.6.35.ebuild,v 1.1 2013/12/04 19:38:30 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/accountsservice-0.6.35.ebuild,v 1.6 2014/03/29 22:01:34 tetromino Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -13,7 +13,7 @@ SRC_URI="http://www.freedesktop.org/software/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86"
 
 IUSE="doc +introspection systemd"
 
@@ -22,7 +22,7 @@ RDEPEND="
 	>=dev-libs/glib-2.34.0:2
 	sys-auth/polkit
 	introspection? ( >=dev-libs/gobject-introspection-0.9.12 )
-	systemd? ( >=sys-apps/systemd-186 )
+	systemd? ( >=sys-apps/systemd-186:0= )
 	!systemd? ( sys-auth/consolekit )
 "
 DEPEND="${RDEPEND}

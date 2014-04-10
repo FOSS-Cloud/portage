@@ -1,6 +1,33 @@
 # ChangeLog for dev-python/dulwich
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/dulwich/ChangeLog,v 1.71 2013/12/13 00:55:17 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/dulwich/ChangeLog,v 1.78 2014/03/31 21:16:47 mgorny Exp $
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> dulwich-0.9.4.ebuild,
+  dulwich-0.9.5.ebuild:
+  Add support for the new PyPy slotting.
+
+  30 Mar 2014; Dirkjan Ochtman <djc@gentoo.org>
+  -files/dulwich-0.8.0-darwin.patch:
+  Remove unused patch.
+
+  30 Mar 2014; Dirkjan Ochtman <djc@gentoo.org> -dulwich-0.8.7-r1.ebuild,
+  -dulwich-0.8.7.ebuild, -dulwich-0.9.0-r1.ebuild, -dulwich-0.9.1.ebuild,
+  -dulwich-0.9.3.ebuild:
+  Remove old versions.
+
+  30 Mar 2014; Dirkjan Ochtman <djc@gentoo.org> metadata.xml:
+  Remove myself as a maintainer.
+
+*dulwich-0.9.5 (15 Mar 2014)
+
+  15 Mar 2014; Tim Harder <radhermit@gentoo.org> +dulwich-0.9.5.ebuild:
+  Version bump.
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> dulwich-0.9.4.ebuild:
+  Stable for x86, wrt bug #502778
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> dulwich-0.9.4.ebuild:
+  amd64 stable, bug #502778
 
 *dulwich-0.9.4 (13 Dec 2013)
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/couchdb/couchdb-1.5.0.ebuild,v 1.1 2013/11/09 10:29:16 djc Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/couchdb/couchdb-1.5.0.ebuild,v 1.6 2014/03/24 15:05:37 ago Exp $
 
 EAPI=5
 
@@ -12,14 +12,15 @@ SRC_URI="mirror://apache/couchdb/source/${PV}/apache-${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="test"
+KEYWORDS="amd64 ppc x86"
+IUSE="selinux test"
 
-RDEPEND=">=dev-libs/icu-4.3.1
+RDEPEND=">=dev-libs/icu-4.3.1:=
 		dev-lang/erlang[ssl]
 		>=dev-libs/openssl-0.9.8j:0
 		>=net-misc/curl-7.18.2
-		<dev-lang/spidermonkey-1.8.7"
+		<dev-lang/spidermonkey-1.8.7
+		selinux? ( sec-policy/selinux-couchdb )"
 
 DEPEND="${RDEPEND}"
 RESTRICT=test

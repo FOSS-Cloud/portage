@@ -1,6 +1,36 @@
 # ChangeLog for dev-ruby/ruby-progressbar
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-progressbar/ChangeLog,v 1.54 2014/01/20 07:16:21 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-progressbar/ChangeLog,v 1.62 2014/04/05 23:27:38 mrueg Exp $
+
+  05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> ruby-progressbar-0.0.10.ebuild,
+  ruby-progressbar-1.4.1.ebuild, ruby-progressbar-1.4.2.ebuild:
+  Remove ree18 and ruby18 target.
+
+  05 Apr 2014; Agostino Sarubbo <ago@gentoo.org> ruby-progressbar-1.4.1.ebuild:
+  Stable for x86, wrt bug #503684
+
+  24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> ruby-progressbar-1.4.1.ebuild:
+  Stable for ppc, wrt bug #503684
+
+  10 Mar 2014; Jeroen Roovers <jer@gentoo.org> ruby-progressbar-1.4.1.ebuild:
+  Stable for HPPA (bug #503684).
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org> ruby-progressbar-1.4.1.ebuild:
+  amd64 stable, bug 503684
+
+  07 Mar 2014; Manuel Rüger <mrueg@gentoo.org> -ruby-progressbar-1.0.2.ebuild:
+  Cleanup old.
+
+*ruby-progressbar-1.4.2 (02 Mar 2014)
+
+  02 Mar 2014; Manuel Rüger <mrueg@gentoo.org> +ruby-progressbar-1.4.2.ebuild,
+  -ruby-progressbar-1.4.0.ebuild:
+  Version bump. Cleanup old.
+
+*ruby-progressbar-1.4.1 (29 Jan 2014)
+
+  29 Jan 2014; Manuel Rüger <mrueg@gentoo.org> +ruby-progressbar-1.4.1.ebuild:
+  Version bump.
 
 *ruby-progressbar-1.4.0 (20 Jan 2014)
 

@@ -1,6 +1,28 @@
 # ChangeLog for app-editors/gvim
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/gvim/ChangeLog,v 1.420 2013/12/23 10:59:13 hasufell Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/gvim/ChangeLog,v 1.424 2014/03/10 19:28:51 radhermit Exp $
+
+*gvim-7.4.193 (10 Mar 2014)
+
+  10 Mar 2014; Tim Harder <radhermit@gentoo.org> +gvim-7.4.193.ebuild,
+  gvim-9999.ebuild, +files/gvim-7.4.193-fix-tests.patch:
+  Version bump, add support for user patching (bug #503328).
+
+*gvim-7.4.169 (06 Feb 2014)
+
+  06 Feb 2014; Tim Harder <radhermit@gentoo.org> +gvim-7.4.169.ebuild,
+  gvim-9999.ebuild:
+  Version bump. Support ruby:2.1, fix lua dep (bug #500376), and force lua
+  support to be enabled for luajit (bug #499950).
+
+  23 Jan 2014; Tim Harder <radhermit@gentoo.org> -gvim-7.4.22.ebuild,
+  -gvim-7.4.41.ebuild, -gvim-7.4.94.ebuild, -gvim-7.4.131.ebuild:
+  Remove old.
+
+*gvim-7.4.155 (23 Jan 2014)
+
+  23 Jan 2014; Tim Harder <radhermit@gentoo.org> +gvim-7.4.155.ebuild:
+  Version bump.
 
   23 Dec 2013; Julian Ospald <hasufell@gentoo.org> gvim-7.4.22.ebuild,
   gvim-7.4.41.ebuild, gvim-7.4.52.ebuild, gvim-7.4.94.ebuild,

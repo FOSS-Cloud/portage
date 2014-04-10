@@ -1,5 +1,5 @@
 #!/sbin/runscript
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 depend() {
@@ -7,20 +7,31 @@ depend() {
 	need xencommons
 }
 
+xenstored_dir_check() {
+	# create dir dynamically
+	local i
+	for i in /var/lock/subsys /run/xen /run/xend/boot /run/xenstored; do
+		[ -x $i ] || mkdir -p $i
+	done
+}
+
 start() {
-	[ -x /run/xen ] || mkdir -p /run/xen
 	ebegin "Starting xenstored daemon"
+	xenstored_dir_check
 	start-stop-daemon --start --exec /usr/sbin/xenstored \
 		--pidfile /run/xenstored.pid \
 		-- --pid-file=/run/xenstored.pid \
 		$XENSTORED_OPTS
-	until xenstore-exists \ || ((15 < ++i))
+	until xenstore-exists / || ((15 < ++i))
 	do
 		echo -n .
 		sleep 1
 	done
 	einfo "Setting domain0 name record"
 	/usr/bin/xenstore-write "/local/domain/0/name" "Domain-0"
+	local V=$(xl info| awk "/xen_minor/ { print \$3 }")
+	[ $V -ge 4 ] && /usr/bin/xenstore-write "/local/domain/0/domid" 0
+
 	eend $*
 }
 

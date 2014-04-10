@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/gentoo-systemd-integration/gentoo-systemd-integration-9999.ebuild,v 1.5 2013/09/22 08:36:24 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/gentoo-systemd-integration/gentoo-systemd-integration-9999.ebuild,v 1.7 2014/04/06 06:17:33 pacho Exp $
 
 EAPI=5
 
@@ -18,10 +18,12 @@ SRC_URI="mirror://bitbucket/mgorny/${PN}/downloads/${P}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE=""
 
-RDEPEND=">=sys-apps/systemd-207"
+DEPEND="!sys-fs/udev"
+RDEPEND="${DEPEND}
+	>=sys-apps/systemd-207"
 
 #if LIVE
 SRC_URI=

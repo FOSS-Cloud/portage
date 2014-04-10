@@ -1,6 +1,24 @@
 # ChangeLog for dev-python/pypy-bin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy-bin/ChangeLog,v 1.7 2013/11/17 03:36:33 prometheanfire Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy-bin/ChangeLog,v 1.11 2014/04/08 15:33:13 mgorny Exp $
+
+  08 Apr 2014; Michał Górny <mgorny@gentoo.org> pypy-bin-2.0.2-r1.ebuild,
+  pypy-bin-2.0.2.ebuild:
+  Update/fix dependencies.
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> pypy-bin-2.0.2-r1.ebuild,
+  pypy-bin-2.0.2.ebuild:
+  Add support for the new PyPy slotting.
+
+*pypy-bin-2.0.2-r1 (30 Mar 2014)
+
+  30 Mar 2014; Michał Górny <mgorny@gentoo.org> +pypy-bin-2.0.2-r1.ebuild,
+  pypy-bin-2.0.2.ebuild:
+  Backport the :0 slot switch to pypy-2.0.2 since we have binpackages for this
+  version. Update deps.
+
+  21 Feb 2014; Michał Górny <mgorny@gentoo.org> pypy-bin-2.0.2.ebuild:
+  Bump openssl dep since the old version was cleaned.
 
   17 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> pypy-bin-2.0.2.ebuild:
   pypy-bin fix for hardened profiles

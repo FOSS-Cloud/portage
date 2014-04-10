@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ruby/ruby-2.0.0_p353-r1.ebuild,v 1.2 2014/01/22 19:34:07 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/ruby/ruby-2.0.0_p353-r1.ebuild,v 1.4 2014/04/09 08:57:36 graaff Exp $
 
 EAPI=5
 
@@ -41,7 +41,10 @@ RDEPEND="
 	gdbm? ( sys-libs/gdbm )
 	ssl? ( dev-libs/openssl )
 	socks5? ( >=net-proxy/dante-1.1.13 )
-	tk? ( <dev-lang/tk-8.6[threads] )
+	tk? (
+		<dev-lang/tcl-8.6[threads]
+		<dev-lang/tk-8.6[threads]
+	)
 	ncurses? ( sys-libs/ncurses )
 	readline?  ( sys-libs/readline )
 	dev-libs/libyaml
@@ -217,7 +220,7 @@ pkg_postinst() {
 
 	elog
 	elog "To switch between available Ruby profiles, execute as root:"
-	elog "\teselect ruby set ruby(18|19|...)"
+	elog "\teselect ruby set ruby(19|20|...)"
 	elog
 }
 

@@ -9,6 +9,10 @@ klibc
 # Unmask the Altivec instruction set
 -altivec
 
+# Unmask ABI flags for this arch.
+-abi_ppc_32
+-abi_ppc_64
+
 # Incompatible Use Flags
 #
 # These use-flags are x86/amd64 only, please feel free to make a bug report if
@@ -204,10 +208,6 @@ clvm
 
 # for gnome 3.6 keywording
 -zeitgeist
-
-# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
-# virtual/opencl is not keyworded
-opencl
 
 # Pacho Ramos <pacho@gentoo.org> (08 Jan 2014)
 # Unmask systemd since it is keyworded here.

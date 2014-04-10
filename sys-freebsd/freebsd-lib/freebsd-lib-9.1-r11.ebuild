@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-freebsd/freebsd-lib/freebsd-lib-9.1-r11.ebuild,v 1.1 2013/08/09 14:27:27 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-freebsd/freebsd-lib/freebsd-lib-9.1-r11.ebuild,v 1.3 2014/03/24 17:49:33 ssuominen Exp $
 
 EAPI=5
 
@@ -30,7 +30,7 @@ if [ "${CATEGORY#*cross-}" = "${CATEGORY}" ]; then
 	RDEPEND="ssl? ( dev-libs/openssl )
 		hesiod? ( net-dns/hesiod )
 		kerberos? ( app-crypt/heimdal )
-		usb? ( !dev-libs/libusb !dev-libs/libusbx )
+		usb? ( !dev-libs/libusb )
 		zfs? ( =sys-freebsd/freebsd-cddl-${RV}* )
 		>=dev-libs/expat-2.0.1
 		!sys-libs/libutempter
@@ -57,6 +57,8 @@ fi
 IUSE="atm bluetooth ssl hesiod ipv6 kerberos usb netware
 	build crosscompile_opts_headers-only zfs
 	userland_GNU userland_BSD"
+
+QA_DT_NEEDED="lib/libc.so.7"
 
 pkg_setup() {
 	[ -c /dev/zero ] || \
@@ -566,6 +568,9 @@ src_install() {
 	# Install ttys file
 	local MACHINE="$(tc-arch-kernel)"
 	doins "etc.${MACHINE}"/*
+
+	# unset to run QA check properly
+	unset ESED
 }
 
 install_includes()

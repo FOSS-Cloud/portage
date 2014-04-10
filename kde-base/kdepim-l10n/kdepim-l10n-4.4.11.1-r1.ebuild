@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdepim-l10n/kdepim-l10n-4.4.11.1-r1.ebuild,v 1.10 2013/10/10 05:26:52 creffett Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdepim-l10n/kdepim-l10n-4.4.11.1-r1.ebuild,v 1.12 2014/04/05 18:21:29 dilfridge Exp $
 
-EAPI=4
+EAPI=5
 KDE_MINIMAL="4.6"
 
 inherit kde4-base
@@ -13,8 +13,7 @@ HOMEPAGE="http://l10n.kde.org"
 DEPEND="
 	sys-devel/gettext
 "
-RDEPEND=""
-add_blocker kde-l10n 4.5.50
+RDEPEND="!<=kde-base/kde-l10n-4.5.50:4"
 
 KEYWORDS="amd64 ppc x86 ~amd64-linux ~x86-linux"
 IUSE=""

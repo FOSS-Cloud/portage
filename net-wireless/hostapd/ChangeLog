@@ -1,6 +1,15 @@
 # ChangeLog for net-wireless/hostapd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/hostapd/ChangeLog,v 1.143 2013/09/25 17:27:52 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/hostapd/ChangeLog,v 1.145 2014/03/21 19:47:14 gurligebis Exp $
+
+  21 Mar 2014; <gurligebis@gentoo.org> files/hostapd-init.d:
+  Improving init.d script and moved from /var/run to /run, fixing bug #505166
+
+*hostapd-2.1 (12 Feb 2014)
+
+  12 Feb 2014; <gurligebis@gentoo.org> -hostapd-2.0.ebuild,
+  +hostapd-2.1.ebuild:
+  Bumping to 2.1
 
   25 Sep 2013; Agostino Sarubbo <ago@gentoo.org> hostapd-2.0-r1.ebuild:
   Stable for ppc, wrt bug #485340

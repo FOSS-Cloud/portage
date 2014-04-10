@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/qingy/qingy-1.0.0.ebuild,v 1.6 2013/03/05 10:10:31 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/qingy/qingy-1.0.0.ebuild,v 1.8 2014/03/01 22:37:55 mgorny Exp $
 
 EAPI=5
 inherit autotools elisp-common eutils pam
@@ -10,7 +10,8 @@ GENTOO_THEME_VERSION=2.1
 DESCRIPTION="a DirectFB getty replacement"
 HOMEPAGE="http://qingy.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2
-	mirror://gentoo/${PN}-gentoo-theme-${GENTOO_THEME_VERSION}.tar.bz2"
+	mirror://gentoo/${PN}-gentoo-theme-${GENTOO_THEME_VERSION}.tar.bz2
+	http://dev.gentoo.org/~gienah/2big4tree/sys-apps/qingy/${P}-screensavers.patch.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -19,7 +20,7 @@ IUSE="crypt directfb emacs gpm opensslcrypt pam static X"
 
 RDEPEND=">=sys-libs/ncurses-5.7-r7:=
 	opensslcrypt? ( dev-libs/openssl:0= )
-	crypt? ( >=dev-libs/libgcrypt-1.2.1:= )
+	crypt? ( >=dev-libs/libgcrypt-1.2.1:0= )
 	directfb? ( >=dev-libs/DirectFB-1.4.2[fbcon,jpeg,png,truetype] )
 	emacs? ( virtual/emacs )
 	pam? ( >=sys-libs/pam-0.75-r11 )
@@ -38,6 +39,8 @@ SITEFILE=50${PN}-gentoo.el
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-tinfo.patch
+	# bug #359637 and bug #462634 - fixes from upstream
+	epatch "${DISTDIR}"/${P}-screensavers.patch.gz
 	eautoreconf
 }
 

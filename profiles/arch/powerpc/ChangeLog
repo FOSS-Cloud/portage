@@ -1,6 +1,34 @@
 # ChangeLog for Gentoo/PPC profile directory
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ChangeLog,v 1.257 2013/10/27 06:22:54 gienah Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ChangeLog,v 1.264 2014/03/29 03:02:26 vapier Exp $
+
+  29 Mar 2014; Mike Frysinger <vapier@gentoo.org> +make.defaults,
+  ppc32/make.defaults, ppc32/use.force, ppc64/make.defaults, ppc64/use.force,
+  use.mask:
+  Add ABI_PPC defines.
+
+  25 Mar 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ppc32/use.stable.mask:
+  stable.mask opencl flag on ppc32
+
+  19 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> +eapi, +ppc32/eapi,
+  +ppc32/pegasos/eapi, +ppc64/32ul/eapi, +ppc64/64ul/eapi, +ppc64/eapi:
+  Increase EAPI to 5
+
+  05 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask opencl flag for two more packages, bug #500326.
+
+  04 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Unmask opencl for powerpc.
+
+  04 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask opencl flag for imagemagick and johntheripper
+
+  04 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ppc64/64ul/use.mask:
+  Mask opencl flag on ppc64, in preparation for unmasking it on ppc
 
   25 Oct 2013; Davide Pesavento <pesa@gentoo.org> package.use.force:
   Remove obsolete entry.

@@ -1,6 +1,30 @@
 # ChangeLog for dev-python/py
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/py/ChangeLog,v 1.161 2013/10/30 08:00:35 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/py/ChangeLog,v 1.167 2014/04/02 20:23:43 radhermit Exp $
+
+  02 Apr 2014; Tim Harder <radhermit@gentoo.org> py-1.4.20.ebuild:
+  Add python3_4 support.
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> py-1.4.12-r1.ebuild,
+  py-1.4.13.ebuild, py-1.4.14.ebuild, py-1.4.15.ebuild, py-1.4.17.ebuild,
+  py-1.4.18.ebuild, py-1.4.20.ebuild:
+  Add support for the new PyPy slotting.
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> py-1.4.20.ebuild:
+  Stable for HPPA (bug #506042).
+
+  28 Mar 2014; Ian Delaney <idella4@gentoo.org> -py-1.4.19.ebuild:
+  rm 1.4.19 wrt Bug #494496
+
+*py-1.4.20 (01 Feb 2014)
+
+  01 Feb 2014; Tim Harder <radhermit@gentoo.org> +py-1.4.20.ebuild:
+  Version bump.
+
+*py-1.4.19 (29 Jan 2014)
+
+  29 Jan 2014; Ian Delaney <idella4@gentoo.org> +py-1.4.19.ebuild:
+  bump; add IUSE doc, doc build & install, update test phase
 
 *py-1.4.18 (30 Oct 2013)
 

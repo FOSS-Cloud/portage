@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyatspi/pyatspi-2.10.0.ebuild,v 1.1 2013/12/24 16:04:57 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyatspi/pyatspi-2.10.0.ebuild,v 1.7 2014/03/28 02:21:33 jer Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_2,3_3} )
 
 inherit eutils gnome2 python-r1
 
@@ -14,7 +14,7 @@ HOMEPAGE="http://live.gnome.org/Accessibility"
 # Note: only some of the tests are GPL-licensed, everything else is LGPL
 LICENSE="LGPL-2 GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm hppa ~ia64 ~ppc ~ppc64 ~sparc x86"
 IUSE="" # test
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 

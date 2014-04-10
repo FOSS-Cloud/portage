@@ -1,6 +1,21 @@
 # ChangeLog for dev-ruby/tins
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/tins/ChangeLog,v 1.32 2014/01/19 09:54:58 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/tins/ChangeLog,v 1.36 2014/02/24 01:22:22 mrueg Exp $
+
+  24 Feb 2014; Manuel Rüger <mrueg@gentoo.org> -files/tins-0.4.3-gentoo.patch,
+  -tins-0.6.0.ebuild:
+  Cleanup old.
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> tins-0.13.1.ebuild:
+  x86 stable wrt bug #490178
+
+  20 Feb 2014; Jeroen Roovers <jer@gentoo.org> tins-0.13.1.ebuild:
+  Stable for HPPA (bug #490178).
+
+*tins-0.13.2 (05 Feb 2014)
+
+  05 Feb 2014; Manuel Rüger <mrueg@gentoo.org> +tins-0.13.2.ebuild:
+  Version bump. Add ruby21 target.
 
   19 Jan 2014; Pacho Ramos <pacho@gentoo.org> tins-0.13.1.ebuild:
   amd64 stable, bug 490178

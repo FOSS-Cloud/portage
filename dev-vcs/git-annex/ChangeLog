@@ -1,6 +1,37 @@
 # ChangeLog for dev-vcs/git-annex
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git-annex/ChangeLog,v 1.19 2013/12/12 02:26:47 gienah Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/git-annex/ChangeLog,v 1.25 2014/04/09 15:58:40 qnikst Exp $
+
+*git-annex-5.20140405 (09 Apr 2014)
+
+  09 Apr 2014; Alexander Vershilov <qnikst@gentoo.org>
+  +git-annex-5.20140405.ebuild, metadata.xml:
+  bump up to 5.20140405
+
+  21 Mar 2014; Alexander Vershilov <qnikst@gentoo.org>
+  git-annex-5.20140306-r1.ebuild:
+  change desktop-icon folder
+
+  18 Mar 2014; Alexander Vershilov <qnikst@gentoo.org>
+  git-annex-5.20140306-r1.ebuild:
+  move git-annex webapp desktop icon to utils, bug #486622
+
+*git-annex-5.20140306-r1 (15 Mar 2014)
+
+  15 Mar 2014; Alexander Vershilov <qnikst@gentoo.org>
+  +git-annex-5.20140306-r1.ebuild, -git-annex-5.20140306.ebuild:
+  fix assistant dependency, #504610
+
+*git-annex-5.20140306 (12 Mar 2014)
+
+  12 Mar 2014; Alexander Vershilov <qnikst@gentoo.org>
+  +git-annex-5.20140306.ebuild, -git-annex-3.20111203-r1.ebuild,
+  -git-annex-3.20120605.ebuild, -git-annex-5.20131130.ebuild, metadata.xml:
+  Add new version, drop old #500688
+
+  10 Feb 2014; Alexander Vershilov <qnikst@gentoo.org>
+  git-annex-5.20131130.ebuild:
+  add missing aeson dependency due to #495162
 
   12 Dec 2013; Mark Wright <gienah@gentoo.org> git-annex-5.20131130.ebuild:
   git-annex-5.20131130 ikiwiki dep conditional on doc use flag. install-mans

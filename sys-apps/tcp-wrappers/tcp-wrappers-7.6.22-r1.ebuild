@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/tcp-wrappers/tcp-wrappers-7.6.22-r1.ebuild,v 1.3 2014/01/18 03:46:43 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/tcp-wrappers/tcp-wrappers-7.6.22-r1.ebuild,v 1.9 2014/04/05 11:07:39 ago Exp $
 
 EAPI="4"
 
@@ -16,7 +16,7 @@ SRC_URI="ftp://ftp.porcupine.org/pub/security/${MY_P}.tar.gz
 
 LICENSE="tcp_wrappers_license"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~arm-linux ~ia64-linux ~x86-linux"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 m68k ~mips ~ppc ~ppc64 s390 sh ~sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~arm-linux ~ia64-linux ~x86-linux"
 IUSE="ipv6 netgroups static-libs"
 
 RDEPEND="
@@ -37,6 +37,8 @@ src_prepare() {
 }
 
 temake() {
+	local mycppflags="-DHAVE_WEAKSYMS -DHAVE_STRERROR -DSYS_ERRLIST_DEFINED"
+	use ipv6 && mycppflags+=" -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len"
 	emake \
 		REAL_DAEMON_DIR="${EPREFIX}"/usr/sbin \
 		TLI= VSYSLOG= PARANOID= BUGS= \
@@ -51,15 +53,13 @@ temake() {
 		AR="$(tc-getAR)" ARFLAGS=rc \
 		CC="$(tc-getCC)" \
 		RANLIB="$(tc-getRANLIB)" \
-		COPTS="${CFLAGS} ${CPPFLAGS}" \
+		COPTS="${CFLAGS} ${CPPFLAGS} ${mycppflags}" \
 		LDFLAGS="${LDFLAGS}" \
 		"$@" || die
 }
 
 multilib_src_configure() {
 	tc-export AR RANLIB
-	append-cppflags -DHAVE_WEAKSYMS -DHAVE_STRERROR -DSYS_ERRLIST_DEFINED
-	use ipv6 && append-cppflags -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len
 	temake config-check
 }
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/gvfs-1.12.3-r1.ebuild,v 1.13 2013/04/09 16:43:17 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gvfs/gvfs-1.12.3-r1.ebuild,v 1.16 2014/04/05 18:02:15 tetromino Exp $
 
 EAPI=5
 GCONF_DEBUG=no
@@ -26,7 +26,7 @@ RDEPEND=">=dev-libs/glib-2.31.0:2
 	sys-apps/dbus:=
 	dev-libs/libxml2:=
 	net-misc/openssh
-	afp? ( >=dev-libs/libgcrypt-1.2.2:= )
+	afp? ( >=dev-libs/libgcrypt-1.2.2:0= )
 	archive? ( app-arch/libarchive:= )
 	avahi? ( >=net-dns/avahi-0.6 )
 	bluetooth? (
@@ -46,7 +46,7 @@ RDEPEND=">=dev-libs/glib-2.31.0:2
 		>=app-pda/libimobiledevice-1.1.0:=
 		>=app-pda/libplist-1:= )
 	udev? (
-		cdda? ( >=dev-libs/libcdio-0.78.2:=[-minimal] )
+		cdda? ( || ( dev-libs/libcdio-paranoia <dev-libs/libcdio-0.90[-minimal] ) )
 		virtual/udev:=[gudev] )
 	udisks? ( >=sys-fs/udisks-1.90:2 )
 	http? ( >=net-libs/libsoup-gnome-2.26.0:= )
@@ -81,6 +81,15 @@ src_prepare() {
 		$(use_enable gnome-keyring keyring)
 		$(use_enable samba)
 		$(use_enable udisks udisks2)"
+
+	epatch "${FILESDIR}/${P}-libcdio-0.84.patch"
+
+	# Replace me with correct patch, see #452400
+	if has_version dev-libs/libcdio-paranoia; then
+	sed -i \
+		-e '/#include/s:cdio/paranoia.h:cdio/paranoia/paranoia.h:' \
+		daemon/gvfsbackendcdda.c || die
+	fi
 
 	# Conditional patching purely to avoid eautoreconf
 	if use gphoto2; then

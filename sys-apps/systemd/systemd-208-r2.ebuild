@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-208-r2.ebuild,v 1.14 2014/01/20 22:53:07 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-208-r2.ebuild,v 1.20 2014/03/01 22:37:05 mgorny Exp $
 
 EAPI=5
 
@@ -17,7 +17,7 @@ SRC_URI="http://www.freedesktop.org/software/systemd/${P}.tar.xz -> ${P}-r1.tar.
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0/1"
-KEYWORDS="~alpha amd64 arm ~ia64 ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="alpha amd64 arm ia64 ppc ppc64 sparc x86"
 IUSE="acl audit cryptsetup doc +firmware-loader gcrypt gudev http introspection
 	+kmod lzma pam policykit python qrcode selinux tcpd test
 	vanilla xattr"
@@ -30,7 +30,7 @@ COMMON_DEPEND=">=sys-apps/dbus-1.6.8-r1
 	acl? ( sys-apps/acl )
 	audit? ( >=sys-process/audit-2 )
 	cryptsetup? ( >=sys-fs/cryptsetup-1.6 )
-	gcrypt? ( >=dev-libs/libgcrypt-1.4.5 )
+	gcrypt? ( >=dev-libs/libgcrypt-1.4.5:0 )
 	gudev? ( >=dev-libs/glib-2[${MULTILIB_USEDEP}] )
 	http? ( net-libs/libmicrohttpd )
 	introspection? ( >=dev-libs/gobject-introspection-1.31.1 )

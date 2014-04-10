@@ -1,6 +1,51 @@
 # ChangeLog for sys-kernel/openvz-sources
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/openvz-sources/ChangeLog,v 1.212 2013/12/27 16:22:48 maksbotan Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/openvz-sources/ChangeLog,v 1.220 2014/03/31 09:47:50 qnikst Exp $
+
+*openvz-sources-2.6.32.85.20 (31 Mar 2014)
+
+  31 Mar 2014; Alexander Vershilov <qnikst@gentoo.org>
+  +openvz-sources-2.6.32.85.20.ebuild, -openvz-sources-2.6.32.83.2.ebuild,
+  -openvz-sources-2.6.32.84.12.ebuild, -openvz-sources-2.6.32.84.17.ebuild,
+  -openvz-sources-2.6.32.84.20.ebuild, -openvz-sources-2.6.32.84.25.ebuild,
+  -openvz-sources-2.6.32.84.26.ebuild:
+  bump due to 505860, drop old
+
+  28 Mar 2014; Agostino Sarubbo <ago@gentoo.org>
+  openvz-sources-2.6.32.85.17.ebuild:
+  Stable for x86, wrt bug #504724
+
+  28 Mar 2014; Agostino Sarubbo <ago@gentoo.org>
+  openvz-sources-2.6.32.85.17.ebuild:
+  Stable for amd64, wrt bug #504724
+
+*openvz-sources-2.6.32.85.17 (15 Mar 2014)
+
+  15 Mar 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +openvz-sources-2.6.32.85.17.ebuild:
+  Bump to 2.6.32.85.17, thanks to slepnoga.
+
+*openvz-sources-2.6.32.84.26 (24 Feb 2014)
+
+  24 Feb 2014; Vladimir Smirnov +openvz-sources-2.6.32.84.26.ebuild:
+  Version bump, requested by maintainer.
+
+*openvz-sources-2.6.32.84.25 (17 Feb 2014)
+
+  17 Feb 2014; Vladimir Smirnov +openvz-sources-2.6.32.84.25.ebuild:
+  Version bump, requested by maintainer.
+
+*openvz-sources-2.6.32.84.20 (08 Feb 2014)
+
+  08 Feb 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +openvz-sources-2.6.32.84.20.ebuild:
+  Bump to 2.6.32.84.20, thanks to slepnoga
+
+*openvz-sources-2.6.32.84.17 (27 Jan 2014)
+
+  27 Jan 2014; Vladimir Smirnov <civil@gentoo.org>
+  +openvz-sources-2.6.32.84.17.ebuild:
+  Version bump, requested by maintainer.
 
 *openvz-sources-2.6.32.84.12 (27 Dec 2013)
 

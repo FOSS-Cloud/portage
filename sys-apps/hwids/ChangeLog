@@ -1,6 +1,46 @@
 # ChangeLog for sys-apps/hwids
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.129 2014/01/18 04:55:37 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/ChangeLog,v 1.139 2014/03/28 04:33:56 ssuominen Exp $
+
+  28 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> hwids-20140317.ebuild:
+  amd64/arm/x86 stable wrt #506026
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> hwids-20140317.ebuild:
+  Stable for HPPA (bug #506026).
+
+*hwids-20140317 (17 Mar 2014)
+
+  17 Mar 2014; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20140317.ebuild:
+  Version bump.
+
+*hwids-20140304 (04 Mar 2014)
+
+  04 Mar 2014; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20140304.ebuild,
+  -hwids-20140206.ebuild:
+  Version bump.
+
+*hwids-20140228 (01 Mar 2014)
+
+  01 Mar 2014; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20140228.ebuild:
+  Version bump.
+
+*hwids-20140206 (06 Feb 2014)
+
+  06 Feb 2014; Diego E. Pettenò <flameeyes@gentoo.org> +hwids-20140206.ebuild,
+  -hwids-20130329.ebuild, -hwids-20131226.ebuild, -hwids-20140103.ebuild:
+  Version bump; remove old.
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hwids-20130915.1.ebuild:
+  Stable for sparc, wrt bug #487342
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hwids-20130915.1.ebuild:
+  Stable for ia64, wrt bug #487342
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hwids-20130915.1.ebuild:
+  Stable for ppc64, wrt bug #487342
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> hwids-20130915.1.ebuild:
+  Stable for ppc, wrt bug #487342
 
   18 Jan 2014; Mike Frysinger <vapier@gentoo.org> hwids-20130915.1.ebuild,
   hwids-20131226.ebuild, hwids-20140103.ebuild:

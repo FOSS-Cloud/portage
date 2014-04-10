@@ -1,6 +1,24 @@
 # ChangeLog for net-libs/libmicrohttpd
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libmicrohttpd/ChangeLog,v 1.59 2014/01/19 10:47:36 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libmicrohttpd/ChangeLog,v 1.63 2014/03/27 14:54:26 floppym Exp $
+
+  27 Mar 2014; Mike Gilbert <floppym@gentoo.org> libmicrohttpd-0.9.33.ebuild,
+  libmicrohttpd-0.9.34.ebuild:
+  Add ~sparc keyword to newer ebuilds.
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> libmicrohttpd-0.9.32.ebuild,
+  libmicrohttpd-0.9.33.ebuild, libmicrohttpd-0.9.34.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+*libmicrohttpd-0.9.34 (24 Feb 2014)
+
+  24 Feb 2014; Anthony G. Basile <blueness@gentoo.org>
+  +libmicrohttpd-0.9.34.ebuild,
+  -files/libmicrohttpd-0.9.28-fix-no-messages.patch:
+  Version bump
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.32.ebuild:
+  Stable for alpha, wrt bug #487344
 
   19 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.32.ebuild:
   Stable for sparc, wrt bug #498494

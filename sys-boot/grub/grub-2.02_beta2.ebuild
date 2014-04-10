@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/grub-2.02_beta2.ebuild,v 1.1 2013/12/24 22:42:11 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/grub-2.02_beta2.ebuild,v 1.5 2014/03/15 03:31:16 floppym Exp $
 
 EAPI=5
 
@@ -18,7 +18,8 @@ inherit autotools-utils bash-completion-r1 eutils flag-o-matic mount-boot multib
 
 if [[ ${PV} != 9999 ]]; then
 	if [[ ${PV} == *_alpha* || ${PV} == *_beta* || ${PV} == *_rc* ]]; then
-		MY_P="${P/_/~}"
+		# The quote style is to work with <=bash-4.2 and >=bash-4.3 #503860
+		MY_P=${P/_/'~'}
 		SRC_URI="mirror://gnu-alpha/${PN}/${MY_P}.tar.xz"
 		S=${WORKDIR}/${MY_P}
 	else
@@ -58,7 +59,7 @@ GRUB_ALL_PLATFORMS=(
 	# amd64, x86, ppc, ppc64:
 	ieee1275
 	# amd64, x86:
-	coreboot multiboot efi-32 pc qemu
+	coreboot multiboot efi-32 pc qemu xen
 	# amd64, ia64:
 	efi-64
 )
@@ -89,6 +90,7 @@ DEPEND="${RDEPEND}
 	sys-devel/bison
 	sys-apps/help2man
 	sys-apps/texinfo
+	grub_platforms_xen? ( app-emulation/xen-tools )
 	static? (
 		app-arch/xz-utils[static-libs(+)]
 		truetype? (
@@ -109,6 +111,7 @@ RDEPEND+="
 		grub_platforms_efi-64? ( sys-boot/efibootmgr )
 	)
 	!multislot? ( !sys-boot/grub:0 )
+	nls? ( sys-devel/gettext )
 "
 
 STRIP_MASK="*/grub/*/*.{mod,img}"
@@ -283,9 +286,14 @@ src_install() {
 pkg_postinst() {
 	mount-boot_mount_boot_partition
 
-	if [[ -e "${ROOT%/}/boot/grub2/grub.cfg" && ! -e "${ROOT%/}/boot/grub/grub.cfg" ]]; then
-		mkdir -p "${ROOT%/}/boot/grub"
-		ln -s ../grub2/grub.cfg "${ROOT%/}/boot/grub/grub.cfg"
+	if [[ -e "${ROOT%/}/boot/grub2/grub.cfg"  ]]; then
+		ewarn "The grub directory has changed from /boot/grub2 to /boot/grub."
+		ewarn "Please run grub2-install and grub2-mkconfig -o /boot/grub/grub.cfg."
+
+		if [[ ! -e "${ROOT%/}/boot/grub/grub.cfg" ]]; then
+			mkdir -p "${ROOT%/}/boot/grub"
+			ln -s ../grub2/grub.cfg "${ROOT%/}/boot/grub/grub.cfg"
+		fi
 	fi
 
 	mount-boot_pkg_postinst
@@ -305,14 +313,5 @@ pkg_postinst() {
 		if ! has_version dev-libs/libisoburn; then
 			elog "Install dev-libs/libisoburn to enable creation of rescue media using grub2-mkrescue."
 		fi
-	else
-		local v
-		for v in ${REPLACING_VERSIONS}; do
-			if use multislot && ! version_is_at_least 2.00_p5107-r1 ${v}; then
-				ewarn "The grub directory has changed from /boot/grub2 to /boot/grub."
-				ewarn "Please run grub2-install and grub2-mkconfig -o /boot/grub/grub.cfg."
-				break
-			fi
-		done
 	fi
 }

@@ -1,6 +1,38 @@
 # ChangeLog for x11-libs/libxcb
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libxcb/ChangeLog,v 1.128 2014/01/11 11:15:20 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libxcb/ChangeLog,v 1.136 2014/04/08 20:03:44 ago Exp $
+
+  08 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libxcb-1.10.ebuild:
+  Stable for ppc, wrt bug #500368
+
+  06 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libxcb-1.10.ebuild:
+  Stable for x86, wrt bug #500368
+
+  29 Mar 2014; Matt Turner <mattst88@gentoo.org> libxcb-1.10.ebuild:
+  alpha stable, bug #500368.
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org> libxcb-1.10.ebuild:
+  Stable for HPPA (bug #500368).
+
+  27 Mar 2014; Agostino Sarubbo <ago@gentoo.org> libxcb-1.10.ebuild:
+  Stable for amd64, wrt bug #500368
+
+  26 Mar 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -files/libxcb-1.7-interix.patch, -files/libxcb-1.8-waitall-hang.patch,
+  -files/libxcb-1.8.1-multithread-deadlock.patch,
+  -files/libxcb-1.9-python-3-exception.patch,
+  -files/libxcb-1.9-python-3-iteritems.patch, -libxcb-1.7.ebuild,
+  -libxcb-1.8-r1.ebuild, -libxcb-1.8.1-r1.ebuild, -libxcb-1.8.1.ebuild,
+  -libxcb-1.8.ebuild, -libxcb-1.9-r1.ebuild, -libxcb-1.9.ebuild:
+  Remove old/vulnerable versions, bug #471098.
+
+  27 Jan 2014; Mike Gilbert <floppym@gentoo.org> libxcb-1.10.ebuild:
+  Drop python3_1 (again).
+
+*libxcb-1.10 (26 Jan 2014)
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org> +libxcb-1.10.ebuild:
+  Version bumped to 1.10, bug 496800.
 
 *libxcb-1.9.3-r1 (11 Jan 2014)
 

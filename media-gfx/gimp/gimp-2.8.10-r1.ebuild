@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/gimp/gimp-2.8.10-r1.ebuild,v 1.1 2013/12/10 09:12:09 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/gimp/gimp-2.8.10-r1.ebuild,v 1.8 2014/04/05 11:40:27 ago Exp $
 
 EAPI=5
 PYTHON_COMPAT=( python2_{6,7} )
@@ -13,7 +13,7 @@ SRC_URI="mirror://gimp/v$(get_version_component_range 1-2)/${P}.tar.bz2
 	https://git.gnome.org/browse/gimp/patch/?id=6c73f28b6d87a2afd11974552a075bffec52347f -> ${P}-freetype251.patch"
 LICENSE="GPL-3 LGPL-3"
 SLOT="2"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 ~arm hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc x86 ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
 
 LANGS="am ar ast az be bg br ca ca@valencia cs csb da de dz el en_CA en_GB eo es et eu fa fi fr ga gl gu he hi hr hu id is it ja ka kk km kn ko lt lv mk ml ms my nb nds ne nl nn oc pa pl pt pt_BR ro ru rw si sk sl sr sr@latin sv ta te th tr tt uk vi xh yi zh_CN zh_HK zh_TW"
 IUSE="alsa aalib altivec aqua bzip2 curl dbus debug doc exif gnome postscript jpeg jpeg2k lcms mmx mng pdf png python smp sse svg tiff udev webkit wmf xpm"
@@ -39,6 +39,7 @@ RDEPEND=">=dev-libs/glib-2.30.2:2
 	>=media-libs/gegl-0.2.0
 	aalib? ( media-libs/aalib )
 	alsa? ( media-libs/alsa-lib )
+	aqua? ( x11-libs/gtk-mac-integration )
 	curl? ( net-misc/curl )
 	dbus? ( dev-libs/dbus-glib )
 	gnome? ( gnome-base/gvfs )
@@ -118,6 +119,8 @@ pkg_setup() {
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-2.7.4-no-deprecation.patch  # bug 395695, comment 9 and 16
 	epatch "${DISTDIR}"/${P}-freetype251.patch # bug #493466
+	epatch "${FILESDIR}"/${P}-clang.patch # bug 449370 compile with clang
+	sed -i -e 's/== "xquartz"/= "xquartz"/' configure.ac || die #494864
 	eautoreconf  # If you remove this: remove dev-util/gtk-doc-am from DEPEND, too
 
 	gnome2_src_prepare

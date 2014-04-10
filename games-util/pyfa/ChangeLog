@@ -1,6 +1,25 @@
 # ChangeLog for games-util/pyfa
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-util/pyfa/ChangeLog,v 1.24 2013/12/02 02:09:29 tetromino Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-util/pyfa/ChangeLog,v 1.27 2014/03/17 01:08:46 tetromino Exp $
+
+*pyfa-1.1.22 (17 Mar 2014)
+
+  17 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org> -pyfa-1.1.20.ebuild,
+  +pyfa-1.1.22.ebuild:
+  Bump for Rubicon 1.3; includes HTML export update and improved fleet booster
+  UI.
+
+*pyfa-1.1.21 (20 Feb 2014)
+
+  20 Feb 2014; Alexandre Rostovtsev <tetromino@gentoo.org> +pyfa-1.1.21.ebuild:
+  Version bump, adds 'traits' tab.
+
+*pyfa-1.1.20 (05 Feb 2014)
+
+  05 Feb 2014; Alexandre Rostovtsev <tetromino@gentoo.org> -pyfa-1.1.18.ebuild,
+  +pyfa-1.1.20.ebuild, pyfa-9999.ebuild, +files/pyfa-1.1.20-staticPath.patch,
+  -files/pyfa-1.1-staticPath.patch:
+  Version bump for Rubicon 1.1; remove obsolete version.
 
 *pyfa-9999 (02 Dec 2013)
 *pyfa-1.1.18 (02 Dec 2013)

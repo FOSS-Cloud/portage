@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/tomahawk/tomahawk-9999.ebuild,v 1.22 2014/01/20 10:37:11 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/tomahawk/tomahawk-9999.ebuild,v 1.24 2014/04/06 17:38:44 johu Exp $
 
 EAPI=5
 
@@ -21,7 +21,7 @@ HOMEPAGE="http://tomahawk-player.org/"
 
 LICENSE="GPL-3 BSD"
 SLOT="0"
-IUSE="debug jabber kde qt5 telepathy twitter"
+IUSE="debug jabber kde qt5 telepathy"
 
 REQUIRED_USE="telepathy? ( kde )"
 
@@ -39,7 +39,7 @@ DEPEND="
 	x11-libs/libX11
 	jabber? ( >=net-libs/jreen-1.1.1 )
 	!qt5? (
-		>=dev-libs/libattica-0.4.0[qt4]
+		>=dev-libs/libattica-0.4.0
 		dev-qt/designer:4
 		dev-qt/qtcore:4
 		dev-qt/qtdbus:4
@@ -57,7 +57,6 @@ DEPEND="
 		dev-qt/qtwidgets:5
 	)
 	telepathy? ( net-libs/telepathy-qt )
-	twitter? ( net-libs/qtweetlib )
 "
 RDEPEND="${DEPEND}
 	app-crypt/qca-ossl
@@ -71,7 +70,6 @@ src_configure() {
 		$(cmake-utils_use_with kde KDE4)
 		$(cmake-utils_use_build !qt5 WITH_QT4)
 		$(cmake-utils_use_with telepathy TelepathyQt)
-		$(cmake-utils_use_with twitter QTweetLib)
 	)
 
 	if [[ ${PV} != *9999* ]]; then

@@ -1,6 +1,17 @@
 # ChangeLog for x11-libs/libva-vdpau-driver
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-vdpau-driver/ChangeLog,v 1.4 2013/05/03 22:18:18 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-vdpau-driver/ChangeLog,v 1.6 2014/02/16 19:41:37 chithanh Exp $
+
+  16 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/libva-vdpau-driver-0.7.4-VAEncH264VUIBufferType.patch,
+  libva-vdpau-driver-0.7.4-r1.ebuild:
+  fix building against recent libva, bug #501444.
+
+*libva-vdpau-driver-0.7.4-r1 (01 Feb 2014)
+
+  01 Feb 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +libva-vdpau-driver-0.7.4-r1.ebuild, libva-vdpau-driver-9999.ebuild:
+  revbump ebuilds to support multilib-build, changes reviewed by aballier
 
   03 May 2013; Justin Lecher <jlec@gentoo.org> libva-vdpau-driver-0.7.4.ebuild,
   metadata.xml:
@@ -111,4 +122,3 @@
   +vdpau-video-0.6.9.ebuild, +metadata.xml:
   initial import, bug #317317, ebuild by Frank Richter
   <res@crystalspace3d.org> with small modifications by me
-
