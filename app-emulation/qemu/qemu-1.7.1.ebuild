@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.6.0-r1.ebuild,v 1.4 2014/04/19 17:12:38 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-1.7.1.ebuild,v 1.4 2014/04/20 02:04:18 vapier Exp $
 
 EAPI=5
 
@@ -10,7 +10,7 @@ PYTHON_REQ_USE="ncurses,readline"
 inherit eutils flag-o-matic linux-info toolchain-funcs multilib python-r1 \
 	user udev fcaps readme.gentoo
 
-BACKPORTS=4c9bed9d
+BACKPORTS=
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://git.qemu.org/qemu.git"
@@ -21,7 +21,8 @@ else
 	SRC_URI="http://wiki.qemu-project.org/download/${P}.tar.bz2
 	${BACKPORTS:+
 		http://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz}"
-	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
+	# Waiting for cardoe to sign off on this.
+	#KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
 fi
 
 DESCRIPTION="QEMU + Kernel-based Virtual Machine userland tools"
@@ -31,9 +32,9 @@ LICENSE="GPL-2 LGPL-2 BSD-2"
 SLOT="0"
 IUSE="accessibility +aio alsa bluetooth +caps +curl debug +fdt glusterfs \
 gtk iscsi +jpeg \
-kernel_linux kernel_FreeBSD mixemu ncurses opengl +png pulseaudio python \
-rbd sasl +seccomp sdl selinux smartcard spice static static-softmmu \
-static-user systemtap tci test +threads tls usbredir +uuid vde +vhost-net \
+kernel_linux kernel_FreeBSD ncurses opengl +png pulseaudio python \
+rbd sasl +seccomp sdl selinux smartcard spice ssh static static-softmmu \
+static-user systemtap tci test +threads tls usb usbredir +uuid vde +vhost-net \
 virtfs +vnc xattr xen xfs"
 
 COMMON_TARGETS="i386 x86_64 alpha arm cris m68k microblaze microblazeel mips
@@ -85,7 +86,9 @@ LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
 	sdl? ( >=media-libs/libsdl-1.2.11[static-libs(+)] )
 	seccomp? ( >=sys-libs/libseccomp-2.1.0[static-libs(+)] )
 	spice? ( >=app-emulation/spice-0.12.0[static-libs(+)] )
+	ssh? ( >=net-libs/libssh2-1.2.8[static-libs(+)] )
 	tls? ( net-libs/gnutls[static-libs(+)] )
+	usb? ( >=dev-libs/libusb-1.0.18[static-libs(+)] )
 	uuid? ( >=sys-apps/util-linux-2.16.0[static-libs(+)] )
 	vde? ( net-misc/vde[static-libs(+)] )
 	xattr? ( sys-apps/attr[static-libs(+)] )
@@ -94,13 +97,13 @@ RDEPEND="!static-softmmu? ( ${LIB_DEPEND//\[static-libs(+)]} )
 	static-user? ( >=dev-libs/glib-2.0[static-libs(+)] )
 	qemu_softmmu_targets_i386? (
 		>=sys-firmware/ipxe-1.0.0_p20130624
-		~sys-firmware/seabios-1.7.3
+		~sys-firmware/seabios-1.7.3.2
 		~sys-firmware/sgabios-0.1_pre8
 		~sys-firmware/vgabios-0.7a
 	)
 	qemu_softmmu_targets_x86_64? (
 		>=sys-firmware/ipxe-1.0.0_p20130624
-		~sys-firmware/seabios-1.7.3
+		~sys-firmware/seabios-1.7.3.2
 		~sys-firmware/sgabios-0.1_pre8
 		~sys-firmware/vgabios-0.7a
 	)
@@ -228,10 +231,11 @@ pkg_setup() {
 
 src_prepare() {
 	# Alter target makefiles to accept CFLAGS set via flag-o
-	sed -i 's/^\(C\|OP_C\|HELPER_C\)FLAGS=/\1FLAGS+=/' \
+	sed -i -r \
+		-e 's/^(C|OP_C|HELPER_C)FLAGS=/\1FLAGS+=/' \
 		Makefile Makefile.target || die
 
-	epatch "${FILESDIR}"/qemu-9999-cflags.patch
+	epatch "${FILESDIR}"/qemu-1.7.0-cflags.patch
 	[[ -n ${BACKPORTS} ]] && \
 		EPATCH_FORCE=yes EPATCH_SUFFIX="patch" EPATCH_SOURCE="${S}/patches" \
 			epatch
@@ -288,6 +292,8 @@ qemu_src_configure() {
 		conf_opts+=" --disable-smartcard-nss"
 		conf_opts+=" --disable-tools"
 		conf_opts+=" --disable-vde"
+		conf_opts+=" --disable-libssh2"
+		conf_opts+=" --disable-libusb"
 	fi
 
 	if [[ ${buildtype} == "softmmu" ]]; then
@@ -316,8 +322,10 @@ qemu_src_configure() {
 		conf_opts+=" $(use_enable seccomp)"
 		conf_opts+=" $(use_enable smartcard smartcard-nss)"
 		conf_opts+=" $(use_enable spice)"
+		conf_opts+=" $(use_enable ssh libssh2)"
 		conf_opts+=" $(use_enable tls vnc-tls)"
 		conf_opts+=" $(use_enable tls vnc-ws)"
+		conf_opts+=" $(use_enable usb libusb)"
 		conf_opts+=" $(use_enable usbredir usb-redir)"
 		conf_opts+=" $(use_enable uuid)"
 		conf_opts+=" $(use_enable vde)"
@@ -328,9 +336,7 @@ qemu_src_configure() {
 		conf_opts+=" $(use_enable xen)"
 		conf_opts+=" $(use_enable xen xen-pci-passthrough)"
 		conf_opts+=" $(use_enable xfs xfsctl)"
-		use mixemu && conf_opts+=" --enable-mixemu"
 		conf_opts+=" --audio-drv-list=${audio_opts}"
-		conf_opts+=" --enable-migration-from-qemu-kvm"
 	fi
 
 	conf_opts+=" $(use_enable debug debug-info)"
@@ -417,12 +423,12 @@ src_test() {
 }
 
 qemu_python_install() {
-	python_domodule "${S}/QMP/qmp.py"
+	python_domodule "${S}/scripts/qmp/qmp.py"
 
 	python_doscript "${S}/scripts/kvm/kvm_stat"
 	python_doscript "${S}/scripts/kvm/vmxcap"
-	python_doscript "${S}/QMP/qmp-shell"
-	python_doscript "${S}/QMP/qemu-ga-client"
+	python_doscript "${S}/scripts/qmp/qmp-shell"
+	python_doscript "${S}/scripts/qmp/qemu-ga-client"
 }
 
 src_install() {
@@ -466,12 +472,12 @@ src_install() {
 	doins "${FILESDIR}/bridge.conf"
 
 	# Remove the docdir placed qmp-commands.txt
-	mv "${ED}/usr/share/doc/${PF}/html/qmp-commands.txt" "${S}/QMP/"
+	mv "${ED}/usr/share/doc/${PF}/html/qmp-commands.txt" "${S}/docs/qmp/"
 
 	cd "${S}"
 	dodoc Changelog MAINTAINERS docs/specs/pci-ids.txt
 	newdoc pc-bios/README README.pc-bios
-	dodoc QMP/qmp-commands.txt QMP/qmp-events.txt QMP/qmp-spec.txt
+	dodoc docs/qmp/*.txt
 
 	# Remove SeaBIOS since we're using the SeaBIOS packaged one
 	rm "${ED}/usr/share/qemu/bios.bin"
@@ -519,7 +525,7 @@ pkg_postinst() {
 	if qemu_support_kvm; then
 		readme.gentoo_print_elog
 		ewarn "Migration from qemu-kvm instances and loading qemu-kvm created"
-		ewarn "save states will be removed in the next release (1.7.x)"
+		ewarn "save states has been removed starting with the 1.6.2 release"
 		ewarn
 		ewarn "It is recommended that you migrate any VMs that may be running"
 		ewarn "on qemu-kvm to a host with a newer qemu and regenerate"
