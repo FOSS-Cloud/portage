@@ -1,12 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/logilab-common/logilab-common-0.61.0.ebuild,v 1.2 2014/03/31 20:49:34 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/logilab-common/logilab-common-0.61.0.ebuild,v 1.9 2014/07/06 12:44:25 mgorny Exp $
 
 EAPI=5
 
-# 0.60.0 fails unittest_umessage with python3.3
-# http://www.logilab.org/ticket/149345
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy pypy2_0 )
+PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} pypy )
 
 inherit distutils-r1 eutils
 
@@ -16,22 +14,19 @@ SRC_URI="ftp://ftp.logilab.org/pub/common/${P}.tar.gz mirror://pypi/${PN:0:1}/${
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ppc ~ppc64 ~s390 ~sparc x86 ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="test doc"
 
-RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-	virtual/python-unittest2[${PYTHON_USEDEP}]"
+RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
-# Tests using dev-python/psycopg are skipped when dev-python/psycopg
-# isn't installed.
-# egenix-mx-base tests are optional, and egenix-mx-base does support
-# Python2 only.
+# Tests using dev-python/psycopg are skipped when dev-python/psycopg isn't installed.
+# egenix-mx-base tests are optional and supports python2 only.
 DEPEND="${RDEPEND}
 	test? (
-		$(python_gen_cond_dep dev-python/egenix-mx-base[$(python_gen_usedep 'python2*')] 'python2*')
+		$(python_gen_cond_dep 'dev-python/egenix-mx-base[${PYTHON_USEDEP}]' python2_7)
 		!dev-python/psycopg[-mxdatetime]
 	)
-	doc? ( dev-python/epydoc )"
+	doc? ( $(python_gen_cond_dep 'dev-python/epydoc[${PYTHON_USEDEP}]' python2_7) )"
 
 PATCHES=(
 	# Make sure setuptools does not create a zip file in python_test;
@@ -41,6 +36,8 @@ PATCHES=(
 	# Depends on order of dictionary keys
 	"${FILESDIR}/logilab-common-0.60.0-skip-doctest.patch"
 )
+# Req'd for impl specific failures in the testsuite
+DISTUTILS_IN_SOURCE_BUILD=1
 
 python_prepare_all() {
 	sed -e 's:(CURDIR):{S}/${P}:' -i doc/makefile || die
@@ -49,10 +46,12 @@ python_prepare_all() {
 
 python_compile_all() {
 	if use doc; then
-		# Simplest way to make makefile point to the right place.
-		ln -s "${BUILD_DIR}" build || die
-		emake -C doc epydoc
-		rm build || die
+		# Based on the doc build in Arfrever's ebuild. It works
+		pushd doc > /dev/null
+		mkdir -p apidoc || die
+		epydoc --parse-only -o apidoc --html -v --no-private --exclude=__pkginfo__ --exclude=setup --exclude=test \
+			-n "Logilab's common library" "$(ls -d ../build//lib/logilab/common/)" build \
+			|| die "Generation of documentation failed"
 	fi
 }
 
@@ -65,8 +64,20 @@ python_test() {
 
 	# Make sure that the tests use correct modules.
 	pushd "${TEST_DIR}"/lib > /dev/null || die
+
+	if python_is_python3; then
+	# http://www.logilab.org/ticket/241813, 241807
+	# The suite can be made to pass under py3.4 by disabling the class MxDateTC in unittest_date.py
+	# These are covered by issue 241813.  Any and all methods to disable them temporarily
+	# (assuming they will ever be fixed) are simply cumbersome in the extreme, thus impractical.
+	# The failures are specific to py3.4's unittest's parameters in _addSkip and not the package itself.
+		if [[ "${EPYTHON}" == "python3.4" ]]; then
+			sed -e 's:test_any:_&:' \
+				-i $(find . -name unittest_compat.py) || die
+			sed -e 's:test_add_days_worked:_&:' \
+				-i $(find . -name unittest_date.py) || die
+		fi
 	#  Returns a clean run under py3.3
-	if [[ "${EPYTHON}" == 'python3.3' ]]; then
 		rm $(find . -name unittest_umessage.py) || die
 	fi
 	"${TEST_DIR}"/scripts/pytest || die "Tests fail with ${EPYTHON}"

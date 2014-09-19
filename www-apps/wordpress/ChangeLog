@@ -1,6 +1,36 @@
 # ChangeLog for www-apps/wordpress
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/wordpress/ChangeLog,v 1.155 2014/01/24 09:12:07 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/wordpress/ChangeLog,v 1.161 2014/08/13 04:44:39 radhermit Exp $
+
+*wordpress-3.9.2 (13 Aug 2014)
+
+  13 Aug 2014; Tim Harder <radhermit@gentoo.org> +wordpress-3.9.2.ebuild:
+  Security version bump (bug #519246).
+
+*wordpress-3.9.1 (11 May 2014)
+
+  11 May 2014; Tim Harder <radhermit@gentoo.org> +wordpress-3.9.1.ebuild:
+  Version bump.
+
+  25 Apr 2014; Tim Harder <radhermit@gentoo.org> -wordpress-3.6.1.ebuild,
+  -wordpress-3.7.1.ebuild, -wordpress-3.8.ebuild, -wordpress-3.8.1.ebuild,
+  -wordpress-3.8.2.ebuild:
+  Remove old.
+
+*wordpress-3.9 (25 Apr 2014)
+
+  25 Apr 2014; Tim Harder <radhermit@gentoo.org> +wordpress-3.9.ebuild:
+  Version bump.
+
+*wordpress-3.8.3 (15 Apr 2014)
+
+  15 Apr 2014; Tim Harder <radhermit@gentoo.org> +wordpress-3.8.3.ebuild:
+  Version bump.
+
+*wordpress-3.8.2 (11 Apr 2014)
+
+  11 Apr 2014; Tim Harder <radhermit@gentoo.org> +wordpress-3.8.2.ebuild:
+  Version bump.
 
   24 Jan 2014; Tim Harder <radhermit@gentoo.org> -wordpress-3.6.ebuild:
   Remove insecure version (bug #484700).

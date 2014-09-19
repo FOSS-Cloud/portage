@@ -1,5 +1,33 @@
 # ChangeLog for x11-misc/util-macros
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/util-macros/ChangeLog,v 1.134 2014/03/29 20:00:23 mattst88 Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/util-macros/ChangeLog,v 1.142 2014/06/15 00:46:07 vapier Exp $
+
+  15 Jun 2014; Mike Frysinger <vapier@gentoo.org> util-macros-1.18.0.ebuild,
+  util-macros-1.19.0.ebuild:
+  Add arm64 love.
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> util-macros-1.18.0.ebuild:
+  Stable for arm, wrt bug #500368
+
+*util-macros-1.19.0 (23 May 2014)
+
+  23 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +util-macros-1.19.0.ebuild:
+  Version bump.
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org> util-macros-1.18.0.ebuild:
+  Stable for sparc, wrt bug #500368
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org> util-macros-1.18.0.ebuild:
+  Stable for ia64, wrt bug #500368
+
+  16 Apr 2014; Agostino Sarubbo <ago@gentoo.org> util-macros-1.18.0.ebuild:
+  Stable for ppc64, wrt bug #500368
+
+  08 Apr 2014; Agostino Sarubbo <ago@gentoo.org> util-macros-1.18.0.ebuild:
+  Stable for ppc, wrt bug #500368
+
+  06 Apr 2014; Agostino Sarubbo <ago@gentoo.org> util-macros-1.18.0.ebuild:
+  Stable for x86, wrt bug #500368
 
   29 Mar 2014; Matt Turner <mattst88@gentoo.org> util-macros-1.18.0.ebuild:
   alpha stable, bug #500368.

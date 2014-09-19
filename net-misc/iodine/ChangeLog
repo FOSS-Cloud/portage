@@ -1,6 +1,23 @@
 # ChangeLog for net-misc/iodine
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/iodine/ChangeLog,v 1.9 2013/03/17 15:09:04 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/iodine/ChangeLog,v 1.12 2014/09/07 13:00:18 pacho Exp $
+
+  07 Sep 2014; Pacho Ramos <pacho@gentoo.org>
+  -files/iodine-0.5.2-Makefile.patch, -files/iodine-0.6.0_rc1-TestMessage.patch,
+  -files/iodine-0.6.0_rc1-ifconfig-path.patch, -iodine-0.5.2.ebuild,
+  -iodine-0.6.0_rc1-r1.ebuild, -iodine-0.6.0_rc1.ebuild:
+  Remove masked for removal versions
+
+  25 Jul 2014; Jason A. Donenfeld <zx2c4@gentoo.org>
+  +files/iodine-0.7.0-new-systemd.patch, iodine-0.7.0.ebuild:
+  Build on newer systemd by using pkg-config to grab right library.
+
+*iodine-0.7.0 (18 Jul 2014)
+
+  18 Jul 2014; Michael Weber <xmw@gentoo.org>
+  +files/iodine-0.7.0-TestMessage.patch, +files/iodined-1.init,
+  +iodine-0.7.0.ebuild:
+  Version bump (bug 513560, CVE-2014-4168), EAPI-5, approved by vostoga.
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

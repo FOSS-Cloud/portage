@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/ktorrent/ktorrent-4.3.1-r1.ebuild,v 1.1 2014/01/29 13:06:10 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/ktorrent/ktorrent-4.3.1-r1.ebuild,v 1.5 2014/08/10 20:37:11 slyfox Exp $
 
 EAPI=5
 
@@ -24,7 +24,7 @@ if [[ ${PV} != 9999* ]]; then
 	SRC_URI="http://ktorrent.org/downloads/${MY_PV}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
 
-	KEYWORDS="~amd64 ~ppc ~x86"
+	KEYWORDS="amd64 ppc x86"
 else
 	LIBKT_VERSION_MIN="${PV}"
 	LIBKT_VERSION_MAX="99999999"
@@ -33,7 +33,7 @@ fi
 
 inherit kde4-base
 
-DESCRIPTION="A BitTorrent program for KDE."
+DESCRIPTION="A BitTorrent program for KDE"
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"

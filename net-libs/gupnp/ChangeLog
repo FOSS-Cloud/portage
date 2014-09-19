@@ -1,6 +1,49 @@
 # ChangeLog for net-libs/gupnp
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gupnp/ChangeLog,v 1.81 2014/03/28 02:33:37 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gupnp/ChangeLog,v 1.92 2014/08/07 19:36:01 jer Exp $
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> gupnp-0.20.12-r1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gupnp-0.20.12-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gupnp-0.20.12-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  29 Jun 2014; Michał Górny <mgorny@gentoo.org> gupnp-0.20.12-r1.ebuild:
+  Leave a note that the connman issue was fixed upstream.
+
+  24 Jun 2014; Michał Górny <mgorny@gentoo.org> gupnp-0.20.12-r1.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> gupnp-0.20.12-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  15 Jun 2014; Mike Gilbert <floppym@gentoo.org> gupnp-0.20.12-r1.ebuild:
+  Fix REQUIRED_USE problems.
+
+*gupnp-0.20.12-r1 (10 Jun 2014)
+
+  10 Jun 2014; Michał Górny <mgorny@gentoo.org> +gupnp-0.20.12-r1.ebuild:
+  Enable multilib support.
+
+*gupnp-0.20.12 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> +gupnp-0.20.12.ebuild,
+  -gupnp-0.20.11.ebuild:
+  Version bump, drop old
+
+*gupnp-0.20.11 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> +gupnp-0.20.11.ebuild:
+  Version bump
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> -gupnp-0.18.4.ebuild,
+  -gupnp-0.20.8.ebuild:
+  drop old
 
   28 Mar 2014; Jeroen Roovers <jer@gentoo.org> gupnp-0.20.10.ebuild:
   Stable for HPPA (bug #499954).

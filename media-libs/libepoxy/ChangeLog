@@ -1,6 +1,26 @@
 # ChangeLog for media-libs/libepoxy
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libepoxy/ChangeLog,v 1.2 2014/03/07 02:42:21 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libepoxy/ChangeLog,v 1.7 2014/07/24 10:24:06 klausman Exp $
+
+  24 Jul 2014; Tobias Klausmann <klausman@gentoo.org> libepoxy-1.2.ebuild:
+  Keyworded on alpha, bug #510940
+
+  21 Jul 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  libepoxy-1.2.ebuild, libepoxy-9999.ebuild:
+  Fix keywording and dependencies, bug #510940.
+
+  06 Jun 2014; Jeroen Roovers <jer@gentoo.org> libepoxy-1.2.ebuild:
+  Marked ~hppa (bug #510940).
+
+  26 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  libepoxy-1.2.ebuild, libepoxy-9999.ebuild:
+  Keyword ~arm, bug #510940.
+
+*libepoxy-1.2 (21 May 2014)
+
+  21 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +libepoxy-1.2.ebuild:
+  Version bump.
 
   07 Mar 2014; Patrick Lauer <patrick@gentoo.org> libepoxy-1.1.ebuild,
   libepoxy-9999.ebuild:

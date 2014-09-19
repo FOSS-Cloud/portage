@@ -1,6 +1,23 @@
 # ChangeLog for media-libs/jasper
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/jasper/ChangeLog,v 1.79 2013/11/09 12:15:19 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/jasper/ChangeLog,v 1.84 2014/08/14 17:03:38 phajdan.jr Exp $
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  jasper-1.900.1-r6.ebuild:
+  x86 stable wrt bug #513812
+
+  24 Jul 2014; Markus Meier <maekke@gentoo.org> jasper-1.900.1-r6.ebuild:
+  arm stable, bug #513812
+
+  23 Jul 2014; Jeroen Roovers <jer@gentoo.org> jasper-1.900.1-r6.ebuild:
+  Stable for HPPA (bug #513812).
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> jasper-1.900.1-r6.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  10 May 2014; Sergei Trofimovich <slyfox@gentoo.org> jasper-1.900.1-r6.ebuild:
+  Fix picking wrong libdir for X11 libs in USE=opengl ABI_X86='32 64' case.
 
   09 Nov 2013; Justin Lecher <jlec@gentoo.org> jasper-1.900.1-r6.ebuild:
   Fix multilib support, #458380

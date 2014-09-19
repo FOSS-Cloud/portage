@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/uuidtools/uuidtools-2.1.4-r1.ebuild,v 1.1 2013/10/30 05:56:57 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/uuidtools/uuidtools-2.1.4-r1.ebuild,v 1.5 2014/08/25 16:22:48 mrueg Exp $
 
 EAPI=5
 
-USE_RUBY="ruby18 ruby19 ruby20 jruby"
+USE_RUBY="ruby19 ruby20 jruby"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
@@ -16,9 +16,10 @@ inherit ruby-fakegem
 
 DESCRIPTION="Simple library to generate UUIDs"
 HOMEPAGE="http://uuidtools.rubyforge.org/"
-SRC_URI="mirror://rubyforge/${PN}/${P}.tgz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~x86-macos"
-IUSE=""
+KEYWORDS="amd64 ~x86 ~x86-macos"
+IUSE="doc"
+
+ruby_add_bdepend "doc? ( dev-ruby/yard )"

@@ -1,6 +1,33 @@
 # ChangeLog for dev-ruby/syntax
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/syntax/ChangeLog,v 1.52 2014/03/25 10:00:27 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/syntax/ChangeLog,v 1.60 2014/08/14 14:08:20 mrueg Exp $
+
+*syntax-1.2.0 (14 Aug 2014)
+
+  14 Aug 2014; Manuel Rüger <mrueg@gentoo.org> +syntax-1.2.0.ebuild:
+  Version bump.
+
+  02 Aug 2014; Manuel Rüger <mrueg@gentoo.org> -syntax-1.0.0-r3.ebuild:
+  Cleanup old.
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> syntax-1.0.0-r4.ebuild:
+  Stable for ppc64, wrt bug #503794
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> syntax-1.0.0-r4.ebuild:
+  sparc stable wrt #503794
+
+  17 Jun 2014; Tobias Klausmann <klausman@gentoo.org> syntax-1.0.0-r4.ebuild:
+  Stable on alpha, bug #503794
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> syntax-1.0.0-r4.ebuild:
+  Stable for ppc, wrt bug #503794
+
+  13 May 2014; Agostino Sarubbo <ago@gentoo.org> syntax-1.0.0-r4.ebuild:
+  Stable for ia64, wrt bug #503794
+
+  05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> syntax-1.0.0-r3.ebuild,
+  syntax-1.0.0-r4.ebuild, syntax-1.0.0-r5.ebuild:
+  Remove ree18 and ruby18 target. Remove virtual/ruby-test-unit.
 
   25 Mar 2014; Chema Alonso <nimiux@gentoo.org> syntax-1.0.0-r4.ebuild:
   Stable for amd64 wrt bug #503794

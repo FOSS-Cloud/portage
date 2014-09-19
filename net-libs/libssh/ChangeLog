@@ -1,6 +1,35 @@
 # ChangeLog for net-libs/libssh
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libssh/ChangeLog,v 1.105 2014/03/16 11:15:09 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libssh/ChangeLog,v 1.112 2014/08/04 16:06:04 klausman Exp $
+
+  04 Aug 2014; Tobias Klausmann <klausman@gentoo.org> libssh-0.6.3-r1.ebuild:
+  Keyworded on alpha, bug 510340
+
+  18 Jul 2014; Jeroen Roovers <jer@gentoo.org> files/libssh-0.5.0-tests.patch,
+  libssh-0.6.3-r1.ebuild, metadata.xml:
+  Remove short <longdescription>. Clean up patch.
+
+  07 Jul 2014; Jeroen Roovers <jer@gentoo.org> -libssh-0.5.5.ebuild,
+  -libssh-0.6.1.ebuild, -files/libssh-0.5.0-no-pdf-doc.patch,
+  -files/libssh-0.6.0-libgcrypt-1.6.0.patch:
+  Old.
+
+  07 Jul 2014; Jeroen Roovers <jer@gentoo.org> libssh-0.6.1.ebuild,
+  libssh-0.6.3.ebuild, libssh-0.6.3-r1.ebuild:
+  Marked ~sparc (bug #488696).
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libssh-0.6.3-r1.ebuild,
+  libssh-9999.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libssh-9999.ebuild:
+  Update the live ebuild. Use git-r3.
+
+*libssh-0.6.3-r1 (11 Jun 2014)
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> +libssh-0.6.3-r1.ebuild:
+  Enable multilib support.
 
   16 Mar 2014; Agostino Sarubbo <ago@gentoo.org> libssh-0.6.3.ebuild:
   Stable for ppc64, wrt bug #503504

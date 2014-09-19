@@ -94,10 +94,10 @@ aacplus
 devil
 gts
 clang
+redis
 
 # Stuff that doesn't compile on ia64
 chicken
-clisp
 diet
 emf
 fusion
@@ -108,10 +108,18 @@ xemacs
 
 # Other
 
+# Raúl Porcel <armin76@gentoo.org> (20 Aug 2014)
+# Upstream drops support on ia64 from 4.0 onwards, bug #430352
+ocamlopt
+
+
 # Raúl Porcel <armin76@gentoo.org> (23 Apr 2011)
 # Needs to be tested
 video_cards_nouveau
 
+# Matt Turner <mattst88@gmail.com> (06 May 2011)
+# media-sound/mumble not keyworded on ppc
+mumble
 
 # Samuli Suominen <ssuominen@gentoo.org> (02 Dec 2009)
 # This will need media-sound/musepack-tools

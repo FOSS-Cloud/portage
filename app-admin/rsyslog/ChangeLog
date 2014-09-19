@@ -1,6 +1,57 @@
 # ChangeLog for app-admin/rsyslog
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/rsyslog/ChangeLog,v 1.110 2014/03/10 13:00:19 ultrabug Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/rsyslog/ChangeLog,v 1.119 2014/08/20 15:36:45 jer Exp $
+
+  20 Aug 2014; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Add proxy-maint herd.
+
+  18 Jun 2014; Mike Frysinger <vapier@gentoo.org>
+  -files/7-stable/rsyslog-imuxsock-shrink.patch, -rsyslog-7.6.3-r2.ebuild:
+  Drop shrinkage patch as it is slightly broken, and to make it work requires
+  more hacks.  Will continue to try and sort out a way forward in upstream.
+
+*rsyslog-7.6.3-r2 (16 Jun 2014)
+
+  16 Jun 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/7-stable/rsyslog-imuxsock-shrink.patch, +rsyslog-7.6.3-r2.ebuild:
+  Shrink the imuxsock plugin by removing redundant symbols.
+
+  16 Jun 2014; Mike Frysinger <vapier@gentoo.org>
+  files/7-stable/rsyslog.initd-r1, files/7-stable/rsyslog.logrotate,
+  files/7-stable/rsyslog.logrotate-r1:
+  Fix bashisms in /dev/null redirection.
+
+  16 Jun 2014; Mike Frysinger <vapier@gentoo.org> rsyslog-7.6.3-r1.ebuild:
+  Add arm love #511026.
+
+*rsyslog-7.6.3-r1 (02 Jun 2014)
+
+  02 Jun 2014; Ultrabug <ultrabug@gentoo.org> -rsyslog-7.6.3.ebuild,
+  +rsyslog-7.6.3-r1.ebuild, files/7-stable/rsyslog.initd-r1:
+  fix #511748 thx to consus
+
+  22 May 2014; Jeroen Roovers <jer@gentoo.org> rsyslog-7.6.3.ebuild:
+  Marked ~hppa (bug #511026).
+
+*rsyslog-7.6.3 (22 May 2014)
+
+  22 May 2014; Ultrabug <ultrabug@gentoo.org> -rsyslog-7.4.3.ebuild,
+  -rsyslog-7.4.6.ebuild, -rsyslog-7.4.7.ebuild, +rsyslog-7.6.3.ebuild,
+  +files/7-stable/50-default.conf, +files/7-stable/README.gentoo,
+  +files/7-stable/bugfix_52.patch, +files/7-stable/bugfix_73.patch,
+  +files/7-stable/fix-omruleset-default-value.patch,
+  +files/7-stable/rsyslog.conf, +files/7-stable/rsyslog.confd-r1,
+  +files/7-stable/rsyslog.initd-r1, +files/7-stable/rsyslog.logrotate-r1,
+  metadata.xml:
+  version bump fix #501988 #501982 #501986 #490744 thx to @Whissi, drop old
+  versions
+
+  16 Apr 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +files/7-stable/rsyslog-7.x-mmjsonparse.patch, rsyslog-7.2.7.ebuild,
+  rsyslog-7.4.10.ebuild, rsyslog-7.4.3.ebuild, rsyslog-7.4.4.ebuild,
+  rsyslog-7.4.6.ebuild, rsyslog-7.4.7.ebuild:
+  Add upstream patch for >=dev-libs/json-c-0.12, bug #507730. Thanks to Thomas
+  D. <whissi@whissi.de>.
 
 *rsyslog-7.4.10 (10 Mar 2014)
 

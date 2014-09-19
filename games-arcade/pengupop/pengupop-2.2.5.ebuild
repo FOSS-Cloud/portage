@@ -1,9 +1,9 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/pengupop/pengupop-2.2.5.ebuild,v 1.5 2011/06/14 19:59:39 tupone Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-arcade/pengupop/pengupop-2.2.5.ebuild,v 1.7 2014/05/15 16:30:38 ulm Exp $
 
-EAPI=2
-inherit eutils autotools games
+EAPI=5
+inherit eutils gnome2-utils autotools games
 
 DESCRIPTION="Networked multiplayer-only Puzzle Bubble clone"
 HOMEPAGE="http://freshmeat.net/projects/pengupop"
@@ -14,24 +14,43 @@ SLOT="0"
 KEYWORDS="~amd64 ppc x86"
 IUSE=""
 
-DEPEND="media-libs/libsdl[audio,video]
+DEPEND="media-libs/libsdl[sound,video]
 	sys-libs/zlib"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-underlink.patch
 
 	sed -i \
+		-e '/Icon/s/\.png//' \
+		-e '/Categories/s/Application;//' \
+		pengupop.desktop || die
+
+	sed -i \
 		-e 's/-g -Wall -O2/-Wall/' \
-		Makefile.am \
-		|| die "sed failed"
+		Makefile.am || die
 
 	eautoreconf
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
+	emake DESTDIR="${D}" install
 	dodoc AUTHORS ChangeLog README
 	domenu pengupop.desktop
-	doicon pengupop.png
+	doicon -s 48 pengupop.png
 	prepgamesdirs
+}
+
+pkg_preinst() {
+	games_pkg_preinst
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	games_pkg_postinst
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
 }

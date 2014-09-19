@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/racc/racc-1.4.11.ebuild,v 1.1 2014/01/13 07:19:44 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/racc/racc-1.4.11.ebuild,v 1.4 2014/05/26 05:26:44 mrueg Exp $
 
 EAPI=5
 
-USE_RUBY="ruby18 ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby19 ruby20 ruby21 jruby"
 
 RUBY_FAKEGEM_RECIPE_DOC="rdoc"
 RUBY_FAKEGEM_TASK_DOC="docs"
@@ -47,10 +47,6 @@ each_ruby_prepare() {
 			# avoid all tests so this is not a regression for us.
 			rm test/test_racc_command.rb || die
 			;;
-		*ruby18)
-			sed -i -e '/test_norule_y/,/end/ s:^:#:' \
-				-e '/test_unterm_y/,/end/ s:^:#:' test/test_racc_command.rb || die
-			;;
 		*)
 			${RUBY} -Cext/racc extconf.rb || die
 			;;
@@ -62,9 +58,6 @@ each_ruby_compile() {
 		*jruby)
 			einfo "Under JRuby, racc cannot use the shared object parser, so instead"
 			einfo "you have to rely on the pure Ruby implementation."
-			;;
-		*ruby18)
-			einfo "No longer compiles with ruby 1.8, only the pure Ruby implementation is used."
 			;;
 		*)
 			emake V=1 -Cext/racc

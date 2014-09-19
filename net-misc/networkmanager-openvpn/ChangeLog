@@ -1,6 +1,15 @@
 # ChangeLog for net-misc/networkmanager-openvpn
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager-openvpn/ChangeLog,v 1.45 2013/12/25 09:35:36 maekke Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager-openvpn/ChangeLog,v 1.47 2014/06/24 01:25:03 tetromino Exp $
+
+  24 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  networkmanager-openvpn-0.9.8.4.ebuild:
+  Missing libgnome-keyring dependency.
+
+  27 Apr 2014; Pacho Ramos <pacho@gentoo.org>
+  -networkmanager-openvpn-0.9.6.0.ebuild,
+  -networkmanager-openvpn-0.9.8.2.ebuild:
+  drop old
 
   25 Dec 2013; Markus Meier <maekke@gentoo.org>
   networkmanager-openvpn-0.9.8.4.ebuild:

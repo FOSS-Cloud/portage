@@ -1,6 +1,18 @@
 # ChangeLog for net-p2p/vuze-coreplugins
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/vuze-coreplugins/ChangeLog,v 1.43 2014/03/09 07:39:42 rhill Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/vuze-coreplugins/ChangeLog,v 1.46 2014/08/09 12:10:19 ago Exp $
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  vuze-coreplugins-4.8.1.2.ebuild:
+  Stable for ppc, wrt bug #432146
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  vuze-coreplugins-4.8.1.2.ebuild:
+  x86 stable wrt bug #432146
+
+  27 Apr 2014; Chema Alonso <nimiux@gentoo.org>
+  vuze-coreplugins-4.8.1.2.ebuild:
+  Stable for amd64 wrt bug #432146
 
 *vuze-coreplugins-5.3.0.0 (09 Mar 2014)
 
@@ -229,4 +241,3 @@
   +vuze-coreplugins-4.1.0.0.ebuild:
   Initial ebuild for package which splits core plugins out of vuze package.
   Later we should build this from source too.
-

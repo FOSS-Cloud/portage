@@ -1,6 +1,129 @@
 # ChangeLog for media-video/mpv
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mpv/ChangeLog,v 1.62 2014/04/02 07:50:09 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mpv/ChangeLog,v 1.95 2014/08/27 14:27:47 maksbotan Exp $
+
+*mpv-0.5.1 (27 Aug 2014)
+
+  27 Aug 2014; Maxim Koltsov <maksbotan@gentoo.org> +mpv-0.5.1.ebuild:
+  Bump to 0.5.1, thanks to Nikoli.
+
+  17 Aug 2014; Tom Wijsman <TomWij@gentoo.org> -mpv-0.4.1.ebuild:
+  Remove version 0.4.1, proxied commit for Nikoli.
+
+*mpv-0.5.0 (17 Aug 2014)
+
+  17 Aug 2014; Maxim Koltsov <maksbotan@gentoo.org> +mpv-0.5.0.ebuild:
+  Bump to 0.5.0, bug #519746. Thanks to Nikoli.
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mpv-0.3.10.ebuild:
+  Stable for x86, wrt bug #514906
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mpv-0.3.10.ebuild:
+  Stable for sparc, wrt bug #514906
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mpv-0.3.10.ebuild:
+  Stable for ppc64, wrt bug #514906
+
+*mpv-0.4.2 (27 Jul 2014)
+
+  27 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> +mpv-0.4.2.ebuild:
+  Version bump, thanks to Nikoli
+
+  20 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> mpv-9999.ebuild:
+  Respect cflags, thanks to Nikoli
+
+*mpv-0.4.1 (14 Jul 2014)
+
+  14 Jul 2014; Maxim Koltsov <maksbotan@gentoo.org> +mpv-0.4.1.ebuild,
+  -mpv-0.4.0.ebuild:
+  Bump to 0.4.1, thanks to Nikoli.
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> mpv-0.3.10.ebuild:
+  Stable for ppc, wrt bug #514906
+
+  10 Jul 2014; Maxim Koltsov <maksbotan@gentoo.org> metadata.xml,
+  mpv-0.4.0.ebuild, mpv-9999.ebuild:
+  Restore libmpv useflag, now in ebuild too. Bug #516742.
+
+  10 Jul 2014; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag description from metadata.xml
+
+*mpv-0.4.0 (09 Jul 2014)
+*mpv-0.3.11 (09 Jul 2014)
+
+  09 Jul 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +files/mpv-0.3.11-libav-9.patch, +mpv-0.3.11.ebuild, +mpv-0.4.0.ebuild,
+  metadata.xml, mpv-9999.ebuild:
+  Bump to 0.4.0, bug #516458, add libmpv use flag, bug #516742. Thanks to
+  Nikoli.
+
+  08 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> mpv-0.3.10.ebuild:
+  amd64 stable wrt bug #514906
+
+  20 Jun 2014; Maxim Koltsov <maksbotan@gentoo.org> mpv-9999.ebuild:
+  Update waf version and SRC_URI in 9999, thanks to Nikoli.
+
+  17 Jun 2014; Maxim Koltsov <maksbotan@gentoo.org> mpv-9999.ebuild:
+  Update lcms dependency in 9999, thanks to Nikoli.
+
+  02 Jun 2014; Tom Wijsman <TomWij@gentoo.org> mpv-9999.ebuild:
+  Remove vcd USE flag, make cdio USE flag non-enabled by default due to upstream
+  default; fixes bug #512072, proxied commit for Nikoli.
+
+  28 May 2014; Maxim Koltsov <maksbotan@gentoo.org> -mpv-0.3.5.ebuild,
+  -mpv-0.3.6.ebuild, -mpv-0.3.7.ebuild, -mpv-0.3.8.ebuild, -mpv-0.3.9.ebuild:
+  Clean up old ebuilds, thanks to Nikoli
+
+  25 May 2014; Tom Wijsman <TomWij@gentoo.org> +mpv-0.3.10.ebuild:
+  Version bump to 0.3.10, proxied commit for Nikoli.
+
+  17 May 2014; Luca Barbato <lu_zero@gentoo.org> mpv-9999.ebuild:
+  Update from Nikoli
+
+*mpv-0.3.9 (30 Apr 2014)
+
+  30 Apr 2014; Maxim Koltsov <maksbotan@gentoo.org> +mpv-0.3.9.ebuild:
+  Bump to 0.3.9, thanks to Nikoli.
+
+  25 Apr 2014; Maxim Koltsov <maksbotan@gentoo.org> mpv-0.3.8.ebuild,
+  mpv-9999.ebuild:
+  Remove unneeded yasm dependency, update postproc/ffmpeg dependency in 9999.
+  Thanks to Nikoli.
+
+  20 Apr 2014; Julian Ospald <hasufell@gentoo.org> mpv-0.3.8.ebuild,
+  mpv-9999.ebuild, metadata.xml:
+  add sdl USE flag wrt #506982
+
+*mpv-0.3.8 (18 Apr 2014)
+
+  18 Apr 2014; Tom Wijsman <TomWij@gentoo.org> +mpv-0.3.8.ebuild:
+  Version bump to 0.3.8, proxied commit for Nikoli.
+
+  18 Apr 2014; Markos Chandras <hwoarang@gentoo.org> mpv-9999.ebuild:
+  Improved ebuild patch per #507940
+
+  18 Apr 2014; Markos Chandras <hwoarang@gentoo.org> mpv-9999.ebuild:
+  Remove support for radio. Bug #507940. Thanks to Nikoli <nikoli@gmx.us>
+
+  11 Apr 2014; Sven Vermeulen <swift@gentoo.org> mpv-0.3.5.ebuild,
+  mpv-0.3.6.ebuild, mpv-0.3.7.ebuild, mpv-9999.ebuild:
+  Add dependency to selinux-mplayer if USE=selinux is set, see bug #498578
+
+  07 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> mpv-0.3.7.ebuild,
+  mpv-9999.ebuild:
+  Depend on both, libcdio and libcdio-paranoia wrt #506942 by Julian Ospald.
+  Force SLOT="0" of virtual/jpeg for headers.
+
+  06 Apr 2014; Tom Wijsman <TomWij@gentoo.org> mpv-0.3.7.ebuild,
+  mpv-9999.ebuild:
+  Replace base inherit by eutils inherit. Update FDO MIME desktop database and
+  GNOME 2 icon list cache. Fixes bug #506940 and bug #506948, proxied commit for
+  Nikoli.
+
+  06 Apr 2014; Tom Wijsman <TomWij@gentoo.org> mpv-0.3.7.ebuild,
+  mpv-9999.ebuild:
+  Added missing x11-libs/libX11 dependency; fixes bug #506942, proxied commit
+  for Nikoli.
 
 *mpv-0.3.7 (02 Apr 2014)
 

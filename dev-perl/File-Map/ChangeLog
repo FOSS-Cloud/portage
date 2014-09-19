@@ -1,6 +1,22 @@
 # ChangeLog for dev-perl/File-Map
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/File-Map/ChangeLog,v 1.10 2013/04/16 17:58:22 vincent Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/File-Map/ChangeLog,v 1.14 2014/08/04 17:40:48 zlogene Exp $
+
+  04 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> File-Map-0.560.0.ebuild,
+  File-Map-0.610.0.ebuild:
+  Fix DESCRIPTION
+
+  30 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> File-Map-0.560.0.ebuild:
+  Stable for all
+
+*File-Map-0.610.0 (30 Jul 2014)
+
+  30 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> +File-Map-0.610.0.ebuild,
+  -File-Map-0.520.0.ebuild, -File-Map-0.530.0.ebuild:
+  Version bump; Drop old.
+
+  13 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> File-Map-0.560.0.ebuild:
+  Bump to EAPI=5
 
   16 Apr 2013; Vicente Olivert Riera <vincent@gentoo.org>
   File-Map-0.560.0.ebuild:

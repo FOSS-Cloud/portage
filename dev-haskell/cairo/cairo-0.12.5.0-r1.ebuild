@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cairo/cairo-0.12.5.0-r1.ebuild,v 1.1 2013/12/12 05:59:00 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cairo/cairo-0.12.5.0-r1.ebuild,v 1.4 2014/08/13 15:26:42 nativemad Exp $
 
 EAPI=5
 
@@ -9,13 +9,13 @@ EAPI=5
 CABAL_FEATURES="lib profile haddock hoogle hscolour nocabaldep"
 inherit haskell-cabal
 
-DESCRIPTION="Binding to the Cairo library."
+DESCRIPTION="Binding to the Cairo library"
 HOMEPAGE="http://projects.haskell.org/gtk2hs/"
 SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~ia64 ~ppc ~ppc64 ~sparc x86"
 IUSE="+pdf +postscript +svg"
 
 RDEPEND="dev-haskell/mtl:=[profile?]

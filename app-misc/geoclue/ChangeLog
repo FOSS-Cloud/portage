@@ -1,6 +1,26 @@
 # ChangeLog for app-misc/geoclue
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/geoclue/ChangeLog,v 1.31 2014/03/09 11:53:58 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/geoclue/ChangeLog,v 1.36 2014/07/23 15:13:23 ago Exp $
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> geoclue-2.1.9.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> geoclue-2.1.9.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*geoclue-2.1.9 (25 Jun 2014)
+
+  25 Jun 2014; Pacho Ramos <pacho@gentoo.org> +geoclue-2.1.9.ebuild:
+  Version bump
+
+  25 May 2014; Pacho Ramos <pacho@gentoo.org> geoclue-0.12.99.ebuild:
+  gtk-doc is not needed (#444564 by Laszlo Szalma)
+
+*geoclue-2.1.8 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> +geoclue-2.1.8.ebuild,
+  metadata.xml:
+  Version bump for Gnome 3.12.
 
   09 Mar 2014; Pacho Ramos <pacho@gentoo.org> geoclue-2.0.0.ebuild:
   x86 stable, bug 499954

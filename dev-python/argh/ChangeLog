@@ -1,6 +1,23 @@
 # ChangeLog for dev-python/argh
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/argh/ChangeLog,v 1.16 2014/03/31 20:55:57 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/argh/ChangeLog,v 1.20 2014/08/14 16:32:46 phajdan.jr Exp $
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> argh-0.25.0.ebuild:
+  x86 stable wrt bug #518240
+
+  16 Jul 2014; Ian Delaney <idella4@gentoo.org> argh-0.25.0.ebuild:
+  drop py2.6 pypy2_0 add py3.4
+
+*argh-0.25.0 (14 Jul 2014)
+
+  14 Jul 2014; Patrick Lauer <patrick@gentoo.org> +argh-0.25.0.ebuild:
+  Bump
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> argh-0.23.0-r1.ebuild,
+  argh-0.23.1.ebuild, argh-0.23.2.ebuild, argh-0.23.3.ebuild,
+  argh-0.24.1.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> argh-0.23.0-r1.ebuild,
   argh-0.23.1.ebuild, argh-0.23.2.ebuild, argh-0.23.3.ebuild,

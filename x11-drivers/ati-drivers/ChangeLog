@@ -1,6 +1,59 @@
 # ChangeLog for x11-drivers/ati-drivers
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ChangeLog,v 1.354 2014/03/27 19:02:32 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ChangeLog,v 1.364 2014/09/01 14:57:18 chithanh Exp $
+
+*ati-drivers-14.6_beta2 (01 Sep 2014)
+
+  01 Sep 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-14.6_beta2.ebuild:
+  New beta, import of Emil Karlson's ebuild from the x11 overlay.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> ati-drivers-13.12.ebuild,
+  ati-drivers-13.1_pre897.ebuild, ati-drivers-13.4.ebuild,
+  ati-drivers-13.9.ebuild, ati-drivers-14.4_p1.ebuild,
+  ati-drivers-14.6_beta1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  13 Jun 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/ati-drivers-vm-reserverd.patch:
+  Restore previously dropped patch that was still needed for the legacy driver.
+
+*ati-drivers-14.6_beta1 (05 Jun 2014)
+
+  05 Jun 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-14.6_beta1.ebuild, -ati-drivers-13.10_beta.ebuild,
+  -ati-drivers-13.11_beta.ebuild, -ati-drivers-13.11_beta6.ebuild,
+  -ati-drivers-14.1_beta.ebuild, -ati-drivers-14.3_beta.ebuild,
+  -ati-drivers-14.4.ebuild, -files/ati-drivers-13.8-proc-permissions.diff,
+  -files/ati-drivers-old_rsp.patch, -files/ati-drivers-vm-reserverd.patch:
+  Bump to latest beta. Remove some old versions.
+
+  02 Jun 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ati-drivers-14.4_p1.ebuild:
+  Stabilize latest.
+
+*ati-drivers-14.4_p1 (27 May 2014)
+
+  27 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-14.4_p1.ebuild:
+  Version bump, import of Emil Karlson's ebuild from the x11 overlay.
+
+  26 May 2014; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Sync e-mail address.
+
+  25 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ati-drivers-14.4.ebuild:
+  Unrestrict fetch, bug #511396.
+
+*ati-drivers-14.4 (14 May 2014)
+
+  14 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +ati-drivers-14.4.ebuild:
+  Version bump. Import of Emil Karlson's ebuild from the x11 overlay
+
+  06 Apr 2014; Agostino Sarubbo <ago@gentoo.org> ati-drivers-13.12.ebuild:
+  Stable for x86, wrt bug #500368
 
 *ati-drivers-14.3_beta (27 Mar 2014)
 

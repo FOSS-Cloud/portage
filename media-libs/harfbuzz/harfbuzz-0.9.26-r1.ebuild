@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/harfbuzz/harfbuzz-0.9.26-r1.ebuild,v 1.1 2014/03/01 13:33:20 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/harfbuzz/harfbuzz-0.9.26-r1.ebuild,v 1.7 2014/06/24 22:12:09 mgorny Exp $
 
 EAPI=5
 
@@ -18,17 +18,17 @@ HOMEPAGE="http://www.freedesktop.org/wiki/Software/HarfBuzz"
 LICENSE="Old-MIT ISC icu"
 SLOT="0/0.9.18" # 0.9.18 introduced the harfbuzz-icu split; bug #472416
 [[ ${PV} == 9999 ]] || \
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~x64-macos ~x86-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~x64-macos ~x86-macos ~x64-solaris"
 IUSE="+cairo +glib +graphite icu +introspection static-libs test +truetype"
 REQUIRED_USE="introspection? ( glib )"
 
 RDEPEND="
 	cairo? ( x11-libs/cairo:= )
-	glib? ( dev-libs/glib:2[${MULTILIB_USEDEP}] )
-	graphite? ( media-gfx/graphite2:=[${MULTILIB_USEDEP}] )
-	icu? ( dev-libs/icu:=[${MULTILIB_USEDEP}] )
+	glib? ( >=dev-libs/glib-2.34.3:2[${MULTILIB_USEDEP}] )
+	graphite? ( >=media-gfx/graphite2-1.2.1:=[${MULTILIB_USEDEP}] )
+	icu? ( >=dev-libs/icu-51.2-r1:=[${MULTILIB_USEDEP}] )
 	introspection? ( >=dev-libs/gobject-introspection-1.34 )
-	truetype? ( media-libs/freetype:2=[${MULTILIB_USEDEP}] )
+	truetype? ( >=media-libs/freetype-2.5.0.1:2=[${MULTILIB_USEDEP}] )
 "
 DEPEND="${RDEPEND}
 	dev-util/gtk-doc-am
@@ -72,16 +72,12 @@ multilib_src_configure() {
 		--without-coretext \
 		--without-uniscribe \
 		$(use_enable static-libs static) \
-		$(multilib_is_native_abi \
-			&& use_with cairo \
-			|| echo --without-cairo) \
+		$(multilib_native_use_with cairo) \
 		$(use_with glib) \
 		$(use_with glib gobject) \
 		$(use_with graphite graphite2) \
 		$(use_with icu) \
-		$(multilib_is_native_abi \
-			&& use_enable introspection \
-			|| echo --disable-introspection) \
+		$(multilib_native_use_enable introspection) \
 		$(use_with truetype freetype)
 }
 

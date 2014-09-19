@@ -1,6 +1,26 @@
 # ChangeLog for mail-filter/postgrey
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/postgrey/ChangeLog,v 1.83 2014/01/16 17:29:25 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/postgrey/ChangeLog,v 1.87 2014/08/17 09:16:01 jer Exp $
+
+  17 Aug 2014; Jeroen Roovers <jer@gentoo.org> postgrey-1.34-r3.ebuild:
+  Stable for HPPA (bug #519232).
+
+*postgrey-1.35-r1 (13 Aug 2014)
+*postgrey-1.34-r3 (13 Aug 2014)
+
+  13 Aug 2014; Julian Ospald <hasufell@gentoo.org> +postgrey-1.34-r3.ebuild,
+  +postgrey-1.35-r1.ebuild, +files/postgrey-1.34-perl-5.18.patch,
+  +files/postgrey-1.34-r3.rc.new:
+  bump 1.34 to eapi=5, fix init script wrt #500174, backport upstream patch for
+  1.34 to work with perl-5.18, fix broken style
+
+  12 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> postgrey-1.35.ebuild:
+  Fix newconfd target file
+
+*postgrey-1.35 (06 Aug 2014)
+
+  06 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> +postgrey-1.35.ebuild:
+  Version bump wrt bug #518470. Thanks to Andreis Vinogradovs
 
   16 Jan 2014; Jeroen Roovers <jer@gentoo.org> files/postgrey.conf.new:
   Spelling.

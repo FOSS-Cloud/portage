@@ -1,6 +1,108 @@
 # ChangeLog for app-emulation/xen
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/ChangeLog,v 1.157 2014/03/23 03:23:43 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/ChangeLog,v 1.175 2014/09/12 02:28:13 dlan Exp $
+
+  12 Sep 2014; Yixun Lan <dlan@gentoo.org> -xen-4.4.0-r6.ebuild:
+  cleanup due bug 522576
+
+*xen-4.4.1-r1 (11 Sep 2014)
+
+  11 Sep 2014; Yixun Lan <dlan@gentoo.org> -xen-4.4.1.ebuild,
+  +xen-4.4.1-r1.ebuild:
+  fix security bug 522576
+
+*xen-4.4.1 (11 Sep 2014)
+*xen-4.3.3 (11 Sep 2014)
+*xen-4.2.5 (11 Sep 2014)
+
+  11 Sep 2014; Yixun Lan <dlan@gentoo.org> +xen-4.2.5.ebuild,
+  +xen-4.3.3.ebuild, +xen-4.4.1.ebuild:
+  version bump
+
+  20 Aug 2014; Agostino Sarubbo <ago@gentoo.org> xen-4.2.4-r5.ebuild:
+  Stable for x86, wrt bug #519800
+
+  20 Aug 2014; Agostino Sarubbo <ago@gentoo.org> xen-4.2.4-r5.ebuild,
+  xen-4.3.2-r5.ebuild:
+  Stable for amd64, wrt bug #519800
+
+*xen-4.4.0-r6 (19 Aug 2014)
+*xen-4.3.2-r5 (19 Aug 2014)
+*xen-4.2.4-r5 (19 Aug 2014)
+
+  19 Aug 2014; Yixun Lan <dlan@gentoo.org> +xen-4.2.4-r5.ebuild,
+  +xen-4.3.2-r5.ebuild, -xen-4.4.0-r5.ebuild, +xen-4.4.0-r6.ebuild:
+  bump security patches, fix bug 519800, 519802 519804
+
+  12 Jul 2014; Yixun Lan <dlan@gentoo.org> -xen-4.2.4-r2.ebuild,
+  -xen-4.2.4-r3.ebuild, -xen-4.3.2-r2.ebuild, -xen-4.3.2-r3.ebuild:
+  cleanup after stabilization
+
+  12 Jul 2014; Agostino Sarubbo <ago@gentoo.org> xen-4.3.2-r4.ebuild:
+  Stable for amd64, wrt bug #513824
+
+  12 Jul 2014; Agostino Sarubbo <ago@gentoo.org> xen-4.2.4-r4.ebuild:
+  Stable for x86, wrt bug #513824
+
+  12 Jul 2014; Agostino Sarubbo <ago@gentoo.org> xen-4.2.4-r4.ebuild:
+  Stable for amd64, wrt bug #513824
+
+*xen-4.4.0-r5 (09 Jul 2014)
+*xen-4.3.2-r4 (09 Jul 2014)
+*xen-4.2.4-r4 (09 Jul 2014)
+
+  09 Jul 2014; Yixun Lan <dlan@gentoo.org> +xen-4.2.4-r4.ebuild,
+  +xen-4.3.2-r4.ebuild, -xen-4.4.0-r3.ebuild, -xen-4.4.0-r4.ebuild,
+  +xen-4.4.0-r5.ebuild:
+  bump stable/security patches, fix bug 515106, 513824
+
+*xen-4.4.0-r4 (14 Jun 2014)
+*xen-4.3.2-r3 (14 Jun 2014)
+*xen-4.2.4-r3 (14 Jun 2014)
+
+  14 Jun 2014; Yixun Lan <dlan@gentoo.org> +xen-4.2.4-r3.ebuild,
+  +xen-4.3.2-r3.ebuild, +xen-4.4.0-r4.ebuild:
+  bump security patches, fix bug 482138, 512572, 512294
+
+  17 May 2014; Yixun Lan <dlan@gentoo.org> -xen-4.2.3.ebuild,
+  -xen-4.2.4-r1.ebuild, -xen-4.3.1-r5.ebuild, -xen-4.3.2-r1.ebuild,
+  -files/xen-4-XSA-83.patch, -files/xen-4.3-CVE-2013-4553-XSA-74.patch,
+  -files/xen-4.3-CVE-2013-6375-XSA-75.patch,
+  -files/xen-4.3-CVE-2014-263-XSA-84-85.patch, -files/xen-4.3-XSA-87.patch,
+  -files/xen-CVE-2013-4375-XSA-71.patch, -files/xen-CVE-2013-4494-XSA-73.patch,
+  -files/xen-CVE-2013-4554-XSA-76.patch, -files/xen-CVE-2013-6375-XSA-78.patch,
+  -files/xen-CVE-2013-6400-XSA-80.patch, -files/xen-CVE-2013-6885-XSA-82.patch:
+  tree clean old ebuilds
+
+  17 May 2014; Agostino Sarubbo <ago@gentoo.org> xen-4.2.4-r2.ebuild:
+  Stable for x86, wrt bug #509054
+
+  17 May 2014; Agostino Sarubbo <ago@gentoo.org> xen-4.2.4-r2.ebuild,
+  xen-4.3.2-r2.ebuild:
+  Stable for amd64, wrt bug #509054
+
+*xen-4.4.0-r3 (14 May 2014)
+
+  14 May 2014; Yixun Lan <dlan@gentoo.org> +xen-4.4.0-r3.ebuild,
+  -xen-4.4.0-r2.ebuild:
+  upstream patches bump
+
+*xen-4.4.0-r2 (09 May 2014)
+*xen-4.3.2-r2 (09 May 2014)
+*xen-4.2.4-r2 (09 May 2014)
+
+  09 May 2014; Yixun Lan <dlan@gentoo.org> -xen-4.2.4.ebuild,
+  +xen-4.2.4-r2.ebuild, -xen-4.3.2.ebuild, +xen-4.3.2-r2.ebuild,
+  -xen-4.4.0.ebuild, -xen-4.4.0-r1.ebuild, +xen-4.4.0-r2.ebuild:
+  bump security patches, bug 508510, 508424, 509054, 509176
+
+*xen-4.4.0-r1 (09 Apr 2014)
+*xen-4.3.2-r1 (09 Apr 2014)
+*xen-4.2.4-r1 (09 Apr 2014)
+
+  09 Apr 2014; Yixun Lan <dlan@gentoo.org> +xen-4.2.4-r1.ebuild,
+  +xen-4.3.2-r1.ebuild, +xen-4.4.0-r1.ebuild:
+  bump stable patches, fix bug #505714, XSA-89
 
   23 Mar 2014; Ian Delaney <idella4@gentoo.org>
   Keyworded ~arm, this release provides broad support for the

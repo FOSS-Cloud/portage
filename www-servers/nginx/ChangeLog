@@ -1,6 +1,67 @@
 # ChangeLog for www-servers/nginx
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/nginx/ChangeLog,v 1.379 2014/03/29 06:07:29 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/nginx/ChangeLog,v 1.391 2014/08/10 13:21:49 ago Exp $
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  -files/modsecurity-2.7.5-include-paths.patch, -files/nginx.logrotate,
+  -files/upstream-check-1.5.13.patch, -files/upstream-check-1.5.8.patch,
+  -nginx-1.4.7-r1.ebuild, -nginx-1.4.7.ebuild, -nginx-1.5.13.ebuild,
+  -nginx-1.7.2.ebuild:
+  Remove old
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> nginx-1.7.4.ebuild:
+  Stable for x86, wrt bug #519174
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> nginx-1.7.4.ebuild:
+  Stable for amd64, wrt bug #519174
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> nginx-1.7.4.ebuild:
+  Add ~ppc, wrt bug #517842
+
+*nginx-1.7.4 (08 Aug 2014)
+
+  08 Aug 2014; Tiziano Müller <dev-zero@gentoo.org> +nginx-1.7.4.ebuild,
+  -nginx-1.7.3.ebuild:
+  Version bump for security bug #519174/CVE-2014-3556, thanks to Johan
+  Bergström.
+
+  23 Jul 2014; Tiziano Müller <dev-zero@gentoo.org> nginx-1.7.3.ebuild:
+  Restore keywords.
+
+*nginx-1.7.3 (22 Jul 2014)
+
+  22 Jul 2014; Tiziano Müller <dev-zero@gentoo.org> +nginx-1.7.3.ebuild,
+  metadata.xml:
+  Version bump (including updates to sticky, lua and echo), add mogilefs support
+  (bug #433107), simplify `nginx -V` output, all thanks to jbergstroem and
+  reintroduce the luajit USE flag (bug #509338).
+
+  13 Jul 2014; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Add proxy-maint.
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> nginx-1.7.2.ebuild:
+  Replace obsolete mirror://bitbucket with the real URI.
+
+*nginx-1.7.2 (19 Jun 2014)
+
+  19 Jun 2014; Tiziano Müller <dev-zero@gentoo.org> +files/check_1.7.2+.patch,
+  +files/nginx.logrotate-r1, +nginx-1.7.2.ebuild:
+  Version bump (bug #508810), including fixes for bugs #508650 (delaycompress
+  for logrotate) and #510040 (use /usr/$(get_libdir)). Thanks to jbergstroem for
+  providing the bump, testing and patching.
+
+*nginx-1.5.13 (15 Apr 2014)
+*nginx-1.4.7-r1 (15 Apr 2014)
+
+  15 Apr 2014; Tiziano Müller <dev-zero@gentoo.org>
+  +files/upstream-check-1.5.13.patch, +nginx-1.4.7-r1.ebuild,
+  +nginx-1.5.13.ebuild, -nginx-1.5.10.ebuild, -nginx-1.5.7-r1.ebuild:
+  Version bump for mainline (1.5.13, bug #503414), drop syslog-patch (no version
+  available for nginx-1.5) and old push-module (use push_stream instead) and add
+  ajp, sticky modules. Drop old/vulnerable mainline versions. Add rev-bump for
+  stable series (1.4.7-r1) to fix compilation problems with
+  USE=nginx_modules_http_security (bugs #506690, #506804). Thanks to jbergstroem
+  for providing the initial bump including the new modules and a lot of testing.
 
   29 Mar 2014; Agostino Sarubbo <ago@gentoo.org> -nginx-1.4.4.ebuild:
   Remove old

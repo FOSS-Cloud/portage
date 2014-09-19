@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.10.1.ebuild,v 1.5 2014/03/09 12:05:13 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.10.1.ebuild,v 1.7 2014/06/16 14:54:21 blueness Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -13,11 +13,13 @@ HOMEPAGE="https://git.gnome.org/browse/gnome-icon-theme-symbolic/"
 LICENSE="CC-BY-SA-3.0"
 SLOT="0"
 IUSE=""
-KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux"
 
 COMMON_DEPEND=">=x11-themes/hicolor-icon-theme-0.10"
 
+# gnome-base/librsvg will be needed by apps using this icons, bug #508210
 RDEPEND="${COMMON_DEPEND}
+	gnome-base/librsvg
 	!=gnome-extra/gnome-power-manager-3.0*
 "
 # Matches 3.10

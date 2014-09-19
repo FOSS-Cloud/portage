@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/gnome-screensaver/gnome-screensaver-3.6.1.ebuild,v 1.8 2014/02/22 21:57:11 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-extra/gnome-screensaver/gnome-screensaver-3.6.1.ebuild,v 1.10 2014/08/10 21:19:57 slyfox Exp $
 
 EAPI="5"
 GCONF_DEBUG="yes"
 
 inherit eutils gnome2
 
-DESCRIPTION="Replaces xscreensaver, integrating with the desktop."
+DESCRIPTION="Replaces xscreensaver, integrating with the desktop"
 HOMEPAGE="http://live.gnome.org/GnomeScreensaver"
 
 LICENSE="GPL-2+"
@@ -34,7 +34,7 @@ RDEPEND="
 	x11-themes/gnome-icon-theme-symbolic
 
 	pam? ( virtual/pam )
-	systemd? ( >=sys-apps/systemd-31 )
+	systemd? ( >=sys-apps/systemd-31:0= )
 "
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.35

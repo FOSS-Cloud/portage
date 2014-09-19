@@ -1,6 +1,23 @@
 # ChangeLog for dev-util/buildbot-slave
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot-slave/ChangeLog,v 1.57 2014/02/24 01:46:07 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot-slave/ChangeLog,v 1.61 2014/09/14 09:19:20 maekke Exp $
+
+  14 Sep 2014; Markus Meier <maekke@gentoo.org> buildbot-slave-0.8.9.ebuild:
+  arm stable, bug #521732
+
+  13 Sep 2014; Jeroen Roovers <jer@gentoo.org> buildbot-slave-0.8.9.ebuild:
+  Stable for HPPA (bug #521732).
+
+*buildbot-slave-0.8.9 (30 Jun 2014)
+
+  30 Jun 2014; Markos Chandras <hwoarang@gentoo.org>
+  +buildbot-slave-0.8.9.ebuild:
+  Version bump
+
+  10 Apr 2014; Markos Chandras <hwoarang@gentoo.org> files/buildslave.service:
+  Add WorkingDirectory and fix arguments for systemd's unit start/stop
+  options. This will be removed in the next version bump since upstream has
+  their own systemd files
 
   24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
   buildbot-slave-0.8.8-r1.ebuild:

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/freewnn/freewnn-1.1.1_alpha22.ebuild,v 1.1 2013/08/31 06:10:35 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/freewnn/freewnn-1.1.1_alpha22.ebuild,v 1.3 2014/09/15 23:05:14 naota Exp $
 
 EAPI=5
 
@@ -27,9 +27,12 @@ src_prepare() {
 	#Change WNNOWNER to root so we don't need to add wnn user
 	# and disable stripping of binary files
 	sed -i -e "s/WNNOWNER = wnn/WNNOWNER = root/" \
-		-e "s/@INSTPGMFLAGS@//" makerule.mk.in || die
+		-e "s/@INSTPGMFLAGS@//" makerule.mk.in \
+		-e "s/@LN_S@/ln -sf/" || die
 
 	#bug #318593
+
+	epatch "${FILESDIR}"/${P}-parallel-build.patch #517916
 }
 
 src_configure() {

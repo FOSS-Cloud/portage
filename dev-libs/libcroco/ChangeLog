@@ -1,6 +1,46 @@
 # ChangeLog for dev-libs/libcroco
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libcroco/ChangeLog,v 1.94 2013/04/13 20:55:58 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libcroco/ChangeLog,v 1.106 2014/09/15 08:18:31 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libcroco-0.6.8-r1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libcroco-0.6.8-r1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libcroco-0.6.8-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libcroco-0.6.8-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> libcroco-0.6.8-r1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libcroco-0.6.8-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libcroco-0.6.8-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libcroco-0.6.8-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  24 Jun 2014; Michał Górny <mgorny@gentoo.org> libcroco-0.6.8-r1.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libcroco-0.6.8-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+*libcroco-0.6.8-r1 (17 Jun 2014)
+
+  17 Jun 2014; Michał Górny <mgorny@gentoo.org> +libcroco-0.6.8-r1.ebuild:
+  Enable multilib support, needed by gnome-base/librsvg.
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> -libcroco-0.6.5.ebuild:
+  drop old
 
   13 Apr 2013; Agostino Sarubbo <ago@gentoo.org> libcroco-0.6.8.ebuild:
   Stable for s390, wrt bug #458984

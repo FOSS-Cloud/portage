@@ -1,6 +1,22 @@
 # ChangeLog for dev-ruby/rack-protection
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rack-protection/ChangeLog,v 1.19 2014/01/16 07:27:37 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rack-protection/ChangeLog,v 1.23 2014/08/05 16:00:48 mrueg Exp $
+
+  05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> rack-protection-1.5.3.ebuild:
+  Remove trailing '.' from DESCRIPTION.
+
+  21 May 2014; Manuel Rüger <mrueg@gentoo.org> -rack-protection-1.5.1.ebuild,
+  -rack-protection-1.5.2.ebuild:
+  Cleanup old.
+
+  20 Apr 2014; Hans de Graaff <graaff@gentoo.org> rack-protection-1.5.3.ebuild:
+  Add ruby21.
+
+*rack-protection-1.5.3 (09 Apr 2014)
+
+  09 Apr 2014; Hans de Graaff <graaff@gentoo.org>
+  +rack-protection-1.5.3.ebuild:
+  Version bump.
 
 *rack-protection-1.5.2 (16 Jan 2014)
 

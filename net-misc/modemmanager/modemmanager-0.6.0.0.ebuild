@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/modemmanager/modemmanager-0.6.0.0.ebuild,v 1.11 2013/02/03 19:38:37 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/modemmanager/modemmanager-0.6.0.0.ebuild,v 1.13 2014/09/12 19:28:47 vincent Exp $
 
 EAPI="4"
 GNOME_ORG_MODULE="ModemManager"
@@ -12,11 +12,11 @@ HOMEPAGE="http://cgit.freedesktop.org/ModemManager/ModemManager/"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~ia64 ppc ppc64 ~sparc x86"
+KEYWORDS="~alpha amd64 arm ~ia64 ~mips ppc ppc64 ~sparc x86"
 IUSE="doc policykit test"
 
 RDEPEND=">=dev-libs/glib-2.18:2
-	virtual/udev[gudev]
+	virtual/libgudev
 	>=dev-libs/dbus-glib-0.86
 	net-dialup/ppp
 	policykit? ( >=sys-auth/polkit-0.99 )"
@@ -38,7 +38,7 @@ src_configure() {
 
 	econf \
 		--disable-more-warnings \
-		--with-udev-base-dir="$(udev_get_udevdir)" \
+		--with-udev-base-dir="$(get_udevdir)" \
 		--disable-static \
 		--with-dist-version=${PVR} \
 		--with-pppd-plugin-dir="/usr/$(get_libdir)/${pppd_plugin_dir}" \

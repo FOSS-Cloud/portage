@@ -1,6 +1,18 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/package.use.mask,v 1.60 2014/02/02 10:30:40 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/package.use.mask,v 1.68 2014/09/16 17:12:06 chithanh Exp $
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (16 Sep 2014)
+# Needs libepoxy keywording, bug #510940
+x11-base/xorg-server glamor wayland
+
+# Davide Pesavento <pesa@gentoo.org> (02 Jun 2014)
+# dev-qt/qtdeclarative:4 is not keyworded on mips
+dev-qt/designer:4 declarative
+
+# Davide Pesavento <pesa@gentoo.org> (02 Jun 2014)
+# connman and networkmanager are not keyworded on mips
+dev-qt/qtbearer:4 connman networkmanager
 
 # Sergey Popov <pinkbyte@gentoo.org> (02 Feb 2014)
 # media-gfx/nvidia-texture-tools is not keyworded on mips
@@ -21,8 +33,8 @@ app-text/tesseract	webp
 
 # Pacho Ramos <pacho@gentoo.org> (01 Sep 2013)
 # CONFIG_AUDITSYSCALL=y is not implemented, bug #438368
-sys-apps/systemd pam
 sys-auth/consolekit pam
+sys-auth/pambase consolekit
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (28 May 2013)
 # depends on sys-devel/llvm[video_cards_radeon]

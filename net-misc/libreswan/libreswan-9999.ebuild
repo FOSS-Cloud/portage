@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/libreswan/libreswan-9999.ebuild,v 1.5 2014/01/17 03:42:05 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/libreswan/libreswan-9999.ebuild,v 1.7 2014/09/08 02:24:58 floppym Exp $
 
 EAPI=5
 
@@ -77,14 +77,13 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}" install
-	sed -i -e '1s:python$:python2:' "${D}"/usr/libexec/ipsec/verify || die
 
 	echo "include /etc/ipsec.d/*.secrets" > "${D}"/etc/ipsec.secrets
 	fperms 0600 /etc/ipsec.secrets
 
 	systemd_dounit "${FILESDIR}/ipsec.service"
 
-	dodoc BUGS CHANGES README
+	dodoc CHANGES README
 	dodoc -r docs
 
 	find "${D}" -type d -empty -delete || die

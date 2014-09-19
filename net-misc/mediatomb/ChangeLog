@@ -1,6 +1,35 @@
 # ChangeLog for net-misc/mediatomb
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/mediatomb/ChangeLog,v 1.51 2014/03/12 05:25:52 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/mediatomb/ChangeLog,v 1.57 2014/08/29 10:30:26 nimiux Exp $
+
+  29 Aug 2014; Chema Alonso <nimiux@gentoo.org> mediatomb-0.12.1-r8.ebuild:
+  Stable for amd64 wrt bug #517850
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  mediatomb-0.12.1-r8.ebuild:
+  x86 stable wrt bug #517850
+
+*mediatomb-0.12.2_pre20140810 (09 Aug 2014)
+
+  09 Aug 2014; Ian Whyman <thev00d00@gentoo.org>
+  +mediatomb-0.12.2_pre20140810.ebuild, -mediatomb-0.12.2_pre20140809.ebuild:
+  New snapshot to fix SIGSEGV in LibMP4V2Handler
+
+*mediatomb-0.12.2_pre20140809 (09 Aug 2014)
+
+  09 Aug 2014; Ian Whyman <thev00d00@gentoo.org>
+  +mediatomb-0.12.2_pre20140809.ebuild, -mediatomb-0.12.1-r5.ebuild:
+  Add snapshot build, remove old
+
+*mediatomb-0.12.1-r8 (03 May 2014)
+
+  03 May 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/mediatomb-0.12.1-thumbnail-locking.patch, +mediatomb-0.12.1-r8.ebuild,
+  files/mediatomb-0.12.1-thumb-cache.patch:
+  Fix random crashes in thumbnail generation code.
+
+  29 Apr 2014; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Document USE=curl a bit better #505546 by BT.
 
   09 Mar 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
   mediatomb-0.12.1-r7.ebuild:

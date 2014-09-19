@@ -1,6 +1,168 @@
 # ChangeLog for sys-fs/eudev
-# Copyright 1999- Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/ChangeLog,v 1.99 2014/03/28 20:02:03 axs Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/ChangeLog,v 1.141 2014/09/17 13:13:33 jer Exp $
+
+  17 Sep 2014; Jeroen Roovers <jer@gentoo.org> eudev-1.10-r2.ebuild:
+  Stable for HPPA (bug #522792).
+
+  15 Sep 2014; Anthony G. Basile <blueness@gentoo.org> eudev-9999.ebuild:
+  Update 9999 version wrt bug #522606
+
+  15 Sep 2014; Anthony G. Basile <blueness@gentoo.org> eudev-1.10-r2.ebuild:
+  Fix bug #522606
+
+*eudev-1.10-r2 (04 Sep 2014)
+
+  04 Sep 2014; Patrick Lauer <patrick@gentoo.org> +eudev-1.10-r2.ebuild:
+  Run eautoreconf unconditionally to be immune to automake versions #522078
+
+*eudev-1.10-r1 (03 Sep 2014)
+
+  03 Sep 2014; Anthony G. Basile <blueness@gentoo.org> +eudev-1.10-r1.ebuild,
+  +files/eudev-fix-selinux-linking.patch, -eudev-1.10.ebuild:
+  Fix linking problem in bug #520684
+
+  02 Sep 2014; Anthony G. Basile <blueness@gentoo.org>
+  +files/eudev-fix-selinux-headers.patch, eudev-1.10.ebuild:
+  Fix bug #520684
+
+*eudev-1.10 (22 Aug 2014)
+
+  22 Aug 2014; Anthony G. Basile <blueness@gentoo.org> +eudev-1.10.ebuild,
+  eudev-9999.ebuild:
+  Version bump, 1.10 = upstream 216
+
+  01 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> eudev-1.9-r2.ebuild:
+  amd64/x86 stable wrt bug #516524
+
+  30 Jul 2014; Jeroen Roovers <jer@gentoo.org> eudev-1.9-r2.ebuild:
+  Stable for HPPA (bug #516524).
+
+  27 Jul 2014; Anthony G. Basile <blueness@gentoo.org> eudev-1.9-r2.ebuild:
+  Stable on ppc and ppc64, bug #516524
+
+  27 Jul 2014; Markus Meier <maekke@gentoo.org> eudev-1.9-r2.ebuild:
+  arm stable, bug #516524
+
+  25 Jul 2014; Anthony G. Basile <blueness@gentoo.org> eudev-1.3.ebuild:
+  Drop 1.3 for all except ia64
+
+*eudev-1.9-r2 (25 Jul 2014)
+
+  25 Jul 2014; Anthony G. Basile <blueness@gentoo.org> +eudev-1.9-r2.ebuild,
+  +files/eudev-exclude-MD.patch:
+  Add upstream patch for excluding md devices from block device ownership, bug
+  #517986
+
+  25 Jul 2014; Anthony G. Basile <blueness@gentoo.org> -eudev-1.7.ebuild,
+  -eudev-1.8.ebuild, -files/eudev-fix-typo-util.c.patch,
+  -files/eudev-hwdb-offset-root.patch:
+  Remove older unstable versions
+
+  19 Jul 2014; Jeroen Roovers <jer@gentoo.org> eudev-1.9-r1.ebuild:
+  Stable for HPPA (bug #516524).
+
+  15 Jul 2014; Anthony G. Basile <blueness@gentoo.org> eudev-1.9-r1.ebuild:
+  Stable on arm, ppc, ppc64.  Bug #516524
+
+  15 Jul 2014; Anthony G. Basile <blueness@gentoo.org> eudev-1.9-r1.ebuild,
+  eudev-9999.ebuild:
+  Restore gudev documentation
+
+  15 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> eudev-1.9-r1.ebuild:
+  x86 stable wrt bug #516524
+
+  14 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> eudev-1.9-r1.ebuild:
+  amd64 stable wrt bug #516524
+
+*eudev-1.9-r1 (14 Jul 2014)
+
+  14 Jul 2014; Anthony G. Basile <blueness@gentoo.org> +eudev-1.9-r1.ebuild,
+  -eudev-1.9.ebuild, eudev-9999.ebuild:
+  Add enewgroup input to 1.9
+
+*eudev-1.9 (06 Jul 2014)
+
+  06 Jul 2014; Anthony G. Basile <blueness@gentoo.org> +eudev-1.9.ebuild:
+  Version bump
+
+  27 Jun 2014; Anthony G. Basile <blueness@gentoo.org> eudev-1.8.ebuild,
+  eudev-9999.ebuild:
+  Promote kmod to +kmod, see bug #509624
+
+  24 Jun 2014; Michał Górny <mgorny@gentoo.org> eudev-1.5.3-r1.ebuild,
+  eudev-1.7.ebuild, eudev-1.8.ebuild, eudev-9999.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  24 Jun 2014; Anthony G. Basile <blueness@gentoo.org> eudev-9999.ebuild:
+  Make use of the new rootlibexecdir option
+
+*eudev-1.8 (20 Jun 2014)
+
+  20 Jun 2014; Anthony G. Basile <blueness@gentoo.org> +eudev-1.8.ebuild,
+  eudev-9999.ebuild:
+  Version bump to 1.8 = upstream 214
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> eudev-1.5.3-r1.ebuild,
+  eudev-1.7.ebuild, eudev-9999.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  01 Jun 2014; Anthony G. Basile <blueness@gentoo.org> -eudev-1.4-r1.ebuild,
+  -eudev-1.5.3.ebuild, -eudev-1.6.ebuild:
+  Remove older unstables
+
+*eudev-1.7 (01 Jun 2014)
+
+  01 Jun 2014; Anthony G. Basile <blueness@gentoo.org> +eudev-1.7.ebuild,
+  eudev-9999.ebuild:
+  Version bump to 1.7 = 213
+
+  26 May 2014; Anthony G. Basile <blueness@gentoo.org> eudev-1.5.3-r1.ebuild:
+  Stable on ppc64, bug #506078
+
+  17 May 2014; Agostino Sarubbo <ago@gentoo.org> eudev-1.5.3-r1.ebuild:
+  Stable for alpha, wrt bug #506078
+
+  10 May 2014; Agostino Sarubbo <ago@gentoo.org> eudev-1.5.3-r1.ebuild:
+  Stable for ppc, wrt bug #506078
+
+  08 May 2014; Anthony G. Basile <blueness@gentoo.org> ChangeLog:
+  Fix gpg signiture
+
+  08 May 2014; Anthony G. Basile <blueness@gentoo.org> eudev-1.6.ebuild,
+  eudev-9999.ebuild:
+  Fix KV_min for 1.6 and above, bug #509570
+
+  04 May 2014; Mikle Kolyada <zlogene@gentoo.org> eudev-1.5.3-r1.ebuild:
+  arm stable wrt bug #506078
+
+  04 May 2014; Mikle Kolyada <zlogene@gentoo.org> eudev-1.5.3-r1.ebuild:
+  x86 stable wrt bug #506078
+
+  04 May 2014; Mikle Kolyada <zlogene@gentoo.org> eudev-1.5.3-r1.ebuild:
+  amd64 stable wrt bug #506078
+
+  28 Apr 2014; Michał Górny <mgorny@gentoo.org> eudev-1.3.ebuild,
+  eudev-1.4-r1.ebuild, eudev-1.5.3-r1.ebuild, eudev-1.5.3.ebuild,
+  eudev-1.6.ebuild, eudev-9999.ebuild:
+  Replace multilib_build_binaries with multilib_is_native_abi, in order to put
+  an end to the confusion introduced by having two functions, the proper one
+  suggesting it is just for binaries.
+
+  15 Apr 2014; Anthony G. Basile <blueness@gentoo.org> eudev-1.6.ebuild,
+  eudev-9999.ebuild:
+  Remove check for 64-device-mapper.rules
+
+*eudev-1.6 (15 Apr 2014)
+
+  15 Apr 2014; Anthony G. Basile <blueness@gentoo.org> +eudev-1.6.ebuild,
+  eudev-9999.ebuild:
+  Version bump to 1.6
+
+  05 Apr 2014; Jeroen Roovers <jer@gentoo.org> eudev-1.5.3-r1.ebuild:
+  Stable for HPPA (bug #506078).
 
   28 Mar 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> eudev-1.5.3-r1.ebuild,
   eudev-9999.ebuild:

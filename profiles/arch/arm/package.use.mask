@@ -1,6 +1,61 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/package.use.mask,v 1.198 2014/03/27 15:00:53 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/package.use.mask,v 1.217 2014/09/13 12:14:18 maekke Exp $
+
+# Rick Farina <zerochaos@gentoo.org> (27 Jul 2014)
+# net-misc/dahdi doesn't build
+net-voip/yate dahdi
+
+# Rick Farina <zerochaos@gentoo.org> (22 Jul 2014)
+# sci-libs/mpir doesn't build
+dev-python/gmpy mpir
+
+# Maxim Koltsov <maksbotan@gentoo.org> (9 Jul 2014)
+# Missing keywords on dev-python/rst2pdf, bug #515222
+media-video/mpv doc-pdf
+
+# Markus Meier <maekke@gentoo.org> (24 Jun 2014)
+# Unkeyworded deps, bug #513108
+>=net-misc/spice-gtk-0.25 smartcard
+
+# Jauhien Piatlicki <jauhien@gentoo.org> (29 May 2014)
+# Unkeyworded deps
+lxqt-base/lxqt-meta lximage
+
+# Markus Meier <maekke@gentoo.org> (04 May 2014)
+# Unkeyworded deps, bug #509082
+mail-filter/opendkim opendbx
+
+# Markus Meier <maekke@gentoo.org> (04 May 2014)
+# Unkeyworded deps, bug #507896
+dev-qt/qt-mobility messaging
+
+# Andreas K. Huettel <dilfridge@gentoo.org> (3 May 2014)
+# Missing keywords, should only be a transitionary problem
+kde-base/baloo alternatekcm
+
+# Julian Ospald <hasufell@gentoo.org> (20 Apr 2014)
+# Missing keywords, bug #508226
+media-video/mpv sdl
+
+# S. Suominen <ssuominen@g.o> (17 Apr 2014)
+# First GTK+-3.x version of EasyTAG!
+# Keyword as reqiuired, ~arch is enough for now:
+# media-libs/opusfile for USE opus
+# media-libs/opus for USE opus
+# app-text/apadata-tools for FEAATURES and USE test
+# Do it! No reason to ask permission before!
+>=media-sound/easytag-2.2.0 opus test
+
+# Johannes Huber <johu@gentoo.org> (16 Apr 2014)
+# unkeyworded deps
+kde-base/gwenview semantic-desktop
+kde-base/okular dpi
+kde-base/nepomuk-core migrator
+
+# Yixun Lan <dlan@gentoo.org> (12 Apr 2014)
+# app-emulation/qemu is not keyworded on arm arch.
+app-emulation/xen-tools system-qemu
 
 # Mike Gilbert <floppym@gentoo.org> (27 Mar 2014)
 # sys-libs/libseccomp is not keyworded on many archs.
@@ -109,10 +164,6 @@ media-libs/mesa r600-llvm-compiler
 # Firmware loader not keyworded yet
 sci-libs/linux-gpib firmware
 
-# Christian Ruppert <idl0r@gentoo.org> (13 May 2013)
-# Mask nic3com re bug 454024
-sys-apps/flashrom nic3com
-
 # Markus Meier <maekke@gentoo.org> (11 May 2013)
 # unkeyworded deps for x11-wm/enlightenment
 x11-wm/enlightenment emotion
@@ -150,19 +201,12 @@ dev-libs/xapian-bindings java
 app-office/calligra openexr postgres spacenav vc
 media-gfx/pstoedit emf
 
-# Eray Aslan <eras@gentoo.org> (16 Feb 2013)
-# Mask further java flag
-=dev-libs/cyrus-sasl-2.1.25-r4 java
-=dev-libs/cyrus-sasl-2.1.26-r3 java
-=dev-libs/cyrus-sasl-2.1.23-r7 java
-
 # Rick Farina <zerochaos@gentoo.org> (05 Feb 2013)
 # masking all stable packages with java use flag
 dev-util/oprofile java
 =dev-db/qdbm-1.8.78-r1 java
 =dev-libs/beecrypt-4.2.1 java
-=dev-libs/cyrus-sasl-2.1.23-r6 java
-=dev-libs/cyrus-sasl-2.1.25-r3 java
+dev-libs/cyrus-sasl java
 =dev-libs/xapian-bindings-1.2.12 java
 =dev-libs/xapian-bindings-1.2.12-r1 java
 dev-tex/tex4ht java
@@ -170,6 +214,7 @@ dev-vcs/subversion java
 =media-gfx/graphviz-2.26.3-r3 java
 =media-gfx/graphviz-2.26.3-r4 java
 =media-libs/libcaca-0.99_beta17 java
+=media-libs/libcaca-0.99_beta18-r2 java
 media-libs/libjpeg-turbo java
 net-dns/libidn java
 net-misc/tigervnc java
@@ -187,11 +232,8 @@ net-print/cups java
 =sys-libs/db-4.6.21_p4 java
 =sys-libs/db-4.7.25_p4 java
 =sys-libs/db-4.8.30 java
+=sys-libs/db-4.8.30-r1 java
 =www-client/seamonkey-2.0.14-r1 java
-
-# Michał Górny <mgorny@gentoo.org> (01 Feb 2013)
-# virtual/cblas not keyworded on arm, bug #455050.
-dev-python/numpy lapack
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (22 Jan 2013)
 # remove mask if/when media-gfx/argyllcms is keywored here.
@@ -280,6 +322,7 @@ app-admin/syslog-ng json
 # it's masked in base profile and unmasked here (bug #396313).
 net-libs/webkit-gtk -jit
 www-client/epiphany -jit
+www-client/midori -jit
 
 # Anthony G. Basile <blueness@gentoo.org> (Dec 21, 2011)
 # Mask the vde flag on tinc because net-misc/vde is not

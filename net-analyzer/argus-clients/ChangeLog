@@ -1,6 +1,53 @@
 # ChangeLog for net-analyzer/argus-clients
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/argus-clients/ChangeLog,v 1.61 2014/03/05 17:08:12 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/argus-clients/ChangeLog,v 1.69 2014/07/10 19:03:45 jer Exp $
+
+*argus-clients-3.0.8_rc6 (10 Jul 2014)
+
+  10 Jul 2014; Jeroen Roovers <jer@gentoo.org> -argus-clients-3.0.7.33.ebuild,
+  -argus-clients-3.0.7.34.ebuild, +argus-clients-3.0.8_rc6.ebuild,
+  -files/argus-clients-3.0.7.18-sasl.patch:
+  Version bump.
+
+*argus-clients-3.0.7.34 (14 Jun 2014)
+
+  14 Jun 2014; Jeroen Roovers <jer@gentoo.org> -argus-clients-3.0.7.31.ebuild,
+  +argus-clients-3.0.7.34.ebuild:
+  Version bump.
+
+*argus-clients-3.0.7.33 (12 Jun 2014)
+
+  12 Jun 2014; Jeroen Roovers <jer@gentoo.org> +argus-clients-3.0.7.33.ebuild,
+  -argus-clients-3.0.7.29.ebuild:
+  Version bump.
+
+*argus-clients-3.0.7.31 (05 Jun 2014)
+
+  05 Jun 2014; Jeroen Roovers <jer@gentoo.org> -argus-clients-3.0.7.28.ebuild,
+  +argus-clients-3.0.7.31.ebuild:
+  Version bump.
+
+*argus-clients-3.0.7.29 (27 May 2014)
+
+  27 May 2014; Jeroen Roovers <jer@gentoo.org> -argus-clients-3.0.7.27.ebuild,
+  +argus-clients-3.0.7.29.ebuild:
+  Version bump.
+
+*argus-clients-3.0.7.28 (21 May 2014)
+
+  21 May 2014; Jeroen Roovers <jer@gentoo.org> -argus-clients-3.0.7.21.ebuild,
+  -argus-clients-3.0.7.26.ebuild, +argus-clients-3.0.7.28.ebuild:
+  Version bump.
+
+*argus-clients-3.0.7.27 (18 May 2014)
+
+  18 May 2014; Jeroen Roovers <jer@gentoo.org> +argus-clients-3.0.7.27.ebuild:
+  Version bump.
+
+*argus-clients-3.0.7.26 (03 May 2014)
+
+  03 May 2014; Jeroen Roovers <jer@gentoo.org> +argus-clients-3.0.7.26.ebuild:
+  Version bump.
 
 *argus-clients-3.0.7.21 (05 Mar 2014)
 

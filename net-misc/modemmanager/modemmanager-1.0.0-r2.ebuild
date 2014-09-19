@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/modemmanager/modemmanager-1.0.0-r2.ebuild,v 1.6 2014/03/08 11:23:44 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/modemmanager/modemmanager-1.0.0-r2.ebuild,v 1.8 2014/09/12 19:28:47 vincent Exp $
 
 EAPI="5"
 inherit autotools eutils user multilib readme.gentoo toolchain-funcs udev virtualx
@@ -11,13 +11,13 @@ SRC_URI="http://www.freedesktop.org/software/ModemManager/ModemManager-${PV}.tar
 
 LICENSE="GPL-2+"
 SLOT="0/1" # subslot = dbus interface version, i.e. N in org.freedesktop.ModemManager${N}
-KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc x86"
 IUSE="policykit +qmi qmi-newest"
 REQUIRED_USE="qmi-newest? ( qmi )"
 
 RDEPEND="
 	>=dev-libs/glib-2.32:2
-	>=virtual/udev-147[gudev]
+	virtual/libgudev:=
 	policykit? ( >=sys-auth/polkit-0.106[introspection] )
 	qmi? ( >=net-libs/libqmi-1.4.0:= )
 "
@@ -54,7 +54,7 @@ src_configure() {
 	# We don't have mbim in the tree
 	econf \
 		--disable-more-warnings \
-		--with-udev-base-dir="$(udev_get_udevdir)" \
+		--with-udev-base-dir="$(get_udevdir)" \
 		--disable-static \
 		--with-dist-version=${PVR} \
 		$(use_with policykit polkit) \

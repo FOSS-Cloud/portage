@@ -1,6 +1,274 @@
 # ChangeLog for sys-fs/udev
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/ChangeLog,v 1.1021 2014/03/29 06:22:00 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/ChangeLog,v 1.1089 2014/09/17 14:09:39 ssuominen Exp $
+
+  17 Sep 2014; Samuli Suominen <ssuominen@gentoo.org> udev-216.ebuild:
+  amd64/x86 stable wrt #522778
+
+  17 Sep 2014; Jeroen Roovers <jer@gentoo.org> udev-216.ebuild:
+  Stable for HPPA (bug #522778).
+
+  02 Sep 2014; Samuli Suominen <ssuominen@gentoo.org> udev-215-r1.ebuild:
+  Raise linux-headers dependency for 215-r1 because of the file handle struct
+  patch wrt #521902. This problem is specific to 215-r1, and -r1 only.
+
+  31 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Make sure CONFIG_FW_LOADER_USER_HELPER is set to =n and remove references to
+  the userspace firmware loader as per http://cgit.freedesktop.org/systemd/
+  systemd/commit/?id=be2ea723b1d023b3d385d3b791ee4607cbfb20ca
+  At least Linux 3.7 is required for kernel side firmware loader to exist
+
+  24 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> udev-216.ebuild:
+  Apply upstream commits http://cgit.freedesktop.org/systemd/systemd/commit/src/
+  shared/missing.h?id=a7d611f280b3eadafd6b411b659a321b4d6e63f4 and http://cgit.f
+  reedesktop.org/systemd/systemd/commit/src/shared/missing.h?id=2de1851fe3611c59
+  abf77127c6b5bc1b91eb7cba to fix building on MIPS wrt #520720 by David Holm
+
+*udev-216 (20 Aug 2014)
+
+  20 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-216.ebuild:
+  Version bump.
+
+  20 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Pass --disable-lz4, --disable-libcurl and --disable-libidn to avoid configure
+  time package availability tests.
+
+  02 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Migrate src_configure() over to multilib_native_use_enable() function from
+  multilib-build.eclass
+
+  01 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> udev-215-r1.ebuild:
+  Include more straightforward patch for the last commit after all wrt
+  http://lists.freedesktop.org/archives/systemd-devel/2014-August/021703.html
+
+  01 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> udev-215-r1.ebuild:
+  Include src/shared/missing.h in src/shared/util.h for the missing struct
+  file_handle definition to fix build on systems (old glibc based ones, uclibc
+  based ones, others) with no system headers to define it. Thanks to Mike
+  Frysinger for testing and pointing out the problem. Thanks to Simon McVittie
+  from upstream mailing list for providing improved patch that shouldn't cause
+  regression(s). See, http://lists.freedesktop.org/archives/systemd-
+  devel/2014-August/021701.html
+
+  01 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Install the new udev.conf.5 manpage wrt http://cgit.freedesktop.org/systemd/sy
+  stemd/commit/?id=6fc5a40438dee0972cf1dedca9d4fd1c257c8f91
+
+  01 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> udev-215-r1.ebuild:
+  Raise linux-headers dependency to >= 3.5 for IFLA_MACVLAN_FLAGS because it's
+  missing from src/share/missing.h
+
+  31 Jul 2014; Anthony G. Basile <blueness@gentoo.org> udev-215-r1.ebuild:
+  Stable on ppc/ppc64, bug #517106
+
+  31 Jul 2014; Jeroen Roovers <jer@gentoo.org> udev-215-r1.ebuild:
+  Stable for HPPA (bug #517106).
+
+  30 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Use udev_reload() function from udev.eclass to avoid duplicating code.
+
+  29 Jul 2014; Markus Meier <maekke@gentoo.org> udev-215-r1.ebuild:
+  arm stable, bug #517106
+
+  25 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-215-r1.ebuild:
+  amd64/x86 stable wrt #517106
+
+*udev-215-r1 (25 Jul 2014)
+
+  25 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-215-r1.ebuild,
+  udev-9999.ebuild:
+  Upstream patch for excluding MD from block device ownership event locking wrt
+  #517986 by Sebastian Parschauer and Mike Gilbert. Synchronize last gtk-doc
+  installation change to live ebuild.
+
+  22 Jul 2014; Tobias Klausmann <klausman@gentoo.org> udev-215.ebuild:
+  Stable on alpha, bug #517106
+
+  22 Jul 2014; Jeroen Roovers <jer@gentoo.org> udev-215.ebuild:
+  Stable for HPPA (bug #517106).
+
+  21 Jul 2014;  <tgall@gentoo.org> udev-215.ebuild:
+  arm64 stable, bug #517106
+
+  21 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-215.ebuild,
+  udev-9999.ebuild:
+  Add >=sys-apps/coreutils-8.16 DEPEND to ensure `ln` supports the "--relative"
+  option by eroen, grawity and wietze from Freenode
+
+  16 Jul 2014; Anthony G. Basile <blueness@gentoo.org> udev-215.ebuild:
+  Stable on ppc/ppc64, bug #517106 and #517162
+
+  15 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-215.ebuild:
+  Backport upstream commits http://cgit.freedesktop.org/systemd/systemd/commit/?
+  id=4f4b92ba7ae9c56cb0f181d5f95d709e085b8bd5 and http://cgit.freedesktop.org/sy
+  stemd/systemd/commit/?id=6017365a1d0c1c78fc34a7da63768ee5df5da511 wrt #517162.
+  Thanks to Anthony Basile for testing and reporting.
+
+  15 Jul 2014; Anthony G. Basile <blueness@gentoo.org> udev-215.ebuild:
+  Stable on arm, bug #517106
+
+  15 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-215.ebuild:
+  Fix installation of gudev and libudev gtk-doc html documentation.
+
+  14 Jul 2014; Agostino Sarubbo <ago@gentoo.org> udev-215.ebuild:
+  Stable for x86, wrt bug #517106
+
+  14 Jul 2014; Agostino Sarubbo <ago@gentoo.org> udev-215.ebuild:
+  Stable for amd64, wrt bug #517106
+
+*udev-215 (04 Jul 2014)
+
+  04 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-215.ebuild,
+  udev-9999.ebuild:
+  Version bump. Update md5sum for 50-udev-default.rules because the diff between
+  systemd-214/rules/50-udev-default.rules and systemd-215/rules/50-udev-
+  default.rules looks safe. Update line count for secure_getenv() which is now
+  also used by get_home_dir() function which shouldn't be udev specific.
+
+  04 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Move "input" group creation from pkg_setup() to pkg_postinst() because it's not
+  needed during the build.
+
+  03 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Revert last commit for -9999 because upstream src/shared/missing.h has
+  fallback for missing IFLA_VLAN_PROTOCOL wrt http://cgit.freedesktop.org/system
+  d/systemd/commit/src/shared/missing.h?id=81577dc22887debaf9b19bf1034a2887fb906
+  9c7
+
+  03 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-214.ebuild,
+  udev-9999.ebuild:
+  Raise minimum linux-headers dependency to >= 3.10 wrt #516086 because it's the
+  first version with IFLA_VLAN_PROTOCOL in include/uapi/linux/if_link.h. Thanks
+  to Maciej Szmigiero for reporting.
+
+  27 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Remove unfunctional sed -line for restoring support for older compilers wrt
+  #510524. Completely remove dev-util/intltool dependency and pass --disable-nls
+  wrt http://cgit.freedesktop.org/systemd/systemd/commit/?id=2f96919bcdd0978164c
+  801b21e053fb3b31e8bac and http://cgit.freedesktop.org/systemd/systemd/commit/?
+  id=f15515b5e6a9ebe95c938cc670df6e576fcf9176
+
+  24 Jun 2014; Michał Górny <mgorny@gentoo.org> udev-208-r1.ebuild,
+  udev-212-r1.ebuild, udev-214.ebuild, udev-9999.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  21 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Create group "input" wrt bugs #246847 and #514174
+
+  20 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> udev-214.ebuild,
+  udev-9999.ebuild:
+  Restore group "floppy" using 40-gentoo.rules
+
+  19 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-213.ebuild:
+  old
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> udev-208-r1.ebuild,
+  udev-212-r1.ebuild, udev-213.ebuild, udev-214.ebuild, udev-9999.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+*udev-214 (18 Jun 2014)
+
+  18 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-214.ebuild,
+  udev-9999.ebuild:
+  Version bump; update md5sum of 50-udev-default.rules because upstream retired
+  group "floppy"
+
+  09 Jun 2014; Mike Frysinger <vapier@gentoo.org> udev-208-r1.ebuild:
+  Mark arm64/m68k/s390/sh stable.
+
+  06 Jun 2014; Mike Frysinger <vapier@gentoo.org> udev-212-r1.ebuild:
+  Mark arm64/m68k/s390/sh stable.
+
+  04 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> udev-213.ebuild,
+  udev-9999.ebuild:
+  Raise gobject-introspection dependency from 1.31.1 to latest stable, which is
+  1.38, in attempt of solving bug #510864
+
+  02 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Remove redudant --disable-networkd wrt http://cgit.freedesktop.org/systemd/sys
+  temd/commit/?id=0bbea466dcafc0ff51811a3bc451e983c02e63bf
+
+  02 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-208.ebuild,
+  metadata.xml:
+  old
+
+*udev-208-r1 (02 Jun 2014)
+
+  02 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-208-r1.ebuild:
+  Backport building of multilib libgudev-1.0 to =208-r1 from >=212-r1 because
+  only 208 works with Linux 2.6.32.x series since CONFIG_FHANDLE=y was
+  introduced in Linux 2.6.39.
+
+  01 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> udev-212-r1.ebuild:
+  ia64 stable wrt big #505962
+
+  01 Jun 2014; Anthony G. Basile <blueness@gentoo.org> udev-212-r1.ebuild:
+  Stable ppc/ppc64, bug #505962
+
+  01 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> udev-212-r1.ebuild:
+  sparc stable wrt big #505962
+
+  01 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> udev-212-r1.ebuild:
+  alpha stable wrt big #505962
+
+  31 May 2014; Samuli Suominen <ssuominen@gentoo.org> udev-213.ebuild:
+  Fix building with USE="-kmod" wrt #511924. Thanks to Guillaume Castagnino for
+  reporting and Mike Gilbert for initial patch.
+
+  30 May 2014; Samuli Suominen <ssuominen@gentoo.org> udev-213.ebuild,
+  udev-9999.ebuild:
+  Raise kernel requirement to 2.6.39 for CONFIG_FHANDLE and remove compability
+  SUBSYSTEM=="mem" -line from 40-gentoo.rules with it, which was for Linux 2.6.32
+  compability. See #509570 which was filed against sys-fs/eudev.
+
+  28 May 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Remove --disable-xattr because git is now using libc's xattr support instead
+  of libattr wrt http://cgit.freedesktop.org/systemd/systemd/commit/?id=d2edfae0
+  f9bdbecf6a8518e2a5bcf06f470e0d9e
+
+*udev-213 (28 May 2014)
+
+  28 May 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-213.ebuild,
+  udev-9999.ebuild:
+  Version bump. Pass --disable-networkd which we don't use anyway for sys-
+  fs/udev (to pass econf without sys-apps/kmod installed).
+
+  14 May 2014; Samuli Suominen <ssuominen@gentoo.org> udev-212-r1.ebuild,
+  udev-9999.ebuild:
+  Synchronize with live ebuild.
+
+  14 May 2014; Samuli Suominen <ssuominen@gentoo.org> udev-212-r1.ebuild:
+  Flip sys-devel/make and sys-kernel/linux-headers blockers to DEPENDs to ensure
+  they get emerged first.
+
+  13 May 2014; Samuli Suominen <ssuominen@gentoo.org> udev-212-r1.ebuild:
+  Force linux-headers-3.9 instead of 3.7 wrt #510186
+
+  09 May 2014; Samuli Suominen <ssuominen@gentoo.org> udev-212-r1.ebuild:
+  amd64/x86 stable wrt #505952
+
+  07 May 2014; Markus Meier <maekke@gentoo.org> udev-212-r1.ebuild:
+  arm stable, bug #505962
+
+  28 Apr 2014; Michał Górny <mgorny@gentoo.org> udev-208.ebuild,
+  udev-212-r1.ebuild, udev-9999.ebuild:
+  Replace multilib_build_binaries with multilib_is_native_abi, in order to put
+  an end to the confusion introduced by having two functions, the proper one
+  suggesting it is just for binaries.
+
+  08 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Finetune the 80-net-name-slot.rules migration code a bit and remove
+  unnecessary "then" since net_move=no is already declared above.
+
+  05 Apr 2014; Jeroen Roovers <jer@gentoo.org> udev-212-r1.ebuild:
+  Stable for HPPA (bug #505962).
+
+  03 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> udev-212-r1.ebuild,
+  udev-9999.ebuild:
+  Punt USE="openrc" and always pull in sys-fs/udev-init-scripts to match
+  behavior of sys-apps/systemd's ebuild.
 
   29 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-212.ebuild:
   old

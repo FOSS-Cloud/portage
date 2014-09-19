@@ -1,6 +1,26 @@
 # ChangeLog for net-analyzer/munin
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/munin/ChangeLog,v 1.153 2014/01/12 11:10:54 lxnay Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/munin/ChangeLog,v 1.159 2014/08/03 18:32:34 ago Exp $
+
+  03 Aug 2014; Agostino Sarubbo <ago@gentoo.org> munin-2.0.19-r1.ebuild:
+  Stable for ppc, wrt bug #501392
+
+  20 Jul 2014; Pacho Ramos <pacho@gentoo.org> munin-2.0.19-r1.ebuild:
+  x86 stable, bug #501392
+
+  20 Jul 2014; Pacho Ramos <pacho@gentoo.org> munin-2.0.19-r1.ebuild:
+  amd64 stable, bug #501392
+
+  20 Jul 2014; Pacho Ramos <pacho@gentoo.org> munin-2.0.19-r1.ebuild:
+  amd64 stable, bug #=net-analyzer/munin-2.0.19-r1
+
+  15 Jul 2014; Jeroen Roovers <jer@gentoo.org> munin-2.0.19.ebuild,
+  munin-2.0.19-r1.ebuild, munin-2.1.9999.ebuild:
+  Set USE=graph dependency on net-analyzer/rrdtool (bug #509682).
+
+  17 May 2014; Mikle Kolyada <zlogene@gentoo.org> -munin-2.0.11.1.ebuild,
+  -munin-2.0.14-r1.ebuild, -munin-2.0.8-r2.ebuild:
+  Drop insecure versions
 
 *munin-2.0.19-r1 (12 Jan 2014)
 

@@ -1,19 +1,19 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mpv/mpv-9999.ebuild,v 1.40 2014/03/10 19:32:43 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mpv/mpv-9999.ebuild,v 1.55 2014/07/20 19:24:30 zlogene Exp $
 
 EAPI=5
 
 EGIT_REPO_URI="https://github.com/mpv-player/mpv.git"
 
-inherit base waf-utils pax-utils
+inherit eutils waf-utils pax-utils fdo-mime gnome2-utils
 [[ ${PV} == *9999* ]] && inherit git-r3
 
-WAF_V="1.7.15"
+WAF_V="1.7.16"
 
 DESCRIPTION="Video player based on MPlayer/mplayer2"
 HOMEPAGE="http://mpv.io/"
-SRC_URI="https://waf.googlecode.com/files/waf-${WAF_V}"
+SRC_URI="http://ftp.waf.io/pub/release/waf-${WAF_V}"
 [[ ${PV} == *9999* ]] || \
 SRC_URI+=" https://github.com/mpv-player/mpv/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -21,9 +21,9 @@ LICENSE="GPL-2"
 SLOT="0"
 [[ ${PV} == *9999* ]] || \
 KEYWORDS="~alpha ~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux"
-IUSE="+alsa bluray bs2b +cdio -doc-pdf dvb +dvd dvdnav +enca encode +iconv jack -joystick
-jpeg ladspa lcms +libass libcaca libguess lirc lua luajit +mpg123 -openal +opengl
-oss portaudio +postproc pulseaudio pvr +quvi -radio samba +shm v4l vaapi vcd vdpau
+IUSE="+alsa bluray bs2b cdio -doc-pdf dvb +dvd dvdnav +enca encode +iconv jack -joystick
+jpeg ladspa lcms +libass libcaca libguess libmpv lirc lua luajit +mpg123 -openal +opengl
+oss portaudio postproc pulseaudio pvr +quvi samba sdl selinux +shm v4l vaapi vdpau
 vf-dlopen wayland +X xinerama +xscreensaver +xv"
 
 REQUIRED_USE="
@@ -34,7 +34,6 @@ REQUIRED_USE="
 	luajit? ( lua )
 	opengl? ( || ( wayland X ) )
 	pvr? ( v4l )
-	radio? ( v4l || ( alsa oss ) )
 	vaapi? ( X )
 	vdpau? ( X )
 	wayland? ( opengl )
@@ -45,16 +44,17 @@ REQUIRED_USE="
 
 RDEPEND+="
 	|| (
-		>=media-video/libav-9:=[encode?,threads,vaapi?,vdpau?]
-		>=media-video/ffmpeg-1.2:0=[encode?,threads,vaapi?,vdpau?]
+		>=media-video/libav-10:=[encode?,threads,vaapi?,vdpau?]
+		>=media-video/ffmpeg-2.1.4:0=[encode?,threads,vaapi?,vdpau?]
 	)
 	sys-libs/ncurses
 	sys-libs/zlib
 	X? (
+		x11-libs/libX11
 		x11-libs/libXext
 		x11-libs/libXxf86vm
 		opengl? ( virtual/opengl )
-		lcms? ( media-libs/lcms:2 )
+		lcms? ( >=media-libs/lcms-2.6:2 )
 		vaapi? ( >=x11-libs/libva-0.34.0[X(+)] )
 		vdpau? ( >=x11-libs/libvdpau-0.2 )
 		xinerama? ( x11-libs/libXinerama )
@@ -62,13 +62,11 @@ RDEPEND+="
 		xv? ( x11-libs/libXv )
 	)
 	alsa? ( media-libs/alsa-lib )
-	bluray? ( >=media-libs/libbluray-0.2.1 )
+	bluray? ( >=media-libs/libbluray-0.3.0 )
 	bs2b? ( media-libs/libbs2b )
 	cdio? (
-		|| (
-			dev-libs/libcdio-paranoia
-			<dev-libs/libcdio-0.90[-minimal]
-		)
+		dev-libs/libcdio
+		dev-libs/libcdio-paranoia
 	)
 	dvb? ( virtual/linuxtv-dvb-headers )
 	dvd? (
@@ -78,7 +76,7 @@ RDEPEND+="
 	enca? ( app-i18n/enca )
 	iconv? ( virtual/libiconv )
 	jack? ( media-sound/jack-audio-connection-kit )
-	jpeg? ( virtual/jpeg )
+	jpeg? ( virtual/jpeg:0 )
 	ladspa? ( media-libs/ladspa-sdk )
 	libass? (
 		>=media-libs/libass-0.9.10:=[enca?,fontconfig]
@@ -96,19 +94,21 @@ RDEPEND+="
 	portaudio? ( >=media-libs/portaudio-19_pre20111121 )
 	postproc? (
 		|| (
-			media-libs/libpostproc
-			>=media-video/ffmpeg-1.2:0[encode?,threads,vaapi?,vdpau?]
+			>=media-libs/libpostproc-10.20140517
+			>=media-video/ffmpeg-2.1.4:0
 		)
 	)
 	pulseaudio? ( media-sound/pulseaudio )
 	quvi? (
 		>=media-libs/libquvi-0.4.1:=
 		|| (
-			>=media-video/libav-9[network]
-			>=media-video/ffmpeg-1.2:0[network]
+			>=media-video/libav-10[network]
+			>=media-video/ffmpeg-2.1.4:0[network]
 		)
 	)
 	samba? ( net-fs/samba )
+	sdl? ( media-libs/libsdl2[threads] )
+	selinux? ( sec-policy/selinux-mplayer )
 	v4l? ( media-libs/libv4l )
 	wayland? (
 		>=dev-libs/wayland-1.3.0
@@ -116,7 +116,6 @@ RDEPEND+="
 		>=x11-libs/libxkbcommon-0.3.0
 	)
 "
-ASM_DEP="dev-lang/yasm"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	>=dev-lang/perl-5.8
@@ -128,9 +127,6 @@ DEPEND="${RDEPEND}
 		xinerama? ( x11-proto/xineramaproto )
 		xscreensaver? ( x11-proto/scrnsaverproto )
 	)
-	amd64? ( ${ASM_DEP} )
-	x86? ( ${ASM_DEP} )
-	x86-fbsd? ( ${ASM_DEP} )
 "
 DOCS=( Copyright README.md etc/example.conf etc/input.conf )
 
@@ -157,7 +153,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	base_src_prepare
+	epatch_user
 }
 
 src_configure() {
@@ -165,16 +161,18 @@ src_configure() {
 	# do not add -g to CFLAGS
 	# SDL output is fallback for platforms where nothing better is available
 	# media-sound/rsound is in pro-audio overlay only
+	# vapoursynth is not packaged
 	waf-utils_src_configure \
 		--disable-build-date \
+		--disable-optimize \
 		--disable-debug-build \
 		--disable-sdl1 \
-		--disable-sdl2 \
+		$(use_enable sdl sdl2) \
 		--disable-rsound \
+		--disable-vapoursynth \
 		$(use_enable encode encoding) \
 		$(use_enable joystick) \
 		$(use_enable bluray libbluray) \
-		$(use_enable vcd) \
 		$(use_enable quvi libquvi) \
 		$(use_enable samba libsmbclient) \
 		$(use_enable lirc) \
@@ -189,14 +187,12 @@ src_configure() {
 		$(use_enable iconv) \
 		$(use_enable libass) \
 		$(use_enable libguess) \
+		$(use_enable libmpv libmpv-shared) \
 		$(use_enable dvb) \
 		$(use_enable pvr) \
 		$(use_enable v4l libv4l2) \
 		$(use_enable v4l tv) \
 		$(use_enable v4l tv-v4l2) \
-		$(use_enable radio) \
-		$(use_enable radio radio-capture) \
-		$(use_enable radio radio-v4l2) \
 		$(use_enable mpg123) \
 		$(use_enable jpeg) \
 		$(use_enable libcaca caca) \
@@ -230,4 +226,18 @@ src_install() {
 	if use luajit; then
 		pax-mark -m "${ED}"usr/bin/mpv
 	fi
+}
+
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
 }

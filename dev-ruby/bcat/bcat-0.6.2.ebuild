@@ -1,21 +1,21 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/bcat/bcat-0.6.2.ebuild,v 1.15 2014/02/01 04:46:44 hattya Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/bcat/bcat-0.6.2.ebuild,v 1.19 2014/08/15 17:42:35 armin76 Exp $
 
 EAPI=4
-USE_RUBY="ruby18 ruby19 ree18"
+USE_RUBY="ruby19"
 
 RUBY_FAKEGEM_TASK_DOC="man"
 RUBY_FAKEGEM_EXTRADOC="README"
 
 inherit ruby-fakegem
 
-DESCRIPTION="A pipe to browser utility for use at the shell and within editors like Vim or Emacs."
+DESCRIPTION="A pipe to browser utility for use at the shell and within editors like Vim or Emacs"
 HOMEPAGE="http://github.com/rtomayko/bcat"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm hppa ia64 ~ppc ~ppc64 ~sparc x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~ppc ~ppc64 sparc x86 ~x86-fbsd"
 IUSE=""
 
 # Collides on /usr/bin/bcat, bug 418301

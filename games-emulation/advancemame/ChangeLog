@@ -1,6 +1,25 @@
 # ChangeLog for games-emulation/advancemame
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/advancemame/ChangeLog,v 1.49 2013/02/17 03:51:09 hasufell Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-emulation/advancemame/ChangeLog,v 1.55 2014/08/25 20:53:17 mr_bones_ Exp $
+
+  25 Aug 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  -advancemame-0.106.1.ebuild, -files/advancemame-0.106.1-pic.patch:
+  old
+
+  13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> advancemame-1.2.ebuild:
+  Stable for ppc, wrt bug #516072
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> advancemame-1.2.ebuild:
+  x86 stable wrt bug #516072
+
+  22 Jul 2014; Chema Alonso <nimiux@gentoo.org> advancemame-1.2.ebuild:
+  Stable for amd64 wrt bug #516072
+
+  21 Jul 2014; Michael Sterrett <mr_bones_@gentoo.org> advancemame-1.2.ebuild:
+  drop static support
+
+  01 Jul 2014; Michael Sterrett <mr_bones_@gentoo.org> advancemame-1.2.ebuild:
+  punt svga support
 
 *advancemame-1.2 (17 Feb 2013)
 
@@ -280,4 +299,3 @@
   24 Aug 2002; Martin Schlemmer <azarah@gentoo.org> :
 
   Initial version contributed by myself.
-

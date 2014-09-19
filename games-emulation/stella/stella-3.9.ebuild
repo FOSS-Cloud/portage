@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/stella/stella-3.9.ebuild,v 1.1 2013/07/02 18:59:56 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-emulation/stella/stella-3.9.ebuild,v 1.3 2014/07/30 17:16:38 mr_bones_ Exp $
 
-EAPI=2
+EAPI=5
 inherit eutils gnome2-utils games
 
 DESCRIPTION="Stella Atari 2600 VCS Emulator"
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="joystick opengl"
 
-DEPEND="media-libs/libsdl[joystick?,opengl?,video]
+DEPEND="media-libs/libsdl[joystick?,opengl?,X,video]
 	x11-libs/libX11
 	media-libs/libpng:0
 	sys-libs/zlib
@@ -22,6 +22,7 @@ DEPEND="media-libs/libsdl[joystick?,opengl?,video]
 		virtual/opengl
 		virtual/glu
 	)"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	sed -i \
@@ -52,7 +53,7 @@ src_install() {
 		newicon -s ${i} src/common/stella-${i}x${i}.png stella.png
 	done
 
-	emake DESTDIR="${D}" install || die
+	emake DESTDIR="${D}" install
 	domenu src/unix/stella.desktop
 	dohtml -r docs/*
 	dodoc Announce.txt Changes.txt Copyright.txt README-SDL.txt Readme.txt Todo.txt

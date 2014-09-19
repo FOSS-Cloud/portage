@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mate-extra/mate-screensaver/mate-screensaver-1.6.1-r2.ebuild,v 1.1 2014/03/13 17:15:33 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/mate-extra/mate-screensaver/mate-screensaver-1.6.1-r2.ebuild,v 1.4 2014/06/18 18:56:39 tomwij Exp $
 
 EAPI="5"
 
@@ -11,12 +11,12 @@ inherit gnome2 multilib versionator
 MATE_BRANCH="$(get_version_component_range 1-2)"
 
 SRC_URI="http://pub.mate-desktop.org/releases/${MATE_BRANCH}/${P}.tar.xz"
-DESCRIPTION="Replaces xscreensaver, integrating with the MATE desktop."
+DESCRIPTION="Replaces xscreensaver, integrating with the MATE desktop"
 HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 IUSE="X consolekit kernel_linux libnotify opengl pam systemd"
 
@@ -77,6 +77,7 @@ src_prepare() {
 	# We use gnome-keyring now, update pam file.
 	sed -e 's:mate_keyring:gnome_keyring:g' -i data/mate-screensaver || die
 
+	eautoreconf
 	gnome2_src_prepare
 }
 

@@ -1,12 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmblob/wmblob-1.0.3.ebuild,v 1.8 2012/05/05 05:11:59 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmblob/wmblob-1.0.3.ebuild,v 1.10 2014/08/10 20:04:54 slyfox Exp $
 
-EAPI="1"
-
+EAPI=5
 inherit autotools multilib
 
-DESCRIPTION="a fancy but useless dockapp with moving blobs."
+DESCRIPTION="a fancy but useless dockapp with moving blobs"
 HOMEPAGE="http://freshmeat.net/projects/wmblob"
 SRC_URI="mirror://debian/pool/main/w/${PN}/${PN}_${PV}.orig.tar.gz"
 
@@ -24,16 +23,13 @@ DEPEND="${RDEPEND}
 	x11-proto/xextproto
 	x11-libs/libXt"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-	sed -e "s:-O2:${CFLAGS}:g" \
-		-e "s:\$x_libraries:/usr/$(get_libdir):" \
-		-i configure.ac || die "sed failed."
-	eautoreconf
-}
+DOCS="AUTHORS ChangeLog NEWS README doc/how_it_works"
 
-src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed."
-	dodoc AUTHORS ChangeLog NEWS README doc/how_it_works
+src_prepare() {
+	sed -i \
+		-e "s:-O2:${CFLAGS}:g" \
+		-e "s:\$x_libraries:/usr/$(get_libdir):" \
+		configure.ac || die
+
+	eautoreconf
 }

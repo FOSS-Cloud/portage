@@ -1,6 +1,23 @@
 # ChangeLog for x11-plugins/wmbiff
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmbiff/ChangeLog,v 1.33 2014/03/01 22:26:04 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmbiff/ChangeLog,v 1.38 2014/08/12 00:08:20 blueness Exp $
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> wmbiff-0.4.27-r1.ebuild:
+  Stable on ppc, bug #506914
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> wmbiff-0.4.27-r1.ebuild,
+  wmbiff-0.4.27.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> wmbiff-0.4.27.ebuild,
+  wmbiff-0.4.27-r1.ebuild:
+  Drop sparc keyword
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> wmbiff-0.4.27-r1.ebuild:
+  x86 stable wrt bug #506914
+
+  25 Apr 2014; Chema Alonso <nimiux@gentoo.org> wmbiff-0.4.27-r1.ebuild:
+  Stable for amd64 wrt bug #506914
 
   01 Mar 2014; Michał Górny <mgorny@gentoo.org> wmbiff-0.4.27-r1.ebuild,
   wmbiff-0.4.27.ebuild:

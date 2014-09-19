@@ -1,6 +1,39 @@
 # ChangeLog for mail-filter/spamassassin
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/spamassassin/ChangeLog,v 1.232 2014/02/01 19:06:20 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/spamassassin/ChangeLog,v 1.240 2014/09/12 20:01:51 jer Exp $
+
+  12 Sep 2014; Jeroen Roovers <jer@gentoo.org> spamassassin-3.3.2-r5.ebuild:
+  Stable for HPPA (bug #519186).
+
+  10 Sep 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -spamassassin-3.3.2-r1.ebuild, -spamassassin-3.3.2-r3.ebuild:
+  Remove old
+
+*spamassassin-3.3.2-r5 (10 Sep 2014)
+
+  10 Sep 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +spamassassin-3.3.2-r5.ebuild, +files/spamassassin-3.3.2-perl518.patch:
+  Backport Perl 5.18 fixes, bug 519186; EAPI bump
+
+  04 Sep 2014; Jeroen Roovers <jer@gentoo.org> spamassassin-3.4.0.ebuild:
+  Marked ~hppa (bug #521400).
+
+  31 Aug 2014; Naohiro Aota <naota@gentoo.org> spamassassin-3.4.0.ebuild:
+  Add ~x86-fbsd. #521400
+
+  28 Aug 2014; Manuel Rüger <mrueg@gentoo.org> spamassassin-3.4.0.ebuild:
+  Readd accidently dropped keywords. Rekeywording for other arches in bug
+  #521400.
+
+*spamassassin-3.4.0 (12 Aug 2014)
+
+  12 Aug 2014; Manuel Rüger <mrueg@gentoo.org> +spamassassin-3.4.0.ebuild:
+  Version bump. Fixes bug #501246.
+
+  21 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  spamassassin-3.3.2-r1.ebuild, spamassassin-3.3.2-r2.ebuild,
+  spamassassin-3.3.2-r3.ebuild, spamassassin-3.3.2-r4.ebuild:
+  PodParser becomes Pod-Parser
 
   01 Feb 2014; Pacho Ramos <pacho@gentoo.org> files/spamassassin.service-r1:
   Add an option for reloading and move to /run instead of /var/run (#498716 by

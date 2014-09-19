@@ -1,6 +1,18 @@
 # ChangeLog for dev-ruby/columnize
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/columnize/ChangeLog,v 1.30 2013/12/28 07:59:21 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/columnize/ChangeLog,v 1.33 2014/08/05 16:00:59 mrueg Exp $
+
+  05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> columnize-0.3.6-r1.ebuild,
+  columnize-0.8.9.ebuild:
+  Remove trailing '.' from DESCRIPTION.
+
+  24 Apr 2014; Manuel Rüger <mrueg@gentoo.org> columnize-0.3.6-r1.ebuild:
+  Remove ruby18 support.
+
+*columnize-0.8.9 (24 Apr 2014)
+
+  24 Apr 2014; Hans de Graaff <graaff@gentoo.org> +columnize-0.8.9.ebuild:
+  Version bump. Drop ruby18. Drop jruby due to 1.9-syntax.
 
   28 Dec 2013; Hans de Graaff <graaff@gentoo.org> columnize-0.3.6-r1.ebuild:
   Add ruby21.

@@ -1,6 +1,66 @@
 # ChangeLog for net-misc/iperf
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/iperf/ChangeLog,v 1.44 2013/09/05 16:04:40 dev-zero Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/iperf/ChangeLog,v 1.59 2014/09/15 07:59:39 jer Exp $
+
+  15 Sep 2014; Jeroen Roovers <jer@gentoo.org> -files/iperf.initd:
+  Old.
+
+  14 Sep 2014; Jeroen Roovers <jer@gentoo.org> -iperf-2.0.5.ebuild,
+  -iperf-2.0.5-r1.ebuild, -iperf-3.0.5.ebuild, -iperf-3.0.6.ebuild:
+  Old.
+
+  14 Sep 2014; Agostino Sarubbo <ago@gentoo.org> iperf-2.0.5-r2.ebuild:
+  Stable for ppc64, wrt bug #517430
+
+  07 Sep 2014; Agostino Sarubbo <ago@gentoo.org> iperf-2.0.5-r2.ebuild:
+  Stable for ppc, wrt bug #517430
+
+  06 Sep 2014; Chema Alonso <nimiux@gentoo.org> iperf-2.0.5-r2.ebuild:
+  Stable for amd64 wrt bug #517430
+
+*iperf-3.0.7 (03 Sep 2014)
+
+  03 Sep 2014; Jeroen Roovers <jer@gentoo.org> +iperf-3.0.7.ebuild:
+  Version bump.
+
+*iperf-3.0.6 (06 Aug 2014)
+
+  06 Aug 2014; Jeroen Roovers <jer@gentoo.org> +iperf-3.0.6.ebuild:
+  Version bump.
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> iperf-2.0.5-r2.ebuild:
+  sparc/x86 stable wrt #517430
+
+  23 Jul 2014; Jeroen Roovers <jer@gentoo.org> iperf-2.0.5-r2.ebuild:
+  Stable for HPPA (bug #517430).
+
+  22 Jul 2014; Markos Chandras <hwoarang@gentoo.org> iperf-3.0.5.ebuild:
+  Add ~mips. Bug #517754
+
+  19 Jul 2014; Jeroen Roovers <jer@gentoo.org> iperf-2.0.5.ebuild,
+  iperf-2.0.5-r1.ebuild, iperf-2.0.5-r2.ebuild, iperf-3.0.5.ebuild:
+  Move iperf3 to a new SLOT (bug #517488).
+
+  19 Jul 2014; Jeroen Roovers <jer@gentoo.org> files/iperf.initd-r1:
+  Drop "need net" in init script (bug #439654 by Matthew Schultz).
+
+  19 Jul 2014; Jeroen Roovers <jer@gentoo.org> iperf-3.0.5.ebuild,
+  +files/iperf-3.0.5-flags.patch:
+  Do not inject -g into CFLAGS/LDFLAGS, do not create an additional profiled
+  build (bug #517488 by Ronny Boesger).
+
+*iperf-3.0.5 (18 Jul 2014)
+
+  18 Jul 2014; Jeroen Roovers <jer@gentoo.org> +iperf-3.0.5.ebuild:
+  Version bump (bug #466508 by Bryan Duff).
+
+  18 Jul 2014; Jeroen Roovers <jer@gentoo.org> iperf-2.0.5-r2.ebuild,
+  files/iperf-bidirectional-tcp-server.patch,
+  files/iperf-cast-to-max_size_t-instead-of-int.patch,
+  files/iperf-die-on-bind-fail.patch, files/iperf-fix-bandwidth-limit.patch,
+  files/iperf-fix-format-security-ftbfs.patch,
+  files/iperf-ipv6_mcast_check.patch:
+  Clean up, and patches.
 
 *iperf-2.0.5-r2 (05 Sep 2013)
 

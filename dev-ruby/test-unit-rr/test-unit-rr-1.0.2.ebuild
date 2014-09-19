@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/test-unit-rr/test-unit-rr-1.0.2.ebuild,v 1.17 2013/12/26 15:10:37 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/test-unit-rr/test-unit-rr-1.0.2.ebuild,v 1.19 2014/08/05 16:00:29 mrueg Exp $
 
 EAPI=5
 
-USE_RUBY="ruby18 ruby19 jruby ree18"
+USE_RUBY="ruby19 jruby"
 
 RUBY_FAKEGEM_TASK_TEST=""
 
@@ -13,7 +13,7 @@ RUBY_FAKEGEM_EXTRADOC="README.md"
 
 inherit ruby-fakegem
 
-DESCRIPTION="RR adapter for Test::Unit."
+DESCRIPTION="RR adapter for Test::Unit"
 HOMEPAGE="http://rubyforge.org/projects/test-unit/"
 
 LICENSE="LGPL-2.1+"

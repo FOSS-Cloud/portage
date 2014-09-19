@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec/rspec-1.3.2.ebuild,v 1.16 2013/12/26 15:09:31 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec/rspec-1.3.2.ebuild,v 1.19 2014/05/12 18:18:44 graaff Exp $
 
 EAPI=2
-USE_RUBY="ruby18 ruby19 jruby"
+USE_RUBY="ruby19 jruby"
 
 RUBY_FAKEGEM_TASK_TEST="spec"
 
@@ -36,7 +36,7 @@ RDEPEND="!<dev-ruby/rspec-rails-${PV}"
 # We should add nokogiri here to make sure that we test as much as
 # possible, but since it's yet unported to 1.9 and the nokogiri-due
 # tests fail for sure, we'll be waiting on it.
-USE_RUBY="ruby18 ree18 ruby19" \
+USE_RUBY="ruby19" \
 	ruby_add_bdepend "test? (
 		>=dev-ruby/hoe-2.0.0
 		dev-ruby/zentest
@@ -64,6 +64,12 @@ all_ruby_prepare() {
 	# Drop heckle dependency.
 	rm spec/spec/runner/heckler_spec.rb spec/spec/runner/heckle_runner_spec.rb || die
 	sed -i -e '381,398 s:^:#:' spec/spec/runner/option_parser_spec.rb || die
+
+	# Remove broken spec.opts related tests. These were always broken
+	# because they don't set up state properly, but only with
+	# >=fakefs-0.4.2 this started throwing exceptions, bug 340385.
+	sed -i -e '/implicitly loading spec/,/^  end/ s:^:#:' spec/spec/runner/option_parser_spec.rb || die
+
 }
 
 src_test() {

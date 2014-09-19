@@ -1,6 +1,27 @@
 # ChangeLog for dev-cpp/gmock
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gmock/ChangeLog,v 1.20 2014/03/27 02:35:20 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gmock/ChangeLog,v 1.27 2014/08/21 11:33:45 armin76 Exp $
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> gmock-1.7.0.ebuild:
+  alpha/ia64/sparc stable wrt bug #513804
+
+  15 Aug 2014; Raúl Porcel <armin76@gentoo.org> gmock-1.6.0.ebuild:
+  sparc stable
+
+  23 Jul 2014; Tobias Klausmann <klausman@gentoo.org> gmock-1.6.0.ebuild:
+  Stable on alpha, bug #493400
+
+  19 Jul 2014; Pacho Ramos <pacho@gentoo.org> gmock-1.7.0.ebuild:
+  amd64/x86 stable, bug #513804
+
+  29 Jun 2014; Markus Meier <maekke@gentoo.org> gmock-1.7.0.ebuild:
+  arm stable, bug #513804
+
+  23 Jun 2014; Jeroen Roovers <jer@gentoo.org> gmock-1.7.0-r1.ebuild:
+  Stable for HPPA (bug #513804).
+
+  04 May 2014; Mike Frysinger <vapier@gentoo.org> gmock-1.7.0-r1.ebuild:
+  Force python-2.x when running tests #455276 by Markus Oehme.
 
 *gmock-1.7.0-r1 (27 Mar 2014)
 

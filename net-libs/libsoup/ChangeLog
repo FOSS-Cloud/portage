@@ -1,6 +1,75 @@
 # ChangeLog for net-libs/libsoup
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup/ChangeLog,v 1.323 2014/03/28 02:34:14 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup/ChangeLog,v 1.343 2014/09/15 08:23:34 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  01 Aug 2014;  <tgall@gentoo.org> libsoup-2.44.2.ebuild,
+  libsoup-2.46.0-r1.ebuild:
+  arm64, initial support
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  24 Jun 2014; Michał Górny <mgorny@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+*libsoup-2.46.0-r1 (08 Jun 2014)
+
+  08 Jun 2014; Michał Górny <mgorny@gentoo.org> +libsoup-2.46.0-r1.ebuild:
+  Enable multilib support.
+
+*libsoup-2.46.0 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> +libsoup-2.46.0.ebuild:
+  Version bump for Gnome 3.12.
+
+  27 Apr 2014; Pacho Ramos <pacho@gentoo.org>
+  -files/libsoup-2.42.1-ipv6-tests.patch, -libsoup-2.38.1.ebuild,
+  -libsoup-2.40.3.ebuild, -libsoup-2.42.3.1.ebuild:
+  drop old
+
+  21 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.44.2.ebuild:
+  Stable for arm, wrt bug #507568
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.44.2.ebuild:
+  Stable for sparc, wrt bug #507568
+
+  18 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.44.2.ebuild:
+  Stable for alpha, wrt bug #507568
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.44.2.ebuild:
+  Stable for ia64, wrt bug #507568
+
+  16 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.44.2.ebuild:
+  Stable for ppc64, wrt bug #507568
+
+  14 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.44.2.ebuild:
+  Stable for ppc, wrt bug #507568
 
   28 Mar 2014; Jeroen Roovers <jer@gentoo.org> libsoup-2.44.2.ebuild:
   Stable for HPPA (bug #499954).

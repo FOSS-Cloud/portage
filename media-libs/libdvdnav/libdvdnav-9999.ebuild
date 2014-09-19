@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libdvdnav/libdvdnav-9999.ebuild,v 1.8 2013/07/30 12:48:13 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libdvdnav/libdvdnav-9999.ebuild,v 1.10 2014/08/04 16:56:27 polynomial-c Exp $
 
 EAPI=5
 
@@ -10,12 +10,11 @@ AUTOTOOLS_PRUNE_LIBTOOL_FILES=all
 SCM=""
 
 if [ "${PV#9999}" != "${PV}" ] ; then
-	SCM="subversion"
-	ESVN_REPO_URI="svn://svn.mplayerhq.hu/dvdnav/trunk/libdvdnav"
-	ESVN_PROJECT="libdvdnav"
+	SCM="git-r3"
+	EGIT_REPO_URI="git://git.videolan.org/libdvdnav.git"
 	SRC_URI=""
 else
-	SRC_URI="http://dvdnav.mplayerhq.hu/releases/${P}.tar.bz2"
+	SRC_URI="http://downloads.videolan.org/pub/videolan/libdvdnav/${PV}/${P}.tar.bz2"
 fi
 
 inherit autotools-multilib ${SCM}
@@ -31,17 +30,10 @@ else
 	KEYWORDS=""
 fi
 IUSE=""
-RDEPEND=">=media-libs/libdvdread-4.2[${MULTILIB_USEDEP}]
+RDEPEND=">=media-libs/libdvdread-4.2.0-r1[${MULTILIB_USEDEP}]
 	abi_x86_32? ( !<=app-emulation/emul-linux-x86-medialibs-20130224-r4
 		!app-emulation/emul-linux-x86-medialibs[-abi_x86_32(-)] )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig" # To get pkg.m4 for eautoreconf #414391
 
-DOCS=( AUTHORS ChangeLog DEVELOPMENT-POLICY.txt doc/dvd_structures NEWS README TODO )
-
-PATCHES=( "${FILESDIR}"/${PN}-4.2.0-pkgconfig.patch )
-
-src_prepare() {
-	[ "${PV#9999}" != "${PV}" ] && subversion_src_prepare
-	autotools-multilib_src_prepare
-}
+DOCS=( AUTHORS ChangeLog doc/dvd_structures doc/library_layout README TODO )

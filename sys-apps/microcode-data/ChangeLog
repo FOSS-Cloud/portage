@@ -1,6 +1,35 @@
 # ChangeLog for sys-apps/microcode-data
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/microcode-data/ChangeLog,v 1.28 2014/03/06 02:08:41 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/microcode-data/ChangeLog,v 1.33 2014/09/17 20:03:47 flameeyes Exp $
+
+*microcode-data-20140913 (17 Sep 2014)
+
+  17 Sep 2014; Diego E. Pettenò <flameeyes@gentoo.org>
+  +microcode-data-20140913.ebuild, -microcode-data-20130906.ebuild:
+  Update to new version and drop old version.
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  microcode-data-20140430.ebuild:
+  x86 stable wrt bug #515604
+
+  11 Aug 2014; Chema Alonso <nimiux@gentoo.org> microcode-data-20140430.ebuild:
+  Stable for amd64 wrt bug #515604
+
+*microcode-data-20140624 (28 Jun 2014)
+
+  28 Jun 2014; Diego E. Pettenò <flameeyes@gentoo.org>
+  +microcode-data-20140624.ebuild, -microcode-data-20100209.ebuild,
+  -microcode-data-20101123.ebuild, -microcode-data-20110428.ebuild,
+  -microcode-data-20110915-r1.ebuild, -microcode-data-20110915.ebuild,
+  -microcode-data-20111110.ebuild, -microcode-data-20120606.ebuild,
+  -microcode-data-20130222.ebuild, -microcode-data-20140122.ebuild:
+  Version bump and remove older versions.
+
+*microcode-data-20140430 (30 May 2014)
+
+  30 May 2014; Markos Chandras <hwoarang@gentoo.org>
+  +microcode-data-20140430.ebuild:
+  Version bump
 
 *microcode-data-20140122 (06 Mar 2014)
 

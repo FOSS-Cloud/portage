@@ -1,6 +1,59 @@
 # ChangeLog for dev-lang/perl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/perl/ChangeLog,v 1.418 2014/03/11 17:01:15 civil Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/perl/ChangeLog,v 1.430 2014/09/17 13:31:00 jer Exp $
+
+  17 Sep 2014; Jeroen Roovers <jer@gentoo.org> perl-5.18.2-r1.ebuild:
+  Stable for HPPA (bug #504786).
+
+  16 Sep 2014;  <civil@gentoo.org> perl-5.20.1.ebuild:
+  Replace patchset's extention to xz. Fixes #522896
+
+*perl-5.20.1 (15 Sep 2014)
+
+  15 Sep 2014;  <civil@gentoo.org> +perl-5.20.1.ebuild:
+  Version bump
+
+  31 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> perl-5.18.2-r1.ebuild:
+  arm stable wrt bug #504786
+
+  28 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> perl-5.18.2-r1.ebuild:
+  amd64 stable wrt bug #381424
+
+  24 Jul 2014; Tobias Klausmann <klausman@gentoo.org> perl-5.18.2-r1.ebuild:
+  Stable on alpha, bug #381424
+
+*perl-5.20.0-r1 (07 Jul 2014)
+*perl-5.18.2-r1 (07 Jul 2014)
+
+  07 Jul 2014; Sergey Popov <pinkbyte@gentoo.org> -perl-5.18.2.ebuild,
+  +perl-5.18.2-r1.ebuild, -perl-5.20.0.ebuild, +perl-5.20.0-r1.ebuild,
+  files/eblits/src_configure-v50180002.eblit:
+  Revision bump: apply workaround for bug #157774 - do not build gdbm stuff
+  when USE='-gdbm'. Drop old revisions
+
+  04 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -perl-5.12.4-r1.ebuild:
+  Remove old
+
+  29 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org> -perl-5.14.1.ebuild,
+  -perl-5.14.1-r1.ebuild, -perl-5.14.2.ebuild, -perl-5.16.0.ebuild,
+  -perl-5.16.1.ebuild, -perl-5.16.2.ebuild, -perl-5.16.2-r1.ebuild:
+  Remove old
+
+  29 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -perl-5.12.3-r1.ebuild, -perl-5.12.4.ebuild, -perl-5.12.4-r2.ebuild,
+  -perl-5.12.5.ebuild:
+  Remove old
+
+*perl-5.20.0 (27 May 2014)
+
+  27 May 2014; Vladimir Smirnov +perl-5.20.0.ebuild:
+  Version bump. Should not be used until unmasked.
+
+  30 Apr 2014; Vladimir Smirnov +files/eblits/src_prepare-v50180002.eblit,
+  perl-5.18.2.ebuild:
+  Add fixes for gentoo-freebsd prefix and freemint prefix. Should fix 464784 and
+  507182
 
   11 Mar 2014; Vladimir Smirnov <civil@gentoo.org>
   +files/eblits/src_configure-v50180002.eblit,

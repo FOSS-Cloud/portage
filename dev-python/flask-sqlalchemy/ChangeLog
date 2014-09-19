@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/flask-sqlalchemy
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/flask-sqlalchemy/ChangeLog,v 1.11 2013/07/25 06:25:36 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/flask-sqlalchemy/ChangeLog,v 1.15 2014/09/05 13:47:00 idella4 Exp $
+
+*flask-sqlalchemy-2.0 (05 Sep 2014)
+
+  05 Sep 2014; Ian Delaney <idella4@gentoo.org> +flask-sqlalchemy-2.0.ebuild:
+  bump; update doc install, test phase
+
+  30 May 2014; Ian Delaney <idella4@gentoo.org> flask-sqlalchemy-1.0-r1.ebuild,
+  flask-sqlalchemy-1.0.ebuild:
+  drop py2.6 add py3.4 support
+
+  06 May 2014; Ian Delaney <idella4@gentoo.org> flask-sqlalchemy-1.0-r1.ebuild:
+  add pypy support
+
+*flask-sqlalchemy-1.0-r1 (03 Apr 2014)
+
+  03 Apr 2014; Ian Delaney <idella4@gentoo.org> +files/mapping.patch,
+  +flask-sqlalchemy-1.0-r1.ebuild:
+  revbump; add py3 support, IUSE doc, patch for doc build, update deps and all
+  phases, fixes Bug #491872 by Kai
 
 *flask-sqlalchemy-1.0 (25 Jul 2013)
 

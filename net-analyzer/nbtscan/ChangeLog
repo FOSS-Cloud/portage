@@ -1,6 +1,33 @@
 # ChangeLog for net-analyzer/nbtscan
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nbtscan/ChangeLog,v 1.31 2010/09/15 01:24:39 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nbtscan/ChangeLog,v 1.38 2014/08/27 13:36:19 jer Exp $
+
+  27 Aug 2014; Jeroen Roovers <jer@gentoo.org> -nbtscan-1.5.1-r1.ebuild:
+  Old.
+
+  27 Aug 2014; Agostino Sarubbo <ago@gentoo.org> nbtscan-1.5.1-r3.ebuild:
+  Stable for ppc, wrt bug #517092
+
+  11 Aug 2014; Chema Alonso <nimiux@gentoo.org> nbtscan-1.5.1-r3.ebuild:
+  Stable for amd64 wrt bug #517092
+
+  02 Aug 2014; Raúl Porcel <armin76@gentoo.org> nbtscan-1.5.1-r1.ebuild,
+  nbtscan-1.5.1-r3.ebuild:
+  Drop sparc keywords
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> nbtscan-1.5.1-r3.ebuild:
+  x86 stable wrt bug #517092
+
+  14 Jul 2014; Jeroen Roovers <jer@gentoo.org> -nbtscan-1.5.1-r2.ebuild:
+  Old.
+
+*nbtscan-1.5.1-r3 (14 Jul 2014)
+
+  14 Jul 2014; Jeroen Roovers <jer@gentoo.org> +nbtscan-1.5.1-r3.ebuild,
+  +files/nbtscan-1.5.1-gentoo.patch,
+  files/nbtscan-1.5.1-script-whitespace.patch:
+  EAPI bump. Convert sed scripts to patch. Fix an off-by-one in the
+  ${P}-script-whitespace.patch.
 
   15 Sep 2010; Jeroen Roovers <jer@gentoo.org> nbtscan-1.5.1-r1.ebuild,
   nbtscan-1.5.1-r2.ebuild:

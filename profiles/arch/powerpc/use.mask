@@ -1,5 +1,10 @@
 # PPC Specific use flags
 #
+
+# Anthony G. Basile <blueness@gentoo.org> (10 Jul 2014)
+# codec support x264, bug #516856
+-x264
+
 #Klibc does not work
 klibc
 
@@ -8,10 +13,6 @@ klibc
 -pbbuttonsd
 # Unmask the Altivec instruction set
 -altivec
-
-# Unmask ABI flags for this arch.
--abi_ppc_32
--abi_ppc_64
 
 # Incompatible Use Flags
 #

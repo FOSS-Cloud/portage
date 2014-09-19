@@ -1,6 +1,27 @@
 # ChangeLog for virtual/leechcraft-trayarea
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/leechcraft-trayarea/ChangeLog,v 1.24 2014/04/02 17:49:35 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/leechcraft-trayarea/ChangeLog,v 1.28 2014/08/03 19:09:40 maksbotan Exp $
+
+*leechcraft-trayarea-0.6.70 (03 Aug 2014)
+
+  03 Aug 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-trayarea-0.6.70.ebuild:
+  Bump LeechCraft to 0.6.70, thanks to 0xd34df00d.
+
+  28 Apr 2014; Sergey Popov <pinkbyte@gentoo.org>
+  leechcraft-trayarea-0.6.60.ebuild, leechcraft-trayarea-0.6.65.ebuild,
+  leechcraft-trayarea-9999.ebuild:
+  Drop obsoleted app-leechcraft/lc-sidebar from dependencies
+
+*leechcraft-trayarea-0.6.65 (10 Apr 2014)
+
+  10 Apr 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +leechcraft-trayarea-0.6.65.ebuild:
+  Bump LeechCraft to 0.5.65, thanks to 0xd34df00d.
+
+  03 Apr 2014; Mikle Kolyada <zlogene@gentoo.org>
+  leechcraft-trayarea-0.6.60.ebuild:
+  x86 stable wrt bug #500914
 
   02 Apr 2014; Mikle Kolyada <zlogene@gentoo.org>
   leechcraft-trayarea-0.6.60.ebuild:

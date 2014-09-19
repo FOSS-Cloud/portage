@@ -1,6 +1,31 @@
 # ChangeLog for dev-python/wtforms
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/wtforms/ChangeLog,v 1.35 2014/03/31 20:54:48 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/wtforms/ChangeLog,v 1.41 2014/07/04 05:58:28 patrick Exp $
+
+*wtforms-2.0.1 (04 Jul 2014)
+
+  04 Jul 2014; Patrick Lauer <patrick@gentoo.org> +wtforms-2.0.1.ebuild:
+  Bump
+
+  14 Jun 2014; Ian Delaney <idella4@gentoo.org> wtforms-1.0.5.ebuild,
+  wtforms-2.0.ebuild:
+  clean old python impls add, py3.4 suport to 1.0.5, tidy
+
+  14 Jun 2014; Ian Delaney <idella4@gentoo.org> wtforms-2.0.ebuild:
+  clean old python impls add, py3.4 suport
+
+  29 May 2014; Dirkjan Ochtman <djc@gentoo.org> wtforms-2.0.ebuild:
+  Add python3 compat for wtforms-2.0 (bug 485018)
+
+  29 May 2014; Dirkjan Ochtman <djc@gentoo.org> -wtforms-0.6.3.ebuild,
+  -wtforms-1.0.1.ebuild, -wtforms-1.0.2.ebuild, -wtforms-1.0.3-r1.ebuild,
+  -wtforms-1.0.3.ebuild:
+  Remove old versions of wtforms
+
+*wtforms-2.0 (26 May 2014)
+
+  26 May 2014; Patrick Lauer <patrick@gentoo.org> +wtforms-2.0.ebuild:
+  Bump
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> wtforms-1.0.3-r1.ebuild,
   wtforms-1.0.4.ebuild, wtforms-1.0.5.ebuild:

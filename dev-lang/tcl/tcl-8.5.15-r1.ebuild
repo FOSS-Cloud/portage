@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/tcl/tcl-8.5.15-r1.ebuild,v 1.5 2014/01/20 07:34:30 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/tcl/tcl-8.5.15-r1.ebuild,v 1.16 2014/09/15 08:18:09 ago Exp $
 
 EAPI=5
 
@@ -14,10 +14,10 @@ SRC_URI="mirror://sourceforge/tcl/${MY_P}-src.tar.gz"
 
 LICENSE="tcltk"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x86-solaris"
 IUSE="debug threads"
 
-RDEPEND="sys-libs/zlib[${MULTILIB_USEDEP}]"
+RDEPEND=">=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}"
 
 SPARENT="${WORKDIR}/${MY_P}"
@@ -92,7 +92,7 @@ multilib_src_install() {
 	dosym libtcl${v1}$(get_libname) /usr/${mylibdir}/libtcl$(get_libname)
 	dosym libtclstub${v1}.a /usr/${mylibdir}/libtclstub.a
 
-	if multilib_build_binaries; then
+	if multilib_is_native_abi; then
 		dosym tclsh${v1} /usr/bin/tclsh
 		dodoc "${SPARENT}"/{ChangeLog*,README,changes}
 	fi

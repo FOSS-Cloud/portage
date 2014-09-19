@@ -1,6 +1,42 @@
 # ChangeLog for dev-util/debhelper
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/debhelper/ChangeLog,v 1.101 2014/04/02 18:55:46 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/debhelper/ChangeLog,v 1.109 2014/08/17 22:50:09 jer Exp $
+
+*debhelper-9.20140817 (17 Aug 2014)
+
+  17 Aug 2014; Jeroen Roovers <jer@gentoo.org> -debhelper-9.20140809.ebuild,
+  +debhelper-9.20140817.ebuild:
+  Version bump.
+
+  13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> debhelper-9.20140228.ebuild:
+  Stable for ppc, wrt bug #506100
+
+*debhelper-9.20140809 (10 Aug 2014)
+
+  10 Aug 2014; Jeroen Roovers <jer@gentoo.org> +debhelper-9.20140809.ebuild:
+  Version bump.
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> debhelper-9.20140228.ebuild:
+  sparc/x86 stable, bug #506100
+
+  19 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  debhelper-9.20140228.ebuild:
+  Stable on alpha, bug #506100
+
+  16 Jun 2014; Chema Alonso <nimiux@gentoo.org> debhelper-9.20140228.ebuild:
+  Stable for amd64 wrt bug #506100
+
+*debhelper-9.20140613 (14 Jun 2014)
+
+  14 Jun 2014; Jeroen Roovers <jer@gentoo.org> -debhelper-9.20130720.ebuild,
+  -debhelper-9.20130921.ebuild, -debhelper-9.20131105.ebuild,
+  -debhelper-9.20131110.ebuild, -debhelper-9.20131127.ebuild,
+  -debhelper-9.20131213.ebuild, -debhelper-9.20131227.ebuild,
+  +debhelper-9.20140613.ebuild:
+  Version bump.
+
+  08 Jun 2014; Akinori Hattori <hattya@gentoo.org> debhelper-9.20140228.ebuild:
+  ia64 stable wrt bug #506100
 
   02 Apr 2014; Markus Meier <maekke@gentoo.org> debhelper-9.20140228.ebuild:
   arm stable, bug #506100

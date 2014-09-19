@@ -1,6 +1,42 @@
 # ChangeLog for net-libs/opal
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/opal/ChangeLog,v 1.99 2013/12/16 02:26:45 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/opal/ChangeLog,v 1.109 2014/08/21 09:59:30 ago Exp $
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> opal-3.10.11.ebuild:
+  Stable for ppc64, wrt bug #517960
+
+  04 Aug 2014; Raúl Porcel <armin76@gentoo.org> opal-3.10.11.ebuild:
+  ia64/sparc stable wrt #517960
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> opal-3.10.11.ebuild:
+  Stable for ppc, wrt bug #517960
+
+  24 Jul 2014; Pacho Ramos <pacho@gentoo.org> opal-3.10.11.ebuild:
+  amd64/x86 stable, bug #517960
+
+  24 Jul 2014; Pacho Ramos <pacho@gentoo.org> -opal-3.10.9.ebuild,
+  opal-3.10.10.ebuild, opal-3.10.11.ebuild, opal-3.6.8-r2.ebuild:
+  Fix blockers on libav, drop old
+
+  04 Jun 2014; <neurogeek@gentoo.org> metadata.xml:
+  Dropped myself from maintainer.
+
+  15 May 2014; Ulrich Müller <ulm@gentoo.org> opal-3.6.8-r2.ebuild,
+  opal-3.10.9.ebuild, opal-3.10.10.ebuild, opal-3.10.11.ebuild,
+  opal-3.12.4.ebuild, metadata.xml:
+  QA: Rename "audio" USE flag to "sound", bug 357661.
+
+*opal-3.10.11 (29 Apr 2014)
+
+  29 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> +opal-3.10.11.ebuild,
+  +files/opal-3.10.11-libav9-gentoo.patch:
+  Version bump. Fixed compilation with >=media-video/ffmpeg-2 (bug #476534) and
+  >=media-video/libav-9 (bug #443206).
+
+  03 Apr 2014; Tom Wijsman <TomWij@gentoo.org> opal-3.10.10.ebuild,
+  opal-3.6.8-r2.ebuild:
+  [QA] Drop minor arch stable keyword(s) per 20130917 Council decision, due to
+  minor arch stable keyword drop(s) on {gentoo,linux}-sources.
 
   16 Dec 2013; Patrick Lauer <patrick@gentoo.org> metadata.xml:
   Remove unneeded useflags from metadata.xml

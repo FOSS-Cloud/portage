@@ -1,6 +1,26 @@
 # ChangeLog for x11-misc/gxmessage
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/gxmessage/ChangeLog,v 1.40 2014/03/23 05:13:14 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/gxmessage/ChangeLog,v 1.46 2014/05/14 15:23:39 jer Exp $
+
+  14 May 2014; Jeroen Roovers <jer@gentoo.org> -gxmessage-2.12.4.ebuild:
+  Old.
+
+  14 May 2014; Agostino Sarubbo <ago@gentoo.org> gxmessage-2.20.1.ebuild:
+  Stable for sparc, wrt bug #505398
+
+*gxmessage-3.4.0 (04 May 2014)
+
+  04 May 2014; Jeroen Roovers <jer@gentoo.org> +gxmessage-3.4.0.ebuild:
+  Version bump.
+
+  13 Apr 2014; Agostino Sarubbo <ago@gentoo.org> gxmessage-2.20.1.ebuild:
+  Stable for ppc, wrt bug #505398
+
+  12 Apr 2014; Agostino Sarubbo <ago@gentoo.org> gxmessage-2.20.1.ebuild:
+  Stable for x86, wrt bug #505398
+
+  11 Apr 2014; Chema Alonso <nimiux@gentoo.org> gxmessage-2.20.1.ebuild:
+  Stable for amd64 wrt bug #505398
 
   23 Mar 2014; Jeroen Roovers <jer@gentoo.org> -gxmessage-2.20.0.ebuild:
   Old.

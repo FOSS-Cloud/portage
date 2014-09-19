@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/tomahawk/tomahawk-9999.ebuild,v 1.23 2014/02/09 19:07:08 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/tomahawk/tomahawk-9999.ebuild,v 1.27 2014/07/22 18:37:57 johu Exp $
 
 EAPI=5
 
@@ -16,30 +16,35 @@ else
 	KEYWORDS=""
 fi
 
-DESCRIPTION="Qt playdar social music player"
+DESCRIPTION="Multi-source social music player"
 HOMEPAGE="http://tomahawk-player.org/"
 
 LICENSE="GPL-3 BSD"
 SLOT="0"
-IUSE="debug jabber kde qt5 telepathy twitter"
+IUSE="debug jabber kde qt5 telepathy"
 
 REQUIRED_USE="telepathy? ( kde )"
 
+# TODO 
+# qt5 use flag needs a lot of work:
+# - deps with missing qt4/qt5 use flags
+# - does not build with in-tree only deps
 DEPEND="
 	app-crypt/qca:2
 	>=dev-cpp/clucene-2.3.3.4
+	dev-cpp/sparsehash
 	>=dev-libs/boost-1.41
-	dev-libs/qjson
 	dev-libs/quazip
-	dev-libs/qtkeychain
-	>=media-libs/libechonest-2.1.0
-	>=media-libs/liblastfm-1.0.1
-	>=media-libs/phonon-4.5.0
-	>=media-libs/taglib-1.6.0
+	>=media-libs/libechonest-2.2.0:=
+	media-libs/liblastfm
+	>=media-libs/taglib-1.8.0
+	>=net-libs/gnutls-3.2
 	x11-libs/libX11
-	jabber? ( >=net-libs/jreen-1.1.1 )
+	jabber? ( net-libs/jreen )
 	!qt5? (
 		>=dev-libs/libattica-0.4.0
+		dev-libs/qjson
+		dev-libs/qtkeychain[qt4]
 		dev-qt/designer:4
 		dev-qt/qtcore:4
 		dev-qt/qtdbus:4
@@ -47,17 +52,19 @@ DEPEND="
 		dev-qt/qtsql:4[sqlite]
 		dev-qt/qtsvg:4
 		dev-qt/qtwebkit:4
+		media-libs/phonon[qt4]
 	)
 	qt5? (
-		>=dev-libs/libattica-0.4.0[qt5]
+		dev-libs/qtkeychain[qt5]
 		dev-qt/designer:5
 		dev-qt/qtcore:5
 		dev-qt/qtsvg:5
 		dev-qt/qtwebkit:5
 		dev-qt/qtwidgets:5
+		kde-frameworks/attica:5
+		media-libs/phonon[qt5]
 	)
 	telepathy? ( net-libs/telepathy-qt )
-	twitter? ( net-libs/qtweetlib )
 "
 RDEPEND="${DEPEND}
 	app-crypt/qca-ossl
@@ -67,11 +74,11 @@ DOCS=( AUTHORS ChangeLog README.md )
 
 src_configure() {
 	local mycmakeargs=(
+		-DWITH_CRASHREPORTER=OFF
 		$(cmake-utils_use_with jabber Jreen)
 		$(cmake-utils_use_with kde KDE4)
 		$(cmake-utils_use_build !qt5 WITH_QT4)
 		$(cmake-utils_use_with telepathy TelepathyQt)
-		$(cmake-utils_use_with twitter QTweetLib)
 	)
 
 	if [[ ${PV} != *9999* ]]; then

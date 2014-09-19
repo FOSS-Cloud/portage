@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/x264/x264-0.0.20140308.ebuild,v 1.1 2014/03/09 11:08:09 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/x264/x264-0.0.20140308.ebuild,v 1.9 2014/08/25 11:00:18 ago Exp $
 
 EAPI=5
 
@@ -15,7 +15,7 @@ else
 	inherit versionator
 	MY_P="x264-snapshot-$(get_version_component_range 3)-2245"
 	SRC_URI="http://download.videolan.org/pub/videolan/x264/snapshots/${MY_P}.tar.bz2"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+	KEYWORDS="alpha amd64 ~arm hppa ~ia64 ~mips ppc ppc64 sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 	S="${WORKDIR}/${MY_P}"
 fi
 
@@ -29,7 +29,7 @@ ASM_DEP=">=dev-lang/yasm-1.2.0"
 DEPEND="abi_x86_32? ( ${ASM_DEP} )
 	abi_x86_64? ( ${ASM_DEP} )
 	opencl? ( dev-lang/perl )"
-RDEPEND="opencl? ( virtual/opencl[${MULTILIB_USEDEP}] )
+RDEPEND="opencl? ( >=virtual/opencl-0-r3[${MULTILIB_USEDEP}] )
 	abi_x86_32? ( !<=app-emulation/emul-linux-x86-medialibs-20130224-r7
 		!app-emulation/emul-linux-x86-medialibs[-abi_x86_32(-)] )"
 

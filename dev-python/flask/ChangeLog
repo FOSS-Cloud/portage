@@ -1,6 +1,23 @@
 # ChangeLog for dev-python/flask
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/flask/ChangeLog,v 1.29 2014/02/13 20:42:13 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/flask/ChangeLog,v 1.34 2014/08/21 08:23:02 ago Exp $
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> flask-0.10.1-r1.ebuild:
+  Stable for x86, wrt bug #518474
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> flask-0.10.1-r1.ebuild:
+  Stable for amd64, wrt bug #518474
+
+  11 Aug 2014; Anthony G. Basile <blueness@gentoo.org> flask-0.10.1-r1.ebuild,
+  flask-0.10.1.ebuild, flask-9999.ebuild:
+  Keyword ~ppc, ~ppc64 for bug #519618
+
+  30 May 2014; Ian Delaney <idella4@gentoo.org> flask-0.10.1-r1.ebuild,
+  flask-9999.ebuild:
+  bump; drop py2.6 add py3.4 support
+
+  06 May 2014; Ian Delaney <idella4@gentoo.org> flask-0.10.1-r1.ebuild:
+  drop py2.6 add pypy support upgrade ebuild accordingly
 
   13 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> flask-0.10.1-r1.ebuild:
   after better testing, remove python-3.2 support

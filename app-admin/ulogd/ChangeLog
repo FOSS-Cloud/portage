@@ -1,6 +1,40 @@
 # ChangeLog for app-admin/ulogd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ulogd/ChangeLog,v 1.82 2013/12/17 21:38:07 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ulogd/ChangeLog,v 1.90 2014/08/26 08:46:13 pinkbyte Exp $
+
+  26 Aug 2014; Sergey Popov <pinkbyte@gentoo.org> -ulogd-2.0.2.ebuild,
+  -files/ulogd-2.0.2-automagic.patch, -files/ulogd-2.init:
+  Drop old version as requested by proxied maintainer
+
+  22 Aug 2014; Yixun Lan <dlan@gentoo.org> files/ulogd-2-ng.init,
+  files/ulogd-2.init:
+  bug 520294, fix init script issue. proxy for itumaykin at gmail.com
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> ulogd-2.0.3.ebuild:
+  Stable for ppc, wrt bug #508846
+
+  08 Jul 2014; Chema Alonso <nimiux@gentoo.org> ulogd-2.0.3.ebuild:
+  Stable for amd64 wrt bug #508846
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> ulogd-2.0.3.ebuild:
+  x86 stable wrt bug #508846
+
+*ulogd-2.0.2 (27 Apr 2014)
+
+  27 Apr 2014; Markos Chandras <hwoarang@gentoo.org>
+  +files/ulogd-2.0.2-automagic.patch, +files/ulogd-2.init, +ulogd-2.0.2.ebuild:
+  Restore stable version
+
+  26 Apr 2014; Markos Chandras <hwoarang@gentoo.org>
+  -files/ulogd-2.0.2-automagic.patch, -files/ulogd-2.init, -ulogd-2.0.2.ebuild,
+  metadata.xml, ulogd-2.0.4.ebuild:
+  Improved ebuild to add optional json support. Remove old. Bug #507428 by
+  Coacher <itumaykin@gmail.com>
+
+*ulogd-2.0.4 (11 Apr 2014)
+
+  11 Apr 2014; Patrick Lauer <patrick@gentoo.org> +ulogd-2.0.4.ebuild:
+  Bump
 
 *ulogd-2.0.3 (17 Dec 2013)
 

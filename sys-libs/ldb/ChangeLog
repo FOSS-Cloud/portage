@@ -1,6 +1,28 @@
 # ChangeLog for sys-libs/ldb
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/ldb/ChangeLog,v 1.60 2013/11/02 10:59:23 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/ldb/ChangeLog,v 1.65 2014/05/26 19:52:14 mgorny Exp $
+
+  26 May 2014; Michał Górny <mgorny@gentoo.org> ldb-1.1.12.ebuild,
+  ldb-1.1.15.ebuild, ldb-1.1.16.ebuild, ldb-1.1.17-r1.ebuild, ldb-1.1.17.ebuild:
+  Require tevent[python] for the flag has been added along with multilib
+  support.
+
+*ldb-1.1.17-r1 (26 May 2014)
+
+  26 May 2014; Lars Wendler <polynomial-c@gentoo.org> +ldb-1.1.17-r1.ebuild:
+  Added subslot support (bug #511528).
+
+  26 May 2014; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
+  Drop inactive maintainers
+
+  17 May 2014; Lars Wendler <polynomial-c@gentoo.org> ldb-1.1.17.ebuild:
+  Fixed dependencies as reported by Jaakko Perttilä in bug #510080.
+
+*ldb-1.1.17 (07 May 2014)
+
+  07 May 2014; Lars Wendler <polynomial-c@gentoo.org> -ldb-1.1.15-r1.ebuild,
+  +ldb-1.1.17.ebuild:
+  Version bump. Removed old.
 
   02 Nov 2013; Markos Chandras <hwoarang@gentoo.org> ldb-1.1.16.ebuild:
   Add ~mips per #444688

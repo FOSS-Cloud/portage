@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rack-cache/rack-cache-1.2-r1.ebuild,v 1.1 2013/11/17 20:40:23 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rack-cache/rack-cache-1.2-r1.ebuild,v 1.4 2014/08/05 16:00:39 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby18 ruby19 ruby20"
+USE_RUBY="ruby19 ruby20 ruby21"
 
 # no documentation is generable, it needs hanna, which is broken
 RUBY_FAKEGEM_TASK_DOC=""
@@ -14,7 +14,7 @@ RUBY_FAKEGEM_EXTRADOC="CHANGES README TODO"
 
 inherit versionator ruby-fakegem
 
-DESCRIPTION="A drop-in component to enable HTTP caching for Rack-based applications that produce freshness info."
+DESCRIPTION="A drop-in component to enable HTTP caching for Rack-based applications that produce freshness info"
 HOMEPAGE="http://tomayko.com/src/rack-cache/"
 
 LICENSE="MIT"

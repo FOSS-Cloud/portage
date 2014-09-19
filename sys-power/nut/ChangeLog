@@ -1,6 +1,29 @@
 # ChangeLog for sys-power/nut
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/nut/ChangeLog,v 1.113 2014/01/05 20:37:52 robbat2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-power/nut/ChangeLog,v 1.117 2014/09/08 04:55:35 prometheanfire Exp $
+
+*nut-2.7.2-r2 (08 Sep 2014)
+
+  08 Sep 2014; Matthew Thode <prometheanfire@gentoo.org> +nut-2.7.2-r2.ebuild,
+  -nut-2.6.2.ebuild, -nut-2.6.5.ebuild, -nut-2.7.1.ebuild, -nut-2.7.2-r1.ebuild:
+  fixing systemd stuffs for bug 518622
+
+*nut-2.7.2-r1 (30 Jul 2014)
+
+  30 Jul 2014; Matthew Thode <prometheanfire@gentoo.org> +nut-2.7.2-r1.ebuild,
+  -nut-2.7.2.ebuild:
+  fixing bug 517954
+
+*nut-2.7.2 (24 Jul 2014)
+
+  24 Jul 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +files/nut-2.7.2/nut-2.7.2-no-libdummy.patch, +nut-2.7.2.ebuild:
+  bumping for bug 517060
+
+  29 Jun 2014; Sven Vermeulen <swift@gentoo.org> nut-2.6.0-r1.ebuild,
+  nut-2.6.2.ebuild, nut-2.6.3.ebuild, nut-2.6.5-r1.ebuild, nut-2.6.5.ebuild,
+  nut-2.7.1.ebuild:
+  Add dependency towards sec-policy/selinux-nut if USE=selinux is set
 
 *nut-2.7.1 (05 Jan 2014)
 

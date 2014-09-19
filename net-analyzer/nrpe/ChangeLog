@@ -1,6 +1,48 @@
 # ChangeLog for net-analyzer/nrpe
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nrpe/ChangeLog,v 1.22 2013/03/09 19:09:06 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nrpe/ChangeLog,v 1.33 2014/07/08 15:59:26 pacho Exp $
+
+*nrpe-2.15-r1 (08 Jul 2014)
+
+  08 Jul 2014; Pacho Ramos <pacho@gentoo.org> +files/nrpe.service,
+  +nrpe-2.15-r1.ebuild:
+  Add unit file (#505764 by Markos Chandras and Stefan G. Weichinger)
+
+  27 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> -nrpe-2.13-r4.ebuild,
+  -nrpe-2.14.ebuild:
+  Drop insecure versions
+
+  17 May 2014; Agostino Sarubbo <ago@gentoo.org> nrpe-2.15.ebuild:
+  Stable for alpha, wrt bug #508122
+
+  14 May 2014; Agostino Sarubbo <ago@gentoo.org> nrpe-2.15.ebuild:
+  Stable for sparc, wrt bug #508122
+
+  11 May 2014; Agostino Sarubbo <ago@gentoo.org> nrpe-2.15.ebuild:
+  Stable for ppc64, wrt bug #508122
+
+  10 May 2014; Agostino Sarubbo <ago@gentoo.org> nrpe-2.15.ebuild:
+  Stable for ppc, wrt bug #508122
+
+  21 Apr 2014; Agostino Sarubbo <ago@gentoo.org> nrpe-2.15.ebuild:
+  Stable for x86, wrt bug #508122
+
+  21 Apr 2014; Jeroen Roovers <jer@gentoo.org> nrpe-2.15.ebuild:
+  Stable for HPPA (bug #508122).
+
+  20 Apr 2014; Agostino Sarubbo <ago@gentoo.org> nrpe-2.15.ebuild:
+  Stable for amd64, wrt bug #508122
+
+  19 Apr 2014; Robin H. Johnson <robbat2@gentoo.org> files/nrpe.init:
+  Bug #481930: ensure piddir exists before starting.
+
+*nrpe-2.15 (19 Apr 2014)
+
+  19 Apr 2014; Robin H. Johnson <robbat2@gentoo.org>
+  +files/nrpe-2.15-autoconf-header.patch,
+  +files/nrpe-2.15-metachar-security-fix.patch,
+  +files/nrpe-2.15-tcpd-et-al.patch, +nrpe-2.15.ebuild:
+  Bump, include a fix that I wrote for security bug 508122.
 
   09 Mar 2013; Agostino Sarubbo <ago@gentoo.org> nrpe-2.14.ebuild:
   Stable for sparc, wrt bug #459870

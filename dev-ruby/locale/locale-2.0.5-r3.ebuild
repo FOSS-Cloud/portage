@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/locale/locale-2.0.5-r3.ebuild,v 1.16 2013/12/26 15:11:10 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/locale/locale-2.0.5-r3.ebuild,v 1.18 2014/08/05 16:00:38 mrueg Exp $
 
 EAPI=2
 
-USE_RUBY="ruby18 ruby19 jruby ree18"
+USE_RUBY="ruby19 jruby"
 
 RUBY_FAKEGEM_TASK_DOC="rerdoc"
 RUBY_FAKEGEM_DOCDIR="doc"
@@ -14,7 +14,7 @@ RUBY_FAKEGEM_TASK_TEST="test"
 
 inherit ruby-fakegem
 
-DESCRIPTION="A pure ruby library which provides basic APIs for localization."
+DESCRIPTION="A pure ruby library which provides basic APIs for localization"
 HOMEPAGE="http://locale.rubyforge.org/"
 LICENSE="|| ( Ruby GPL-2 )"
 
@@ -22,7 +22,7 @@ KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 sparc x86 ~x86-macos"
 SLOT="0"
 IUSE=""
 
-ruby_add_bdepend "test? ( || ( virtual/ruby-test-unit dev-ruby/test-unit:2 ) )"
+ruby_add_bdepend "test? ( dev-ruby/test-unit:2 )"
 
 RUBY_PATCHES=( "${FILESDIR}/${PN}-language-fixes.patch" )
 

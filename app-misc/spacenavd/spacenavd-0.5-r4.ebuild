@@ -1,13 +1,13 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/spacenavd/spacenavd-0.5-r4.ebuild,v 1.6 2013/02/12 16:51:06 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/spacenavd/spacenavd-0.5-r4.ebuild,v 1.9 2014/08/10 18:09:26 slyfox Exp $
 
 EAPI="4"
 
 inherit eutils linux-info toolchain-funcs udev
 
 MY_PN='spacenav'
-DESCRIPTION="The spacenavd daemon provides free alternative to the 3dxserv daemon."
+DESCRIPTION="The spacenavd daemon provides free alternative to the 3dxserv daemon"
 HOMEPAGE="http://spacenav.sourceforge.net/"
 SRC_URI="mirror://sourceforge/project/${MY_PN}/${MY_PN}%20daemon/${PN}%20${PV}/${P}.tar.gz"
 LICENSE="GPL-3"
@@ -50,7 +50,7 @@ src_install() {
 
 	# Install udev rule but leave activiation to the user
 	# since Xorg may be configured to grab the device already
-	insinto "$(udev_get_udevdir)"
+	insinto "$(get_udevdir)"
 	newins "${FILESDIR}"/99-space-navigator.rules 99-space-navigator.rules.ignored
 
 	# Daemon
@@ -73,7 +73,7 @@ pkg_postinst() {
 	elog
 	elog "If you want to auto-start the daemon when you plug in"
 	elog "a SpaceNavigator device, activate the related udev rule :"
-	elog "\`sudo ln -s $(udev_get_udevdir)/rules.d/99-space-navigator.rules.ignored /etc/udev/rules.d\`"
+	elog "\`sudo ln -s $(get_udevdir)/rules.d/99-space-navigator.rules.ignored /etc/udev/rules.d\`"
 	ewarn "You must restart spnavd \`/etc/init.d/spacenavd restart\` to run"
 	ewarn "the new version of the daemon."
 }

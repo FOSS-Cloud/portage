@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/icu/icu-52.1.ebuild,v 1.1 2014/01/01 21:03:36 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/icu/icu-52.1.ebuild,v 1.14 2014/09/12 00:49:11 jmorgan Exp $
 
 EAPI=5
 
@@ -14,7 +14,7 @@ LICENSE="BSD"
 
 SLOT="0/52"
 
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="debug doc examples static-libs"
 
 DEPEND="
@@ -28,6 +28,7 @@ S="${WORKDIR}/${PN}/source"
 src_prepare() {
 	local variable
 
+	epatch "${FILESDIR}/icu-fix-tests-depending-on-date.patch"
 	epatch_user
 
 	# Do not hardcode flags in icu-config and icu-*.pc files.
@@ -83,7 +84,7 @@ multilib_src_configure() {
 		$(use_enable static-libs static)
 	)
 
-	multilib_build_binaries && myeconfargs+=(
+	multilib_is_native_abi && myeconfargs+=(
 		$(use_enable examples samples)
 	)
 	tc-is-cross-compiler && myeconfargs+=(
@@ -100,7 +101,7 @@ multilib_src_configure() {
 multilib_src_compile() {
 	default
 
-	if multilib_build_binaries && use doc; then
+	if multilib_is_native_abi && use doc; then
 		doxygen -u Doxyfile || die
 		doxygen Doxyfile || die
 	fi
@@ -123,7 +124,7 @@ multilib_src_test() {
 multilib_src_install() {
 	default
 
-	if multilib_build_binaries && use doc; then
+	if multilib_is_native_abi && use doc; then
 		dohtml -p api -r doc/html/
 	fi
 }

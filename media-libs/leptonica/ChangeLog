@@ -1,6 +1,49 @@
 # ChangeLog for media-libs/leptonica
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/leptonica/ChangeLog,v 1.13 2013/09/02 07:04:14 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/leptonica/ChangeLog,v 1.24 2014/09/01 19:37:32 tomka Exp $
+
+  01 Sep 2014; Thomas Kahle <tomka@gentoo.org> leptonica-1.71-r1.ebuild:
+  Fix bug 518540 differently again
+
+*leptonica-1.71-r1 (01 Sep 2014)
+
+  01 Sep 2014; Thomas Kahle <tomka@gentoo.org>
+  +files/leptonica-1.71-fix-openjpeg-test.patch, +leptonica-1.71-r1.ebuild:
+  EAPI bump, fix bug 518540 for real
+
+  30 Aug 2014; Chema Alonso <nimiux@gentoo.org> leptonica-1.70.ebuild:
+  Stable for amd64 wrt bug #513376
+
+  26 Aug 2014; Thomas Kahle <tomka@gentoo.org> leptonica-1.71.ebuild:
+  Fix another build failure by deps
+
+  26 Aug 2014; Thomas Kahle <tomka@gentoo.org> leptonica-1.71.ebuild:
+  Depend on openjpeg-2.1 (bug 518540)
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> leptonica-1.68.ebuild,
+  leptonica-1.69.ebuild, leptonica-1.70.ebuild, leptonica-1.71.ebuild:
+  Add ~sparc wrt #437670
+
+  30 Jul 2014; Thomas Kahle <tomka@gentoo.org>
+  +files/leptonica-1.71-openjpeg-2.0.patch, leptonica-1.71.ebuild:
+  Add compatibility with openjpeg-2.0 (bug #518540)
+
+  30 Jul 2014; Thomas Kahle <tomka@gentoo.org> leptonica-1.71.ebuild:
+  expose jpeg2k support via openjpeg (bug 518540)
+
+*leptonica-1.71 (29 Jul 2014)
+
+  29 Jul 2014; Thomas Kahle <tomka@gentoo.org> +leptonica-1.71.ebuild:
+  Bump to 1.71
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org> leptonica-1.70.ebuild:
+  Keyworded on alpha, bug #510240
+
+*leptonica-1.70 (13 May 2014)
+
+  13 May 2014; Thomas Kahle <tomka@gentoo.org> +leptonica-1.70.ebuild,
+  metadata.xml:
+  bump to 1.70, take maintainership
 
   02 Sep 2013; Sergey Popov <pinkbyte@gentoo.org> leptonica-1.69.ebuild:
   Add ~mips keyword, wrt bug #437670

@@ -1,12 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmclockmon/wmclockmon-0.8.1.ebuild,v 1.7 2012/05/05 05:12:02 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmclockmon/wmclockmon-0.8.1.ebuild,v 1.9 2014/08/10 20:05:22 slyfox Exp $
 
-EAPI="1"
-
+EAPI=5
 inherit eutils
 
-DESCRIPTION="a nice digital clock with 7 different styles either in LCD or LED style."
+DESCRIPTION="a nice digital clock with 7 different styles either in LCD or LED style"
 HOMEPAGE="http://tnemeth.free.fr/projets/dockapps.html"
 SRC_URI="mirror://debian/pool/main/w/${PN}/${PN}_${PV}-1.tar.gz"
 
@@ -25,14 +24,12 @@ DEPEND="${RDEPEND}
 	x11-proto/xextproto
 	x11-libs/libXt"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	epatch "${FILESDIR}"/${P}-gtk.patch
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed."
+	emake DESTDIR="${D}" install
 	dodoc AUTHORS BUGS ChangeLog NEWS README THANKS TODO doc/sample*
 	newdoc debian/changelog ChangeLog.debian
 }

@@ -1,6 +1,34 @@
 # ChangeLog for app-emulation/virtualbox-additions
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-additions/ChangeLog,v 1.87 2014/03/27 18:04:46 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-additions/ChangeLog,v 1.92 2014/09/10 05:33:34 polynomial-c Exp $
+
+*virtualbox-additions-4.3.16 (10 Sep 2014)
+
+  10 Sep 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-additions-4.3.12.ebuild, +virtualbox-additions-4.3.16.ebuild:
+  Version bump. Removed old.
+
+*virtualbox-additions-4.3.14 (18 Jul 2014)
+*virtualbox-additions-4.2.26 (18 Jul 2014)
+
+  18 Jul 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-additions-4.2.22.ebuild, +virtualbox-additions-4.2.26.ebuild,
+  -virtualbox-additions-4.3.10-r1.ebuild, +virtualbox-additions-4.3.14.ebuild:
+  Version bump. Removed old.
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org>
+  virtualbox-additions-4.2.24.ebuild:
+  Stable for x86, wrt bug #507824
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org>
+  virtualbox-additions-4.2.24.ebuild:
+  Stable for amd64, wrt bug #507824
+
+*virtualbox-additions-4.3.12 (17 May 2014)
+
+  17 May 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -virtualbox-additions-4.3.8.ebuild, +virtualbox-additions-4.3.12.ebuild:
+  Version bump. Removed old.
 
   27 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> Manifest:
   Upstream re-released 4.3.10 version again!

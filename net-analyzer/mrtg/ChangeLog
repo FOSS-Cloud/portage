@@ -1,6 +1,41 @@
 # ChangeLog for net-analyzer/mrtg
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/mrtg/ChangeLog,v 1.115 2012/02/04 21:29:16 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/mrtg/ChangeLog,v 1.125 2014/08/13 09:28:10 ago Exp $
+
+  13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mrtg-2.17.4-r1.ebuild:
+  Stable for ppc, wrt bug #509992
+
+  02 Aug 2014; Raúl Porcel <armin76@gentoo.org> mrtg-2.17.4-r1.ebuild:
+  sparc stable, bug #509992
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org> mrtg-2.17.4-r1.ebuild:
+  Stable on alpha, bug #509992
+
+  15 Jul 2014; Jeroen Roovers <jer@gentoo.org> mrtg-2.17.4-r1.ebuild:
+  mv must die() by Chema Alonso (bug #509992).
+
+  15 Jul 2014; Chema Alonso <nimiux@gentoo.org> mrtg-2.17.4-r1.ebuild:
+  Stable for amd64 wrt bug #509992
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> mrtg-2.17.4-r1.ebuild:
+  x86 stable wrt bug #509992
+
+  12 May 2014; Jeroen Roovers <jer@gentoo.org> mrtg-2.17.4-r1.ebuild:
+  Stable for HPPA (bug #509992).
+
+  10 May 2014; Jeroen Roovers <jer@gentoo.org> mrtg-2.17.4-r1.ebuild:
+  Raise dev-perl/Socket6 dependency (bug #321701). Raise dev-perl/SNMP_Session
+  dependency (bug #509986).
+
+  10 May 2014; Jeroen Roovers <jer@gentoo.org> mrtg-2.17.4-r1.ebuild:
+  Depend on media-libs/gd[png] by Kerin Millar (bug #404469).
+
+*mrtg-2.17.4-r1 (10 May 2014)
+
+  10 May 2014; Jeroen Roovers <jer@gentoo.org> -mrtg-2.17.2.ebuild,
+  -mrtg-2.17.4.ebuild, +mrtg-2.17.4-r1.ebuild,
+  +files/mrtg-2.17.4-socket6.patch:
+  Fix SNMP_Session::pack_sockaddr_in redefinition (bug #509986 by Sven).
 
   04 Feb 2012; Tim Harder <radhermit@gentoo.org> -mrtg-2.16.2.ebuild,
   -mrtg-2.16.2-r1.ebuild, -mrtg-2.16.4.ebuild:

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/irrlicht/irrlicht-1.8.1.ebuild,v 1.1 2013/11/21 21:44:14 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-games/irrlicht/irrlicht-1.8.1.ebuild,v 1.3 2014/08/28 16:03:32 ssuominen Exp $
 
 EAPI=5
 inherit eutils multilib toolchain-funcs
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="debug doc static-libs"
 
-RDEPEND="virtual/jpeg
+RDEPEND="virtual/jpeg:0
 	media-libs/libpng:0
 	app-arch/bzip2
 	sys-libs/zlib
@@ -35,7 +35,9 @@ src_prepare() {
 	epatch \
 		"${FILESDIR}"/${P}-gentoo.patch \
 		"${FILESDIR}"/${P}-config.patch \
-		"${FILESDIR}"/${P}-demoMake.patch
+		"${FILESDIR}"/${P}-demoMake.patch \
+		"${FILESDIR}"/${P}-mesa-10.x.patch \
+		"${FILESDIR}"/${P}-jpeg-9a.patch
 
 	sed -i \
 		-e 's:\.\./\.\./media:../media:g' \

@@ -1,6 +1,19 @@
 # ChangeLog for www-apps/mythweb
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/mythweb/ChangeLog,v 1.101 2013/10/03 18:21:01 rich0 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/mythweb/ChangeLog,v 1.104 2014/08/10 20:14:07 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> mythweb-0.26.0.ebuild,
+  mythweb-0.27.1.ebuild, mythweb-0.27.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  27 Jul 2014; Pacho Ramos <pacho@gentoo.org> -mythweb-0.25.2.ebuild,
+  -mythweb-0.25.3.ebuild:
+  Remove masked for removal package
+
+*mythweb-0.27.1 (01 Jun 2014)
+
+  01 Jun 2014; Richard Freeman <rich0@gentoo.org> +mythweb-0.27.1.ebuild:
+  bump
 
 *mythweb-0.27 (03 Oct 2013)
 

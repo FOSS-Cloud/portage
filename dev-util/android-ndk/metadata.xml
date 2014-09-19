@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>proxy-maintainers</herd>
 	<maintainer>
 		<email>cardoe@gentoo.org</email>
 		<name>Doug Goldstein</name>
@@ -9,12 +8,16 @@
 			my limited use case that I use it for.</description>
 	</maintainer>
 	<maintainer>
-		<email>piatlicki@gmail.com</email>
+		<email>jauhien@gentoo.org</email>
 		<name>Jauhien Piatlicki</name>
-		<description>Proxy maintainer</description>
 	</maintainer>
 
 	<use>
-		<flag name="legacy-toolchains">Install legacy toolchains</flag>
+		<flag name="legacy-toolchains">Install legacy
+                toolchains</flag>
+                <flag name="target-32">Support for 32-bit
+                targets</flag>
+                <flag name="target-64">Support for 64-bit
+                targets</flag>
 	</use>
 </pkgmetadata>

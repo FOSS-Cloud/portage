@@ -1,6 +1,69 @@
 # ChangeLog for net-misc/cgminer
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/cgminer/ChangeLog,v 1.69 2014/03/29 16:17:55 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/cgminer/ChangeLog,v 1.80 2014/08/03 02:33:27 patrick Exp $
+
+  03 Aug 2014; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag description from metadata.xml
+
+  01 Aug 2014; Anthony G. Basile <blueness@gentoo.org> -cgminer-3.12.3.ebuild,
+  -cgminer-3.7.2.ebuild, -cgminer-4.0.1.ebuild, -cgminer-4.1.0.ebuild:
+  Remove older versions due to CVE-2014-4503, bug #517948
+
+*cgminer-4.5.0 (30 Jul 2014)
+
+  30 Jul 2014; Anthony G. Basile <blueness@gentoo.org> +cgminer-4.5.0.ebuild,
+  -cgminer-4.4.1.ebuild, cgminer-4.4.2.ebuild, metadata.xml:
+  Version bump, remove older 4.4
+
+*cgminer-4.4.2 (18 Jul 2014)
+
+  18 Jul 2014; Anthony G. Basile <blueness@gentoo.org> +cgminer-4.4.2.ebuild,
+  +files/cgminer-4.4.2-system-jansson.patch, -cgminer-4.4.0.ebuild,
+  cgminer-4.4.1.ebuild:
+  Version bump
+
+*cgminer-4.4.1 (21 Jun 2014)
+
+  21 Jun 2014; Anthony G. Basile <blueness@gentoo.org> +cgminer-4.4.1.ebuild,
+  cgminer-4.4.0.ebuild:
+  Version bump
+
+*cgminer-4.4.0 (17 Jun 2014)
+
+  17 Jun 2014; Anthony G. Basile <blueness@gentoo.org> +cgminer-4.4.0.ebuild,
+  -cgminer-4.3.4.ebuild, cgminer-4.3.5.ebuild, metadata.xml:
+  Version bump to 4.4 branch, drop older 4.3
+
+*cgminer-4.3.5 (10 Jun 2014)
+
+  10 Jun 2014; Anthony G. Basile <blueness@gentoo.org> +cgminer-4.3.5.ebuild,
+  +files/cgminer-4.3.5-system-jansson.patch, -cgminer-4.3.0.ebuild,
+  -cgminer-4.3.2.ebuild:
+  Version bump 4.3.5, use system libjansson.  Remove older 4.3.x
+
+*cgminer-4.3.4 (25 May 2014)
+
+  25 May 2014; Anthony G. Basile <blueness@gentoo.org> +cgminer-4.3.4.ebuild,
+  cgminer-4.3.2.ebuild:
+  Version bump
+
+*cgminer-4.3.2 (02 May 2014)
+
+  02 May 2014; Anthony G. Basile <blueness@gentoo.org> +cgminer-4.3.2.ebuild,
+  cgminer-4.3.0.ebuild:
+  Version bump
+
+*cgminer-4.3.0 (19 Apr 2014)
+
+  19 Apr 2014; Anthony G. Basile <blueness@gentoo.org> +cgminer-4.3.0.ebuild,
+  -cgminer-4.2.2.ebuild, cgminer-4.2.3.ebuild, metadata.xml:
+  Version bump
+
+*cgminer-4.2.3 (04 Apr 2014)
+
+  04 Apr 2014; Anthony G. Basile <blueness@gentoo.org> +cgminer-4.2.3.ebuild,
+  -cgminer-4.2.1.ebuild, cgminer-4.2.2.ebuild:
+  Vesion bump
 
 *cgminer-3.7.2 (29 Mar 2014)
 

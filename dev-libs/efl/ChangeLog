@@ -1,6 +1,43 @@
 # ChangeLog for dev-libs/efl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/efl/ChangeLog,v 1.10 2014/03/28 16:32:40 tommy Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/efl/ChangeLog,v 1.18 2014/08/08 14:48:02 tommy Exp $
+
+  08 Aug 2014; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> efl-1.10.1.ebuild:
+  Add dependency on x11-libs/libxkbcommon with USE=drm, bug 516060
+
+*efl-1.10.1 (29 Jun 2014)
+
+  29 Jun 2014; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> +efl-1.10.1.ebuild:
+  Version bump
+
+*efl-1.9.5 (09 Jun 2014)
+
+  09 Jun 2014; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> +efl-1.9.5.ebuild,
+  -efl-1.9.3.ebuild:
+  Version bump, drop old
+
+*efl-1.9.4 (01 Jun 2014)
+
+  01 Jun 2014; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> +efl-1.9.4.ebuild,
+  -efl-1.9.2.ebuild:
+  Version bump, add version requirement to bullet dependency, fixes bug 510424,
+  drop old
+
+  15 May 2014; Ulrich Müller <ulm@gentoo.org> efl-1.8.5.ebuild,
+  efl-1.8.6.ebuild, efl-1.9.2.ebuild, efl-1.9.3.ebuild, metadata.xml:
+  QA: Rename "audio" USE flag to "sound", bug 357661.
+
+  04 May 2014; Agostino Sarubbo <ago@gentoo.org> efl-1.8.5.ebuild:
+  Stable for x86, wrt bug #505412
+
+  21 Apr 2014;  <zlogene@gentoo.org> efl-1.8.5.ebuild:
+  amd64 stable wrt bug #505412
+
+*efl-1.9.3 (17 Apr 2014)
+
+  17 Apr 2014; Thomas Sachau (Tommy[D]) <tommy@gentoo.org> +efl-1.9.3.ebuild,
+  -efl-1.9.0.ebuild:
+  Version bump, drop old
 
 *efl-1.9.2 (28 Mar 2014)
 

@@ -1,6 +1,26 @@
 # ChangeLog for sys-libs/uclibc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/uclibc/ChangeLog,v 1.88 2014/02/18 01:06:45 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/uclibc/ChangeLog,v 1.93 2014/08/12 06:47:41 vapier Exp $
+
+  12 Aug 2014; Mike Frysinger <vapier@gentoo.org> uclibc-0.9.33.2-r12.ebuild,
+  uclibc-9999.ebuild:
+  Die if people try USE=nptl w/i386 targets.
+
+*uclibc-0.9.33.2-r12 (04 Aug 2014)
+
+  04 Aug 2014; Mike Frysinger <vapier@gentoo.org> +uclibc-0.9.33.2-r12.ebuild:
+  Pull in time.h updates to fix building w/latest udev.
+
+  01 Aug 2014; Mike Frysinger <vapier@gentoo.org> uclibc-0.9.33.2-r11.ebuild:
+  Stabilize for all.
+
+*uclibc-0.9.33.2-r11 (27 Apr 2014)
+
+  27 Apr 2014; Mike Frysinger <vapier@gentoo.org> +uclibc-0.9.33.2-r11.ebuild:
+  Add fix from upstream for sys/mount.h updates #508522 by Anthony Basile.
+
+  27 Apr 2014; Mike Frysinger <vapier@gentoo.org> uclibc-0.9.33.2-r10.ebuild:
+  Stabilize for all.
 
 *uclibc-0.9.33.2-r10 (18 Feb 2014)
 

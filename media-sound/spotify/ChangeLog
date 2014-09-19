@@ -1,6 +1,52 @@
 # ChangeLog for media-sound/spotify
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/spotify/ChangeLog,v 1.28 2014/01/28 04:24:21 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/spotify/ChangeLog,v 1.35 2014/07/25 21:15:19 prometheanfire Exp $
+
+*spotify-0.9.11.27 (25 Jul 2014)
+
+  25 Jul 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.9.11.27.ebuild, -spotify-0.9.11.26-r1.ebuild:
+  upating amd64 version of spotify for bug 518054
+
+*spotify-0.9.11.26-r1 (14 Jul 2014)
+*spotify-0.9.4.183-r8 (14 Jul 2014)
+
+  14 Jul 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.9.11.26-r1.ebuild, +spotify-0.9.4.183-r8.ebuild,
+  -spotify-0.9.11.26.ebuild, -spotify-0.9.4.183-r7.ebuild:
+  fixing bug 516740
+
+*spotify-0.9.11.26 (03 Jul 2014)
+
+  03 Jul 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.9.11.26.ebuild, -spotify-0.9.10.17-r1.ebuild:
+  bup
+
+*spotify-0.9.4.183-r7 (12 Jun 2014)
+
+  12 Jun 2014; Mike Gilbert <floppym@gentoo.org> +spotify-0.9.4.183-r7.ebuild,
+  -spotify-0.9.4.183-r4.ebuild, -spotify-0.9.4.183-r5.ebuild,
+  -spotify-0.9.4.183-r6.ebuild:
+  Depend on either libgcrypt:11/11 or libgcrypt:0/11. Drop ~amd64 keyword.
+  Remove old.
+
+*spotify-0.9.10.17-r1 (12 Jun 2014)
+
+  12 Jun 2014; Mike Gilbert <floppym@gentoo.org> +spotify-0.9.10.17-r1.ebuild,
+  -spotify-0.9.10.17.ebuild:
+  Depend on either libgcrypt:11/11 or libgcrypt:0/11.
+
+*spotify-0.9.10.17 (20 May 2014)
+
+  20 May 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.9.10.17.ebuild:
+  fixes bug 510854
+
+*spotify-0.9.4.183-r6 (24 Apr 2014)
+
+  24 Apr 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +spotify-0.9.4.183-r6.ebuild:
+  fixing r6 for bug 499144
 
   28 Jan 2014; Matthew Thode <prometheanfire@gentoo.org>
   spotify-0.9.4.183-r5.ebuild:

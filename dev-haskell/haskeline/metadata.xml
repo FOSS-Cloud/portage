@@ -2,9 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>haskell</herd>
-	<maintainer>
-		<email>haskell@gentoo.org</email>
-	</maintainer>
 	<longdescription>
 		Haskeline provides a user interface for line input in command-line
 		programs.  This library is similar in purpose to readline, but since
@@ -13,4 +10,9 @@
 		
 		Haskeline runs both on POSIX-compatible systems and on Windows.
 	</longdescription>
+	<use>
+		<flag name="terminfo">Use the terminfo package for POSIX consoles.</flag>
+		<flag name="libiconv">Explicitly link against the libiconv library.</flag>
+		<flag name="legacy-encoding">Use legacy iconv encoding for POSIX. This is only intended for testing.</flag>
+	</use>
 </pkgmetadata>

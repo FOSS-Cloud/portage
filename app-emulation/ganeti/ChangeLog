@@ -1,6 +1,87 @@
 # ChangeLog for app-emulation/ganeti
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/ganeti/ChangeLog,v 1.83 2014/03/07 03:51:14 chutzpah Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/ganeti/ChangeLog,v 1.93 2014/08/29 20:52:43 chutzpah Exp $
+
+*ganeti-2.11.5 (29 Aug 2014)
+
+  29 Aug 2014; Patrick McLean <chutzpah@gentoo.org> +ganeti-2.11.5.ebuild,
+  +files/ganeti-2.11-daemon-util-tests.patch,
+  +files/ganeti-2.11-dont-nest-libdir.patch,
+  +files/ganeti-2.11-dont-print-man-help.patch,
+  +files/ganeti-2.11-useradd.patch, metadata.xml:
+  Version bump. Add multiple-users USE flag that enables ganeti's multiuser
+  support (contributed by Guido Serra). Add monitoring USE flag to enable
+  ganeti's monitoring daemon.
+
+*ganeti-2.11.2-r3 (02 Jul 2014)
+*ganeti-2.10.5-r3 (02 Jul 2014)
+
+  02 Jul 2014; Patrick McLean <chutzpah@gentoo.org> -ganeti-1.2.9.ebuild,
+  -ganeti-2.0.6.ebuild, -ganeti-2.1.8.ebuild, -ganeti-2.2.2.ebuild,
+  -ganeti-2.3.1.ebuild, -ganeti-2.5.2-r2.ebuild, -ganeti-2.6.2.ebuild,
+  -ganeti-2.10.5-r2.ebuild, +ganeti-2.10.5-r3.ebuild, -ganeti-2.11.2-r1.ebuild,
+  -ganeti-2.11.2-r2.ebuild, +ganeti-2.11.2-r3.ebuild, files/ganeti.initd-r3:
+  Revision bump, make failure to start ganeti-kvmd not fatal since it fails if
+  user shutdowns are disabled. Clean out older versions.
+
+*ganeti-2.11.2-r2 (18 Jun 2014)
+
+  18 Jun 2014; Patrick McLean <chutzpah@gentoo.org> +ganeti-2.11.2-r2.ebuild,
+  +files/ganeti-2.11-add-pgrep.patch, +files/ganeti-2.11-daemon-util.patch,
+  +files/ganeti-2.11-start-stop-daemon-args.patch:
+  Revision bump, some minor ebuild cleanups. Add a --wait to start-stop-daemon
+  arguments in daemon-util to make sure that the ganeti daemons actually start.
+  Add patch contributed by 'Zentoo' for daemon-util to make restart-all handle
+  master/node differences properly (bug #513600).
+
+*ganeti-2.11.2-r1 (14 Jun 2014)
+*ganeti-2.10.5-r2 (14 Jun 2014)
+
+  14 Jun 2014; Patrick McLean <chutzpah@gentoo.org> -ganeti-2.10.5-r1.ebuild,
+  +ganeti-2.10.5-r2.ebuild, -ganeti-2.11.1-r1.ebuild, -ganeti-2.11.2.ebuild,
+  +ganeti-2.11.2-r1.ebuild, +files/ganeti-lockdir.patch:
+  Revision bump, move the lock dir to /run/lock rather than /var/lock (bug
+  #480534)
+
+*ganeti-2.11.2 (14 Jun 2014)
+
+  14 Jun 2014; Patrick McLean <chutzpah@gentoo.org> +ganeti-2.11.2.ebuild,
+  +files/ganeti-2.11-qemu-enable-kvm.patch, +files/ganeti-2.11-tests.patch:
+  Version bump, add some hackery to work around app-emulation/qemu removing the
+  qemu-kvm wrapper.
+
+*ganeti-2.11.1-r1 (05 Jun 2014)
+*ganeti-2.10.5-r1 (05 Jun 2014)
+
+  05 Jun 2014; Patrick McLean <chutzpah@gentoo.org> -ganeti-2.10.4.ebuild,
+  -ganeti-2.10.5.ebuild, +ganeti-2.10.5-r1.ebuild, -ganeti-2.11.1.ebuild,
+  +ganeti-2.11.1-r1.ebuild, -files/ganeti.initd-r2, +files/ganeti.initd-r3:
+  Revision bump, fix ganeti-rapi reference in init script (bug #512444).
+
+*ganeti-2.10.5 (02 Jun 2014)
+
+  02 Jun 2014; Patrick McLean <chutzpah@gentoo.org> +ganeti-2.10.5.ebuild:
+  Version bump.
+
+*ganeti-2.10.4 (30 May 2014)
+
+  30 May 2014; Patrick McLean <chutzpah@gentoo.org> -ganeti-2.6.0.ebuild,
+  -ganeti-2.6.1.ebuild, -ganeti-2.9.1.ebuild, -ganeti-2.10.1.ebuild,
+  -ganeti-2.10.2.ebuild, +ganeti-2.10.4.ebuild:
+  Version bump to 2.10 series, move to reworked init script. Clean out some old
+  versions.
+
+*ganeti-2.11.1 (30 May 2014)
+
+  30 May 2014; Patrick McLean <chutzpah@gentoo.org> +ganeti-2.11.1.ebuild,
+  +files/ganeti-2.11-regex-builtin.patch, +files/ganeti.confd-r2,
+  +files/ganeti.initd-r2:
+  Version bump, rework the init script.
+
+*ganeti-2.10.2 (04 Apr 2014)
+
+  04 Apr 2014; Patrick McLean <chutzpah@gentoo.org> +ganeti-2.10.2.ebuild:
+  Version bump.
 
   07 Mar 2014; Patrick McLean <chutzpah@gentoo.org> ganeti-2.10.1.ebuild:
   Fix minor typo

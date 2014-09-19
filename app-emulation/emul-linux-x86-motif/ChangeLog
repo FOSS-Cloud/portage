@@ -1,6 +1,38 @@
 # ChangeLog for app-emulation/emul-linux-x86-motif
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-motif/ChangeLog,v 1.24 2013/11/22 19:32:41 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-motif/ChangeLog,v 1.30 2014/06/26 09:23:41 pacho Exp $
+
+  26 Jun 2014; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-motif-20140508.ebuild:
+  amd64 stable
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org>
+  emul-linux-x86-motif-20131008.ebuild, emul-linux-x86-motif-20140406.ebuild,
+  emul-linux-x86-motif-20140508.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+*emul-linux-x86-motif-20140508 (08 May 2014)
+
+  08 May 2014; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-motif-20140508.ebuild, -emul-linux-x86-motif-20140506.ebuild:
+  Version bump, drop old
+
+*emul-linux-x86-motif-20140506 (06 May 2014)
+
+  06 May 2014; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-motif-20140506.ebuild:
+  Version bump
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-motif-20140406.ebuild:
+  amd64 stable, bug 508322
+
+*emul-linux-x86-motif-20140406 (06 Apr 2014)
+
+  06 Apr 2014; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-motif-20140406.ebuild, -emul-linux-x86-motif-20130224.ebuild:
+  Version bump, drop old
 
   22 Nov 2013; Pacho Ramos <pacho@gentoo.org>
   emul-linux-x86-motif-20131008.ebuild:

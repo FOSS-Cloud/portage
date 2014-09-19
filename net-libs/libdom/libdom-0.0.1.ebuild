@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libdom/libdom-0.0.1.ebuild,v 1.3 2014/01/05 19:16:37 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libdom/libdom-0.0.1.ebuild,v 1.6 2014/07/26 11:46:40 dilfridge Exp $
 
 EAPI=5
 
@@ -18,16 +18,14 @@ RDEPEND=">=dev-libs/libparserutils-0.1.2[static-libs?,${MULTILIB_USEDEP}]
 	>=dev-libs/libwapcaplet-0.2.0[static-libs?,${MULTILIB_USEDEP}]
 	>=net-libs/libhubbub-0.2.0[static-libs?,${MULTILIB_USEDEP}]
 	xml? (
-		expat? ( dev-libs/expat[static-libs?]
-			amd64? ( abi_x86_32? ( app-emulation/emul-linux-x86-baselibs[development] ) ) )
-		!expat? ( dev-libs/libxml2[static-libs?]
-			amd64? ( abi_x86_32? ( app-emulation/emul-linux-x86-baselibs[development] ) ) )
+		expat? ( >=dev-libs/expat-2.1.0-r3[static-libs?,${MULTILIB_USEDEP}] )
+		!expat? ( >=dev-libs/libxml2-2.9.1-r4[static-libs?,${MULTILIB_USEDEP}] )
 	)"
 DEPEND="${RDEPEND}
 	test? ( dev-lang/perl
 		dev-perl/XML-XPath
 		dev-perl/libxml-perl
-		perl-core/Switch )"
+		dev-perl/Switch )"
 
 REQUIRED_USE="test? ( xml )"
 

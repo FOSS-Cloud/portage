@@ -1,6 +1,46 @@
 # ChangeLog for media-libs/libdc1394
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libdc1394/ChangeLog,v 1.72 2013/11/17 14:58:25 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libdc1394/ChangeLog,v 1.84 2014/08/10 09:30:29 ago Exp $
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libdc1394-2.2.1.ebuild:
+  Stable for sparc, wrt bug #515234
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libdc1394-2.2.1.ebuild:
+  Stable for ia64, wrt bug #515234
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libdc1394-2.2.1.ebuild:
+  Stable for ppc64, wrt bug #515234
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> libdc1394-2.2.1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  31 Jul 2014; Tobias Klausmann <klausman@gentoo.org> libdc1394-2.2.1.ebuild:
+  Stable on alpha, bug #515234
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libdc1394-2.2.1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libdc1394-2.2.1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libdc1394-2.2.1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  20 Jul 2014; Markus Meier <maekke@gentoo.org> libdc1394-2.2.1.ebuild:
+  arm stable, bug #512012
+
+  20 Jun 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +files/libdc1394-2.2.1-pthread.patch, libdc1394-2.2.1.ebuild:
+  Since capture.c in dc1394/usb/ directory is using pthread_join and
+  pthread_create functions, link to -lpthread accordingly wrt #514008
+
+  20 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> libdc1394-2.2.1.ebuild:
+  Download and extract sdl.m4 and point AT_M4DIR for eautoreconf to it wrt
+  #494312 by Andrej Gelenberg
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libdc1394-2.2.1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
 
   17 Nov 2013; Alexis Ballier <aballier@gentoo.org> libdc1394-2.2.1.ebuild,
   +files/libdc1394-2.2.1-includes.patch:

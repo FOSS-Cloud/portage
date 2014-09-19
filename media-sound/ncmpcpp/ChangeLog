@@ -1,6 +1,22 @@
 # ChangeLog for media-sound/ncmpcpp
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/ncmpcpp/ChangeLog,v 1.81 2013/12/30 12:32:50 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/ncmpcpp/ChangeLog,v 1.84 2014/09/16 05:35:38 jer Exp $
+
+*ncmpcpp-0.6_beta3 (16 Sep 2014)
+
+  16 Sep 2014; Jeroen Roovers <jer@gentoo.org> -ncmpcpp-0.6_beta2.ebuild,
+  +ncmpcpp-0.6_beta3.ebuild:
+  Version bump.
+
+*ncmpcpp-0.6_beta2 (04 Sep 2014)
+
+  04 Sep 2014; Jeroen Roovers <jer@gentoo.org> +ncmpcpp-0.6_beta2.ebuild,
+  ncmpcpp-9999.ebuild:
+  Version bump.
+
+  30 Apr 2014; Jeroen Roovers <jer@gentoo.org> ncmpcpp-0.5.10.ebuild,
+  ncmpcpp-9999.ebuild:
+  Remove IUSE=bash-completion.
 
   30 Dec 2013; Jeroen Roovers <jer@gentoo.org> ncmpcpp-9999.ebuild:
   Migrate to git-r3.eclass.

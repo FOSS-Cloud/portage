@@ -1,6 +1,30 @@
 # ChangeLog for app-leechcraft/lc-core
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-core/ChangeLog,v 1.15 2014/04/02 16:14:56 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-core/ChangeLog,v 1.20 2014/08/03 18:47:38 maksbotan Exp $
+
+*lc-core-0.6.70 (03 Aug 2014)
+
+  03 Aug 2014; Maxim Koltsov <maksbotan@gentoo.org> +lc-core-0.6.70.ebuild:
+  Bump LeechCraft to 0.6.70, thanks to 0xd34df00d.
+
+  28 Jun 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +files/lc-core-0.6.65-dbus-optional.patch,
+  +files/lc-core-0.6.65-gcc-4.9.patch, lc-core-0.6.65.ebuild:
+  Add upstream patches for making dbus optional (and disabling it by default)
+  and fixes for gcc-4.9, bug #513904 and bug #513404. Thanks to patrick for the
+  report and to 0xd34df00d for the fixes.
+
+  25 Jun 2014; Patrick Lauer <patrick@gentoo.org> lc-core-0.6.65.ebuild,
+  lc-core-9999.ebuild:
+  Add missing qtdbus dependency
+
+*lc-core-0.6.65 (10 Apr 2014)
+
+  10 Apr 2014; Maxim Koltsov <maksbotan@gentoo.org> +lc-core-0.6.65.ebuild:
+  Bump LeechCraft to 0.5.65, thanks to 0xd34df00d.
+
+  03 Apr 2014; Mikle Kolyada <zlogene@gentoo.org> lc-core-0.6.60.ebuild:
+  x86 stable wrt bug #500914
 
   02 Apr 2014; Mikle Kolyada <zlogene@gentoo.org> lc-core-0.6.60.ebuild:
   amd64 stable wrt bug #500914

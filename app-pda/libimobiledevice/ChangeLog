@@ -1,6 +1,42 @@
 # ChangeLog for app-pda/libimobiledevice
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-pda/libimobiledevice/ChangeLog,v 1.50 2014/03/01 22:19:35 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-pda/libimobiledevice/ChangeLog,v 1.57 2014/08/03 12:19:40 ssuominen Exp $
+
+  03 Aug 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/libimobiledevice-1.1.5-cython.patch, -libimobiledevice-1.1.5.ebuild:
+  old
+
+  03 Aug 2014; Samuli Suominen <ssuominen@gentoo.org>
+  libimobiledevice-1.1.6.ebuild:
+  amd64/x86 stable wrt #518160
+
+  26 Jul 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/libimobiledevice-1.1.4-HOME-segfault.patch,
+  -files/libimobiledevice-1.1.4-openssl.patch, -files/libimobiledevice-1.1.4-pro
+  perty_list_service-do-not-strip-non-ASCII-charact.patch,
+  -libimobiledevice-1.1.4-r4.ebuild:
+  old
+
+  30 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  libimobiledevice-1.1.6.ebuild:
+  Remove now useless || ( ) hack that allowed usbmuxd instead of libusbmuxd
+  before the package was moved over.
+
+  30 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  libimobiledevice-1.1.6.ebuild:
+  Pull in libusbmuxd instead of usbmuxd wrt #505576
+
+  06 Apr 2014; Samuli Suominen <ssuominen@gentoo.org>
+  libimobiledevice-1.1.6.ebuild:
+  Install missing /usr/include/libimobiledevice/cython/imobiledevice.pxd by hand
+  since the build system doesn't do it.
+
+*libimobiledevice-1.1.6 (06 Apr 2014)
+
+  06 Apr 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +libimobiledevice-1.1.6.ebuild:
+  Version bump wrt #505576 by Anton Bolshakov for iOS7 support wrt #498342 by
+  Peter Volkov
 
   01 Mar 2014; Michał Górny <mgorny@gentoo.org>
   libimobiledevice-1.1.4-r4.ebuild, libimobiledevice-1.1.5.ebuild:

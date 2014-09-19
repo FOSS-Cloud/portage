@@ -1,6 +1,40 @@
 # ChangeLog for net-analyzer/nsat
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nsat/ChangeLog,v 1.21 2012/10/06 19:00:44 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nsat/ChangeLog,v 1.29 2014/09/16 05:50:32 jer Exp $
+
+  16 Sep 2014; Jeroen Roovers <jer@gentoo.org> -nsat-1.5.ebuild:
+  Old.
+
+  02 Aug 2014; Raúl Porcel <armin76@gentoo.org> nsat-1.5.ebuild,
+  nsat-1.5-r3.ebuild:
+  Drop sparc keywords
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> nsat-1.5-r3.ebuild:
+  x86 stable wrt bug #516450
+
+  06 Jul 2014; Jeroen Roovers <jer@gentoo.org> files/nsat-1.5-va_list.patch:
+  Improve efficiency somewhat.
+
+*nsat-1.5-r3 (06 Jul 2014)
+
+  06 Jul 2014; Jeroen Roovers <jer@gentoo.org> -nsat-1.5-r1.ebuild,
+  -nsat-1.5-r2.ebuild, +nsat-1.5-r3.ebuild, +files/nsat-1.5-va_list.patch:
+  Fix a segmentation fault with the -n option.
+
+*nsat-1.5-r2 (05 Jul 2014)
+
+  05 Jul 2014; Jeroen Roovers <jer@gentoo.org> +nsat-1.5-r2.ebuild,
+  files/nsat-1.5-amd64-compat.patch, files/nsat-1.5-configure.patch,
+  files/nsat-1.5-lvalue-gcc4.patch, +files/nsat-1.5-misc.patch,
+  files/nsat-1.5-strip.patch:
+  Use dev-libs/libmix instead of bundled libmix++. Fix parallel make issues.
+  Combine sed scripts into patch. Clean up patches.
+
+  05 Jul 2014; Jeroen Roovers <jer@gentoo.org> nsat-1.5-r1.ebuild:
+  Export CC. Make CC calls verbose. Drop -O3.
+
+  09 Jun 2014; Jeroen Roovers <jer@gentoo.org> nsat-1.5-r1.ebuild:
+  Clean up.
 
   06 Oct 2012; Sergey Popov <pinkbyte@gentoo.org> nsat-1.5-r1.ebuild:
   Respect LDFLAGS wrt bug #335951

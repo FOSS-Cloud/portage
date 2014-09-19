@@ -1,6 +1,13 @@
 # ChangeLog for virtual/ruby-threads
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/ruby-threads/ChangeLog,v 1.32 2014/01/29 15:55:54 hattya Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/ruby-threads/ChangeLog,v 1.34 2014/08/10 20:11:50 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> ruby-threads-1.ebuild,
+  ruby-threads-2.ebuild, ruby-threads-4.ebuild, ruby-threads-5.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  19 Apr 2014; Manuel Rüger <mrueg@gentoo.org> -ruby-threads-0.ebuild:
+  Remove ruby18 ruby-threads virtual. See bug #434064.
 
   29 Jan 2014; Akinori Hattori <hattya@gentoo.org> ruby-threads-0.ebuild,
   ruby-threads-1.ebuild:

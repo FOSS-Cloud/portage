@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/vzctl/vzctl-4.6.1.ebuild,v 1.1 2013/12/03 16:06:11 qnikst Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/vzctl/vzctl-4.6.1.ebuild,v 1.4 2014/07/30 19:27:43 ssuominen Exp $
 
 EAPI="5"
 
@@ -12,7 +12,7 @@ SRC_URI="http://download.openvz.org/utils/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~ppc64 -amd64-fbsd -x86-fbsd -sparc-fbsd"
+KEYWORDS="amd64 ~ppc64 x86 -amd64-fbsd -sparc-fbsd -x86-fbsd"
 IUSE="+ploop +vz-kernel +vzmigrate"
 
 RDEPEND="net-firewall/iptables
@@ -37,15 +37,13 @@ DEPEND="${RDEPEND}
 	"
 
 src_prepare() {
-
 	# Set default OSTEMPLATE on gentoo
 	sed -i -e 's:=redhat-:=gentoo-:' etc/dists/default || die 'sed on etc/dists/default failed'
 	# Set proper udev directory
-	sed -i -e "s:/lib/udev:$(udev_get_udevdir):" src/lib/dev.c || die 'sed on src/lib/dev.c failed'
+	sed -i -e "s:/lib/udev:$(get_udevdir):" src/lib/dev.c || die 'sed on src/lib/dev.c failed'
 }
 
 src_configure() {
-
 	econf \
 		--localstatedir=/var \
 		--enable-udev \
@@ -57,8 +55,7 @@ src_configure() {
 }
 
 src_install() {
-
-	emake DESTDIR="${D}" udevdir="$(udev_get_udevdir)"/rules.d install install-gentoo
+	emake DESTDIR="${D}" udevdir="$(get_udevdir)"/rules.d install install-gentoo
 
 	# install the bash-completion script into the right location
 	rm -rf "${ED}"/etc/bash_completion.d

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/xom/xom-1.2.10.ebuild,v 1.4 2014/03/07 23:23:36 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/xom/xom-1.2.10.ebuild,v 1.7 2014/08/10 20:27:59 slyfox Exp $
 
 EAPI="5"
 
@@ -11,7 +11,7 @@ inherit java-pkg-2 java-ant-2
 JAXEN_V="1.1.6"
 JAXEN_P="jaxen-${JAXEN_V}"
 
-DESCRIPTION="A new XML object model."
+DESCRIPTION="A new XML object model"
 HOMEPAGE="http://cafeconleche.org/XOM/index.html"
 # Bundled jaxen as its moved under XOM's namespace
 SRC_URI="http://cafeconleche.org/XOM/${P}.tar.gz
@@ -19,7 +19,7 @@ SRC_URI="http://cafeconleche.org/XOM/${P}.tar.gz
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~ia64 ~ppc ~ppc64 x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="amd64 ~arm ~ia64 ppc ppc64 x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 
 COMMON_DEPEND="dev-java/xerces:2
 		dev-java/xml-commons-external:1.3

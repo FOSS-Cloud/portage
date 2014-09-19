@@ -1,6 +1,34 @@
 # ChangeLog for dev-lang/R
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/ChangeLog,v 1.233 2014/03/19 16:41:47 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/ChangeLog,v 1.239 2014/09/01 16:42:31 mgorny Exp $
+
+  01 Sep 2014; Michał Górny <mgorny@gentoo.org> R-3.0.3.ebuild, R-3.1.0.ebuild,
+  R-3.1.1.ebuild:
+  Remove := subslot operator from || () block since it is meaningless and
+  broken.
+
+  28 Aug 2014; Michał Górny <mgorny@gentoo.org> R-3.1.1.ebuild:
+  Remove USE=bash-completion, install the completion file unconditionally
+  following the Council decision.
+
+*R-3.1.1 (28 Jul 2014)
+
+  28 Jul 2014; Denis Dupeyron <calchan@gentoo.org> +R-3.1.1.ebuild:
+  Version bump, bug #517098.
+
+  16 Apr 2014; Sébastien Fabbro <bicatali@gentoo.org> R-3.0.1.ebuild,
+  R-3.0.3.ebuild, R-3.1.0.ebuild:
+  Do not compress NEWS.rds, bug #507800, thanks Bernd Feige
+
+*R-3.1.0 (15 Apr 2014)
+
+  15 Apr 2014; Sébastien Fabbro <bicatali@gentoo.org> +R-3.1.0.ebuild,
+  -R-3.0.1-r1.ebuild, -R-3.0.2.ebuild:
+  Version bump
+
+  07 Apr 2014; Benda Xu <heroxbd@gentoo.org> R-3.0.2.ebuild, R-3.0.3.ebuild:
+  bug 505904 by Robert McGehee: revert the blas library configure update for bug
+  499356. I missunderstood the purpose of this option.
 
   19 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> R-3.0.3.ebuild:
   Re-added the autoconf since we modify the configure.ac

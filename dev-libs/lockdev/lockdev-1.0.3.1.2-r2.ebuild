@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/lockdev/lockdev-1.0.3.1.2-r2.ebuild,v 1.4 2014/03/05 15:38:02 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/lockdev/lockdev-1.0.3.1.2-r2.ebuild,v 1.7 2014/08/21 12:52:24 armin76 Exp $
 
 EAPI=5
 
@@ -22,7 +22,7 @@ SRC_URI="
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm hppa ~x86"
+KEYWORDS="~alpha ~amd64 ~arm hppa ~ia64 ~sparc ~x86"
 IUSE="perl"
 
 DEPEND=""

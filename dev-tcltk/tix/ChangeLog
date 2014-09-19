@@ -1,6 +1,30 @@
 # ChangeLog for dev-tcltk/tix
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/tix/ChangeLog,v 1.42 2013/05/16 09:42:31 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/tix/ChangeLog,v 1.50 2014/08/09 10:47:46 ago Exp $
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> tix-8.4.3-r1.ebuild:
+  Stable for ppc64, wrt bug #500518
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> tix-8.4.3-r1.ebuild:
+  Stable for ppc, wrt bug #500518
+
+  04 Aug 2014; Raúl Porcel <armin76@gentoo.org> tix-8.4.3-r1.ebuild:
+  ia64/sparc stable wrt #500518
+
+  03 Aug 2014; Markus Meier <maekke@gentoo.org> tix-8.4.3-r1.ebuild:
+  arm stable, bug #500518
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> tix-8.4.3-r1.ebuild:
+  Stable for x86, wrt bug #500518
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> tix-8.4.3-r1.ebuild:
+  Stable for amd64, wrt bug #500518
+
+  31 Jul 2014; Tobias Klausmann <klausman@gentoo.org> tix-8.4.3-r1.ebuild:
+  Stable on alpha, bug #500518
+
+  30 Jul 2014; Jeroen Roovers <jer@gentoo.org> tix-8.4.3.ebuild:
+  Stable for HPPA (bug #500518).
 
 *tix-8.4.3-r1 (16 May 2013)
 

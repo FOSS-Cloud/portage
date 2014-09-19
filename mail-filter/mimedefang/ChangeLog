@@ -1,6 +1,17 @@
 # ChangeLog for mail-filter/mimedefang
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/mimedefang/ChangeLog,v 1.17 2014/01/01 21:06:39 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/mimedefang/ChangeLog,v 1.20 2014/06/20 07:41:13 radhermit Exp $
+
+*mimedefang-2.75 (20 Jun 2014)
+
+  20 Jun 2014; Tim Harder <radhermit@gentoo.org> +mimedefang-2.75.ebuild:
+  Version bump.
+
+  07 Jun 2014; Agostino Sarubbo <ago@gentoo.org> mimedefang-2.74.ebuild:
+  Stable for x86, wrt bug #502830
+
+  28 May 2014; Chema Alonso <nimiux@gentoo.org> mimedefang-2.74.ebuild:
+  Stable for amd64 wrt bug #502830
 
 *mimedefang-2.74 (01 Jan 2014)
 

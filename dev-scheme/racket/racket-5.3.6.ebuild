@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-scheme/racket/racket-5.3.6.ebuild,v 1.1 2013/08/14 12:07:44 hkbst Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-scheme/racket/racket-5.3.6.ebuild,v 1.4 2014/08/27 12:25:33 ago Exp $
 
 EAPI="4"
 
@@ -9,7 +9,7 @@ EAPI="4"
 inherit eutils
 #inherit git-2
 
-DESCRIPTION="Racket is a general-purpose programming language with strong support for domain-specific languages."
+DESCRIPTION="Racket is a general-purpose programming language with strong support for domain-specific languages"
 HOMEPAGE="http://racket-lang.org/"
 SRC_URI="http://download.racket-lang.org/installers/${PV}/${PN}/${P}-src-unix.tgz"
 #SRC_URI="http://pre.racket-lang.org/installers/plt-${PV}-src-unix.tgz"
@@ -17,7 +17,7 @@ EGIT_REPO_URI="git://git.racket-lang.org/plt.git"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ppc ~x86"
 IUSE="backtrace cairo doc futures jit places plot threads X"
 
 RDEPEND="dev-db/sqlite:3 x11-libs/cairo[X?] virtual/libffi"

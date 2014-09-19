@@ -1,6 +1,17 @@
 # ChangeLog for app-arch/rpm
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/rpm/ChangeLog,v 1.187 2013/07/24 15:16:24 miska Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/rpm/ChangeLog,v 1.189 2014/07/11 19:25:21 sochotnicky Exp $
+
+*rpm-4.11.2-r1 (11 Jul 2014)
+
+  11 Jul 2014; Stanislav Ochotnicky <sochotnicky@gentoo.org>
+  +rpm-4.11.2-r1.ebuild:
+  Hacky fix for #492642 (force /usr/bin/python2 as %__python)
+
+*rpm-4.11.2 (09 Jun 2014)
+
+  09 Jun 2014; Patrick Lauer <patrick@gentoo.org> +rpm-4.11.2.ebuild:
+  Bump
 
 *rpm-4.11.1 (24 Jul 2013)
 

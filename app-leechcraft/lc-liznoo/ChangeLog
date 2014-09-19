@@ -1,6 +1,37 @@
 # ChangeLog for app-leechcraft/lc-liznoo
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-liznoo/ChangeLog,v 1.9 2014/04/02 17:55:34 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-liznoo/ChangeLog,v 1.17 2014/08/03 18:56:35 maksbotan Exp $
+
+*lc-liznoo-0.6.70 (03 Aug 2014)
+
+  03 Aug 2014; Maxim Koltsov <maksbotan@gentoo.org> +lc-liznoo-0.6.70.ebuild:
+  Bump LeechCraft to 0.6.70, thanks to 0xd34df00d.
+
+  28 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> lc-liznoo-0.6.60.ebuild,
+  lc-liznoo-0.6.65.ebuild, lc-liznoo-9999.ebuild, metadata.xml:
+  Fix handling of UPower dependencies to be exact.
+
+  27 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> lc-liznoo-0.6.60.ebuild,
+  lc-liznoo-0.6.65.ebuild, lc-liznoo-9999.ebuild:
+  Sort out UPower hibernate and suspend status.
+
+  01 Jun 2014; Pacho Ramos <pacho@gentoo.org> lc-liznoo-0.6.60.ebuild:
+  0.6.60 looks to also be compatible
+
+  31 May 2014; Samuli Suominen <ssuominen@gentoo.org> lc-liznoo-9999.ebuild:
+  Remove duplicate sys-power/upower dependency.
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> lc-liznoo-0.6.65.ebuild,
+  lc-liznoo-9999.ebuild:
+  Both upower versions look to work
+
+*lc-liznoo-0.6.65 (10 Apr 2014)
+
+  10 Apr 2014; Maxim Koltsov <maksbotan@gentoo.org> +lc-liznoo-0.6.65.ebuild:
+  Bump LeechCraft to 0.5.65, thanks to 0xd34df00d.
+
+  03 Apr 2014; Mikle Kolyada <zlogene@gentoo.org> lc-liznoo-0.6.60.ebuild:
+  x86 stable wrt bug #500914
 
   02 Apr 2014; Mikle Kolyada <zlogene@gentoo.org> lc-liznoo-0.6.60.ebuild:
   amd64 stable wrt bug #500914

@@ -1,6 +1,57 @@
 # ChangeLog for net-misc/owncloud-client
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/owncloud-client/ChangeLog,v 1.7 2014/03/17 11:01:02 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/owncloud-client/ChangeLog,v 1.16 2014/09/11 11:31:17 kensington Exp $
+
+  11 Sep 2014; Michael Palimaka <kensington@gentoo.org>
+  owncloud-client-1.6.1.ebuild, owncloud-client-1.6.2.ebuild,
+  owncloud-client-1.6.3.ebuild:
+  Pin dev-qt/linguist-tools to SLOT 5.
+
+*owncloud-client-1.6.3 (05 Sep 2014)
+
+  05 Sep 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +owncloud-client-1.6.3.ebuild:
+  Version bump
+
+*owncloud-client-1.6.2 (05 Aug 2014)
+
+  05 Aug 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +owncloud-client-1.6.2.ebuild:
+  Version bump
+
+  30 Jun 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  owncloud-client-1.6.1.ebuild:
+  Make qt4/qt5 builds exclusive
+
+*owncloud-client-1.6.1 (27 Jun 2014)
+
+  27 Jun 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +owncloud-client-1.6.1.ebuild:
+  Version bump, handle qt4/qt5 thanks to everyone in bug #512726
+
+*owncloud-client-1.6.0 (07 Jun 2014)
+
+  07 Jun 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  -owncloud-client-1.5.3-r1.ebuild, +owncloud-client-1.6.0.ebuild:
+  Version bump, fixes bug #512322. Also adds a postinstallation message with
+  USE=-doc, bug #bug 509716
+
+*owncloud-client-1.5.4 (22 Apr 2014)
+
+  22 Apr 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  -owncloud-client-1.5.0.ebuild, -owncloud-client-1.5.1.ebuild,
+  -owncloud-client-1.5.2.ebuild, -owncloud-client-1.5.3.ebuild,
+  +owncloud-client-1.5.4.ebuild:
+  Version bump, reported by Clemente Aguiar <clemente.aguiar@gmail.com> in bug
+  #507886, remove some previous versions
+
+*owncloud-client-1.5.3-r1 (16 Apr 2014)
+
+  16 Apr 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +owncloud-client-1.5.3-r1.ebuild,
+  +files/owncloud-client-1.5.3-man-page-location-fix.patch:
+  Fix man pages installation path, thanks Ian Abbott <ian@abbott.org> in bug
+  #507058. Also drop asciidoc dependency, sphinx is the only generator now
 
   17 Mar 2014; Bernard Cafarelli <voyageur@gentoo.org>
   owncloud-client-1.5.1.ebuild, owncloud-client-1.5.2.ebuild,

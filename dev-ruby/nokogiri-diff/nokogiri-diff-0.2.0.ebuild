@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/nokogiri-diff/nokogiri-diff-0.2.0.ebuild,v 1.2 2014/01/30 23:15:40 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/nokogiri-diff/nokogiri-diff-0.2.0.ebuild,v 1.4 2014/08/15 13:56:39 blueness Exp $
 
 EAPI=5
 
-USE_RUBY="ruby18 ruby19 ruby20 jruby"
+USE_RUBY="ruby19 ruby20 jruby"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 RUBY_FAKEGEM_RECIPE_DOC="yard"
@@ -16,7 +16,7 @@ DESCRIPTION="Calculate the differences (added or removed nodes) between two XML/
 HOMEPAGE="https://github.com/postmodern/nokogiri-diff"
 LICENSE="MIT"
 
-KEYWORDS="~amd64 ~arm"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64"
 SLOT="0"
 IUSE=""
 

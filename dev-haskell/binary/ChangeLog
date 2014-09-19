@@ -1,6 +1,30 @@
 # ChangeLog for dev-haskell/binary
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/binary/ChangeLog,v 1.40 2014/03/24 15:03:30 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/binary/ChangeLog,v 1.47 2014/09/03 09:36:10 slyfox Exp $
+
+  03 Sep 2014; Sergei Trofimovich <slyfox@gentoo.org> binary-0.7.1.0.ebuild:
+  Mark as bundled with ghc-7.8.3.
+
+  25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
+  Drop redundant '<maintainer>' field, leave only '<herd>'.
+
+  09 Jul 2014; Patrick Lauer <patrick@gentoo.org> binary-0.7.2.1.ebuild:
+  Temporarily drop keywords until dependencies catch up
+
+*binary-0.7.2.1 (02 Jul 2014)
+
+  02 Jul 2014; Mark Wright <gienah@gentoo.org> +binary-0.7.2.1.ebuild:
+  Bump binary to 0.7.2.1
+
+  28 Jun 2014; Sergei Trofimovich <slyfox@gentoo.org> binary-0.7.1.0.ebuild:
+  alpha stable, bug #491980
+
+  10 May 2014; Sergei Trofimovich <slyfox@gentoo.org> -binary-0.5.0.2.ebuild,
+  -binary-0.5.1.0.ebuild, -files/binary-0.5.0.2-ghc-7.patch:
+  Drop old.
+
+  13 Apr 2014; Sergei Trofimovich <slyfox@gentoo.org> binary-0.7.1.0.ebuild:
+  Mark as ghc-7.8 core lib.
 
   24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> binary-0.7.1.0.ebuild:
   Stable for ppc, wrt bug #491980

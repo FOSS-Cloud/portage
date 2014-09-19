@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/locale/locale-2.1.0-r1.ebuild,v 1.2 2014/01/29 15:40:41 hattya Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/locale/locale-2.1.0-r1.ebuild,v 1.14 2014/08/25 15:59:41 mrueg Exp $
 
 EAPI=5
 
-USE_RUBY="ruby18 ruby19 ruby20 jruby"
+USE_RUBY="ruby19 ruby20 jruby"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_DOCDIR="doc/reference"
@@ -14,12 +14,12 @@ RUBY_FAKEGEM_TASK_TEST="test"
 
 inherit ruby-fakegem
 
-DESCRIPTION="A pure ruby library which provides basic APIs for localization."
+DESCRIPTION="A pure ruby library which provides basic APIs for localization"
 HOMEPAGE="https://github.com/ruby-gettext/locale"
 LICENSE="|| ( Ruby GPL-2 )"
 SRC_URI="https://github.com/ruby-gettext/locale/archive/${PV}.tar.gz -> ${P}-git.tgz"
 
-KEYWORDS="~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~x86 ~x86-macos"
+KEYWORDS="alpha amd64 arm hppa ia64 ~ppc ~ppc64 ~sparc x86 ~x86-macos"
 SLOT="0"
 IUSE=""
 

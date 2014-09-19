@@ -1,18 +1,18 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/libdbi-drivers/libdbi-drivers-0.9.0.ebuild,v 1.11 2014/01/15 13:09:06 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/libdbi-drivers/libdbi-drivers-0.9.0.ebuild,v 1.13 2014/08/10 20:00:44 slyfox Exp $
 
 EAPI=4
 
 inherit eutils autotools
 
-DESCRIPTION="The libdbi-drivers project maintains drivers for libdbi."
+DESCRIPTION="The libdbi-drivers project maintains drivers for libdbi"
 SRC_URI="mirror://sourceforge/project/${PN}/${PN}/${P}/${P}.tar.gz"
 HOMEPAGE="http://libdbi-drivers.sourceforge.net/"
 LICENSE="LGPL-2.1"
 
 IUSE="bindist doc firebird mysql oci8 postgres +sqlite static-libs"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~x86-fbsd"
 SLOT=0
 
 RDEPEND="

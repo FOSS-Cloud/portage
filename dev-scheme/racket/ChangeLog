@@ -1,6 +1,26 @@
 # ChangeLog for dev-scheme/racket
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-scheme/racket/ChangeLog,v 1.11 2013/08/14 12:07:44 hkbst Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-scheme/racket/ChangeLog,v 1.15 2014/08/27 12:25:33 ago Exp $
+
+  27 Aug 2014; Agostino Sarubbo <ago@gentoo.org> racket-5.3.6.ebuild:
+  Stable for ppc, wrt bug #511190
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> racket-5.1.2.ebuild,
+  racket-5.2.1.ebuild, racket-5.3.1.ebuild, racket-5.3.2.ebuild,
+  racket-5.3.3.ebuild, racket-5.3.4.ebuild, racket-5.3.6.ebuild,
+  racket-6.0.1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*racket-6.0.1 (09 Jul 2014)
+
+  09 Jul 2014; Mark Wright <gienah@gentoo.org> +racket-6.0.1.ebuild:
+  Thanks to Marijn Schouten (hkBst) for the racket-6.0.ebuild. Bump racket to
+  6.0.1 as requested in Bug 508274 - dev-scheme/racket-6.0 version bump, thanks
+  to Maks Verver for reporting. jit support on hardened by me, thanks to
+  SamanthaD for testing.
+
+  26 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> racket-5.3.6.ebuild:
+  amd64 stable wrt bug #511190
 
 *racket-5.3.6 (14 Aug 2013)
 

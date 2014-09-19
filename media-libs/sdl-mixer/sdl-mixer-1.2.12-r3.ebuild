@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/sdl-mixer/sdl-mixer-1.2.12-r3.ebuild,v 1.11 2013/02/24 18:04:28 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/sdl-mixer/sdl-mixer-1.2.12-r3.ebuild,v 1.13 2014/08/08 11:57:01 hasufell Exp $
 
 EAPI=4
 inherit eutils
@@ -41,7 +41,8 @@ DEPEND=">=media-libs/libsdl-1.2.10
 		mikmod? ( >=media-libs/libmikmod-3.1.10 )
 	)
 	vorbis? ( >=media-libs/libvorbis-1.0_beta4 media-libs/libogg )"
-RDEPEND=${DEPEND}
+RDEPEND="${DEPEND}
+	playtools? ( !media-libs/sdl2-mixer[playtools] )"
 
 S=${WORKDIR}/${MY_P}
 
@@ -49,6 +50,7 @@ src_prepare() {
 	epatch \
 		"${FILESDIR}"/${P}-wav.patch \
 		"${FILESDIR}"/${P}-clang.patch \
+		"${FILESDIR}"/${P}-Fix-compiling-against-libmodplug-0.8.8.5.patch \
 		"${FILESDIR}"/${P}-mikmod-r58{7,8}.patch #445980
 	sed -i \
 		-e '/link.*play/s/-o/$(LDFLAGS) -o/' \

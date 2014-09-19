@@ -1,6 +1,40 @@
 # ChangeLog for dev-ruby/redcloth
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/redcloth/ChangeLog,v 1.83 2014/01/02 14:39:37 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/redcloth/ChangeLog,v 1.93 2014/08/25 16:09:47 mrueg Exp $
+
+  25 Aug 2014; Manuel Rüger <mrueg@gentoo.org> redcloth-4.2.9-r1.ebuild:
+  Mark amd64 stable. Bug #513430.
+
+  13 Aug 2014; Raúl Porcel <armin76@gentoo.org> redcloth-4.2.9-r2.ebuild:
+  Add ~sparc wrt #468536
+
+  09 Aug 2014; Jeroen Roovers <jer@gentoo.org> redcloth-4.2.9-r1.ebuild:
+  Stable for HPPA (bug #513430).
+
+  21 Jul 2014; Tobias Klausmann <klausman@gentoo.org> redcloth-4.2.9-r1.ebuild:
+  Stable on alpha, bug #513430
+
+  15 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  redcloth-4.2.9-r1.ebuild:
+  x86 stable wrt bug #513430
+
+  29 Jun 2014; Markus Meier <maekke@gentoo.org> redcloth-4.2.9-r1.ebuild:
+  arm stable, bug #513430
+
+  22 Jun 2014; Akinori Hattori <hattya@gentoo.org> redcloth-4.2.9-r1.ebuild:
+  ia64 stable wrt bug #513430
+
+  16 Jun 2014; Tobias Klausmann <klausman@gentoo.org> redcloth-4.2.9-r2.ebuild:
+  Keyworded on alpha, bug #465948
+
+  07 May 2014; Manuel Rüger <mrueg@gentoo.org> redcloth-4.2.9.ebuild:
+  Remove ruby18 target.
+
+*redcloth-4.2.9-r2 (03 Apr 2014)
+
+  03 Apr 2014; Manuel Rüger <mrueg@gentoo.org> +redcloth-4.2.9-r2.ebuild,
+  redcloth-4.2.9-r1.ebuild:
+  Add ruby21. Drop ruby18. Drop alpha, sparc. Rekeywording in bug #465948.
 
   02 Jan 2014; Hans de Graaff <graaff@gentoo.org> redcloth-4.2.9.ebuild,
   redcloth-4.2.9-r1.ebuild:

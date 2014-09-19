@@ -1,6 +1,83 @@
 # ChangeLog for dev-db/postgresql-server
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-server/ChangeLog,v 1.292 2014/03/20 22:08:37 titanofold Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/postgresql-server/ChangeLog,v 1.306 2014/09/17 12:30:03 ago Exp $
+
+  17 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  postgresql-server-9.0.18.ebuild, postgresql-server-9.1.14.ebuild,
+  postgresql-server-9.2.9.ebuild, postgresql-server-9.3.5.ebuild:
+  Stable for sparc, wrt bug #522184
+
+  13 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  postgresql-server-9.0.18.ebuild, postgresql-server-9.1.14.ebuild,
+  postgresql-server-9.2.9.ebuild, postgresql-server-9.3.5.ebuild:
+  Stable for ia64, wrt bug #522184
+
+  13 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  postgresql-server-9.0.18.ebuild, postgresql-server-9.1.14.ebuild,
+  postgresql-server-9.2.9.ebuild, postgresql-server-9.3.5.ebuild:
+  Stable for alpha, wrt bug #522184
+
+  10 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  postgresql-server-9.0.18.ebuild, postgresql-server-9.1.14.ebuild,
+  postgresql-server-9.2.9.ebuild, postgresql-server-9.3.5.ebuild:
+  Stable for ppc64, wrt bug #522184
+
+  10 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  postgresql-server-9.0.18.ebuild, postgresql-server-9.1.14.ebuild,
+  postgresql-server-9.2.9.ebuild, postgresql-server-9.3.5.ebuild:
+  Stable for ppc, wrt bug #522184
+
+  09 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  postgresql-server-9.0.18.ebuild, postgresql-server-9.1.14.ebuild,
+  postgresql-server-9.2.9.ebuild, postgresql-server-9.3.5.ebuild:
+  Stable for x86, wrt bug #522184
+
+  09 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  postgresql-server-9.0.18.ebuild, postgresql-server-9.1.14.ebuild,
+  postgresql-server-9.2.9.ebuild, postgresql-server-9.3.5.ebuild:
+  Stable for amd64, wrt bug #522184
+
+  09 Sep 2014; Jeroen Roovers <jer@gentoo.org> postgresql-server-9.0.18.ebuild,
+  postgresql-server-9.1.14.ebuild, postgresql-server-9.2.9.ebuild,
+  postgresql-server-9.3.5.ebuild:
+  Stable for HPPA (bug #522184).
+
+*postgresql-server-9.1.14 (25 Jul 2014)
+*postgresql-server-8.4.22 (25 Jul 2014)
+*postgresql-server-9.3.5 (25 Jul 2014)
+*postgresql-server-9.2.9 (25 Jul 2014)
+*postgresql-server-9.4_beta2 (25 Jul 2014)
+*postgresql-server-9.0.18 (25 Jul 2014)
+
+  25 Jul 2014; Patrick Lauer <patrick@gentoo.org>
+  +postgresql-server-8.4.22.ebuild, +postgresql-server-9.0.18.ebuild,
+  +postgresql-server-9.1.14.ebuild, +postgresql-server-9.2.9.ebuild,
+  +postgresql-server-9.3.5.ebuild, +postgresql-server-9.4_beta2.ebuild:
+  Bump
+
+  27 Jun 2014; Patrick Lauer <patrick@gentoo.org>
+  postgresql-server-9.4_beta1.ebuild:
+  Whitespace
+
+*postgresql-server-9.4_beta1 (26 Jun 2014)
+
+  26 Jun 2014; Patrick Lauer <patrick@gentoo.org>
+  +postgresql-server-9.4_beta1.ebuild:
+  Bump
+
+  26 Jun 2014; Patrick Lauer <patrick@gentoo.org> postgresql-server-9999.ebuild:
+  Bump -9999 ebuild to slot 9.5, fix patches. Tests are currently disabled for
+  -9999
+
+*postgresql-server-9.3.4-r1 (28 Apr 2014)
+
+  28 Apr 2014; Mike Gilbert <floppym@gentoo.org>
+  +postgresql-server-9.3.4-r1.ebuild:
+  Substitute LIBDIR in initscript and systemd unit, bug 489632.
+
+  27 Apr 2014; Mike Gilbert <floppym@gentoo.org> postgresql-server-9.3.4.ebuild,
+  postgresql-server-9999.ebuild:
+  Add python3.4.
 
 *postgresql-server-9.3.4 (20 Mar 2014)
 *postgresql-server-9.2.8 (20 Mar 2014)

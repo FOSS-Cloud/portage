@@ -1,6 +1,35 @@
 # ChangeLog for gnustep-base/gnustep-base
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnustep-base/gnustep-base/ChangeLog,v 1.121 2014/01/29 15:11:24 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnustep-base/gnustep-base/ChangeLog,v 1.128 2014/08/10 21:18:23 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  gnustep-base-1.24.6-r1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  20 May 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  -gnustep-base-1.24.0-r1.ebuild, -gnustep-base-1.24.3.ebuild,
+  -gnustep-base-1.24.4.ebuild, -gnustep-base-1.24.5.ebuild,
+  -gnustep-base-1.24.6.ebuild,
+  -files/gnustep-base-1.24.0-libxml2-2.9_support.patch:
+  Remove vulnerable versions, security bug #508370
+
+  18 May 2014; Agostino Sarubbo <ago@gentoo.org> gnustep-base-1.24.6-r1.ebuild:
+  Stable for x86, wrt bug #508370
+
+  14 May 2014; Agostino Sarubbo <ago@gentoo.org> gnustep-base-1.24.6-r1.ebuild:
+  Stable for sparc, wrt bug #508370
+
+  10 May 2014; Agostino Sarubbo <ago@gentoo.org> gnustep-base-1.24.6-r1.ebuild:
+  Stable for ppc, wrt bug #508370
+
+  04 May 2014; Agostino Sarubbo <ago@gentoo.org> gnustep-base-1.24.6-r1.ebuild:
+  Stable for amd64, wrt bug #508370
+
+*gnustep-base-1.24.6-r1 (23 Apr 2014)
+
+  23 Apr 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +gnustep-base-1.24.6-r1.ebuild, +files/gnustep-base-1.24.6-gdomap_dos.patch:
+  Upstream backport to fix gdomap denial of service, security bug #508370
 
 *gnustep-base-1.24.6 (29 Jan 2014)
 

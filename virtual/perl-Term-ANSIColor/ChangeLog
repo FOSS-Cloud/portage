@@ -1,6 +1,24 @@
 # ChangeLog for virtual/perl-Term-ANSIColor
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Term-ANSIColor/ChangeLog,v 1.45 2013/03/03 08:37:54 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Term-ANSIColor/ChangeLog,v 1.48 2014/07/21 19:35:55 dilfridge Exp $
+
+*perl-Term-ANSIColor-4.20.0-r2 (21 Jul 2014)
+
+  21 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -perl-Term-ANSIColor-4.20.0-r1.ebuild, +perl-Term-ANSIColor-4.20.0-r2.ebuild:
+  Improve dependencies
+
+*perl-Term-ANSIColor-4.20.0-r1 (13 Jul 2014)
+
+  13 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -perl-Term-ANSIColor-3.0.0-r1.ebuild, -perl-Term-ANSIColor-3.10.0-r1.ebuild,
+  -perl-Term-ANSIColor-3.20.0.ebuild, -perl-Term-ANSIColor-4.10.0.ebuild,
+  -perl-Term-ANSIColor-4.20.0.ebuild, +perl-Term-ANSIColor-4.20.0-r1.ebuild:
+  Improve dependencies; remove old
+
+  12 Jun 2014; Joshua Kinard <kumba@gentoo.org>
+  perl-Term-ANSIColor-4.20.0.ebuild:
+  Added ~mips to KEYWORDS
 
   03 Mar 2013; Mike Frysinger <vapier@gentoo.org>
   perl-Term-ANSIColor-4.20.0.ebuild:

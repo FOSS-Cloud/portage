@@ -1,6 +1,16 @@
 # ChangeLog for dev-perl/Eval-LineNumbers
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Eval-LineNumbers/ChangeLog,v 1.2 2012/06/24 12:59:11 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Eval-LineNumbers/ChangeLog,v 1.4 2014/07/29 21:34:59 zlogene Exp $
+
+  29 Jul 2014; Mikle Kolyada <zlogene@gentoo.org>
+  -Eval-LineNumbers-0.310.0.ebuild, Eval-LineNumbers-0.340.0.ebuild:
+  Stable for all
+
+*Eval-LineNumbers-0.340.0 (13 Jun 2014)
+
+  13 Jun 2014; Mikle Kolyada <zlogene@gentoo.org>
+  +Eval-LineNumbers-0.340.0.ebuild:
+  Version bump
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/audacious-plugins/audacious-plugins-3.4.1.ebuild,v 1.10 2014/01/28 14:10:03 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/audacious-plugins/audacious-plugins-3.4.1.ebuild,v 1.12 2014/07/14 15:25:46 ssuominen Exp $
 
 EAPI=5
 inherit eutils
@@ -30,7 +30,7 @@ RDEPEND="app-arch/unzip
 	alsa? ( >=media-libs/alsa-lib-1.0.16 )
 	bs2b? ( media-libs/libbs2b )
 	cdda? ( >=media-libs/libcddb-1.2.1
-		|| ( dev-libs/libcdio-paranoia <dev-libs/libcdio-0.90[-minimal] ) )
+		dev-libs/libcdio-paranoia )
 	cue? ( media-libs/libcue )
 	ffmpeg? ( >=virtual/ffmpeg-0.7.3 )
 	flac? ( >=media-libs/libvorbis-1.0
@@ -46,7 +46,7 @@ RDEPEND="app-arch/unzip
 	mp3? ( >=media-sound/mpg123-1.12.1 )
 	pulseaudio? ( >=media-sound/pulseaudio-0.9.3 )
 	scrobbler? ( net-misc/curl )
-	sdl? ( media-libs/libsdl[audio] )
+	sdl? ( media-libs/libsdl[sound] )
 	sid? ( >=media-libs/libsidplayfp-1.0.0 )
 	sndfile? ( >=media-libs/libsndfile-1.0.17-r1 )
 	vorbis? ( >=media-libs/libvorbis-1.2.0

@@ -1,6 +1,33 @@
 # ChangeLog for net-analyzer/lft
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/lft/ChangeLog,v 1.42 2013/06/11 15:32:15 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/lft/ChangeLog,v 1.49 2014/09/17 23:54:18 jer Exp $
+
+*lft-3.73 (17 Sep 2014)
+
+  17 Sep 2014; Jeroen Roovers <jer@gentoo.org> +lft-3.73.ebuild:
+  Version bump.
+
+*lft-3.72 (05 Sep 2014)
+
+  05 Sep 2014; Jeroen Roovers <jer@gentoo.org> +lft-3.72.ebuild:
+  Version bump.
+
+  09 Aug 2014; Jeroen Roovers <jer@gentoo.org> -lft-3.35.ebuild:
+  Old.
+
+  03 Aug 2014; Agostino Sarubbo <ago@gentoo.org> lft-3.36.ebuild:
+  Stable for ppc, wrt bug #512644
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> lft-3.36.ebuild:
+  x86 stable wrt bug #512644
+
+  21 Jul 2014; Chema Alonso <nimiux@gentoo.org> lft-3.36.ebuild:
+  Stable for amd64 wrt bug #512644
+
+*lft-3.36 (28 Apr 2014)
+
+  28 Apr 2014; Jeroen Roovers <jer@gentoo.org> +lft-3.36.ebuild:
+  Version bump.
 
   11 Jun 2013; Jeroen Roovers <jer@gentoo.org> lft-3.35.ebuild:
   Update HOMEPAGE.

@@ -1,6 +1,16 @@
 # ChangeLog for dev-perl/Scalar-Properties
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Scalar-Properties/ChangeLog,v 1.22 2012/09/01 11:51:15 grobian Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Scalar-Properties/ChangeLog,v 1.24 2014/06/11 12:28:48 zlogene Exp $
+
+  11 Jun 2014; Mikle Kolyada <zlogene@gentoo.org>
+  -Scalar-Properties-1.100.860.ebuild, Scalar-Properties-1.100.860-r1.ebuild:
+  Merge stable keywords from -r0; Drop old.
+
+*Scalar-Properties-1.100.860-r1 (01 May 2014)
+
+  01 May 2014; Mikle Kolyada <zlogene@gentoo.org>
+  +Scalar-Properties-1.100.860-r1.ebuild:
+  Revision bump: EAPI=5
 
   01 Sep 2012; Fabian Groffen <grobian@gentoo.org>
   Scalar-Properties-1.100.860.ebuild:

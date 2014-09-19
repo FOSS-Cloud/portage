@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/splashutils/splashutils-1.5.4.4-r1.ebuild,v 1.9 2014/01/01 15:33:34 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/splashutils/splashutils-1.5.4.4-r1.ebuild,v 1.11 2014/08/28 16:51:10 ssuominen Exp $
 
 EAPI="2"
 
@@ -21,7 +21,7 @@ FT2SRC="libs/freetype-${V_FT}"
 RESTRICT="test"
 IUSE="hardened +png +truetype +mng gpm fbcondecor"
 
-DESCRIPTION="Framebuffer splash utilities."
+DESCRIPTION="Framebuffer splash utilities"
 HOMEPAGE="http://fbsplash.berlios.de"
 SRC_URI="mirror://berlios/fbsplash/${PN}-lite-${PV}.tar.bz2
 	mirror://berlios/fbsplash/${GENTOOSPLASH}.tar.bz2
@@ -41,7 +41,7 @@ RDEPEND="gpm? ( sys-libs/gpm[static-libs] )
 	png? ( >=media-libs/libpng-1.4.3[static-libs] )
 	mng? (
 		media-libs/lcms:0[static-libs]
-		|| ( media-libs/libmng[static-libs] <media-libs/libmng-1.0.10-r1 )
+		media-libs/libmng[static-libs]
 		)
 	virtual/jpeg:0[static-libs]
 	>=sys-apps/baselayout-1.9.4-r5

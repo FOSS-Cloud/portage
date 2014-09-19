@@ -1,6 +1,25 @@
 # ChangeLog for app-mobilephone/anyremote
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/anyremote/ChangeLog,v 1.33 2013/07/25 00:49:45 creffett Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/anyremote/ChangeLog,v 1.38 2014/06/14 11:13:52 mrueg Exp $
+
+  14 Jun 2014; Manuel Rüger <mrueg@gentoo.org> -anyremote-6.0.ebuild:
+  Cleanup old.
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> anyremote-6.3.1.ebuild:
+  x86 stable wrt bug #504282
+
+  24 May 2014; Markos Chandras <hwoarang@gentoo.org> anyremote-6.3.1.ebuild:
+  Stable on amd64 wrt bug #504282
+
+*anyremote-6.4 (11 May 2014)
+
+  11 May 2014; Manuel Rüger <mrueg@gentoo.org> +anyremote-6.4.ebuild,
+  -anyremote-6.3.ebuild:
+  Version bump. Cleanup old.
+
+  09 Apr 2014; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  [QA] Dissolve the mobile-phone herd to maintainer-needed because it is empty
+  and nobody joined it after multiple recruitment mails.
 
 *anyremote-6.3.1 (25 Jul 2013)
 

@@ -1,6 +1,44 @@
 # ChangeLog for net-analyzer/fping
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/fping/ChangeLog,v 1.57 2014/03/09 02:11:34 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/fping/ChangeLog,v 1.66 2014/07/14 05:45:56 patrick Exp $
+
+  14 Jul 2014; Patrick Lauer <patrick@gentoo.org>
+  fping-2.4_beta2_p161-r2.ebuild:
+  Reorder fperms calls to avoid failure with USE=-ipv6 #517070
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> fping-3.9.ebuild:
+  Stable for ppc, wrt bug #507966
+
+*fping-2.4_beta2_p161-r2 (11 Jul 2014)
+
+  11 Jul 2014; Jeroen Roovers <jer@gentoo.org> +fping-2.4_beta2_p161-r1.ebuild,
+  +fping-2.4_beta2_p161-r2.ebuild, +files/fping-2.4_beta2_p161-err.h.patch,
+  +files/fping-2.4_beta2_p161-min-time.patch:
+  Restore 2.4_beta2_p161-r1 as net-analyzer/zabbix still requires it. Fix a
+  missing include and do an EAPI bump in -r2.
+
+  11 Jul 2014; Jeroen Roovers <jer@gentoo.org> -fping-2.4_beta2_p161-r1.ebuild,
+  -fping-3.1.ebuild, -fping-3.2.ebuild, -fping-3.4.ebuild, -fping-3.5.ebuild,
+  -fping-3.6.ebuild, -fping-3.8.ebuild,
+  -files/fping-2.4_beta2_p161-min-time.patch:
+  Old.
+
+  27 Jun 2014; Chema Alonso <nimiux@gentoo.org> fping-3.9.ebuild:
+  Stable for amd64 wrt bug #507966
+
+  14 Jun 2014; Raúl Porcel <armin76@gentoo.org> fping-3.9.ebuild:
+  alpha/ia64/sparc stable wrt #507966
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> fping-3.9.ebuild:
+  x86 stable wrt bug #507966
+
+  06 May 2014; Jeroen Roovers <jer@gentoo.org> fping-3.9.ebuild:
+  Stable for HPPA (bug #507966).
+
+*fping-3.10 (06 May 2014)
+
+  06 May 2014; Jeroen Roovers <jer@gentoo.org> +fping-3.10.ebuild:
+  Version bump.
 
 *fping-3.9 (09 Mar 2014)
 

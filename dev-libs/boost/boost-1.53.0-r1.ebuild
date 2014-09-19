@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/boost/boost-1.53.0-r1.ebuild,v 1.1 2013/12/27 16:59:47 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/boost/boost-1.53.0-r1.ebuild,v 1.6 2014/08/14 08:44:41 pinkbyte Exp $
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_2,3_3} )
 
 inherit eutils flag-o-matic multilib multiprocessing python-r1 toolchain-funcs versionator
 
@@ -61,6 +61,19 @@ ${python_configuration}
 __EOF__
 }
 
+pkg_setup() {
+	# Bail out on unsupported build configuration, bug #456792
+	if [[ -f "${EROOT}etc/site-config.jam" ]]; then
+		grep -q gentoorelease "${EROOT}etc/site-config.jam" && grep -q gentoodebug "${EROOT}etc/site-config.jam" ||
+		(
+			eerror "You are using custom ${EROOT}etc/site-config.jam without defined gentoorelease/gentoodebug targets."
+			eerror "Boost can not be built in such configuration."
+			eerror "Please, either remove this file or add targets from ${EROOT}usr/share/boost-build/site-config.jam to it."
+			die
+		)
+	fi
+}
+
 src_prepare() {
 	epatch \
 		"${FILESDIR}/${PN}-1.48.0-mpi_python3.patch" \
@@ -72,6 +85,7 @@ src_prepare() {
 		"${FILESDIR}/${PN}-1.48.0-disable_icu_rpath.patch"
 	epatch	"${FILESDIR}/${PN}-1.53.0-library_status.patch" # bug 459112
 	epatch	"${FILESDIR}/${PN}-1.53.0-glibc-2.18-compat.patch" # bug 482372
+	epatch "${FILESDIR}/${PN}-1.52.0-threads.patch"
 
 	# Avoid a patch for now
 	for file in libs/context/src/asm/*.S; do
@@ -82,6 +96,8 @@ src_prepare() {
 #endif
 EOF
 	done
+
+	epatch_user
 }
 
 ejam() {
@@ -90,6 +106,9 @@ ejam() {
 }
 
 src_configure() {
+	# Workaround for too many parallel processes requested, bug #506064
+	[ "$(makeopts_jobs)" -gt 64 ] && MAKEOPTS="${MAKEOPTS} -j64"
+
 	OPTIONS="$(usex debug gentoodebug gentoorelease) -j$(makeopts_jobs) -q -d+2 --user-config=${S}/user-config.jam"
 
 	if [[ ${CHOST} == *-darwin* ]]; then

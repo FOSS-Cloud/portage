@@ -1,8 +1,8 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/PDL/PDL-2.4.11.ebuild,v 1.11 2014/01/16 21:34:40 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/PDL/PDL-2.4.11.ebuild,v 1.15 2014/09/01 09:10:18 zlogene Exp $
 
-EAPI=4
+EAPI=5
 
 MODULE_AUTHOR=CHM
 FORTRAN_NEEDED=fortran
@@ -14,7 +14,7 @@ DESCRIPTION="Perl Data Language for scientific computing"
 
 LICENSE="|| ( Artistic GPL-1+ ) public-domain PerlDL"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 arm ppc x86 ~amd64-linux ~x86-linux"
 # proj support removed #497328
 IUSE="+badval doc fftw fortran gd gsl hdf netpbm pdl2 pgplot plplot threads"
 
@@ -27,10 +27,10 @@ RDEPEND="sys-libs/ncurses
 	dev-perl/TermReadKey
 	|| ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu )
 	virtual/perl-Data-Dumper
-	virtual/perl-PodParser
+	virtual/perl-Pod-Parser
 	virtual/perl-File-Spec
 	virtual/perl-File-Temp
-	virtual/perl-Filter
+	dev-perl/Filter
 	virtual/perl-Storable
 	virtual/perl-Text-Balanced
 	fftw? ( sci-libs/fftw:2.1 )

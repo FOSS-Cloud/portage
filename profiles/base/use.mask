@@ -1,9 +1,16 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/use.mask,v 1.194 2014/04/01 06:52:19 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/use.mask,v 1.211 2014/09/16 01:53:43 floppym Exp $
+
+# CURL_SSL=winssl is for prefix/windows/winnt only
+curl_ssl_winssl
+
+# cuda only works on amd64/x86
+cuda
 
 # on the way out
 ruby_targets_ruby18
+ruby_targets_jruby
 
 # masking here and unmasking in default/linux/
 kmod
@@ -23,8 +30,8 @@ vdpau
 # Infiniband stuff should generaly work on all arches but keyworded only on amd64/x86
 infiniband
 
-# PHP 5.6 still has no stable version
-php_targets_php5-6
+# PHP 5.3 har reached EOL and should be removed soon
+php_targets_php5-3
 
 # Its deps are not mature enough yet
 ayatana
@@ -68,6 +75,7 @@ avx2
 avx256
 fma3
 fma4
+xop
 svga
 nvram
 
@@ -162,6 +170,7 @@ psyco
 userland_BSD
 
 elibc_AIX
+elibc_Cygwin
 elibc_Darwin
 elibc_DragonFly
 elibc_FreeBSD
@@ -173,6 +182,7 @@ elibc_NetBSD
 elibc_OpenBSD
 elibc_SunOS
 elibc_uclibc
+elibc_Winnt
 
 kernel_AIX
 kernel_Darwin
@@ -323,8 +333,6 @@ orc
 # Mike Gilbert <floppym@gentoo.org> (02 Jan 2013)
 # PyPy is unkeyworded on most arches. If you are running amd64 or x86,
 # please switch to one of the testing 13.0 profiles to get it.
-python_targets_pypy2_0
-python_single_target_pypy2_0
 python_targets_pypy
 python_single_target_pypy
 
@@ -342,11 +350,14 @@ abi_ppc_64
 abi_s390_32
 abi_s390_64
 
-# Andrey Grozin <grozin@gentoo.org> (1 May 2013)
-# gcl is masked, cmucl only available on x86, clozurecl on x86 and amd64
-gcl
-cmucl
+# Andrey Grozin <grozin@gentoo.org> (25 Jun 2014)
+# These lisps are available only on some arches
+clisp
 clozurecl
+cmucl
+ecls
+gcl
+sbcl
 
 # Michał Górny <mgorny@gentoo.org> (4 May 2013)
 # Mask systemd flag globally, unmasked on arches on which systemd
@@ -365,3 +376,12 @@ qt5
 # Enabling this you will get a fully unsupported Gnome setup that
 # could suffer unexpected problem, don't expect support for it then.
 openrc-force
+
+# Michał Górny <mgorny@gentoo.org> (06 Sep 2014)
+# (on behalf of Python team)
+# Python 3.2 is no longer supported upstream and there are no new
+# releases planned. Packages are removing support for it in favor
+# of 3.3 and 3.4. The support for implementations will be disabled
+# in 30 days.
+python_targets_python3_2
+python_single_target_python3_2

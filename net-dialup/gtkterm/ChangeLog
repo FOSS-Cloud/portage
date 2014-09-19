@@ -1,6 +1,20 @@
 # ChangeLog for net-dialup/gtkterm
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/gtkterm/ChangeLog,v 1.24 2014/03/29 13:04:31 dlan Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/gtkterm/ChangeLog,v 1.28 2014/08/10 20:55:45 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> gtkterm-0.99.5-r1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gtkterm-0.99.5-r1.ebuild,
+  gtkterm-0.99.7_rc1.ebuild:
+  Stable for ppc, wrt bug #452824
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> gtkterm-0.99.5-r1.ebuild,
+  gtkterm-0.99.7_rc1.ebuild:
+  Drop sparc keyword
+
+  20 Jul 2014; Pacho Ramos <pacho@gentoo.org> gtkterm-0.99.7_rc1.ebuild:
+  amd64/x86 stable, bug #452824
 
   29 Mar 2014; Yixun Lan <dlan@gentoo.org> gtkterm-0.99.7_rc1.ebuild:
   fix autoconf compile err, bug #483346

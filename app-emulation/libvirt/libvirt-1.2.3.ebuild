@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.2.3.ebuild,v 1.3 2014/04/21 08:00:15 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/libvirt-1.2.3.ebuild,v 1.6 2014/07/31 17:06:11 mgorny Exp $
 
 EAPI=5
 
@@ -157,6 +157,16 @@ VIRTNET_CONFIG_CHECK="
 	~NETFILTER_XT_MARK
 "
 
+BWLMT_CONFIG_CHECK="
+	~BRIDGE_EBT_T_NAT
+	~NET_SCH_HTB
+	~NET_SCH_SFQ
+	~NET_SCH_INGRESS
+	~NET_CLS_FW
+	~NET_CLS_U32
+	~NET_ACT_POLICE
+"
+
 MACVTAP_CONFIG_CHECK=" ~MACVTAP"
 
 LVM_CONFIG_CHECK=" ~BLK_DEV_DM ~DM_SNAPSHOT ~DM_MULTIPATH"
@@ -185,6 +195,8 @@ pkg_setup() {
 	use lxc && CONFIG_CHECK+="${LXC_CONFIG_CHECK}"
 	use macvtap && CONFIG_CHECK+="${MACVTAP_CONFIG_CHECK}"
 	use virt-network && CONFIG_CHECK+="${VIRTNET_CONFIG_CHECK}"
+	# Bandwidth Limiting Support
+	use virt-network && CONFIG_CHECK+="${BWLMT_CONFIG_CHECK}"
 	if [[ -n ${CONFIG_CHECK} ]]; then
 		linux-info_pkg_setup
 	fi
@@ -306,6 +318,7 @@ src_configure() {
 
 	## stuff we don't yet support
 	myconf="${myconf} --without-netcf"
+	myconf="${myconf} --without-wireshark-dissector"
 
 	# we use udev over hal
 	myconf="${myconf} --without-hal"

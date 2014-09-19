@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/urbanterror/urbanterror-4.2.018-r1.ebuild,v 1.1 2014/03/12 19:38:33 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-fps/urbanterror/urbanterror-4.2.018-r1.ebuild,v 1.3 2014/08/14 16:30:09 phajdan.jr Exp $
 
 EAPI=5
 
@@ -27,7 +27,7 @@ unset UPDATE_I
 
 LICENSE="GPL-2 Q3AEULA-20000111 urbanterror-4.2-maps"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 x86"
 IUSE="+curl debug dedicated openal +sdl server smp vorbis"
 RESTRICT="mirror"
 
@@ -36,7 +36,7 @@ RDEPEND="
 		virtual/opengl
 		curl? ( net-misc/curl )
 		openal? ( media-libs/openal )
-		sdl? ( media-libs/libsdl[X,audio,joystick,opengl,video] )
+		sdl? ( media-libs/libsdl[X,sound,joystick,opengl,video] )
 		!sdl? ( x11-libs/libX11
 			x11-libs/libXext
 			x11-libs/libXxf86dga

@@ -1,6 +1,31 @@
 # ChangeLog for app-admin/mcollective
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/mcollective/ChangeLog,v 1.22 2014/03/02 22:42:49 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/mcollective/ChangeLog,v 1.28 2014/08/09 16:42:14 ago Exp $
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mcollective-2.5.3.ebuild:
+  Stable for amd64, wrt bug #517286
+
+  08 Aug 2014; <mad@gentoo.org> mcollective-2.5.3.ebuild:
+  x86 stable, see bug 517286
+
+*mcollective-2.5.3 (17 Jul 2014)
+
+  17 Jul 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +mcollective-2.5.3.ebuild, -mcollective-2.3.2.ebuild:
+  finishing up fixing bug 513292 (CVE-2014-3248), starting fixing bug 517286
+  (CVE-2014-3251)
+
+  21 Jun 2014; Agostino Sarubbo <ago@gentoo.org> mcollective-2.5.2.ebuild:
+  Stable for x86, wrt bug #513292
+
+  21 Jun 2014; Agostino Sarubbo <ago@gentoo.org> mcollective-2.5.2.ebuild:
+  Stable for amd64, wrt bug #513292
+
+*mcollective-2.5.2 (15 Jun 2014)
+
+  15 Jun 2014; Matthew Thode <prometheanfire@gentoo.org>
+  +mcollective-2.5.2.ebuild:
+  fixing bug 513292 CVE-2014-3248
 
   02 Mar 2014; Matthew Thode <prometheanfire@gentoo.org>
   -mcollective-2.2.0-r1.ebuild, -mcollective-2.2.0.ebuild,

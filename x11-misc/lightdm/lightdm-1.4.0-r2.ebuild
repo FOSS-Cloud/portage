@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/lightdm/lightdm-1.4.0-r2.ebuild,v 1.4 2013/08/18 13:43:54 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/lightdm/lightdm-1.4.0-r2.ebuild,v 1.6 2014/04/20 10:19:10 hwoarang Exp $
 
 EAPI=5
 inherit autotools eutils pam readme.gentoo systemd

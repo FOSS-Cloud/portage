@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/extreme-tuxracer/extreme-tuxracer-0.6.0.ebuild,v 1.3 2014/03/29 17:45:12 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-action/extreme-tuxracer/extreme-tuxracer-0.6.0.ebuild,v 1.7 2014/07/23 15:44:55 tupone Exp $
 
 EAPI=5
-inherit eutils gnome2-utils games
+inherit eutils autotools gnome2-utils games
 
 DESCRIPTION="High speed arctic racing game based on Tux Racer"
 HOMEPAGE="http://extremetuxracer.sourceforge.net/"
@@ -11,12 +11,12 @@ SRC_URI="mirror://sourceforge/extremetuxracer/etr-${PV/_/}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="virtual/opengl
 	virtual/glu
-	media-libs/libsdl[X,audio,video]
+	media-libs/libsdl[X,sound,video]
 	media-libs/sdl-mixer[vorbis]
 	media-libs/sdl-image[png]
 	media-libs/freetype:2"
@@ -26,8 +26,10 @@ DEPEND="${RDEPEND}
 S=${WORKDIR}/etr-${PV/_/}
 
 src_prepare() {
+	epatch "${FILESDIR}"/${P}-libsdl.patch
 	# kind of ugly in there so we'll do it ourselves
-	sed -i -e '/SUBDIRS/s/resources doc//' Makefile.in || die
+	sed -i -e '/SUBDIRS/s/resources doc//' Makefile.am || die
+	eautoreconf
 }
 
 src_install() {

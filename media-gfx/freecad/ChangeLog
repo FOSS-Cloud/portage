@@ -1,6 +1,55 @@
 # ChangeLog for media-gfx/freecad
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/freecad/ChangeLog,v 1.16 2013/05/09 08:36:38 xmw Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/freecad/ChangeLog,v 1.23 2014/08/15 22:02:26 xmw Exp $
+
+  15 Aug 2014; Michael Weber <xmw@gentoo.org> freecad-0.14.3702-r1.ebuild,
+  freecad-9999.ebuild:
+  Upstream switched from PyQt4 to pyside (thanks jer, bug 520016)
+
+*freecad-0.14.3702-r1 (15 Aug 2014)
+
+  15 Aug 2014; Michael Weber <xmw@gentoo.org> +freecad-0.14.3702-r1.ebuild,
+  freecad-9999.ebuild:
+  Revbump to fix module search path, big thanks to Casey Bralla and Marek for
+  working this out with upstream (bug 518996).
+
+*freecad-9999 (29 Jul 2014)
+*freecad-0.14.3702 (29 Jul 2014)
+
+  29 Jul 2014; Michael Weber <xmw@gentoo.org>
+  +files/freecad-0.14.3702-install-paths.patch, +freecad-0.14.3702.ebuild,
+  +freecad-9999.ebuild:
+  Add live ebuild (bug 501138) and version bump (bug 517790) w/o keywords for
+  testing reasons.
+
+  28 Jul 2014; Michael Weber <xmw@gentoo.org> freecad-0.13.1830-r1.ebuild:
+  Add dev-qt/designer:4 dependency (thanks Rafael Lorandi, bug 513148).
+
+  24 Apr 2014; Michael Weber <xmw@gentoo.org> -freecad-0.12.5284-r2.ebuild,
+  -freecad-0.12.5284-r3.ebuild, -freecad-0.13.1830.ebuild,
+  freecad-0.13.1830-r1.ebuild:
+  Drop broken ebuild revisions, re-add keywords on 0.13.
+
+*freecad-0.13.1830-r1 (24 Apr 2014)
+
+  24 Apr 2014; Michael Weber <xmw@gentoo.org>
+  +files/freecad-0.13.1830-CMakefile.patch,
+  +files/freecad-0.13.1830-avoid-include-salome.patch,
+  +files/freecad-0.13.1830-cmake-2.8.12.patch,
+  +files/freecad-0.13.1830-no-machdist.patch,
+  +files/freecad-0.13.1830-occ-6.7.patch,
+  +files/freecad-0.13.1830-startpage-links.patch, +freecad-0.13.1830-r1.ebuild:
+  Revbump with ebuild by Fabio Rossi (bug 457830).
+
+*freecad-0.12.5284-r4 (23 Apr 2014)
+
+  23 Apr 2014; Michael Weber <xmw@gentoo.org>
+  +files/freecad-0.12.5284-cmake-2.8.12.patch,
+  +files/freecad-0.12.5284-occ-6.6.patch, +freecad-0.12.5284-r4.ebuild,
+  freecad-0.12.5284-r3.ebuild:
+  Revbump to address cmake update (bug 493666), opencascade-6.6 changes (bug
+  474794) and fix eselect module invocation (bug 468696). Thanks to Fabio Rossi,
+  Juergen Rose, Bob Johnson and others.
 
   09 May 2013; Michael Weber <xmw@gentoo.org> freecad-0.13.1830.ebuild:
   Fix S (thanks Alessio De Marchi, bug 469064)

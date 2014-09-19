@@ -1,6 +1,57 @@
 # ChangeLog for dev-libs/libxslt
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libxslt/ChangeLog,v 1.277 2014/03/04 05:53:10 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libxslt/ChangeLog,v 1.290 2014/09/15 08:18:41 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r3.ebuild:
+  Stable for sparc, wrt bug #512012
+
+*libxslt-1.1.28-r4 (03 Sep 2014)
+
+  03 Sep 2014; Michał Górny <mgorny@gentoo.org>
+  +files/libxslt-1.1.28-AC_PATH_TOOL.patch, +libxslt-1.1.28-r4.ebuild:
+  Use wrapped xml2-config, bug #518728. And CHOST-ize xslt-config too while at
+  it.
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r3.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r3.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r3.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> libxslt-1.1.28-r3.ebuild:
+  Stable for HPPA (bug #512012).
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r3.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r3.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libxslt-1.1.28-r3.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  24 Jun 2014; Michael Haubenwallner <haubi@gentoo.org>
+  libxslt-1.1.28-r3.ebuild:
+  add more prefix keywords
+
+*libxslt-1.1.28-r3 (24 Jun 2014)
+
+  24 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +libxslt-1.1.28-r3.ebuild:
+  Modernize python bindings build setup, fixing prefix issues (bug #514900,
+  thanks to Michael Haubenwallner).
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libxslt-1.1.28-r2.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  28 Apr 2014; Michał Górny <mgorny@gentoo.org> libxslt-1.1.28-r2.ebuild:
+  Replace multilib_build_binaries with multilib_is_native_abi. The two are
+  equivalent now, and the team has decided to use the old name as being less
+  confusing.
 
   04 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
   files/libxslt-1.1.28-libgcrypt-config.patch:

@@ -1,6 +1,64 @@
 # ChangeLog for dev-python/scrapy
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/scrapy/ChangeLog,v 1.16 2013/12/06 05:44:16 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/scrapy/ChangeLog,v 1.27 2014/07/28 08:05:08 idella4 Exp $
+
+*scrapy-0.25.1 (28 Jul 2014)
+
+  28 Jul 2014; Ian Delaney <idella4@gentoo.org> +scrapy-0.25.1.ebuild,
+  -scrapy-0.25.0.ebuild:
+  bump, rm 0.25.0, reason; release same day as 0.25.1
+
+*scrapy-0.25.0 (22 Jul 2014)
+
+  22 Jul 2014; Patrick Lauer <patrick@gentoo.org> +scrapy-0.25.0.ebuild:
+  Bump
+
+*scrapy-0.24.2 (14 Jul 2014)
+
+  14 Jul 2014; Patrick Lauer <patrick@gentoo.org> +scrapy-0.24.2.ebuild:
+  Bump
+
+  08 Jul 2014; Ian Delaney <idella4@gentoo.org> scrapy-0.24.1.ebuild:
+  from fix by /issues/788 by owner @ github, update dep w3lib, delete
+  superfluous python_prepare_all(), correction to test phase
+
+*scrapy-0.24.1 (08 Jul 2014)
+
+  08 Jul 2014; Ian Delaney <idella4@gentoo.org> +scrapy-0.24.1.ebuild:
+  bump; update deps, test phase
+
+*scrapy-0.20.0 (25 Jun 2014)
+
+  25 Jun 2014; Ian Delaney <idella4@gentoo.org> +scrapy-0.20.0.ebuild,
+  -scrapy-0.18.0-r1.ebuild, -scrapy-0.18.0.ebuild, -scrapy-0.18.1.ebuild,
+  -scrapy-0.18.2.ebuild, -scrapy-0.18.3.ebuild, -scrapy-0.18.4.ebuild:
+  bump; update deps, rm old
+
+*scrapy-0.19.0 (09 Jun 2014)
+
+  09 Jun 2014; Ian Delaney <idella4@gentoo.org> +scrapy-0.19.0.ebuild:
+  bump
+
+*scrapy-0.18.4 (03 Jun 2014)
+
+  03 Jun 2014; Ian Delaney <idella4@gentoo.org> +scrapy-0.18.4.ebuild:
+  bump
+
+*scrapy-0.18.3 (26 May 2014)
+
+  26 May 2014; Patrick Lauer <patrick@gentoo.org> +scrapy-0.18.3.ebuild:
+  Bump
+
+*scrapy-0.18.2 (20 May 2014)
+
+  20 May 2014; Ian Delaney <idella4@gentoo.org> +scrapy-0.18.2.ebuild,
+  -scrapy-0.14.4.ebuild, -scrapy-0.16.4.ebuild, -scrapy-0.17.0.ebuild:
+  bump; update test phase, tidy, rm some old
+
+*scrapy-0.18.1 (03 May 2014)
+
+  03 May 2014; Patrick Lauer <patrick@gentoo.org> +scrapy-0.18.1.ebuild:
+  Bump
 
 *scrapy-0.18.0-r1 (06 Dec 2013)
 

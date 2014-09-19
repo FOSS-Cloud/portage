@@ -1,6 +1,12 @@
 # ChangeLog for sys-process/iotop
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/iotop/ChangeLog,v 1.70 2014/03/31 21:22:20 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/iotop/ChangeLog,v 1.72 2014/07/23 15:26:50 jlec Exp $
+
+  23 Jul 2014; Justin Lecher <jlec@gentoo.org> iotop-0.6.ebuild:
+  Add python 3.4 suport and drop 2.6, #506808
+
+  13 May 2014; Mike Gilbert <floppym@gentoo.org> iotop-0.6.ebuild:
+  Drop pypy support due to bug 465546.
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> iotop-0.6.ebuild:
   Add support for the new PyPy slotting.

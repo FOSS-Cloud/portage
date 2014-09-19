@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/ntp/ntp-4.2.6_p5-r10.ebuild,v 1.10 2014/01/12 13:17:06 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/ntp/ntp-4.2.6_p5-r10.ebuild,v 1.14 2014/07/01 16:54:26 pacho Exp $
 
 EAPI="4"
 
@@ -14,7 +14,7 @@ SRC_URI="http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-${PV:0:3}/${MY_P}.tar
 
 LICENSE="HPND BSD ISC"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~m68k-mint"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~m68k-mint"
 IUSE="caps debug ipv6 openntpd parse-clocks samba selinux snmp ssl vim-syntax zeroconf"
 
 DEPEND=">=sys-libs/ncurses-5.2
@@ -107,12 +107,13 @@ src_install() {
 		rm usr/share/man/*/ntpd.8 || die
 	else
 		systemd_newunit "${FILESDIR}"/ntpd.service-r1 ntpd.service
+		use caps && sed -i '/ExecStart/ s|$| -u ntp:ntp|' "${ED}"/usr/lib/systemd/system/ntpd.service
 		systemd_enable_ntpunit 60-ntpd ntpd.service
 	fi
 
 	systemd_dounit "${FILESDIR}"/ntpdate.service
 	systemd_install_serviced "${FILESDIR}"/ntpdate.service.conf
-	systemd_dounit "${FILESDIR}"/sntp.service
+	systemd_newunit "${FILESDIR}"/sntp.service-r1 sntp.service
 	systemd_install_serviced "${FILESDIR}"/sntp.service.conf
 }
 

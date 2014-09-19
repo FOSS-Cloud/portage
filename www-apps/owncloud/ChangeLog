@@ -1,6 +1,35 @@
 # ChangeLog for www-apps/owncloud
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/owncloud/ChangeLog,v 1.54 2014/03/10 20:47:58 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/owncloud/ChangeLog,v 1.59 2014/08/29 12:14:32 voyageur Exp $
+
+*owncloud-7.0.2 (29 Aug 2014)
+*owncloud-6.0.5 (29 Aug 2014)
+
+  29 Aug 2014; Bernard Cafarelli <voyageur@gentoo.org> +owncloud-6.0.5.ebuild,
+  +owncloud-7.0.2.ebuild:
+  Version bumps
+
+*owncloud-7.0.1 (04 Aug 2014)
+
+  04 Aug 2014; Bernard Cafarelli <voyageur@gentoo.org> +owncloud-7.0.1.ebuild:
+  Version bump, fixes bug #518274
+
+*owncloud-6.0.4 (29 Jun 2014)
+*owncloud-5.0.17 (29 Jun 2014)
+
+  29 Jun 2014; Bernard Cafarelli <voyageur@gentoo.org> -owncloud-5.0.16.ebuild,
+  +owncloud-5.0.17.ebuild, -owncloud-6.0.3.ebuild, +owncloud-6.0.4.ebuild:
+  Version bumps, removing vulnerable previous versions
+
+*owncloud-6.0.3 (29 Apr 2014)
+*owncloud-5.0.16 (29 Apr 2014)
+
+  29 Apr 2014; Bernard Cafarelli <voyageur@gentoo.org> -owncloud-5.0.15.ebuild,
+  +owncloud-5.0.16.ebuild, -owncloud-6.0.2.ebuild, +owncloud-6.0.3.ebuild:
+  Version bumps, remove vulnerable versions, bug #508978
+
+  14 Apr 2014; Alexey Shvetsov <alexxy@gentoo.org> metadata.xml:
+  Drop me from maintainers
 
   10 Mar 2014; Bernard Cafarelli <voyageur@gentoo.org> owncloud-5.0.15.ebuild,
   owncloud-6.0.2.ebuild:

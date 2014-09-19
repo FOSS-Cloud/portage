@@ -1,6 +1,37 @@
 # ChangeLog for app-xemacs/tramp
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-xemacs/tramp/ChangeLog,v 1.24 2011/07/22 11:25:04 xarthisius Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-xemacs/tramp/ChangeLog,v 1.33 2014/08/13 15:13:51 matsl Exp $
+
+  13 Aug 2014; Mats Lidell <matsl@gentoo.org> -tramp-1.37.ebuild,
+  -tramp-1.40.ebuild:
+  Maintainer cleanup. Remove old ebuilds.
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> tramp-1.37.ebuild,
+  tramp-1.40.ebuild, tramp-1.52.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> tramp-1.52.ebuild:
+  Stable for ppc64, wrt bug #509830
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> tramp-1.52.ebuild:
+  Stable for ppc, wrt bug #509830
+
+  04 Aug 2014; Raúl Porcel <armin76@gentoo.org> tramp-1.52.ebuild:
+  sparc stable wrt #509830
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> tramp-1.52.ebuild:
+  Stable for x86, wrt bug #509830
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> tramp-1.52.ebuild:
+  Stable for amd64, wrt bug #509830
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org> tramp-1.52.ebuild:
+  Stable on alpha, bug #509830
+
+*tramp-1.52 (05 Jul 2014)
+
+  05 Jul 2014; Mats Lidell <matsl@gentoo.org> +tramp-1.52.ebuild:
+  Version bump. Pre release package due to securify fix.
 
   22 Jul 2011; Kacper Kowalik <xarthisius@gentoo.org> tramp-1.40.ebuild:
   ppc64 stable wrt #369897

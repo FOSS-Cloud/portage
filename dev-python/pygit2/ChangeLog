@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/pygit2
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pygit2/ChangeLog,v 1.25 2014/04/03 01:21:02 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pygit2/ChangeLog,v 1.29 2014/08/24 03:48:30 radhermit Exp $
+
+*pygit2-0.21.2 (24 Aug 2014)
+
+  24 Aug 2014; Tim Harder <radhermit@gentoo.org> +pygit2-0.21.2.ebuild:
+  Version bump (bug #520324).
+
+*pygit2-0.21.1 (24 Jul 2014)
+
+  24 Jul 2014; Tim Harder <radhermit@gentoo.org> +pygit2-0.21.1.ebuild:
+  Version bump.
+
+  01 Jul 2014; Tim Harder <radhermit@gentoo.org> -pygit2-0.20.1.ebuild,
+  -pygit2-0.20.2.ebuild:
+  Remove old.
+
+*pygit2-0.21.0 (01 Jul 2014)
+
+  01 Jul 2014; Tim Harder <radhermit@gentoo.org> +pygit2-0.21.0.ebuild:
+  Version bump.
 
 *pygit2-0.20.3 (03 Apr 2014)
 

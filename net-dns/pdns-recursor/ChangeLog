@@ -1,6 +1,36 @@
 # ChangeLog for net-dns/pdns-recursor
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/pdns-recursor/ChangeLog,v 1.42 2014/03/10 21:52:43 swegener Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/pdns-recursor/ChangeLog,v 1.48 2014/07/20 19:22:32 swegener Exp $
+
+  20 Jul 2014; Sven Wegener <swegener@gentoo.org>
+  -pdns-recursor-3.1.7.2.ebuild, -pdns-recursor-3.2.ebuild,
+  -pdns-recursor-3.3.ebuild, -pdns-recursor-3.3-r1.ebuild,
+  -pdns-recursor-3.5.1.ebuild, -pdns-recursor-3.5.3.ebuild,
+  -files/pdns-recursor-3.3-fdlimit.patch:
+  Clean old.
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> pdns-recursor-3.5.3-r1.ebuild:
+  Stable for x86, wrt bug #514946
+
+  04 Jul 2014; Agostino Sarubbo <ago@gentoo.org> pdns-recursor-3.5.3-r1.ebuild:
+  Stable for amd64, wrt bug #514946
+
+*pdns-recursor-3.5.3-r1 (29 Jun 2014)
+
+  29 Jun 2014; Sven Wegener <swegener@gentoo.org>
+  +pdns-recursor-3.5.3-r1.ebuild, +files/pdns-recursor-3.5.3-fdlimit.patch:
+  Also patch 3.5.3 for bug #514946.
+
+*pdns-recursor-3.3-r1 (29 Jun 2014)
+
+  29 Jun 2014; Sven Wegener <swegener@gentoo.org> +pdns-recursor-3.3-r1.ebuild,
+  +files/pdns-recursor-3.3-fdlimit.patch:
+  Include bugfix for security bug #514946.
+
+*pdns-recursor-3.6.0 (21 Jun 2014)
+
+  21 Jun 2014; Sven Wegener <swegener@gentoo.org> +pdns-recursor-3.6.0.ebuild:
+  Version bump.
 
 *pdns-recursor-3.5.3 (10 Mar 2014)
 
@@ -204,4 +234,3 @@
   30 Apr 2006; Sven Wegener <swegener@gentoo.org> +files/precursor,
   +files/recursor.conf, +metadata.xml, +pdns-recursor-3.0.1.ebuild:
   Initial commit, ebuild written by me.
-

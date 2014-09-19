@@ -1,6 +1,48 @@
 # ChangeLog for Gentoo/sparc profile
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/ChangeLog,v 1.218 2014/03/19 00:19:09 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/ChangeLog,v 1.230 2014/09/16 17:12:06 chithanh Exp $
+
+  16 Sep 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask xorg-server glamor/wayland flags
+
+  01 Sep 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-video/mpv-0.4.2 explicitly wrt #521808
+
+  25 Aug 2014; Raúl Porcel <armin76@gentoo.org> use.mask:
+  Use.mask zmq, bug #442188
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> package.use.mask, use.mask:
+  Use.mask tcmalloc and jemalloc as they aren't keyworded on sparc
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> package.use.mask:
+  Remove net-dns/rbldnsd test from p.use.mask, bug #476198
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> package.use.mask:
+  Remove dev-libs/libpcre jit from p.use.mask now that it works, bug #505062
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> use.mask:
+  Use.mask redis
+
+  15 Aug 2014; Raúl Porcel <armin76@gentoo.org> package.use.stable.mask:
+  Remove sys-block/thin-provisioning-tools test from p.use.stable.mask as deps
+  are solved now
+
+  13 Aug 2014; Maciej Mrozowski <reavertm@gentoo.org> package.use.mask:
+  Mask gg11 flag due to missing keywords (bug 519772)
+
+  31 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> package.use.stable.mask:
+  Temporarily mask USE="test" for sys-block/thin-provisioning-tools because of
+  untested dev-lang/ruby based dependencies wrt #493780
+
+  29 Jul 2014; Robin H. Johnson <robbat2@gentoo.org> package.use.mask:
+  Update MySQL tcmalloc mask for percona-server.
+
+  22 Jul 2014; Christoph Junghans <ottxor@gentoo.org> package.use.mask:
+  mask libcerf useflag (bug 517726)
+
+  24 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Remove obsolete gvfs[udisks] mask (bug #412801 and #440866).
 
   19 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> +eapi:
   Increase EAPI to 5

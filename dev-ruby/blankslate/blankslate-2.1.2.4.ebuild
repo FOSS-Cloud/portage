@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/blankslate/blankslate-2.1.2.4.ebuild,v 1.1 2013/12/13 02:09:46 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/blankslate/blankslate-2.1.2.4.ebuild,v 1.5 2014/08/12 18:35:56 blueness Exp $
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby19 ruby20 ruby21"
 
 RUBY_FAKEGEM_EXTRADOC="README"
 RUBY_FAKEGEM_RECIPE_DOC="rdoc"
@@ -18,6 +18,6 @@ HOMEPAGE="https://rubygems.org/gems/blankslate"
 IUSE=""
 LICENSE="MIT"
 SLOT="2"
-KEYWORDS="~amd64"
+KEYWORDS="~alpha ~amd64 ~x86 ~ppc ~ppc64"
 
 RESTRICT="test"

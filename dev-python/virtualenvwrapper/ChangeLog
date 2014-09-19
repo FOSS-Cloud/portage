@@ -1,6 +1,22 @@
 # ChangeLog for dev-python/virtualenvwrapper
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/virtualenvwrapper/ChangeLog,v 1.14 2014/03/31 08:04:28 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/virtualenvwrapper/ChangeLog,v 1.18 2014/07/05 13:44:19 idella4 Exp $
+
+  05 Jul 2014; Ian Delaney <idella4@gentoo.org> virtualenvwrapper-4.3.ebuild:
+  add missing dep pbr in DEPEND, fixes Bug #516262
+
+  29 Jun 2014; Ian Delaney <idella4@gentoo.org> virtualenvwrapper-4.3.ebuild:
+  set req'd version for stevedore, fixes Bug #515580 by R. Fleschenberg
+
+  29 Jun 2014; Ian Delaney <idella4@gentoo.org> -virtualenvwrapper-3.7.1.ebuild,
+  -virtualenvwrapper-4.0.ebuild, -virtualenvwrapper-4.1.1.ebuild,
+  -virtualenvwrapper-4.2.ebuild:
+  clean old vulnerable versions wrt Bug #509348
+
+*virtualenvwrapper-4.3 (12 Jun 2014)
+
+  12 Jun 2014; Patrick Lauer <patrick@gentoo.org> +virtualenvwrapper-4.3.ebuild:
+  Bump, add py34
 
 *virtualenvwrapper-4.2 (31 Mar 2014)
 

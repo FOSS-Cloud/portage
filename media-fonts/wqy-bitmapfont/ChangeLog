@@ -1,6 +1,28 @@
 # ChangeLog for media-fonts/wqy-bitmapfont
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-fonts/wqy-bitmapfont/ChangeLog,v 1.24 2014/02/01 09:43:55 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-fonts/wqy-bitmapfont/ChangeLog,v 1.30 2014/06/11 06:09:16 naota Exp $
+
+  11 Jun 2014; Naohiro Aota <naota@gentoo.org> -wqy-bitmapfont-0.9.9_p0.ebuild:
+  Drop old version #499752
+
+  10 Jun 2014; Mikle Kolyada <zlogene@gentoo.org>
+  wqy-bitmapfont-1.0.0_rc1.ebuild:
+  alpha/ia64/ppc/sparc/x86 stable wrt bug #508572
+
+  09 Jun 2014; Chema Alonso <nimiux@gentoo.org>
+  wqy-bitmapfont-1.0.0_rc1.ebuild:
+  Stable for amd64 wrt bug #508572
+
+  03 May 2014; Markus Meier <maekke@gentoo.org>
+  wqy-bitmapfont-1.0.0_rc1.ebuild:
+  arm stable, bug #508572
+
+  26 Apr 2014; Jeroen Roovers <jer@gentoo.org> wqy-bitmapfont-1.0.0_rc1.ebuild:
+  Stable for HPPA (bug #508572).
+
+  07 Apr 2014; Naohiro Aota <naota@gentoo.org> wqy-bitmapfont-0.9.9_p0.ebuild,
+  wqy-bitmapfont-1.0.0_rc1.ebuild:
+  Update HOMEPAGE
 
 *wqy-bitmapfont-1.0.0_rc1 (01 Feb 2014)
 

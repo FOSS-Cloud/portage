@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/xpra/xpra-0.10.12-r1.ebuild,v 1.1 2014/01/19 22:01:35 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/xpra/xpra-0.10.12-r1.ebuild,v 1.3 2014/04/26 08:32:58 pacho Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1 eutils
 
 DESCRIPTION="X Persistent Remote Apps (xpra) and Partitioning WM (parti) based on wimpiggy"
@@ -36,9 +36,9 @@ COMMON_DEPEND=""${PYTHON_DEPS}"
 	dec_av? ( || ( >=media-video/ffmpeg-1.2.2 media-video/libav ) )
 	opengl? ( dev-python/pygtkglext )
 	pulseaudio? ( media-sound/pulseaudio )
-	sound? ( media-libs/gstreamer
-		media-libs/gst-plugins-base
-		dev-python/gst-python )
+	sound? ( media-libs/gstreamer:0.10
+		media-libs/gst-plugins-base:0.10
+		dev-python/gst-python:0.10 )
 	vpx? ( media-libs/libvpx virtual/ffmpeg )
 	webp? ( media-libs/libwebp )
 	x264? ( media-libs/x264

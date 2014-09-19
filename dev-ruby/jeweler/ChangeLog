@@ -1,6 +1,18 @@
 # ChangeLog for dev-ruby/jeweler
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/jeweler/ChangeLog,v 1.23 2013/09/02 08:06:00 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/jeweler/ChangeLog,v 1.26 2014/08/15 14:34:10 blueness Exp $
+
+  15 Aug 2014; Anthony G. Basile <blueness@gentoo.org> jeweler-2.0.1.ebuild:
+  Keyword ~ppc ~ppc64, bug #511424
+
+*jeweler-2.0.1 (25 May 2014)
+
+  25 May 2014; Hans de Graaff <graaff@gentoo.org> +jeweler-2.0.1.ebuild:
+  Version bump. Drop ppc, ppc64, x86 due to new dependencies, bug 511424.
+
+  05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> jeweler-1.8.4.ebuild,
+  jeweler-1.8.6.ebuild:
+  Remove ree18 and ruby18 target.
 
   02 Sep 2013; Agostino Sarubbo <ago@gentoo.org> jeweler-1.8.4.ebuild:
   Stable for x86, wrt bug #447586

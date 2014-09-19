@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-1.1.1-r1.ebuild,v 1.12 2014/02/06 12:26:41 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-1.1.1-r1.ebuild,v 1.14 2014/07/28 01:27:14 patrick Exp $
 
 EAPI=4
 
@@ -12,11 +12,11 @@ inherit toolchain-funcs eutils flag-o-matic multilib base ${SVN_ECLASS}
 
 IUSE="3dnow 3dnowext +a52 aalib +alsa altivec aqua bidi bindist bl bluray
 bs2b cddb +cdio cdparanoia cpudetection debug dga
-directfb doc +dts +dv dvb +dvd +dvdnav dxr3 +enca +encode faac +faad fbcon
+directfb doc +dts +dv dvb +dvd +dvdnav +enca +encode faac +faad fbcon
 ftp gif ggi gsm +iconv ipv6 jack joystick jpeg jpeg2k kernel_linux ladspa
 +libass libcaca libmpeg2 lirc +live lzo mad md5sum +mmx mmxext mng +mp3 nas
 +network nut openal +opengl +osdmenu oss png pnm pulseaudio pvr +quicktime
-radio +rar +rtc rtmp samba +shm sdl +speex sse sse2 ssse3
+radio +rar +rtc rtmp samba selinux +shm sdl +speex sse sse2 ssse3
 tga +theora +tremor +truetype +toolame +twolame +unicode v4l vdpau vidix
 +vorbis +X +x264 xanim xinerama +xscreensaver +xv +xvid xvmc zoran"
 
@@ -118,6 +118,7 @@ RDEPEND+="
 	)
 	rtmp? ( media-video/rtmpdump )
 	samba? ( net-fs/samba )
+	selinux? ( sec-policy/selinux-mplayer )
 	sdl? ( media-libs/libsdl )
 	speex? ( media-libs/speex )
 	theora? ( media-libs/libtheora[encode?] )
@@ -140,7 +141,6 @@ ASM_DEP="dev-lang/yasm"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	dga? ( x11-proto/xf86dgaproto )
-	dxr3? ( media-video/em8300-libraries )
 	X? ( ${X_DEPS} )
 	xinerama? ( x11-proto/xineramaproto )
 	xscreensaver? ( x11-proto/scrnsaverproto )
@@ -173,7 +173,6 @@ REQUIRED_USE="bindist? ( !faac )
 	dvdnav? ( dvd )
 	libass? ( truetype )
 	truetype? ( iconv )
-	dxr3? ( X )
 	ggi? ( X )
 	xinerama? ( X )
 	dga? ( X )
@@ -510,7 +509,7 @@ src_configure() {
 	###########################
 	myconf+=" --disable-gui"
 	myconf+=" --disable-vesa"
-	uses="dxr3 ggi vdpau xinerama xv"
+	uses="ggi vdpau xinerama xv"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done

@@ -1,14 +1,15 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.292 2014/03/28 18:32:16 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.319 2014/08/31 14:14:20 ssuominen Exp $
 
 EAPI=5
 
-inherit autotools bash-completion-r1 eutils linux-info multilib toolchain-funcs versionator multilib-minimal
+inherit autotools bash-completion-r1 eutils linux-info multilib multilib-minimal toolchain-funcs udev user versionator
 
 if [[ ${PV} = 9999* ]]; then
 	EGIT_REPO_URI="git://anongit.freedesktop.org/systemd/systemd"
 	inherit git-2
+	patchset=
 else
 	patchset=
 	SRC_URI="http://www.freedesktop.org/software/systemd/systemd-${PV}.tar.xz"
@@ -25,14 +26,14 @@ HOMEPAGE="http://www.freedesktop.org/wiki/Software/systemd"
 
 LICENSE="LGPL-2.1 MIT GPL-2"
 SLOT="0"
-IUSE="acl doc +firmware-loader gudev introspection +kmod +openrc selinux static-libs"
+IUSE="acl doc gudev introspection +kmod selinux static-libs"
 
 RESTRICT="test"
 
 COMMON_DEPEND=">=sys-apps/util-linux-2.20
 	acl? ( sys-apps/acl )
-	gudev? ( >=dev-libs/glib-2.22[${MULTILIB_USEDEP}] )
-	introspection? ( >=dev-libs/gobject-introspection-1.31.1 )
+	gudev? ( >=dev-libs/glib-2.34.3[${MULTILIB_USEDEP}] )
+	introspection? ( >=dev-libs/gobject-introspection-1.38 )
 	kmod? ( >=sys-apps/kmod-16 )
 	selinux? ( >=sys-libs/libselinux-2.1.9 )
 	!<sys-libs/glibc-2.11
@@ -42,13 +43,15 @@ COMMON_DEPEND=">=sys-apps/util-linux-2.20
 		!<=app-emulation/emul-linux-x86-baselibs-20130224-r7
 		!app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)]
 	)"
+# Force new make >= -r4 to skip some parallel build issues
 DEPEND="${COMMON_DEPEND}
 	dev-util/gperf
+	>=sys-apps/coreutils-8.16
 	sys-libs/libcap
 	virtual/os-headers
 	virtual/pkgconfig
-	!<sys-devel/make-3.82-r4
-	!<sys-kernel/linux-headers-2.6.32
+	>=sys-devel/make-3.82-r4
+	>=sys-kernel/linux-headers-2.6.39
 	doc? ( >=dev-util/gtk-doc-1.18 )"
 # Try with `emerge -C docbook-xml-dtd` to see the build failure without DTDs
 if [[ ${PV} = 9999* ]]; then
@@ -56,14 +59,13 @@ if [[ ${PV} = 9999* ]]; then
 		app-text/docbook-xml-dtd:4.2
 		app-text/docbook-xml-dtd:4.5
 		app-text/docbook-xsl-stylesheets
-		dev-libs/libxslt
-		>=dev-util/intltool-0.50"
+		dev-libs/libxslt"
 fi
 RDEPEND="${COMMON_DEPEND}
 	!<sys-fs/lvm2-2.02.103
 	!<sec-policy/selinux-base-2.20120725-r10"
 PDEPEND=">=sys-apps/hwids-20140304[udev]
-	openrc? ( >=sys-fs/udev-init-scripts-26 )"
+	>=sys-fs/udev-init-scripts-26"
 
 S=${WORKDIR}/systemd-${PV}
 
@@ -75,7 +77,7 @@ multilib_check_headers() { :; }
 check_default_rules() {
 	# Make sure there are no sudden changes to upstream rules file
 	# (more for my own needs than anything else ...)
-	local udev_rules_md5=6bd3d421b9b6acd0e2d87ad720d6a389
+	local udev_rules_md5=c18b74c4f8bf4a397ee667ee419f3a8e
 	MD5=$(md5sum < "${S}"/rules/50-udev-default.rules)
 	MD5=${MD5/  -/}
 	if [[ ${MD5} != ${udev_rules_md5} ]]; then
@@ -86,16 +88,11 @@ check_default_rules() {
 }
 
 pkg_setup() {
-	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD ~EPOLL ~FHANDLE ~NET"
+	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD ~EPOLL ~FHANDLE ~NET ~!FW_LOADER_USER_HELPER"
 	linux-info_pkg_setup
 
-	# Based on README from tarball:
-	local MINKV=3.0
-	# These arch's have the mandatory accept4() function support in Linux 2.6.32*, see:
-	# $ grep -r define.*accept4 linux-2.6.32*/*
-	if use amd64 || use ia64 || use mips || use sparc || use x86; then
-		MINKV=2.6.32
-	fi
+	# CONFIG_FHANDLE was introduced by 2.6.39
+	local MINKV=2.6.39
 
 	if kernel_is -lt ${MINKV//./ }; then
 		eerror "Your running kernel is too old to run this version of ${P}"
@@ -106,7 +103,7 @@ pkg_setup() {
 src_prepare() {
 	if ! [[ ${PV} = 9999* ]]; then
 		# secure_getenv() disable for non-glibc systems wrt bug #443030
-		if ! [[ $(grep -r secure_getenv * | wc -l) -eq 22 ]]; then
+		if ! [[ $(grep -r secure_getenv * | wc -l) -eq 28 ]]; then
 			eerror "The line count for secure_getenv() failed, see bug #443030"
 			die
 		fi
@@ -118,26 +115,10 @@ src_prepare() {
 	fi
 
 	cat <<-EOF > "${T}"/40-gentoo.rules
-	# Gentoo specific usb group
+	# Gentoo specific floppy and usb groups
+	SUBSYSTEM=="block", KERNEL=="fd[0-9]", GROUP="floppy"
 	SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", GROUP="usb"
-	# Keep this for Linux 2.6.32 kernels with incomplete devtmpfs support because
-	# accept4() function is supported for some arch's wrt #457868
-	SUBSYSTEM=="mem", KERNEL=="null|zero|full|random|urandom", MODE="0666"
 	EOF
-
-	# Remove requirements for gettext and intltool wrt bug #443028
-	if ! has_version dev-util/intltool && ! [[ ${PV} = 9999* ]]; then
-		sed -i \
-			-e '/INTLTOOL_APPLIED_VERSION=/s:=.*:=0.40.0:' \
-			-e '/XML::Parser perl module is required for intltool/s|^|:|' \
-			configure || die
-		eval export INTLTOOL_{EXTRACT,MERGE,UPDATE}=/bin/true
-		eval export {MSG{FMT,MERGE},XGETTEXT}=/bin/true
-	fi
-
-	# compile with older versions of gcc #451110
-	version_is_at_least 4.6 $(gcc-version) || \
-		sed -i 's:static_assert:alsdjflkasjdfa:' src/shared/macro.h
 
 	# change rules back to group uucp instead of dialout for now wrt #454556
 	sed -i -e 's/GROUP="dialout"/GROUP="uucp"/' rules/*.rules || die
@@ -179,60 +160,44 @@ multilib_src_configure() {
 		ac_cv_search_cap_init=
 		--libdir=/usr/$(get_libdir)
 		--docdir=/usr/share/doc/${PF}
+		$(multilib_native_use_enable static-libs static)
 		--disable-nls
+		$(multilib_native_use_enable doc gtk-doc)
+		$(multilib_native_use_enable introspection)
 		--disable-python-devel
 		--disable-dbus
+		$(multilib_native_use_enable kmod)
 		--disable-seccomp
+		$(multilib_native_use_enable selinux)
 		--disable-xz
+		--disable-lz4
 		--disable-pam
-		--disable-xattr
+		$(multilib_native_use_enable acl)
 		--disable-gcrypt
 		--disable-audit
 		--disable-libcryptsetup
 		--disable-qrencode
 		--disable-microhttpd
 		--disable-gnutls
+		--disable-libcurl
+		--disable-libidn
 		--disable-readahead
 		--disable-quotacheck
 		--disable-logind
 		--disable-polkit
 		--disable-myhostname
 		$(use_enable gudev)
+		$(multilib_is_native_abi || echo "--disable-manpages")
 		--enable-split-usr
 		--with-html-dir=/usr/share/doc/${PF}/html
 		--without-python
 		--with-bashcompletiondir="$(get_bashcompdir)"
 		--with-rootprefix=
+		$(multilib_is_native_abi && echo "--with-rootlibdir=/$(get_libdir)")
 	)
+
 	# Use pregenerated copies when possible wrt #480924
-	if ! [[ ${PV} = 9999* ]]; then
-		econf_args+=(
-			--disable-manpages
-		)
-	fi
-	if multilib_build_binaries; then
-		econf_args+=(
-			$(use_enable static-libs static)
-			$(use_enable doc gtk-doc)
-			$(use_enable introspection)
-			$(use_enable acl)
-			$(use_enable kmod)
-			$(use_enable selinux)
-			--with-rootlibdir=/$(get_libdir)
-		)
-	else
-		econf_args+=(
-			--disable-static
-			--disable-gtk-doc
-			--disable-introspection
-			--disable-acl
-			--disable-kmod
-			--disable-selinux
-			--disable-manpages
-			--with-rootlibdir=/usr/$(get_libdir)
-		)
-	fi
-	use firmware-loader && econf_args+=( --with-firmware-path="/lib/firmware/updates:/lib/firmware" )
+	[[ ${PV} = 9999* ]] || econf_args+=( --disable-manpages )
 
 	ECONF_SOURCE=${S} econf "${econf_args[@]}"
 }
@@ -245,7 +210,7 @@ multilib_src_compile() {
 	# but not everything -- separate building of the binaries as a workaround,
 	# which will force internal libraries required for the helpers to be built
 	# early enough, like eg. libsystemd-shared.la
-	if multilib_build_binaries; then
+	if multilib_is_native_abi; then
 		local lib_targets=( libudev.la )
 		use gudev && lib_targets+=( libgudev-1.0.la )
 		emake "${lib_targets[@]}"
@@ -269,10 +234,11 @@ multilib_src_compile() {
 
 		if [[ ${PV} = 9999* ]]; then
 			local man_targets=(
+				man/udev.conf.5
 				man/systemd.link.5
 				man/udev.7
-				man/udevadm.8
 				man/systemd-udevd.service.8
+				man/udevadm.8
 			)
 			emake "${man_targets[@]}"
 		fi
@@ -289,7 +255,7 @@ multilib_src_compile() {
 }
 
 multilib_src_install() {
-	if multilib_build_binaries; then
+	if multilib_is_native_abi; then
 		local lib_LTLIBRARIES="libudev.la" \
 			pkgconfiglib_DATA="src/libudev/libudev.pc"
 
@@ -338,9 +304,9 @@ multilib_src_install() {
 		fi
 
 		if [[ ${PV} = 9999* ]]; then
-			doman man/{systemd.link.5,udev.7,udevadm.8,systemd-udevd.service.8}
+			doman man/{udev.conf.5,systemd.link.5,udev.7,systemd-udevd.service.8,udevadm.8}
 		else
-			doman "${S}"/man/{systemd.link.5,udev.7,udevadm.8,systemd-udevd.service.8}
+			doman "${S}"/man/{udev.conf.5,systemd.link.5,udev.7,systemd-udevd.service.8,udevadm.8}
 		fi
 	else
 		local lib_LTLIBRARIES="libudev.la" \
@@ -382,6 +348,14 @@ multilib_src_install_all() {
 	# maintainer note: by not letting the upstream build-sys create the .so
 	# link, you also avoid a parallel make problem
 	mv "${D}"/usr/share/man/man8/systemd-udevd{.service,}.8
+
+	if ! [[ ${PV} = 9999* ]]; then
+		insinto /usr/share/doc/${PF}/html/gudev
+		doins "${S}"/docs/gudev/html/*
+
+		insinto /usr/share/doc/${PF}/html/libudev
+		doins "${S}"/docs/libudev/html/*
+	fi
 }
 
 pkg_preinst() {
@@ -481,9 +455,7 @@ pkg_postinst() {
 	local net_rules_path="${ROOT%/}"/etc/udev/rules.d
 	local net_name_slot="${net_rules_path}"/80-net-name-slot.rules
 	local net_setup_link="${net_rules_path}"/80-net-setup-link.rules
-	if [[ -e ${net_setup_link} ]]; then
-		net_move=no
-	else
+	if [[ ! -e ${net_setup_link} ]]; then
 		[[ -f ${net_name_slot} && $(sed -e "/^#/d" -e "/^\W*$/d" ${net_name_slot} | wc -l) == 0 ]] && net_move=yes
 		if [[ -L ${net_name_slot} && $(readlink ${net_name_slot}) == /dev/null ]]; then
 			net_move=yes
@@ -501,16 +473,16 @@ pkg_postinst() {
 		eend $?
 	fi
 
+	# http://cgit.freedesktop.org/systemd/systemd/commit/rules/50-udev-default.rules?id=3dff3e00e044e2d53c76fa842b9a4759d4a50e69
+	# http://bugs.gentoo.org/246847
+	# http://bugs.gentoo.org/514174
+	enewgroup input
+
 	# Update hwdb database in case the format is changed by udev version.
 	if has_version 'sys-apps/hwids[udev]'; then
 		udevadm hwdb --update --root="${ROOT%/}"
 		# Only reload when we are not upgrading to avoid potential race w/ incompatible hwdb.bin and the running udevd
-		if [[ -z ${REPLACING_VERSIONS} ]]; then
-			# http://cgit.freedesktop.org/systemd/systemd/commit/?id=1fab57c209035f7e66198343074e9cee06718bda
-			if [[ ${ROOT} != "" ]] && [[ ${ROOT} != "/" ]]; then
-				return 0
-			fi
-			udevadm control --reload
-		fi
+		# http://cgit.freedesktop.org/systemd/systemd/commit/?id=1fab57c209035f7e66198343074e9cee06718bda
+		[[ -z ${REPLACING_VERSIONS} ]] && udev_reload
 	fi
 }

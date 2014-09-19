@@ -1,6 +1,16 @@
 # ChangeLog for dev-vcs/fossil
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/fossil/ChangeLog,v 1.17 2013/12/13 14:19:53 mr_bones_ Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/fossil/ChangeLog,v 1.20 2014/09/01 16:41:42 mgorny Exp $
+
+  01 Sep 2014; Michał Górny <mgorny@gentoo.org> fossil-20130911114349.ebuild:
+  Remove := subslot operator from || () block since it is meaningless and
+  broken.
+
+  04 May 2014; Agostino Sarubbo <ago@gentoo.org> fossil-20130911114349.ebuild:
+  Stable for x86, wrt bug #502812
+
+  18 Apr 2014; Chema Alonso <nimiux@gentoo.org> fossil-20130911114349.ebuild:
+  Stable for amd64 wrt bug #502812
 
 *fossil-20130911114349 (13 Dec 2013)
 

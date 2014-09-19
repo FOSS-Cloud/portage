@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-laptop/laptop-mode-tools/laptop-mode-tools-1.64.ebuild,v 1.2 2013/09/12 05:43:52 alonbl Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-laptop/laptop-mode-tools/laptop-mode-tools-1.64.ebuild,v 1.6 2014/07/14 15:01:09 ssuominen Exp $
 
 EAPI=5
 inherit eutils multilib systemd udev
@@ -13,12 +13,13 @@ SRC_URI="http://www.samwel.tk/laptop_mode/tools/downloads/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="+acpi apm bluetooth scsi"
 
 RDEPEND="net-wireless/wireless-tools
 	sys-apps/ethtool
 	sys-apps/hdparm
+	sys-apps/which
 	acpi? ( sys-power/acpid )
 	apm? ( sys-apps/apmd )
 	bluetooth? ( net-wireless/bluez:= )
@@ -41,7 +42,7 @@ src_install() {
 		INIT_D="none" \
 		MAN_D="/usr/share/man" \
 		LIB_D="/usr/$(get_libdir)" \
-		UDEV_D="$(udev_get_udevdir)" \
+		UDEV_D="$(get_udevdir)" \
 		SYSTEMD_UNIT_D="$(systemd_get_unitdir)" \
 		TMPFILES_D="/usr/$(get_libdir)/tmpfiles.d" \
 		ACPI="$(use acpi && echo force || echo disabled)" \

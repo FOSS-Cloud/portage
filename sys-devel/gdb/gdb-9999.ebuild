@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gdb/gdb-9999.ebuild,v 1.26 2014/03/18 01:04:59 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/gdb/gdb-9999.ebuild,v 1.29 2014/08/04 01:30:06 vapier Exp $
 
 EAPI="4"
-PYTHON_COMPAT=( python{2_7,3_3} )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 
 inherit flag-o-matic eutils python-single-r1
 
@@ -38,8 +38,8 @@ case ${PV} in
 	;;
 *)
 	# Normal upstream release
-	SRC_URI="mirror://gnu/gdb/${P}.tar.bz2
-		ftp://sourceware.org/pub/gdb/releases/${P}.tar.bz2"
+	SRC_URI="mirror://gnu/gdb/${P}.tar.xz
+		ftp://sourceware.org/pub/gdb/releases/${P}.tar.xz"
 	;;
 esac
 
@@ -105,6 +105,7 @@ src_configure() {
 	is_cross && myconf+=(
 		--with-sysroot="${sysroot}"
 		--includedir="${sysroot}/usr/include"
+		--with-gdb-datadir="\${datadir}/gdb/${CTARGET}"
 	)
 
 	if use server && ! use client ; then
@@ -157,7 +158,13 @@ src_install() {
 
 	# Don't install docs when building a cross-gdb
 	if [[ ${CTARGET} != ${CHOST} ]] ; then
-		rm -r "${ED}"/usr/share
+		rm -r "${ED}"/usr/share/{doc,info,locale}
+		local f
+		for f in "${ED}"/usr/share/man/*/* ; do
+			if [[ ${f##*/} != ${CTARGET}-* ]] ; then
+				mv "${f}" "${f%/*}/${CTARGET}-${f##*/}" || die
+			fi
+		done
 		return 0
 	fi
 	# Install it by hand for now:

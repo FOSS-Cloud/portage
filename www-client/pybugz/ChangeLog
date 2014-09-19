@@ -1,6 +1,65 @@
 # ChangeLog for www-client/pybugz
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/pybugz/ChangeLog,v 1.113 2014/03/31 21:24:33 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/pybugz/ChangeLog,v 1.128 2014/09/10 22:14:54 williamh Exp $
+
+*pybugz-0.11.1 (10 Sep 2014)
+
+  10 Sep 2014; William Hubbs <williamh@gentoo.org> +pybugz-0.11.1.ebuild:
+  version bump
+
+  08 Sep 2014; William Hubbs <williamh@gentoo.org> pybugz-0.11.ebuild,
+  pybugz-9999.ebuild:
+  add python 3.4 compatibility
+
+*pybugz-0.11 (04 Sep 2014)
+
+  04 Sep 2014; William Hubbs <williamh@gentoo.org> +pybugz-0.11.ebuild:
+  version bump
+
+  30 Aug 2014; William Hubbs <williamh@gentoo.org> pybugz-9999.ebuild:
+  only support python-3.3 or newer due to upstream bugs in python 2.x
+
+  13 Aug 2014; Raúl Porcel <armin76@gentoo.org> pybugz-0.10.1-r2.ebuild:
+  alpha/ia64/sparc stable wrt #517550
+
+  06 Aug 2014; Jeroen Roovers <jer@gentoo.org> pybugz-0.10.1-r2.ebuild:
+  Stable for HPPA (bug #517550).
+
+  29 Jul 2014; Markus Meier <maekke@gentoo.org> pybugz-0.10.1-r2.ebuild:
+  arm stable, bug #517550
+
+  28 Jul 2014; William Hubbs <williamh@gentoo.org> pybugz-9999.ebuild:
+  add python3_3 to python_compat
+
+  27 Jul 2014; Pacho Ramos <pacho@gentoo.org> pybugz-0.10.1-r2.ebuild:
+  x86 stable, bug #517550
+
+  27 Jul 2014; William Hubbs <williamh@gentoo.org> pybugz-0.10.1-r2.ebuild:
+  amd64 stable for bug #517550.
+
+  22 Jun 2014; William Hubbs <william@gentoo.org>
+  -files/pybugz-9999-bugzilla-4.4.1.patch, pybugz-9999.ebuild:
+  Move the token support upstream
+
+*pybugz-0.10.1-r2 (21 May 2014)
+
+  21 May 2014; Justin Lecher <jlec@gentoo.org> -pybugz-0.10.1-r1.ebuild,
+  +pybugz-0.10.1-r2.ebuild, files/pybugz-0.10.1-bugzilla-4.4.1.patch,
+  files/pybugz-9999-bugzilla-4.4.1.patch:
+  Update patch
+
+  20 May 2014; Justin Lecher <jlec@gentoo.org> pybugz-9999.ebuild,
+  +files/pybugz-9999-bugzilla-4.4.1.patch:
+  Fix patch for live version
+
+  19 May 2014; Justin Lecher <jlec@gentoo.org> -pybugz-0.9.3.ebuild:
+  Drop old
+
+*pybugz-0.10.1-r1 (19 May 2014)
+
+  19 May 2014; Justin Lecher <jlec@gentoo.org> +pybugz-0.10.1-r1.ebuild,
+  pybugz-9999.ebuild, +files/pybugz-0.10.1-bugzilla-4.4.1.patch:
+  Add compatibility patch for bugzilla 4.4.1 made by Akinori Hattori, #488688
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> pybugz-9999.ebuild:
   Add support for the new PyPy slotting.

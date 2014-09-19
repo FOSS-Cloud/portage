@@ -1,17 +1,17 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/gemcutter/gemcutter-0.7.1.ebuild,v 1.1 2012/05/12 09:11:53 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/gemcutter/gemcutter-0.7.1.ebuild,v 1.3 2014/08/05 16:00:41 mrueg Exp $
 
 EAPI=4
 
-USE_RUBY="ruby18 ree18 ruby19"
+USE_RUBY="ruby19"
 
 RUBY_FAKEGEM_TASK_TEST="test"
 RUBY_FAKEGEM_TASK_DOC=""
 
 inherit ruby-fakegem
 
-DESCRIPTION="Provides the gem yank and gem webhook commands to RubyGems."
+DESCRIPTION="Provides the gem yank and gem webhook commands to RubyGems"
 HOMEPAGE="http://github.com/rubygems/gemcutter"
 SRC_URI="https://github.com/rubygems/gemcutter/tarball/v${PV} -> ${P}-git.tgz"
 RUBY_S="rubygems-gemcutter-*"

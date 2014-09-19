@@ -1,6 +1,39 @@
 # ChangeLog for dev-python/h5py
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/h5py/ChangeLog,v 1.22 2013/12/11 12:48:00 xarthisius Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/h5py/ChangeLog,v 1.31 2014/08/11 07:07:13 jlec Exp $
+
+  11 Aug 2014; Justin Lecher <jlec@gentoo.org> h5py-2.3.1.ebuild:
+  Add python3.4 support
+
+  23 Jul 2014; Kacper Kowalik <xarthisius@gentoo.org> h5py-2.3.1.ebuild:
+  Introduce subslot and strict mpi= dependency for hdf5, see #302621
+
+  23 Jul 2014; Kacper Kowalik <xarthisius@gentoo.org> h5py-2.3.1.ebuild:
+  Make sure that --mpi is passed to setup.py during each stage
+
+  23 Jul 2014; Kacper Kowalik <xarthisius@gentoo.org> h5py-2.3.1.ebuild:
+  Use mpi wrapper when compiling with parallel hdf5. Tests with USE=mpi are
+  completely fine
+
+*h5py-2.3.1 (22 Jul 2014)
+
+  22 Jul 2014; Kacper Kowalik <xarthisius@gentoo.org> +h5py-2.3.1.ebuild:
+  Version bump, fixes bug #517178 by Tolga Dalman <tdalman@project-psi.org>
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> h5py-2.2.1-r1.ebuild,
+  h5py-2.2.1.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
+
+  10 Jun 2014; Ian Delaney <idella4@gentoo.org> h5py-2.2.1-r1.ebuild:
+  adjust version of dep hdf5, fixes Bug #512660
+
+*h5py-2.2.1-r1.ebuild (07 Ap=r 2014)
+
+  07 Apr 2014; Ian Delaney <idella4@gentoo.org> +h5py-2.2.1-r1.ebuild,
+  -h5py-2.2.0.ebuild:
+  revbump; Add IUSE mpi, update ebuild and test phase due to effects of 
+  use flag, fixes Bug #491680, rm old
 
 *h5py-2.2.1 (11 Dec 2013)
 

@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/gentoolkit/gentoolkit-9999.ebuild,v 1.33 2014/03/20 16:58:56 fuzzyray Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/gentoolkit/gentoolkit-9999.ebuild,v 1.35 2014/07/06 12:35:20 mgorny Exp $
 
 EAPI="5"
 
-PYTHON_COMPAT=(python{2_6,2_7,3_2,3_3} pypy2_0)
+PYTHON_COMPAT=(python{2_6,2_7,3_2,3_3} pypy pypy2_0)
 PYTHON_REQ_USE="xml(+)"
 
 EGIT_MASTER="gentoolkit"
@@ -30,8 +30,7 @@ RDEPEND="${DEPEND}
 	|| ( >=sys-apps/coreutils-8.15 app-misc/realpath sys-freebsd/freebsd-bin )
 	sys-apps/gawk
 	!prefix? ( sys-apps/gentoo-functions )
-	sys-apps/grep
-	virtual/python-argparse[${PYTHON_USEDEP}]"
+	sys-apps/grep"
 
 python_prepare_all() {
 	python_export_best

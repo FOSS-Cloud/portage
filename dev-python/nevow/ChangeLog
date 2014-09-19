@@ -1,6 +1,21 @@
 # ChangeLog for dev-python/nevow
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/nevow/ChangeLog,v 1.50 2013/08/09 17:36:54 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/nevow/ChangeLog,v 1.54 2014/08/14 16:36:59 phajdan.jr Exp $
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> nevow-0.11.1.ebuild:
+  x86 stable wrt bug #518242
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> nevow-0.10.0.ebuild,
+  nevow-0.11.1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  04 Jul 2014; Ian Delaney <idella4@gentoo.org> -nevow-0.10.0-r1.ebuild:
+  rm old unstable, closes Bug #514234
+
+*nevow-0.11.1 (30 Jun 2014)
+
+  30 Jun 2014; Patrick Lauer <patrick@gentoo.org> +nevow-0.11.1.ebuild:
+  Bump
 
   09 Aug 2013; Michał Górny <mgorny@gentoo.org> nevow-0.10.0-r1.ebuild:
   Own the dropin.cache for nevow.plugins.

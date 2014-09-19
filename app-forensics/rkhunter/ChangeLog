@@ -1,6 +1,37 @@
 # ChangeLog for app-forensics/rkhunter
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-forensics/rkhunter/ChangeLog,v 1.97 2013/04/11 06:20:32 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-forensics/rkhunter/ChangeLog,v 1.105 2014/08/10 17:46:50 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> rkhunter-1.4.0.ebuild,
+  rkhunter-1.4.2.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  03 Aug 2014; Agostino Sarubbo <ago@gentoo.org> rkhunter-1.4.2.ebuild:
+  Stable for ppc, wrt bug #515868
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> rkhunter-1.4.2.ebuild:
+  x86 stable wrt bug #515868
+
+  21 Jul 2014; Chema Alonso <nimiux@gentoo.org> rkhunter-1.4.2.ebuild:
+  Stable for amd64 wrt bug #515868
+
+*rkhunter-1.4.0 (30 Jun 2014)
+
+  30 Jun 2014; Rick Farina <zerochaos@gentoo.org> +rkhunter-1.4.0.ebuild:
+  readding inappropriately dropped stable
+
+  29 Jun 2014; Rick Farina <zerochaos@gentoo.org> -rkhunter-1.4.0.ebuild:
+  remove old version
+
+  27 May 2014; Rick Farina <zerochaos@gentoo.org>
+  +files/rkhunter-1.4.0.conf.patch, +files/rkhunter-1.4.2.conf.patch,
+  -files/rkhunter.conf.patch, rkhunter-1.4.0.ebuild, rkhunter-1.4.2.ebuild:
+  tested improperly, bump is proper now
+
+*rkhunter-1.4.2 (27 May 2014)
+
+  27 May 2014; Rick Farina <zerochaos@gentoo.org> +rkhunter-1.4.2.ebuild:
+  simple revbump as requested by bug 504066. tested and functional
 
   11 Apr 2013; Patrick Lauer <patrick@gentoo.org> rkhunter-1.4.0.ebuild:
   Dependency fix for #398123

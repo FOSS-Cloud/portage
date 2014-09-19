@@ -1,6 +1,75 @@
 # ChangeLog for mail-mta/exim
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/exim/ChangeLog,v 1.274 2014/03/04 21:22:02 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/exim/ChangeLog,v 1.288 2014/08/13 06:14:55 grobian Exp $
+
+*exim-4.84 (13 Aug 2014)
+
+  13 Aug 2014; Fabian Groffen <grobian@gentoo.org> +exim-4.84.ebuild,
+  -exim-4.83.ebuild, -exim-4.84_rc2.ebuild:
+  Version bump to 4.84, changes at http://git.exim.org/exim.git/blob/exim-
+  4_84:/doc/doc-txt/ChangeLog
+
+*exim-4.84_rc2 (09 Aug 2014)
+
+  09 Aug 2014; Fabian Groffen <grobian@gentoo.org> +exim-4.84_rc2.ebuild,
+  -exim-4.84_rc1.ebuild:
+  Version bump to 4.84 RC2
+
+*exim-4.84_rc1 (04 Aug 2014)
+
+  04 Aug 2014; Fabian Groffen <grobian@gentoo.org> +exim-4.84_rc1.ebuild,
+  exim-4.82.1.ebuild, exim-4.83.ebuild:
+  Version bump to 4.84 RC1
+
+*exim-4.83 (22 Jul 2014)
+
+  22 Jul 2014; Fabian Groffen <grobian@gentoo.org> +exim-4.83.ebuild,
+  -exim-4.83_rc3.ebuild:
+  Version bump, addresses CVE-2014-2972, feature release, see
+  http://git.exim.org/exim.git/blob/exim-4_83:/doc/doc-txt/ChangeLog
+
+*exim-4.83_rc3 (09 Jul 2014)
+
+  09 Jul 2014; Fabian Groffen <grobian@gentoo.org> +exim-4.83_rc3.ebuild,
+  -exim-4.83_rc2.ebuild:
+  Version bump to 4.83 RC3
+
+*exim-4.83_rc2 (06 Jun 2014)
+
+  06 Jun 2014; Fabian Groffen <grobian@gentoo.org> +exim-4.83_rc2.ebuild,
+  -exim-4.83_rc1.ebuild:
+  Version bump to 4.83 RC2
+
+  30 May 2014; Fabian Groffen <grobian@gentoo.org> exim-4.83_rc1.ebuild:
+  Don't deal with eximon twice, should fix bug #511836
+
+  30 May 2014; Fabian Groffen <grobian@gentoo.org> exim-4.83_rc1.ebuild:
+  Notify DSN users to remove dsn_process switches, by Marcin Mirosław, bug
+  #511818
+
+  30 May 2014; Fabian Groffen <grobian@gentoo.org> exim-4.83_rc1.ebuild:
+  Workaround whitespace eaters
+
+  30 May 2014; Patrick Lauer <patrick@gentoo.org> exim-4.83_rc1.ebuild:
+  Whitespace
+
+  29 May 2014; Fabian Groffen <grobian@gentoo.org> exim-4.83_rc1.ebuild:
+  Add back dsearch, bug #511790
+
+  29 May 2014; Fabian Groffen <grobian@gentoo.org> -exim-4.82-r1.ebuild,
+  -exim-4.82.ebuild:
+  Remove vulnerable versions, bug #511686
+
+*exim-4.83_rc1 (29 May 2014)
+
+  29 May 2014; Fabian Groffen <grobian@gentoo.org> +exim-4.83_rc1.ebuild,
+  metadata.xml:
+  Version bump to 4.83 RC1, cleaned up ebuild somewhat
+
+*exim-4.82.1 (28 May 2014)
+
+  28 May 2014; Fabian Groffen <grobian@gentoo.org> +exim-4.82.1.ebuild:
+  Version bump for CVE-2014-2957
 
   04 Mar 2014; Naohiro Aota <naota@gentoo.org> exim-4.82-r1.ebuild:
   Add ~x86-fbsd #489736

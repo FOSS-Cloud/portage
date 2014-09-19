@@ -1,18 +1,18 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/opencc/opencc-0.4.3.ebuild,v 1.1 2013/07/20 07:04:29 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/opencc/opencc-0.4.3.ebuild,v 1.3 2014/09/09 09:24:41 jer Exp $
 
 EAPI=5
 
 inherit cmake-utils multilib eutils
 
-DESCRIPTION="Libraries for conversion between Traditional and Simplified Chinese."
+DESCRIPTION="Libraries for conversion between Traditional and Simplified Chinese"
 HOMEPAGE="http://code.google.com/p/opencc/"
 SRC_URI="https://opencc.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="+nls static-libs"
 
 DEPEND="nls? ( sys-devel/gettext )"

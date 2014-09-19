@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/flickr/flickr-1.0.2-r5.ebuild,v 1.3 2013/09/05 13:55:25 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/flickr/flickr-1.0.2-r5.ebuild,v 1.5 2014/08/05 16:01:01 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby18 ruby19 jruby"
+USE_RUBY="ruby19 jruby"
 
 # Tests require a flickr API key.
 RUBY_FAKEGEM_RECIPE_TEST="none"
@@ -12,7 +12,7 @@ RUBY_FAKEGEM_RECIPE_DOC="rdoc"
 
 inherit ruby-fakegem
 
-DESCRIPTION="An insanely easy interface to the Flickr photo-sharing service."
+DESCRIPTION="An insanely easy interface to the Flickr photo-sharing service"
 HOMEPAGE="http://rubyforge.org/projects/flickr/"
 SRC_URI="mirror://gentoo/${P}-gentoo.tar.bz2"
 

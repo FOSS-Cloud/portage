@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/multipath-tools/multipath-tools-0.5.0-r1.ebuild,v 1.7 2014/03/14 10:51:44 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/multipath-tools/multipath-tools-0.5.0-r1.ebuild,v 1.9 2014/07/30 19:27:36 ssuominen Exp $
 
 EAPI=4
-inherit eutils toolchain-funcs udev
+inherit eutils systemd toolchain-funcs udev
 
 DESCRIPTION="Device mapper target autoconfig"
 HOMEPAGE="http://christophe.varoqui.free.fr/"
@@ -35,12 +35,13 @@ src_compile() {
 }
 
 src_install() {
-	local udevdir="$(udev_get_udevdir)"
+	local udevdir="$(get_udevdir)"
 
 	dodir /sbin /usr/share/man/man8
 	emake \
 		DESTDIR="${D}" \
 		SYSTEMD=$(usex systemd 1 "") \
+		unitdir="$(systemd_get_unitdir)" \
 		libudevdir='${prefix}'/"${udevdir}" \
 		install
 

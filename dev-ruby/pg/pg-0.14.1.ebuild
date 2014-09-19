@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/pg/pg-0.14.1.ebuild,v 1.6 2013/04/05 18:23:31 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/pg/pg-0.14.1.ebuild,v 1.8 2014/04/21 07:07:53 graaff Exp $
 
 EAPI=4
-USE_RUBY="ruby18 ree18 ruby19"
+USE_RUBY="ruby19"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
@@ -25,7 +25,7 @@ RDEPEND="${RDEPEND}
 	dev-db/postgresql-base"
 DEPEND="${DEPEND}
 	dev-db/postgresql-base
-	test? ( dev-db/postgresql-server )"
+	test? ( dev-db/postgresql-server dev-db/postgresql-base[threads] )"
 
 ruby_add_bdepend "
 	doc? (

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/linux/amd64/no-multilib/package.mask,v 1.31 2014/04/01 15:41:15 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/linux/amd64/no-multilib/package.mask,v 1.37 2014/09/16 22:26:50 ulm Exp $
 
 # These are broken as reported by Halcy0n, Aug, 23, 2011
 net-misc/teamviewer
@@ -14,6 +14,7 @@ games-action/beathazardultra
 games-action/solar2
 games-arcade/dynamitejack
 games-kids/crayon-physics
+games-misc/katawa-shoujo
 games-misc/papers-please
 games-rpg/dungeon-defenders
 games-rpg/bastion
@@ -36,7 +37,6 @@ app-emulation/vmware-player
 >=app-i18n/atokx3-3.0.0
 app-office/ooextras
 app-emulation/emul-linux-x86-baselibs
-app-emulation/emul-linux-x86-compat
 app-emulation/emul-linux-x86-cpplibs
 app-emulation/emul-linux-x86-db
 app-emulation/emul-linux-x86-gstplugins
@@ -84,6 +84,7 @@ games-arcade/aquaria
 games-arcade/barbarian-bin
 games-arcade/jardinains
 games-arcade/gish-demo
+games-arcade/thinktanks-demo
 games-emulation/caps
 games-emulation/nestra
 games-emulation/zinc
@@ -104,6 +105,7 @@ games-fps/doom3-roe
 games-fps/doom3
 games-fps/enemy-territory-etpro
 games-fps/enemy-territory-fortress
+games-fps/enemy-territory-omnibot
 games-fps/enemy-territory-truecombat
 games-fps/enemy-territory
 games-fps/etqw-bin
@@ -170,7 +172,6 @@ media-sound/shoutcast-server-bin
 media-sound/shoutcast-trans-bin
 media-sound/skype-call-recorder
 media-sound/ventrilo-server-bin
-media-tv/huludesktop
 media-video/binkplayer
 media-video/tsmuxer
 net-im/skype
@@ -193,4 +194,5 @@ sys-apps/memtest86
 sys-apps/memtest86+
 sys-libs/lib-compat-loki
 www-plugins/nspluginwrapper
+www-plugins/pipelight
 <sys-boot/grub-1.99

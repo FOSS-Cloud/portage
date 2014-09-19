@@ -1,6 +1,27 @@
 # ChangeLog for media-libs/clutter
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter/ChangeLog,v 1.83 2014/03/09 12:02:02 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter/ChangeLog,v 1.88 2014/09/02 10:05:05 pacho Exp $
+
+*clutter-1.18.4 (02 Sep 2014)
+
+  02 Sep 2014; Pacho Ramos <pacho@gentoo.org> +clutter-1.18.4.ebuild,
+  -clutter-1.16.4-r1.ebuild:
+  Version bump, drop old, stop using clutter.eclass (#486362)
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> clutter-1.18.2.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> clutter-1.18.2.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*clutter-1.18.2 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> +clutter-1.18.2.ebuild:
+  Version bump for Gnome 3.12.
+
+  18 Apr 2014; Pacho Ramos <pacho@gentoo.org> -clutter-1.12.2.ebuild,
+  -clutter-1.14.6.ebuild, -clutter-1.16.4.ebuild:
+  drop old
 
   09 Mar 2014; Pacho Ramos <pacho@gentoo.org> clutter-1.16.4-r1.ebuild:
   x86 stable, bug 499954

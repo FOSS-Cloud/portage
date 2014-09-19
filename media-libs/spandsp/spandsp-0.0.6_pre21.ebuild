@@ -1,18 +1,18 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/spandsp/spandsp-0.0.6_pre21.ebuild,v 1.2 2013/05/06 04:20:55 mattst88 Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/spandsp/spandsp-0.0.6_pre21.ebuild,v 1.4 2014/08/10 21:12:02 slyfox Exp $
 
 EAPI="5"
 
 inherit multilib versionator
 
-DESCRIPTION="SpanDSP is a library of DSP functions for telephony."
+DESCRIPTION="SpanDSP is a library of DSP functions for telephony"
 HOMEPAGE="http://www.soft-switch.org/"
 SRC_URI="http://www.soft-switch.org/downloads/spandsp/${P/_}.tgz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 IUSE="doc fixed-point mmx sse sse2 sse3 static-libs"
 
 RDEPEND="media-libs/tiff"

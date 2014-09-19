@@ -1,6 +1,43 @@
 # ChangeLog for x11-terms/gnome-terminal
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/gnome-terminal/ChangeLog,v 1.284 2014/03/25 04:08:58 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-terms/gnome-terminal/ChangeLog,v 1.291 2014/07/23 15:38:54 ago Exp $
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnome-terminal-3.12.3.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnome-terminal-3.12.3.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*gnome-terminal-3.12.3 (26 Jun 2014)
+
+  26 Jun 2014; Pacho Ramos <pacho@gentoo.org> +gnome-terminal-3.12.3.ebuild,
+  -gnome-terminal-3.12.0.ebuild:
+  Version bump, drop old
+
+*gnome-terminal-3.12.2 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> +gnome-terminal-3.12.2.ebuild:
+  Version bump
+
+  29 May 2014; Pacho Ramos <pacho@gentoo.org> gnome-terminal-3.12.0.ebuild:
+  Drop old elog message as the transition was done long time ago (and it's
+  wrongly starting to be shown again due 3.1x number ordering)
+
+*gnome-terminal-3.12.0 (28 Apr 2014)
+
+  28 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-terminal-3.12.0.ebuild,
+  +files/gnome-terminal-3.12.0-appmenu-parameter.patch,
+  +files/gnome-terminal-3.12.0-fallback-title-1.patch,
+  +files/gnome-terminal-3.12.0-fallback-title-2.patch,
+  +files/gnome-terminal-3.12.0-remove-set-title-feature-0.patch,
+  +files/gnome-terminal-3.12.0-remove-set-title-feature-1.patch,
+  +files/gnome-terminal-3.12.0-remove-set-title-feature-2.patch,
+  +files/gnome-terminal-3.12.0-remove-set-title-feature-3.patch, metadata.xml:
+  Version bump for Gnome 3.12. Add gnome-shell USE flag local description.
+
+  27 Apr 2014; Pacho Ramos <pacho@gentoo.org> -gnome-terminal-3.8.4.ebuild:
+  drop old
 
   25 Mar 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
   gnome-terminal-3.10.2.ebuild, +files/gnome-terminal-3.10.2-sys-wait.h.patch:

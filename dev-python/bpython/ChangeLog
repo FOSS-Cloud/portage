@@ -1,6 +1,28 @@
 # ChangeLog for dev-python/bpython
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/bpython/ChangeLog,v 1.37 2013/04/10 17:18:00 floppym Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/bpython/ChangeLog,v 1.42 2014/07/21 08:05:53 patrick Exp $
+
+*bpython-0.13.1 (21 Jul 2014)
+
+  21 Jul 2014; Patrick Lauer <patrick@gentoo.org> +bpython-0.13.1.ebuild:
+  Bump, fix test phase
+
+  18 Jul 2014; Ian Delaney <idella4@gentoo.org> bpython-0.13.ebuild:
+  remove unrequired dep pygobject:3, noted by Afrever
+
+  05 Jul 2014; Ian Delaney <idella4@gentoo.org>
+  +files/bpython-0.13-test_repl.patch, bpython-0.13.ebuild:
+  update test phase
+
+  04 Jul 2014; Ian Delaney <idella4@gentoo.org> bpython-0.13.ebuild:
+  tidy
+
+*bpython-0.13 (05 Jun 2014)
+
+  05 Jun 2014; Ian Delaney <idella4@gentoo.org> +bpython-0.13.ebuild,
+  -bpython-0.11.ebuild:
+  add py3 support, upgrade deps, IUSE doc & doc build, test phase, remove IUSE
+  urwid and set urwid as hard dep
 
   10 Apr 2013; Mike Gilbert <floppym@gentoo.org> bpython-0.12.ebuild:
   Restrict python2.5 due to syntax error in autocomplete.py.

@@ -1,6 +1,17 @@
 # ChangeLog for games-simulation/crrcsim
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-simulation/crrcsim/ChangeLog,v 1.8 2012/12/21 03:08:34 mr_bones_ Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-simulation/crrcsim/ChangeLog,v 1.10 2014/06/01 22:27:36 hasufell Exp $
+
+*crrcsim-0.9.12-r1 (01 Jun 2014)
+
+  01 Jun 2014; Julian Ospald <hasufell@gentoo.org> -crrcsim-0.9.12.ebuild,
+  +crrcsim-0.9.12-r1.ebuild, files/crrcsim-buildsystem.patch:
+  respect GAMES variables wrt #494202, install icon and desktop file wrt
+  #494224
+
+  15 May 2014; Ulrich Müller <ulm@gentoo.org> crrcsim-0.9.12.ebuild:
+  Fix USE dependency on media-libs/libsdl, "audio" USE flag was renamed to
+  "sound", bug 357661.
 
   21 Dec 2012; Michael Sterrett <mr_bones_@gentoo.org> crrcsim-0.9.12.ebuild:
   EAPI=4; eliminate built_with_use

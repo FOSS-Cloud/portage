@@ -1,6 +1,83 @@
 # ChangeLog for x11-wm/xpra
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/xpra/ChangeLog,v 1.97 2014/03/29 12:00:24 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/xpra/ChangeLog,v 1.111 2014/08/19 17:14:52 xmw Exp $
+
+*xpra-0.13.9 (19 Aug 2014)
+
+  19 Aug 2014; Michael Weber <xmw@gentoo.org> +xpra-0.13.9.ebuild,
+  -xpra-0.13.3.ebuild:
+  Version bump
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> xpra-0.11.6.ebuild:
+  x86 stable wrt bug #512864
+
+*xpra-0.13.7 (12 Jul 2014)
+
+  12 Jul 2014; Michael Weber <xmw@gentoo.org> +xpra-0.13.7.ebuild,
+  -xpra-0.13.2.ebuild:
+  Version bump (bug 513724)
+
+*xpra-0.13.3 (11 Jun 2014)
+
+  11 Jun 2014; Michael Weber <xmw@gentoo.org> +xpra-0.13.3.ebuild,
+  -xpra-0.13.1.ebuild:
+  Version bump (bug 512828)
+
+*xpra-0.13.2 (02 Jun 2014)
+
+  02 Jun 2014; Michael Weber <xmw@gentoo.org> +xpra-0.13.2.ebuild,
+  -xpra-0.12.6.ebuild:
+  Version bump
+
+*xpra-0.13.1 (30 May 2014)
+
+  30 May 2014; Michael Weber <xmw@gentoo.org>
+  +files/xpra-0.13.1-ignore-gentoo-no-compile.patch, +xpra-0.13.1.ebuild:
+  Version bump
+
+*xpra-0.12.7 (30 May 2014)
+
+  30 May 2014; Michael Weber <xmw@gentoo.org> +xpra-0.12.7.ebuild,
+  -xpra-0.12.5.ebuild:
+  Version bump
+
+*xpra-0.12.6 (19 May 2014)
+
+  19 May 2014; Michael Weber <xmw@gentoo.org> +xpra-0.12.6.ebuild,
+  -xpra-0.12.3.ebuild, -xpra-0.12.4.ebuild:
+  Version bump
+
+*xpra-0.12.5 (08 May 2014)
+
+  08 May 2014; Michael Weber <xmw@gentoo.org> +xpra-0.12.5.ebuild:
+  Version bump
+
+*xpra-0.12.4 (28 Apr 2014)
+
+  28 Apr 2014; Michael Weber <xmw@gentoo.org> +xpra-0.12.4.ebuild,
+  -xpra-0.12.1.ebuild, -xpra-0.12.2.ebuild:
+  Version bump
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> xpra-0.10.12-r1.ebuild,
+  xpra-0.11.6.ebuild, xpra-0.12.1.ebuild, xpra-0.12.2.ebuild,
+  xpra-0.12.3.ebuild, xpra-0.9.8.ebuild:
+  Adapt to latest pygobject don't providing python2.6 support
+
+*xpra-0.12.3 (22 Apr 2014)
+
+  22 Apr 2014; Michael Weber <xmw@gentoo.org> +xpra-0.12.3.ebuild:
+  Version bump.
+
+*xpra-0.12.2 (09 Apr 2014)
+
+  09 Apr 2014; Michael Weber <xmw@gentoo.org> +xpra-0.12.2.ebuild,
+  -xpra-0.11.4.ebuild, -xpra-0.12.0.ebuild:
+  Version bump.
+
+  06 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> xpra-0.9.8.ebuild,
+  xpra-0.10.12-r1.ebuild, xpra-0.11.4.ebuild, xpra-0.11.6.ebuild,
+  xpra-0.12.0.ebuild, xpra-0.12.1.ebuild:
+  Pin gst-python to 0.10 slot.
 
 *xpra-0.12.1 (29 Mar 2014)
 

@@ -1,6 +1,12 @@
 # ChangeLog for app-emulation/vice
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/vice/ChangeLog,v 1.93 2013/06/04 20:41:32 mr_bones_ Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/vice/ChangeLog,v 1.95 2014/08/09 12:09:23 ago Exp $
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> vice-2.4.ebuild:
+  Stable for ppc, wrt bug #416211
+
+  24 Jul 2014; Alfredo Tupone <tupone@gentoo.org> vice-2.4.ebuild:
+  Require media-libs/fontconfig during build. Bug #514416 by Patrick Lauer
 
   04 Jun 2013; Michael Sterrett <mr_bones_@gentoo.org> vice-2.4.ebuild:
   punt custom arg checking function (bug #471260)

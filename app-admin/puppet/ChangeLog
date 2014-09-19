@@ -1,6 +1,43 @@
 # ChangeLog for app-admin/puppet
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/puppet/ChangeLog,v 1.195 2014/03/16 21:52:37 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/puppet/ChangeLog,v 1.203 2014/08/19 11:19:09 armin76 Exp $
+
+  19 Aug 2014; Raúl Porcel <armin76@gentoo.org> puppet-3.6.2.ebuild:
+  Add ~sparc wrt #513322
+
+  09 Aug 2014; Jeroen Roovers <jer@gentoo.org> puppet-2.7.25.ebuild:
+  Stable for HPPA (bug #513284).
+
+  23 Jul 2014; Patrick Lauer <patrick@gentoo.org> puppet-3.6.2.ebuild:
+  Temporarily drop keywords #513322
+
+  15 Jun 2014; Matthew Thode <prometheanfire@gentoo.org>
+  -puppet-3.4.3-r1.ebuild:
+  removing another
+
+*puppet-3.6.2 (15 Jun 2014)
+*puppet-2.7.25 (15 Jun 2014)
+
+  15 Jun 2014; Matthew Thode <prometheanfire@gentoo.org> +puppet-2.7.25.ebuild,
+  +puppet-3.6.2.ebuild, -puppet-3.4.2-r1.ebuild, -puppet-3.4.2-r2.ebuild,
+  -puppet-3.4.2.ebuild, -puppet-3.5.1.ebuild, -puppet-3.6.0.ebuild,
+  -puppet-3.6.1.ebuild:
+  fixes for CVE-2014-32[48,50] bug 513284
+
+*puppet-3.6.1 (24 May 2014)
+
+  24 May 2014; Matthew Thode <prometheanfire@gentoo.org> +puppet-3.6.1.ebuild:
+  bup
+
+*puppet-3.6.0 (18 May 2014)
+
+  18 May 2014; Hans de Graaff <graaff@gentoo.org> +puppet-3.6.0.ebuild:
+  Version bump. Update dependencies. Run specs in the test phase.
+
+*puppet-3.5.1 (14 May 2014)
+
+  14 May 2014; Matthew Thode <prometheanfire@gentoo.org> +puppet-3.5.1.ebuild:
+  fixing bug 508500 and bug 508498 (in 3.5.1)
 
 *puppet-3.4.3-r1 (16 Mar 2014)
 

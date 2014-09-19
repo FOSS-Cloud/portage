@@ -1,6 +1,14 @@
 # ChangeLog for dev-python/simplegeneric
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/simplegeneric/ChangeLog,v 1.17 2014/03/31 20:33:49 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/simplegeneric/ChangeLog,v 1.19 2014/08/14 23:24:34 blueness Exp $
+
+  14 Aug 2014; Anthony G. Basile <blueness@gentoo.org>
+  simplegeneric-0.8.1-r1.ebuild, simplegeneric-0.8.1.ebuild,
+  simplegeneric-0.8.ebuild:
+  Keyword ~ppc and ~ppc64, bug #481462
+
+  04 Apr 2014; Tim Harder <radhermit@gentoo.org> simplegeneric-0.8.1-r1.ebuild:
+  Add python3_4 support.
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> simplegeneric-0.8.1-r1.ebuild:
   Add support for the new PyPy slotting.

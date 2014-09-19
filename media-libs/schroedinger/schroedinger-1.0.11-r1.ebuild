@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/schroedinger/schroedinger-1.0.11-r1.ebuild,v 1.1 2013/08/10 16:10:41 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/schroedinger/schroedinger-1.0.11-r1.ebuild,v 1.6 2014/08/07 19:05:57 jer Exp $
 
 EAPI=5
 
@@ -15,10 +15,10 @@ SRC_URI="http://www.diracvideo.org/download/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2 MIT MPL-1.1"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="amd64 hppa ppc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE="static-libs"
 
-RDEPEND=">=dev-lang/orc-0.4.16[${MULTILIB_USEDEP}]"
+RDEPEND=">=dev-lang/orc-0.4.17[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	dev-util/gtk-doc-am"

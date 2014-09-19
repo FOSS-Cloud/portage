@@ -1,6 +1,46 @@
 # ChangeLog for dev-util/re2c
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/re2c/ChangeLog,v 1.68 2013/06/11 18:40:58 maekke Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/re2c/ChangeLog,v 1.77 2014/09/03 17:18:07 ottxor Exp $
+
+  03 Sep 2014; Christoph Junghans <ottxor@gentoo.org> re2c-0.13.7.5.ebuild:
+  added ~x64-macos (tested by me)
+
+*re2c-0.13.7.5 (22 Aug 2014)
+
+  22 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> +re2c-0.13.7.5.ebuild,
+  -re2c-0.13.7.2.ebuild:
+  Version bump, drop broken version (bug #518904).
+
+  22 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> re2c-0.13.7.2.ebuild:
+  Added 'epatch_user' to ease patch testing.
+
+*re2c-0.13.7.2 (27 Jul 2014)
+
+  27 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> +re2c-0.13.7.2.ebuild,
+  -re2c-0.13.7.1.ebuild, metadata.xml:
+  Version bump: fixes user's CXXFLAGS handling (bug #518300), fixes missing mans
+  in tarball (bug #518276).
+
+  27 Jul 2014; Mike Gilbert <floppym@gentoo.org> re2c-0.13.7.1.ebuild:
+  Comment-out manpage installation to workaround bug 518276.
+
+*re2c-0.13.7.1 (26 Jul 2014)
+
+  26 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> +re2c-0.13.7.1.ebuild:
+  Version bump.
+
+  10 Jun 2014; Mike Frysinger <vapier@gentoo.org> re2c-0.13.5-r1.ebuild,
+  re2c-0.13.6.ebuild:
+  Add arm64/m68k/sh love.
+
+  25 Apr 2014; Tim Harder <radhermit@gentoo.org> -re2c-0.12.0.ebuild,
+  -re2c-0.13.2.ebuild, -re2c-0.13.5.ebuild, -files/re2c-0.9.11-gcc41.patch:
+  Remove old.
+
+*re2c-0.13.6 (25 Apr 2014)
+
+  25 Apr 2014; Tim Harder <radhermit@gentoo.org> +re2c-0.13.6.ebuild:
+  Version bump.
 
   11 Jun 2013; Markus Meier <maekke@gentoo.org> re2c-0.13.5-r1.ebuild:
   arm stable, bug #269129

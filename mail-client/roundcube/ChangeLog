@@ -1,6 +1,37 @@
 # ChangeLog for mail-client/roundcube
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/roundcube/ChangeLog,v 1.132 2013/11/12 09:35:25 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/roundcube/ChangeLog,v 1.141 2014/09/14 22:39:43 jer Exp $
+
+  14 Sep 2014; Jeroen Roovers <jer@gentoo.org> roundcube-1.0.2.ebuild:
+  Remove obsolete USE dependency.
+
+  14 Sep 2014; Jeroen Roovers <jer@gentoo.org> -roundcube-0.8.7.ebuild,
+  -roundcube-0.9.5.ebuild, -files/postinstall-en-0.6.txt,
+  -files/postupgrade-en-0.6.txt:
+  Old.
+
+  14 Sep 2014; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.2.ebuild:
+  Stable for ppc, wrt bug #507512
+
+  30 Aug 2014; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.2.ebuild:
+  It should be ~ppc64 instead of stable
+
+  30 Aug 2014; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.2.ebuild:
+  Add ppc64, wrt bug #507512
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> roundcube-1.0.2.ebuild:
+  arm stable and add ~sparc wrt #507512
+
+  12 Aug 2014; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.2.ebuild:
+  Stable for x86, wrt bug #507512
+
+  12 Aug 2014; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.2.ebuild:
+  Stable for amd64, wrt bug #507512
+
+*roundcube-1.0.2 (12 Aug 2014)
+
+  12 Aug 2014; Jeroen Roovers <jer@gentoo.org> +roundcube-1.0.2.ebuild:
+  Version bump (bug #507512).
 
   12 Nov 2013; Tim Harder <radhermit@gentoo.org> -roundcube-0.8.6.ebuild,
   -roundcube-0.9.2.ebuild, -roundcube-0.9.3.ebuild, -roundcube-0.9.4.ebuild:

@@ -1,6 +1,40 @@
 # ChangeLog for dev-cpp/libgnomecanvasmm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libgnomecanvasmm/ChangeLog,v 1.82 2012/05/04 03:44:58 jdhore Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libgnomecanvasmm/ChangeLog,v 1.90 2014/09/15 08:18:02 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  libgnomecanvasmm-2.26.0-r1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  libgnomecanvasmm-2.26.0-r1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  libgnomecanvasmm-2.26.0-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  libgnomecanvasmm-2.26.0-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  libgnomecanvasmm-2.26.0-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  libgnomecanvasmm-2.26.0-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  libgnomecanvasmm-2.26.0-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*libgnomecanvasmm-2.26.0-r1 (08 Jul 2014)
+
+  08 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  +libgnomecanvasmm-2.26.0-r1.ebuild:
+  Bump to eapi5 and set GCONF_DEBUG properly
 
   04 May 2012; Jeff Horelick <jdhore@gentoo.org>
   libgnomecanvasmm-2.26.0.ebuild:
@@ -338,4 +372,3 @@
   gnome2.eclass version of foser <foser@sesmar.eu.org> gnome-c++
   bindings.
   initial release
-

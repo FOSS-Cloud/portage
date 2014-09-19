@@ -1,6 +1,66 @@
 # ChangeLog for app-laptop/laptop-mode-tools
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-laptop/laptop-mode-tools/ChangeLog,v 1.83 2013/09/12 05:43:52 alonbl Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-laptop/laptop-mode-tools/ChangeLog,v 1.94 2014/08/30 19:05:46 alonbl Exp $
+
+*laptop-mode-tools-1.65-r1 (30 Aug 2014)
+
+  30 Aug 2014; Alon Bar-Lev <alonbl@gentoo.org>
+  +files/laptop-mode-tools-1.65-usb-autosuspend.patch,
+  +laptop-mode-tools-1.65-r1.ebuild:
+  Disable usb-autosuspend per default, use newer runtime-pm withi udev,
+  bug#520124, thanks to  Ted Tanberry
+
+  14 Jul 2014; Alon Bar-Lev <alonbl@gentoo.org>
+  -files/laptop-mode-tools-1.63-conf.patch,
+  -files/laptop-mode-tools-1.63-killall.patch,
+  -files/laptop-mode-tools-1.63-pcie-aspm-silencing-stderr.patch,
+  -files/laptop-mode-tools-1.63-udevadm.patch,
+  -files/laptop-mode-tools-1.64-ethernet-power.patch,
+  -files/laptop-mode-tools-1.64-wireless-sysfsattr.patch,
+  -laptop-mode-tools-1.63-r2.ebuild, -laptop-mode-tools-1.63-r3.ebuild,
+  -laptop-mode-tools-1.64-r2.ebuild:
+  Cleanup
+
+  14 Jul 2014; Samuli Suominen <ssuominen@gentoo.org>
+  laptop-mode-tools-1.64.ebuild:
+  ppc stable wrt #509962
+
+*laptop-mode-tools-1.65 (18 Jun 2014)
+
+  18 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org> +laptop-mode-tools-1.65.ebuild:
+  Version bump
+
+*laptop-mode-tools-1.64-r2 (11 Jun 2014)
+
+  11 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org>
+  +files/laptop-mode-tools-1.64-wireless-sysfsattr.patch,
+  +laptop-mode-tools-1.64-r2.ebuild, -laptop-mode-tools-1.64-r1.ebuild:
+  Add wireless kernel compatibility, bug#511110, thanks to Stefan Huber
+
+  07 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org>
+  laptop-mode-tools-1.64-r1.ebuild:
+  Addd iproute2 dependency, bug#511808
+
+  27 May 2014; Alon Bar-Lev <alonbl@gentoo.org>
+  laptop-mode-tools-1.63-r2.ebuild, laptop-mode-tools-1.63-r3.ebuild,
+  laptop-mode-tools-1.64-r1.ebuild, laptop-mode-tools-1.64.ebuild:
+  s/udev_get_udevdir/get_udevdir/g' to support newer naming for udev eclass
+
+*laptop-mode-tools-1.64-r1 (27 May 2014)
+
+  27 May 2014; Alon Bar-Lev <alonbl@gentoo.org>
+  +files/laptop-mode-tools-1.64-ethernet-power.patch,
+  +laptop-mode-tools-1.64-r1.ebuild:
+  Fix newer kernel compatibility, bug#511110, thanks to Stefan Huber
+
+  11 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  laptop-mode-tools-1.64.ebuild:
+  amd64/x86 stable wrt #509962
+
+  10 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  laptop-mode-tools-1.64.ebuild:
+  sys-apps/which is required for finding udevadm, as per Documentation/revision-
+  history.txt 'Replace hardcoded path to udevadm with "which udevadm"'
 
   12 Sep 2013; Alon Bar-Lev <alonbl@gentoo.org> laptop-mode-tools-1.64.ebuild:
   Fix README issue, bug#484616, thanks to Manuel Rüger

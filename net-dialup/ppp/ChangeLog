@@ -1,6 +1,54 @@
 # ChangeLog for net-dialup/ppp
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/ppp/ChangeLog,v 1.290 2014/02/19 09:56:32 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/ppp/ChangeLog,v 1.301 2014/08/21 09:46:11 ago Exp $
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for ppc, wrt bug #519650
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> ppp-2.4.7.ebuild:
+  alpha/arm/sparc stable wrt #519650
+
+  19 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for ppc64, wrt bug #519650
+
+  19 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for ia64, wrt bug #519650
+
+  13 Aug 2014; Jeroen Roovers <jer@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for HPPA (bug #519650).
+
+  12 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for x86, wrt bug #519650
+
+  12 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for amd64, wrt bug #519650
+
+*ppp-2.4.7 (12 Aug 2014)
+
+  12 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> +ppp-2.4.7.ebuild:
+  Security bump (bug #519650).
+
+*ppp-2.4.6-r3 (18 Jun 2014)
+
+  18 Jun 2014; Sergey Popov <pinkbyte@gentoo.org> -ppp-2.4.6-r2.ebuild,
+  +ppp-2.4.6-r3.ebuild:
+  Revision bump: finally fix bug #513512, thanks again to Daniel Kenzelmann
+  <gentoo AT k8n.de>. Drop old revision
+
+*ppp-2.4.6-r2 (17 Jun 2014)
+
+  17 Jun 2014; Sergey Popov <pinkbyte@gentoo.org> -ppp-2.4.6.ebuild,
+  -ppp-2.4.6-r1.ebuild, +ppp-2.4.6-r2.ebuild:
+  Revision bump: fix missing semicolon in ip-up.d/50-initd.sh script, update
+  patchset, wrt bug #513512. Thanks to Daniel Kenzelmann <gentoo AT k8n.de> for
+  discovering this issue. Drop old revisions
+
+*ppp-2.4.6-r1 (16 Jun 2014)
+
+  16 Jun 2014; Sergey Popov <pinkbyte@gentoo.org> +ppp-2.4.6-r1.ebuild:
+  Revision bump: add missing 'die' to sed calls. Call OpenRC scripts only when
+  OpenRC is active init-system, wrt bug #490820. Fix issue with logwtmp not
+  working properly
 
 *ppp-2.4.6 (19 Feb 2014)
 

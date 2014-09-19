@@ -1,6 +1,22 @@
 # ChangeLog for app-benchmarks/siege
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-benchmarks/siege/ChangeLog,v 1.68 2014/04/02 14:37:38 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-benchmarks/siege/ChangeLog,v 1.72 2014/08/30 10:28:54 mgorny Exp $
+
+  30 Aug 2014; Michał Górny <mgorny@gentoo.org> -files/siege-2.60-gentoo.diff,
+  -files/siege-2.70-gentoo.diff, -files/siege-2.72-gentoo.diff,
+  -siege-2.66.ebuild, -siege-2.67.ebuild, -siege-2.70.ebuild,
+  -siege-2.72.ebuild, -siege-3.0.0.ebuild, -siege-3.0.1.ebuild,
+  -siege-3.0.2.ebuild, -siege-3.0.3.ebuild, -siege-3.0.5.ebuild:
+  Clean old version up.
+
+  04 May 2014; Agostino Sarubbo <ago@gentoo.org> siege-3.0.6.ebuild:
+  Stable for x86, wrt bug #502612
+
+  13 Apr 2014; Agostino Sarubbo <ago@gentoo.org> siege-3.0.6.ebuild:
+  Stable for ppc, wrt bug #502612
+
+  12 Apr 2014; Chema Alonso <nimiux@gentoo.org> siege-3.0.6.ebuild:
+  Stable for amd64 wrt bug #502612
 
   02 Apr 2014; Jeroen Roovers <jer@gentoo.org> siege-3.0.6.ebuild:
   Stable for HPPA (bug #502612).

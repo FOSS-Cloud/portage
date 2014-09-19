@@ -1,6 +1,107 @@
 # ChangeLog for mail-client/thunderbird
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/thunderbird/ChangeLog,v 1.276 2014/03/24 14:33:55 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/thunderbird/ChangeLog,v 1.301 2014/09/11 22:13:18 axs Exp $
+
+*thunderbird-31.1.1 (11 Sep 2014)
+
+  11 Sep 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-31.1.1.ebuild, -thunderbird-31.1.0.ebuild:
+  minor version bump; uses new enigmal that fixed security flaws; other bug
+  fixes
+
+  07 Sep 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.8.0.ebuild:
+  Stable for ppc64, wrt bug #522020
+
+  07 Sep 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.8.0.ebuild:
+  Stable for ppc, wrt bug #522020
+
+  05 Sep 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.8.0.ebuild:
+  Stable for x86, wrt bug #522020
+
+  05 Sep 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.8.0.ebuild:
+  Stable for amd64, wrt bug #522020
+
+  04 Sep 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  -thunderbird-31.0.ebuild, thunderbird-31.1.0.ebuild:
+  fixed minimum versions on libpng, libvpx, sqlite
+
+*thunderbird-24.8.0 (03 Sep 2014)
+*thunderbird-31.1.0 (03 Sep 2014)
+
+  03 Sep 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-24.8.0.ebuild, +thunderbird-31.1.0.ebuild,
+  -thunderbird-24.4.0.ebuild, -thunderbird-24.5.0.ebuild,
+  -thunderbird-24.6.0.ebuild:
+  versiom bump, cleaned up some old ebuilds
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.7.0.ebuild:
+  Stable for ppc64, wrt bug #517876
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.7.0.ebuild:
+  Stable for ppc, wrt bug #517876
+
+  04 Aug 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.7.0.ebuild:
+  Stable for x86, wrt bug #517876
+
+  01 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> thunderbird-24.7.0.ebuild:
+  amd64 stable wrt bug #517876
+
+*thunderbird-31.0 (01 Aug 2014)
+
+  01 Aug 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-31.0.ebuild:
+  version bump
+
+  25 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  thunderbird-24.7.0.ebuild:
+  fixed nss dependency, bug 518044
+
+*thunderbird-24.7.0 (24 Jul 2014)
+
+  24 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-24.7.0.ebuild:
+  version bump for ESR, security bug 517876
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.6.0.ebuild:
+  Stable for ppc64, wrt bug #512896
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.6.0.ebuild:
+  Stable for ppc, wrt bug #512896
+
+  15 Jun 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.6.0.ebuild:
+  Stable for x86, wrt bug #512896
+
+  13 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> thunderbird-24.6.0.ebuild:
+  amd64 stable wrt bug #512896
+
+  12 Jun 2014; Mike Gilbert <floppym@gentoo.org> thunderbird-24.6.0.ebuild:
+  Resolve fetch failure for gdata-provider.xpi.
+
+*thunderbird-24.6.0 (11 Jun 2014)
+
+  11 Jun 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-24.6.0.ebuild:
+  version bump, remove old ; security bug 512896
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.5.0.ebuild:
+  Stable for amd64, wrt bug #509050
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.5.0.ebuild:
+  Stable for x86, wrt bug #509050
+
+  11 May 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.5.0.ebuild:
+  Stable for ppc64, wrt bug #509050
+
+  10 May 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.5.0.ebuild:
+  Stable for ppc, wrt bug #509050
+
+*thunderbird-24.5.0 (30 Apr 2014)
+
+  30 Apr 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-24.5.0.ebuild, -thunderbird-24.3.0.ebuild,
+  thunderbird-17.0.9.ebuild:
+  version bump, security bug 509050 ; also fixed a deptree resolution issue on
+  uclibc profiles for 17.x
 
   24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-24.4.0.ebuild:
   Stable for ppc64, wrt bug #505072

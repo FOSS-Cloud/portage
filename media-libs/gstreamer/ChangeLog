@@ -1,6 +1,95 @@
 # ChangeLog for media-libs/gstreamer
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gstreamer/ChangeLog,v 1.359 2014/03/28 02:39:06 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/gstreamer/ChangeLog,v 1.380 2014/09/15 08:21:05 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Stable for HPPA (bug #512012).
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  12 Jul 2014; Michał Górny <mgorny@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Fix Prefix install, bug #516932. Thanks to Steven Trogdon for the fix.
+
+  24 Jun 2014; Michał Górny <mgorny@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> gstreamer-0.10.36-r2.ebuild,
+  gstreamer-1.2.4-r2.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+*gstreamer-1.2.4-r2 (16 Jun 2014)
+*gstreamer-0.10.36-r2 (16 Jun 2014)
+
+  16 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -gstreamer-0.10.36-r1.ebuild, +gstreamer-0.10.36-r2.ebuild,
+  -gstreamer-1.2.4-r1.ebuild, +gstreamer-1.2.4-r2.ebuild:
+  Fix pax-marking of multilib gst-plugin-scanner
+
+*gstreamer-1.2.4-r1 (10 Jun 2014)
+*gstreamer-0.10.36-r1 (10 Jun 2014)
+
+  10 Jun 2014; Michał Górny <mgorny@gentoo.org> +gstreamer-0.10.36-r1.ebuild,
+  +gstreamer-1.2.4-r1.ebuild:
+  Enable multilib support, bug #493176.
+
+*gstreamer-1.2.4 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> +gstreamer-1.2.4.ebuild,
+  -gstreamer-1.0.10.ebuild, -gstreamer-1.0.5-r1.ebuild, -gstreamer-1.2.0.ebuild:
+  Version bump, drop old
+
+  29 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> gstreamer-0.10.36.ebuild,
+  +files/gstreamer-make-grammar.y-work-with-bison-3.patch:
+  Fix compilation with >=sys-devel/bison-3.0 (bug #478676).
+
+  21 Apr 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-1.2.3.ebuild:
+  Stable for arm, wrt bug #507568
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-1.2.3.ebuild:
+  Stable for sparc, wrt bug #507568
+
+  18 Apr 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-1.2.3.ebuild:
+  Stable for alpha, wrt bug #507568
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-1.2.3.ebuild:
+  Stable for ia64, wrt bug #507568
+
+  16 Apr 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-1.2.3.ebuild:
+  Stable for ppc64, wrt bug #507568
+
+  14 Apr 2014; Agostino Sarubbo <ago@gentoo.org> gstreamer-1.2.3.ebuild:
+  Stable for ppc, wrt bug #507568
 
   28 Mar 2014; Jeroen Roovers <jer@gentoo.org> gstreamer-1.2.3.ebuild:
   Stable for HPPA (bug #499954).

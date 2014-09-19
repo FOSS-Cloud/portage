@@ -1,6 +1,29 @@
 # ChangeLog for xfce-extra/xfce4-weather-plugin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-weather-plugin/ChangeLog,v 1.33 2013/05/05 17:08:02 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-weather-plugin/ChangeLog,v 1.38 2014/07/24 11:01:00 ssuominen Exp $
+
+  24 Jul 2014; Samuli Suominen <ssuominen@gentoo.org>
+  xfce4-weather-plugin-0.8.3-r1.ebuild:
+  Rename USE="udev" to USE="upower" wrt #516380
+
+  19 Jun 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -xfce4-weather-plugin-0.8.3.ebuild:
+  old
+
+  19 Jun 2014; Samuli Suominen <ssuominen@gentoo.org>
+  xfce4-weather-plugin-0.8.3-r1.ebuild:
+  amd64/x86 stable
+
+*xfce4-weather-plugin-0.8.3-r1 (31 May 2014)
+
+  31 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +files/xfce4-weather-plugin-0.8.3-upower-0.99.patch,
+  +xfce4-weather-plugin-0.8.3-r1.ebuild, xfce4-weather-plugin-0.8.3.ebuild:
+  Restrict -r0 to old UPower and add -r1 for compability with UPower >= 0.99
+
+  26 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  xfce4-weather-plugin-0.8.3.ebuild:
+  Fix dependencies to allow sys-power/upower-pm-utils.
 
   05 May 2013; Samuli Suominen <ssuominen@gentoo.org>
   -xfce4-weather-plugin-0.8.2.ebuild:

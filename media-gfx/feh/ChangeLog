@@ -1,6 +1,23 @@
 # ChangeLog for media-gfx/feh
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/feh/ChangeLog,v 1.143 2014/03/04 19:29:52 vincent Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/feh/ChangeLog,v 1.147 2014/09/10 19:53:27 hwoarang Exp $
+
+  10 Sep 2014; Markos Chandras <hwoarang@gentoo.org> feh-2.10.ebuild,
+  feh-2.11.ebuild, feh-2.12.ebuild, feh-2.9.3.ebuild:
+  Add the X useflag to the imlib2 dependency. Bug #522514
+
+  26 May 2014; Markos Chandras <hwoarang@gentoo.org> feh-2.12.ebuild:
+  Drop media-libs/giblib dependency per #511418
+
+*feh-2.12 (24 May 2014)
+
+  24 May 2014; Markos Chandras <hwoarang@gentoo.org> +feh-2.12.ebuild:
+  Version bump. Bug #511074
+
+*feh-2.11 (28 Apr 2014)
+
+  28 Apr 2014; Tim Harder <radhermit@gentoo.org> +feh-2.11.ebuild:
+  Version bump.
 
   04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org> feh-2.10.ebuild:
   Add ~mips keyword.

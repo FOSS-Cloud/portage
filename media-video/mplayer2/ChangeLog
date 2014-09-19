@@ -1,6 +1,47 @@
 # ChangeLog for media-video/mplayer2
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/ChangeLog,v 1.118 2014/03/04 20:46:56 vincent Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/ChangeLog,v 1.127 2014/08/27 12:40:09 ago Exp $
+
+  27 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  mplayer2-2.0_p20130428-r1.ebuild:
+  Stable for ppc, wrt bug #499368
+
+  22 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  mplayer2-2.0_p20130428-r1.ebuild:
+  Stable for ppc64, wrt bug #499368
+
+  22 Aug 2014; Chema Alonso <nimiux@gentoo.org>
+  mplayer2-2.0_p20130428-r1.ebuild:
+  Stable for amd64 wrt bug #499368
+
+  11 Aug 2014; Andreas Schuerch <nativemad@gentoo.org>
+  mplayer2-2.0_p20130428-r1.ebuild:
+  x86 stable, see bug 499368
+
+  23 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  mplayer2-2.0_p20130428-r1.ebuild:
+  Stable on alpha, bug #499368
+
+  13 Jul 2014; Tom Wijsman <TomWij@gentoo.org>
+  +files/mplayer2-2.0_p20131009_support_libav10.patch,
+  mplayer2-2.0_p20131009.ebuild:
+  Added patch from Debian by Reinhard Tartler (siretart) to support Libav 10;
+  fixes bug #509298, proxied commit for Nikoli.
+
+  09 Jun 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  mplayer2-2.0_p20131009.ebuild, mplayer2-9999.ebuild:
+  Fix ffmpeg/libav deps, bug #511046. Thanks to Nikoli.
+
+*mplayer2-2.0_p20131009 (02 May 2014)
+
+  02 May 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +mplayer2-2.0_p20131009.ebuild:
+  Bump to new snapshot, change SRC_URI to dev.gentoo.org as googlecode no longer
+  accepts downloads.
+
+  01 May 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  mplayer2-2.0_p20130428-r1.ebuild, mplayer2-9999.ebuild:
+  Drop usage of base.eclass, bug #508128. Thanks to Nikoli.
 
   04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org>
   mplayer2-2.0_p20130428-r1.ebuild:

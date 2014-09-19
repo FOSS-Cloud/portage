@@ -1,6 +1,37 @@
 # ChangeLog for net-wireless/ubertooth
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/ubertooth/ChangeLog,v 1.20 2013/04/27 23:07:53 zerochaos Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/ubertooth/ChangeLog,v 1.26 2014/08/26 01:33:17 zerochaos Exp $
+
+  26 Aug 2014; Rick Farina <zerochaos@gentoo.org> ubertooth-2014.04.1-r1.ebuild,
+  ubertooth-9999.ebuild:
+  fix typo/stupidity in firmware fix
+
+*ubertooth-2014.04.1-r1 (25 Aug 2014)
+
+  25 Aug 2014; Rick Farina <zerochaos@gentoo.org>
+  +ubertooth-2014.04.1-r1.ebuild, -ubertooth-2012.10.1-r1.ebuild,
+  -ubertooth-2012.10.1.ebuild, -ubertooth-2014.04.1.ebuild, metadata.xml,
+  ubertooth-9999.ebuild:
+  move firmware to appropriate location and ship the dfu image instead of the
+  bin
+
+  08 Apr 2014; Rick Farina <zerochaos@gentoo.org> metadata.xml,
+  ubertooth-9999.ebuild:
+  make pcap optional and fix a few issues with live ebuild
+
+  08 Apr 2014; Rick Farina <zerochaos@gentoo.org> ubertooth-2014.04.1.ebuild,
+  ubertooth-9999.ebuild:
+  add := to bluez dep
+
+  08 Apr 2014; Rick Farina <zerochaos@gentoo.org> ubertooth-2014.04.1.ebuild,
+  ubertooth-9999.ebuild:
+  add := to libpcap dep
+
+*ubertooth-2014.04.1 (08 Apr 2014)
+
+  08 Apr 2014; Rick Farina <zerochaos@gentoo.org> +ubertooth-2014.04.1.ebuild,
+  metadata.xml, ubertooth-9999.ebuild:
+  new release from upstream and live fixes
 
 *ubertooth-2012.10.1-r1 (27 Apr 2013)
 

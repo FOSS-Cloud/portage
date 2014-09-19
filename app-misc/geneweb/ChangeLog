@@ -1,6 +1,31 @@
 # ChangeLog for app-misc/geneweb
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/geneweb/ChangeLog,v 1.27 2013/06/13 07:02:17 tupone Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/geneweb/ChangeLog,v 1.33 2014/08/10 18:04:27 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> geneweb-6.07.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  17 Jul 2014; Alfredo Tupone <tupone@gentoo.org> -geneweb-5.02.ebuild,
+  -geneweb-6.02-r1.ebuild, -geneweb-6.06.ebuild,
+  -files/geneweb-5.02-amd64.patch, -files/geneweb-5.02-gentoo.patch,
+  -files/geneweb-5.02-parallellbuild.patch, -files/geneweb-6.02-gentoo.patch,
+  -files/geneweb-6.02-parallellbuild.patch, -files/geneweb-6.06-gentoo.patch,
+  -files/geneweb-6.06-parallellbuild.patch:
+  Remove old versions
+
+  17 Jul 2014; Chema Alonso <nimiux@gentoo.org> geneweb-6.07.ebuild:
+  Stable for amd64 wrt bug #507408
+
+  17 Jul 2014; Alfredo Tupone <tupone@gentoo.org>
+  files/geneweb-6.07-parallellbuild.patch:
+  Fix parallelbuild again. Bug #516834
+
+  16 Jul 2014; Alfredo Tupone <tupone@gentoo.org> geneweb-6.07.ebuild:
+  Require ocamlopt for dev-ml/camlp5 when ocamlopt is requested.
+  Fix bug #516834 by Chema Alonso
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> geneweb-6.07.ebuild:
+  x86 stable wrt bug #507408
 
   13 Jun 2013; Alfredo Tupone <tupone@gentoo.org> geneweb-6.07.ebuild:
   Using gentoo mirror instead of developer's area for SRC_URI

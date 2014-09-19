@@ -1,6 +1,73 @@
 # ChangeLog for sys-fs/zfs-kmod
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs-kmod/ChangeLog,v 1.41 2014/01/27 04:47:49 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs-kmod/ChangeLog,v 1.53 2014/09/18 12:45:25 ryao Exp $
+
+  18 Sep 2014; Richard Yao <ryao@gentoo.org> zfs-kmod-0.6.3.ebuild,
+  zfs-kmod-9999.ebuild:
+  Switch to bash arrays for --with-spl and --with-spl-obj; also fixed unquoted
+  string
+
+  05 Sep 2014; Richard Yao <ryao@gentoo.org> zfs-kmod-0.6.3.ebuild,
+  zfs-kmod-9999.ebuild:
+  Add preliminary ebuild changes for Gentoo Prefix support; Provide message to
+  die if updating META fails; Sync 0.6.3 and 9999 ebuilds.
+
+  07 Aug 2014; Richard Yao <ryao@gentoo.org> zfs-kmod-0.6.3.ebuild:
+  No code changes are needed to support Linux 3.16. I modifying the ebuild to
+  add support now that I am satisfied with the results of my testing.
+
+  09 Jul 2014; Matthew Thode <prometheanfire@gentoo.org> zfs-kmod-9999.ebuild:
+  swiching to https for git ebuild
+
+  20 Jun 2014; Richard Yao <ryao@gentoo.org> zfs-kmod-9999.ebuild:
+  Disallow CONFIG_DEBUG_INFO_REDUCED when USE=debug is set
+
+*zfs-kmod-0.6.3 (13 Jun 2014)
+
+  13 Jun 2014; Richard Yao <ryao@gentoo.org> +zfs-kmod-0.6.3.ebuild,
+  zfs-kmod-9999.ebuild:
+  Bump to 0.6.3
+
+  08 Jun 2014; Richard Yao <ryao@gentoo.org>
+  -files/zfs-kmod-0.6.0_rc11-fix-32-bit-integer-size-mismatch.patch,
+  -files/zfs-kmod-0.6.0_rc11-fix-i386-infinite-loop.patch,
+  -files/zfs-kmod-0.6.0_rc11-fix-rename-failure.patch,
+  -files/zfs-kmod-0.6.0_rc11-fix-zvol_probe-null.patch,
+  -files/zfs-kmod-0.6.0_rc11-linux-3.6-compat-0-elevator-change.patch,
+  -files/zfs-kmod-0.6.0_rc11-linux-3.6-compat-1.patch,
+  -files/zfs-kmod-0.6.0_rc11-linux-3.6-compat-2.patch,
+  -files/zfs-kmod-0.6.0_rc11-linux-3.6-compat-3.patch,
+  -files/zfs-kmod-0.6.0_rc11-linux-3.6-compat-4.patch,
+  -files/zfs-kmod-0.6.0_rc11-linux-3.6-compat-5.patch,
+  -files/zfs-kmod-0.6.0_rc11-return-positive-error.patch,
+  -zfs-kmod-0.6.0_rc10-r2.ebuild, -zfs-kmod-0.6.0_rc11-r3.ebuild,
+  -zfs-kmod-0.6.0_rc12-r3.ebuild:
+  Remove ancient ZFSOnLinux kernel module versions
+
+  22 May 2014; Richard Yao <ryao@gentoo.org> zfs-kmod-9999.ebuild:
+  CONFIG_DEBUG_INFO should be DEBUG_INFO
+
+  14 May 2014; Richard Yao <ryao@gentoo.org> zfs-kmod-9999.ebuild:
+  Require CONFIG_DEBUG_INFO for USE=debug on =sys-fs/zfs-kmod-9999
+
+  26 Apr 2014; Richard Yao <ryao@gentoo.org> zfs-kmod-9999.ebuild:
+  Improve USE=debug on 9999 ebuild: changes will be propagated to the next
+  revision bump
+
+*zfs-kmod-0.6.2-r5 (11 Apr 2014)
+
+  11 Apr 2014; Richard Yao <ryao@gentoo.org> +zfs-kmod-0.6.2-r5.ebuild:
+  The patchset used in sys-fs/zfs-kmod-0.6.2-r4 was an early version that was
+  not meant to go out to mirrors. It is being replaced with sys-fs/zfs-
+  kmod-0.6.2-r5, which is what -r4 should have been. No regressions occurred as
+  a result of this mistake.
+
+*zfs-kmod-0.6.2-r4 (10 Apr 2014)
+
+  10 Apr 2014; Richard Yao <ryao@gentoo.org> +zfs-kmod-0.6.2-r4.ebuild,
+  zfs-kmod-0.6.2-r3.ebuild:
+  Proper Linux 3.13 support, Linux 3.14 support, numerous races/deadlocks fixed,
+  many compatibility fixes
 
   27 Jan 2014; Richard Yao <ryao@gentoo.org> zfs-kmod-0.6.2-r3.ebuild:
   Linux 3.13 support: This requires no changes to the ZFS C code, so we just

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cairo/cairo-0.12.4-r1.ebuild,v 1.7 2014/02/02 11:13:48 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cairo/cairo-0.12.4-r1.ebuild,v 1.9 2014/07/25 09:16:30 slyfox Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ GTK_MAJ_VER="2"
 CABAL_FEATURES="lib profile haddock hoogle hscolour nocabaldep"
 inherit haskell-cabal
 
-DESCRIPTION="Binding to the Cairo library."
+DESCRIPTION="Binding to the Cairo library"
 HOMEPAGE="http://projects.haskell.org/gtk2hs/"
 SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
 
@@ -28,17 +28,6 @@ DEPEND="${RDEPEND}
 		>=dev-haskell/cabal-1.8
 		>=dev-haskell/gtk2hs-buildtools-0.12.4:0=
 		virtual/pkgconfig"
-
-src_prepare() {
-	sed -e "s@gtk2hsTypeGen@gtk2hsTypeGen${GTK_MAJ_VER}@" \
-		-e "s@gtk2hsHookGenerator@gtk2hsHookGenerator${GTK_MAJ_VER}@" \
-		-e "s@gtk2hsC2hs@gtk2hsC2hs${GTK_MAJ_VER}@" \
-		-i "${S}/Gtk2HsSetup.hs" \
-		|| die "Could not change Gtk2HsSetup.hs for GTK+ slot 0"
-	sed -e "s@gtk2hsC2hs@gtk2hsC2hs${GTK_MAJ_VER}@" \
-		-i "${S}/${PN}.cabal" \
-		|| die "Could not change ${PN}.cabal for GTK+ slot 0"
-}
 
 src_configure() {
 	# x11-libs/cairo seems to build pdf and ps by default

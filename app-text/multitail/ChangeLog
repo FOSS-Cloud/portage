@@ -1,6 +1,22 @@
 # ChangeLog for app-text/multitail
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/multitail/ChangeLog,v 1.114 2014/03/02 09:09:02 hattya Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/multitail/ChangeLog,v 1.119 2014/09/17 21:43:16 nimiux Exp $
+
+  17 Sep 2014; Chema Alonso <nimiux@gentoo.org> multitail-6.2.1.ebuild:
+  Stable for amd64 wrt bug #519882
+
+  15 Aug 2014; Jeroen Roovers <jer@gentoo.org> multitail-6.2.1.ebuild:
+  Stable for HPPA (bug #519882).
+
+  14 Aug 2014; Justin Lecher <jlec@gentoo.org> -multitail-5.2.12.ebuild,
+  -multitail-6.0.ebuild, -multitail-6.1.ebuild, -multitail-6.2.ebuild:
+  Drop old
+
+  13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> multitail-5.2.13.ebuild:
+  Stable for ppc, wrt bug #491948
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> multitail-5.2.13.ebuild:
+  sparc stable wrt #491948
 
   02 Mar 2014; Akinori Hattori <hattya@gentoo.org> multitail-5.2.13.ebuild:
   ia64 stable wrt bug #491948

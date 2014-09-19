@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-bin/virtualbox-bin-4.2.24.ebuild,v 1.1 2014/03/14 10:25:43 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-bin/virtualbox-bin-4.2.24.ebuild,v 1.5 2014/09/10 05:33:06 polynomial-c Exp $
 
 EAPI=5
 
@@ -23,7 +23,7 @@ SRC_URI="amd64? ( http://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}_amd
 
 LICENSE="GPL-2 PUEL"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+additions +chm headless python sdk vboxwebsrv rdesktop-vrdp"
 RESTRICT="mirror"
 
@@ -56,10 +56,7 @@ RDEPEND="!!app-emulation/virtualbox
 	x11-libs/libSM
 	x11-libs/libICE
 	x11-libs/libXdmcp
-	python? ( || (
-			dev-lang/python:2.7
-			dev-lang/python:2.6
-		) )"
+	python? ( dev-lang/python:2.7 )"
 
 S=${WORKDIR}
 
@@ -71,7 +68,6 @@ QA_TEXTRELS_x86="opt/VirtualBox/VBoxGuestPropSvc.so
 	opt/VirtualBox/VBoxDD2.so
 	opt/VirtualBox/VBoxOGLrenderspu.so
 	opt/VirtualBox/VBoxPython.so
-	opt/VirtualBox/VBoxPython2_6.so
 	opt/VirtualBox/VBoxPython2_7.so
 	opt/VirtualBox/VBoxDD.so
 	opt/VirtualBox/VBoxVRDP.so
@@ -112,7 +108,6 @@ QA_PRESTRIPPED="opt/VirtualBox/VBoxDD.so
 	opt/VirtualBox/VBoxOGLhosterrorspu.so
 	opt/VirtualBox/VBoxOGLrenderspu.so
 	opt/VirtualBox/VBoxPython.so
-	opt/VirtualBox/VBoxPython2_6.so
 	opt/VirtualBox/VBoxPython2_7.so
 	opt/VirtualBox/VBoxREM.so
 	opt/VirtualBox/VBoxREM32.so
@@ -233,9 +228,9 @@ src_install() {
 		fperms 0750 /opt/VirtualBox/kchmviewer
 	fi
 
-	if use python; then
+	if use python ; then
 		local pyslot
-		for pyslot in 2.6 2.7; do
+		for pyslot in 2.7 ; do
 			if has_version "dev-lang/python:${pyslot}" && [ -f "${S}/VBoxPython${pyslot/./_}.so" ] ; then
 				doins VBoxPython${pyslot/./_}.so
 			fi
@@ -303,7 +298,7 @@ src_install() {
 	echo -n "VBOX_APP_HOME=/opt/VirtualBox" > "${T}/90virtualbox"
 	doenvd "${T}/90virtualbox"
 
-	local udevdir="$(udev_get_udevdir)"
+	local udevdir="$(get_udevdir)"
 	insinto ${udevdir}/rules.d
 	doins "${FILESDIR}"/10-virtualbox.rules
 	sed "s@%UDEVDIR%@${udevdir}@" \

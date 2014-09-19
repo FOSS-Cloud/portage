@@ -1,6 +1,16 @@
 # ChangeLog for perl-core/Module-Loaded
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/Module-Loaded/ChangeLog,v 1.4 2012/06/24 15:39:02 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/Module-Loaded/ChangeLog,v 1.6 2014/07/25 20:58:45 dilfridge Exp $
+
+*Module-Loaded-0.80.0-r1 (25 Jul 2014)
+
+  25 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -Module-Loaded-0.80.0.ebuild, +Module-Loaded-0.80.0-r1.ebuild:
+  EAPI bump
+
+  10 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -Module-Loaded-0.60.0.ebuild:
+  Remove old
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

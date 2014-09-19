@@ -1,6 +1,56 @@
 # ChangeLog for dev-python/ipython
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ipython/ChangeLog,v 1.136 2014/03/16 02:42:19 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ipython/ChangeLog,v 1.147 2014/08/27 12:19:41 blueness Exp $
+
+  27 Aug 2014; Anthony G. Basile <blueness@gentoo.org> ipython-1.0.0.ebuild,
+  ipython-1.1.0-r1.ebuild, ipython-1.1.0-r2.ebuild, ipython-1.1.0.ebuild,
+  ipython-1.2.0.ebuild, ipython-1.2.1.ebuild:
+  Keyword ~ppc ~ppc64, bug #495116
+
+  24 Aug 2014; Ian Delaney <idella4@gentoo.org> metadata.xml:
+  add remote-ids to metadata.xml
+
+  14 Aug 2014; Anthony G. Basile <blueness@gentoo.org> ipython-2.1.0.ebuild:
+  Keyword ~ppc and ~ppc64, bug #481462
+
+  14 Aug 2014; Anthony G. Basile <blueness@gentoo.org> ipython-2.2.0.ebuild:
+  Keyword ~ppc and ~ppc64, bug #481462
+
+  13 Aug 2014; Ian Delaney <idella4@gentoo.org> ipython-2.1.0.ebuild,
+  ipython-2.2.0.ebuild:
+  add missing doc dep tornado, cross testing by cel1, fixes bug #519774
+
+*ipython-2.2.0 (12 Aug 2014)
+
+  12 Aug 2014; Ian Delaney <idella4@gentoo.org> +ipython-2.2.0.ebuild,
+  ipython-2.1.0.ebuild:
+  bump; add install of examples
+
+  07 Aug 2014; Ian Delaney <idella4@gentoo.org>
+  +files/2.1.0-substitute-files.patch, ipython-2.1.0.ebuild:
+  add doc deps, upgrade deps, shed redundant sed statements of prior versions,
+  add patch to fix test phase, patch by cel1 now merged upstram, update install
+  phase, add msgs in postinst relating to optional features, thanks to cel1 for
+  cross testing and patches
+
+*ipython-2.1.0 (01 Aug 2014)
+
+  01 Aug 2014; Ian Delaney <idella4@gentoo.org>
+  +files/2.1.0-disable-tests.patch, +ipython-2.1.0.ebuild:
+  major version bump: extensive re-write; add py3.4 support, drop keywords arm
+  ia64 ppc ppc64 (which will be requested for re-addition), re-write of doc
+  build, test phase, patch by cel1, thanks to cel1 for cross testing, fixes Bug
+  507410
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> ipython-0.12-r1.ebuild,
+  ipython-0.13.2.ebuild, ipython-1.0.0.ebuild, ipython-1.1.0-r1.ebuild,
+  ipython-1.1.0-r2.ebuild, ipython-1.1.0.ebuild, ipython-1.2.0.ebuild,
+  ipython-1.2.1.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
+
+  21 Jun 2014; Ian Delaney <idella4@gentoo.org> ipython-1.2.1.ebuild:
+  drop py2.6 add py3.4, update test phase
 
   16 Mar 2014; Mike Frysinger <vapier@gentoo.org> ipython-1.2.1.ebuild:
   Add ia64 love.

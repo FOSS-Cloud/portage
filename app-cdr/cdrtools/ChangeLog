@@ -1,6 +1,29 @@
 # ChangeLog for app-cdr/cdrtools
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdrtools/ChangeLog,v 1.337 2014/03/24 17:05:47 billie Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdrtools/ChangeLog,v 1.343 2014/08/03 19:12:46 tgall Exp $
+
+  03 Aug 2014;  <tgall@gentoo.org> cdrtools-3.01_alpha24.ebuild:
+  arm64, initial support
+
+  10 Jun 2014; Daniel Pielmeier <billie@gentoo.org>
+  -cdrtools-3.01_alpha23.ebuild:
+  Remove old.
+
+*cdrtools-3.01_alpha24 (04 Jun 2014)
+
+  04 Jun 2014; Daniel Pielmeier <billie@gentoo.org>
+  +cdrtools-3.01_alpha24.ebuild:
+  Version bump.
+
+  17 May 2014; Daniel Pielmeier <billie@gentoo.org>
+  cdrtools-3.01_alpha17.ebuild, cdrtools-3.01_alpha23.ebuild:
+  Updating homepage and mirror due to BerliOS finally closing its doors.
+
+  13 Apr 2014; Naohiro Aota <naota@gentoo.org> cdrtools-3.01_alpha23.ebuild:
+  Use 0 instead of root for group name. #507466
+
+  05 Apr 2014; Raúl Porcel <armin76@gentoo.org> cdrtools-3.01_alpha23.ebuild:
+  Add support for arm64
 
   24 Mar 2014; Daniel Pielmeier <billie@gentoo.org>
   -cdrtools-3.01_alpha22.ebuild:

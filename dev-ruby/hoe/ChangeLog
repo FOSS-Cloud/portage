@@ -1,6 +1,43 @@
 # ChangeLog for dev-ruby/hoe
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hoe/ChangeLog,v 1.151 2014/03/10 15:58:00 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hoe/ChangeLog,v 1.160 2014/08/15 17:20:16 armin76 Exp $
+
+  15 Aug 2014; Raúl Porcel <armin76@gentoo.org> hoe-2.13.0-r1.ebuild:
+  sparc stable, bug #490180
+
+  05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> hoe-2.12.5.ebuild,
+  hoe-2.13.0-r1.ebuild, hoe-3.11.0.ebuild, hoe-3.12.0.ebuild:
+  Remove trailing '.' from DESCRIPTION.
+
+  17 Jun 2014; Tobias Klausmann <klausman@gentoo.org> hoe-2.13.0-r1.ebuild:
+  Stable on alpha, bug #490180
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> hoe-2.13.0-r1.ebuild:
+  x86 stable wrt bug #490180
+
+  15 May 2014; Manuel Rüger <mrueg@gentoo.org> -hoe-3.9.0-r1.ebuild:
+  Cleanup old.
+
+*hoe-3.12.0 (25 Apr 2014)
+
+  25 Apr 2014; Manuel Rüger <mrueg@gentoo.org> +hoe-3.12.0.ebuild,
+  -hoe-3.9.0.ebuild:
+  Version bump.
+
+*hoe-3.11.0 (21 Apr 2014)
+
+  21 Apr 2014; Hans de Graaff <graaff@gentoo.org> +hoe-3.11.0.ebuild:
+  Version bump. Remove Gem.bin_wrapper use that is broken on Gentoo.
+
+*hoe-3.9.0-r1 (18 Apr 2014)
+
+  18 Apr 2014; Manuel Rüger <mrueg@gentoo.org> +hoe-3.9.0-r1.ebuild,
+  hoe-3.9.0.ebuild:
+  Move ruby21 target to -r1. Add missing die statement.
+
+  05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> hoe-2.12.5.ebuild,
+  hoe-2.13.0-r1.ebuild, hoe-3.9.0.ebuild:
+  Remove ree18 and ruby18 target.
 
   10 Mar 2014; Manuel Rüger <mrueg@gentoo.org> -hoe-2.13.0.ebuild:
   Cleanup unused.

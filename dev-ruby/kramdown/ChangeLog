@@ -1,6 +1,35 @@
 # ChangeLog for dev-ruby/kramdown
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/kramdown/ChangeLog,v 1.30 2013/10/30 03:35:55 mrueg Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/kramdown/ChangeLog,v 1.38 2014/09/03 12:41:39 mrueg Exp $
+
+  03 Sep 2014; Manuel Rüger <mrueg@gentoo.org> -kramdown-0.14.2.ebuild,
+  -kramdown-1.2.0-r1.ebuild:
+  Cleanup old.
+
+  19 Aug 2014; Raúl Porcel <armin76@gentoo.org> kramdown-1.4.1.ebuild:
+  add ~arm/~x86, bug #519170
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> kramdown-0.14.2.ebuild,
+  kramdown-1.2.0-r1.ebuild, kramdown-1.4.1.ebuild:
+  Keyword ~ppc and ~ppc64, bug #519170
+
+*kramdown-1.4.1 (06 Aug 2014)
+
+  06 Aug 2014; Manuel Rüger <mrueg@gentoo.org> +kramdown-1.4.1.ebuild:
+  Version bump. Rekeywording in bug #519170.
+
+  05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> kramdown-0.14.2.ebuild:
+  Remove trailing '.' from DESCRIPTION.
+
+  05 Jul 2014; Manuel Rüger <mrueg@gentoo.org> kramdown-0.14.2.ebuild:
+  Drop ruby18 support.
+
+  19 Apr 2014; Hans de Graaff <graaff@gentoo.org> kramdown-1.2.0-r1.ebuild:
+  Add ruby21.
+
+  09 Apr 2014; Manuel Rüger <mrueg@gentoo.org> -kramdown-1.1.0.ebuild,
+  -kramdown-1.2.0.ebuild, kramdown-0.14.2.ebuild:
+  Cleanup old. Remove ree18.
 
 *kramdown-1.2.0-r1 (30 Oct 2013)
 

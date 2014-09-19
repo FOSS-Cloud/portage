@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/bitlbee/bitlbee-3.0.5-r1.ebuild,v 1.8 2013/01/08 14:25:21 cedk Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-im/bitlbee/bitlbee-3.0.5-r1.ebuild,v 1.10 2014/06/05 10:04:32 mrueg Exp $
 
 EAPI="4"
 PYTHON_DEPEND="skype? 2:2.5"
@@ -14,18 +14,19 @@ SRC_URI="http://get.bitlbee.org/src/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc ~ppc64 x86 ~x86-fbsd"
-IUSE="debug gnutls ipv6 +jabber libevent msn nss +oscar otr +plugins purple
+IUSE="debug gnutls ipv6 +jabber libevent msn nss +oscar otr +plugins purple selinux
 skype ssl test twitter +yahoo xinetd" # ldap - Bug 195758
 
 COMMON_DEPEND="purple? ( net-im/pidgin )
 	libevent? ( dev-libs/libevent )
 	!libevent? ( >=dev-libs/glib-2.4 )
-	otr? ( net-libs/libotr )
+	otr? ( <net-libs/libotr-4 )
 	gnutls? ( net-libs/gnutls )
 	!gnutls? (
 		nss? ( dev-libs/nss )
 		!nss? ( ssl? ( dev-libs/openssl ) )
-	)"
+	)
+	selinux? ( sec-policy/selinux-bitlbee )"
 	# ldap? ( net-nds/openldap )"
 DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig

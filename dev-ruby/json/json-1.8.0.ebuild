@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/json/json-1.8.0.ebuild,v 1.11 2014/01/26 13:06:29 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/json/json-1.8.0.ebuild,v 1.13 2014/08/05 16:00:36 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby18 ruby19 ruby20 jruby"
+USE_RUBY="ruby19 ruby20 jruby"
 
 RUBY_FAKEGEM_TASK_DOC="doc"
 RUBY_FAKEGEM_EXTRADOC="CHANGES TODO README.rdoc README-json-jruby.markdown"
@@ -13,7 +13,7 @@ RUBY_FAKEGEM_GEMSPEC="json.gemspec"
 
 inherit multilib ruby-fakegem
 
-DESCRIPTION="A JSON implementation as a Ruby extension."
+DESCRIPTION="A JSON implementation as a Ruby extension"
 HOMEPAGE="http://json.rubyforge.org/"
 LICENSE="|| ( Ruby GPL-2 )"
 

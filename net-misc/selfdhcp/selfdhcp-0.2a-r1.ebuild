@@ -1,11 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/selfdhcp/selfdhcp-0.2a-r1.ebuild,v 1.1 2012/03/03 15:44:30 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/selfdhcp/selfdhcp-0.2a-r1.ebuild,v 1.3 2014/08/30 12:37:22 mgorny Exp $
 
 EAPI=4
 inherit eutils
 
-DESCRIPTION="a small stealth network autoconfigure software."
+DESCRIPTION="a small stealth network autoconfigure software"
 HOMEPAGE="http://selfdhcp.sourceforge.net"
 SRC_URI="mirror://sourceforge/selfdhcp/${P}.tar.bz2"
 
@@ -28,6 +28,6 @@ src_configure() {
 }
 
 src_install() {
-	einstall sbindir="${D}"/sbin
+	emake DESTDIR="${D}" install
 	dodoc AUTHORS ChangeLog README TODO
 }

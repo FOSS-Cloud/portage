@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/wally/wally-2.4.4.ebuild,v 1.5 2013/03/02 21:41:16 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/wally/wally-2.4.4.ebuild,v 1.7 2014/08/06 11:36:51 jer Exp $
 
-EAPI=4
+EAPI=5
 KDE_REQUIRED="optional"
 
 inherit eutils kde4-base readme.gentoo
@@ -41,7 +41,7 @@ src_prepare() {
 	DOC_CONTENTS="In order to use wallyplugin you need to
 		restart plasma in your KDE4 enviroment."
 	kde4-base_src_prepare
-	use kde || epatch "${FILESDIR}/${PN}-2.2.0-disable-kde4.patch"
+	use kde || epatch "${FILESDIR}"/${PN}-2.2.0-disable-kde4.patch
 }
 
 src_configure() {

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/nokogiri/nokogiri-1.6.0.ebuild,v 1.4 2014/03/21 12:56:30 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/nokogiri/nokogiri-1.6.0.ebuild,v 1.8 2014/08/28 02:53:26 mrueg Exp $
 
 EAPI=5
 
@@ -11,8 +11,8 @@ RUBY_FAKEGEM_EXTRADOC="CHANGELOG.rdoc CHANGELOG.ja.rdoc README.rdoc README.ja.rd
 
 inherit ruby-fakegem eutils multilib
 
-DESCRIPTION="Nokogiri is an HTML, XML, SAX, and Reader parser."
-HOMEPAGE="http://nokogiri.rubyforge.org/"
+DESCRIPTION="Nokogiri is an HTML, XML, SAX, and Reader parser"
+HOMEPAGE="http://nokogiri.org/"
 LICENSE="MIT"
 SRC_URI="https://github.com/sparklemotion/nokogiri/archive/v${PV}.tar.gz -> ${P}-git.tgz"
 
@@ -21,7 +21,7 @@ SLOT="0"
 IUSE=""
 
 RDEPEND="${RDEPEND}
-	dev-libs/libxml2
+	dev-libs/libxml2:=
 	dev-libs/libxslt"
 DEPEND="${DEPEND}
 	dev-libs/libxml2
@@ -30,11 +30,12 @@ DEPEND="${DEPEND}
 # The tests require _minitest_, not the virtual; what is shipped with
 # Ruby 1.9 is *not* enough, unfortunately
 ruby_add_bdepend "
+	dev-ruby/hoe
 	dev-ruby/rake-compiler
 	dev-ruby/rexical
 	dev-ruby/rdoc
 	dev-ruby/racc
-	test? ( dev-ruby/hoe dev-ruby/minitest )"
+	test? ( dev-ruby/minitest )"
 
 all_ruby_prepare() {
 	sed -i \

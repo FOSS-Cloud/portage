@@ -1,6 +1,23 @@
 # ChangeLog for dev-haskell/hashed-storage
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hashed-storage/ChangeLog,v 1.32 2013/12/24 12:57:24 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hashed-storage/ChangeLog,v 1.36 2014/07/25 09:16:25 slyfox Exp $
+
+  25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  hashed-storage-0.5.10.ebuild, hashed-storage-0.5.11.ebuild,
+  hashed-storage-0.5.9.ebuild:
+  Drop trailing '.' from description.
+
+  25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
+  Drop redundant '<maintainer>' field, leave only '<herd>'.
+
+  09 Jul 2014; Patrick Lauer <patrick@gentoo.org> hashed-storage-0.5.11.ebuild:
+  Temporarily drop keywords until dependencies catch up
+
+*hashed-storage-0.5.11 (02 Jul 2014)
+
+  02 Jul 2014; Mark Wright <gienah@gentoo.org> +hashed-storage-0.5.11.ebuild,
+  metadata.xml:
+  Bump hashed-storage to 0.5.11
 
   24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> hashed-storage-0.5.10.ebuild:
   Stable for x86, wrt bug #491988

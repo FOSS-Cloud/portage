@@ -1,6 +1,61 @@
 # ChangeLog for profiles/prefix
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/prefix/ChangeLog,v 1.415 2014/03/27 19:59:36 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/prefix/ChangeLog,v 1.429 2014/08/24 07:14:11 grobian Exp $
+
+  24 Aug 2014; Fabian Groffen <grobian@gentoo.org> package.mask:
+  Mask bison-3.0.2 for it is not ready for general use yet
+
+  12 Aug 2014; Fabian Groffen <grobian@gentoo.org> darwin/package.mask:
+  Masked libffi-3.1 for it needs some work, bug #513428
+
+  12 Aug 2014; Fabian Groffen <grobian@gentoo.org> darwin/package.mask:
+  Mask tar-1.28 on Darwin for bug #518444
+
+  28 Jul 2014; Michael Haubenwallner <haubi@gentoo.org> linux/profile.bashrc:
+  (<glibc-2.6) -fgnu89-inline is for C only; allow user to override.
+
+  09 Jul 2014; Michael Haubenwallner <haubi@gentoo.org> linux/profile.bashrc:
+  Enable -fgnu89-inline compiler flag for glibc-2.5 and older, bug#473524.
+
+  06 Jul 2014; Fabian Groffen <grobian@gentoo.org> mint/make.defaults:
+  Drop openmp from USE-default, bug #515616
+
+  06 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> package.mask:
+  QA cleanup
+
+  05 Jul 2014; Fabian Groffen <grobian@gentoo.org> aix/make.defaults,
+  bsd/freebsd/arch/x64/make.defaults, bsd/freebsd/arch/x86/make.defaults,
+  darwin/macos/arch/ppc/make.defaults, darwin/macos/arch/x64/make.defaults,
+  darwin/macos/arch/x86/make.defaults, linux/amd64/make.defaults,
+  linux/x86/make.defaults, sunos/solaris/arch/x64/make.defaults,
+  sunos/solaris/arch/x86/make.defaults:
+  Add libdirs for ABIs to make get_libdir work again
+
+  03 Jul 2014; Fabian Groffen <grobian@gentoo.org> aix/make.defaults,
+  +bsd/freebsd/arch/x64/make.defaults, +bsd/freebsd/arch/x86/make.defaults,
+  +darwin/macos/arch/ppc/make.defaults, +darwin/macos/arch/x64/make.defaults,
+  +darwin/macos/arch/x86/make.defaults, linux/amd64/make.defaults,
+  linux/x86/make.defaults, +sunos/solaris/arch/x64/make.defaults,
+  +sunos/solaris/arch/x86/make.defaults:
+  Add some multilib vars necessary for multilib.eclass
+
+  12 Jun 2014; Fabian Groffen <grobian@gentoo.org> package.mask:
+  Mask nano-2.3.3 as it fails to build with USE=-unicode, bug #512064
+
+  05 Jun 2014; Fabian Groffen <grobian@gentoo.org> package.mask:
+  autogen: extend mask to 5.18.2
+
+  07 May 2014; redlizard <redlizard@gentoo.org> -bsd/freebsd/9.1/package.mask,
+  -bsd/freebsd/package.mask:
+  Removed obsolete freebsd toolchain masks.
+
+  30 Apr 2014; redlizard <redlizard@gentoo.org> +windows/cygwin/use.force,
+  windows/interix/use.force, windows/interix/use.mask, +windows/use.force,
+  +windows/use.mask, +windows/winnt/use.force, windows/winnt/use.mask:
+  Fixed windows kernel_ and elibc_ USE flags.
+
+  14 Apr 2014; Michael Haubenwallner <haubi@gentoo.org> aix/package.mask:
+  GNU make-4.0 on AIX endless loops with gcc-4.2.4, p.masked for now.
 
   27 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> +aix/5.2.0.0/eapi,
   +aix/5.2.0.0/ppc/eapi, +aix/5.3.0.0/eapi, +aix/5.3.0.0/ppc/eapi,

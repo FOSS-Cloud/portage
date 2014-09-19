@@ -1,6 +1,26 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/ia64/package.use.mask,v 1.142 2014/03/16 02:43:33 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/ia64/package.use.mask,v 1.149 2014/09/16 17:12:06 chithanh Exp $
+
+# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (16 Sep 2014)
+# Needs libepoxy keywording, bug #510940
+x11-base/xorg-server glamor wayland
+
+# Maciej Mrozowski <reavertm@gentoo.org> (13 Aug 2014)
+# Missing keywords on dev-libs/protobuf-c (bug 519772)
+>=net-libs/libgadu-1.12.0 gg11
+
+# Christoph Junghans <ottxor@gentoo.org> (21 Jul 2014)
+# Missing keywords on sci-libs/libcerf (bug 517726)
+sci-visualization/gnuplot libcerf
+
+# Markos Chandras <hwoarang@gentoo.org> (26 Apr 2014)
+# dev-libs/jansson is not keyworded for ia64. Bug #507428
+app-admin/ulogd json
+
+# Pacho Ramos <pacho@gentoo.org> (12 Apr 2014)
+# Missing keywords, bug #507490
+net-misc/modemmanager mbim
 
 # Mike Frysinger <vapier@gentoo.org> (15 Mar 2014)
 # Various deps not ported to ia64.
@@ -124,10 +144,7 @@ media-libs/phonon gstreamer vlc
 # MySQL 5.5 wants systemtap, tcmalloc & jemalloc
 >=dev-db/mysql-5.5 tcmalloc
 >=dev-db/mariadb-5.5 tcmalloc
-
-# Raúl Porcel <armin76@gentoo.org> (11 Sep 2012)
-# Upstream drops support on ia64 from 4.0 onwards, bug #430352
->=dev-lang/ocaml-4 ocamlopt
+>=dev-db/percona-server-5.5 tcmalloc
 
 # Raúl Porcel <armin76@gentoo.org> (28 May 2012)
 # Needs x11-misc/lightdm(which also requires some other deps)

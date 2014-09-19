@@ -1,18 +1,18 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/ssldump/ssldump-0.9-r2.ebuild,v 1.5 2013/04/05 21:49:55 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/ssldump/ssldump-0.9-r2.ebuild,v 1.8 2014/07/17 15:54:58 jer Exp $
 
 EAPI=5
 
 AUTOTOOLS_IN_SOURCE_BUILD=1
 AUTOTOOLS_AUTORECONF=1
-inherit autotools-utils eutils
+inherit autotools-utils eutils toolchain-funcs
 
 MY_P="${PN}-0.9b3"
 
-DESCRIPTION="A Tool for network monitoring and data acquisition"
+DESCRIPTION="An SSLv3/TLS network protocol analyzer"
 HOMEPAGE="http://www.rtfm.com/ssldump/"
-SRC_URI="http://www.rtfm.com/ssldump/${MY_P}.tar.gz"
+SRC_URI="${HOMEPAGE}${MY_P}.tar.gz"
 
 LICENSE="openssl"
 SLOT="0"
@@ -26,13 +26,14 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-libpcap-header.patch \
+	epatch \
+		"${FILESDIR}"/${P}-libpcap-header.patch \
 		"${FILESDIR}"/${P}-configure-dylib.patch \
 		"${FILESDIR}"/${P}-openssl-0.9.8.compile-fix.patch \
 		"${FILESDIR}"/${P}-DLT_LINUX_SLL.patch \
-		"${FILESDIR}"/${P}-prefix-fix.patch #414359
-
-	sed -i configure.in -e 's|libpcap.a|libpcap.so|g' || die
+		"${FILESDIR}"/${P}-prefix-fix.patch \
+		"${FILESDIR}"/${P}-declaration.patch \
+		"${FILESDIR}"/${P}-includes.patch
 
 	autotools-utils_src_prepare
 }
@@ -51,6 +52,8 @@ src_configure() {
 	else
 		myeconfargs+=( "--without-openssl" )
 	fi
+
+	tc-export CC
 
 	autotools-utils_src_configure
 }

@@ -1,6 +1,27 @@
 # ChangeLog for net-analyzer/ssldump
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/ssldump/ChangeLog,v 1.29 2013/04/06 06:00:55 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/ssldump/ChangeLog,v 1.33 2014/07/17 15:54:58 jer Exp $
+
+  17 Jul 2014; Jeroen Roovers <jer@gentoo.org> ssldump-0.9-r2.ebuild,
+  +files/ssldump-0.9-declaration.patch, +files/ssldump-0.9-includes.patch,
+  metadata.xml:
+  Remove short <longdescription>, match DESCRIPTION to upstream blurb. Add some
+  missing includes, declare a prototype for ssl3_check_mac().
+
+  26 Jun 2014; Jeroen Roovers <jer@gentoo.org> ssldump-0.9-r2.ebuild,
+  files/ssldump-0.9-configure-dylib.patch:
+  Patch configure.in not configure. Use LIBS not LDFLAGS (bug #514056).
+
+  26 Jun 2014; Jeroen Roovers <jer@gentoo.org> ssldump-0.9-r2.ebuild:
+  Set CC early.
+
+  23 Jun 2014; Jeroen Roovers <jer@gentoo.org>
+  files/ssldump-0.9-DLT_LINUX_SLL.patch,
+  files/ssldump-0.9-configure-dylib.patch,
+  files/ssldump-0.9-libpcap-header.patch,
+  files/ssldump-0.9-openssl-0.9.8.compile-fix.patch,
+  files/ssldump-0.9-prefix-fix.patch:
+  Clean up patches.
 
   06 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> -ssldump-0.9-r1.ebuild:
   Drop old revision

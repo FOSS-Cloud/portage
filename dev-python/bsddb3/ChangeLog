@@ -1,6 +1,60 @@
 # ChangeLog for dev-python/bsddb3
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/bsddb3/ChangeLog,v 1.101 2014/04/01 11:23:14 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/bsddb3/ChangeLog,v 1.118 2014/09/15 08:18:54 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> bsddb3-6.0.1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> bsddb3-6.0.1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> bsddb3-6.0.1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> bsddb3-6.0.1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> bsddb3-6.0.1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  04 Aug 2014; Mike Gilbert <floppym@gentoo.org> bsddb3-6.1.0.ebuild:
+  Simplify deps, and make the slot-operator actually work.
+
+  03 Aug 2014; Mike Gilbert <floppym@gentoo.org> bsddb3-6.1.0.ebuild:
+  Allow sys-libs/db:4.7.
+
+  03 Aug 2014; Mike Gilbert <floppym@gentoo.org> bsddb3-6.1.0.ebuild:
+  Use DB_VER from the environment to facilitate testing.
+
+  03 Aug 2014; Mike Gilbert <floppym@gentoo.org> bsddb3-6.1.0.ebuild:
+  Drop bindist from IUSE too.
+
+  03 Aug 2014; Mike Gilbert <floppym@gentoo.org> bsddb3-6.1.0.ebuild:
+  Drop bindist use flag; BSD and AGPLv3 are compatible.
+
+  03 Aug 2014; Mike Gilbert <floppym@gentoo.org> bsddb3-6.1.0.ebuild:
+  Introduce bindist use flag to control dependency on db-6.x. Bug 494490.
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> bsddb3-6.0.1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+*bsddb3-6.1.0 (27 Jul 2014)
+
+  27 Jul 2014; Ian Delaney <idella4@gentoo.org> +bsddb3-6.1.0.ebuild:
+  bump; drop py2.6, upgrade test phase
+
+  16 Jul 2014; Pacho Ramos <pacho@gentoo.org> bsddb3-6.0.1.ebuild:
+  amd64/x86 stable, bug #516176
+
+  20 May 2014; Ian Delaney <idella4@gentoo.org> bsddb3-6.0.1.ebuild:
+  add py3.4 support
+
+  19 May 2014; Mike Gilbert <floppym@gentoo.org> bsddb3-6.0.1.ebuild:
+  Set BERKELEYDB envvars instead of passing them as arguments to setup.py.
+
+  19 May 2014; Mike Gilbert <floppym@gentoo.org> bsddb3-6.0.1.ebuild:
+  Fixup distutils-r1 conversion, and fix build with newer multilib-enabled sys-
+  apps/db.
 
   01 Apr 2014; Ian Delaney <idella4@gentoo.org>+files/py3tests.patch,
   bsddb3-6.0.0.ebuild:

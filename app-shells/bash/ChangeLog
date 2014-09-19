@@ -1,6 +1,117 @@
 # ChangeLog for app-shells/bash
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/bash/ChangeLog,v 1.362 2014/04/02 11:38:52 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-shells/bash/ChangeLog,v 1.380 2014/09/09 15:59:39 polynomial-c Exp $
+
+*bash-4.3_p24-r1 (09 Sep 2014)
+
+  09 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p22-r1.ebuild,
+  +bash-4.3_p24-r1.ebuild, -files/bash-4.3-indirect-array-element.patch,
+  +files/bash-4.3-term-cleanup.patch:
+  Revbump so bash cleans up readline and its terminal state in all cases.
+  Removed old.
+
+  30 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> files/bashrc:
+  Added KDE's konsole to the list of valid terms for PROMPT_COMMAND.
+
+*bash-4.3_p24 (24 Aug 2014)
+
+  24 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p22.ebuild,
+  +bash-4.3_p24.ebuild:
+  Version bump. Removed old.
+
+*bash-4.3_p22-r1 (12 Aug 2014)
+
+  12 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p18-r4.ebuild,
+  +bash-4.3_p22-r1.ebuild, +files/bash-4.3-append-process-segfault.patch,
+  -files/bash-4.3-here-doc-ps2-comsub.patch,
+  -files/bash-4.3-lastpipe-nested-pipe-segfault.patch:
+  Revbump to fix a segmentation fault with lastpipe. Removed old.
+
+*bash-4.3_p22 (02 Aug 2014)
+
+  02 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p18-r3.ebuild,
+  +bash-4.3_p22.ebuild:
+  Version bump. Removed old.
+
+*bash-4.3_p18-r4 (24 Jul 2014)
+
+  24 Jul 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p18-r2.ebuild,
+  +bash-4.3_p18-r4.ebuild, +files/bash-4.3-indirect-array-element.patch:
+  Revbump to fix a bug in array name expansion. Removed old.
+
+*bash-4.3_p18-r3 (08 Jul 2014)
+
+  08 Jul 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p18.ebuild,
+  -bash-4.3_p18-r1.ebuild, +bash-4.3_p18-r3.ebuild,
+  +files/bash-4.3-lastpipe-nested-pipe-segfault.patch:
+  Revbump to fix a segfault in lastpipe mode. Removed old.
+
+*bash-4.3_p18-r2 (17 Jun 2014)
+
+  17 Jun 2014; Mike Frysinger <vapier@gentoo.org> +bash-4.3_p18-r2.ebuild,
+  +files/bash-4.3-compat-lvl.patch, +files/bash-4.3-parse-time-keyword.patch:
+  Fix plugins handling and add some fixes from upstream.
+
+*bash-4.3_p18-r1 (05 Jun 2014)
+
+  05 Jun 2014; Lars Wendler <polynomial-c@gentoo.org> +bash-4.3_p18-r1.ebuild,
+  +files/bash-4.3-here-doc-ps2-comsub.patch:
+  Added upstream fix.
+
+*bash-4.3_p18 (18 May 2014)
+
+  18 May 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p11-r4.ebuild,
+  -bash-4.3_p11-r5.ebuild, +bash-4.3_p18.ebuild:
+  Version bump. Removed old.
+
+  14 May 2014; Lars Wendler <polynomial-c@gentoo.org> bash-4.3_p11-r5.ebuild,
+  +files/bash-4.3-bind-compound-arry.patch,
+  -files/bash-4.3-bind-compund-arry.patch:
+  Fixed patchname.
+
+*bash-4.3_p11-r5 (13 May 2014)
+
+  13 May 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p11-r2.ebuild,
+  +bash-4.3_p11-r5.ebuild, +files/bash-4.3-bind-compund-arry.patch:
+  Added yet another upstream fix. Removed old.
+
+*bash-4.3_p11-r4 (07 May 2014)
+
+  07 May 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p11-r3.ebuild,
+  +bash-4.3_p11-r4.ebuild, +files/bash-4.3-localvar-invisible.patch:
+  Added another upstream fix. Removed old.
+
+*bash-4.3_p11-r3 (07 May 2014)
+
+  07 May 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p11-r1.ebuild,
+  +bash-4.3_p11-r3.ebuild, +files/bash-4.3-extglob-directory.patch:
+  Added another upstream fix. Removed old.
+
+*bash-4.3_p11-r2 (26 Apr 2014)
+
+  26 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p11.ebuild,
+  +bash-4.3_p11-r2.ebuild, +files/bash-4.3-complete-dequoting.patch:
+  Added another upstream fix. Removed old.
+
+*bash-4.3_p11-r1 (16 Apr 2014)
+
+  16 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.2_p45-r1.ebuild,
+  -bash-4.2_p46-r1.ebuild, +bash-4.3_p11-r1.ebuild,
+  +files/bash-4.3-jobs-run-sigchld-trap.patch:
+  Added upstream fix. Removed old.
+
+*bash-4.2_p47 (14 Apr 2014)
+
+  14 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> +bash-4.2_p47.ebuild,
+  bash-4.3_p11.ebuild:
+  Version bump. Added prefix support to bash-4.3
+
+*bash-4.3_p11 (12 Apr 2014)
+
+  12 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> -bash-4.3_p8.ebuild,
+  +bash-4.3_p11.ebuild, -files/bash-4.3-input-line-realloc.patch,
+  -files/bash-4.3-pcomplete-dequote.patch:
+  Version bump. Removed old.
 
   02 Apr 2014; Tom Wijsman <TomWij@gentoo.org> bash-4.2_p46-r1.ebuild:
   Downgrade 4.2_p46-r1 to EAPI 4 per Poly-C's request, as this is an essential

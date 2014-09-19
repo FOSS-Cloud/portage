@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-plugins/fsviewer/fsviewer-0.2.6.ebuild,v 1.2 2012/07/11 22:06:05 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-plugins/fsviewer/fsviewer-0.2.6.ebuild,v 1.5 2014/06/14 10:09:05 phajdan.jr Exp $
 
-EAPI=4
+EAPI=5
 inherit autotools eutils multilib
 
 MY_P=${PN}-app-${PV}
@@ -13,7 +13,7 @@ SRC_URI="http://www.bayernline.de/~gscholz/linux/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE="nls"
 
 RDEPEND=">=x11-wm/windowmaker-0.95.2
@@ -25,6 +25,8 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
 
 S=${WORKDIR}/${MY_P}
+
+DOCS="AUTHORS ChangeLog NEWS README"
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-wmaker-0.95_support.patch
@@ -38,7 +40,6 @@ src_configure() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	default
 	dosym /usr/$(get_libdir)/GNUstep/FSViewer.app/FSViewer /usr/bin/FSViewer
-	dodoc AUTHORS ChangeLog NEWS README
 }

@@ -1,6 +1,29 @@
 # ChangeLog for dev-ruby/activeldap
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activeldap/ChangeLog,v 1.7 2013/10/22 17:59:01 graaff Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activeldap/ChangeLog,v 1.13 2014/09/04 14:06:27 graaff Exp $
+
+  04 Sep 2014; Hans de Graaff <graaff@gentoo.org> activeldap-4.0.3.ebuild:
+  Add ruby20, ruby21.
+
+  07 Jul 2014; Hans de Graaff <graaff@gentoo.org> activeldap-3.2.2.ebuild:
+  Add ruby20.
+
+  26 Jun 2014; Hans de Graaff <graaff@gentoo.org> -activeldap-4.0.1.ebuild,
+  -activeldap-4.0.2.ebuild:
+  Cleanup.
+
+  26 May 2014; Manuel Rüger <mrueg@gentoo.org> activeldap-3.2.2.ebuild:
+  Remove ruby18 target.
+
+*activeldap-4.0.3 (16 May 2014)
+
+  16 May 2014; Hans de Graaff <graaff@gentoo.org> +activeldap-4.0.3.ebuild:
+  Version bump.
+
+*activeldap-4.0.2 (02 May 2014)
+
+  02 May 2014; Hans de Graaff <graaff@gentoo.org> +activeldap-4.0.2.ebuild:
+  Version bump.
 
 *activeldap-4.0.1 (22 Oct 2013)
 

@@ -1,6 +1,36 @@
 # ChangeLog for games-action/minetest
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/minetest/ChangeLog,v 1.9 2014/03/30 12:51:48 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-action/minetest/ChangeLog,v 1.14 2014/09/15 19:43:00 hasufell Exp $
+
+*minetest-0.4.10-r1 (15 Sep 2014)
+
+  15 Sep 2014; Julian Ospald <hasufell@gentoo.org> +minetest-0.4.10-r1.ebuild:
+  fix irrlicht dependency for dedicated USE flag
+
+  15 Sep 2014; Julian Ospald <hasufell@gentoo.org> minetest-0.4.9.ebuild:
+  update elog
+
+  09 Sep 2014; Julian Ospald <hasufell@gentoo.org> -minetest-0.4.7.ebuild,
+  -minetest-0.4.8.ebuild, -files/minetest-0.4.7-as-needed.patch,
+  -files/minetest-0.4.7-jthread-option-and-pkgconfig.patch,
+  -files/minetest-0.4.7-lua-luajit-option.patch,
+  -files/minetest-0.4.7-shared-irrlicht.patch,
+  -files/minetest-0.4.8-as-needed.patch,
+  -files/minetest-0.4.8-lua-luajit-option.patch,
+  -files/minetest-0.4.8-opengles.patch,
+  -files/minetest-0.4.8-shared-irrlicht.patch:
+  rm old
+
+*minetest-0.4.10 (07 Jul 2014)
+
+  07 Jul 2014; Julian Ospald <hasufell@gentoo.org> +minetest-0.4.10.ebuild,
+  +files/minetest-0.4.10-as-needed.patch,
+  +files/minetest-0.4.10-shared-irrlicht.patch,
+  +files/minetest-0.4.10-system-lua.patch, metadata.xml:
+  version bump
+
+  05 Apr 2014; Agostino Sarubbo <ago@gentoo.org> minetest-0.4.9.ebuild:
+  Stable for x86, wrt bug #504358
 
   30 Mar 2014; Chema Alonso <nimiux@gentoo.org> minetest-0.4.9.ebuild:
   Stable for amd64 wrt bug #504358

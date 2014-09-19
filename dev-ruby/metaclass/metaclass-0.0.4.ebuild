@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/metaclass/metaclass-0.0.4.ebuild,v 1.1 2014/02/23 16:15:15 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/metaclass/metaclass-0.0.4.ebuild,v 1.3 2014/08/05 16:00:41 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby18 ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby19 ruby20 ruby21 jruby"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="README.md"
@@ -11,7 +11,7 @@ RUBY_FAKEGEM_EXTRADOC="README.md"
 inherit ruby-fakegem
 SRC_URI="https://github.com/floehopper/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-DESCRIPTION="Adds a __metaclass__ method to all Ruby objects."
+DESCRIPTION="Adds a __metaclass__ method to all Ruby objects"
 HOMEPAGE="https://github.com/floehopper/metaclass"
 
 LICENSE="MIT"

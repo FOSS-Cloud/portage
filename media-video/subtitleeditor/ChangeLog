@@ -1,6 +1,24 @@
 # ChangeLog for media-video/subtitleeditor
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/subtitleeditor/ChangeLog,v 1.25 2014/02/22 11:14:31 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/subtitleeditor/ChangeLog,v 1.30 2014/07/23 15:23:25 ago Exp $
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> subtitleeditor-0.41.1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> subtitleeditor-0.41.1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*subtitleeditor-0.41.1 (15 Jul 2014)
+
+  15 Jul 2014; Pacho Ramos <pacho@gentoo.org> +subtitleeditor-0.41.1.ebuild,
+  -subtitleeditor-0.41.0.ebuild:
+  Version bump, drop old
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> subtitleeditor-0.41.0-r1.ebuild:
+  x86 stable, bug 508862
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> subtitleeditor-0.41.0-r1.ebuild:
+  amd64 stable, bug 508862
 
 *subtitleeditor-0.41.0-r1 (22 Feb 2014)
 

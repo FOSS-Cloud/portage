@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mate-extra/mate-power-manager/mate-power-manager-1.6.3.ebuild,v 1.3 2014/03/10 22:07:54 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/mate-extra/mate-power-manager/mate-power-manager-1.6.3.ebuild,v 1.5 2014/05/31 20:40:24 tomwij Exp $
 
 EAPI="5"
 
@@ -16,7 +16,7 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 IUSE="+applet gnome-keyring man policykit test unique"
 
@@ -28,7 +28,10 @@ COMMON_DEPEND="app-text/rarian:0
 	>=dev-libs/glib-2.13:2
 	>=media-libs/libcanberra-0.10:0[gtk]
 	>=sys-apps/dbus-1:0
-	>=sys-power/upower-0.9.1:0
+	|| (
+		( >=sys-power/upower-0.9.1 <sys-power/upower-0.99 )
+		sys-power/upower-pm-utils
+	)
 	>=x11-apps/xrandr-1.2:0
 	>=x11-libs/cairo-1:0
 	>=x11-libs/gdk-pixbuf-2.11:2

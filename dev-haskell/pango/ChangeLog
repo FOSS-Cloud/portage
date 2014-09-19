@@ -1,6 +1,22 @@
 # ChangeLog for dev-haskell/pango
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/pango/ChangeLog,v 1.22 2014/02/02 11:13:36 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/pango/ChangeLog,v 1.26 2014/07/25 09:16:18 slyfox Exp $
+
+  25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> pango-0.12.0.ebuild,
+  pango-0.12.3.ebuild, pango-0.12.4-r1.ebuild, pango-0.12.5.0-r1.ebuild,
+  pango-0.12.5.3.ebuild:
+  Drop trailing '.' from description.
+
+  25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
+  Drop redundant '<maintainer>' field, leave only '<herd>'.
+
+  05 Jun 2014; Sergei Trofimovich <slyfox@gentoo.org> pango-0.12.4-r1.ebuild:
+  Use unmodified 'gtk2hsTypeGen' (bug #512474 by Paweł Hajdan, Jr.).
+
+*pango-0.12.5.3 (20 May 2014)
+
+  20 May 2014; Mark Wright <gienah@gentoo.org> +pango-0.12.5.3.ebuild:
+  Bump pango to 0.12.5.3
 
   02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> pango-0.12.4-r1.ebuild:
   Stable for sparc, wrt bug #488808

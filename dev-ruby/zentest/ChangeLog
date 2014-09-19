@@ -1,6 +1,49 @@
 # ChangeLog for dev-ruby/zentest
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/zentest/ChangeLog,v 1.135 2014/03/28 04:04:48 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/zentest/ChangeLog,v 1.147 2014/08/15 17:23:56 armin76 Exp $
+
+  15 Aug 2014; Raúl Porcel <armin76@gentoo.org> zentest-4.9.5.ebuild:
+  sparc stable, bug #490180
+
+  18 Jul 2014; Manuel Rüger <mrueg@gentoo.org> zentest-4.9.5.ebuild:
+  Fix minitest dependency. Stable on amd64. Bug #490180.
+
+  18 Jul 2014; Hans de Graaff <graaff@gentoo.org> zentest-4.10.1.ebuild:
+  Update minitest dependency to a version that works, thanks to mrueg for
+  noticing.
+
+  18 Jul 2014; Hans de Graaff <graaff@gentoo.org> zentest-4.7.0.ebuild,
+  zentest-4.9.5.ebuild, zentest-4.10.0.ebuild:
+  Update HOMEPAGE.
+
+*zentest-4.10.1 (18 Jul 2014)
+
+  18 Jul 2014; Hans de Graaff <graaff@gentoo.org> +zentest-4.10.1.ebuild:
+  Version bump.
+
+  18 Jul 2014; Hans de Graaff <graaff@gentoo.org> -zentest-4.9.5-r1.ebuild:
+  Cleanup.
+
+  02 Jul 2014; Manuel Rüger <mrueg@gentoo.org> -zentest-4.9.4-r1.ebuild:
+  Cleanup old.
+
+  17 Jun 2014; Tobias Klausmann <klausman@gentoo.org> zentest-4.9.5.ebuild:
+  Stable on alpha, bug #490180
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> zentest-4.9.5.ebuild:
+  x86 stable wrt bug #490180
+
+  08 Jun 2014; Akinori Hattori <hattya@gentoo.org> zentest-4.9.5.ebuild:
+  ia64 stable wrt bug #490180
+
+*zentest-4.10.0 (25 Apr 2014)
+
+  25 Apr 2014; Manuel Rüger <mrueg@gentoo.org> +zentest-4.10.0.ebuild:
+  Version bump.
+
+  05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> zentest-4.7.0.ebuild,
+  zentest-4.9.4-r1.ebuild, zentest-4.9.5.ebuild:
+  Remove ree18 and ruby18 target.
 
   28 Mar 2014; Jeroen Roovers <jer@gentoo.org> zentest-4.9.5.ebuild:
   Stable for HPPA (bug #490180).

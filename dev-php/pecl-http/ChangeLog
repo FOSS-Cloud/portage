@@ -1,6 +1,20 @@
 # ChangeLog for dev-php/pecl-http
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-http/ChangeLog,v 1.14 2013/08/07 13:25:13 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-http/ChangeLog,v 1.17 2014/08/10 21:02:04 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> pecl-http-1.7.4.ebuild,
+  pecl-http-1.7.5.ebuild, pecl-http-1.7.6-r1.ebuild, pecl-http-1.7.6.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*pecl-http-1.7.6-r1 (08 Aug 2014)
+
+  08 Aug 2014; Tiziano Müller <dev-zero@gentoo.org> +pecl-http-1.7.6-r1.ebuild:
+  Rev bump to add php5-5 USE flag.
+
+*pecl-http-1.7.6 (03 Jun 2014)
+
+  03 Jun 2014; Ole Markus With <olemarkus@gentoo.org> +pecl-http-1.7.6.ebuild:
+  Version bump
 
   07 Aug 2013; Agostino Sarubbo <ago@gentoo.org> pecl-http-1.7.5.ebuild:
   Stable for x86, wrt bug #470442

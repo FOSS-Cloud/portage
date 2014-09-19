@@ -1,6 +1,29 @@
 # ChangeLog for dev-ruby/json
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/json/ChangeLog,v 1.143 2014/01/26 13:06:29 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/json/ChangeLog,v 1.149 2014/08/05 16:00:36 mrueg Exp $
+
+  05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> json-1.7.7.ebuild,
+  json-1.8.0-r1.ebuild, json-1.8.0.ebuild, json-1.8.1.ebuild:
+  Remove trailing '.' from DESCRIPTION.
+
+  26 Jul 2014; Hans de Graaff <graaff@gentoo.org> json-1.8.1.ebuild:
+  Undo accidental rbx commit.
+
+  26 Jul 2014; Hans de Graaff <graaff@gentoo.org> +json-1.7.7.ebuild:
+  Add back json-1.7.7 because app-admin/chef has dependencies that violate our
+  policy but also no maintainer, bug 484348.
+
+  25 Jul 2014; Manuel Rüger <mrueg@gentoo.org> -json-1.7.7-r1.ebuild,
+  -json-1.7.7.ebuild:
+  Cleanup old.
+
+  19 Apr 2014; Manuel Rüger <mrueg@gentoo.org> -json-1.6.8.ebuild:
+  Cleanup old.
+
+  05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> json-1.6.8.ebuild,
+  json-1.7.7-r1.ebuild, json-1.7.7.ebuild, json-1.8.0-r1.ebuild,
+  json-1.8.0.ebuild, json-1.8.1.ebuild:
+  Remove ree18 and ruby18 target.
 
   26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> json-1.8.0.ebuild:
   Stable for alpha, wrt bug #483254

@@ -1,6 +1,43 @@
 # ChangeLog for dev-libs/leveldb
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/leveldb/ChangeLog,v 1.18 2013/12/16 05:04:15 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/leveldb/ChangeLog,v 1.24 2014/08/23 02:04:29 floppym Exp $
+
+  23 Aug 2014; Mike Gilbert <floppym@gentoo.org> leveldb-1.17.ebuild:
+  Use a stable tarball.
+
+  11 Aug 2014; Anthony G. Basile <blueness@gentoo.org> leveldb-1.10.0-r1.ebuild,
+  leveldb-1.11.0-r1.ebuild, leveldb-1.12.0-r1.ebuild, leveldb-1.13.0-r1.ebuild,
+  leveldb-1.14.0.ebuild, leveldb-1.15.0-r1.ebuild, leveldb-1.15.0.ebuild,
+  leveldb-1.17.ebuild, leveldb-1.9.0-r5.ebuild, leveldb-1.9.0-r6.ebuild:
+  Keyword ~ppc, ~ppc64 for bug #519618
+
+*leveldb-1.17 (06 Aug 2014)
+
+  06 Aug 2014; Patrick Lauer <patrick@gentoo.org> +leveldb-1.17.ebuild:
+  Bump, thanks to jbergstroem for the fixups
+
+*leveldb-1.15.0-r1 (29 Jul 2014)
+
+  29 Jul 2014; Anthony G. Basile <blueness@gentoo.org>
+  +files/leveldb-1.9.0-memenv-so.patch, +leveldb-1.15.0-r1.ebuild:
+  Add patch for libmemenv.a with PIC, bug #505320
+
+  30 Jun 2014; Anthony G. Basile <blueness@gentoo.org> -leveldb-1.10.0.ebuild,
+  -leveldb-1.11.0.ebuild, -leveldb-1.12.0.ebuild, -leveldb-1.13.0.ebuild:
+  Remove ~arch versions that don't have the forward compat patch
+
+*leveldb-1.11.0-r1 (30 Jun 2014)
+*leveldb-1.12.0-r1 (30 Jun 2014)
+*leveldb-1.10.0-r1 (30 Jun 2014)
+*leveldb-1.9.0-r6 (30 Jun 2014)
+*leveldb-1.13.0-r1 (30 Jun 2014)
+
+  30 Jun 2014; Anthony G. Basile <blueness@gentoo.org>
+  +files/leveldb-1.9.0-forwardcompat.patch, +leveldb-1.10.0-r1.ebuild,
+  +leveldb-1.11.0-r1.ebuild, +leveldb-1.12.0-r1.ebuild,
+  +leveldb-1.13.0-r1.ebuild, +leveldb-1.9.0-r6.ebuild, leveldb-1.10.0.ebuild,
+  leveldb-1.11.0.ebuild, leveldb-1.12.0.ebuild, leveldb-1.13.0.ebuild:
+  Add forward compat patch, bug #506184
 
 *leveldb-1.15.0 (16 Dec 2013)
 

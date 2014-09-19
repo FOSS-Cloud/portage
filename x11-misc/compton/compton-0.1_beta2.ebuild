@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/compton/compton-0.1_beta2.ebuild,v 1.1 2013/12/14 11:38:28 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/compton/compton-0.1_beta2.ebuild,v 1.5 2014/08/10 17:35:17 ago Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python3_2 python3_3 )
+PYTHON_COMPAT=( python3_2 python3_3 python3_4 )
 inherit toolchain-funcs python-r1
 
 DESCRIPTION="A compositor for X, and a fork of xcompmgr-dana"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/chjj/compton/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="dbus +drm opengl +pcre xinerama"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -32,8 +32,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	xinerama? ( x11-libs/libXinerama )"
 RDEPEND="${COMMON_DEPEND}
 	x11-apps/xprop
-	x11-apps/xwininfo
-	virtual/python-argparse[${PYTHON_USEDEP}]"
+	x11-apps/xwininfo"
 DEPEND="${COMMON_DEPEND}
 	app-text/asciidoc
 	virtual/pkgconfig

@@ -1,6 +1,17 @@
 # ChangeLog for www-apps/dokuwiki
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/dokuwiki/ChangeLog,v 1.64 2014/01/09 13:05:57 jmbsvicetto Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/dokuwiki/ChangeLog,v 1.66 2014/08/10 20:13:04 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> dokuwiki-20120125.ebuild,
+  dokuwiki-20120125a.ebuild, dokuwiki-20121013.ebuild,
+  dokuwiki-20130510a.ebuild, dokuwiki-20131208.ebuild, dokuwiki-20140505.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*dokuwiki-20140505 (02 Jun 2014)
+
+  02 Jun 2014; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +dokuwiki-20140505.ebuild:
+  20140505 version bump - fixes bug 512054.
 
 *dokuwiki-20131208 (09 Jan 2014)
 

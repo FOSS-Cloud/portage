@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.134 2014/03/30 09:13:52 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.141 2014/09/16 17:49:57 johu Exp $
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
@@ -13,8 +13,8 @@
 # NOTE: KDE 4 ebuilds currently support EAPIs 4 and 5.  This will be
 # reviewed over time as new EAPI versions are approved.
 
-if [[ ${___ECLASS_ONCE_KDE4_BASE} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_KDE4_BASE="recur -_+^+_- spank"
+if [[ -z ${_KDE4_BASE_ECLASS} ]]; then
+_KDE4_BASE_ECLASS=1
 
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @DESCRIPTION:
@@ -82,15 +82,15 @@ case ${KDEBASE} in
 			# @DESCRIPTION:
 			# Specifies KDevelop version. Default is 4.0.0 for tagged packages and 9999 for live packages.
 			# Applies to KDEBASE=kdevelop only.
-			KDEVELOP_VERSION="${KDEVELOP_VERSION:-9999}"
+			KDEVELOP_VERSION="${KDEVELOP_VERSION:-4.9999}"
 			# @ECLASS-VARIABLE: KDEVPLATFORM_VERSION
 			# @DESCRIPTION:
 			# Specifies KDevplatform version. Default is 1.0.0 for tagged packages and 9999 for live packages.
 			# Applies to KDEBASE=kdevelop only.
-			KDEVPLATFORM_VERSION="${KDEVPLATFORM_VERSION:-9999}"
+			KDEVPLATFORM_VERSION="${KDEVPLATFORM_VERSION:-4.9999}"
 		else
 			case ${PN} in
-				kdevelop|quanta)
+				kdevelop)
 					KDEVELOP_VERSION=${PV}
 					KDEVPLATFORM_VERSION="$(($(get_major_version)-3)).$(get_after_major_version)"
 					;;
@@ -309,7 +309,7 @@ if [[ ${PN} != kdelibs ]]; then
 			case ${KDEVPLATFORM_REQUIRED} in
 				always)
 					kdecommondepend+="
-						>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}
+						>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}:4
 					"
 					;;
 				*) ;;
@@ -439,12 +439,15 @@ _calculate_src_uri() {
 				4.[1-7].[12345])
 					# Stable KDE SC with old .bz2 support
 					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-				4.11.7)
+				4.11.9)
 					# Part of 4.12 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.12.3/src/${_kmname_pv}.tar.xz" ;;
-				4.11.8)
-					# Part of 4.12 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.12.4/src/${_kmname_pv}.tar.xz" ;;
+					SRC_URI="mirror://kde/stable/4.12.5/src/${_kmname_pv}.tar.xz" ;;
+				4.11.11)
+					# Part of 4.13 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/4.13.3/src/${_kmname_pv}.tar.xz" ;;
+				4.11.12)
+					# Part of 4.14 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/4.14.1/src/${_kmname_pv}.tar.xz" ;;
 				*)
 					# Stable KDE SC releases
 					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz" ;;
@@ -468,7 +471,7 @@ _calculate_live_repo() {
 			# Determine branch URL based on live type
 			local branch_prefix
 			case ${PV} in
-				9999*)
+				4.9999*)
 					# trunk
 					branch_prefix="trunk/KDE"
 					;;
@@ -555,12 +558,8 @@ _calculate_live_repo() {
 			fi
 
 			# default branching
-			[[ ${PV} != 9999* && ${KDEBASE} == kde-base ]] && \
+			[[ ${PV} != 4.9999* && ${KDEBASE} == kde-base ]] && \
 				EGIT_BRANCH="KDE/$(get_kde_version)"
-
-			# kde-workspace master needs Qt5/kf5
-			[[ ${PV} == 9999 && ${_kmname} == kde-workspace ]] && \
-				EGIT_BRANCH="KDE/4.11"
 
 			# default repo uri
 			EGIT_REPO_URI+=( "${EGIT_MIRROR}/${_kmname}" )
@@ -604,8 +603,8 @@ kde4-base_pkg_setup() {
 	# executions consume quite some time.
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		[[ $(gcc-major-version) -lt 4 ]] || \
-				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 3 ]] ) \
-			&& die "Sorry, but gcc-4.3 and earlier wont work for KDE (see bug 354837)."
+				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 6 ]] ) \
+			&& die "Sorry, but gcc-4.6 and earlier wont work for some KDE packages."
 	fi
 
 	KDEDIR=/usr
@@ -780,7 +779,7 @@ kde4-base_src_test() {
 		fi
 
 		cmake-utils_src_test
-	}		
+	}
 
 	# When run as normal user during ebuild development with the ebuild command, the
 	# kde tests tend to access the session DBUS. This however is not possible in a real

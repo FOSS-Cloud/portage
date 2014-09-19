@@ -1,6 +1,22 @@
 # ChangeLog for app-emacs/wanderlust
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/wanderlust/ChangeLog,v 1.91 2014/03/29 20:21:09 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/wanderlust/ChangeLog,v 1.95 2014/08/02 17:36:05 armin76 Exp $
+
+  02 Aug 2014; Raúl Porcel <armin76@gentoo.org> wanderlust-2.14.0-r6.ebuild,
+  wanderlust-2.15.9_pre20120923.ebuild, wanderlust-2.15.9_p20130619.ebuild:
+  Drop alpha keywords
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> wanderlust-2.14.0-r6.ebuild,
+  wanderlust-2.15.9_pre20120923.ebuild, wanderlust-2.15.9_p20130619.ebuild:
+  Drop sparc keyword
+
+  18 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  wanderlust-2.15.9_p20130619.ebuild:
+  Stable on alpha, bug #505056
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  wanderlust-2.15.9_p20130619.ebuild:
+  x86 stable wrt bug #505056
 
   29 Mar 2014; Chema Alonso <nimiux@gentoo.org>
   wanderlust-2.15.9_p20130619.ebuild:

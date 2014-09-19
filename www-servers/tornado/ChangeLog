@@ -1,6 +1,35 @@
 # ChangeLog for www-servers/tornado
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/tornado/ChangeLog,v 1.44 2014/03/31 21:24:58 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/tornado/ChangeLog,v 1.50 2014/09/02 11:25:14 idella4 Exp $
+
+  02 Sep 2014; Ian Delaney <idella4@gentoo.org> tornado-4.0.1.ebuild:
+  correction to deps
+
+*tornado-4.0.1 (02 Sep 2014)
+
+  02 Sep 2014; Ian Delaney <idella4@gentoo.org> +tornado-4.0.1.ebuild,
+  tornado-3.2.1.ebuild:
+  bump; add deps for testsuite, tidy
+
+  13 Aug 2014; Anthony G. Basile <blueness@gentoo.org> tornado-2.2.1.ebuild,
+  tornado-2.4-r1.ebuild, tornado-2.4.1.ebuild, tornado-2.4.ebuild,
+  tornado-3.1.1-r1.ebuild, tornado-3.1.1.ebuild, tornado-3.2.1.ebuild,
+  tornado-3.2.ebuild:
+  Keyword ~ppc and ~ppc64, bug #486272
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> tornado-3.1.1-r1.ebuild,
+  tornado-3.2.1.ebuild, tornado-3.2.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
+
+  24 May 2014; Ian Delaney <idella4@gentoo.org> tornado-3.2.ebuild:
+  re-keyword ~arm to -3.2, tested on armv7, cubieboard2, qa correction to deps.
+  Also arm fine on testing for -3.2.1
+
+*tornado-3.2.1 (06 May 2014)
+
+  06 May 2014; Tim Harder <radhermit@gentoo.org> +tornado-3.2.1.ebuild:
+  Version bump, add python3_4 support.
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> tornado-2.4-r1.ebuild,
   tornado-2.4.1.ebuild, tornado-3.1.1-r1.ebuild, tornado-3.1.1.ebuild,

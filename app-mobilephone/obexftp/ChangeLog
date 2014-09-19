@@ -1,6 +1,41 @@
 # ChangeLog for app-mobilephone/obexftp
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/obexftp/ChangeLog,v 1.65 2013/11/05 00:15:54 mrueg Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/obexftp/ChangeLog,v 1.73 2014/09/14 14:16:58 jer Exp $
+
+  14 Sep 2014; Jeroen Roovers <jer@gentoo.org> obexftp-0.24.ebuild:
+  Remove python 3.4 support.
+
+  14 Sep 2014; Jeroen Roovers <jer@gentoo.org> +obexftp-0.24.ebuild,
+  files/obexftp-0.23-fixruby.patch, files/obexftp-0.23-gentoo.patch,
+  +files/obexftp-0.24-config.patch, +files/obexftp-0.24-enable_bluetooth.patch,
+  +files/obexftp-0.24-python_sitedir.patch:
+  Version bump (bug #522750).
+
+*obexftp-0.24 (14 Sep 2014)
+
+  14 Sep 2014; Jeroen Roovers <jer@gentoo.org> +obexftp-0.24.ebuild,
+  files/obexftp-0.23-fixruby.patch, files/obexftp-0.23-gentoo.patch,
+  +files/obexftp-0.24-config.patch, +files/obexftp-0.24-python_sitedir.patch:
+  Version bump (bug #522750).
+
+  14 Jun 2014; Manuel Rüger <mrueg@gentoo.org> -obexftp-0.23-r1.ebuild:
+  Cleanup old.
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> obexftp-0.23-r2.ebuild:
+  x86 stable wrt bug #505272
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> obexftp-0.23-r2.ebuild:
+  Stable for ppc, wrt bug #505272
+
+  28 May 2014; Chema Alonso <nimiux@gentoo.org> obexftp-0.23-r2.ebuild:
+  Stable for amd64 wrt bug #505272
+
+  09 Apr 2014; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  [QA] Dissolve the mobile-phone herd to maintainer-needed because it is empty
+  and nobody joined it after multiple recruitment mails.
+
+  05 Apr 2014; Jeroen Roovers <jer@gentoo.org> obexftp-0.23-r2.ebuild:
+  Stable for HPPA (bug #505272).
 
 *obexftp-0.23-r2 (05 Nov 2013)
 

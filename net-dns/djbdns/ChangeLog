@@ -1,6 +1,46 @@
 # ChangeLog for net-dns/djbdns
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/djbdns/ChangeLog,v 1.143 2013/12/04 18:14:57 mjo Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-dns/djbdns/ChangeLog,v 1.154 2014/09/05 21:49:41 mjo Exp $
+
+  05 Sep 2014; Michael Orlitzky <mjo@gentoo.org> -files/djbdns-setup,
+  -files/dnscache-setup, -files/tinydns-setup:
+  Remove unused setup scripts.
+
+  05 Sep 2014; Michael Orlitzky <mjo@gentoo.org> -djbdns-1.05-r26.ebuild,
+  -djbdns-1.05-r27.ebuild, -djbdns-1.05-r28.ebuild:
+  Remove old versions, fixing bug #504414 in the process.
+
+  04 Aug 2014; Raúl Porcel <armin76@gentoo.org> djbdns-1.05-r29.ebuild:
+  sparc stable wrt #511900
+
+  03 Aug 2014; Agostino Sarubbo <ago@gentoo.org> djbdns-1.05-r29.ebuild:
+  Stable for ppc, wrt bug #511900
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> djbdns-1.05-r29.ebuild:
+  Stable for ppc64, wrt bug #511900
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> djbdns-1.05-r29.ebuild:
+  x86 stable wrt bug #511900
+
+  24 Jul 2014; Tobias Klausmann <klausman@gentoo.org> djbdns-1.05-r29.ebuild:
+  Stable on alpha, bug #511900
+
+  21 Jul 2014; Michael Orlitzky <mjo@gentoo.org>
+  +files/makefile-parallel-test25.patch, djbdns-1.05-r29.ebuild:
+  Fix parallel build of clientloc.o, bug #517538. Original report and fix by
+  Mike Williams.
+
+  17 Jul 2014; Chema Alonso <nimiux@gentoo.org> djbdns-1.05-r29.ebuild:
+  Stable for amd64 wrt bug #511900
+
+  04 Jun 2014; Jeroen Roovers <jer@gentoo.org> djbdns-1.05-r29.ebuild:
+  Stable for HPPA (bug #511900).
+
+*djbdns-1.05-r29 (17 Apr 2014)
+
+  17 Apr 2014; Michael Orlitzky <mjo@gentoo.org> +djbdns-1.05-r29.ebuild, +files
+  /CVE2008-4392_0001-dnscache-merge-similar-outgoing-queries-ipv6-test25.patch:
+  Version bump with new ipv6 patch and unconditional man pages (bug #504640).
 
   04 Dec 2013; Michael Orlitzky <mjo@gentoo.org> metadata.xml:
   Remove proxy-maintainers herd and use @gentoo.org email address for

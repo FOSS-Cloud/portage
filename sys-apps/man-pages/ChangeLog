@@ -1,6 +1,72 @@
 # ChangeLog for sys-apps/man-pages
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-pages/ChangeLog,v 1.213 2014/03/18 18:54:45 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-pages/ChangeLog,v 1.227 2014/09/09 05:15:52 polynomial-c Exp $
+
+*man-pages-3.72 (09 Sep 2014)
+
+  09 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.63.ebuild,
+  -man-pages-3.66.ebuild, -man-pages-3.67.ebuild, -man-pages-3.68.ebuild,
+  -man-pages-3.69.ebuild, +man-pages-3.72.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.71 (22 Aug 2014)
+
+  22 Aug 2014; Mike Frysinger <vapier@gentoo.org> +man-pages-3.71.ebuild:
+  Version bump.
+
+  22 Aug 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.70.ebuild:
+  Stabilize for all.
+
+  31 Jul 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.69.ebuild:
+  Stabilize for all.
+
+*man-pages-3.70 (11 Jul 2014)
+
+  11 Jul 2014; Tim Harder <radhermit@gentoo.org> +man-pages-3.70.ebuild:
+  Version bump.
+
+  06 Jul 2014; Joshua Kinard <kumba@gentoo.org> man-pages-3.63.ebuild,
+  man-pages-3.67.ebuild:
+  Changed mips -> ~mips: we don't have a stable keyword anymore.
+
+*man-pages-3.69 (16 Jun 2014)
+
+  16 Jun 2014; Mike Frysinger <vapier@gentoo.org> +man-pages-3.69.ebuild:
+  Version bump.
+
+  16 Jun 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.67.ebuild:
+  Stabilize for all.
+
+*man-pages-3.68 (11 Jun 2014)
+
+  11 Jun 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.65.ebuild,
+  +man-pages-3.68.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.67 (24 May 2014)
+
+  24 May 2014; Lars Wendler <polynomial-c@gentoo.org> +man-pages-3.67.ebuild:
+  Version bump.
+
+*man-pages-3.66 (19 May 2014)
+
+  19 May 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.64.ebuild,
+  +man-pages-3.66.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.65 (20 Apr 2014)
+
+  20 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.57.ebuild,
+  -man-pages-3.62.ebuild, +man-pages-3.65.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.64 (06 Apr 2014)
+
+  06 Apr 2014; Mike Frysinger <vapier@gentoo.org> +man-pages-3.64.ebuild:
+  Version bump.
+
+  06 Apr 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.63.ebuild:
+  Stabilize for all.
 
 *man-pages-3.63 (18 Mar 2014)
 

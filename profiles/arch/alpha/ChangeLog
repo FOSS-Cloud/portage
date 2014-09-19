@@ -1,6 +1,46 @@
 # ChangeLog for Gentoo/Alpha profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/ChangeLog,v 1.187 2014/03/19 00:06:32 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/alpha/ChangeLog,v 1.199 2014/09/01 14:26:52 hasufell Exp $
+
+  01 Sep 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-video/mpv-0.4.2 explicitly wrt #521808
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> package.use.mask:
+  polarssl is now stable, remove p.use.mask for net-misc/openvpn polarssl
+
+  13 Aug 2014; Maciej Mrozowski <reavertm@gentoo.org> package.use.mask:
+  Mask gg11 flag due to missing keywords (bug 519772)
+
+  04 Aug 2014; Tobias Klausmann <klausman@gentoo.org> package.use.mask:
+  Mask x265 use flag for ffmpeg due to bug 519046
+
+  29 Jul 2014; Robin H. Johnson <robbat2@gentoo.org> package.use.mask:
+  Update MySQL tcmalloc mask for percona-server.
+
+  22 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> package.use.mask:
+  Unmask USE="acl" for sys-auth/consolekit because alpha has recent enough
+  sys-fs/udev in stable now.
+
+  22 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> package.use.mask:
+  Remove USE="consolekit" mask for sys-auth/pambase and USE="pam" mask for
+  sys-auth/consolekit because /usr/src/linux-3.15/arch/alpha/Kconfig has
+  "select HAVE_ARCH_AUDITSYSCALL" which means CONFIG_AUDITSYSCALL=y is a
+  possibility now.
+
+  22 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> package.use.mask:
+  Remove USE="pam" mask for sys-apps/systemd wrt #506418#c3
+
+  22 Jul 2014; Christoph Junghans <ottxor@gentoo.org> package.use.mask:
+  mask libcerf useflag (bug 517726)
+
+  01 Jul 2014; Michał Górny <mgorny@gentoo.org> make.defaults:
+  Set ABI, DEFAULT_ABI and friends consistently with other profiles.
+
+  24 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Remove obsolete gvfs[udisks] mask (bug #412801 and #440866).
+
+  06 Jun 2014; Brian Evans <grknight@gentoo.org> package.use.mask:
+  Remove USE mask on jemalloc for mysql/mariadb since it was keyworded
 
   19 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> +eapi:
   Increase EAPI to 5

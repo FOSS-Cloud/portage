@@ -1,6 +1,28 @@
 # ChangeLog for sys-apps/roccat-tools
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/roccat-tools/ChangeLog,v 1.7 2014/03/03 20:10:40 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/roccat-tools/ChangeLog,v 1.11 2014/09/06 08:21:54 hwoarang Exp $
+
+*roccat-tools-2.1.0 (06 Sep 2014)
+
+  06 Sep 2014; Markos Chandras <hwoarang@gentoo.org> +roccat-tools-2.1.0.ebuild:
+  Version bump. Bug #520284
+
+  24 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  roccat-tools-1.0.0.ebuild, roccat-tools-1.1.0.ebuild,
+  roccat-tools-1.4.0.ebuild, roccat-tools-1.4.1.ebuild,
+  roccat-tools-1.6.0.ebuild, roccat-tools-2.0.0.ebuild:
+  Swap virtual/udev[gudev] for virtual/libgudev, package does not seem to
+  require libudev or udevd; bug 506034
+
+*roccat-tools-2.0.0 (08 Jun 2014)
+
+  08 Jun 2014; Sven Vermeulen <swift@gentoo.org> +roccat-tools-2.0.0.ebuild:
+  Bump to 2.0.0 (bug #512752) thanks to Dmitry Pisklov
+
+*roccat-tools-1.6.0 (30 May 2014)
+
+  30 May 2014; Sven Vermeulen <swift@gentoo.org> +roccat-tools-1.6.0.ebuild:
+  Add roccat-tools-1.6.0 thanks to Dmitry Pisklov (bug #511524)
 
 *roccat-tools-1.4.1 (03 Mar 2014)
 

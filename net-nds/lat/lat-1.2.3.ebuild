@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/lat/lat-1.2.3.ebuild,v 1.8 2012/10/17 03:17:23 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-nds/lat/lat-1.2.3.ebuild,v 1.10 2014/08/10 20:53:16 slyfox Exp $
 
 EAPI=4
 GCONF_DEBUG=no
@@ -9,21 +9,23 @@ inherit gnome2 mono versionator
 
 KEYWORDS="amd64 x86"
 
-DESCRIPTION="LDAP Administration Tool, allows you to browse LDAP-based directories and add/edit/delete entries."
+DESCRIPTION="LDAP Administration Tool, allows you to browse LDAP-based directories and add/edit/delete entries"
 HOMEPAGE="http://sourceforge.net/projects/ldap-at/"
 SRC_URI="mirror://sourceforge/ldap-at/${P}.tar.gz"
 LICENSE="GPL-2"
 IUSE="avahi"
 SLOT="0"
 
-RDEPEND=">=dev-lang/mono-1.1.13
+RDEPEND="
+	>=dev-lang/mono-1.1.13
 	>=dev-dotnet/gtk-sharp-2.8
 	>=dev-dotnet/gnome-sharp-2.8
 	>=dev-dotnet/glade-sharp-2.8
 	>=dev-dotnet/gconf-sharp-2.8
-	>=gnome-base/gnome-keyring-0.4
+	gnome-base/libgnome-keyring
 	sys-apps/dbus
-	avahi? ( net-dns/avahi[mono] )"
+	avahi? ( net-dns/avahi[mono] )
+"
 DEPEND="${RDEPEND}
 	app-text/scrollkeeper
 	virtual/pkgconfig"

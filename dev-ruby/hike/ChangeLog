@@ -1,6 +1,23 @@
 # ChangeLog for dev-ruby/hike
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hike/ChangeLog,v 1.12 2013/12/27 03:26:54 mrueg Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hike/ChangeLog,v 1.16 2014/08/12 18:56:24 blueness Exp $
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> hike-1.2.3-r1.ebuild,
+  hike-1.2.3.ebuild, hike-2.1.2.ebuild:
+  Keyword ~ppc and ~ppc64, bug #519170
+
+  05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> hike-1.2.3-r1.ebuild,
+  hike-1.2.3.ebuild, hike-2.1.2.ebuild:
+  Remove trailing '.' from DESCRIPTION.
+
+  26 May 2014; Manuel Rüger <mrueg@gentoo.org> hike-1.2.3-r1.ebuild,
+  hike-1.2.3.ebuild:
+  Remove ruby18 target.
+
+*hike-2.1.2 (17 May 2014)
+
+  17 May 2014; Hans de Graaff <graaff@gentoo.org> +hike-2.1.2.ebuild:
+  Version bump.
 
 *hike-1.2.3-r1 (27 Dec 2013)
 

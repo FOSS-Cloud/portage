@@ -1,6 +1,20 @@
 # ChangeLog for media-libs/libsndfile
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libsndfile/ChangeLog,v 1.145 2014/03/31 21:10:20 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libsndfile/ChangeLog,v 1.149 2014/08/13 09:34:59 ago Exp $
+
+  13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libsndfile-1.0.25-r1.ebuild:
+  Stable for ppc, wrt bug #502210
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> libsndfile-1.0.25-r1.ebuild:
+  sparc stable wrt #502210
+
+  18 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  libsndfile-1.0.25-r1.ebuild:
+  Stable on alpha, bug #502210
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libsndfile-1.0.25-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> libsndfile-1.0.25-r1.ebuild:
   Add support for the new PyPy slotting.

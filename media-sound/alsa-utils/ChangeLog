@@ -1,6 +1,39 @@
 # ChangeLog for media-sound/alsa-utils
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/alsa-utils/ChangeLog,v 1.365 2014/03/02 09:13:15 hattya Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/alsa-utils/ChangeLog,v 1.373 2014/09/04 18:45:27 jer Exp $
+
+  04 Sep 2014; Jeroen Roovers <jer@gentoo.org> alsa-utils-1.0.28.ebuild:
+  Stable for HPPA (bug #522038).
+
+*alsa-utils-1.0.28 (23 Jun 2014)
+
+  23 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> +alsa-utils-1.0.28.ebuild,
+  +files/alsasound.initd-r6:
+  Version bump wrt #513670 by "PG". Don't save pulseaudio state files to
+  filesystem root directory / wrt #438844 by Alexander Tsoy.
+
+  05 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> metadata.xml:
+  Remove unused USE="minimal" description from metadata.xml
+
+  05 Apr 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -alsa-utils-1.0.26-r2.ebuild, -alsa-utils-1.0.27.1-r1.ebuild,
+  -files/alsa-utils-1.0.23-modprobe.d.patch,
+  -files/alsa-utils-1.0.25-separate-usr-var-fs.patch,
+  -files/alsa-utils-1.0.26-kmod.patch,
+  -files/alsa-utils-1.0.27.1-hctl_elem_search.patch:
+  old
+
+  05 Apr 2014; Agostino Sarubbo <ago@gentoo.org> alsa-utils-1.0.27.2.ebuild:
+  Stable for sparc, wrt bug #498186
+
+  05 Apr 2014; Agostino Sarubbo <ago@gentoo.org> alsa-utils-1.0.27.2.ebuild:
+  Stable for alpha, wrt bug #498186
+
+  05 Apr 2014; Agostino Sarubbo <ago@gentoo.org> alsa-utils-1.0.27.2.ebuild:
+  Stable for ppc64, wrt bug #498186
+
+  05 Apr 2014; Agostino Sarubbo <ago@gentoo.org> alsa-utils-1.0.27.2.ebuild:
+  Stable for ppc, wrt bug #498186
 
   02 Mar 2014; Akinori Hattori <hattya@gentoo.org> alsa-utils-1.0.27.2.ebuild:
   ia64 stable wrt bug #498186

@@ -1,6 +1,27 @@
 # ChangeLog for games-action/extreme-tuxracer
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/extreme-tuxracer/ChangeLog,v 1.15 2014/03/29 17:45:12 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-action/extreme-tuxracer/ChangeLog,v 1.20 2014/07/23 15:44:55 tupone Exp $
+
+  23 Jul 2014; Alfredo Tupone <tupone@gentoo.org>
+  extreme-tuxracer-0.6.0.ebuild:
+  Do not require sys-devel/automake:1.13. Fix bug #514508 by Patrick Lauer
+
+  16 Jul 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  -extreme-tuxracer-0.4.ebuild, -extreme-tuxracer-0.5_beta.ebuild,
+  -files/extreme-tuxracer-0.5_beta-libpng14.patch:
+  old
+
+  17 May 2014; Julian Ospald <hasufell@gentoo.org>
+  extreme-tuxracer-0.6.0.ebuild, +files/extreme-tuxracer-0.6.0-libsdl.patch:
+  fix build failure wrt #510474
+
+  15 May 2014; Ulrich Müller <ulm@gentoo.org>
+  extreme-tuxracer-0.5_beta.ebuild, extreme-tuxracer-0.6.0.ebuild:
+  Fix USE dependency on media-libs/libsdl, "audio" USE flag was renamed to
+  "sound", bug 357661.
+
+  05 Apr 2014; Agostino Sarubbo <ago@gentoo.org> extreme-tuxracer-0.6.0.ebuild:
+  Stable for x86, wrt bug #505030
 
   29 Mar 2014; Chema Alonso <nimiux@gentoo.org> extreme-tuxracer-0.6.0.ebuild:
   Stable for amd64 wrt bug #505030

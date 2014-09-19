@@ -1,11 +1,11 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/apricots/apricots-0.2.6-r1.ebuild,v 1.12 2013/05/11 05:16:44 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-arcade/apricots/apricots-0.2.6-r1.ebuild,v 1.14 2014/08/10 21:21:49 slyfox Exp $
 
 EAPI=5
 inherit autotools eutils games
 
-DESCRIPTION="Fly a plane around bomb/shoot the enemy. Port of Planegame from Amiga."
+DESCRIPTION="Fly a plane around bomb/shoot the enemy. Port of Planegame from Amiga"
 HOMEPAGE="http://www.fishies.org.uk/apricots.html"
 SRC_URI="http://www.fishies.org.uk/${P}.tar.gz"
 
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="amd64 ppc ~sparc x86 ~x86-fbsd"
 IUSE=""
 
-DEPEND="media-libs/libsdl[audio,video]
+DEPEND="media-libs/libsdl[sound,video]
 	media-libs/openal
 	media-libs/freealut"
 RDEPEND="${DEPEND}"

@@ -1,15 +1,15 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/openct/openct-0.6.20-r3.ebuild,v 1.11 2013/01/01 18:48:27 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/openct/openct-0.6.20-r3.ebuild,v 1.13 2014/08/08 08:00:56 alonbl Exp $
 
 EAPI=5
 
 inherit eutils flag-o-matic multilib udev user
 
 DESCRIPTION="library for accessing smart card terminals"
-HOMEPAGE="http://www.opensc-project.org/openct/"
+HOMEPAGE="https://github.com/OpenSC/openct/wiki"
 
-SRC_URI="http://www.opensc-project.org/files/${PN}/${P}.tar.gz"
+SRC_URI="sourceforge://opensc/${PN}/${P}.tar.gz"
 KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 
 LICENSE="LGPL-2.1"
@@ -43,7 +43,7 @@ src_configure() {
 		--docdir="/usr/share/doc/${PF}" \
 		--htmldir="/usr/share/doc/${PF}/html" \
 		--localstatedir=/var \
-		--with-udev="$(udev_get_udevdir)" \
+		--with-udev="$(get_udevdir)" \
 		--enable-non-privileged \
 		--with-daemon-user=openctd \
 		--with-daemon-groups=usb \

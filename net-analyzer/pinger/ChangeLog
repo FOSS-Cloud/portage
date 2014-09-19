@@ -1,6 +1,19 @@
 # ChangeLog for net-analyzer/pinger
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/pinger/ChangeLog,v 1.23 2013/12/18 17:38:36 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/pinger/ChangeLog,v 1.27 2014/08/14 20:44:06 jer Exp $
+
+  14 Aug 2014; Jeroen Roovers <jer@gentoo.org> -pinger-0.32d.ebuild:
+  Old.
+
+  11 Aug 2014; Chema Alonso <nimiux@gentoo.org> pinger-0.32e.ebuild:
+  Stable for amd64 wrt bug #517256
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> pinger-0.32d.ebuild,
+  pinger-0.32e.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> pinger-0.32e.ebuild:
+  x86 stable wrt bug #517256
 
   18 Dec 2013; Jeroen Roovers <jer@gentoo.org> pinger-0.32e.ebuild:
   REQUIRED_USE ought to support "at-least-one-of".

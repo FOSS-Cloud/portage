@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/firefox-bin/firefox-bin-17.0.10.ebuild,v 1.1 2013/10/31 01:01:58 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/firefox-bin/firefox-bin-17.0.10.ebuild,v 1.3 2014/06/16 08:53:45 pacho Exp $
 
 EAPI="4"
 MOZ_ESR="1"
@@ -41,9 +41,10 @@ RESTRICT="strip mirror binchecks"
 KEYWORDS="-* ~amd64 ~x86"
 SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
-IUSE="startup-notification"
+IUSE="selinux startup-notification"
 
-DEPEND="app-arch/unzip"
+DEPEND="app-arch/unzip
+	selinux? ( sec-policy/selinux-mozilla )"
 RDEPEND="dev-libs/dbus-glib
 	gnome-base/gconf
 	gnome-base/orbit
@@ -52,6 +53,7 @@ RDEPEND="dev-libs/dbus-glib
 	x11-libs/libXt
 	x11-libs/libXmu
 
+	selinux? ( sec-policy/selinux-mozilla )
 	>=x11-libs/gtk+-2.2:2
 	>=media-libs/alsa-lib-1.0.16
 	!net-libs/libproxy[spidermonkey]
@@ -70,7 +72,7 @@ src_install() {
 	declare MOZILLA_FIVE_HOME=/opt/${MOZ_PN}
 
 	# Install icon and .desktop for menu entry
-	newicon "${S}"/chrome/icons/default/default48.png ${PN}-icon.png
+	newicon "${S}"/chrome/icons/default/default48.png ${PN}.png
 	domenu "${FILESDIR}"/${PN}.desktop
 
 	# Add StartupNotify=true bug 237317

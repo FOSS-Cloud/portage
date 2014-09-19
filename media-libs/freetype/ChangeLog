@@ -1,6 +1,53 @@
 # ChangeLog for media-libs/freetype
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/freetype/ChangeLog,v 1.393 2014/03/28 03:19:02 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/freetype/ChangeLog,v 1.406 2014/08/09 19:08:06 zlogene Exp $
+
+  09 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> -freetype-2.4.11.ebuild,
+  -freetype-2.5.0.1.ebuild, -freetype-2.5.3.ebuild:
+  Drop insecure versions wrt bug #504088
+
+  02 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> freetype-2.5.3-r1.ebuild:
+  ppc64 stable wrt bug #504088
+
+  02 Aug 2014; Raúl Porcel <armin76@gentoo.org> freetype-2.5.3-r1.ebuild:
+  arm/sparc stable wrt #504088
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> freetype-2.5.3-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  22 Jul 2014; Lars Wendler <polynomial-c@gentoo.org> freetype-2.5.3.ebuild,
+  freetype-2.5.3-r1.ebuild:
+  Added virtual/pkgconfig to DEPEND (bug #517750).
+
+  15 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> freetype-2.5.3-r1.ebuild:
+  amd64 stable wrt bug #504088
+
+  15 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> freetype-2.5.3-r1.ebuild:
+  x86 stable wrt security bug #504088
+
+  22 Jun 2014; Akinori Hattori <hattya@gentoo.org> freetype-2.5.3-r1.ebuild:
+  ia64 stable wrt bug #504088
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> freetype-2.5.0.1.ebuild,
+  freetype-2.5.3-r1.ebuild, freetype-2.5.3.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  17 Jun 2014; Tobias Klausmann <klausman@gentoo.org> freetype-2.5.3-r1.ebuild:
+  Stable on alpha, bug #504088
+
+  10 Jun 2014; Mike Frysinger <vapier@gentoo.org> freetype-2.4.11.ebuild,
+  freetype-2.5.0.1.ebuild, freetype-2.5.3-r1.ebuild, freetype-2.5.3.ebuild:
+  Add arm64 love.
+
+  28 Apr 2014; Michał Górny <mgorny@gentoo.org> freetype-2.5.3-r1.ebuild,
+  freetype-2.5.3.ebuild:
+  Replace multilib_build_binaries with multilib_is_native_abi. The two are
+  equivalent now, and the team has decided to use the old name as being less
+  confusing.
+
+  15 Apr 2014; Mike Frysinger <vapier@gentoo.org> freetype-2.5.3-r1.ebuild:
+  Move X deps behind USE=utils as only they use the X libs.
 
   28 Mar 2014; Jeroen Roovers <jer@gentoo.org> freetype-2.5.3-r1.ebuild:
   Stable for HPPA (bug #504088).

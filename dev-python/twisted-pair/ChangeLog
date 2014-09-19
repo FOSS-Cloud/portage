@@ -1,6 +1,22 @@
 # ChangeLog for dev-python/twisted-pair
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-pair/ChangeLog,v 1.27 2014/01/21 04:54:08 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-pair/ChangeLog,v 1.31 2014/07/23 15:15:36 ago Exp $
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> twisted-pair-13.0.0-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> twisted-pair-13.0.0-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  28 May 2014; Ian Delaney <idella4@gentoo.org> +files/14.0.0-tests.patch,
+  twisted-pair-14.0.0.ebuild:
+  patch to fix tests, fixes Bug #510834 by Patrick, re-keyword ~arm, tested on
+  armv7, cubieboard2 wrt Bug #510832 also by Patrick
+
+*twisted-pair-14.0.0 (20 May 2014)
+
+  20 May 2014; Patrick Lauer <patrick@gentoo.org> +twisted-pair-14.0.0.ebuild:
+  Bump
 
   21 Jan 2014; Patrick Lauer <patrick@gentoo.org> -twisted-pair-11.1.0.ebuild,
   -twisted-pair-12.0.0.ebuild, -twisted-pair-12.2.0.ebuild:

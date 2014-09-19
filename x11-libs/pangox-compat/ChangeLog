@@ -1,6 +1,50 @@
 # ChangeLog for x11-libs/pangox-compat
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/pangox-compat/ChangeLog,v 1.15 2014/03/04 03:22:26 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/pangox-compat/ChangeLog,v 1.29 2014/09/15 08:24:52 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2-r1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2-r1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> pangox-compat-0.0.2-r1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  24 Jun 2014; Michał Górny <mgorny@gentoo.org> pangox-compat-0.0.2-r1.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> pangox-compat-0.0.2-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  14 May 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2.ebuild:
+  Stable for sparc, wrt bug #508862
+
+  13 May 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2.ebuild:
+  Stable for ia64, wrt bug #508862
+
+  11 May 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2.ebuild:
+  Stable for ppc64, wrt bug #508862
+
+  10 May 2014; Agostino Sarubbo <ago@gentoo.org> pangox-compat-0.0.2.ebuild:
+  Stable for ppc, wrt bug #508862
 
 *pangox-compat-0.0.2-r1 (04 Mar 2014)
 

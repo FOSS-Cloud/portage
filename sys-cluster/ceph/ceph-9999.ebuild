@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/ceph/ceph-9999.ebuild,v 1.8 2014/01/26 08:40:49 dlan Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/ceph/ceph-9999.ebuild,v 1.13 2014/08/19 08:57:46 dlan Exp $
 
 EAPI=5
 PYTHON_COMPAT=( python{2_6,2_7} )
@@ -17,14 +17,14 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-inherit autotools eutils multilib python-any-r1 udev ${scm_eclass}
+inherit autotools eutils multilib python-any-r1 udev readme.gentoo ${scm_eclass}
 
 DESCRIPTION="Ceph distributed filesystem"
 HOMEPAGE="http://ceph.com/"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="cryptopp debug fuse gtk libatomic +libaio +nss radosgw static-libs tcmalloc"
+IUSE="cryptopp debug fuse gtk libatomic +libaio +nss radosgw static-libs tcmalloc xfs zfs"
 
 CDEPEND="
 	app-arch/snappy
@@ -40,6 +40,8 @@ CDEPEND="
 	dev-libs/libxml2
 	fuse? ( sys-fs/fuse )
 	libatomic? ( dev-libs/libatomic_ops )
+	xfs? ( sys-fs/xfsprogs )
+	zfs? ( sys-fs/zfs )
 	gtk? (
 		x11-libs/gtk+:2
 		dev-cpp/gtkmm:2.4
@@ -52,7 +54,6 @@ CDEPEND="
 	)
 	tcmalloc? ( dev-util/google-perftools )
 	$(python_gen_any_dep '
-	virtual/python-argparse[${PYTHON_USEDEP}]
 	' )
 	${PYTHON_DEPS}
 	"
@@ -60,9 +61,6 @@ DEPEND="${CDEPEND}
 	virtual/pkgconfig"
 RDEPEND="${CDEPEND}
 	sys-apps/hdparm
-	sys-block/parted
-	sys-fs/cryptsetup
-	sys-fs/btrfs-progs
 	$(python_gen_any_dep '
 	dev-python/flask[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
@@ -78,11 +76,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	if [ ! -z ${PATCHES[@]} ]; then
-		epatch ${PATCHES[@]}
-	fi
-	sed -e "/bin=/ s:lib:$(get_libdir):" "${FILESDIR}"/${PN}.initd \
-		> "${T}"/${PN}.initd || die
+	[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
 
 	epatch_user
 	eautoreconf
@@ -102,7 +96,9 @@ src_configure() {
 		$(use_with radosgw) \
 		$(use_with gtk gtk2) \
 		$(use_enable static-libs static) \
-		$(use_with tcmalloc)
+		$(use_with tcmalloc) \
+		$(use_with xfs libxfs) \
+		$(use_with zfs libzfs)
 }
 
 src_install() {
@@ -114,7 +110,7 @@ src_install() {
 	newexe src/init-ceph ceph_init.sh
 
 	insinto /etc/logrotate.d/
-	newins src/logrotate.conf ${PN}
+	newins "${FILESDIR}"/ceph.logrotate ${PN}
 
 	chmod 644 "${ED}"/usr/share/doc/${PF}/sample.*
 
@@ -122,14 +118,16 @@ src_install() {
 	keepdir /var/lib/${PN}/tmp
 	keepdir /var/log/${PN}/stat
 
-	newinitd "${T}/${PN}.initd" ${PN}
-	newconfd "${FILESDIR}/${PN}.confd" ${PN}
+	newinitd "${FILESDIR}/${PN}.initd-r1" ${PN}
+	newconfd "${FILESDIR}/${PN}.confd-r1" ${PN}
 
-	_python_rewrite_shebang \
+	python_fix_shebang \
 		"${ED}"/usr/sbin/{ceph-disk,ceph-create-keys} \
 		"${ED}"/usr/bin/{ceph,ceph-rest-api}
 
 	#install udev rules
 	udev_dorules udev/50-rbd.rules
 	udev_dorules udev/95-ceph-osd.rules
+
+	readme.gentoo_src_install
 }

@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/log4r/log4r-1.1.10-r1.ebuild,v 1.1 2014/01/29 01:54:00 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/log4r/log4r-1.1.10-r1.ebuild,v 1.3 2014/08/05 16:00:51 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby18 ruby19 ruby20"
+USE_RUBY="ruby19 ruby20"
 
 RUBY_FAKEGEM_TASK_DOC=""
 
@@ -14,8 +14,7 @@ RUBY_FAKEGEM_DOCDIR="doc"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Log4r is a comprehensive and flexible logging library written in
-Ruby for use in Ruby programs."
+DESCRIPTION="A comprehensive and flexible logging library written in Ruby for use in Ruby programs"
 HOMEPAGE="http://log4r.sourceforge.net/"
 IUSE=""
 

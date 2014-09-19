@@ -1,6 +1,72 @@
 # ChangeLog for dev-java/oracle-jre-bin
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/oracle-jre-bin/ChangeLog,v 1.50 2014/03/28 14:56:47 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/oracle-jre-bin/ChangeLog,v 1.64 2014/09/02 22:49:52 sping Exp $
+
+*oracle-jre-bin-1.8.0.20 (02 Sep 2014)
+
+  02 Sep 2014; Sebastian Pipping <sping@gentoo.org>
+  +oracle-jre-bin-1.8.0.20.ebuild:
+  Dare to bump to 1.8.0.20 myself (bug #521304)
+
+  21 Jul 2014; Ralph Sennhauser <sera@gentoo.org>
+  -oracle-jre-bin-1.7.0.55.ebuild, -oracle-jre-bin-1.7.0.60.ebuild,
+  -oracle-jre-bin-1.8.0.5.ebuild:
+  Remove vulnarable #517220
+
+  21 Jul 2014; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.65.ebuild:
+  Stable for x86, wrt bug #517220
+
+  21 Jul 2014; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.65.ebuild:
+  Stable for amd64, wrt bug #517220
+
+  21 Jul 2014; Ralph Sennhauser <sera@gentoo.org>
+  oracle-jre-bin-1.7.0.65.ebuild, oracle-jre-bin-1.8.0.11.ebuild:
+  Fix install with missing xattr support #517626
+  Fix selinux support #515582
+
+*oracle-jre-bin-1.8.0.11 (20 Jul 2014)
+
+  20 Jul 2014; Ralph Sennhauser <sera@gentoo.org>
+  +oracle-jre-bin-1.8.0.11.ebuild:
+  Security bump #517220
+
+*oracle-jre-bin-1.7.0.65 (20 Jul 2014)
+
+  20 Jul 2014; Ralph Sennhauser <sera@gentoo.org>
+  +oracle-jre-bin-1.7.0.65.ebuild, oracle-jre-bin-1.8.0.5.ebuild:
+  Security bump #517220
+  Limit memory on x86 #467518
+  Preserve xattrs for hardened #515582
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.60.ebuild:
+  Stable for x86, wrt bug #511714
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.60.ebuild:
+  Stable for amd64, wrt bug #511714
+
+*oracle-jre-bin-1.7.0.60 (28 May 2014)
+
+  28 May 2014; Tom Wijsman <TomWij@gentoo.org> +oracle-jre-bin-1.7.0.60.ebuild:
+  Version bump to 1.7.0.60; fixes bug #511714, reported by Robert Forsman.
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org>
+  -oracle-jre-bin-1.7.0.51.ebuild:
+  Remove old
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.55.ebuild:
+  Stable for x86, wrt bug #507798
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org> oracle-jre-bin-1.7.0.55.ebuild:
+  Stable for amd64, wrt bug #507798
+
+*oracle-jre-bin-1.8.0.5 (16 Apr 2014)
+*oracle-jre-bin-1.7.0.55 (16 Apr 2014)
+
+  16 Apr 2014; Tom Wijsman <TomWij@gentoo.org> +oracle-jre-bin-1.7.0.55.ebuild,
+  +oracle-jre-bin-1.8.0.5.ebuild, -oracle-jre-bin-1.8.0.0.ebuild:
+  Security version bumps to 1.7.0.55 and 1.8.0.5; fixes bug #507776 and bug
+  #507798, removed unstable versions from 1.7.0.51-r1, pending stabilization of
+  1.7.0.55.
 
 *oracle-jre-bin-1.8.0.0 (28 Mar 2014)
 

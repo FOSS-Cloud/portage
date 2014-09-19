@@ -1,6 +1,22 @@
 # ChangeLog for x11-drivers/radeon-ucode
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/radeon-ucode/ChangeLog,v 1.37 2014/03/27 11:06:00 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/radeon-ucode/ChangeLog,v 1.40 2014/09/14 19:54:23 chithanh Exp $
+
+*radeon-ucode-20140823 (14 Sep 2014)
+
+  14 Sep 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +radeon-ucode-20140823.ebuild:
+  Add more ucode for recent hardware and new functions, bug #521296.
+
+*radeon-ucode-20140430 (04 May 2014)
+
+  04 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +radeon-ucode-20140430.ebuild, -radeon-ucode-20130826.ebuild,
+  -radeon-ucode-20131111.ebuild:
+  Add more ucode for recent hardware and bug fixes, bug #508670.
+
+  06 Apr 2014; Agostino Sarubbo <ago@gentoo.org> radeon-ucode-20140204.ebuild:
+  Stable for x86, wrt bug #500368
 
   27 Mar 2014; Agostino Sarubbo <ago@gentoo.org> radeon-ucode-20140204.ebuild:
   Stable for amd64, wrt bug #500368

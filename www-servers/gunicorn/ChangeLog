@@ -1,6 +1,18 @@
 # ChangeLog for www-servers/gunicorn
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/gunicorn/ChangeLog,v 1.34 2014/03/03 23:31:50 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/gunicorn/ChangeLog,v 1.36 2014/07/22 04:26:43 rafaelmartins Exp $
+
+*gunicorn-19.0.0 (22 Jul 2014)
+
+  22 Jul 2014; Rafael G. Martins <rafaelmartins@gentoo.org>
+  +files/gunicorn-19.0.0-gaiohttp.patch, +gunicorn-19.0.0.ebuild:
+  Version bump. bug #515560
+
+*gunicorn-18.0-r1 (13 May 2014)
+
+  13 May 2014; Rafael G. Martins <rafaelmartins@gentoo.org>
+  +gunicorn-18.0-r1.ebuild:
+  Migrated to distutils-r1 by jbergstroem
 
   03 Mar 2014; Pacho Ramos <pacho@gentoo.org> gunicorn-0.17.4.ebuild:
   amd64 stable, bug #474322

@@ -1,6 +1,70 @@
 # ChangeLog for sys-fs/aufs-util
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/aufs-util/ChangeLog,v 1.25 2014/02/24 00:59:02 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/aufs-util/ChangeLog,v 1.38 2014/08/21 12:03:54 jlec Exp $
+
+  21 Aug 2014; Justin Lecher <jlec@gentoo.org> aufs-util-3.16_p20140818.ebuild:
+  Useless blank line on last line
+
+*aufs-util-3.16_p20140818 (21 Aug 2014)
+
+  21 Aug 2014; Justin Lecher <jlec@gentoo.org>
+  +aufs-util-3.16_p20140818.ebuild:
+  Bump to latest aufs3
+
+  11 Aug 2014; Justin Lecher <jlec@gentoo.org> aufs-util-3.16_p20140811.ebuild:
+  As-needed fix
+
+  10 Aug 2014; Justin Lecher <jlec@gentoo.org> aufs-util-3.16_p20140811.ebuild:
+  Bump to latest aufs3
+
+*aufs-util-3.16_p20140811 (10 Aug 2014)
+
+  10 Aug 2014; Justin Lecher <jlec@gentoo.org>
+  +aufs-util-3.16_p20140811.ebuild:
+  Bump to latest aufs3
+
+*aufs-util-3.15_p20140804 (10 Aug 2014)
+
+  10 Aug 2014; Justin Lecher <jlec@gentoo.org>
+  +aufs-util-3.15_p20140804.ebuild:
+  Bump to latest aufs3
+
+*aufs-util-3.15_p20140728 (27 Jul 2014)
+
+  27 Jul 2014; Justin Lecher <jlec@gentoo.org>
+  +aufs-util-3.15_p20140728.ebuild:
+  Bump to latest aufs3
+
+*aufs-util-3.15_p20140721 (21 Jul 2014)
+
+  21 Jul 2014; Justin Lecher <jlec@gentoo.org>
+  +aufs-util-3.15_p20140721.ebuild:
+  Bump to latest aufs3 release
+
+*aufs-util-3.15_p20140707 (06 Jul 2014)
+
+  06 Jul 2014; Justin Lecher <jlec@gentoo.org>
+  +aufs-util-3.15_p20140707.ebuild:
+  Bump to latest aufs3
+
+  30 Jun 2014; Justin Lecher <jlec@gentoo.org> aufs-util-3.15_p20140630.ebuild:
+  Fix Verion of deps
+
+*aufs-util-3.15_p20140630 (30 Jun 2014)
+
+  30 Jun 2014; Justin Lecher <jlec@gentoo.org>
+  +aufs-util-3.15_p20140630.ebuild:
+  Latest release
+
+  24 May 2014; Markos Chandras <hwoarang@gentoo.org>
+  aufs-util-3.12_p20140114.ebuild:
+  Stable on amd64 wrt bug #504080
+
+*aufs-util-3.13_p20140420 (24 Apr 2014)
+
+  24 Apr 2014; Justin Lecher <jlec@gentoo.org>
+  +aufs-util-3.13_p20140420.ebuild:
+  Version Bump
 
   23 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
   aufs-util-3.9_p20130915.ebuild:

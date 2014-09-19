@@ -1,6 +1,107 @@
 # ChangeLog for net-misc/dhcpcd
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcpcd/ChangeLog,v 1.397 2014/03/24 04:43:33 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcpcd/ChangeLog,v 1.422 2014/09/18 20:41:35 williamh Exp $
+
+*dhcpcd-6.4.5 (18 Sep 2014)
+
+  18 Sep 2014; William Hubbs <williamh@gentoo.org> +dhcpcd-6.4.5.ebuild,
+  -dhcpcd-6.4.4-r1.ebuild, -files/dhcpcd-6.4.4-fix-ipv6.patch:
+  new upstream release
+
+  18 Sep 2014; William Hubbs <williamh@gentoo.org> -dhcpcd-6.4.4.ebuild:
+  remove old
+
+*dhcpcd-6.4.4-r1 (18 Sep 2014)
+
+  18 Sep 2014; William Hubbs <williamh@gentoo.org> +dhcpcd-6.4.4-r1.ebuild,
+  +files/dhcpcd-6.4.4-fix-ipv6.patch:
+  import upstream patch to fix ipv6 related segmentation fault for bug #523128
+
+*dhcpcd-6.4.4 (16 Sep 2014)
+
+  16 Sep 2014; William Hubbs <williamh@gentoo.org> +dhcpcd-6.4.4.ebuild:
+  version bump
+
+  11 Sep 2014; William Hubbs <williamh@gentoo.org>
+  +files/dhcpcd-6.4.3-uclibc-fix.patch, dhcpcd-6.4.3.ebuild:
+  Add build-time fix for uclibc for bug #522158, thanks to David Flogeras for
+  the patch; Roy suggested that I should use this one for 6.4.3 instead of what
+  he has added to upstream.
+
+  01 Aug 2014; William Hubbs <williamh@gentoo.org> -dhcpcd-5.6.4.ebuild,
+  -dhcpcd-6.2.0-r1.ebuild, -files/dhcpcd-6.2.0-dynamic-init.patch,
+  -files/dhcpcd-6.2.0-no_ipv6_fix.patch:
+  remove vulnerable versions wrt bug #518596
+
+  01 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> dhcpcd-6.4.3.ebuild:
+  arm stable wrt bug #518596
+
+  01 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> dhcpcd-6.4.3.ebuild:
+  sparc stable wrt bug #518596
+
+  01 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> dhcpcd-6.4.3.ebuild:
+  ia64 stable wrt bug #518596
+
+  31 Jul 2014; Joseph Jezak <josejx@gentoo.org> dhcpcd-6.4.3.ebuild:
+  Marked ppc/ppc64 stable for bug #518596.
+
+  31 Jul 2014; Tobias Klausmann <klausman@gentoo.org> dhcpcd-6.4.3.ebuild:
+  Stable on alpha, bug #518596
+
+  30 Jul 2014; Jeroen Roovers <jer@gentoo.org> dhcpcd-6.4.3.ebuild:
+  Stable for HPPA (bug #518596).
+
+  30 Jul 2014; William Hubbs <williamh@gentoo.org> -dhcpcd-6.4.2.ebuild:
+  remove unstable version
+
+  30 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> dhcpcd-6.4.3.ebuild:
+  x86 stable wrt bug #518596
+
+  30 Jul 2014; William Hubbs <williamh@gentoo.org> dhcpcd-6.4.3.ebuild:
+  amd64 stable for bug #518596.
+
+*dhcpcd-6.4.3 (30 Jul 2014)
+
+  30 Jul 2014; William Hubbs <williamh@gentoo.org> +dhcpcd-6.4.3.ebuild:
+  version bump
+
+  14 Jul 2014; William Hubbs <williamh@gentoo.org> -dhcpcd-6.3.2.ebuild,
+  -dhcpcd-6.4.0.ebuild, -files/dhcpcd-6.3.2-fix-cc-setting.patch,
+  -files/dhcpcd-6.3.2-fix-host.patch, -files/dhcpcd-6.3.2-gettime-dlopen.patch:
+  remove old unstable versions
+
+  14 Jul 2014; William Hubbs <williamh@gentoo.org> dhcpcd-9999.ebuild:
+  sync live ebuild
+
+*dhcpcd-6.4.2 (14 Jul 2014)
+
+  14 Jul 2014; William Hubbs <williamh@gentoo.org> +dhcpcd-6.4.2.ebuild:
+  version bump to fix compile errors, bug #516228.
+
+  05 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> dhcpcd-6.2.0-r1.ebuild:
+  ppc64 stable wrt bug #499262
+
+  05 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> dhcpcd-6.2.0-r1.ebuild:
+  ia64 stable wrt bug #499262
+
+  05 Jul 2014; Tobias Klausmann <klausman@gentoo.org> dhcpcd-6.2.0-r1.ebuild:
+  Stable on alpha, bug #499262
+
+*dhcpcd-6.4.0 (20 Jun 2014)
+
+  20 Jun 2014; William Hubbs <william@gentoo.org> +dhcpcd-6.4.0.ebuild:
+  version bump
+
+  20 Apr 2014; William Hubbs <williamh@gentoo.org>
+  +files/dhcpcd-6.3.2-fix-cc-setting.patch, +files/dhcpcd-6.3.2-fix-host.patch,
+  +files/dhcpcd-6.3.2-gettime-dlopen.patch, dhcpcd-6.3.2.ebuild:
+  Add a patch to fix handling of the CC variable and a patch to fix handling of
+  --host, both for bug#505508. Also add a patch to make configure script test
+  for dlopen.
+
+  06 Apr 2014; Mike Frysinger <vapier@gentoo.org> dhcpcd-5.6.4.ebuild,
+  dhcpcd-6.2.0-r1.ebuild, dhcpcd-6.3.2.ebuild, dhcpcd-9999.ebuild:
+  Mark arm64/s390/sh stable.
 
   24 Mar 2014; William Hubbs <williamh@gentoo.org> dhcpcd-9999.ebuild:
   I am removing the tc-export call from the live ebuild per policy. The proper

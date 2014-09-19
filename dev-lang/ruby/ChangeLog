@@ -1,6 +1,90 @@
 # ChangeLog for dev-lang/ruby
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ruby/ChangeLog,v 1.643 2014/03/06 06:33:07 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/ruby/ChangeLog,v 1.663 2014/08/21 09:23:19 graaff Exp $
+
+  21 Aug 2014; Hans de Graaff <graaff@gentoo.org> ruby-1.9.3_p547.ebuild,
+  ruby-2.0.0_p481.ebuild, ruby-2.1.2.ebuild:
+  Depend on the rubygems virtual with an explicit SLOT now that the specific
+  rubygems versions are listed in virtual/rubygems. This will make the
+  dependencies more explicit and should decrease resolver surprises picking the
+  wrong virtual/rubygems SLOT later on.
+
+  21 Aug 2014; Hans de Graaff <graaff@gentoo.org> -ruby-1.9.3_p545.ebuild:
+  Cleanup.
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> ruby-1.9.3_p547.ebuild,
+  ruby-2.0.0_p481.ebuild:
+  x86 stable wrt bug #512904
+
+  21 Jul 2014; Tobias Klausmann <klausman@gentoo.org> ruby-1.9.3_p547.ebuild:
+  Stable on alpha, bug #512904
+
+  19 Jun 2014; Markus Meier <maekke@gentoo.org> ruby-2.0.0_p481.ebuild:
+  arm stable, bug #512904
+
+  19 Jun 2014; Markus Meier <maekke@gentoo.org> ruby-1.9.3_p547.ebuild:
+  arm stable, bug #512904
+
+  15 Jun 2014; Akinori Hattori <hattya@gentoo.org> ruby-1.9.3_p547.ebuild,
+  ruby-2.0.0_p481.ebuild:
+  ia64 stable wrt bug #512904
+
+  11 Jun 2014; Jeroen Roovers <jer@gentoo.org> ruby-2.0.0_p481.ebuild:
+  Stable for HPPA (bug #512904).
+
+  10 Jun 2014; Jeroen Roovers <jer@gentoo.org> ruby-1.9.3_p547.ebuild:
+  Stable for HPPA (bug #512904).
+
+  10 Jun 2014; Hans de Graaff <graaff@gentoo.org> -ruby-2.0.0_p451.ebuild,
+  -ruby-2.1.1-r1.ebuild:
+  Cleanup.
+
+  10 Jun 2014; Hans de Graaff <graaff@gentoo.org> ruby-2.1.2.ebuild:
+  Depend on a version of eselect-ruby that supports ruby 2.1, fixing bug
+  512848.
+
+*ruby-1.9.3_p547 (17 May 2014)
+
+  17 May 2014; Hans de Graaff <graaff@gentoo.org> +ruby-1.9.3_p547.ebuild:
+  Version bump.
+
+*ruby-2.1.2 (10 May 2014)
+*ruby-2.0.0_p481 (10 May 2014)
+
+  10 May 2014; Hans de Graaff <graaff@gentoo.org> +ruby-2.0.0_p481.ebuild,
+  +ruby-2.1.2.ebuild:
+  Version bump.
+
+  21 Apr 2014; Hans de Graaff <graaff@gentoo.org> -ruby-2.0.0_p353-r1.ebuild,
+  -ruby-2.0.0_p353-r2.ebuild:
+  Cleanup.
+
+  21 Apr 2014; Hans de Graaff <graaff@gentoo.org> ruby-2.0.0_p451.ebuild,
+  ruby-2.1.1-r1.ebuild:
+  Remove useless libruby symlinks, bug 503584.
+
+  21 Apr 2014; Hans de Graaff <graaff@gentoo.org> -ruby-2.1.0.ebuild,
+  -ruby-2.1.1.ebuild:
+  Cleanup.
+
+  19 Apr 2014; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag descriptions from metadata.xml
+
+  19 Apr 2014; Manuel Rüger <mrueg@gentoo.org> -ruby-1.8.7_p374-r1.ebuild,
+  -ruby-1.8.7_p374.ebuild:
+  Remove Ruby 1.8. See bug #434064.
+
+*ruby-2.1.1-r1 (14 Apr 2014)
+
+  14 Apr 2014; Hans de Graaff <graaff@gentoo.org> +ruby-2.1.1-r1.ebuild:
+  Revision bump to fix bug 503804 (forced SSE2 during compilation on x86).
+  Thanks to Andrew Savchenko for providing a patch.
+
+  09 Apr 2014; Hans de Graaff <graaff@gentoo.org> ruby-1.9.3_p484.ebuild,
+  ruby-1.9.3_p545.ebuild, ruby-2.0.0_p353.ebuild, ruby-2.0.0_p353-r1.ebuild,
+  ruby-2.0.0_p353-r2.ebuild, ruby-2.0.0_p451.ebuild, ruby-2.1.0.ebuild,
+  ruby-2.1.1.ebuild:
+  Update eselect examples to not include ruby18. Thanks to ulm for noticing.
 
 *ruby-2.1.1 (06 Mar 2014)
 

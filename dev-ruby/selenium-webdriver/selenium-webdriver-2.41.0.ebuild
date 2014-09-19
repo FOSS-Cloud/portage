@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/selenium-webdriver/selenium-webdriver-2.41.0.ebuild,v 1.1 2014/03/31 01:22:19 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/selenium-webdriver/selenium-webdriver-2.41.0.ebuild,v 1.3 2014/08/05 16:00:33 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby19 ruby20 ruby21"
 
 # NOTE: this package contains precompiled code. It appears that all
 # source code can be found at http://code.google.com/p/selenium/ but the
@@ -21,7 +21,7 @@ QA_PREBUILT="*/x_ignore_nofocus.so"
 
 inherit ruby-fakegem
 
-DESCRIPTION="This gem provides Ruby bindings for WebDriver."
+DESCRIPTION="This gem provides Ruby bindings for WebDriver"
 HOMEPAGE="http://gemcutter.org/gems/selenium-webdriver"
 
 LICENSE="Apache-2.0"

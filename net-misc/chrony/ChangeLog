@@ -1,6 +1,55 @@
 # ChangeLog for net-misc/chrony
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/chrony/ChangeLog,v 1.130 2014/02/09 12:38:50 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/chrony/ChangeLog,v 1.141 2014/09/12 04:25:51 floppym Exp $
+
+  12 Sep 2014; Mike Gilbert <floppym@gentoo.org> +files/chronyd.service-r2,
+  chrony-1.31.ebuild:
+  systemd unit improvements, bug 483456.
+
+*chrony-1.31 (11 Sep 2014)
+
+  11 Sep 2014; Jeroen Roovers <jer@gentoo.org> -chrony-1.31_pre1.ebuild,
+  +chrony-1.31.ebuild:
+  Version bump.
+
+*chrony-1.31_pre1 (03 Sep 2014)
+
+  03 Sep 2014; Jeroen Roovers <jer@gentoo.org> +chrony-1.31_pre1.ebuild:
+  Version bump.
+
+*chrony-1.30-r1 (06 Aug 2014)
+
+  06 Aug 2014; Jeroen Roovers <jer@gentoo.org> -chrony-1.29.1.ebuild,
+  -chrony-1.30.ebuild, +chrony-1.30-r1.ebuild, -files/50-chrony.list,
+  files/chrony.logrotate:
+  Add "missingok" in logrotate script by Dimitri Semitsoglou-Tsiapos (bug
+  #519134).
+
+  04 Aug 2014; Raúl Porcel <armin76@gentoo.org> chrony-1.30.ebuild:
+  sparc/x86 stable wrt #518572
+
+  03 Aug 2014; Agostino Sarubbo <ago@gentoo.org> chrony-1.30.ebuild:
+  Stable for ppc, wrt bug #518572
+
+  01 Aug 2014; Chema Alonso <nimiux@gentoo.org> chrony-1.30.ebuild:
+  Stable for amd64 wrt bug #518572
+
+  31 Jul 2014; Jeroen Roovers <jer@gentoo.org> chrony-1.30.ebuild:
+  Stable for HPPA (bug #518572).
+
+*chrony-1.30 (04 Jul 2014)
+
+  04 Jul 2014; Jeroen Roovers <jer@gentoo.org> -chrony-1.30_pre1.ebuild,
+  +chrony-1.30.ebuild:
+  Version bump.
+
+  07 Jun 2014; Jeroen Roovers <jer@gentoo.org> chrony-1.30_pre1.ebuild:
+  RESTRICT=test for compile failure/downloading.
+
+*chrony-1.30_pre1 (07 Jun 2014)
+
+  07 Jun 2014; Jeroen Roovers <jer@gentoo.org> +chrony-1.30_pre1.ebuild:
+  Version bump.
 
   09 Feb 2014; Jeroen Roovers <jer@gentoo.org> -chrony-1.29-r1.ebuild:
   Old.

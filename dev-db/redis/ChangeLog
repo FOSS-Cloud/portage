@@ -1,6 +1,35 @@
 # ChangeLog for dev-db/redis
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/redis/ChangeLog,v 1.78 2014/03/31 09:25:04 ultrabug Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/redis/ChangeLog,v 1.84 2014/08/10 20:02:32 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> redis-2.6.15-r1.ebuild,
+  redis-2.6.16.ebuild, redis-2.8.11.ebuild, redis-2.8.8.ebuild,
+  redis-2.8.9.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*redis-2.8.13 (07 Aug 2014)
+
+  07 Aug 2014; Ultrabug <ultrabug@gentoo.org> +redis-2.8.13.ebuild,
+  +files/redis-2.8.13-sharedlua.patch:
+  verion bump fix #515136 #518464 thx to Johan Bergstrom and Anthony Ryan
+
+  03 Jul 2014; Sébastien Fabbro <bicatali@gentoo.org> redis-2.8.11.ebuild:
+  Keyword amd64-linux and x86-linux
+
+*redis-2.8.11 (16 Jun 2014)
+
+  16 Jun 2014; Ultrabug <ultrabug@gentoo.org> -redis-2.6.9.ebuild,
+  -redis-2.6.13.ebuild, -redis-2.8.5.ebuild, -redis-2.8.6.ebuild,
+  -redis-2.8.7.ebuild, +redis-2.8.11.ebuild:
+  version bump fix #513020, drop old
+
+  20 May 2014; Jeroen Roovers <jer@gentoo.org> redis-2.8.9.ebuild:
+  Marked ~hppa (bug #510626).
+
+*redis-2.8.9 (04 May 2014)
+
+  04 May 2014; Ultrabug <ultrabug@gentoo.org> +redis-2.8.9.ebuild:
+  version bump, fix #508456
 
 *redis-2.8.8 (31 Mar 2014)
 

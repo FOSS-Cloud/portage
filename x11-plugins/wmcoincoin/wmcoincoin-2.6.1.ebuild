@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmcoincoin/wmcoincoin-2.6.1.ebuild,v 1.1 2012/08/21 08:43:21 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmcoincoin/wmcoincoin-2.6.1.ebuild,v 1.3 2014/08/10 20:05:40 slyfox Exp $
 
-EAPI=4
+EAPI=5
 
-DESCRIPTION="a dockapp for browsing dacode news and board sites."
+DESCRIPTION="a dockapp for browsing dacode news and board sites"
 HOMEPAGE="http://hules.free.fr/wmcoincoin"
 SRC_URI="http://hules.free.fr/${PN}/download/${P}.tar.gz"
 
@@ -28,11 +28,10 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )
 	xinerama? ( x11-proto/xineramaproto )"
 
-src_configure() {
-	econf $(use_enable nls) $(use_enable xinerama)
-}
+DOCS="AUTHORS ChangeLog NEWS README"
 
-src_install () {
-	emake DESTDIR="${D}" install
-	dodoc AUTHORS ChangeLog NEWS README
+src_configure() {
+	econf \
+		$(use_enable nls) \
+		$(use_enable xinerama)
 }

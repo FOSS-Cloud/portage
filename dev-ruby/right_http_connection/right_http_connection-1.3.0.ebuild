@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/right_http_connection/right_http_connection-1.3.0.ebuild,v 1.6 2013/11/05 20:28:36 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/right_http_connection/right_http_connection-1.3.0.ebuild,v 1.8 2014/04/18 13:54:21 graaff Exp $
 
 EAPI=4
 
-USE_RUBY="ruby18 ruby19 ruby20 jruby"
+USE_RUBY="ruby19 ruby20 ruby21 jruby"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="README.txt History.txt"
@@ -24,7 +24,7 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd"
 IUSE=""
 
 RESTRICT="test"
-#USE_RUBY="ruby19 ree18" ruby_add_bdepend "test? ( dev-util/cucumber )"
+#USE_RUBY="ruby19" ruby_add_bdepend "test? ( dev-util/cucumber )"
 
 all_ruby_prepare() {
 	rm Gemfile Gemfile.lock || die

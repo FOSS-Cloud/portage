@@ -1,6 +1,26 @@
 # ChangeLog for app-misc/figlet
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/figlet/ChangeLog,v 1.39 2013/07/28 12:03:22 grobian Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/figlet/ChangeLog,v 1.44 2014/09/14 09:11:17 maekke Exp $
+
+  14 Sep 2014; Markus Meier <maekke@gentoo.org> figlet-2.2.5.ebuild:
+  arm stable, bug #520870
+
+  28 Aug 2014; Michael Sterrett <mr_bones_@gentoo.org> -figlet-222-r1.ebuild:
+  remove unwanted rev bump
+
+*figlet-222-r1 (27 Aug 2014)
+
+  27 Aug 2014; Michał Górny <mgorny@gentoo.org> +figlet-222-r1.ebuild:
+  Convert to a modern EAPI and bash-completion-r1.
+
+  26 Aug 2014; Jeroen Roovers <jer@gentoo.org> figlet-2.2.5.ebuild:
+  Stable for HPPA (bug #520870).
+
+*figlet-2.2.5 (08 Jul 2014)
+
+  08 Jul 2014; Michael Sterrett <mr_bones_@gentoo.org> +figlet-2.2.5.ebuild:
+  version bump (version numbering change per upstream) with ebuild submitted by
+  Matthias Maier via bug #427700
 
   28 Jul 2013; Fabian Groffen <grobian@gentoo.org> figlet-222.ebuild:
   Marked ~x64-macos, bug #416949

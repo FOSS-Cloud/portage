@@ -1,6 +1,50 @@
 # ChangeLog for sys-fs/btrfs-progs
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/btrfs-progs/ChangeLog,v 1.75 2014/03/10 19:34:28 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/btrfs-progs/ChangeLog,v 1.84 2014/09/13 12:22:27 maekke Exp $
+
+  13 Sep 2014; Markus Meier <maekke@gentoo.org> btrfs-progs-3.14.2.ebuild:
+  arm stable, bug #520466
+
+*btrfs-progs-3.16 (03 Sep 2014)
+
+  03 Sep 2014; Sergei Trofimovich <slyfox@gentoo.org> +btrfs-progs-3.16.ebuild,
+  btrfs-progs-9999.ebuild:
+  Version bump (bug #522040 by Piotr Szymaniak).
+
+  22 Aug 2014; Mike Gilbert <floppym@gentoo.org> -btrfs-progs-3.14.1-r1.ebuild,
+  -btrfs-progs-3.14.1.ebuild, -btrfs-progs-3.14_pre20140414.ebuild,
+  btrfs-progs-3.14.2.ebuild, btrfs-progs-9999.ebuild:
+  Add slot-operator deps. Remove acl from RDEPEND.
+
+  20 Jun 2014; Mike Gilbert <floppym@gentoo.org>
+  +files/btrfs-progs-3.14.2-install-man.patch, btrfs-progs-3.14.2.ebuild:
+  Fix installation of btrfs-check manpage.
+
+*btrfs-progs-3.14.2 (19 Jun 2014)
+
+  19 Jun 2014; Mike Gilbert <floppym@gentoo.org> +btrfs-progs-3.14.2.ebuild,
+  btrfs-progs-9999.ebuild:
+  Version bump.
+
+*btrfs-progs-3.14.1-r1 (20 May 2014)
+
+  20 May 2014; Mike Gilbert <floppym@gentoo.org> +btrfs-progs-3.14.1-r1.ebuild,
+  +files/btrfs-progs-3.14.1-arg_strtou64.patch:
+  Backport patch to fix linking failures with libbtrfs, reported by dlan.
+
+*btrfs-progs-3.14.1 (29 Apr 2014)
+
+  29 Apr 2014; Mike Gilbert <floppym@gentoo.org> +btrfs-progs-3.14.1.ebuild:
+  Version bump, bug 509022 by Fabian Henze.
+
+*btrfs-progs-3.14_pre20140414 (14 Apr 2014)
+
+  14 Apr 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +btrfs-progs-3.14_pre20140414.ebuild:
+  Bump snapshot up to latest stable upstream tag v3.14 (bug #507008 by Duncan).
+
+  07 Apr 2014; Sergei Trofimovich <slyfox@gentoo.org> btrfs-progs-9999.ebuild:
+  Drop upstreamed patches. Thanks to Duncan at #507008.
 
 *btrfs-progs-3.12-r2 (10 Mar 2014)
 

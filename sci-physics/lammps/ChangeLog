@@ -1,6 +1,45 @@
 # ChangeLog for sci-physics/lammps
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-physics/lammps/ChangeLog,v 1.30 2014/03/31 12:27:14 nicolasbock Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-physics/lammps/ChangeLog,v 1.39 2014/08/30 16:47:10 nimiux Exp $
+
+  30 Aug 2014; Chema Alonso <nimiux@gentoo.org> lammps-20140628.ebuild:
+  Stable for amd64 wrt bug #519320
+
+  20 Aug 2014; Christoph Junghans <ottxor@gentoo.org> lammps-20140815.ebuild:
+  fixed build with newer lapack/blas version
+
+  20 Aug 2014; Nicolas Bock <nicolasbock@gentoo.org> lammps-20140815.ebuild:
+  sci-physics/lammps-20140815: Fix linker error.
+
+*lammps-20140815 (17 Aug 2014)
+
+  17 Aug 2014; Nicolas Bock <nicolasbock@gentoo.org> +lammps-20140815.ebuild:
+  sci-physics/lammps-20140815: Added new version.
+
+*lammps-20140808 (12 Aug 2014)
+
+  12 Aug 2014; Nicolas Bock <nicolasbock@gentoo.org> +lammps-20140808.ebuild:
+  sys-physics/lammps-20140808: Added new version.
+
+*lammps-20140806 (07 Aug 2014)
+
+  07 Aug 2014; Nicolas Bock <nicolasbock@gentoo.org> +lammps-20140806.ebuild:
+  sci-physics/lammps-20140806: Added new version.
+
+*lammps-20140711 (14 Jul 2014)
+
+  14 Jul 2014; Nicolas Bock <nicolasbock@gentoo.org> +lammps-20140711.ebuild:
+  sci-physics/lammps-20140711: Version bump.
+
+*lammps-20140628 (03 Jul 2014)
+
+  03 Jul 2014; Nicolas Bock <nicolasbock@gentoo.org> +lammps-20140628.ebuild:
+  sci-physics/lammps: Version bump to 2014-06-28.
+
+*lammps-20140614 (19 Jun 2014)
+
+  19 Jun 2014; Nicolas Bock <nicolasbock@gentoo.org> +lammps-20140614.ebuild:
+  sci-physics/lammps-20140614: Version bump.
 
 *lammps-20140320 (31 Mar 2014)
 

@@ -1,9 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/png/png-1.2.0-r1.ebuild,v 1.4 2012/09/10 18:39:44 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/png/png-1.2.0-r1.ebuild,v 1.6 2014/08/02 01:51:14 mrueg Exp $
 
-EAPI=4
-USE_RUBY="ruby18 ruby19 ree18"
+EAPI=5
+USE_RUBY="ruby19"
 
 RUBY_FAKEGEM_TASK_DOC="docs"
 RUBY_FAKEGEM_DOCDIR="doc"
@@ -11,7 +11,7 @@ RUBY_FAKEGEM_EXTRADOC="History.txt README.txt"
 
 inherit ruby-fakegem
 
-DESCRIPTION="An almost pure-Ruby Portable Network Graphics (PNG) library."
+DESCRIPTION="An almost pure-Ruby Portable Network Graphics (PNG) library"
 HOMEPAGE="http://rubyforge.org/projects/seattlerb/"
 
 LICENSE="MIT"
@@ -27,6 +27,10 @@ ruby_add_bdepend "
 	)"
 
 ruby_add_rdepend ">=dev-ruby/RubyInline-3.5.0"
+
+all_ruby_prepare() {
+	sed -i -e "/rubyforge/s/^/#/" Rakefile || die
+}
 
 src_test() {
 	chmod 0755 "${HOME}" || die "Failed to fix permissions on home."

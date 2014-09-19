@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jcommon/jcommon-1.0.18.ebuild,v 1.1 2013/03/10 12:36:26 sera Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/jcommon/jcommon-1.0.18.ebuild,v 1.4 2014/08/16 10:15:59 johu Exp $
 
 EAPI=5
 
@@ -9,13 +9,13 @@ JAVA_PKG_IUSE="doc source test"
 inherit java-pkg-2 java-ant-2 versionator
 
 MY_P=${PN}-$(replace_version_separator 3 -)
-DESCRIPTION="JCommon is a collection of useful classes used by JFreeChart, JFreeReport and other projects."
+DESCRIPTION="JCommon is a collection of useful classes used by JFreeChart, JFreeReport and other projects"
 HOMEPAGE="http://www.jfree.org/jcommon"
 SRC_URI="mirror://sourceforge/jfreechart/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="1.0"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~ppc x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 RDEPEND="

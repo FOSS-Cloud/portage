@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-misc/vdradmin-am/vdradmin-am-3.6.9.ebuild,v 1.3 2013/02/14 12:30:09 hd_brummy Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-misc/vdradmin-am/vdradmin-am-3.6.9.ebuild,v 1.5 2014/07/29 17:29:20 zlogene Exp $
 
 EAPI="5"
 
@@ -12,7 +12,7 @@ SRC_URI="http://andreas.vdr-developer.org/vdradmin-am/download/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="ipv6 ssl +vdr"
 
 DEPEND="dev-lang/perl
@@ -24,7 +24,7 @@ DEPEND="dev-lang/perl
 	ipv6? ( dev-perl/IO-Socket-INET6 )
 	ssl? ( dev-perl/IO-Socket-SSL )
 	vdr? ( media-video/vdr )
-	perl-core/libnet
+	virtual/perl-libnet
 	dev-perl/Authen-SASL
 	dev-perl/Digest-HMAC"
 RDEPEND="${DEPEND}"
@@ -151,7 +151,8 @@ pkg_postinst() {
 	elog "To extend ${PN} you can emerge"
 	elog ">=media-plugins/vdr-epgsearch-0.9.25 to search the EPG,"
 	elog "media-plugins/vdr-streamdev for livetv streaming and/or"
-	elog "media-video/vdr with USE=\"liemikuutio\" to rename recordings"
+	elog "media-video/vdr with USE=\"liemikuutio/vasarajanauloja/none\" "
+	elog "(depend on your vdr version) to rename recordings"
 	elog "on the machine running the VDR you connect to with ${PN}."
 }
 

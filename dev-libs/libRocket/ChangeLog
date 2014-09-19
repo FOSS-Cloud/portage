@@ -1,6 +1,27 @@
 # ChangeLog for dev-libs/libRocket
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libRocket/ChangeLog,v 1.9 2014/01/04 22:56:02 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libRocket/ChangeLog,v 1.13 2014/07/20 17:39:20 hasufell Exp $
+
+*libRocket-1.3.0.0 (20 Jul 2014)
+
+  20 Jul 2014; Julian Ospald <hasufell@gentoo.org> +libRocket-1.3.0.0.ebuild,
+  +files/libRocket-1.3.0.0-build.patch:
+  version bump, add SUBSLOT (SONAME)
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org>
+  libRocket-1.2.1_p20130110-r1.ebuild, libRocket-9999.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  11 Jun 2014; Julian Ospald <hasufell@gentoo.org>
+  libRocket-1.2.1_p20130110-r1.ebuild, libRocket-9999.ebuild:
+  fix build wrt #512956
+
+  28 Apr 2014; Michał Górny <mgorny@gentoo.org>
+  libRocket-1.2.1_p20130110-r1.ebuild, libRocket-9999.ebuild:
+  Replace multilib_build_binaries with multilib_is_native_abi. The two are
+  equivalent now, and the team has decided to use the old name as being less
+  confusing.
 
   04 Jan 2014; Michał Górny <mgorny@gentoo.org>
   libRocket-1.2.1_p20130110-r1.ebuild, libRocket-9999.ebuild:

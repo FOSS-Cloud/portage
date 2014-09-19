@@ -1,6 +1,31 @@
 # ChangeLog for net-analyzer/driftnet
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/driftnet/ChangeLog,v 1.43 2014/01/06 02:21:09 steev Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/driftnet/ChangeLog,v 1.49 2014/09/17 16:01:42 mrueg Exp $
+
+  17 Sep 2014; Manuel Rüger <mrueg@gentoo.org> -driftnet-0.1.6-r4.ebuild:
+  Cleanup old EAPI1 ebuild.
+
+  17 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  driftnet-0.1.6_p20090401.ebuild:
+  Stable for ppc, wrt bug #515876
+
+  22 Aug 2014; Christopher Reffett <2011creffett@gentoo.org>
+  -driftnet-0.1.6-r5.ebuild:
+  shouldn't have committed that, didn't realize that the _p20090401 version
+  superseded the -r4 version
+
+*driftnet-0.1.6-r5 (22 Aug 2014)
+
+  22 Aug 2014; Christopher Reffett <2011creffett@gentoo.org>
+  +driftnet-0.1.6-r5.ebuild:
+  QA: revbump, convert to EAPI 5.
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  driftnet-0.1.6_p20090401.ebuild:
+  x86 stable wrt bug #515876
+
+  30 Jun 2014; Jeroen Roovers <jer@gentoo.org> driftnet-0.1.6_p20090401.ebuild:
+  Move the rest of the ebuild to EAPI 5 too.
 
   06 Jan 2014; Steev Klimaszewski <steev@gentoo.org>
   driftnet-0.1.6_p20090401.ebuild:

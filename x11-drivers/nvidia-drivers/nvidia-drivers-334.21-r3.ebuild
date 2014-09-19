@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/nvidia-drivers-334.21-r3.ebuild,v 1.1 2014/03/31 20:24:35 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/nvidia-drivers-334.21-r3.ebuild,v 1.9 2014/07/30 19:22:29 ssuominen Exp $
 
 EAPI=5
 
@@ -24,7 +24,7 @@ SRC_URI="
 
 LICENSE="GPL-2 NVIDIA-r2"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="-* amd64 x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="acpi multilib kernel_FreeBSD kernel_linux pax_kernel +tools +X uvm"
 RESTRICT="bindist mirror strip"
 EMULTILIB_PKG="true"
@@ -59,8 +59,8 @@ RDEPEND="
 		multilib? (
 			|| (
 				 (
-					x11-libs/libX11[abi_x86_32]
-					x11-libs/libXext[abi_x86_32]
+					>=x11-libs/libX11-1.6.2[abi_x86_32]
+					>=x11-libs/libXext-1.3.2[abi_x86_32]
 				 )
 				app-emulation/emul-linux-x86-xlibs
 			)
@@ -115,11 +115,8 @@ pkg_setup() {
 	export CCACHE_DISABLE=1
 
 	if use kernel_linux; then
-		# Because of awkward limitations of linux-mod.eclass, the order in
-		# which the modules are listed somehow affects module dependencies,
-		# so we list nvidia-uvm first and then nvidia.
-		use uvm && MODULE_NAMES="nvidia-uvm(video:${S}/kernel/uvm)"
-		MODULE_NAMES+=" nvidia(video:${S}/kernel)"
+		MODULE_NAMES="nvidia(video:${S}/kernel)"
+		use uvm && MODULE_NAMES+=" nvidia-uvm(video:${S}/kernel/uvm)"
 
 		# This needs to run after MODULE_NAMES (so that the eclass checks
 		# whether the kernel supports loadable modules) but before BUILD_PARAMS
@@ -158,15 +155,6 @@ pkg_setup() {
 	fi
 }
 
-src_unpack() {
-	if use kernel_FreeBSD; then
-		unpack ${A}
-	elif use kernel_linux; then
-		cd "${S}"
-		unpack_makeself
-	fi
-}
-
 src_prepare() {
 	# Please add a brief description for every added patch
 
@@ -200,6 +188,7 @@ src_compile() {
 		MAKE="$(get_bmake)" CFLAGS="-Wno-sign-compare" emake CC="$(tc-getCC)" \
 			LD="$(tc-getLD)" LDFLAGS="$(raw-ldflags)" || die
 	elif use kernel_linux; then
+		use uvm && MAKEOPTS=-j1
 		linux-mod_src_compile
 	fi
 }
@@ -258,7 +247,7 @@ src_install() {
 		use uvm && doins "${FILESDIR}"/nvidia-uvm.conf
 
 		# Ensures that our device nodes are created when not using X
-		exeinto "$(udev_get_udevdir)"
+		exeinto "$(get_udevdir)"
 		doexe "${FILESDIR}"/nvidia-udev.sh
 		udev_newrules "${FILESDIR}"/nvidia.udev-rule 99-nvidia.rules
 	elif use kernel_FreeBSD; then

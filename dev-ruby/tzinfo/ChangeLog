@@ -1,6 +1,43 @@
 # ChangeLog for dev-ruby/tzinfo
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/tzinfo/ChangeLog,v 1.128 2014/02/28 11:19:56 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/tzinfo/ChangeLog,v 1.137 2014/08/12 21:28:40 blueness Exp $
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> tzinfo-1.2.1.ebuild,
+  tzinfo-1.2.2.ebuild:
+  Keyword ~ppc and ~ppc64, bug #519170
+
+*tzinfo-1.2.2 (10 Aug 2014)
+
+  10 Aug 2014; Manuel Rüger <mrueg@gentoo.org> +tzinfo-1.2.2.ebuild:
+  Version bump.
+
+  18 Jul 2014; Hans de Graaff <graaff@gentoo.org> tzinfo-0.3.37.ebuild,
+  tzinfo-0.3.37-r1.ebuild, tzinfo-0.3.38.ebuild, tzinfo-1.2.1.ebuild:
+  Update HOMEPAGE.
+
+  18 Jul 2014; Hans de Graaff <graaff@gentoo.org> -tzinfo-1.1.0.ebuild,
+  -tzinfo-1.2.0.ebuild:
+  Cleanup.
+
+  07 Jul 2014; Tobias Klausmann <klausman@gentoo.org> tzinfo-1.2.1.ebuild:
+  Keyworded on alpha, bug #487178
+
+*tzinfo-1.2.1 (02 Jun 2014)
+
+  02 Jun 2014; Hans de Graaff <graaff@gentoo.org> +tzinfo-1.2.1.ebuild:
+  Version bump.
+
+*tzinfo-1.2.0 (27 May 2014)
+
+  27 May 2014; Hans de Graaff <graaff@gentoo.org> +tzinfo-1.2.0.ebuild:
+  Version bump.
+
+  26 Apr 2014; Hans de Graaff <graaff@gentoo.org> tzinfo-1.1.0.ebuild:
+  Add ruby21. Run all tests.
+
+  22 Apr 2014; Manuel Rüger <mrueg@gentoo.org> tzinfo-0.3.37-r1.ebuild,
+  tzinfo-0.3.37.ebuild, tzinfo-0.3.38.ebuild, tzinfo-1.1.0.ebuild:
+  Remove ruby18 target.
 
 *tzinfo-0.3.38 (28 Feb 2014)
 

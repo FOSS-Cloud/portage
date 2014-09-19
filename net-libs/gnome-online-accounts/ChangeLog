@@ -1,6 +1,57 @@
 # ChangeLog for net-libs/gnome-online-accounts
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gnome-online-accounts/ChangeLog,v 1.34 2014/03/29 18:51:40 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gnome-online-accounts/ChangeLog,v 1.44 2014/07/23 15:23:40 ago Exp $
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  gnome-online-accounts-3.12.4.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  gnome-online-accounts-3.12.4.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*gnome-online-accounts-3.12.4 (17 Jul 2014)
+
+  17 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  +gnome-online-accounts-3.12.4.ebuild, -gnome-online-accounts-3.12.2.ebuild:
+  Version bump, drop old
+
+*gnome-online-accounts-3.12.3 (13 Jun 2014)
+
+  13 Jun 2014; Pacho Ramos <pacho@gentoo.org>
+  +gnome-online-accounts-3.12.3.ebuild, -gnome-online-accounts-3.10.2.ebuild,
+  -gnome-online-accounts-3.12.0.ebuild:
+  Version bump, drop old
+
+*gnome-online-accounts-3.12.2 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org>
+  +gnome-online-accounts-3.12.2.ebuild:
+  Version bump
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org>
+  gnome-online-accounts-3.10.4.ebuild:
+  x86 stable, bug 508862
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org>
+  gnome-online-accounts-3.10.4.ebuild:
+  amd64 stable, bug 508862
+
+*gnome-online-accounts-3.12.0 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-online-accounts-3.12.0.ebuild:
+  Version bump for Gnome 3.12.
+
+  27 Apr 2014; Pacho Ramos <pacho@gentoo.org>
+  -gnome-online-accounts-3.10.3.ebuild:
+  drop old
+
+*gnome-online-accounts-3.10.4 (12 Apr 2014)
+
+  12 Apr 2014; Pacho Ramos <pacho@gentoo.org>
+  +gnome-online-accounts-3.10.4.ebuild:
+  Version bump
 
 *gnome-online-accounts-3.10.3 (29 Mar 2014)
 

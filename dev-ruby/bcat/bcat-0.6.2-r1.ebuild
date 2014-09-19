@@ -1,16 +1,16 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/bcat/bcat-0.6.2-r1.ebuild,v 1.1 2013/11/17 20:36:43 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/bcat/bcat-0.6.2-r1.ebuild,v 1.3 2014/08/05 16:00:57 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby18 ruby19 ruby20"
+USE_RUBY="ruby19 ruby20"
 
 RUBY_FAKEGEM_TASK_DOC="man"
 RUBY_FAKEGEM_EXTRADOC="README"
 
 inherit ruby-fakegem
 
-DESCRIPTION="A pipe to browser utility for use at the shell and within editors like Vim or Emacs."
+DESCRIPTION="A pipe to browser utility for use at the shell and within editors like Vim or Emacs"
 HOMEPAGE="http://github.com/rtomayko/bcat"
 
 LICENSE="MIT"

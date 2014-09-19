@@ -1,6 +1,28 @@
 # ChangeLog for app-misc/beanstalkd
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/beanstalkd/ChangeLog,v 1.32 2014/03/31 06:34:28 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/beanstalkd/ChangeLog,v 1.37 2014/08/14 17:24:34 phajdan.jr Exp $
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  beanstalkd-1.9-r1.ebuild:
+  x86 stable wrt bug #512332
+
+*beanstalkd-1.10 (11 Aug 2014)
+
+  11 Aug 2014; Ultrabug <ultrabug@gentoo.org> +beanstalkd-1.10.ebuild:
+  version bump
+
+  21 Jul 2014; Chema Alonso <nimiux@gentoo.org> beanstalkd-1.9-r1.ebuild:
+  Stable for amd64 wrt bug #512332
+
+*beanstalkd-1.9-r1 (21 Jul 2014)
+
+  21 Jul 2014; Patrick Lauer <patrick@gentoo.org> +beanstalkd-1.9-r1.ebuild,
+  -beanstalkd-1.9.ebuild:
+  Fix cc invocation #517512
+
+  04 Jun 2014; Patrick Lauer <patrick@gentoo.org> -beanstalkd-1.5.ebuild,
+  -beanstalkd-1.6.ebuild, -beanstalkd-1.7.ebuild, -beanstalkd-1.8.ebuild:
+  Cleanup old
 
 *beanstalkd-1.9 (31 Mar 2014)
 

@@ -1,6 +1,29 @@
 # ChangeLog for dev-db/myodbc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/myodbc/ChangeLog,v 1.33 2013/05/10 08:17:39 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-db/myodbc/ChangeLog,v 1.38 2014/09/01 01:15:27 grknight Exp $
+
+*myodbc-5.2.7-r1 (01 Sep 2014)
+
+  01 Sep 2014; Brian Evans <grknight@gentoo.org>
+  +files/5.2.7-r1-cxxlinkage.patch, +myodbc-5.2.7-r1.ebuild:
+  Revision bump to enable multilib
+
+  20 Aug 2014;  <grknight@gentoo.org> +files/5.2.7-cxxlinkage.patch,
+  +files/5.2.7-mariadb-dynamic-array.patch, myodbc-5.2.7.ebuild:
+  Fix build failures on >=dev-db/mariadb-10.0
+
+*myodbc-5.2.7 (29 Jul 2014)
+
+  29 Jul 2014; Brian Evans <grknight@gentoo.org> +myodbc-5.2.7.ebuild,
+  -myodbc-5.2.6.ebuild:
+  Version bump, fix slotting of installer utility, and bump required mysql
+  version. Remove old
+
+*myodbc-5.2.6 (04 May 2014)
+
+  04 May 2014; Brian Evans <grknight@gentoo.org> +files/cmake-doc-path.patch,
+  +myodbc-5.2.6.ebuild:
+  Version bump to 5.2.6. Fixes bugs #380141, #442322, #462432, #474088
 
   10 May 2013; Patrick Lauer <patrick@gentoo.org> myodbc-5.1.6.ebuild:
   Fix src_prepare

@@ -1,6 +1,30 @@
 # ChangeLog for dev-vcs/stgit
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/stgit/ChangeLog,v 1.21 2014/03/25 17:35:55 dlan Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/stgit/ChangeLog,v 1.28 2014/08/03 14:27:38 dlan Exp $
+
+  03 Aug 2014; Yixun Lan <dlan@gentoo.org> stgit-0.16-r2.ebuild:
+  Stable for arm, bug #505796
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> stgit-0.16-r2.ebuild:
+  Stable for ppc64, wrt bug #505796
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> stgit-0.16-r2.ebuild:
+  Stable for ppc, wrt bug #505796
+
+  20 Jun 2014; Yixun Lan <dlan@gentoo.org> -stgit-0.16-r1.ebuild:
+  clean up, drop old ebuild
+
+  16 Jun 2014; Chema Alonso <nimiux@gentoo.org> stgit-0.16-r2.ebuild:
+  Stable for amd64 wrt bug #505796
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> stgit-0.16-r2.ebuild:
+  x86 stable wrt bug #505796
+
+*stgit-0.17.1-r1 (10 May 2014)
+
+  10 May 2014; Yixun Lan <dlan@gentoo.org> -stgit-0.17.1.ebuild,
+  +stgit-0.17.1-r1.ebuild:
+  pull in a few upstream patches
 
 *stgit-0.17.1 (25 Mar 2014)
 

@@ -1,10 +1,11 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ultraviolet/ultraviolet-1.0.1.ebuild,v 1.2 2014/03/16 00:28:40 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ultraviolet/ultraviolet-1.0.1.ebuild,v 1.4 2014/08/06 07:24:57 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby19"
+USE_RUBY="ruby19 ruby20 ruby21"
 
+RUBY_FAKEGEM_RECIPE_DOC="rdoc"
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
 RUBY_FAKEGEM_EXTRADOC="Readme.md"
@@ -13,7 +14,7 @@ RUBY_FAKEGEM_EXTRAINSTALL="render"
 inherit ruby-fakegem
 
 DESCRIPTION="A syntax highlighting engine based on Textpow"
-HOMEPAGE="http://ultraviolet.rubyforge.org/"
+HOMEPAGE="https://github.com/grosser/ultraviolet"
 
 LICENSE="MIT"
 SLOT="0"

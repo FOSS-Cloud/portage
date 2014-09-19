@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/bioperl/bioperl-1.6.9.ebuild,v 1.1 2011/07/18 06:31:35 weaver Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/bioperl/bioperl-1.6.9.ebuild,v 1.3 2014/08/09 22:46:03 zlogene Exp $
 
-EAPI="2"
+EAPI="5"
 
 MY_PN=BioPerl
 MODULE_AUTHOR=CJFIELDS
@@ -35,7 +35,7 @@ CDEPEND="dev-perl/libwww-perl
 		dev-perl/SOAP-Lite
 		dev-perl/Sort-Naturally
 		dev-perl/Spreadsheet-ParseExcel
-		>=perl-core/Storable-2.05
+		>=virtual/perl-Storable-2.05
 		>=dev-perl/SVG-2.26
 		>=dev-perl/SVG-Graph-0.01
 		dev-perl/URI

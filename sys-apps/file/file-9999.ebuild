@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/file/file-9999.ebuild,v 1.6 2014/03/27 03:30:14 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/file/file-9999.ebuild,v 1.8 2014/09/07 18:55:10 floppym Exp $
 
 EAPI="4"
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy2_0 )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} pypy2_0 )
 DISTUTILS_OPTIONAL=1
 
 inherit eutils distutils-r1 libtool toolchain-funcs multilib-minimal
@@ -70,7 +70,7 @@ src_configure() {
 }
 
 multilib_src_compile() {
-	if multilib_build_binaries ; then
+	if multilib_is_native_abi ; then
 		emake
 	else
 		emake -C src libmagic.la
@@ -88,7 +88,7 @@ src_compile() {
 }
 
 multilib_src_install() {
-	if multilib_build_binaries ; then
+	if multilib_is_native_abi ; then
 		default
 	else
 		emake -C src install-{includeHEADERS,libLTLIBRARIES} DESTDIR="${D}"

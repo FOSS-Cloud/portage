@@ -1,16 +1,14 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/grub-2.02_beta2.ebuild,v 1.5 2014/03/15 03:31:16 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/grub-2.02_beta2.ebuild,v 1.11 2014/09/10 01:20:36 floppym Exp $
 
 EAPI=5
 
-if [[ ${PV} == 9999 ]]; then
-	AUTOTOOLS_AUTORECONF=1
-	GRUB_AUTOGEN=1
-fi
+AUTOTOOLS_AUTORECONF=1
+GRUB_AUTOGEN=1
 
 if [[ -n ${GRUB_AUTOGEN} ]]; then
-	PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+	PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} )
 	inherit python-any-r1
 fi
 
@@ -28,8 +26,8 @@ if [[ ${PV} != 9999 ]]; then
 			http://dev.gentoo.org/~floppym/dist/${P}.tar.xz"
 		S=${WORKDIR}/${P%_*}
 	fi
-	KEYWORDS="~amd64 ~x86"
-	PATCHES=()
+	KEYWORDS="amd64 ~x86"
+	PATCHES=( "${FILESDIR}/${P}-libzfs.patch" )
 else
 	inherit git-r3
 	EGIT_REPO_URI="git://git.sv.gnu.org/grub.git
@@ -37,10 +35,10 @@ else
 fi
 
 DEJAVU=dejavu-sans-ttf-2.34
-UNIFONT=unifont-6.3.20131217
+UNIFONT=unifont-7.0.01
 SRC_URI+=" truetype? (
 	mirror://sourceforge/dejavu/${DEJAVU}.zip
-	http://unifoundry.com/pub/${UNIFONT}/${UNIFONT}.pcf.gz
+	mirror://gnu/unifont/${UNIFONT}/${UNIFONT}.pcf.gz
 )"
 
 DESCRIPTION="GNU GRUB boot loader"
@@ -55,7 +53,7 @@ GRUB_ALL_PLATFORMS=(
 	# everywhere:
 	emu
 	# mips only:
-	qemu-mips yeeloong
+	qemu-mips loongson
 	# amd64, x86, ppc, ppc64:
 	ieee1275
 	# amd64, x86:
@@ -64,9 +62,6 @@ GRUB_ALL_PLATFORMS=(
 	efi-64
 )
 IUSE+=" ${GRUB_ALL_PLATFORMS[@]/#/grub_platforms_}"
-
-REQUIRED_USE="grub_platforms_qemu? ( truetype )
-	grub_platforms_yeeloong? ( truetype )"
 
 # os-prober: Used on runtime to detect other OSes
 # xorriso (dev-libs/libisoburn): Used on runtime for mkrescue
@@ -79,7 +74,7 @@ RDEPEND="
 	device-mapper? ( >=sys-fs/lvm2-2.02.45 )
 	libzfs? ( sys-fs/zfs )
 	mount? ( sys-fs/fuse )
-	truetype? ( media-libs/freetype )
+	truetype? ( media-libs/freetype:2= )
 	ppc? ( sys-apps/ibm-powerpc-utils sys-apps/powerpc-utils )
 	ppc64? ( sys-apps/ibm-powerpc-utils sys-apps/powerpc-utils )
 "
@@ -90,6 +85,10 @@ DEPEND="${RDEPEND}
 	sys-devel/bison
 	sys-apps/help2man
 	sys-apps/texinfo
+	grub_platforms_coreboot? ( media-libs/freetype:2 )
+	grub_platforms_qemu? ( media-libs/freetype:2 )
+	grub_platforms_ieee1275? ( media-libs/freetype:2 )
+	grub_platforms_loongson? ( media-libs/freetype:2 )
 	grub_platforms_xen? ( app-emulation/xen-tools )
 	static? (
 		app-arch/xz-utils[static-libs(+)]
@@ -230,6 +229,9 @@ grub_configure() {
 }
 
 src_configure() {
+	# Bug 508758.
+	replace-flags -O3 -O2
+
 	# We don't want to leak flags onto boot code.
 	export HOST_CCASFLAGS=${CCASFLAGS}
 	export HOST_CFLAGS=${CFLAGS}

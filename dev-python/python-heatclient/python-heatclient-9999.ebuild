@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-heatclient/python-heatclient-9999.ebuild,v 1.3 2014/03/27 22:05:47 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-heatclient/python-heatclient-9999.ebuild,v 1.6 2014/07/06 12:47:58 mgorny Exp $
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -19,6 +19,7 @@ IUSE="doc test"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 		>=dev-python/pbr-0.6[${PYTHON_USEDEP}]
+		!~dev-python/pbr-0.7[${PYTHON_USEDEP}]
 		<dev-python/pbr-1.0[${PYTHON_USEDEP}]
 		test? ( >=dev-python/hacking-0.8.0[${PYTHON_USEDEP}]
 				<dev-python/hacking-0.9[${PYTHON_USEDEP}]
@@ -28,17 +29,16 @@ DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 				>=dev-python/mox3-0.7.0[${PYTHON_USEDEP}]
 				>=dev-python/sphinx-1.1.2[${PYTHON_USEDEP}]
 				<dev-python/sphinx-1.2[${PYTHON_USEDEP}]
-				>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 				>=dev-python/testrepository-0.0.18[${PYTHON_USEDEP}]
+				>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 				>=dev-python/testtools-0.9.34[${PYTHON_USEDEP}] )"
-RDEPEND="virtual/python-argparse[${PYTHON_USEDEP}]
-		>=dev-python/iso8601-0.1.8[${PYTHON_USEDEP}]
+RDEPEND=">=dev-python/iso8601-0.1.9[${PYTHON_USEDEP}]
 		>=dev-python/prettytable-0.7[${PYTHON_USEDEP}]
 		<dev-python/prettytable-0.8[${PYTHON_USEDEP}]
-		>=dev-python/python-keystoneclient-0.6.0[${PYTHON_USEDEP}]
+		>=dev-python/python-keystoneclient-0.7.0[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-3.1.0[${PYTHON_USEDEP}]
-		>=dev-python/six-1.4.1[${PYTHON_USEDEP}]
-		>=dev-python/requests-1.1[${PYTHON_USEDEP}]"
+		>=dev-python/requests-1.1[${PYTHON_USEDEP}]
+		>=dev-python/six-1.5.2[${PYTHON_USEDEP}]"
 
 python_compile_all() {
 	use doc && sphinx-build -b html -c doc/source/ doc/source/ doc/source/html

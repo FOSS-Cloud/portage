@@ -1,12 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmlife/wmlife-1.0.1.ebuild,v 1.1 2012/08/27 09:15:47 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmlife/wmlife-1.0.1.ebuild,v 1.3 2014/08/10 20:07:13 slyfox Exp $
 
-EAPI=4
-
+EAPI=5
 inherit eutils
 
-DESCRIPTION="dockapp running Conway's Game of Life (and program launcher)."
+DESCRIPTION="dockapp running Conway's Game of Life (and program launcher)"
 HOMEPAGE="http://www.swanson.ukfsn.org/#wmlife"
 SRC_URI="http://www.swanson.ukfsn.org/${PN}/${P}.tar.gz"
 
@@ -26,15 +25,12 @@ RDEPEND="x11-libs/gtk+:2
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
+DOCS="AUTHORS ChangeLog NEWS README"
+
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-1.0.0-stringh.patch
 }
 
 src_configure() {
 	econf --enable-session
-}
-
-src_install() {
-	emake DESTDIR="${D}" install
-	dodoc AUTHORS ChangeLog NEWS README
 }

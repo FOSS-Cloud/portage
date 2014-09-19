@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain.eclass,v 1.624 2014/03/16 18:38:37 rhill Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain.eclass,v 1.635 2014/08/05 01:41:01 floppym Exp $
 
 # Maintainer: Toolchain Ninjas <toolchain@gentoo.org>
 
@@ -148,7 +148,7 @@ fi
 #---->> DEPEND <<----
 
 RDEPEND="sys-libs/zlib
-	nls? ( sys-devel/gettext )"
+	nls? ( virtual/libintl )"
 
 tc_version_is_at_least 3 && RDEPEND+=" virtual/libiconv"
 
@@ -182,6 +182,7 @@ fi
 DEPEND="${RDEPEND}
 	>=sys-devel/bison-1.875
 	>=sys-devel/flex-2.5.4
+	nls? ( sys-devel/gettext )
 	regression-test? (
 		>=dev-util/dejagnu-1.4.4
 		>=sys-devel/autogen-5.5.4
@@ -618,7 +619,6 @@ do_gcc_PIE_patches() {
 
 # configure to build with the hardened GCC specs as the default
 make_gcc_hard() {
-	
 	# we want to be able to control the pie patch logic via something other
 	# than ALL_CFLAGS...
 	sed -e '/^ALL_CFLAGS/iHARD_CFLAGS = ' \
@@ -835,7 +835,6 @@ toolchain_src_configure() {
 		fi
 		is_objcxx && GCC_LANG+=",obj-c++"
 	fi
-	is_treelang && GCC_LANG+=",treelang"
 
 	# fortran support just got sillier! the lang value can be f77 for
 	# fortran77, f95 for fortran95, or just plain old fortran for the
@@ -1134,7 +1133,9 @@ toolchain_src_configure() {
 		if use_if_iuse libssp ; then
 			confgcc+=( --enable-libssp )
 		else
-			export gcc_cv_libc_provides_ssp=yes
+			if hardened_gcc_is_stable ssp; then
+				export gcc_cv_libc_provides_ssp=yes
+			fi
 			confgcc+=( --disable-libssp )
 		fi
 
@@ -1222,8 +1223,8 @@ downgrade_arch_flags() {
 	# If -march=native isn't supported we have to tease out the actual arch
 	if [[ ${myarch} == native || ${mytune} == native ]] ; then
 		if [[ ${bver} < 4.2 ]] ; then
-			arch=$(echo "" | $(tc-getCC) -march=native -v -E - 2>&1 \
-				 | grep cc1 | sed -e 's:.*-march=\([^ ]*\).*:\1:')
+			arch=$($(tc-getCC) -march=native -v -E -P - </dev/null 2>&1 \
+				| sed -rn "/cc1.*-march/s:.*-march=([^ ']*).*:\1:p")
 			replace-cpu-flags native ${arch}
 		fi
 	fi
@@ -1234,103 +1235,104 @@ downgrade_arch_flags() {
 	[[ ${mytune} == x86-64 ]] && filter-flags '-mtune=*'
 	[[ ${bver} < 3.4 ]] && filter-flags '-mtune=*'
 
-	declare -a archlist
-	# "arch" "added" "replacement"
-	archlist=("bdver4 4.9 bdver3")
-	archlist+=("bonnell 4.9 atom")
-	archlist+=("broadwell 4.9 core-avx2")
-	archlist+=("haswell 4.9 core-avx2")
-	archlist+=("ivybridge 4.9 core-avx-i")
-	archlist+=("nehalem 4.9 corei7")
-	archlist+=("sandybridge 4.9 corei7-avx")
-	archlist+=("silvermont 4.9 corei7")
-	archlist+=("westmere 4.9 corei7")
-	archlist+=("bdver3 4.8 bdver2")
-	archlist+=("btver2 4.8 btver1")
-	archlist+=("bdver2 4.7 bdver1")
-	archlist+=("core-avx2 4.7 core-avx-i")
-	archlist+=("bdver1 4.6 amdfam10")
-	archlist+=("btver1 4.6 amdfam10")
-	archlist+=("core-avx-i 4.6 core2")
-	archlist+=("corei7 4.6 core2")
-	archlist+=("corei7-avx 4.6 core2")
-	archlist+=("atom 4.5 core2")
-	archlist+=("amdfam10 4.3 k8")
-	archlist+=("athlon64-sse3 4.3 k8")
-	archlist+=("barcelona 4.3 k8")
-	archlist+=("core2 4.3 nocona")
-	archlist+=("geode 4.3 k6-2") # gcc.gnu.org/PR41989#c22
-	archlist+=("k8-sse3 4.3 k8")
-	archlist+=("opteron-sse3 4.3 k8")
-	archlist+=("athlon-fx 3.4 x86-64")
-	archlist+=("athlon64 3.4 x86-64")
-	archlist+=("c3-2 3.4 c3")
-	archlist+=("k8 3.4 x86-64")
-	archlist+=("opteron 3.4 x86-64")
-	archlist+=("pentium-m 3.4 pentium3")
-	archlist+=("pentium3m 3.4 pentium3")
-	archlist+=("pentium4m 3.4 pentium4")
+	# "added" "arch" "replacement"
+	local archlist=(
+		4.9 bdver4 bdver3
+		4.9 bonnell atom
+		4.9 broadwell core-avx2
+		4.9 haswell core-avx2
+		4.9 ivybridge core-avx-i
+		4.9 nehalem corei7
+		4.9 sandybridge corei7-avx
+		4.9 silvermont corei7
+		4.9 westmere corei7
+		4.8 bdver3 bdver2
+		4.8 btver2 btver1
+		4.7 bdver2 bdver1
+		4.7 core-avx2 core-avx-i
+		4.6 bdver1 amdfam10
+		4.6 btver1 amdfam10
+		4.6 core-avx-i core2
+		4.6 corei7 core2
+		4.6 corei7-avx core2
+		4.5 atom core2
+		4.3 amdfam10 k8
+		4.3 athlon64-sse3 k8
+		4.3 barcelona k8
+		4.3 core2 nocona
+		4.3 geode k6-2 # gcc.gnu.org/PR41989#c22
+		4.3 k8-sse3 k8
+		4.3 opteron-sse3 k8
+		3.4 athlon-fx x86-64
+		3.4 athlon64 x86-64
+		3.4 c3-2 c3
+		3.4 k8 x86-64
+		3.4 opteron x86-64
+		3.4 pentium-m pentium3
+		3.4 pentium3m pentium3
+		3.4 pentium4m pentium4
+	)
 
-	myarch=$(get-flag march)
-	mytune=$(get-flag mtune)
+	for ((i = 0; i < ${#archlist[@]}; i += 3)) ; do
+		myarch=$(get-flag march)
+		mytune=$(get-flag mtune)
 
-	for ((i=0; i < ${#archlist[@]}; i++)) ; do
-		arch=${archlist[i]%% *}
-		ver=${archlist[i]#* } ver=${ver% *}
-		rep=${archlist[i]##* }
+		ver=${archlist[i]}
+		arch=${archlist[i + 1]}
+		rep=${archlist[i + 2]}
 
 		[[ ${myarch} != ${arch} && ${mytune} != ${arch} ]] && continue
-		
+
 		if [[ ${ver} > ${bver} ]] ; then
-			einfo "Replacing ${myarch} (added in ${ver}) with ${rep}..."
+			einfo "Replacing ${myarch} (added in gcc ${ver}) with ${rep}..."
 			[[ ${myarch} == ${arch} ]] && replace-cpu-flags ${myarch} ${rep}
 			[[ ${mytune} == ${arch} ]] && replace-cpu-flags ${mytune} ${rep}
-			downgrade_arch_flags ${1:-${GCC_BRANCH_VER}}
-			break
+			continue
 		else
 			break
 		fi
 	done
 
-	declare -a isalist
 	# we only check -mno* here since -m* get removed by strip-flags later on
-	isalist=("-mno-sha 4.9")
-	isalist+=("-mno-avx512pf 4.9")
-	isalist+=("-mno-avx512f 4.9")
-	isalist+=("-mno-avx512er 4.9")
-	isalist+=("-mno-avx512cd 4.9")
-	isalist+=("-mno-xsaveopt 4.8")
-	isalist+=("-mno-xsave 4.8")
-	isalist+=("-mno-rtm 4.8")
-	isalist+=("-mno-fxsr 4.8")
-	isalist+=("-mno-lzcnt 4.7")
-	isalist+=("-mno-bmi2 4.7")
-	isalist+=("-mno-avx2 4.7")
-	isalist+=("-mno-tbm 4.6")
-	isalist+=("-mno-rdrnd 4.6")
-	isalist+=("-mno-fsgsbase 4.6")
-	isalist+=("-mno-f16c 4.6")
-	isalist+=("-mno-bmi 4.6")
-	isalist+=("-mno-xop 4.5")
-	isalist+=("-mno-movbe 4.5")
-	isalist+=("-mno-lwp 4.5")
-	isalist+=("-mno-fma4 4.5")
-	isalist+=("-mno-pclmul 4.4")
-	isalist+=("-mno-fma 4.4")
-	isalist+=("-mno-avx 4.4")
-	isalist+=("-mno-aes 4.4")
-	isalist+=("-mno-ssse3 4.3")
-	isalist+=("-mno-sse4a 4.3")
-	isalist+=("-mno-sse4 4.3")
-	isalist+=("-mno-sse4.2 4.3")
-	isalist+=("-mno-sse4.1 4.3")
-	isalist+=("-mno-popcnt 4.3")
-	isalist+=("-mno-abm 4.3")
+	local isalist=(
+		4.9 -mno-sha
+		4.9 -mno-avx512pf
+		4.9 -mno-avx512f
+		4.9 -mno-avx512er
+		4.9 -mno-avx512cd
+		4.8 -mno-xsaveopt
+		4.8 -mno-xsave
+		4.8 -mno-rtm
+		4.8 -mno-fxsr
+		4.7 -mno-lzcnt
+		4.7 -mno-bmi2
+		4.7 -mno-avx2
+		4.6 -mno-tbm
+		4.6 -mno-rdrnd
+		4.6 -mno-fsgsbase
+		4.6 -mno-f16c
+		4.6 -mno-bmi
+		4.5 -mno-xop
+		4.5 -mno-movbe
+		4.5 -mno-lwp
+		4.5 -mno-fma4
+		4.4 -mno-pclmul
+		4.4 -mno-fma
+		4.4 -mno-avx
+		4.4 -mno-aes
+		4.3 -mno-ssse3
+		4.3 -mno-sse4a
+		4.3 -mno-sse4
+		4.3 -mno-sse4.2
+		4.3 -mno-sse4.1
+		4.3 -mno-popcnt
+		4.3 -mno-abm
+	)
 
-	for ((i=0; i < ${#isalist[@]}; i++)) ; do
-		isa=${isalist[i]%% *}
-		ver=${isalist[i]##* }
-		[[ ${ver} > ${bver} ]] && filter-flags ${isa}
+	for ((i = 0; i < ${#isalist[@]}; i += 2)) ; do
+		ver=${isalist[i]}
+		isa=${isalist[i + 1]}
+		[[ ${ver} > ${bver} ]] && filter-flags ${isa} ${isa/-m/-mno-}
 	done
 }
 
@@ -1341,7 +1343,8 @@ gcc_do_filter_flags() {
 	# dont want to funk ourselves
 	filter-flags '-mabi*' -m31 -m32 -m64
 
-	filter-flags '-frecord-gcc-switches' # 490738
+	filter-flags -frecord-gcc-switches # 490738
+	filter-flags -mno-rtm -mno-htm # 506202
 
 	if tc_version_is_between 3.2 3.4 ; then
 		# XXX: this is so outdated it's barely useful, but it don't hurt...
@@ -1360,9 +1363,9 @@ gcc_do_filter_flags() {
 		case $(tc-arch) in
 			amd64|x86)
 				filter-flags '-mcpu=*'
-				
+
 				tc_version_is_between 4.4 4.5 && append-flags -mno-avx # 357287
-				
+
 				if tc_version_is_between 4.6 4.7 ; then
 					# https://bugs.gentoo.org/411333
 					# https://bugs.gentoo.org/466454
@@ -1472,20 +1475,19 @@ toolchain_src_compile() {
 	[[ ! -x /usr/bin/perl ]] \
 		&& find "${WORKDIR}"/build -name '*.[17]' | xargs touch
 
-	einfo "Compiling ${PN} ..."
 	gcc_do_make ${GCC_MAKE_TARGET}
 }
 
 gcc_do_make() {
 	# This function accepts one optional argument, the make target to be used.
 	# If omitted, gcc_do_make will try to guess whether it should use all,
-	# profiledbootstrap, or bootstrap-lean depending on CTARGET and arch. An
-	# example of how to use this function:
+	# or bootstrap-lean depending on CTARGET and arch.
+	# An example of how to use this function:
 	#
 	#	gcc_do_make all-target-libstdc++-v3
-	#
-	# Set make target to $1 if passed
+
 	[[ -n ${1} ]] && GCC_MAKE_TARGET=${1}
+
 	# default target
 	if is_crosscompile || tc-is-cross-compiler ; then
 		# 3 stage bootstrapping doesnt quite work when you cant run the
@@ -1495,13 +1497,11 @@ gcc_do_make() {
 		GCC_MAKE_TARGET=${GCC_MAKE_TARGET-bootstrap-lean}
 	fi
 
-	# the gcc docs state that parallel make isnt supported for the
-	# profiledbootstrap target, as collisions in profile collecting may occur.
+	# Older versions of GCC could not do profiledbootstrap in parallel due to
+	# collisions with profiling info.
 	# boundschecking also seems to introduce parallel build issues.
-	if [[ ${GCC_MAKE_TARGET} == "profiledbootstrap" ]] ||
-	   use_if_iuse boundschecking
-	then
-		export MAKEOPTS="${MAKEOPTS} -j1"
+	if [[ ${GCC_MAKE_TARGET} == "profiledbootstrap" ]] || use_if_iuse boundschecking ; then
+		! tc_version_is_at_least 4.6 && export MAKEOPTS="${MAKEOPTS} -j1"
 	fi
 
 	if [[ ${GCC_MAKE_TARGET} == "all" ]] ; then
@@ -1521,6 +1521,8 @@ gcc_do_make() {
 		# cross-compiler.
 		BOOT_CFLAGS=${BOOT_CFLAGS-"$(get_abi_CFLAGS ${TARGET_DEFAULT_ABI}) ${CFLAGS}"}
 	fi
+
+	einfo "Compiling ${PN} (${GCC_MAKE_TARGET})..."
 
 	pushd "${WORKDIR}"/build >/dev/null
 
@@ -2112,14 +2114,6 @@ is_objcxx() {
 	use cxx && use_if_iuse objc++
 }
 
-is_treelang() {
-	use_if_iuse boundschecking && return 1 #260532
-	is_crosscompile && return 1 #199924
-	gcc-lang-supported treelang || return 1
-	#use treelang
-	return 0
-}
-
 # Grab a variable from the build system (taken from linux-info.eclass)
 get_make_var() {
 	local var=$1 makefile=${2:-${WORKDIR}/build/Makefile}
@@ -2169,7 +2163,7 @@ hardened_gcc_is_stable() {
 	elif [[ $1 == "ssp" ]] ; then
 		if [[ ${CTARGET} == *-uclibc* ]] ; then
 			tocheck=${SSP_UCLIBC_STABLE}
-		else
+		elif  [[ ${CTARGET} == *-gnu* ]] ; then
 			tocheck=${SSP_STABLE}
 		fi
 	else

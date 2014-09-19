@@ -1,8 +1,17 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/package.use.mask,v 1.137 2014/03/06 15:33:47 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/package.use.mask,v 1.146 2014/08/17 09:04:47 jer Exp $
 
 # DON'T TOUCH THIS FILE. Instead, file a bug and assign it to <hppa@gentoo.org>.
+
+# Jeroen Roovers <jer@gentoo.org> (13 Aug 2014)
+# Needs dev-libs/protobuf{-c} which has not been ported to HPPA (bug #519772)
+net-libs/libgadu gg11
+
+# Jeroen Roovers <jer@gentoo.org> (29 Jul 2014)
+# Test phase requires dev-db/mongodb which requires dev-util/google-perftools
+# which has not been ported to HPPA (bug #517880)
+dev-libs/mongo-c-driver test
 
 # Jeroen Roovers <jer@gentoo.org> (6 Mar 2014)
 # USE=gui requires x11-libs/qscintilla,
@@ -43,11 +52,6 @@ dev-python/pyquery test
 # Mask non-keyworded sci-libs/hdf5 for sci-mathematics/octave
 sci-mathematics/octave hdf5 qhull
 
-# Robin H Johnson <robbat2@gentoo.org> (01 Nov 2012)
-# MySQL 5.5 wants systemtap, tcmalloc & jemalloc
->=dev-db/mysql-5.5 systemtap tcmalloc
->=dev-db/mariadb-5.5 systemtap tcmalloc
-
 # Jeroen Roovers <jer@gentoo.org> (10 Jul 2012)
 # USE=clang needs sys-devel/llvm which has not been ported
 app-portage/eix clang
@@ -80,16 +84,15 @@ app-text/asciidoc test
 dev-qt/qtbearer connman
 
 # Jeroen Roovers <jer@gentoo.org> (19 Apr 2012)
-# Requires sys-power/upower which is not much use on HPPA
-xfce-extra/xfce4-systemload-plugin udev
+# Requires sys-power/upower or sys-power/upower-pm-utils which are
+# not much use on HPPA
+xfce-extra/xfce4-systemload-plugin upower
+xfce-base/xfce4-session upower
+xfce-base/xfce4-settings upower
 
 # Jeroen Roovers <jer@gentoo.org> (25 Oct 2011)
 # Depends upon an as yet unsupported version of dev-libs/dietlibc
 dev-libs/libowfat diet
-
-# Robin H. Johnson <robbat2@gentoo.org> (03 Sep 2011)
-# Remove this for your arch after you keyword dev-utils/google-perftools and virtual/gsasl (bug #381737
-dev-libs/libmemcached tcmalloc sasl
 
 # Jeroen Roovers <jer@gentoo.org> (5 Jun 2011)
 # app-office/gnumeric is not keyworded (bug #367513)
@@ -98,18 +101,6 @@ app-office/lyx gnumeric
 # Jeroen Roovers <jer@gentoo.org> (24 Feb 2011)
 # Needs Java (bug #355353)
 app-text/texlive pdfannotextractor
-
-# Jeroen Roovers <jer@gentoo.org> (21 Jan 2011)
-# Pulls in either GNOME or LXDE, neither are keyworded (bug #296548)
-sys-auth/polkit gtk
-
-# Samuli Suominen <ssuominen@gentoo.org> (6 Jan 2011)
-# Missing sys-power/upower keywording.
-xfce-base/xfce4-session udev
-
-# Jeroen Roovers <jer@gentoo.org> (5 Jan 2011)
-# Mask dev-lang/spidermonkey (bug #347827)
-www-client/elinks javascript
 
 # Jeroen Roovers <jer@gentoo.org> (30 Nov 2010)
 # Mask doc-pdf because of Java dependencies (bug #347259)
