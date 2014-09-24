@@ -1,6 +1,16 @@
 # ChangeLog for dev-python/docker-py
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/docker-py/ChangeLog,v 1.6 2014/09/18 13:29:51 xarthisius Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/docker-py/ChangeLog,v 1.9 2014/09/23 19:06:21 floppym Exp $
+
+  23 Sep 2014; Mike Gilbert <floppym@gentoo.org> docker-py-0.5.0-r1.ebuild:
+  Unpin versions for requests and websocket-client; requirements.txt is used for
+  pip installations only.
+
+*docker-py-0.5.0-r1 (20 Sep 2014)
+
+  20 Sep 2014; Ian Delaney <idella4@gentoo.org> +docker-py-0.5.0-r1.ebuild:
+  Fixed dependencies for python2_7 and python3*, removed unused code, cross
+  testing by alunduil
 
 *docker-py-0.5.0 (18 Sep 2014)
 
