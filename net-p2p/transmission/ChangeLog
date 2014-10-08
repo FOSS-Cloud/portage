@@ -1,6 +1,46 @@
 # ChangeLog for net-p2p/transmission
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/transmission/ChangeLog,v 1.250 2014/03/04 20:18:56 vincent Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/transmission/ChangeLog,v 1.261 2014/09/05 05:39:30 ssuominen Exp $
+
+  05 Sep 2014; Samuli Suominen <ssuominen@gentoo.org> transmission-2.84.ebuild:
+  Reference /var/lib instead of /var in pkg_postinst() message wrt #521898
+
+  10 Aug 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/transmission-2.82-qt4.patch, -transmission-2.82-r3.ebuild,
+  -transmission-2.83.ebuild:
+  old
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> transmission-2.84.ebuild:
+  Stable for ppc64, wrt bug #516822
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> transmission-2.84.ebuild:
+  Stable for ppc, wrt bug #516822
+
+  12 Jul 2014; Agostino Sarubbo <ago@gentoo.org> transmission-2.84.ebuild:
+  Stable for x86, wrt bug #516822
+
+  12 Jul 2014; Agostino Sarubbo <ago@gentoo.org> transmission-2.84.ebuild:
+  Stable for amd64, wrt bug #516822
+
+*transmission-2.84 (10 Jul 2014)
+
+  10 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> +transmission-2.84.ebuild:
+  Version bump wrt security #516822
+
+  06 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> transmission-2.83.ebuild:
+  Include epatch_user wrt #516486 by Hristo Venev
+
+  13 Jun 2014; Ulrich Müller <ulm@gentoo.org> transmission-2.83.ebuild:
+  Rename OpenSSL linking license exception, and move it into the || group.
+
+  03 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> transmission-2.83.ebuild:
+  Fix LICENSE which was updated with 2.83.
+
+*transmission-2.83 (30 May 2014)
+
+  30 May 2014; Samuli Suominen <ssuominen@gentoo.org> +transmission-2.83.ebuild:
+  Version bump wrt #511784 by "Nikoli" and fix automagic linking against
+  libsystemd-daemon wrt #498920 by "nzqr"
 
   04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org>
   transmission-2.82-r3.ebuild:

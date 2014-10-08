@@ -1,6 +1,35 @@
 # ChangeLog for dev-ruby/rubyforge
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rubyforge/ChangeLog,v 1.104 2014/04/05 14:40:38 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rubyforge/ChangeLog,v 1.112 2014/09/19 09:29:27 mrueg Exp $
+
+  19 Sep 2014; Manuel Rüger <mrueg@gentoo.org> -rubyforge-2.0.4-r2.ebuild:
+  Cleanup old.
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> rubyforge-2.0.4-r3.ebuild:
+  Stable for ppc64, wrt bug #503564
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> rubyforge-2.0.4-r3.ebuild:
+  Stable for ppc, wrt bug #503564
+
+  15 Aug 2014; Raúl Porcel <armin76@gentoo.org> rubyforge-2.0.4-r3.ebuild:
+  sparc stable, bug #490180
+
+  17 Jun 2014; Tobias Klausmann <klausman@gentoo.org>
+  rubyforge-2.0.4-r3.ebuild:
+  Stable on alpha, bug #490180
+
+  17 Jun 2014; Manuel Rüger <mrueg@gentoo.org> rubyforge-2.0.4-r3.ebuild,
+  rubyforge-2.0.4-r4.ebuild:
+  Update hoe dependency.
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  rubyforge-2.0.4-r3.ebuild:
+  x86 stable wrt bug #490180
+
+*rubyforge-2.0.4-r4 (16 May 2014)
+
+  16 May 2014; Hans de Graaff <graaff@gentoo.org> +rubyforge-2.0.4-r4.ebuild:
+  Add new revision for ruby21.
 
   05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> rubyforge-2.0.4-r2.ebuild,
   rubyforge-2.0.4-r3.ebuild:

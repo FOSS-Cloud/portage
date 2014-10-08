@@ -1,6 +1,32 @@
 # ChangeLog for app-accessibility/brltty
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/brltty/ChangeLog,v 1.149 2014/04/07 18:35:50 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/brltty/ChangeLog,v 1.154 2014/09/22 13:15:16 nimiux Exp $
+
+  22 Sep 2014; Chema Alonso <nimiux@gentoo.org> brltty-5.0-r3.ebuild:
+  Stable for amd64 wrt bug #518990
+
+*brltty-5.1 (23 Aug 2014)
+
+  23 Aug 2014; Christopher Brannon <teiresias@gentoo.org> +brltty-5.1.ebuild,
+  +files/brltty-5.1-fix-ldflags.patch, +files/brltty-5.1-respect-AR.patch,
+  +files/brltty-5.1-udev.patch:
+  New upstream version.
+
+  13 Aug 2014; Christopher Brannon <teiresias@gentoo.org> brltty-5.0-r3.ebuild:
+  Fix building with +java USE flag.
+
+  I broke it when I converted the ebuild to use python-r1.
+
+  06 Aug 2014; Jeroen Roovers <jer@gentoo.org> brltty-5.0-r3.ebuild:
+  Stable for HPPA (bug #518990).
+
+*brltty-5.0-r3 (06 Jun 2014)
+
+  06 Jun 2014; Christopher Brannon <teiresias@gentoo.org>
+  +brltty-5.0-r3.ebuild:
+  Use python-r1 eclass and support multiple versions of Python.
+
+  Closes bug #511950.
 
   07 Apr 2014; Mike Frysinger <vapier@gentoo.org> brltty-4.5-r3.ebuild,
   brltty-5.0-r2.ebuild:

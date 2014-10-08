@@ -1,6 +1,59 @@
 # ChangeLog for media-video/makemkv
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/makemkv/ChangeLog,v 1.37 2014/03/09 02:44:18 mattm Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/makemkv/ChangeLog,v 1.44 2014/08/22 23:06:31 beandog Exp $
+
+*makemkv-1.8.12-r2 (22 Aug 2014)
+
+  22 Aug 2014; Steve Dibb <beandog@gentoo.org> -makemkv-1.8.12-r1.ebuild,
+  +makemkv-1.8.12-r2.ebuild:
+  Add qt4 use flag to make GUI install optional
+
+*makemkv-1.8.12-r1 (20 Aug 2014)
+
+  20 Aug 2014; Matthew Marlowe <mattm@gentoo.org> +makemkv-1.8.12-r1.ebuild,
+  -makemkv-1.8.11.ebuild, -makemkv-1.8.12.ebuild, -makemkv-1.8.7.ebuild,
+  -makemkv-1.8.8.ebuild, -makemkv-1.8.9.ebuild:
+  Cleaning out legacy makemkv ebuilds, keeping and recommending: 1.8.10 for
+  systems running glibc < 2.12 1.8.12 for systems running glibc >= 2.12
+
+*makemkv-1.8.12 (19 Aug 2014)
+
+  19 Aug 2014; Matthew Marlowe <mattm@gentoo.org>
+  +files/makemkv-1.8.12-makefile.linux.patch, +makemkv-1.8.12.ebuild,
+  makemkv-1.8.11.ebuild:
+  Bump for new version 1.8.12
+
+*makemkv-1.8.11 (25 Jun 2014)
+
+  25 Jun 2014; Matthew Marlowe <mattm@gentoo.org>
+  +files/makemkv-1.8.11-makefile.linux.patch, +makemkv-1.8.11.ebuild,
+  makemkv-1.8.10.ebuild:
+  Upstream version bump, bug 513676, should hopefully address some
+  incompatibilities with newer glibc versions.
+
+  25 Apr 2014; Steve Dibb <beandog@gentoo.org>
+  -files/makemkv-1.6.16-makefile.linux.patch,
+  -files/makemkv-1.7.4-makefile.linux.patch,
+  -files/makemkv-1.7.6-makefile.linux.patch,
+  -files/makemkv-1.7.7-makefile.linux.patch,
+  -files/makemkv-1.7.8-makefile.linux.patch,
+  -files/makemkv-1.8.0-makefile.linux.patch,
+  -files/makemkv-1.8.1-makefile.linux.patch,
+  -files/makemkv-1.8.3-makefile.linux.patch,
+  -files/makemkv-1.8.4-makefile.linux.patch,
+  -files/makemkv-1.8.5-makefile.linux.patch,
+  -files/makemkv-1.8.6-makefile.linux.patch:
+  Remove patches for old versions
+
+*makemkv-1.8.10 (25 Apr 2014)
+
+  25 Apr 2014; Steve Dibb <beandog@gentoo.org> +makemkv-1.8.10.ebuild,
+  +files/makemkv-1.8.10-makefile.linux.patch:
+  Version bump, bug 508292; Use EAPI 5
+
+  25 Apr 2014; Steve Dibb <beandog@gentoo.org> makemkv-1.8.7.ebuild,
+  makemkv-1.8.8.ebuild, makemkv-1.8.9.ebuild:
+  Updating SRC_URI and removing mirror restriction, bug 508674
 
 *makemkv-1.8.9 (09 Mar 2014)
 

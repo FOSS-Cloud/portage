@@ -1,6 +1,19 @@
 # ChangeLog for sys-apps/gawk
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/gawk/ChangeLog,v 1.177 2014/02/18 18:58:12 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/gawk/ChangeLog,v 1.179 2014/04/25 18:41:07 polynomial-c Exp $
+
+*gawk-4.1.1-r1 (25 Apr 2014)
+
+  25 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> -gawk-4.1.1.ebuild,
+  +gawk-4.1.1-r1.ebuild, +files/gawk-4.1.1-sigpipe.patch:
+  Add sigpipe fix from upstream so makewhatis works again (bug #507340).
+  Removed old.
+
+*gawk-4.1.1 (10 Apr 2014)
+
+  10 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> +gawk-4.1.1.ebuild,
+  +files/gawk-4.1.1-sandbox_issue.patch:
+  Version bump.
 
   18 Feb 2014; Christoph Junghans <ottxor@gentoo.org> gawk-3.1.8.ebuild:
   added blocker for >=virtual/awk-1

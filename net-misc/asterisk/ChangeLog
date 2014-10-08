@@ -1,6 +1,168 @@
 # ChangeLog for net-misc/asterisk
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/asterisk/ChangeLog,v 1.477 2014/03/11 15:07:08 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/asterisk/ChangeLog,v 1.497 2014/09/29 10:54:49 chainsaw Exp $
+
+*asterisk-12.6.0 (29 Sep 2014)
+
+  29 Sep 2014; Tony Vroon <chainsaw@gentoo.org> +asterisk-12.6.0.ebuild:
+  Additional resilience against invalid (ao2) object references. Now supports
+  empty passwords for PJSIP userpass authentication. Masquerade fixes for T38
+  between PJSIP and non-PJSIP chanels. FORTIFY_SOURCE fix now upstream. Modify
+  permissions to suit a multi-daemon setup as per Jaco Kroon in bug #507894.
+
+*asterisk-11.13.0 (29 Sep 2014)
+
+  29 Sep 2014; Tony Vroon <chainsaw@gentoo.org> +asterisk-11.13.0.ebuild:
+  Additional resilience against invalid (ao2) object references. FORTIFY_SOURCE
+  fix now upstream. Modify permissions to suit a multi-daemon setup as per Jaco
+  Kroon in bug #507894.
+
+  22 Sep 2014; Tony Vroon <chainsaw@gentoo.org> -asterisk-11.10.2.ebuild:
+  Remove vulnerable ebuild for security bug #523216 as stabilisation is
+  complete. 1.8 branch not affected.
+
+  20 Sep 2014; Agostino Sarubbo <ago@gentoo.org> asterisk-11.12.1.ebuild:
+  Stable for x86, wrt bug #523216
+
+  20 Sep 2014; Agostino Sarubbo <ago@gentoo.org> asterisk-11.12.1.ebuild:
+  Stable for amd64, wrt bug #523216
+
+*asterisk-12.5.1 (19 Sep 2014)
+*asterisk-11.12.1 (19 Sep 2014)
+
+  19 Sep 2014; Tony Vroon <chainsaw@gentoo.org> -asterisk-11.11.0.ebuild,
+  -asterisk-11.12.0.ebuild, +asterisk-11.12.1.ebuild, -asterisk-12.3.2.ebuild,
+  -asterisk-12.4.0.ebuild, -asterisk-12.5.0.ebuild, +asterisk-12.5.1.ebuild:
+  Upstream fix to fully respect SpanDSP API and avoid a potential null pointer
+  dereference. On the 12 branch, additional input validation for the PubSub
+  framework in PJSIP. Remove older non-stable ebuilds.
+
+  18 Sep 2014; Tony Vroon <chainsaw@gentoo.org> asterisk-1.8.28.2.ebuild,
+  asterisk-1.8.29.0.ebuild, asterisk-11.10.2.ebuild, asterisk-11.11.0.ebuild,
+  asterisk-11.12.0.ebuild, asterisk-12.3.2.ebuild, asterisk-12.4.0.ebuild,
+  asterisk-12.5.0.ebuild:
+  Add missing build-time dependency on pkgconfig, as identified by cyberbat in
+  bug #522396.
+
+*asterisk-12.5.0 (20 Aug 2014)
+*asterisk-11.12.0 (20 Aug 2014)
+
+  20 Aug 2014; Tony Vroon <chainsaw@gentoo.org> +asterisk-11.12.0.ebuild,
+  +asterisk-12.5.0.ebuild:
+  Squelching the FORTIFY_SOURCE warnings, as we have this in our GCC specs the
+  build system should not try to apply it again on the command line. At long
+  last handles large SIP-over-SSL packets correctly. LUA vs convential dial
+  plan context clashes found & fixed.
+
+*asterisk-12.4.0 (14 Jul 2014)
+*asterisk-11.11.0 (14 Jul 2014)
+*asterisk-1.8.29.0 (14 Jul 2014)
+
+  14 Jul 2014; Tony Vroon <chainsaw@gentoo.org> +asterisk-1.8.29.0.ebuild,
+  +asterisk-11.11.0.ebuild, +asterisk-12.4.0.ebuild:
+  New development on the 12 branch adds persistent connection support on the
+  built-in HTTP server. Fixes trickling down to stable branches include making
+  ast_careful_fwrite careful enough to avoid infinite loops and avoiding
+  unnecessary MOH restarts. Downstream patchset unchanged.
+
+  23 Jun 2014; Tony Vroon <chainsaw@gentoo.org> -asterisk-1.8.26.1.ebuild,
+  -asterisk-11.8.1.ebuild, -asterisk-12.1.1.ebuild, -asterisk-12.2.0.ebuild:
+  Remove vulnerable ebuilds for security bug #513102, as requested by Agostino
+  "ago" Sarubbo.
+
+  21 Jun 2014; Agostino Sarubbo <ago@gentoo.org> asterisk-1.8.28.2.ebuild,
+  asterisk-11.10.2.ebuild:
+  Stable for x86, wrt bug #513102
+
+  21 Jun 2014; Agostino Sarubbo <ago@gentoo.org> asterisk-1.8.28.2.ebuild,
+  asterisk-11.10.2.ebuild:
+  Stable for amd64, wrt bug #513102
+
+*asterisk-12.3.2 (16 Jun 2014)
+
+  16 Jun 2014; Tony Vroon <chainsaw@gentoo.org> -asterisk-12.3.1.ebuild,
+  +asterisk-12.3.2.ebuild:
+  Upstream distributed a broken release that did not carry traffic for SIP over
+  TCP or SIP over TLS. This remains masked and is not recommended for
+  production deployments.
+
+*asterisk-11.10.2 (16 Jun 2014)
+*asterisk-1.8.28.2 (16 Jun 2014)
+
+  16 Jun 2014; Tony Vroon <chainsaw@gentoo.org> -asterisk-1.8.28.1.ebuild,
+  +asterisk-1.8.28.2.ebuild, -asterisk-11.10.1.ebuild,
+  +asterisk-11.10.2.ebuild:
+  Upstream distributed a broken release that did not carry traffic for SIP over
+  TCP or SIP over TLS.
+
+*asterisk-12.3.1 (14 Jun 2014)
+
+  14 Jun 2014; Tony Vroon <chainsaw@gentoo.org> -asterisk-12.1.1.ebuild,
+  -asterisk-12.2.0.ebuild, -asterisk-12.3.0.ebuild, +asterisk-12.3.1.ebuild:
+  And now for the 12 branch, which has additional vulnerabilities in the PJSIP
+  channel driver. MixMonitor AMI command allowed arbitrary shell commands to be
+  executed (AST-2014-006). Upstream replacement of plain broken SSL read
+  implementation as part of an HTTPS denial of service (AST-2014-007) finally
+  fixes ASTERISK-18345 after almost three years. Relevant downstream patch
+  removed, this means we were very likely not vulnerable. Resolves a remote
+  crash in publish/subscribe framework (AST-2014-005) due to deadlock on a
+  synchronously dispatched task.
+
+*asterisk-11.10.1 (14 Jun 2014)
+*asterisk-1.8.28.1 (14 Jun 2014)
+
+  14 Jun 2014; Tony Vroon <chainsaw@gentoo.org> -asterisk-1.8.27.0.ebuild,
+  -asterisk-1.8.28.0.ebuild, +asterisk-1.8.28.1.ebuild,
+  -asterisk-11.9.0.ebuild, -asterisk-11.10.0.ebuild, +asterisk-11.10.1.ebuild:
+  MixMonitor AMI command allowed arbitrary shell commands to be executed
+  (AST-2014-006). Upstream replacement of plain broken SSL read implementation
+  as part of an HTTPS denial of service (AST-2014-007) finally fixes
+  ASTERISK-18345 after almost three years. Relevant downstream patch removed,
+  this means we were very likely not vulnerable.
+
+*asterisk-12.3.0 (02 Jun 2014)
+
+  02 Jun 2014; Tony Vroon <chainsaw@gentoo.org> +asterisk-12.3.0.ebuild:
+  Significant string handling fixes as encouraged by GCC 4.10; leak fixes for
+  PJSIP. Still not recommended for production deployment, remains masked.
+
+*asterisk-11.10.0 (30 May 2014)
+*asterisk-1.8.28.0 (30 May 2014)
+
+  30 May 2014; Tony Vroon <chainsaw@gentoo.org> +asterisk-1.8.28.0.ebuild,
+  +asterisk-11.10.0.ebuild:
+  Bugfixes trickling down from Asterisk 12 development, particularly around
+  string handling and signedness mismatches (GCC 4.10 is clamping down on this
+  hard). T38 backport patch rediffed for 1.8 branch.
+
+  08 May 2014; Tony Vroon <chainsaw@gentoo.org> asterisk-1.8.26.1.ebuild,
+  asterisk-1.8.27.0.ebuild, asterisk-11.8.1.ebuild, asterisk-11.9.0.ebuild,
+  asterisk-12.1.1.ebuild, asterisk-12.2.0.ebuild:
+  Update ebuild dependencies to ensure only the 2.6 slot of gmime is selected.
+  Inverting the search order in the configure script was only a partial fix. As
+  pointed out by Pacho Ramos in bug #439846.
+
+*asterisk-12.2.0 (25 Apr 2014)
+
+  25 Apr 2014; Tony Vroon <chainsaw@gentoo.org> +asterisk-12.2.0.ebuild:
+  Adds HEPv3 protocol support and PJSIP gains DNS client abilities that unlock
+  SRV records & weighting. This branch remains experimental and is not
+  recommended for production use at this time.
+
+*asterisk-1.8.27.0 (25 Apr 2014)
+
+  25 Apr 2014; Tony Vroon <chainsaw@gentoo.org> +asterisk-1.8.27.0.ebuild:
+  Select bug fixes as cherry picked from the 11 branch. TLS chaining support
+  finally upstream. Move up to 11 if you still use this.
+
+*asterisk-11.9.0 (25 Apr 2014)
+
+  25 Apr 2014; Tony Vroon <chainsaw@gentoo.org> +asterisk-11.9.0.ebuild:
+  Bug fix release, fixes include but are not limited to dial plan functions
+  coping with a NULL channel (AMI global function), correct NULL handling in
+  ODBC, advertising MESSAGE support in SIP headers, SpanDSP API adherence and
+  protection against non-G711 data in fax detection routines. TLS chaining
+  support finally upstream.
 
   11 Mar 2014; Agostino Sarubbo <ago@gentoo.org> -asterisk-1.8.25.0.ebuild,
   -asterisk-11.7.0.ebuild:

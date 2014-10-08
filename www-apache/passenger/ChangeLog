@@ -1,6 +1,64 @@
 # ChangeLog for www-apache/passenger
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/passenger/ChangeLog,v 1.89 2014/04/09 05:54:20 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apache/passenger/ChangeLog,v 1.102 2014/10/06 06:01:25 graaff Exp $
+
+*passenger-4.0.53 (06 Oct 2014)
+
+  06 Oct 2014; Hans de Graaff <graaff@gentoo.org> +passenger-4.0.53.ebuild:
+  Version bump.
+
+*passenger-4.0.52 (30 Sep 2014)
+
+  30 Sep 2014; Hans de Graaff <graaff@gentoo.org> +passenger-4.0.52.ebuild:
+  Version bump.
+
+  30 Sep 2014; Hans de Graaff <graaff@gentoo.org> -passenger-4.0.42.ebuild,
+  -passenger-4.0.44.ebuild, -passenger-4.0.45.ebuild, -passenger-4.0.46.ebuild:
+  Cleanup.
+
+*passenger-4.0.49 (23 Aug 2014)
+
+  23 Aug 2014; Hans de Graaff <graaff@gentoo.org> +passenger-4.0.49.ebuild,
+  +files/passenger-4.0.49-gentoo.patch:
+  Version bump.
+
+*passenger-4.0.48 (26 Jul 2014)
+
+  26 Jul 2014; Hans de Graaff <graaff@gentoo.org> +passenger-4.0.48.ebuild:
+  Version bump.
+
+*passenger-4.0.46 (17 Jul 2014)
+
+  17 Jul 2014; Hans de Graaff <graaff@gentoo.org> +passenger-4.0.46.ebuild:
+  Version bump.
+
+  14 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> passenger-4.0.41.ebuild:
+  x86 stable wrt bug #512188
+
+*passenger-4.0.45 (13 Jun 2014)
+
+  13 Jun 2014; Hans de Graaff <graaff@gentoo.org> +passenger-4.0.45.ebuild:
+  Version bump.
+
+  02 Jun 2014; Hans de Graaff <graaff@gentoo.org> passenger-4.0.41.ebuild:
+  Drop ruby21 to create a stable candidate.
+
+*passenger-4.0.44 (30 May 2014)
+
+  30 May 2014; Hans de Graaff <graaff@gentoo.org> +passenger-4.0.44.ebuild:
+  Version bump.
+
+*passenger-4.0.42 (10 May 2014)
+
+  10 May 2014; Hans de Graaff <graaff@gentoo.org> +passenger-4.0.42.ebuild:
+  Version bump.
+
+  04 May 2014; Diego E. Pettenò <flameeyes@gentoo.org>
+  passenger-3.0.21-r1.ebuild, passenger-4.0.41.ebuild:
+  Add a dependency on mod_unixd for Apache 2.4.
+
+  24 Apr 2014; Manuel Rüger <mrueg@gentoo.org> passenger-3.0.21-r1.ebuild:
+  Remove ruby18 support.
 
   09 Apr 2014; Hans de Graaff <graaff@gentoo.org> -passenger-4.0.37.ebuild,
   -passenger-4.0.40.ebuild:

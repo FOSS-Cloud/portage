@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/tcl/tcl-8.6.1-r1.ebuild,v 1.4 2014/01/19 09:51:31 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/tcl/tcl-8.6.1-r1.ebuild,v 1.6 2014/06/18 19:07:16 mgorny Exp $
 
 EAPI=5
 
@@ -17,7 +17,7 @@ SLOT="0/8.6"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x86-solaris"
 IUSE="debug +threads"
 
-RDEPEND="sys-libs/zlib[${MULTILIB_USEDEP}]"
+RDEPEND=">=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}"
 
 SPARENT="${WORKDIR}/${MY_P}"
@@ -101,7 +101,7 @@ multilib_src_install() {
 	dosym libtcl${v1}$(get_libname) /usr/${mylibdir}/libtcl$(get_libname)
 	dosym libtclstub${v1}.a /usr/${mylibdir}/libtclstub.a
 
-	if multilib_build_binaries; then
+	if multilib_is_native_abi; then
 		dosym tclsh${v1} /usr/bin/tclsh
 		dodoc "${SPARENT}"/{ChangeLog*,README,changes}
 	fi

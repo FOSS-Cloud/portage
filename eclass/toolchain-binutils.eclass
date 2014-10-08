@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain-binutils.eclass,v 1.131 2014/01/06 16:10:56 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain-binutils.eclass,v 1.135 2014/09/09 22:29:29 vapier Exp $
 #
 # Maintainer: Toolchain Ninjas <toolchain@gentoo.org>
 #
@@ -99,7 +99,7 @@ if version_is_at_least 2.18 ; then
 else
 	LICENSE="|| ( GPL-2 LGPL-2 )"
 fi
-IUSE="cxx nls multitarget multislot static-libs test vanilla"
+IUSE="cxx multislot multitarget nls static-libs test vanilla"
 if version_is_at_least 2.19 ; then
 	IUSE+=" zlib"
 fi
@@ -281,6 +281,8 @@ toolchain-binutils_src_configure() {
 	has_version ">=${CATEGORY}/glibc-2.5" && myconf+=( --enable-secureplt )
 	has_version ">=sys-libs/glibc-2.5" && myconf+=( --enable-secureplt )
 
+	local pkgver="Gentoo ${BVER}"
+	[[ -n ${PATCHVER} ]] && pkgver+=" p${PATCHVER}"
 	myconf+=(
 		--prefix="${EPREFIX}"/usr
 		--host=${CHOST}
@@ -299,10 +301,14 @@ toolchain-binutils_src_configure() {
 		--enable-install-libiberty
 		--disable-werror
 		--with-bugurl=http://bugs.gentoo.org/
+		--with-pkgversion="${pkgver}"
 		$(use_enable static-libs static)
 		${EXTRA_ECONF}
 		# Disable modules that are in a combined binutils/gdb tree. #490566
 		--disable-{gdb,libdecnumber,readline,sim}
+		# Strip out broken static link flags.
+		# https://gcc.gnu.org/PR56750
+		--without-stage1-ldflags
 	)
 	echo ./configure "${myconf[@]}"
 	"${S}"/configure "${myconf[@]}" || die
@@ -428,32 +434,12 @@ toolchain-binutils_src_install() {
 		newdoc README README.elf2flt
 	fi
 
-	# Now, some binutils are tricky and actually provide
-	# for multiple TARGETS.  Really, we're talking just
-	# 32bit/64bit support (like mips/ppc/sparc).  Here
-	# we want to tell binutils-config that it's cool if
-	# it generates multiple sets of binutil symlinks.
-	# e.g. sparc gets {sparc,sparc64}-unknown-linux-gnu
-	local targ=${CTARGET/-*} src="" dst=""
-	local FAKE_TARGETS=${CTARGET}
-	case ${targ} in
-		mips*)    src="mips"    dst="mips64";;
-		powerpc*) src="powerpc" dst="powerpc64";;
-		s390*)    src="s390"    dst="s390x";;
-		sparc*)   src="sparc"   dst="sparc64";;
-	esac
-	case ${targ} in
-		mips64*|powerpc64*|s390x*|sparc64*) targ=${src} src=${dst} dst=${targ};;
-	esac
-	[[ -n ${src}${dst} ]] && FAKE_TARGETS="${FAKE_TARGETS} ${CTARGET/${src}/${dst}}"
-
 	# Generate an env.d entry for this binutils
 	insinto /etc/env.d/binutils
 	cat <<-EOF > "${T}"/env.d
 		TARGET="${CTARGET}"
 		VER="${BVER}"
 		LIBPATH="${EPREFIX}${LIBPATH}"
-		FAKE_TARGETS="${FAKE_TARGETS}"
 	EOF
 	newins "${T}"/env.d ${CTARGET}-${BVER}
 

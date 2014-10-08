@@ -1,6 +1,29 @@
 # ChangeLog for dev-python/irc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/irc/ChangeLog,v 1.20 2014/03/31 21:20:18 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/irc/ChangeLog,v 1.26 2014/08/10 21:12:14 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> irc-8.9.1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  19 Jun 2014; Ian Delaney <idella4@gentoo.org> -irc-8.5.1.ebuild,
+  -irc-8.5.3.ebuild, -irc-8.5.4.ebuild, -irc-8.9.ebuild:
+  -remove old, fixes Bug #513662 by Monsieur L. Bachelier
+
+  12 Jun 2014; Patrick Lauer <patrick@gentoo.org> irc-8.9.1.ebuild:
+  Add py34 support
+
+*irc-8.9.1 (12 Jun 2014)
+
+  12 Jun 2014; Patrick Lauer <patrick@gentoo.org> +irc-8.9.1.ebuild:
+  Bump, new test dependencies
+
+*irc-8.9 (12 May 2014)
+
+  12 May 2014; Ian Delaney <idella4@gentoo.org> +irc-8.9.ebuild:
+  bump; drop py2.6 pypy2_0 support
+
+  11 Apr 2014; Samuel Damashek <sdamashek@gentoo.org> irc-8.5.4.ebuild:
+  Add python3_4 to PYTHON_COMPAT for 8.5.4
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> irc-8.5.1.ebuild,
   irc-8.5.3.ebuild, irc-8.5.4.ebuild:

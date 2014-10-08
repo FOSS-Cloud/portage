@@ -1,6 +1,14 @@
 # ChangeLog for app-vim/youcompleteme
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-vim/youcompleteme/ChangeLog,v 1.2 2013/09/10 10:41:22 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-vim/youcompleteme/ChangeLog,v 1.4 2014/06/25 17:52:17 maksbotan Exp $
+
+  25 Jun 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  youcompleteme-99999999.ebuild:
+  Fix test disabling in live ebuild
+
+  10 Jun 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  youcompleteme-99999999.ebuild:
+  Switch to system boost, gmock and several python libraries in live ebuild
 
   10 Sep 2013; Tim Harder <radhermit@gentoo.org> youcompleteme-20130910.ebuild,
   youcompleteme-99999999.ebuild:
@@ -13,4 +21,3 @@
   +youcompleteme-20130910.ebuild, +youcompleteme-99999999.ebuild,
   +metadata.xml:
   Initial import (bug #482040 by hasufell).
-

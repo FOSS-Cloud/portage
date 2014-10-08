@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/hostapd/hostapd-2.0-r1.ebuild,v 1.4 2013/09/25 17:27:52 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/hostapd/hostapd-2.0-r1.ebuild,v 1.6 2014/08/29 19:28:44 gurligebis Exp $
 
 EAPI="4"
 
@@ -21,8 +21,8 @@ DEPEND="ssl? ( dev-libs/openssl )
 		crda? ( net-wireless/crda )
 	)
 	madwifi? ( ||
-		( >net-wireless/madwifi-ng-tools-0.9.3
-		net-wireless/madwifi-old ) )"
+		( >net-wireless/madwifi-ng-tools-0.9.3 ) )"
+
 RDEPEND="${DEPEND}"
 
 S="${S}/${PN}"
@@ -93,7 +93,6 @@ src_configure() {
 
 	einfo "  nl80211 driver enabled"
 	echo "CONFIG_DRIVER_NL80211=y" >> ${CONFIG}
-	echo "LIBS += -L/usr/lib" >> ${CONFIG}
 
 	# misc
 	echo "CONFIG_PKCS12=y" >> ${CONFIG}

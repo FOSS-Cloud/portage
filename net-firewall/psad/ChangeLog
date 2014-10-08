@@ -1,6 +1,21 @@
 # ChangeLog for net-firewall/psad
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/psad/ChangeLog,v 1.75 2014/03/24 15:10:02 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/psad/ChangeLog,v 1.80 2014/07/20 13:59:31 klausman Exp $
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org> psad-2.2.3.ebuild:
+  Stable on alpha, bug #510584
+
+  18 Jul 2014; Jeroen Roovers <jer@gentoo.org> psad-2.2.3.ebuild:
+  EAPI bump.
+
+  15 Jul 2014; Chema Alonso <nimiux@gentoo.org> psad-2.2.3.ebuild:
+  Stable for amd64 wrt bug #510584
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> psad-2.2.3.ebuild:
+  x86 stable wrt bug #510584
+
+  17 May 2014; Jeroen Roovers <jer@gentoo.org> -psad-2.2.1.ebuild:
+  Old.
 
   24 Mar 2014; Agostino Sarubbo <ago@gentoo.org> psad-2.2.2-r1.ebuild:
   Stable for ppc, wrt bug #502874

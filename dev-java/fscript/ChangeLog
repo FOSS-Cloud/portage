@@ -1,6 +1,15 @@
 # ChangeLog for dev-java/fscript
-# Copyright 2000-2007 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/fscript/ChangeLog,v 1.16 2007/06/10 10:24:02 caster Exp $
+# Copyright 2000-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/fscript/ChangeLog,v 1.18 2014/09/06 16:33:20 ercpe Exp $
+
+*fscript-1.17-r1 (06 Sep 2014)
+
+  06 Sep 2014; Johann Schmitz <ercpe@gentoo.org> +fscript-1.17-r1.ebuild,
+  fscript-1.17.ebuild:
+  EAPI bump, minor qa
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> fscript-1.17.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
 
   10 Jun 2007; Vlastimil Babka <caster@gentoo.org> -fscript-1.14.ebuild,
   -fscript-1.15.ebuild, -fscript-1.15-r1.ebuild:
@@ -59,4 +68,3 @@
   metadata.xml:
   Initial Import.
   Thanks to Mike Javorski <mike_javorski@bigfoot.com> for the initial ebuild.
-

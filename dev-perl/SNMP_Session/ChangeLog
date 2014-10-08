@@ -1,6 +1,32 @@
 # ChangeLog for dev-perl/SNMP_Session
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/SNMP_Session/ChangeLog,v 1.33 2014/01/11 16:20:58 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/SNMP_Session/ChangeLog,v 1.41 2014/08/13 09:28:14 ago Exp $
+
+  13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> SNMP_Session-1.13-r2.ebuild:
+  Stable for ppc, wrt bug #509992
+
+  02 Aug 2014; Raúl Porcel <armin76@gentoo.org> SNMP_Session-1.13-r2.ebuild:
+  arm/ia64/sparc stable, bug #509992
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  SNMP_Session-1.13-r2.ebuild:
+  Stable on alpha, bug #509992
+
+  15 Jul 2014; Chema Alonso <nimiux@gentoo.org> SNMP_Session-1.13-r2.ebuild:
+  Stable for amd64 wrt bug #509992
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  SNMP_Session-1.13-r2.ebuild:
+  x86 stable wrt bug #509992
+
+  12 May 2014; Jeroen Roovers <jer@gentoo.org> SNMP_Session-1.13-r2.ebuild:
+  Stable for HPPA (bug #509992).
+
+*SNMP_Session-1.13-r2 (10 May 2014)
+
+  10 May 2014; Jeroen Roovers <jer@gentoo.org> +SNMP_Session-1.13-r2.ebuild,
+  +files/SNMP_Session-1.13-Socket6.patch:
+  Add fix for SNMP_Session::pack_sockaddr_in6 redefinition (bug #509986).
 
   11 Jan 2014;  <zlogene@gentoo.org> -SNMP_Session-1.13.ebuild,
   SNMP_Session-1.13-r1.ebuild:

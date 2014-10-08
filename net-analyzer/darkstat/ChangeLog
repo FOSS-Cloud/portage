@@ -1,6 +1,34 @@
 # ChangeLog for net-analyzer/darkstat
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/darkstat/ChangeLog,v 1.58 2014/01/20 15:53:10 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/darkstat/ChangeLog,v 1.66 2014/08/15 19:18:31 jer Exp $
+
+  15 Aug 2014; Jeroen Roovers <jer@gentoo.org> darkstat-3.0.718.ebuild:
+  sed must die().
+
+  14 Aug 2014; Jeroen Roovers <jer@gentoo.org> -darkstat-3.0.717.ebuild:
+  Old.
+
+  13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> darkstat-3.0.718.ebuild:
+  Stable for ppc, wrt bug #512962
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> darkstat-3.0.718.ebuild:
+  x86 stable wrt bug #512962
+
+  25 Jul 2014; Chema Alonso <nimiux@gentoo.org> darkstat-3.0.718.ebuild:
+  Stable for amd64 wrt bug #512962
+
+  24 Jun 2014; Jeroen Roovers <jer@gentoo.org> -darkstat-3.0.715.ebuild,
+  darkstat-3.0.717.ebuild, darkstat-3.0.718.ebuild, +files/darkstat-confd,
+  -files/darkstat-confd.new, -files/darkstat-init.new, +files/darkstat-initd:
+  Rename initd/confd scripts. Remove -flto from CFLAGS.
+
+  24 Jun 2014; Jeroen Roovers <jer@gentoo.org> files/darkstat-init.new:
+  Use /run not /var/run.
+
+*darkstat-3.0.718 (04 May 2014)
+
+  04 May 2014; Jeroen Roovers <jer@gentoo.org> +darkstat-3.0.718.ebuild:
+  Version bump.
 
   20 Jan 2014; Agostino Sarubbo <ago@gentoo.org> darkstat-3.0.717.ebuild:
   Stable for ppc, wrt bug #495830

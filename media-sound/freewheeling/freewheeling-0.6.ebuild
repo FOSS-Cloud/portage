@@ -1,13 +1,13 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/freewheeling/freewheeling-0.6.ebuild,v 1.3 2010/07/29 22:44:06 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/freewheeling/freewheeling-0.6.ebuild,v 1.5 2014/08/10 21:05:55 slyfox Exp $
 
 EAPI=2
 inherit autotools multilib
 
 MY_P=fweelin-${PV/_}
 
-DESCRIPTION="A live looping instrument using SDL and jack."
+DESCRIPTION="A live looping instrument using SDL and jack"
 HOMEPAGE="http://freewheeling.sourceforge.net"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}-src.tar.bz2"
 
@@ -20,7 +20,7 @@ RDEPEND="dev-libs/libxml2
 	media-libs/alsa-lib
 	media-libs/freetype:2
 	media-libs/libvorbis
-	media-libs/libsdl[audio,video,joystick]
+	media-libs/libsdl[sound,video,joystick]
 	media-libs/libsndfile
 	media-libs/sdl-gfx
 	media-libs/sdl-ttf

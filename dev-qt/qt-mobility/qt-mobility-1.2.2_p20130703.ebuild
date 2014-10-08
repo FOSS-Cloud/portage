@@ -1,17 +1,17 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-qt/qt-mobility/qt-mobility-1.2.2_p20130703.ebuild,v 1.3 2013/09/14 10:06:25 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-qt/qt-mobility/qt-mobility-1.2.2_p20130703.ebuild,v 1.5 2014/05/23 13:03:55 pesa Exp $
 
-EAPI=4
+EAPI=5
 
-inherit multilib qt4-r2 toolchain-funcs
+inherit multilib qt4-r2
 
 DESCRIPTION="Additional Qt APIs for mobile devices and desktop platforms"
 HOMEPAGE="http://qt-project.org/wiki/Category:Developing_with_Qt::QtMobility"
 SRC_URI="http://dev.gentoo.org/~pesa/distfiles/${P}.tar.xz"
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ~arm x86"
 
 QT_MOBILITY_MODULES=(bearer connectivity +contacts feedback gallery
 		location messaging multimedia organizer publishsubscribe
@@ -25,25 +25,25 @@ REQUIRED_USE="
 "
 
 RDEPEND="
-	>=dev-qt/qtcore-4.7.0:4
+	>=dev-qt/qtcore-4.8.0:4
 	bearer? (
 		networkmanager? (
 			net-misc/networkmanager
-			>=dev-qt/qtdbus-4.7.0:4
+			>=dev-qt/qtdbus-4.8.0:4
 		)
 	)
 	connectivity? (
-		>=dev-qt/qtdbus-4.7.0:4
+		>=dev-qt/qtdbus-4.8.0:4
 		bluetooth? ( net-wireless/bluez )
 	)
-	contacts? ( >=dev-qt/qtgui-4.7.0:4 )
-	gallery? ( >=dev-qt/qtdbus-4.7.0:4 )
+	contacts? ( >=dev-qt/qtgui-4.8.0:4 )
+	gallery? ( >=dev-qt/qtdbus-4.8.0:4 )
 	location? (
-		>=dev-qt/qtdeclarative-4.7.0:4
-		>=dev-qt/qtgui-4.7.0:4
-		>=dev-qt/qtsql-4.7.0:4[sqlite]
+		>=dev-qt/qtdeclarative-4.8.0:4
+		>=dev-qt/qtgui-4.8.0:4
+		>=dev-qt/qtsql-4.8.0:4[sqlite]
 	)
-	messaging? ( >=net-libs/qmf-2.0_p201209 )
+	messaging? ( >=net-libs/qmf-4.0 )
 	multimedia? (
 		media-libs/alsa-lib
 		media-libs/gstreamer:0.10
@@ -57,28 +57,29 @@ RDEPEND="
 		pulseaudio? ( media-sound/pulseaudio[alsa] )
 	)
 	publishsubscribe? (
-		tools? ( >=dev-qt/qtgui-4.7.0:4 )
+		tools? ( >=dev-qt/qtgui-4.8.0:4 )
 	)
-	qml? ( >=dev-qt/qtdeclarative-4.7.0:4 )
+	qml? ( >=dev-qt/qtdeclarative-4.8.0:4 )
 	serviceframework? (
-		>=dev-qt/qtdbus-4.7.0:4
-		>=dev-qt/qtsql-4.7.0:4[sqlite]
-		tools? ( >=dev-qt/qtgui-4.7.0:4 )
+		>=dev-qt/qtdbus-4.8.0:4
+		>=dev-qt/qtsql-4.8.0:4[sqlite]
+		tools? ( >=dev-qt/qtgui-4.8.0:4 )
 	)
 	systeminfo? (
 		sys-apps/util-linux
 		virtual/udev
 		x11-libs/libX11
 		x11-libs/libXrandr
-		>=dev-qt/qtdbus-4.7.0:4
-		>=dev-qt/qtgui-4.7.0:4
+		>=dev-qt/qtdbus-4.8.0:4
+		>=dev-qt/qtgui-4.8.0:4
 		bluetooth? ( net-wireless/bluez )
 		networkmanager? ( net-misc/networkmanager )
 	)
-	versit? ( >=dev-qt/qtgui-4.7.0:4 )
+	versit? ( >=dev-qt/qtgui-4.8.0:4 )
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
+	doc? ( >=dev-qt/qthelp-4.8.0:4 )
 	multimedia? (
 		sys-kernel/linux-headers
 		x11-proto/videoproto

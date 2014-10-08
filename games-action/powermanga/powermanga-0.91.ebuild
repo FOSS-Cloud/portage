@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/powermanga/powermanga-0.91.ebuild,v 1.4 2014/04/05 11:10:02 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-action/powermanga/powermanga-0.91.ebuild,v 1.7 2014/09/05 20:44:28 mr_bones_ Exp $
 
 EAPI=5
 inherit eutils autotools games
@@ -11,10 +11,10 @@ SRC_URI="http://linux.tlk.fr/games/Powermanga/download/${P}.tgz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-RDEPEND=">=media-libs/libsdl-1.2[audio,joystick,video]
+RDEPEND=">=media-libs/libsdl-1.2[sound,joystick,video]
 	media-libs/libpng:0
 	x11-libs/libX11
 	x11-libs/libXext
@@ -38,7 +38,7 @@ src_prepare() {
 		"${FILESDIR}"/${P}-flags.patch \
 		"${FILESDIR}"/${P}-automake-1.13.patch
 	sed -i \
-		-e "/scoredir/s#/var/games/powermanga#${GAMES_DATADIR}/powermanga#" \
+		-e "/scoredir/s#/var/games/powermanga#${GAMES_STATEDIR}#" \
 		src/Makefile.am || die
 	eautoreconf
 }

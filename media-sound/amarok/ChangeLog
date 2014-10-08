@@ -1,6 +1,26 @@
 # ChangeLog for media-sound/amarok
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/amarok/ChangeLog,v 1.468 2014/03/14 14:47:58 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/amarok/ChangeLog,v 1.472 2014/08/10 21:03:34 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> amarok-2.8.0-r1.ebuild,
+  amarok-2.8.0-r2.ebuild, amarok-2.8.0-r3.ebuild, amarok-2.8.0.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*amarok-2.8.0-r3 (30 Jul 2014)
+
+  30 Jul 2014; Brian Evans <grknight@gentoo.org> +amarok-2.8.0-r3.ebuild,
+  +files/amarok-2.8.0-mysqld-rpath.patch:
+  Revision bump to fix libmysqld rpath.  Patch by Gabriel Marcano
+  <gabemarcano@yahoo.com> from bug 508824. Ack by  jmbsvicetto
+
+  17 Jul 2014; Michael Palimaka <kensington@gentoo.org> amarok-2.8.0-r2.ebuild:
+  Remove workaround now handled in the eclass.
+
+*amarok-2.8.0-r2 (13 May 2014)
+
+  13 May 2014; Johannes Huber <johu@gentoo.org> +amarok-2.8.0-r2.ebuild,
+  metadata.xml:
+  Revision bump introduces USE flag nepomuk, bug #508350.
 
 *amarok-2.8.0-r1 (14 Mar 2014)
 

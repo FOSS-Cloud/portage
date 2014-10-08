@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mate-base/mate-file-manager/mate-file-manager-1.6.3-r1.ebuild,v 1.1 2014/04/03 14:05:41 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/mate-base/mate-file-manager/mate-file-manager-1.6.3-r1.ebuild,v 1.3 2014/07/07 23:53:18 tomwij Exp $
 
 EAPI="5"
 
@@ -17,13 +17,14 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 IUSE="X +mate +introspection +unique xmp"
 
 RDEPEND="dev-libs/atk:0
 	>=dev-libs/glib-2.28:2
 	>=dev-libs/libxml2-2.4.7:2
+	gnome-base/dconf:0
 	|| (
 		>=gnome-base/gvfs-1.10.1:0[gdu]
 		>=gnome-base/gvfs-1.10.1:0[udisks]

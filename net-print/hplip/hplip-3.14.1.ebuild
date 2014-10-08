@@ -1,15 +1,15 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/hplip-3.14.1.ebuild,v 1.5 2014/01/19 10:33:13 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/hplip-3.14.1.ebuild,v 1.9 2014/08/10 20:36:06 slyfox Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="threads,xml"
 
 inherit eutils fdo-mime linux-info python-single-r1 udev autotools toolchain-funcs
 
-DESCRIPTION="HP Linux Imaging and Printing. Includes printer, scanner, fax drivers and service tools."
+DESCRIPTION="HP Linux Imaging and Printing. Includes printer, scanner, fax drivers and service tools"
 HOMEPAGE="http://hplipopensource.com/hplip-web/index.html"
 SRC_URI="mirror://sourceforge/hplip/${P}.tar.gz
 		http://dev.gentoo.org/~billie/distfiles/${PN}-3.13.11-patches-1.tar.xz"
@@ -26,7 +26,7 @@ IUSE="doc fax +hpcups hpijs kde libnotify -libusb0 minimal parport policykit qt4
 # are migrated to python-r1
 
 COMMON_DEPEND="
-	virtual/jpeg
+	virtual/jpeg:0
 	hpijs? (
 		|| ( >=net-print/cups-filters-1.0.43-r1[foomatic] >=net-print/foomatic-filters-3.0.20080507[cups] )
 	)
@@ -125,7 +125,7 @@ src_prepare() {
 	# Fix for Gentoo bug https://bugs.gentoo.org/show_bug.cgi?id=345725
 	# Upstream bug: https://bugs.launchpad.net/hplip/+bug/880847,
 	# https://bugs.launchpad.net/hplip/+bug/500086
-	local udevdir=$(udev_get_udevdir)
+	local udevdir=$(get_udevdir)
 	sed -i -e "s|/etc/udev|${udevdir}|g" \
 		$(find . -type f -exec grep -l /etc/udev {} +) || die
 

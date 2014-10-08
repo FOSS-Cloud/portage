@@ -1,6 +1,16 @@
 # ChangeLog for app-i18n/libguess
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/libguess/ChangeLog,v 1.26 2014/01/26 13:45:12 hattya Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/libguess/ChangeLog,v 1.28 2014/08/10 17:49:02 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> libguess-1.0.ebuild,
+  libguess-1.1.ebuild, libguess-1.2.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*libguess-1.2 (31 Jul 2014)
+
+  31 Jul 2014; Tony Vroon <chainsaw@gentoo.org> +libguess-1.2.ebuild,
+  metadata.xml:
+  And that only lasted two years. Back to your regular scheduled programming.
 
   26 Jan 2014; Akinori Hattori <hattya@gentoo.org> libguess-1.1.ebuild:
   keyword ~ia64 wrt bug #476894

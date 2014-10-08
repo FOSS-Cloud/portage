@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lisp/abcl/abcl-0.20.0.ebuild,v 1.1 2010/05/29 16:57:37 chiiph Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lisp/abcl/abcl-0.20.0.ebuild,v 1.3 2014/08/10 20:40:51 slyfox Exp $
 
 EAPI="2"
 
@@ -8,13 +8,13 @@ inherit java-pkg-2 java-ant-2
 
 MY_P=${PN}-src-${PV}
 
-DESCRIPTION="Armed Bear Common Lisp is a Common Lisp implementation for the JVM."
+DESCRIPTION="Armed Bear Common Lisp is a Common Lisp implementation for the JVM"
 HOMEPAGE="http://common-lisp.net/project/armedbear/"
 SRC_URI="http://common-lisp.net/project/armedbear/releases/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE="jad"
 
 DEPEND=">=virtual/jdk-1.5"

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea/icedtea-7.2.4.3.ebuild,v 1.5 2013/11/21 13:33:03 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea/icedtea-7.2.4.3.ebuild,v 1.7 2014/10/05 22:45:16 caster Exp $
 # Build written by Andrew John Hughes (gnu_andrew@member.fsf.org)
 
 # *********************************************************
@@ -63,7 +63,7 @@ SLOT="7"
 KEYWORDS="~amd64 ~ia64 ~x86"
 
 IUSE="+X +alsa cjk +cups debug doc examples javascript jbootstrap kerberos +nsplugin
-	+nss pax_kernel pulseaudio +source systemtap test +webstart"
+	+nss pax_kernel pulseaudio selinux +source systemtap test +webstart"
 
 # Ideally the following were optional at build time.
 ALSA_COMMON_DEP="
@@ -102,6 +102,7 @@ COMMON_DEP="
 	javascript? ( dev-java/rhino:1.6 )
 	nss? ( >=dev-libs/nss-3.12.5-r1 )
 	pulseaudio?  ( >=media-sound/pulseaudio-0.9.11 )
+	selinux? ( sec-policy/selinux-java )
 	kerberos? ( virtual/krb5 )
 	systemtap? ( >=dev-util/systemtap-1 )"
 
@@ -152,7 +153,7 @@ DEPEND="${COMMON_DEP} ${ALSA_COMMON_DEP} ${CUPS_COMMON_DEP} ${X_COMMON_DEP}
 	pax_kernel? ( sys-apps/paxctl )"
 
 PDEPEND="webstart? ( || (
-			dev-java/icedtea-web:0
+			dev-java/icedtea-web:0[icedtea7]
 			>=dev-java/icedtea-web-1.3.2:7
 		) )
 		nsplugin? ( || (

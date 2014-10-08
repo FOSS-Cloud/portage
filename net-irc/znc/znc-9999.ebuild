@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/znc/znc-9999.ebuild,v 1.7 2013/11/14 11:35:35 wired Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/znc/znc-9999.ebuild,v 1.10 2014/07/12 10:24:23 wired Exp $
 
 EAPI=5
 
@@ -25,18 +25,22 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="daemon debug ipv6 perl python ssl sasl tcl"
 
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
 RDEPEND="
 	perl? ( >=dev-lang/perl-5.10 )
+	python? ( ${PYTHON_DEPS} )
 	sasl? ( >=dev-libs/cyrus-sasl-2 )
 	ssl? ( >=dev-libs/openssl-0.9.7d )
 	tcl? ( dev-lang/tcl )
 "
 DEPEND="
 	virtual/pkgconfig
-	perl? ( dev-lang/swig )
+	perl? (
+		>=dev-lang/swig-2.0.12
+	)
 	python? (
-		>=dev-lang/swig-2.0.8
-		>=dev-lang/perl-5.10
+		>=dev-lang/swig-2.0.12
 	)
 	${RDEPEND}
 "
@@ -92,7 +96,6 @@ pkg_postinst() {
 		elog
 		elog "Run 'znc --makeconf' as the user you want to run ZNC as"
 		elog "to make a configuration file"
-		elog "If you are using SSL you should also run 'znc --makepem'"
 		elog
 	else
 		elog
@@ -103,7 +106,7 @@ pkg_postinst() {
 			elog "Run 'emerge --config znc' to configure ZNC"
 			elog "as a system-wide daemon."
 			elog
-			elog "If you are using SSL you should also run:"
+			elog "To generate a new SSL certificate, run:"
 			elog "  znc --system-wide-config-as znc --makepem -d ${CONFDIR}"
 			elog "as root"
 			elog

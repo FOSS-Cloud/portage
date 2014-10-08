@@ -1,6 +1,41 @@
 # ChangeLog for net-misc/x2goserver
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/x2goserver/ChangeLog,v 1.43 2014/04/07 22:15:50 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/x2goserver/ChangeLog,v 1.49 2014/10/07 07:17:15 voyageur Exp $
+
+*x2goserver-4.0.1.18 (07 Oct 2014)
+
+  07 Oct 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +x2goserver-4.0.1.18.ebuild:
+  Version bump
+
+*x2goserver-4.0.1.17 (04 Oct 2014)
+
+  04 Oct 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +x2goserver-4.0.1.17.ebuild:
+  Version bump
+
+  29 Sep 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  x2goserver-4.0.1.16.ebuild:
+  Rise minimum nx version dependency as reported by Leho Kraav <leho@kraav.com>
+  in bug #523998
+
+*x2goserver-4.0.1.16 (29 Sep 2014)
+
+  29 Sep 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +x2goserver-4.0.1.16.ebuild:
+  Version bump
+
+  22 Aug 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  x2goserver-4.0.1.12.ebuild, -x2goserver-4.0.1.13.ebuild,
+  x2goserver-4.0.1.15.ebuild:
+  Add some more missing dependencies, thanks again Stefan Radermacher
+  <gentoo@zaister.de> in bug #516234. Drop doc USE-flag, it has been useless
+  for some times, thanks Ian Abbott <ian@abbott.org> in bug #519424
+
+  26 Jun 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  x2goserver-4.0.1.12.ebuild, x2goserver-4.0.1.13.ebuild,
+  x2goserver-4.0.1.15.ebuild:
+  Add xhost to RDEPEND, bug #512970 by Stefan Radermacher <gentoo@zaister.de>
 
   07 Apr 2014; Bernard Cafarelli <voyageur@gentoo.org>
   x2goserver-4.0.1.15.ebuild:

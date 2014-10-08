@@ -1,6 +1,54 @@
 # ChangeLog for net-libs/telepathy-glib
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/telepathy-glib/ChangeLog,v 1.147 2014/03/09 12:03:35 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/telepathy-glib/ChangeLog,v 1.160 2014/09/01 15:24:36 pacho Exp $
+
+*telepathy-glib-0.24.1 (01 Sep 2014)
+
+  01 Sep 2014; Pacho Ramos <pacho@gentoo.org> +telepathy-glib-0.24.1.ebuild,
+  -telepathy-glib-0.20.1-r1.ebuild, -telepathy-glib-0.22.1.ebuild:
+  Version bump, drop old
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  telepathy-glib-0.20.1-r1.ebuild, telepathy-glib-0.22.1.ebuild,
+  telepathy-glib-0.24.0.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  20 Jun 2014; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.0.ebuild:
+  Stable for arm, wrt bug #508862
+
+  17 May 2014; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.0.ebuild:
+  Stable for alpha, wrt bug #508862
+
+  14 May 2014; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.0.ebuild:
+  Stable for sparc, wrt bug #508862
+
+  13 May 2014; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.0.ebuild:
+  Stable for ia64, wrt bug #508862
+
+  11 May 2014; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.0.ebuild:
+  Stable for ppc64, wrt bug #508862
+
+  10 May 2014; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.0.ebuild:
+  Stable for ppc, wrt bug #508862
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> telepathy-glib-0.24.0.ebuild:
+  x86 stable, bug 508862
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> telepathy-glib-0.24.0.ebuild:
+  amd64 stable, bug 508862
+
+  27 Apr 2014; Pacho Ramos <pacho@gentoo.org> -telepathy-glib-0.20.4.ebuild:
+  drop old
+
+  19 Apr 2014; Pacho Ramos <pacho@gentoo.org> telepathy-glib-0.24.0.ebuild:
+  We need to pull in net-im/telepathy-mission-control (#504744 by Johannes
+  Buchner)
+
+*telepathy-glib-0.24.0 (12 Apr 2014)
+
+  12 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +telepathy-glib-0.24.0.ebuild:
+  Version bump.
 
   09 Mar 2014; Pacho Ramos <pacho@gentoo.org> telepathy-glib-0.22.1.ebuild:
   x86 stable, bug 499954

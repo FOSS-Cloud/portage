@@ -1,6 +1,115 @@
 # ChangeLog for dev-ruby/activesupport
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activesupport/ChangeLog,v 1.246 2014/04/05 07:39:17 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activesupport/ChangeLog,v 1.270 2014/09/12 06:27:00 graaff Exp $
+
+*activesupport-4.1.6 (12 Sep 2014)
+
+  12 Sep 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.1.6.ebuild:
+  Version bump.
+
+*activesupport-4.0.10 (12 Sep 2014)
+
+  12 Sep 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.0.10.ebuild:
+  Version bump.
+
+  23 Aug 2014; Hans de Graaff <graaff@gentoo.org> -activesupport-4.0.8.ebuild,
+  -activesupport-4.1.4.ebuild:
+  Cleanup.
+
+*activesupport-4.1.5 (18 Aug 2014)
+*activesupport-4.0.9 (18 Aug 2014)
+
+  18 Aug 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.0.9.ebuild,
+  +activesupport-4.1.5.ebuild:
+  Version bump for security bug 520212.
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org>
+  activesupport-4.0.8.ebuild, activesupport-4.1.4.ebuild:
+  Keyword ~ppc and ~ppc64, bug #519170
+
+  22 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  activesupport-4.1.4.ebuild:
+  Keyworded on alpha, bug #501152
+
+  12 Jul 2014; Hans de Graaff <graaff@gentoo.org> -activesupport-3.2.18.ebuild,
+  -activesupport-4.0.5.ebuild, -activesupport-4.0.6.ebuild,
+  -activesupport-4.1.1.ebuild, -activesupport-4.1.2.ebuild:
+  Remove vulnerable versions.
+
+  05 Jul 2014; Manuel Rüger <mrueg@gentoo.org> activesupport-3.2.18.ebuild,
+  activesupport-3.2.19.ebuild:
+  Remove ruby18 cases.
+
+*activesupport-4.1.4 (03 Jul 2014)
+
+  03 Jul 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.1.4.ebuild:
+  Version bump to Rails 4.1.4 for security bug 516084.
+
+*activesupport-4.0.8 (03 Jul 2014)
+
+  03 Jul 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.0.8.ebuild:
+  Version bump to Rails 4.0.8 for security bug 516084.
+
+*activesupport-3.2.19 (03 Jul 2014)
+
+  03 Jul 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-3.2.19.ebuild:
+  Version bump to Rails 3.2.19 for security bug 516084.
+
+*activesupport-4.1.2 (26 Jun 2014)
+
+  26 Jun 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.1.2.ebuild:
+  Version bump to Rails 4.1.2.
+
+*activesupport-4.0.6 (26 Jun 2014)
+
+  26 Jun 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.0.6.ebuild:
+  Version bump to Rails 4.0.6.
+
+  12 May 2014; Hans de Graaff <graaff@gentoo.org> -activesupport-3.2.17.ebuild,
+  -activesupport-4.0.3.ebuild, -activesupport-4.0.4.ebuild,
+  -activesupport-4.1.0.ebuild:
+  Cleanup.
+
+*activesupport-4.1.1 (06 May 2014)
+
+  06 May 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.1.1.ebuild:
+  Version bump for Rails 4.1.1, security bug 509706.
+
+*activesupport-4.0.5 (06 May 2014)
+
+  06 May 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.0.5.ebuild:
+  Version bump for Rails 4.0.5, security bug 509706.
+
+*activesupport-3.2.18 (06 May 2014)
+
+  06 May 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-3.2.18.ebuild:
+  Version bump for Rails 3.2.18, security bug 509706.
+
+  04 May 2014; Jeroen Roovers <jer@gentoo.org> activesupport-4.0.3.ebuild,
+  activesupport-4.0.4.ebuild, activesupport-4.1.0.ebuild:
+  Marked ~hppa (bug #487206).
+
+*activesupport-4.1.0 (26 Apr 2014)
+
+  26 Apr 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.1.0.ebuild:
+  Version bump for Rails 4.1. Drop x86, bug 508780.
+
+  21 Apr 2014; Hans de Graaff <graaff@gentoo.org> -activesupport-3.2.16.ebuild,
+  -activesupport-4.0.2.ebuild:
+  Remove vulnerable versions for bug 501750.
+
+  21 Apr 2014; Hans de Graaff <graaff@gentoo.org> activesupport-3.2.17.ebuild:
+  And add back ruby21 because this breaks ppc dependencies due to keyword lag
+  and that is less easily fixed.
+
+  21 Apr 2014; Hans de Graaff <graaff@gentoo.org> activesupport-3.2.17.ebuild:
+  Remove ruby21 since it is not compatible as indicated by failing tests.
+
+  20 Apr 2014; Hans de Graaff <graaff@gentoo.org> activesupport-3.2.17.ebuild:
+  Add ruby20, ruby21.
+
+  18 Apr 2014; Hans de Graaff <graaff@gentoo.org> activesupport-4.0.4.ebuild:
+  Add ruby21.
 
 *activesupport-4.0.4 (05 Apr 2014)
 

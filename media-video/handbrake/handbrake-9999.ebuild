@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/handbrake/handbrake-9999.ebuild,v 1.17 2014/03/26 15:39:56 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/handbrake/handbrake-9999.ebuild,v 1.21 2014/09/17 00:29:29 lu_zero Exp $
 
 EAPI="5"
 
@@ -21,7 +21,7 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-DESCRIPTION="Open-source, GPL-licensed, multiplatform, multithreaded video transcoder."
+DESCRIPTION="Open-source, GPL-licensed, multiplatform, multithreaded video transcoder"
 HOMEPAGE="http://handbrake.fr/"
 LICENSE="GPL-2"
 
@@ -49,7 +49,7 @@ RDEPEND="
 	media-libs/libvorbis
 	media-libs/x264:=
 	media-sound/lame
-	ffmpeg? ( || ( >=media-video/libav-9:= >=media-video/ffmpeg-1.2.1:0= ) )
+	ffmpeg? ( || ( >=media-video/libav-11 >=media-video/ffmpeg-2.3:0 ) )
 	sys-libs/zlib
 	gstreamer? (
 		media-libs/gstreamer:1.0
@@ -63,14 +63,14 @@ RDEPEND="
 		!ffmpeg? ( media-plugins/gst-plugins-mpeg2dec:1.0 )
 	)
 	gtk? (
-		x11-libs/gtk+:3
+		>=x11-libs/gtk+-3.10
 		dev-libs/dbus-glib
 		dev-libs/glib:2
 		x11-libs/cairo
 		x11-libs/gdk-pixbuf:2
 		x11-libs/libnotify
 		x11-libs/pango
-		>=virtual/udev-171[gudev]
+		virtual/libgudev:=
 	)
 	fdk? ( media-libs/fdk-aac )
 	"
@@ -94,21 +94,12 @@ src_prepare() {
 		"${S}"/make/include/main.defs \
 		|| die "Contrib removal failed."
 
-	# Instead of adding a #define to libmkv, we expand it in place. 
-	epatch "${FILESDIR}"/${PN}-9999-expand-MK_SUBTITLE_PGS.patch
-
-	# Fix compilation against the released 1.9.1 version of mp4v2.
-	epatch "${FILESDIR}"/${PN}-9999-fix-compilation-with-mp4v2-v1.9.1.patch
-
 	# Remove libdvdnav duplication and call it on the original instead.
 	# It may work this way; if not, we should try to mimic the duplication.
 	epatch "${FILESDIR}"/${PN}-9999-remove-dvdnav-dup.patch
 
 	# Remove faac dependency; TODO: figure out if we need to do this at all.
 	epatch "${FILESDIR}"/${PN}-9999-remove-faac-dependency.patch
-
-	# Make use of an older version of libmkv.
-	epatch "${FILESDIR}"/${PN}-9999-use-older-libmkv.patch
 
 	# Fixup configure.ac with newer automake.
 	# TODO: Would like to see this shorten towards the future;
@@ -138,10 +129,8 @@ src_configure() {
 		--force \
 		--prefix="${EPREFIX}/usr" \
 		--disable-gtk-update-checks \
-		--enable-avformat \
 		--disable-libav-aac \
-		--enable-libmkv \
-		--enable-mp4v2 \
+		--disable-x265 \
 		$(use_enable fdk fdk-aac) \
 		$(use_enable gtk) \
 		$(usex !gstreamer --disable-gst) || die "Configure failed."

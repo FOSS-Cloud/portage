@@ -1,6 +1,49 @@
 # ChangeLog for app-emulation/emul-linux-x86-db
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-db/ChangeLog,v 1.14 2014/04/06 09:05:30 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-db/ChangeLog,v 1.22 2014/08/30 01:09:53 grknight Exp $
+
+  30 Aug 2014; Brian Evans <grknight@gentoo.org>
+  emul-linux-x86-db-20140508-r3.ebuild:
+  Fix revision number on install
+
+*emul-linux-x86-db-20140508-r3 (30 Aug 2014)
+
+  30 Aug 2014; Brian Evans <grknight@gentoo.org>
+  +emul-linux-x86-db-20140508-r3.ebuild:
+  Revision bump to add new mysql multilib providers
+
+*emul-linux-x86-db-20140508-r2 (19 Aug 2014)
+
+  19 Aug 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +emul-linux-x86-db-20140508-r2.ebuild, +files/remove-native-20140508-r2:
+  Support multilib mariadb.  When other mysql providers become multilib aware,
+  no additional file exclusions will be necessary but the ebuild will probably
+  still need to be revbumped
+
+  26 Jun 2014; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-db-20140508-r1.ebuild:
+  amd64 stable
+
+*emul-linux-x86-db-20140508-r1 (25 May 2014)
+
+  25 May 2014; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-db-20140508-r1.ebuild, +files/remove-native-20140508-r1:
+  Support multilib unixODBC.
+
+*emul-linux-x86-db-20140508 (08 May 2014)
+
+  08 May 2014; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-db-20140508.ebuild, -emul-linux-x86-db-20140506.ebuild:
+  Version bump, drop old
+
+*emul-linux-x86-db-20140506 (06 May 2014)
+
+  06 May 2014; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-db-20140506.ebuild:
+  Version bump
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> emul-linux-x86-db-20140406.ebuild:
+  amd64 stable, bug 508322
 
 *emul-linux-x86-db-20140406 (06 Apr 2014)
 

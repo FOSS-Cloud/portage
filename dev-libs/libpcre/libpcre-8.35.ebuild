@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libpcre/libpcre-8.35.ebuild,v 1.1 2014/04/05 22:07:06 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libpcre/libpcre-8.35.ebuild,v 1.14 2014/09/04 06:50:07 vapier Exp $
 
 EAPI="4"
 
@@ -19,7 +19,7 @@ fi
 
 LICENSE="BSD"
 SLOT="3"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="bzip2 +cxx +jit libedit pcre16 pcre32 +readline +recursion-limit static-libs unicode zlib"
 REQUIRED_USE="readline? ( !libedit )
 	libedit? ( !readline )"
@@ -39,6 +39,10 @@ RDEPEND="${RDEPEND}
 
 S=${WORKDIR}/${MY_P}
 
+MULTILIB_CHOST_TOOLS=(
+	/usr/bin/pcre-config
+)
+
 src_prepare() {
 	local pc
 	for pc in *.pc.in ; do
@@ -49,19 +53,18 @@ src_prepare() {
 }
 
 multilib_src_configure() {
-	[[ ${CHOST} == *-mint* ]] && append-cppflags -D_GNU_SOURCE
 	ECONF_SOURCE="${S}" econf \
 		--with-match-limit-recursion=$(usex recursion-limit 8192 MATCH_LIMIT) \
-		$(multilib_is_native_abi && use_enable bzip2 pcregrep-libbz2) \
+		$(multilib_native_use_enable bzip2 pcregrep-libbz2) \
 		$(use_enable cxx cpp) \
 		$(use_enable jit) $(use_enable jit pcregrep-jit) \
 		$(use_enable pcre16) \
 		$(use_enable pcre32) \
-		$(multilib_build_binaries && use_enable libedit pcretest-libedit) \
-		$(multilib_build_binaries && use_enable readline pcretest-libreadline) \
+		$(multilib_native_use_enable libedit pcretest-libedit) \
+		$(multilib_native_use_enable readline pcretest-libreadline) \
 		$(use_enable static-libs static) \
 		$(use_enable unicode utf) $(use_enable unicode unicode-properties) \
-		$(multilib_is_native_abi && use_enable zlib pcregrep-libz) \
+		$(multilib_native_use_enable zlib pcregrep-libz) \
 		--enable-pcre8 \
 		--enable-shared \
 		--htmldir="${EPREFIX}"/usr/share/doc/${PF}/html \
@@ -75,8 +78,7 @@ multilib_src_compile() {
 multilib_src_install() {
 	emake \
 		DESTDIR="${D}" \
-		$(multilib_build_binaries || echo "bin_PROGRAMS=") \
-		$(multilib_is_native_abi || echo "dist_html_DATA=") \
+		$(multilib_is_native_abi || echo "bin_PROGRAMS= dist_html_DATA=") \
 		install
 	multilib_is_native_abi && gen_usr_ldscript -a pcre
 }

@@ -1,6 +1,15 @@
 # ChangeLog for dev-libs/uthash
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/uthash/ChangeLog,v 1.11 2013/06/26 17:08:12 blueness Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/uthash/ChangeLog,v 1.13 2014/07/02 07:23:20 dlan Exp $
+
+  02 Jul 2014; Yixun Lan <dlan@gentoo.org> -uthash-1.9.4.ebuild,
+  -uthash-1.9.5.ebuild, -uthash-1.9.6.ebuild:
+  cleanup, confirmed by Johan Bergström
+
+*uthash-1.9.9 (02 Jul 2014)
+
+  02 Jul 2014; Yixun Lan <dlan@gentoo.org> +uthash-1.9.9.ebuild:
+  bump, fix bug #500490, thanks Johan Bergström
 
   26 Jun 2013; Anthony G. Basile <blueness@gentoo.org> uthash-1.9.7.ebuild:
   Keyword ~arm for bfgminer

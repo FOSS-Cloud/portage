@@ -1,6 +1,40 @@
 # ChangeLog for net-libs/gloox
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gloox/ChangeLog,v 1.20 2014/03/02 22:28:03 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gloox/ChangeLog,v 1.28 2014/09/23 23:59:35 mrueg Exp $
+
+*gloox-1.0.11 (23 Sep 2014)
+
+  23 Sep 2014; Manuel Rüger <mrueg@gentoo.org> +gloox-1.0.11.ebuild:
+  Version bump
+
+  29 Aug 2014; Anthony G. Basile <blueness@gentoo.org> gloox-1.0.10-r1.ebuild,
+  gloox-1.0.9.ebuild, gloox-1.0.ebuild:
+  Keyword ~ppc ~ppc64, bug #473920
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> gloox-1.0.ebuild,
+  gloox-1.0.9.ebuild, gloox-1.0.10-r1.ebuild:
+  Add ~ia64/~sparc wrt bug #473920
+
+*gloox-1.0.10-r1 (29 Jun 2014)
+
+  29 Jun 2014; Sergey Popov <pinkbyte@gentoo.org> -gloox-1.0.10.ebuild,
+  +gloox-1.0.10-r1.ebuild:
+  Revision bump: add support for user patches, do not build examples, prune
+  unneeded libtool files, conditionally build static library, set proper
+  condition on debug builds, build tests only when it's needed. Drop old
+  revision
+
+  29 Jun 2014; Sergey Popov <pinkbyte@gentoo.org> gloox-1.0.9.ebuild:
+  Stable on x86, wrt bug #495850
+
+  20 Jun 2014; Tobias Klausmann <klausman@gentoo.org> gloox-1.0.10.ebuild:
+  Keyworded on alpha, bug #473920
+
+*gloox-1.0.10 (06 May 2014)
+
+  06 May 2014; Manuel Rüger <mrueg@gentoo.org> +gloox-1.0.10.ebuild,
+  -gloox-1.0.6.ebuild:
+  Version bump. Cleanup old.
 
   02 Mar 2014; Pacho Ramos <pacho@gentoo.org> gloox-1.0.9.ebuild:
   amd64 stable, bug #495850

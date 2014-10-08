@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/cs2d/cs2d-0123.ebuild,v 1.1 2013/12/20 13:35:49 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-action/cs2d/cs2d-0123.ebuild,v 1.4 2014/08/10 21:21:50 slyfox Exp $
 
 EAPI=5
 
 inherit eutils games
 
-DESCRIPTION="Counter-Strike 2D is freeware clone of Counter-Strike with some added features in gameplay."
+DESCRIPTION="Counter-Strike 2D is freeware clone of Counter-Strike with some added features in gameplay"
 HOMEPAGE="http://www.cs2d.com/"
 SRC_URI="http://dev.gentoo.org/~maksbotan/cs2d/cs2d_${PV}_linux.zip
 	http://dev.gentoo.org/~maksbotan/cs2d/cs2d_${PV}_win.zip
@@ -27,9 +27,22 @@ RDEPEND="
 		virtual/opengl
 	)
 	amd64? (
-		app-emulation/emul-linux-x86-sdl
-		app-emulation/emul-linux-x86-opengl
-		app-emulation/emul-linux-x86-xlibs
+		|| (
+			app-emulation/emul-linux-x86-sdl[-abi_x86_32(-)]
+			>=media-libs/openal-1.15.1[abi_x86_32(-)]
+		)
+		|| (
+			app-emulation/emul-linux-x86-opengl[-abi_x86_32(-)]
+			>=virtual/opengl-7.0-r1[abi_x86_32(-)]
+		)
+		|| (
+			app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
+			(
+				>=media-libs/freetype-2.5.0.1:2[abi_x86_32(-)]
+				>=x11-libs/libX11-1.6.2[abi_x86_32(-)]
+				>=x11-libs/libXxf86vm-1.1.3[abi_x86_32(-)]
+			)
+		)
 	)"
 
 QA_PRESTRIPPED="opt/cs2d/CounterStrike2D"

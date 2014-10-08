@@ -1,6 +1,41 @@
 # ChangeLog for app-accessibility/eflite
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/eflite/ChangeLog,v 1.34 2012/05/23 22:57:36 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/eflite/ChangeLog,v 1.43 2014/09/15 08:17:44 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> eflite-0.4.1-r2.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> eflite-0.4.1-r2.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> eflite-0.4.1-r2.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  06 Aug 2014; Patrick Lauer <patrick@gentoo.org> eflite-0.4.1-r2.ebuild,
+  eflite-0.4.1.ebuild:
+  Make description more repoman-happy
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> eflite-0.4.1-r2.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> eflite-0.4.1-r2.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> eflite-0.4.1-r2.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*eflite-0.4.1-r2 (05 Jul 2014)
+
+  05 Jul 2014; Christopher Brannon <teiresias@gentoo.org>
+  -eflite-0.4.1-r1.ebuild, +eflite-0.4.1-r2.ebuild,
+  files/eflite-0.4.1-flite14.patch:
+  Fix truncation of speech with flite 1.4.
+
+*eflite-0.4.1-r1 (05 Jul 2014)
+
+  05 Jul 2014; Pacho Ramos <pacho@gentoo.org> +eflite-0.4.1-r1.ebuild,
+  +files/eflite-0.4.1-flite14.patch:
+  Make it compatible with flite-1.4 (#463556 by Chris Brannon)
 
   23 May 2012; Mike Frysinger <vapier@gentoo.org> eflite-0.4.1.ebuild:
   Inherit user eclass for enewuser/etc...
@@ -128,4 +163,3 @@
   21 Mar 2004; Jeremy Huddleston <eradicator@gentoo.org> eflite-0.3.8.ebuild,
   metadata.xml, files/eflite-0.3.8-shared_flite.patch:
   Initial import.  Ebuild by dmwaters and me.  Closes bug #45178.
-

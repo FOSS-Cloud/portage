@@ -1,6 +1,16 @@
 # ChangeLog for media-tv/v4l-utils
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/v4l-utils/ChangeLog,v 1.37 2013/08/06 14:46:47 aballier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-tv/v4l-utils/ChangeLog,v 1.40 2014/07/30 19:32:28 ssuominen Exp $
+
+  30 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> -v4l-utils-0.8.9.ebuild,
+  -v4l-utils-0.9.5.ebuild:
+  old
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> v4l-utils-1.0.0.ebuild:
+  Stable for ppc, wrt bug #516314
+
+  27 Jul 2014; Pacho Ramos <pacho@gentoo.org> v4l-utils-1.0.0.ebuild:
+  amd64/x86 stable, bug #516314
 
 *v4l-utils-1.0.0 (06 Aug 2013)
 

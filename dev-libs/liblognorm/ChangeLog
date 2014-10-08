@@ -1,6 +1,33 @@
 # ChangeLog for dev-libs/liblognorm
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/liblognorm/ChangeLog,v 1.25 2014/03/31 19:50:30 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/liblognorm/ChangeLog,v 1.31 2014/10/05 07:25:00 ago Exp $
+
+  05 Oct 2014; Agostino Sarubbo <ago@gentoo.org> liblognorm-1.0.1.ebuild:
+  Stable for x86, wrt bug #524290
+
+  05 Oct 2014; Agostino Sarubbo <ago@gentoo.org> liblognorm-1.0.1.ebuild:
+  Stable for amd64, wrt bug #524290
+
+  01 Oct 2014; Jeroen Roovers <jer@gentoo.org> liblognorm-1.0.1.ebuild:
+  Stable for HPPA (bug #524058).
+
+  30 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> liblognorm-1.0.1.ebuild:
+  Readded CFLAGS patch.
+
+*liblognorm-1.0.1 (30 Sep 2014)
+
+  30 Sep 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -liblognorm-0.3.2-r1.ebuild, -liblognorm-0.3.3.ebuild,
+  -liblognorm-0.3.4.ebuild, -liblognorm-0.3.5.ebuild,
+  -liblognorm-0.3.6-r1.ebuild, +liblognorm-1.0.1.ebuild,
+  -files/do-not-include-private-in-public-headers.patch:
+  Non-maintainer commit! Version bump to add needed dependency for
+  app-admin/rsyslog security bump (bug #524058). Removed very old versions.
+
+*liblognorm-0.3.7 (30 Jun 2014)
+
+  30 Jun 2014; Maxim Koltsov <maksbotan@gentoo.org> +liblognorm-0.3.7.ebuild:
+  Bump to 0.3.7, thanks to slepnoga
 
   31 Mar 2014; Jeroen Roovers <jer@gentoo.org> +liblognorm-0.3.6.ebuild,
   files/respect_CFLAGS.patch:

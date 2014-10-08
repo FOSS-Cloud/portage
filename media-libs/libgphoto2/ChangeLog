@@ -1,6 +1,71 @@
 # ChangeLog for media-libs/libgphoto2
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libgphoto2/ChangeLog,v 1.251 2014/03/28 02:28:33 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libgphoto2/ChangeLog,v 1.268 2014/09/15 08:21:21 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.4-r1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.4-r1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.4-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.4-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> libgphoto2-2.5.4-r1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  30 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> libgphoto2-2.5.3.1.ebuild,
+  libgphoto2-2.5.4-r1.ebuild, libgphoto2-2.5.4.ebuild:
+  Use shorter get_udevdir() instead of the longer deprecated udev_get_udevdir()
+  version.
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.4-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.4-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.4-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libgphoto2-2.5.4-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+*libgphoto2-2.5.4-r1 (21 May 2014)
+
+  21 May 2014; Michał Górny <mgorny@gentoo.org> +libgphoto2-2.5.4-r1.ebuild:
+  Enable multilib support, bug #493170.
+
+*libgphoto2-2.5.4 (21 May 2014)
+
+  21 May 2014; Pacho Ramos <pacho@gentoo.org> +libgphoto2-2.5.4.ebuild,
+  -files/libgphoto2-2.4.7-no-test-build.patch,
+  -files/libgphoto2-2.4.8-increase_max_entries.patch,
+  -files/libgphoto2-2.4.9-dnl.patch, -files/libgphoto2-2.5.2-canon-s100.patch,
+  -files/libgphoto2-2.5.2-libxml2-detection.patch,
+  -files/libgphoto2-2.5.2-libxml2-detection2.patch,
+  -libgphoto2-2.4.14-r1.ebuild, -libgphoto2-2.5.2-r1.ebuild,
+  -libgphoto2-2.5.2-r3.ebuild:
+  Version bump, fix gd detection (#510934 by mgorny), drop old
+
+  17 May 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.3.1.ebuild:
+  Stable for alpha, wrt bug #508862
+
+  14 May 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.3.1.ebuild:
+  Stable for sparc, wrt bug #508862
+
+  13 May 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.3.1.ebuild:
+  Stable for ia64, wrt bug #508862
+
+  11 May 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.3.1.ebuild:
+  Stable for ppc64, wrt bug #508862
+
+  10 May 2014; Agostino Sarubbo <ago@gentoo.org> libgphoto2-2.5.3.1.ebuild:
+  Stable for ppc, wrt bug #508862
 
   28 Mar 2014; Jeroen Roovers <jer@gentoo.org> libgphoto2-2.5.3.1.ebuild:
   Stable for HPPA (bug #499954).

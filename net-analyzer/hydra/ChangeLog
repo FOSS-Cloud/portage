@@ -1,6 +1,24 @@
 # ChangeLog for net-analyzer/hydra
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/hydra/ChangeLog,v 1.82 2014/01/11 12:22:54 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/hydra/ChangeLog,v 1.87 2014/09/09 18:58:11 nimiux Exp $
+
+  09 Sep 2014; Chema Alonso <nimiux@gentoo.org> hydra-8.0.ebuild:
+  Stable for amd64 wrt bug #516966
+
+  08 Sep 2014; Jeroen Roovers <jer@gentoo.org> hydra-8.0.ebuild,
+  +files/hydra-8.0-configure.patch:
+  Fix net-fs/ncpfs automagic (partial fix for bug #521746).
+
+  06 Sep 2014; Jeroen Roovers <jer@gentoo.org> hydra-8.0.ebuild:
+  Override faulty libdir.
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> hydra-8.0.ebuild:
+  x86 stable wrt bug #516966
+
+*hydra-8.0 (18 May 2014)
+
+  18 May 2014; Jeroen Roovers <jer@gentoo.org> +hydra-8.0.ebuild:
+  Version bump.
 
 *hydra-7.6 (11 Jan 2014)
 

@@ -1,15 +1,15 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lisp/gentoo-init/gentoo-init-1.0.ebuild,v 1.1 2012/12/14 12:36:03 grozin Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lisp/gentoo-init/gentoo-init-1.0.ebuild,v 1.3 2014/08/10 20:41:49 slyfox Exp $
 
 EAPI=4
 
-DESCRIPTION="Simple ASDF2 configuration for Gentoo Common Lisp ports."
+DESCRIPTION="Simple ASDF2 configuration for Gentoo Common Lisp ports"
 HOMEPAGE="http://www.gentoo.org/proj/en/lisp/common-lisp/guide.xml"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ~ppc ~sparc ~x86"
 IUSE=""
 
 RDEPEND=">=dev-lisp/asdf-2.0"

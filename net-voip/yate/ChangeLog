@@ -1,6 +1,40 @@
 # ChangeLog for net-voip/yate
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/yate/ChangeLog,v 1.24 2013/12/15 12:32:54 moult Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-voip/yate/ChangeLog,v 1.31 2014/07/27 21:41:21 zerochaos Exp $
+
+  27 Jul 2014; Rick Farina <zerochaos@gentoo.org> yate-5.4.0.ebuild,
+  yate-9999.ebuild:
+  adding ~arm
+
+*yate-5.4.0 (25 Jul 2014)
+
+  25 Jul 2014; Rick Farina <zerochaos@gentoo.org> +yate-5.4.0.ebuild,
+  -yate-5.3.0.ebuild:
+  version bump
+
+*yate-5.3.0 (25 Jul 2014)
+
+  25 Jul 2014; Rick Farina <zerochaos@gentoo.org>
+  +files/dont-mess-with-cflags.patch, +yate-5.3.0.ebuild,
+  -files/yate-2.0.0-as-needed.patch, -files/yate-2.0.0-cxxflags.patch,
+  -files/yate-2.0.0-ilbc-alsa-oss.patch, -files/yate-2.0.0-spandsp.patch,
+  -files/yate-4.3.0-ilbc-alsa-oss.patch, yate-9999.ebuild:
+  ebuild cleanup, QA warnings fix, adding stable version
+
+  28 Apr 2014; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag description from metadata.xml
+
+  28 Apr 2014; Jason A. Donenfeld <zx2c4@gentoo.org> yate-9999.ebuild:
+  We dont need libusb.
+
+  28 Apr 2014; Jason A. Donenfeld <zx2c4@gentoo.org> yate-9999.ebuild:
+  Fix description
+
+*yate-9999 (28 Apr 2014)
+
+  28 Apr 2014; Jason A. Donenfeld <zx2c4@gentoo.org> +yate-9999.ebuild,
+  -yate-4.3.0.1.ebuild, metadata.xml:
+  I'll maintain the live ebuild, but I'm purging old security filled versions.
 
   15 Dec 2013; Dion Moult <moult@gentoo.org> -yate-2.0.0.ebuild:
   <=net-voip/yate-2.0.0 removal (pending 11 July 2013), see #290062 and #290063

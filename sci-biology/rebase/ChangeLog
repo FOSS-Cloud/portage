@@ -1,6 +1,46 @@
 # ChangeLog for sci-biology/rebase
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/rebase/ChangeLog,v 1.120 2014/03/06 11:25:34 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/rebase/ChangeLog,v 1.129 2014/09/30 10:08:00 jlec Exp $
+
+*rebase-1410 (30 Sep 2014)
+
+  30 Sep 2014; Justin Lecher <jlec@gentoo.org> +rebase-1410.ebuild:
+  Version BUmp
+
+  15 Sep 2014; Justin Lecher <jlec@gentoo.org> -rebase-1111.ebuild:
+  Drop ebuild with deprecated EAPI
+
+*rebase-1409 (15 Sep 2014)
+
+  15 Sep 2014; Justin Lecher <jlec@gentoo.org> +rebase-1409.ebuild:
+  Version Bump
+
+  03 Aug 2014; Agostino Sarubbo <ago@gentoo.org> rebase-1403.ebuild:
+  Stable for ppc, wrt bug #512118
+
+*rebase-1408 (31 Jul 2014)
+
+  31 Jul 2014; Justin Lecher <jlec@gentoo.org> +rebase-1408.ebuild:
+  Version Bump
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> rebase-1403.ebuild:
+  x86 stable wrt bug #512118
+
+  17 Jul 2014; Chema Alonso <nimiux@gentoo.org> rebase-1403.ebuild:
+  Stable for amd64 wrt bug #512118
+
+*rebase-1406 (04 Jun 2014)
+
+  04 Jun 2014; Justin Lecher <jlec@gentoo.org> -rebase-1404.ebuild,
+  +rebase-1406.ebuild:
+  Version BUmp, fixes broken snapshot, #512286
+
+*rebase-1404 (02 Jun 2014)
+
+  02 Jun 2014; Justin Lecher <jlec@gentoo.org> -rebase-1202.ebuild,
+  -rebase-1303.ebuild, -rebase-1310.ebuild, -rebase-1311.ebuild,
+  -rebase-1312.ebuild, +rebase-1404.ebuild:
+  Version BUmp; clean old
 
 *rebase-1403 (06 Mar 2014)
 
@@ -518,4 +558,3 @@
   rebase-406.ebuild, metadata.xml :
   Initial import.  Ebuild submitted by Olivier Fisette <ribosome@gentoo.org>.
   Reference: Gentoo Bugzilla, bug #45945
-

@@ -1,6 +1,46 @@
 # ChangeLog for net-firewall/shorewall-core
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/shorewall-core/ChangeLog,v 1.54 2014/03/23 18:01:42 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/shorewall-core/ChangeLog,v 1.63 2014/09/19 09:17:43 ago Exp $
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> shorewall-core-4.5.21.9.ebuild:
+  Stable for sparc, wrt bug #511620
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> shorewall-core-4.5.21.9.ebuild:
+  Stable for ppc64, wrt bug #511620
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> shorewall-core-4.5.21.9.ebuild:
+  Stable for ppc, wrt bug #511620
+
+  30 Aug 2014; Chema Alonso <nimiux@gentoo.org> shorewall-core-4.5.21.9.ebuild:
+  Stable for amd64 wrt bug #511620
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  shorewall-core-4.5.21.9.ebuild:
+  x86 stable wrt bug #511620
+
+  24 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  shorewall-core-4.5.21.9.ebuild:
+  Stable on alpha, bug #511620
+
+*shorewall-core-4.5.21.10 (12 Jun 2014)
+
+  12 Jun 2014; Tom Wijsman <TomWij@gentoo.org> +files/4.5.21.10/shorewallrc,
+  +shorewall-core-4.5.21.10.ebuild:
+  Version bump to 4.5.21.10; fixes bug #509258 and bug #509258, proxied commit
+  for Thomas D. (whissi).
+
+  04 Jun 2014; Jeroen Roovers <jer@gentoo.org> shorewall-core-4.5.21.9.ebuild:
+  Stable for HPPA (bug #511620).
+
+*shorewall-core-4.5.21.9 (26 Apr 2014)
+
+  26 Apr 2014; Markos Chandras <hwoarang@gentoo.org>
+  +files/4.5.21.9/shorewallrc, +shorewall-core-4.5.21.9.ebuild,
+  -files/4.5.19/shorewallrc, -files/4.5.21.2/shorewallrc,
+  -files/4.5.21.4/shorewallrc, -files/shorewallrc_new,
+  -shorewall-core-4.5.18.ebuild, -shorewall-core-4.5.19.ebuild,
+  -shorewall-core-4.5.21.2.ebuild, -shorewall-core-4.5.21.4.ebuild:
+  Version bump. Remove old. Bug #508396 thanks to Thomas D. <whissi@whissi.de>
 
   23 Mar 2014; Agostino Sarubbo <ago@gentoo.org>
   shorewall-core-4.5.18-r1.ebuild:

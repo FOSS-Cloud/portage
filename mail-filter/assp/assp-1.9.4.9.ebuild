@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/assp/assp-1.9.4.9.ebuild,v 1.1 2012/11/23 07:25:07 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/assp/assp-1.9.4.9.ebuild,v 1.3 2014/08/10 21:15:28 slyfox Exp $
 
 inherit eutils user
 
-DESCRIPTION="Anti-Spam SMTP Proxy written in Perl."
+DESCRIPTION="Anti-Spam SMTP Proxy written in Perl"
 HOMEPAGE="http://assp.sourceforge.net/"
 MY_PN=ASSP_${PV}-Install
 SRC_URI="mirror://sourceforge/${PN}/${MY_PN}.zip"
@@ -35,7 +35,7 @@ RDEPEND="dev-lang/perl
 	spf? ( dev-perl/Mail-SPF )
 	srs? ( dev-perl/Mail-SRS )
 	ssl? ( dev-perl/IO-Socket-SSL )
-	syslog? ( perl-core/Sys-Syslog )
+	syslog? ( virtual/perl-Sys-Syslog )
 	ldap? ( dev-perl/perl-ldap )"
 
 S=${WORKDIR}/${MY_PN}/ASSP

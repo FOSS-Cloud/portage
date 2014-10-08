@@ -1,6 +1,51 @@
 # ChangeLog for www-servers/uwsgi
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/ChangeLog,v 1.54 2014/03/17 11:50:36 ultrabug Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/ChangeLog,v 1.61 2014/10/08 09:34:08 ultrabug Exp $
+
+*uwsgi-2.0.7-r1 (08 Oct 2014)
+*uwsgi-2.0.6-r2 (08 Oct 2014)
+*uwsgi-1.4.10-r1 (08 Oct 2014)
+
+  08 Oct 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-1.4.10.ebuild,
+  +uwsgi-1.4.10-r1.ebuild, -uwsgi-2.0.6-r1.ebuild, +uwsgi-2.0.6-r2.ebuild,
+  -uwsgi-2.0.7.ebuild, +uwsgi-2.0.7-r1.ebuild:
+  drop php 5.3 target fix #524232, add rados plugin fix #521826 thx to babykart
+
+*uwsgi-2.0.7 (07 Oct 2014)
+
+  07 Oct 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-2.0.5.1.ebuild,
+  -uwsgi-2.0.6.ebuild, +uwsgi-2.0.7.ebuild:
+  version bump, drop old
+
+*uwsgi-2.0.6-r1 (08 Aug 2014)
+
+  08 Aug 2014; Tiziano Müller <dev-zero@gentoo.org> +files/42_mod_uwsgi-r2.conf,
+  +uwsgi-2.0.6-r1.ebuild:
+  Fix the Apache2 module loading configuration for the proxy module and change
+  recommendation to the proxy module.
+
+*uwsgi-2.0.6 (01 Jul 2014)
+
+  01 Jul 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-1.4.8.ebuild,
+  -uwsgi-1.4.9.ebuild, -uwsgi-2.0.4.ebuild, +uwsgi-2.0.6.ebuild:
+  version bump, drop old
+
+*uwsgi-2.0.5.1 (02 Jun 2014)
+
+  02 Jun 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-2.0.3.ebuild,
+  +uwsgi-2.0.5.1.ebuild:
+  version bump
+
+  07 May 2014; Manuel Rüger <mrueg@gentoo.org> uwsgi-1.4.10.ebuild,
+  uwsgi-1.4.8.ebuild, uwsgi-1.4.9.ebuild:
+  Remove outdated ruby targets.
+
+*uwsgi-2.0.4 (05 May 2014)
+
+  05 May 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-1.4.4.ebuild,
+  -uwsgi-1.4.5-r1.ebuild, -uwsgi-1.4.6.ebuild, -uwsgi-1.4.6-r1.ebuild,
+  +uwsgi-2.0.4.ebuild, metadata.xml:
+  version bump, add asyncio plugin for python3_4, drop old
 
 *uwsgi-2.0.3 (17 Mar 2014)
 

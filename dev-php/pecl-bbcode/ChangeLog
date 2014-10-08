@@ -1,6 +1,16 @@
 # ChangeLog for dev-php/pecl-bbcode
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-bbcode/ChangeLog,v 1.4 2012/02/07 20:15:12 olemarkus Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-bbcode/ChangeLog,v 1.6 2014/09/29 19:16:36 grknight Exp $
+
+*pecl-bbcode-1.0.3_beta1-r1 (29 Sep 2014)
+
+  29 Sep 2014;  <grknight@gentoo.org> +pecl-bbcode-1.0.3_beta1-r1.ebuild,
+  -pecl-bbcode-1.0.3_beta1.ebuild:
+  Revbump for new PHP support; drop PHP 5.3. wrt bug 488984
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  pecl-bbcode-1.0.3_beta1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
 
   07 Feb 2012; Ole Markus With <olemarkus@gentoo.org>
   pecl-bbcode-1.0.3_beta1.ebuild:
@@ -59,4 +69,3 @@
   13 Nov 2007; Jakub Moc <jakub@gentoo.org> +metadata.xml,
   +pecl-bbcode-0.10.4.ebuild:
   New ebuild
-

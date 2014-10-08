@@ -1,6 +1,24 @@
 # ChangeLog for app-admin/webapp-config
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/webapp-config/ChangeLog,v 1.108 2014/04/06 17:16:14 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/webapp-config/ChangeLog,v 1.113 2014/08/05 21:21:09 blueness Exp $
+
+  05 Aug 2014; Anthony G. Basile <blueness@gentoo.org>
+  webapp-config-1.52-r1.ebuild:
+  Stable on ppc, bug #492904
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> webapp-config-1.52-r1.ebuild:
+  ia64/sparc stable wrt #492904
+
+  04 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  webapp-config-1.52-r1.ebuild:
+  Stable on alpha, bug #492904
+
+  03 May 2014; Mike Gilbert <floppym@gentoo.org> webapp-config-1.53.ebuild,
+  webapp-config-9999.ebuild:
+  Add python3.4.
+
+  20 Apr 2014; Agostino Sarubbo <ago@gentoo.org> webapp-config-1.52-r1.ebuild:
+  Stable for ppc64, wrt bug #492904
 
   06 Apr 2014; Michał Górny <mgorny@gentoo.org> webapp-config-1.53.ebuild,
   webapp-config-9999.ebuild:

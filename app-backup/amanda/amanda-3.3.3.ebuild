@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/amanda/amanda-3.3.3.ebuild,v 1.9 2014/01/11 18:57:15 robbat2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-backup/amanda/amanda-3.3.3.ebuild,v 1.11 2014/06/23 15:49:43 robbat2 Exp $
 
 EAPI=5
 inherit autotools eutils perl-module user systemd
@@ -25,8 +25,8 @@ RDEPEND="sys-libs/readline
 	kerberos? ( app-crypt/mit-krb5 )
 	xfs? ( sys-fs/xfsdump )
 	readline? ( sys-libs/readline )
-	!systemd? ( virtual/inetd )
 	!minimal? (
+		dev-perl/XML-Simple
 		virtual/mailx
 		app-arch/mt-st
 		sys-block/mtx
@@ -131,7 +131,7 @@ pkg_setup() {
 
 src_unpack() {
 	# we do not want the perl src_unpack
-	base_src_unpack
+	default_src_unpack
 }
 
 src_prepare() {
@@ -291,7 +291,7 @@ src_configure() {
 
 src_compile() {
 	# Again, do not want the perl-module src_compile
-	base_src_compile
+	default_src_compile
 }
 
 src_install() {
@@ -446,6 +446,11 @@ pkg_postinst() {
 	elog "If you use localhost in your disklist your restores may break."
 	elog "You should replace it with the actual hostname!"
 	elog "Please also see the syntax changes to amandahosts."
+	elog
+	elog "Please note that this package no longer explicitly depends on"
+	elog "virtual/inetd, as it supports modes where an inetd is not needed"
+	elog "(see bug #506028 for details)."
+
 }
 
 # We have had reports of amanda file permissions getting screwed up.

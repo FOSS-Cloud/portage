@@ -1,6 +1,58 @@
 # ChangeLog for dev-ruby/rubygems
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rubygems/ChangeLog,v 1.224 2014/04/09 14:14:41 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rubygems/ChangeLog,v 1.238 2014/09/09 05:18:49 graaff Exp $
+
+*rubygems-2.2.2 (09 Sep 2014)
+
+  09 Sep 2014; Hans de Graaff <graaff@gentoo.org> +rubygems-2.2.2.ebuild:
+  Version bump. Drop jruby. Stop installing env file for the RUBYOPT autogem
+  mechanism since this is no longer needed for >= ruby 1.9.
+
+  15 Aug 2014; Raúl Porcel <armin76@gentoo.org> rubygems-2.0.14.ebuild:
+  sparc stable, bug #493780
+
+  13 Jul 2014; Manuel Rüger <mrueg@gentoo.org> rubygems-2.0.14-r1.ebuild,
+  rubygems-2.0.14.ebuild, rubygems-2.0.3.ebuild:
+  Remove deprecated no-color option from eselect call.
+
+  05 Jul 2014; Manuel Rüger <mrueg@gentoo.org> rubygems-2.0.14-r1.ebuild,
+  rubygems-2.0.14.ebuild, rubygems-2.0.3.ebuild:
+  Remove ruby18 cases.
+
+  02 Jul 2014; Manuel Rüger <mrueg@gentoo.org> rubygems-2.0.14-r1.ebuild,
+  rubygems-2.0.14.ebuild, rubygems-2.0.3.ebuild:
+  Stable on amd64. Bug #508996. Remove ruby18 references.
+
+  02 Jul 2014; Manuel Rüger <mrueg@gentoo.org> -rubygems-2.0.10.ebuild,
+  -rubygems-2.0.8.ebuild, rubygems-2.0.14-r1.ebuild, rubygems-2.0.14.ebuild:
+  Cleanup old. Update elog about eselect.
+
+  02 Jul 2014; Tobias Klausmann <klausman@gentoo.org> rubygems-2.0.14.ebuild:
+  Stable on alpha, bug #508996
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> rubygems-2.0.14.ebuild:
+  x86 stable wrt bug #508996
+
+  08 Jun 2014; Akinori Hattori <hattya@gentoo.org> rubygems-2.0.14.ebuild:
+  ia64 stable wrt bug #508996
+
+  07 May 2014; Markus Meier <maekke@gentoo.org> rubygems-2.0.14.ebuild:
+  arm stable, bug #508996
+
+  30 Apr 2014; Jeroen Roovers <jer@gentoo.org> rubygems-2.0.14.ebuild:
+  Stable for HPPA (bug #508996).
+
+  30 Apr 2014; Jeroen Roovers <jer@gentoo.org> rubygems-2.0.14.ebuild:
+  Marked ~hppa (bug #508996).
+
+  29 Apr 2014; Jeroen Roovers <jer@gentoo.org> rubygems-2.0.14.ebuild:
+  Stable for HPPA (bug #508996).
+
+*rubygems-2.0.14-r1 (28 Apr 2014)
+
+  28 Apr 2014; Hans de Graaff <graaff@gentoo.org> rubygems-2.0.14.ebuild,
+  +rubygems-2.0.14-r1.ebuild:
+  Revision bump with ruby21 to create a stable candidate.
 
   09 Apr 2014; Manuel Rüger <mrueg@gentoo.org> -rubygems-1.8.24.ebuild,
   -rubygems-1.8.25.ebuild:

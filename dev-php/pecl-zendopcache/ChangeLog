@@ -1,6 +1,19 @@
 # ChangeLog for dev-php/pecl-zendopcache
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-zendopcache/ChangeLog,v 1.4 2013/09/10 03:10:23 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-zendopcache/ChangeLog,v 1.7 2014/10/03 15:15:47 grknight Exp $
+
+  03 Oct 2014;  <grknight@gentoo.org> -pecl-zendopcache-7.0.1.ebuild,
+  -pecl-zendopcache-7.0.2.ebuild:
+  Remove old
+
+*pecl-zendopcache-7.0.3 (29 Sep 2014)
+
+  29 Sep 2014;  <grknight@gentoo.org> +pecl-zendopcache-7.0.3.ebuild:
+  Version bump. Drop PHP 5.3 support. wrt bug 513122
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  pecl-zendopcache-7.0.1.ebuild, pecl-zendopcache-7.0.2.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
 
   10 Sep 2013; Patrick Lauer <patrick@gentoo.org> pecl-zendopcache-7.0.1.ebuild,
   pecl-zendopcache-7.0.2.ebuild:

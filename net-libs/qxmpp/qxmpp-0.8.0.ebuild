@@ -1,12 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/qxmpp/qxmpp-0.8.0.ebuild,v 1.1 2014/03/27 14:02:02 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/qxmpp/qxmpp-0.8.0.ebuild,v 1.3 2014/08/10 20:50:11 slyfox Exp $
 
 EAPI=5
 
 inherit qt4-r2 multilib
 
-DESCRIPTION="A cross-platform C++ XMPP client library based on the Qt framework."
+DESCRIPTION="A cross-platform C++ XMPP client library based on the Qt framework"
 HOMEPAGE="http://code.google.com/p/qxmpp/"
 SRC_URI="http://download.qxmpp.org/${P}.tar.gz"
 
@@ -33,6 +33,9 @@ src_prepare(){
 		sed -i -e '/SUBDIRS/s/tests//' \
 			qxmpp.pro || die "sed for removing tests failed"
 	fi
+	# There is no point in building examples. Also, they require dev-qt/qtgui
+	sed -i -e '/SUBDIRS/s/examples//' \
+			qxmpp.pro || die "sed for removing examples failed"
 	qt4-r2_src_prepare
 }
 

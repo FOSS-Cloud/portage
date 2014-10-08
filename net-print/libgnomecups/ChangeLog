@@ -1,6 +1,45 @@
 # ChangeLog for net-print/libgnomecups
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/libgnomecups/ChangeLog,v 1.98 2014/01/01 21:12:36 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/libgnomecups/ChangeLog,v 1.108 2014/09/15 08:23:46 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libgnomecups-0.2.3-r5.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libgnomecups-0.2.3-r5.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libgnomecups-0.2.3-r5.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libgnomecups-0.2.3-r5.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> libgnomecups-0.2.3-r5.ebuild:
+  Stable for HPPA (bug #512012).
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libgnomecups-0.2.3-r5.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libgnomecups-0.2.3-r5.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libgnomecups-0.2.3-r5.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*libgnomecups-0.2.3-r5 (20 Jul 2014)
+
+  20 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/libgnomecups-0.2.3-format-string.patch,
+  +files/libgnomecups-0.2.3-lpoptions.patch, +libgnomecups-0.2.3-r5.ebuild,
+  -libgnomecups-0.2.3-r4.ebuild:
+  Fix building with -Werror=format-security (#517612 by ago) and look for
+  lpoptions in proper place (from Fedora)
+
+*libgnomecups-0.2.3-r4 (29 Jun 2014)
+
+  29 Jun 2014; Michał Górny <mgorny@gentoo.org>
+  +files/libgnomecups-0.2.3-cups-config.patch, +libgnomecups-0.2.3-r4.ebuild:
+  Enable multilib support, required for gnome-base/libgnomeprint.
 
   01 Jan 2014; Pacho Ramos <pacho@gentoo.org> libgnomecups-0.2.3-r3.ebuild:
   Add missing dependency on gnome-common, bug #496648 by Jan Hrabe

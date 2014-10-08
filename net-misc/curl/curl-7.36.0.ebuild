@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/curl/curl-7.36.0.ebuild,v 1.7 2014/04/07 22:33:19 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/curl/curl-7.36.0.ebuild,v 1.18 2014/07/15 13:33:30 blueness Exp $
 
 EAPI="5"
 
@@ -12,9 +12,9 @@ SRC_URI="http://curl.haxx.se/download/${P}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 m68k ~mips ~ppc ~ppc64 s390 sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="adns idn ipv6 kerberos ldap metalink rtmp ssh ssl static-libs test threads"
-IUSE="${IUSE} curl_ssl_axtls curl_ssl_cyassl curl_ssl_gnutls curl_ssl_nss +curl_ssl_openssl curl_ssl_polarssl"
+IUSE="${IUSE} curl_ssl_axtls curl_ssl_gnutls curl_ssl_nss +curl_ssl_openssl curl_ssl_polarssl"
 
 #lead to lots of false negatives, bug #285669
 RESTRICT="test"
@@ -22,7 +22,6 @@ RESTRICT="test"
 RDEPEND="ldap? ( net-nds/openldap )
 	ssl? (
 		curl_ssl_axtls?  ( net-libs/axtls  app-misc/ca-certificates )
-		curl_ssl_cyassl? ( net-libs/cyassl app-misc/ca-certificates )
 		curl_ssl_gnutls? (
 			|| (
 				( >=net-libs/gnutls-3[static-libs?] dev-libs/nettle )
@@ -33,7 +32,7 @@ RDEPEND="ldap? ( net-nds/openldap )
 		)
 		curl_ssl_openssl? ( dev-libs/openssl[static-libs?] )
 		curl_ssl_nss? ( dev-libs/nss app-misc/ca-certificates )
-		curl_ssl_polarssl? ( net-libs/polarssl app-misc/ca-certificates )
+		curl_ssl_polarssl? ( net-libs/polarssl:= app-misc/ca-certificates )
 	)
 	idn? ( net-dns/libidn[static-libs?] )
 	adns? ( net-dns/c-ares )
@@ -69,7 +68,6 @@ REQUIRED_USE="
 	ssl? (
 		^^ (
 			curl_ssl_axtls
-			curl_ssl_cyassl
 			curl_ssl_gnutls
 			curl_ssl_openssl
 			curl_ssl_nss
@@ -84,7 +82,8 @@ src_prepare() {
 	epatch \
 		"${FILESDIR}"/${PN}-7.30.0-prefix.patch \
 		"${FILESDIR}"/${PN}-respect-cflags-3.patch \
-		"${FILESDIR}"/${PN}-fix-gnutls-nettle.patch
+		"${FILESDIR}"/${PN}-fix-gnutls-nettle.patch \
+		"${FILESDIR}"/${P}-hostcheck.patch #507494
 
 	sed -i '/LD_LIBRARY_PATH=/d' configure.ac || die #382241
 
@@ -99,7 +98,7 @@ src_configure() {
 	# We make use of the fact that later flags override earlier ones
 	# So start with all ssl providers off until proven otherwise
 	local myconf=()
-	myconf+=( --without-axtls --without-cyassl --without-gnutls --without-nss --without-polarssl --without-ssl )
+	myconf+=( --without-axtls --without-gnutls --without-nss --without-polarssl --without-ssl )
 	myconf+=( --with-ca-bundle="${EPREFIX}"/etc/ssl/certs/ca-certificates.crt )
 	if use ssl ; then
 		if use curl_ssl_axtls; then
@@ -107,12 +106,6 @@ src_configure() {
 			einfo "NOTE: axtls is meant for embedded systems and"
 			einfo "may not be the best choice as an ssl provider"
 			myconf+=( --with-axtls )
-		fi
-		if use curl_ssl_cyassl; then
-			einfo "SSL provided by cyassl"
-			einfo "NOTE: cyassl is meant for embedded systems and"
-			einfo "may not be the best choice as an ssl provider"
-			myconf+=( --with-cyassl )
 		fi
 		if use curl_ssl_gnutls; then
 			einfo "SSL provided by gnutls"
@@ -179,6 +172,7 @@ src_configure() {
 		$(use_enable static-libs static) \
 		$(use_enable threads threaded-resolver) \
 		--disable-versioned-symbols \
+		--without-cyassl \
 		--without-darwinssl \
 		$(use_with idn libidn) \
 		$(use_with kerberos gssapi "${EPREFIX}"/usr) \

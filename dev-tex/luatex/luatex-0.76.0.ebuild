@@ -1,13 +1,13 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tex/luatex/luatex-0.76.0.ebuild,v 1.2 2013/07/01 13:22:33 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-tex/luatex/luatex-0.76.0.ebuild,v 1.4 2014/08/10 21:27:15 slyfox Exp $
 
 EAPI=5
 
 inherit libtool eutils texlive-common
 
 MY_P=${PN}-beta-${PV}
-DESCRIPTION="An extended version of pdfTeX using Lua as an embedded scripting language."
+DESCRIPTION="An extended version of pdfTeX using Lua as an embedded scripting language"
 HOMEPAGE="http://www.luatex.org/"
 SRC_URI="
 	http://foundry.supelec.fr/frs/download.php/file/15745/${MY_P}-source.tar.bz2
@@ -31,6 +31,7 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/${MY_P}/source"
 
 src_prepare() {
+	has_version '>=app-text/poppler-0.26.0:0' && epatch "${FILESDIR}/poppler026.patch"
 	epatch "${FILESDIR}/remove-zlib-version-check.patch" \
 		"${FILESDIR}/includes.patch"
 	S="${S}/build-aux" elibtoolize --shallow

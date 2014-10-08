@@ -1,6 +1,22 @@
 # ChangeLog for dev-python/mako
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/mako/ChangeLog,v 1.80 2014/01/18 16:00:43 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/mako/ChangeLog,v 1.84 2014/09/30 09:52:08 jer Exp $
+
+  30 Sep 2014; Jeroen Roovers <jer@gentoo.org> mako-0.7.0.ebuild,
+  mako-0.7.3-r1.ebuild, mako-0.7.3-r2.ebuild, mako-1.0.0.ebuild:
+  Fix copyright notices.
+
+*mako-1.0.0 (30 Sep 2014)
+
+  30 Sep 2014; Ben de Groot <yngwin@gentoo.org> +mako-1.0.0.ebuild:
+  Version bump, thanks to eroen in bug #486158. As this is a major version bump,
+  it's masked for testing.
+
+  18 Jun 2014; Tobias Klausmann <klausman@gentoo.org> mako-0.7.3-r1.ebuild:
+  Stable on alpha, bug #450174
+
+  01 May 2014; Ian Delaney <idella4@gentoo.org> mako-0.7.3-r2.ebuild:
+  add py3.4 support
 
   18 Jan 2014; Markus Meier <maekke@gentoo.org> mako-0.7.3-r1.ebuild:
   arm stable, bug #450174

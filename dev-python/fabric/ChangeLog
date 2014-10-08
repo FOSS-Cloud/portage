@@ -1,12 +1,49 @@
 # ChangeLog for dev-python/fabric
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/fabric/ChangeLog,v 1.43 2014/04/09 15:18:02 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/fabric/ChangeLog,v 1.50 2014/10/08 08:54:29 idella4 Exp $
+
+  08 Oct 2014; Ian Delaney <idella4@gentoo.org> fabric-1.10.0.ebuild:
+  remove erronoeous test bug from test phase
+
+*fabric-1.10.0.ebuild
+
+  19 Sep 2014; Ian Delaney <idella4@gentoo.org> +fabric-1.10.0.ebuild,
+  -fabric-1.1.1.ebuild, -fabric-1.2.2.ebuild, -fabric-1.4.0.ebuild,
+  -fabric-1.4.1.ebuild, -fabric-1.4.2-r1.ebuild, -fabric-1.4.3.ebuild,
+  -fabric-1.5.1.ebuild, -fabric-1.5.2.ebuild, -fabric-1.5.3.ebuild,
+  -fabric-1.6.0-r1.ebuild, -fabric-1.6.1-r1.ebuild, -fabric-1.7.0.ebuild,
+  -fabric-1.8.0.ebuild, -fabric-1.8.2.ebuild, -fabric-1.8.2.ebuild,
+  -fabric-1.8.3.ebuild
+  bump; update deps, doc build, test phase, remove many old
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> fabric-1.1.1.ebuild,
+  fabric-1.2.2.ebuild, fabric-1.4.0.ebuild, fabric-1.4.1.ebuild,
+  fabric-1.4.2-r1.ebuild, fabric-1.4.3.ebuild, fabric-1.5.0.ebuild,
+  fabric-1.5.1.ebuild, fabric-1.5.2.ebuild, fabric-1.5.3.ebuild,
+  fabric-1.6.0-r1.ebuild, fabric-1.6.1-r1.ebuild, fabric-1.7.0.ebuild,
+  fabric-1.8.0.ebuild, fabric-1.8.1.ebuild, fabric-1.8.2.ebuild,
+  fabric-1.8.3.ebuild, fabric-1.9.0.ebuild, fabric-1.9.1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*fabric-1.9.1 (10 Aug 2014)
+
+  10 Aug 2014; Ian Delaney <idella4@gentoo.org> +fabric-1.9.1.ebuild,
+  fabric-1.9.0.ebuild:
+  bump; add dep for doc build, fix doc build & install, fixes Bug #519392
+
+  24 Jun 2014; Ian Delaney <idella4@gentoo.org> fabric-1.9.0.ebuild:
+  re-set paramiko in RDEPEND, noted by Arfrever
+
+*fabric-1.9.0 (12 Jun 2014)
+
+  12 Jun 2014; Patrick Lauer <patrick@gentoo.org> +fabric-1.9.0.ebuild:
+  Bump
 
 *fabric-1.8.3 (09 Apr 2014)
 
   09 Apr 2014; Ian Delaney <idella4@gentoo.org> +fabric-1.8.3.ebuild,
   +files/doc-extensions.patch:
-  bump; patch to fox doc build
+  bump; patch to fix doc build
 
 *fabric-1.8.2 (31 Mar 2014)
 

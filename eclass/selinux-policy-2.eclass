@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/selinux-policy-2.eclass,v 1.21 2014/03/30 09:14:56 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/selinux-policy-2.eclass,v 1.27 2014/08/28 18:20:49 swift Exp $
 
 # Eclass for installing SELinux policy, and optionally
 # reloading the reference-policy based modules.
@@ -29,7 +29,7 @@
 # This variable contains the version string of the selinux-base-policy package
 # that this module build depends on. It is used to patch with the appropriate
 # patch bundle(s) that are part of selinux-base-policy.
-: ${BASEPOL:=""}
+: ${BASEPOL:=${PVR}}
 
 # @ECLASS-VARIABLE: POLICY_PATCH
 # @DESCRIPTION:
@@ -56,10 +56,29 @@
 # override it, but the user.
 : ${POLICY_TYPES:="targeted strict mcs mls"}
 
+# @ECLASS-VARIABLE: SELINUX_GIT_REPO
+# @DESCRIPTION:
+# When defined, this variable overrides the default repository URL as used by
+# this eclass. It allows end users to point to a different policy repository
+# using a single variable, rather than having to set the packagename_LIVE_REPO
+# variable for each and every SELinux policy module package they want to install.
+# The default value is Gentoo's hardened-refpolicy repository.
+: ${SELINUX_GIT_REPO:="git://git.overlays.gentoo.org/proj/hardened-refpolicy.git https://git.overlays.gentoo.org/gitroot/proj/hardened-refpolicy.git"};
+
+# @ECLASS-VARIABLE: SELINUX_GIT_BRANCH
+# @DESCRIPTION:
+# When defined, this variable sets the Git branch to use of the repository. This
+# allows for users and developers to use a different branch for the entire set of
+# SELinux policy packages, rather than having to override them one by one with the
+# packagename_LIVE_BRANCH variable.
+# The default value is the 'master' branch.
+: ${SELINUX_GIT_BRANCH:="master"};
+
 extra_eclass=""
 case ${BASEPOL} in
 	9999)	extra_eclass="git-2";
-			EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/hardened-refpolicy.git https://git.overlays.gentoo.org/gitroot/proj/hardened-refpolicy.git";
+			EGIT_REPO_URI="${SELINUX_GIT_REPO}";
+			EGIT_BRANCH="${SELINUX_GIT_BRANCH}";
 			EGIT_SOURCEDIR="${WORKDIR}/refpolicy";;
 esac
 
@@ -295,6 +314,17 @@ selinux-policy-2_pkg_postinst() {
 			einfo "SELinux modules loaded succesfully."
 		fi
 	done
+
+	# Relabel depending packages
+	PKGSET="";
+	if [ -x /usr/bin/qdepends ] ; then
+	  PKGSET=$(/usr/bin/qdepends -Cq -Q ${CATEGORY}/${PN} | grep -v "sec-policy/selinux-");
+	elif [ -x /usr/bin/equery ] ; then
+	  PKGSET=$(/usr/bin/equery -Cq depends ${CATEGORY}/${PN} | grep -v "sec-policy/selinux-");
+	fi
+    if [ -n "${PKGSET}" ] ; then
+	  rlpkg ${PKGSET};
+	fi
 }
 
 # @FUNCTION: selinux-policy-2_pkg_postrm

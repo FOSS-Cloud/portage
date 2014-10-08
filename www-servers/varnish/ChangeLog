@@ -1,6 +1,46 @@
 # ChangeLog for www-servers/varnish
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/varnish/ChangeLog,v 1.75 2014/03/31 21:25:22 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/varnish/ChangeLog,v 1.81 2014/10/08 11:58:25 blueness Exp $
+
+*varnish-4.0.2 (08 Oct 2014)
+
+  08 Oct 2014; Anthony G. Basile <blueness@gentoo.org> +varnish-4.0.2.ebuild:
+  Version bump
+
+*varnish-4.0.1-r1 (03 Oct 2014)
+
+  03 Oct 2014; Anthony G. Basile <blueness@gentoo.org>
+  +files/varnishncsa.initd-r1, +varnish-4.0.1-r1.ebuild, -varnish-4.0.1.ebuild:
+  Fix varnishncsa initd script, bug #524284
+
+*varnish-4.0.1 (25 Jun 2014)
+
+  25 Jun 2014; Anthony G. Basile <blueness@gentoo.org>
+  +files/varnish-4.0.1-fix-doc-Makefile_am.patch,
+  +files/varnish-4.0.1-fix-man-Makefile_am.patch,
+  +files/varnish-4.0.1-fix-warning.patch, +varnish-4.0.1.ebuild:
+  Version bump
+
+  22 May 2014; Christian Ruppert <idl0r@gentoo.org> metadata.xml:
+  Add myself as secondary maintainer
+
+*varnish-4.0.0-r1 (22 May 2014)
+
+  22 May 2014; Christian Ruppert <idl0r@gentoo.org> +files/varnishd.confd-r3,
+  +files/varnishd.initd-r3, +files/varnishd.logrotate-r2,
+  +files/varnishlog.confd, +files/varnishlog.initd, +files/varnishncsa.confd,
+  +files/varnishncsa.initd, +varnish-4.0.0-r1.ebuild, -varnish-4.0.0.ebuild:
+  Revbump. Major changes  Logdir no longer world readable - bug 458888 varnishd,
+  varnishncsa and varnishlog have been split into separate init scripts, also
+  fixes bug 480252 Run Varnish as user (varnish/varnish) Check the VCL for
+  errors before stopping varnishd when doing a restart
+
+*varnish-4.0.0 (12 Apr 2014)
+
+  12 Apr 2014; Anthony G. Basile <blueness@gentoo.org>
+  +files/varnish-4.0.0-fix-man-Makefile_am.patch, +varnish-4.0.0.ebuild,
+  files/varnishd.service:
+  Bump to new 4.0 branch
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> varnish-3.0.5-r3.ebuild,
   varnish-3.0.5-r4.ebuild:

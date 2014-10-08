@@ -1,6 +1,26 @@
 # ChangeLog for sci-libs/gdal
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/gdal/ChangeLog,v 1.143 2014/01/27 22:50:58 titanofold Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/gdal/ChangeLog,v 1.149 2014/07/11 19:38:23 zerochaos Exp $
+
+  11 Jul 2014; Rick Farina <zerochaos@gentoo.org> gdal-1.10.1.ebuild,
+  metadata.xml:
+  restore use flag, masked instead
+
+  09 Jul 2014; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag description from metadata.xml
+
+  09 Jul 2014; Patrick Lauer <patrick@gentoo.org> gdal-1.10.0-r1.ebuild,
+  gdal-1.10.1.ebuild, gdal-1.9.2.ebuild:
+  Drop ogdi useflag as sci-libs/ogdi has no keywords
+
+  10 May 2014; Agostino Sarubbo <ago@gentoo.org> gdal-1.10.1.ebuild:
+  Stable for ppc, wrt bug #490064
+
+  04 May 2014; Agostino Sarubbo <ago@gentoo.org> gdal-1.10.1.ebuild:
+  Stable for x86, wrt bug #490064
+
+  26 Apr 2014; Chema Alonso <nimiux@gentoo.org> gdal-1.10.1.ebuild:
+  Stable for amd64 wrt bug #490064
 
   27 Jan 2014; Aaron W. Swenson <titanofold@gentoo.org> gdal-1.10.1.ebuild:
   Fix bug 499448: REQUIRED_USE on threads with ecwj2k

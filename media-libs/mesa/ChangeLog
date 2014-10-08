@@ -1,6 +1,140 @@
 # ChangeLog for media-libs/mesa
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.549 2014/04/08 20:03:06 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.578 2014/09/27 23:07:39 mattst88 Exp $
+
+  27 Sep 2014; Matt Turner <mattst88@gentoo.org> mesa-10.3.0.ebuild:
+  Depend on llvm/clang-3.4.2, bug 523740.
+
+  27 Sep 2014; Matt Turner <mattst88@gentoo.org> mesa-10.3.0.ebuild:
+  Require llvm for opencl, bug 520922.
+
+  22 Sep 2014; Matt Turner <mattst88@gentoo.org> mesa-10.3.0.ebuild:
+  Fix SRC_URI.
+
+*mesa-10.3.0 (22 Sep 2014)
+
+  22 Sep 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.3.0.ebuild:
+  Version bump to 10.3.0, bug 523382.
+
+*mesa-10.2.8 (22 Sep 2014)
+
+  22 Sep 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.2.8.ebuild:
+  Version bump to 10.2.8
+
+  16 Sep 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-10.2.7.ebuild:
+  Enable gbm by default so we can enable glamor by default in xorg-server
+
+*mesa-10.2.7 (07 Sep 2014)
+
+  07 Sep 2014; Michał Górny <mgorny@gentoo.org>
+  +files/mesa-10.2.7-llvm-unique_ptr.patch, +mesa-10.2.7.ebuild:
+  Version bump, requested in bug #522306. Update dependencies from ::x11. Fix
+  llvm-3.5.0 support, bug #522300.
+
+*mesa-10.2.6 (19 Aug 2014)
+
+  19 Aug 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.2.6.ebuild,
+  -mesa-10.2.5.ebuild:
+  Version bump to 10.2.6.
+
+*mesa-10.2.5 (19 Aug 2014)
+
+  19 Aug 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.2.5.ebuild:
+  Version bump to 10.2.5, bug 519406.
+
+  26 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> mesa-10.0.4.ebuild,
+  mesa-10.1.0.ebuild, mesa-10.1.1.ebuild, mesa-10.1.3.ebuild,
+  mesa-10.1.4.ebuild, mesa-10.1.6.ebuild, mesa-10.2.1.ebuild,
+  mesa-10.2.2.ebuild, mesa-10.2.4.ebuild, mesa-7.10.3.ebuild,
+  mesa-7.11.2.ebuild, mesa-8.0.4-r1.ebuild, mesa-9.0.3.ebuild,
+  mesa-9.1.6.ebuild, mesa-9.2.5-r1.ebuild:
+  Use virtual/libudev instead of virtual/udev.
+
+  08 Jul 2014; Magnus Granberg <zorry@gentoo.org> mesa-9.2.5-r1.ebuild,
+  mesa-10.1.6.ebuild, mesa-10.2.1.ebuild, mesa-10.2.2.ebuild:
+  Disable asm on x86 only if use pic #512208
+
+*mesa-10.1.6 (25 Jun 2014)
+*mesa-10.2.2 (25 Jun 2014)
+
+  25 Jun 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-10.1.6.ebuild, +mesa-10.2.2.ebuild:
+  Version bumps.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> mesa-10.0.4.ebuild,
+  mesa-10.1.0.ebuild, mesa-10.1.1.ebuild, mesa-10.1.3.ebuild,
+  mesa-10.1.4.ebuild, mesa-10.2.1.ebuild, mesa-9.2.5-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+*mesa-10.2.1 (13 Jun 2014)
+
+  13 Jun 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-10.2.1.ebuild, -mesa-10.2.0_rc5.ebuild:
+  Version bump, bug #512932. Enable DRI3 by default again.
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for arm, wrt bug #500368
+
+*mesa-10.2.0_rc5 (02 Jun 2014)
+
+  02 Jun 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-10.2.0_rc5.ebuild, -mesa-10.2.0_rc4.ebuild:
+  Bump to latest prerelease.
+
+  27 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/mesa-10.2-dont-require-llvm-for-r300.patch:
+  Add forgotten patch.
+
+*mesa-10.2.0_rc4 (27 May 2014)
+
+  27 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-10.2.0_rc4.ebuild, metadata.xml:
+  Bump to latest prerelease. Drop llvm radeon backend requirement for opencl,
+  bug #506108.
+
+*mesa-10.1.4 (21 May 2014)
+
+  21 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-10.1.4.ebuild:
+  version bump.
+
+  15 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-10.1.3.ebuild:
+  Add forgotten pax-utils inherit, bug #506412.
+
+*mesa-10.1.3 (14 May 2014)
+
+  14 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +mesa-10.1.3.ebuild:
+  Version bump, bug #510086. Add gettext dependency, bug #502418. Add pax
+  marking to llvmpipe tests, bug #506412.
+
+  01 May 2014; Michał Górny <mgorny@gentoo.org> mesa-10.1.1.ebuild:
+  Remove --enable-llvm-shared-libs since the switch is broken in this version
+  and causes shared linking to be disabled. In fact, the default is for shared
+  linking to be enabled, so removing the switch leaves it that way.
+
+  29 Apr 2014; Michał Górny <mgorny@gentoo.org> mesa-10.1.1.ebuild:
+  Restore libxml2 dep that was removed prematurely, bug #509066.
+
+*mesa-10.1.1 (28 Apr 2014)
+
+  28 Apr 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.1.1.ebuild:
+  Version bump to 10.1.1, bug #508472.
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for sparc, wrt bug #500368
+
+  18 Apr 2014; Agostino Sarubbo <ago@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for alpha, wrt bug #500368
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for ia64, wrt bug #500368
+
+  16 Apr 2014; Agostino Sarubbo <ago@gentoo.org> mesa-10.0.4.ebuild:
+  Stable for ppc64, wrt bug #500368
 
   08 Apr 2014; Agostino Sarubbo <ago@gentoo.org> mesa-10.0.4.ebuild:
   Stable for ppc, wrt bug #500368

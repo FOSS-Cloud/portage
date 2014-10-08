@@ -1,6 +1,30 @@
 # ChangeLog for net-libs/ptlib
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/ptlib/ChangeLog,v 1.50 2013/10/27 09:45:21 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/ptlib/ChangeLog,v 1.55 2014/08/04 18:46:43 armin76 Exp $
+
+  04 Aug 2014; Raúl Porcel <armin76@gentoo.org> ptlib-2.10.10.ebuild,
+  ptlib-2.10.11.ebuild, +files/ptlib-2.10.10-respect_cflags_cxxflags.patch:
+  Add a patch that really makes ptlib respect C/CXXFLAGS, fixes build failure
+  #464182, mark stable on sparc, bug #461842
+
+  27 Jul 2014; Rick Farina <zerochaos@gentoo.org> ptlib-2.10.10.ebuild,
+  ptlib-2.10.11.ebuild, ptlib-2.12.4.ebuild, ptlib-2.12.9.ebuild:
+  adding ~arm
+
+  04 Jun 2014; <neurogeek@gentoo.org> metadata.xml:
+  Dropped myself from maintainer.
+
+  15 May 2014; Ulrich Müller <ulm@gentoo.org> ptlib-2.6.7-r1.ebuild,
+  ptlib-2.10.9.ebuild, ptlib-2.10.10.ebuild, ptlib-2.10.11.ebuild,
+  ptlib-2.12.4.ebuild, ptlib-2.12.9.ebuild, metadata.xml:
+  QA: Rename "audio" USE flag to "sound", bug 357661.
+
+*ptlib-2.12.9 (29 Apr 2014)
+*ptlib-2.10.11 (29 Apr 2014)
+
+  29 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> +ptlib-2.10.11.ebuild,
+  +ptlib-2.12.9.ebuild, +files/ptlib-2.10.10-mga-bison-parameter.patch:
+  Version bumps to fix build with >=sys-devel/bison-3.0 (bug #485842).
 
   27 Oct 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Voip herd is removed: http://article.gmane.org/gmane.linux.gentoo.devel/88434

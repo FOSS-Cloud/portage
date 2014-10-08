@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/clementine/clementine-1.2.2.ebuild,v 1.1 2014/03/12 13:19:50 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/clementine/clementine-1.2.2.ebuild,v 1.5 2014/07/24 11:52:54 ssuominen Exp $
 
 EAPI=5
 
@@ -8,7 +8,7 @@ EGIT_REPO_URI="https://github.com/clementine-player/Clementine.git"
 
 LANGS=" af ar be bg bn br bs ca cs cy da de el en_CA en_GB eo es es_AR et eu fa fi fr ga gl he hi hr hu hy ia id is it ja ka kk ko lt lv mr ms nb nl oc pa pl pt pt_BR ro ru sk sl sr sr@latin sv te tr uk uz vi zh_CN zh_TW"
 
-inherit cmake-utils flag-o-matic gnome2-utils virtualx
+inherit cmake-utils flag-o-matic fdo-mime gnome2-utils virtualx
 [[ ${PV} == *9999* ]] && inherit git-2
 
 DESCRIPTION="A modern music player and library organizer based on Amarok 1.4 and Qt4"
@@ -19,12 +19,12 @@ SRC_URI="https://github.com/clementine-player/Clementine/archive/${PV}.tar.gz ->
 LICENSE="GPL-3"
 SLOT="0"
 [[ ${PV} == *9999* ]] || \
-KEYWORDS="~amd64 ~x86"
-IUSE="ayatana box cdda +dbus debug dropbox googledrive ipod lastfm mms moodbar mtp projectm skydrive system-sqlite test ubuntu-one +udev wiimote"
+KEYWORDS="amd64 x86"
+IUSE="ayatana box cdda +dbus debug dropbox googledrive ipod lastfm mms moodbar mtp projectm skydrive system-sqlite test ubuntu-one +udisks wiimote"
 IUSE+="${LANGS// / linguas_}"
 
 REQUIRED_USE="
-	udev? ( dbus )
+	udisks? ( dbus )
 	wiimote? ( dbus )
 "
 
@@ -60,7 +60,7 @@ COMMON_DEPEND="
 # https://github.com/clementine-player/Clementine/tree/master/3rdparty/libprojectm/patches
 # r1966 "Compile with a static sqlite by default, since Qt 4.7 doesn't seem to expose the symbols we need to use FTS"
 RDEPEND="${COMMON_DEPEND}
-	dbus? ( udev? ( sys-fs/udisks:0 ) )
+	dbus? ( udisks? ( sys-fs/udisks:0 ) )
 	mms? ( media-plugins/gst-plugins-libmms:0.10 )
 	mtp? ( gnome-base/gvfs )
 	projectm? ( >=media-libs/libprojectm-1.2.0 )
@@ -93,6 +93,7 @@ S="${WORKDIR}/${P^}"
 PATCHES=(
 	"${FILESDIR}"/${P}-fix-build.patch
 	"${FILESDIR}"/${P}-fix-build2.patch
+	"${FILESDIR}"/${P}-gcc49.patch
 )
 
 src_prepare() {
@@ -117,7 +118,7 @@ src_configure() {
 		-DBUNDLE_PROJECTM_PRESETS=OFF
 		$(cmake-utils_use cdda ENABLE_AUDIOCD)
 		$(cmake-utils_use dbus ENABLE_DBUS)
-		$(cmake-utils_use udev ENABLE_DEVICEKIT)
+		$(cmake-utils_use udisks ENABLE_DEVICEKIT)
 		$(cmake-utils_use ipod ENABLE_LIBGPOD)
 		$(cmake-utils_use lastfm ENABLE_LIBLASTFM)
 		$(cmake-utils_use mtp ENABLE_LIBMTP)
@@ -150,6 +151,16 @@ src_test() {
 	Xemake test
 }
 
-pkg_preinst() { gnome2_icon_savelist; }
-pkg_postinst() { gnome2_icon_cache_update; }
-pkg_postrm() { gnome2_icon_cache_update; }
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
+}

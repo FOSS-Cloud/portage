@@ -1,6 +1,23 @@
 # ChangeLog for media-sound/fluidsynth
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/fluidsynth/ChangeLog,v 1.77 2012/12/27 08:17:26 armin76 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/fluidsynth/ChangeLog,v 1.81 2014/08/10 21:05:38 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> fluidsynth-1.1.1.ebuild,
+  fluidsynth-1.1.5.ebuild, fluidsynth-1.1.6-r1.ebuild, fluidsynth-1.1.6.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  24 Jun 2014; Michał Górny <mgorny@gentoo.org> fluidsynth-1.1.6-r1.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> fluidsynth-1.1.6-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+*fluidsynth-1.1.6-r1 (03 May 2014)
+
+  03 May 2014; Michał Górny <mgorny@gentoo.org> +fluidsynth-1.1.6-r1.ebuild:
+  Enable multilib support.
 
   27 Dec 2012; Raúl Porcel <armin76@gentoo.org> fluidsynth-1.1.6.ebuild:
   alpha/sparc stable wrt #444388

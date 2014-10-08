@@ -1,6 +1,15 @@
 # ChangeLog for dev-java/ldapsdk
-# Copyright 2000-2008 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/ldapsdk/ChangeLog,v 1.15 2008/04/28 21:25:20 betelgeuse Exp $
+# Copyright 2000-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/ldapsdk/ChangeLog,v 1.17 2014/06/21 06:58:30 ercpe Exp $
+
+*ldapsdk-4.1.7-r4 (21 Jun 2014)
+
+  21 Jun 2014; Johann Schmitz <ercpe@gentoo.org>
+  +files/4.1.7-fix-jdk-1.7-enum.patch, +ldapsdk-4.1.7-r4.ebuild:
+  EAPI bump; fixed bug #513580 (renamed variables named "enum"), some QA
+
+  17 Jun 2014; Manuel Rüger <mrueg@gentoo.org> -ldapsdk-4.1.7-r2.ebuild:
+  NM: Cleanup superseeded ebuilds.
 
   28 Apr 2008; Petteri Räty <betelgeuse@gentoo.org>
   ldapsdk-4.1.7-r3.ebuild:

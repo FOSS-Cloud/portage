@@ -1,6 +1,52 @@
 # ChangeLog for dev-libs/lockdev
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/lockdev/ChangeLog,v 1.13 2014/03/05 15:38:02 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/lockdev/ChangeLog,v 1.25 2014/10/06 01:36:03 blueness Exp $
+
+  06 Oct 2014; Anthony G. Basile <blueness@gentoo.org>
+  lockdev-1.0.3.1.2-r2.ebuild:
+  Stabilize on ppc and ppc64 to avoid bad dependancy, bug #493156#c7
+
+  05 Oct 2014; Anthony G. Basile <blueness@gentoo.org>
+  lockdev-1.0.3.1.2-r2.ebuild, lockdev-1.0.3.1.2-r3.ebuild:
+  Keyword ~ppc and ~ppc64, bug #493156
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> lockdev-1.0.3.1.2-r2.ebuild,
+  lockdev-1.0.3.1.2-r3.ebuild:
+  Add ~sparc wrt bug #493156
+
+  15 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> -lockdev-1.0.3.1.2-r1.ebuild,
+  lockdev-1.0.3.1.2-r3.ebuild:
+  Restore ~alpha keyword; Drop old.
+
+  15 Jul 2014; Pacho Ramos <pacho@gentoo.org> lockdev-1.0.3.1.2-r3.ebuild:
+  amd64/x86 stable, bug #516186
+
+  06 Jul 2014; Markus Meier <maekke@gentoo.org> lockdev-1.0.3.1.2-r3.ebuild:
+  arm stable, bug #516186
+
+  06 Jul 2014; Jeroen Roovers <jer@gentoo.org> lockdev-1.0.3.1.2-r3.ebuild:
+  Stable for HPPA (bug #516186).
+
+  04 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  lockdev-1.0.3.1.2-r2.ebuild:
+  Keyworded on alpha, bug #493156
+
+  04 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  lockdev-1.0.3.1.2-r1.ebuild:
+  Keyworded on alpha, bug #493156
+
+  22 Jun 2014; Akinori Hattori <hattya@gentoo.org> lockdev-1.0.3.1.2-r1.ebuild,
+  lockdev-1.0.3.1.2-r2.ebuild, lockdev-1.0.3.1.2-r3.ebuild:
+  keyword ~ia64 wrt bug #493156
+
+  30 May 2014; Michał Górny <mgorny@gentoo.org> lockdev-1.0.3.1.2-r3.ebuild:
+  Fix Perl module build to use relative ${PERL_S}.
+
+*lockdev-1.0.3.1.2-r3 (21 May 2014)
+
+  21 May 2014; Michał Górny <mgorny@gentoo.org> +lockdev-1.0.3.1.2-r3.ebuild,
+  files/lockdev-1.0.3-add-autotools.patch:
+  Enable multilib support, as a dependency of libgphoto2.
 
   05 Mar 2014; Jeroen Roovers <jer@gentoo.org> lockdev-1.0.3.1.2-r2.ebuild:
   Stable for HPPA (bug #502206).

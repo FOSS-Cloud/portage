@@ -1,6 +1,43 @@
 # ChangeLog for dev-ruby/coderay
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/coderay/ChangeLog,v 1.78 2013/11/11 16:55:27 mrueg Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/coderay/ChangeLog,v 1.89 2014/08/25 16:10:27 mrueg Exp $
+
+  25 Aug 2014; Manuel Rüger <mrueg@gentoo.org> coderay-1.1.0-r1.ebuild:
+  Mark amd64 stable. Bug #513430.
+
+  13 Aug 2014; Raúl Porcel <armin76@gentoo.org> coderay-1.1.0-r2.ebuild:
+  Add ~sparc wrt #468536
+
+  09 Aug 2014; Jeroen Roovers <jer@gentoo.org> coderay-1.1.0-r1.ebuild:
+  Stable for HPPA (bug #513430).
+
+  05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> coderay-1.0.9.ebuild,
+  coderay-1.1.0-r1.ebuild, coderay-1.1.0-r2.ebuild:
+  Remove trailing '.' from DESCRIPTION.
+
+  21 Jul 2014; Tobias Klausmann <klausman@gentoo.org> coderay-1.1.0-r1.ebuild:
+  Stable on alpha, bug #513430
+
+  15 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> coderay-1.1.0-r1.ebuild:
+  x86 stable wrt bug #513430
+
+  29 Jun 2014; Markus Meier <maekke@gentoo.org> coderay-1.1.0-r1.ebuild:
+  arm stable, bug #513430
+
+  22 Jun 2014; Akinori Hattori <hattya@gentoo.org> coderay-1.1.0-r1.ebuild:
+  ia64 stable wrt bug #513430
+
+  16 Jun 2014; Tobias Klausmann <klausman@gentoo.org> coderay-1.1.0-r2.ebuild:
+  Keyworded on alpha, bug #465948
+
+  07 May 2014; Manuel Rüger <mrueg@gentoo.org> coderay-1.0.9.ebuild,
+  coderay-1.1.0-r1.ebuild, coderay-1.1.0-r2.ebuild:
+  Remove ruby18 target.
+
+*coderay-1.1.0-r2 (19 Apr 2014)
+
+  19 Apr 2014; Hans de Graaff <graaff@gentoo.org> +coderay-1.1.0-r2.ebuild:
+  Add ruby21. Drop alpha, sparc due to unkeyworded dependencies, bug 465948.
 
   11 Nov 2013; Manuel Rüger <mrueg@gentoo.org> -coderay-1.1.0.ebuild:
   Cleanup old.

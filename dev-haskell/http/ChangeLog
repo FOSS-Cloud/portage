@@ -1,6 +1,14 @@
 # ChangeLog for dev-haskell/http
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/http/ChangeLog,v 1.45 2013/07/21 17:45:31 ottxor Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/http/ChangeLog,v 1.47 2014/07/25 08:59:03 slyfox Exp $
+
+  25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
+  Drop redundant '<maintainer>' field, leave only '<herd>'.
+
+*http-4000.2.17 (02 Jul 2014)
+
+  02 Jul 2014; Mark Wright <gienah@gentoo.org> +http-4000.2.17.ebuild:
+  Bump http to 4000.2.17
 
   21 Jul 2013; Christoph Junghans <ottxor@gentoo.org> http-4000.2.8.ebuild:
   added ~amd64-linux (tested by me)

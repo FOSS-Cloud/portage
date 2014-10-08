@@ -1,12 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ffi/ffi-1.9.3.ebuild,v 1.5 2014/01/29 15:51:40 hattya Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ffi/ffi-1.9.3.ebuild,v 1.11 2014/09/19 09:28:13 jer Exp $
 
 EAPI=5
 
 # jruby → unneeded, this is part of the standard JRuby distribution, and
 # would just install a dummy.
-USE_RUBY="ruby18 ruby19 ruby20"
+USE_RUBY="ruby19 ruby20"
 
 RUBY_FAKEGEM_TASK_TEST="specs"
 
@@ -24,7 +24,7 @@ SRC_URI="http://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${PN}-git-${PV}.t
 IUSE=""
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x86-solaris"
 
 RDEPEND+=" virtual/libffi"
 DEPEND+=" virtual/libffi"
@@ -37,11 +37,20 @@ ruby_add_rdepend "virtual/ruby-threads"
 all_ruby_prepare() {
 	sed -i -e '/tasks/ s:^:#:' \
 		-e '/Gem::Tasks/,/end/ s:^:#:' Rakefile || die
+
+	# Fix Makefile for tests
+	sed -i -e '/CCACHE :=/ s:^:#:' \
+		-e 's/-O2//' \
+		-e 's/^CFLAGS =/CFLAGS +=/' libtest/GNUmakefile || die
 }
 
 each_ruby_compile() {
 	${RUBY} -S rake compile || die "compile failed"
 	${RUBY} -S rake -f gen/Rakefile || die "types.conf generation failed"
+}
+
+each_ruby_test() {
+	CC=$(tc-getCC) CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" ${RUBY} -S rake specs || die
 }
 
 all_ruby_install() {

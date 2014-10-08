@@ -1,18 +1,19 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/majesty-demo/majesty-demo-1.0.0.ebuild,v 1.13 2012/12/24 15:36:37 tupone Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/majesty-demo/majesty-demo-1.0.0.ebuild,v 1.15 2014/08/10 21:21:00 slyfox Exp $
+
 EAPI=4
 inherit eutils unpacker games
 
-DESCRIPTION="Control your own kingdom in this simulation."
+DESCRIPTION="Control your own kingdom in this simulation"
 HOMEPAGE="http://www.linuxgamepublishing.com/info.php?id=8&"
 SRC_URI="http://demos.linuxgamepublishing.com/majesty/majesty_demo.run"
 
-LICENSE="as-is"
+LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="amd64 ppc x86"
-RESTRICT="strip"
 IUSE=""
+RESTRICT="mirror bindist strip"
 
 RDEPEND="sys-libs/glibc
 	x86? (

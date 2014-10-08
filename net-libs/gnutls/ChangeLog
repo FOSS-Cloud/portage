@@ -1,6 +1,154 @@
 # ChangeLog for net-libs/gnutls
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gnutls/ChangeLog,v 1.483 2014/03/29 21:15:05 alonbl Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/gnutls/ChangeLog,v 1.514 2014/09/23 06:39:27 alonbl Exp $
+
+  23 Sep 2014; Alon Bar-Lev <alonbl@gentoo.org> gnutls-3.3.8.ebuild:
+  Bump p11-kit dependency, bug#523472, thanks to Marcin Mirosław
+
+*gnutls-3.3.8 (19 Sep 2014)
+*gnutls-3.2.18 (19 Sep 2014)
+
+  19 Sep 2014; Alon Bar-Lev <alonbl@gentoo.org> +gnutls-3.2.18.ebuild,
+  +gnutls-3.3.8.ebuild:
+  Version bump, bug#523190, thanks to polynomial-c
+
+*gnutls-3.3.7-r1 (29 Aug 2014)
+
+  29 Aug 2014; Alon Bar-Lev <alonbl@gentoo.org> +gnutls-3.3.7-r1.ebuild:
+  Remove htmldir if \!use doc, bug#520854. Force regenerate of makeinfo files,
+  bug#520818
+
+*gnutls-3.2.17 (24 Aug 2014)
+*gnutls-3.3.7 (24 Aug 2014)
+
+  24 Aug 2014; Alon Bar-Lev <alonbl@gentoo.org> +files/gnutls-3.3.7-build.patch,
+  +gnutls-3.2.17.ebuild, +gnutls-3.3.7.ebuild, -gnutls-3.2.15.ebuild,
+  -gnutls-3.3.4-r1.ebuild:
+  Version bump, bug#520784, cleanup
+
+*gnutls-3.2.16 (08 Aug 2014)
+*gnutls-3.3.6 (08 Aug 2014)
+
+  08 Aug 2014; Alon Bar-Lev <alonbl@gentoo.org> +gnutls-3.2.16.ebuild,
+  +gnutls-3.3.6.ebuild, -gnutls-3.3.4.ebuild:
+  Version bump, bug#518762
+
+*gnutls-3.3.4-r1 (06 Jul 2014)
+
+  06 Jul 2014; Alon Bar-Lev <alonbl@gentoo.org> +gnutls-3.3.4-r1.ebuild:
+  Fix dane roots issue, bug#443104, thanks to Rafał Mużyło
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> gnutls-3.3.4.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  13 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org> gnutls-2.12.23-r6.ebuild:
+  Remove libtasn-1 mask, since long time we could have done this, bug#492522
+
+  10 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org> -gnutls-2.12.23-r4.ebuild,
+  -gnutls-2.12.23-r5.ebuild:
+  Cleanup old, bug#511840
+
+  10 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> gnutls-2.12.23-r6.ebuild:
+  ppc64/ppc stable wrt bug #511840
+
+  10 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> gnutls-2.12.23-r6.ebuild:
+  ia64 stable wrt bug #511840
+
+  10 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> gnutls-2.12.23-r6.ebuild:
+  sparc stable wrt bug #511840
+
+  10 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> gnutls-2.12.23-r6.ebuild:
+  alpha stable wrt bug #511840
+
+  10 Jun 2014; Mike Frysinger <vapier@gentoo.org> gnutls-2.12.23-r4.ebuild,
+  gnutls-2.12.23-r5.ebuild, gnutls-2.12.23-r6.ebuild, gnutls-3.2.15.ebuild,
+  gnutls-3.3.4.ebuild:
+  Mark m68k/s390/sh stable.
+
+  10 Jun 2014; Mike Frysinger <vapier@gentoo.org> gnutls-2.12.23-r4.ebuild,
+  gnutls-2.12.23-r5.ebuild, gnutls-2.12.23-r6.ebuild, gnutls-3.2.15.ebuild,
+  gnutls-3.3.4.ebuild:
+  Add arm64 love.
+
+  09 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> gnutls-2.12.23-r6.ebuild:
+  arm stable wrt bug #511840
+
+  09 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> gnutls-2.12.23-r6.ebuild:
+  x86 stable wrt bug #511840
+
+  09 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> gnutls-2.12.23-r6.ebuild:
+  amd64 stable wrt bug #511840
+
+  09 Jun 2014; Jeroen Roovers <jer@gentoo.org> gnutls-2.12.23-r6.ebuild:
+  Stable for HPPA (bug #511840).
+
+*gnutls-2.12.23-r6 (07 Jun 2014)
+
+  07 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org>
+  +files/gnutls-2.12.23-CVE-2014-3466.patch,
+  +files/gnutls-2.12.23-CVE-2014-3467.patch,
+  +files/gnutls-2.12.23-CVE-2014-3468.patch,
+  +files/gnutls-2.12.23-CVE-2014-3469.patch, +gnutls-2.12.23-r6.ebuild:
+  Fix CVE-2014-3466, CVE-2014-3467, CVE-2014-3468, CVE-2014-3469 of 2.12 series
+
+  07 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org>
+  -files/gnutls-2.12.20-glibc-2.16.patch, -files/gnutls-3.3.1-guile.patch,
+  -files/gnutls-3.3.2-build-out-of-tree.patch, -gnutls-3.2.11.ebuild,
+  -gnutls-3.2.12.1.ebuild, -gnutls-3.2.12.ebuild, -gnutls-3.2.13.ebuild,
+  -gnutls-3.2.14.ebuild, -gnutls-3.3.1-r1.ebuild, -gnutls-3.3.1.ebuild,
+  -gnutls-3.3.2.ebuild:
+  Cleanup old
+
+*gnutls-3.3.4 (01 Jun 2014)
+*gnutls-3.2.15 (01 Jun 2014)
+
+  01 Jun 2014; Tim Harder <radhermit@gentoo.org> +gnutls-3.2.15.ebuild,
+  +gnutls-3.3.4.ebuild:
+  Security bumps (bug #511840).
+
+  17 May 2014; Michał Górny <mgorny@gentoo.org> gnutls-3.3.2.ebuild:
+  Symlink remaining tools necessary for tests for non-native ABIs.
+
+*gnutls-3.3.2 (17 May 2014)
+*gnutls-3.2.14 (17 May 2014)
+
+  17 May 2014; Alon Bar-Lev <alonbl@gentoo.org>
+  +files/gnutls-3.3.2-build-out-of-tree.patch, +gnutls-3.2.14.ebuild,
+  +gnutls-3.3.2.ebuild:
+  Version bumps, fix bug#510282, fix build issues bug#510418 thanks to Michał
+  Górny
+
+  15 May 2014; Michał Górny <mgorny@gentoo.org> gnutls-3.3.1-r1.ebuild:
+  Symlink native certtool for reuse in tests, bug #510420.
+
+  15 May 2014; Alon Bar-Lev <alonbl@gentoo.org> -gnutls-2.12.23-r1.ebuild:
+  Remove old, bug#501282
+
+*gnutls-3.3.1-r1 (13 May 2014)
+
+  13 May 2014; Michał Górny <mgorny@gentoo.org> +gnutls-3.3.1-r1.ebuild:
+  Enable multilib support, bug #493166.
+
+  25 Apr 2014; Alon Bar-Lev <alonbl@gentoo.org> +files/gnutls-3.3.1-guile.patch,
+  gnutls-3.3.1.ebuild:
+  Fix guile build, bug#508454, thanks to  Ed Catmur
+
+*gnutls-3.3.1 (22 Apr 2014)
+
+  22 Apr 2014; Alon Bar-Lev <alonbl@gentoo.org> +gnutls-3.3.1.ebuild,
+  -gnutls-3.3.0.ebuild:
+  Version bump, bug#508360
+
+*gnutls-3.3.0 (18 Apr 2014)
+
+  18 Apr 2014; Alon Bar-Lev <alonbl@gentoo.org> +gnutls-3.3.0.ebuild:
+  Version bump, bug#508032
+
+*gnutls-3.2.13 (11 Apr 2014)
+
+  11 Apr 2014; Tim Harder <radhermit@gentoo.org> +gnutls-3.2.13.ebuild:
+  Version bump.
 
 *gnutls-2.12.23-r5 (29 Mar 2014)
 

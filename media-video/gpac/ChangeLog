@@ -1,6 +1,25 @@
 # ChangeLog for media-video/gpac
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/gpac/ChangeLog,v 1.120 2014/01/26 12:17:03 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/gpac/ChangeLog,v 1.124 2014/10/07 22:17:32 lu_zero Exp $
+
+  07 Oct 2014; Luca Barbato <lu_zero@gentoo.org> gpac-0.5.1_pre5456.ebuild,
+  gpac-9999.ebuild:
+  Drop = from the --disable-foo=*) match, fix bug #524728
+
+*gpac-0.5.1_pre5456 (05 Oct 2014)
+
+  05 Oct 2014; Luca Barbato <lu_zero@gentoo.org> +gpac-0.5.1_pre5456.ebuild:
+  Add a snapshot compatible with recent libav.
+
+*gpac-9999 (05 Oct 2014)
+
+  05 Oct 2014; Luca Barbato <lu_zero@gentoo.org>
+  +files/gpac-0.5.1-build-fixes.patch, +gpac-9999.ebuild:
+  Add a live ebuild
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> gpac-0.4.5-r4.ebuild,
+  gpac-0.4.5-r5.ebuild, gpac-0.5.0-r1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
 
   26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> gpac-0.5.0-r1.ebuild:
   Stable for sparc, wrt bug #495820

@@ -1,6 +1,17 @@
 # ChangeLog for dev-perl/Devel-StackTrace
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Devel-StackTrace/ChangeLog,v 1.89 2013/10/06 09:50:37 zlogene Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Devel-StackTrace/ChangeLog,v 1.91 2014/09/12 17:22:52 zlogene Exp $
+
+  12 Sep 2014; Mikle Kolyada <zlogene@gentoo.org>
+  -Devel-StackTrace-1.270.0.ebuild, -Devel-StackTrace-1.290.0.ebuild:
+  Drop old.
+
+*Devel-StackTrace-1.300.0-r1 (22 Aug 2014)
+
+  22 Aug 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +Devel-StackTrace-1.300.0-r1.ebuild, -Devel-StackTrace-1.300.0.ebuild:
+  bumped EAPI to 5; committed directly to stable as no other changes present and
+  revbump helps stable systems to keep from dieing on perl-5.18 upgrade
 
   06 Oct 2013; Mikle Kolyada <zlogene@gentoo.org>
   Devel-StackTrace-1.300.0.ebuild:

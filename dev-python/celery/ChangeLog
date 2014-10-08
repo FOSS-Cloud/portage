@@ -1,6 +1,67 @@
 # ChangeLog for dev-python/celery
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/celery/ChangeLog,v 1.30 2014/04/09 10:52:50 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/celery/ChangeLog,v 1.44 2014/09/21 00:31:25 idella4 Exp $
+
+*celery-3.1.15-r1 (21 Sep 2014)
+
+  21 Sep 2014; Ian Delaney <idella4@gentoo.org> +celery-3.1.15-r1.ebuild,
+  celery-3.1.15.ebuild:
+  revbump; upgrade deps
+
+*celery-3.1.15 (16 Sep 2014)
+
+  16 Sep 2014; Michael Weber <xmw@gentoo.org> +celery-3.1.15.ebuild:
+  Version bump (non-maint)
+
+*celery-3.1.14 (14 Sep 2014)
+
+  14 Sep 2014; Michael Weber <xmw@gentoo.org> +celery-3.1.14.ebuild:
+  Version bump (non-maint commit).
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> celery-3.1.11.ebuild,
+  celery-3.1.12.ebuild, celery-3.1.13.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*celery-3.1.13 (17 Jul 2014)
+
+  17 Jul 2014; Ian Delaney <idella4@gentoo.org> +celery-3.1.13.ebuild:
+  bump
+
+  16 Jul 2014; Ian Delaney <idella4@gentoo.org> -celery-3.1.10.ebuild:
+  remove old
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> celery-3.1.10.ebuild,
+  celery-3.1.11.ebuild, celery-3.1.12.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
+
+  01 Jul 2014; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag description from metadata.xml
+
+  01 Jul 2014; Patrick Lauer <patrick@gentoo.org> -celery-3.0.14-r1.ebuild,
+  -celery-3.0.21.ebuild:
+  Remove old versions with unsatisfied dependencies
+
+*celery-3.1.12 (14 Jun 2014)
+
+  14 Jun 2014; Ian Delaney <idella4@gentoo.org> +celery-3.1.12.ebuild,
+  files/celery-3.1.11-test.patch:
+  bump; add py3.4 support, update deps
+
+*celery-3.1.11 (04 May 2014)
+
+  04 May 2014; Ian Delaney <idella4@gentoo.org> +celery-3.1.11.ebuild,
+  +files/celery-3.1.11-test.patch, -celery-3.0.12.ebuild, -celery-3.0.13.ebuild,
+  -celery-3.0.15.ebuild, -celery-3.0.16.ebuild, -celery-3.0.17.ebuild,
+  -celery-3.0.19.ebuild:
+  bump, rm olds
+
+  26 Apr 2014; Ian Delaney <idella4@gentoo.org> celery-3.1.10.ebuild:
+  take out white space
+
+  26 Apr 2014; Ian Delaney <idella4@gentoo.org> +files/celery-3.1.10-test.patch,
+  celery-3.1.10.ebuild:
+  patch to fix tests for py3
 
 *celery-3.1.10 (09 Apr 2014)
 

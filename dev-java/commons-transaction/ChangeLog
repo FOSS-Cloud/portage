@@ -1,6 +1,14 @@
 # ChangeLog for dev-java/commons-transaction
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/commons-transaction/ChangeLog,v 1.11 2009/06/29 21:15:16 maekke Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/commons-transaction/ChangeLog,v 1.13 2014/08/10 20:12:00 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  commons-transaction-1.2.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  18 Jun 2014; Manuel Rüger <mrueg@gentoo.org>
+  -commons-transaction-1.0.1-r2.ebuild:
+  NM: Cleanup superseded ebuilds.
 
   29 Jun 2009; Markus Meier <maekke@gentoo.org>
   commons-transaction-1.2.ebuild:
@@ -58,4 +66,3 @@
   +commons-transaction-1.0.1.ebuild:
   Initial import, ebuild based on the contribution by Josh Nichols
   <nichoj@alum.rpi.edu>. Fixes #93510
-

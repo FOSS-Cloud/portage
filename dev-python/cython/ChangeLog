@@ -1,6 +1,41 @@
 # ChangeLog for dev-python/cython
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/cython/ChangeLog,v 1.113 2014/04/02 22:58:39 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/cython/ChangeLog,v 1.122 2014/10/04 21:09:39 jer Exp $
+
+  04 Oct 2014; Jeroen Roovers <jer@gentoo.org> cython-0.21.ebuild:
+  Stable for HPPA (bug #524416).
+
+  21 Sep 2014; Agostino Sarubbo <ago@gentoo.org> cython-0.19.1-r1.ebuild:
+  Stable for sparc, wrt bug #517106
+
+*cython-0.21 (13 Sep 2014)
+
+  13 Sep 2014; Kacper Kowalik <xarthisius@gentoo.org> +cython-0.21.ebuild,
+  cython-0.16.ebuild, cython-0.17.1.ebuild, cython-0.17.2.ebuild,
+  cython-0.17.4.ebuild, cython-0.18-r1.ebuild, cython-0.18.ebuild,
+  cython-0.19.1-r1.ebuild, cython-0.19.1.ebuild, cython-0.19.2.ebuild,
+  cython-0.20.1.ebuild, cython-0.20.2.ebuild, cython-0.20.ebuild:
+  Version bump, drop python2_6
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> cython-0.19.1-r1.ebuild:
+  Stable for HPPA (bug #506042).
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> cython-0.19.1-r1.ebuild:
+  Stable for x86, wrt bug #506042
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> cython-0.19.1-r1.ebuild:
+  Stable for amd64, wrt bug #506042
+
+  19 Jul 2014; Tobias Klausmann <klausman@gentoo.org> cython-0.19.1-r1.ebuild:
+  Stable on alpha, bug #506042
+
+  20 Jun 2014; Tobias Klausmann <klausman@gentoo.org> cython-0.19.1.ebuild:
+  Keyworded on alpha, bug #474330
+
+*cython-0.20.2 (17 Jun 2014)
+
+  17 Jun 2014; Tim Harder <radhermit@gentoo.org> +cython-0.20.2.ebuild:
+  Version bump.
 
   02 Apr 2014; Mike Gilbert <floppym@gentoo.org> cython-0.20.1.ebuild:
   Add python3.4 to numpy usedep.

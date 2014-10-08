@@ -1,6 +1,44 @@
 # ChangeLog for media-video/totem
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/totem/ChangeLog,v 1.371 2014/03/11 20:24:50 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/totem/ChangeLog,v 1.380 2014/09/04 15:33:53 pacho Exp $
+
+*totem-3.12.2 (04 Sep 2014)
+
+  04 Sep 2014; Pacho Ramos <pacho@gentoo.org> +totem-3.12.2.ebuild,
+  -files/totem-3.8.2-vimeo-compat.patch, -totem-3.10.1.ebuild, metadata.xml:
+  Version bump, drop old
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> totem-3.12.1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> totem-3.12.1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  30 Jun 2014; Pacho Ramos <pacho@gentoo.org> totem-3.12.1.ebuild:
+  Drop unrecognized configure option, bug #515852 by Ilya Gordeev; drop old.
+
+  29 Jun 2014; Gilles Dartiguelongue <eva@gentoo.org> -totem-3.12.0.ebuild,
+  totem-3.12.1.ebuild:
+  Add gtk USE flag on clutter, otherwise builds fails with undefined symbols in
+  while linking to clutter-gtk. Drop old revision.
+
+  16 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org> totem-3.10.1.ebuild,
+  totem-3.12.0.ebuild, totem-3.12.1.ebuild:
+  Add missing dependencies for m4 macros for eautoreconf (bug #513460, thanks
+  to krantadan).
+
+*totem-3.12.1 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> +totem-3.12.1.ebuild:
+  Version bump
+
+*totem-3.12.0 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> +totem-3.12.0.ebuild:
+  Version bump for Gnome 3.12.
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> totem-3.10.1.ebuild:
+  Adapt to latest pygobject don't providing python2.6 support
 
   11 Mar 2014; Pacho Ramos <pacho@gentoo.org> -totem-3.8.2-r1.ebuild,
   totem-3.10.1.ebuild:

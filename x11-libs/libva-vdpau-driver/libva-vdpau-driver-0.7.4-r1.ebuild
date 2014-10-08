@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-vdpau-driver/libva-vdpau-driver-0.7.4-r1.ebuild,v 1.2 2014/02/16 19:41:37 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-vdpau-driver/libva-vdpau-driver-0.7.4-r1.ebuild,v 1.5 2014/07/24 15:30:56 ssuominen Exp $
 
 EAPI=5
 
@@ -13,12 +13,12 @@ SRC_URI="http://www.freedesktop.org/software/vaapi/releases/libva-vdpau-driver/$
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="debug opengl"
 
-RDEPEND=">=x11-libs/libva-1.1.0[X,opengl?,${MULTILIB_USEDEP}]
-	opengl? ( virtual/opengl[${MULTILIB_USEDEP}] )
-	x11-libs/libvdpau[${MULTILIB_USEDEP}]
+RDEPEND=">=x11-libs/libva-1.2.1-r1[X,opengl?,${MULTILIB_USEDEP}]
+	opengl? ( >=virtual/opengl-7.0-r1[${MULTILIB_USEDEP}] )
+	=x11-libs/libvdpau-0.7*[${MULTILIB_USEDEP}]
 	!x11-libs/vdpau-video"
 
 DEPEND="${DEPEND}

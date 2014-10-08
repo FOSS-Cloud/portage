@@ -1,6 +1,28 @@
 # ChangeLog for x11-wm/sawfish
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/sawfish/ChangeLog,v 1.129 2014/02/10 21:46:34 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/sawfish/ChangeLog,v 1.136 2014/08/01 11:39:33 ulm Exp $
+
+  01 Aug 2014; Ulrich Müller <ulm@gentoo.org> -sawfish-1.9.1.ebuild,
+  -sawfish-1.9.1-r1.ebuild:
+  Remove old.
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> sawfish-1.9.1-r2.ebuild:
+  ia64/sparc stable wrt #507244
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org> sawfish-1.9.1-r2.ebuild:
+  Stable on alpha, bug #507244
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> sawfish-1.9.1-r2.ebuild:
+  Stable for ppc, wrt bug #507244
+
+  23 Jun 2014; Chema Alonso <nimiux@gentoo.org> sawfish-1.9.1-r2.ebuild:
+  Stable for amd64 wrt bug #507244
+
+  23 Jun 2014; Chema Alonso <nimiux@gentoo.org> sawfish-1.9.1-r2.ebuild:
+  Add depend on virtual/emacs
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> sawfish-1.9.1-r2.ebuild:
+  x86 stable wrt bug #507244
 
 *sawfish-1.9.1-r2 (10 Feb 2014)
 

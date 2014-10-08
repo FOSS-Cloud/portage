@@ -1,6 +1,25 @@
 # ChangeLog for app-leechcraft/lc-vrooby
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-vrooby/ChangeLog,v 1.11 2014/04/03 08:58:19 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-vrooby/ChangeLog,v 1.15 2014/08/10 17:59:55 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> lc-vrooby-0.6.60.ebuild,
+  lc-vrooby-0.6.65.ebuild, lc-vrooby-0.6.70.ebuild, lc-vrooby-9999.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*lc-vrooby-0.6.70 (03 Aug 2014)
+
+  03 Aug 2014; Maxim Koltsov <maksbotan@gentoo.org> +lc-vrooby-0.6.70.ebuild:
+  Bump LeechCraft to 0.6.70, thanks to 0xd34df00d.
+
+  27 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> lc-vrooby-0.6.60.ebuild,
+  lc-vrooby-0.6.65.ebuild, lc-vrooby-9999.ebuild, metadata.xml:
+  Punt USE="udisks udisks2" and always select sys-fs/udisks:2 wrt #517956. Ack
+  from maksbotan.
+
+*lc-vrooby-0.6.65 (10 Apr 2014)
+
+  10 Apr 2014; Maxim Koltsov <maksbotan@gentoo.org> +lc-vrooby-0.6.65.ebuild:
+  Bump LeechCraft to 0.5.65, thanks to 0xd34df00d.
 
   03 Apr 2014; Mikle Kolyada <zlogene@gentoo.org> lc-vrooby-0.6.60.ebuild:
   x86 stable wrt bug #500914

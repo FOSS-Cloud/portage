@@ -1,6 +1,40 @@
 # ChangeLog for media-video/cheese
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/cheese/ChangeLog,v 1.80 2014/03/09 12:02:40 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/cheese/ChangeLog,v 1.88 2014/07/30 05:40:03 ssuominen Exp $
+
+  30 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> -cheese-3.12.1.ebuild,
+  -cheese-3.12.2.ebuild:
+  old
+
+*cheese-3.12.2-r1 (30 Jul 2014)
+
+  30 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> +cheese-3.12.2-r1.ebuild:
+  Revision bump media-video/cheese because dynamic deps doesn't catch
+  virtual/udev[gudev] -> virtual/libgudev upgrade for this package.
+
+  24 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> cheese-2.32.0.ebuild,
+  cheese-3.10.2.ebuild, cheese-3.12.1.ebuild, cheese-3.12.2.ebuild:
+  Use virtual/libgudev with := instead of virtual/udev.
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> cheese-3.12.2.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> cheese-3.12.2.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*cheese-3.12.2 (30 May 2014)
+
+  30 May 2014; Pacho Ramos <pacho@gentoo.org> +cheese-3.12.2.ebuild:
+  Version bump
+
+*cheese-3.12.1 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> +cheese-3.12.1.ebuild:
+  Version bump for Gnome 3.12.
+
+  18 Apr 2014; Pacho Ramos <pacho@gentoo.org> -cheese-3.8.3.ebuild,
+  metadata.xml:
+  drop old
 
   09 Mar 2014; Pacho Ramos <pacho@gentoo.org> cheese-3.10.2.ebuild:
   x86 stable, bug 499954

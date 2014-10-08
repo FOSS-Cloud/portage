@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/polkit-0.112-r2.ebuild,v 1.2 2014/04/06 15:39:36 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/polkit-0.112-r2.ebuild,v 1.4 2014/08/14 14:14:06 ssuominen Exp $
 
 EAPI=5
 inherit eutils multilib pam pax-utils systemd user
@@ -11,12 +11,14 @@ SRC_URI="http://www.freedesktop.org/software/${PN}/releases/${P}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 IUSE="examples gtk +introspection jit kde nls pam selinux systemd"
 
-RDEPEND="ia64? ( =dev-lang/spidermonkey-1.8.5*[-debug] )
+RDEPEND="
+	ia64? ( =dev-lang/spidermonkey-1.8.5*[-debug] )
+	hppa? ( =dev-lang/spidermonkey-1.8.5*[-debug] )
 	mips? ( =dev-lang/spidermonkey-1.8.5*[-debug] )
-	!ia64? ( !mips? ( dev-lang/spidermonkey:17[-debug,jit=] ) )
+	!hppa? ( !ia64? ( !mips? ( dev-lang/spidermonkey:17[-debug,jit=] ) ) )
 	>=dev-libs/glib-2.32
 	>=dev-libs/expat-2:=
 	introspection? ( >=dev-libs/gobject-introspection-1 )
@@ -68,7 +70,7 @@ src_configure() {
 		$(use_enable introspection) \
 		--disable-examples \
 		$(use_enable nls) \
-		$(if use ia64 || use mips; then echo --with-mozjs=mozjs185; else echo --with-mozjs=mozjs-17.0; fi) \
+		$(if use hppa || use ia64 || use mips; then echo --with-mozjs=mozjs185; else echo --with-mozjs=mozjs-17.0; fi) \
 		"$(systemd_with_unitdir)" \
 		--with-authfw=$(usex pam pam shadow) \
 		$(use pam && echo --with-pam-module-dir="$(getpam_mod_dir)") \
@@ -83,7 +85,8 @@ src_compile() {
 	local m=''
 	# Only used when USE="jit" is enabled for 'dev-lang/spidermonkey:17' wrt #485910
 	has_version 'dev-lang/spidermonkey:17[jit]' && m='m'
-	# ia64 and mips uses spidermonkey-1.8.5 which requires different pax-mark flags
+	# hppa, ia64 and mips uses spidermonkey-1.8.5 which requires different pax-mark flags
+	use hppa && m='mr'
 	use ia64 && m='mr'
 	use mips && m='mr'
 	pax-mark ${m} ${f}

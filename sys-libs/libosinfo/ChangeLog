@@ -1,6 +1,26 @@
 # ChangeLog for sys-libs/libosinfo
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libosinfo/ChangeLog,v 1.30 2013/12/08 19:40:38 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libosinfo/ChangeLog,v 1.35 2014/09/09 14:58:34 pacho Exp $
+
+*libosinfo-0.2.11 (09 Sep 2014)
+
+  09 Sep 2014; Pacho Ramos <pacho@gentoo.org> +libosinfo-0.2.11.ebuild,
+  -files/libosinfo-0.2.6-destdir.patch, -libosinfo-0.2.7.ebuild:
+  Version bump, drop old, update homepage (#522352 by BT)
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libosinfo-0.2.10.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libosinfo-0.2.10.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*libosinfo-0.2.10 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> +libosinfo-0.2.10.ebuild:
+  Version bump for Gnome 3.12.
+
+  27 Apr 2014; Pacho Ramos <pacho@gentoo.org> -libosinfo-0.2.6.ebuild:
+  drop old
 
   08 Dec 2013; Pacho Ramos <pacho@gentoo.org> libosinfo-0.2.7.ebuild:
   x86 stable, bug #478252

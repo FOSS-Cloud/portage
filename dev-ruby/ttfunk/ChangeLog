@@ -1,6 +1,41 @@
 # ChangeLog for dev-ruby/ttfunk
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ttfunk/ChangeLog,v 1.9 2014/02/25 09:14:10 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ttfunk/ChangeLog,v 1.17 2014/10/04 15:32:30 mrueg Exp $
+
+*ttfunk-1.4.0 (04 Oct 2014)
+
+  04 Oct 2014; Manuel Rüger <mrueg@gentoo.org> +ttfunk-1.4.0.ebuild:
+  Version bump.
+
+*ttfunk-1.2.1 (29 Aug 2014)
+
+  29 Aug 2014; Hans de Graaff <graaff@gentoo.org> +ttfunk-1.2.1.ebuild:
+  Version bump.
+
+  19 Aug 2014; Raúl Porcel <armin76@gentoo.org> ttfunk-1.1.1.ebuild,
+  ttfunk-1.2.0.ebuild:
+  Add ~alpha/~arm/~ia64/~sparc/~x86 wrt #519170
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> ttfunk-1.1.1.ebuild,
+  ttfunk-1.2.0.ebuild:
+  Keyword ~ppc and ~ppc64, bug #519170
+
+  11 Aug 2014; Jeroen Roovers <jer@gentoo.org> ttfunk-1.1.1.ebuild,
+  ttfunk-1.2.0.ebuild:
+  Marked ~hppa (bug #519170).
+
+  05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> ttfunk-1.0.3-r1.ebuild,
+  ttfunk-1.1.1.ebuild, ttfunk-1.2.0.ebuild:
+  Remove trailing '.' from DESCRIPTION.
+
+*ttfunk-1.2.0 (24 Jun 2014)
+
+  24 Jun 2014; Hans de Graaff <graaff@gentoo.org> +ttfunk-1.2.0.ebuild:
+  Version bump.
+
+  19 Apr 2014; Manuel Rüger <mrueg@gentoo.org> -ttfunk-1.1.0.ebuild,
+  ttfunk-1.0.3-r1.ebuild, ttfunk-1.1.1.ebuild:
+  Remove ruby18 target. Cleanup old.
 
 *ttfunk-1.1.1 (25 Feb 2014)
 

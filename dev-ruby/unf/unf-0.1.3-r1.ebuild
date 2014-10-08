@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/unf/unf-0.1.3-r1.ebuild,v 1.2 2014/01/19 17:00:50 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/unf/unf-0.1.3-r1.ebuild,v 1.5 2014/08/05 16:00:35 mrueg Exp $
 
 EAPI=5
 
-USE_RUBY="ruby18 ruby19 ruby20 jruby"
+USE_RUBY="ruby19 ruby20 jruby"
 
 RUBY_FAKEGEM_RECIPE_TEST="none"
 RUBY_FAKEGEM_TASK_DOC=""
@@ -14,12 +14,12 @@ RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 
 inherit ruby-fakegem
 
-DESCRIPTION="A wrapper library to bring Unicode Normalization Form support to Ruby/JRuby."
+DESCRIPTION="A wrapper library to bring Unicode Normalization Form support to Ruby/JRuby"
 HOMEPAGE="https://github.com/knu/ruby-unf"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
+KEYWORDS="amd64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
 IUSE="test"
 
 # jruby already has support for UNF so it does not need the extension.

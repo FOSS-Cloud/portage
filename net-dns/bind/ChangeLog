@@ -1,6 +1,76 @@
 # ChangeLog for net-dns/bind
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/bind/ChangeLog,v 1.490 2014/02/16 15:52:25 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/bind/ChangeLog,v 1.509 2014/10/02 11:22:09 blueness Exp $
+
+  02 Oct 2014; Anthony G. Basile <blueness@gentoo.org> bind-9.10.1.ebuild:
+  Keyword ~ppc ~ppc64, bug #524148
+
+  30 Sep 2014; Jeroen Roovers <jer@gentoo.org> bind-9.10.1.ebuild:
+  Marked ~hppa (bug #524148).
+
+*bind-9.10.1 (30 Sep 2014)
+
+  30 Sep 2014; Christian Ruppert <idl0r@gentoo.org> +bind-9.10.1.ebuild,
+  metadata.xml:
+  Version bump, also fixes bug 523470
+
+  10 Sep 2014; Christian Ruppert <idl0r@gentoo.org> bind-9.10.0_p2.ebuild:
+  The MySQL reconnect patch is no longer required, thanks to BtbN via IRC
+
+  18 Aug 2014; Christian Ruppert <idl0r@gentoo.org> bind-9.9.5_p1.ebuild:
+  Fix epatch, bug 520170
+
+  17 Aug 2014; Christian Ruppert <idl0r@gentoo.org> files/named.conf-r8:
+  Fix broken comment, bug 520136
+
+  16 Aug 2014; Christian Ruppert <idl0r@gentoo.org> bind-9.10.0_p2.ebuild:
+  Fix doc installation, bug 520008
+
+*bind-9.10.0_p2 (15 Aug 2014)
+*bind-9.9.5_p1 (15 Aug 2014)
+
+  15 Aug 2014; Christian Ruppert <idl0r@gentoo.org> -bind-9.8.6.ebuild,
+  -bind-9.9.4_p2.ebuild, -bind-9.9.5-r2.ebuild, +bind-9.9.5_p1.ebuild,
+  +bind-9.10.0_p2.ebuild, -files/named.conf, -files/named.conf-r6,
+  +files/named.conf-r8, -files/named.confd-r6, -files/named.init-r12,
+  -files/named.service, metadata.xml:
+  Version bumps. Cleanup. Migrate to python-r1. Fixes #516472, #501290, #499892
+  and #506346.
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> bind-9.9.5-r3.ebuild:
+  Stable for ppc64, wrt bug #506796
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> bind-9.9.5-r3.ebuild:
+  sparc stable wrt #506796
+
+  19 Jul 2014; Tobias Klausmann <klausman@gentoo.org> bind-9.9.5-r3.ebuild:
+  Stable on alpha, bug #506796
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> bind-9.9.5-r3.ebuild:
+  Stable for ppc, wrt bug #506796
+
+  07 Jul 2014; Homer Parker <hparker@gentoo.org> bind-9.9.5-r3.ebuild:
+  amd64 stable wrt bug #506796
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> bind-9.9.4_p2.ebuild,
+  bind-9.9.5-r2.ebuild, bind-9.9.5-r3.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
+
+  22 Jun 2014; Akinori Hattori <hattya@gentoo.org> bind-9.9.5-r3.ebuild:
+  ia64 stable wrt bug #506796
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> bind-9.9.5-r3.ebuild:
+  x86 stable wrt bug #506796
+
+  21 May 2014; Mikle Kolyada <zlogene@gentoo.org> -bind-9.9.3_p2.ebuild:
+  Drop insecure version
+
+  27 Apr 2014; Markus Meier <maekke@gentoo.org> bind-9.9.5-r3.ebuild:
+  arm stable, bug #506796
+
+  14 Apr 2014; Jeroen Roovers <jer@gentoo.org> bind-9.9.5-r3.ebuild:
+  Stable for HPPA (bug #506796).
 
 *bind-9.9.5-r3 (16 Feb 2014)
 

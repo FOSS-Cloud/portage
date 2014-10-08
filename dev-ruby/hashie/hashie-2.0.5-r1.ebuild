@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hashie/hashie-2.0.5-r1.ebuild,v 1.1 2013/10/06 16:58:36 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/hashie/hashie-2.0.5-r1.ebuild,v 1.5 2014/08/15 14:06:36 blueness Exp $
 
 EAPI=5
 
-USE_RUBY="ruby18 ruby19 ruby20 jruby"
+USE_RUBY="ruby19 ruby20 ruby21 jruby"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
@@ -13,12 +13,12 @@ RUBY_FAKEGEM_EXTRADOC="README.markdown"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Hashie is a small collection of tools that make hashes more powerful."
+DESCRIPTION="Hashie is a small collection of tools that make hashes more powerful"
 HOMEPAGE="http://intridea.com/posts/hashie-the-hash-toolkit"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 all_ruby_prepare() {

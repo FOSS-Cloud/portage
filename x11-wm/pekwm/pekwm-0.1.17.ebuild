@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/pekwm/pekwm-0.1.17.ebuild,v 1.1 2014/03/10 01:22:18 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/pekwm/pekwm-0.1.17.ebuild,v 1.6 2014/08/01 10:35:27 armin76 Exp $
 
 EAPI=5
 inherit eutils
@@ -14,7 +14,7 @@ SRC_URI="
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~mips ~ppc ~sparc ~x86 ~x86-fbsd"
+KEYWORDS=" amd64 ~mips ppc x86 ~x86-fbsd"
 IUSE="contrib debug themes truetype xinerama"
 
 RDEPEND="
@@ -76,7 +76,7 @@ src_install() {
 
 pkg_postinst() {
 	if use contrib ; then
-		elog " User contributed scripts had been installed into:"
+		elog " User contributed scripts have been installed into:"
 		elog " /usr/share/doc/${PF}/contrib"
 	fi
 }

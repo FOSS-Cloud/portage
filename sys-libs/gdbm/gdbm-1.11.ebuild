@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/gdbm/gdbm-1.11.ebuild,v 1.2 2014/01/18 03:55:06 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/gdbm/gdbm-1.11.ebuild,v 1.14 2014/08/26 11:02:23 mgorny Exp $
 
 EAPI="4"
 
@@ -14,7 +14,7 @@ SRC_URI="mirror://gnu/gdbm/${P}.tar.gz
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="+berkdb exporter nls static-libs"
 
 RDEPEND="
@@ -33,7 +33,7 @@ multilib_src_configure() {
 	# gdbm doesn't appear to use either of these libraries
 	export ac_cv_lib_dbm_main=no ac_cv_lib_ndbm_main=no
 
-	if multilib_build_binaries && use exporter ; then
+	if multilib_is_native_abi && use exporter ; then
 		pushd "${EX_S}" >/dev/null
 		append-lfs-flags
 		econf --disable-shared
@@ -46,7 +46,7 @@ multilib_src_configure() {
 		--with-gdbm183-libdir="${EX_S}/.libs" \
 		--with-gdbm183-includedir="${EX_S}" \
 		$(use_enable berkdb libgdbm-compat) \
-		$(multilib_build_binaries && use_enable exporter gdbm-export) \
+		$(multilib_native_use_enable exporter gdbm-export) \
 		$(use_enable nls) \
 		$(use_enable static-libs static)
 }
@@ -57,6 +57,8 @@ multilib_src_compile() {
 }
 
 multilib_src_install_all() {
+	einstalldocs
+
 	use static-libs || find "${ED}" -name '*.la' -delete
 	mv "${ED}"/usr/include/gdbm/gdbm.h "${ED}"/usr/include/ || die
 }

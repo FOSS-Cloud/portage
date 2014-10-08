@@ -1,6 +1,31 @@
 # ChangeLog for net-analyzer/openvas
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/openvas/ChangeLog,v 1.12 2013/11/10 18:42:52 hanno Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/openvas/ChangeLog,v 1.18 2014/10/02 07:41:56 jlec Exp $
+
+  02 Oct 2014; Justin Lecher <jlec@gentoo.org> openvas-7.ebuild,
+  openvas-7-r1.ebuild:
+  Enable pdf report by default
+
+  01 Oct 2014; Justin Lecher <jlec@gentoo.org> openvas-7-r1.ebuild:
+  Add missing deps
+
+  01 Oct 2014; Justin Lecher <jlec@gentoo.org> openvas-7-r1.ebuild,
+  metadata.xml:
+  Add USE for pdf generation
+
+*openvas-7-r1 (01 Oct 2014)
+
+  01 Oct 2014; Justin Lecher <jlec@gentoo.org> +openvas-7-r1.ebuild,
+  +files/README.gentoo:
+  Add README for Gentoo
+
+  29 Sep 2014; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Add myself as maintainer
+
+*openvas-7 (19 Jun 2014)
+
+  19 Jun 2014; Hanno Boeck <hanno@gentoo.org> +openvas-7.ebuild:
+  Bump.
 
 *openvas-6_p1 (10 Nov 2013)
 

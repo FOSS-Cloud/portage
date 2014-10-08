@@ -1,6 +1,14 @@
 # ChangeLog for sys-apps/flashrom
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/flashrom/ChangeLog,v 1.44 2014/04/05 11:45:32 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/flashrom/ChangeLog,v 1.46 2014/08/04 02:13:47 vapier Exp $
+
+  04 Aug 2014; Mike Frysinger <vapier@gentoo.org> flashrom-0.9.7.ebuild,
+  flashrom-9999.ebuild:
+  Add mips love.
+
+  31 May 2014; Sven Wegener <swegener@gentoo.org> flashrom-0.9.6.1.ebuild,
+  flashrom-0.9.7.ebuild, flashrom-9999.ebuild:
+  Update ESVN_REPO_URI to flashrom.org.
 
   05 Apr 2014; Agostino Sarubbo <ago@gentoo.org> flashrom-0.9.7.ebuild:
   Stable for x86, wrt bug #504112

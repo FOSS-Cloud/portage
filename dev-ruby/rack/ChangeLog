@@ -1,6 +1,44 @@
 # ChangeLog for dev-ruby/rack
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rack/ChangeLog,v 1.125 2014/04/05 12:12:06 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rack/ChangeLog,v 1.134 2014/08/15 17:29:55 armin76 Exp $
+
+  15 Aug 2014; Raúl Porcel <armin76@gentoo.org> rack-1.4.5-r1.ebuild,
+  rack-1.5.2-r1.ebuild:
+  sparc stable wrt #497490
+
+  13 Aug 2014; Manuel Rüger <mrueg@gentoo.org> rack-1.4.5-r3.ebuild:
+  Add ruby21 support.
+
+  18 Jul 2014; Hans de Graaff <graaff@gentoo.org> -rack-1.2.8.ebuild,
+  -rack-1.3.10.ebuild:
+  Remove masked slots.
+
+  12 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> rack-1.4.5-r1.ebuild,
+  rack-1.5.2-r1.ebuild:
+  x86 stable wrt bug #497490
+
+  01 Jul 2014; Tobias Klausmann <klausman@gentoo.org> rack-1.4.5-r1.ebuild:
+  Stable on alpha, bug #497490
+
+  01 Jul 2014; Tobias Klausmann <klausman@gentoo.org> rack-1.5.2-r1.ebuild:
+  Stable on alpha, bug #497490
+
+  03 Jun 2014; Hans de Graaff <graaff@gentoo.org> rack-1.4.5-r3.ebuild,
+  rack-1.5.2-r3.ebuild:
+  Remove ChangeLog since it is either empty or non-existant, bug 512202.
+
+*rack-1.5.2-r3 (02 Jun 2014)
+*rack-1.4.5-r3 (02 Jun 2014)
+
+  02 Jun 2014; Hans de Graaff <graaff@gentoo.org> +rack-1.4.5-r3.ebuild,
+  +rack-1.5.2-r3.ebuild:
+  Add revision bumps based on the default gem SRC_URI, bug 512132.
+
+*rack-1.4.5-r2 (22 Apr 2014)
+
+  22 Apr 2014; Manuel Rüger <mrueg@gentoo.org>
+  +files/rack-1.4.5-fix-test-ruby20.patch, +rack-1.4.5-r2.ebuild:
+  Add patch to fix test for ruby 2.0, add ruby20 target to slot 1.4.
 
   05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> -rack-1.1.6.ebuild,
   rack-1.2.8.ebuild, rack-1.3.10.ebuild, rack-1.4.5-r1.ebuild,

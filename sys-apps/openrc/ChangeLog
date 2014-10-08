@@ -1,6 +1,35 @@
 # ChangeLog for sys-apps/openrc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/ChangeLog,v 1.300 2014/03/06 02:19:34 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/ChangeLog,v 1.308 2014/08/22 20:17:35 williamh Exp $
+
+  22 Aug 2014; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  sync live ebuild
+
+  22 Aug 2014; William Hubbs <williamh@gentoo.org> -openrc-0.13.ebuild:
+  remove broken version
+
+*openrc-0.13.1 (22 Aug 2014)
+
+  22 Aug 2014; William Hubbs <williamh@gentoo.org> +openrc-0.13.1.ebuild:
+  version bump for regression #520606
+
+  20 Aug 2014; William Hubbs <williamh@gentoo.org> openrc-0.13.ebuild,
+  openrc-9999.ebuild:
+  Add a blocker on older versions of procps for bug #520314
+
+*openrc-0.13 (17 Aug 2014)
+
+  17 Aug 2014; William Hubbs <williamh@gentoo.org> +openrc-0.13.ebuild:
+  Version bump, bug #481182 tracks changes
+
+  12 Aug 2014; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  install feature removal schedule
+
+  11 Aug 2014; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+   Install README and README.history
+
+  16 Jul 2014; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  add sys-libs/libselinux to dependencies for bug #516956
 
   06 Mar 2014; William Hubbs <williamh@gentoo.org> -openrc-0.11.8.ebuild:
   remove old version

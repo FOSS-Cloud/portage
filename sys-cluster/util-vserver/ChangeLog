@@ -1,6 +1,21 @@
 # ChangeLog for sys-cluster/util-vserver
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/util-vserver/ChangeLog,v 1.114 2014/01/16 13:55:04 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/util-vserver/ChangeLog,v 1.116 2014/07/29 04:41:02 patrick Exp $
+
+*util-vserver-0.30.216_pre3038-r1 (29 Jul 2014)
+
+  29 Jul 2014; Patrick Lauer <patrick@gentoo.org>
+  +util-vserver-0.30.216_pre3038-r1.ebuild:
+  Little revision bump that has deps changed to working dietlibc version
+
+  26 Jun 2014; Michael Palimaka <kensington@gentoo.org>
+  -files/util-vserver-0.30.215-2718.patch,
+  -files/util-vserver-0.30.215-capget.patch,
+  -files/util-vserver-0.30.215-dietmmap.patch,
+  -files/util-vserver-0.30.215-openrc.patch,
+  -files/util-vserver-0.30.215-typo.patch,
+  -util-vserver-0.30.216_pre2910.ebuild:
+  Remove old.
 
   16 Jan 2014; Jeroen Roovers <jer@gentoo.org>
   util-vserver-0.30.216_pre2910.ebuild, util-vserver-0.30.216_pre3025.ebuild,

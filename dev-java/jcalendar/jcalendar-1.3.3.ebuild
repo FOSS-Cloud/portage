@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jcalendar/jcalendar-1.3.3.ebuild,v 1.3 2014/03/07 23:22:18 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/jcalendar/jcalendar-1.3.3.ebuild,v 1.5 2014/08/10 20:17:27 slyfox Exp $
 
 EAPI="5"
 
@@ -8,13 +8,13 @@ JAVA_PKG_IUSE="doc source"
 
 inherit eutils java-pkg-2 java-ant-2
 
-DESCRIPTION="Java date chooser bean for graphically picking a date."
+DESCRIPTION="Java date chooser bean for graphically picking a date"
 SRC_URI="http://www.toedter.com/download/${P}.zip"
 HOMEPAGE="http://www.toedter.com/en/jcalendar/"
 
 LICENSE="LGPL-2.1"
 SLOT="1.2"
-KEYWORDS="amd64 ~ppc x86 ~x86-fbsd"
+KEYWORDS="amd64 ppc x86 ~x86-fbsd"
 
 COMMON_DEPEND="dev-java/jgoodies-looks:2.0"
 

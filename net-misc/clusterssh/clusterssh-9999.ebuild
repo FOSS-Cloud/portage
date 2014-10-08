@@ -1,14 +1,14 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/clusterssh/clusterssh-9999.ebuild,v 1.6 2014/02/14 11:23:18 ultrabug Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/clusterssh/clusterssh-9999.ebuild,v 1.8 2014/08/10 20:43:41 slyfox Exp $
 
-EAPI=2
+EAPI=5
 
 inherit git-2 perl-module
 
 EGIT_REPO_URI="git://clusterssh.git.sourceforge.net/gitroot/clusterssh/clusterssh"
 
-DESCRIPTION="Concurrent Multi-Server Terminal Access."
+DESCRIPTION="Concurrent Multi-Server Terminal Access"
 HOMEPAGE="http://clusterssh.sourceforge.net"
 
 LICENSE="GPL-2"

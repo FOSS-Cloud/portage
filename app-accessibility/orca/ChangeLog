@@ -1,6 +1,44 @@
 # ChangeLog for app-accessibility/orca
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/orca/ChangeLog,v 1.128 2014/04/05 07:28:08 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/orca/ChangeLog,v 1.138 2014/10/05 12:35:09 eva Exp $
+
+  05 Oct 2014; Gilles Dartiguelongue <eva@gentoo.org> orca-3.12.3.ebuild:
+  Add missing dependency on python USE flag for brltty.
+
+  04 Oct 2014; Pacho Ramos <pacho@gentoo.org> orca-3.12.3.ebuild:
+  Needs python liblouis
+
+  03 Oct 2014; Pacho Ramos <pacho@gentoo.org> orca-3.12.3.ebuild:
+  Require at least the brltty version that finally worked for me
+
+*orca-3.12.3 (03 Oct 2014)
+
+  03 Oct 2014; Pacho Ramos <pacho@gentoo.org> +orca-3.12.3.ebuild,
+  -orca-3.10.3.ebuild, -orca-3.12.1.ebuild, metadata.xml:
+  Version bump, add braille support (#486794 by Chris Brannon), drop old.
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> orca-3.12.2.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> orca-3.12.2.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*orca-3.12.2 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> +orca-3.12.2.ebuild,
+  -orca-3.10.2.ebuild:
+  Version bump
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> orca-3.10.3.ebuild:
+  x86 stable, bug 508862
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> orca-3.10.3.ebuild:
+  amd64 stable, bug 508862
+
+*orca-3.12.1 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> +orca-3.12.1.ebuild:
+  Version bump for Gnome 3.12.
 
 *orca-3.10.3 (05 Apr 2014)
 

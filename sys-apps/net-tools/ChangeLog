@@ -1,6 +1,40 @@
 # ChangeLog for sys-apps/net-tools
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/net-tools/ChangeLog,v 1.142 2014/04/07 20:12:31 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/net-tools/ChangeLog,v 1.150 2014/09/08 01:02:46 kumba Exp $
+
+*net-tools-1.60_p20130513023548-r1 (08 Sep 2014)
+
+  08 Sep 2014; Joshua Kinard <kumba@gentoo.org>
+  +net-tools-1.60_p20130513023548-r1.ebuild:
+  Add several patches from Fedora to fix various issues.
+
+  19 Jul 2014; Mikle Kolyada <zlogene@gentoo.org>
+  net-tools-1.60_p20130513023548.ebuild:
+  sparc stable wrt bug #506702
+
+  19 Jul 2014; Mikle Kolyada <zlogene@gentoo.org>
+  net-tools-1.60_p20130513023548.ebuild:
+  ppc64 stable wrt bug #506702
+
+  19 Jul 2014; Mikle Kolyada <zlogene@gentoo.org>
+  net-tools-1.60_p20130513023548.ebuild:
+  ppc stable wrt bug #506702
+
+  11 Jul 2014; Mikle Kolyada <zlogene@gentoo.org>
+  net-tools-1.60_p20130513023548.ebuild:
+  alpha stable wrt bug #506702
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  net-tools-1.60_p20130513023548.ebuild:
+  x86 stable wrt bug #506702
+
+  25 May 2014; Mike Frysinger <vapier@gentoo.org>
+  net-tools-1.60_p20130513023548.ebuild:
+  Mark ia64 stable #506702.
+
+  29 Apr 2014; Chema Alonso <nimiux@gentoo.org>
+  net-tools-1.60_p20130513023548.ebuild:
+  Stable for amd64 wrt bug #506702
 
   07 Apr 2014; Mike Frysinger <vapier@gentoo.org>
   net-tools-1.60_p20130513023548.ebuild:

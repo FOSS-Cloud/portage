@@ -1,6 +1,21 @@
 # ChangeLog for mail-client/claws-mail
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail/ChangeLog,v 1.242 2013/12/25 23:09:36 polynomial-c Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/claws-mail/ChangeLog,v 1.245 2014/08/20 11:29:04 armin76 Exp $
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> claws-mail-3.9.1.ebuild,
+  claws-mail-3.9.1-r1.ebuild, claws-mail-3.9.2.ebuild, claws-mail-3.9.3.ebuild,
+  claws-mail-3.10.1.ebuild:
+  Add ~alpha/~sparc wrt #468984
+
+  07 Aug 2014; Anthony G. Basile <blueness@gentoo.org> claws-mail-3.10.1.ebuild,
+  claws-mail-3.9.1-r1.ebuild, claws-mail-3.9.1.ebuild, claws-mail-3.9.2.ebuild,
+  claws-mail-3.9.3.ebuild:
+  Keyword ~ppc and ~ppc64, bug #468984
+
+*claws-mail-3.10.1 (15 Jun 2014)
+
+  15 Jun 2014; Jeroen Roovers <jer@gentoo.org> +claws-mail-3.10.1.ebuild:
+  Version bump.
 
 *claws-mail-3.9.3 (25 Dec 2013)
 

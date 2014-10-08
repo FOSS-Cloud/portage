@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/supertuxkart/supertuxkart-0.8.1.ebuild,v 1.4 2014/03/12 05:18:28 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-action/supertuxkart/supertuxkart-0.8.1.ebuild,v 1.6 2014/09/25 20:50:13 tupone Exp $
 
 EAPI=5
 inherit gnome2-utils cmake-utils eutils games
@@ -41,7 +41,7 @@ DEPEND="${RDEPEND}
 S=${WORKDIR}/SuperTuxKart-${PV}
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-{gentoo,icon-dest,irrlicht,desktopfile}.patch
+	epatch "${FILESDIR}"/${P}-{gentoo,icon-dest,irrlicht,desktopfile,mesa-10.x,jpeg9}.patch
 
 	# inconsistent handling of debug definition
 	# avoid using Debug build type

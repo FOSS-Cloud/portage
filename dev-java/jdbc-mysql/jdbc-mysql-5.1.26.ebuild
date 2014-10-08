@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jdbc-mysql/jdbc-mysql-5.1.26.ebuild,v 1.1 2013/09/14 13:38:22 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/jdbc-mysql/jdbc-mysql-5.1.26.ebuild,v 1.5 2014/09/19 09:10:47 ago Exp $
 
 EAPI="5"
 
@@ -19,7 +19,7 @@ SRC_URI="mirror://mysql/Downloads/Connector-J/${MY_P}.tar.gz"
 
 LICENSE="GPL-2-with-MySQL-FLOSS-exception"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~ppc ppc64 x86"
 
 IUSE="c3p0 log4j"
 
@@ -31,7 +31,7 @@ COMMON_DEP="
 RDEPEND=">=virtual/jre-1.6
 	${COMMON_DEP}"
 
-DEPEND="virtual/jdk:1.6
+DEPEND=">=virtual/jdk-1.6
 	${COMMON_DEP}"
 
 S="${WORKDIR}/${MY_P}"

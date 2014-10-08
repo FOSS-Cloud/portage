@@ -1,6 +1,120 @@
 # ChangeLog for Gentoo/AMD64 profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/ChangeLog,v 1.44 2014/03/30 21:44:39 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/ChangeLog,v 1.67 2014/09/22 16:35:50 blueness Exp $
+
+  22 Sep 2014; Anthony G. Basile <blueness@gentoo.org> linux/make.defaults,
+  linux/package.use.force:
+  Default USE=xattr on for all hardened profiles, and force on for tar,
+  coreutils and portage
+
+  21 Aug 2014; Anthony G. Basile <blueness@gentoo.org>
+  +linux/musl/mips/package.mask:
+  Mask some packages for musl/mipsel
+
+  16 Aug 2014; Anthony G. Basile <blueness@gentoo.org>
+  -linux/uclibc/amd64/make.defaults, -linux/uclibc/amd64/package.mask,
+  linux/uclibc/amd64/parent, -linux/uclibc/amd64/use.force,
+  -linux/uclibc/amd64/use.mask, -linux/uclibc/arm/armv6j/make.defaults,
+  linux/uclibc/arm/armv6j/parent, -linux/uclibc/arm/armv7a/make.defaults,
+  linux/uclibc/arm/armv7a/parent, -linux/uclibc/arm/make.defaults,
+  -linux/uclibc/arm/parent, -linux/uclibc/arm/use.force,
+  -linux/uclibc/arm/use.mask, linux/uclibc/make.defaults,
+  -linux/uclibc/mips/make.defaults, -linux/uclibc/mips/mipsel/make.defaults,
+  linux/uclibc/mips/mipsel/parent, -linux/uclibc/mips/package.mask,
+  linux/uclibc/mips/parent, -linux/uclibc/mips/use.force,
+  -linux/uclibc/mips/use.mask, -linux/uclibc/package.mask,
+  -linux/uclibc/packages, -linux/uclibc/packages.build, -linux/uclibc/parent,
+  -linux/uclibc/ppc/make.defaults, -linux/uclibc/ppc/package.mask,
+  -linux/uclibc/ppc/package.use.mask, linux/uclibc/ppc/parent,
+  -linux/uclibc/ppc/use.force, -linux/uclibc/ppc/use.mask,
+  -linux/uclibc/use.force, linux/uclibc/use.mask,
+  -linux/uclibc/x86/make.defaults, linux/uclibc/x86/parent,
+  -linux/uclibc/x86/use.force, -linux/uclibc/x86/use.mask:
+  Inherit hardened/linux/uclibc from default/linux/uclibc
+
+  13 Aug 2014; Anthony G. Basile <blueness@gentoo.org> linux/musl/package.mask,
+  linux/uclibc/package.mask:
+  Use eudev on uclibc and musl.
+
+  04 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> linux/package.mask:
+  hmaccalc depends in prelink.
+
+  23 Jul 2014; Anthony G. Basile <blueness@gentoo.org> linux/musl/package.mask:
+  Remove unmasking of sys-libs/musl on musl profiles
+
+  22 Jul 2014; Christoph Junghans <ottxor@gentoo.org>
+  linux/amd64/no-multilib/package.mask:
+  masked games-fps/enemy-territory-omnibot on no-multilib
+
+  17 Jul 2014; Magnus Granberg <zorry@gentoo.org>
+  linux/amd64/no-multilib/make.defaults,
+  +linux/amd64/no-multilib/package.use:
+  Set -pic as we don't need it as we don't use x86
+
+  15 Jul 2014; Anthony G. Basile <blueness@gentoo.org>
+  +linux/uclibc/ppc/package.mask:
+  Mask openssh on hardened/linux/uclibc/ppc, bug #517160
+
+  12 Jul 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/package.mask:
+  Mask >sys-fs/e2fsprogs-1.42.7 because of bug #516988
+
+  08 Jul 2014; Magnus Granberg <zorry@gentoo.org>
+  linux/amd64/package.use:
+  Add pic to package that need it when use of the new multilib
+
+  02 Jul 2014; Michał Górny <mgorny@gentoo.org>
+  linux/musl/mips/mipsel/make.defaults, linux/uclibc/mips/mipsel/make.defaults:
+  Fix wrongly inherited CHOST_o32 in {musl,uclibc/mips/mipsel profiles.
+
+  01 Jul 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/amd64/use.force,
+  linux/musl/amd64/use.mask, linux/musl/mips/make.defaults,
+  linux/musl/mips/use.force, linux/musl/mips/use.mask,
+  linux/musl/x86/make.defaults, linux/musl/x86/use.force,
+  linux/musl/x86/use.mask:
+  Make linux/musl multilib aware, bug #515130
+
+  01 Jul 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/amd64/make.defaults, linux/uclibc/amd64/use.force,
+  linux/uclibc/amd64/use.mask, linux/uclibc/mips/make.defaults,
+  linux/uclibc/mips/use.force, linux/uclibc/mips/use.mask,
+  linux/uclibc/ppc/make.defaults, linux/uclibc/ppc/use.force,
+  +linux/uclibc/ppc/use.mask, linux/uclibc/x86/make.defaults,
+  linux/uclibc/x86/use.force, linux/uclibc/x86/use.mask:
+  Make linux/uclibc multilib aware, bug #515130
+
+  13 Jun 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/mips/mipsel/make.defaults:
+  Disable sandbox on mipsel-musl because its currently broken
+
+  09 Jun 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/make.defaults,
+  linux/musl/x86/make.defaults:
+  Remove redundant INSTALL_MASK in amd64 and x86
+
+  08 Jun 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/make.defaults:
+  Set INSTALL_MASK=charset.alias on musl profiles
+
+  05 Jun 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/packages.build:
+  Make sure sandbox is part of stage1 for musl profiles
+
+  04 Jun 2014; Anthony G. Basile <blueness@gentoo.org> linux/musl/packages:
+  Make sure sandbox is pulled in on all musl profiles
+
+  01 Jun 2014; Anthony G. Basile <blueness@gentoo.org>
+  profiles/hardened/linux/musl: Enable sandbox on musl profiles
+
+  01 Jun 2014; Magnus Granberg <zorry@gentoo.org>
+  linux/amd64/package.use:
+  We need the pic use flag for the multilib abi_x86_32 part for
+  media-libs/x264 bug # 490276
+
+  28 May 2014; Sven Vermeulen <swift@gentoo.org>
+  linux/amd64/no-multilib/package.mask:
+  Remove huludesktop from package.mask (package has been removed)
 
   30 Mar 2014; Michał Górny <mgorny@gentoo.org>
   linux/amd64/package.use.stable.mask:

@@ -1,6 +1,99 @@
 # ChangeLog for dev-libs/nss
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.361 2014/03/31 17:11:39 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.384 2014/10/06 19:01:54 ago Exp $
+
+  06 Oct 2014; Agostino Sarubbo <ago@gentoo.org> nss-3.16.5.ebuild:
+  Stable for x86, wrt bug #523652
+
+  06 Oct 2014; Agostino Sarubbo <ago@gentoo.org> nss-3.16.5.ebuild:
+  Stable for amd64, wrt bug #523652
+
+  06 Oct 2014; Jeroen Roovers <jer@gentoo.org> nss-3.16.5.ebuild:
+  Stable for HPPA (bug #523652).
+
+*nss-3.17.1 (25 Sep 2014)
+*nss-3.16.5 (25 Sep 2014)
+
+  25 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> +nss-3.16.5.ebuild,
+  +nss-3.17.1.ebuild, +files/nss-3.17.1-gentoo-fixups.patch:
+  Security bump (bug #523652). RSA signature forgery attack (CVE-2014-1568).
+
+*nss-3.17 (03 Sep 2014)
+
+  03 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> +nss-3.17.ebuild:
+  Version bump (bug #522044).
+
+*nss-3.16.4 (12 Aug 2014)
+
+  12 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> -nss-3.16.1-r1.ebuild,
+  -nss-3.16.2.ebuild, +nss-3.16.4.ebuild:
+  Version bump. Removed old.
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> nss-3.16.3.ebuild:
+  Stable for ppc64, wrt bug #517876
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> nss-3.16.3.ebuild:
+  Stable for ppc, wrt bug #517876
+
+  08 Aug 2014; Jeroen Roovers <jer@gentoo.org> nss-3.16.3.ebuild:
+  Stable for HPPA (bug #517876).
+
+  04 Aug 2014; Agostino Sarubbo <ago@gentoo.org> nss-3.16.3.ebuild:
+  Stable for x86, wrt bug #517876
+
+  01 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> nss-3.16.3.ebuild:
+  amd64 stable wrt bug #517876
+
+  24 Jul 2014; Lars Wendler <polynomial-c@gentoo.org> +nss-3.16.ebuild:
+  re-added mistakenly removed stable version.
+
+*nss-3.16.3 (24 Jul 2014)
+
+  24 Jul 2014; Lars Wendler <polynomial-c@gentoo.org> -nss-3.16.ebuild,
+  -nss-3.16.1.ebuild, +nss-3.16.3.ebuild:
+  Version bump (bug #517946). Removed old.
+
+*nss-3.16.2 (23 Jul 2014)
+
+  23 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> +nss-3.16.2.ebuild:
+  version bump, needed for firefox-31 and others
+
+*nss-3.16.1-r1 (17 Jul 2014)
+
+  17 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> +nss-3.16.1-r1.ebuild:
+  added some private headers, a static lib, and a pkg-config file to support
+  compilation of OpenJDK, bug 517266
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> nss-3.16.ebuild:
+  Stable for sparc, wrt bug #505072
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> nss-3.16.ebuild:
+  Stable for ia64, wrt bug #505072
+
+  04 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> nss-3.16.1.ebuild:
+  fixed whatever strange environment issue it was that caused bug 516244
+
+*nss-3.16.1 (03 Jul 2014)
+
+  03 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> +nss-3.16.1.ebuild,
+  -nss-3.16-r1.ebuild:
+  version bump, compatibility improvements on gx86-multilib port, dropped old
+
+  19 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org> nss-3.16-r1.ebuild:
+  Update emul-linux-x86-baselibs blocker revision.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> nss-3.16-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  14 Jun 2014; Michał Górny <mgorny@gentoo.org> nss-3.16-r1.ebuild:
+  Add missing MULTILIB_USEDEP on nspr, noticed by _AxS_.
+
+*nss-3.16-r1 (14 Jun 2014)
+
+  14 Jun 2014; Michał Górny <mgorny@gentoo.org> +nss-3.16-r1.ebuild:
+  Import the multilib support from ::mozilla. Clean up a bit and copy the
+  simplified bit-ness check from dev-libs/nspr.
 
   31 Mar 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> nss-3.16.ebuild:
   upstream integration of x32 patch changed case on variable, fixed ebuild to

@@ -1,6 +1,14 @@
 # ChangeLog for dev-java/jdepend
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jdepend/ChangeLog,v 1.54 2011/12/31 12:40:04 sera Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/jdepend/ChangeLog,v 1.56 2014/09/07 15:09:36 ercpe Exp $
+
+*jdepend-2.9-r5 (07 Sep 2014)
+
+  07 Sep 2014; Johann Schmitz <ercpe@gentoo.org> +jdepend-2.9-r5.ebuild:
+  Bump to EAPI=5
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> jdepend-2.9-r4.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
 
   31 Dec 2011; Ralph Sennhauser <sera@gentoo.org> jdepend-2.9-r4.ebuild:
   Drop ia64 support #345433
@@ -189,4 +197,3 @@
   03 Jan 2004; Adrian Almenar <strider@gentoo.org> jdepend-2.6.ebuild, metadata.xml:
   Initial import of JDepend, It builds from sources. Dependency required to
   build ANT.
-

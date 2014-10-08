@@ -1,6 +1,32 @@
 # ChangeLog for x11-libs/libgksu
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libgksu/ChangeLog,v 1.86 2013/04/27 16:39:20 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libgksu/ChangeLog,v 1.94 2014/09/15 08:24:48 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libgksu-2.0.12-r2.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libgksu-2.0.12-r2.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libgksu-2.0.12-r2.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libgksu-2.0.12-r2.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libgksu-2.0.12-r2.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libgksu-2.0.12-r2.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libgksu-2.0.12-r2.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*libgksu-2.0.12-r2 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> +libgksu-2.0.12-r2.ebuild:
+  Needs to be rebuilt with libgtop soname bumps
 
   27 Apr 2013; Samuli Suominen <ssuominen@gentoo.org> libgksu-2.0.12-r1.ebuild:
   Fix automake-1.13 compability by using AC_CONFIG_HEADERS instead of the
@@ -337,4 +363,3 @@
   +libgksu-1.2.5.ebuild:
   Initial import to satisify gksu version bump in bug #88850. Ebuild by Kalle
   Kotte <xake@telia.com>.
-

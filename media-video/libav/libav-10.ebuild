@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-10.ebuild,v 1.1 2014/03/30 19:00:19 lu_zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-10.ebuild,v 1.3 2014/08/10 21:00:35 slyfox Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ fi
 
 inherit eutils flag-o-matic multilib toolchain-funcs ${SCM}
 
-DESCRIPTION="Complete solution to record, convert and stream audio and video."
+DESCRIPTION="Complete solution to record, convert and stream audio and video"
 HOMEPAGE="http://libav.org/"
 if [[ ${PV} == *9999 ]] ; then
 	SRC_URI=""
@@ -84,7 +84,7 @@ RDEPEND="
 		openssl? ( dev-libs/openssl )
 		!openssl? ( net-libs/gnutls )
 	)
-	sdl? ( >=media-libs/libsdl-1.2.13-r1[audio,video] )
+	sdl? ( >=media-libs/libsdl-1.2.13-r1[sound,video] )
 	schroedinger? ( media-libs/schroedinger )
 	speex? ( >=media-libs/speex-1.2_beta3 )
 	truetype? ( media-libs/freetype:2 )

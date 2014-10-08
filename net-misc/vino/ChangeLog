@@ -1,6 +1,26 @@
 # ChangeLog for net-misc/vino
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/vino/ChangeLog,v 1.208 2014/03/09 12:04:04 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/vino/ChangeLog,v 1.213 2014/09/07 13:50:29 pacho Exp $
+
+*vino-3.12.0-r1 (07 Sep 2014)
+
+  07 Sep 2014; Pacho Ramos <pacho@gentoo.org> +vino-3.12.0-r1.ebuild,
+  -vino-3.10.1.ebuild:
+  Force --disable-http-server per bug #518384 by Mike Auty, drop old.
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> vino-3.12.0.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> vino-3.12.0.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*vino-3.12.0 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> +vino-3.12.0.ebuild:
+  Version bump for Gnome 3.12.
+
+  27 Apr 2014; Pacho Ramos <pacho@gentoo.org> -vino-3.8.1-r1.ebuild:
+  drop old
 
   09 Mar 2014; Pacho Ramos <pacho@gentoo.org> vino-3.10.1.ebuild:
   x86 stable, bug 499954

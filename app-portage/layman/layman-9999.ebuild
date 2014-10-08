@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/layman/layman-9999.ebuild,v 1.34 2014/04/06 17:22:30 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/layman/layman-9999.ebuild,v 1.37 2014/08/17 02:07:02 twitch153 Exp $
 
 EAPI="5"
 
-PYTHON_COMPAT=( python{2_6,2_7} pypy pypy2_0 )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} pypy )
 PYTHON_REQ_USE="xml(+)"
 
-inherit eutils distutils-r1 git-2 prefix
+inherit eutils distutils-r1 git-2 linux-info prefix
 
 DESCRIPTION="Tool to manage Gentoo overlays"
 HOMEPAGE="http://layman.sourceforge.net"
@@ -17,7 +17,7 @@ EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/layman.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="bazaar cvs darcs +git gpg mercurial subversion test"
+IUSE="bazaar cvs darcs +git gpg g-sorcery mercurial squashfs subversion test"
 
 DEPEND="test? ( dev-vcs/subversion )
 	app-text/asciidoc"
@@ -28,6 +28,7 @@ RDEPEND="
 	darcs? ( dev-vcs/darcs )
 	git? ( dev-vcs/git )
 	mercurial? ( dev-vcs/mercurial )
+	g-sorcery? ( app-portage/g-sorcery )
 	subversion? (
 		|| (
 			>=dev-vcs/subversion-1.5.4[http]
@@ -36,13 +37,13 @@ RDEPEND="
 		)
 	)
 	gpg? ( =dev-python/pyGPG-9999 )
-	virtual/python-argparse[${PYTHON_USEDEP}]
 	sys-apps/portage[${PYTHON_USEDEP}]
-	>=dev-python/requests-1.2.1
-	dev-python/ndg-httpsclient
-	dev-python/pyasn1
-	>=dev-python/pyopenssl-0.13
+	>=dev-python/ssl-fetch-0.2[${PYTHON_USEDEP}]
 	"
+
+pkg_pretend() {
+	use squashfs && local CONFIG_CHECK="BLK_DEV_LOOP SQUASHFS"
+}
 
 python_prepare_all()  {
 	distutils-r1_python_prepare_all

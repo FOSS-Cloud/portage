@@ -1,6 +1,44 @@
 # ChangeLog for www-apache/mod_wsgi
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_wsgi/ChangeLog,v 1.41 2014/03/05 15:56:13 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_wsgi/ChangeLog,v 1.51 2014/09/23 18:54:33 djc Exp $
+
+*mod_wsgi-4.3.0 (23 Sep 2014)
+
+  23 Sep 2014; Dirkjan Ochtman <djc@gentoo.org> +mod_wsgi-4.3.0.ebuild:
+  Version bump mod_wsgi to 4.3.0
+
+*mod_wsgi-4.2.7 (18 Aug 2014)
+
+  18 Aug 2014; Dirkjan Ochtman <djc@gentoo.org> +mod_wsgi-4.2.7.ebuild:
+  Version bump to 4.2.7
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> mod_wsgi-3.5.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  08 Jun 2014; Dirkjan Ochtman <djc@gentoo.org>
+  -files/mod_wsgi-3.3-python-3.2.patch, -mod_wsgi-3.4-r1.ebuild,
+  -mod_wsgi-3.4.ebuild:
+  Remove old, vulnerable versions (bug 510938)
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> mod_wsgi-3.5.ebuild:
+  Stable for x86, wrt bug #510938
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> mod_wsgi-3.5.ebuild:
+  Stable for ppc, wrt bug #510938
+
+  31 May 2014; Agostino Sarubbo <ago@gentoo.org> mod_wsgi-3.5.ebuild:
+  Stable for amd64, wrt bug #510938
+
+  27 May 2014; Mike Gilbert <floppym@gentoo.org> mod_wsgi-3.5.ebuild:
+  Add python3.4 (again).
+
+*mod_wsgi-3.5 (26 May 2014)
+
+  26 May 2014; Dirkjan Ochtman <djc@gentoo.org> +mod_wsgi-3.5.ebuild:
+  Version bump mod_wsgi to 3.5 (bug 510938)
+
+  27 Apr 2014; Mike Gilbert <floppym@gentoo.org> mod_wsgi-3.4-r1.ebuild:
+  Add python3.4.
 
   05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> mod_wsgi-3.4-r1.ebuild:
   Stable for ppc, wrt bug #495968

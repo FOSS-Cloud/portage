@@ -1,6 +1,55 @@
 # ChangeLog for app-emulation/emul-linux-x86-qtlibs
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-qtlibs/ChangeLog,v 1.89 2014/04/06 09:11:23 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-qtlibs/ChangeLog,v 1.98 2014/08/28 16:49:18 ssuominen Exp $
+
+  28 Aug 2014; Samuli Suominen <ssuominen@gentoo.org>
+  emul-linux-x86-qtlibs-20140508-r1.ebuild:
+  Punt USE="mng" which was pulling in removed version of media-libs/libmng which
+  isn't SLOTted.
+
+  26 Jun 2014; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-qtlibs-20140508-r1.ebuild:
+  amd64 stable
+
+  25 Jun 2014; Michał Górny <mgorny@gentoo.org>
+  emul-linux-x86-qtlibs-20140508-r1.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org>
+  emul-linux-x86-qtlibs-20140508-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  28 May 2014; Mike Gilbert <floppym@gentoo.org>
+  emul-linux-x86-qtlibs-20140508-r1.ebuild:
+  Fix installation with LIBDIR_X86 != lib32.
+
+*emul-linux-x86-qtlibs-20140508-r1 (27 May 2014)
+
+  27 May 2014; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-qtlibs-20140508-r1.ebuild:
+  Use multilib packages to fulfill remaining pre-built library dependencies
+  instead of pulling in other emul-linux-x86 sets. Remove USE=gtkstyle since the
+  GTK+ style seems not to be included anyway. Add USE=-mng to avoid pulling in
+  baselibs when libmng-2 is installed.
+
+*emul-linux-x86-qtlibs-20140508 (08 May 2014)
+
+  08 May 2014; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-qtlibs-20140508.ebuild,
+  -emul-linux-x86-qtlibs-20140506.ebuild:
+  Version bump, drop old
+
+*emul-linux-x86-qtlibs-20140506 (06 May 2014)
+
+  06 May 2014; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-qtlibs-20140506.ebuild:
+  Version bump
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-qtlibs-20140406.ebuild:
+  amd64 stable, bug 508322
 
 *emul-linux-x86-qtlibs-20140406 (06 Apr 2014)
 

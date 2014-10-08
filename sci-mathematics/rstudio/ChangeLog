@@ -1,6 +1,33 @@
 # ChangeLog for sci-mathematics/rstudio
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/rstudio/ChangeLog,v 1.9 2013/12/23 21:33:01 hasufell Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/rstudio/ChangeLog,v 1.15 2014/08/30 15:46:38 nimiux Exp $
+
+  30 Aug 2014; Chema Alonso <nimiux@gentoo.org> rstudio-0.98.490-r1.ebuild:
+  Stable for amd64 wrt bug #516464
+
+*rstudio-0.98.1028 (27 Aug 2014)
+
+  27 Aug 2014; Julian Ospald <hasufell@gentoo.org> +rstudio-0.98.1028.ebuild:
+  version bump
+
+*rstudio-0.98.490-r1 (27 Aug 2014)
+
+  27 Aug 2014; Julian Ospald <hasufell@gentoo.org> +rstudio-0.98.490-r1.ebuild:
+  rm server support wrt #519290
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> rstudio-0.98.490.ebuild:
+  x86 stable wrt bug #516464
+
+*rstudio-0.98.953 (04 Jul 2014)
+
+  04 Jul 2014; Julian Ospald <hasufell@gentoo.org> +rstudio-0.98.953.ebuild:
+  another version bump
+
+*rstudio-0.98.932 (04 Jul 2014)
+
+  04 Jul 2014; Julian Ospald <hasufell@gentoo.org> +rstudio-0.98.932.ebuild,
+  +files/rstudio-0.98.932-pandoc.patch, +files/rstudio-0.98.932-paths.patch:
+  version bump wrt #513862
 
   23 Dec 2013; Julian Ospald <hasufell@gentoo.org> rstudio-0.98.490.ebuild:
   fix build with +server wrt #494362

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mate-base/mate-session-manager/mate-session-manager-1.6.1-r1.ebuild,v 1.5 2014/03/10 22:58:29 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/mate-base/mate-session-manager/mate-session-manager-1.6.1-r1.ebuild,v 1.8 2014/09/19 17:20:07 ssuominen Exp $
 
 EAPI="5"
 
@@ -16,7 +16,7 @@ HOMEPAGE="http://mate-desktop.org/"
 
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 IUSE="ipv6 elibc_FreeBSD gnome-keyring systemd"
 
@@ -24,37 +24,37 @@ IUSE="ipv6 elibc_FreeBSD gnome-keyring systemd"
 # create .config/user-dirs.dirs which is read by glib to get G_USER_DIRECTORY_*
 # xdg-user-dirs-update is run during login (see 10-user-dirs-update-gnome below).
 
-RDEPEND=">=dev-libs/dbus-glib-0.76:0
+RDEPEND=">=dev-libs/dbus-glib-0.76
 	>=dev-libs/glib-2.25:2
-	dev-libs/libxslt:0
-	sys-apps/dbus:0
-	>=sys-power/upower-0.9.0:0
-	x11-apps/xdpyinfo:0
+	dev-libs/libxslt
+	sys-apps/dbus
+	>=sys-power/upower-pm-utils-0.9.23
+	x11-apps/xdpyinfo
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.14:2
-	x11-libs/libICE:0
-	x11-libs/libSM:0
-	x11-libs/libX11:0
-	x11-libs/libXau:0
-	x11-libs/libXext:0
-	x11-libs/libXrender:0
-	x11-libs/libXtst:0
-	x11-libs/pango:0
-	x11-libs/xtrans:0
-	x11-misc/xdg-user-dirs:0
-	x11-misc/xdg-user-dirs-gtk:0
-	virtual/libintl:0
-	elibc_FreeBSD? ( dev-libs/libexecinfo:0 )
-	gnome-keyring? ( gnome-base/gnome-keyring:0 )"
+	x11-libs/libICE
+	x11-libs/libSM
+	x11-libs/libX11
+	x11-libs/libXau
+	x11-libs/libXext
+	x11-libs/libXrender
+	x11-libs/libXtst
+	x11-libs/pango
+	x11-libs/xtrans
+	x11-misc/xdg-user-dirs
+	x11-misc/xdg-user-dirs-gtk
+	virtual/libintl
+	elibc_FreeBSD? ( dev-libs/libexecinfo )
+	gnome-keyring? ( gnome-base/gnome-keyring )"
 
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.40:*
-	>=dev-lang/perl-5:0
-	>=mate-base/mate-common-1.6:0
+	>=dev-lang/perl-5
+	>=mate-base/mate-common-1.6
 	>=sys-devel/gettext-0.10.40:*
 	virtual/pkgconfig:*
-	!<gnome-base/gdm-2.20.4:0
-	systemd? ( sys-apps/systemd:0 )"
+	!<gnome-base/gdm-2.20.4
+	systemd? ( sys-apps/systemd )"
 
 src_prepare() {
 	# Add "session saving" button back,

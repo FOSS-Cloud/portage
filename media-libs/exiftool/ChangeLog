@@ -1,6 +1,87 @@
 # ChangeLog for media-libs/exiftool
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/exiftool/ChangeLog,v 1.132 2014/04/04 08:17:21 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/exiftool/ChangeLog,v 1.148 2014/10/03 04:55:16 radhermit Exp $
+
+*exiftool-9.72 (03 Oct 2014)
+
+  03 Oct 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.72.ebuild:
+  Version bump.
+
+  04 Sep 2014; Tim Harder <radhermit@gentoo.org> -exiftool-9.55.ebuild,
+  -exiftool-9.58.ebuild, -exiftool-9.59.ebuild, -exiftool-9.61.ebuild,
+  -exiftool-9.62.ebuild, -exiftool-9.64.ebuild, -exiftool-9.65.ebuild,
+  -exiftool-9.66.ebuild, -exiftool-9.67.ebuild:
+  Remove old.
+
+*exiftool-9.70 (04 Sep 2014)
+
+  04 Sep 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.70.ebuild:
+  Version bump.
+
+*exiftool-9.69 (31 Aug 2014)
+
+  31 Aug 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.69.ebuild:
+  Version bump.
+
+*exiftool-9.68 (26 Jul 2014)
+
+  26 Jul 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.68.ebuild:
+  Version bump.
+
+*exiftool-9.67 (07 Jul 2014)
+
+  07 Jul 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.67.ebuild:
+  Version bump.
+
+*exiftool-9.66 (04 Jul 2014)
+
+  04 Jul 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.66.ebuild:
+  Version bump.
+
+*exiftool-9.65 (21 Jun 2014)
+
+  21 Jun 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.65.ebuild:
+  Version bump.
+
+*exiftool-9.64 (18 Jun 2014)
+
+  18 Jun 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.64.ebuild:
+  Version bump.
+
+*exiftool-9.62 (28 May 2014)
+
+  28 May 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.62.ebuild:
+  Version bump.
+
+*exiftool-9.61 (23 May 2014)
+
+  23 May 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.61.ebuild:
+  Version bump.
+
+*exiftool-9.59 (06 May 2014)
+
+  06 May 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.59.ebuild:
+  Version bump.
+
+*exiftool-9.58 (25 Apr 2014)
+
+  25 Apr 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.58.ebuild:
+  Version bump.
+
+  25 Apr 2014; Tim Harder <radhermit@gentoo.org> exiftool-9.12.ebuild,
+  exiftool-9.55.ebuild:
+  Drop $S set by perl-module eclass.
+
+*exiftool-9.12 (25 Apr 2014)
+*exiftool-9.55 (25 Apr 2014)
+
+  25 Apr 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.12.ebuild,
+  +exiftool-9.55.ebuild, -exiftool-9.120.0.ebuild, -exiftool-9.550.0.ebuild:
+  Revert to regular, upstream version numbering.
+
+  25 Apr 2014; Tim Harder <radhermit@gentoo.org> -exiftool-9.270.0.ebuild,
+  -exiftool-9.500.0.ebuild, -exiftool-9.530.0.ebuild:
+  Remove old.
 
 *exiftool-9.550.0 (04 Apr 2014)
 

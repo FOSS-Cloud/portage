@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/megaglest/megaglest-3.9.0.4.ebuild,v 1.1 2013/11/20 19:24:36 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/megaglest/megaglest-3.9.0.4.ebuild,v 1.3 2014/09/12 20:59:05 dilfridge Exp $
 
 # google-breakpad
 # TODO: fribidi, libvorbis static
@@ -23,7 +23,7 @@ RDEPEND="
 	dev-libs/libxml2
 	media-libs/fontconfig
 	media-libs/freetype
-	media-libs/libsdl[X,audio,joystick,opengl,video]
+	media-libs/libsdl[X,sound,joystick,opengl,video]
 	media-libs/libvorbis
 	media-libs/openal
 	net-libs/gnutls
@@ -36,7 +36,7 @@ RDEPEND="
 	fribidi? ( dev-libs/fribidi )
 	model-viewer? ( x11-libs/wxGTK:2.8[X] )
 	!static? (
-		dev-libs/icu
+		dev-libs/icu:=
 		dev-libs/xerces-c[icu]
 		media-libs/ftgl
 		media-libs/glew

@@ -1,6 +1,42 @@
 # ChangeLog for mail-mta/sendmail
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/sendmail/ChangeLog,v 1.125 2014/01/29 04:09:57 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/sendmail/ChangeLog,v 1.136 2014/06/13 05:21:25 eras Exp $
+
+  13 Jun 2014; Eray Aslan <eras@gentoo.org> -sendmail-8.14.7-r1.ebuild,
+  -sendmail-8.14.8.ebuild:
+  Remove vulnerable versions
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.9.ebuild:
+  Stable for x86, wrt bug #511760
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.9.ebuild:
+  Stable for sparc, wrt bug #511760
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.9.ebuild:
+  Stable for ppc, wrt bug #511760
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.9.ebuild:
+  Stable for ppc64, wrt bug #511760
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.9.ebuild:
+  Stable for ia64, wrt bug #511760
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.9.ebuild:
+  Stable for arm, wrt bug #511760
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.9.ebuild:
+  Stable for alpha, wrt bug #511760
+
+  02 Jun 2014; Jeroen Roovers <jer@gentoo.org> sendmail-8.14.9.ebuild:
+  Stable for HPPA (bug #511760).
+
+  31 May 2014; Agostino Sarubbo <ago@gentoo.org> sendmail-8.14.9.ebuild:
+  Stable for amd64, wrt bug #511760
+
+*sendmail-8.14.9 (30 May 2014)
+
+  30 May 2014; Eray Aslan <eras@gentoo.org> +sendmail-8.14.9.ebuild:
+  Security bump - bug #511760
 
   29 Jan 2014; Tim Harder <radhermit@gentoo.org> -sendmail-8.14.4.ebuild,
   -sendmail-8.14.5.ebuild, -sendmail-8.14.5-r1.ebuild,

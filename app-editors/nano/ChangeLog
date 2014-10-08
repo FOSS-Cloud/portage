@@ -1,6 +1,27 @@
 # ChangeLog for app-editors/nano
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/nano/ChangeLog,v 1.306 2014/03/16 02:16:28 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/nano/ChangeLog,v 1.311 2014/07/29 15:24:14 vapier Exp $
+
+*nano-2.3.6 (29 Jul 2014)
+
+  29 Jul 2014; Mike Frysinger <vapier@gentoo.org> +nano-2.3.6.ebuild:
+  Version bump #518492 by Lars Wendler.
+
+*nano-2.3.4 (16 Jun 2014)
+
+  16 Jun 2014; Mike Frysinger <vapier@gentoo.org> +nano-2.3.4.ebuild:
+  Version bump.
+
+  10 Jun 2014; Mike Frysinger <vapier@gentoo.org> nano-2.3.3.ebuild:
+  Fix clean up of /trash #512524 by Yi Yang.
+
+  02 Jun 2014; Mike Frysinger <vapier@gentoo.org> nano-2.3.3.ebuild:
+  Fix deletion of extraneous html pages #512142 by Justin Lecher.
+
+*nano-2.3.3 (30 May 2014)
+
+  30 May 2014; Mike Frysinger <vapier@gentoo.org> +nano-2.3.3.ebuild:
+  Version bump.
 
   16 Mar 2014; Mike Frysinger <vapier@gentoo.org>
   files/nano-2.3.1-gentoo-nanorc.patch:

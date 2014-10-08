@@ -1,6 +1,19 @@
 # ChangeLog for net-libs/libssh2
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libssh2/ChangeLog,v 1.84 2014/03/01 22:37:05 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libssh2/ChangeLog,v 1.87 2014/07/18 15:38:02 jer Exp $
+
+  18 Jul 2014; Jeroen Roovers <jer@gentoo.org> -libssh2-1.4.2.ebuild,
+  files/libssh2-1.4.2-pkgconfig.patch:
+  Clean up patch.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libssh2-1.4.3-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+*libssh2-1.4.3-r1 (13 Jun 2014)
+
+  13 Jun 2014; Michał Górny <mgorny@gentoo.org> +libssh2-1.4.3-r1.ebuild:
+  Enable multilib support, required for net-misc/curl.
 
   01 Mar 2014; Michał Górny <mgorny@gentoo.org> libssh2-1.4.2.ebuild,
   libssh2-1.4.3.ebuild:

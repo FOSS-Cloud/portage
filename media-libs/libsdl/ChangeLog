@@ -1,6 +1,62 @@
 # ChangeLog for media-libs/libsdl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libsdl/ChangeLog,v 1.212 2014/01/15 09:20:41 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libsdl/ChangeLog,v 1.225 2014/09/21 20:07:30 maekke Exp $
+
+  21 Sep 2014; Markus Meier <maekke@gentoo.org> libsdl-1.2.15-r8.ebuild:
+  arm stable, bug #522270
+
+  10 Sep 2014; Jeroen Roovers <jer@gentoo.org> libsdl-1.2.15-r8.ebuild:
+  Stable for HPPA (bug #522270).
+
+  26 Jul 2014; Michael Sterrett <mr_bones_@gentoo.org> -libsdl-1.2.15-r7.ebuild:
+  old
+
+*libsdl-1.2.15-r8 (25 Jul 2014)
+
+  25 Jul 2014; Alfredo Tupone <tupone@gentoo.org> +libsdl-1.2.15-r8.ebuild:
+  Removing a dependency on x11-libs/libXt Fix bug #514378
+
+  30 Jun 2014; Julian Ospald <hasufell@gentoo.org> -libsdl-1.2.15-r5.ebuild,
+  -libsdl-1.2.15-r6.ebuild:
+  remove old
+
+*libsdl-1.2.15-r7 (30 Jun 2014)
+
+  30 Jun 2014; Julian Ospald <hasufell@gentoo.org> +libsdl-1.2.15-r7.ebuild,
+  +files/libsdl-1.2.15-caca.patch:
+  fix various multilib failures wrt #514486
+
+  25 Jun 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -files/libsdl-1.2.13-sdl-config.patch, -files/libsdl-1.2.14-click.patch,
+  -files/libsdl-1.2.14-glibc213.patch, -files/libsdl-1.2.14-joystick.patch,
+  -libsdl-1.2.14-r6.ebuild, -libsdl-1.2.15-r2.ebuild, -libsdl-1.2.15-r3.ebuild:
+  Remove old versions that can no longer build due to bug #471300.
+
+*libsdl-1.2.15-r6 (22 Jun 2014)
+
+  22 Jun 2014; Julian Ospald <hasufell@gentoo.org> +libsdl-1.2.15-r6.ebuild:
+  disable wrapping of headers (also disables nasm for 32bit on amd64), wrt
+  #512430
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libsdl-1.2.15-r5.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  15 May 2014; Ulrich Müller <ulm@gentoo.org> libsdl-1.2.14-r6.ebuild,
+  libsdl-1.2.15-r2.ebuild, libsdl-1.2.15-r3.ebuild, libsdl-1.2.15-r4.ebuild,
+  libsdl-1.2.15-r5.ebuild, metadata.xml:
+  QA: Rename "audio" USE flag to "sound", bug 357661.
+
+  30 Apr 2014; Michał Górny <mgorny@gentoo.org> libsdl-1.2.15-r5.ebuild:
+  Fix typo in function name.
+
+  21 Apr 2014; Michał Górny <mgorny@gentoo.org> libsdl-1.2.15-r5.ebuild:
+  Use the new multilib_native_use* functions.
+
+*libsdl-1.2.15-r5 (18 Apr 2014)
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> +libsdl-1.2.15-r5.ebuild:
+  add multilib support wrt #489122
 
   15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> libsdl-1.2.15-r4.ebuild:
   Stable for ia64, wrt bug #485316

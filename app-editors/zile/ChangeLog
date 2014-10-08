@@ -1,6 +1,15 @@
 # ChangeLog for app-editors/zile
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/zile/ChangeLog,v 1.196 2014/04/07 14:28:54 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/zile/ChangeLog,v 1.199 2014/08/01 11:13:25 armin76 Exp $
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> zile-2.4.11.ebuild:
+  sparc stable wrt #506330
+
+  19 Jul 2014; Tobias Klausmann <klausman@gentoo.org> zile-2.4.11.ebuild:
+  Stable on alpha, bug #506330
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> zile-2.4.11.ebuild:
+  x86 stable wrt bug #506330
 
   07 Apr 2014; Chema Alonso <nimiux@gentoo.org> zile-2.4.11.ebuild:
   Stable for amd64 wrt bug #506330

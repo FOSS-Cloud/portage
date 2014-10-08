@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/R-3.0.3.ebuild,v 1.3 2014/04/07 11:58:36 heroxbd Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/R/R-3.0.3.ebuild,v 1.5 2014/09/01 16:42:31 mgorny Exp $
 
 EAPI=5
 
@@ -45,7 +45,7 @@ DEPEND="${CDEPEND}
 	)"
 
 RDEPEND="${CDEPEND}
-	( || ( <sys-libs/zlib-1.2.5.1-r1:0= >=sys-libs/zlib-1.2.5.1-r2:0=[minizip] ) )
+	( || ( <sys-libs/zlib-1.2.5.1-r1:0 >=sys-libs/zlib-1.2.5.1-r2:0[minizip] ) )
 	java? ( >=virtual/jre-1.5 )"
 
 RESTRICT="minimal? ( test )"
@@ -192,6 +192,7 @@ src_install() {
 		done
 		popd > /dev/null
 	fi
+	docompress -x /usr/share/doc/${PF}/NEWS.rds
 }
 
 pkg_postinst() {

@@ -1,6 +1,26 @@
 # ChangeLog for media-gfx/inkscape
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/inkscape/ChangeLog,v 1.205 2014/03/05 11:26:30 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/inkscape/ChangeLog,v 1.210 2014/07/04 19:35:41 ago Exp $
+
+  04 Jul 2014; Agostino Sarubbo <ago@gentoo.org> inkscape-0.48.4-r1.ebuild:
+  Stable for ppc64, wrt bug #492244
+
+  04 Jul 2014; Agostino Sarubbo <ago@gentoo.org> inkscape-0.48.4-r1.ebuild:
+  Stable for ppc, wrt bug #492244
+
+*inkscape-0.48.5 (26 Jun 2014)
+
+  26 Jun 2014; Tim Harder <radhermit@gentoo.org> +inkscape-0.48.5.ebuild:
+  Version bump (bug #514732).
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  inkscape-0.48.4-r1.ebuild:
+  x86 stable wrt bug #492244
+
+  24 May 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  inkscape-0.48.4.ebuild, inkscape-0.48.4-r1.ebuild,
+  +files/inkscape-0.48.4-poppler26.patch:
+  Fix build with poppler-0.26, bug 509280
 
   05 Mar 2014; Chema Alonso <nimiux@gentoo.org> inkscape-0.48.4-r1.ebuild:
   Stable for amd64 wrt bug #492244

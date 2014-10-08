@@ -1,8 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/enca/enca-1.14-r1.ebuild,v 1.2 2014/03/16 09:41:14 tommy Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/enca/enca-1.14-r1.ebuild,v 1.8 2014/07/28 13:42:17 ago Exp $
 
 EAPI="4"
+
+AUTOTOOLS_AUTORECONF=2.52
 
 inherit eutils toolchain-funcs autotools-multilib
 
@@ -12,13 +14,12 @@ SRC_URI="http://dl.cihar.com/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm ~hppa ~ia64 ~mips ppc ~ppc64 ~sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE="doc +recode"
 
-DEPEND="recode? ( >=app-text/recode-3.6_p15 )"
+DEPEND="recode? ( >=app-text/recode-3.6_p15 )
+	sys-devel/gettext"
 RDEPEND="${DEPEND}"
-
-AUTOTOOLS_AUTORECONF=2.52
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-remove-dirty-path-hack.patch
@@ -48,7 +49,7 @@ multilib_src_compile() {
 		popd > /dev/null
 	fi
 	# It will fail if we run these twice...
-	if ! multilib_build_binaries ; then
+	if ! multilib_is_native_abi ; then
 		sed -i -e 's/ src / /' Makefile || die
 		sed -i -e '/SUBDIRS/s/ test//' Makefile || die
 		sed -i -e 's/install-data-hook:/install-data-hook:\n\ndisabled:/' Makefile || die

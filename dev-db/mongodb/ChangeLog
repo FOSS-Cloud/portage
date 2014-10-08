@@ -1,6 +1,58 @@
 # ChangeLog for dev-db/mongodb
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/ChangeLog,v 1.90 2014/04/09 15:42:11 ultrabug Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/ChangeLog,v 1.98 2014/09/02 08:31:57 ultrabug Exp $
+
+*mongodb-2.4.11 (02 Sep 2014)
+
+  02 Sep 2014; Ultrabug <ultrabug@gentoo.org> +mongodb-2.4.11.ebuild,
+  +files/mongodb-2.4.11-fix-scons.patch:
+  version bump
+
+*mongodb-2.6.4 (12 Aug 2014)
+
+  12 Aug 2014; Ultrabug <ultrabug@gentoo.org> +mongodb-2.6.4.ebuild:
+  version bump
+
+  23 Jul 2014; Ultrabug <ultrabug@gentoo.org> -mongodb-2.2.7.ebuild,
+  -files/mongodb-2.2-fix-sharedclient.patch,
+  -files/mongodb-2.2-fix-x86client.patch,
+  -files/mongodb-2.2-r1-fix-scons.patch,
+  -files/mongodb-2.2-r2-boost-1.50.patch:
+  drop old and vulnerable version wrt #497540
+
+*mongodb-2.6.3 (20 Jun 2014)
+
+  20 Jun 2014; Ultrabug <ultrabug@gentoo.org> -mongodb-2.6.1-r1.ebuild,
+  -mongodb-2.6.2.ebuild, +mongodb-2.6.3.ebuild:
+  version bump, drop bugged
+
+*mongodb-2.6.2 (17 Jun 2014)
+
+  17 Jun 2014; Ultrabug <ultrabug@gentoo.org> +mongodb-2.6.2.ebuild,
+  +files/mongodb-2.6.2-fix-scons.patch:
+  version bump
+
+  26 May 2014; Ultrabug <ultrabug@gentoo.org> -mongodb-2.2.6-r1.ebuild,
+  mongodb-2.4.6-r2.ebuild, -mongodb-2.4.7.ebuild, -mongodb-2.4.8.ebuild,
+  -mongodb-2.4.9.ebuild, mongodb-2.4.10-r1.ebuild, mongodb-2.6.1-r1.ebuild,
+  +files/mongodb-2.4-fix-v8-pythonpath.patch:
+  fix #510142 thx to Denis D, drop old
+
+*mongodb-2.6.1-r1 (26 May 2014)
+
+  26 May 2014; Ultrabug <ultrabug@gentoo.org> -mongodb-2.6.1.ebuild,
+  +mongodb-2.6.1-r1.ebuild, files/mms-agent.initd-r2, files/mongodb.initd-r2,
+  files/mongos.initd-r2:
+  fix init script user and group execution
+
+*mongodb-2.6.1 (14 May 2014)
+
+  14 May 2014; Ultrabug <ultrabug@gentoo.org> +mongodb-2.6.1.ebuild,
+  +files/mongodb-2.6.1-fix-scons.patch, +files/mms-agent.initd-r2,
+  +files/mongodb.conf-r2, +files/mongodb.confd-r2, +files/mongodb.initd-r2,
+  +files/mongos.conf-r2, +files/mongos.confd-r2, +files/mongos.initd-r2:
+  version 2.6.x bump fix #508190 thx to Mike Limansky, Johan Bergstrom and
+  Jason A. Donenfeld
 
   09 Apr 2014; Ultrabug <ultrabug@gentoo.org> mongodb-2.4.10-r1.ebuild:
   quick typo on elog

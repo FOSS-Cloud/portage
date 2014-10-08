@@ -1,6 +1,95 @@
 # ChangeLog for sys-power/upower
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/upower/ChangeLog,v 1.145 2014/03/28 21:23:58 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-power/upower/ChangeLog,v 1.166 2014/09/26 11:41:26 klausman Exp $
+
+  26 Sep 2014; Tobias Klausmann <klausman@gentoo.org> upower-0.99.1.ebuild:
+  Stable on alpha, bug 523044
+
+  19 Sep 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/upower-0.9.23-clamp_percentage_for_overfull_batt.patch,
+  -files/upower-0.9.23-create-dir-runtime.patch,
+  -files/upower-0.9.23-fix-segfault.patch, -upower-0.9.23-r3.ebuild:
+  old
+
+  19 Sep 2014; Samuli Suominen <ssuominen@gentoo.org> upower-0.99.1.ebuild:
+  amd64/arm/ppc/ppc64/x86 stable wrt #523044
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> upower-0.99.0-r1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> upower-0.99.0-r1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> upower-0.99.0-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+*upower-0.99.1 (20 Aug 2014)
+
+  20 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> +upower-0.99.1.ebuild:
+  Version bump; raise SLOT from 0/2 to 0/3 based on increased SONAME of
+  libupower-glib.so
+
+*upower-0.9.23-r3 (20 Jun 2014)
+
+  20 Jun 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +files/upower-0.9.23-clamp_percentage_for_overfull_batt.patch,
+  +files/upower-0.9.23-create-dir-runtime.patch,
+  +files/upower-0.9.23-fix-segfault.patch, +upower-0.9.23-r3.ebuild:
+  Temporarily restore for sys-apps/systemd + gnome/ profile users (waiting for
+  GNOME 3.12 stabilization)
+
+  19 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> upower-0.99.0-r1.ebuild:
+  ppc/ppc64 stable wrt #513700
+
+  19 Jun 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/upower-0.9.23-clamp_percentage_for_overfull_batt.patch,
+  -files/upower-0.9.23-create-dir-runtime.patch,
+  -files/upower-0.9.23-fix-segfault.patch, -upower-0.9.23-r3.ebuild,
+  -upower-0.99.0.ebuild:
+  old
+
+  19 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> upower-0.99.0-r1.ebuild:
+  amd64/arm/x86 stable wrt #513700
+
+  05 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> upower-0.99.0-r1.ebuild:
+  Remove USE="doc" and dev-util/gtk-doc dependency and install prebuilt copies
+  wrt #487400 to avoid parallel build failure. Create a compability symlink for
+  dev-util/devhelp.
+
+*upower-0.99.0-r1 (04 Jun 2014)
+
+  04 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> +upower-0.99.0-r1.ebuild,
+  +files/upower-0.99.0-create-dir-runtime.patch,
+  +files/upower-0.99.0-fix-segfault.patch,
+  +files/upower-0.99.0-fix-shutdown-on-boot.patch,
+  +files/upower-0.99.0-fix-typing-error.patch:
+  Backport fixes from git master (segfaulting, creating directories on fly,
+  shutting down on boot, and typing errors)
+
+  02 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> -upower-0.9.23-r2.ebuild:
+  old
+
+*upower-0.9.23-r3 (02 Jun 2014)
+
+  02 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> +upower-0.9.23-r3.ebuild:
+  Leave 0.9.23-r3 with --disable-deprecated for sys-apps/systemd users.
+  Users who want UPower with sys-power/pm-utils support will want to emerge
+  >=sys-power/upower-pm-utils-0.9.23 instead.
+
+  02 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> upower-0.9.23-r2.ebuild,
+  upower-0.99.0.ebuild:
+  Pull in virtual/libgudev and use := subslotting for it to gain automatic
+  rebuild from SONAME change.
+
+  31 May 2014; Samuli Suominen <ssuominen@gentoo.org> upower-0.99.0.ebuild:
+  Release 0.99 to ~arch because most of the tree has been adapted.
+
+  27 May 2014; Samuli Suominen <ssuominen@gentoo.org> -upower-0.9.23.ebuild:
+  old
+
+  27 May 2014; Samuli Suominen <ssuominen@gentoo.org> upower-0.9.23-r2.ebuild:
+  Stabilize for everyone (only non-arch specific minor bugfixes when comparing
+  to current stable, which is -r0)
 
   28 Mar 2014; Rick Farina <zerochaos@gentoo.org> upower-0.9.23-r2.ebuild,
   upower-0.99.0.ebuild:
@@ -47,7 +136,8 @@
 
   27 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> +upower-0.99.0.ebuild:
   Version bump without KEYWORDS because of major API change. Introduce subslot
-  0/2 based on libupower-glib.so SONAME.
+  0/2 based on libupower-glib.so SONAME. Notice that upstream removed support
+  for hibernate and suspend in this version.
 
   27 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> upower-0.9.23.ebuild:
   amd64 stable wrt #496532

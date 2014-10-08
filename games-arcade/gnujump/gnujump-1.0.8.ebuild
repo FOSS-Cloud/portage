@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/gnujump/gnujump-1.0.8.ebuild,v 1.1 2013/04/26 01:03:52 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-arcade/gnujump/gnujump-1.0.8.ebuild,v 1.3 2014/09/12 16:22:38 nimiux Exp $
 
-EAPI=2
-inherit eutils games
+EAPI=5
+inherit eutils flag-o-matic games
 
 DESCRIPTION="Xjump clone with added features"
 HOMEPAGE="http://gnujump.es.gnu.org"
@@ -11,18 +11,23 @@ SRC_URI="ftp://ftp.gnu.org/gnu/gnujump/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc ~x86"
 IUSE=""
 
-DEPEND="media-libs/libsdl
+DEPEND="media-libs/libsdl[sound,video]
 	media-libs/sdl-image[png]
 	media-libs/sdl-mixer[vorbis]
 	virtual/opengl
 	x11-libs/libX11"
+RDEPEND=${DEPEND}
+
+src_prepare() {
+	append-libs -lm
+}
 
 src_install() {
-	emake DESTDIR="${D}" install || die
-	dodoc AUTHORS ChangeLog README
+	DOCS=( AUTHORS ChangeLog README )
+	default
 
 	newicon skins/xjump/hero1.0.png ${PN}.png
 	make_desktop_entry ${PN} "GNUjump"

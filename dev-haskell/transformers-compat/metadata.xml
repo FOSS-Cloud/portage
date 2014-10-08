@@ -2,9 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>haskell</herd>
-	<maintainer>
-		<email>haskell@gentoo.org</email>
-	</maintainer>
 	<longdescription>
 		This package includes backported versions of types that were added
 		to transformers in transformers 0.3 for users who need strict
@@ -17,4 +14,7 @@
 		Note: missing methods are not supplied
 		but this at least permits the types to be used.
 	</longdescription>
+	<use>
+	  <flag name="three">Use transformers-0.3</flag>
+	</use>
 </pkgmetadata>

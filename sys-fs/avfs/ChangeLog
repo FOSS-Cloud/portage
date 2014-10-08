@@ -1,6 +1,18 @@
 # ChangeLog for sys-fs/avfs
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/avfs/ChangeLog,v 1.48 2013/04/25 19:15:26 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/avfs/ChangeLog,v 1.51 2014/08/31 06:11:12 radhermit Exp $
+
+*avfs-1.0.2 (31 Aug 2014)
+
+  31 Aug 2014; Tim Harder <radhermit@gentoo.org> +avfs-1.0.2.ebuild:
+  Version bump (bug #516866).
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> avfs-1.0.1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  25 Apr 2014; Tim Harder <radhermit@gentoo.org> -avfs-0.9.9.ebuild,
+  -avfs-1.0.0.ebuild, -files/avfs-0.9.8-gcc43_fix_open_missing_mode.patch:
+  Remove old.
 
   25 Apr 2013; Sergey Popov <pinkbyte@gentoo.org> avfs-1.0.1.ebuild:
   Add ~arm keyword

@@ -1,6 +1,25 @@
 # ChangeLog for app-text/fbreader
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/fbreader/ChangeLog,v 1.37 2013/05/12 15:50:18 johu Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/fbreader/ChangeLog,v 1.41 2014/08/06 07:09:31 patrick Exp $
+
+  06 Aug 2014; Patrick Lauer <patrick@gentoo.org> fbreader-0.99.4-r1.ebuild,
+  fbreader-0.99.4-r2.ebuild:
+  Make description more repoman-happy
+
+*fbreader-0.99.4-r2 (10 Jul 2014)
+
+  10 Jul 2014; Andrey Grozin <grozin@gentoo.org> -fbreader-0.99.4.ebuild,
+  +fbreader-0.99.4-r2.ebuild, +files/fbreader-0.99.4-mimetypes.patch,
+  +files/fbreader-0.99.4-qreal-cast.patch:
+  Added casts to qreal (bug #515698), thanks to William Throwe
+  <wtt6@cornell.edu>; added mimetypes to .desktop (bug #516794); depend on
+  qtcore[ssl] (bug #462044); added -j1 (bug #484516)
+
+  14 Apr 2014; Andrey Grozin <grozin@gentoo.org> metadata.xml:
+  Set maintainer to grozin
+
+  14 Apr 2014; Alexey Shvetsov <alexxy@gentoo.org> metadata.xml:
+  Set maintainer to maintainer-needed
 
   12 May 2013; Johannes Huber <johu@gentoo.org> metadata.xml:
   Drop kde from maintainer as it has no references to kde technology.

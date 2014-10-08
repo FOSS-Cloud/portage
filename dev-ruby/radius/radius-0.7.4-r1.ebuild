@@ -1,15 +1,15 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/radius/radius-0.7.4-r1.ebuild,v 1.1 2013/11/05 00:59:03 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/radius/radius-0.7.4-r1.ebuild,v 1.3 2014/08/05 16:00:25 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby18 ruby19 ruby20 jruby"
+USE_RUBY="ruby19 ruby20 ruby21"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG QUICKSTART.rdoc README.rdoc"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Powerful tag-based template system."
+DESCRIPTION="Powerful tag-based template system"
 HOMEPAGE="https://github.com/jlong/radius http://radius.rubyforge.org/"
 
 LICENSE="MIT"

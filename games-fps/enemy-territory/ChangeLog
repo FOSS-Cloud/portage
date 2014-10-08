@@ -1,6 +1,21 @@
 # ChangeLog for games-fps/enemy-territory
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/enemy-territory/ChangeLog,v 1.50 2012/09/24 00:33:35 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-fps/enemy-territory/ChangeLog,v 1.53 2014/09/17 21:41:22 mr_bones_ Exp $
+
+  17 Sep 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  enemy-territory-2.60b-r1.ebuild:
+  tidy; use QA_PREBUILT
+
+  09 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  enemy-territory-2.60b-r1.ebuild:
+  more EAPI5 ebuild cleanups, dropped useless opengl flag, ensured USE=dedicated
+  only installed dedicated server
+
+*enemy-territory-2.60b-r1 (07 Jul 2014)
+
+  07 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +enemy-territory-2.60b-r1.ebuild:
+  Bumped EAPI to 5, adjusted deps for gx86-multilib
 
   24 Sep 2012; Mike Frysinger <vapier@gentoo.org> enemy-territory-2.60b.ebuild:
   QA_DT_HASH (old/deprecated) -> QA_FLAGS_IGNORED (new hotness).

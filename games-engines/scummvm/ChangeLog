@@ -1,6 +1,26 @@
 # ChangeLog for games-engines/scummvm
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-engines/scummvm/ChangeLog,v 1.128 2013/06/02 03:44:35 mr_bones_ Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-engines/scummvm/ChangeLog,v 1.133 2014/08/25 20:57:44 mr_bones_ Exp $
+
+  25 Aug 2014; Michael Sterrett <mr_bones_@gentoo.org> -scummvm-1.6.0.ebuild:
+  old
+
+  24 Jul 2014; Michael Sterrett <mr_bones_@gentoo.org> scummvm-1.7.0.ebuild:
+  add back the fluidsynth workaround (bug #518004)
+
+*scummvm-1.7.0 (23 Jul 2014)
+
+  23 Jul 2014; Michael Sterrett <mr_bones_@gentoo.org> +scummvm-1.7.0.ebuild,
+  metadata.xml:
+  version bump (bug #517798)
+
+  17 Jun 2014; Michael Sterrett <mr_bones_@gentoo.org> scummvm-1.6.0.ebuild:
+  add missing theora USE flag (bug #513366)
+
+  15 May 2014; Ulrich Müller <ulm@gentoo.org> scummvm-1.5.0.ebuild,
+  scummvm-1.6.0.ebuild:
+  Fix USE dependency on media-libs/libsdl, "audio" USE flag was renamed to
+  "sound", bug 357661.
 
 *scummvm-1.6.0 (02 Jun 2013)
 

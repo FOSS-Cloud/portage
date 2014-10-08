@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy-bin/pypy-bin-2.0.2-r1.ebuild,v 1.3 2014/04/08 15:33:13 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy-bin/pypy-bin-2.0.2-r1.ebuild,v 1.5 2014/07/06 13:18:56 mgorny Exp $
 
 EAPI=5
 
@@ -11,7 +11,7 @@ BINHOST="http://dev.gentoo.org/~mgorny/dist/${PN}"
 
 DESCRIPTION="A fast, compliant alternative implementation of the Python language (binary package)"
 HOMEPAGE="http://pypy.org/"
-SRC_URI="mirror://bitbucket/pypy/pypy/downloads/pypy-${PV}-src.tar.bz2
+SRC_URI="https://www.bitbucket.org/pypy/pypy/downloads/pypy-${PV}-src.tar.bz2
 	amd64? (
 		jit? ( shadowstack? (
 			${BINHOST}/${P}-amd64+bzip2+jit+ncurses+shadowstack.tar.xz
@@ -65,7 +65,7 @@ RDEPEND="
 	( <sys-libs/zlib-1.2.9:0
 		>=sys-libs/zlib-1.2.7:0 )
 	sqlite? ( dev-db/sqlite:3 )
-	!dev-python/pypy:${SLOT}"
+	!dev-python/pypy:0"
 DEPEND="app-arch/xz-utils
 	doc? ( dev-python/sphinx )
 	test? ( ${RDEPEND} )"

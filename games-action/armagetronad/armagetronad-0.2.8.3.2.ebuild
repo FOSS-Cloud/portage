@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/armagetronad/armagetronad-0.2.8.3.2.ebuild,v 1.1 2013/11/07 18:48:05 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-action/armagetronad/armagetronad-0.2.8.3.2.ebuild,v 1.4 2014/08/29 12:02:27 nimiux Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="http://launchpad.net/armagetronad/${PV:0:5}/${PV}/+download/armagetrona
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="dedicated sound"
 
 RDEPEND="
@@ -23,7 +23,7 @@ RDEPEND="
 		virtual/glu
 		virtual/opengl
 		sound? (
-			media-libs/libsdl[X,audio,opengl,video]
+			media-libs/libsdl[X,sound,opengl,video]
 			media-libs/sdl-mixer
 		)
 		!sound? ( media-libs/libsdl[X,opengl,video] )

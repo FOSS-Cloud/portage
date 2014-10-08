@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/gambatte/gambatte-0.5.0_p20131102.ebuild,v 1.1 2013/11/18 20:34:11 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-emulation/gambatte/gambatte-0.5.0_p20131102.ebuild,v 1.4 2014/08/29 10:03:19 nimiux Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="http://dev.gentoo.org/~hasufell/distfiles/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="qt4 +sdl"
 REQUIRED_USE="|| ( qt4 sdl )"
 
@@ -28,7 +28,7 @@ RDEPEND="
 		x11-libs/libXrandr
 		x11-libs/libXv
 	)
-	sdl? ( media-libs/libsdl[X,audio,joystick,video] )"
+	sdl? ( media-libs/libsdl[X,sound,joystick,video] )"
 DEPEND="${RDEPEND}
 	app-arch/xz-utils"
 

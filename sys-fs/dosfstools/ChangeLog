@@ -1,6 +1,30 @@
 # ChangeLog for sys-fs/dosfstools
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/dosfstools/ChangeLog,v 1.141 2014/04/05 20:36:20 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/dosfstools/ChangeLog,v 1.149 2014/07/11 11:32:27 zlogene Exp $
+
+  11 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> dosfstools-3.0.26.ebuild:
+  Add ~arm64 keyword
+
+  14 May 2014; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.26.ebuild:
+  Stable for sparc, wrt bug #506066
+
+  13 May 2014; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.26.ebuild:
+  Stable for ia64, wrt bug #506066
+
+  20 Apr 2014; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.26.ebuild:
+  Stable for ppc64, wrt bug #506066
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.26.ebuild:
+  Stable for alpha, wrt bug #506066
+
+  13 Apr 2014; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.26.ebuild:
+  Stable for ppc, wrt bug #506066
+
+  12 Apr 2014; Agostino Sarubbo <ago@gentoo.org> dosfstools-3.0.26.ebuild:
+  Stable for x86, wrt bug #506066
+
+  11 Apr 2014; Chema Alonso <nimiux@gentoo.org> dosfstools-3.0.26.ebuild:
+  Stable for amd64 wrt bug #506066
 
   05 Apr 2014; Jeroen Roovers <jer@gentoo.org> dosfstools-3.0.26.ebuild:
   Stable for HPPA (bug #506066).

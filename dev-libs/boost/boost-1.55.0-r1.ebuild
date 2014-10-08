@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/boost/boost-1.55.0-r1.ebuild,v 1.4 2014/04/07 10:57:06 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/boost/boost-1.55.0-r1.ebuild,v 1.8 2014/08/14 08:44:41 pinkbyte Exp $
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
 
 inherit eutils flag-o-matic multilib multiprocessing python-r1 toolchain-funcs versionator
 
@@ -69,6 +69,19 @@ ${python_configuration}
 __EOF__
 }
 
+pkg_setup() {
+	# Bail out on unsupported build configuration, bug #456792
+	if [[ -f "${EROOT}etc/site-config.jam" ]]; then
+		grep -q gentoorelease "${EROOT}etc/site-config.jam" && grep -q gentoodebug "${EROOT}etc/site-config.jam" ||
+		(
+			eerror "You are using custom ${EROOT}etc/site-config.jam without defined gentoorelease/gentoodebug targets."
+			eerror "Boost can not be built in such configuration."
+			eerror "Please, either remove this file or add targets from ${EROOT}usr/share/boost-build/site-config.jam to it."
+			die
+		)
+	fi
+}
+
 src_prepare() {
 	epatch \
 		"${FILESDIR}/${PN}-1.51.0-respect_python-buildid.patch" \
@@ -78,7 +91,8 @@ src_prepare() {
 		"${FILESDIR}/${PN}-1.48.0-python_linking.patch" \
 		"${FILESDIR}/${PN}-1.48.0-disable_icu_rpath.patch" \
 		"${FILESDIR}/${PN}-1.55.0-context-x32.patch" \
-		"${FILESDIR}/${PN}-1.55.0-tools-c98-compat.patch"
+		"${FILESDIR}/${PN}-1.55.0-tools-c98-compat.patch" \
+		"${FILESDIR}/${PN}-1.52.0-threads.patch"
 
 	epatch_user
 }

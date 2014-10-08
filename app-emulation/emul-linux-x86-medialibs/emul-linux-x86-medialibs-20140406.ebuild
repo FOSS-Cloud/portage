@@ -1,12 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-medialibs/emul-linux-x86-medialibs-20140406.ebuild,v 1.1 2014/04/06 09:09:17 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-medialibs/emul-linux-x86-medialibs-20140406.ebuild,v 1.4 2014/06/18 19:02:15 mgorny Exp $
 
 EAPI=5
 inherit emul-linux-x86
 
 LICENSE="APL-1.0 GPL-2 BSD BSD-2 public-domain LGPL-2 MPL-1.1 LGPL-2.1 !abi_x86_32? ( MPEG-4 )"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* amd64"
 IUSE="abi_x86_32"
 
 DEPEND=""
@@ -16,7 +16,7 @@ RDEPEND="~app-emulation/emul-linux-x86-baselibs-${PV}
 	!<=app-emulation/emul-linux-x86-sdl-20081109
 	!<=app-emulation/emul-linux-x86-soundlibs-20110101
 	abi_x86_32? (
-		>=media-libs/libvpx-1.2.0_pre[abi_x86_32(-)]
+		>=media-libs/libvpx-1.2.0_pre20130625[abi_x86_32(-)]
 		>=media-libs/xvid-1.3.2-r1[abi_x86_32(-)]
 		>=media-sound/lame-3.99.5-r1[abi_x86_32(-)]
 		>=media-libs/faac-1.28-r4[abi_x86_32(-)]
@@ -32,7 +32,7 @@ RDEPEND="~app-emulation/emul-linux-x86-baselibs-${PV}
 		>=media-libs/libv4l-0.9.5-r1[abi_x86_32(-)]
 		>=media-libs/libid3tag-0.15.1b-r4[abi_x86_32(-)]
 		>=media-libs/libshout-2.3.1-r1[abi_x86_32(-)]
-		>=media-libs/libsidplay-2.1.1-r3:2[abi_x86_32(-)]
+		>=media-libs/libsidplay-2.1.1-r4:2[abi_x86_32(-)]
 		>=media-libs/libsidplay-1.36.59-r1:1[abi_x86_32(-)]
 		>=media-libs/x264-0.0.20130731[abi_x86_32(-)]
 		>=media-libs/libiec61883-1.2.0-r1[abi_x86_32(-)]
@@ -44,9 +44,9 @@ RDEPEND="~app-emulation/emul-linux-x86-baselibs-${PV}
 		>=dev-libs/liboil-0.3.17-r2[abi_x86_32(-)]
 		>=sys-libs/libieee1284-0.2.11-r3[abi_x86_32(-)]
 		>=dev-libs/fribidi-0.19.5-r2[abi_x86_32(-)]
-		>=dev-libs/libcdio-0.90-r1[abi_x86_32(-)]
+		>=dev-libs/libcdio-0.92[abi_x86_32(-)]
 		>=dev-libs/libcdio-paranoia-0.90_p1-r1[abi_x86_32(-)]
-		>=media-video/ffmpeg-0.10.8:0.10[abi_x86_32(-)]
+		>=media-video/ffmpeg-0.10.12:0.10[abi_x86_32(-)]
 		>=media-libs/libdv-1.0.0-r3[abi_x86_32(-)]
 	)
 	"

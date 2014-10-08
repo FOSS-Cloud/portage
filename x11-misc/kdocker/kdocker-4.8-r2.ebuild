@@ -1,11 +1,11 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/kdocker/kdocker-4.8-r2.ebuild,v 1.1 2014/03/13 22:09:14 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/kdocker/kdocker-4.8-r2.ebuild,v 1.4 2014/10/08 00:50:47 mrueg Exp $
 
 EAPI=5
 
 LANGS="it"
-inherit qt4-r2
+inherit bash-completion-r1 qt4-r2
 
 DESCRIPTION="Helper to dock any application into the system tray"
 HOMEPAGE="https://launchpad.net/kdocker/"
@@ -13,16 +13,16 @@ SRC_URI="http://launchpad.net/${PN}/trunk/${PV:0:3}/+download/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE=""
 
 DEPEND="
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
+	dev-qt/qtsingleapplication[X]
 	x11-libs/libX11
 	x11-libs/libXmu
 	x11-libs/libXpm
-	dev-qt/qtcore:4
-	dev-qt/qtgui:4
-	dev-qt/qtsingleapplication
 "
 RDEPEND="${DEPEND}"
 
@@ -37,7 +37,7 @@ src_prepare() {
 		sed -e '/^INSTALLS +=/s/translations//' -i kdocker.pro || die "sed failed"
 	fi
 
-	sed -i -e '/completion.path/s%/etc/bash_completion.d%/usr/share/bash-completion%' \
+	sed -i -e "/completion.path/s%/etc/bash_completion.d%$(get_bashcompdir)%" \
 		kdocker.pro || die "sed failed"
 }
 

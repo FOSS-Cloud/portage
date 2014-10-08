@@ -1,24 +1,35 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sec-policy/selinux-base-policy/selinux-base-policy-9999.ebuild,v 1.7 2013/07/20 21:30:37 swift Exp $
-EAPI="4"
+# $Header: /var/cvsroot/gentoo-x86/sec-policy/selinux-base-policy/selinux-base-policy-9999.ebuild,v 1.14 2014/08/30 20:20:47 swift Exp $
+EAPI="5"
 
-inherit eutils git-2
+inherit eutils
+
+if [[ ${PV} == 9999* ]]; then
+	EGIT_REPO_URI="${SELINUX_GIT_REPO:-git://git.overlays.gentoo.org/proj/hardened-refpolicy.git https://git.overlays.gentoo.org/gitroot/proj/hardened-refpolicy.git}"
+	EGIT_BRANCH="${SELINUX_GIT_BRANCH:-master}"
+	EGIT_SOURCEDIR="${WORKDIR}/refpolicy"
+
+	inherit git-2
+
+	KEYWORDS=""
+else
+	SRC_URI="http://oss.tresys.com/files/refpolicy/refpolicy-${PV}.tar.bz2
+			http://dev.gentoo.org/~swift/patches/${PN}/patchbundle-${PN}-${PVR}.tar.bz2"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 HOMEPAGE="http://www.gentoo.org/proj/en/hardened/selinux/"
 DESCRIPTION="SELinux policy for core modules"
 
 IUSE="+unconfined"
-BASEPOL="9999"
 
-RDEPEND="=sec-policy/selinux-base-9999"
+RDEPEND="=sec-policy/selinux-base-${PVR}"
 PDEPEND="unconfined? ( sec-policy/selinux-unconfined )"
 DEPEND=""
-EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/hardened-refpolicy.git"
-EGIT_SOURCEDIR="${WORKDIR}/refpolicy"
 KEYWORDS=""
 
-MODS="application authlogin bootloader clock consoletype cron dmesg fstools getty hostname hotplug init iptables libraries locallogin logging lvm miscfiles modutils mount mta netutils nscd portage raid rsync selinuxutil setrans ssh staff storage su sysadm sysnetwork udev userdomain usermanage unprivuser xdg"
+MODS="application authlogin bootloader clock consoletype cron dmesg fstools getty hostname hotplug init iptables libraries locallogin logging lvm miscfiles modutils mount mta netutils nscd portage raid rsync selinuxutil setrans ssh staff storage su sysadm sysnetwork tmpfiles udev userdomain usermanage unprivuser xdg"
 LICENSE="GPL-2"
 SLOT="0"
 S="${WORKDIR}/"
@@ -37,6 +48,16 @@ pkg_pretend() {
 
 src_prepare() {
 	local modfiles
+
+	if [[ ${PV} != 9999* ]]; then
+		# Patch the source with the base patchbundle
+		cd "${S}"
+		EPATCH_MULTI_MSG="Applying SELinux policy updates ... " \
+		EPATCH_SUFFIX="patch" \
+		EPATCH_SOURCE="${WORKDIR}" \
+		EPATCH_FORCE="yes" \
+		epatch
+	fi
 
 	# Apply the additional patches refered to by the module ebuild.
 	# But first some magic to differentiate between bash arrays and strings
@@ -110,4 +131,15 @@ pkg_postinst() {
 
 		semodule -s ${i} -b base.pp ${COMMAND} || die "Failed to load in base and modules ${MODS} in the $i policy store"
 	done
+
+	# Relabel depending packages
+	PKGSET="";
+	if [ -x /usr/bin/qdepends ] ; then
+		PKGSET=$(/usr/bin/qdepends -Cq -Q ${CATEGORY}/${PN} | grep -v 'sec-policy/selinux-');
+	elif [ -x /usr/bin/equery ] ; then
+		PKGSET=$(/usr/bin/equery -Cq depends ${CATEGORY}/${PN} | grep -v 'sec-policy/selinux-');
+	fi
+	if [ -n "${PKGSET}" ] ; then
+		rlpkg ${PKGSET};
+	fi
 }

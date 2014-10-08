@@ -1,17 +1,17 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/x265/x265-9999.ebuild,v 1.2 2014/03/25 13:57:46 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/x265/x265-9999.ebuild,v 1.10 2014/09/12 07:05:00 ssuominen Exp $
 
 EAPI=5
 
-inherit cmake-multilib multilib
+inherit cmake-multilib multilib flag-o-matic
 
 if [[ ${PV} = 9999* ]]; then
 	inherit mercurial
 	EHG_REPO_URI="http://bitbucket.org/multicoreware/x265"
 else
 	SRC_URI="https://bitbucket.org/multicoreware/x265/get/${PV}.tar.bz2 -> ${P}.tar.bz2"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
 DESCRIPTION="Library for encoding video streams into the H.265/HEVC format"
@@ -19,7 +19,7 @@ HOMEPAGE="http://x265.org/"
 
 LICENSE="GPL-2"
 # subslot = libx265 soname
-SLOT="0/9"
+SLOT="0/31"
 IUSE="+10bit test"
 
 ASM_DEPEND=">=dev-lang/yasm-1.2.0"
@@ -40,9 +40,11 @@ src_unpack() {
 }
 
 multilib_src_configure() {
+	append-cflags -fPIC
+	append-cxxflags -fPIC
 	local mycmakeargs=(
 		$(cmake-utils_use_enable test TESTS)
-		$(multilib_build_binaries || echo "-DENABLE_CLI=OFF")
+		$(multilib_is_native_abi || echo "-DENABLE_CLI=OFF")
 		-DHIGH_BIT_DEPTH=$(usex 10bit "ON" "OFF")
 		-DLIB_INSTALL_DIR="$(get_libdir)"
 	)

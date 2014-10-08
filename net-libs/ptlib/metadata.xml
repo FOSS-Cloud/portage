@@ -2,12 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer>
-		<email>neurogeek@gentoo.org</email>
-		<name>Jesus Rivero</name>
+		<email>maintainer-needed@gentoo.org</email>
 	</maintainer>
 	<use>
 		<flag name="asn">Enable ASN decoding/encoding support</flag>
-		<flag name="audio">Enable audio support</flag>
 		<flag name="dtmf">Enable DTMF encoding/decoding support</flag>
 		<flag name="http">Enable HTTP support</flag>
 		<flag name="mail">Enable mail protocols (POP3/SMTP)</flag>

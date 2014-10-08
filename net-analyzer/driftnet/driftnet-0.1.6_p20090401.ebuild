@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/driftnet/driftnet-0.1.6_p20090401.ebuild,v 1.9 2014/01/06 02:21:09 steev Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/driftnet/driftnet-0.1.6_p20090401.ebuild,v 1.12 2014/09/17 15:51:34 ago Exp $
 
 EAPI=5
 inherit eutils flag-o-matic toolchain-funcs
@@ -10,7 +10,7 @@ HOMEPAGE="http://www.ex-parrot.com/~chris/driftnet/"
 SRC_URI="mirror://github/rbu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~ppc -sparc ~x86"
+KEYWORDS="~amd64 ppc -sparc x86"
 SLOT="0"
 IUSE="gtk mp3 suid"
 
@@ -38,24 +38,24 @@ src_prepare() {
 src_compile() {
 	export CC=$(tc-getCC)
 	if use gtk; then
-		emake || die "gtk+ build failed"
-		mv driftnet driftnet-gtk
-		make clean || die
+		emake
+		mv driftnet driftnet-gtk || die
+		emake clean
 	fi
 
 	# build a non-gtk version for all users
 	sed -i 's:^\(.*gtk.*\)$:#\1:g' Makefile || die "sed disable gtk failed"
 	append-flags -DNO_DISPLAY_WINDOW
-	emake || die "emake failed"
+	emake
 }
 
 src_install () {
-	dosbin driftnet || die "dobin failed"
-	doman driftnet.1 || die "doman failed"
+	dosbin driftnet
+	doman driftnet.1
 
-	use gtk && { dosbin driftnet-gtk || die "dosbin failed (gtk)" ; }
+	use gtk && dosbin driftnet-gtk
 
-	dodoc CHANGES CREDITS README TODO || die "dodoc failed"
+	dodoc CHANGES CREDITS README TODO
 
 	if use suid ; then
 		elog "marking the no-display driftnet as setuid root."

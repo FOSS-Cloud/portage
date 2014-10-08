@@ -1,6 +1,19 @@
 # ChangeLog for app-emacs/apel
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/apel/ChangeLog,v 1.54 2014/03/23 10:14:24 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/apel/ChangeLog,v 1.58 2014/08/29 06:36:55 ulm Exp $
+
+  29 Aug 2014; Ulrich Müller <ulm@gentoo.org> apel-10.8-r1.ebuild:
+  Replace einstall by emake. Remove unnecessary die statements.
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> apel-10.8-r1.ebuild:
+  ia64 stable wrt #505424
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> apel-10.8-r1.ebuild,
+  apel-10.8.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  18 Jul 2014; Tobias Klausmann <klausman@gentoo.org> apel-10.8-r1.ebuild:
+  Stable on alpha, bug #505424
 
   23 Mar 2014; Agostino Sarubbo <ago@gentoo.org> apel-10.8-r1.ebuild:
   Stable for sparc, wrt bug #501480

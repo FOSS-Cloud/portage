@@ -1,6 +1,54 @@
 # ChangeLog for app-text/stardict
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/stardict/ChangeLog,v 1.33 2014/01/05 11:34:39 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/stardict/ChangeLog,v 1.44 2014/09/12 06:56:20 ssuominen Exp $
+
+  12 Sep 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/stardict-3.0.3-compositelookup_cpp.patch,
+  -files/stardict-3.0.3-correct-glib-include.patch,
+  -files/stardict-3.0.3-entry.patch, -files/stardict-3.0.3-gcc46.patch,
+  -files/stardict-3.0.3-overflow.patch, -stardict-3.0.3-r2.ebuild,
+  -stardict-3.0.4-r1.ebuild:
+  old
+
+  12 Sep 2014; Samuli Suominen <ssuominen@gentoo.org> stardict-3.0.5.ebuild:
+  Add missing "sd2foldoc" to plugins handling in src_install() from "diff -u
+  stardict-3.0.4/tools/src/Makefile.am stardict-3.0.5/tools/src/Makefile.am"
+
+*stardict-3.0.5 (12 Sep 2014)
+
+  12 Sep 2014; Samuli Suominen <ssuominen@gentoo.org> +stardict-3.0.5.ebuild:
+  Version bump wrt #522616
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> stardict-3.0.4.ebuild:
+  Stable for sparc, wrt bug #510900
+
+  03 Aug 2014; Agostino Sarubbo <ago@gentoo.org> stardict-3.0.4.ebuild:
+  Stable for ppc, wrt bug #510900
+
+*stardict-3.0.4-r1 (03 Aug 2014)
+
+  03 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> +stardict-3.0.4-r1.ebuild:
+  Punt optional GNOME 2.x integration libbobecause of thenobo-2, libgnome-2,
+  libgnomeui-2, gconf-2 and orbit-2 dependency chain. Use subslot deps where
+  appropiate.
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> stardict-3.0.4.ebuild:
+  Stable for ppc64, wrt bug #510900
+
+  25 Jul 2014; Chema Alonso <nimiux@gentoo.org> stardict-3.0.4.ebuild:
+  Stable for amd64 wrt bug #510900
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> stardict-3.0.4.ebuild:
+  x86 stable wrt bug #510900
+
+  21 May 2014; Samuli Suominen <ssuominen@gentoo.org> stardict-3.0.4.ebuild:
+  Leave a note about fixes committed to upstream repository for next person
+  touching the ebuild.
+
+*stardict-3.0.4 (09 May 2014)
+
+  09 May 2014; Samuli Suominen <ssuominen@gentoo.org> +stardict-3.0.4.ebuild:
+  Version bump wrt #451730 by Agostino Sarubbo
 
   05 Jan 2014; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due http://gentoo.2317880.n4.nabble.com/app-dicts-herd-is-empty-

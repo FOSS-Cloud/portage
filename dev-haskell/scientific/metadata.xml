@@ -2,9 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>haskell</herd>
-	<maintainer>
-		<email>haskell@gentoo.org</email>
-	</maintainer>
 	<longdescription>
 		A @Scientific@ number is an arbitrary-precision floating-point number
 		represented using scientific notation.
@@ -19,4 +16,8 @@
 		scientific notation they can be efficiently
 		parsed to a @Scientific@ number.
 	</longdescription>
+	<use>
+	  <flag name="bytestring-builder">Provide the
+          Data.ByteString.Builder.Scientific module (requires bytestring >= 0.10).</flag>
+	</use>
 </pkgmetadata>

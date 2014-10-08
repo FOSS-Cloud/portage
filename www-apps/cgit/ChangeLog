@@ -1,6 +1,24 @@
 # ChangeLog for www-apps/cgit
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/cgit/ChangeLog,v 1.23 2014/02/27 23:47:41 zx2c4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/cgit/ChangeLog,v 1.28 2014/07/18 12:41:14 zlogene Exp $
+
+  18 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> cgit-0.10.1.ebuild:
+  x86 stable wrt bug #503004
+
+  18 Jul 2014; Chema Alonso <nimiux@gentoo.org> cgit-0.10.1.ebuild:
+  Stable for amd64 wrt bug #503004
+
+  04 Jul 2014; Julian Ospald <hasufell@gentoo.org> cgit-0.10.1.ebuild,
+  cgit-9999.ebuild:
+  fix verbose build log, respect AR, CC, CFLAGS and LDFLAGS
+
+  21 May 2014; Sergey Popov <pinkbyte@gentoo.org> cgit-0.10.1.ebuild,
+  cgit-9999.ebuild:
+  QA: add slot to openssl dependency, wrt bug #508174. Thanks to Julian Ospald
+  for discovering this issue
+
+  08 May 2014; Jason A. Donenfeld <zx2c4@gentoo.org> -cgit-0.10.ebuild:
+  Remove old version.
 
 *cgit-0.10.1 (27 Feb 2014)
 

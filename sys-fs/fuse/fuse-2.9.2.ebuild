@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse/fuse-2.9.2.ebuild,v 1.13 2013/03/15 15:38:29 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/fuse/fuse-2.9.2.ebuild,v 1.15 2014/08/10 20:19:38 slyfox Exp $
 
 EAPI=5
 inherit eutils libtool linux-info udev toolchain-funcs
 
 MY_P=${P/_/-}
-DESCRIPTION="An interface for filesystems implemented in userspace."
+DESCRIPTION="An interface for filesystems implemented in userspace"
 HOMEPAGE="http://fuse.sourceforge.net"
 SRC_URI="mirror://sourceforge/fuse/${MY_P}.tar.gz"
 
@@ -42,7 +42,7 @@ src_configure() {
 	econf \
 		INIT_D_PATH="${EPREFIX}/etc/init.d" \
 		MOUNT_FUSE_PATH="${EPREFIX}/sbin" \
-		UDEV_RULES_PATH="${EPREFIX}/$(udev_get_udevdir)/rules.d" \
+		UDEV_RULES_PATH="${EPREFIX}/$(get_udevdir)/rules.d" \
 		$(use_enable static-libs static) \
 		--disable-example
 }

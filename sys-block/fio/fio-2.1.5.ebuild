@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/fio/fio-2.1.5.ebuild,v 1.1 2014/02/27 05:05:34 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/fio/fio-2.1.5.ebuild,v 1.3 2014/09/07 17:42:56 robbat2 Exp $
 
 EAPI="5"
 PYTHON_COMPAT=( python2_7 )
@@ -31,6 +31,7 @@ src_prepare() {
 }
 
 src_configure() {
+	chmod g-w "${T}"
 	# not a real configure script
 	./configure \
 		--extra-cflags="${CFLAGS}" --cc="$(tc-getCC)" \

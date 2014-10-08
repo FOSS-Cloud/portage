@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/fio/fio-1.34.ebuild,v 1.2 2010/10/10 20:06:51 gurligebis Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/fio/fio-1.34.ebuild,v 1.4 2014/09/07 17:42:56 robbat2 Exp $
 
 EAPI="2"
 

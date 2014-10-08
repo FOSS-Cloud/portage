@@ -1,6 +1,47 @@
 # ChangeLog for dev-libs/wayland
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/wayland/ChangeLog,v 1.38 2014/04/08 20:00:37 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/wayland/ChangeLog,v 1.48 2014/09/26 20:39:31 mattst88 Exp $
+
+*wayland-1.6.0 (26 Sep 2014)
+
+  26 Sep 2014; Matt Turner <mattst88@gentoo.org> +wayland-1.6.0.ebuild:
+  Version bump to 1.6.0.
+
+  13 Aug 2014; Raúl Porcel <armin76@gentoo.org> wayland-1.4.0.ebuild,
+  wayland-1.5.0.ebuild:
+  Add ~m68k/~s390/~sh/~sparc wrt #403015
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> wayland-1.2.1-r1.ebuild,
+  wayland-1.3.0.ebuild, wayland-1.4.0.ebuild, wayland-1.5.0.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> wayland-1.4.0.ebuild:
+  Stable for arm, wrt bug #500368
+
+*wayland-1.5.0 (21 May 2014)
+
+  21 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +wayland-1.5.0.ebuild:
+  Version bump.
+
+  28 Apr 2014; Michał Górny <mgorny@gentoo.org> wayland-1.3.0.ebuild,
+  wayland-1.4.0.ebuild:
+  Replace multilib_build_binaries with multilib_is_native_abi. The two are
+  equivalent now, and the team has decided to use the old name as being less
+  confusing.
+
+  20 Apr 2014; Agostino Sarubbo <ago@gentoo.org> wayland-1.4.0.ebuild:
+  Stable for amd64, wrt bug #500368
+
+  18 Apr 2014; Agostino Sarubbo <ago@gentoo.org> wayland-1.4.0.ebuild:
+  Stable for alpha, wrt bug #500368
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org> wayland-1.4.0.ebuild:
+  Stable for ia64, wrt bug #500368
+
+  16 Apr 2014; Agostino Sarubbo <ago@gentoo.org> wayland-1.4.0.ebuild:
+  Stable for ppc64, wrt bug #500368
 
   08 Apr 2014; Agostino Sarubbo <ago@gentoo.org> wayland-1.4.0.ebuild:
   Stable for ppc, wrt bug #500368

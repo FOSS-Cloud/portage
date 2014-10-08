@@ -1,6 +1,53 @@
 # ChangeLog for net-misc/apt-cacher-ng
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/apt-cacher-ng/ChangeLog,v 1.39 2014/03/24 14:20:07 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/apt-cacher-ng/ChangeLog,v 1.47 2014/10/04 07:02:39 jer Exp $
+
+*apt-cacher-ng-0.8.0_rc4 (04 Oct 2014)
+
+  04 Oct 2014; Jeroen Roovers <jer@gentoo.org>
+  -apt-cacher-ng-0.8.0_pre3.ebuild, -apt-cacher-ng-0.8.0_rc3.ebuild,
+  +apt-cacher-ng-0.8.0_rc4.ebuild:
+  Version bump.
+
+*apt-cacher-ng-0.8.0_rc3 (22 Sep 2014)
+
+  22 Sep 2014; Jeroen Roovers <jer@gentoo.org>
+  -apt-cacher-ng-0.8.0_pre2.ebuild, +apt-cacher-ng-0.8.0_rc3.ebuild:
+  Version bump.
+
+*apt-cacher-ng-0.8.0_pre3 (10 Sep 2014)
+
+  10 Sep 2014; Jeroen Roovers <jer@gentoo.org>
+  +apt-cacher-ng-0.8.0_pre3.ebuild:
+  Version bump.
+
+  09 Sep 2014; Jeroen Roovers <jer@gentoo.org> -apt-cacher-ng-0.7.26-r1.ebuild,
+  -apt-cacher-ng-0.8.0_pre1.ebuild,
+  -files/apt-cacher-ng-0.7.26-CVE-2014-4510.patch:
+  Old.
+
+*apt-cacher-ng-0.8.0_pre2 (02 Sep 2014)
+
+  02 Sep 2014; Jeroen Roovers <jer@gentoo.org>
+  +apt-cacher-ng-0.8.0_pre2.ebuild:
+  Version bump.
+
+*apt-cacher-ng-0.8.0_pre1 (18 Jul 2014)
+*apt-cacher-ng-0.7.27 (18 Jul 2014)
+
+  18 Jul 2014; Jeroen Roovers <jer@gentoo.org> +apt-cacher-ng-0.7.27.ebuild,
+  +apt-cacher-ng-0.8.0_pre1.ebuild, metadata.xml:
+  Version bump.
+
+*apt-cacher-ng-0.7.26-r1 (24 Jun 2014)
+
+  24 Jun 2014; Jeroen Roovers <jer@gentoo.org> -apt-cacher-ng-0.7.26.ebuild,
+  +apt-cacher-ng-0.7.26-r1.ebuild,
+  +files/apt-cacher-ng-0.7.26-CVE-2014-4510.patch:
+  Add patch for CVE-2014-4510 (bug #514184).
+
+  20 Jun 2014; Jeroen Roovers <jer@gentoo.org> -apt-cacher-ng-0.7.25.ebuild:
+  Old.
 
 *apt-cacher-ng-0.7.26 (24 Mar 2014)
 

@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/stevedore
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/stevedore/ChangeLog,v 1.17 2014/04/01 09:11:46 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/stevedore/ChangeLog,v 1.21 2014/09/28 16:13:01 alunduil Exp $
+
+  28 Sep 2014; Alex Brandt <alunduil@gentoo.org> -stevedore-0.14.1.ebuild:
+  prune version 0.14.1 (keep three versions)
+
+*stevedore-1.0.0 (26 Sep 2014)
+
+  26 Sep 2014; Alex Brandt <alunduil@gentoo.org> +stevedore-1.0.0.ebuild,
+  metadata.xml:
+  bump version and add python3* targets
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> stevedore-0.14.1.ebuild,
+  stevedore-0.15-r1.ebuild, stevedore-0.15.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
+
+*stevedore-0.15-r1 (12 Jun 2014)
+
+  12 Jun 2014; Patrick Lauer <patrick@gentoo.org> +stevedore-0.15-r1.ebuild:
+  Add py34
 
   01 Apr 2014; Ian Delaney <idella4@gentoo.org> stevedore-0.15.ebuild:
   re-add flake8 for test phase

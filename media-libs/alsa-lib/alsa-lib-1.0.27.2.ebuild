@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/alsa-lib/alsa-lib-1.0.27.2.ebuild,v 1.12 2014/04/05 18:36:38 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/alsa-lib/alsa-lib-1.0.27.2.ebuild,v 1.14 2014/06/23 21:24:11 ssuominen Exp $
 
 EAPI=5
 
@@ -26,6 +26,8 @@ RDEPEND="python? ( ${PYTHON_DEPS} )
 DEPEND="${RDEPEND}
 	doc? ( >=app-doc/doxygen-1.2.6 )"
 
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
@@ -39,7 +41,7 @@ src_prepare() {
 multilib_src_configure() {
 	local myconf
 	# enable Python only on final ABI
-	if multilib_build_binaries; then
+	if multilib_is_native_abi; then
 		myconf="$(use_enable python)"
 	else
 		myconf="--disable-python"
@@ -62,7 +64,7 @@ multilib_src_configure() {
 multilib_src_compile() {
 	emake
 
-	if multilib_build_binaries && use doc; then
+	if multilib_is_native_abi && use doc; then
 		emake doc
 		fgrep -Zrl "${S}" doc/doxygen/html | \
 			xargs -0 sed -i -e "s:${S}::"
@@ -71,7 +73,7 @@ multilib_src_compile() {
 
 multilib_src_install() {
 	emake DESTDIR="${D}" install
-	if multilib_build_binaries && use doc; then
+	if multilib_is_native_abi && use doc; then
 		dohtml -r doc/doxygen/html/.
 	fi
 }

@@ -1,6 +1,29 @@
 # ChangeLog for x11-misc/treeline
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/treeline/ChangeLog,v 1.57 2013/09/05 19:44:50 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/treeline/ChangeLog,v 1.63 2014/08/10 20:04:08 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> treeline-1.4.1-r1.ebuild,
+  treeline-1.9.4.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  13 Jul 2014; Jeroen Roovers <jer@gentoo.org> -treeline-1.4.1.ebuild,
+  files/treeline-1.2.3-nocompile.patch:
+  Clean up patch.
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> treeline-1.4.1-r1.ebuild:
+  Stable for ppc, wrt bug #510170
+
+  16 Jun 2014; Chema Alonso <nimiux@gentoo.org> treeline-1.4.1-r1.ebuild:
+  Stable for amd64 wrt bug #510170
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  treeline-1.4.1-r1.ebuild:
+  x86 stable wrt bug #510170
+
+*treeline-1.9.4 (18 May 2014)
+
+  18 May 2014; Jeroen Roovers <jer@gentoo.org> +treeline-1.9.4.ebuild:
+  Version bump.
 
   05 Sep 2013; Michał Górny <mgorny@gentoo.org> treeline-1.4.1-r1.ebuild:
   Clean up PYTHON_COMPAT from old implementations.

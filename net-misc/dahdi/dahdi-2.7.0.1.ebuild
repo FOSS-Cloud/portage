@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi/dahdi-2.7.0.1.ebuild,v 1.4 2014/01/04 22:08:50 chainsaw Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi/dahdi-2.7.0.1.ebuild,v 1.6 2014/08/10 20:43:50 slyfox Exp $
 
 EAPI=5
 
@@ -10,7 +10,7 @@ MY_P="${P/dahdi/dahdi-linux}"
 JNET=1.0.14
 S="${WORKDIR}/${MY_P}"
 
-DESCRIPTION="Kernel modules for Digium compatible hardware (formerly known as Zaptel)."
+DESCRIPTION="Kernel modules for Digium compatible hardware (formerly known as Zaptel)"
 HOMEPAGE="http://www.asterisk.org"
 SRC_URI="http://downloads.asterisk.org/pub/telephony/dahdi-linux/releases/${MY_P}.tar.gz
 http://downloads.digium.com/pub/telephony/firmware/releases/dahdi-fwload-vpmadt032-1.25.0.tar.gz
@@ -39,7 +39,7 @@ RDEPEND=""
 EPATCH_SUFFIX="diff"
 PATCHES=( "${WORKDIR}/dahdi-patchset" )
 
-CONFIG_CHECK="MODULES CRC_CCITT"
+CONFIG_CHECK="MODULES ~CRC_CCITT"
 
 src_unpack() {
 	unpack ${A}

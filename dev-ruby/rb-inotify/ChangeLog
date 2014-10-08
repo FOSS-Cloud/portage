@@ -1,6 +1,33 @@
 # ChangeLog for dev-ruby/rb-inotify
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rb-inotify/ChangeLog,v 1.27 2014/04/05 13:53:52 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rb-inotify/ChangeLog,v 1.33 2014/09/19 05:41:08 graaff Exp $
+
+*rb-inotify-0.9.5-r1 (19 Sep 2014)
+
+  19 Sep 2014; Hans de Graaff <graaff@gentoo.org> rb-inotify-0.9.5.ebuild,
+  +rb-inotify-0.9.5-r1.ebuild:
+  Add new revision for ruby21 and create stable candidate.
+
+  05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> rb-inotify-0.9.0.ebuild,
+  rb-inotify-0.9.5.ebuild:
+  Remove trailing '.' from DESCRIPTION.
+
+  25 Jul 2014; Manuel Rüger <mrueg@gentoo.org> -rb-inotify-0.9.3.ebuild,
+  -rb-inotify-0.9.4.ebuild:
+  Cleanup old.
+
+*rb-inotify-0.9.5 (07 Jun 2014)
+
+  07 Jun 2014; Hans de Graaff <graaff@gentoo.org> +rb-inotify-0.9.5.ebuild:
+  Version bump.
+
+*rb-inotify-0.9.4 (03 May 2014)
+
+  03 May 2014; Hans de Graaff <graaff@gentoo.org> +rb-inotify-0.9.4.ebuild:
+  Version bump.
+
+  20 Apr 2014; Hans de Graaff <graaff@gentoo.org> rb-inotify-0.9.3.ebuild:
+  Add ruby21.
 
   05 Apr 2014; Manuel Rüger <mrueg@gentoo.org> rb-inotify-0.9.0.ebuild,
   rb-inotify-0.9.3.ebuild:

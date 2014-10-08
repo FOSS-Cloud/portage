@@ -1,6 +1,25 @@
 # ChangeLog for games-fps/duke3d-data
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/duke3d-data/ChangeLog,v 1.10 2013/11/23 19:31:35 hasufell Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-fps/duke3d-data/ChangeLog,v 1.15 2014/10/04 01:33:01 mr_bones_ Exp $
+
+  04 Oct 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  -duke3d-data-1.0-r1.ebuild:
+  old
+
+  22 Sep 2014; Julian Ospald <hasufell@gentoo.org> duke3d-data-1.0-r1.ebuild,
+  duke3d-data-1.0-r2.ebuild:
+  update license for gog USE flag
+
+*duke3d-data-1.0-r2 (21 Sep 2014)
+
+  21 Sep 2014; Julian Ospald <hasufell@gentoo.org> +duke3d-data-1.0-r2.ebuild:
+  update for new gog linux tarball
+
+  01 Jun 2014; Julian Ospald <hasufell@gentoo.org> duke3d-data-1.0.ebuild:
+  stable
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> duke3d-data-1.0-r1.ebuild:
+  add mirror/bindist restriction wrt #507952
 
   23 Nov 2013; Julian Ospald <hasufell@gentoo.org> duke3d-data-1.0-r1.ebuild:
   add fetch restriction for gog useflag

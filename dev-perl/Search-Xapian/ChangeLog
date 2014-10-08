@@ -1,6 +1,45 @@
 # ChangeLog for dev-perl/Search-Xapian
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Search-Xapian/ChangeLog,v 1.39 2014/01/31 12:30:57 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Search-Xapian/ChangeLog,v 1.49 2014/09/14 09:14:53 maekke Exp $
+
+  14 Sep 2014; Markus Meier <maekke@gentoo.org> Search-Xapian-1.2.18.0.ebuild:
+  arm stable, bug #520794
+
+  19 Aug 2014; Agostino Sarubbo <ago@gentoo.org> Search-Xapian-1.2.17.0.ebuild:
+  Stable for ia64, wrt bug #506974
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> Search-Xapian-1.2.17.0.ebuild:
+  Stable for sparc, wrt bug #506974
+
+  04 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> Search-Xapian-1.2.13.0.ebuild,
+  Search-Xapian-1.2.14.0.ebuild, Search-Xapian-1.2.15.0.ebuild,
+  Search-Xapian-1.2.16.0.ebuild, Search-Xapian-1.2.17.0.ebuild,
+  Search-Xapian-1.2.18.0.ebuild:
+  Fix DESCRIPTION
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  Search-Xapian-1.2.17.0.ebuild:
+  Stable on alpha, bug #506974
+
+*Search-Xapian-1.2.18.0 (23 Jun 2014)
+
+  23 Jun 2014; Anthony G. Basile <blueness@gentoo.org>
+  +Search-Xapian-1.2.18.0.ebuild:
+  Version bump
+
+  18 Jun 2014; Chema Alonso <nimiux@gentoo.org> Search-Xapian-1.2.17.0.ebuild:
+  Stable for amd64 wrt bug #506974
+
+  14 Jun 2014; Anthony G. Basile <blueness@gentoo.org>
+  Search-Xapian-1.2.17.0.ebuild:
+  Stable ppc ppc64, bug #506974
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  Search-Xapian-1.2.17.0.ebuild:
+  x86 stable wrt bug #506974
+
+  18 Apr 2014; Markus Meier <maekke@gentoo.org> Search-Xapian-1.2.17.0.ebuild:
+  arm stable, bug #506974
 
 *Search-Xapian-1.2.17.0 (31 Jan 2014)
 

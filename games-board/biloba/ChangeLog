@@ -1,6 +1,16 @@
 # ChangeLog for games-board/biloba
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/biloba/ChangeLog,v 1.10 2013/06/29 17:19:02 mr_bones_ Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-board/biloba/ChangeLog,v 1.13 2014/09/12 07:00:31 mr_bones_ Exp $
+
+  12 Sep 2014; Michael Sterrett <mr_bones_@gentoo.org> biloba-0.9.3.ebuild:
+  EAPI=5; better icon install; tidy
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> biloba-0.9.3.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  15 May 2014; Ulrich Müller <ulm@gentoo.org> biloba-0.9.3.ebuild:
+  Fix USE dependency on media-libs/libsdl, "audio" USE flag was renamed to
+  "sound", bug 357661.
 
   29 Jun 2013; Michael Sterrett <mr_bones_@gentoo.org> biloba-0.9.3.ebuild:
   add slot to libsdl dep

@@ -1,6 +1,59 @@
 # ChangeLog for media-video/vlc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/ChangeLog,v 1.900 2014/03/26 18:38:20 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/ChangeLog,v 1.913 2014/09/17 21:39:20 lu_zero Exp $
+
+*vlc-2.1.5 (17 Sep 2014)
+
+  17 Sep 2014; Luca Barbato <lu_zero@gentoo.org> +vlc-2.1.5.ebuild:
+  Version bump
+
+  10 Sep 2014; Rick Farina <zerochaos@gentoo.org> vlc-2.1.2.ebuild,
+  vlc-2.1.4.ebuild, vlc-2.1.9999.ebuild, vlc-9999.ebuild:
+  adding missing subslot dep for libgcrypt to prevent preserved-libs from having
+  to save us
+
+  02 Sep 2014; Michał Górny <mgorny@gentoo.org> vlc-2.0.8.ebuild,
+  vlc-2.0.8a.ebuild, vlc-2.0.9.ebuild, vlc-2.0.9999.ebuild, vlc-2.1.0.ebuild,
+  vlc-2.1.1.ebuild, vlc-2.1.2.ebuild, vlc-2.1.4.ebuild, vlc-2.1.9999.ebuild,
+  vlc-9999.ebuild:
+  Remove := subslot operator from || () block since it is meaningless and
+  broken.
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> vlc-2.1.2.ebuild:
+  Stable for alpha, wrt bug #499806
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> vlc-2.1.2.ebuild:
+  Stable for ppc64, wrt bug #499806
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> vlc-2.1.2.ebuild:
+  Stable for ppc, wrt bug #499806
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> vlc-2.1.2.ebuild:
+  Stable for x86, wrt bug #499806
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> vlc-2.1.2.ebuild:
+  Stable for amd64, wrt bug #499806
+
+  07 Jun 2014; Tom Wijsman <TomWij@gentoo.org> vlc-9999.ebuild:
+  Fix up more dependencies, a more thorough check follows later.
+
+  07 Jun 2014; Tom Wijsman <TomWij@gentoo.org> vlc-9999.ebuild:
+  Remove EGL / Mac OS X from ebuild as their configure options were removed; it
+  became automagic, can attempt to look into this when doing a version bump.
+
+  31 May 2014; Tom Wijsman <TomWij@gentoo.org> vlc-9999.ebuild:
+  Remove Qt5 MOC/UIC export code from live version, as it is automatically
+  detected by autoconf; fixes bug #511776, reported by Uwe L. Korn (uwelk).
+
+  25 Apr 2014; Tom Wijsman <TomWij@gentoo.org>
+  +files/vlc-2.0.7-include-flac-1.3.x-support.patch, vlc-2.0.5.ebuild,
+  vlc-2.0.7.ebuild:
+  Backport FLAC 1.3.x support patch to 2.0.5 and 2.0.7, pointed out by monkeh;
+  fixes bug #471936, reported by Alphat-PC, tested by Zero_Chaos.
+
+  23 Apr 2014; Tom Wijsman <TomWij@gentoo.org> vlc-9999.ebuild:
+  Reviewed dependencies of 9999 ebuild according to configure.ac; fixes bug
+  #507424, reported by Uwe L. Korn (uwelk).
 
   26 Mar 2014; Tom Wijsman <TomWij@gentoo.org> vlc-2.0.8.ebuild,
   vlc-2.1.4.ebuild, vlc-2.1.9999.ebuild, vlc-9999.ebuild:

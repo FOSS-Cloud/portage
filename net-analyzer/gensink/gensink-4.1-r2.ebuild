@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/gensink/gensink-4.1-r2.ebuild,v 1.3 2013/01/30 00:56:13 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/gensink/gensink-4.1-r2.ebuild,v 1.5 2014/07/27 11:29:56 phajdan.jr Exp $
 
-EAPI="4"
+EAPI=5
 
 inherit base toolchain-funcs
 
@@ -11,8 +11,7 @@ HOMEPAGE="http://jes.home.cern.ch/jes/gensink/"
 SRC_URI="http://jes.home.cern.ch/jes/gensink/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
-IUSE=""
+KEYWORDS="~amd64 ~ppc x86"
 
 PATCHES=( "${FILESDIR}/${P}-make.patch" )
 

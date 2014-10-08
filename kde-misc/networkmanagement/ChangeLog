@@ -1,6 +1,40 @@
 # ChangeLog for kde-misc/networkmanagement
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/networkmanagement/ChangeLog,v 1.40 2013/12/09 09:35:54 johu Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-misc/networkmanagement/ChangeLog,v 1.47 2014/08/14 17:30:07 johu Exp $
+
+  14 Aug 2014; Johannes Huber <johu@gentoo.org>
+  -networkmanagement-0.9.0.10.ebuild:
+  Remove old.
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  networkmanagement-0.9.0.11.ebuild:
+  x86 stable wrt bug #518426
+
+  13 Aug 2014; Manuel Rüger <mrueg@gentoo.org>
+  networkmanagement-0.9.0.11.ebuild:
+  Stable for amd64, bug #518426.
+
+  28 Jul 2014; Johannes Huber <johu@gentoo.org>
+  -networkmanagement-0.9.0.10-r1.ebuild:
+  Remove old.
+
+  24 Apr 2014; Patrick Lauer <patrick@gentoo.org>
+  networkmanagement-0.9.0.11.ebuild:
+  Whitespace
+
+*networkmanagement-0.9.0.11 (23 Apr 2014)
+
+  23 Apr 2014; Manuel Rüger <mrueg@gentoo.org>
+  +networkmanagement-0.9.0.11.ebuild, networkmanagement-0.9.0.10-r1.ebuild,
+  networkmanagement-0.9.0.10.ebuild:
+  Version bump. Fixes bug #503898. Restrict to <net-misc/openconnect-5.99 on
+  earlier versions.
+
+*networkmanagement-0.9.0.10-r1 (10 Apr 2014)
+
+  10 Apr 2014; Johannes Huber <johu@gentoo.org>
+  +networkmanagement-0.9.0.10-r1.ebuild:
+  Revision bump DEPENDs on net-misc/networkmanager-openconnect, bug #503378.
 
   09 Dec 2013; Johannes Huber <johu@gentoo.org>
   -networkmanagement-0.9.0.8.ebuild, -networkmanagement-0.9.0.9.ebuild:

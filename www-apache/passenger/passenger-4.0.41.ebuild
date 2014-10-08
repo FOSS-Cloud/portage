@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/passenger/passenger-4.0.41.ebuild,v 1.1 2014/04/09 05:53:31 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apache/passenger/passenger-4.0.41.ebuild,v 1.4 2014/07/14 17:47:18 phajdan.jr Exp $
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby19 ruby20"
 
 inherit apache-module flag-o-matic multilib ruby-ng toolchain-funcs
 
@@ -13,7 +13,7 @@ SRC_URI="http://s3.amazonaws.com/phusion-passenger/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 x86"
 IUSE="debug"
 
 ruby_add_bdepend "dev-ruby/rake"
@@ -22,7 +22,8 @@ ruby_add_rdepend "
 	>=dev-ruby/daemon_controller-1.1.0
 	>=dev-ruby/rack-1.0.0"
 
-CDEPEND=">=dev-libs/libev-4.11 net-misc/curl[ssl]"
+CDEPEND=">=dev-libs/libev-4.11 net-misc/curl[ssl]
+	www-servers/apache[apache2_modules_unixd(+)]"
 
 RDEPEND="${RDEPEND} ${CDEPEND}"
 DEPEND="${DEPEND} ${CDEPEND}"

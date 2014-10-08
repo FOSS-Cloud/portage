@@ -1,6 +1,24 @@
 # ChangeLog for net-analyzer/tleds
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/tleds/ChangeLog,v 1.20 2010/09/19 00:12:14 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/tleds/ChangeLog,v 1.25 2014/09/11 18:13:20 jer Exp $
+
+  11 Sep 2014; Jeroen Roovers <jer@gentoo.org> -tleds-1.05_beta11-r1.ebuild:
+  Old.
+
+  11 Sep 2014; Chema Alonso <nimiux@gentoo.org> tleds-1.05_beta11-r2.ebuild:
+  Stable for amd64 wrt bug #517370
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  tleds-1.05_beta11-r2.ebuild:
+  x86 stable wrt bug #517370
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> tleds-1.05_beta11-r1.ebuild,
+  tleds-1.05_beta11-r2.ebuild:
+  Drop sparc keyword
+
+  17 Jul 2014; Jeroen Roovers <jer@gentoo.org> tleds-1.05_beta11-r2.ebuild,
+  files/tleds-1.05_beta11-gentoo.patch, metadata.xml:
+  EAPI bump. Remove short <longdescription>. Convert sed scripts to patch.
 
 *tleds-1.05_beta11-r2 (19 Sep 2010)
 

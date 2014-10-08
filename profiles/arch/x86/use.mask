@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation.
 # Distributed under the terms of the GNU General Public License, v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/use.mask,v 1.62 2014/04/08 23:41:43 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/use.mask,v 1.66 2014/09/02 11:51:19 graaff Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -x86
@@ -18,11 +18,14 @@
 # Unmask systemd since it is keyworded here.
 -systemd
 
-# Andrey Grozin <grozin@gentoo.org> (1 May 2013)
-# available on x86
--cmucl
+# Andrey Grozin <grozin@gentoo.org> (25 Jun 2014)
+# keyworded on x86
+-clisp
 -clozurecl
+-cmucl
+-ecls
 -gcl
+-sbcl
 
 # Michał Górny <mgorny@gentoo.org> (26 Jan 2013)
 # Unmask the flag corresponding to the only ABI. This allows x86 binary
@@ -85,7 +88,7 @@
 
 # 2010/01/08 - Diego E. Pettenò <flameeyes@gentoo.org>
 # Add support for JRuby targets where jruby is available
--ruby_targets_jruby
+#-ruby_targets_jruby
 
 # pbbuttonsd and macbook for KDE and pbuttonsd it
 #-pbbuttonsd
@@ -111,6 +114,7 @@
 -avx256
 -fma3
 -fma4
+-xop
 -svga
 -kqemu
 -nvram
@@ -174,7 +178,6 @@ video_cards_newport
 # Shared with amd64
 -oci8
 -oracle7
--firebird
 -db2
 
 # Robert Buchholz <rbu@gentoo.org> (03 Jun 2007)

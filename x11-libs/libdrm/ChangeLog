@@ -1,6 +1,45 @@
 # ChangeLog for x11-libs/libdrm
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libdrm/ChangeLog,v 1.256 2014/04/08 20:03:42 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libdrm/ChangeLog,v 1.264 2014/09/22 19:12:47 mattst88 Exp $
+
+*libdrm-2.4.56 (22 Sep 2014)
+
+  22 Sep 2014; Matt Turner <mattst88@gentoo.org> +libdrm-2.4.56.ebuild:
+  Version bump to 2.4.56.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libdrm-2.4.52.ebuild,
+  libdrm-2.4.53.ebuild, libdrm-2.4.54.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> libdrm-2.4.52.ebuild:
+  Stable for arm, wrt bug #500368
+
+*libdrm-2.4.54 (14 May 2014)
+
+  14 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +libdrm-2.4.54.ebuild, -files/libdrm-2.4.40-bsd-etime.patch,
+  -files/libdrm-2.4.49-radeonsi-crash.patch, -libdrm-2.4.40.ebuild,
+  -libdrm-2.4.42.ebuild, -libdrm-2.4.43.ebuild, -libdrm-2.4.44.ebuild,
+  -libdrm-2.4.45.ebuild, -libdrm-2.4.46-r1.ebuild, -libdrm-2.4.47.ebuild,
+  -libdrm-2.4.48.ebuild, -libdrm-2.4.49-r1.ebuild, -libdrm-2.4.49.ebuild,
+  -libdrm-2.4.50.ebuild, -libdrm-2.4.51.ebuild:
+  Version bump. Drop some old versions.
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libdrm-2.4.52.ebuild:
+  Stable for sparc, wrt bug #500368
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libdrm-2.4.52.ebuild:
+  Stable for ia64, wrt bug #500368
+
+  16 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libdrm-2.4.52.ebuild:
+  Stable for ppc64, wrt bug #500368
+
+*libdrm-2.4.53 (13 Apr 2014)
+
+  13 Apr 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +libdrm-2.4.53.ebuild:
+  Version bump.
 
   08 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libdrm-2.4.52.ebuild:
   Stable for ppc, wrt bug #500368

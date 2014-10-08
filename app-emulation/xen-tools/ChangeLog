@@ -1,6 +1,161 @@
 # ChangeLog for app-emulation/xen-tools
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-tools/ChangeLog,v 1.233 2014/04/04 01:06:31 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-tools/ChangeLog,v 1.259 2014/10/07 05:58:38 idella4 Exp $
+
+  07 Oct 2014; Ian Delaney <idella4@gentoo.org> xen-tools-4.3.2-r5.ebuild,
+  xen-tools-4.3.2-r6.ebuild, xen-tools-4.3.3.ebuild, xen-tools-4.4.1.ebuild:
+  correction to dep dev-python/markdown in all versions
+
+  12 Sep 2014; Yixun Lan <dlan@gentoo.org> -files/xen-tools-4.2-pod-docs.patch,
+  -files/xen-tools-4.2-pod-utf8-chars.patch, -files/xen-tools-4.2-pod-xl.patch,
+  -files/xend.initd-r1:
+  drop patches/no-need file since move to devspace
+
+  12 Sep 2014; Yixun Lan <dlan@gentoo.org> xen-tools-4.2.5.ebuild,
+  xen-tools-4.3.3.ebuild, -xen-tools-4.4.0-r9.ebuild, xen-tools-4.4.1.ebuild,
+  +files/gentoo-patches.conf:
+  shrink patches, move to devspace; drop USE=xend for 4.2.5 4.3.3
+
+*xen-tools-4.4.1 (11 Sep 2014)
+*xen-tools-4.3.3 (11 Sep 2014)
+*xen-tools-4.2.5 (11 Sep 2014)
+
+  11 Sep 2014; Yixun Lan <dlan@gentoo.org> +xen-tools-4.2.5.ebuild,
+  +xen-tools-4.3.3.ebuild, +xen-tools-4.4.1.ebuild,
+  +files/xen-tools-4.2-pod-docs.patch,
+  +files/xen-tools-4.2-pod-utf8-chars.patch, +files/xen-tools-4.2-pod-xl.patch:
+  version bump, fix 4.2.x pod2man build error
+
+*xen-tools-4.4.0-r9 (19 Aug 2014)
+*xen-tools-4.3.2-r6 (19 Aug 2014)
+*xen-tools-4.2.4-r7 (19 Aug 2014)
+
+  19 Aug 2014; Yixun Lan <dlan@gentoo.org> +xen-tools-4.2.4-r7.ebuild,
+  +xen-tools-4.3.2-r6.ebuild, -xen-tools-4.4.0-r8.ebuild,
+  +xen-tools-4.4.0-r9.ebuild:
+  bump upstream patches
+
+  30 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> xen-tools-4.2.4-r6.ebuild,
+  xen-tools-4.3.2-r5.ebuild, xen-tools-4.4.0-r8.ebuild:
+  Use shorter get_udevdir() instead of the longer deprecated udev_get_udevdir()
+  version.
+
+*xen-tools-4.4.0-r8 (29 Jul 2014)
+
+  29 Jul 2014; Yixun Lan <dlan@gentoo.org> -xen-tools-4.4.0-r7.ebuild,
+  +xen-tools-4.4.0-r8.ebuild:
+  bug 518136, disable build x86_emulator under nomultilib profile
+
+  12 Jul 2014; Yixun Lan <dlan@gentoo.org> -xen-tools-4.2.4-r2.ebuild,
+  -xen-tools-4.2.4-r4.ebuild, -xen-tools-4.2.4-r5.ebuild,
+  -xen-tools-4.3.2-r2.ebuild, -xen-tools-4.3.2-r3.ebuild,
+  -xen-tools-4.3.2-r4.ebuild:
+  cleanup after stabilization
+
+  12 Jul 2014; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.3.2-r5.ebuild:
+  Stable for amd64, wrt bug #513824
+
+  12 Jul 2014; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.2.4-r6.ebuild:
+  Stable for x86, wrt bug #513824
+
+  12 Jul 2014; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.2.4-r6.ebuild:
+  Stable for amd64, wrt bug #513824
+
+*xen-tools-4.4.0-r7 (09 Jul 2014)
+*xen-tools-4.3.2-r5 (09 Jul 2014)
+*xen-tools-4.2.4-r6 (09 Jul 2014)
+
+  09 Jul 2014; Yixun Lan <dlan@gentoo.org> +xen-tools-4.2.4-r6.ebuild,
+  +xen-tools-4.3.2-r5.ebuild, -xen-tools-4.4.0-r5.ebuild,
+  -xen-tools-4.4.0-r6.ebuild, +xen-tools-4.4.0-r7.ebuild:
+  bump stable/security patches
+
+  15 Jun 2014; Robin H. Johnson <robbat2@gentoo.org> files/xendomains.initd-r2,
+  files/xenstored.initd:
+  Fix bashisms.
+
+*xen-tools-4.4.0-r6 (14 Jun 2014)
+*xen-tools-4.3.2-r4 (14 Jun 2014)
+*xen-tools-4.2.4-r5 (14 Jun 2014)
+
+  14 Jun 2014; Yixun Lan <dlan@gentoo.org> +xen-tools-4.2.4-r5.ebuild,
+  +xen-tools-4.3.2-r4.ebuild, +xen-tools-4.4.0-r6.ebuild:
+  bump upstream security patches
+
+  30 May 2014; Yixun Lan <dlan@gentoo.org> xen-tools-4.2.4-r4.ebuild,
+  xen-tools-4.3.2-r3.ebuild, xen-tools-4.4.0-r5.ebuild:
+  fix hvm buf for no-multilib profile, bug #351648, thanks Zoltán Halassy,
+  Spooky Ghost
+
+*xen-tools-4.4.0-r5 (23 May 2014)
+*xen-tools-4.3.2-r3 (23 May 2014)
+*xen-tools-4.2.4-r4 (23 May 2014)
+
+  23 May 2014; Yixun Lan <dlan@gentoo.org> -xen-tools-4.2.4-r3.ebuild,
+  +xen-tools-4.2.4-r4.ebuild, +xen-tools-4.3.2-r3.ebuild,
+  -xen-tools-4.4.0-r4.ebuild, +xen-tools-4.4.0-r5.ebuild,
+  +files/xen-tools-4-anti-seabios-download.patch:
+  re-introduce bundled seabios with USE=system-seabios flag, bug #510052,
+  #510492, #510680
+
+*xen-tools-4.2.4-r3 (22 May 2014)
+
+  22 May 2014; Yixun Lan <dlan@gentoo.org> +xen-tools-4.2.4-r3.ebuild,
+  +files/xen-tools-4.2.4-udev-rules.patch:
+  fix missing udev rules, bug #510976, thanks Tomoatsu Shimada
+
+  17 May 2014; Yixun Lan <dlan@gentoo.org> -xen-tools-4.2.3-r1.ebuild,
+  -xen-tools-4.2.4-r1.ebuild, -xen-tools-4.3.1-r5.ebuild,
+  -xen-tools-4.3.1-r6.ebuild, -xen-tools-4.3.2-r1.ebuild,
+  -files/xen-4-CVE-2012-6075-XSA-41.patch,
+  -files/xen-tools-4-CVE-2014-1950-XSA-88.patch,
+  -files/xen-4.2.0-anti-download.patch, -files/xen-4-CVE-XSA-86.patch,
+  -files/xen-4.3-anti-download.patch:
+  clean old ebuilds
+
+  17 May 2014; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.2.4-r2.ebuild:
+  Stable for x86, wrt bug #509054
+
+  17 May 2014; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.2.4-r2.ebuild,
+  xen-tools-4.3.2-r2.ebuild:
+  Stable for amd64, wrt bug #509054
+
+*xen-tools-4.4.0-r4 (16 May 2014)
+
+  16 May 2014; Yixun Lan <dlan@gentoo.org> -xen-tools-4.4.0-r3.ebuild,
+  +xen-tools-4.4.0-r4.ebuild:
+  force depend on >=seabios-1.7.4, fix bug #510492, thanks Tomas Mozes
+
+*xen-tools-4.4.0-r3 (14 May 2014)
+
+  14 May 2014; Yixun Lan <dlan@gentoo.org> -xen-tools-4.4.0-r2.ebuild,
+  +xen-tools-4.4.0-r3.ebuild:
+  upstream patches bump, fix security bug #510312
+
+  11 May 2014; Yixun Lan <dlan@gentoo.org> xen-tools-4.4.0-r2.ebuild:
+  silent QA warning, bug #510072, thanks iamnr3
+
+*xen-tools-4.4.0-r2 (09 May 2014)
+*xen-tools-4.3.2-r2 (09 May 2014)
+*xen-tools-4.2.4-r2 (09 May 2014)
+
+  09 May 2014; Yixun Lan <dlan@gentoo.org> +xen-tools-4.2.4-r2.ebuild,
+  +xen-tools-4.3.2-r2.ebuild, +xen-tools-4.4.0-r2.ebuild,
+  +files/xen-tools-4-qemu-fix-po-collision.patch:
+  1) bump security patches, bug 508510, 508424, 509054, 509176 2) fix file
+  collision with app-emulation/qemu, bug 508302 3) drop old
+
+  12 Apr 2014; Ian Delaney <idella4@gentoo.org> xen-tools-4.3.1-r5.ebuild,
+  xen-tools-4.3.1-r6.ebuild, xen-tools-4.3.2.ebuild, xen-tools-4.4.0.ebuild:
+  minor correction to deps
+
+*xen-tools-4.4.0-r1 (12 Apr 2014)
+*xen-tools-4.3.2-r1 (12 Apr 2014)
+*xen-tools-4.2.4-r1 (12 Apr 2014)
+
+  12 Apr 2014; Yixun Lan <dlan@gentoo.org> +xen-tools-4.2.4-r1.ebuild,
+  +xen-tools-4.3.2-r1.ebuild, +xen-tools-4.4.0-r1.ebuild:
+  bump upstream patches, add IUSE=system-qemu to 4.4.x
 
   04 Apr 2014; Ian Delaney <idella4@gentoo.org> xen-tools-4.4.0.ebuild:
   Add revised configure option, fixes Bug #506072 by Sven

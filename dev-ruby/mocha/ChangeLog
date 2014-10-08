@@ -1,6 +1,93 @@
 # ChangeLog for dev-ruby/mocha
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/mocha/ChangeLog,v 1.99 2014/04/03 05:56:03 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/mocha/ChangeLog,v 1.121 2014/08/25 16:13:53 mrueg Exp $
+
+  25 Aug 2014; Manuel Rüger <mrueg@gentoo.org> mocha-0.10.5-r1.ebuild,
+  mocha-0.12.10.ebuild, mocha-0.13.3-r1.ebuild:
+  Mark amd64 stable. Bug #513430.
+
+  13 Aug 2014; Raúl Porcel <armin76@gentoo.org> mocha-0.10.5-r2.ebuild,
+  mocha-0.11.4-r1.ebuild, mocha-0.12.10.ebuild, mocha-0.12.10-r1.ebuild,
+  mocha-0.13.3-r1.ebuild, mocha-0.13.3-r2.ebuild:
+  Add ~sparc wrt #468536
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> mocha-0.14.0.ebuild,
+  mocha-1.0.0.ebuild, mocha-1.1.0.ebuild:
+  Keyword ~ppc and ~ppc64, bug #519170
+
+  09 Aug 2014; Jeroen Roovers <jer@gentoo.org> mocha-0.10.5-r1.ebuild,
+  mocha-0.12.10.ebuild, mocha-0.13.3-r1.ebuild:
+  Stable for HPPA (bug #513430).
+
+  22 Jul 2014; Tobias Klausmann <klausman@gentoo.org> mocha-0.14.0.ebuild:
+  Keyworded on alpha, bug #501152
+
+  22 Jul 2014; Tobias Klausmann <klausman@gentoo.org> mocha-1.1.0.ebuild:
+  Keyworded on alpha, bug #501152
+
+  21 Jul 2014; Tobias Klausmann <klausman@gentoo.org> mocha-0.13.3-r1.ebuild:
+  Stable on alpha, bug #513430
+
+  21 Jul 2014; Tobias Klausmann <klausman@gentoo.org> mocha-0.12.10.ebuild:
+  Stable on alpha, bug #513430
+
+  21 Jul 2014; Tobias Klausmann <klausman@gentoo.org> mocha-0.10.5-r1.ebuild:
+  Stable on alpha, bug #513430
+
+  15 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> mocha-0.10.5-r1.ebuild,
+  mocha-0.12.10.ebuild, mocha-0.13.3-r1.ebuild:
+  x86 stable wrt bug #513430
+
+  24 Jun 2014; Markus Meier <maekke@gentoo.org> mocha-0.13.3-r1.ebuild:
+  arm stable, bug #513430
+
+  24 Jun 2014; Markus Meier <maekke@gentoo.org> mocha-0.12.10.ebuild:
+  arm stable, bug #513430
+
+  22 Jun 2014; Akinori Hattori <hattya@gentoo.org> mocha-0.10.5-r1.ebuild,
+  mocha-0.12.10.ebuild, mocha-0.13.3-r1.ebuild:
+  ia64 stable wrt bug #513430
+
+  16 Jun 2014; Tobias Klausmann <klausman@gentoo.org> ChangeLog:
+  Keyword dev-ruby/mocha-{0.10.5-r2,0.11.4-r1,0.12.10,0.13.3-r1} on alpha for
+  bug 465948
+
+  16 Jun 2014; Tobias Klausmann <klausman@gentoo.org> mocha-0.13.3-r1.ebuild:
+  Keyworded on alpha, bug #465948
+
+*mocha-0.13.3-r2 (16 Jun 2014)
+*mocha-0.12.10-r1 (16 Jun 2014)
+
+  16 Jun 2014; Hans de Graaff <graaff@gentoo.org> mocha-0.12.10.ebuild,
+  +mocha-0.12.10-r1.ebuild, mocha-0.13.3-r1.ebuild, +mocha-0.13.3-r2.ebuild:
+  New revisions to create stable candidates for bug 513430.
+
+*mocha-1.1.0 (18 May 2014)
+
+  18 May 2014; Hans de Graaff <graaff@gentoo.org> +mocha-1.1.0.ebuild:
+  Version bump.
+
+*mocha-0.11.4-r1 (04 May 2014)
+*mocha-0.10.5-r2 (04 May 2014)
+
+  04 May 2014; Manuel Rüger <mrueg@gentoo.org> +mocha-0.10.5-r2.ebuild,
+  +mocha-0.11.4-r1.ebuild, mocha-0.10.5-r1.ebuild:
+  Add ruby20 and ruby21 support.
+
+  26 Apr 2014; Hans de Graaff <graaff@gentoo.org> mocha-0.14.0.ebuild:
+  Add ruby21.
+
+  22 Apr 2014; Manuel Rüger <mrueg@gentoo.org> mocha-0.10.5-r1.ebuild,
+  mocha-0.10.5.ebuild, mocha-0.11.4.ebuild, mocha-0.12.10.ebuild,
+  mocha-0.12.7.ebuild, mocha-0.13.3-r1.ebuild, mocha-0.13.3.ebuild,
+  mocha-0.14.0.ebuild, mocha-1.0.0.ebuild:
+  Remove ruby18 target.
+
+  18 Apr 2014; Hans de Graaff <graaff@gentoo.org> mocha-0.13.3-r1.ebuild:
+  Add ruby21.
+
+  18 Apr 2014; Hans de Graaff <graaff@gentoo.org> mocha-0.12.10.ebuild:
+  Add ruby21.
 
 *mocha-1.0.0 (03 Apr 2014)
 

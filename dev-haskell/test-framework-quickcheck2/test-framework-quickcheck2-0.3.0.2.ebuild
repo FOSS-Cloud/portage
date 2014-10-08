@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/test-framework-quickcheck2/test-framework-quickcheck2-0.3.0.2.ebuild,v 1.7 2014/03/24 15:06:26 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/test-framework-quickcheck2/test-framework-quickcheck2-0.3.0.2.ebuild,v 1.9 2014/07/25 09:16:23 slyfox Exp $
 
 EAPI=5
 
@@ -9,13 +9,13 @@ EAPI=5
 CABAL_FEATURES="lib profile haddock hoogle hscolour"
 inherit haskell-cabal
 
-DESCRIPTION="QuickCheck2 support for the test-framework package."
+DESCRIPTION="QuickCheck2 support for the test-framework package"
 HOMEPAGE="https://batterseapower.github.io/test-framework/"
 SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~alpha amd64 ia64 ppc ppc64 sparc x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86 ~x86-fbsd"
 #hackport: ignore-flag base3 : we don't support base3
 #hackport: ignore-flag base4 : we don't support base4
 IUSE=""

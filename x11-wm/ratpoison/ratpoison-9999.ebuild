@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/ratpoison/ratpoison-9999.ebuild,v 1.2 2014/03/06 18:31:27 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/ratpoison/ratpoison-9999.ebuild,v 1.6 2014/09/17 09:56:39 jer Exp $
 
 EAPI=5
 
@@ -18,7 +18,7 @@ IUSE="debug emacs +history sloppy +xft"
 RDEPEND="
 	emacs? ( virtual/emacs )
 	history? ( sys-libs/readline )
-	virtual/perl-PodParser
+	virtual/perl-Pod-Parser
 	x11-libs/libXinerama
 	x11-libs/libXtst
 	xft? ( x11-libs/libXft )
@@ -39,10 +39,10 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--without-electric-fence \
 		$(use_enable debug) \
+		$(use_enable history) \
 		$(use_with xft) \
-		$(usex history '' --disable-history)
+		--without-electric-fence
 }
 
 src_compile() {

@@ -1,6 +1,30 @@
 # ChangeLog for net-analyzer/iftop
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/iftop/ChangeLog,v 1.62 2014/03/03 20:54:11 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/iftop/ChangeLog,v 1.70 2014/08/03 18:37:07 ago Exp $
+
+  03 Aug 2014; Agostino Sarubbo <ago@gentoo.org> iftop-1.0_pre4.ebuild:
+  Stable for ppc, wrt bug #511716
+
+  02 Aug 2014; Raúl Porcel <armin76@gentoo.org> iftop-1.0_pre4.ebuild:
+  sparc stable wrt #511716
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> iftop-1.0_pre4.ebuild:
+  x86 stable wrt bug #511716
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org> iftop-1.0_pre4.ebuild:
+  Stable on alpha, bug #511716
+
+  15 Jul 2014; Chema Alonso <nimiux@gentoo.org> iftop-1.0_pre4.ebuild:
+  Stable for amd64 wrt bug #511716
+
+  15 Jun 2014; Akinori Hattori <hattya@gentoo.org> iftop-1.0_pre4.ebuild:
+  ia64 stable wrt bug #511716
+
+  05 Jun 2014; Jeroen Roovers <jer@gentoo.org> iftop-1.0_pre2.ebuild:
+  Add DEPEND=virtual/pkgconfig by dE (bug #512466).
+
+  03 Jun 2014; Jeroen Roovers <jer@gentoo.org> iftop-1.0_pre4.ebuild:
+  Stable for HPPA (bug #511716).
 
   03 Mar 2014; Jeroen Roovers <jer@gentoo.org>
   files/iftop-1.0_pre4-tinfo.patch:

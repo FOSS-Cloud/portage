@@ -1,6 +1,52 @@
 # ChangeLog for virtual/udev
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/udev/ChangeLog,v 1.77 2014/03/29 16:07:53 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/udev/ChangeLog,v 1.91 2014/08/03 12:30:42 ssuominen Exp $
+
+  03 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> udev-215.ebuild:
+  Help Portage make the right decision by introducing USE="systemd" wrt #515230.
+  This is a bug in the Package Manager.
+
+  30 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-208-r2.ebuild:
+  old
+
+*udev-215 (29 Jul 2014)
+
+  29 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-215.ebuild:
+  New virtual version wrt #518416 for package managers with no proper in-place
+  dependency handling.
+
+  26 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-208-r2.ebuild:
+  Drop multilib-build.eclass usage and virtual/libudev dependency.
+
+  25 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-208-r2.ebuild:
+  Remove compability USE flag "static-libs" in favour of virtual/libudev.
+
+  25 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> metadata.xml:
+  Remove unused USE description and add systemd@g.o to maintainers.
+
+  25 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev-208-r2.ebuild:
+  Punt compability flags USE="gudev introspection" because gentoo-x86 has been
+  converted to use virtual/libgudev.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> udev-208-r2.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  09 Jun 2014; Mike Frysinger <vapier@gentoo.org> udev-208-r2.ebuild:
+  Mark arm64/m68k/s390/sh stable.
+
+  02 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> metadata.xml:
+  Remove unused local description for USE="kmod" which turned to be redudant.
+
+  02 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-208-r1.ebuild:
+  old
+
+  02 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> udev-208-r2.ebuild:
+  Stabilize for everyone because providers have been marked stable wrt bugs
+  #506078 and #505962
+
+  11 May 2014; Samuli Suominen <ssuominen@gentoo.org> udev-208-r2.ebuild:
+  Update DESCRIPTION to not exclude sys-apps/systemd.
 
   29 Mar 2014; Anthony G. Basile <blueness@gentoo.org> metadata.xml:
   Add eudev@g.o as a maintainer

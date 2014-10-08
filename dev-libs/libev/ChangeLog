@@ -1,6 +1,38 @@
 # ChangeLog for dev-libs/libev
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libev/ChangeLog,v 1.64 2014/03/21 21:39:03 dlan Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libev/ChangeLog,v 1.74 2014/09/15 08:18:33 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+*libev-4.18 (09 Sep 2014)
+
+  09 Sep 2014; Yixun Lan <dlan@gentoo.org> +libev-4.18.ebuild:
+  version bump
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  10 Jun 2014; Mike Frysinger <vapier@gentoo.org> libev-4.15.ebuild:
+  Mark arm64/m68k/s390/sh stable.
+
+  10 Jun 2014; Mike Frysinger <vapier@gentoo.org> libev-4.15-r1.ebuild:
+  Add arm64/m68k love.
 
 *libev-4.15-r1 (21 Mar 2014)
 

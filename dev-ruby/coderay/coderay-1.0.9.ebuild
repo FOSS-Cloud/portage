@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/coderay/coderay-1.0.9.ebuild,v 1.11 2013/09/02 06:01:17 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/coderay/coderay-1.0.9.ebuild,v 1.13 2014/08/05 16:00:34 mrueg Exp $
 
 EAPI=4
 
-USE_RUBY="ruby18 ruby19 jruby"
+USE_RUBY="ruby19 jruby"
 
 # The test target also contains test:exe but that requires
 # shoulda-context which we do not have packaged yet.
@@ -17,7 +17,7 @@ RUBY_FAKEGEM_EXTRADOC="Changes-pre-1.0.textile Changes.textile FOLDERS README_IN
 
 inherit ruby-fakegem
 
-DESCRIPTION="A Ruby library for syntax highlighting."
+DESCRIPTION="A Ruby library for syntax highlighting"
 HOMEPAGE="http://coderay.rubychan.de/"
 SRC_URI="https://github.com/rubychan/coderay/tarball/v${PV} -> ${P}.tgz"
 

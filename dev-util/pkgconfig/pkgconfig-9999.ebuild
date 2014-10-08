@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/pkgconfig/pkgconfig-9999.ebuild,v 1.11 2014/03/27 06:57:57 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/pkgconfig/pkgconfig-9999.ebuild,v 1.14 2014/07/29 07:58:43 ssuominen Exp $
 
 EAPI=5
 
-inherit flag-o-matic libtool multilib multilib-minimal
+inherit eutils flag-o-matic libtool multilib multilib-minimal
 
 MY_P=pkg-config-${PV}
 
@@ -23,7 +23,7 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="elibc_FreeBSD elibc_glibc hardened internal-glib"
 
-RDEPEND="!internal-glib? ( >=dev-libs/glib-2.30[${MULTILIB_USEDEP}] )
+RDEPEND="!internal-glib? ( >=dev-libs/glib-2.34.3[${MULTILIB_USEDEP}] )
 	!dev-util/pkgconf[pkg-config]
 	!dev-util/pkg-config-lite
 	!dev-util/pkgconfig-openbsd[pkg-config]"
@@ -35,6 +35,8 @@ DOCS=( AUTHORS NEWS README )
 
 src_prepare() {
 	sed -i -e "s|^prefix=/usr\$|prefix=${EPREFIX}/usr|" check/simple.pc || die #434320
+
+	epatch_user
 
 	if [[ ${PV} == *9999* ]]; then
 		eautoreconf

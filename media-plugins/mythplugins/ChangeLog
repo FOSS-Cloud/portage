@@ -1,6 +1,46 @@
 # ChangeLog for media-plugins/mythplugins
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/mythplugins/ChangeLog,v 1.26 2014/03/23 19:53:48 rich0 Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/mythplugins/ChangeLog,v 1.33 2014/09/08 16:31:22 rich0 Exp $
+
+*mythplugins-0.27.3_p20140907 (08 Sep 2014)
+
+  08 Sep 2014; Richard Freeman <rich0@gentoo.org>
+  +mythplugins-0.27.3_p20140907.ebuild, metadata.xml:
+  Bump, fix dependencies and tie to mythtv USE flags.
+
+  21 Aug 2014; Richard Freeman <rich0@gentoo.org>
+  -mythplugins-0.26.0_p20130322.ebuild, -mythplugins-0.26.0_p20130419.ebuild,
+  -mythplugins-0.26.0_p20130526.ebuild, -mythplugins-0.26.0_p20130630.ebuild,
+  -mythplugins-0.26.0_p20130729.ebuild, -mythplugins-0.27_p20130924.ebuild,
+  -mythplugins-0.27_p20131124.ebuild, -mythplugins-0.27.1_p20140527.ebuild:
+  Clean out old versions.
+
+*mythplugins-0.27.1_p20140817 (18 Aug 2014)
+
+  18 Aug 2014; Richard Freeman <rich0@gentoo.org>
+  +mythplugins-0.27.1_p20140817.ebuild:
+  New patchset.
+
+  27 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  -mythplugins-0.25.3_p20130101.ebuild, -mythplugins-0.25.3_p20130131.ebuild,
+  -mythplugins-0.25.3_p20130322.ebuild, -mythplugins-0.25.3_p20130422.ebuild:
+  Remove masked for removal package
+
+*mythplugins-0.27.1_p20140713 (15 Jul 2014)
+
+  15 Jul 2014; Richard Freeman <rich0@gentoo.org>
+  +mythplugins-0.27.1_p20140713.ebuild:
+  New patchset.
+
+*mythplugins-0.27.1_p20140527 (01 Jun 2014)
+
+  01 Jun 2014; Richard Freeman <rich0@gentoo.org>
+  +mythplugins-0.27.1_p20140527.ebuild:
+  bump
+
+  19 Apr 2014; Richard Freeman <rich0@gentoo.org>
+  mythplugins-0.27_p20140321.ebuild:
+  amd64 stable - 471536
 
 *mythplugins-0.27_p20140321 (23 Mar 2014)
 

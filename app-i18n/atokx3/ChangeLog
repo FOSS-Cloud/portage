@@ -1,6 +1,29 @@
 # ChangeLog for app-i18n/atokx3
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/atokx3/ChangeLog,v 1.18 2013/10/29 02:32:50 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-i18n/atokx3/ChangeLog,v 1.24 2014/06/25 06:34:14 mgorny Exp $
+
+  25 Jun 2014; Michał Górny <mgorny@gentoo.org> atokx3-3.0.0-r10.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> atokx3-3.0.0-r10.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  31 May 2014; Michał Górny <mgorny@gentoo.org> atokx3-3.0.0-r10.ebuild:
+  Fix baselibs dep, bug #510386. Add multilib deps for other packages.
+
+  15 May 2014; Naohiro Aota <naota@gentoo.org> -atokx3-3.0.0-r6.ebuild,
+  -atokx3-3.0.0-r7.ebuild, -atokx3-3.0.0-r8.ebuild, -atokx3-3.0.0-r9.ebuild:
+  Drop old unfetchable ebuilds. #487370
+
+  14 May 2014; Tom Wijsman <TomWij@gentoo.org> atokx3-3.0.0-r6.ebuild:
+  [QA] EAPI 1 -> EAPI 5. Noticed missing distfiles, commented on bug #487370.
+
+*atokx3-3.0.0-r10 (28 Apr 2014)
+
+  28 Apr 2014; Naohiro Aota <naota@gentoo.org> +atokx3-3.0.0-r10.ebuild:
+  version bump wrt #508616
 
   29 Oct 2013; Patrick Lauer <patrick@gentoo.org> atokx3-3.0.0-r9.ebuild:
   Removing keywords from the -r9 ebuild as dependencies are broken #487370

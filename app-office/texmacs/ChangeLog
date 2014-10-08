@@ -1,6 +1,29 @@
 # ChangeLog for app-office/texmacs
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/texmacs/ChangeLog,v 1.111 2014/01/09 07:34:47 grozin Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/texmacs/ChangeLog,v 1.117 2014/08/10 17:35:02 ago Exp $
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> texmacs-1.0.7.21.ebuild:
+  Stable for x86, wrt bug #512486
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org> texmacs-1.0.7.2-r1.ebuild,
+  texmacs-1.0.7.21.ebuild, texmacs-1.99.1.ebuild:
+  Drop sparc keyword
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> texmacs-1.0.7.21.ebuild:
+  Stable for ppc, wrt bug #512486
+
+  05 Jul 2014; Pacho Ramos <pacho@gentoo.org> texmacs-1.0.7.21.ebuild:
+  amd64 stable, bug #512486
+
+  05 Jun 2014; Justin Lecher <jlec@gentoo.org> -texmacs-1.0.7.20.ebuild,
+  texmacs-1.0.7.21.ebuild, metadata.xml:
+  Drop old and bump to EAPI=5
+
+*texmacs-1.99.1 (01 May 2014)
+
+  01 May 2014; Andrey Grozin <grozin@gentoo.org> +texmacs-1.99.1.ebuild,
+  metadata.xml:
+  Version bump
 
 *texmacs-1.0.7.21 (09 Jan 2014)
 

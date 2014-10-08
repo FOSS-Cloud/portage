@@ -1,6 +1,57 @@
 # ChangeLog for dev-libs/libverto
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libverto/ChangeLog,v 1.22 2013/08/16 17:04:28 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libverto/ChangeLog,v 1.36 2014/09/15 08:18:39 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libverto-0.2.5-r1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libverto-0.2.5-r1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libverto-0.2.5-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libverto-0.2.5-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> libverto-0.2.5-r1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libverto-0.2.5-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libverto-0.2.5-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libverto-0.2.5-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  24 Jun 2014; Michał Górny <mgorny@gentoo.org> libverto-0.2.5-r1.ebuild,
+  libverto-0.2.6.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libverto-0.2.5-r1.ebuild,
+  libverto-0.2.6.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  16 Jun 2014; Eray Aslan <eras@gentoo.org> -libverto-0.2.4.ebuild:
+  Remove old
+
+*libverto-0.2.6 (16 Jun 2014)
+
+  16 Jun 2014; Eray Aslan <eras@gentoo.org> +libverto-0.2.6.ebuild:
+  Version bump
+
+  10 Jun 2014; Mike Frysinger <vapier@gentoo.org> libverto-0.2.5-r1.ebuild,
+  libverto-0.2.5.ebuild:
+  Add arm64/m68k love.
+
+*libverto-0.2.5-r1 (14 May 2014)
+
+  14 May 2014; Michał Górny <mgorny@gentoo.org> +libverto-0.2.5-r1.ebuild:
+  Enable multilib support, bug #505008.
 
   16 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> libverto-0.2.5.ebuild:
   Add ~mips keyword, wrt bug #412489

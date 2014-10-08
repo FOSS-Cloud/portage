@@ -1,6 +1,29 @@
 # ChangeLog for sci-libs/fftw
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/fftw/ChangeLog,v 1.155 2013/10/21 13:29:10 grobian Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/fftw/ChangeLog,v 1.161 2014/09/02 15:09:29 dev-zero Exp $
+
+  02 Sep 2014; Tiziano Müller <dev-zero@gentoo.org> fftw-3.3.4.ebuild:
+  Disable parallel ABI-install (bug #521044).
+
+  28 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> fftw-2.1.5-r8.ebuild:
+  arm stable wrt bug #496422
+
+  06 Aug 2014; Christoph Junghans <ottxor@gentoo.org> -fftw-3.3.3-r3.ebuild,
+  fftw-3.3.4.ebuild:
+  disable header wrapping (bug #519094)
+
+  17 Jun 2014; Michał Górny <mgorny@gentoo.org> fftw-3.3.4.ebuild:
+  Use ${ABI} to disable quad precision w/ abi_x86_32.
+
+  24 May 2014; Michał Górny <mgorny@gentoo.org> fftw-3.3.3-r3.ebuild,
+  fftw-3.3.4.ebuild:
+  Fix the variant-obtaining hack after changes to build dir naming in multilib-
+  build. Bug #511198.
+
+*fftw-3.3.4 (22 Apr 2014)
+
+  22 Apr 2014; Sébastien Fabbro <bicatali@gentoo.org> +fftw-3.3.4.ebuild:
+  Version bump
 
   21 Oct 2013; Fabian Groffen <grobian@gentoo.org> fftw-3.3.3-r3.ebuild:
   Marked ~x64-macos, bug #486818

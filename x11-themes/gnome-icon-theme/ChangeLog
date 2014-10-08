@@ -1,6 +1,40 @@
 # ChangeLog for x11-themes/gnome-icon-theme
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-icon-theme/ChangeLog,v 1.245 2014/03/09 12:05:17 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-themes/gnome-icon-theme/ChangeLog,v 1.255 2014/09/15 08:24:56 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> gnome-icon-theme-3.12.0.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gnome-icon-theme-3.12.0.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gnome-icon-theme-3.12.0.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gnome-icon-theme-3.12.0.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnome-icon-theme-3.12.0.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnome-icon-theme-3.12.0.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnome-icon-theme-3.12.0.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  22 Jun 2014; Pacho Ramos <pacho@gentoo.org> gnome-icon-theme-3.10.0.ebuild:
+  Stable on remaining arches as this is only an icon set and it's still needed
+  by many stable packages on this arches
+
+*gnome-icon-theme-3.12.0 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-icon-theme-3.12.0.ebuild:
+  Version bump for Gnome 3.12.
+
+  27 Apr 2014; Pacho Ramos <pacho@gentoo.org> -gnome-icon-theme-3.8.3.ebuild:
+  drop old
 
   09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-icon-theme-3.10.0.ebuild:
   x86 stable, bug 499954

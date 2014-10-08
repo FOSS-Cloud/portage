@@ -1,6 +1,25 @@
 # ChangeLog for sys-apps/elfix
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/elfix/ChangeLog,v 1.82 2014/01/26 12:12:26 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/elfix/ChangeLog,v 1.86 2014/09/09 02:38:28 patrick Exp $
+
+  09 Sep 2014; Patrick Lauer <patrick@gentoo.org> -elfix-0.8.1.ebuild,
+  -elfix-0.8.3.ebuild, -elfix-0.8.5.ebuild:
+  Remove versions with unsatisfied dependencies after pypax cleanup
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> elfix-0.8.1.ebuild,
+  elfix-0.8.3.ebuild, elfix-0.8.4.ebuild, elfix-0.8.5.ebuild,
+  elfix-0.8.6.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*elfix-0.8.6 (30 Jul 2014)
+
+  30 Jul 2014; Anthony G. Basile <blueness@gentoo.org> +elfix-0.8.6.ebuild:
+  Version bump, builds fix-gnustack contingent on --enable-ptpax
+
+*elfix-0.8.5 (07 Jun 2014)
+
+  07 Jun 2014; Anthony G. Basile <blueness@gentoo.org> +elfix-0.8.5.ebuild:
+  Version bump, adds compat with BSD and musl
 
   26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> elfix-0.8.4.ebuild:
   Stable for sparc, wrt bug #495624

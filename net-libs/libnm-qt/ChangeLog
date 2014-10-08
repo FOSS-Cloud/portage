@@ -1,6 +1,41 @@
 # ChangeLog for net-libs/libnm-qt
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libnm-qt/ChangeLog,v 1.4 2014/02/16 15:23:14 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libnm-qt/ChangeLog,v 1.12 2014/10/08 01:02:53 mrueg Exp $
+
+  08 Oct 2014; Manuel Rüger <mrueg@gentoo.org> libnm-qt-0.9.8.2-r1.ebuild:
+  Mark stable on amd64. See bug #519598.
+
+  10 Aug 2014; Johannes Huber <johu@gentoo.org>
+  -files/libnm-qt-0.9.8.1-cxxflags.patch, -libnm-qt-0.9.8.1-r1.ebuild,
+  libnm-qt-0.9.8.2-r1.ebuild:
+  DEPEND on net-misc/networkmanager[{consolekit,systemd}], bug #492434. Remove
+  old.
+
+*libnm-qt-0.9.8.2-r1 (07 Jul 2014)
+
+  07 Jul 2014; Manuel Rüger <mrueg@gentoo.org> +libnm-qt-0.9.8.2-r1.ebuild,
+  -libnm-qt-0.9.8.2.ebuild:
+  Fix subslot value.
+
+*libnm-qt-0.9.8.2 (06 Jul 2014)
+
+  06 Jul 2014; Manuel Rüger <mrueg@gentoo.org> +libnm-qt-0.9.8.2.ebuild:
+  Version bump.
+
+*libnm-qt-0.9.8.1-r1 (25 May 2014)
+
+  25 May 2014; Johannes Huber <johu@gentoo.org>
+  +files/libnm-qt-0.9.8.1-cxxflags.patch, +libnm-qt-0.9.8.1-r1.ebuild:
+  Revision bump adds upstream patch to respect CXXFLAGS, bug #508300.
+
+  13 Apr 2014; Johannes Huber <johu@gentoo.org> -libnm-qt-0.9.8.0.ebuild:
+  Remove old.
+
+  13 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libnm-qt-0.9.8.1.ebuild:
+  Stable for x86, wrt bug #507526
+
+  13 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libnm-qt-0.9.8.1.ebuild:
+  Stable for amd64, wrt bug #507526
 
 *libnm-qt-0.9.8.1 (16 Feb 2014)
 

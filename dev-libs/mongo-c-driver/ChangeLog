@@ -1,6 +1,38 @@
 # ChangeLog for dev-libs/mongo-c-driver
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/mongo-c-driver/ChangeLog,v 1.9 2014/03/28 13:30:16 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/mongo-c-driver/ChangeLog,v 1.17 2014/08/19 07:48:18 ultrabug Exp $
+
+*mongo-c-driver-0.98.2 (19 Aug 2014)
+
+  19 Aug 2014; Ultrabug <ultrabug@gentoo.org> +mongo-c-driver-0.98.2.ebuild:
+  version bump
+
+  13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mongo-c-driver-0.7.1-r1.ebuild:
+  Stable for ppc, wrt bug #503410
+
+  09 Aug 2014; Andreas Schuerch <nativemad@gentoo.org>
+  mongo-c-driver-0.7.1-r1.ebuild:
+  x86 stable, see bug 503410
+
+  07 Aug 2014; Chema Alonso <nimiux@gentoo.org> mongo-c-driver-0.7.1-r1.ebuild:
+  Stable for amd64 wrt bug #503410
+
+*mongo-c-driver-0.7.1-r1 (07 Aug 2014)
+
+  07 Aug 2014; Ultrabug <ultrabug@gentoo.org> +mongo-c-driver-0.7.1-r1.ebuild:
+  fix #510722 thx to Chema Alonso
+
+  29 Jul 2014; Jeroen Roovers <jer@gentoo.org> mongo-c-driver-0.98.0.ebuild:
+  Marked ~hppa (bug #517880).
+
+*mongo-c-driver-0.98.0 (23 Jul 2014)
+
+  23 Jul 2014; Ultrabug <ultrabug@gentoo.org> +mongo-c-driver-0.98.0.ebuild:
+  version bump wrt #505280 thx to Johan Bergström
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  mongo-c-driver-0.7.1.ebuild:
+  x86 stable wrt bug #503410
 
   28 Mar 2014; Jeroen Roovers <jer@gentoo.org> mongo-c-driver-0.8.1-r1.ebuild:
   Respect CC.

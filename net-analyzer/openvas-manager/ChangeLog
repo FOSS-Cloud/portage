@@ -1,6 +1,43 @@
 # ChangeLog for net-analyzer/openvas-manager
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/openvas-manager/ChangeLog,v 1.7 2013/12/27 00:19:28 creffett Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/openvas-manager/ChangeLog,v 1.13 2014/10/01 11:12:44 jlec Exp $
+
+*openvas-manager-5.0.4-r2 (01 Oct 2014)
+
+  01 Oct 2014; Justin Lecher <jlec@gentoo.org>
+  +openvas-manager-5.0.4-r2.ebuild, files/openvasmd.init:
+  Fix service dependency
+
+*openvas-manager-5.0.4-r1 (01 Oct 2014)
+
+  01 Oct 2014; Justin Lecher <jlec@gentoo.org>
+  +openvas-manager-5.0.4-r1.ebuild, +files/openvas-manager-5.0.4-run.patch,
+  files/openvasmd.init, files/openvasmd.service, files/openvasmd-daemon.conf:
+  Enhance init and systemd support; drop installation instructions in favour of
+  meta package
+
+*openvas-manager-6.0_beta2 (29 Sep 2014)
+
+  29 Sep 2014; Justin Lecher <jlec@gentoo.org>
+  +openvas-manager-6.0_beta2.ebuild:
+  Version Bump
+
+  29 Sep 2014; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Add myself as maintainer
+
+*openvas-manager-5.0.4 (28 Sep 2014)
+
+  28 Sep 2014; Justin Lecher <jlec@gentoo.org> +openvas-manager-5.0.4.ebuild,
+  +files/openvas-manager-5.0.4-bsdsource.patch,
+  +files/openvas-manager-5.0.4-gpgerror.patch, +files/openvasmd.init,
+  +files/openvasmd.logrotate, +files/openvasmd.service,
+  +files/openvasmd-daemon.conf, metadata.xml:
+  Version BUmp; add systemd support
+
+*openvas-manager-5.0.2 (19 Jun 2014)
+
+  19 Jun 2014; Hanno Boeck <hanno@gentoo.org> +openvas-manager-5.0.2.ebuild:
+  Bump.
 
   27 Dec 2013; Chris Reffett <creffett@gentoo.org>
   -openvas-manager-2.0.4.ebuild, -openvas-manager-4.0.1.ebuild,

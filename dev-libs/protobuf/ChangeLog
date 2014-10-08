@@ -1,6 +1,32 @@
 # ChangeLog for dev-libs/protobuf
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/protobuf/ChangeLog,v 1.60 2014/03/06 10:56:33 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/protobuf/ChangeLog,v 1.66 2014/10/07 06:47:27 radhermit Exp $
+
+  07 Oct 2014; Tim Harder <radhermit@gentoo.org> protobuf-2.6.0.ebuild:
+  Add github homepage.
+
+  30 Sep 2014; Tim Harder <radhermit@gentoo.org> protobuf-2.6.0.ebuild:
+  Drop python2_6 support and remove old dateutil comment.
+
+  30 Sep 2014; Tim Harder <radhermit@gentoo.org> protobuf-2.6.0.ebuild:
+  Remove unused python-dateutil and python-gflags deps as pointed out by
+  Arfrever.
+
+*protobuf-2.6.0 (30 Sep 2014)
+
+  30 Sep 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> +protobuf-2.6.0.ebuild:
+  Version bump, bug #521406 . Drop keywords because of new python deps; arm
+  (bug #524082), ia64 (bug #524084).
+
+*protobuf-2.5.0-r1 (26 Sep 2014)
+
+  26 Sep 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +protobuf-2.5.0-r1.ebuild:
+  Disable RTTI, bug #521882 .
+
+  14 Aug 2014; Jeroen Roovers <jer@gentoo.org> protobuf-2.4.0a.ebuild,
+  protobuf-2.4.1.ebuild, protobuf-2.5.0.ebuild:
+  Marked -hppa (bug #519772).
 
   06 Mar 2014; Agostino Sarubbo <ago@gentoo.org> protobuf-2.5.0.ebuild:
   Revert wrong commit wrt bug #503046

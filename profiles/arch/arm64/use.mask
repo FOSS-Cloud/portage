@@ -54,7 +54,6 @@ dmi
 
 # Stuff we don't want
 chicken
-clisp
 fuse
 R
 octave
@@ -74,6 +73,9 @@ prelude
 mssql
 
 # havent tested yet
+ruby
+ctypes-python
+sasl
 libproxy
 pkcs11
 gnutls
@@ -106,6 +108,7 @@ libupnp
 zvbi
 ldap
 mysql
+postgres
 dvd
 fluidsynth
 gnomecd
@@ -227,12 +230,6 @@ clvm
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (22 Aug 2013)
 # virtual/opencl is not keyworded
 opencl
-
-# We don't care about older python versions.  Time to upgrade.
-python_targets_python2_6
-python_targets_python3_0
-python_targets_python3_1
-python_targets_python3_2
 
 # This one we need to test ...
 python_targets_python3_3

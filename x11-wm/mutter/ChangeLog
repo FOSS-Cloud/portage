@@ -1,6 +1,36 @@
 # ChangeLog for x11-wm/mutter
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/mutter/ChangeLog,v 1.40 2014/03/09 12:05:38 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/mutter/ChangeLog,v 1.48 2014/09/26 20:39:59 pacho Exp $
+
+  26 Sep 2014; Pacho Ramos <pacho@gentoo.org> -mutter-3.10.4.ebuild,
+  -mutter-3.12.1.ebuild, mutter-3.12.2.ebuild:
+  Needs to be rebuilt with upower-glib .so version updates, drop old
+
+  19 Sep 2014; Samuli Suominen <ssuominen@gentoo.org> mutter-3.10.4.ebuild:
+  Remove dependency of <sys-power/upower-0.99 from || ( ) construct.
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> mutter-3.12.2.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> mutter-3.12.2.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  31 May 2014; Samuli Suominen <ssuominen@gentoo.org> mutter-3.10.4.ebuild:
+  Allow falling back to sys-power/upower-pm-utils.
+
+*mutter-3.12.2 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> +mutter-3.12.2.ebuild:
+  Version bump
+
+*mutter-3.12.1 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> +mutter-3.12.1.ebuild:
+  Version bump for Gnome 3.12.
+
+  18 Apr 2014; Pacho Ramos <pacho@gentoo.org> -mutter-3.10.3.ebuild,
+  -mutter-3.8.4.ebuild:
+  drop old
 
   09 Mar 2014; Pacho Ramos <pacho@gentoo.org> mutter-3.10.4.ebuild:
   x86 stable, bug 499954

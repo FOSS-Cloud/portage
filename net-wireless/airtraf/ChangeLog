@@ -1,6 +1,21 @@
 # ChangeLog for net-wireless/airtraf
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/airtraf/ChangeLog,v 1.18 2011/08/20 21:05:36 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/airtraf/ChangeLog,v 1.21 2014/07/19 12:30:30 jer Exp $
+
+  19 Jul 2014; Jeroen Roovers <jer@gentoo.org> files/airtraf-1.1.patch:
+  Fix patch.
+
+*airtraf-1.1-r2 (19 Jul 2014)
+
+  19 Jul 2014; Jeroen Roovers <jer@gentoo.org> -airtraf-1.1-r1.ebuild,
+  +airtraf-1.1-r2.ebuild, +files/airtraf-1.1-off-by-one.patch,
+  files/airtraf-1.1.patch:
+  Fix an off-by-one.
+
+  18 Jul 2014; Jeroen Roovers <jer@gentoo.org> airtraf-1.1-r1.ebuild,
+  metadata.xml:
+  EAPI bump. List sys-libs/ncurses dependency and fix building against
+  sys-libs/ncurses[tinfo].
 
   20 Aug 2011; Jeroen Roovers <jer@gentoo.org> metadata.xml:
   Remove useless maintainer tag.

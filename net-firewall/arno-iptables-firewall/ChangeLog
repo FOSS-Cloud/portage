@@ -1,6 +1,14 @@
 # ChangeLog for net-firewall/arno-iptables-firewall
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/arno-iptables-firewall/ChangeLog,v 1.12 2014/04/02 09:33:56 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/arno-iptables-firewall/ChangeLog,v 1.14 2014/06/26 09:46:35 nimiux Exp $
+
+  26 Jun 2014; Chema Alonso <nimiux@gentoo.org>
+  arno-iptables-firewall-2.0.1e.ebuild:
+  Stable for amd64 wrt bug #509612
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  arno-iptables-firewall-2.0.1e.ebuild:
+  x86 stable wrt bug #509612
 
 *arno-iptables-firewall-2.0.1e (02 Apr 2014)
 

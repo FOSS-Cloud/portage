@@ -1,6 +1,84 @@
 # ChangeLog for net-proxy/haproxy
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/haproxy/ChangeLog,v 1.89 2014/03/27 22:28:51 idl0r Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/haproxy/ChangeLog,v 1.104 2014/10/08 12:01:39 idl0r Exp $
+
+*haproxy-1.5.5 (08 Oct 2014)
+
+  08 Oct 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.4.24.ebuild,
+  +haproxy-1.5.5.ebuild:
+  Version bump
+
+  07 Sep 2014; Agostino Sarubbo <ago@gentoo.org> haproxy-1.4.25.ebuild:
+  Stable for ppc, wrt bug #514930
+
+*haproxy-1.5.4 (03 Sep 2014)
+
+  03 Sep 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5.3.ebuild,
+  +haproxy-1.5.4.ebuild:
+  Version bump, bug 522018
+
+  30 Aug 2014; Chema Alonso <nimiux@gentoo.org> haproxy-1.4.25.ebuild:
+  Stable for amd64 wrt bug #514930
+
+  11 Aug 2014; Christian Ruppert <idl0r@gentoo.org> haproxy-1.5.3.ebuild:
+  Minor: Fix CFLAGS not being respected for "halog"
+
+*haproxy-1.5.3 (11 Aug 2014)
+
+  11 Aug 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5.2-r1.ebuild,
+  +haproxy-1.5.3.ebuild:
+  Version bump, thanks to beber_ via IRC
+
+*haproxy-1.5.2-r1 (11 Aug 2014)
+
+  11 Aug 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5.2.ebuild,
+  +haproxy-1.5.2-r1.ebuild:
+  Revbump - fixes systemd wrapper, bug 517624
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> haproxy-1.4.25.ebuild:
+  x86 stable wrt bug #514930
+
+*haproxy-1.5.2 (12 Jul 2014)
+
+  12 Jul 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5.1.ebuild,
+  +haproxy-1.5.2.ebuild:
+  Version bump
+
+*haproxy-1.5.1 (24 Jun 2014)
+
+  24 Jun 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5.0.ebuild,
+  +haproxy-1.5.1.ebuild:
+  Version bump
+
+*haproxy-1.5.0 (19 Jun 2014)
+
+  19 Jun 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5_beta24.ebuild,
+  -haproxy-1.5_beta26.ebuild, +haproxy-1.5.0.ebuild:
+  Version bump. Cleanup
+
+*haproxy-1.5_beta26 (28 May 2014)
+
+  28 May 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5_beta25.ebuild,
+  +haproxy-1.5_beta26.ebuild:
+  Version bump
+
+*haproxy-1.5_beta25 (10 May 2014)
+
+  10 May 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5_beta22.ebuild,
+  +haproxy-1.5_beta25.ebuild:
+  Version bump. Cleanup
+
+*haproxy-1.5_beta24 (26 Apr 2014)
+
+  26 Apr 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5_beta23.ebuild,
+  +haproxy-1.5_beta24.ebuild:
+  Version bump
+
+*haproxy-1.5_beta23 (23 Apr 2014)
+
+  23 Apr 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5_beta21.ebuild,
+  +haproxy-1.5_beta23.ebuild:
+  Version bump
 
 *haproxy-1.4.25 (27 Mar 2014)
 

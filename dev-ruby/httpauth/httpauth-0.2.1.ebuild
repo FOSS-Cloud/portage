@@ -1,16 +1,16 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/httpauth/httpauth-0.2.1.ebuild,v 1.1 2014/01/21 13:21:04 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/httpauth/httpauth-0.2.1.ebuild,v 1.3 2014/08/05 16:00:58 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby18 ruby19 ruby20 ruby21"
+USE_RUBY="ruby19 ruby20 ruby21"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="README.md TODO"
 
 inherit ruby-fakegem
 
-DESCRIPTION="A library supporting the full HTTP Authentication protocol as specified in RFC 2617."
+DESCRIPTION="A library supporting the full HTTP Authentication protocol as specified in RFC 2617"
 HOMEPAGE="https://github.com/Manfred/HTTPauth http://httpauth.rubyforge.org/"
 SRC_URI="https://github.com/Manfred/HTTPauth/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 

@@ -1,6 +1,31 @@
 # ChangeLog for dev-java/jython
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jython/ChangeLog,v 1.90 2014/03/10 16:57:18 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/jython/ChangeLog,v 1.94 2014/08/03 16:30:14 sera Exp $
+
+  03 Aug 2014; Ralph Sennhauser <sera@gentoo.org> -jython-2.5.1-r2.ebuild,
+  -jython-2.5.2-r2.ebuild, -jython-2.5.3-r2.ebuild,
+  -files/jython-2.5.1-build.patch,
+  -files/jython-2.5.1-distutils_byte_compilation.patch,
+  -files/jython-2.5.1-distutils_scripts_location.patch,
+  -files/jython-2.5.1-respect_PYTHONPATH.patch:
+  Remove old
+
+*jython-2.7_beta2-r1 (25 Jul 2014)
+
+  25 Jul 2014; Patrick McLean <chutzpah@gentoo.org>
+  +jython-2.7_beta2-r1.ebuild, +files/jython-2.7_beta2-maxrepeat-import.patch:
+  Revision bump, add patch copied from cpython standard libraries to fix
+  problem with the re module.
+
+*jython-2.7_beta2 (27 Jun 2014)
+
+  27 Jun 2014; Patrick McLean <chutzpah@gentoo.org> +jython-2.7_beta2.ebuild:
+  Version bump.
+
+  24 Apr 2014; Patrick McLean <chutzpah@gentoo.org> jython-2.5.3-r3.ebuild,
+  jython-2.7_beta1.ebuild:
+  Fix sandbox errors related to new versions of jline trying to write a history
+  file (bug #508636).
 
   10 Mar 2014; Johannes Huber <johu@gentoo.org> jython-2.2.1-r2.ebuild:
   x86 stable, bug #315557

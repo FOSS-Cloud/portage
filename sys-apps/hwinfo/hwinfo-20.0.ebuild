@@ -1,11 +1,11 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwinfo/hwinfo-20.0.ebuild,v 1.5 2014/01/14 15:09:49 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwinfo/hwinfo-20.0.ebuild,v 1.7 2014/05/28 10:19:55 jlec Exp $
 
 EAPI=4
 inherit multilib rpm toolchain-funcs
 
-DESCRIPTION="hwinfo is the hardware detection tool used in SuSE Linux."
+DESCRIPTION="hardware detection tool used in SuSE Linux"
 HOMEPAGE="http://www.opensuse.org/"
 SRC_URI="http://download.opensuse.org/source/factory/repo/oss/suse/src/${P}-1.4.src.rpm"
 
@@ -33,6 +33,11 @@ src_prepare() {
 	# Respect LDFLAGS.
 	sed -i -e 's:$(CC) -shared:& $(LDFLAGS):' src/Makefile || die
 	sed -i -e 's:$(CC) $(CFLAGS):$(CC) $(LDFLAGS) $(CFLAGS):' src/ids/Makefile || die
+
+	# Use linux/pci.h directly. #506876
+	sed -i \
+		-e '/#include.*sys\/pci.h/s:sys/pci.h:linux/pci.h:' \
+		src/hd/*.c || die
 
 	# Respect MAKE variable. Skip forced -pipe and -g. Respect LDFLAGS.
 	sed -i \

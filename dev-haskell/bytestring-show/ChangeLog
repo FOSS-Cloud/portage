@@ -1,6 +1,19 @@
 # ChangeLog for dev-haskell/bytestring-show
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/bytestring-show/ChangeLog,v 1.6 2013/05/11 18:45:01 slyfox Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/bytestring-show/ChangeLog,v 1.9 2014/07/25 09:16:32 slyfox Exp $
+
+  25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  bytestring-show-0.3.5.4-r2.ebuild, bytestring-show-0.3.5.5.ebuild,
+  bytestring-show-0.3.5.6.ebuild:
+  Drop trailing '.' from description.
+
+  25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
+  Drop redundant '<maintainer>' field, leave only '<herd>'.
+
+*bytestring-show-0.3.5.6 (02 Jul 2014)
+
+  02 Jul 2014; Mark Wright <gienah@gentoo.org> +bytestring-show-0.3.5.6.ebuild:
+  Bump bytestring-show to 0.3.5.6
 
 *bytestring-show-0.3.5.5 (11 May 2013)
 

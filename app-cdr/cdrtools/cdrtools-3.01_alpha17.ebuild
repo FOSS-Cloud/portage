@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdrtools/cdrtools-3.01_alpha17.ebuild,v 1.15 2014/01/29 20:58:03 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdrtools/cdrtools-3.01_alpha17.ebuild,v 1.18 2014/09/21 06:54:52 patrick Exp $
 
 EAPI=5
 
@@ -9,8 +9,8 @@ inherit fcaps multilib eutils toolchain-funcs flag-o-matic gnuconfig
 MY_P="${P/_alpha/a}"
 
 DESCRIPTION="A set of tools for CD/DVD reading and recording, including cdrecord"
-HOMEPAGE="http://cdrecord.berlios.de/private/cdrecord.html"
-SRC_URI="ftp://ftp.berlios.de/pub/cdrecord/$([[ -z ${PV/*_alpha*} ]] && echo 'alpha/')/${MY_P}.tar.bz2"
+HOMEPAGE="http://sourceforge.net/projects/cdrtools/"
+SRC_URI="mirror://sourceforge/${PN}/$([[ -z ${PV/*_alpha*} ]] && echo 'alpha')/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1 CDDL-Schily"
 SLOT="0"
@@ -87,7 +87,13 @@ src_prepare() {
 		-e "s:/opt/schily:/usr:g" \
 		-e "s:/usr/src/linux/include::g" \
 		-e "s:bin:root:g" \
+		-e '/^DEFUMASK/s,002,022,g' \
 		Defaults.${os} || die "sed Schily make setup"
+	# re DEFUMASK above:
+	# bug 486680: grsec TPE will block the exec if the directory is
+	# group-writable. This is painful with cdrtools, because it makes a bunch of
+	# group-writable directories during build. Change the umask on their
+	# creation to prevent this.
 }
 
 # skip obsolete configure script

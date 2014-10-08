@@ -1,6 +1,35 @@
 # ChangeLog for net-dialup/capi4k-utils
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/capi4k-utils/ChangeLog,v 1.75 2014/04/03 10:10:27 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/capi4k-utils/ChangeLog,v 1.81 2014/06/28 07:24:31 pinkbyte Exp $
+
+  28 Jun 2014; Sergey Popov <pinkbyte@gentoo.org>
+  -capi4k-utils-20050718-r3.ebuild, -capi4k-utils-20050718-r5.ebuild,
+  -files/capi20-types.diff:
+  Drop old revisions
+
+  22 Jun 2014; Mikle Kolyada <zlogene@gentoo.org>
+  capi4k-utils-20050718-r6.ebuild:
+  ppc stable wrt bug #511800
+
+  22 Jun 2014; Sergey Popov <pinkbyte@gentoo.org>
+  capi4k-utils-20050718-r6.ebuild:
+  Stable on amd64 and x86, wrt bug #511800
+
+  22 Jun 2014; Sergey Popov <pinkbyte@gentoo.org>
+  capi4k-utils-20050718-r6.ebuild:
+  Improve fix for bug #511800 by utilizing versionator eclass
+
+  16 Jun 2014; Sergey Popov <pinkbyte@gentoo.org>
+  capi4k-utils-20050718-r6.ebuild:
+  QA: punt unnecessary libtool files
+
+*capi4k-utils-20050718-r6 (16 Jun 2014)
+
+  16 Jun 2014; Sergey Popov <pinkbyte@gentoo.org>
+  -capi4k-utils-20050718-r4.ebuild, +capi4k-utils-20050718-r6.ebuild:
+  Revision bump: EAPI 5, epatch_user, add missing 'die' to all sed calls, fix
+  bug #511800, thanks to Vladimir Miloserdov <milosvova AT gmail.com> for
+  discovering this issue. Drop old revision
 
   03 Apr 2014; Tom Wijsman <TomWij@gentoo.org> capi4k-utils-20050718-r3.ebuild:
   [QA] Drop minor arch stable keyword(s) per 20130917 Council decision, due to

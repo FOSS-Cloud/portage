@@ -1,10 +1,10 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/pppconfig/pppconfig-2.3.17-r1.ebuild,v 1.3 2007/09/09 05:44:27 josejx Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/pppconfig/pppconfig-2.3.17-r1.ebuild,v 1.5 2014/08/10 20:56:07 slyfox Exp $
 
-DESCRIPTION="A text menu based utility for configuring ppp."
-SRC_URI="http://http.us.debian.org/debian/pool/main/p/pppconfig/${PN}_${PV}.tar.gz"
-HOMEPAGE="http://http.us.debian.org/debian/pool/main/p/pppconfig/"
+DESCRIPTION="A text menu based utility for configuring ppp"
+HOMEPAGE="http://packages.qa.debian.org/p/pppconfig.html"
+SRC_URI="mirror://debian/pool/main/p/${PN}/${P/-/_}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"

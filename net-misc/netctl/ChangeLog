@@ -1,6 +1,31 @@
 # ChangeLog for net-misc/netctl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/netctl/ChangeLog,v 1.18 2014/03/22 17:39:28 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/netctl/ChangeLog,v 1.23 2014/08/07 19:44:11 floppym Exp $
+
+*netctl-1.9 (07 Aug 2014)
+
+  07 Aug 2014; Mike Gilbert <floppym@gentoo.org> +netctl-1.9.ebuild:
+  Version bump.
+
+*netctl-1.8 (21 Jun 2014)
+
+  21 Jun 2014; Mike Gilbert <floppym@gentoo.org> +netctl-1.8.ebuild,
+  -netctl-1.3.ebuild, -netctl-1.4.ebuild, netctl-1.6.ebuild, netctl-1.7.ebuild,
+  netctl-9999.ebuild:
+  Version bump. Add blockers to ensure we have a usable version of dhcpcd, bug
+  514166. Remove old.
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> netctl-1.6.ebuild:
+  x86 stable wrt bug #510880
+
+  23 May 2014; Markos Chandras <hwoarang@gentoo.org> netctl-1.6.ebuild:
+  Stable on amd64 wrt bug #510880
+
+*netctl-1.7 (20 May 2014)
+
+  20 May 2014; Markos Chandras <hwoarang@gentoo.org> +netctl-1.7.ebuild,
+  metadata.xml:
+  Version bump. Add myself as maintainer
 
 *netctl-1.6 (22 Mar 2014)
 

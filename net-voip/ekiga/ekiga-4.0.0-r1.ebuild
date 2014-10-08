@@ -1,8 +1,8 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/ekiga/ekiga-4.0.0-r1.ebuild,v 1.8 2014/04/03 10:10:13 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-voip/ekiga/ekiga-4.0.0-r1.ebuild,v 1.11 2014/08/04 18:51:47 armin76 Exp $
 
-EAPI="4"
+EAPI=5
 
 KDE_REQUIRED="optional"
 CMAKE_REQUIRED="never"
@@ -16,14 +16,14 @@ HOMEPAGE="http://www.ekiga.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ia64 ppc ppc64 ~sparc x86"
+KEYWORDS="~alpha amd64 ia64 ppc ppc64 sparc x86"
 IUSE="avahi dbus debug doc eds gconf gnome gstreamer h323 kde kontact ldap
 libnotify mmx nls pulseaudio +shm static v4l xcap xv"
 
 RDEPEND=">=dev-libs/glib-2.24.0:2
 	>=dev-libs/boost-1.49
 	dev-libs/libxml2:2
-	>=net-libs/opal-3.10.9[audio,sip,video,debug=,h323?,xml]
+	>=net-libs/opal-3.10.9[sip,sound,video,debug=,h323?,xml]
 	>=net-libs/ptlib-2.10.9[ldap?,stun,v4l?,video,wav,debug=,dtmf,pulseaudio?,xml]
 	>=x11-libs/gtk+-2.20.0:2
 	>=x11-themes/gnome-icon-theme-3.0.0

@@ -1,6 +1,77 @@
 # ChangeLog for net-libs/nodejs
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/nodejs/ChangeLog,v 1.116 2014/03/31 06:29:58 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/nodejs/ChangeLog,v 1.130 2014/09/17 10:58:05 patrick Exp $
+
+*nodejs-0.10.32 (17 Sep 2014)
+
+  17 Sep 2014; Patrick Lauer <patrick@gentoo.org> +nodejs-0.10.32.ebuild:
+  Bump
+
+*nodejs-0.10.31 (21 Aug 2014)
+
+  21 Aug 2014; Patrick Lauer <patrick@gentoo.org> +nodejs-0.10.31.ebuild:
+  Bump
+
+  06 Aug 2014; Patrick Lauer <patrick@gentoo.org> -nodejs-0.10.21.ebuild:
+  Remove old
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> nodejs-0.10.30.ebuild:
+  Stable for x86, wrt bug #518710
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> nodejs-0.10.30.ebuild:
+  Stable for amd64, wrt bug #518710
+
+  01 Aug 2014; Patrick Lauer <patrick@gentoo.org> -nodejs-0.10.28.ebuild,
+  -nodejs-0.10.29-r1.ebuild, -nodejs-0.10.29.ebuild, -nodejs-0.8.26.ebuild,
+  -nodejs-0.8.27.ebuild:
+  Remove old
+
+*nodejs-0.10.30 (01 Aug 2014)
+*nodejs-0.8.28 (01 Aug 2014)
+
+  01 Aug 2014; Patrick Lauer <patrick@gentoo.org> +nodejs-0.10.30.ebuild,
+  +nodejs-0.8.28.ebuild:
+  Bump
+
+*nodejs-0.11.13-r1 (23 Jul 2014)
+
+  23 Jul 2014; Patrick Lauer <patrick@gentoo.org> +nodejs-0.11.13-r1.ebuild:
+  Small fixes and unbundling for 0.11
+
+*nodejs-0.10.29-r1 (23 Jul 2014)
+
+  23 Jul 2014; Patrick Lauer <patrick@gentoo.org> +nodejs-0.10.29-r1.ebuild:
+  Small fixes and unbundling for 0.10
+
+  23 Jul 2014; Patrick Lauer <patrick@gentoo.org> nodejs-0.10.29.ebuild,
+  nodejs-0.11.13.ebuild, nodejs-0.8.27.ebuild:
+  Add PYTHON_DEPS #487570
+
+*nodejs-0.8.27 (21 Jul 2014)
+
+  21 Jul 2014; Patrick Lauer <patrick@gentoo.org> +nodejs-0.8.27.ebuild:
+  Bump
+
+*nodejs-0.10.21 (13 Jun 2014)
+
+  13 Jun 2014; Patrick Lauer <patrick@gentoo.org> +nodejs-0.10.21.ebuild:
+  Re-add stable ebuild
+
+*nodejs-0.10.29 (12 Jun 2014)
+
+  12 Jun 2014; Patrick Lauer <patrick@gentoo.org> +nodejs-0.10.29.ebuild,
+  -nodejs-0.10.21.ebuild, -nodejs-0.10.22.ebuild, -nodejs-0.10.24.ebuild,
+  -nodejs-0.10.26.ebuild, -nodejs-0.11.11-r1.ebuild, -nodejs-0.11.11.ebuild,
+  -nodejs-0.11.6.ebuild, -nodejs-0.11.7.ebuild, -nodejs-0.11.8.ebuild,
+  -nodejs-0.11.9.ebuild:
+  Bump, remove old
+
+*nodejs-0.11.13 (09 May 2014)
+*nodejs-0.10.28 (09 May 2014)
+
+  09 May 2014; Patrick Lauer <patrick@gentoo.org> +nodejs-0.10.28.ebuild,
+  +nodejs-0.11.13.ebuild:
+  Bump
 
 *nodejs-0.11.12 (31 Mar 2014)
 

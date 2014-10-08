@@ -1,6 +1,15 @@
 # ChangeLog for net-libs/libesmtp
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libesmtp/ChangeLog,v 1.55 2013/07/13 19:14:08 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libesmtp/ChangeLog,v 1.57 2014/07/19 15:51:01 eras Exp $
+
+*libesmtp-1.0.6-r1 (19 Jul 2014)
+
+  19 Jul 2014; Eray Aslan <eras@gentoo.org> +libesmtp-1.0.6-r1.ebuild,
+  metadata.xml:
+  Add ntlm USE flag - bug #517142
+
+  09 Jun 2014; Mike Frysinger <vapier@gentoo.org> libesmtp-1.0.6.ebuild:
+  Add arm64/sh love.
 
   13 Jul 2013; Agostino Sarubbo <ago@gentoo.org> libesmtp-1.0.6.ebuild:
   Stable for ppc64, wrt bug #475880

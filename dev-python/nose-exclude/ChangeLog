@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/nose-exclude
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/nose-exclude/ChangeLog,v 1.4 2014/03/31 21:20:23 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/nose-exclude/ChangeLog,v 1.7 2014/08/10 21:14:34 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> nose-exclude-0.1.9.ebuild,
+  nose-exclude-0.2.0.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*nose-exclude-0.2.0 (08 Jul 2014)
+
+  08 Jul 2014; Ian Delaney <idella4@gentoo.org> +nose-exclude-0.2.0.ebuild:
+  bump; add test phase but phase restricted for now due to failures
+
+  07 Jul 2014; Ian Delaney <idella4@gentoo.org> nose-exclude-0.1.9.ebuild:
+  add py3.4
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> nose-exclude-0.1.9.ebuild:
   Add support for the new PyPy slotting.

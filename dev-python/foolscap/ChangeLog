@@ -1,6 +1,23 @@
 # ChangeLog for dev-python/foolscap
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/foolscap/ChangeLog,v 1.46 2013/08/25 21:07:06 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/foolscap/ChangeLog,v 1.49 2014/10/02 00:47:37 idella4 Exp $
+
+*foolscap-0.7.0 (02 Oct 2014)
+
+  02 Oct 2014; Ian Delaney <idella4@gentoo.org> +foolscap-0.7.0.ebuild,
+  foolscap-0.6.5.ebuild:
+  bump; re-add missed IUSE ssl in deps in prior version and set to + in bumped,
+  its use strongly encouraged (in source docs) by upstream
+
+*foolscap-0.6.5 (19 Aug 2014)
+
+  19 Aug 2014; Ian Delaney <idella4@gentoo.org> +foolscap-0.6.5.ebuild:
+  bump; drop py2.6, drop IUSE ssl from RDEPEND & set pyopenssl as a dep
+  unconditionally, add IUSE test, tidy DEPEND & test phase
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  foolscap-0.6.4-r1.ebuild:
+  x86 stable wrt bug #518242
 
 *foolscap-0.6.4-r1 (25 Aug 2013)
 

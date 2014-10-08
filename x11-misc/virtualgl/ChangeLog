@@ -1,6 +1,18 @@
 # ChangeLog for x11-misc/virtualgl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/virtualgl/ChangeLog,v 1.19 2014/01/26 11:41:50 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/virtualgl/ChangeLog,v 1.22 2014/07/18 17:35:49 pacho Exp $
+
+  18 Jul 2014; Pacho Ramos <pacho@gentoo.org> -virtualgl-2.3.2-r3.ebuild,
+  virtualgl-2.3.3.ebuild:
+  amd64 stable, bug #508136; drop old
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> virtualgl-2.3.2-r3.ebuild,
+  virtualgl-2.3.3.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> virtualgl-2.3.3.ebuild:
+  x86 stable wrt bug #508136
 
   26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> virtualgl-2.3.2-r3.ebuild:
   Stable for x86, wrt bug #480128

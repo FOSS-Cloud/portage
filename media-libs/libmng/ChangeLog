@@ -1,6 +1,41 @@
 # ChangeLog for media-libs/libmng
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libmng/ChangeLog,v 1.89 2014/01/29 07:31:05 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libmng/ChangeLog,v 1.99 2014/08/29 04:24:38 ssuominen Exp $
+
+  29 Aug 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +files/libmng-2.0.2-jpeg-9a.patch, libmng-2.0.2-r1.ebuild:
+  Remove old kludge for jpeg-9 which is now unnecessary for jpeg-9a wrt #520906
+  by Diego Elio Pettenò
+
+  28 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> -libmng-1.0.10-r1.ebuild,
+  -libmng-1.0.10-r2.ebuild, -libmng-2.0.2.ebuild:
+  old
+
+  28 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> libmng-2.0.2-r1.ebuild:
+  ppc/ppc64 stable wrt #511654
+
+  02 Aug 2014; Raúl Porcel <armin76@gentoo.org> libmng-2.0.2-r1.ebuild:
+  sparc stable wrt #511654
+
+  20 Jul 2014; Pacho Ramos <pacho@gentoo.org> libmng-2.0.2-r1.ebuild:
+  amd64/x86 stable, bug #511654
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org> libmng-2.0.2-r1.ebuild:
+  Stable on alpha, bug #511654
+
+  22 Jun 2014; Akinori Hattori <hattya@gentoo.org> libmng-2.0.2-r1.ebuild:
+  ia64 stable wrt bug #511654
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libmng-1.0.10-r2.ebuild,
+  libmng-2.0.2-r1.ebuild, libmng-2.0.2.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  09 Jun 2014; Markus Meier <maekke@gentoo.org> libmng-2.0.2-r1.ebuild:
+  arm stable, bug #511654
+
+  03 Jun 2014; Jeroen Roovers <jer@gentoo.org> libmng-2.0.2-r1.ebuild:
+  Stable for HPPA (bug #511654).
 
   29 Jan 2014; Samuli Suominen <ssuominen@gentoo.org> libmng-2.0.2-r1.ebuild:
   Use 0/2 subslotting based on SONAME because it changed between 1.0.10 (.so.1)

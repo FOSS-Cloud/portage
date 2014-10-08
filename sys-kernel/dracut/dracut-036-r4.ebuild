@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/dracut-036-r4.ebuild,v 1.4 2014/03/06 08:31:30 aidecoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/dracut-036-r4.ebuild,v 1.6 2014/08/05 18:02:57 aidecoe Exp $
 
 EAPI=4
 
@@ -230,7 +230,7 @@ pkg_postinst() {
 		sys-apps/iproute2
 	optfeature \
 		"Measure performance of the boot process for later visualisation" \
-		app-benchmarks/bootchart2 sys-apps/usleep sys-process/acct
+		app-benchmarks/bootchart2 app-admin/killproc sys-process/acct
 	optfeature "Scan for Btrfs on block devices"  sys-fs/btrfs-progs
 	optfeature "Load kernel modules and drop this privilege for real init" \
 		sys-libs/libcap
@@ -249,7 +249,7 @@ pkg_postinst() {
 	optfeature "Support MD devices, also known as software RAID devices" \
 		sys-fs/mdadm
 	optfeature "Support Device Mapper multipathing" sys-fs/multipath-tools
-	optfeature "Plymouth boot splash" sys-boot/plymouth
+	optfeature "Plymouth boot splash" '>=sys-boot/plymouth-0.8.5-r5'
 	optfeature "Support network block devices" sys-block/nbd
 	optfeature "Support NFS" net-fs/nfs-utils net-nds/rpcbind
 	optfeature \

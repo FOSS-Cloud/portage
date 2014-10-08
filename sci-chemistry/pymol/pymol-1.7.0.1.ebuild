@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol/pymol-1.7.0.1.ebuild,v 1.1 2014/01/26 08:12:09 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol/pymol-1.7.0.1.ebuild,v 1.4 2014/08/13 14:34:38 nativemad Exp $
 
 EAPI=5
 
@@ -19,7 +19,7 @@ SRC_URI="
 
 LICENSE="PSF-2.2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
+KEYWORDS="amd64 ~ppc x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE="apbs web"
 
 DEPEND="
@@ -33,7 +33,6 @@ DEPEND="
 	sys-libs/zlib
 	media-libs/freeglut
 	apbs? (
-		dev-libs/maloc
 		sci-chemistry/apbs
 		sci-chemistry/pdb2pqr
 		sci-chemistry/pymol-apbs-plugin[${PYTHON_USEDEP}]

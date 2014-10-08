@@ -1,6 +1,39 @@
 # ChangeLog for dev-libs/jemalloc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/jemalloc/ChangeLog,v 1.37 2014/03/10 16:30:06 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/jemalloc/ChangeLog,v 1.47 2014/08/25 11:58:45 armin76 Exp $
+
+  25 Aug 2014; Raúl Porcel <armin76@gentoo.org> jemalloc-3.6.0.ebuild:
+  Add ~sparc
+
+  08 Aug 2014; Tobias Klausmann <klausman@gentoo.org> jemalloc-3.6.0.ebuild:
+  Stable on alpha, bug 512330
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> jemalloc-3.6.0.ebuild:
+  x86 stable wrt bug #512330
+
+  26 Jul 2014; Anthony G. Basile <blueness@gentoo.org> jemalloc-3.6.0.ebuild:
+  Stable on ppc and ppc64, bug #512330
+
+  18 Jul 2014; Manuel Rüger <mrueg@gentoo.org> jemalloc-3.6.0.ebuild:
+  Stable on amd64. Bug #512330.
+
+  03 Jul 2014; Sébastien Fabbro <bicatali@gentoo.org> jemalloc-3.6.0.ebuild:
+  Keyword amd64-linux and x86-linux
+
+  24 Jun 2014; Markus Meier <maekke@gentoo.org> jemalloc-3.6.0.ebuild:
+  arm stable, bug #512330
+
+  22 Jun 2014; Akinori Hattori <hattya@gentoo.org> jemalloc-3.6.0.ebuild:
+  ia64 stable wrt bug #512330
+
+  19 Jun 2014; Jeroen Roovers <jer@gentoo.org> jemalloc-3.6.0.ebuild:
+  Stable for HPPA (bug #512330).
+
+*jemalloc-3.6.0 (19 May 2014)
+
+  19 May 2014;  <anarchy@gentoo.org> +jemalloc-3.6.0.ebuild,
+  -jemalloc-3.4.0.ebuild, -jemalloc-3.5.1-r1.ebuild, -jemalloc-3.5.1.ebuild:
+  Major regression fix
 
 *jemalloc-3.5.1-r1 (10 Mar 2014)
 

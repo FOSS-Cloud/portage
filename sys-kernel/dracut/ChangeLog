@@ -1,6 +1,93 @@
 # ChangeLog for sys-kernel/dracut
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.164 2014/03/20 10:12:28 aidecoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.175 2014/08/05 18:02:57 aidecoe Exp $
+
+  05 Aug 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-034-r4.ebuild,
+  dracut-036-r4.ebuild, dracut-037-r3.ebuild, dracut-038-r2.ebuild:
+  Replaced sys-apps/usleep dependency with app-admin/killproc.
+  Fixes bug #467214.
+
+  21 Jul 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-038-r1.ebuild,
+  -files/038-0006-inst_simple-doesn-t-take-H-parameter.patch:
+  Removed old revision of 038.
+
+*dracut-038-r2 (21 Jul 2014)
+
+  21 Jul 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-038-r2.ebuild,
+  +files/038-0008-dracut-functions.sh-fix-inst-functions.patch:
+  Fix in hostonly inst functions.
+
+  21 Jul 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-038.ebuild:
+  Removed old revision of 038.
+
+*dracut-038-r1 (21 Jul 2014)
+
+  21 Jul 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-038-r1.ebuild,
+  +files/038-0006-inst_simple-doesn-t-take-H-parameter.patch:
+  Bug-fix in zfcp and lvm installation scripts.
+
+  18 Jul 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-037.ebuild,
+  -dracut-037-r1.ebuild, -dracut-037-r2.ebuild:
+  Removed old revisions of 037.
+
+*dracut-038 (18 Jul 2014)
+
+  18 Jul 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-038.ebuild,
+  +files/038-0001-dracut-functions.sh-support-for-altern.patch,
+  +files/038-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +files/038-0003-Use-the-same-paths-in-dracut.sh-as-tho.patch,
+  +files/038-0004-Install-dracut-install-into-libexec-di.patch,
+  +files/038-0005-modsign-do-not-hardcode-path-to-keyctl.patch:
+  Version bump.
+
+  NEWS
+  ~~~~
+  - "rd.cmdline=ask" will ask the user on the console to enter additional
+    kernel command line parameters
+  - "rd.hostonly=0" removes all "hostonly" added custom files, which is useful
+    in combination with "rd.auto" or other specific parameters, if you want to
+    boot on the same hardware, but the compiled in configuration does not match
+    your setup anymore
+  - inst* functions and dracut-install now accept the "-H" flag, which logs all
+    installed files to /lib/dracut/hostonly-files. This is used to remove those
+    files, if rd.hostonly is given on the kernel command line
+  - strstr now only does literal string match, please use strglob and strglobin
+    for globs
+  - fixed unpacking of the microcode image on shutdown
+  - added systemd-gpt-auto-generator
+  - fcoe: wait for lldpad to be ready
+  - network: handle "ip=dhcp6"
+  - network: DCHPv6: set valid_lft and preferred_lft
+  - dm: support dm-cache
+  - fstab: do not mount and fsck from fstab if using systemd
+  - break at switch_root only for bare rd.break and not for any rd.break=...
+  - nbd: make use of "--systemd-mark", otherwise it gets killed on switch_root
+  - fcoe-uefi: fixed cmdline parameter generation
+  - iscsi: deprecate "ip=ibft", use "rd.iscsi.ibft[=1]" from now on
+  - "lsinitrd -m" now only lists the dracut modules of the image
+  - a lot of small bugfixes
+
+*dracut-037-r3 (12 Jun 2014)
+
+  12 Jun 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-037-r3.ebuild,
+  +files/037-0007-udev-rules-add-uaccess-rules.patch:
+  Include udev rules needed for Plymouth 0.9.0. Rels bug #512436.
+
+*dracut-037-r2 (20 May 2014)
+
+  20 May 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-037-r2.ebuild,
+  +files/037-0006-98systemd-fixup-rootfs-generator-insta.patch:
+  Fixes bug #510848 on behalf of Alexander Tsoy.
+
+*dracut-037-r1 (13 May 2014)
+
+  13 May 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-037-r1.ebuild,
+  +files/037-0005-modsign-do-not-hardcode-path-to-keyctl.patch:
+  Fixes bug #506094 and rels bug #508652 in behalf of Alexander Tsoy.
+
+  24 Apr 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-036-r4.ebuild,
+  dracut-037.ebuild:
+  Suggest newer version of plymouth, rels bug #504846.
 
   20 Mar 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-036-r3.ebuild:
   Removed old revision of 036.

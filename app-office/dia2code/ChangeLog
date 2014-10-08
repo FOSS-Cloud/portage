@@ -1,6 +1,25 @@
 # ChangeLog for app-office/dia2code
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/dia2code/ChangeLog,v 1.33 2013/09/22 11:30:33 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/dia2code/ChangeLog,v 1.38 2014/09/04 09:32:58 pacho Exp $
+
+  04 Sep 2014; Pacho Ramos <pacho@gentoo.org> -dia2code-0.8.5.ebuild,
+  dia2code-0.8.7.ebuild:
+  Dia is not really needed (#522100 by LE GARREC Vincent), drop old.
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> dia2code-0.8.7.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> dia2code-0.8.7.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*dia2code-0.8.7 (14 Jul 2014)
+
+  14 Jul 2014; Pacho Ramos <pacho@gentoo.org> +dia2code-0.8.7.ebuild:
+  Version bump
+
+  17 Apr 2014; Pacho Ramos <pacho@gentoo.org> dia2code-0.8.5.ebuild:
+  Drop stable keywords after the discussion caused by Gnome 3.8/3.10
+  stabilization on this arches
 
   22 Sep 2013; Pacho Ramos <pacho@gentoo.org> dia2code-0.8.5.ebuild:
   And fix build with latest automake (#467592)

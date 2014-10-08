@@ -1,6 +1,16 @@
 # ChangeLog for dev-lang/yasm
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/yasm/ChangeLog,v 1.62 2013/06/30 15:09:42 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/yasm/ChangeLog,v 1.65 2014/07/15 16:40:51 nimiux Exp $
+
+  15 Jul 2014; Chema Alonso <nimiux@gentoo.org> yasm-1.2.0-r1.ebuild:
+  Stable for amd64 wrt bug #509944
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> yasm-1.2.0-r1.ebuild:
+  x86 stable wrt bug #509944
+
+  09 May 2014; Mike Frysinger <vapier@gentoo.org> yasm-1.2.0-r1.ebuild,
+  yasm-9999.ebuild:
+  Run tests in parallel.
 
   30 Jun 2013; Justin Lecher <jlec@gentoo.org> yasm-1.2.0-r1.ebuild,
   yasm-9999.ebuild, metadata.xml:

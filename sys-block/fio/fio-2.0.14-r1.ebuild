@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/fio/fio-2.0.14-r1.ebuild,v 1.6 2013/05/12 02:09:36 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-block/fio/fio-2.0.14-r1.ebuild,v 1.8 2014/09/07 17:42:56 robbat2 Exp $
 
 EAPI="4"
 
@@ -33,6 +33,7 @@ src_prepare() {
 }
 
 src_configure() {
+	chmod g-w "${T}"
 	: # not a real configure script
 	./configure --extra-cflags="${CFLAGS}" --cc="$(tc-getCC)"
 }

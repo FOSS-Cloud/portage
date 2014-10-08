@@ -1,6 +1,67 @@
 # ChangeLog for media-tv/xbmc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/ChangeLog,v 1.200 2013/12/31 19:18:32 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/ChangeLog,v 1.214 2014/08/21 15:14:10 vapier Exp $
+
+*xbmc-13.2 (21 Aug 2014)
+
+  21 Aug 2014; Mike Frysinger <vapier@gentoo.org> +xbmc-13.2.ebuild:
+  Version bump #512700 by Michael Cook.
+
+  12 Aug 2014; Mike Frysinger <vapier@gentoo.org> xbmc-9999.ebuild:
+  Add support for running tests #519118 by Anthony Ryan.
+
+*xbmc-13.1 (30 Jul 2014)
+
+  30 Jul 2014; Mike Frysinger <vapier@gentoo.org> +xbmc-13.1.ebuild:
+  Version bump #512700 by Michael Cook.
+
+  29 Jul 2014; Mike Frysinger <vapier@gentoo.org> xbmc-12.3.ebuild,
+  xbmc-13.0_p2.ebuild, xbmc-9999.ebuild:
+  Require mesa[gles2] when USE=gles is enabled #515104 by A. Person.
+
+  29 Jul 2014; Mike Frysinger <vapier@gentoo.org> xbmc-12.1-r1.ebuild,
+  xbmc-12.2-r1.ebuild, xbmc-12.3.ebuild, xbmc-13.0_p2.ebuild, xbmc-9999.ebuild:
+  Drop redundant --enable-gl as there is a `use_enable opengl gl` call later on
+  #513708 by Gerhard Bräunlich.
+
+  29 Jul 2014; Mike Frysinger <vapier@gentoo.org> xbmc-12.3.ebuild,
+  xbmc-13.0_p2.ebuild, xbmc-9999.ebuild:
+  Support newer samba where USE=smbclient is always enabled #510866 by Daniel
+  Klaffenbach.
+
+  24 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> xbmc-11.0.ebuild,
+  xbmc-12.1-r1.ebuild, xbmc-12.2-r1.ebuild, xbmc-12.3.ebuild,
+  xbmc-13.0_p2.ebuild, xbmc-9999.ebuild:
+  Split USE="udev" to USE="udisks" and USE="upower"
+
+  31 May 2014; Samuli Suominen <ssuominen@gentoo.org> xbmc-11.0.ebuild,
+  xbmc-12.1-r1.ebuild, xbmc-12.2-r1.ebuild, xbmc-12.3.ebuild,
+  xbmc-13.0_p2.ebuild, xbmc-9999.ebuild:
+  Allow falling back to sys-power/upower-pm-utils.
+
+  15 May 2014; Ulrich Müller <ulm@gentoo.org> xbmc-11.0.ebuild,
+  xbmc-12.1-r1.ebuild, xbmc-12.2-r1.ebuild, xbmc-12.3.ebuild,
+  xbmc-13.0_p2.ebuild, xbmc-9999.ebuild:
+  Fix USE dependency on media-libs/libsdl, "audio" USE flag was renamed to
+  "sound", bug 357661.
+
+*xbmc-13.0_p2 (11 May 2014)
+
+  11 May 2014; Mike Frysinger <vapier@gentoo.org> +xbmc-13.0_p2.ebuild,
+  xbmc-9999.ebuild:
+  Version bump #504726.
+
+  09 May 2014; Mike Frysinger <vapier@gentoo.org> xbmc-9999.ebuild:
+  Run code generator bootstrap #509592 by Anthony Ryan.
+
+  08 May 2014; Mike Frysinger <vapier@gentoo.org> xbmc-9999.ebuild:
+  Update to latest codename.
+
+  08 May 2014; Mike Frysinger <vapier@gentoo.org> xbmc-9999.ebuild:
+  Update path to desktop icon #509588 by Anthony Ryan.
+
+  08 May 2014; Mike Frysinger <vapier@gentoo.org> xbmc-9999.ebuild:
+  Drop USE=neon now that upstream has dropped it #509590 by Anthony Ryan.
 
   31 Dec 2013; Mike Frysinger <vapier@gentoo.org>
   +files/xbmc-12.3-no-sse2.patch, xbmc-12.3.ebuild:

@@ -1,6 +1,56 @@
 # ChangeLog for app-emulation/vmware-modules
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/vmware-modules/ChangeLog,v 1.114 2013/12/27 16:34:13 dilfridge Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/vmware-modules/ChangeLog,v 1.122 2014/06/09 15:24:07 dilfridge Exp $
+
+  09 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  vmware-modules-271.3.ebuild, vmware-modules-279.1-r1.ebuild,
+  vmware-modules-279.2.ebuild:
+  Apply filldir patch really only from 3.11 on, bug 512830
+
+  07 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -files/264-3.2.0.patch, -files/264-d-make-root.patch,
+  -files/264-makefile-include.patch, -files/264-3.8.0.patch,
+  -files/264-jobserver.patch, -files/264-makefile-kernel-dir.patch,
+  -files/264-3.10.0.patch, -files/264-apic.patch, -files/264-netdevice.patch,
+  -files/264-newline.patch, -files/264-putname.patch:
+  Clean up
+
+  07 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  vmware-modules-271.3.ebuild, vmware-modules-279.1-r1.ebuild,
+  vmware-modules-279.2.ebuild, +files/271-vfsfollowlink.patch,
+  +files/279-vfsfollowlink.patch:
+  Conditionally add patch for kernel 3.12, bug 488072
+
+  07 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  vmware-modules-271.3.ebuild, vmware-modules-279.1-r1.ebuild,
+  vmware-modules-279.2.ebuild:
+  Apply patch already for 3.10.25, bug 483410
+
+  07 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  vmware-modules-271.3.ebuild, vmware-modules-279.1-r1.ebuild,
+  vmware-modules-279.2.ebuild, +files/271-filldir.patch,
+  +files/279-filldir.patch:
+  Conditionally add patch for kernel 3.11, bug 483410
+
+*vmware-modules-279.2 (19 Apr 2014)
+
+  19 Apr 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -vmware-modules-279.0.ebuild, -vmware-modules-279.1.ebuild,
+  +vmware-modules-279.2.ebuild:
+  Version bump; remove old
+
+*vmware-modules-279.1-r1 (12 Apr 2014)
+
+  12 Apr 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +vmware-modules-279.1-r1.ebuild, metadata.xml:
+  Version bump to make some modules optional, bug 501536
+
+*vmware-modules-271.3 (12 Apr 2014)
+
+  12 Apr 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -vmware-modules-264.5.ebuild, -vmware-modules-271.2.ebuild,
+  +vmware-modules-271.3.ebuild:
+  Version bump, bug 497816; remove old
 
   27 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org>
   +files/264-newline.patch, vmware-modules-264.5.ebuild:

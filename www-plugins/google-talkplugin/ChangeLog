@@ -1,6 +1,53 @@
 # ChangeLog for www-plugins/google-talkplugin
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/google-talkplugin/ChangeLog,v 1.73 2014/04/03 15:12:37 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/google-talkplugin/ChangeLog,v 1.82 2014/08/12 15:01:07 ottxor Exp $
+
+  12 Aug 2014; Christoph Junghans <ottxor@gentoo.org>
+  -google-talkplugin-4.4.2.0.ebuild, -google-talkplugin-5.4.1.0.ebuild,
+  metadata.xml:
+  remove old (bug #506574)
+
+  10 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  google-talkplugin-5.4.2.0.ebuild:
+  Stable for x86, wrt bug #506676
+
+  17 Jul 2014; Chema Alonso <nimiux@gentoo.org>
+  google-talkplugin-5.4.2.0.ebuild:
+  Stable for amd64 wrt bug #506676
+
+*google-talkplugin-5.4.2.0 (13 Jun 2014)
+
+  13 Jun 2014; Christoph Junghans <ottxor@gentoo.org>
+  +google-talkplugin-5.4.2.0.ebuild, -google-talkplugin-5.3.1.0.ebuild,
+  google-talkplugin-5.4.1.0.ebuild:
+  version bump (bug #513058)
+
+  25 May 2014; Christoph Junghans <ottxor@gentoo.org>
+  -google-talkplugin-5.1.5.0.ebuild, -google-talkplugin-5.2.4.0.ebuild:
+  remove old
+
+*google-talkplugin-5.4.1.0 (25 May 2014)
+
+  25 May 2014; Christoph Junghans <ottxor@gentoo.org>
+  +google-talkplugin-5.4.1.0.ebuild:
+  version bump (bug #511488)
+
+  23 May 2014; Mike Gilbert <floppym@gentoo.org>
+  google-talkplugin-5.3.1.0.ebuild, google-talkplugin-9999.ebuild:
+  Install to the right place when SYMLINK_LIB=no.
+
+  16 May 2014; Sven Vermeulen <swift@gentoo.org>
+  google-talkplugin-4.4.2.0.ebuild, google-talkplugin-5.1.5.0.ebuild,
+  google-talkplugin-5.2.4.0.ebuild, google-talkplugin-5.3.1.0.ebuild,
+  google-talkplugin-9999.ebuild:
+  Fix bug #509740 - Add USE=selinux dependency to sec-policy/selinux-googletalk
+
+*google-talkplugin-5.3.1.0 (12 May 2014)
+
+  12 May 2014; Christoph Junghans <ottxor@gentoo.org>
+  +google-talkplugin-5.3.1.0.ebuild, google-talkplugin-5.2.4.0.ebuild,
+  google-talkplugin-9999.ebuild:
+  version bump, install ppapi plugins (bug #509116)
 
   03 Apr 2014; Christoph Junghans <ottxor@gentoo.org>
   google-talkplugin-5.2.4.0.ebuild, google-talkplugin-9999.ebuild:

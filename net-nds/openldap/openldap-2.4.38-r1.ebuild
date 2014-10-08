@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/openldap/openldap-2.4.38-r1.ebuild,v 1.5 2014/03/04 21:43:43 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-nds/openldap/openldap-2.4.38-r1.ebuild,v 1.7 2014/07/25 18:29:12 robbat2 Exp $
 
 EAPI="5"
 
 inherit db-use eutils flag-o-matic multilib ssl-cert versionator toolchain-funcs autotools user systemd
 
 BIS_PN=rfc2307bis.schema
-BIS_PV=20120525
+BIS_PV=20140524
 BIS_P="${BIS_PN}-${BIS_PV}"
 
 DESCRIPTION="LDAP suite of application and development tools"
@@ -61,7 +61,7 @@ OPENLDAP_DEFAULTDIR_VERSIONTAG="/var/lib/openldap-data"
 
 openldap_filecount() {
 	local dir="$1"
-	find "${dir}" -type f ! -name '.*' ! -name 'DB_CONFIG.example' | wc -l
+	find "${dir}" -type f ! -name '.*' ! -name 'DB_CONFIG*' | wc -l
 }
 
 openldap_find_versiontags() {

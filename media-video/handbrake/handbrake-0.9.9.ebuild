@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/handbrake/handbrake-0.9.9.ebuild,v 1.13 2014/02/06 21:35:41 thev00d00 Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/handbrake/handbrake-0.9.9.ebuild,v 1.16 2014/09/01 16:47:50 mgorny Exp $
 
 EAPI="5"
 
@@ -18,7 +18,7 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-DESCRIPTION="Open-source, GPL-licensed, multiplatform, multithreaded video transcoder."
+DESCRIPTION="Open-source, GPL-licensed, multiplatform, multithreaded video transcoder"
 HOMEPAGE="http://handbrake.fr/"
 LICENSE="GPL-2"
 
@@ -42,7 +42,7 @@ RDEPEND="
 	media-libs/libvorbis
 	media-libs/x264:=
 	media-sound/lame
-	ffmpeg? ( || ( >=media-video/libav-9:= >=media-video/ffmpeg-1.2.1:0= ) )
+	ffmpeg? ( || ( >=media-video/libav-9 >=media-video/ffmpeg-1.2.1:0 ) )
 	sys-libs/zlib
 	gstreamer? (
 		media-libs/gstreamer:1.0
@@ -57,7 +57,7 @@ RDEPEND="
 		x11-libs/gdk-pixbuf:2
 		x11-libs/libnotify
 		x11-libs/pango
-		>=virtual/udev-171[gudev]
+		virtual/libgudev:=
 	)
 	fdk? ( media-libs/fdk-aac )
 	"

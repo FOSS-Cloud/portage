@@ -1,6 +1,37 @@
 # ChangeLog for dev-python/autopep8
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/autopep8/ChangeLog,v 1.43 2014/03/27 00:07:29 sping Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/autopep8/ChangeLog,v 1.50 2014/09/17 05:31:39 idella4 Exp $
+
+*autopep8-1.0.4 (17 Sep 2014)
+
+  17 Sep 2014; Ian Delaney <idella4@gentoo.org> +autopep8-1.0.4.ebuild:
+  bump
+
+*autopep8-1.0.3 (12 Jun 2014)
+
+  12 Jun 2014; Ian Delaney <idella4@gentoo.org> +autopep8-1.0.3.ebuild:
+  bump
+
+  08 Jun 2014; Mike Gilbert <floppym@gentoo.org> autopep8-1.0.1.ebuild,
+  autopep8-1.0.2.ebuild:
+  Add workaround for systems that do not have a UTF-8 locale set, bug 512594.
+
+*autopep8-1.0.2 (30 May 2014)
+
+  30 May 2014; Ian Delaney <idella4@gentoo.org> +autopep8-1.0.2.ebuild,
+  -autopep8-0.9.6.ebuild, -autopep8-0.9.7.ebuild:
+  bump, rm oldies
+
+  27 May 2014; Ian Delaney <idella4@gentoo.org> autopep8-1.0.1.ebuild:
+  revert setting of RDEPEND, pointed out by Arfrever
+
+  04 May 2014; Ian Delaney <idella4@gentoo.org> autopep8-1.0.1.ebuild:
+  drop py2.6 add py3.4 pypy support tidy deps
+
+*autopep8-1.0.1 (03 May 2014)
+
+  03 May 2014; Patrick Lauer <patrick@gentoo.org> +autopep8-1.0.1.ebuild:
+  Bump
 
   27 Mar 2014; Sebastian Pipping <sping@gentoo.org> metadata.xml:
   Remove myself as maintainer, python herd still in

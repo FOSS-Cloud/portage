@@ -1,6 +1,31 @@
 # ChangeLog for dev-util/byacc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/byacc/ChangeLog,v 1.92 2014/03/19 15:25:43 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/byacc/ChangeLog,v 1.97 2014/10/08 02:42:21 radhermit Exp $
+
+  08 Oct 2014; Tim Harder <radhermit@gentoo.org> -byacc-20120526.ebuild,
+  -byacc-20121003.ebuild, -byacc-20130925.ebuild, -byacc-20140409.ebuild,
+  -byacc-20140422.ebuild:
+  Remove old.
+
+*byacc-20141006 (08 Oct 2014)
+
+  08 Oct 2014; Tim Harder <radhermit@gentoo.org> +byacc-20141006.ebuild:
+  Version bump.
+
+*byacc-20140527 (25 Jun 2014)
+
+  25 Jun 2014; Tim Harder <radhermit@gentoo.org> +byacc-20140527.ebuild:
+  Version bump.
+
+*byacc-20140422 (12 May 2014)
+
+  12 May 2014; Tim Harder <radhermit@gentoo.org> +byacc-20140422.ebuild:
+  Version bump.
+
+*byacc-20140409 (11 Apr 2014)
+
+  11 Apr 2014; Tim Harder <radhermit@gentoo.org> +byacc-20140409.ebuild:
+  Version bump.
 
   19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> byacc-20140101.ebuild:
   Stable for alpha, wrt bug #502802

@@ -1,6 +1,48 @@
 # ChangeLog for media-tv/mythtv
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/mythtv/ChangeLog,v 1.412 2014/03/23 19:52:56 rich0 Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/mythtv/ChangeLog,v 1.421 2014/09/08 16:30:35 rich0 Exp $
+
+*mythtv-0.27.3_p20140907 (08 Sep 2014)
+
+  08 Sep 2014; Richard Freeman <rich0@gentoo.org>
+  +mythtv-0.27.3_p20140907.ebuild:
+  Bump.
+
+  21 Aug 2014; Richard Freeman <rich0@gentoo.org>
+  -mythtv-0.26.0_p20130322.ebuild, -mythtv-0.26.0_p20130419.ebuild,
+  -mythtv-0.26.0_p20130526.ebuild, -mythtv-0.26.0_p20130630.ebuild,
+  -mythtv-0.26.0_p20130729.ebuild, -mythtv-0.27_p20130924.ebuild,
+  -mythtv-0.27_p20131124.ebuild, -mythtv-0.27.1_p20140527.ebuild:
+  Clean out old versions.
+
+*mythtv-0.27.1_p20140817 (18 Aug 2014)
+
+  18 Aug 2014; Richard Freeman <rich0@gentoo.org>
+  +mythtv-0.27.1_p20140817.ebuild, files/mythbackend.service:
+  New patchset, improve logging on systemd.
+
+  27 Jul 2014; Pacho Ramos <pacho@gentoo.org> -mythtv-0.25.3_p20130101.ebuild,
+  -mythtv-0.25.3_p20130131.ebuild, -mythtv-0.25.3_p20130322.ebuild,
+  -mythtv-0.25.3_p20130422.ebuild:
+  Remove masked for removal package
+
+*mythtv-0.27.1_p20140713 (15 Jul 2014)
+
+  15 Jul 2014; Richard Freeman <rich0@gentoo.org>
+  +mythtv-0.27.1_p20140713.ebuild, files/mythbackend.service:
+  New patchset, cleaned up systemd service.
+
+*mythtv-0.27.1_p20140527 (01 Jun 2014)
+
+  01 Jun 2014; Richard Freeman <rich0@gentoo.org>
+  +mythtv-0.27.1_p20140527.ebuild:
+  bump
+
+  10 May 2014; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Drop duplicate USE=libass description.
+
+  19 Apr 2014; Richard Freeman <rich0@gentoo.org> mythtv-0.27_p20140321.ebuild:
+  amd64 stable - 471536
 
 *mythtv-0.27_p20140321 (23 Mar 2014)
 
@@ -1981,7 +2023,7 @@
   -mythtv-0.14-r1.ebuild, -mythtv-0.15.1-r1.ebuild, -mythtv-0.15.1.ebuild,
   +mythtv-0.16.20050115.ebuild:
   rev dump to CVS snapshot for bug fixes and feature updates since upstream
-  won't release and won't suppport current stable merge changes from eclass
+  won't release and won't support current stable merge changes from eclass
   remove old revs fix up ebuild add XrandX extension since Gentoo X.org always
   has it
 

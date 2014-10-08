@@ -1,6 +1,25 @@
 # ChangeLog for net-mail/mailman
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/mailman/ChangeLog,v 1.138 2014/01/08 06:42:15 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/mailman/ChangeLog,v 1.143 2014/08/13 09:29:11 ago Exp $
+
+  13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mailman-2.1.17.ebuild:
+  Stable for ppc, wrt bug #510138
+
+*mailman-2.1.18_p1 (23 Jun 2014)
+
+  23 Jun 2014; Hanno Boeck <hanno@gentoo.org> +mailman-2.1.18_p1.ebuild:
+  Bump, new dependency dnspython.
+
+  22 Jun 2014; Chema Alonso <nimiux@gentoo.org> mailman-2.1.17.ebuild:
+  Stable for amd64 wrt bug #510138
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> mailman-2.1.17.ebuild:
+  x86 stable wrt bug #510138
+
+*mailman-2.1.17 (11 Apr 2014)
+
+  11 Apr 2014; Hanno Boeck <hanno@gentoo.org> +mailman-2.1.17.ebuild:
+  Version bump.
 
   08 Jan 2014; Mike Frysinger <vapier@gentoo.org> mailman-2.1.14.ebuild,
   mailman-2.1.15.ebuild:

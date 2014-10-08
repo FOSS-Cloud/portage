@@ -1,6 +1,19 @@
 # ChangeLog for dev-python/logilab-common
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/logilab-common/ChangeLog,v 1.140 2014/04/07 08:10:53 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/logilab-common/ChangeLog,v 1.144 2014/07/06 12:44:25 mgorny Exp $
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> logilab-common-0.61.0.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
+
+  04 Jun 2014; Ian Delaney <idella4@gentoo.org> logilab-common-0.61.0.ebuild:
+  Fix epydoc doc build, fixes Bug #512112
+
+  08 May 2014; Ian Delaney <idella4@gentoo.org> logilab-common-0.61.0.ebuild:
+  drop py2.6 pypy2_0 add py3.4 support, minor tidy, upgrade test phase
+
+  19 Apr 2014; Michał Górny <mgorny@gentoo.org> logilab-common-0.61.0.ebuild:
+  Use ${PYTHON_USEDEP} substitution support added to python_gen_cond_dep().
 
   07 Apr 2014; Ian Delaney <idella4@gentoo.org>
   -files/logilab-common-0.59.0-syntax.patch,

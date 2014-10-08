@@ -1,6 +1,40 @@
 # ChangeLog for dev-python/libwnck-python
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/libwnck-python/ChangeLog,v 1.51 2011/03/23 20:24:48 eva Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/libwnck-python/ChangeLog,v 1.59 2014/09/15 08:19:24 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  libwnck-python-2.32.0-r1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  libwnck-python-2.32.0-r1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  libwnck-python-2.32.0-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  libwnck-python-2.32.0-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  libwnck-python-2.32.0-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  libwnck-python-2.32.0-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  libwnck-python-2.32.0-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*libwnck-python-2.32.0-r1 (26 May 2014)
+
+  26 May 2014; Michał Górny <mgorny@gentoo.org>
+  +libwnck-python-2.32.0-r1.ebuild:
+  Convert to gnome-python-common-r1.
 
   23 Mar 2011; Gilles Dartiguelongue <eva@gentoo.org>
   -libwnck-python-2.30.2-r1.ebuild:
@@ -211,4 +245,3 @@
   +libwnck-python-2.22.0.ebuild:
   Initial import of split gnome-python-desktop. This package installs
   bindings for the libwnck library.
-

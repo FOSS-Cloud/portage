@@ -1,6 +1,15 @@
 # ChangeLog for net-libs/daq
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/daq/ChangeLog,v 1.25 2014/02/03 07:33:22 kumba Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/daq/ChangeLog,v 1.27 2014/07/18 14:40:40 jer Exp $
+
+  18 Jul 2014; Jeroen Roovers <jer@gentoo.org> daq-2.0.2.ebuild:
+  EAPI bump. Sort dependencies into neat piles.
+
+  03 Jun 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/daq-2.0.2-libpcap-check.patch, +files/daq-2.0.2-parallel-grammar.patch,
+  daq-2.0.2.ebuild:
+  Fix parallel builds #511892 by eroen. Fix by Shawn Wallace for cross-
+  compiling.
 
 *daq-2.0.2 (03 Feb 2014)
 

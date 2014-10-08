@@ -1,6 +1,75 @@
 # ChangeLog for media-sound/easytag
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/easytag/ChangeLog,v 1.181 2014/03/21 17:00:29 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/easytag/ChangeLog,v 1.197 2014/10/08 08:43:56 chainsaw Exp $
+
+*easytag-2.2.4 (08 Oct 2014)
+
+  08 Oct 2014; Tony Vroon <chainsaw@gentoo.org> +easytag-2.2.4.ebuild:
+  Version bump, incorporating stability fixes around file handling & CDDB
+  integration. As requested by Manuel Rüger in bug #524546.
+
+*easytag-2.2.3 (01 Aug 2014)
+
+  01 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> +easytag-2.2.3.ebuild:
+  Version bump.
+
+  19 Jul 2014; Tobias Klausmann <klausman@gentoo.org> easytag-2.2.2.ebuild:
+  Keyworded on alpha, bug #503608
+
+  11 May 2014; Ben de Groot <yngwin@gentoo.org> easytag-2.2.2.ebuild:
+  Fix required use
+
+  11 May 2014; Ben de Groot <yngwin@gentoo.org> easytag-2.2.2.ebuild,
+  metadata.xml:
+  Restore gtk2 useflag which was dropped for no good reason
+
+  09 May 2014; Samuli Suominen <ssuominen@gentoo.org> easytag-2.2.2.ebuild:
+  Reposition DOCS in the ebuild.
+
+  09 May 2014; Samuli Suominen <ssuominen@gentoo.org> -easytag-2.1.10-r1.ebuild,
+  -easytag-2.1.7-r2.ebuild, -easytag-2.1.9-r2.ebuild, -easytag-2.2.0-r1.ebuild,
+  -easytag-2.2.0.ebuild, -files/easytag-2.1.6-load-from-txt.patch,
+  -files/easytag-2.1.7-gold.patch, -files/easytag-2.1.7-new_libmp4v2.patch,
+  metadata.xml:
+  old
+
+  09 May 2014; Samuli Suominen <ssuominen@gentoo.org> easytag-2.2.2.ebuild:
+  Restore ~amd64-linux which was dropped for unknown reason.
+
+*easytag-2.2.2 (09 May 2014)
+
+  09 May 2014; Samuli Suominen <ssuominen@gentoo.org> +easytag-2.2.2.ebuild:
+  Version bump wrt #508992 by Manuel Rüger
+
+*easytag-2.2.0-r1 (20 Apr 2014)
+
+  20 Apr 2014; Ben de Groot <yngwin@gentoo.org> +easytag-2.2.0-r1.ebuild,
+  metadata.xml:
+  Restore gtk2 option for users who want to avoid gtk3 (the new default for this
+  package). Since upstream still offers this option, we should not take this
+  option away from our users.
+
+  17 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> easytag-2.2.0.ebuild:
+  Pull in latest dependencies because upstream.ac is not up to date wrt #507570
+  by Jeroen Roovers
+
+  13 Apr 2014; Jeroen Roovers <jer@gentoo.org> easytag-2.2.0.ebuild:
+  Marked ~hppa (bug #503608).
+
+  13 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> easytag-2.2.0.ebuild:
+  Missing LGPL-2 and LGPL-2.1 from LICENSE (with and without "any later version"
+  in the package headers)
+
+  13 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> easytag-2.2.0.ebuild:
+  Punt useless USE="nls" since it doesn't save any dependencies and LINGUAS
+  environment variable is usable for determining which files will be emerged
+  into the filesystem.
+
+*easytag-2.2.0 (13 Apr 2014)
+
+  13 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> +easytag-2.2.0.ebuild,
+  metadata.xml:
+  Version bump.
 
   21 Mar 2014; Jeroen Roovers <jer@gentoo.org> easytag-2.1.10-r1.ebuild:
   Marked ~hppa (bug #503608).

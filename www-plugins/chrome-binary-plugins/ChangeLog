@@ -1,6 +1,479 @@
 # ChangeLog for www-plugins/chrome-binary-plugins
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/chrome-binary-plugins/ChangeLog,v 1.125 2014/04/09 14:24:12 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/chrome-binary-plugins/ChangeLog,v 1.187 2014/10/07 23:10:45 floppym Exp $
+
+*chrome-binary-plugins-38.0.2125.101_p1 (07 Oct 2014)
+*chrome-binary-plugins-39.0.2171.13_alpha1 (07 Oct 2014)
+
+  07 Oct 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2125.101_p1.ebuild,
+  +chrome-binary-plugins-39.0.2171.13_alpha1.ebuild,
+  -chrome-binary-plugins-37.0.2062.120_p1.ebuild,
+  -chrome-binary-plugins-39.0.2171.7_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-39.0.2171.7_alpha1 (04 Oct 2014)
+
+  04 Oct 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-39.0.2171.7_alpha1.ebuild,
+  -chrome-binary-plugins-39.0.2171.2_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-38.0.2125.101_beta1 (01 Oct 2014)
+
+  01 Oct 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2125.101_beta1.ebuild,
+  -chrome-binary-plugins-38.0.2125.77_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-39.0.2171.2_alpha1 (29 Sep 2014)
+
+  29 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-39.0.2171.2_alpha1.ebuild,
+  -chrome-binary-plugins-39.0.2166.2_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-38.0.2125.77_beta1 (24 Sep 2014)
+
+  24 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2125.77_beta1.ebuild,
+  -chrome-binary-plugins-38.0.2125.66_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-39.0.2166.2_alpha1 (24 Sep 2014)
+
+  24 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-39.0.2166.2_alpha1.ebuild,
+  -chrome-binary-plugins-39.0.2159.4_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-38.0.2125.66_beta1 (17 Sep 2014)
+
+  17 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2125.66_beta1.ebuild,
+  -chrome-binary-plugins-38.0.2125.58_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-39.0.2159.4_alpha1 (17 Sep 2014)
+
+  17 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-39.0.2159.4_alpha1.ebuild,
+  -chrome-binary-plugins-39.0.2150.5_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-39.0.2150.5_alpha1 (11 Sep 2014)
+*chrome-binary-plugins-38.0.2125.58_beta1 (11 Sep 2014)
+
+  11 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2125.58_beta1.ebuild,
+  +chrome-binary-plugins-39.0.2150.5_alpha1.ebuild,
+  -chrome-binary-plugins-38.0.2125.44_beta1.ebuild,
+  -chrome-binary-plugins-39.0.2145.4_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2062.120_p1 (10 Sep 2014)
+
+  10 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.120_p1.ebuild,
+  -chrome-binary-plugins-37.0.2062.94_p1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-39.0.2145.4_alpha1 (05 Sep 2014)
+
+  05 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-39.0.2145.4_alpha1.ebuild,
+  -chrome-binary-plugins-39.0.2138.3_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-38.0.2125.44_beta1 (04 Sep 2014)
+
+  04 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2125.44_beta1.ebuild,
+  -chrome-binary-plugins-38.0.2125.24_beta1.ebuild:
+  Automated update.
+
+  31 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  chrome-binary-plugins-37.0.2062.94_p1.ebuild,
+  chrome-binary-plugins-38.0.2125.24_beta1.ebuild,
+  chrome-binary-plugins-39.0.2138.3_alpha1.ebuild,
+  chrome-binary-plugins-9999.ebuild, metadata.xml:
+  EAPI=5. Consolidate code for the live ebuild.
+
+*chrome-binary-plugins-39.0.2138.3_alpha1 (31 Aug 2014)
+*chrome-binary-plugins-38.0.2125.24_beta1 (31 Aug 2014)
+
+  31 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2125.24_beta1.ebuild,
+  +chrome-binary-plugins-39.0.2138.3_alpha1.ebuild,
+  -chrome-binary-plugins-37.0.2062.94_beta1.ebuild,
+  -chrome-binary-plugins-38.0.2125.24_alpha1.ebuild:
+  Automated update.
+
+  28 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  chrome-binary-plugins-37.0.2062.94_beta1.ebuild,
+  chrome-binary-plugins-38.0.2125.24_alpha1.ebuild:
+  Sync the other slots.
+
+  28 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  chrome-binary-plugins-37.0.2062.94_p1.ebuild:
+  Fix ${S} in the stable slot.
+
+  27 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  chrome-binary-plugins-37.0.2062.94_p1.ebuild:
+  Copy beta to stable.
+
+*chrome-binary-plugins-38.0.2125.24_alpha1 (27 Aug 2014)
+*chrome-binary-plugins-37.0.2062.94_p1 (27 Aug 2014)
+
+  27 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.94_p1.ebuild,
+  +chrome-binary-plugins-38.0.2125.24_alpha1.ebuild,
+  -chrome-binary-plugins-36.0.1985.143_p1.ebuild,
+  -chrome-binary-plugins-38.0.2125.8_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-38.0.2125.8_alpha1 (23 Aug 2014)
+
+  23 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2125.8_alpha1.ebuild,
+  -chrome-binary-plugins-38.0.2125.0_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2062.94_beta1 (21 Aug 2014)
+
+  21 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.94_beta1.ebuild,
+  -chrome-binary-plugins-37.0.2062.76_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-38.0.2125.0_alpha1 (19 Aug 2014)
+
+  19 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2125.0_alpha1.ebuild,
+  -chrome-binary-plugins-38.0.2121.3_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2062.76_beta1 (15 Aug 2014)
+
+  15 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.76_beta1.ebuild,
+  -chrome-binary-plugins-37.0.2062.68_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-38.0.2121.3_alpha1 (13 Aug 2014)
+*chrome-binary-plugins-36.0.1985.143_p1 (13 Aug 2014)
+
+  13 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1985.143_p1.ebuild,
+  +chrome-binary-plugins-38.0.2121.3_alpha1.ebuild,
+  -chrome-binary-plugins-36.0.1985.125_p1.ebuild,
+  -chrome-binary-plugins-38.0.2114.2_alpha1.ebuild:
+  Automated update.
+
+  08 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  chrome-binary-plugins-36.0.1985.125_p1.ebuild,
+  chrome-binary-plugins-37.0.2062.68_beta1.ebuild,
+  chrome-binary-plugins-38.0.2114.2_alpha1.ebuild,
+  chrome-binary-plugins-9999.ebuild:
+  Shorten DESCRIPTION.
+
+*chrome-binary-plugins-37.0.2062.68_beta1 (06 Aug 2014)
+*chrome-binary-plugins-38.0.2114.2_alpha1 (06 Aug 2014)
+
+  06 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.68_beta1.ebuild,
+  +chrome-binary-plugins-38.0.2114.2_alpha1.ebuild,
+  -chrome-binary-plugins-37.0.2062.58_beta1.ebuild,
+  -chrome-binary-plugins-38.0.2107.3_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-38.0.2107.3_alpha1 (02 Aug 2014)
+
+  02 Aug 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2107.3_alpha1.ebuild,
+  -chrome-binary-plugins-38.0.2107.2_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2062.58_beta1 (31 Jul 2014)
+*chrome-binary-plugins-38.0.2107.2_alpha1 (31 Jul 2014)
+
+  31 Jul 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.58_beta1.ebuild,
+  +chrome-binary-plugins-38.0.2107.2_alpha1.ebuild,
+  -chrome-binary-plugins-37.0.2062.44_beta1.ebuild,
+  -chrome-binary-plugins-38.0.2101.0_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2062.44_beta1 (25 Jul 2014)
+
+  25 Jul 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.44_beta1.ebuild,
+  -chrome-binary-plugins-37.0.2062.35_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2062.35_beta1 (24 Jul 2014)
+
+  24 Jul 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.35_beta1.ebuild,
+  -chrome-binary-plugins-37.0.2062.20_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-38.0.2101.0_alpha1 (22 Jul 2014)
+
+  22 Jul 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-38.0.2101.0_alpha1.ebuild,
+  -chrome-binary-plugins-38.0.2096.0_alpha1.ebuild:
+  Automated update.
+
+  19 Jul 2014; Mike Gilbert <floppym@gentoo.org>
+  chrome-binary-plugins-37.0.2062.20_beta1.ebuild:
+  Drop pdf plugin in the beta channel.
+
+*chrome-binary-plugins-38.0.2096.0_alpha1 (18 Jul 2014)
+*chrome-binary-plugins-37.0.2062.20_beta1 (18 Jul 2014)
+
+  18 Jul 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.20_beta1.ebuild,
+  +chrome-binary-plugins-38.0.2096.0_alpha1.ebuild,
+  -chrome-binary-plugins-36.0.1985.125_beta1.ebuild,
+  -chrome-binary-plugins-37.0.2062.20_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-36.0.1985.125_p1 (17 Jul 2014)
+
+  17 Jul 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1985.125_p1.ebuild,
+  -chrome-binary-plugins-35.0.1916.153_p1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2062.20_alpha1 (16 Jul 2014)
+*chrome-binary-plugins-36.0.1985.125_beta1 (16 Jul 2014)
+
+  16 Jul 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1985.125_beta1.ebuild,
+  +chrome-binary-plugins-37.0.2062.20_alpha1.ebuild,
+  -chrome-binary-plugins-36.0.1985.103_beta1.ebuild,
+  -chrome-binary-plugins-37.0.2062.3_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-36.0.1985.103_beta1 (01 Jul 2014)
+
+  01 Jul 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1985.103_beta1.ebuild,
+  -chrome-binary-plugins-36.0.1985.97_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2062.3_alpha1 (26 Jun 2014)
+
+  26 Jun 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.3_alpha1.ebuild,
+  -chrome-binary-plugins-37.0.2062.0_alpha1.ebuild:
+  Automated update.
+
+  26 Jun 2014; Mike Gilbert <floppym@gentoo.org>
+  chrome-binary-plugins-35.0.1916.153_p1.ebuild,
+  chrome-binary-plugins-36.0.1985.97_beta1.ebuild,
+  chrome-binary-plugins-37.0.2062.0_alpha1.ebuild,
+  chrome-binary-plugins-9999.ebuild:
+  Drop RDEPEND on chromium, bug 515244.
+
+*chrome-binary-plugins-36.0.1985.97_beta1 (26 Jun 2014)
+
+  26 Jun 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1985.97_beta1.ebuild,
+  -chrome-binary-plugins-36.0.1985.84_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2062.0_alpha1 (24 Jun 2014)
+
+  24 Jun 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2062.0_alpha1.ebuild,
+  -chrome-binary-plugins-37.0.2054.3_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-36.0.1985.84_beta1 (19 Jun 2014)
+
+  19 Jun 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1985.84_beta1.ebuild,
+  -chrome-binary-plugins-36.0.1985.67_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2054.3_alpha1 (18 Jun 2014)
+
+  18 Jun 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +chrome-binary-plugins-37.0.2054.3_alpha1.ebuild,
+  -chrome-binary-plugins-37.0.2054.2_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2054.2_alpha1 (17 Jun 2014)
+
+  17 Jun 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2054.2_alpha1.ebuild,
+  -chrome-binary-plugins-37.0.2041.4_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2041.4_alpha1 (11 Jun 2014)
+*chrome-binary-plugins-35.0.1916.153_p1 (11 Jun 2014)
+*chrome-binary-plugins-36.0.1985.67_beta1 (11 Jun 2014)
+
+  11 Jun 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-35.0.1916.153_p1.ebuild,
+  +chrome-binary-plugins-36.0.1985.67_beta1.ebuild,
+  +chrome-binary-plugins-37.0.2041.4_alpha1.ebuild,
+  -chrome-binary-plugins-35.0.1916.114_p1.ebuild,
+  -chrome-binary-plugins-36.0.1985.49_beta1.ebuild,
+  -chrome-binary-plugins-37.0.2031.2_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2031.2_alpha1 (06 Jun 2014)
+*chrome-binary-plugins-36.0.1985.49_beta1 (06 Jun 2014)
+
+  06 Jun 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1985.49_beta1.ebuild,
+  +chrome-binary-plugins-37.0.2031.2_alpha1.ebuild,
+  -chrome-binary-plugins-36.0.1985.32_beta1.ebuild,
+  -chrome-binary-plugins-37.0.2024.2_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2024.2_alpha1 (04 Jun 2014)
+
+  04 Jun 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2024.2_alpha1.ebuild,
+  -chrome-binary-plugins-37.0.2017.2_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2017.2_alpha1 (28 May 2014)
+
+  28 May 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-37.0.2017.2_alpha1.ebuild,
+  -chrome-binary-plugins-37.0.2008.2_alpha1.ebuild:
+  Automated update.
+
+  28 May 2014; Mike Gilbert <floppym@gentoo.org>
+  chrome-binary-plugins-37.0.2008.2_alpha1.ebuild:
+  Drop pdf plugin; it is now part of chromium.
+
+  28 May 2014; Mike Gilbert <floppym@gentoo.org>
+  chrome-binary-plugins-35.0.1916.114_p1.ebuild,
+  chrome-binary-plugins-36.0.1985.32_beta1.ebuild,
+  chrome-binary-plugins-37.0.2008.2_alpha1.ebuild:
+  Depend on the same major version of www-client/chromium.
+
+*chrome-binary-plugins-36.0.1985.32_beta1 (27 May 2014)
+
+  27 May 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1985.32_beta1.ebuild,
+  -chrome-binary-plugins-36.0.1985.18_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-37.0.2008.2_alpha1 (23 May 2014)
+*chrome-binary-plugins-36.0.1985.18_beta1 (23 May 2014)
+
+  23 May 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1985.18_beta1.ebuild,
+  +chrome-binary-plugins-37.0.2008.2_alpha1.ebuild,
+  -chrome-binary-plugins-35.0.1916.114_beta1.ebuild,
+  -chrome-binary-plugins-36.0.1985.18_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-36.0.1985.18_alpha1 (21 May 2014)
+*chrome-binary-plugins-35.0.1916.114_p1 (21 May 2014)
+
+  21 May 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-35.0.1916.114_p1.ebuild,
+  +chrome-binary-plugins-36.0.1985.18_alpha1.ebuild,
+  -chrome-binary-plugins-34.0.1847.137_p1.ebuild,
+  -chrome-binary-plugins-36.0.1985.8_alpha1.ebuild:
+  Bump.
+
+*chrome-binary-plugins-36.0.1985.8_alpha1 (16 May 2014)
+
+  16 May 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1985.8_alpha1.ebuild,
+  -chrome-binary-plugins-36.0.1985.2_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-35.0.1916.114_beta1 (15 May 2014)
+*chrome-binary-plugins-34.0.1847.137_p1 (15 May 2014)
+*chrome-binary-plugins-36.0.1985.2_alpha1 (15 May 2014)
+
+  15 May 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-34.0.1847.137_p1.ebuild,
+  +chrome-binary-plugins-35.0.1916.114_beta1.ebuild,
+  +chrome-binary-plugins-36.0.1985.2_alpha1.ebuild,
+  -chrome-binary-plugins-34.0.1847.132_p1.ebuild,
+  -chrome-binary-plugins-35.0.1916.99_beta1.ebuild,
+  -chrome-binary-plugins-36.0.1976.2_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-35.0.1916.99_beta1 (07 May 2014)
+
+  07 May 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-35.0.1916.99_beta1.ebuild,
+  -chrome-binary-plugins-35.0.1916.86_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-36.0.1976.2_alpha1 (07 May 2014)
+
+  07 May 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1976.2_alpha1.ebuild,
+  -chrome-binary-plugins-36.0.1964.2_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-36.0.1964.2_alpha1 (30 Apr 2014)
+*chrome-binary-plugins-35.0.1916.86_beta1 (30 Apr 2014)
+
+  30 Apr 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-35.0.1916.86_beta1.ebuild,
+  +chrome-binary-plugins-36.0.1964.2_alpha1.ebuild,
+  -chrome-binary-plugins-35.0.1916.69_beta1.ebuild,
+  -chrome-binary-plugins-36.0.1951.5_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-36.0.1951.5_alpha1 (24 Apr 2014)
+
+  24 Apr 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1951.5_alpha1.ebuild,
+  -chrome-binary-plugins-36.0.1941.0_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-34.0.1847.132_p1 (24 Apr 2014)
+
+  24 Apr 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-34.0.1847.132_p1.ebuild,
+  -chrome-binary-plugins-34.0.1847.116_p1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-35.0.1916.69_beta1 (24 Apr 2014)
+
+  24 Apr 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-35.0.1916.69_beta1.ebuild,
+  -chrome-binary-plugins-35.0.1916.47_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-35.0.1916.47_beta1 (16 Apr 2014)
+
+  16 Apr 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-35.0.1916.47_beta1.ebuild,
+  -chrome-binary-plugins-35.0.1916.27_beta1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-36.0.1941.0_alpha1 (16 Apr 2014)
+
+  16 Apr 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-36.0.1941.0_alpha1.ebuild,
+  -chrome-binary-plugins-36.0.1933.0_alpha1.ebuild:
+  Automated update.
+
+*chrome-binary-plugins-35.0.1916.27_beta1 (12 Apr 2014)
+*chrome-binary-plugins-36.0.1933.0_alpha1 (12 Apr 2014)
+
+  12 Apr 2014; Mike Gilbert <floppym@gentoo.org>
+  +chrome-binary-plugins-35.0.1916.27_beta1.ebuild,
+  +chrome-binary-plugins-36.0.1933.0_alpha1.ebuild,
+  -chrome-binary-plugins-34.0.1847.116_beta1.ebuild,
+  -chrome-binary-plugins-35.0.1916.27_alpha1.ebuild:
+  Bump.
 
 *chrome-binary-plugins-35.0.1916.27_alpha1 (09 Apr 2014)
 *chrome-binary-plugins-34.0.1847.116_p1 (09 Apr 2014)

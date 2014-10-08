@@ -1,6 +1,20 @@
 # ChangeLog for app-leechcraft/lc-cstp
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-cstp/ChangeLog,v 1.10 2014/04/03 08:09:34 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-cstp/ChangeLog,v 1.13 2014/08/10 17:55:21 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> lc-cstp-0.6.60.ebuild,
+  lc-cstp-0.6.65.ebuild, lc-cstp-0.6.70.ebuild, lc-cstp-9999.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*lc-cstp-0.6.70 (03 Aug 2014)
+
+  03 Aug 2014; Maxim Koltsov <maksbotan@gentoo.org> +lc-cstp-0.6.70.ebuild:
+  Bump LeechCraft to 0.6.70, thanks to 0xd34df00d.
+
+*lc-cstp-0.6.65 (10 Apr 2014)
+
+  10 Apr 2014; Maxim Koltsov <maksbotan@gentoo.org> +lc-cstp-0.6.65.ebuild:
+  Bump LeechCraft to 0.5.65, thanks to 0xd34df00d.
 
   03 Apr 2014; Mikle Kolyada <zlogene@gentoo.org> lc-cstp-0.6.60.ebuild:
   x86 stable wrt bug #500914

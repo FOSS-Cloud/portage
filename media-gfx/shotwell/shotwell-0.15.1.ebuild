@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/shotwell/shotwell-0.15.1.ebuild,v 1.3 2014/02/20 20:40:10 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/shotwell/shotwell-0.15.1.ebuild,v 1.5 2014/07/24 18:29:22 ssuominen Exp $
 
 EAPI=5
 
@@ -54,7 +54,7 @@ RDEPEND="
 	>=net-libs/libsoup-2.26.0:2.4
 	>=net-libs/rest-0.7:0.7
 	>=net-libs/webkit-gtk-1.4:3
-	>=virtual/udev-145[gudev]
+	virtual/libgudev:=[introspection]
 	>=x11-libs/gtk+-3.6.0:3"
 DEPEND="${RDEPEND}
 	$(vala_depend)
@@ -83,7 +83,8 @@ src_prepare() {
 		-e 's|CFLAGS :|CFLAGS +|g' \
 		-i plugins/Makefile.plugin.mk || die
 	epatch \
-		"${FILESDIR}"/${PN}-0.13.1-ldflags.patch
+		"${FILESDIR}"/${PN}-0.13.1-ldflags.patch \
+		"${FILESDIR}"/${P}-format-security.patch
 }
 
 src_configure() {

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/emacs-18.59-r10.ebuild,v 1.1 2014/04/04 18:08:44 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/emacs-18.59-r10.ebuild,v 1.5 2014/07/02 07:21:53 ulm Exp $
 
 EAPI=5
 
@@ -14,15 +14,19 @@ SRC_URI="ftp://ftp.gnu.org/old-gnu/emacs/${P}.tar.gz
 
 LICENSE="GPL-1+ GPL-2+ BSD" #HPND
 SLOT="18"
-KEYWORDS="~amd64 ~x86"
-IUSE="+abi_x86_32 abi_x86_x32"
-REQUIRED_USE="amd64? ( || ( abi_x86_32 abi_x86_x32 ) )"
+KEYWORDS="amd64 x86"
+IUSE="abi_x86_x32"
 
-RDEPEND="sys-libs/ncurses
-	>=app-admin/eselect-emacs-1.16
+RDEPEND=">=app-admin/eselect-emacs-1.16
+	sys-libs/ncurses
 	amd64? (
-		sys-libs/ncurses[abi_x86_x32(-)?]
-		!abi_x86_x32? ( sys-libs/ncurses[abi_x86_32(-)?] )
+		abi_x86_x32? ( >=sys-libs/ncurses-5.9-r3[abi_x86_x32(-)] )
+		!abi_x86_x32? (
+			|| (
+				>=sys-libs/ncurses-5.9-r3[abi_x86_32(-)]
+				app-emulation/emul-linux-x86-baselibs[development,-abi_x86_32(-)]
+			)
+		)
 	)"
 #	X? ( x11-libs/libX11[-xcb] )
 DEPEND="${RDEPEND}
@@ -42,11 +46,9 @@ src_configure() {
 			if use abi_x86_x32; then
 				arch=x86-x32
 				multilib_toolchain_setup x32
-			elif use abi_x86_32; then
+			else
 				arch=intel386
 				multilib_toolchain_setup x86
-			else
-				die "Need 32 bit ABI on amd64"
 			fi
 			;;
 		x86) arch=intel386 ;;

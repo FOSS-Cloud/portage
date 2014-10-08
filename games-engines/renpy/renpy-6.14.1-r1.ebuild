@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-engines/renpy/renpy-6.14.1-r1.ebuild,v 1.6 2013/10/30 19:23:30 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-engines/renpy/renpy-6.14.1-r1.ebuild,v 1.8 2014/07/06 12:53:35 mgorny Exp $
 
 EAPI=5
 PYTHON_COMPAT=( python2_6 python2_7 )
@@ -28,8 +28,7 @@ RDEPEND="
 	media-libs/libsdl[X,video]
 	media-libs/freetype:2
 	sys-libs/zlib
-	virtual/ffmpeg
-	virtual/python-argparse[${PYTHON_USEDEP}]"
+	virtual/ffmpeg"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
@@ -43,7 +42,8 @@ pkg_setup() {
 python_prepare_all() {
 	# wooosh! this should fix multiple abi
 	epatch "${FILESDIR}"/${P}-multiple-abi.patch \
-		"${FILESDIR}"/${P}-{av_close_input_stream,remove-AVFormatParameters}.patch
+		"${FILESDIR}"/${P}-{av_close_input_stream,remove-AVFormatParameters}.patch \
+		"${FILESDIR}"/${P}-freetype.patch
 
 	einfo "Deleting precompiled python files"
 	find . -name '*.py[co]' -print -delete || die

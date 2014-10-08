@@ -1,6 +1,40 @@
 # ChangeLog for dev-python/pyro
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyro/ChangeLog,v 1.107 2014/04/03 14:10:34 aidecoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyro/ChangeLog,v 1.112 2014/07/17 02:06:27 idella4 Exp $
+
+  17 Jul 2014; Ian Delaney <idella4@gentoo.org> pyro-4.24.ebuild,
+  pyro-4.25.ebuild:
+  drop py2.6 pypy2_0 add py3.4
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> pyro-4.22.ebuild,
+  pyro-4.23.ebuild, pyro-4.24.ebuild, pyro-4.25.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> pyro-4.24.ebuild:
+  x86 stable wrt bug #509710
+
+*pyro-4.25 (12 Jun 2014)
+
+  12 Jun 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +pyro-4.25.ebuild:
+  Version bump.
+
+  NEWS
+  ~~~~
+  - now also puts package name in serpent serialization data for custom class
+    instances (previously only the class name was used)
+  - requires serpent 1.5 or newer (because of the feature above)
+  - support for (Linux) abstract namespace AF_UNIX sockets (with a 0-byte at
+    the start of the name)
+  - register_dict_to_class method added on SerializerBase, to be able to
+    deserialize to particular user defined classes
+  - docs: mention that you may have to install serpent manually (most notably
+    with alternative Python implementations)
+  - docs: mention the serialization hooks on SerializerBase
+  - added ser_custom example that shows how to use the serialization hooks
+
+  24 May 2014; Markos Chandras <hwoarang@gentoo.org> pyro-4.24.ebuild:
+  Stable on amd64 wrt bug #509710
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> pyro-3.16-r1.ebuild,
   pyro-4.17-r1.ebuild, pyro-4.22.ebuild, pyro-4.23.ebuild, pyro-4.24.ebuild:

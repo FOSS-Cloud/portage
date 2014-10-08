@@ -8,6 +8,7 @@
 		scale, in production, on VMs, bare metal, OpenStack clusters, public
 		clouds and more.
 	</longdescription>
+	<herd>proxy-maintainers</herd>
 	<maintainer status="active">
 		<email>admwiggin@gmail.com</email>
 		<name>Tianon</name>
@@ -20,6 +21,9 @@
 		<flag name="btrfs">
 			Enables dependencies for the "btrfs" graph driver, including
 			necessary kernel flags.
+		</flag>
+		<flag name="contrib">
+			Install additional contrib scripts and components.
 		</flag>
 		<flag name="device-mapper">
 			Enables dependencies for the "devicemapper" graph driver, including

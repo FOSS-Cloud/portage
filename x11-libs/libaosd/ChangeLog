@@ -1,6 +1,15 @@
 # ChangeLog for x11-libs/libaosd
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libaosd/ChangeLog,v 1.7 2014/02/27 12:05:57 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libaosd/ChangeLog,v 1.11 2014/08/21 11:42:26 armin76 Exp $
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> libaosd-0.2.7.ebuild:
+  Add ~ia64/~sparc wrt bug #473920
+
+  26 Jun 2014; Pacho Ramos <pacho@gentoo.org> libaosd-0.2.7.ebuild:
+  Needs cairo[X], bug #515170
+
+  20 Jun 2014; Tobias Klausmann <klausman@gentoo.org> libaosd-0.2.7.ebuild:
+  Keyworded on alpha, bug #473920
 
   27 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> libaosd-0.2.7.ebuild:
   Set AT_M4DIR to find buildsys.m4 for BUILDSYS_TOUCH_DEPS wrt #502958 by

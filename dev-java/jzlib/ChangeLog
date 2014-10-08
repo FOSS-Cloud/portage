@@ -1,6 +1,14 @@
 # ChangeLog for dev-java/jzlib
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jzlib/ChangeLog,v 1.40 2012/12/08 15:50:08 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/jzlib/ChangeLog,v 1.42 2014/08/10 20:20:48 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> jzlib-1.0.7-r1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*jzlib-1.1.3 (28 May 2014)
+
+  28 May 2014; Tom Wijsman <TomWij@gentoo.org> +jzlib-1.1.3.ebuild:
+  Version bump to 1.1.3.
 
   08 Dec 2012; Agostino Sarubbo <ago@gentoo.org> jzlib-1.1.1.ebuild:
   Stable for ppc64, wrt bug #418719

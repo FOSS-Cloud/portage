@@ -1,6 +1,52 @@
 # ChangeLog for app-office/gnumeric
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/gnumeric/ChangeLog,v 1.267 2014/03/29 19:20:04 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/gnumeric/ChangeLog,v 1.278 2014/10/01 12:40:17 pacho Exp $
+
+  01 Oct 2014; Pacho Ramos <pacho@gentoo.org>
+  -files/gnumeric-1.12.11-missing-header.patch:
+  Drop obsolete patch
+
+*gnumeric-1.12.18 (01 Oct 2014)
+
+  01 Oct 2014; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.18.ebuild,
+  -gnumeric-1.12.14.ebuild, -gnumeric-1.12.16.ebuild:
+  Version bump, drop old
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.17.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnumeric-1.12.17.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*gnumeric-1.12.17 (13 Jun 2014)
+
+  13 Jun 2014; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.17.ebuild:
+  Version bump
+
+*gnumeric-1.12.16 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.16.ebuild,
+  -gnumeric-1.12.12.ebuild:
+  Version bump
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> gnumeric-1.12.14.ebuild:
+  x86 stable, bug 508862
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> gnumeric-1.12.14.ebuild:
+  amd64 stable, bug 508862
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> gnumeric-1.12.12.ebuild,
+  gnumeric-1.12.14.ebuild:
+  Adapt to latest pygobject don't providing python2.6 support
+
+  23 Apr 2014; Pacho Ramos <pacho@gentoo.org> -gnumeric-1.12.13.ebuild:
+  Drop old
+
+*gnumeric-1.12.14 (17 Apr 2014)
+
+  17 Apr 2014; Pacho Ramos <pacho@gentoo.org> +gnumeric-1.12.14.ebuild,
+  -gnumeric-1.12.0-r1.ebuild:
+  Version bump, drop old
 
 *gnumeric-1.12.13 (29 Mar 2014)
 

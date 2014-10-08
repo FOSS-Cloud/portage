@@ -1,6 +1,28 @@
 # ChangeLog for mail-client/balsa
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/balsa/ChangeLog,v 1.126 2013/04/01 18:24:59 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/balsa/ChangeLog,v 1.132 2014/09/15 08:20:42 ago Exp $
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> balsa-2.4.14.ebuild:
+  Stable for sparc, wrt bug #512012
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> balsa-2.4.14.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> balsa-2.4.14.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> balsa-2.4.14.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> balsa-2.4.14.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*balsa-2.4.14 (22 Jun 2014)
+
+  22 Jun 2014; Pacho Ramos <pacho@gentoo.org> +balsa-2.4.14.ebuild,
+  -balsa-2.4.12.ebuild:
+  Version bump, drop support for gtkhtml slot that is unmaintained for ages and
+  will be removed soon, drop old.
 
   01 Apr 2013; Agostino Sarubbo <ago@gentoo.org> balsa-2.4.13.ebuild:
   Stable for sparc, wrt bug #458984

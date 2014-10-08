@@ -1,6 +1,67 @@
 # ChangeLog for app-admin/ansible
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.39 2014/03/17 10:26:52 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.51 2014/08/17 15:31:06 ercpe Exp $
+
+*ansible-1.7.1 (17 Aug 2014)
+
+  17 Aug 2014; Johann Schmitz <ercpe@gentoo.org> +ansible-1.7.1.ebuild:
+  Version bump
+
+*ansible-1.7.0 (12 Aug 2014)
+
+  12 Aug 2014; Justin Lecher <jlec@gentoo.org> +ansible-1.7.0.ebuild,
+  ansible-9999.ebuild, +files/README.gentoo, metadata.xml:
+  Version Bump; add myself as maintainer
+
+*ansible-1.6.10 (04 Aug 2014)
+
+  04 Aug 2014; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.6.10.ebuild:
+  Version bump
+
+  31 Jul 2014; Sergey Popov <pinkbyte@gentoo.org> -ansible-1.5.5.ebuild,
+  ansible-1.6.8.ebuild:
+  Stable on amd64 and x86, wrt bug #517770. Drop old and vulnerable version
+
+  30 Jul 2014; Justin Lecher <jlec@gentoo.org> ansible-1.5.5.ebuild,
+  ansible-1.6.8.ebuild, ansible-9999.ebuild:
+  Fix maintainer introduced ugly line breakings
+
+  23 Jul 2014; Sergey Popov <pinkbyte@gentoo.org> ansible-1.6.8.ebuild,
+  -files/README.gentoo:
+  Restore DOC_CONTENTS, that was moved to separate file by previous
+  non-maintainer commits and brake installations in some rare cases
+
+*ansible-1.6.8 (23 Jul 2014)
+
+  23 Jul 2014; Justin Lecher <jlec@gentoo.org> -ansible-1.6.7.ebuild,
+  +ansible-1.6.8.ebuild:
+  Version BUmp
+
+*ansible-1.6.7 (23 Jul 2014)
+
+  23 Jul 2014; Justin Lecher <jlec@gentoo.org> -ansible-1.6.1.ebuild,
+  +ansible-1.6.7.ebuild, +files/README.gentoo:
+  Version Bump
+
+  08 May 2014; Sergey Popov <pinkbyte@gentoo.org> ansible-9999.ebuild:
+  Migrate to git-r3 eclass
+
+*ansible-1.6.1 (08 May 2014)
+
+  08 May 2014; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.6.1.ebuild,
+  ansible-9999.ebuild:
+  Version bump, update live ebuild
+
+  03 May 2014; Sergey Popov <pinkbyte@gentoo.org> -ansible-1.4.3.ebuild,
+  -ansible-1.4.5.ebuild, -ansible-1.5.0.ebuild, -ansible-1.5.3.ebuild,
+  ansible-1.5.5.ebuild:
+  Stable on amd64 and x86, wrt bug #509046. Drop old versions
+
+*ansible-1.5.5 (29 Apr 2014)
+
+  29 Apr 2014; Justin Lecher <jlec@gentoo.org> +ansible-1.5.5.ebuild,
+  metadata.xml:
+  Version Bump, including two security fixes
 
 *ansible-1.5.3 (17 Mar 2014)
 

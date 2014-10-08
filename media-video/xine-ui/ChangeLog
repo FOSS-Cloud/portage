@@ -1,6 +1,35 @@
 # ChangeLog for media-video/xine-ui
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/xine-ui/ChangeLog,v 1.182 2013/12/24 16:56:09 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/xine-ui/ChangeLog,v 1.188 2014/09/01 16:45:35 mgorny Exp $
+
+  01 Sep 2014; Michał Górny <mgorny@gentoo.org> xine-ui-0.99.8.ebuild,
+  xine-ui-0.99.9.ebuild:
+  Remove := subslot operator from || () block since it is meaningless and
+  broken.
+
+*xine-ui-0.99.9 (22 Aug 2014)
+
+  22 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> +xine-ui-0.99.9.ebuild:
+  Version bump.
+
+  25 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> xine-ui-0.99.7.ebuild:
+  Restrict old ebuild to working sys-libs/readline version.
+
+*xine-ui-0.99.8 (25 Jul 2014)
+
+  25 Jul 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +files/xine-ui-0.99.8-readline-6.3.patch, +xine-ui-0.99.8.ebuild:
+  Version bump with sys-libs/readline >= 6.3 compability patch wrt #504208 by
+  Dmitry Derevyanko. Import yet another "prevent crash on exit" fix from Debian
+  patchset.
+
+  22 Jun 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/xine-ui-0.99.6-curl-headers.patch,
+  -files/xine-ui-0.99.6-libpng15.patch, -xine-ui-0.99.6.ebuild:
+  old
+
+  22 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> xine-ui-0.99.7.ebuild:
+  ppc stable wrt #451350
 
   24 Dec 2013; Agostino Sarubbo <ago@gentoo.org> xine-ui-0.99.7.ebuild:
   Stable for ppc64, wrt bug #451350

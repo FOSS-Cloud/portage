@@ -1,6 +1,26 @@
 # ChangeLog for games-puzzle/gnome-tetravex
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/gnome-tetravex/ChangeLog,v 1.10 2014/03/09 11:57:39 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-puzzle/gnome-tetravex/ChangeLog,v 1.15 2014/07/23 15:16:29 ago Exp $
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnome-tetravex-3.12.3.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnome-tetravex-3.12.3.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*gnome-tetravex-3.12.3 (31 May 2014)
+
+  31 May 2014; Pacho Ramos <pacho@gentoo.org> +gnome-tetravex-3.12.3.ebuild:
+  Version bump
+
+*gnome-tetravex-3.12.1 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-tetravex-3.12.1.ebuild:
+  Version bump for Gnome 3.12.
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> -gnome-tetravex-3.8.1.ebuild:
+  drop old
 
   09 Mar 2014; Pacho Ramos <pacho@gentoo.org> gnome-tetravex-3.10.1.ebuild:
   x86 stable, bug 499954

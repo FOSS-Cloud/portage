@@ -1,6 +1,32 @@
 # ChangeLog for app-cdr/brasero
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/brasero/ChangeLog,v 1.159 2014/03/09 11:53:12 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-cdr/brasero/ChangeLog,v 1.165 2014/09/24 11:28:54 pacho Exp $
+
+*brasero-3.11.4 (24 Sep 2014)
+
+  24 Sep 2014; Pacho Ramos <pacho@gentoo.org> +brasero-3.11.4.ebuild,
+  -brasero-3.10.0.ebuild:
+  Version bump, drop old
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> brasero-3.11.3.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> brasero-3.11.3.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  27 Jun 2014; Pacho Ramos <pacho@gentoo.org> brasero-3.11.3.ebuild,
+  metadata.xml:
+  Call configure at proper phase (#515426 by Patrick Lauer), fix homepage
+
+*brasero-3.11.3 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> +brasero-3.11.3.ebuild,
+  metadata.xml:
+  Version bump for Gnome 3.12.
+
+  23 Apr 2014; Pacho Ramos <pacho@gentoo.org> -brasero-3.8.0.ebuild,
+  -files/brasero-3.8.0-tracker-detection.patch:
+  Drop old
 
   09 Mar 2014; Pacho Ramos <pacho@gentoo.org> brasero-3.10.0.ebuild:
   x86 stable, bug 499954

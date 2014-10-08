@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/nekohtml/nekohtml-1.9.18.ebuild,v 1.1 2013/05/10 09:11:41 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/nekohtml/nekohtml-1.9.18.ebuild,v 1.3 2014/08/14 17:09:19 phajdan.jr Exp $
 
 EAPI="5"
 
@@ -8,14 +8,14 @@ JAVA_PKG_IUSE="doc examples source test"
 
 inherit java-pkg-2 java-ant-2 eutils
 
-DESCRIPTION="A simple HTML scanner and tag balancer using standard XML interfaces."
+DESCRIPTION="A simple HTML scanner and tag balancer using standard XML interfaces"
 
 HOMEPAGE="http://nekohtml.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 LICENSE="Apache-2.0"
 
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~ppc x86"
 
 COMMON_DEP=">=dev-java/xerces-2.7"
 DEPEND=">=virtual/jdk-1.4

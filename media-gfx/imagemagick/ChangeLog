@@ -1,6 +1,79 @@
 # ChangeLog for media-gfx/imagemagick
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/imagemagick/ChangeLog,v 1.547 2014/04/08 11:49:24 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/imagemagick/ChangeLog,v 1.564 2014/10/04 11:29:20 ssuominen Exp $
+
+*imagemagick-6.8.9.8 (04 Oct 2014)
+
+  04 Oct 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +imagemagick-6.8.9.8.ebuild:
+  Version bump because of "2014-09-16 6.8.9-8 Cristy
+  <quetzlzacatenango@image...> JPEG library version >= 80 is thread safe, ref.
+  http://www.imagemagick.org/discourse-server/viewtopic.php?f=2&t=25495
+
+  27 Sep 2014; Fabian Groffen <grobian@gentoo.org> imagemagick-6.8.9.7.ebuild:
+  force configure to use bash due to bashisms (x=${x/foo/})
+
+  17 Sep 2014; Samuli Suominen <ssuominen@gentoo.org>
+  imagemagick-6.8.9.7.ebuild:
+  Fix sandbox problems with USE="opencl" and /dev/nvidiactl wrt #472766#c31 by
+  Wojtek Arabczyk
+
+  24 Aug 2014; Samuli Suominen <ssuominen@gentoo.org>
+  imagemagick-6.8.8.10-r1.ebuild:
+  Restrict old copy of ImageMagick to old copy of OpenJPEG.
+
+*imagemagick-6.8.9.7 (24 Aug 2014)
+
+  24 Aug 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +imagemagick-6.8.9.7.ebuild:
+  Version bump wrt #517896 by Tomáš Chaloupka
+
+  03 Jun 2014; Samuli Suominen <ssuominen@gentoo.org>
+  imagemagick-6.8.8.10-r1.ebuild:
+  Include /dev/ati/card in the SANDBOX_PREDICT line (user from Freenode proofed
+  it fails with ati-drivers too)
+
+  16 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  imagemagick-6.8.8.10-r1.ebuild:
+  Missing SLOT operator in conditional patching re: has_version.
+
+  14 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -imagemagick-6.8.8.10.ebuild:
+  old
+
+  14 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  imagemagick-6.8.8.10-r1.ebuild:
+  Improve support for openjpeg-2.1.0 with conditional patching for now as a
+  temporary solution; will go away with next ebuild.
+
+  14 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  imagemagick-6.8.8.10-r1.ebuild:
+  Stabilize for everyone to gain 1 trivial bugfix for typing errors in 2 files
+  for #ifdef's. No other changes to from -r0 -> -r1.
+
+  14 May 2014; Samuli Suominen <ssuominen@gentoo.org>
+  -files/imagemagick-6.7.8.7-freetype.patch, -imagemagick-6.7.8.7.ebuild,
+  -imagemagick-6.8.6.8.ebuild, -imagemagick-6.8.8.5.ebuild,
+  -imagemagick-6.8.8.7.ebuild, -imagemagick-6.8.8.8.ebuild:
+  old
+
+  14 May 2014; Agostino Sarubbo <ago@gentoo.org> imagemagick-6.8.8.10.ebuild:
+  Stable for sparc, wrt bug #506562
+
+  13 May 2014; Agostino Sarubbo <ago@gentoo.org> imagemagick-6.8.8.10.ebuild:
+  Stable for ia64, wrt bug #506562
+
+  11 May 2014; Agostino Sarubbo <ago@gentoo.org> imagemagick-6.8.8.10.ebuild:
+  Stable for ppc64, wrt bug #506562
+
+  21 Apr 2014; Agostino Sarubbo <ago@gentoo.org> imagemagick-6.8.8.10.ebuild:
+  Stable for alpha, wrt bug #506562
+
+  13 Apr 2014; Agostino Sarubbo <ago@gentoo.org> imagemagick-6.8.8.10.ebuild:
+  Stable for ppc, wrt bug #506562
+
+  12 Apr 2014; Agostino Sarubbo <ago@gentoo.org> imagemagick-6.8.8.10.ebuild:
+  Stable for x86, wrt bug #506562
 
 *imagemagick-6.8.8.10-r1 (08 Apr 2014)
 

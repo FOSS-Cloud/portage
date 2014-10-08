@@ -1,6 +1,18 @@
 # ChangeLog for app-text/glark
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/glark/ChangeLog,v 1.67 2014/04/04 14:14:11 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/glark/ChangeLog,v 1.71 2014/08/27 12:24:08 ago Exp $
+
+  27 Aug 2014; Agostino Sarubbo <ago@gentoo.org> glark-1.10.4.ebuild:
+  Stable for ppc, wrt bug #505102
+
+  12 Aug 2014; Andreas Schuerch <nativemad@gentoo.org> glark-1.10.4.ebuild:
+  x86 stable, see bug 505102
+
+  21 Jul 2014; Chema Alonso <nimiux@gentoo.org> glark-1.10.4.ebuild:
+  Stable for amd64 wrt bug #505102
+
+  06 Jul 2014; Jeroen Roovers <jer@gentoo.org> glark-1.10.4.ebuild:
+  Stable for HPPA (bug #505102).
 
   04 Apr 2014; Hans de Graaff <graaff@gentoo.org> glark-1.10.4.ebuild:
   Add slot to rainbow dependency in preparation of adding a new slot.

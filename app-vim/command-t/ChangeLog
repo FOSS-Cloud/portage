@@ -1,6 +1,21 @@
 # ChangeLog for app-vim/command-t
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-vim/command-t/ChangeLog,v 1.16 2014/04/03 05:44:43 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-vim/command-t/ChangeLog,v 1.19 2014/08/14 13:51:56 mrueg Exp $
+
+  14 Aug 2014; Manuel Rüger <mrueg@gentoo.org> command-t-1.5.1.ebuild,
+  command-t-1.6.1.ebuild, command-t-1.6.ebuild, command-t-1.7.ebuild,
+  command-t-1.9.1.ebuild:
+  Remove ruby18 from USE_RUBY.
+
+*command-t-1.9.1 (26 Jun 2014)
+
+  26 Jun 2014; Tim Harder <radhermit@gentoo.org> +command-t-1.9.1.ebuild:
+  Version bump.
+
+*command-t-1.9 (26 May 2014)
+
+  26 May 2014; Tim Harder <radhermit@gentoo.org> +command-t-1.9.ebuild:
+  Version bump.
 
 *command-t-1.8 (03 Apr 2014)
 
@@ -73,4 +88,3 @@
   02 Jun 2011; Tim Harder <radhermit@gentoo.org> +command-t-1.2.1.ebuild,
   +metadata.xml:
   Initial import.
-

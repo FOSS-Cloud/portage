@@ -1,6 +1,37 @@
 # ChangeLog for app-xemacs/mail-lib
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-xemacs/mail-lib/ChangeLog,v 1.28 2011/07/22 11:24:57 xarthisius Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-xemacs/mail-lib/ChangeLog,v 1.37 2014/08/13 15:23:50 matsl Exp $
+
+  13 Aug 2014; Mats Lidell <matsl@gentoo.org> -mail-lib-1.79.ebuild,
+  -mail-lib-1.80.ebuild:
+  Maintainer cleanup. Remove old ebuilds.
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> mail-lib-1.79.ebuild,
+  mail-lib-1.80.ebuild, mail-lib-1.83.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mail-lib-1.83.ebuild:
+  Stable for ppc64, wrt bug #509830
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mail-lib-1.83.ebuild:
+  Stable for ppc, wrt bug #509830
+
+  04 Aug 2014; Raúl Porcel <armin76@gentoo.org> mail-lib-1.83.ebuild:
+  sparc stable wrt #509830
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mail-lib-1.83.ebuild:
+  Stable for x86, wrt bug #509830
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mail-lib-1.83.ebuild:
+  Stable for amd64, wrt bug #509830
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org> mail-lib-1.83.ebuild:
+  Stable on alpha, bug #509830
+
+*mail-lib-1.83 (05 Jul 2014)
+
+  05 Jul 2014; Mats Lidell <matsl@gentoo.org> +mail-lib-1.83.ebuild:
+  Version bump - use prerelease package due to security fix in browse-url
 
   22 Jul 2011; Kacper Kowalik <xarthisius@gentoo.org> mail-lib-1.80.ebuild:
   ppc64 stable wrt #369897

@@ -1,6 +1,54 @@
 # ChangeLog for app-office/scribus
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/scribus/ChangeLog,v 1.183 2013/09/17 15:58:17 jlec Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/scribus/ChangeLog,v 1.196 2014/09/08 16:32:37 nimiux Exp $
+
+  08 Sep 2014; Chema Alonso <nimiux@gentoo.org> scribus-1.4.4-r1.ebuild:
+  Stable for amd64 wrt bug #519890
+
+  22 Aug 2014; Jeroen Roovers <jer@gentoo.org> scribus-1.4.4-r1.ebuild:
+  Stable for HPPA (bug #519890).
+
+*scribus-1.4.4-r1 (21 Aug 2014)
+
+  21 Aug 2014; Justin Lecher <jlec@gentoo.org> -scribus-1.4.4.ebuild,
+  +scribus-1.4.4-r1.ebuild:
+  Fix empty info tabs, #520114
+
+  15 Aug 2014; Jeroen Roovers <jer@gentoo.org> scribus-1.4.4.ebuild:
+  Stable for HPPA (bug #519890).
+
+  14 Aug 2014; Justin Lecher <jlec@gentoo.org> +scribus-1.4.3.ebuild,
+  scribus-1.4.9999.ebuild, scribus-9999.ebuild, files/scribus-1.5.0-docs.patch,
+  metadata.xml:
+  Drop old, update live ebuilds
+
+  14 Aug 2014; Justin Lecher <jlec@gentoo.org> -scribus-1.4.1-r1.ebuild,
+  -scribus-1.4.3.ebuild:
+  Drop old
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> scribus-1.4.3.ebuild:
+  Stable for ppc64, wrt bug #512108
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> scribus-1.4.3.ebuild:
+  Stable for ppc, wrt bug #512108
+
+  24 Jun 2014; Agostino Sarubbo <ago@gentoo.org> scribus-1.4.3.ebuild:
+  Stable for x86, wrt bug #512108
+
+  09 Jun 2014; Chema Alonso <nimiux@gentoo.org> scribus-1.4.3.ebuild:
+  Stable for amd64 wrt bug #512108
+
+  03 Jun 2014; Jeroen Roovers <jer@gentoo.org> scribus-1.4.3.ebuild:
+  Stable for HPPA (bug #512108).
+
+  03 Jun 2014; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneeded useflag description from metadata.xml
+
+*scribus-1.4.4 (02 Jun 2014)
+
+  02 Jun 2014; Justin Lecher <jlec@gentoo.org> -scribus-1.4.2-r2.ebuild,
+  -scribus-1.4.2-r3.ebuild, +scribus-1.4.4.ebuild:
+  Version Bump, #511798; drop old
 
   17 Sep 2013; Justin Lecher <jlec@gentoo.org> scribus-1.4.3.ebuild,
   scribus-1.4.9999.ebuild, scribus-9999.ebuild:

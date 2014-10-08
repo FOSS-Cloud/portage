@@ -1,6 +1,38 @@
 # ChangeLog for x11-libs/libxcb
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libxcb/ChangeLog,v 1.136 2014/04/08 20:03:44 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libxcb/ChangeLog,v 1.145 2014/09/03 10:28:30 floppym Exp $
+
+  03 Sep 2014; Mike Gilbert <floppym@gentoo.org> libxcb-1.10.ebuild:
+  Drop MULTILIB_USEDEP from xcb-proto in python_check_deps, bug 520146.
+
+  21 Aug 2014; Mike Gilbert <floppym@gentoo.org> libxcb-1.10.ebuild:
+  Add missing ${PYTHON_DEPS} to DEPEND, bug 520146.
+
+  29 Jul 2014; Michał Górny <mgorny@gentoo.org> libxcb-1.10.ebuild,
+  libxcb-1.9.3-r1.ebuild:
+  Fix finding Python when building in a root, bug #503228. Patch by James Le
+  Cuirot.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> libxcb-1.10.ebuild,
+  libxcb-1.9.1-r1.ebuild, libxcb-1.9.1.ebuild, libxcb-1.9.3-r1.ebuild,
+  libxcb-1.9.3.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  15 Jun 2014; Mike Frysinger <vapier@gentoo.org> libxcb-1.10.ebuild:
+  Add arm64 love.
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> libxcb-1.10.ebuild:
+  Stable for arm, wrt bug #500368
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libxcb-1.10.ebuild:
+  Stable for sparc, wrt bug #500368
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libxcb-1.10.ebuild:
+  Stable for ia64, wrt bug #500368
+
+  16 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libxcb-1.10.ebuild:
+  Stable for ppc64, wrt bug #500368
 
   08 Apr 2014; Agostino Sarubbo <ago@gentoo.org> libxcb-1.10.ebuild:
   Stable for ppc, wrt bug #500368

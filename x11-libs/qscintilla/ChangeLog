@@ -1,6 +1,33 @@
 # ChangeLog for x11-libs/qscintilla
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/qscintilla/ChangeLog,v 1.99 2014/03/13 16:17:43 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/qscintilla/ChangeLog,v 1.104 2014/10/04 18:59:47 pesa Exp $
+
+  04 Oct 2014; Davide Pesavento <pesa@gentoo.org> metadata.xml:
+  Add upstream metadata tag.
+
+*qscintilla-2.8.4-r1 (21 Sep 2014)
+
+  21 Sep 2014; Davide Pesavento <pesa@gentoo.org> +qscintilla-2.8.4-r1.ebuild,
+  -files/qscintilla-2.8.4-designer.patch, -qscintilla-2.8.4.ebuild:
+  More complete fix for bug #466120. Thanks to Arfrever in comment #6.
+
+*qscintilla-2.8.4 (13 Sep 2014)
+
+  13 Sep 2014; Davide Pesavento <pesa@gentoo.org>
+  +files/qscintilla-2.8.4-designer.patch, +qscintilla-2.8.4.ebuild,
+  -files/qscintilla-2.8.3-designer.patch, -qscintilla-2.8.3.ebuild,
+  metadata.xml:
+  Bump and finally fix bug #466120. Remove old.
+
+*qscintilla-2.8.3 (18 Jul 2014)
+
+  18 Jul 2014; Davide Pesavento <pesa@gentoo.org>
+  +files/qscintilla-2.8.3-designer.patch, +qscintilla-2.8.3.ebuild,
+  -qscintilla-2.8-r1.ebuild, metadata.xml:
+  Version bump.
+
+  15 Apr 2014; Sébastien Fabbro <bicatali@gentoo.org> qscintilla-2.8-r1.ebuild:
+  Keyword arm
 
   13 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> qscintilla-2.8-r1.ebuild:
   Keyword amd64-linux and x86-linux

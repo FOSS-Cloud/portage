@@ -1,6 +1,57 @@
 # ChangeLog for app-office/dia
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/dia/ChangeLog,v 1.163 2014/03/11 11:22:46 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/dia/ChangeLog,v 1.174 2014/09/24 11:54:02 pacho Exp $
+
+*dia-0.97.3 (24 Sep 2014)
+
+  24 Sep 2014; Pacho Ramos <pacho@gentoo.org> +dia-0.97.3.ebuild,
+  -dia-0.97.3_pre20140417.ebuild:
+  Version bump, drop old
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org>
+  dia-0.97.3_pre20140417-r1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  dia-0.97.3_pre20140417-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  dia-0.97.3_pre20140417-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+*dia-0.97.3_pre20140417-r1 (25 Jun 2014)
+
+  25 Jun 2014; Pacho Ramos <pacho@gentoo.org> +dia-0.97.3_pre20140417-r1.ebuild,
+  +files/dia-0.97.2-png-crash.patch:
+  Fix crash and test failure (#508566 by Kolan Sh. and Drunkard Zhang; #458460
+  by flameeyes and eroen)
+
+  12 Jun 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/dia-0.97.2-disable-cairo.patch, -dia-0.97.2-r2.ebuild,
+  -files/dia-0.97.2-freetype251.patch, -files/dia-0.97.2-glib-2.31.patch,
+  -files/dia-0.97.2-glib2.36.patch,
+  -files/dia-0.97.2-implicit-declaration.patch, dia-0.97.3_pre20140417.ebuild:
+  Fix build without cairo (#509636 by Marcel Pennewib and gokturk), drop old.
+
+  07 May 2014; Pacho Ramos <pacho@gentoo.org> dia-0.97.3_pre20140417.ebuild:
+  Add bug references (thanks to Gilles for finding them)
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> dia-0.97.3_pre20140417.ebuild:
+  x86 stable, bug 508862
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org> dia-0.97.3_pre20140417.ebuild:
+  amd64 stable, bug 508862
+
+  02 May 2014; Jeroen Roovers <jer@gentoo.org> dia-0.97.3_pre20140417.ebuild:
+  Stable for HPPA (bug #508862).
+
+*dia-0.97.3_pre20140417 (17 Apr 2014)
+
+  17 Apr 2014; Pacho Ramos <pacho@gentoo.org> +dia-0.97.3_pre20140417.ebuild,
+  -dia-0.97.2-r1.ebuild:
+  Bump to a newer snapshot fixing bug #505928 (by Sergey S. Starikoff) and many
+  other problems. Drop old.
 
   11 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> dia-0.97.2-r1.ebuild,
   dia-0.97.2-r2.ebuild, +files/dia-0.97.2-freetype251.patch:

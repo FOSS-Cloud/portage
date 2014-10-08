@@ -1,5 +1,20 @@
 # ChangeLog for dev-cpp/gtest
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gtest/ChangeLog,v 1.35 2013/11/06 09:57:53 tomka Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gtest/ChangeLog,v 1.40 2014/08/21 11:29:34 armin76 Exp $
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> gtest-1.7.0.ebuild:
+  alpha/ia64/sparc stable wrt bug #513804
+
+  19 Jul 2014; Pacho Ramos <pacho@gentoo.org> gtest-1.7.0.ebuild:
+  amd64/x86 stable, bug #513804
+
+  29 Jun 2014; Markus Meier <maekke@gentoo.org> gtest-1.7.0.ebuild:
+  arm stable, bug #513804
+
+  20 Jun 2014; Jeroen Roovers <jer@gentoo.org> gtest-1.7.0.ebuild:
+  Stable for HPPA (bug #513804).
+
+  30 Apr 2014; Michał Górny <mgorny@gentoo.org> gtest-1.7.0.ebuild:
+  Simplify multilib code. Set proper flags for autotools-multilib.
 
 *gtest-1.7.0 (06 Nov 2013)
 

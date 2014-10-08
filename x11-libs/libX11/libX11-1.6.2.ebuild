@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libX11/libX11-1.6.2.ebuild,v 1.10 2013/10/08 05:07:29 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libX11/libX11-1.6.2.ebuild,v 1.13 2014/06/18 21:04:40 mgorny Exp $
 
 EAPI=5
 
@@ -12,16 +12,16 @@ inherit xorg-2 toolchain-funcs flag-o-matic
 
 DESCRIPTION="X.Org X11 library"
 
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
 IUSE="ipv6 test"
 
-RDEPEND=">=x11-libs/libxcb-1.8.1[${MULTILIB_USEDEP}]
+RDEPEND=">=x11-libs/libxcb-1.9.1[${MULTILIB_USEDEP}]
 	x11-libs/xtrans
-	>=x11-proto/xproto-7.0.17[${MULTILIB_USEDEP}]
-	x11-proto/xf86bigfontproto[${MULTILIB_USEDEP}]
-	x11-proto/inputproto[${MULTILIB_USEDEP}]
-	x11-proto/kbproto[${MULTILIB_USEDEP}]
-	x11-proto/xextproto[${MULTILIB_USEDEP}]"
+	>=x11-proto/xproto-7.0.24[${MULTILIB_USEDEP}]
+	>=x11-proto/xf86bigfontproto-1.2.0-r1[${MULTILIB_USEDEP}]
+	>=x11-proto/inputproto-2.3[${MULTILIB_USEDEP}]
+	>=x11-proto/kbproto-1.0.6-r1[${MULTILIB_USEDEP}]
+	>=x11-proto/xextproto-7.2.1-r1[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}
 	test? ( dev-lang/perl )"
 
@@ -43,18 +43,18 @@ src_configure() {
 	xorg-2_src_configure
 }
 
-src_compile() {
+multilib_src_compile() {
 	# [Cross-Compile Love] Disable {C,LD}FLAGS and redefine CC= for 'makekeys'
 	if tc-is-cross-compiler; then
 		(
 			filter-flags -m*
-			multilib_for_best_abi run_in_build_dir \
-				emake -C src/util \
-				CC=$(tc-getBUILD_CC) \
-				CFLAGS="${CFLAGS}" \
-				LDFLAGS="" \
-				clean all || die
+			emake -C src/util \
+			CC=$(tc-getBUILD_CC) \
+			CFLAGS="${CFLAGS}" \
+			LDFLAGS="" \
+			clean all || die
 		)
 	fi
-	xorg-2_src_compile
+
+	default
 }

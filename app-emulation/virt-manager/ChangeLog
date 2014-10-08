@@ -1,6 +1,32 @@
 # ChangeLog for app-emulation/virt-manager
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virt-manager/ChangeLog,v 1.101 2014/01/26 11:43:23 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/virt-manager/ChangeLog,v 1.107 2014/08/27 07:57:29 pinkbyte Exp $
+
+  27 Aug 2014; Sergey Popov <pinkbyte@gentoo.org>
+  virt-manager-0.10.0-r2.ebuild:
+  Add x11-themes/gnome-icon-theme dependency to stable version as well
+
+*virt-manager-1.0.1 (06 Aug 2014)
+
+  06 Aug 2014; Ian Whyman <thev00d00@gentoo.org> +virt-manager-1.0.1.ebuild,
+  virt-manager-9999.ebuild:
+  Bump to 1.0.1, fixes #501532, #509642 and #516414
+
+  06 Aug 2014; Ian Whyman <thev00d00@gentoo.org> virt-manager-9999.ebuild:
+  Sync 9999 with latest stable, add missing sys-libs/libosinfo RDEPEND per
+  #508680
+
+  07 Jul 2014; Chema Alonso <nimiux@gentoo.org> virt-manager-0.10.0-r2.ebuild:
+  Stable for amd64 wrt bug #508250
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  virt-manager-0.10.0-r2.ebuild:
+  x86 stable wrt bug #508250
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> virt-manager-0.10.0-r1.ebuild,
+  virt-manager-0.10.0-r2.ebuild, virt-manager-0.10.0.ebuild,
+  virt-manager-9999.ebuild:
+  Adapt to latest pygobject don't providing python2.6 support
 
   26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> virt-manager-0.10.0-r1.ebuild:
   Stable for x86, wrt bug #493788

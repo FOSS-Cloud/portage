@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/mate-file-archiver/mate-file-archiver-1.6.1.ebuild,v 1.1 2014/03/12 16:32:14 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/mate-file-archiver/mate-file-archiver-1.6.1.ebuild,v 1.3 2014/06/21 12:04:48 tomwij Exp $
 
 EAPI="5"
 
@@ -17,7 +17,7 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 IUSE="caja"
 
@@ -29,6 +29,7 @@ RDEPEND=">=x11-libs/gtk+-2.21.4:2
 	caja? ( >=mate-base/mate-file-manager-1.6:0 )"
 
 DEPEND="${RDEPEND}
+	>=app-text/gnome-doc-utils-0.20.10:0
 	>=app-text/mate-doc-utils-1.6:0
 	>=dev-util/intltool-0.35:*
 	>=mate-base/mate-common-1.6:0

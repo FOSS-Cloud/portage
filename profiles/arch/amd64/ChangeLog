@@ -1,6 +1,76 @@
 # ChangeLog for Gentoo/AMD64 profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/ChangeLog,v 1.254 2014/04/08 23:40:34 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/ChangeLog,v 1.275 2014/09/13 09:08:30 hwoarang Exp $
+
+  13 Sep 2014; Markos Chandras <hwoarang@gentoo.org> package.use.mask:
+  midori[jit] works on amd64
+
+  02 Sep 2014; Hans de Graaff <graaff@gentoo.org> use.mask:
+  ruby_targets_jruby is now masked everywhere.
+
+  04 Aug 2014; Mike Frysinger <vapier@gentoo.org> package.use.mask:
+  Unmask x86-specific flashrom USE flags.
+
+  30 Jul 2014; Sven Vermeulen <swift@gentoo.org> package.use.stable.mask:
+  Adding use-stable-mask on libsemanage (multilib) as well
+
+  30 Jul 2014; Sven Vermeulen <swift@gentoo.org> package.use.stable.mask:
+  Adding use-stable-mask on libselinux (multilib) as well
+
+  27 Jul 2014; Alexis Ballier <aballier@gentoo.org> use.mask:
+  unmask xop useflag on amd64
+
+  26 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> package.use.stable.mask:
+  Remove useless entry for virtual/udev.
+
+  22 Jul 2014; Christoph Junghans <ottxor@gentoo.org> no-multilib/package.mask:
+  masked games-fps/enemy-territory-omnibot on no-multilib
+
+  01 Jul 2014; Michał Górny <mgorny@gentoo.org> x32/make.defaults:
+  Update default ABI_X86 in x32 profile.
+
+  29 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.use.mask:
+  Mask use-flag firebird and package dev-db/firebird for bug 460780
+
+  28 Jun 2014; Michał Górny <mgorny@gentoo.org> package.use:
+  Enable abi_x86_32 by default on nvidia-cg-toolkit, to match default
+  USE=multilib.
+
+  25 Jun 2014; Michał Górny <mgorny@gentoo.org> make.defaults,
+  x32/make.defaults:
+  Fix typo.
+
+  25 Jun 2014; Michał Górny <mgorny@gentoo.org> make.defaults,
+  x32/make.defaults:
+  Experimentally mark native ABI USE flag implicit for better
+  user-friendliness.
+
+  15 Jun 2014; Michał Górny <mgorny@gentoo.org> package.use.stable.mask:
+  Stable-mask emul-linux-x86 flags that are used only to control abi_x86_32
+  deps.
+
+  15 Jun 2014; Michał Górny <mgorny@gentoo.org> package.use.stable.mask:
+  Update package.use.stable.mask for openssl stabilization.
+
+  02 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> package.use.stable.mask:
+  Mask abi_x86_32 for virtual/libudev and virtual/libgudev.
+
+  28 May 2014; Sven Vermeulen <swift@gentoo.org> no-multilib/package.mask:
+  Remove huludesktop from package.mask (package has been removed)
+
+  24 May 2014; Michał Górny <mgorny@gentoo.org> package.use.stable.mask:
+  Stable-mask abi_x86_32 on net-libs/polarssl.
+
+  24 May 2014; Michał Górny <mgorny@gentoo.org> package.use.stable.mask:
+  Stable-mask abi_x86_32 on sys-libs/libcap.
+
+  08 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.stable.mask:
+  Mask multilib for stable libxkbcommon.
+
+  05 May 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  package.use.stable.mask:
+  Add harfbuzz and deps to abi_x86_32 mask in preparation for stabilization
 
   08 Apr 2014; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask,
   use.mask, use.stable.mask:

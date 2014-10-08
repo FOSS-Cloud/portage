@@ -1,6 +1,22 @@
 # ChangeLog for dev-python/tweepy
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/tweepy/ChangeLog,v 1.5 2014/03/31 21:17:18 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/tweepy/ChangeLog,v 1.9 2014/08/26 17:03:16 idella4 Exp $
+
+  26 Aug 2014; Ian Delaney <idella4@gentoo.org> tweepy-2.2.ebuild:
+  correct typo
+
+  25 Jun 2014; Ian Delaney <idella4@gentoo.org> tweepy-2.2.ebuild:
+  fix DEPEND, Bug #514042
+
+*tweepy-2.2 (04 Jun 2014)
+
+  04 Jun 2014; Ian Delaney <idella4@gentoo.org> +tweepy-2.2.ebuild:
+  bump
+
+*tweepy-2.1 (21 May 2014)
+
+  21 May 2014; Ian Delaney <idella4@gentoo.org> +tweepy-2.1.ebuild:
+  bump; drop py2.6 pypy2_0, tidy
 
   31 Mar 2014; Michał Górny <mgorny@gentoo.org> tweepy-2.0.ebuild:
   Add support for the new PyPy slotting.

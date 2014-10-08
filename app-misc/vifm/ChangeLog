@@ -1,6 +1,42 @@
 # ChangeLog for app-misc/vifm
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/vifm/ChangeLog,v 1.31 2014/01/18 00:40:31 wired Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/vifm/ChangeLog,v 1.41 2014/07/15 23:10:35 zlogene Exp $
+
+  15 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> vifm-0.7.6.ebuild:
+  x86 stable wrt bug #510728
+
+  15 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> vifm-0.7.6.ebuild:
+  amd64 stable wrt bug #510728
+
+  15 Jul 2014; Chema Alonso <nimiux@gentoo.org> vifm-0.7.1.ebuild,
+  vifm-0.7.2.ebuild, vifm-0.7.4b-r1.ebuild, vifm-0.7.5.ebuild,
+  vifm-0.7.6.ebuild, vifm-0.7.7.ebuild:
+  Install FAQ and NEWS files wrt bug #516752
+
+  15 Jul 2014; Chema Alonso <nimiux@gentoo.org> vifm-0.7.7.ebuild:
+  Stabilized by mistake. Moved to ~amd64
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> vifm-0.7.6.ebuild:
+  Stable for ppc, wrt bug #510728
+
+  08 Jul 2014; Chema Alonso <nimiux@gentoo.org> vifm-0.7.7.ebuild:
+  Stable for amd64 wrt bug #510728
+
+  08 Jul 2014; Chema Alonso <nimiux@gentoo.org> -vifm-0.3a.ebuild,
+  -vifm-0.4.ebuild, -vifm-0.5.ebuild, -vifm-0.5-r1.ebuild,
+  -files/vifm-0.5-ncurses-5.8.patch:
+  Drop old
+
+*vifm-0.7.7 (08 Jul 2014)
+
+  08 Jul 2014; Chema Alonso <nimiux@gentoo.org> +vifm-0.7.7.ebuild:
+  Version bump
+
+  15 May 2014; Chema Alonso <nimiux@gentoo.org> metadata.xml:
+  Take maintainership of package
+
+  08 May 2014; Alex Alexander <wired@gentoo.org> metadata.xml:
+  maintainer-needed
 
 *vifm-0.7.6 (18 Jan 2014)
 

@@ -1,6 +1,59 @@
 # ChangeLog for net-libs/libmicrohttpd
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libmicrohttpd/ChangeLog,v 1.63 2014/03/27 14:54:26 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libmicrohttpd/ChangeLog,v 1.75 2014/10/08 12:12:43 blueness Exp $
+
+  08 Oct 2014; Anthony G. Basile <blueness@gentoo.org>
+  libmicrohttpd-0.9.37.ebuild:
+  Stable on arm/ppc/ppc64, bug #524760
+
+*libmicrohttpd-0.9.38 (08 Oct 2014)
+
+  08 Oct 2014; Anthony G. Basile <blueness@gentoo.org>
+  +libmicrohttpd-0.9.38.ebuild:
+  Version bump
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  libmicrohttpd-0.9.32.ebuild, libmicrohttpd-0.9.33.ebuild,
+  libmicrohttpd-0.9.34.ebuild, libmicrohttpd-0.9.35.ebuild,
+  libmicrohttpd-0.9.36.ebuild, libmicrohttpd-0.9.37.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*libmicrohttpd-0.9.37 (02 Jun 2014)
+
+  02 Jun 2014; Anthony G. Basile <blueness@gentoo.org>
+  +libmicrohttpd-0.9.37.ebuild:
+  Version bump
+
+*libmicrohttpd-0.9.36 (26 May 2014)
+
+  26 May 2014; Anthony G. Basile <blueness@gentoo.org>
+  +libmicrohttpd-0.9.36.ebuild:
+  Version bump
+
+  25 May 2014; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.34.ebuild:
+  Stable for sparc, wrt bug #509094
+
+  25 May 2014; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.34.ebuild:
+  Stable for ia64, wrt bug #509094
+
+  25 May 2014; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.34.ebuild:
+  Stable for alpha, wrt bug #509094
+
+  25 May 2014; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.34.ebuild:
+  Stable for x86, wrt bug #509094
+
+  25 May 2014; Agostino Sarubbo <ago@gentoo.org> libmicrohttpd-0.9.34.ebuild:
+  Stable for amd64, wrt bug #509094
+
+  03 May 2014; Anthony G. Basile <blueness@gentoo.org>
+  libmicrohttpd-0.9.34.ebuild:
+  Stable on ppc, ppc64, arm.  Bug #509094
+
+*libmicrohttpd-0.9.35 (03 May 2014)
+
+  03 May 2014; Anthony G. Basile <blueness@gentoo.org>
+  +libmicrohttpd-0.9.35.ebuild:
+  Version bump
 
   27 Mar 2014; Mike Gilbert <floppym@gentoo.org> libmicrohttpd-0.9.33.ebuild,
   libmicrohttpd-0.9.34.ebuild:

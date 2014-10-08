@@ -1,6 +1,14 @@
 # ChangeLog for net-dialup/isdn-firmware
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/isdn-firmware/ChangeLog,v 1.17 2013/07/21 09:04:55 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/isdn-firmware/ChangeLog,v 1.19 2014/05/24 21:48:03 jer Exp $
+
+  24 May 2014; Jeroen Roovers <jer@gentoo.org>
+  isdn-firmware-2005.8.15.2.ebuild:
+  Remove mirror://opensuse (bug #494868), use libdir.
+
+  30 Apr 2014; Ulrich Müller <ulm@gentoo.org>
+  isdn-firmware-2005.8.15.2.ebuild:
+  Fix LICENSE, bug 446158.
 
   21 Jul 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due #92799

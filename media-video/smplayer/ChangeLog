@@ -1,6 +1,52 @@
 # ChangeLog for media-video/smplayer
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/smplayer/ChangeLog,v 1.140 2013/08/18 11:26:16 yngwin Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/smplayer/ChangeLog,v 1.152 2014/10/07 19:51:37 sping Exp $
+
+*smplayer-14.9.0-r1 (07 Oct 2014)
+
+  07 Oct 2014; Sebastian Pipping <sping@gentoo.org> +smplayer-14.9.0-r1.ebuild,
+  +files/smplayer-14.9.0-zero-bidi.patch:
+  Guard passing -noflip-hebrew to mplayer 1.x by USE=bidi (bug #507588)
+
+  04 Oct 2014; Ben de Groot <yngwin@gentoo.org> metadata.xml,
+  smplayer-14.9.0.ebuild:
+  Fix bug #524392 by adding optional dependency on qtdbus for autoshutdown.
+
+  29 Sep 2014; Davide Pesavento <pesa@gentoo.org>
+  -files/smplayer-0.8.0-quazip.patch, -smplayer-0.8.5.ebuild:
+  old
+
+  29 Sep 2014; Agostino Sarubbo <ago@gentoo.org> smplayer-14.3.0.ebuild:
+  Stable for x86, wrt bug #523402
+
+  29 Sep 2014; Agostino Sarubbo <ago@gentoo.org> smplayer-14.3.0.ebuild:
+  Stable for amd64, wrt bug #523402
+
+  29 Sep 2014; Jeroen Roovers <jer@gentoo.org> smplayer-14.3.0.ebuild:
+  Stable for HPPA (bug #523402).
+
+  24 Sep 2014; Davide Pesavento <pesa@gentoo.org> -smplayer-0.8.5-r1.ebuild,
+  -smplayer-0.8.6.ebuild:
+  old
+
+*smplayer-14.9.0 (24 Sep 2014)
+
+  24 Sep 2014; Ben de Groot <yngwin@gentoo.org> +smplayer-14.9.0.ebuild:
+  version bump
+
+  28 Apr 2014; Fabian Groffen <grobian@gentoo.org> smplayer-14.3.0.ebuild:
+  Fix for Prefix, by Matthias Maier in bug #507724
+
+  18 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> smplayer-14.3.0.ebuild:
+  Another attempt to fix USE-flag dependencies for mplayer and mplayer2.
+
+  13 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> smplayer-14.3.0.ebuild:
+  Attempt to fix installation with mplayer2 (bug #507588).
+
+*smplayer-14.3.0 (12 Apr 2014)
+
+  12 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> +smplayer-14.3.0.ebuild:
+  Version bump (bug #506578).
 
 *smplayer-0.8.6 (18 Aug 2013)
 

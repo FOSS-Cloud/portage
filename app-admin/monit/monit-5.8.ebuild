@@ -1,17 +1,17 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/monit/monit-5.8.ebuild,v 1.1 2014/04/02 02:32:01 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/monit/monit-5.8.ebuild,v 1.5 2014/08/10 01:37:40 patrick Exp $
 
 EAPI="2"
 inherit systemd
 
-DESCRIPTION="a utility for monitoring and managing daemons or similar programs running on a Unix system."
+DESCRIPTION="a utility for monitoring and managing daemons or similar programs running on a Unix system"
 HOMEPAGE="http://mmonit.com/monit/"
 SRC_URI="http://mmonit.com/monit/dist/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux"
+KEYWORDS="amd64 ppc x86 ~amd64-linux"
 IUSE="pam ssl"
 
 RDEPEND="ssl? ( dev-libs/openssl )"

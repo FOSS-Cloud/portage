@@ -1,6 +1,41 @@
 # ChangeLog for Gentoo/x86 profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/ChangeLog,v 1.164 2014/04/08 23:41:43 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/ChangeLog,v 1.175 2014/09/13 09:07:59 hwoarang Exp $
+
+  13 Sep 2014; Markos Chandras <hwoarang@gentoo.org> package.use.mask:
+  midori[jit] works on x86
+
+  02 Sep 2014; Hans de Graaff <graaff@gentoo.org> use.mask:
+  ruby_targets_jruby is now masked everywhere.
+
+  04 Aug 2014; Mike Frysinger <vapier@gentoo.org> package.use.mask:
+  Unmask x86-specific flashrom USE flags.
+
+  27 Jul 2014; Alexis Ballier <aballier@gentoo.org> use.mask:
+  unmask xop useflag on x86
+
+  01 Jul 2014; Michał Górny <mgorny@gentoo.org> make.defaults:
+  Set default ABI_X86. Just in case.
+
+  29 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org> use.mask:
+  Mask use-flag firebird and package dev-db/firebird for bug 460780
+
+  29 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  Stablemask firebird useflag on libreoffice until dependencies are stabilized
+
+  25 Jun 2014; Michał Górny <mgorny@gentoo.org> make.defaults:
+  Fix typo.
+
+  25 Jun 2014; Michał Górny <mgorny@gentoo.org> make.defaults:
+  Experimentally mark native ABI USE flag implicit for better
+  user-friendliness.
+
+  20 Jun 2014; Michał Górny <mgorny@gentoo.org> make.defaults:
+  Set amd64-compatible values for ABI and related variables.
+
+  23 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> package.use.mask:
+  media-sound/lmms[vst] works on 32bit x86
 
   08 Apr 2014; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask,
   use.mask, use.stable.mask:

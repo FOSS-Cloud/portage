@@ -1,6 +1,25 @@
 # ChangeLog for app-admin/sysklogd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/sysklogd/ChangeLog,v 1.88 2013/08/24 09:41:56 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/sysklogd/ChangeLog,v 1.91 2014/10/06 16:52:31 polynomial-c Exp $
+
+*sysklogd-1.5.1 (06 Oct 2014)
+
+  06 Oct 2014; Lars Wendler <polynomial-c@gentoo.org> -sysklogd-1.5-r4.ebuild,
+  +sysklogd-1.5.1.ebuild, -files/sysklogd-1.5_CVE-2014-3634.diff:
+  Version bump which adds official upstream security release for CVE-2014-3634
+  (bug #524058).
+
+*sysklogd-1.5-r4 (04 Oct 2014)
+
+  04 Oct 2014; Lars Wendler <polynomial-c@gentoo.org> -sysklogd-1.5.ebuild,
+  -sysklogd-1.5-r1.ebuild, +sysklogd-1.5-r4.ebuild,
+  +files/sysklogd-1.5_CVE-2014-3634.diff:
+  Security bump (bug #524058). Remote syslog PRI vulnerability (CVE-2014-3634).
+  Removed old.
+
+  26 Sep 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +files/sysklogd-1.5-debian-cron.patch:
+  fixed cvs sticky options on file(s) that should not have cvs keyword expansion
 
   24 Aug 2013; Sergey Popov <pinkbyte@gentoo.org> sysklogd-1.5-r3.ebuild:
   Add ~mips keyword

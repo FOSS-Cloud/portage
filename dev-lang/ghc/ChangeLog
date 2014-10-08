@@ -1,6 +1,70 @@
 # ChangeLog for dev-lang/ghc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ghc/ChangeLog,v 1.254 2014/04/03 20:05:01 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/ghc/ChangeLog,v 1.269 2014/09/07 06:29:23 slyfox Exp $
+
+  07 Sep 2014; Sergei Trofimovich <slyfox@gentoo.org> ghc-6.12.3-r2.ebuild,
+  ghc-7.0.4.ebuild:
+  Disable bitrot bfd code (bug #522268 by Sebastian Pipping).
+
+  05 Sep 2014; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.8.3.ebuild:
+  Allow USE=gmp on ia64 (fixed by ghc-7.8.3-ia64-prim.patch).
+
+  04 Sep 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/ghc-7.8.3-cc-lang.patch, +files/ghc-7.8.3-deRefStablePtr.patch,
+  +files/ghc-7.8.3-ia64-prim.patch, +files/ghc-7.8.3-linker-warn.patch,
+  +files/ghc-7.8.3-pic-asm.patch, +files/ghc-7.8.3-pic-sparc.patch,
+  -files/ghc-7.8.2-ia64-no-shared.patch, files/ghc-7.8.3-prim-lm.patch,
+  ghc-7.8.3.ebuild:
+  A bunch of UNREG backports (fixes sparc dynamic libraries, ia64 gmp support).
+
+  23 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
+  Drop redundant maintainer in favour of herd.
+
+  23 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/ghc-7.8.3-unreg-lit.patch, ghc-7.8.3.ebuild:
+  Fix integer-gmp crashes and miscomputations in UNREG builds.
+
+  11 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.8.3.ebuild:
+  Keyword amd64/x86 where we have bianries.
+
+  01 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/ghc-7.6.3-preserve-inplace-xattr.patch, ghc-7.6.3-r1.ebuild,
+  ghc-7.8.3.ebuild:
+  Fix hardened installation in PAX_MARKINGS=XT mode (bug #518734).
+
+  01 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.6.3-r1.ebuild,
+  ghc-7.8.3.ebuild:
+  fix installation on PaX kernels (thanks to yangjay)
+
+  30 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.8.3.ebuild:
+  Fix pax-marking command for final ghc binary.
+
+  30 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/ghc-7.8.3-prim-lm.patch, ghc-7.8.3.ebuild:
+  Fix underlinking of ghc-prim. Workarounds ghc-stage2 ld.so SIGSEGV on hardened
+  (reported by aranea).
+
+  12 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.8.3.ebuild:
+  Added amd64 and x86 binaries.
+
+*ghc-7.8.3 (10 Jul 2014)
+
+  10 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +files/ghc-7.8.1_rc1-libbfd.patch, +files/ghc-7.8.2-cgen-constify.patch,
+  +files/ghc-7.8.2-ia64-no-shared.patch, +ghc-7.8.3.ebuild:
+  Version bump.
+
+  05 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.6.3-r1.ebuild:
+  pax-mark ghc-stage2 before it's used first time. Fixes bootstrap failure on
+  hardened (bug #516430 by Markus Oehme).
+
+  27 Jun 2014; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.6.3-r1.ebuild:
+  Ignore flags '--with-compiler/--with-gcc' passed by cabal with
+  'QA_CONFIGURE_OPTIONS'. Bug #515354 by Patrick Lauer, bug #469618 by Roman
+  Žilka.
+
+  22 Apr 2014; Michael Orlitzky <mjo@gentoo.org> metadata.xml:
+  Fix typo in llvm USE flag description, fixes bug #508398.
 
   03 Apr 2014; Sergei Trofimovich <slyfox@gentoo.org> ghc-7.6.3-r1.ebuild:
   Disable ghci relinking hack on prefix. Found out by Wilfred Hughes on RHEL5

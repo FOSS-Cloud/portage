@@ -1,6 +1,43 @@
 # ChangeLog for net-dns/dnsmasq
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/dnsmasq/ChangeLog,v 1.248 2013/12/10 19:55:03 chutzpah Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-dns/dnsmasq/ChangeLog,v 1.254 2014/10/07 01:01:47 chutzpah Exp $
+
+*dnsmasq-2.72 (07 Oct 2014)
+
+  07 Oct 2014; Patrick McLean <chutzpah@gentoo.org> +dnsmasq-2.72.ebuild,
+  +files/dnsmasq-init-dhcp-r1:
+  Version bump, move leases file creation to init script (bug #524036). Add
+  code to try to prevent leases file from being removed by portage.
+
+*dnsmasq-2.71-r1 (22 Aug 2014)
+
+  22 Aug 2014; Patrick McLean <chutzpah@gentoo.org> -dnsmasq-2.67.ebuild,
+  -dnsmasq-2.68.ebuild, -dnsmasq-2.70.ebuild, +dnsmasq-2.71-r1.ebuild:
+  Revision bump, clean up USE flag handling a bit. Install example
+  configuration file as a doc as well as the default config. Make sure
+  /var/lib/misc/dnsmasq.leases exists and is owned by dnsmasq (bug #520396).
+  Clean out some old versions.
+
+  03 Aug 2014;  <tgall@gentoo.org> dnsmasq-2.66.ebuild, dnsmasq-2.71.ebuild:
+  arm64, initial support
+
+*dnsmasq-2.71 (20 May 2014)
+
+  20 May 2014; Patrick McLean <chutzpah@gentoo.org> +dnsmasq-2.71.ebuild:
+  Version bump.
+
+*dnsmasq-2.70 (24 Apr 2014)
+
+  24 Apr 2014; Patrick McLean <chutzpah@gentoo.org> -dnsmasq-2.69.ebuild,
+  +dnsmasq-2.70.ebuild:
+  Version bump, remove buggy older version.
+
+*dnsmasq-2.69 (10 Apr 2014)
+
+  10 Apr 2014; Patrick McLean <chutzpah@gentoo.org> +dnsmasq-2.69.ebuild,
+  metadata.xml:
+  Version bump, added support for DNSSEC (Bug #504154). Initial ebuild changes
+  contributed by Alex Xu.
 
   10 Dec 2013; Patrick McLean <chutzpah@gentoo.org> +files/dnsmasq.service-r1,
   dnsmasq-2.68.ebuild, files/dnsmasq.service:

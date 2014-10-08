@@ -1,6 +1,27 @@
 # ChangeLog for net-analyzer/sec
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/sec/ChangeLog,v 1.23 2013/05/20 08:41:32 ago Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/sec/ChangeLog,v 1.28 2014/08/14 20:44:51 jer Exp $
+
+  14 Aug 2014; Jeroen Roovers <jer@gentoo.org> -sec-2.7.0.ebuild:
+  Old.
+
+  11 Aug 2014; Chema Alonso <nimiux@gentoo.org> sec-2.7.5.ebuild:
+  Stable for amd64 wrt bug #517274
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> sec-2.7.5.ebuild:
+  x86 stable wrt bug #517274
+
+*sec-2.7.6 (16 Jul 2014)
+
+  16 Jul 2014; Jeroen Roovers <jer@gentoo.org> sec-2.7.5.ebuild,
+  +sec-2.7.6.ebuild, files/sec.conf.d, metadata.xml:
+  Version bump. Remove short <longdescription>. Update conf.d comments.
+
+*sec-2.7.5 (04 May 2014)
+
+  04 May 2014; Jeroen Roovers <jer@gentoo.org> -sec-2.6.2.ebuild,
+  +sec-2.7.5.ebuild:
+  Version bump.
 
   20 May 2013; Agostino Sarubbo <ago@gentoo.org> sec-2.7.0.ebuild:
   Stable for x86, wrt bug #461202
