@@ -83,7 +83,7 @@ games-board/chessdb
 # Michael Orlitzky <mjo@gentoo.org> (16 Sep 2014)
 # Superseded by app-text/dos2unix, use that instead.
 # Masked for removal in 30 days (bug #522804).
-app-text/unix2dos
+# app-text/unix2dos
 
 # Michał Górny <mgorny@gentoo.org> (15 Sep 2014)
 # Causes undefined references few layers down (in mediastreamer),
