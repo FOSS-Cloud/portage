@@ -1,6 +1,76 @@
 # ChangeLog for app-emulation/qemu
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.296 2014/09/13 17:11:54 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/ChangeLog,v 1.312 2015/01/27 10:13:17 tamiko Exp $
+
+*qemu-2.1.3 (27 Jan 2015)
+
+  27 Jan 2015; Matthias Maier <tamiko@gentoo.org> +qemu-2.1.3.ebuild,
+  qemu-2.1.2-r2.ebuild, qemu-2.2.0.ebuild:
+  version bump, bug #537648
+
+  21 Dec 2014; Matthias Maier <tamiko@gentoo.org> -qemu-2.1.2-r1.ebuild:
+  drop vulnerable, bug #531666 (CVE-2014-8106)
+
+  21 Dec 2014; Agostino Sarubbo <ago@gentoo.org> qemu-2.1.2-r2.ebuild:
+  Stable for x86, wrt bug #531666
+
+  21 Dec 2014; Agostino Sarubbo <ago@gentoo.org> qemu-2.1.2-r2.ebuild:
+  Stable for amd64, wrt bug #531666
+
+*qemu-2.1.2-r2 (14 Dec 2014)
+
+  14 Dec 2014; Matthias Maier <tamiko@gentoo.org> +qemu-2.1.2-r2.ebuild:
+  backport fixes for bugs #530498, #531666 (CVE-2014-8106), #529030
+  (CVE-2014-7840), #528922 (528922)
+
+*qemu-2.2.0 (14 Dec 2014)
+
+  14 Dec 2014; Matthias Maier <tamiko@gentoo.org> +qemu-2.2.0.ebuild,
+  metadata.xml:
+  version bump; cleanup whitespace in metadata.xml
+
+  11 Dec 2014; Michał Górny <mgorny@gentoo.org> qemu-2.1.2-r1.ebuild,
+  qemu-9999.ebuild:
+  Add missing udev_reload call in case udev rules are installed, fixes
+  https://bugs.funtoo.org/browse/FL-1626.
+
+  08 Nov 2014; Agostino Sarubbo <ago@gentoo.org>
+  -files/qemu-2.1.0-CVE-2014-5388.patch, -qemu-2.1.0-r1.ebuild,
+  -qemu-2.1.1.ebuild, -qemu-2.1.2.ebuild:
+  Remove old
+
+  08 Nov 2014; Agostino Sarubbo <ago@gentoo.org> qemu-2.1.2-r1.ebuild:
+  Stable for x86, wrt bug #527088
+
+  08 Nov 2014; Agostino Sarubbo <ago@gentoo.org> qemu-2.1.2-r1.ebuild:
+  Stable for amd64, wrt bug #527088
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> qemu-2.1.1.ebuild,
+  qemu-2.1.2-r1.ebuild, qemu-2.1.2.ebuild, qemu-9999.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+*qemu-2.1.2-r1 (31 Oct 2014)
+
+  31 Oct 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/qemu-2.1.2-vnc-sanitize-bits.patch, +qemu-2.1.2-r1.ebuild:
+  Add fix from upstream for vnc arg sanitizing #527088 by Agostino Sarubbo.
+
+  23 Oct 2014; Agostino Sarubbo <ago@gentoo.org> qemu-2.1.1.ebuild:
+  Stable for x86, wrt bug #522364
+
+  23 Oct 2014; Agostino Sarubbo <ago@gentoo.org> qemu-2.1.1.ebuild:
+  Stable for amd64, wrt bug #522364
+
+*qemu-2.1.2 (16 Oct 2014)
+
+  16 Oct 2014; Mike Frysinger <vapier@gentoo.org> +qemu-2.1.2.ebuild:
+  Version bump #523428 by Agostino Sarubbo.
+
+  26 Sep 2014; Mike Gilbert <floppym@gentoo.org> qemu-2.1.1.ebuild,
+  qemu-9999.ebuild:
+  Utilize PYTHON_REQUIRED_USE unconditionally. We always need at least one
+  python version enabled for building.
 
   13 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
   -files/qemu-2.0.0-CVE-2013-4541.patch, -files/qemu-2.0.0-CVE-2014-0222.patch,

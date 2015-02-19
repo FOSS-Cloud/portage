@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-2.1.0-r1.ebuild,v 1.6 2014/09/13 17:07:04 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-2.1.3.ebuild,v 1.1 2015/01/27 10:13:17 tamiko Exp $
 
 EAPI=5
 
@@ -10,7 +10,7 @@ PYTHON_REQ_USE="ncurses,readline"
 inherit eutils flag-o-matic linux-info toolchain-funcs multilib python-r1 \
 	user udev fcaps readme.gentoo pax-utils
 
-BACKPORTS=
+BACKPORTS=""
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://git.qemu.org/qemu.git"
@@ -20,8 +20,9 @@ if [[ ${PV} = *9999* ]]; then
 else
 	SRC_URI="http://wiki.qemu-project.org/download/${P}.tar.bz2
 	${BACKPORTS:+
-		http://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz}"
-	KEYWORDS="amd64 ~ppc ~ppc64 x86 ~x86-fbsd"
+		http://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz
+		http://dev.gentoo.org/~tamiko/distfiles/${P}-${BACKPORTS}.tar.xz}"
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
 fi
 
 DESCRIPTION="QEMU + Kernel-based Virtual Machine userland tools"
@@ -52,7 +53,7 @@ IUSE+=" ${use_targets}"
 # Require at least one softmmu or user target.
 # Block USE flag configurations known to not work.
 REQUIRED_USE="|| ( ${use_targets} )
-	python? ( ${PYTHON_REQUIRED_USE} )
+	${PYTHON_REQUIRED_USE}
 	qemu_softmmu_targets_arm? ( fdt )
 	qemu_softmmu_targets_microblaze? ( fdt )
 	qemu_softmmu_targets_ppc? ( fdt )
@@ -108,7 +109,7 @@ X86_FIRMWARE_DEPEND="
 		sys-firmware/sgabios
 		sys-firmware/vgabios
 	)"
-RDEPEND="!static-softmmu? ( ${SOFTMMU_LIB_DEPEND//\[static-libs(+)]} )
+CDEPEND="!static-softmmu? ( ${SOFTMMU_LIB_DEPEND//\[static-libs(+)]} )
 	!static-user? ( ${USER_LIB_DEPEND//\[static-libs(+)]} )
 	qemu_softmmu_targets_i386? ( ${X86_FIRMWARE_DEPEND} )
 	qemu_softmmu_targets_x86_64? ( ${X86_FIRMWARE_DEPEND} )
@@ -124,14 +125,13 @@ RDEPEND="!static-softmmu? ( ${SOFTMMU_LIB_DEPEND//\[static-libs(+)]} )
 	pulseaudio? ( media-sound/pulseaudio )
 	python? ( ${PYTHON_DEPS} )
 	sdl? ( media-libs/libsdl[X] )
-	selinux? ( sec-policy/selinux-qemu )
 	smartcard? ( dev-libs/nss !app-emulation/libcacard )
 	spice? ( >=app-emulation/spice-protocol-0.12.3 )
 	systemtap? ( dev-util/systemtap )
 	usbredir? ( >=sys-apps/usbredir-0.6 )
 	virtfs? ( sys-libs/libcap )
 	xen? ( app-emulation/xen-tools )"
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	dev-lang/perl
 	=dev-lang/python-2*
 	sys-apps/texinfo
@@ -144,6 +144,9 @@ DEPEND="${RDEPEND}
 		dev-libs/glib[utils]
 		sys-devel/bc
 	)"
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-qemu )
+"
 
 STRIP_MASK="/usr/share/qemu/palcode-clipper"
 
@@ -255,10 +258,11 @@ src_prepare() {
 	use nls || rm -f po/*.po
 
 	epatch "${FILESDIR}"/qemu-1.7.0-cflags.patch
-	epatch "${FILESDIR}"/${P}-CVE-2014-5388.patch #520688
+	epatch "${FILESDIR}"/${PN}-2.1.1-readlink-self.patch
+	epatch "${FILESDIR}"/${PN}-2.1.2-vnc-sanitize-bits.patch #527088
 	[[ -n ${BACKPORTS} ]] && \
-		EPATCH_FORCE=yes EPATCH_SUFFIX="patch" EPATCH_SOURCE="${S}/patches" \
-			epatch
+		EPATCH_FORCE=yes EPATCH_SUFFIX="patch" \
+			EPATCH_SOURCE="${WORKDIR}/patches" epatch
 
 	# Fix ld and objcopy being called directly
 	tc-export AR LD OBJCOPY
@@ -572,6 +576,10 @@ pkg_postinst() {
 			ewarn "installed.  In order to use kvm acceleration, pass the flag"
 			ewarn "-enable-kvm when running your system target."
 		fi
+	fi
+
+	if [[ -n ${softmmu_targets} ]] && use kernel_linux; then
+		udev_reload
 	fi
 
 	fcaps cap_net_admin /usr/libexec/qemu-bridge-helper
