@@ -1,6 +1,25 @@
 # ChangeLog for sys-block/fio
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/fio/ChangeLog,v 1.54 2014/09/07 17:42:56 robbat2 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-block/fio/ChangeLog,v 1.58 2015/01/13 05:12:43 prometheanfire Exp $
+
+*fio-2.2.4 (13 Jan 2015)
+
+  13 Jan 2015; Matthew Thode <prometheanfire@gentoo.org> +fio-2.2.4.ebuild,
+  -fio-2.1.13.ebuild, fio-2.1.14.ebuild:
+  fixing bug 526450 and a bump
+
+*fio-2.1.14 (18 Nov 2014)
+
+  18 Nov 2014; Mike Frysinger <vapier@gentoo.org> +fio-2.1.14.ebuild:
+  Version bump.
+
+*fio-2.1.13 (21 Oct 2014)
+
+  21 Oct 2014; Mike Frysinger <vapier@gentoo.org> +fio-2.1.13.ebuild:
+  Version bump.
+
+  24 Sep 2014; Markus Meier <maekke@gentoo.org> fio-2.1.11-r1.ebuild:
+  add ~arm, bug #519618
 
   07 Sep 2014; Robin H. Johnson <robbat2@gentoo.org> fio-1.17.2.ebuild,
   fio-1.17.ebuild, fio-1.18.1.ebuild, fio-1.20.ebuild, fio-1.21.ebuild,
