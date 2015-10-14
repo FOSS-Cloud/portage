@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/xfsprogs/xfsprogs-3.2.1.ebuild,v 1.10 2014/11/11 10:46:24 ago Exp $
+# $Id$
 
 EAPI="4"
 
@@ -37,7 +37,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-3.1.11-sharedlibs.patch
+	epatch "${FILESDIR}"/${PN}-3.2.2-sharedlibs.patch
 
 	sed -i \
 		-e "/^PKG_DOC_DIR/s:@pkg_name@:${PF}:" \
@@ -46,7 +46,7 @@ src_prepare() {
 		-e '1iLLDFLAGS = -static' \
 		{estimate,fsr}/Makefile || die
 	sed -i \
-		-e "/LLDFLAGS/s:-static:$(use static && echo -all-static):" \
+		-e "/LLDFLAGS/s:-static-libtool-libs:$(use static && echo -all-static):" \
 		$(find -name Makefile) || die
 
 	# libdisk has broken blkid conditional checking

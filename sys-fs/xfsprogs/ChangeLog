@@ -1,6 +1,57 @@
 # ChangeLog for sys-fs/xfsprogs
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/xfsprogs/ChangeLog,v 1.178 2014/12/15 10:01:52 polynomial-c Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/xfsprogs/ChangeLog,v 1.194 2015/08/06 04:56:14 maekke Exp $
+
+  06 Aug 2015; Markus Meier <maekke@gentoo.org> xfsprogs-3.2.4.ebuild:
+  arm stable, bug #556318
+
+  05 Aug 2015; Mikle Kolyada <zlogene@gentoo.org> xfsprogs-3.2.4.ebuild:
+  ia64 stable wrt bug #556318
+
+  05 Aug 2015; Jeroen Roovers <jer@gentoo.org> xfsprogs-3.2.4.ebuild:
+  Stable for HPPA PPC64 (bug #556318).
+
+  31 Jul 2015; Tobias Klausmann <klausman@gentoo.org> xfsprogs-3.2.4.ebuild:
+  Stable on alpha, bug 556318
+
+  30 Jul 2015; Mikle Kolyada <zlogene@gentoo.org> xfsprogs-3.2.4.ebuild:
+  amd64 stable wrt bug #556318
+
+  30 Jul 2015; Lars Wendler <polynomial-c@gentoo.org> -xfsprogs-3.2.1.ebuild,
+  +xfsprogs-3.2.4.ebuild:
+  Security bump (bug #556318). Removed old.
+
+  30 Jul 2015; Agostino Sarubbo <ago@gentoo.org> xfsprogs-3.2.2.ebuild:
+  Stable for sparc, wrt bug #551802
+
+  23 Jul 2015; Pacho Ramos <pacho@gentoo.org> xfsprogs-3.2.2.ebuild:
+  ppc stable wrt bug #551802
+
+  15 Jul 2015; Mikle Kolyada <zlogene@gentoo.org> xfsprogs-3.2.2.ebuild:
+  ia64 stable wrt bug #551802
+
+  03 Jul 2015; Agostino Sarubbo <ago@gentoo.org> xfsprogs-3.2.2.ebuild:
+  Stable for alpha, wrt bug #551802
+
+  21 Jun 2015; Markus Meier <maekke@gentoo.org> xfsprogs-3.2.2.ebuild:
+  arm stable, bug #551802
+
+  19 Jun 2015; Jeroen Roovers <jer@gentoo.org> xfsprogs-3.2.2.ebuild:
+  Stable for PPC64 (bug #551802).
+
+  16 Jun 2015; Jeroen Roovers <jer@gentoo.org> xfsprogs-3.2.2.ebuild:
+  Stable for HPPA (bug #551802).
+
+  12 Jun 2015; Mikle Kolyada <zlogene@gentoo.org> xfsprogs-3.2.2.ebuild:
+  x86 stable wrt bug #551802
+
+  12 Jun 2015; Agostino Sarubbo <ago@gentoo.org> xfsprogs-3.2.2.ebuild:
+  Stable for amd64, wrt bug #551802
+
+*xfsprogs-3.2.3 (11 Jun 2015)
+
+  11 Jun 2015; Lars Wendler <polynomial-c@gentoo.org> +xfsprogs-3.2.3.ebuild:
+  Version bump.
 
 *xfsprogs-3.2.2 (15 Dec 2014)
 
