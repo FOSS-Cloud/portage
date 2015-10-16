@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -96,6 +96,6 @@ src_install() {
 	# lib-specific man pages are provided by the corresponding packages
 	rm "${D}/usr/share/man/man3/libdlm.3"
 
-	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
+	newinitd "${FILESDIR}/${PN}.initd-3.1.5-r1" "${PN}"
 	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
 }
