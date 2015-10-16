@@ -43,7 +43,7 @@ src_configure() {
 		--cflags="-Wall" \
 		--libdir=/usr/$(get_libdir) \
 		--disable_kernel_check \
-		--kernel_src=${KERNEL_DIR} \
+		--kernel_src=nowhere \
 		--somajor="$MAJ_PV" \
 		--sominor="$MIN_PV" \
 		--dlmlibdir=/usr/$(get_libdir) \
