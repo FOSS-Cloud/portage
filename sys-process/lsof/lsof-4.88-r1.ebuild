@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -32,6 +32,11 @@ src_unpack() {
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-4.85-cross.patch #432120
+	epatch "${FILESDIR}"/${P}-linux.dnode.c.patch
+	# fix POSIX compliance with `echo`
+	sed -i \
+		-e 's:echo -n:printf:' \
+		AFSConfig Configure Customize Inventory tests/CkTestDB || die
 	# convert `test -r header.h` into a compile test
 	sed -i -r \
 		-e 's:test -r \$\{LSOF_INCLUDE\}/([[:alnum:]/._]*):echo "#include <\1>" | ${LSOF_CC} ${LSOF_CFGF} -E - >/dev/null 2>\&1:' \
