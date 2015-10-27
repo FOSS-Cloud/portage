@@ -28,6 +28,7 @@ RDEPEND=">=x11-libs/pixman-0.17.7[static-libs(+)?]
 	sys-libs/zlib[static-libs(+)?]
 	sasl? ( dev-libs/cyrus-sasl[static-libs(+)?] )
 	~app-emulation/spice-protocol-0.12.10
+	dev-python/six
 	client? (
 		dev-python/six
 		media-libs/alsa-lib
