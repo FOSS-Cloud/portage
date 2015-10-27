@@ -15,7 +15,7 @@ SRC_URI="http://spice-space.org/download/releases/${P}.tar.bz2"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="client sasl smartcard static-libs" # static
+IUSE="client sasl lz4 smartcard static-libs" # static
 
 # only the client links against libcacard, the libspice-server only uses the headers
 # the client cannot be built statically since alsa and qemu[smartcard] are missing static-libs
@@ -31,6 +31,7 @@ RDEPEND=">=x11-libs/pixman-0.17.7[static-libs(+)?]
 	dev-python/six
 	client? (
 		dev-python/six
+		app-arch/lz4
 		media-libs/alsa-lib
 		>=x11-libs/libXrandr-1.2
 		x11-libs/libX11
@@ -58,12 +59,22 @@ pkg_setup() {
 # maintainer notes:
 # * opengl support is currently broken
 
+src_prepare() {
+    epatch \
+        "${FILESDIR}/0.11.0-gold.patch" \
+
+    epatch_user
+}
+
+
 src_configure() {
+	--enable-lz4
 	econf \
 		$(use_enable static-libs static) \
 		$(use_enable client) \
 		$(use_with sasl) \
 		$(use_enable smartcard) \
+		$(use_with lz4) \
 		--disable-gui \
 		--disable-static-linkage
 #		$(use_enable static static-linkage) \
