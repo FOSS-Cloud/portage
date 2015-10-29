@@ -1,28 +1,27 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/pacemaker/pacemaker-1.1.8-r2.ebuild,v 1.1 2013/04/23 08:04:02 ultrabug Exp $
+# $Id$
 
-EAPI=4
+EAPI="5"
+PYTHON_COMPAT=( python2_7 )
+WANT_AUTOMAKE="1.12"
 
-PYTHON_DEPEND="2"
+inherit autotools eutils python-single-r1
 
-inherit autotools base python
-
-MY_PN=Pacemaker
-MY_P=${MY_PN}-${PV}
-MY_TREE="1f8858c"
+MY_PN="Pacemaker"
+MY_P=${MY_PN}-${PV/_/-}
 
 DESCRIPTION="Pacemaker CRM"
 HOMEPAGE="http://www.linux-ha.org/wiki/Pacemaker"
-SRC_URI="https://github.com/ClusterLabs/${PN}/tarball/${MY_P} -> ${P}.tar.gz"
+SRC_URI="https://github.com/ClusterLabs/${PN}/archive/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~x86"
+KEYWORDS="amd64 hppa x86"
 REQUIRED_USE="cman? ( !heartbeat )"
 IUSE="acl cman heartbeat smtp snmp static-libs"
 
-DEPEND="
+DEPEND="${PYTHON_DEPS}
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
 	sys-cluster/cluster-glue
@@ -36,24 +35,30 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+REQUIRED_USE=${PYTHON_REQUIRED_USE}
+
 PATCHES=(
-	"${FILESDIR}"/${PV}-backwards_compatibility.patch
-	)
+	"${FILESDIR}"/pacemaker-1.1.10-tinfo.patch
+	"${FILESDIR}"/pacemaker-1.1.12-glib.patch
+	"${FILESDIR}"/pacemaker-1.1.12-stonith.patch
+)
 
-S="${WORKDIR}/ClusterLabs-${PN}-${MY_TREE}"
-
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-}
+S="${WORKDIR}/${PN}-${MY_P}"
 
 src_prepare() {
-	base_src_prepare
+	epatch "${PATCHES[@]}"
+	epatch_user
+
+	# bug #490908
+	cp "${FILESDIR}/ping" extra/resources/ping || die
+
 	sed -i -e "/ggdb3/d" configure.ac || die
-	sed -e "s:<glib/ghash.h>:<glib.h>:" \
-		-i lib/ais/plugin.c || die
+	sed -i -e "s/ -ggdb//g" configure.ac || die
+	sed -i -e "s/uid2username(uid)/uid2username(uid_client)/g" lib/common/ipc.c || die
+	sed -i -e "s:<glib/ghash.h>:<glib.h>:" lib/ais/plugin.c || die
 	eautoreconf
-	python_convert_shebangs -r 2 .
+
+	python_fix_shebang .
 }
 
 src_configure() {
@@ -65,6 +70,7 @@ src_configure() {
 	fi
 	# appends lib to localstatedir automatically
 	econf \
+		--libdir=/usr/$(get_libdir) \
 		--localstatedir=/var \
 		--disable-dependency-tracking \
 		--disable-fatal-warnings \
@@ -79,8 +85,8 @@ src_configure() {
 }
 
 src_install() {
-	base_src_install
-	rm -rf "${D}"/var/run
+	default
+	rm -rf "${D}"/var/run "${D}"/etc/init.d
 	newinitd "${FILESDIR}/${PN}.initd" ${PN} || die
 	if has_version "<sys-cluster/corosync-2.0"; then
 		insinto /etc/corosync/service.d
