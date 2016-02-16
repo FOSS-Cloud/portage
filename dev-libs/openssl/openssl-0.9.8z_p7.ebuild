@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/openssl/openssl-0.9.8z_p1-r2.ebuild,v 1.11 2014/09/15 08:18:46 ago Exp $
+# $Id$
 
 # this ebuild is only for the libcrypto.so.0.9.8 and libssl.so.0.9.8 SONAME for ABI compat
 
@@ -18,8 +18,9 @@ SRC_URI="mirror://openssl/source/${MY_P}.tar.gz"
 
 LICENSE="openssl"
 SLOT="0.9.8"
-KEYWORDS="alpha amd64 ~arm ~hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~sparc-fbsd ~x86-fbsd"
-IUSE="bindist gmp kerberos sse2 test zlib"
+KEYWORDS="alpha amd64 arm ~hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~sparc-fbsd ~x86-fbsd"
+IUSE="bindist gmp kerberos cpu_flags_x86_sse2 test zlib"
+RESTRICT="!bindist? ( bindist )"
 
 RDEPEND="gmp? ( >=dev-libs/gmp-5.1.3-r1[${MULTILIB_USEDEP}] )
 	zlib? ( >=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}] )
@@ -63,6 +64,16 @@ src_prepare() {
 		-e "/foo.*engines/s|/lib/engines|/$(get_libdir)/engines|" \
 		Configure || die
 
+	# since we're forcing $(CC) as makedep anyway, just fix
+	# the conditional as always-on
+	# helps clang (#417795), and versioned gcc (#499818)
+	sed -i 's/expr.*MAKEDEPEND.*;/true;/' util/domd || die
+
+	# quiet out unknown driver argument warnings since openssl
+	# doesn't have well-split CFLAGS and we're making it even worse
+	# and 'make depend' uses -Werror for added fun (#417795 again)
+	[[ ${CC} == *clang* ]] && append-flags -Qunused-arguments
+
 	# allow openssl to be cross-compiled
 	cp "${FILESDIR}"/gentoo.config-0.9.8 gentoo.config || die "cp cross-compile failed"
 	chmod a+rx gentoo.config
@@ -103,7 +114,7 @@ multilib_src_configure() {
 	echoit \
 	./${config} \
 		${sslout} \
-		$(use sse2 || echo "no-sse2") \
+		$(use cpu_flags_x86_sse2 || echo "no-sse2") \
 		enable-camellia \
 		$(use_ssl !bindist ec) \
 		enable-idea \
