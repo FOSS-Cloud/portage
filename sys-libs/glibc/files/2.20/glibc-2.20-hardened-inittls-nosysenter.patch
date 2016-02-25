@@ -12,24 +12,27 @@ initialisation is moved in this case prior to the initialisation of
 dl_osversion, as that requires further syscalls.
 
 csu/libc-start.c: Move initial TLS initialization to before the
-initialisation of dl_osversion, when INTERNAL_SYSCALL_NOSYSENTER is defined
+initialisation of dl_osversion, when INTERNAL_SYSCALL_PRE_TLS is defined
 
 csu/libc-tls.c: Use the no-sysenter version of sbrk when
-INTERNAL_SYSCALL_NOSYSENTER is defined.
+INTERNAL_SYSCALL_PRE_TLS is defined.
 
 misc/sbrk.c: Define a no-sysenter version of sbrk, using the no-sysenter
-version of brk - if INTERNAL_SYSCALL_NOSYSENTER is defined.
+version of brk - if INTERNAL_SYSCALL_PRE_TLS is defined.
 
 misc/brk.c: Define a no-sysenter version of brk if
-INTERNAL_SYSCALL_NOSYSENTER is defined.
+INTERNAL_SYSCALL_PRE_TLS is defined.
 
-sysdeps/unix/sysv/linux/i386/sysdep.h: Define INTERNAL_SYSCALL_NOSYSENTER
+sysdeps/unix/sysv/linux/i386/sysdep.h: Define INTERNAL_SYSCALL_PRE_TLS
 Make INTERNAL_SYSCALL always use the PIC variant, even if not SHARED.
 
 Patch by Kevin F. Quinn <kevquinn@gentoo.org>
+Fixed for 2.10 by Magnus Granberg <zorry@ume.nu>
+Fixed for 2.18 by Magnus Granberg <zorry@gentoo.org>
+Fixed for 2.20 by Francisco Blas Izquierdo Riera <klondike@gentoo.org>
 
---- csu/libc-start.c.orig	2007-01-21 11:51:06.000000000 +0100
-+++ csu/libc-start.c	2007-01-21 11:55:57.000000000 +0100
+--- a/csu/libc-start.c
++++ b/csu/libc-start.c
 @@ -28,6 +28,7 @@
  extern int __libc_multiple_libcs;
  
@@ -37,45 +40,35 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
 +#include <sysdep.h>
  #ifndef SHARED
  # include <dl-osinfo.h>
- extern void __pthread_initialize_minimal (void)
-@@ -133,6 +134,14 @@
- #  endif
-   _dl_aux_init (auxvec);
- # endif
-+# ifdef INTERNAL_SYSCALL_NOSYSENTER
+ extern void __pthread_initialize_minimal (void);
+@@ -170,6 +171,11 @@ LIBC_START_MAIN (int (*main) (int, char
+         }
+     }
+ 
++# ifdef INTERNAL_SYSCALL_PRE_TLS
 +  /* Do the initial TLS initialization before _dl_osversion,
 +     since the latter uses the uname syscall.  */
-+#  if !(USE_TLS - 0) && !defined NONTLS_INIT_TP
-+  if (__pthread_initialize_minimal)
-+#  endif
-+    __pthread_initialize_minimal ();
++  __pthread_initialize_minimal ();
 +# endif
  # ifdef DL_SYSDEP_OSCHECK
    if (!__libc_multiple_libcs)
      {
-@@ -142,15 +151,17 @@
+@@ -138,10 +144,12 @@
      }
  # endif
  
-+# ifndef INTERNAL_SYSCALL_NOSYSENTER
++# ifndef INTERNAL_SYSCALL_PRE_TLS
    /* Initialize the thread library at least a bit since the libgcc
       functions are using thread functions if these are available and
-      we need to setup errno.  If there is no thread library and we
-      handle TLS the function is defined in the libc to initialized the
-      TLS handling.  */
--# if !(USE_TLS - 0) && !defined NONTLS_INIT_TP
-+#  if !(USE_TLS - 0) && !defined NONTLS_INIT_TP
-   if (__pthread_initialize_minimal)
--# endif
-+#  endif
-     __pthread_initialize_minimal ();
+      we need to setup errno.  */
+   __pthread_initialize_minimal ();
 +# endif
- #endif
  
- # ifndef SHARED
---- csu/libc-tls.c.orig	2007-01-21 11:37:02.000000000 +0100
-+++ csu/libc-tls.c	2007-01-21 12:09:33.000000000 +0100
-@@ -23,6 +23,7 @@
+   /* Set up the stack checker's canary.  */
+   uintptr_t stack_chk_guard = _dl_setup_stack_chk_guard ();
+--- a/csu/libc-tls.c
++++ b/csu/libc-tls.c
+@@ -22,12 +22,17 @@
  #include <unistd.h>
  #include <stdio.h>
  #include <sys/param.h>
@@ -83,50 +76,53 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
  
  
  #ifdef SHARED
-@@ -30,6 +31,9 @@
+  #error makefile bug, this file is for static only
  #endif
  
- #ifdef USE_TLS
-+# ifdef INTERNAL_SYSCALL_NOSYSENTER
++#ifdef INTERNAL_SYSCALL_PRE_TLS
 +extern void *__sbrk_nosysenter (intptr_t __delta);
-+# endif
- extern ElfW(Phdr) *_dl_phdr;
- extern size_t _dl_phnum;
++#endif
++
+ dtv_t _dl_static_dtv[2 + TLS_SLOTINFO_SURPLUS];
  
-@@ -142,14 +146,26 @@
+ 
+@@ -139,20 +144,29 @@ __libc_setup_tls (size_t tcbsize, size_t
  
       The initialized value of _dl_tls_static_size is provided by dl-open.c
       to request some surplus that permits dynamic loading of modules with
 -     IE-model TLS.  */
 +     IE-model TLS.
-+	 
-+	 Where the normal sbrk would use a syscall that needs the TLS (i386)
-+	 use the special non-sysenter version instead.  */
- # if TLS_TCB_AT_TP
++
++     Where the normal sbrk would use a syscall that needs the TLS (i386)
++     use the special non-sysenter version instead.  */
++#ifdef INTERNAL_SYSCALL_PRE_TLS
++# define __sbrk __sbrk_nosysenter
++#endif
+ #if TLS_TCB_AT_TP
    tcb_offset = roundup (memsz + GL(dl_tls_static_size), tcbalign);
-+#  ifdef INTERNAL_SYSCALL_NOSYSENTER
-+  tlsblock = __sbrk_nosysenter (tcb_offset + tcbsize + max_align);
-+#  else
    tlsblock = __sbrk (tcb_offset + tcbsize + max_align);
-+#  endif
- # elif TLS_DTV_AT_TP
+ #elif TLS_DTV_AT_TP
    tcb_offset = roundup (tcbsize, align ?: 1);
-+#  ifdef INTERNAL_SYSCALL_NOSYSENTER
-+  tlsblock = __sbrk_nosysenter (tcb_offset + memsz + max_align
-+		     + TLS_PRE_TCB_SIZE + GL(dl_tls_static_size));
-+#  else
    tlsblock = __sbrk (tcb_offset + memsz + max_align
  		     + TLS_PRE_TCB_SIZE + GL(dl_tls_static_size));
-+#  endif
    tlsblock += TLS_PRE_TCB_SIZE;
- # else
+ #else
    /* In case a model with a different layout for the TCB and DTV
---- misc/sbrk.c.orig	2007-01-21 11:38:27.000000000 +0100
-+++ misc/sbrk.c	2007-01-21 12:07:29.000000000 +0100
-@@ -18,6 +18,7 @@
+      is defined add another #elif here and in the following #ifs.  */
+ # error "Either TLS_TCB_AT_TP or TLS_DTV_AT_TP must be defined"
+ #endif
++#ifdef INTERNAL_SYSCALL_PRE_TLS
++# undef __sbrk
++#endif
  
- #include <unistd.h>
+   /* Align the TLS block.  */
+   tlsblock = (void *) (((uintptr_t) tlsblock + max_align - 1)
+--- a/misc/sbrk.c
++++ b/misc/sbrk.c
+@@ -18,6 +18,7 @@
  #include <errno.h>
+ #include <stdint.h>
+ #include <unistd.h>
 +#include <sysdep.h>
  
  /* Defined in brk.c.  */
@@ -135,7 +131,7 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
  /* Extend the process's data space by INCREMENT.
     If INCREMENT is negative, shrink data space by - INCREMENT.
     Return start of new space allocated, or -1 for errors.  */
-+#ifdef INTERNAL_SYSCALL_NOSYSENTER
++#ifdef INTERNAL_SYSCALL_PRE_TLS
 +/* This version is used by csu/libc-tls.c whem initialising the TLS
 +   if the SYSENTER version requires the TLS (which it does on i386).
 +   Obviously using the TLS before it is initialised is broken. */
@@ -145,11 +141,10 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
 +{
 +  void *oldbrk;
 +
-+  /* If this is not part of the dynamic library or the library is used
-+     via dynamic loading in a statically linked program update
-+     __curbrk from the kernel's brk value.  That way two separate
-+     instances of __brk and __sbrk can share the heap, returning
-+     interleaved pieces of it.  */
++  /* If this is not part of the dynamic library or the library is used via
++     dynamic loading in a statically linked program update __curbrk from the
++     kernel's brk value.  That way two separate instances of __brk and __sbrk
++     can share the heap, returning interleaved pieces of it.  */
 +  if (__curbrk == NULL || __libc_multiple_libcs)
 +    if (__brk_nosysenter (0) < 0)		/* Initialize the break.  */
 +      return (void *) -1;
@@ -164,27 +159,27 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
 +  return oldbrk;
 +}
 +#endif
++
  void *
  __sbrk (intptr_t increment)
  {
---- sysdeps/unix/sysv/linux/i386/brk.c.orig	2007-01-21 11:39:16.000000000 +0100
-+++ sysdeps/unix/sysv/linux/i386/brk.c	2007-01-21 11:44:01.000000000 +0100
+--- a/sysdeps/unix/sysv/linux/i386/brk.c
++++ b/sysdeps/unix/sysv/linux/i386/brk.c
 @@ -31,6 +31,30 @@
     linker.  */
  weak_alias (__curbrk, ___brk_addr)
  
-+#ifdef INTERNAL_SYSCALL_NOSYSENTER
++#ifdef INTERNAL_SYSCALL_PRE_TLS
 +/* This version is used by csu/libc-tls.c whem initialising the TLS
-+ * if the SYSENTER version requires the TLS (which it does on i386).
-+ * Obviously using the TLS before it is initialised is broken. */
++   if the SYSENTER version requires the TLS (which it does on i386).
++   Obviously using the TLS before it is initialised is broken.  */
 +int
 +__brk_nosysenter (void *addr)
 +{
-+  void *__unbounded newbrk;
++  void *newbrk;
 +
 +  INTERNAL_SYSCALL_DECL (err);
-+  newbrk = (void *__unbounded) INTERNAL_SYSCALL_NOSYSENTER (brk, err, 1,
-+						 __ptrvalue (addr));
++  newbrk = (void *) INTERNAL_SYSCALL_PRE_TLS (brk, err, 1, addr);
 +
 +  __curbrk = newbrk;
 +
@@ -197,17 +192,18 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
 +  return 0;
 +}
 +#endif
++
  int
  __brk (void *addr)
  {
---- sysdeps/unix/sysv/linux/i386/sysdep.h.orig	2007-01-21 13:08:00.000000000 +0100
-+++ sysdeps/unix/sysv/linux/i386/sysdep.h	2007-01-21 13:19:10.000000000 +0100
+--- a/sysdeps/unix/sysv/linux/i386/sysdep.h
++++ b/sysdeps/unix/sysv/linux/i386/sysdep.h
 @@ -187,7 +187,7 @@
  /* The original calling convention for system calls on Linux/i386 is
     to use int $0x80.  */
  #ifdef I386_USE_SYSENTER
 -# ifdef SHARED
-+# if defined SHARED || defined __PIC__
++# ifdef __PIC__
  #  define ENTER_KERNEL call *%gs:SYSINFO_OFFSET
  # else
  #  define ENTER_KERNEL call *_dl_sysinfo
@@ -216,7 +212,7 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
  #undef INTERNAL_SYSCALL
  #ifdef I386_USE_SYSENTER
 -# ifdef SHARED
-+# if defined SHARED || defined __PIC__
++# ifdef __PIC__
  #  define INTERNAL_SYSCALL(name, err, nr, args...) \
    ({									      \
      register unsigned int resultvar;					      \
@@ -224,7 +220,7 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
      : "0" (name), "i" (offsetof (tcbhead_t, sysinfo))			      \
        ASMFMT_##nr(args) : "memory", "cc");				      \
      (int) resultvar; })
-+#  define INTERNAL_SYSCALL_NOSYSENTER(name, err, nr, args...) \
++#  define INTERNAL_SYSCALL_PRE_TLS(name, err, nr, args...) \
 +  ({									      \
 +    register unsigned int resultvar;					      \
 +    EXTRAVAR_##nr							      \
@@ -244,7 +240,7 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
  #define LOADARGS_0
  #ifdef __PIC__
 -# if defined I386_USE_SYSENTER && defined SHARED
-+# if defined I386_USE_SYSENTER && ( defined SHARED || defined __PIC__ )
++# if defined I386_USE_SYSENTER && defined __PIC__
  #  define LOADARGS_1 \
      "bpushl .L__X'%k3, %k3\n\t"
  #  define LOADARGS_5 \
@@ -261,12 +257,12 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
  # else
  #  define LOADARGS_1 \
      "bpushl .L__X'%k2, %k2\n\t"
-@@ -474,11 +495,18 @@
+@@ -474,11 +494,18 @@
  
  #define RESTOREARGS_0
  #ifdef __PIC__
 -# if defined I386_USE_SYSENTER && defined SHARED
-+# if defined I386_USE_SYSENTER && ( defined SHARED || defined __PIC__ )
++# if defined I386_USE_SYSENTER && defined __PIC__
  #  define RESTOREARGS_1 \
      "bpopl .L__X'%k3, %k3\n\t"
  #  define RESTOREARGS_5 \
@@ -281,3 +277,30 @@ Patch by Kevin F. Quinn <kevquinn@gentoo.org>
  # else
  #  define RESTOREARGS_1 \
      "bpopl .L__X'%k2, %k2\n\t"
+--- a/sysdeps/i386/nptl/tls.h
++++ b/sysdeps/i386/nptl/tls.h
+@@ -189,6 +189,15 @@
+   desc->vals[3] = 0x51;
+ }
+ 
++/* We have no sysenter until the tls is initialized which is a
++   problem for PIC. Thus we need to do the right call depending
++   on the situation.  */
++#ifndef INTERNAL_SYSCALL_PRE_TLS
++# define TLS_INIT_SYSCALL INTERNAL_SYSCALL
++#else
++# define TLS_INIT_SYSCALL INTERNAL_SYSCALL_PRE_TLS
++#endif
++
+ /* Code to initially initialize the thread pointer.  This might need
+    special attention since 'errno' is not yet available and if the
+    operation can cause a failure 'errno' must not be touched.  */
+@@ -209,7 +218,7 @@
+ 									      \
+      /* Install the TLS.  */						      \
+      INTERNAL_SYSCALL_DECL (err);					      \
+-     _result = INTERNAL_SYSCALL (set_thread_area, err, 1, &_segdescr.desc);   \
++     _result = TLS_INIT_SYSCALL (set_thread_area, err, 1, &_segdescr.desc);   \
+ 									      \
+      if (_result == 0)							      \
+        /* We know the index in the GDT, now load the segment register.	      \
