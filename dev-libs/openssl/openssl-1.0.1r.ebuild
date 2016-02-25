@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/openssl/openssl-1.0.1h-r2.ebuild,v 1.11 2014/08/10 09:30:35 ago Exp $
+# $Id$
 
-EAPI="4"
+EAPI=5
 
 inherit eutils flag-o-matic toolchain-funcs multilib multilib-minimal
 
@@ -14,8 +14,9 @@ SRC_URI="mirror://openssl/source/${P}.tar.gz
 
 LICENSE="openssl"
 SLOT="0"
-KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~arm-linux ~x86-linux"
-IUSE="bindist gmp kerberos rfc3779 sse2 static-libs test +tls-heartbeat vanilla zlib"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~arm-linux ~x86-linux"
+IUSE="bindist gmp kerberos rfc3779 cpu_flags_x86_sse2 static-libs test +tls-heartbeat vanilla zlib"
+RESTRICT="!bindist? ( bindist )"
 
 # The blocks are temporary just to make sure people upgrade to a
 # version that lack runtime version checking.  We'll drop them in
@@ -35,21 +36,18 @@ DEPEND="${RDEPEND}
 	test? ( sys-devel/bc )"
 PDEPEND="app-misc/ca-certificates"
 
-src_unpack() {
-	unpack ${P}.tar.gz
+MULTILIB_WRAPPED_HEADERS=(
+	usr/include/openssl/opensslconf.h
+)
+
+src_prepare() {
 	SSL_CNF_DIR="/etc/ssl"
 	sed \
 		-e "/^DIR=/s:=.*:=${EPREFIX}${SSL_CNF_DIR}:" \
 		-e "s:SSL_CMD=/usr:SSL_CMD=${EPREFIX}/usr:" \
 		"${DISTDIR}"/${PN}-c_rehash.sh.${REV} \
 		> "${WORKDIR}"/c_rehash || die #416717
-}
 
-MULTILIB_WRAPPED_HEADERS=(
-	usr/include/openssl/opensslconf.h
-)
-
-src_prepare() {
 	# Make sure we only ever touch Makefile.org and avoid patching a file
 	# that gets blown away anyways by the Configure script in src_configure
 	rm -f Makefile
@@ -58,11 +56,11 @@ src_prepare() {
 		epatch "${FILESDIR}"/${PN}-1.0.0a-ldflags.patch #327421
 		epatch "${FILESDIR}"/${PN}-1.0.0d-windres.patch #373743
 		epatch "${FILESDIR}"/${PN}-1.0.0h-pkg-config.patch
-		epatch "${FILESDIR}"/${PN}-1.0.1-parallel-build.patch
-		epatch "${FILESDIR}"/${PN}-1.0.1-x32.patch
-		epatch "${FILESDIR}"/${PN}-1.0.1h-ipv6.patch
-		epatch "${FILESDIR}"/${PN}-1.0.1e-s_client-verify.patch #472584
+		epatch "${FILESDIR}"/${PN}-1.0.1p-parallel-build.patch
+		epatch "${FILESDIR}"/${PN}-1.0.1r-x32.patch
+		epatch "${FILESDIR}"/${PN}-1.0.1m-ipv6.patch
 		epatch "${FILESDIR}"/${PN}-1.0.1f-revert-alpha-perl-generation.patch #499086
+		epatch "${FILESDIR}"/${PN}-1.0.1p-default-source.patch #554338
 		epatch_user #332661
 	fi
 
@@ -80,6 +78,16 @@ src_prepare() {
 		|| die
 	# show the actual commands in the log
 	sed -i '/^SET_X/s:=.*:=set -x:' Makefile.shared
+
+	# since we're forcing $(CC) as makedep anyway, just fix
+	# the conditional as always-on
+	# helps clang (#417795), and versioned gcc (#499818)
+	sed -i 's/expr.*MAKEDEPEND.*;/true;/' util/domd || die
+
+	# quiet out unknown driver argument warnings since openssl
+	# doesn't have well-split CFLAGS and we're making it even worse
+	# and 'make depend' uses -Werror for added fun (#417795 again)
+	[[ ${CC} == *clang* ]] && append-flags -Qunused-arguments
 
 	# allow openssl to be cross-compiled
 	cp "${FILESDIR}"/gentoo.config-1.0.1 gentoo.config || die
@@ -134,7 +142,7 @@ multilib_src_configure() {
 	echoit \
 	./${config} \
 		${sslout} \
-		$(use sse2 || echo "no-sse2") \
+		$(use cpu_flags_x86_sse2 || echo "no-sse2") \
 		enable-camellia \
 		$(use_ssl !bindist ec) \
 		${ec_nistp_64_gcc_128} \
