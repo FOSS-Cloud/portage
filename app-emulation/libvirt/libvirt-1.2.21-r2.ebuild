@@ -6,7 +6,7 @@ EAPI=5
 
 inherit eutils user autotools-utils linux-info systemd readme.gentoo
 
-BACKPORTS=""
+BACKPORTS="20151222" # CVE-2015-5313
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
@@ -24,7 +24,7 @@ else
 	SRC_URI+=" ${BACKPORTS:+
 		https://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz
 		https://dev.gentoo.org/~tamiko/distfiles/${P}-${BACKPORTS}.tar.xz}"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 	SLOT="0/${PV}"
 fi
 
@@ -34,7 +34,7 @@ LICENSE="LGPL-2.1"
 IUSE="apparmor audit avahi +caps firewalld fuse glusterfs iscsi +libvirtd lvm \
 	lxc +macvtap nfs nls numa openvz parted pcap phyp policykit +qemu rbd sasl \
 	selinux systemd +udev uml +vepa virtualbox virt-network wireshark-plugins \
-	xen elibc_glibc"
+	xen"
 
 REQUIRED_USE="
 	firewalld? ( virt-network )
@@ -109,13 +109,12 @@ RDEPEND="
 	wireshark-plugins? ( net-analyzer/wireshark:= )
 	xen? (
 		app-emulation/xen
-		app-emulation/xen-tools
+		app-emulation/xen-tools:=
 	)
 	udev? (
 		virtual/udev
 		>=x11-libs/libpciaccess-0.10.9
-	)
-	elibc_glibc? ( || ( >=net-libs/libtirpc-0.2.2-r1 <sys-libs/glibc-2.14 ) )"
+	)"
 
 DEPEND="${RDEPEND}
 	app-text/xhtml1
@@ -221,7 +220,8 @@ src_prepare() {
 	epatch \
 		"${FILESDIR}"/${PN}-1.2.9-do_not_use_sysconf.patch \
 		"${FILESDIR}"/${PN}-1.2.16-fix_paths_in_libvirt-guests_sh.patch \
-		"${FILESDIR}"/${PN}-1.2.17-fix_paths_for_apparmor.patch
+		"${FILESDIR}"/${PN}-1.2.17-fix_paths_for_apparmor.patch \
+		"${FILESDIR}"/${P}-avoid_deprecated_pc_file.patch
 
 	[[ -n ${BACKPORTS} ]] &&
 		EPATCH_FORCE=yes EPATCH_SUFFIX="patch" \
@@ -296,8 +296,7 @@ src_configure() {
 		--disable-static
 		--disable-werror
 
-		--docdir=/usr/share/doc/${PF}
-		--htmldir=/usr/share/doc/${PF}/html
+		--with-html-subdir=${PF}/html
 		--localstatedir=/var
 	)
 

@@ -1,12 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt-glib/libvirt-glib-0.1.8.ebuild,v 1.3 2014/07/23 15:13:17 ago Exp $
+# $Id$
 
 EAPI=5
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
-VALA_MIN_API_VERSION="0.14"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit gnome2 python-single-r1 vala
 
@@ -28,7 +27,7 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-libs/libxml2:2
-	>=app-emulation/libvirt-0.9.10:=
+	>=app-emulation/libvirt-1.2.6:=
 	>=dev-libs/glib-2.38.0:2
 	introspection? ( >=dev-libs/gobject-introspection-0.10.8:= )
 	python? ( ${PYTHON_DEPS} )
@@ -44,6 +43,11 @@ pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
 
+src_prepare() {
+	gnome2_src_prepare
+	use vala && vala_src_prepare
+}
+
 src_configure() {
 	gnome2_src_configure \
 		--disable-test-coverage \
@@ -51,13 +55,4 @@ src_configure() {
 		$(use_enable introspection) \
 		$(use_enable vala) \
 		$(use_with python)
-}
-
-src_compile() {
-	# https://bugzilla.redhat.com/show_bug.cgi?id=1093631
-	if use vala; then
-		MAKEOPTS="${MAKEOPTS} -j1" gnome2_src_compile
-	else
-		gnome2_src_compile
-	fi
 }

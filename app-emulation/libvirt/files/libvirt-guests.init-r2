@@ -3,7 +3,7 @@
 description="Virtual Machine Management (libvirt) Guests"
 
 depend() {
-	need libvirtd
+	use libvirtd
 }
 
 # set the default to QEMU

@@ -3,13 +3,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-description="libvirt virtual machine lock manager"
-command="/usr/sbin/virtlockd"
+description="libvirt virtual machine logging manager"
+command="/usr/sbin/virtlogd"
 command_args="-d"
-pidfile="/var/run/virtlockd.pid"
+pidfile="/var/run/virtlogd.pid"
 
 extra_started_commands="reload"
-description_reload="re-exec the daemon, while maintaining locks and clients"
+description_reload="re-exec the daemon, while maintaining open connections"
 
 
 depend() {
@@ -17,7 +17,7 @@ depend() {
 }
 
 reload() {
-    ebegin "re-exec() virtlockd"
+    ebegin "re-exec() virtlogd"
 
     start-stop-daemon --signal SIGUSR1 \
       --exec "${command}" --pidfile "${pidfile}"

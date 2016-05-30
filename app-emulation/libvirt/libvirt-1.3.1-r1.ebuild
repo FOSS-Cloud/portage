@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -24,7 +24,7 @@ else
 	SRC_URI+=" ${BACKPORTS:+
 		https://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz
 		https://dev.gentoo.org/~tamiko/distfiles/${P}-${BACKPORTS}.tar.xz}"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 	SLOT="0/${PV}"
 fi
 
@@ -220,8 +220,8 @@ src_prepare() {
 	epatch \
 		"${FILESDIR}"/${PN}-1.3.0-do_not_use_sysconf.patch \
 		"${FILESDIR}"/${PN}-1.2.16-fix_paths_in_libvirt-guests_sh.patch \
-		"${FILESDIR}"/${PN}-1.3.1-fix_paths_for_apparmor.patch \
-		"${FILESDIR}"/${PN}-1.3.4-glibc-2.23.patch
+		"${FILESDIR}"/${P}-fix_paths_for_apparmor.patch \
+		"${FILESDIR}"/${PN}-1.2.21-avoid_deprecated_pc_file.patch
 
 	[[ -n ${BACKPORTS} ]] &&
 		EPATCH_FORCE=yes EPATCH_SUFFIX="patch" \
@@ -232,9 +232,9 @@ src_prepare() {
 	# Tweak the init script:
 	cp "${FILESDIR}/libvirtd.init-r16" "${S}/libvirtd.init" || die
 	sed -e "s/USE_FLAG_FIREWALLD/$(usex firewalld 'need firewalld' '')/" \
-		-e "s/USE_FLAG_AVAHI/$(usex avahi avahi-daemon '')/" \
-		-e "s/USE_FLAG_ISCSI/$(usex iscsi iscsid '')/" \
-		-e "s/USE_FLAG_RBD/$(usex rbd  ceph '')/" \
+		-e "s/USE_FLAG_AVAHI/$(usex avahi 'use avahi-daemon' '')/" \
+		-e "s/USE_FLAG_ISCSI/$(usex iscsi 'use iscsid' '')/" \
+		-e "s/USE_FLAG_RBD/$(usex rbd 'use ceph' '')/" \
 		-i "${S}/libvirtd.init" || die "sed failed"
 
 	AUTOTOOLS_AUTORECONF=true
@@ -313,6 +313,10 @@ src_configure() {
 		# bug #377279
 		(cd .gnulib && git reset --hard > /dev/null)
 	fi
+
+	# Workaround: Sometimes this subdirectory is missing and leads to a
+	# build failure.
+	mkdir -p "${BUILD_DIR}"/docs/internals
 }
 
 src_test() {
