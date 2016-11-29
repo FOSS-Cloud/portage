@@ -2420,3 +2420,80 @@
 
   Gentoo-Bug: 599526
 
+  19 Nov 2016; Jeroen Roovers <jer@gentoo.org> gentoo-sources-4.1.35.ebuild:
+  Stable for PPC64 (bug #598378).
+
+  Package-Manager: portage-2.3.2
+  RepoMan-Options: --ignore-arches
+
+*gentoo-sources-4.8.9 (19 Nov 2016)
+
+  19 Nov 2016; Alice Ferrazzi <alicef@gentoo.org>
+  +gentoo-sources-4.8.9.ebuild:
+  Linux patch 4.8.9
+
+  Package-Manager: portage-2.3.2
+
+*gentoo-sources-4.4.33 (19 Nov 2016)
+
+  19 Nov 2016; Alice Ferrazzi <alicef@gentoo.org>
+  +gentoo-sources-4.4.33.ebuild:
+  Linux patch 4.4.33
+
+  Package-Manager: portage-2.3.2
+
+*gentoo-sources-4.8.10 (21 Nov 2016)
+
+  21 Nov 2016; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-4.8.10.ebuild:
+  Linux patch 4.8.10. Update gentoo kconfig patch adding CHECKPOINT_RESTORE
+  for GENTOO_LINUX_INIT_SYSTEMD. See bug #598623.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.4.34 (22 Nov 2016)
+
+  22 Nov 2016; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-4.4.34.ebuild:
+  Linux patch 4.4.34. Update gentoo kconfig patch adding CHECKPOINT_RESTORE
+  for GENTOO_LINUX_INIT_SYSTEMD. See bug #598623
+
+  Package-Manager: portage-2.3.0
+
+  26 Nov 2016; Agostino Sarubbo <ago@gentoo.org>
+  gentoo-sources-3.4.113.ebuild:
+  amd64 stable wrt bug #522930
+
+  Package-Manager: portage-2.3.0
+  RepoMan-Options: --include-arches="amd64"
+  Signed-off-by: Agostino Sarubbo <ago@gentoo.org>
+
+  26 Nov 2016; Agostino Sarubbo <ago@gentoo.org>
+  gentoo-sources-3.4.113.ebuild:
+  x86 stable wrt bug #522930
+
+  Package-Manager: portage-2.3.0
+  RepoMan-Options: --include-arches="x86"
+  Signed-off-by: Agostino Sarubbo <ago@gentoo.org>
+
+  26 Nov 2016; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-4.4.27.ebuild,
+  -gentoo-sources-4.4.29.ebuild, -gentoo-sources-4.4.30.ebuild,
+  -gentoo-sources-4.4.31.ebuild, -gentoo-sources-4.4.32.ebuild,
+  -gentoo-sources-4.4.33.ebuild:
+  Remove old, unsupported versions in the 4.4.X series.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.4.35 (26 Nov 2016)
+
+  26 Nov 2016; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-4.4.35.ebuild:
+  Linux patch 4.4.35
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.8.11 (26 Nov 2016)
+
+  26 Nov 2016; Alice Ferrazzi <alicef@gentoo.org>
+  +gentoo-sources-4.8.11.ebuild:
+  Linux patch 4.8.11
+
+  Package-Manager: portage-2.3.2
+
