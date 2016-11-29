@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/patch/patch-2.7.1-r2.ebuild,v 1.3 2014/01/18 03:17:14 vapier Exp $
+# $Id$
 
 EAPI=4
 
 inherit flag-o-matic eutils
 
 DESCRIPTION="Utility to apply diffs to files"
-HOMEPAGE="http://www.gnu.org/software/patch/patch.html"
+HOMEPAGE="https://www.gnu.org/software/patch/patch.html"
 SRC_URI="mirror://gnu/patch/${P}.tar.xz"
 
 LICENSE="GPL-2"
@@ -18,12 +18,6 @@ IUSE="static test xattr"
 RDEPEND="xattr? ( sys-apps/attr )"
 DEPEND="${RDEPEND}
 	test? ( sys-apps/ed )"
-
-src_prepare() {
-	epatch "${FILESDIR}/${P}-Fix-removing-empty-directories.patch"
-	epatch "${FILESDIR}/${P}-Fix-removing-empty-directories-automake.patch"
-	epatch "${FILESDIR}/${P}-dry-run-mode-create-temp-files-in-temp-dir.patch"
-}
 
 src_configure() {
 	use static && append-ldflags -static
