@@ -41,6 +41,7 @@ RDEPEND="bd-xlator? ( sys-fs/lvm2 )
 	|| ( sys-libs/glibc sys-libs/argp-standalone )
 	sys-apps/util-linux"
 DEPEND="${RDEPEND}
+	virtual/acl
 	virtual/pkgconfig
 	sys-devel/bison
 	sys-devel/flex
@@ -67,13 +68,17 @@ DOCS=( AUTHORS ChangeLog NEWS README.md THANKS )
 #   glibc or if argp-standalone is installed.
 
 pkg_setup() {
-	( use georeplication || use glupy ) && python-single-r1_pkg_setup
+	python_setup "python2*"
+	python-single-r1_pkg_setup
 }
 
 src_prepare() {
 	# build rpc-transport and xlators only once as shared libs
 	find rpc/rpc-transport xlators -name Makefile.am -print0 \
 		| xargs -0 sed -i -e 's|.*_la_LDFLAGS = .*|\0 -shared|'
+
+	# fix execution permissions
+	chmod +x libglusterfs/src/gen-defaults.py || die
 
 	autotools-utils_src_prepare
 }
@@ -164,7 +169,8 @@ src_install() {
 	rm -rf "${ED}/var/run/" || die
 	use static-libs || find "${ED}"/usr/$(get_libdir)/ -type f -name '*.la' -delete
 
-	use georeplication && python_fix_shebang "${ED}"
+	# fix all shebang for python2 #560750
+	python_fix_shebang "${ED}"
 
 	# upstream already has a patch ready, to be removed once available, http://review.gluster.org/#/c/9458/
 	echo "d /run/gluster 0755 root root -" > "${T}/gluster.tmpfiles" || die

@@ -124,3 +124,40 @@
   24 Jan 2016; Michał Górny <mgorny@gentoo.org> metadata.xml:
   Set appropriate maintainer types in metadata.xml (GLEP 67)
 
+  18 Apr 2016; Patrice Clement <monsieurp@gentoo.org> metadata.xml:
+  Fix metadata.xml file.
+
+  Package-Manager: portage-2.2.26
+
+  18 May 2016; Austin English <wizardedit@gentoo.org> files/glusterd-r1.initd,
+  files/glusterd-r2.initd, files/glusterd.initd, files/glusterfs-r1.initd,
+  files/glusterfs.initd:
+  use #!/sbin/openrc-run instead of #!/sbin/runscript
+
+  29 Jun 2016; Alexey Shvetsov <alexxy@gentoo.org> glusterfs-3.1.2.ebuild,
+  glusterfs-3.5.4.ebuild, glusterfs-3.6.5.ebuild, glusterfs-3.7.4.ebuild:
+  adapt sys-infiniband to sys-fabric rename
+
+  Package-Manager: portage-2.3.0_rc1
+
+  25 Nov 2016; Agostino Sarubbo <ago@gentoo.org> glusterfs-3.6.5.ebuild:
+  amd64 stable wrt bug #541540
+
+  Package-Manager: portage-2.3.0
+  RepoMan-Options: --include-arches="amd64"
+  Signed-off-by: Agostino Sarubbo <ago@gentoo.org>
+
+  25 Nov 2016; Agostino Sarubbo <ago@gentoo.org> glusterfs-3.6.5.ebuild:
+  x86 stable wrt bug #541540
+
+  Package-Manager: portage-2.3.0
+  RepoMan-Options: --include-arches="x86"
+  Signed-off-by: Agostino Sarubbo <ago@gentoo.org>
+
+*glusterfs-3.8.6 (27 Nov 2016)
+
+  27 Nov 2016; Ultrabug <ultrabug@gentoo.org> +glusterfs-3.8.6.ebuild:
+  version bump, fix #560750 #582732 #592174 #589058
+
+  Package-Manager: portage-2.3.2
+
