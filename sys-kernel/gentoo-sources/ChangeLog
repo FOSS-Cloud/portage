@@ -2497,3 +2497,210 @@
 
   Package-Manager: portage-2.3.2
 
+*gentoo-sources-4.1.36 (30 Nov 2016)
+
+  30 Nov 2016; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-4.1.36.ebuild:
+  Linux patch 4.1.36. Update gentoo kconfig patch for
+  GENTOO_LINUX_INIT_SYSTEMD. See bug #598623
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-3.12.68 (30 Nov 2016)
+
+  30 Nov 2016; Alice Ferrazzi <alicef@gentoo.org>
+  +gentoo-sources-3.12.68.ebuild:
+  Linux patch 3.12.68
+
+  Update gentoo kconfig patch adding CHECKPOINT_RESTORE for
+  GENTOO_LINUX_INIT_SYSTEMD.
+  See bug #598623. (Mike Pagano)
+
+  Package-Manager: portage-2.3.2
+
+*gentoo-sources-3.18.45 (30 Nov 2016)
+
+  30 Nov 2016; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.18.45.ebuild:
+  Linux 3.18.45.  Update gentoo kconfig patch adding CHECKPOINT_RESTORE for
+  GENTOO_LINUX_INIT_SYSTEMD. See bug #598623.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.4.36 (02 Dec 2016)
+
+  02 Dec 2016; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-4.4.36.ebuild:
+  Linux patch 4.4.36
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.8.12 (02 Dec 2016)
+
+  02 Dec 2016; Alice Ferrazzi <alicef@gentoo.org>
+  +gentoo-sources-4.8.12.ebuild:
+  Linux patch 4.8.12
+
+  Package-Manager: portage-2.3.2
+
+*gentoo-sources-4.8.12-r1 (07 Dec 2016)
+
+  07 Dec 2016; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-4.8.12-r1.ebuild:
+   Fix race condition in packet_set_ring. CVE-2016-8655. Bug #601926.
+
+  Package-Manager: portage-2.3.0
+
+  07 Dec 2016; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-4.8.3.ebuild,
+  -gentoo-sources-4.8.4.ebuild, -gentoo-sources-4.8.5.ebuild,
+  -gentoo-sources-4.8.6.ebuild, -gentoo-sources-4.8.7.ebuild,
+  -gentoo-sources-4.8.8.ebuild, -gentoo-sources-4.8.9.ebuild,
+  -gentoo-sources-4.8.10.ebuild, -gentoo-sources-4.8.11.ebuild,
+  -gentoo-sources-4.8.12.ebuild:
+  Remove old, security vulnerable versions.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.4.36-r1 (08 Dec 2016)
+
+  08 Dec 2016; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-4.4.36-r1.ebuild:
+  For the Linux 4.4.X series fix race condition in packet_set_ring.
+  CVE-2016-8655. Bug #601926.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.1.36-r1 (08 Dec 2016)
+
+  08 Dec 2016; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-4.1.36-r1.ebuild:
+  For the Linux 4.1.X series fix race condition in packet_set_ring.
+  CVE-2016-8655. Bug #601926.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-3.18.45-r1 (09 Dec 2016)
+
+  09 Dec 2016; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.18.45-r1.ebuild:
+  For Linux 3.18.X, fix race condition in packet_set_ring. CVE-2016-8655. Bug
+  #601926.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-3.12.68-r1 (09 Dec 2016)
+
+  09 Dec 2016; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.12.68-r1.ebuild:
+  For Linux 3.12.X, fix race condition in packet_set_ring. CVE-2016-8655. Bug
+  #601926.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.8.13 (09 Dec 2016)
+
+  09 Dec 2016; Alice Ferrazzi <alicef@gentoo.org>
+  +gentoo-sources-4.8.13.ebuild:
+  Linux patch 4.8.13
+
+  Package-Manager: portage-2.3.2
+
+*gentoo-sources-4.4.37 (09 Dec 2016)
+
+  09 Dec 2016; Alice Ferrazzi <alicef@gentoo.org>
+  +gentoo-sources-4.4.37.ebuild:
+  Linux patch 4.4.37
+
+  Package-Manager: portage-2.3.2
+
+*gentoo-sources-3.10.104-r1 (09 Dec 2016)
+
+  09 Dec 2016; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.10.104-r1.ebuild:
+  sys-kernel/getono-sources: For linux version 3.10.X fix race condition in
+  packet_set_ring. CVE-2016-8655. Bug #601926.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-3.4.113-r1 (10 Dec 2016)
+
+  10 Dec 2016; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.4.113-r1.ebuild:
+  For Linux 3.4.X, fix race condition in packet_set_ring. CVE-2016-8655. Bug
+  #601926.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.8.14 (11 Dec 2016)
+
+  11 Dec 2016; Alice Ferrazzi <alicef@gentoo.org>
+  +gentoo-sources-4.8.14.ebuild:
+  Linux patch 4.8.14
+
+  Package-Manager: portage-2.3.2
+
+*gentoo-sources-4.4.38 (11 Dec 2016)
+
+  11 Dec 2016; Alice Ferrazzi <alicef@gentoo.org>
+  +gentoo-sources-4.4.38.ebuild:
+  Linux patch 4.4.38
+
+  Package-Manager: portage-2.3.2
+
+*gentoo-sources-3.14.79-r1 (11 Dec 2016)
+
+  11 Dec 2016; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.14.79-r1.ebuild:
+  For Linux 3.14.X, fix race condition in packet_set_ring. CVE-2016-8655. Bug
+  #601926.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.9.0 (11 Dec 2016)
+
+  11 Dec 2016; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-4.9.0.ebuild:
+  Linux patch 4.9.0. Gentoo Linux support config settings and defaults. Patch
+  to add support for namespace user.pax.* on tmpfs. Patch to enable link
+  security restrictions by default. Patch to ensure that /dev/root doesn't
+  appear in /proc/mounts when bootint without an initramfs. Patch to enable
+  control of the unaligned access control policy from sysctl.
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.8.15 (16 Dec 2016)
+
+  16 Dec 2016; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-4.8.15.ebuild:
+  Linux patch 4.8.15
+
+  Package-Manager: portage-2.3.0
+
+  16 Dec 2016; Mike Pagano <mpagano@gentoo.org> metadata.xml:
+  Remove kdbus use-flag from metadata.xml
+
+  Package-Manager: portage-2.3.0
+
+*gentoo-sources-4.4.39 (16 Dec 2016)
+
+  16 Dec 2016; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-4.4.39.ebuild:
+  Linux patch 4.4.39
+
+  Package-Manager: portage-2.3.0
+
+  17 Dec 2016; Aaron Bauman <bman@gentoo.org>
+  gentoo-sources-3.10.104-r1.ebuild, gentoo-sources-3.12.66.ebuild,
+  gentoo-sources-3.18.44.ebuild:
+  amd64 stable
+
+  17 Dec 2016; Mike Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.4.112.ebuild, -gentoo-sources-3.10.101.ebuild,
+  -gentoo-sources-3.10.102.ebuild, -gentoo-sources-3.10.103.ebuild,
+  -gentoo-sources-3.12.63.ebuild, -gentoo-sources-3.12.67.ebuild,
+  -gentoo-sources-3.12.68.ebuild, -gentoo-sources-3.14.79.ebuild,
+  -gentoo-sources-3.18.42.ebuild, -gentoo-sources-3.18.43.ebuild,
+  -gentoo-sources-3.18.45.ebuild, -gentoo-sources-4.1.36.ebuild,
+  -gentoo-sources-4.4.34.ebuild, -gentoo-sources-4.4.35.ebuild,
+  -gentoo-sources-4.4.36.ebuild, -gentoo-sources-4.4.36-r1.ebuild,
+  -gentoo-sources-4.4.37.ebuild, -gentoo-sources-4.4.38.ebuild,
+  -gentoo-sources-4.8.12-r1.ebuild, -gentoo-sources-4.8.13.ebuild:
+  Clean-up old and insecure kernels.
+
+  Package-Manager: portage-2.3.0
+
