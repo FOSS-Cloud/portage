@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/nvram-wakeup/nvram-wakeup-1.1.ebuild,v 1.1 2013/01/06 22:48:26 vapier Exp $
+# $Id$
 
 EAPI="4"
 
@@ -10,7 +10,7 @@ MY_P=${P%_p*}
 [[ ${PV} == *_p* ]] && REV=${P#*_p} || unset REV
 MY_P=${MY_P/e}
 DESCRIPTION="read and write the WakeUp time in the BIOS"
-HOMEPAGE="http://sourceforge.net/projects/nvram-wakeup"
+HOMEPAGE="https://sourceforge.net/projects/nvram-wakeup"
 SRC_URI="mirror://sourceforge/nvram-wakeup/${MY_P}.tar.gz
 	${REV+http://nvram-wakeup.svn.sourceforge.net/viewvc/*checkout*/nvram-wakeup/trunk/nvram-wakeup/nvram-wakeup-mb.c?revision=${REV}}"
 

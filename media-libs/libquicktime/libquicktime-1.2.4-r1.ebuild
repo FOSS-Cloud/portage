@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libquicktime/libquicktime-1.2.4-r1.ebuild,v 1.4 2014/09/17 10:41:50 lu_zero Exp $
+# $Id$
 
 EAPI=5
 inherit libtool eutils multilib-minimal
@@ -11,8 +11,8 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
-IUSE="aac alsa doc dv encode ffmpeg gtk jpeg lame mmx opengl png schroedinger static-libs vorbis X x264"
+KEYWORDS="alpha amd64 ~arm hppa ia64 ppc ppc64 sparc x86 ~amd64-fbsd ~x86-fbsd"
+IUSE="aac alsa doc dv encode ffmpeg gtk jpeg lame cpu_flags_x86_mmx opengl png schroedinger static-libs vorbis X x264"
 
 RDEPEND=">=virtual/libintl-0-r1[${MULTILIB_USEDEP}]
 	aac? (
@@ -23,7 +23,7 @@ RDEPEND=">=virtual/libintl-0-r1[${MULTILIB_USEDEP}]
 	dv? ( >=media-libs/libdv-1.0.0-r3[${MULTILIB_USEDEP}] )
 	ffmpeg? ( >=virtual/ffmpeg-9-r1[${MULTILIB_USEDEP}] )
 	gtk? ( x11-libs/gtk+:2 )
-	jpeg? ( >=virtual/jpeg-0-r2[${MULTILIB_USEDEP}] )
+	jpeg? ( >=virtual/jpeg-0-r2:0[${MULTILIB_USEDEP}] )
 	lame? ( >=media-sound/lame-3.99.5-r1[${MULTILIB_USEDEP}] )
 	opengl? ( virtual/opengl )
 	png? ( >=media-libs/libpng-1.6.10:0[${MULTILIB_USEDEP}] )
@@ -53,8 +53,14 @@ DOCS="ChangeLog README TODO"
 src_prepare() {
 	epatch "${FILESDIR}"/${P}+libav-9.patch \
 		"${FILESDIR}"/${P}-ffmpeg2.patch
+	if has_version '>=media-video/ffmpeg-2.9' ||
+		has_version '>=media-video/libav-12'; then
+		epatch "${FILESDIR}"/${P}-ffmpeg29.patch
+	fi
 
-	sed -i -e "s:CODEC_ID_:AV_&:g" "${S}/plugins/ffmpeg/lqt_ffmpeg.c" || die
+	for FILE in lqt_ffmpeg.c video.c audio.c ; do
+		sed -i -e "s:CODEC_ID_:AV_&:g" "${S}/plugins/ffmpeg/${FILE}" || die
+	done
 
 	elibtoolize # Required for .so versioning on g/fbsd
 }
@@ -66,7 +72,7 @@ multilib_src_configure() {
 	econf \
 		--enable-gpl \
 		$(use_enable static-libs static) \
-		$(use_enable mmx asm) \
+		$(use_enable cpu_flags_x86_mmx asm) \
 		$(multilib_native_use_with doc doxygen) \
 		$(use vorbis || echo --without-vorbis) \
 		$(use_with lame) \

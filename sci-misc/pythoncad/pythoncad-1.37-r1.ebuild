@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-misc/pythoncad/pythoncad-1.37-r1.ebuild,v 1.1 2013/06/01 22:28:48 pinkbyte Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 inherit eutils distutils-r1 versionator
 
 MY_PN="PythonCAD"
@@ -12,7 +12,7 @@ MY_PV="DS$(get_major_version)-R$(get_after_major_version)"
 MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="CAD program written in PyGTK"
-HOMEPAGE="http://sourceforge.net/projects/pythoncad"
+HOMEPAGE="https://sourceforge.net/projects/pythoncad"
 SRC_URI="mirror://sourceforge/pythoncad/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"

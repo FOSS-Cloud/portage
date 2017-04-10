@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/gltron/gltron-0.70-r1.ebuild,v 1.8 2014/05/15 16:22:46 ulm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="3d tron, just like the movie"
@@ -16,22 +16,23 @@ KEYWORDS="amd64 ppc x86"
 IUSE=""
 
 DEPEND="virtual/opengl
-	media-libs/libpng
+	media-libs/libpng:0
 	media-libs/libsdl[sound,video]
 	media-libs/sdl-mixer[vorbis]
 	media-libs/sdl-sound[vorbis,mikmod]
 	media-libs/smpeg
 	media-libs/libmikmod"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	epatch \
 		"${FILESDIR}"/${P}-configure.patch \
 		"${FILESDIR}"/${P}-prototypes.patch \
-		"${FILESDIR}"/${P}-debian.patch
+		"${FILESDIR}"/${P}-debian.patch \
+		"${FILESDIR}"/${P}-gcc49.patch
 	sed -i \
 		-e '/^gltron_LINK/s/$/ $(LDFLAGS)/' \
-		Makefile.in \
-		|| die 'sed failed'
+		Makefile.in || die
 }
 
 src_configure() {
@@ -44,8 +45,7 @@ src_configure() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
-	dodoc ChangeLog README
+	default
 	doicon "${DISTDIR}"/${PN}.png
 	make_desktop_entry ${PN} GLtron
 	prepgamesdirs

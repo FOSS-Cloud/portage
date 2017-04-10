@@ -1,12 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
-inherit eutils user autotools-utils linux-info systemd readme.gentoo
-
-BACKPORTS=""
+inherit autotools eutils user linux-info systemd readme.gentoo-r1
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
@@ -17,13 +15,10 @@ if [[ ${PV} = *9999* ]]; then
 else
 	# Versions with 4 numbers are stable updates:
 	if [[ ${PV} =~ ^[0-9]+(\.[0-9]+){3} ]]; then
-		SRC_URI="http://libvirt.org/sources/stable_updates/${P}.tar.gz"
+		SRC_URI="http://libvirt.org/sources/stable_updates/${P}.tar.xz"
 	else
-		SRC_URI="http://libvirt.org/sources/${P}.tar.gz"
+		SRC_URI="http://libvirt.org/sources/${P}.tar.xz"
 	fi
-	SRC_URI+=" ${BACKPORTS:+
-		https://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz
-		https://dev.gentoo.org/~tamiko/distfiles/${P}-${BACKPORTS}.tar.xz}"
 	KEYWORDS="~amd64 ~x86"
 	SLOT="0/${PV}"
 fi
@@ -31,16 +26,19 @@ fi
 DESCRIPTION="C toolkit to manipulate virtual machines"
 HOMEPAGE="http://www.libvirt.org/"
 LICENSE="LGPL-2.1"
-IUSE="apparmor audit avahi +caps firewalld fuse glusterfs iscsi +libvirtd lvm \
-	lxc +macvtap nfs nls numa openvz parted pcap phyp policykit +qemu rbd sasl \
-	selinux systemd +udev uml +vepa virtualbox virt-network wireshark-plugins \
-	xen"
+IUSE="
+	apparmor audit +caps +dbus firewalld fuse glusterfs iscsi +libvirtd lvm
+	libssh lxc +macvtap nfs nls numa openvz parted pcap phyp policykit
+	+qemu rbd sasl selinux +udev uml +vepa virtualbox virt-network
+	wireshark-plugins xen zeroconf zfs elibc_glibc
+"
 
 REQUIRED_USE="
 	firewalld? ( virt-network )
 	libvirtd? ( || ( lxc openvz qemu uml virtualbox xen ) )
 	lxc? ( caps libvirtd )
 	openvz? ( libvirtd )
+	policykit? ( dbus )
 	qemu? ( libvirtd )
 	uml? ( libvirtd )
 	vepa? ( macvtap )
@@ -58,8 +56,8 @@ RDEPEND="
 	dev-libs/libgcrypt:0
 	dev-libs/libnl:3
 	>=dev-libs/libxml2-2.7.6
-	>=net-analyzer/netcat6-1.0-r2
-	>=net-libs/gnutls-1.0.25
+	|| ( >=net-analyzer/netcat6-1.0-r2 >=net-analyzer/openbsd-netcat-1.105-r1 )
+	>=net-libs/gnutls-1.0.25:0=
 	net-libs/libssh2
 	>=net-misc/curl-7.18.0
 	sys-apps/dmidecode
@@ -69,14 +67,15 @@ RDEPEND="
 	sys-libs/readline:=
 	apparmor? ( sys-libs/libapparmor )
 	audit? ( sys-process/audit )
-	avahi? ( >=net-dns/avahi-0.6[dbus] )
 	caps? ( sys-libs/libcap-ng )
+	dbus? ( sys-apps/dbus )
+	elibc_glibc? ( sys-libs/glibc[rpc(+)] )
 	firewalld? ( net-firewall/firewalld )
 	fuse? ( >=sys-fs/fuse-2.8.6 )
 	glusterfs? ( >=sys-cluster/glusterfs-3.4.1 )
 	iscsi? ( sys-block/open-iscsi )
-	lvm? ( >=sys-fs/lvm2-2.02.48-r2 )
-	lxc? ( !systemd? ( sys-power/pm-utils ) )
+	libssh? ( net-libs/libssh )
+	lvm? ( >=sys-fs/lvm2-2.02.48-r2[-device-mapper-only(-)] )
 	nfs? ( net-fs/nfs-utils )
 	numa? (
 		>sys-process/numactl-2.0.2
@@ -85,19 +84,17 @@ RDEPEND="
 	openvz? ( sys-kernel/openvz-sources:* )
 	parted? (
 		>=sys-block/parted-1.8[device-mapper]
-		sys-fs/lvm2
+		sys-fs/lvm2[-device-mapper-only(-)]
 	)
 	pcap? ( >=net-libs/libpcap-1.0.0 )
 	policykit? ( >=sys-auth/polkit-0.9 )
 	qemu? (
 		>=app-emulation/qemu-0.13.0
 		dev-libs/yajl
-		!systemd? ( sys-power/pm-utils )
 	)
 	rbd? ( sys-cluster/ceph )
 	sasl? ( dev-libs/cyrus-sasl )
 	selinux? ( >=sys-libs/libselinux-2.0.85 )
-	systemd? ( sys-apps/systemd )
 	virt-network? (
 		net-dns/dnsmasq[script]
 		net-firewall/ebtables
@@ -114,7 +111,9 @@ RDEPEND="
 	udev? (
 		virtual/udev
 		>=x11-libs/libpciaccess-0.10.9
-	)"
+	)
+	zeroconf? ( >=net-dns/avahi-0.6[dbus] )
+	zfs? ( sys-fs/zfs )"
 
 DEPEND="${RDEPEND}
 	app-text/xhtml1
@@ -123,17 +122,20 @@ DEPEND="${RDEPEND}
 	dev-perl/XML-XPath
 	virtual/pkgconfig"
 
-pkg_setup() {
-	enewgroup qemu 77
-	enewuser qemu 77 -1 -1 qemu kvm
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.3.0-do_not_use_sysconf.patch
+	"${FILESDIR}"/${PN}-1.2.16-fix_paths_in_libvirt-guests_sh.patch
+	"${FILESDIR}"/${PN}-3.0.0-fix_paths_for_apparmor.patch
+	"${FILESDIR}"/${PN}-1.3.4-glibc-2.23.patch
+)
 
-	# Some people used the masked ebuild which was not adding the qemu
-	# user to the kvm group originally. This results in VMs failing to
-	# start for some users. bug #430808
-	egetent group kvm | grep -q qemu
-	if [[ $? -ne 0 ]]; then
-		gpasswd -a qemu kvm
+pkg_setup() {
+	if use qemu; then
+		enewgroup qemu 77
+		enewuser qemu 77 -1 -1 "qemu,kvm"
 	fi
+
+	use policykit && enewgroup libvirt
 
 	# Check kernel configuration:
 	CONFIG_CHECK=""
@@ -155,7 +157,6 @@ pkg_setup() {
 		~CGROUPS
 		~CGROUP_SCHED
 		~CPUSETS
-		~DEVPTS_MULTIPLE_INSTANCES
 		~IPC_NS
 		~MACVLAN
 		~NAMESPACES
@@ -172,9 +173,9 @@ pkg_setup() {
 		~!GRKERNSEC_CHROOT_PIVOT
 		~!GRKERNSEC_CHROOT_CHMOD
 		~!GRKERNSEC_CHROOT_CAPS"
-	# Handle specific kernel versions for different features
-	kernel_is lt 3 6 && CONFIG_CHECK+=" ~CGROUP_MEM_RES_CTLR"
-	kernel_is ge 3 6 && CONFIG_CHECK+=" ~MEMCG ~MEMCG_SWAP ~MEMCG_KMEM"
+
+	kernel_is lt 4 7 && use lxc && CONFIG_CHECK+="
+		~DEVPTS_MULTIPLE_INSTANCES"
 
 	use macvtap && CONFIG_CHECK+="
 		~MACVTAP"
@@ -196,6 +197,13 @@ pkg_setup() {
 		~NET_SCH_INGRESS
 		~NET_SCH_SFQ"
 
+	# Handle specific kernel versions for different features
+	kernel_is lt 3 6 && CONFIG_CHECK+=" ~CGROUP_MEM_RES_CTLR"
+	if kernel_is ge 3 6; then
+		CONFIG_CHECK+=" ~MEMCG ~MEMCG_SWAP "
+		kernel_is lt 4 5 && CONFIG_CHECK+=" ~MEMCG_KMEM "
+	fi
+
 	ERROR_USER_NS="Optional depending on LXC configuration."
 
 	if [[ -n ${CONFIG_CHECK} ]]; then
@@ -205,6 +213,8 @@ pkg_setup() {
 
 src_prepare() {
 	touch "${S}/.mailmap"
+
+	default
 
 	if [[ ${PV} = *9999* ]]; then
 		# git checkouts require bootstrapping to create the configure script.
@@ -217,28 +227,15 @@ src_prepare() {
 		) >.git-module-status
 	fi
 
-	epatch \
-		"${FILESDIR}"/${PN}-1.3.0-do_not_use_sysconf.patch \
-		"${FILESDIR}"/${PN}-1.2.16-fix_paths_in_libvirt-guests_sh.patch \
-		"${FILESDIR}"/${PN}-1.3.1-fix_paths_for_apparmor.patch \
-		"${FILESDIR}"/${PN}-1.3.4-glibc-2.23.patch
-
-	[[ -n ${BACKPORTS} ]] &&
-		EPATCH_FORCE=yes EPATCH_SUFFIX="patch" \
-			EPATCH_SOURCE="${WORKDIR}/patches" epatch
-
-	epatch_user
-
 	# Tweak the init script:
 	cp "${FILESDIR}/libvirtd.init-r16" "${S}/libvirtd.init" || die
 	sed -e "s/USE_FLAG_FIREWALLD/$(usex firewalld 'need firewalld' '')/" \
-		-e "s/USE_FLAG_AVAHI/$(usex avahi avahi-daemon '')/" \
-		-e "s/USE_FLAG_ISCSI/$(usex iscsi iscsid '')/" \
-		-e "s/USE_FLAG_RBD/$(usex rbd  ceph '')/" \
+		-e "s/USE_FLAG_AVAHI/$(usex zeroconf 'use avahi-daemon' '')/" \
+		-e "s/USE_FLAG_ISCSI/$(usex iscsi 'use iscsid' '')/" \
+		-e "s/USE_FLAG_RBD/$(usex rbd 'use ceph' '')/" \
 		-i "${S}/libvirtd.init" || die "sed failed"
 
-	AUTOTOOLS_AUTORECONF=true
-	autotools-utils_src_prepare
+	eautoreconf
 }
 
 src_configure() {
@@ -246,14 +243,15 @@ src_configure() {
 		$(use_with apparmor)
 		$(use_with apparmor apparmor-profiles)
 		$(use_with audit)
-		$(use_with avahi)
 		$(use_with caps capng)
+		$(use_with dbus)
 		$(use_with firewalld)
 		$(use_with fuse)
 		$(use_with glusterfs)
 		$(use_with glusterfs storage-gluster)
 		$(use_with iscsi storage-iscsi)
 		$(use_with libvirtd)
+		$(use_with libssh)
 		$(use_with lvm storage-lvm)
 		$(use_with lvm storage-mpath)
 		$(use_with lxc)
@@ -271,8 +269,6 @@ src_configure() {
 		$(use_with rbd storage-rbd)
 		$(use_with sasl)
 		$(use_with selinux)
-		$(use_with systemd systemd-daemon)
-		$(usex systemd --with-init-script=systemd '')
 		$(use_with udev)
 		$(use_with uml)
 		$(use_with vepa virtualport)
@@ -280,13 +276,17 @@ src_configure() {
 		$(use_with wireshark-plugins wireshark-dissector)
 		$(use_with xen)
 		$(use_with xen xen-inotify)
-		$(usex xen --with-libxl '')
+		$(use_with xen libxl)
+		$(use_with zeroconf avahi)
+		$(use_with zfs storage-zfs)
 
 		--without-hal
 		--without-netcf
 		--without-sanlock
 		--without-xenapi
+
 		--with-esx
+		--with-init-script=systemd
 		--with-qemu-group=$(usex caps qemu root)
 		--with-qemu-user=$(usex caps qemu root)
 		--with-remote
@@ -306,7 +306,7 @@ src_configure() {
 		myeconfargs+=( $(use_with virtualbox vbox) )
 	fi
 
-	autotools-utils_src_configure
+	econf "${myeconfargs[@]}"
 
 	if [[ ${PV} = *9999* ]]; then
 		# Restore gnulib's config.sub and config.guess
@@ -316,15 +316,22 @@ src_configure() {
 }
 
 src_test() {
-	# Explicitly allow parallel build of tests
+	cd "${BUILD_DIR}"
+
+	# remove problematic tests, bug #591416, bug #591418
+	sed -i -e 's#commandtest$(EXEEXT) # #' \
+		-e 's#virfirewalltest$(EXEEXT) # #' \
+		-e 's#nwfilterebiptablestest$(EXEEXT) # #' \
+		-e 's#nwfilterxml2firewalltest$(EXEEXT)$##' \
+		tests/Makefile
+
 	export VIR_TEST_DEBUG=1
 	HOME="${T}" emake check || die "tests failed"
 }
 
 src_install() {
-	autotools-utils_src_compile install \
-		DESTDIR="${D}" \
-		SYSTEMD_UNIT_DIR="$(systemd_get_unitdir)"
+	emake DESTDIR="${D}" \
+		SYSTEMD_UNIT_DIR="$(systemd_get_systemunitdir)" install
 
 	find "${D}" -name '*.la' -delete || die
 
@@ -338,7 +345,7 @@ src_install() {
 	use libvirtd || return 0
 	# From here, only libvirtd-related instructions, be warned!
 
-	use systemd && systemd_install_serviced \
+	systemd_install_serviced \
 		"${FILESDIR}"/libvirtd.service.conf libvirtd.service
 
 	systemd_newtmpfilesd "${FILESDIR}"/libvirtd.tmpfiles.conf libvirtd.conf
@@ -351,7 +358,7 @@ src_install() {
 	newconfd "${FILESDIR}/libvirtd.confd-r5" libvirtd || die
 	newconfd "${FILESDIR}/libvirt-guests.confd" libvirt-guests || die
 
-	DOC_CONTENTS=$(<"${FILESDIR}/README.gentoo-r1")
+	DOC_CONTENTS=$(<"${FILESDIR}/README.gentoo-r2")
 	DISABLE_AUTOFORMATTING=true
 	readme.gentoo_create_doc
 }
@@ -371,11 +378,8 @@ pkg_postinst() {
 	use libvirtd || return 0
 	# From here, only libvirtd-related instructions, be warned!
 
-	if [[ -n ${REPLACING_VERSIONS} ]] && ! version_is_at_least 1.2.18-r2 ${REPLACING_VERSIONS} ]]; then
-		FORCE_PRINT_ELOG=true
-	fi
-
-	DOC_CONTENTS=$(<"${FILESDIR}/README.gentoo-r1")
+	DOC_CONTENTS=$(<"${FILESDIR}/README.gentoo-r2")
 	DISABLE_AUTOFORMATTING=true
+	FORCE_PRINT_ELOG=1 # remove for next version bump
 	readme.gentoo_print_elog
 }

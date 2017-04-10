@@ -1,24 +1,24 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/ibus-handwrite/ibus-handwrite-2.1.4-r1.ebuild,v 1.1 2014/02/21 16:10:46 dlan Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit eutils python-single-r1 autotools-utils multilib
 
 DESCRIPTION="hand write recognition/input using ibus IM engine"
-HOMEPAGE="http://code.google.com/p/ibus-handwrite/"
-SRC_URI="http://ibus-handwrite.googlecode.com/files/${P}.tar.bz2"
+HOMEPAGE="https://code.google.com/p/ibus-handwrite/"
+SRC_URI="https://ibus-handwrite.googlecode.com/files/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="nls +zinnia"
 
 RDEPEND="zinnia? ( app-i18n/zinnia app-i18n/zinnia-tomoe )
 	>=app-i18n/ibus-1.3.0
-	>=x11-libs/gtk+-2.10
+	>=x11-libs/gtk+-2.10:2
 	x11-libs/gtkglext"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"

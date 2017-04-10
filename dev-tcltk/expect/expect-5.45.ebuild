@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/expect/expect-5.45.ebuild,v 1.6 2013/08/18 11:31:36 tomk Exp $
+# $Id$
 
-EAPI="3"
+EAPI=5
 
 inherit autotools eutils
 
@@ -13,12 +13,12 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~x64-macos ~x86-macos ~m68k-mint ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~x64-macos ~x86-macos ~m68k-mint ~x86-solaris"
 IUSE="debug doc threads"
 
 # We need dejagnu for src_test, but dejagnu needs expect
 # to compile/run, so we cant add dejagnu to DEPEND :/
-DEPEND=">=dev-lang/tcl-8.2[threads?]"
+DEPEND=">=dev-lang/tcl-8.2:0[threads?]"
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${MY_P}
@@ -30,16 +30,19 @@ src_prepare() {
 		-e 's/^SCRIPT_LIST[[:space:]]*=/_&/' \
 		-e 's/^SCRIPTS[[:space:]]*=/_&/' \
 		-e 's/^SCRIPTS_MANPAGES[[:space:]]*=/_&/' \
-		Makefile.in
+		Makefile.in || die
 
 	epatch "${FILESDIR}"/${PN}-5.45-gfbsd.patch
 	epatch "${FILESDIR}"/${PN}-5.44.1.15-ldflags.patch
 	epatch "${FILESDIR}"/${PN}-5.45-headers.patch #337943
+	epatch "${FILESDIR}"/${PN}-5.45-format-security.patch
 	sed -i 's:ifdef HAVE_SYS_WAIT_H:ifndef NO_SYS_WAIT_H:' *.c
 
 	# fix install_name on darwin
 	[[ ${CHOST} == *-darwin* ]] && \
 		epatch "${FILESDIR}"/${P}-darwin-install_name.patch
+
+	mv configure.{in,ac} || die
 
 	eautoconf
 }
@@ -59,25 +62,23 @@ src_test() {
 	# we need dejagnu to do tests ... but dejagnu needs
 	# expect ... so don't do tests unless we have dejagnu
 	type -p runtest || return 0
-	emake test || die
+	emake test
 }
 
 expect_make_var() {
 	touch pkgIndex.tcl-hand
 	printf 'all:;echo $('$1')\ninclude Makefile' | emake --no-print-directory -s -f -
-	rm -f pkgIndex.tcl-hand
+	rm -f pkgIndex.tcl-hand || die
 }
 
 src_install() {
-	emake install DESTDIR="${D}" || die
-	dodoc ChangeLog FAQ HISTORY NEWS README
+	default
 
 	if use doc ; then
 		docinto examples
 		dodoc \
 			example/README \
 			$(printf 'example/%s ' $(expect_make_var _SCRIPTS)) \
-			$(printf 'example/%s.man ' $(expect_make_var _SCRIPTS_MANPAGES)) \
-			|| die
+			$(printf 'example/%s.man ' $(expect_make_var _SCRIPTS_MANPAGES))
 	fi
 }

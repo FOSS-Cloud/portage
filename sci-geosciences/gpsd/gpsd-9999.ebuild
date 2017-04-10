@@ -1,11 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gpsd/gpsd-9999.ebuild,v 1.16 2014/07/30 19:41:46 ssuominen Exp $
+# $Id$
 
 EAPI="5"
 
 DISTUTILS_OPTIONAL=1
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 SCONS_MIN_VERSION="1.2.1"
 
 inherit eutils udev user multilib distutils-r1 scons-utils toolchain-funcs
@@ -18,16 +18,16 @@ else
 	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 fi
 
-DESCRIPTION="GPS daemon and library to support USB/serial GPS devices and various GPS/mapping clients"
+DESCRIPTION="GPS daemon and library for USB/serial GPS devices and GPS/mapping clients"
 HOMEPAGE="http://catb.org/gpsd/"
 
 LICENSE="BSD"
 SLOT="0"
 
 GPSD_PROTOCOLS=(
-	aivdm ashtech earthmate evermore fury fv18 garmin garmintxt
-	geostar gpsclock itrax mtk3301 navcom nmea nmea2000 ntrip
-	oceanserver oncore rtcm104v2 rtcm104v3 sirf superstar2 tnt
+	aivdm ashtech earthmate evermore fury fv18 garmin garmintxt geostar
+	gpsclock isync itrax mtk3301 navcom nmea0183 nmea2000 ntrip oceanserver
+	oncore passthrough rtcm104v2 rtcm104v3 sirf skytraq superstar2 tnt
 	tripmate tsip ublox
 )
 IUSE_GPSD_PROTOCOLS=${GPSD_PROTOCOLS[@]/#/gpsd_protocols_}
@@ -37,7 +37,7 @@ REQUIRED_USE="X? ( python )
 	python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="X? ( dev-python/pygtk:2[${PYTHON_USEDEP}] )
-	ncurses? ( sys-libs/ncurses )
+	ncurses? ( sys-libs/ncurses:= )
 	bluetooth? ( net-wireless/bluez )
 	usb? ( virtual/libusb:1 )
 	dbus? (
@@ -61,7 +61,7 @@ fi
 src_prepare() {
 	# Make sure our list matches the source.
 	local src_protocols=$(echo $(
-		sed -n '/GPS protocols/,/Time service/{s:#.*::;s:[(",]::g;p}' "${S}"/SConstruct | awk '{print $1}' | LC_ALL=C sort
+		sed -n '/# GPS protocols/,/# Time service/{s:#.*::;s:[(",]::g;p}' "${S}"/SConstruct | awk '{print $1}' | LC_ALL=C sort
 	) )
 	if [[ ${src_protocols} != ${GPSD_PROTOCOLS[*]} ]] ; then
 		eerror "Detected protocols: ${src_protocols}"
@@ -69,8 +69,7 @@ src_prepare() {
 		die "please sync ebuild & source"
 	fi
 
-	epatch "${FILESDIR}"/${PN}-3.8-ldflags.patch
-	epatch "${FILESDIR}"/${PN}-3.10-rpath.patch
+	epatch "${FILESDIR}"/${P}-do_not_rm_library.patch
 
 	# Avoid useless -L paths to the install dir
 	sed -i \
@@ -84,7 +83,7 @@ python_prepare_all() {
 	python_export_best
 	# Extract python info out of SConstruct so we can use saner distribute
 	pyvar() { sed -n "/^ *$1 *=/s:.*= *::p" SConstruct ; }
-	local pybins=$(pyvar python_progs)
+	local pybins=$(pyvar python_progs | tail -1)
 	local pysrcs=$(sed -n '/^ *python_extensions = {/,/}/{s:^ *::;s:os[.]sep:"/":g;p}' SConstruct)
 	local packet=$("${PYTHON}" -c "${pysrcs}; print(python_extensions['gps/packet'])")
 	local client=$("${PYTHON}" -c "${pysrcs}; print(python_extensions['gps/clienthelpers'])")
@@ -95,7 +94,7 @@ python_prepare_all() {
 		-e "s|@SCRIPTS@|${pybins}|" \
 		-e "s|@GPS_PACKET_SOURCES@|${packet}|" \
 		-e "s|@GPS_CLIENT_SOURCES@|${client}|" \
-		-e "s|@SCRIPTS@|$(pyvar python_progs)|" \
+		-e "s|@SCRIPTS@|${pybins}|" \
 		"${FILESDIR}"/${PN}-3.3-setup.py > setup.py || die
 	distutils-r1_python_prepare_all
 }
@@ -108,7 +107,7 @@ src_configure() {
 		chrpath=False
 		gpsd_user=gpsd
 		gpsd_group=uucp
-		strip=False
+		nostrip=True
 		python=False
 		manbuild=False
 		shared=$(usex !static True False)

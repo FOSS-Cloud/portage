@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/kyotocabinet/kyotocabinet-1.2.76-r1.ebuild,v 1.1 2014/05/15 21:46:42 jer Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,11 +12,11 @@ SRC_URI="${HOMEPAGE}pkg/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris"
+KEYWORDS="~alpha amd64 ~arm64 ~hppa ~ppc ppc64 x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris"
 IUSE="debug doc examples static-libs"
 
-DEPEND="sys-libs/zlib
-	app-arch/xz-utils"
+DEPEND="sys-libs/zlib[static-libs?]
+	app-arch/xz-utils[static-libs?]"
 RDEPEND="${DEPEND}"
 
 src_prepare() {

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/defcon-demo/defcon-demo-1.60.ebuild,v 1.1 2012/12/31 14:10:21 hasufell Exp $
+# $Id$
 
 EAPI=5
 inherit eutils toolchain-funcs gnome2-utils games
@@ -31,7 +31,7 @@ RDEPEND="
 	x11-libs/libXau
 	x11-libs/libXext
 	x11-libs/libXdmcp
-	system-libs? ( media-libs/libsdl )"
+	system-libs? ( media-libs/libsdl[sound,video] )"
 DEPEND=""
 
 QA_PREBUILT="${GAMES_PREFIX_OPT:1}/${PN}/lib/${MY_PN}.bin.x86"
@@ -55,10 +55,8 @@ src_prepare() {
 	fi
 	sed \
 		-e "s:GAMEDIR:${GAMES_PREFIX_OPT}/${PN}:g" \
-		"${FILESDIR}"/${MY_PN} > "${T}"/${MY_PN} \
-		|| die "sed failed"
-	echo "int chdir(const char *d) { return 0; }" > chdir.c \
-		|| die "echo failed"
+		"${FILESDIR}"/${MY_PN} > "${T}"/${MY_PN} || die
+	echo "int chdir(const char *d) { return 0; }" > chdir.c || die
 }
 
 src_compile() {

@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-dict/ruby-dict-0.9.4-r4.ebuild,v 1.1 2014/08/06 07:12:59 mrueg Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby21 ruby22 ruby23 ruby24"
 
 inherit ruby-ng
 
@@ -14,16 +14,10 @@ SRC_URI="http://www.caliban.org/files/ruby/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86 ~x86-fbsd"
+KEYWORDS="amd64 ~ppc x86 ~x86-fbsd"
 IUSE=""
 
 RUBY_PATCHES=( "${PN}-ruby19.patch" )
-
-each_ruby_test() {
-	ewarn "Tests will use network connection"
-
-	${RUBY} -Ilib ./rdict test || die
-}
 
 each_ruby_install() {
 	doruby lib/dict.rb || die "doruby failed"

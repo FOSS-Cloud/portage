@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/usbredir/usbredir-0.7.ebuild,v 1.1 2014/06/27 16:27:34 dev-zero Exp $
+# $Id$
 
 EAPI=5
 inherit eutils flag-o-matic
@@ -11,7 +11,7 @@ SRC_URI="http://spice-space.org/download/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 arm ia64 ppc ppc64 sparc x86"
 IUSE="static-libs"
 
 RDEPEND=">=dev-libs/libusb-1.0.19"
@@ -21,7 +21,7 @@ DEPEND="${RDEPEND}
 DOCS="ChangeLog README* TODO *.txt"
 
 src_configure() {
-	# http://bugs.freedesktop.org/show_bug.cgi?id=54643
+	# https://bugs.freedesktop.org/show_bug.cgi?id=54643
 	append-cflags -Wno-error
 
 	econf $(use_enable static-libs static)

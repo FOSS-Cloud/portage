@@ -1,17 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/pqiv/pqiv-2.2.ebuild,v 1.1 2014/06/20 08:37:41 radhermit Exp $
+# $Id$
 
 EAPI=5
 inherit linux-info toolchain-funcs
 
 DESCRIPTION="Modern rewrite of Quick Image Viewer"
-HOMEPAGE="http://github.com/phillipberndt/pqiv http://www.pberndt.com/Programme/Linux/pqiv/"
+HOMEPAGE="https://github.com/phillipberndt/pqiv http://www.pberndt.com/Programme/Linux/pqiv/"
 SRC_URI="https://github.com/phillipberndt/pqiv/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="kernel_linux"
 
 RDEPEND=">=dev-libs/glib-2.8:2
@@ -28,7 +28,7 @@ pkg_setup() {
 }
 
 src_configure() {
-	./configure --prefix=/usr --destdir="${D}" || die
+	./configure --prefix="${EPREFIX}/usr" --destdir="${ED}" || die
 }
 
 src_compile() {

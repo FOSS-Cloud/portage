@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>dilfridge@gentoo.org</email>
 		<name>Andreas K. Huettel</name>
 	</maintainer>
@@ -11,4 +11,7 @@
 		<flag name="vlc">Enable using media-libs/vlc for streaming from cameras</flag>
 		<flag name="openssl">...</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">ZoneMinder/ZoneMinder</remote-id>
+	</upstream>
 </pkgmetadata>

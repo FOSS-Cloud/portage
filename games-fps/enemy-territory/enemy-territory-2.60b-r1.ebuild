@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/enemy-territory/enemy-territory-2.60b-r1.ebuild,v 1.3 2014/09/17 21:41:22 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils unpacker games
@@ -12,13 +12,13 @@ SRC_URI="mirror://3dgamers/wolfensteinet/et-linux-2.60.x86.run
 	ftp://ftp.red.telefonica-wholesale.net/GAMES/ET/linux/et-linux-2.60.x86.run
 	mirror://idsoftware/et/ET-${PV}.zip
 	dedicated? (
-		http://dev.gentoo.org/~wolf31o2/sources/dump/${PN}-all-0.1.tar.bz2
+		https://dev.gentoo.org/~wolf31o2/sources/dump/${PN}-all-0.1.tar.bz2
 		mirror://gentoo/${PN}-all-0.1.tar.bz2
 	)"
 
 LICENSE="RTCW-ETEULA"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="dedicated"
 RESTRICT="mirror strip"
 
@@ -26,17 +26,11 @@ DEPEND="app-arch/unzip"
 RDEPEND="sys-libs/glibc
 	amd64? ( sys-libs/glibc[multilib] )
 	dedicated? ( app-misc/screen )
-	!dedicated? ( || (
-		(
-			virtual/opengl[abi_x86_32(-)]
-			x11-libs/libX11[abi_x86_32(-)]
-			x11-libs/libXext[abi_x86_32(-)]
-		)
-		(
-			app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
-			app-emulation/emul-linux-x86-opengl[-abi_x86_32(-)]
-		)
-	) )"
+	!dedicated? (
+		virtual/opengl[abi_x86_32(-)]
+		x11-libs/libX11[abi_x86_32(-)]
+		x11-libs/libXext[abi_x86_32(-)]
+	)"
 
 S=${WORKDIR}
 
@@ -45,6 +39,7 @@ Ddir=${D}/${dir}
 
 QA_PREBUILT="
 	${dir:1}/et.x86
+	${dir:1}/etded.x86
 	${dir:1}/etmain/cgame.mp.i386.so
 	${dir:1}/etmain/qagame.mp.i386.so
 	${dir:1}/etmain/ui.mp.i386.so
@@ -61,6 +56,13 @@ src_unpack() {
 		unpack ${PN}-all-0.1.tar.bz2
 	fi
 	unpack ET-${PV}.zip
+}
+
+src_prepare() {
+	if use dedicated ; then
+		sed 's@/sbin/runscript@/sbin/openrc-run@' \
+			-i et-ded.rc || die
+	fi
 }
 
 src_install() {

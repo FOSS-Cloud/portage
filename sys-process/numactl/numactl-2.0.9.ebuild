@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/numactl/numactl-2.0.9.ebuild,v 1.7 2014/06/25 17:46:25 vapier Exp $
+# $Id$
 
 EAPI="4"
 
@@ -13,7 +13,7 @@ SRC_URI="ftp://oss.sgi.com/www/projects/libnuma/download/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 # ARM lacks the __NR_migrate_pages syscall.
-KEYWORDS="-arm amd64 ~ia64 ppc ppc64 x86 ~amd64-linux"
+KEYWORDS="amd64 -arm ia64 ppc ppc64 x86 ~amd64-linux"
 IUSE="static-libs"
 
 src_prepare() {
@@ -21,6 +21,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-2.0.8-static_libs.patch
 	epatch "${FILESDIR}"/${PN}-2.0.8-cpuid-pic.patch #456238
 	epatch "${FILESDIR}"/${PN}-2.0.9-testsuite_fix.patch
+	epatch "${FILESDIR}"/${P}-testsuite_path.patch
 	rm numastat || die #466108
 }
 

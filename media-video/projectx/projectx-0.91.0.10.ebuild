@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/projectx/projectx-0.91.0.10.ebuild,v 1.1 2014/04/17 06:31:30 billie Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,15 +12,15 @@ XDG_P="xdg-20100731"
 
 DESCRIPTION="Converts, splits and demuxes DVB and other MPEG recordings"
 HOMEPAGE="http://project-x.sourceforge.net/"
-SRC_URI="http://dev.gentoo.org/~billie/distfiles/${P}.tar.xz
+SRC_URI="https://dev.gentoo.org/~billie/distfiles/${P}.tar.xz
 	http://sbriesen.de/gentoo/distfiles/${PN}-idctfast.tar.xz
 	http://sbriesen.de/gentoo/distfiles/${XDG_P}.java.xz
 	http://sbriesen.de/gentoo/distfiles/${PN}-icon.png"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="X mmx sse"
+KEYWORDS="amd64 ppc64 x86"
+IUSE="X cpu_flags_x86_mmx cpu_flags_x86_sse"
 
 COMMON_DEP="dev-java/commons-net
 	X? ( =dev-java/browserlauncher2-1* )"
@@ -93,8 +93,8 @@ java_prepare() {
 src_compile() {
 	local IDCT="idct-mjpeg"  # default IDCT implementation
 	if use x86 || use amd64; then
-		use mmx && IDCT="idct-mjpeg-mmx"
-		use sse && IDCT="idct-mjpeg-sse"
+		use cpu_flags_x86_mmx && IDCT="idct-mjpeg-mmx"
+		use cpu_flags_x86_sse && IDCT="idct-mjpeg-sse"
 	fi
 
 	eant build $(use_doc) -Dmanifest.mainclass=$(mainclass)

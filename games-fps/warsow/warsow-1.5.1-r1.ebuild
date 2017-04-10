@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/warsow/warsow-1.5.1-r1.ebuild,v 1.2 2014/07/23 23:59:15 hasufell Exp $
+# $Id$
 
 EAPI=5
 inherit eutils check-reqs gnome2-utils flag-o-matic games
@@ -14,14 +14,15 @@ ENGINE_P=${PN}_${ENGINE_PV}_sdk
 
 DESCRIPTION="Multiplayer FPS based on the QFusion engine (evolved from Quake 2)"
 HOMEPAGE="http://www.warsow.net/"
-SRC_URI="http://www.warsow.eu/${ENGINE_P}.tar.gz
-	http://www.warsow.eu/warsow_${DATA_PV}_unified.tar.gz
-	mirror://gentoo/warsow.png"
+SRC_URI="http://www.warsow.net/${ENGINE_P}.tar.gz
+	http://www.warsow.net/warsow_${DATA_PV}_unified.tar.gz
+	mirror://gentoo/warsow.png
+	mirror://gentoo/${P}-build.patch.gz"
 
 # ZLIB: bundled angelscript
 LICENSE="GPL-2 ZLIB warsow"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="debug dedicated irc openal server"
 
 RDEPEND=">=dev-libs/libRocket-1.2.1_p20130110
@@ -40,7 +41,7 @@ RDEPEND=">=dev-libs/libRocket-1.2.1_p20130110
 		x11-libs/libXrandr
 		x11-libs/libXxf86dga
 		x11-libs/libXxf86vm
-		virtual/jpeg
+		virtual/jpeg:0
 		virtual/opengl
 		openal? ( media-libs/openal )
 	)"
@@ -77,15 +78,13 @@ src_prepare() {
 	find . -type f -exec sed -i 's/\r$//' '{}' + || die
 
 	cd "${S}"/.. || die
-	epatch "${FILESDIR}"/${P}-build.patch \
+	epatch "${WORKDIR}"/${P}-build.patch \
 		"${FILESDIR}"/${P}-pic.patch \
 		"${FILESDIR}"/${P}-openal.patch
 	epatch_user
 }
 
 src_compile() {
-	yesno() { use ${1} && echo YES || echo NO ; }
-
 	emake -C ../libsrcs/angelscript/sdk/angelscript/projects/gnuc
 
 	local arch
@@ -105,16 +104,18 @@ src_compile() {
 			BUILD_CIN=NO
 			BUILD_SERVER=YES
 			BUILD_TV_SERVER=YES
+			BUILD_REF_GL=NO
 		)
 	else
 		myconf=(
 			BUILD_CLIENT=YES
-			BUILD_IRC=$(yesno irc)
-			BUILD_SND_OPENAL=$(yesno openal)
+			BUILD_IRC=$(usex irc YES NO)
+			BUILD_SND_OPENAL=$(usex openal YES NO)
 			BUILD_SND_QF=YES
 			BUILD_CIN=YES
-			BUILD_SERVER=$(yesno server)
-			BUILD_TV_SERVER=$(yesno server)
+			BUILD_SERVER=$(usex server YES NO)
+			BUILD_TV_SERVER=$(usex server YES NO)
+			BUILD_REF_GL=YES
 		)
 	fi
 
@@ -124,7 +125,7 @@ src_compile() {
 		BASE_ARCH=${arch} \
 		BINDIR=lib \
 		BUILD_ANGELWRAP=YES \
-		DEBUG_BUILD=$(yesno debug) \
+		DEBUG_BUILD=$(usex debug YES NO) \
 		${myconf[@]}
 }
 

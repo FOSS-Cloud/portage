@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/drpython/drpython-3.11.4.ebuild,v 1.1 2014/05/04 11:41:05 idella4 Exp $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -16,7 +16,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ia64 ~ppc ~x86"
+KEYWORDS="amd64 ia64 ppc x86"
 IUSE=""
 
 RDEPEND=">=dev-python/wxpython-2.6"
@@ -43,5 +43,5 @@ python_install() {
 
 pkg_postinst() {
 	elog "DrPython plugins are available on DrPython homepage:"
-	elog "http://sourceforge.net/projects/drpython/files/DrPython%20Plugins/"
+	elog "https://sourceforge.net/projects/drpython/files/DrPython%20Plugins/"
 }

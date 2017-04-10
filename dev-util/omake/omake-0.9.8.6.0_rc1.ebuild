@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/omake/omake-0.9.8.6.0_rc1.ebuild,v 1.4 2013/08/19 14:08:27 aballier Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,9 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64 ppc x86"
 IUSE="doc fam ncurses +ocamlopt readline"
 DEPEND=">=dev-lang/ocaml-3.10.2:=[ocamlopt?]
-	ncurses? ( >=sys-libs/ncurses-5.3 )
+	ncurses? ( >=sys-libs/ncurses-5.3:0= )
 	fam? ( virtual/fam )
-	readline? ( >=sys-libs/readline-4.3 )"
+	readline? ( >=sys-libs/readline-4.3:0= )"
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${PN}-${MY_PV%-*}
@@ -33,7 +33,9 @@ use_boolean() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}-warnerror.patch"
+	epatch \
+		"${FILESDIR}/${P}-cflags.patch" \
+		"${FILESDIR}/${P}-warnerror.patch"
 }
 
 src_configure() {

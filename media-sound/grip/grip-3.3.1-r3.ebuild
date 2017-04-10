@@ -1,12 +1,12 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/grip/grip-3.3.1-r3.ebuild,v 1.11 2012/11/22 15:31:19 polynomial-c Exp $
+# $Id$
 
 EAPI=2
 inherit eutils flag-o-matic toolchain-funcs libtool
 
 DESCRIPTION="GTK+ based Audio CD Player/Ripper"
-HOMEPAGE="http://sourceforge.net/projects/grip/"
+HOMEPAGE="https://sourceforge.net/projects/grip/"
 SRC_URI="mirror://sourceforge/grip/${P}.tar.gz"
 
 LICENSE="GPL-2"

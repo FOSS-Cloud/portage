@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/geoclue/geoclue-0.12.99.ebuild,v 1.14 2014/05/25 14:17:55 pacho Exp $
+# $Id$
 
 EAPI=4
 inherit autotools eutils
 
 DESCRIPTION="A geoinformation D-Bus service"
-HOMEPAGE="http://freedesktop.org/wiki/Software/GeoClue"
-SRC_URI="http://freedesktop.org/~hadess/${P}.tar.gz"
+HOMEPAGE="https://freedesktop.org/wiki/Software/GeoClue"
+SRC_URI="https://freedesktop.org/~hadess/${P}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="0"

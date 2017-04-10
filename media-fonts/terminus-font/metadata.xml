@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>fonts</herd>
+  <maintainer type="project">
+    <email>fonts@gentoo.org</email>
+    <name>Fonts</name>
+  </maintainer>
   <use>
     <flag name="a-like-o">
       Changes view of letter 'a' - a looks like o (see homepage)
@@ -40,5 +43,11 @@
       Place the '~' character vertically centered on the line instead of to the
       top.
     </flag>
+    <flag name="pcf-unicode-only">
+      Remove non-unicode PCF fonts that could be problematic. See bug #520222.
+    </flag>
   </use>
+  <upstream>
+    <remote-id type="sourceforge">terminus-font</remote-id>
+  </upstream>
 </pkgmetadata>

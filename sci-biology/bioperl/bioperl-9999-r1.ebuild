@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/bioperl/bioperl-9999-r1.ebuild,v 1.3 2014/08/09 22:46:03 zlogene Exp $
+# $Id$
 
 EAPI="5"
 
@@ -19,7 +19,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="-minimal graphviz ${SUBPROJECTS}"
 
-CDEPEND="dev-perl/Data-Stag
+CDEPEND="
+	dev-perl/Data-Stag
 	dev-perl/libwww-perl
 	!minimal? (
 		dev-perl/Ace
@@ -38,7 +39,7 @@ CDEPEND="dev-perl/Data-Stag
 		>=dev-perl/XML-Writer-0.4
 		dev-perl/Clone
 		dev-perl/XML-DOM
-		dev-perl/set-scalar
+		dev-perl/Set-Scalar
 		dev-perl/XML-XPath
 		dev-perl/XML-DOM-XPath
 		dev-perl/Algorithm-Munkres
@@ -49,7 +50,7 @@ CDEPEND="dev-perl/Data-Stag
 		dev-perl/SVG-Graph
 	)
 	graphviz? ( dev-perl/GraphViz )"
-DEPEND="virtual/perl-Module-Build
+DEPEND="dev-perl/Module-Build
 	${CDEPEND}"
 RDEPEND="${CDEPEND}"
 PDEPEND="!minimal? ( dev-perl/Bio-ASN1-EntrezGene )

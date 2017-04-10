@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/frobby/frobby-0.9.0-r1.ebuild,v 1.4 2013/07/18 12:51:07 tomka Exp $
+# $Id$
 
 EAPI=4
 
@@ -12,7 +12,7 @@ SRC_URI="http://www.broune.com/frobby/frobby_v${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE="doc static-libs"
 
 RDEPEND="dev-libs/gmp[cxx]"

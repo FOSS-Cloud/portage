@@ -1,7 +1,8 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/unreal-tournament-strikeforce/unreal-tournament-strikeforce-1.81.ebuild,v 1.10 2014/05/05 20:43:14 ulm Exp $
+# $Id$
 
+EAPI=5
 inherit games
 
 MY_PV=${PV/./}
@@ -31,16 +32,16 @@ src_unpack() {
 	unpack sf_180_server_files.tar.gz
 	unpack ${P}.tar.bz2
 	unpack sf180lnx.zip
-	mv "README - sf orm mappack.txt" Strikeforce/SFDoc/
-	rm -rf Help/OpenGL\ Alternate
-	rm System/*.{dll,lnk,exe} System/ServerAdds.zip
-	rm Strikeforce/SF_System/*.bat
-	find -type f -exec chmod a-x '{}' +
+	mv "README - sf orm mappack.txt" Strikeforce/SFDoc/ || die
+	rm -rf Help/OpenGL\ Alternate || die
+	rm System/*.{dll,lnk,exe} System/ServerAdds.zip || die
+	rm Strikeforce/SF_System/*.bat || die
+	find -type f -exec chmod a-x '{}' + || die
 }
 
 src_install() {
 	local dir=${GAMES_PREFIX_OPT}/unreal-tournament
 	dodir "${dir}"
-	mv * "${D}/${dir}/"
+	mv * "${D}/${dir}/" || die
 	prepgamesdirs
 }

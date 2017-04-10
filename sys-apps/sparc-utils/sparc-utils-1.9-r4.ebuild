@@ -1,6 +1,6 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/sparc-utils/sparc-utils-1.9-r4.ebuild,v 1.5 2008/06/04 18:04:34 armin76 Exp $
+# $Id$
 
 inherit eutils toolchain-funcs
 
@@ -29,7 +29,7 @@ pkg_setup() {
 
 src_unpack() {
 	unpack ${A}
-	epatch ${WORKDIR}/${PN}_${PV}-3.diff
+	epatch "${WORKDIR}/${PN}_${PV}-3.diff"
 	sed -i -e 's:#include <linux/elf.h>:#include <elf.h>:' \
 	  ${S}/elftoaout*/elftoaout.c
 }

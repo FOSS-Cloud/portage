@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/msieve/msieve-1.51.ebuild,v 1.2 2013/06/18 03:30:33 patrick Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils toolchain-funcs
 
 DESCRIPTION="A C library implementing a suite of algorithms to factor large integers"
-HOMEPAGE="http://sourceforge.net/projects/msieve/"
+HOMEPAGE="https://sourceforge.net/projects/msieve/"
 SRC_URI="mirror://sourceforge/${PN}/${PN}/Msieve%20v${PV}/${PN}${PV/./}.tar.gz"
 
 LICENSE="public-domain"

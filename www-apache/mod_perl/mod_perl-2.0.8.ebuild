@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_perl/mod_perl-2.0.8.ebuild,v 1.8 2014/08/31 10:51:50 zlogene Exp $
+# $Id$
 
 EAPI="5"
 
@@ -22,7 +22,7 @@ SLOT="1"
 # ithreads, bug 373943
 DEPEND="<www-servers/apache-2.4
 	>=dev-perl/Apache-Test-1.360
-	>=virtual/perl-CGI-3.08
+	>=dev-perl/CGI-3.08
 	dev-lang/perl
 	www-servers/apache
 	|| ( www-servers/apache[-threads] dev-lang/perl[ithreads] )"
@@ -31,7 +31,7 @@ PDEPEND=">=dev-perl/Apache-Reload-0.11
 	>=dev-perl/Apache-SizeLimit-0.95"
 
 APACHE2_MOD_FILE="${S}/src/modules/perl/mod_perl.so"
-APACHE2_MOD_CONF="2.0.3/75_${PN}"
+APACHE2_MOD_CONF="2.0.3/75_${PN}.2.2"
 APACHE2_MOD_DEFINE="PERL"
 
 SRC_TEST="do"
@@ -125,7 +125,7 @@ src_install() {
 
 	# rendhalver - fix the perllocal.pod that gets installed
 	# it seems to me that this has been getting installed for ages
-	fixlocalpod
+	perl_delete_localpod
 	# Remove empty .bs files as well
 	perl_delete_packlist
 
@@ -139,7 +139,7 @@ src_install() {
 	# happening and revert if problematic.
 
 	# Sorry for this evil hack...
-	perlinfo # just to be sure...
+	perl_set_version # just to be sure...
 	sed -i -e "s,-I${S}/[^[:space:]\"\']\+[[:space:]]\?,,g" \
 		-e "s,-typemap[[:space:]]${S}/[^[:space:]\"\']\+[[:space:]]\?,,g" \
 		-e "s,${S}\(/[^[:space:]\"\']\+\)\?,/,g" "${D}/${VENDOR_ARCH}/Apache2/BuildConfig.pm" || die
@@ -153,6 +153,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	perl-module_pkg_postinst
 	apache-module_pkg_postinst
 }

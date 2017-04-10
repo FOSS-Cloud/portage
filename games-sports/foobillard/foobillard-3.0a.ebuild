@@ -1,9 +1,9 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-sports/foobillard/foobillard-3.0a.ebuild,v 1.17 2011/10/13 14:45:07 mr_bones_ Exp $
+# $Id$
 
-EAPI=2
-inherit eutils autotools games
+EAPI=5
+inherit eutils flag-o-matic autotools toolchain-funcs games
 
 DESCRIPTION="8ball, 9ball, snooker and carambol game"
 HOMEPAGE="http://foobillard.sourceforge.net/"
@@ -19,9 +19,10 @@ DEPEND="x11-libs/libXaw
 	virtual/opengl
 	virtual/glu
 	>=media-libs/freetype-2.0.9
-	media-libs/libpng
-	sdl? ( media-libs/libsdl )
+	media-libs/libpng:0
+	sdl? ( media-libs/libsdl[video] )
 	!sdl? ( media-libs/freeglut )"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	epatch \
@@ -29,11 +30,14 @@ src_prepare() {
 		"${FILESDIR}"/${P}-fbsd.patch \
 		"${FILESDIR}"/${P}-as-needed.patch \
 		"${FILESDIR}"/${P}-gl-clamp.patch
+	mv configure.{in,ac}
+	rm aclocal.m4
 
 	eautoreconf
 }
 
 src_configure() {
+	use video_cards_nvidia && append-ldflags -L/usr/$(get_libdir)/opengl/nvidia/lib
 	egamesconf \
 		--enable-sound \
 		$(use_enable sdl SDL) \
@@ -42,8 +46,7 @@ src_configure() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-	dodoc AUTHORS ChangeLog README README.FONTS
+	default
 	doman foobillard.6
 	newicon data/full_symbol.png foobillard.png
 	make_desktop_entry foobillard Foobillard

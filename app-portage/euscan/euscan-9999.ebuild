@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/euscan/euscan-9999.ebuild,v 1.6 2014/07/06 12:34:51 mgorny Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="xml"
 
 inherit distutils-r1 git-2
@@ -27,7 +27,7 @@ RDEPEND="${DEPEND}
 	dev-python/beautifulsoup[${PYTHON_USEDEP}]"
 
 python_prepare_all() {
-	python_export_best
+	python_setup
 	echo VERSION="${PV}" "${PYTHON}" setup.py set_version
 	VERSION="${PV}" "${PYTHON}" setup.py set_version
 	distutils-r1_python_prepare_all

@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/phpldapadmin/phpldapadmin-1.2.3-r1.ebuild,v 1.2 2014/08/10 20:53:27 slyfox Exp $
+# $Id$
 
 EAPI=5
 
-inherit webapp depend.php
+inherit eutils webapp
 
 DESCRIPTION="phpLDAPadmin is a web-based tool for managing all aspects of your LDAP server"
 HOMEPAGE="http://phpldapadmin.sourceforge.net"
@@ -15,10 +15,10 @@ KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~sparc ~x86"
 IUSE=""
 
 RDEPEND="dev-lang/php[hash,ldap,session,xml,nls]
-		 || ( <dev-lang/php-5.3[pcre] >=dev-lang/php-5.3 )"
+		 || ( <dev-lang/php-5.3[pcre] >=dev-lang/php-5.3 )
+	virtual/httpd-php"
 
 need_httpd_cgi
-need_php_httpd
 
 src_prepare() {
 	mv config/config.php.example config/config.php
@@ -26,7 +26,7 @@ src_prepare() {
 	# http://phpldapadmin.git.sourceforge.net/git/gitweb.cgi?p=phpldapadmin/phpldapadmin;a=commit;h=7dc8d57d6952fe681cb9e8818df7f103220457bd
 
 	epatch "${FILESDIR}/${PN}-fix-php5.5-support.patch"
-	# http://sourceforge.net/u/nihilisticz/phpldapadmin/ci/7e53dab990748c546b79f0610c3a7a58431e9ebc/
+	# https://sourceforge.net/u/nihilisticz/phpldapadmin/ci/7e53dab990748c546b79f0610c3a7a58431e9ebc/
 	# This patch has been requested to be merged, but there's no recent activity by upstream
 }
 

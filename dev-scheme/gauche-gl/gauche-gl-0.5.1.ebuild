@@ -1,12 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-scheme/gauche-gl/gauche-gl-0.5.1.ebuild,v 1.2 2012/07/10 12:28:42 hattya Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 inherit eutils
 
-MY_P="${P/g/G}"
+# Switch to ^g when we switch to EAPI=6.
+MY_P="G${P:1}"
 
 DESCRIPTION="OpenGL binding for Gauche"
 HOMEPAGE="http://practical-scheme.net/gauche/"
@@ -25,15 +26,11 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}/${MY_P}"
 
 src_configure() {
-	local myconf
-	use cg && myconf="--enable-cg"
-
-	econf ${myconf}
+	econf $(usex cg --enable-cg "")
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
-	dodoc ChangeLog README
+	default
 
 	if use examples; then
 		docompress -x /usr/share/doc/${PF}/examples
@@ -47,8 +44,6 @@ src_install() {
 		# install slbook
 		dodoc -r examples/slbook
 		# install cg examples
-		if use cg; then
-			dodoc -r examples/cg
-		fi
+		use cg && dodoc -r examples/cg
 	fi
 }

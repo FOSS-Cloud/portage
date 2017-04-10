@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/fdutils/fdutils-5.5.20060227.ebuild,v 1.1 2013/03/20 18:38:33 ssuominen Exp $
+# $Id$
 
 EAPI=5
 inherit eutils
@@ -29,6 +29,9 @@ src_prepare() {
 	local d="${WORKDIR}"/debian/patches
 	EPATCH_SOURCE="${d}" epatch $(<"${d}"/series)
 	sed -i -e 's:{LDFLAFS}:(LDFLAGS):' src/Makefile.in || die #337721
+	# The build sets up config.h and uses some symbols, but forgots to
+	# actually include it in most places.
+	sed -i '1i#include "../config.h"' src/*.c || die #580060
 }
 
 src_configure() {

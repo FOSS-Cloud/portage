@@ -1,7 +1,7 @@
-#!/sbin/runscript
-# Copyright 1999-2005 Gentoo Foundation
+#!/sbin/openrc-run
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/cancd/files/netconsole-init.d,v 1.3 2005/11/19 01:33:14 robbat2 Exp $
+# $Id$
 
 depend() {
 	need net
@@ -16,7 +16,7 @@ start() {
 		if [ $ret -eq 0 ]; then
 			TGT_MAC="$(LC_ALL=C arp -an -i ${DEVICE} ${TGT_IP} |egrep -v 'incomplete|no match' | awk '{print $4}')"
 		fi
-	elif [ "${TGT_MAC}" == "broadcast" ]; then
+	elif [ "${TGT_MAC}" = "broadcast" ]; then
 		TGT_MAC=''
 	fi
 	ebegin "Starting netconsole ${SRC_IP}:${SRC_PORT}(${DEVICE}) -> ${TGT_IP}:${TGT_PORT} ${TGT_MAC}"
@@ -45,7 +45,7 @@ checkconfig() {
 		return 1
 	fi
 
-	LC_ALL=C /sbin/ifconfig "${DEVICE}" 1>/dev/null 2>/dev/null
+	LC_ALL=C ifconfig "${DEVICE}" 1>/dev/null 2>/dev/null
 	ret=$?
 
 	if [ -z "${DEVICE}" -o "${ret}" -gt 0 ]; then

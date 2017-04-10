@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-pilotskin/vdr-pilotskin-0.0.2-r1.ebuild,v 1.5 2014/01/15 00:41:58 hd_brummy Exp $
+# $Id$
 
 EAPI=5
 
@@ -23,5 +23,5 @@ src_prepare() {
 	vdr-plugin-2_src_prepare
 
 	sed -i pilotskin.c -e "s:RegisterI18n://RegisterI18n:"
-	remove_i18n_include pilotskin.c
+	vdr_remove_i18n_include pilotskin.c
 }

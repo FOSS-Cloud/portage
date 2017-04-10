@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/kismet/kismet-9999.ebuild,v 1.11 2013/12/06 17:55:58 swift Exp $
+# $Id$
 
 EAPI=5
 
-inherit eutils multilib user
+inherit autotools eutils multilib user
 
 MY_P=${P/\./-}
 MY_P=${MY_P/./-R}
@@ -16,8 +16,8 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-2
 	KEYWORDS=""
 else
-	SRC_URI="http://www.kismetwireless.net/code/${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~ppc ~x86"
+	SRC_URI="http://www.kismetwireless.net/code/${MY_P}.tar.xz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
 fi
 
 DESCRIPTION="IEEE 802.11 wireless LAN sniffer"
@@ -25,27 +25,33 @@ HOMEPAGE="http://www.kismetwireless.net/"
 
 LICENSE="GPL-2"
 SLOT="0/${PV}"
-IUSE="+client +pcre speech +plugin-autowep +plugin-btscan plugin-dot15d4 +plugin-ptw +plugin-spectools +plugin-syslog +ruby selinux +suid"
+#IUSE="+client +pcre speech +plugin-autowep +plugin-btscan plugin-dot15d4 +plugin-ptw +plugin-spectools +plugin-syslog +ruby selinux +suid"
+IUSE="+client +pcre speech +ruby selinux +suid"
 
-RDEPEND="net-wireless/wireless-tools
+CDEPEND="net-wireless/wireless-tools
+	dev-libs/msgpack
+	net-libs/libmicrohttpd
 	kernel_linux? ( sys-libs/libcap
 			dev-libs/libnl:3
-			|| (
-				<net-libs/libpcap-1.4.0[-netlink]
-				>=net-libs/libpcap-1.4.0
-			) )
+			net-libs/libpcap
+			)
 	pcre? ( dev-libs/libpcre )
 	suid? ( sys-libs/libcap )
-	client? ( sys-libs/ncurses )
+	client? ( sys-libs/ncurses:0= )
 	!arm? ( speech? ( app-accessibility/flite ) )
-	ruby? ( dev-lang/ruby )
-	plugin-btscan? ( net-wireless/bluez )
-	plugin-dot15d4? ( virtual/libusb:0 )
-	plugin-spectools? ( net-wireless/spectools )
-	selinux? ( sec-policy/selinux-kismet )"
+	"
+	#plugin-btscan? ( net-wireless/bluez )
+	#plugin-dot15d4? ( virtual/libusb:0 )
+	#plugin-spectools? ( net-wireless/spectools )
 
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+DEPEND="${CDEPEND}
+	virtual/pkgconfig
+"
+
+RDEPEND="${CDEPEND}
+	ruby? ( dev-lang/ruby:* )
+	selinux? ( sec-policy/selinux-kismet )
+"
 
 src_prepare() {
 	sed -i -e "s:^\(logtemplate\)=\(.*\):\1=/tmp/\2:" \
@@ -54,6 +60,9 @@ src_prepare() {
 	# Don't strip and set correct mangrp
 	sed -i -e 's| -s||g' \
 		-e 's|@mangrp@|root|g' Makefile.in
+
+	epatch_user
+	eautoreconf
 }
 
 src_configure() {
@@ -65,57 +74,57 @@ src_configure() {
 src_compile() {
 	emake
 
-	if use plugin-autowep; then
-		cd "${S}"/restricted-plugin-autowep
-		KIS_SRC_DIR="${S}" emake
-	fi
-	if use plugin-btscan; then
-		cd "${S}"/plugin-btscan
-		KIS_SRC_DIR="${S}" emake
-	fi
-	if use plugin-dot15d4; then
-		cd "${S}"/plugin-dot15d4
-		KIS_SRC_DIR="${S}" emake
-	fi
-	if use plugin-ptw; then
-		cd "${S}"/restricted-plugin-ptw
-		KIS_SRC_DIR="${S}" emake
-	fi
-	if use plugin-spectools; then
-		cd "${S}"/plugin-spectools
-		KIS_SRC_DIR="${S}" emake
-	fi
-	if use plugin-syslog; then
-		cd "${S}"/plugin-syslog
-		KIS_SRC_DIR="${S}" emake
-	fi
+	#if use plugin-autowep; then
+	#	cd "${S}"/restricted-plugin-autowep
+	#	KIS_SRC_DIR="${S}" emake
+	#fi
+	#if use plugin-btscan; then
+	#	cd "${S}"/plugin-btscan
+	#	KIS_SRC_DIR="${S}" emake
+	#fi
+	#if use plugin-dot15d4; then
+	#	cd "${S}"/plugin-dot15d4
+	#	KIS_SRC_DIR="${S}" emake
+	#fi
+	#if use plugin-ptw; then
+	#	cd "${S}"/restricted-plugin-ptw
+	#	KIS_SRC_DIR="${S}" emake
+	#fi
+	#if use plugin-spectools; then
+	#	cd "${S}"/plugin-spectools
+	#	KIS_SRC_DIR="${S}" emake
+	#fi
+	#if use plugin-syslog; then
+	#	cd "${S}"/plugin-syslog
+	#	KIS_SRC_DIR="${S}" emake
+	#fi
 }
 
 src_install() {
-	if use plugin-autowep; then
-		cd "${S}"/restricted-plugin-autowep
-		KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
-	fi
-	if use plugin-btscan; then
-		cd "${S}"/plugin-btscan
-		KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
-	fi
-	if use plugin-dot15d4; then
-		cd "${S}"/plugin-dot15d4
-		KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
-	fi
-	if use plugin-ptw; then
-		cd "${S}"/restricted-plugin-ptw
-		KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
-	fi
-	if use plugin-spectools; then
-		cd "${S}"/plugin-spectools
-		KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
-	fi
-	if use plugin-syslog; then
-		cd "${S}"/plugin-syslog
-		KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
-	fi
+	#if use plugin-autowep; then
+	#	cd "${S}"/restricted-plugin-autowep
+	#	KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
+	#fi
+	#if use plugin-btscan; then
+	#	cd "${S}"/plugin-btscan
+	#	KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
+	#fi
+	#if use plugin-dot15d4; then
+	#	cd "${S}"/plugin-dot15d4
+	#	KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
+	#fi
+	#if use plugin-ptw; then
+	#	cd "${S}"/restricted-plugin-ptw
+	#	KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
+	#fi
+	#if use plugin-spectools; then
+	#	cd "${S}"/plugin-spectools
+	#	KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
+	#fi
+	#if use plugin-syslog; then
+	#	cd "${S}"/plugin-syslog
+	#	KIS_SRC_DIR="${S}" emake DESTDIR="${ED}" LIBDIR="$(get_libdir)" install
+	#fi
 	if use ruby; then
 		cd "${S}"/ruby
 		dobin *.rb
@@ -133,7 +142,8 @@ src_install() {
 	doins Makefile.inc
 	#todo write a plugin finder that tells you what needs to be rebuilt when kismet is updated, etc
 
-	dodoc CHANGELOG RELEASENOTES.txt README* docs/DEVEL.client docs/README.newcore
+	#dodoc CHANGELOG RELEASENOTES.txt README* docs/DEVEL.client docs/README.newcore
+	dodoc CHANGELOG README*
 	newinitd "${FILESDIR}"/${PN}.initd kismet
 	newconfd "${FILESDIR}"/${PN}.confd kismet
 

@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>proxy-maintainers</herd>
-	<maintainer>
-		<email>hwoarang@gentoo.org</email>
-		<name>Markos Chandras</name>
-	</maintainer>
-	<maintainer>
-		<email>dirk.vdb@gmail.com</email>
-		<name>Dirk Vanden Boer</name>
-		<description>Proxy maintainer and upstream developer. Please CC him on bugs</description>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<use>
 		<flag name="audioscrobbler">Enable track submission on last.fm</flag>
 	</use>
@@ -18,5 +9,6 @@
 	</longdescription>
 	<upstream>
 		<remote-id type="google-code">gejengel</remote-id>
+		<remote-id type="github">dirkvdb/gejengel</remote-id>
 	</upstream>
 </pkgmetadata>

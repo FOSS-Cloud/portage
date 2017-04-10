@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>video</herd>
-	<maintainer>
+	<maintainer type="project">
 		<email>media-video@gentoo.org</email>
 	</maintainer>
 	<longdescription lang="en">Command line tool for extracting videos from Youtube, Google Video,
@@ -14,5 +13,6 @@
 	</use>
 	<upstream>
 		<remote-id type="google-code">clive</remote-id>
+		<remote-id type="sourceforge">clive</remote-id>
 	</upstream>
 </pkgmetadata>

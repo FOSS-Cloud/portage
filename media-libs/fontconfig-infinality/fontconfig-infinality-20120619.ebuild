@@ -1,13 +1,13 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/fontconfig-infinality/fontconfig-infinality-20120619.ebuild,v 1.4 2013/01/25 11:06:15 ago Exp $
+# $Id$
 
 EAPI="4"
 
 DESCRIPTION="Configuration to be used in conjunction with the freetype-infinality subpixel hinting"
 HOMEPAGE="http://www.infinality.net/blog/infinality-freetype-patches/"
-SRC_URI="http://dev.gentoo.org/~yngwin/distfiles/${P}.tar.xz
-	nyx? ( http://dev.gentoo.org/~yngwin/distfiles/fontconfig-nyx-1.tar.xz )"
+SRC_URI="https://dev.gentoo.org/~yngwin/distfiles/${P}.tar.xz
+	nyx? ( https://dev.gentoo.org/~yngwin/distfiles/fontconfig-nyx-1.tar.xz )"
 
 LICENSE="MIT"
 SLOT="0"
@@ -15,9 +15,9 @@ KEYWORDS="amd64 x86"
 IUSE="+nyx"
 
 DEPEND=""
-RDEPEND="app-admin/eselect-fontconfig
-	app-admin/eselect-infinality
-	app-admin/eselect-lcdfilter
+RDEPEND="app-eselect/eselect-fontconfig
+	app-eselect/eselect-infinality
+	app-eselect/eselect-lcdfilter
 	>=x11-libs/libXft-2.3.0
 	nyx? ( media-fonts/croscorefonts )"
 PDEPEND="media-libs/freetype:2[infinality]"

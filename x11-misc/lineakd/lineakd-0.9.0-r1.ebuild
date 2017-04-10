@@ -1,13 +1,13 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/lineakd/lineakd-0.9.0-r1.ebuild,v 1.10 2012/09/12 01:36:56 jer Exp $
+# $Id$
 
 EAPI=4
 inherit eutils multilib
 
 MY_P=${P/.0/}
 
-DESCRIPTION="Linux support for Easy Access and Internet Keyboards features X11 support"
+DESCRIPTION="Linux support for Easy Access and Internet Keyboards"
 HOMEPAGE="http://lineak.sourceforge.net"
 SRC_URI="mirror://sourceforge/lineak/${MY_P}.tar.gz"
 
@@ -56,6 +56,6 @@ src_install() {
 pkg_postinst() {
 	elog
 	elog "evtest utility has not been installed. evtest can be found"
-	elog "in games-util/joystick."
+	elog "in app-misc/evtest."
 	elog
 }

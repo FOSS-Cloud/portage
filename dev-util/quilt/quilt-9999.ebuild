@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/quilt/quilt-9999.ebuild,v 1.2 2013/06/10 19:37:35 hwoarang Exp $
+# $Id$
 
 EAPI=5
 
@@ -11,19 +11,21 @@ EGIT_REPO_URI="git://git.sv.gnu.org/quilt.git"
 inherit bash-completion-r1 eutils
 
 DESCRIPTION="quilt patch manager"
-HOMEPAGE="http://savannah.nongnu.org/projects/quilt"
-[[ ${PV} == 9999 ]] || SRC_URI="http://savannah.nongnu.org/download/quilt/${P}.tar.gz"
+HOMEPAGE="https://savannah.nongnu.org/projects/quilt"
+[[ ${PV} == 9999 ]] || SRC_URI="https://savannah.nongnu.org/download/quilt/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 [[ ${PV} == 9999 ]] || \
-KEYWORDS="~amd64 ~arm ~mips ~ppc ~ppc64 ~sparc ~x86"
-IUSE="graphviz"
+KEYWORDS="~amd64 ~arm ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x64-solaris"
+IUSE="graphviz elibc_Darwin elibc_SunOS"
 
 RDEPEND="
 	dev-util/diffstat
 	mail-mta/sendmail
 	sys-apps/ed
+	elibc_Darwin? ( app-misc/getopt )
+	elibc_SunOS? ( app-misc/getopt )
 	>=sys-apps/coreutils-8.5
 	graphviz? ( media-gfx/graphviz )
 "
@@ -34,6 +36,13 @@ src_prepare() {
 
 	# remove failing test, because it fails on root-build
 	rm -rf test/delete.test
+}
+
+src_configure() {
+	local myconf=""
+	[[ ${CHOST} == *-darwin* || ${CHOST} == *-solaris* ]] && \
+		myconf="${myconf} --with-getopt=${EPREFIX}/usr/bin/getopt-long"
+	econf ${myconf}
 }
 
 src_install() {

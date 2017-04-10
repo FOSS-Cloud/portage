@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/fcitx-rime/fcitx-rime-0.3.1.ebuild,v 1.1 2014/05/20 12:58:14 dlan Exp $
+# $Id$
 
-EAPI=5
+EAPI="5"
 
 inherit cmake-utils
 
@@ -12,14 +12,14 @@ SRC_URI="http://download.fcitx-im.org/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~ppc ppc64 ~x86"
 IUSE=""
 
-RDEPEND=">=app-i18n/fcitx-4.2.8.1
+RDEPEND=">=app-i18n/fcitx-4.2.8.1[dbus]
 	>=app-i18n/librime-1.0
-	app-i18n/rime-data
-	x11-libs/libnotify"
-DEPEND="${RDEPEND}"
+	app-i18n/rime-data"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 src_prepare() {
 	# dont build data resource here, already provided by app-i18n/rime-data

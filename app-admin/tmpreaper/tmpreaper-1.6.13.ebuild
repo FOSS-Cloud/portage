@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/tmpreaper/tmpreaper-1.6.13.ebuild,v 1.6 2012/02/05 17:41:27 armin76 Exp $
+# $Id$
 
 EAPI="3"
 inherit eutils
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 ~arm ppc x86"
 IUSE=""
 
-DEPEND=""
+DEPEND="sys-fs/e2fsprogs"
 RDEPEND=""
 
 S="${WORKDIR}/${MY_P/_/-}"

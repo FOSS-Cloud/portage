@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/festival-it/festival-it-1.0-r2.ebuild,v 1.2 2014/08/06 06:24:38 patrick Exp $
+# $Id$
 
 EAPI="4"
 
@@ -11,7 +11,7 @@ HOMEPAGE="http://www2.pd.istc.cnr.it/FESTIVAL/home"
 SRC_URI="mirror://sourceforge/it-festival/Italian-FESTIVAL.zip"
 
 RDEPEND=">=app-accessibility/festival-2.1
-		mbrola? ( >=app-accessibility/mbrola-3.0.1h-r4[linguas_it] )"
+		mbrola? ( >=app-accessibility/mbrola-3.0.1h-r4[l10n_it] )"
 DEPEND="app-arch/unzip"
 IUSE="mbrola"
 

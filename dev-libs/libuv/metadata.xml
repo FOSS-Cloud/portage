@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>hasufell@gentoo.org</email>
-		<name>Julian Ospald</name>
+	<maintainer type="project">
+		<email>kde@gentoo.org</email>
+		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<longdescription lang="en">
 		libuv is a platform layer for node.js. Its purpose is to abstract
@@ -28,7 +28,10 @@
 			* IPC and socket sharing between processes uv_write2
 	</longdescription>
 	<upstream>
-		<bugs-to>https://github.com/joyent/libuv/issues</bugs-to>
-		<remote-id type="github">joyent/libuv</remote-id>
+		<bugs-to>https://github.com/libuv/libuv/issues</bugs-to>
+		<remote-id type="github">libuv/libuv</remote-id>
 	</upstream>
+	<slots>
+		<subslots>Reflect ABI compatibility of libuv.so.</subslots>
+	</slots>
 </pkgmetadata>

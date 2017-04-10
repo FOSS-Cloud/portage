@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/treeline/treeline-1.4.1-r1.ebuild,v 1.6 2014/08/10 20:04:08 slyfox Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="xml"
 
 inherit eutils python-single-r1
@@ -13,14 +13,14 @@ DESCRIPTION="TreeLine is a structured information storage program"
 HOMEPAGE="http://treeline.bellz.org/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 ppc x86"
 
 TLLINGUAS=( de fr )
-IUSE+=" ${TLLINGUAS[@]/#/linguas_}"
+IUSE+=" ${TLLINGUAS[@]/#/l10n_}"
 for lingua in ${TLLINGUAS[@]}; do
-	SRC_URI+=" linguas_${lingua}? ( mirror://sourceforge/${PN}/${PN}-i18n-${PV}a.tar.gz )"
+	SRC_URI+=" l10n_${lingua}? ( mirror://sourceforge/${PN}/${PN}-i18n-${PV}a.tar.gz )"
 done
 unset lingua
 
@@ -37,8 +37,8 @@ S="${WORKDIR}/TreeLine"
 src_unpack() {
 	unpack ${P}.tar.gz
 	local lingua
-	for lingua in ${TLLINGUAS}; do
-		if use linguas_${lingua}; then
+	for lingua in "${TLLINGUAS[@]}"; do
+		if use l10n_${lingua}; then
 			tar xozf "${DISTDIR}"/${PN}-i18n-${PV}a.tar.gz \
 				TreeLine/doc/{readme_${lingua}.trl,README_${lingua}.html} \
 				TreeLine/translations/{treeline_${lingua}.{qm,ts},qt_${lingua}.{qm,ts}} || die

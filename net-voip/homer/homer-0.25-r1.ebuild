@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/homer/homer-0.25-r1.ebuild,v 1.6 2014/08/10 20:34:30 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -18,7 +18,7 @@ if [[ ${PV} == *9999* ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/V${PV}.tar.gz -> ${PN}-${PV}.tar.gz
-	http://dev.gentoo.org/~hwoarang/distfiles/${P}-ffmpeg2.patch"
+	https://dev.gentoo.org/~hwoarang/distfiles/${P}-ffmpeg2.patch"
 	KEYWORDS="amd64 x86"
 fi
 
@@ -26,7 +26,8 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="pulseaudio"
 
-DEPEND=">=dev-libs/openssl-1.0
+DEPEND="dev-util/cmake
+	>=dev-libs/openssl-1.0
 	media-libs/alsa-lib
 	media-libs/libsdl[X,sound,video,alsa]
 	media-libs/portaudio[alsa]
@@ -48,6 +49,9 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_prepare() {
 	epatch "${DISTDIR}/${P}-ffmpeg2.patch"
+	# Bug #543138
+	sed -e '/mRtpEncoderStream->reference_dts = 0;/d' \
+		-i HomerMultimedia/src/RTP.cpp || die
 
 	if use pulseaudio; then
 		sed -i \

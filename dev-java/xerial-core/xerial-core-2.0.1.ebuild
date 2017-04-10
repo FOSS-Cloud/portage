@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/xerial-core/xerial-core-2.0.1.ebuild,v 1.1 2013/11/24 14:41:38 ercpe Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,17 +10,22 @@ inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="An open-source DBMS for XML/JSON/Relational data"
 HOMEPAGE="https://code.google.com/p/xerial/"
-SRC_URI="http://dev.gentoo.org/~ercpe/distfiles/${CATEGORY}/${PN}/${P}.tar.bz2"
+SRC_URI="https://dev.gentoo.org/~ercpe/distfiles/${CATEGORY}/${PN}/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND=">=virtual/jdk-1.6
-	test? ( dev-java/junit:4 )"
-RDEPEND=">=virtual/jre-1.6"
+DEPEND="
+	>=virtual/jdk-1.6
+	test? (
+		dev-java/junit:4
+	)"
+
+RDEPEND="
+	>=virtual/jre-1.6"
 
 JAVA_ANT_REWRITE_CLASSPATH="true"
 EANT_TEST_GENTOO_CLASSPATH="junit-4"

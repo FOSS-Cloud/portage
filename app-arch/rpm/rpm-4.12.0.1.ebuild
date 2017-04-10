@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/rpm/rpm-4.12.0.1.ebuild,v 1.2 2014/10/05 19:50:44 scarabeus Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit eutils autotools flag-o-matic perl-module python-single-r1 versionator
 
@@ -18,7 +18,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86
 
 IUSE="nls python doc caps lua acl selinux"
 
-RDEPEND="!app-arch/rpm5
+CDEPEND="!app-arch/rpm5
 	app-arch/libarchive
 	>=sys-libs/db-4.5
 	>=sys-libs/zlib-1.2.3-r1
@@ -33,12 +33,14 @@ RDEPEND="!app-arch/rpm5
 	nls? ( virtual/libintl )
 	lua? ( >=dev-lang/lua-5.1.0[deprecated] )
 	acl? ( virtual/acl )
-	caps? ( >=sys-libs/libcap-2.0 )
-	selinux? ( sec-policy/selinux-rpm )"
+	caps? ( >=sys-libs/libcap-2.0 )"
 
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	nls? ( sys-devel/gettext )
 	doc? ( app-doc/doxygen )"
+
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-rpm )"
 
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -107,7 +109,7 @@ src_install() {
 	fi
 
 	# Fix perllocal.pod file collision
-	fixlocalpod
+	perl_delete_localpod
 }
 
 pkg_postinst() {

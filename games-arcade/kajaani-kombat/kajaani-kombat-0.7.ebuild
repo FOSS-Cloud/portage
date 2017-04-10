@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/kajaani-kombat/kajaani-kombat-0.7.ebuild,v 1.9 2014/05/15 16:28:54 ulm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="A rampart-like game set in space"
@@ -19,26 +19,25 @@ DEPEND="media-libs/libsdl[sound,video]
 	media-libs/sdl-image[png]
 	media-libs/sdl-ttf
 	media-libs/sdl-mixer[vorbis]
-	sys-libs/ncurses
-	sys-libs/readline"
+	sys-libs/ncurses:0
+	sys-libs/readline:0"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}/${PV}-makefile.patch" \
 		"${FILESDIR}"/${P}-ldflags.patch
 	sed -i \
 		-e "s:GENTOODIR:${GAMES_DATADIR}/${PN}/:" \
-		Makefile \
-		|| die "sed failed"
+		Makefile || die
 	sed -i \
 		-e 's/IMG_Load/img_load/' \
-		gui_screens.cpp \
-		|| die "sed failed"
+		gui_screens.cpp || die
 }
 
 src_install() {
-	dogamesbin kajaani-kombat || die "dogamesbin failed"
+	dogamesbin kajaani-kombat
 	insinto "${GAMES_DATADIR}/${PN}"
-	doins *.{png,ttf,ogg} || die "doins failed"
+	doins *.{png,ttf,ogg}
 	dodoc AUTHORS ChangeLog README
 	doman kajaani-kombat.6
 	prepgamesdirs

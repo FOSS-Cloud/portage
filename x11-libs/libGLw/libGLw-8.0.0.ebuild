@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libGLw/libGLw-8.0.0.ebuild,v 1.7 2014/03/26 12:02:27 zlogene Exp $
+# $Id$
 
 EAPI=4
 
@@ -21,7 +21,7 @@ RDEPEND="
 	!media-libs/mesa[motif]
 	x11-libs/libX11
 	x11-libs/libXt
-	x11-libs/motif
+	x11-libs/motif:0
 	virtual/opengl"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"

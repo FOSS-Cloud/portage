@@ -1,16 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-antivirus/clamav-unofficial-sigs/clamav-unofficial-sigs-3.7.2.ebuild,v 1.2 2014/10/05 21:52:34 mjo Exp $
+# $Id$
 
 EAPI=5
 
 DESCRIPTION="Downloads and installs third-party clamav signatures"
-HOMEPAGE="http://sourceforge.net/projects/unofficial-sigs"
+HOMEPAGE="https://sourceforge.net/projects/unofficial-sigs"
 SRC_URI="mirror://sourceforge/unofficial-sigs/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 # We need its user/group.

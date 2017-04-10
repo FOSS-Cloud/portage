@@ -1,6 +1,6 @@
 # Copyright 1999-2006 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-fonts/free-bangla-font/free-bangla-font-0.2.ebuild,v 1.10 2006/11/26 23:45:39 flameeyes Exp $
+# $Id$
 
 inherit font
 
@@ -11,7 +11,7 @@ MUKTINARROW_P="MuktiNarrow-0.94"
 
 DESCRIPTION="Unicode compliant Open Type Bangla fonts"
 HOMEPAGE="http://www.nongnu.org/freebangfont/index.html"
-SRC_BASE="http://savannah.nongnu.org/download/freebangfont"
+SRC_BASE="https://savannah.nongnu.org/download/freebangfont"
 SRC_URI="${SRC_BASE}/${AKAASH_P}.tar.gz
 	${SRC_BASE}/${ANI_P}.tar.gz
 	${SRC_BASE}/${LIKHAN_P}.tar.gz

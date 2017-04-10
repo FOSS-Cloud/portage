@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-mud/powwow/powwow-1.2.16.ebuild,v 1.3 2013/02/18 17:10:59 hasufell Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit autotools eutils games
 
 DESCRIPTION="PowWow Console MUD Client"
@@ -11,10 +11,11 @@ SRC_URI="http://hoopajoo.net/static/projects/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86"
+KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-DEPEND="sys-libs/ncurses"
+DEPEND="sys-libs/ncurses:0"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-underlinking.patch
@@ -23,17 +24,16 @@ src_prepare() {
 	sed -i \
 		-e "s/pkgdata_DATA = powwow.doc/pkgdata_DATA = /" \
 		Makefile.am || die
+	mv configure.in configure.ac || die
 	eautoreconf
 }
 
 src_configure() {
-	egamesconf \
-		--disable-dependency-tracking \
-		--includedir=/usr/include
+	egamesconf --includedir=/usr/include
 }
 
 src_install () {
-	emake DESTDIR="${D}" install || die
-	dodoc ChangeLog Config.demo Hacking NEWS powwow.{doc,help} README.* TODO
+	DOCS="ChangeLog Config.demo Hacking NEWS powwow.doc powwow.help README.* TODO" \
+		default
 	prepgamesdirs
 }

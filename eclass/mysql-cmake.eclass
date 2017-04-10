@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/mysql-cmake.eclass,v 1.24 2014/07/31 22:26:07 grknight Exp $
+# $Id$
 
 # @ECLASS: mysql-cmake.eclass
 # @MAINTAINER:
@@ -16,7 +16,7 @@
 # the src_prepare, src_configure, src_compile, and src_install
 # phase hooks.
 
-inherit cmake-utils flag-o-matic multilib prefix eutils
+inherit cmake-utils flag-o-matic multilib prefix eutils toolchain-funcs
 
 #
 # HELPER FUNCTIONS:
@@ -87,26 +87,30 @@ mysql-cmake_use_plugin() {
 # Helper function to configure locale cmake options
 configure_cmake_locale() {
 
-	if ! use minimal && [[ ( -n ${MYSQL_DEFAULT_CHARSET} ) && ( -n ${MYSQL_DEFAULT_COLLATION} ) ]]; then
-		ewarn "You are using a custom charset of ${MYSQL_DEFAULT_CHARSET}"
-		ewarn "and a collation of ${MYSQL_DEFAULT_COLLATION}."
-		ewarn "You MUST file bugs without these variables set."
+	if use_if_iuse minimal ; then
+		:
+	elif ! in_iuse server || use_if_iuse server ; then
+		if [[ ( -n ${MYSQL_DEFAULT_CHARSET} ) && ( -n ${MYSQL_DEFAULT_COLLATION} ) ]]; then
+			ewarn "You are using a custom charset of ${MYSQL_DEFAULT_CHARSET}"
+			ewarn "and a collation of ${MYSQL_DEFAULT_COLLATION}."
+			ewarn "You MUST file bugs without these variables set."
 
-		mycmakeargs+=(
-			-DDEFAULT_CHARSET=${MYSQL_DEFAULT_CHARSET}
-			-DDEFAULT_COLLATION=${MYSQL_DEFAULT_COLLATION}
-		)
+			mycmakeargs+=(
+				-DDEFAULT_CHARSET=${MYSQL_DEFAULT_CHARSET}
+				-DDEFAULT_COLLATION=${MYSQL_DEFAULT_COLLATION}
+			)
 
-	elif ! use latin1 ; then
-		mycmakeargs+=(
-			-DDEFAULT_CHARSET=utf8
-			-DDEFAULT_COLLATION=utf8_general_ci
-		)
-	else
-		mycmakeargs+=(
-			-DDEFAULT_CHARSET=latin1
-			-DDEFAULT_COLLATION=latin1_swedish_ci
-		)
+		elif ! use latin1 ; then
+			mycmakeargs+=(
+				-DDEFAULT_CHARSET=utf8
+				-DDEFAULT_COLLATION=utf8_general_ci
+			)
+		else
+			mycmakeargs+=(
+				-DDEFAULT_CHARSET=latin1
+				-DDEFAULT_COLLATION=latin1_swedish_ci
+			)
+		fi
 	fi
 }
 
@@ -179,7 +183,6 @@ configure_cmake_standard() {
 		-DWITH_MYISAMMRG_STORAGE_ENGINE=1
 		-DWITH_MYISAM_STORAGE_ENGINE=1
 		-DWITH_PARTITION_STORAGE_ENGINE=1
-		$(cmake-utils_use_with extraengine FEDERATED_STORAGE_ENGINE)
 	)
 
 	if in_iuse pbxt ; then
@@ -187,10 +190,19 @@ configure_cmake_standard() {
 	fi
 
 	if [[ ${PN} == "mariadb" || ${PN} == "mariadb-galera" ]]; then
+
+		# Federated{,X} must be treated special otherwise they will not be built as plugins
+		if ! use extraengine ; then
+			mycmakeargs+=(
+				-DWITHOUT_FEDERATED_STORAGE_ENGINE=1
+				-DPLUGIN_FEDERATED=NO
+				-DWITHOUT_FEDERATEDX_STORAGE_ENGINE=1
+				-DPLUGIN_FEDERATEDX=NO )
+		fi
+
 		mycmakeargs+=(
 			$(mysql-cmake_use_plugin oqgraph OQGRAPH)
 			$(mysql-cmake_use_plugin sphinx SPHINX)
-			$(mysql-cmake_use_plugin extraengine FEDERATEDX)
 			$(mysql-cmake_use_plugin tokudb TOKUDB)
 			$(mysql-cmake_use_plugin pam AUTH_PAM)
 		)
@@ -204,17 +216,52 @@ configure_cmake_standard() {
 				$(mysql-cmake_use_plugin extraengine SPIDER)
 				$(mysql-cmake_use_plugin extraengine CONNECT)
 				-DCONNECT_WITH_MYSQL=1
-				-DPLUGIN_CONNECT_WITH_MYSQL=YES
 				$(cmake-utils_use xml CONNECT_WITH_LIBXML2)
 				$(cmake-utils_use odbc CONNECT_WITH_ODBC)
 			)
 		fi
+
+		if in_iuse mroonga ; then
+			use mroonga || mycmakeargs+=( -DWITHOUT_MROONGA=1 )
+		else
+			mycmakeargs+=( -DWITHOUT_MROONGA=1 )
+		fi
+
+		if in_iuse galera ; then
+			mycmakeargs+=( $(cmake-utils_use_with galera WSREP) )
+		fi
+
+		if mysql_version_is_at_least "10.1.1" ; then
+			mycmakeargs+=(  $(cmake-utils_use_with innodb-lz4 INNODB_LZ4)
+					$(cmake-utils_use_with innodb-lzo INNODB_LZO) )
+		fi
+
+		if in_iuse innodb-snappy ; then
+			mycmakeargs+=( $(cmake-utils_use_with innodb-snappy INNODB_SNAPPY)  )
+		fi
+
+		if mysql_version_is_at_least "10.1.2" ; then
+			mycmakeargs+=( $(mysql-cmake_use_plugin cracklib CRACKLIB_PASSWORD_CHECK ) )
+		fi
+
+		# The build forces this to be defined when cross-compiling.  We pass it
+		# all the time for simplicity and to make sure it is actually correct.
+		mycmakeargs+=( -DSTACK_DIRECTION=$(tc-stack-grows-down && echo -1 || echo 1) )
+	else
+		mycmakeargs+=( $(cmake-utils_use_with extraengine FEDERATED_STORAGE_ENGINE) )
 	fi
 
 	if [[ ${PN} == "percona-server" ]]; then
 		mycmakeargs+=(
-			$(cmake-utils_use_with pam)
+			$(cmake-utils_use_with pam PAM)
 		)
+		if in_iuse tokudb ; then
+			# TokuDB Backup plugin requires valgrind unconditionally
+			mycmakeargs+=(
+				$(mysql-cmake_use_plugin tokudb TOKUDB)
+				$(usex tokudb-backup-plugin "" -DTOKUDB_BACKUP_DISABLED=1)
+			)
+		fi
 	fi
 
 	if [[ ${PN} == "mysql-cluster" ]]; then
@@ -270,8 +317,26 @@ mysql-cmake_src_prepare() {
 
 	if in_iuse tokudb ; then
 		# Don't build bundled xz-utils
-		rm -f "${S}/storage/tokudb/ft-index/cmake_modules/TokuThirdParty.cmake"
-		touch "${S}/storage/tokudb/ft-index/cmake_modules/TokuThirdParty.cmake"
+		if [[ -d "${S}/storage/tokudb/ft-index" ]] ; then
+			rm -f "${S}/storage/tokudb/ft-index/cmake_modules/TokuThirdParty.cmake" || die
+			touch "${S}/storage/tokudb/ft-index/cmake_modules/TokuThirdParty.cmake" || die
+			sed -i 's/ build_lzma//' "${S}/storage/tokudb/ft-index/ft/CMakeLists.txt" || die
+		elif [[ -d "${S}/storage/tokudb/PerconaFT" ]] ; then
+			rm "${S}/storage/tokudb/PerconaFT/cmake_modules/TokuThirdParty.cmake" || die
+			touch "${S}/storage/tokudb/PerconaFT/cmake_modules/TokuThirdParty.cmake" || die
+			sed -i -e 's/ build_lzma//' -e 's/ build_snappy//' "${S}/storage/tokudb/PerconaFT/ft/CMakeLists.txt" || die
+			sed -i -e 's/add_dependencies\(tokuportability_static_conv build_jemalloc\)//' "${S}/storage/tokudb/PerconaFT/portability/CMakeLists.txt" || die
+		fi
+
+		if [[ -d "${S}/plugin/tokudb-backup-plugin" ]] && ! use tokudb-backup-plugin ; then
+			 rm -r "${S}/plugin/tokudb-backup-plugin/Percona-TokuBackup" || die
+		fi
+	fi
+
+	# Remove the bundled groonga if it exists
+	# There is no CMake flag, it simply checks for existance
+	if [[ -d "${S}"/storage/mroonga/vendor/groonga ]] ; then
+		rm -r "${S}"/storage/mroonga/vendor/groonga || die "could not remove packaged groonga"
 	fi
 
 	epatch_user
@@ -340,7 +405,7 @@ mysql-cmake_src_configure() {
 
 	configure_cmake_locale
 
-	if use minimal ; then
+	if use_if_iuse minimal ; then
 		configure_cmake_minimal
 	else
 		configure_cmake_standard
@@ -356,7 +421,9 @@ mysql-cmake_src_configure() {
 		CXXFLAGS="${CXXFLAGS} -fno-implicit-templates"
 	fi
 	# As of 5.7, exceptions and rtti are used!
-	if ! mysql_version_is_at_least "5.7" ; then
+	if [[ ${PN} -eq 'percona-server' ]] && mysql_version_is_at_least "5.6.26" ; then
+		CXXFLAGS="${CXXFLAGS} -fno-rtti"
+	elif ! mysql_version_is_at_least "5.7" ; then
 		CXXFLAGS="${CXXFLAGS} -fno-exceptions -fno-rtti"
 	fi
 	export CXXFLAGS
@@ -389,11 +456,13 @@ mysql-cmake_src_install() {
 
 	cmake-utils_src_install
 
-	# Convenience links
-	einfo "Making Convenience links for mysqlcheck multi-call binary"
-	dosym "/usr/bin/mysqlcheck" "/usr/bin/mysqlanalyze"
-	dosym "/usr/bin/mysqlcheck" "/usr/bin/mysqlrepair"
-	dosym "/usr/bin/mysqlcheck" "/usr/bin/mysqloptimize"
+	if ! in_iuse tools || use_if_iuse tools ; then
+		# Convenience links
+		einfo "Making Convenience links for mysqlcheck multi-call binary"
+		dosym "/usr/bin/mysqlcheck" "/usr/bin/mysqlanalyze"
+		dosym "/usr/bin/mysqlcheck" "/usr/bin/mysqlrepair"
+		dosym "/usr/bin/mysqlcheck" "/usr/bin/mysqloptimize"
+	fi
 
 	# Create a mariadb_config symlink
 	[[ ${PN} == "mariadb" || ${PN} == "mariadb-galera" ]] && dosym "/usr/bin/mysql_config" "/usr/bin/mariadb_config"
@@ -414,11 +483,12 @@ mysql-cmake_src_install() {
 	# Configuration stuff
 	case ${MYSQL_PV_MAJOR} in
 		5.[1-4]*) mysql_mycnf_version="5.1" ;;
-		5.[5-9]|6*|7*|8*|9*|10*) mysql_mycnf_version="5.5" ;;
+		5.5) mysql_mycnf_version="5.5" ;;
+		5.[6-9]|6*|7*|8*|9*|10*) mysql_mycnf_version="5.6" ;;
 	esac
 	einfo "Building default my.cnf (${mysql_mycnf_version})"
 	insinto "${MY_SYSCONFDIR#${EPREFIX}}"
-	doins "${S}"/scripts/mysqlaccess.conf
+	[[ -f "${S}/scripts/mysqlaccess.conf" ]] && doins "${S}"/scripts/mysqlaccess.conf
 	mycnf_src="my.cnf-${mysql_mycnf_version}"
 	sed -e "s!@DATADIR@!${MY_DATADIR}!g" \
 		"${FILESDIR}/${mycnf_src}" \
@@ -433,7 +503,9 @@ mysql-cmake_src_install() {
 	newins "${TMPDIR}/my.cnf.ok" my.cnf
 
 	# Minimal builds don't have the MySQL server
-	if ! use minimal ; then
+	if use_if_iuse minimal ; then
+		:
+	elif ! in_iuse server || use_if_iuse server ; then
 		einfo "Creating initial directories"
 		# Empty directories ...
 		diropts "-m0750"
@@ -452,7 +524,9 @@ mysql-cmake_src_install() {
 	fi
 
 	# Minimal builds don't have the MySQL server
-	if ! use minimal ; then
+	if use_if_iuse minimal ; then
+		:
+	elif ! in_iuse server || use_if_iuse server; then
 		einfo "Including support files and sample configurations"
 		docinto "support-files"
 		for script in \
@@ -472,6 +546,8 @@ mysql-cmake_src_install() {
 	#Remove mytop if perl is not selected
 	[[ ${PN} == "mariadb" || ${PN} == "mariadb-galera" ]] && ! use perl \
 	&& rm -f "${ED}/usr/bin/mytop"
+
+	in_iuse client-libs && ! use client-libs && return
 
 	# Percona has decided to rename libmysqlclient to libperconaserverclient
 	# Use a symlink to preserve linkages for those who don't use mysql_config

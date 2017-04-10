@@ -1,17 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/httpretty/httpretty-0.8.0.ebuild,v 1.2 2014/02/25 12:22:02 scarabeus Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python2_7 python3_3 )
+PYTHON_COMPAT=( python2_7 python3_4 )
 
 inherit distutils-r1
 
 DESCRIPTION="HTTP client mock for Python"
-HOMEPAGE="http://github.com/gabrielfalcao/httpretty"
+HOMEPAGE="https://github.com/gabrielfalcao/httpretty"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="test"
 LICENSE="MIT"
 SLOT="0"
@@ -25,7 +25,8 @@ DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 		dev-python/sure[${PYTHON_USEDEP}]
 		dev-python/httplib2[${PYTHON_USEDEP}]
 		>=dev-python/requests-1.1[${PYTHON_USEDEP}]
-		>=www-servers/tornado-2.2[${PYTHON_USEDEP}] )"
+		>=www-servers/tornado-2.2[${PYTHON_USEDEP}]
+		dev-python/ipdb )"
 
 python_prepare_all() {
 	distutils-r1_python_prepare_all

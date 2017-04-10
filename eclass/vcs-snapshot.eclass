@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/vcs-snapshot.eclass,v 1.7 2013/07/25 07:51:16 mgorny Exp $
+# $Id$
 
 # @ECLASS: vcs-snapshot.eclass
 # @MAINTAINER:
@@ -11,7 +11,7 @@
 # the tarballs in SRC_URI to locations matching their (local) names,
 # discarding the original parent directory.
 #
-# The typical use case are VCS snapshots, coming from github, bitbucket
+# The typical use case are VCS snapshots, coming from bitbucket
 # and similar services. They have hash appended to the directory name
 # which makes extracting them a painful experience. But if you just use
 # a SRC_URI arrow to rename it (which you're likely have to do anyway),
@@ -22,21 +22,25 @@
 # fall back to regular unpack. Support for additional formats may be
 # added at some point so please keep your SRC_URIs clean.
 #
+# Note: this eclass is no longer needed with the new-style 'archive'
+# GitHub URLs. They have sane directory names and stable contents,
+# so you should really prefer them.
+#
 # @EXAMPLE:
 #
 # @CODE
-# EAPI=4
-# AUTOTOOLS_AUTORECONF=1
-# inherit autotools-utils vcs-snapshot
+# EAPI=6
+# inherit vcs-snapshot
 #
-# SRC_URI="http://github.com/example/${PN}/tarball/v${PV} -> ${P}.tar.gz"
+# SRC_URI="https://github.com/example/${PN}/tarball/v${PV} -> ${P}.tar.gz
+# 	https://github.com/example/${PN}-otherstuff/tarball/v${PV} -> ${P}-otherstuff.tar.gz"
 # @CODE
 #
-# and however the tarball was originally named, all files will appear
-# in ${WORKDIR}/${P}.
+# and however the tarballs were originally packed, all files will appear
+# in ${WORKDIR}/${P} and ${WORKDIR}/${P}-otherstuff respectively.
 
 case ${EAPI:-0} in
-	0|1|2|3|4|5) ;;
+	0|1|2|3|4|5|6) ;;
 	*) die "vcs-snapshot.eclass API in EAPI ${EAPI} not yet established."
 esac
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/darkstat/darkstat-3.0.718.ebuild,v 1.6 2014/08/15 19:18:31 jer Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils user
@@ -13,8 +13,13 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc x86"
 
-DEPEND="net-libs/libpcap"
-RDEPEND="${DEPEND}"
+DEPEND="
+	net-libs/libpcap
+	sys-libs/zlib
+"
+RDEPEND="
+	${DEPEND}
+"
 
 DARKSTAT_CHROOT_DIR=${DARKSTAT_CHROOT_DIR:-/var/lib/darkstat}
 

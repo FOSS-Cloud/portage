@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Gtk2-Unique/Gtk2-Unique-0.50.0-r1.ebuild,v 1.1 2014/08/25 02:09:15 axs Exp $
+# $Id$
 
 EAPI=5
 
@@ -20,8 +20,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-perl/glib-perl
-	dev-perl/extutils-depends
-	dev-perl/extutils-pkgconfig
+	dev-perl/ExtUtils-Depends
+	dev-perl/ExtUtils-PkgConfig
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-0.05-implicit-pointer.patch )

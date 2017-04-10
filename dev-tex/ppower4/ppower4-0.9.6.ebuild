@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tex/ppower4/ppower4-0.9.6.ebuild,v 1.14 2014/08/10 21:27:36 slyfox Exp $
+# $Id$
 
 inherit latex-package eutils
 
@@ -17,7 +17,7 @@ HOMEPAGE="http://www.tex.ac.uk/tex-archive/support/ppower4/index.html"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ppc x86"
+KEYWORDS="~amd64 x86"
 
 IUSE=""
 DEPEND="app-arch/unzip"

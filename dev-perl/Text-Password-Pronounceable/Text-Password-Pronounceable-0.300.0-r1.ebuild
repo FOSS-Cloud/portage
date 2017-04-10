@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Text-Password-Pronounceable/Text-Password-Pronounceable-0.300.0-r1.ebuild,v 1.1 2014/08/26 15:46:57 axs Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,11 +14,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-DEPEND="
-	test? (
-		dev-perl/Test-Pod
-		dev-perl/Test-Pod-Coverage
-	)
-"
+DEPEND="test? ( virtual/perl-Test-Simple )"
 
 SRC_TEST="do"
+
+src_test() {
+	perl_rm_files t/99pod.t t/99pod-coverage.t
+	perl-module_src_test
+}

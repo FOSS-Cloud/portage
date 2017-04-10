@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-ooronee/lc-ooronee-9999.ebuild,v 1.1 2014/03/23 14:42:19 maksbotan Exp $
+# $Id$
 
-EAPI="5"
+EAPI=6
 
-inherit leechcraft
+inherit eutils leechcraft
 
 DESCRIPTION="Quark handling text and images droppend onto it"
 
@@ -12,28 +12,19 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="~app-leechcraft/lc-core-${PV}"
-RDEPEND="${DEPEND}
-	virtual/leechcraft-quark-sideprovider
+DEPEND="~app-leechcraft/lc-core-${PV}
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtdeclarative:5
 "
-
-# Grabbed from net-misc/netctl ebuild.
-optfeature() {
-	local desc=$1
-	shift
-	while (( $# )); do
-		if has_version "$1"; then
-			elog "  [I] $1 to ${desc}"
-		else
-			elog "  [ ] $1 to ${desc}"
-		fi
-		shift
-	done
-}
+RDEPEND="${DEPEND}
+	~virtual/leechcraft-quark-sideprovider-${PV}
+"
 
 pkg_postinst() {
 	elog "Install at least some of the following additional LeechCraft modules for Ooronee to be useful:"
-	optfeature "upload images" app-leechcraft/lc-imgaste app-leechcraft/lc-blasq
+	optfeature "upload images to imagebins" app-leechcraft/lc-imgaste
+	optfeature "upload images to cloud hostings like Picasa or VKontante" app-leechcraft/lc-blasq
 	optfeature "search via OpenSearch" app-leechcraft/lc-seekthru
 	optfeature "search via Google" app-leechcraft/lc-pogooglue
 }

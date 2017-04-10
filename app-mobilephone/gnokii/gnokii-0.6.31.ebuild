@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/gnokii/gnokii-0.6.31.ebuild,v 1.1 2012/09/11 04:17:55 ottxor Exp $
+# $Id$
 
 EAPI=4
 
@@ -9,10 +9,10 @@ inherit eutils linux-info autotools
 HOMEPAGE="http://www.gnokii.org/"
 if [ "$PV" != "9999" ]; then
 	SRC_URI="http://www.gnokii.org/download/${PN}/${P}.tar.bz2"
-	KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+	KEYWORDS="amd64 hppa ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
 else
 	SRC_URI=""
-	KEYWORDS=""
+	KEYWORDS="hppa sparc"
 	EGIT_REPO_URI="git://git.savannah.nongnu.org/${PN}.git
 		http://git.savannah.gnu.org/r/${PN}.git"
 	inherit git-2
@@ -30,7 +30,7 @@ RDEPEND="!app-mobilephone/smstools
 	sms? (
 		!app-mobilephone/smstools
 		dev-libs/glib:2
-		postgres? ( >=dev-db/postgresql-base-8.0 )
+		postgres? ( >=dev-db/postgresql-8.0 )
 		mysql? ( >=virtual/mysql-4.1 )
 	)
 	ical? ( dev-libs/libical )

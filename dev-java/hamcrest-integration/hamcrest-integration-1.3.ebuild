@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/hamcrest-integration/hamcrest-integration-1.3.ebuild,v 1.1 2014/03/02 16:26:04 ercpe Exp $
+# $Id$
 
 EAPI="5"
 
@@ -13,8 +13,8 @@ MY_P="${MY_PN}-${PV}"
 S="${WORKDIR}/${MY_P}"
 
 DESCRIPTION="Integration library of hamcrest"
-HOMEPAGE="http://code.google.com/p/${MY_PN}/"
-SRC_URI="http://${MY_PN}.googlecode.com/files/${MY_P}.tgz"
+HOMEPAGE="https://github.com/hamcrest"
+SRC_URI="https://${MY_PN}.googlecode.com/files/${MY_P}.tgz"
 
 LICENSE="BSD-2"
 SLOT="${PV}"
@@ -34,7 +34,8 @@ RDEPEND=">=virtual/jre-1.5
 
 JAVA_ANT_REWRITE_CLASSPATH="true"
 JAVA_ANT_CLASSPATH_TAGS="${JAVA_ANT_CLASSPATH_TAGS} java java-to-jar"
-EANT_GENTOO_CLASSPATH="hamcrest-core,qdox-1.6,easymock-3.2,jmock:1.0"
+
+EANT_GENTOO_CLASSPATH="hamcrest-core:${SLOT},qdox:1.6,easymock:3.2,jmock:1.0"
 EANT_BUILD_TARGET="integration"
 EANT_EXTRA_ARGS="-Dversion=${PV}"
 EANT_GENTOO_CLASSPATH_EXTRA="build/${P}.jar"

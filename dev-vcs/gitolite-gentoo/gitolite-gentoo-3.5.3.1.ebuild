@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/gitolite-gentoo/gitolite-gentoo-3.5.3.1.ebuild,v 1.2 2014/01/19 17:48:59 idl0r Exp $
+# $Id$
 
 EAPI=5
 
 inherit perl-module user versionator
 
 DESCRIPTION="Highly flexible server for git directory version tracker, Gentoo fork"
-HOMEPAGE="http://git.overlays.gentoo.org/gitweb/?p=proj/gitolite-gentoo.git;a=summary"
+HOMEPAGE="https://cgit.gentoo.org/proj/gitolite-gentoo.git"
 SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2"
@@ -72,7 +72,7 @@ pkg_postinst() {
 	if [ "$(get_major_version $REPLACING_VERSIONS)" = "2" ]; then
 		ewarn
 		elog "***NOTE*** This is a major upgrade and will likely break your existing gitolite-2.x setup!"
-		elog "Please read http://sitaramc.github.com/gitolite/install.html#migr first!"
+		elog "Please read http://gitolite.com/gitolite/migr.html first!"
 		ewarn
 		elog "***NOTE*** If you're using the \"umask\" feature of ${PN}-2.x:"
 		elog "You'll have to replace each \"umask = ...\" option by \"option umask = ...\""

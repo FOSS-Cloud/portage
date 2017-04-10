@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/bin_replace_string/bin_replace_string-0.2.ebuild,v 1.1 2012/02/06 23:20:05 binki Exp $
+# $Id$
 
 EAPI=4
 
@@ -15,8 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux"
 IUSE="doc"
 
-RDEPEND="|| ( >=dev-libs/libelf-0.8.13
-		dev-libs/elfutils )"
+RDEPEND="virtual/libelf:0"
 DEPEND="doc? ( app-text/txt2man )
 	${RDEPEND}"
 

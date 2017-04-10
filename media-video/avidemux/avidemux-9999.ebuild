@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/avidemux/avidemux-9999.ebuild,v 1.5 2014/08/10 20:57:26 slyfox Exp $
+# $Id$
 
 EAPI="5"
 
@@ -33,15 +33,14 @@ DEPEND="
 	opengl? ( virtual/opengl:0 )
 	qt4? ( >=dev-qt/qtgui-4.8.3:4 )
 	vaapi? ( x11-libs/libva:0 )
-	video_cards_fglrx? ( x11-libs/xvba-video:0 )
-"
+	video_cards_fglrx? (
+		|| ( >=x11-drivers/ati-drivers-14.12-r3
+			x11-libs/xvba-video:0 )
+		)"
 RDEPEND="$DEPEND"
 PDEPEND="~media-libs/avidemux-plugins-${PV}:${SLOT}[opengl?,qt4?]"
 
 S="${WORKDIR}/${MY_P}"
-
-processes="buildCli:avidemux/cli"
-use qt4 && processes+=" buildQt4:avidemux/qt4"
 
 src_prepare() {
 	cmake-utils_src_prepare
@@ -78,6 +77,9 @@ src_configure() {
 	if use debug ; then
 		mycmakeargs+=" -DVERBOSE=1 -DCMAKE_BUILD_TYPE=Debug -DADM_DEBUG=1"
 	fi
+
+	processes="buildCli:avidemux/cli"
+	use qt4 && processes+=" buildQt4:avidemux/qt4"
 
 	for process in ${processes} ; do
 		local build="${process%%:*}"

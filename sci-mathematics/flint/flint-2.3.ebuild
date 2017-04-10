@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/flint/flint-2.3.ebuild,v 1.2 2013/05/21 07:10:10 patrick Exp $
+# $Id$
 
 EAPI="5"
 
@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-libs/mpfr
+DEPEND="dev-libs/mpfr:0
 	dev-libs/ntl
 	sci-libs/mpir
 	"

@@ -1,8 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/gpgstats/gpgstats-0.5-r1.ebuild,v 1.4 2009/07/15 22:27:07 arfrever Exp $
+# $Id$
 
-EAPI="2"
+EAPI="6"
 
 inherit eutils toolchain-funcs
 
@@ -16,14 +16,15 @@ IUSE=""
 RDEPEND="app-crypt/gpgme"
 DEPEND="${RDEPEND}"
 
-src_prepare() {
-	epatch "${FILESDIR}/${P}-flags.patch"
-}
+PATCHES=(
+	"${FILESDIR}/${P}-flags.patch"
+)
 
 src_compile() {
-	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)" DEBUG= || die "emake failed"
+	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)" DEBUG=
 }
 
 src_install() {
-	dobin gpgstats || die "dobin gpgstas failed"
+	einstalldocs
+	dobin gpgstats
 }

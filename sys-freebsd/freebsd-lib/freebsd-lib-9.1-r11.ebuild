@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-freebsd/freebsd-lib/freebsd-lib-9.1-r11.ebuild,v 1.3 2014/03/24 17:49:33 ssuominen Exp $
+# $Id$
 
 EAPI=5
 
@@ -58,7 +58,7 @@ IUSE="atm bluetooth ssl hesiod ipv6 kerberos usb netware
 	build crosscompile_opts_headers-only zfs
 	userland_GNU userland_BSD"
 
-QA_DT_NEEDED="lib/libc.so.7"
+QA_DT_NEEDED="lib/libc.so.7 usr/lib32/libc.so.7"
 
 pkg_setup() {
 	[ -c /dev/zero ] || \
@@ -96,6 +96,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-9.0-cve-2010-2632.patch"
 	"${FILESDIR}/${PN}-9.0-bluetooth.patch"
 	"${FILESDIR}/${PN}-9.1-.eh_frame_hdr-fix.patch"
+	"${FILESDIR}/${PN}-add-nossp-cflags.patch"
 	)
 
 # Here we disable and remove source which we don't need or want

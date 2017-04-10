@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/amphetamine/amphetamine-0.8.10.ebuild,v 1.11 2014/05/15 16:26:37 ulm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="a cool Jump'n Run game offering some unique visual effects"
@@ -17,20 +17,23 @@ IUSE=""
 
 DEPEND="media-libs/libsdl[sound,video]
 	x11-libs/libXpm"
+RDEPEND=${DEPEND}
 
-PATCHES=(
-	"${FILESDIR}"/${P}-build.patch
-	"${FILESDIR}"/${P}-64bit.patch
-)
+src_prepare() {
+	epatch \
+		"${FILESDIR}"/${P}-build.patch \
+		"${FILESDIR}"/${P}-64bit.patch
+	sed -i -e '55d' src/ObjInfo.cpp || die
+}
 
 src_compile() {
-	emake INSTALL_DIR="${GAMES_DATADIR}"/${PN} || die
+	emake INSTALL_DIR="${GAMES_DATADIR}"/${PN}
 }
 
 src_install() {
-	newgamesbin amph ${PN} || die "newgamesbin failed"
+	newgamesbin amph ${PN}
 	insinto "${GAMES_DATADIR}"/${PN}
-	doins -r ../amph/* || die "doins failed"
+	doins -r ../amph/*
 	newicon amph.xpm ${PN}.xpm
 	make_desktop_entry ${PN} Amphetamine ${PN}
 	dodoc BUGS ChangeLog NEWS README

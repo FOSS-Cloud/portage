@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/iptstate/iptstate-2.2.5.ebuild,v 1.6 2014/07/12 18:20:58 jer Exp $
+# $Id$
 
 EAPI=5
 inherit eutils toolchain-funcs
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="amd64 ~hppa ~ppc x86"
 
 RDEPEND="
-	>=sys-libs/ncurses-5.7-r7
+	>=sys-libs/ncurses-5.7-r7:0=
 	>=net-libs/libnetfilter_conntrack-0.0.50
 "
 DEPEND="

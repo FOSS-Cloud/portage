@@ -1,14 +1,14 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-xineliboutput/vdr-xineliboutput-9999.ebuild,v 1.17 2014/07/06 16:40:25 hd_brummy Exp $
+# $Id$
 
 EAPI=5
 GENTOO_VDR_CONDITIONAL=yes
 
-inherit vdr-plugin-2 cvs toolchain-funcs eutils
+inherit vdr-plugin-2 cvs toolchain-funcs
 
 DESCRIPTION="Video Disk Recorder Xinelib PlugIn"
-HOMEPAGE="http://sourceforge.net/projects/xineliboutput/"
+HOMEPAGE="https://sourceforge.net/projects/xineliboutput/"
 
 ECVS_SERVER="xineliboutput.cvs.sourceforge.net:/cvsroot/xineliboutput"
 ECVS_MODULE="${PN}"
@@ -26,8 +26,9 @@ COMMON_DEPEND="
 	)
 
 	xine? (
-		|| ( <media-libs/xine-lib-1.2 ( >=media-libs/xine-lib-1.2 virtual/ffmpeg ) )
-		fbcon? ( jpeg? ( virtual/jpeg ) )
+		( >=media-libs/xine-lib-1.2
+			virtual/ffmpeg )
+		fbcon? ( jpeg? ( virtual/jpeg:* ) )
 		X? (
 			x11-libs/libX11
 			x11-libs/libXext
@@ -35,7 +36,7 @@ COMMON_DEPEND="
 			xinerama? ( x11-libs/libXinerama )
 			dbus? ( dev-libs/dbus-glib dev-libs/glib:2 )
 			vdpau? ( x11-libs/libvdpau >=media-libs/xine-lib-1.2 )
-			jpeg? ( virtual/jpeg )
+			jpeg? ( virtual/jpeg:* )
 			bluray? ( media-libs/libbluray )
 			opengl? ( virtual/opengl )
 		)
@@ -56,7 +57,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}"
 
 S=${WORKDIR}/${PN}
-VDR_CONFD_FILE="${FILESDIR}/confd-1.0.0_pre6"
+VDR_CONFD_FILE="${FILESDIR}/confd-2.0.0"
 
 pkg_setup() {
 	if ! use vdr && ! use xine; then
@@ -130,6 +131,8 @@ src_install() {
 		fi
 
 		if use xine; then
+			doinitd "${FILESDIR}"/vdr-frontend
+
 			insinto $XINE_PLUGIN_DIR
 			doins xineplug_inp_xvdr.so
 

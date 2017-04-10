@@ -1,16 +1,16 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/prefix-chain-utils/prefix-chain-utils-0.2-r5.ebuild,v 1.2 2010/07/13 15:13:00 mr_bones_ Exp $
+# $Id$
 
 inherit prefix
 
 DESCRIPTION="Chained EPREFIX utilities and wrappers"
-HOMEPAGE="http://dev.gentoo.org/~mduft"
+HOMEPAGE="https://dev.gentoo.org/~mduft"
 SRC_URI=""
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~ppc-aix ~ia64-hpux ~x86-interix ~x86-linux ~sparc-solaris ~x86-solaris ~x86-winnt"
+KEYWORDS="~ppc-aix ~x86-linux ~sparc-solaris ~x86-solaris ~x86-winnt"
 IUSE=""
 
 DEPEND=""

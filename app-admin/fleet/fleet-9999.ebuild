@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/fleet/fleet-9999.ebuild,v 1.2 2014/08/28 15:28:18 alunduil Exp $
+# $Id$
 
 EAPI=5
 
-inherit git-2 systemd
+inherit git-r3 systemd
 
 EGIT_REPO_URI="git://github.com/coreos/fleet.git"
 
@@ -15,18 +15,31 @@ SRC_URI=""
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="doc examples test"
 
-DEPEND=">=dev-lang/go-1.2"
+DEPEND=">=dev-lang/go-1.3:=
+	test? ( dev-go/go-tools )"
 RDEPEND=""
 
 src_compile() {
-	./build || die
+	./build || die 'Build failed'
+}
+
+src_test() {
+	./test || die 'Tests failed'
 }
 
 src_install() {
 	dobin "${S}"/bin/fleetd
 	dobin "${S}"/bin/fleetctl
 
-	systemd_dounit "${FILESDIR}"/${PN}.service
+	systemd_dounit "${FILESDIR}"/fleet.service
+	systemd_dounit "${FILESDIR}"/fleet.socket
+
+	dodoc README.md
+	use doc && dodoc -r Documentation
+	use examples && dodoc -r examples
+
+	insinto /etc/${PN}
+	newins "${PN}".conf.sample "${PN}".conf
 }

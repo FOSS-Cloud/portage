@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>tools-portage</herd>
-	<maintainer>
-		<email>dolsen@gentoo.org</email>
-		<name>Brian Dolbec</name>
-	</maintainer>
-	<maintainer>
-		<email>twitch153@gentoo.org</email>
-		<name>Devan Franchini</name>
+	<maintainer type="project">
+		<email>layman@gentoo.org</email>
+		<name>Gentoo Layman team</name>
 	</maintainer>
 	<use>
 		<flag name="bazaar">Support <pkg>dev-vcs/bzr</pkg> based overlays</flag>
@@ -20,5 +15,9 @@
 		<flag name="mercurial">Support <pkg>dev-vcs/mercurial</pkg> based overlays</flag>
 		<flag name="squashfs">Support mounting squashfs image overlays locally read-only</flag>
 		<flag name="subversion">Support <pkg>dev-vcs/subversion</pkg> based overlays</flag>
+		<flag name="sync-plugin-portage">Install the <pkg>sys-apps/portage</pkg> sync module</flag>
 	</use>
+	<upstream>
+		<remote-id type="sourceforge">layman</remote-id>
+	</upstream>
 </pkgmetadata>

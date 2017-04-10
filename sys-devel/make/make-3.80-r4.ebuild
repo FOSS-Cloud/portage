@@ -1,12 +1,12 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/make/make-3.80-r4.ebuild,v 1.12 2011/02/06 11:37:17 leio Exp $
+# $Id$
 
 inherit eutils flag-o-matic
 
 DESCRIPTION="Standard tool to compile source trees"
-HOMEPAGE="http://www.gnu.org/software/make/make.html"
-SRC_URI="ftp://ftp.gnu.org/gnu/make/${P}.tar.bz2"
+HOMEPAGE="https://www.gnu.org/software/make/make.html"
+SRC_URI="mirror://gnu//make/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"

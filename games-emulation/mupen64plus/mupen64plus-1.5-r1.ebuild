@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/mupen64plus/mupen64plus-1.5-r1.ebuild,v 1.11 2013/03/02 21:14:43 hwoarang Exp $
+# $Id$
 
 EAPI="2"
 
@@ -11,13 +11,13 @@ MY_P="Mupen64Plus-${PV/./-}-src"
 PATCH_VERSION="20091123"
 
 DESCRIPTION="A fork of Mupen64 Nintendo 64 emulator"
-HOMEPAGE="http://code.google.com/p/mupen64plus/"
-SRC_URI="http://mupen64plus.googlecode.com/files/${MY_P}.tar.gz mirror://gentoo/${P}-patches-${PATCH_VERSION}.tar.bz2"
+HOMEPAGE="http://www.mupen64plus.org/"
+SRC_URI="https://mupen64plus.googlecode.com/files/${MY_P}.tar.gz mirror://gentoo/${P}-patches-${PATCH_VERSION}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="+gtk libsamplerate lirc qt4 sse"
+IUSE="+gtk libsamplerate lirc qt4 cpu_flags_x86_sse"
 
 # GTK+ is currently required by plugins even if no GUI support is enabled
 RDEPEND="virtual/opengl
@@ -76,7 +76,7 @@ get_opts() {
 
 	use libsamplerate || echo -n "NO_RESAMP=1 "
 	use lirc && echo -n "LIRC=1 "
-	use sse || echo -n "NO_ASM=1 "
+	use cpu_flags_x86_sse || echo -n "NO_ASM=1 "
 
 	echo -n GUI=
 	if use gtk; then
@@ -89,7 +89,7 @@ get_opts() {
 }
 
 src_compile() {
-	use x86 && use sse && append-flags -fomit-frame-pointer
+	use x86 && use cpu_flags_x86_sse && append-flags -fomit-frame-pointer
 	emake $(get_opts) DBGSYM=1 all || die "make failed"
 }
 
@@ -125,6 +125,6 @@ pkg_postinst() {
 
 	if use lirc; then
 		elog "For lirc configuration see:"
-		elog "http://code.google.com/p/mupen64plus/wiki/LIRC"
+		elog "https://code.google.com/p/mupen64plus/wiki/LIRC"
 	fi
 }

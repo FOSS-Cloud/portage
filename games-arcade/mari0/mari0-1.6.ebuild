@@ -1,9 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/mari0/mari0-1.6.ebuild,v 1.10 2013/02/07 22:05:31 ulm Exp $
+# $Id$
 
-EAPI=4
-
+EAPI=5
 inherit eutils gnome2-utils games
 
 MY_P=${P/-/_}
@@ -37,7 +36,8 @@ src_install() {
 	exeinto "${dir}"
 	doexe ${MY_P}.love
 
-	doicon -s scalable "${FILESDIR}"/${PN}.svg
+	gunzip -c "${FILESDIR}"/${PN}.svg.gz > ${PN}.svg
+	doicon -s scalable ${PN}.svg
 	games_make_wrapper ${PN} "love ${MY_P}.love" "${dir}"
 	make_desktop_entry ${PN}
 

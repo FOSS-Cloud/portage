@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/corosync/corosync-1.3.5.ebuild,v 1.1 2012/05/16 09:39:24 ultrabug Exp $
+# $Id$
 
 EAPI=4
 
@@ -18,8 +18,8 @@ IUSE="doc infiniband ssl static-libs"
 RDEPEND="!sys-cluster/heartbeat
 	ssl? ( dev-libs/nss )
 	infiniband? (
-		sys-infiniband/libibverbs
-		sys-infiniband/librdmacm
+		sys-fabric/libibverbs
+		sys-fabric/librdmacm
 	)"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/x264/x264-9999.ebuild,v 1.20 2014/06/18 20:00:07 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -19,11 +19,11 @@ else
 	S="${WORKDIR}/${MY_P}"
 fi
 
-SONAME="142"
+SONAME="148"
 SLOT="0/${SONAME}"
 
 LICENSE="GPL-2"
-IUSE="10bit +interlaced opencl pic static-libs sse +threads"
+IUSE="10bit +interlaced opencl pic static-libs cpu_flags_x86_sse +threads"
 
 ASM_DEP=">=dev-lang/yasm-1.2.0"
 DEPEND="abi_x86_32? ( ${ASM_DEP} )
@@ -35,22 +35,13 @@ RDEPEND="opencl? ( >=virtual/opencl-0-r3[${MULTILIB_USEDEP}] )
 
 DOCS="AUTHORS doc/*.txt"
 
-src_prepare() {
-	# Initial support for x32 ABI, bug #420241
-	# Avoid messing too much with CFLAGS.
-	epatch "${FILESDIR}"/x264-cflags.patch
-}
-
 multilib_src_configure() {
 	tc-export CC
 	local asm_conf=""
 
-	if [[ ${ABI} == x86* ]] && use pic || [[ ${ABI} == "x32" ]]; then
+	if [[ ${ABI} == x86* ]] && { use pic || use !cpu_flags_x86_sse ; } || [[ ${ABI} == "x32" ]]; then
 		asm_conf=" --disable-asm"
 	fi
-
-	# Upstream uses this, see the cflags patch
-	use sse && append-flags "-msse" "-mfpmath=sse"
 
 	"${S}/configure" \
 		--prefix="${EPREFIX}"/usr \

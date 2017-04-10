@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/scimath/scimath-4.1.2-r1.ebuild,v 1.2 2013/06/17 11:44:56 idella4 Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,12 +9,12 @@ PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1 virtualx
 
 DESCRIPTION="Enthought Tool Suite: Scientific and mathematical tools"
-HOMEPAGE="http://code.enthought.com/projects/sci_math/ http://pypi.python.org/pypi/scimath"
+HOMEPAGE="http://code.enthought.com/projects/sci_math/ https://pypi.python.org/pypi/scimath"
 SRC_URI="http://www.enthought.com/repo/ets/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 IUSE="doc test"
 DISTUTILS_IN_SOURCE_BUILD=1
 

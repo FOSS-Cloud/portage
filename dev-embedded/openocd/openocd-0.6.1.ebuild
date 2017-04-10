@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/openocd/openocd-0.6.1.ebuild,v 1.3 2013/09/08 16:35:49 hwoarang Exp $
+# $Id$
 
 EAPI="4"
 
@@ -8,7 +8,8 @@ inherit eutils multilib flag-o-matic toolchain-funcs
 if [[ ${PV} == "9999" ]] ; then
 	inherit autotools git-2
 	KEYWORDS=""
-	EGIT_REPO_URI="git://${PN}.git.sourceforge.net/gitroot/${PN}/${PN}"
+	EGIT_REPO_URI="git://git.code.sf.net/p/${PN}/code"
+	EGIT_PROJECT="${PN}"
 else
 	KEYWORDS="~amd64 ~x86"
 	SRC_URI="mirror://sourceforge/project/${PN}/${PN}/${PV}/${P}.tar.bz2"
@@ -44,7 +45,7 @@ src_prepare() {
 		configure || die
 
 	if use ftdi ; then
-		local pc="libftdi$(has_version '=dev-embedded/libftdi-1*' && echo 1)"
+		local pc="libftdi$(has_version dev-embedded/libftdi:1 && echo 1)"
 		# Use libftdi-1 paths #460916
 		local libs=$($(tc-getPKG_CONFIG) --libs ${pc})
 		sed -i \

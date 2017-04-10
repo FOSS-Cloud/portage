@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/db/db-4.4.20_p4-r1.ebuild,v 1.12 2014/01/18 04:14:32 vapier Exp $
+# $Id$
 
 inherit eutils db flag-o-matic java-pkg-opt-2 autotools multilib
 
@@ -18,7 +18,7 @@ fi
 
 S="${WORKDIR}/${MY_P}/build_unix"
 DESCRIPTION="Oracle Berkeley DB"
-HOMEPAGE="http://www.oracle.com/technology/software/products/berkeley-db/index.html"
+HOMEPAGE="http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html"
 SRC_URI="http://download.oracle.com/berkeley-db/${MY_P}.tar.gz
 		 mirror://gentoo/${MY_P}-20060110-rpc_server-java.tar.gz"
 for (( i=1 ; i<=${PATCHNO} ; i++ )) ; do
@@ -87,7 +87,7 @@ src_compile() {
 	myconf="${myconf} $(use_enable cxx)"
 
 	use tcl \
-		&& myconf="${myconf} --enable-tcl --with-tcl=/usr/$(get_libdir)" \
+		&& myconf="${myconf} --enable-tcl --with-tcl=${EPREFIX}/usr/$(get_libdir)" \
 		|| myconf="${myconf} --disable-tcl"
 
 	myconf="${myconf} $(use_enable java)"
@@ -114,13 +114,13 @@ src_compile() {
 	fi
 
 	cd "${S}" && ECONF_SOURCE="${S}"/../dist econf \
-		--prefix=/usr \
-		--mandir=/usr/share/man \
-		--infodir=/usr/share/info \
-		--datadir=/usr/share \
-		--sysconfdir=/etc \
-		--localstatedir=/var/lib \
-		--libdir=/usr/"$(get_libdir)" \
+		--prefix="${EPREFIX}"/usr \
+		--mandir="${EPREFIX}"/usr/share/man \
+		--infodir="${EPREFIX}"/usr/share/info \
+		--datadir="${EPREFIX}"/usr/share \
+		--sysconfdir="${EPREFIX}"/etc \
+		--localstatedir="${EPREFIX}"/var/lib \
+		--libdir="${EPREFIX}"/usr/"$(get_libdir)" \
 		--enable-compat185 \
 		--enable-o_direct \
 		--without-uniquename \
@@ -132,7 +132,7 @@ src_compile() {
 }
 
 src_install() {
-	einstall libdir="${D}/usr/$(get_libdir)" strip="${D}/bin/strip" || die
+	einstall libdir="${ED}/usr/$(get_libdir)" strip="${ED}/bin/strip" || die
 
 	db_src_install_usrbinslot
 
@@ -144,13 +144,13 @@ src_install() {
 
 	dodir /usr/sbin
 	# This file is not always built, and no longer exists as of db-4.8
-	[[ -f "${D}"/usr/bin/berkeley_db_svc ]] && \
-	mv "${D}"/usr/bin/berkeley_db_svc "${D}"/usr/sbin/berkeley_db"${SLOT/./}"_svc
+	[[ -f "${ED}"/usr/bin/berkeley_db_svc ]] && \
+	mv "${ED}"/usr/bin/berkeley_db_svc "${ED}"/usr/sbin/berkeley_db"${SLOT/./}"_svc
 
 	if use java; then
-		java-pkg_regso "${D}"/usr/"$(get_libdir)"/libdb_java*.so
-		java-pkg_dojar "${D}"/usr/"$(get_libdir)"/*.jar
-		rm -f "${D}"/usr/"$(get_libdir)"/*.jar
+		java-pkg_regso "${ED}"/usr/"$(get_libdir)"/libdb_java*.so
+		java-pkg_dojar "${ED}"/usr/"$(get_libdir)"/*.jar
+		rm -f "${ED}"/usr/"$(get_libdir)"/*.jar
 	fi
 }
 

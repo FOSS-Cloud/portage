@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/lua/lua-5.1.5-r100.ebuild,v 1.2 2014/06/18 19:06:06 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,11 +12,11 @@ SRC_URI="http://www.lua.org/ftp/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="5.1"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~arm-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="+deprecated emacs readline static"
 
-RDEPEND="readline? ( >=sys-libs/readline-6.2_p5-r1[${MULTILIB_USEDEP}] )
-	app-admin/eselect-lua
+RDEPEND="readline? ( >=sys-libs/readline-6.2_p5-r1:0=[${MULTILIB_USEDEP}] )
+	app-eselect/eselect-lua
 	!dev-lang/lua:0"
 DEPEND="${RDEPEND}
 	sys-devel/libtool"
@@ -33,6 +33,12 @@ src_prepare() {
 
 	epatch "${FILESDIR}"/${PN}-${PATCH_PV}-make-r2.patch
 	epatch "${FILESDIR}"/${PN}-${PATCH_PV}-module_paths.patch
+
+	# use glibtool on Darwin (versus Apple libtool)
+	if [[ ${CHOST} == *-darwin* ]] ; then
+		sed -i -e '/LIBTOOL = /s:libtool:glibtool:' \
+			Makefile src/Makefile || die
+	fi
 
 	#EPATCH_SOURCE="${FILESDIR}/${PV}" EPATCH_SUFFIX="upstream.patch" epatch
 

@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/cucumber/cucumber-1.3.17.ebuild,v 1.1 2014/09/15 05:29:46 graaff Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21 ruby22"
 
 # Documentation task depends on sdoc which we currently don't have.
 RUBY_FAKEGEM_TASK_DOC=""
@@ -15,10 +15,10 @@ RUBY_FAKEGEM_GEMSPEC="cucumber.gemspec"
 inherit ruby-fakegem
 
 DESCRIPTION="Executable feature scenarios"
-HOMEPAGE="http://github.com/aslakhellesoy/cucumber/wikis"
+HOMEPAGE="https://github.com/aslakhellesoy/cucumber/wikis"
 LICENSE="Ruby"
 
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 sparc x86"
 SLOT="0"
 IUSE="examples test"
 
@@ -45,15 +45,16 @@ ruby_add_rdepend "
 all_ruby_prepare() {
 	# Remove development dependencies from the gemspec that we don't
 	# need or can't satisfy.
-	sed -i -e '/\(spork\|simplecov\|bcat\|kramdown\|yard\|capybara\|rack-test\|ramaze\|sinatra\|webrat\)/d' ${RUBY_FAKEGEM_GEMSPEC} || die
+	sed -i -e '/\(spork\|simplecov\|bcat\|kramdown\|yard\|capybara\|rack-test\|ramaze\|sinatra\|webrat\|mime-types\|rubyzip\)/d' ${RUBY_FAKEGEM_GEMSPEC} || die
 
 	# Fix too-strict test dependencies
 	sed -e '/nokogiri/ s/~> 1.5.2/>= 1.5.2/' \
 		-e '/aruba/ s/= 0.5.2/~> 0.5/' \
-		-e '/rake/ s/10.2/10.4/' -i ${RUBY_FAKEGEM_GEMSPEC} || die
+		-e '/rake/ s/10.2/10.5/' -i ${RUBY_FAKEGEM_GEMSPEC} || die
 
 	# Make sure spork is run in the right interpreter
 	sed -i -e 's/#{Spork::BINARY}/-S #{Spork::BINARY}/' features/support/env.rb || die
+	rm features/drb_server_integration.feature || die
 
 	# Avoid json, they most likely fail due to multi_json weirdness.
 	rm features/json_formatter.feature || die
@@ -63,7 +64,7 @@ all_ruby_prepare() {
 }
 
 each_ruby_test() {
-	${RUBY} -Ilib -S rspec spec || die "Specs failed"
+	ruby-ng_rspec
 	RUBYLIB=lib ${RUBY} -Ilib bin/cucumber features || die "Features failed"
 }
 

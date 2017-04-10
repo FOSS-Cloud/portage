@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/icc/icc-14.0.3.174.ebuild,v 1.1 2014/06/02 11:27:11 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,12 +15,10 @@ inherit intel-sdp
 DESCRIPTION="Intel C/C++ Compiler"
 HOMEPAGE="http://software.intel.com/en-us/articles/intel-composer-xe/"
 
-IUSE="eclipse linguas_ja"
+IUSE="linguas_ja"
 KEYWORDS="-* ~amd64 ~x86 ~amd64-linux ~x86-linux"
 
-DEPEND="
-	!dev-lang/ifc[linguas_ja]
-	eclipse? ( dev-util/eclipse-sdk )"
+DEPEND="!dev-lang/ifc[linguas_ja]"
 RDEPEND="${DEPEND}
 	~dev-libs/intel-common-${PV}[compiler,multilib=]"
 

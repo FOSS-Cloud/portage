@@ -1,10 +1,9 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/amyedit/amyedit-1.0-r2.ebuild,v 1.6 2012/09/18 00:02:28 blueness Exp $
+# $Id$
 
-EAPI=3
-
-inherit eutils autotools
+EAPI=5
+inherit autotools eutils flag-o-matic
 
 DESCRIPTION=" AmyEdit is a LaTeX editor"
 HOMEPAGE="http://amyedit.sf.net"
@@ -29,10 +28,7 @@ src_prepare() {
 	epatch "${FILESDIR}/${P}-gcc45.patch"
 	epatch "${FILESDIR}/${P}-sourceviewmm2.patch"
 	rm -rf "${S}/src/gtksourceviewmm" || die
+	append-cxxflags -std=c++11
+	mv configure.in configure.ac || die
 	eautoreconf
-}
-
-src_install() {
-	emake DESTDIR="${D}" install || die
-	dodoc ChangeLog README TODO || die
 }

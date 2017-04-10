@@ -1,32 +1,42 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/boost-build/boost-build-1.56.0.ebuild,v 1.1 2014/08/15 07:57:24 pinkbyte Exp $
+# $Id$
 
 EAPI="5"
 
+RESTRICT="test"
+
 PYTHON_COMPAT=( python2_7 )
-inherit eutils flag-o-matic multilib python-any-r1 toolchain-funcs versionator
+inherit eutils flag-o-matic multilib python-single-r1 toolchain-funcs versionator
 
 MY_PV="$(replace_all_version_separators _)"
 
-DESCRIPTION="A system for large project software construction, which is simple to use and powerful"
+DESCRIPTION="A system for large project software construction, simple to use and powerful"
 HOMEPAGE="http://www.boost.org/doc/tools/build/index.html"
 SRC_URI="mirror://sourceforge/boost/boost_${MY_PV}.tar.bz2"
 
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~ppc-aix ~ia64-hpux ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="examples python test"
 
-RDEPEND="!<dev-libs/boost-1.34.0
+RDEPEND="python? ( ${PYTHON_DEPS} )
+	!<dev-libs/boost-1.34.0
 	!<=dev-util/boost-build-1.35.0-r1"
 DEPEND="${RDEPEND}
-	python? ( ${PYTHON_DEPS} )
-	test? ( sys-apps/diffutils )"
+	test? ( sys-apps/diffutils
+		${PYTHON_DEPS} )"
 
-REQUIRED_USE="test? ( python )"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
+	test? ( ${PYTHON_REQUIRED_USE} )"
 
 S="${WORKDIR}/boost_${MY_PV}/tools/build/src"
+
+pkg_setup() {
+	if use python || use test; then
+		python-single-r1_pkg_setup
+	fi
+}
 
 src_unpack() {
 	tar xjpf "${DISTDIR}/${A}" boost_${MY_PV}/tools/build || die "unpacking tar failed"
@@ -38,7 +48,8 @@ src_prepare() {
 		"${FILESDIR}/${PN}-1.50.0-respect-c_ld-flags.patch" \
 		"${FILESDIR}/${PN}-1.49.0-darwin-gentoo-toolchain.patch" \
 		"${FILESDIR}/${PN}-1.52.0-darwin-no-python-framework.patch" \
-		"${FILESDIR}/${PN}-1.54.0-support_dots_in_python-buildid.patch"
+		"${FILESDIR}/${PN}-1.54.0-support_dots_in_python-buildid.patch" \
+		"${FILESDIR}/${PN}-1.55.0-ppc-aix.patch"
 
 	pushd ../ &>/dev/null || die
 	epatch "${FILESDIR}/${PN}-1.54.0-fix-test.patch"
@@ -73,7 +84,7 @@ src_configure() {
 		# replace versions by user-selected one (TODO: fix this when slot-op
 		# deps are available to always match the best version available)
 		sed -i \
-			-e "s|2.7 2.6 2.5 2.4 2.3 2.2|${EPYTHON##python}|" \
+			-e "s|2.7 2.6 2.5 2.4 2.3 2.2|${EPYTHON#python}|" \
 			engine/build.jam || die "sed failed"
 	fi
 }

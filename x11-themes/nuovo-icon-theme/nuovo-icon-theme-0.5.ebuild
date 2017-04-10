@@ -1,7 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/nuovo-icon-theme/nuovo-icon-theme-0.5.ebuild,v 1.1 2010/11/10 17:07:16 ssuominen Exp $
+# $Id$
 
+EAPI=5
 inherit gnome2-utils
 
 DESCRIPTION="A scalable icon theme called Nuovo"
@@ -13,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
-RDEPEND="!minimal? ( x11-themes/gnome-icon-theme )"
+RDEPEND="!minimal? ( x11-themes/adwaita-icon-theme )"
 DEPEND=""
 
 RESTRICT="binchecks strip"
@@ -25,7 +26,7 @@ src_install() {
 	rm -f Nuovo/{AUTHORS,Changelog,COPYING,DONATE,INSTALL,README}
 
 	insinto /usr/share/icons
-	doins -r Nuovo || die
+	doins -r Nuovo
 }
 
 pkg_preinst() { gnome2_icon_savelist; }

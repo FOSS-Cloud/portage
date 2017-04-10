@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/charlock_holmes/charlock_holmes-0.7.3.ebuild,v 1.2 2014/09/12 20:48:24 dilfridge Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_RECIPE_DOC="rdoc"
 RUBY_FAKEGEM_EXTRADOC="README.md"
@@ -11,7 +11,7 @@ RUBY_FAKEGEM_EXTRADOC="README.md"
 inherit ruby-fakegem
 
 DESCRIPTION="Character encoding detecting library for Ruby using ICU"
-HOMEPAGE="http://github.com/brianmario/charlock_holmes"
+HOMEPAGE="https://github.com/brianmario/charlock_holmes"
 
 LICENSE="MIT"
 SLOT="0"

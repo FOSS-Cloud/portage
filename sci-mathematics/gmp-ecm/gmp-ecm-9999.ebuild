@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/gmp-ecm/gmp-ecm-9999.ebuild,v 1.4 2013/11/19 07:38:58 patrick Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,10 +17,10 @@ KEYWORDS=""
 IUSE="blas gwnum -openmp test"
 
 DEPEND="
-	dev-libs/gmp
+	dev-libs/gmp:0=
 	blas? ( sci-libs/gsl )
 	gwnum? ( sci-mathematics/gwnum )
-	openmp? ( sys-devel/gcc[openmp] )"
+	openmp? ( sys-devel/gcc:*[openmp] )"
 RDEPEND="${DEPEND}"
 
 # can't be both enabled

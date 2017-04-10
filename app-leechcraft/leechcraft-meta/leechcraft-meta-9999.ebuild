@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/leechcraft-meta/leechcraft-meta-9999.ebuild,v 1.11 2014/07/28 18:40:02 maksbotan Exp $
+# $Id$
 
-EAPI="5"
+EAPI=6
 
 DESCRIPTION="Metapackage containing all ready-to-use LeechCraft plugins"
 HOMEPAGE="http://leechcraft.org/"
@@ -52,7 +52,6 @@ RDEPEND="
 		~app-leechcraft/lc-tabsessmanager-${PV}
 		~app-leechcraft/lc-aggregator-${PV}
 		~app-leechcraft/lc-bittorrent-${PV}
-		~app-leechcraft/lc-xproxy-${PV}
 		~app-leechcraft/lc-vrooby-${PV}
 		~virtual/leechcraft-trayarea-${PV}
 		~app-leechcraft/lc-deadlyrics-${PV}
@@ -66,6 +65,10 @@ RDEPEND="
 		~app-leechcraft/lc-nacheku-${PV}
 		~app-leechcraft/lc-xtazy-${PV}
 		~app-leechcraft/lc-htthare-${PV}
+		~app-leechcraft/lc-hotsensors-${PV}
+		~app-leechcraft/lc-sb2-${PV}
+		~app-leechcraft/lc-intermutko-${PV}
+		~app-leechcraft/lc-ooronee-${PV}
 		de? (
 			~app-leechcraft/lc-devmon-${PV}
 			~app-leechcraft/lc-fenet-${PV}

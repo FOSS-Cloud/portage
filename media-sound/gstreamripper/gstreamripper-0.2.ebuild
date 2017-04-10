@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/gstreamripper/gstreamripper-0.2.ebuild,v 1.15 2012/05/05 08:27:39 mgorny Exp $
+# $Id$
 
 EAPI=4
 inherit eutils
@@ -8,7 +8,7 @@ inherit eutils
 MY_P=GStreamripperX-${PV}
 
 DESCRIPTION="A GTK+ toolkit based frontend for streamripper"
-HOMEPAGE="http://sourceforge.net/projects/gstreamripper/"
+HOMEPAGE="https://sourceforge.net/projects/gstreamripper/"
 SRC_URI="mirror://sourceforge/gstreamripper/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"

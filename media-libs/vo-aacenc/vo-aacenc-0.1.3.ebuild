@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/vo-aacenc/vo-aacenc-0.1.3.ebuild,v 1.10 2014/08/10 09:30:17 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -11,10 +11,10 @@ if [[ ${PV} == *9999 ]] ; then
 	AUTOTOOLS_AUTORECONF=yes
 fi
 
-inherit autotools-multilib ${SCM}
+inherit autotools-multilib flag-o-matic ${SCM}
 
 DESCRIPTION="VisualOn AAC encoder library"
-HOMEPAGE="http://sourceforge.net/projects/opencore-amr/"
+HOMEPAGE="https://sourceforge.net/projects/opencore-amr/"
 
 if [[ ${PV} == *9999 ]] ; then
 	SRC_URI=""
@@ -34,6 +34,7 @@ IUSE="examples static-libs neon"
 AUTOTOOLS_PRUNE_LIBTOOL_FILES=all
 
 src_configure() {
+	use neon && append-flags '-mfpu=neon'
 	local myeconfargs=(
 		"$(use_enable examples example)"
 		"$(use_enable neon armv7neon)"

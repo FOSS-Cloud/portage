@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/oxygen-molecule/oxygen-molecule-3.2.ebuild,v 1.3 2010/06/12 08:32:27 phajdan.jr Exp $
+# $Id$
 
 MY_PN=Oxygen-Molecule
 
@@ -13,7 +13,7 @@ SLOT="4"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-RDEPEND="kde-base/oxygen-icons"
+RDEPEND="kde-frameworks/oxygen-icons"
 
 S=${WORKDIR}
 

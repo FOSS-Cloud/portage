@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-check_logfiles/nagios-check_logfiles-2.3.2.1-r1.ebuild,v 1.8 2012/06/12 02:31:58 zmedico Exp $
+# $Id$
 
 inherit eutils multilib
 DESCRIPTION="A nagios plugin for checking logfiles"
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~alpha amd64 ~ppc ppc64 ~sparc x86"
 IUSE=""
 
-DEPEND=">=net-analyzer/nagios-plugins-1.4.13-r1"
+DEPEND="|| ( >=net-analyzer/nagios-plugins-1.4.13-r1 >=net-analyzer/monitoring-plugins-2 )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"

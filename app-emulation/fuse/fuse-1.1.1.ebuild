@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/fuse/fuse-1.1.1.ebuild,v 1.1 2014/07/23 23:12:31 neurogeek Exp $
+# $Id$
 
 EAPI="5"
 inherit autotools eutils
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/fuse-emulator/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="alsa ao fbcon gpm gtk joystick memlimit png sdl svga X xml"
 
 # This build is heavily use dependent. Fuse user interface use flags are, in
@@ -46,8 +46,8 @@ RDEPEND="~app-emulation/libspectrum-1.1.1
 						!alsa? ( ao? ( media-libs/libao ) )
 						joystick? ( media-libs/libjsw ) ) ) ) ) )
 	dev-libs/glib:2
-	png? ( media-libs/libpng sys-libs/zlib )
-	xml? ( dev-libs/libxml2 )"
+	png? ( media-libs/libpng:0= sys-libs/zlib )
+	xml? ( dev-libs/libxml2:2 )"
 DEPEND="${RDEPEND}
 	fbcon? ( virtual/linux-sources )
 	dev-lang/perl

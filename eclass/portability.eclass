@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/portability.eclass,v 1.26 2014/07/11 08:21:58 ulm Exp $
+# $Id$
 
 # @ECLASS: portability.eclass
 # @MAINTAINER:
@@ -98,7 +98,7 @@ dlopen_lib() {
 # @USAGE:
 # @RETURN: system version of make
 # @DESCRIPTION:
-# Gets the name of the BSD-ish make command (pmake from NetBSD)
+# Gets the name of the BSD-ish make command (bmake from NetBSD)
 #
 # This will return make (provided by system packages) for BSD userlands,
 # or bsdmake for Darwin userlands and pmake for the rest of userlands,
@@ -107,12 +107,12 @@ dlopen_lib() {
 # Note: the bsdmake for Darwin userland is with compatibility with MacOSX
 # default name.
 get_bmake() {
-	if [[ ${USERLAND} == *BSD ]]; then
+	if [[ ${CBUILD:-${CHOST}} == *bsd* ]]; then
 		echo make
-	elif [[ ${USERLAND} == "Darwin" ]]; then
+	elif [[ ${CBUILD:-${CHOST}} == *darwin* ]]; then
 		echo bsdmake
 	else
-		echo pmake
+		echo bmake
 	fi
 }
 

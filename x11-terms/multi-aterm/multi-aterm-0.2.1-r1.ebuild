@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/multi-aterm/multi-aterm-0.2.1-r1.ebuild,v 1.11 2012/10/15 15:53:44 ago Exp $
+# $Id$
 
 EAPI=4
 
 inherit eutils
 
-DESCRIPTION="Terminal emulator with transparency support as well as rxvt backwards compatibility with tab support"
+DESCRIPTION="rxvt compatible terminal emulator with transparency and tab support"
 HOMEPAGE="http://www.nongnu.org/materm/materm.html"
 SRC_URI="http://www.nongnu.org/materm/${P}.tar.gz"
 

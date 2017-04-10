@@ -1,6 +1,6 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/sun-j2ee-deployment-bin/sun-j2ee-deployment-bin-1.1-r2.ebuild,v 1.6 2008/06/16 19:05:24 serkan Exp $
+# $Id$
 
 inherit java-pkg-2
 
@@ -15,7 +15,7 @@ SRC_URI="${CLASS_URI}
 	doc? ( ${DOC_URI} )"
 LICENSE="sun-bcla-j2ee-deployment"
 SLOT="1.1"
-KEYWORDS="amd64 ~ppc x86 ~x86-fbsd"
+KEYWORDS="amd64 x86 ~x86-fbsd"
 IUSE="doc"
 DEPEND=">=virtual/jdk-1.4
 	app-arch/unzip"

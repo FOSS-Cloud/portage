@@ -1,17 +1,17 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gstreamermm/gstreamermm-0.10.11.ebuild,v 1.4 2013/12/08 17:51:10 pacho Exp $
+# $Id$
 
 EAPI="5"
 GNOME2_LA_PUNT="yes"
 
-inherit gnome2
+inherit flag-o-matic gnome2
 
 DESCRIPTION="C++ interface for GStreamer"
-HOMEPAGE="http://gstreamer.freedesktop.org/bindings/cplusplus.html"
+HOMEPAGE="https://gstreamer.freedesktop.org/bindings/cplusplus.html"
 
 LICENSE="LGPL-2.1"
-SLOT="0"
+SLOT="0.10"
 KEYWORDS="amd64 ~ppc x86"
 IUSE="test"
 
@@ -30,6 +30,10 @@ DEPEND="${RDEPEND}
 		media-plugins/gst-plugins-x:0.10 )
 "
 
-DOCS="AUTHORS ChangeLog NEWS README"
 # Installs reference docs into /usr/share/doc/gstreamermm-0.10/
 # but that's okay, because the rest of dev-cpp/*mm stuff does the same
+
+src_prepare() {
+	gnome2_src_prepare
+	append-cxxflags -std=c++11 #568254
+}

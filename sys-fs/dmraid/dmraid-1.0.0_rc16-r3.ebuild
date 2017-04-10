@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/dmraid/dmraid-1.0.0_rc16-r3.ebuild,v 1.17 2014/07/23 10:32:00 klausman Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,12 +9,12 @@ inherit autotools linux-info flag-o-matic eutils
 MY_PV=${PV/_/.}-3
 
 DESCRIPTION="Device-mapper RAID tool and library"
-HOMEPAGE="http://people.redhat.com/~heinzm/sw/dmraid/"
-SRC_URI="http://people.redhat.com/~heinzm/sw/dmraid/src/${PN}-${MY_PV}.tar.bz2"
+HOMEPAGE="https://people.redhat.com/~heinzm/sw/dmraid/"
+SRC_URI="https://people.redhat.com/~heinzm/sw/dmraid/src/${PN}-${MY_PV}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 ~arm ia64 ppc ppc64 ~sparc x86"
+KEYWORDS="alpha amd64 arm ia64 ppc ppc64 sparc x86"
 IUSE="dietlibc intel_led klibc led mini static"
 REQUIRED_USE="klibc? ( !dietlibc )"
 
@@ -75,25 +75,26 @@ src_install() {
 
 pkg_postinst() {
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
-	elog "For booting Gentoo from Device-Mapper RAID you can use a Genkernel initramfs."
-	elog
-	elog "Genkernel will generate the kernel and the initramfs with a statically "
-	elog "linked dmraid binary (its own version which may not be the same as this version):"
-	elog "\t emerge -av sys-kernel/genkernel"
-	elog "\t genkernel --dmraid all"
+		elog "For booting Gentoo from Device-Mapper RAID you can use a Genkernel initramfs."
+		elog
+		elog "Genkernel will generate the kernel and the initramfs with a statically "
+		elog "linked dmraid binary (its own version which may not be the same as this version):"
+		elog "\t emerge -av sys-kernel/genkernel"
+		elog "\t genkernel --dmraid all"
 	fi
-	if [[ ${REPLACING_VERSIONS} != ${PVR} ]]; then
-	elog
-	elog "A pre-patched distfile of this version of DMRAID has been installed at"
-	elog "/usr/share/${PN}/${PN}-${MY_PV}-prepatched.tar.bz2 , to support using it within a"
-	elog "Genkernel initramfs."
-	elog
+	# skip this message if this revision has already been emerged
+	if [[ " ${REPLACING_VERSIONS} " != *\ ${PVR}\ * ]]; then
+		elog
+		elog "A pre-patched distfile of this version of DMRAID has been installed at"
+		elog "/usr/share/${PN}/${PN}-${MY_PV}-prepatched.tar.bz2 , to support using it within a"
+		elog "Genkernel initramfs."
+		elog
 	fi
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
-	elog "If you would rather use this version of DMRAID with Genkernel, update the following"
-	elog "in /etc/genkernel.conf:"
-	elog "\t DMRAID_VER=\"${MY_PV}\""
-	elog "\t DMRAID_SRCTAR=\"/usr/share/${PN}/${PN}-${MY_PV}-prepatched.tar.bz2\""
-	elog
+		elog "If you would rather use this version of DMRAID with Genkernel, update the following"
+		elog "in /etc/genkernel.conf:"
+		elog "\t DMRAID_VER=\"${MY_PV}\""
+		elog "\t DMRAID_SRCTAR=\"/usr/share/${PN}/${PN}-${MY_PV}-prepatched.tar.bz2\""
+		elog
 	fi
 }

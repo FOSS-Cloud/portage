@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/sleepyhead/sleepyhead-9999.ebuild,v 1.4 2014/08/10 18:08:51 slyfox Exp $
+# $Id$
 
 EAPI=5
 inherit eutils git-2 qt4-r2
@@ -15,7 +15,7 @@ EGIT_BRANCH="rich-test"
 LICENSE="GPL-2"
 SLOT="0"
 
-KEYWORDS="~amd64"
+KEYWORDS=""
 
 IUSE="debug"
 
@@ -25,7 +25,7 @@ DEPEND="virtual/opengl:=
 		dev-qt/qtgui:4=
 		dev-qt/qtopengl:4=
 		dev-qt/qtwebkit:4=
-		dev-libs/quazip:="
+		dev-libs/quazip:=[qt4]"
 RDEPEND="${DEPEND}"
 
 src_unpack() {

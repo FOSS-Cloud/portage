@@ -1,36 +1,27 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/swt/swt-3.7.2-r1.ebuild,v 1.6 2014/03/14 10:50:34 ago Exp $
+# $Id$
 
 EAPI=4
 
 inherit eutils java-pkg-2 java-ant-2 toolchain-funcs java-osgi
 
 MY_PV="${PV/_rc/RC}"
-MY_DMF="download.eclipse.org/eclipse/downloads/drops/R-${MY_PV}-201202080800"
+MY_DMF="http://archive.eclipse.org/eclipse/downloads/drops/R-${MY_PV}-201202080800"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="GTK based SWT Library"
 HOMEPAGE="http://www.eclipse.org/"
-SRC_URI="x86? (
-			http://${MY_DMF}/${MY_P}-gtk-linux-x86.zip
-		)
-		x86-fbsd? (
-			http://${MY_DMF}/${MY_P}-gtk-linux-x86.zip
-		)
-		amd64? (
-			http://${MY_DMF}/${MY_P}-gtk-linux-x86_64.zip
-		)
-		ppc? (
-			http://${MY_DMF}/${MY_P}-gtk-linux-x86.zip
-		)
-		ppc64? (
-			http://${MY_DMF}/${MY_P}-gtk-linux-ppc64.zip
-		)"
+SRC_URI="
+	amd64? ( ${MY_DMF}/${MY_P}-gtk-linux-x86_64.zip )
+	ppc? ( ${MY_DMF}/${MY_P}-gtk-linux-x86.zip )
+	ppc64? ( ${MY_DMF}/${MY_P}-gtk-linux-ppc64.zip )
+	x86? ( ${MY_DMF}/${MY_P}-gtk-linux-x86.zip )
+	x86-fbsd? ( ${MY_DMF}/${MY_P}-gtk-linux-x86.zip )"
 
 SLOT="3.7"
 LICENSE="CPL-1.0 LGPL-2.1 MPL-1.1"
-KEYWORDS="amd64 ppc ppc64 x86"
+KEYWORDS="amd64 ppc64 x86"
 
 IUSE="cairo gnome opengl webkit"
 COMMON=">=dev-libs/glib-2.6

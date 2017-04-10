@@ -1,10 +1,11 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/regexxer/regexxer-0.10.ebuild,v 1.7 2014/08/11 11:44:02 nimiux Exp $
+# $Id$
 
 EAPI=5
 GCONF_DEBUG=no
-inherit autotools eutils gnome2
+
+inherit autotools eutils flag-o-matic gnome2
 
 DESCRIPTION="An interactive tool for performing search and replace operations"
 HOMEPAGE="http://regexxer.sourceforge.net/"
@@ -22,9 +23,9 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	sys-devel/gettext"
 
-DOCS=( AUTHORS ChangeLog NEWS README )
-
 src_prepare() {
+	append-cxxflags -std=c++11
+
 	epatch "${FILESDIR}"/${P}-glib-2.32.patch
 	epatch "${FILESDIR}"/${P}-sandbox.patch
 	eautoreconf

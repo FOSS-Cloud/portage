@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwids/hwids-99999999.ebuild,v 1.25 2014/06/06 18:20:05 vapier Exp $
 
-EAPI=5
+EAPI="6"
+
 inherit udev eutils
 
 DESCRIPTION="Hardware (PCI, USB, OUI, IAB) IDs databases"
 HOMEPAGE="https://github.com/gentoo/hwids"
 if [[ ${PV} == "99999999" ]]; then
+	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"
-	inherit git-2
 else
 	SRC_URI="${HOMEPAGE}/archive/${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~amd64-linux ~arm-linux ~x86-linux"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux"
 fi
 
 LICENSE="|| ( GPL-2 BSD ) public-domain"
@@ -27,11 +27,22 @@ DEPEND="udev? (
 RDEPEND="!<sys-apps/pciutils-3.1.9-r2
 	!<sys-apps/usbutils-005-r1"
 
-S=${WORKDIR}/hwids-${P}
+if [[ ${PV} != 99999999 ]]; then
+	S=${WORKDIR}/hwids-${P}
+fi
+
+src_unpack() {
+	if [[ ${PV} == 99999999 ]]; then
+		git-r3_src_unpack
+		cd "${S}" || die
+		emake fetch
+	else
+		default
+	fi
+}
 
 src_prepare() {
-	[[ ${PV} == "99999999" ]] && emake fetch
-
+	default
 	sed -i -e '/udevadm hwdb/d' Makefile || die
 }
 
@@ -59,7 +70,5 @@ src_install() {
 pkg_postinst() {
 	if use udev; then
 		udevadm hwdb --update --root="${ROOT%/}"
-		# http://cgit.freedesktop.org/systemd/systemd/commit/?id=1fab57c209035f7e66198343074e9cee06718bda
-		[ "${ROOT:-/}" = "/" ] && udevadm control --reload
 	fi
 }

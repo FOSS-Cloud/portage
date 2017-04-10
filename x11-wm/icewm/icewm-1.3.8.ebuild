@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/icewm/icewm-1.3.8.ebuild,v 1.4 2014/10/05 11:49:43 ago Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools eutils python-single-r1
 
@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SRC_URI="mirror://sourceforge/${PN}/${P/_}.tar.gz"
 
 SLOT="0"
-KEYWORDS="~alpha amd64 ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ppc ~ppc64 sparc x86"
 IUSE="bidi debug gnome minimal nls truetype uclibc xinerama"
 REQUIRED_USE="gnome? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -24,7 +24,7 @@ RESTRICT="test"
 S=${WORKDIR}/${P/_}
 
 RDEPEND="
-	x11-libs/gdk-pixbuf:2
+	x11-libs/gdk-pixbuf:2[X]
 	x11-libs/libX11
 	x11-libs/libXrandr
 	x11-libs/libXext

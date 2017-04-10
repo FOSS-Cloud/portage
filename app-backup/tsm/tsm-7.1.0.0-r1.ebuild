@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/tsm/tsm-7.1.0.0-r1.ebuild,v 1.1 2014/07/05 15:03:29 pacho Exp $
+# $Id$
 
 EAPI=5
 
@@ -35,16 +35,16 @@ LICENSE="Apache-1.1 Apache-2.0 JDOM BSD-2 CC-PD Boost-1.0 MIT CPL-1.0 HPND Exola
 	|| ( BSD GPL-2+ ) gSOAP libpng tsm"
 
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 -*"
 IUSE="acl java +tsm_cit +tsm_hw"
 QA_PREBUILT="*"
 
-MY_LANGS="cs:CS_CZ de:DE_DE es:ES_ES fr:FR_FR hu:HU_HU it:IT_IT
-	ja:JA_JP ko:KO_KR pl:PL_PL pt:PT_BR ru:RU_RU zh:ZH_CN zh_TW:ZH_TW"
+MY_LANGS="cs:CS_CZ de:DE_DE es:ES_ES fr:FR_FR hu:HU_HU it:IT_IT ja:JA_JP
+	ko:KO_KR pl:PL_PL pt-BR:PT_BR ru:RU_RU zh-CN:ZH_CN zh-TW:ZH_TW"
 MY_LANG_PV="${MY_PVR_ALLDOTS}-"
 for lang in ${MY_LANGS}; do
-	IUSE="${IUSE} linguas_${lang%:*}"
-	SRC_URI="${SRC_URI} linguas_${lang%:*}? ( \
+	IUSE="${IUSE} l10n_${lang%:*}"
+	SRC_URI="${SRC_URI} l10n_${lang%:*}? ( \
 ${BASE_URI}TIVsm-msg.${lang#*:}.x86_64.rpm -> \
 ${MY_LANG_PV}TIVsm-msg.${lang#*:}.x86_64.rpm )"
 done
@@ -56,7 +56,7 @@ RDEPEND="
 	dev-libs/libxml2
 	=sys-fs/fuse-2*
 	acl? ( sys-apps/acl )
-	java? ( virtual/jre:1.6 )
+	java? ( virtual/jre:1.7 )
 "
 
 S="${WORKDIR}"

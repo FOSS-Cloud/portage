@@ -1,11 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/libcloud/libcloud-0.15.1.ebuild,v 1.2 2014/07/22 04:21:45 idella4 Exp $
+# $Id$
 
 EAPI=5
 
 # py3 dropped due to failing tests once lockfile installed
-PYTHON_COMPAT=( python{2_7,3_3,3_4} pypy )
+PYTHON_COMPAT=( python{2_7,3_4} pypy )
 PYTHON_REQ_USE="ssl(+)"
 
 inherit distutils-r1
@@ -16,11 +16,12 @@ SRC_URI="mirror://apache/${PN}/apache-${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="examples test"
 
 RDEPEND=""
-DEPEND="test? (
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+	test? (
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/lockfile[${PYTHON_USEDEP}]
 	)"

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-freebsd/freebsd-sources/freebsd-sources-8.2-r2.ebuild,v 1.1 2012/06/27 10:29:23 naota Exp $
+# $Id$
 
 inherit bsdmk freebsd flag-o-matic
 
@@ -60,7 +60,7 @@ src_unpack() {
 	# unionfs filesystem over the cd9660 readonly filesystem.
 	epatch "${FILESDIR}/${PN}-7.0-tmpfs_whiteout_stub.patch"
 
-	# See http://sourceware.org/bugzilla/show_bug.cgi?id=5391
+	# See https://sourceware.org/bugzilla/show_bug.cgi?id=5391
 	# ld doesn't provide symbols constructed as the __start_set_(s) ones
 	# are on FreeBSD modules.
 	# This patch adds code to generate a list of these and adds them

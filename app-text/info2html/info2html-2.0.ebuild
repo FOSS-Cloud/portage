@@ -1,6 +1,6 @@
 # Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/info2html/info2html-2.0.ebuild,v 1.6 2007/06/14 13:16:57 angelos Exp $
+# $Id$
 
 inherit eutils webapp
 
@@ -23,7 +23,7 @@ src_unpack() {
 
 	# filter user-provided data to prevent cross-frame/site scripting attacks
 	# bug #91354 (fix from Werner Fink)
-	epatch ${FILESDIR}/info2html-2.0-xss.patch
+	epatch "${FILESDIR}"/info2html-2.0-xss.patch
 
 	# Fixup INFODIR for paths in /etc/profile.env INFOPATH
 	infos=$(grep "^export INFOPATH=" /etc/profile.env | tail -n 1 |\

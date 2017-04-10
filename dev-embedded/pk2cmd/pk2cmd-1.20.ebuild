@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/pk2cmd/pk2cmd-1.20.ebuild,v 1.4 2012/05/25 08:01:20 ssuominen Exp $
+# $Id$
 
-EAPI=1
+EAPI=5
 
 inherit eutils toolchain-funcs
 
@@ -18,36 +18,33 @@ IUSE=""
 DEPEND="virtual/libusb:0"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${PN}v${PV}LinuxMacSource"
+S=${WORKDIR}/${PN}v${PV}LinuxMacSource
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-
+src_prepare() {
 	# Patch adds /usr/share/pk2 to the default search for the device file
 	epatch "${FILESDIR}/${PN}-add-share-dir-for-dev-file-${PV}.patch"
 
 	# Fix up the Makefile
-	sed -i 's:#TARGET=linux:TARGET=linux:' Makefile
-	sed -i 's:DBG=-O2:DBG=:' Makefile
-	sed -i 's:^CFLAGS=:CFLAGS+=:' Makefile
-	sed -i 's:^LDFLAGS=:LDFLAGS+=:' Makefile
-	sed -i 's:^LIBUSB=/usr/local:LIBUSB=/usr:' Makefile
-	sed -i "s:^CC=g++::" Makefile
+	sed \
+		-e 's:#TARGET=linux:TARGET=linux:' \
+		-e 's:DBG=-O2:DBG=:' \
+		-e 's:^CFLAGS=:CFLAGS+=:' \
+		-e 's:^LDFLAGS=:LDFLAGS+=:' \
+		-e 's:^LIBUSB=/usr/local:LIBUSB=/usr:' \
+		-e "s:^CC=g++::" \
+		-i Makefile || die
 }
 
 src_compile() {
-	emake CC="$(tc-getCXX)" || die "emake failed"
+	emake CC="$(tc-getCXX)"
 }
 
 src_install() {
 	# Copy the device files and PicKit2 OS
 	insinto "/usr/share/pk2"
-	doins PK2DeviceFile.dat
-	doins PK2V023200.hex
+	doins PK2DeviceFile.dat PK2V023200.hex
 	# Install the program
-	exeinto /usr/bin
-	doexe pk2cmd
+	dobin pk2cmd
 	# Install the documentation
 	dodoc ReadmeForPK2CMDLinux2-6.txt usbhotplug.txt
 }

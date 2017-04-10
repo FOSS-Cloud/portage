@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-simulation/lincity/lincity-1.13.1.ebuild,v 1.4 2013/09/25 17:20:10 ago Exp $
+# $Id$
 
 EAPI=5
-inherit eutils games
+inherit eutils flag-o-matic games
 
 DESCRIPTION="city/country simulation game for X and Linux SVGALib"
 HOMEPAGE="http://lincity.sourceforge.net/"
@@ -23,17 +23,14 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
 
 src_prepare() {
-	sed -i \
-		-e '/^localedir/s:$(datadir):/usr/share:' \
-		po/Makefile.in.in \
-		intl/Makefile.in \
-		|| die 'sed failed'
+	epatch "${FILESDIR}"/${P}-build.patch
+	append-cflags -std=gnu89 # build with gcc5 (bug #570574)
 }
 
 src_configure() {
 	egamesconf \
-		--with-gzip \
 		$(use_enable nls) \
+		--with-gzip \
 		--with-x
 }
 
@@ -44,7 +41,7 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	default
 	dodoc Acknowledgements CHANGES README* TODO
 	make_desktop_entry xlincity Lincity
 	dogamesbin xlincity

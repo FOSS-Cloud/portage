@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/cosmosmash/cosmosmash-1.4.7.ebuild,v 1.1 2013/04/20 07:18:40 mr_bones_ Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit autotools games
 
 DESCRIPTION="A space rock shooting video game"
@@ -11,7 +11,7 @@ SRC_URI="http://perso.b2b2c.ca/sarrazip/dev/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 RESTRICT="test" # uses the sound card which portage user might not be available.
 
@@ -30,7 +30,7 @@ src_prepare() {
 }
 
 src_install() {
-	emake -C src DESTDIR="${D}" install || die
+	emake -C src DESTDIR="${D}" install
 	doman doc/${PN}.6
 	dodoc AUTHORS NEWS README THANKS
 	prepgamesdirs

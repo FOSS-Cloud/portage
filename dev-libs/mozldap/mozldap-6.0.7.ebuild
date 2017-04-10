@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/mozldap/mozldap-6.0.7.ebuild,v 1.2 2013/03/29 03:25:30 patrick Exp $
+# $Id$
 
 EAPI="5"
 
@@ -79,10 +79,10 @@ src_install () {
 
 	#create compatibility PATH link
 
-	 for i in ldapcmp ldapcompare ldapdelete ldapmodify \
-		 	ldappasswd ldapsearch;do
-	 	dosym /usr/$(get_libdir)/mozldap/$i /usr/bin/moz"${i}" || die
-	 # compat for 389-project
+	for i in ldapcmp ldapcompare ldapdelete ldapmodify \
+			ldappasswd ldapsearch;do
+		dosym /usr/$(get_libdir)/mozldap/$i /usr/bin/moz"${i}" || die
+		# compat for 389-project
 		dosym /usr/$(get_libdir)/mozldap/$i /usr/bin/389-"${i}" || die
 	done
 

@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gstreamer/gstreamer-0.10.36-r2.ebuild,v 1.12 2014/09/15 08:21:05 ago Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils multilib multilib-minimal pax-utils
 
 DESCRIPTION="Streaming media framework"
-HOMEPAGE="http://gstreamer.freedesktop.org/"
-SRC_URI="http://${PN}.freedesktop.org/src/${PN}/${P}.tar.xz"
+HOMEPAGE="https://gstreamer.freedesktop.org/"
+SRC_URI="https://${PN}.freedesktop.org/src/${PN}/${P}.tar.xz"
 
 LICENSE="LGPL-2+"
 SLOT="0.10"
-KEYWORDS="alpha amd64 ~arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="+introspection nls +orc test"
 
 RDEPEND=">=dev-libs/glib-2.34.3:2[${MULTILIB_USEDEP}]
@@ -81,7 +81,7 @@ multilib_src_configure() {
 		$(multilib_native_use_enable introspection) \
 		$(use_enable test tests) \
 		--with-package-name="GStreamer ebuild for Gentoo" \
-		--with-package-origin="http://packages.gentoo.org/package/media-libs/gstreamer"
+		--with-package-origin="https://packages.gentoo.org/package/media-libs/gstreamer"
 
 	if multilib_is_native_abi; then
 		local x
@@ -109,7 +109,7 @@ multilib_src_install_all() {
 	for gst_bins in *-${SLOT} ; do
 		[[ -e ${gst_bins} ]] || continue
 		rm ${gst_bins/-${SLOT}/}
-		elog "Removed ${gst_bins/-${SLOT}/}"
+		einfo "Removed ${gst_bins/-${SLOT}/}"
 	done
 
 	# Punt useless .la files

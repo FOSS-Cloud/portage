@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jdbc-mssqlserver/jdbc-mssqlserver-4.0.2206.100.ebuild,v 1.2 2012/10/14 18:48:21 thev00d00 Exp $
+# $Id$
 
 EAPI="4"
 
@@ -14,7 +14,7 @@ DESCRIPTION="JDBC driver for Microsoft SQL Server"
 HOMEPAGE="http://msdn.microsoft.com/en-US/data/aa937724.aspx"
 SRC_URI="http://download.microsoft.com/download/${MY_ID:0:1}/${MY_ID:1:1}/${MY_ID:2:1}/${MY_ID}/${MY_PN}_${PV}_enu.tar.gz"
 
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~x86"
 LICENSE="MSjdbcEULA40"
 SLOT="4.0"
 

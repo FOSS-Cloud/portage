@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/vienna-rna/vienna-rna-2.1.8.ebuild,v 1.1 2014/09/15 19:59:23 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -22,14 +22,13 @@ IUSE="doc openmp python static-libs"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-DEPEND="
+RDEPEND="
 	dev-lang/perl
 	media-libs/gd
 	doc? ( dev-texlive/texlive-latex )
-	python? (
-		${PYTHON_DEPS}
-		dev-lang/swig )"
-RDEPEND="${DEPEND}"
+	python? ( ${PYTHON_DEPS} )"
+DEPEND="${RDEPEND}
+	python? ( dev-lang/swig:0 )"
 
 S="${WORKDIR}/ViennaRNA-${PV}"
 
@@ -106,7 +105,7 @@ src_install() {
 	newdoc Readseq/Formats Formats.readseq
 
 	# remove perlocal.pod to avoid file collisions (see #240358)
-	fixlocalpod || die "Failed to remove perlocal.pod"
+	perl_delete_localpod || die "Failed to remove perlocal.pod"
 	if use python; then
 		cd interfaces/Python || die
 		distutils-r1_src_install

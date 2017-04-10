@@ -1,16 +1,19 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-mud/gnome-mud/gnome-mud-0.11.2.ebuild,v 1.8 2012/11/07 20:16:08 tetromino Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
+GCONF_DEBUG="yes"
+GNOME_TARBALL_SUFFIX="bz2"
+
 inherit gnome2 games
 
 DESCRIPTION="GNOME MUD client"
-HOMEPAGE="http://live.gnome.org/GnomeMud"
+HOMEPAGE="https://wiki.gnome.org/Apps/GnomeMud"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86 ~x86-fbsd"
+KEYWORDS="amd64 ~ppc x86 ~x86-fbsd"
 IUSE="gstreamer"
 
 RDEPEND="x11-libs/gtk+:2
@@ -26,18 +29,17 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	>=dev-util/intltool-0.23
 	>=sys-devel/gettext-0.11.5
-	app-text/scrollkeeper"
+	app-text/rarian"
 
 src_configure() {
 	gnome2_src_configure \
-		--disable-dependency-tracking \
 		--bindir="${GAMES_BINDIR}" \
 		$(use_enable gstreamer)
 }
 
 src_install() {
 	DOCS="AUTHORS BUGS ChangeLog NEWS PLUGIN.API README ROADMAP" \
-	gnome2_src_install
+		gnome2_src_install
 	prepgamesdirs
 }
 

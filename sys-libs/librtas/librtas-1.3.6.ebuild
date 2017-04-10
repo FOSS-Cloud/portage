@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/librtas/librtas-1.3.6.ebuild,v 1.6 2013/02/27 20:49:25 ranger Exp $
+# $Id$
 
 EAPI=4
 inherit eutils
 
 DESCRIPTION="A set of libraries for userspace access to RTAS on the PowerPC platform(s)"
-HOMEPAGE="http://sourceforge.net/projects/librtas/"
+HOMEPAGE="https://sourceforge.net/projects/librtas/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="IBM"

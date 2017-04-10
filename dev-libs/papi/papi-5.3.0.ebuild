@@ -1,11 +1,11 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/papi/papi-5.3.0.ebuild,v 1.1 2014/07/31 11:34:16 slis Exp $
+# $Id$
 
 EAPI=5
 
 AUTOTOOLS_IN_SOURCE_BUILD=1
-inherit versionator autotools-utils
+inherit autotools-utils fortran-2 versionator
 
 DESCRIPTION="Performance Application Programming Interface"
 HOMEPAGE="http://icl.cs.utk.edu/papi/"

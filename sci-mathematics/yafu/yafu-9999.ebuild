@@ -1,15 +1,15 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/yafu/yafu-9999.ebuild,v 1.3 2013/03/07 09:58:11 jlec Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils subversion versionator
 
 DESCRIPTION="Yet another factoring utility"
-HOMEPAGE="http://sourceforge.net/projects/yafu/"
+HOMEPAGE="https://sourceforge.net/projects/yafu/"
 #SRC_URI="mirror://sourceforge/${PN}/${PV}/${P}-src.zip"
-ESVN_REPO_URI="https://yafu.svn.sourceforge.net/svnroot/yafu"
+ESVN_REPO_URI="https://svn.code.sf.net/p/yafu/code/"
 
 SLOT="0"
 LICENSE="public-domain"
@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE="+sieve"
 
 DEPEND="
-	dev-libs/gmp
+	dev-libs/gmp:0=
 	sci-mathematics/gmp-ecm
 	sieve? (
 		sci-mathematics/msieve

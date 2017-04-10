@@ -1,35 +1,37 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/busybox/busybox-9999.ebuild,v 1.15 2013/02/28 22:43:20 vapier Exp $
+# $Id$
 
 # See `man savedconfig.eclass` for info on how to use USE=savedconfig.
 
-EAPI="4"
+EAPI="5"
 inherit eutils flag-o-matic savedconfig toolchain-funcs multilib
 
 DESCRIPTION="Utilities for rescue and embedded systems"
-HOMEPAGE="http://www.busybox.net/"
+HOMEPAGE="https://www.busybox.net/"
 if [[ ${PV} == "9999" ]] ; then
 	MY_P=${PN}
 	EGIT_REPO_URI="git://busybox.net/busybox.git"
 	inherit git-2
 else
 	MY_P=${PN}-${PV/_/-}
-	SRC_URI="http://www.busybox.net/downloads/${MY_P}.tar.bz2"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-linux ~arm-linux ~x86-linux"
+	SRC_URI="https://www.busybox.net/downloads/${MY_P}.tar.bz2"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-linux ~arm-linux ~x86-linux"
 fi
 
-LICENSE="GPL-2"
+LICENSE="GPL-2" # GPL-2 only
 SLOT="0"
-
-IUSE="ipv6 livecd make-symlinks math mdev -pam selinux sep-usr +static syslog systemd"
+IUSE="debug ipv6 livecd make-symlinks math mdev pam selinux sep-usr static syslog systemd"
+REQUIRED_USE="pam? ( !static )"
 RESTRICT="test"
 
-RDEPEND="!static? ( selinux? ( sys-libs/libselinux ) )
+COMMON_DEPEND="!static? ( selinux? ( sys-libs/libselinux ) )
 	pam? ( sys-libs/pam )"
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	static? ( selinux? ( sys-libs/libselinux[static-libs(+)] ) )
 	>=sys-kernel/linux-headers-2.6.39"
+RDEPEND="${COMMON_DEPEND}
+	mdev? ( !<sys-apps/openrc-0.13 )"
 
 S=${WORKDIR}/${MY_P}
 
@@ -65,8 +67,8 @@ src_prepare() {
 	use ppc64 && append-flags -mminimal-toc #130943
 
 	# patches go here!
-	epatch "${FILESDIR}"/${PN}-1.19.0-bb.patch
-	#epatch "${FILESDIR}"/${P}-*.patch
+	epatch "${FILESDIR}"/${PN}-1.26.2-bb.patch
+#	epatch "${FILESDIR}"/${P}-*.patch
 	cp "${FILESDIR}"/ginit.c init/ || die
 
 	# flag cleanup
@@ -94,18 +96,18 @@ src_configure() {
 
 	restore_config .config
 	if [ -f .config ]; then
-		yes "" | emake -j1 oldconfig > /dev/null
+		yes "" | emake -j1 -s oldconfig >/dev/null
 		return 0
 	else
 		ewarn "Could not locate user configfile, so we will save a default one"
 	fi
 
 	# setup the config file
-	emake -j1 allyesconfig > /dev/null
+	emake -j1 -s allyesconfig >/dev/null
 	# nommu forces a bunch of things off which we want on #387555
 	busybox_config_option n NOMMU
 	sed -i '/^#/d' .config
-	yes "" | emake -j1 oldconfig >/dev/null
+	yes "" | emake -j1 -s oldconfig >/dev/null
 
 	# now turn off stuff we really don't want
 	busybox_config_option n DMALLOC
@@ -116,6 +118,8 @@ src_configure() {
 	busybox_config_option n MONOTONIC_SYSCALL
 	busybox_config_option n USE_PORTABLE_CODE
 	busybox_config_option n WERROR
+	# triming the BSS size may be dangerous
+	busybox_config_option n FEATURE_USE_BSS_TAIL
 
 	# If these are not set and we are using a uclibc/busybox setup
 	# all calls to system() will fail.
@@ -127,22 +131,22 @@ src_configure() {
 		busybox_config_option n FEATURE_IPV6
 		busybox_config_option n TRACEROUTE6
 		busybox_config_option n PING6
+		busybox_config_option n UDHCPC6
 	fi
 
-	if use static && use pam ; then
-		ewarn "You cannot have USE='static pam'.  Assuming static is more important."
-	fi
-	busybox_config_option $(usex static n pam) PAM
+	busybox_config_option pam PAM
 	busybox_config_option static STATIC
 	busybox_config_option syslog {K,SYS}LOGD LOGGER
 	busybox_config_option systemd FEATURE_SYSTEMD
 	busybox_config_option math FEATURE_AWK_LIBM
 
 	# all the debug options are compiler related, so punt them
+	busybox_config_option n DEBUG_SANITIZE
 	busybox_config_option n DEBUG
 	busybox_config_option y NO_DEBUG_LIB
 	busybox_config_option n DMALLOC
 	busybox_config_option n EFENCE
+	busybox_config_option $(usex debug y n) TFTP_DEBUG
 
 	busybox_config_option selinux SELINUX
 
@@ -206,7 +210,7 @@ src_install() {
 		exeinto /$(get_libdir)/mdev/
 		doexe "${FILESDIR}"/mdev/*
 
-		newinitd "${FILESDIR}"/mdev.rc.1 mdev
+		newinitd "${FILESDIR}"/mdev.initd mdev
 	fi
 	if use livecd ; then
 		dosym busybox /bin/vi

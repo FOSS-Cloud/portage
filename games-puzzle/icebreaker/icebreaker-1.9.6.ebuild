@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/icebreaker/icebreaker-1.9.6.ebuild,v 1.2 2013/06/24 20:45:12 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -11,17 +11,20 @@ SRC_URI="http://www.mattdm.org/${PN}/1.9.x/${P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE=""
 
 RDEPEND="media-libs/libsdl[video]
 	media-libs/sdl-mixer"
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-ldflags.patch
-	"${FILESDIR}"/${P}-gentoo.patch
-	"${FILESDIR}"/${P}-parallell-install.patch
-	"${FILESDIR}"/${P}-ovfl.patch )
+src_prepare() {
+	epatch \
+		"${FILESDIR}"/${P}-ldflags.patch \
+		"${FILESDIR}"/${P}-gentoo.patch \
+		"${FILESDIR}"/${P}-parallell-install.patch \
+		"${FILESDIR}"/${P}-ovfl.patch
+}
 
 src_compile() {
 	emake \

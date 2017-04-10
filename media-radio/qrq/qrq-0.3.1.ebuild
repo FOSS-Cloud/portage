@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/qrq/qrq-0.3.1.ebuild,v 1.5 2014/06/14 12:45:48 tomjbe Exp $
+# $Id$
 
 EAPI="5"
 
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="pulseaudio"
 
-DEPEND="sys-libs/ncurses
+DEPEND="sys-libs/ncurses:*
 	pulseaudio? ( media-sound/pulseaudio )"
 RDEPEND="${DEPEND}"
 

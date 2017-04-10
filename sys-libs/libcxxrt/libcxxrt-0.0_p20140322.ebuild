@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libcxxrt/libcxxrt-0.0_p20140322.ebuild,v 1.2 2014/08/10 20:12:23 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -22,13 +22,13 @@ fi
 LICENSE="BSD-2"
 SLOT="0"
 if [ "${PV%9999}" = "${PV}" ] ; then
-	KEYWORDS="~amd64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~mips ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 else
 	KEYWORDS=""
 fi
 IUSE="libunwind static-libs"
 
-RDEPEND="libunwind? ( >=sys-libs/libunwind-1.0.1-r1[static-libs?] )"
+RDEPEND="libunwind? ( >=sys-libs/libunwind-1.0.1-r1[static-libs?,${MULTILIB_USEDEP}] )"
 DEPEND="${RDEPEND}
 	${DEPEND}"
 

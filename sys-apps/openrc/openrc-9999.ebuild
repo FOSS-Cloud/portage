@@ -1,62 +1,72 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/openrc-9999.ebuild,v 1.138 2014/08/22 20:17:35 williamh Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-inherit eutils flag-o-matic multilib pam toolchain-funcs
+inherit flag-o-matic pam toolchain-funcs
 
 DESCRIPTION="OpenRC manages the services, startup and shutdown of a host"
-HOMEPAGE="http://www.gentoo.org/proj/en/base/openrc/"
+HOMEPAGE="https://github.com/openrc/openrc/"
 
 if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="git://github.com/OpenRC/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="http://dev.gentoo.org/~williamh/dist/${P}.tar.bz2"
+	SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 fi
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="debug elibc_glibc ncurses pam newnet prefix +netifrc selinux static-libs
-	tools unicode kernel_linux kernel_FreeBSD"
+IUSE="audit debug ncurses pam newnet prefix +netifrc selinux static-libs
+	unicode kernel_linux kernel_FreeBSD"
 
-COMMON_DEPEND=">=sys-apps/baselayout-2.1-r1
-	kernel_FreeBSD? ( || ( >=sys-freebsd/freebsd-ubin-9.0_rc sys-process/fuser-bsd ) )
-	elibc_glibc? ( >=sys-libs/glibc-2.5 )
-	ncurses? ( sys-libs/ncurses )
-	pam? ( sys-auth/pambase )
-	tools? ( dev-lang/perl )
+COMMON_DEPEND="kernel_FreeBSD? ( || ( >=sys-freebsd/freebsd-ubin-9.0_rc sys-process/fuser-bsd ) )
+	ncurses? ( sys-libs/ncurses:0= )
+	pam? (
+		sys-auth/pambase
+		virtual/pam
+	)
+	audit? ( sys-process/audit )
 	kernel_linux? (
 		sys-process/psmisc
 		!<sys-process/procps-3.3.9-r2
 	)
-	selinux? ( sec-policy/selinux-base-policy
-		sec-policy/selinux-openrc
-		sys-libs/libselinux )
+	selinux? (
+		sys-apps/policycoreutils
+		sys-libs/libselinux
+	)
+	!<sys-apps/baselayout-2.1-r1
 	!<sys-fs/udev-init-scripts-27"
 DEPEND="${COMMON_DEPEND}
 	virtual/os-headers
 	ncurses? ( virtual/pkgconfig )"
 RDEPEND="${COMMON_DEPEND}
 	!prefix? (
-		kernel_linux? ( || ( >=sys-apps/sysvinit-2.86-r6 sys-process/runit ) )
+		kernel_linux? (
+			>=sys-apps/sysvinit-2.86-r6[selinux?]
+			virtual/tmpfiles
+		)
 		kernel_FreeBSD? ( sys-freebsd/freebsd-sbin )
-	)"
+	)
+	selinux? (
+		sec-policy/selinux-base-policy
+		sec-policy/selinux-openrc
+	)
+"
 
 PDEPEND="netifrc? ( net-misc/netifrc )"
 
 src_prepare() {
+	default
+
 	sed -i 's:0444:0644:' mk/sys.mk || die
 
 	if [[ ${PV} == "9999" ]] ; then
 		local ver="git-${EGIT_VERSION:0:6}"
-		sed -i "/^GITVER[[:space:]]*=/s:=.*:=${ver}:" mk/git.mk || die
+		sed -i "/^GITVER[[:space:]]*=/s:=.*:=${ver}:" mk/gitver.mk || die
 	fi
-
-	# Allow user patches to be applied without modifying the ebuild
-	epatch_user
 }
 
 src_compile() {
@@ -67,8 +77,9 @@ src_compile() {
 		LIBEXECDIR=${EPREFIX}/$(get_libdir)/rc
 		MKNET=$(usex newnet)
 		MKSELINUX=$(usex selinux)
-		MKSTATICLIBS=$(usex static-libs)
-	MKTOOLS=$(usex tools)"
+		MKAUDIT=$(usex audit)
+		MKPAM=$(usev pam)
+		MKSTATICLIBS=$(usex static-libs)"
 
 	local brand="Unknown"
 	if use kernel_linux ; then
@@ -81,7 +92,6 @@ src_compile() {
 	export BRANDING="Gentoo ${brand}"
 	use prefix && MAKE_ARGS="${MAKE_ARGS} MKPREFIX=yes PREFIX=${EPREFIX}"
 	export DEBUG=$(usev debug)
-	export MKPAM=$(usev pam)
 	export MKTERMCAP=$(usev ncurses)
 
 	tc-export CC AR RANLIB
@@ -137,11 +147,12 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}"/openrc.logrotate openrc
 
-	# install the gentoo pam.d file
+	# install gentoo pam.d files
 	newpamd "${FILESDIR}"/start-stop-daemon.pam start-stop-daemon
+	newpamd "${FILESDIR}"/start-stop-daemon.pam supervise-daemon
 
 	# install documentation
-	dodoc README README.busybox README.history 	FEATURE-REMOVAL-SCHEDULE
+	dodoc ChangeLog *.md
 	if use newnet; then
 		dodoc README.newnet
 	fi
@@ -226,6 +237,18 @@ pkg_preinst() {
 EOF
 		fi
 	fi
+	has_version ">=sys-apps/openrc-0.14" || add_boot_init binfmt
+
+	if ! has_version ">=sys-apps/openrc-0.18.3"; then
+		add_boot_init mtab
+		if [[ -f "${EROOT}"etc/mtab ]] && [[ ! -L "${EROOT}"etc/mtab ]]; then
+			ewarn "${EROOT}etc/mtab will be replaced with a"
+			ewarn "symbolic link to /proc/self/mounts on the next"
+			ewarn "reboot."
+			ewarn "Change the setting in ${EROOT}etc/conf.d/mtab"
+			ewarn "if you do not want this to happen."
+		fi
+	fi
 }
 
 # >=OpenRC-0.11.3 requires udev-mount to be in the sysinit runlevel with udev.
@@ -255,6 +278,10 @@ pkg_postinst() {
 			mkdir -p "${EROOT}"etc/runlevels/shutdown
 			cp -RPp "${EROOT}"usr/share/${PN}/runlevels/shutdown/* \
 				"${EROOT}"etc/runlevels/shutdown
+		fi
+		if [[ ! -e "${EROOT}"etc/runlevels/nonetwork/local ]]; then
+			cp -RPp "${EROOT}"usr/share/${PN}/runlevels/nonetwork \
+				"${EROOT}"etc/runlevels
 		fi
 	fi
 
@@ -291,30 +318,13 @@ pkg_postinst() {
 		ewarn "Or, you have the option of emerging openrc with the newnet"
 		ewarn "use flag and configuring /etc/conf.d/network and"
 		ewarn "/etc/conf.d/staticroute if you only use static interfaces."
+		ewarn
 	fi
 
 	if use newnet && [ ! -e "${EROOT}"etc/runlevels/boot/network ]; then
 		ewarn "Please add the network service to your boot runlevel"
 		ewarn "as soon as possible. Not doing so could leave you with a system"
 		ewarn "without networking."
+		ewarn
 	fi
-
-	ewarn "In this version of OpenRC, the loopback interface no longer"
-	ewarn "satisfies the net virtual."
-	ewarn "If you have services now which do not start because of this,"
-	ewarn "They can be fixed by adding rc_need=\"!net\""
-	ewarn "to the ${EROOT}etc/conf.d/<servicename> file."
-	ewarn "You should also file a bug against the service asking that"
-	ewarn "need net be dropped from the dependencies."
-	ewarn "The bug you file should block the following tracker:"
-	ewarn "https://bugs.gentoo.org/show_bug.cgi?id=439092"
-
-	ewarn "This version of OpenRC doesn't enable nfs mounts automatically any"
-	ewarn "longer. In order to mount nfs file systems, you must use the"
-	ewarn "nfsmount service from the nfs-utils package."
-	ewarn "See bug https://bugs.gentoo.org/show_bug.cgi?id=427996 for"
-	ewarn "more information on this."
-
-	elog "You should now update all files in /etc, using etc-update"
-	elog "or equivalent before restarting any services or this host."
 }

@@ -1,9 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-ftp/oneclickftp/oneclickftp-0.5.1.ebuild,v 1.3 2013/03/02 22:51:01 hwoarang Exp $
+# $Id$
 
-EAPI=2
-inherit eutils qt4-r2
+EAPI=6
+
+inherit eutils qmake-utils
 
 DESCRIPTION="The somehow different FTP client"
 HOMEPAGE="http://oneclickftp.sourceforge.net/"
@@ -14,11 +15,15 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=app-crypt/qca-2
-	dev-qt/qtgui:4"
+DEPEND="
+	app-crypt/qca:2[qt4(+)]
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
+"
+RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-qt47.patch
+	"${FILESDIR}/${P}-qt47.patch"
 )
 
 src_configure() {
@@ -26,8 +31,10 @@ src_configure() {
 }
 
 src_install() {
-	emake INSTALL_ROOT="${D}" install || die
+	emake INSTALL_ROOT="${D}" install
+
 	doicon res/icons/${PN}.png
 	make_desktop_entry ${PN} ${PN}
-	dodoc CHANGELOG
+
+	einstalldocs
 }

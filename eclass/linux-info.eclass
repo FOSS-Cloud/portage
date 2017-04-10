@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/linux-info.eclass,v 1.104 2014/06/28 07:54:27 robbat2 Exp $
+# $Id$
 
 # @ECLASS: linux-info.eclass
 # @MAINTAINER:
-# kernel-misc@gentoo.org
+# kernel@gentoo.org
 # @AUTHOR:
 # Original author: John Mylchreest <johnm@gentoo.org>
 # @BLURB: eclass used for accessing kernel related information
@@ -445,7 +445,6 @@ get_version() {
 	# KV_DIR will contain the full path to the sources directory we should use
 	[ -z "${get_version_warning_done}" ] && \
 	qeinfo "Determining the location of the kernel source code"
-	[ -h "${KERNEL_DIR}" ] && KV_DIR="$(readlink -f ${KERNEL_DIR})"
 	[ -d "${KERNEL_DIR}" ] && KV_DIR="${KERNEL_DIR}"
 
 	if [ -z "${KV_DIR}" ]
@@ -529,9 +528,16 @@ get_version() {
 	# but before we do this, we need to find if we use a different object directory.
 	# This *WILL* break if the user is using localversions, but we assume it was
 	# caught before this if they are.
-	OUTPUT_DIR="${OUTPUT_DIR:-/lib/modules/${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}${KV_EXTRA}/build}"
+	if [[ -z ${OUTPUT_DIR} ]] ; then
+		# Try to locate a kernel that is most relevant for us.
+		for OUTPUT_DIR in "${SYSROOT}" "${ROOT}" "" ; do
+			OUTPUT_DIR+="/lib/modules/${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}${KV_EXTRA}/build"
+			if [[ -e ${OUTPUT_DIR} ]] ; then
+				break
+			fi
+		done
+	fi
 
-	[ -h "${OUTPUT_DIR}" ] && KV_OUT_DIR="$(readlink -f ${OUTPUT_DIR})"
 	[ -d "${OUTPUT_DIR}" ] && KV_OUT_DIR="${OUTPUT_DIR}"
 	if [ -n "${KV_OUT_DIR}" ];
 	then
@@ -599,7 +605,7 @@ get_running_version() {
 		return $?
 	else
 		# This handles a variety of weird kernel versions.  Make sure to update
-		# tests/linux-info:get_running_version.sh if you want to change this.
+		# tests/linux-info_get_running_version.sh if you want to change this.
 		local kv_full=${KV_FULL//[-+_]*}
 		KV_MAJOR=$(get_version_component_range 1 ${kv_full})
 		KV_MINOR=$(get_version_component_range 2 ${kv_full})
@@ -708,13 +714,15 @@ check_extra_config() {
 			ewarn "to absence of any configured kernel sources or compiled"
 			ewarn "config:"
 			for config in ${CONFIG_CHECK}; do
-				local_error="ERROR_${config#\~}"
+				config=${config#\~}
+				config=${config#\!}
+				local_error="ERROR_${config}"
 				msg="${!local_error}"
-				if [[ "x${msg}" == "x" ]]; then
-					local_error="WARNING_${config#\~}"
+				if [[ -z ${msg} ]]; then
+					local_error="WARNING_${config}"
 					msg="${!local_error}"
 				fi
-				ewarn " - ${config#\~}${msg:+ - }${msg}"
+				ewarn " - ${config}${msg:+ - }${msg}"
 			done
 			ewarn "You're on your own to make sure they are set if needed."
 			export LINUX_CONFIG_EXISTS_DONE="${old_LINUX_CONFIG_EXISTS_DONE}"

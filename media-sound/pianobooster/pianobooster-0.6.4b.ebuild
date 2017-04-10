@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/pianobooster/pianobooster-0.6.4b.ebuild,v 1.3 2013/08/31 14:12:47 pacho Exp $
+# $Id$
 
 EAPI="4"
 
@@ -26,8 +26,11 @@ RDEPEND="${DEPEND}"
 
 DOCS="ReleaseNote.txt ../README.txt"
 
-PATCHES=( "${FILESDIR}"/${P}-cmake.patch
-	"${FILESDIR}"/${P}-gcc47.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-cmake.patch
+	"${FILESDIR}"/${P}-gcc47.patch
+	"${FILESDIR}"/${P}-underlinking.patch
+)
 
 S=${WORKDIR}/${MY_P}/src
 

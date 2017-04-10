@@ -1,12 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/hibernate-script/hibernate-script-2.0-r6.ebuild,v 1.5 2014/03/29 22:12:12 alonbl Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit eutils
 
-PATCH_VERSION="4"
+PATCH_VERSION="5"
 
 DESCRIPTION="Hibernate script supporting multiple suspend methods"
 HOMEPAGE="http://www.tuxonice.net/"
@@ -22,9 +22,14 @@ IUSE="vim-syntax"
 DEPEND=""
 RDEPEND="!<media-gfx/splashutils-1.5.2"
 
-DOCS=( CHANGELOG README SCRIPTLET-API hibernate.vim )
+DOCS=(
+	CHANGELOG
+	README
+	SCRIPTLET-API
+)
 
 src_prepare() {
+	default
 	epatch "${WORKDIR}/${PV}/"*.patch
 }
 

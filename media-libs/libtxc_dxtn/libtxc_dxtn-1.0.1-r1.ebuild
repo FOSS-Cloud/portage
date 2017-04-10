@@ -1,14 +1,14 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libtxc_dxtn/libtxc_dxtn-1.0.1-r1.ebuild,v 1.5 2013/10/08 05:02:06 ago Exp $
+# $Id$
 
 EAPI=5
 
 inherit autotools-multilib
 
 DESCRIPTION="Helper library for	S3TC texture (de)compression"
-HOMEPAGE="http://cgit.freedesktop.org/~mareko/libtxc_dxtn/"
-SRC_URI="http://people.freedesktop.org/~cbrill/${PN}/${P}.tar.bz2"
+HOMEPAGE="https://cgit.freedesktop.org/~mareko/libtxc_dxtn/"
+SRC_URI="https://people.freedesktop.org/~cbrill/${PN}/${P}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"

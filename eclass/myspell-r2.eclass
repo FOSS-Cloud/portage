@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/myspell-r2.eclass,v 1.10 2014/01/26 10:59:07 pinkbyte Exp $
+# $Id$
 
 # @ECLASS: aspell-dict.eclass
 # @MAINTAINER:
@@ -26,7 +26,7 @@ EXPORT_FUNCTIONS src_unpack src_install
 # @ECLASS-VARIABLE: MYSPELL_THES
 # @DESCRIPTION:
 # Array variable containing list of all thesarus files.
-# MYSPELL_HYPH=( "file.dat" "dir/file2.idx" )
+# MYSPELL_THES=( "file.dat" "dir/file2.idx" )
 
 # Basically no extra deps needed.
 # Unzip is required for .oxt libreoffice extensions
@@ -64,7 +64,7 @@ myspell-r2_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local x target
-	
+
 	# Following the debian directory layout here.
 	# DICT: /usr/share/hunspell
 	# THES: /usr/share/mythes

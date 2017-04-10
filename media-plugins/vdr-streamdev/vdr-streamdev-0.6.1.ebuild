@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-streamdev/vdr-streamdev-0.6.1.ebuild,v 1.4 2014/03/02 19:42:41 hd_brummy Exp $
+# $Id$
 
 EAPI=5
 
@@ -57,8 +57,7 @@ src_install() {
 		insinto /usr/share/vdr/rcscript
 		newins "${FILESDIR}"/rc-addon-0.6.0.sh plugin-streamdev-server.sh
 
-		insinto /etc/conf.d
-		newins "${FILESDIR}"/confd-0.6.0 vdr.streamdev-server
+		newconfd "${FILESDIR}"/confd-0.6.0 vdr.streamdev-server
 
 		insinto /etc/vdr/plugins/streamdev-server
 		newins streamdev-server/streamdevhosts.conf streamdevhosts.conf

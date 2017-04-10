@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-fonts/urw-fonts/urw-fonts-2.4.9.ebuild,v 1.21 2014/06/10 00:53:28 vapier Exp $
+# $Id$
 
 # At some point URW++ released fonts under GPL license. After that they were took
 # and improved by Valek Filippov and this work was somehow related with AFPL...
@@ -8,7 +8,7 @@
 # http://svn.ghostscript.com/ghostscript/trunk/urw-fonts/
 
 # Also, some time ago, sources where published on sf.net:
-# http://sourceforge.net/projects/gs-fonts/files/
+# https://sourceforge.net/projects/gs-fonts/files/
 # At this point this package was published on a nuber of other sites
 # (gimp.org/cups.org) and media-fonts/gnu-gs-fonts-std was added to the tree.
 # But nobody use that old releases any mover and everybody syncs with

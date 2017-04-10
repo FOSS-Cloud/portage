@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/lingot/lingot-0.9.1.ebuild,v 1.2 2012/05/05 08:33:40 mgorny Exp $
+# $Id$
 
 EAPI=4
 inherit autotools eutils
@@ -20,7 +20,7 @@ RDEPEND="x11-libs/gtk+:2
 	dev-libs/glib:2
 	gnome-base/libglade:2.0
 	alsa? ( media-libs/alsa-lib )
-	jack? ( >=media-sound/jack-audio-connection-kit-0.102 )"
+	jack? ( virtual/jack )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	dev-util/intltool

@@ -1,27 +1,30 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/snakeoil/snakeoil-9999.ebuild,v 1.14 2014/08/10 21:22:41 slyfox Exp $
+# $Id$
 
-EAPI=4
-PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
+EAPI=6
+PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
+PYTHON_REQ_USE="threads(+)"
 inherit distutils-r1
 
 if [[ ${PV} == *9999 ]] ; then
-	EGIT_REPO_URI="git://github.com/pkgcore/snakeoil.git"
+	EGIT_REPO_URI="https://github.com/pkgcore/snakeoil.git"
 	inherit git-r3
 else
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
-	SRC_URI="http://snakeoil.googlecode.com/files/${P}.tar.bz2"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+	SRC_URI="https://github.com/pkgcore/${PN}/releases/download/v${PV}/${P}.tar.gz"
 fi
 
-DESCRIPTION="Miscellaneous python utility code"
-HOMEPAGE="http://snakeoil.googlecode.com/"
+DESCRIPTION="misc common functionality and useful optimizations"
+HOMEPAGE="https://github.com/pkgcore/snakeoil"
 
 LICENSE="BSD"
 SLOT="0"
+IUSE="test"
 
-DEPEND="!<sys-apps/pkgcore-0.4.7.8"
-RDEPEND=${DEPEND}
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep 'dev-python/cython[${PYTHON_USEDEP}]' 'python3*')
+	test? ( dev-python/mock[${PYTHON_USEDEP}] )"
 
 python_configure_all() {
 	# disable snakeoil 2to3 caching

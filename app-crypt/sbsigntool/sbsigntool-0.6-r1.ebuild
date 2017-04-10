@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/sbsigntool/sbsigntool-0.6-r1.ebuild,v 1.3 2014/01/14 13:55:54 ago Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 inherit eutils toolchain-funcs
 
@@ -13,13 +13,16 @@ SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/${PN}_${PV}.orig.t
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
+IUSE="libressl"
 
-RDEPEND="dev-libs/openssl
+RDEPEND="
+	!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:0= )
 	sys-apps/util-linux"
 DEPEND="${RDEPEND}
 	sys-apps/help2man
 	sys-boot/gnu-efi
+	sys-libs/binutils-libs
 	virtual/pkgconfig"
 
 src_prepare() {

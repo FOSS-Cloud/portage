@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/note/note-1.3.3-r1.ebuild,v 1.4 2013/12/24 12:55:08 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -18,8 +18,8 @@ IUSE="crypt dbm general mysql text"
 DEPEND="dev-perl/TermReadKey
 	dev-perl/Term-ReadLine-Perl
 	virtual/perl-Storable
-	dev-perl/config-general
-	crypt? ( dev-perl/crypt-cbc
+	dev-perl/Config-General
+	crypt? ( dev-perl/Crypt-CBC
 		dev-perl/Crypt-Blowfish
 		dev-perl/Crypt-DES )
 	mysql? ( virtual/mysql

@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/libreswan/libreswan-9999.ebuild,v 1.7 2014/09/08 02:24:58 floppym Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-inherit eutils systemd toolchain-funcs
+inherit systemd toolchain-funcs
 
 if [[ ${PV} != 9999 ]]; then
 	SRC_URI="https://download.libreswan.org/${P}.tar.gz"
@@ -19,16 +19,18 @@ HOMEPAGE="https://libreswan.org/"
 
 LICENSE="GPL-2 BSD-4 RSA DES"
 SLOT="0"
-IUSE="caps curl dnssec ldap pam"
+IUSE="caps curl dnssec ldap pam systemd"
 
 COMMON_DEPEND="
-	dev-libs/gmp
+	dev-libs/gmp:0=
+	dev-libs/libevent:0=
 	dev-libs/nspr
 	caps? ( sys-libs/libcap-ng )
 	curl? ( net-misc/curl )
 	dnssec? ( net-dns/unbound net-libs/ldns )
 	ldap? ( net-nds/openldap )
 	pam? ( sys-libs/pam )
+	systemd? ( sys-apps/systemd:0= )
 "
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
@@ -45,12 +47,13 @@ RDEPEND="${COMMON_DEPEND}
 	!net-misc/strongswan
 "
 
-src_prepare() {
-	epatch_user
-}
-
 usetf() {
 	usex "$1" true false
+}
+
+src_prepare() {
+	sed -i -e 's:/sbin/runscript:/sbin/openrc-run:' initsystems/openrc/ipsec.init.in || die
+	default
 }
 
 src_configure() {
@@ -68,22 +71,26 @@ src_configure() {
 	export USE_LIBCAP_NG=$(usetf caps)
 	export USE_LIBCURL=$(usetf curl)
 	export USE_LDAP=$(usetf ldap)
+	export USE_SYSTEMD_WATCHDOG=$(usetf systemd)
+	export SD_WATCHDOGSEC=$(usex systemd 200 0)
 	export USE_XAUTHPAM=$(usetf pam)
+	export DEBUG_CFLAGS=
+	export OPTIMIZE_CFLAGS=
+	export WERROR_CFLAGS=
 }
 
 src_compile() {
-	emake programs
+	emake all
+	emake -C initsystems INITSYSTEM=systemd UNITDIR="$(systemd_get_systemunitdir)" all
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	default
+	emake -C initsystems INITSYSTEM=systemd UNITDIR="$(systemd_get_systemunitdir)" DESTDIR="${D}" install
 
 	echo "include /etc/ipsec.d/*.secrets" > "${D}"/etc/ipsec.secrets
 	fperms 0600 /etc/ipsec.secrets
 
-	systemd_dounit "${FILESDIR}/ipsec.service"
-
-	dodoc CHANGES README
 	dodoc -r docs
 
 	find "${D}" -type d -empty -delete || die

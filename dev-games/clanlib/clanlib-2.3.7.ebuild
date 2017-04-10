@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/clanlib/clanlib-2.3.7.ebuild,v 1.2 2014/09/12 19:12:38 tupone Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit flag-o-matic eutils autotools-utils
 
 MY_P=ClanLib-${PV}
@@ -13,21 +13,21 @@ SRC_URI="http://clanlib.org/download/releases-2.0/${MY_P}.tgz"
 
 LICENSE="ZLIB"
 SLOT="2.3"
-KEYWORDS="~amd64 ~x86" #not big endian safe #82779
-IUSE="doc ipv6 mikmod opengl sound sqlite sse2 static-libs vorbis X"
+KEYWORDS="amd64 x86" #not big endian safe #82779
+IUSE="doc ipv6 mikmod opengl sound sqlite cpu_flags_x86_sse2 static-libs vorbis X"
 REQUIRED_USE="opengl? ( X )"
 
 RDEPEND="sys-libs/zlib
 	X? (
-		media-libs/libpng
-		virtual/jpeg
+		media-libs/libpng:0
+		virtual/jpeg:0
 		media-libs/freetype
 		media-libs/fontconfig
 		opengl? ( virtual/opengl )
 		app-arch/bzip2
 		x11-libs/libX11
 	)
-	sqlite? ( dev-db/sqlite )
+	sqlite? ( dev-db/sqlite:3 )
 	sound? ( media-libs/alsa-lib )
 	mikmod? (
 		media-libs/libmikmod
@@ -65,7 +65,7 @@ src_prepare() {
 src_configure() {
 	myeconfargs=(
 		$(use_enable doc docs)
-		$(use_enable sse2)
+		$(use_enable cpu_flags_x86_sse2 sse2)
 		$(use_enable opengl clanGL)
 		$(use_enable opengl clanGL1)
 		$(use_enable opengl clanGUI)

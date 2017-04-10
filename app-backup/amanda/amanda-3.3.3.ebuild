@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/amanda/amanda-3.3.3.ebuild,v 1.11 2014/06/23 15:49:43 robbat2 Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils perl-module user systemd
@@ -274,7 +274,7 @@ src_configure() {
 	myconf="${myconf} `use_enable nls`"
 
 	# Bug #296634: Perl location
-	perlinfo
+	perl_set_version
 	myconf="${myconf} --with-amperldir=${VENDOR_LIB}"
 
 	# Bug 296633: --disable-syntax-checks
@@ -403,7 +403,7 @@ src_install() {
 	newdoc "${FILESDIR}/example_global.conf" global.conf
 
 	einfo "Cleaning up dud .la files"
-	perlinfo
+	perl_set_version
 	find "${D}"/"${VENDOR_LIB}" -name '*.la' -print0 |xargs -0 rm -f
 }
 

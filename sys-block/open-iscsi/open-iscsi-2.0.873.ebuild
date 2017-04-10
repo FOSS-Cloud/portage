@@ -1,27 +1,28 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/open-iscsi/open-iscsi-2.0.873.ebuild,v 1.1 2013/10/11 20:08:09 idl0r Exp $
+# $Id$
 
 EAPI=5
 
 inherit versionator linux-info eutils flag-o-matic toolchain-funcs
 
-MY_PV="${PN}-$(replace_version_separator 2 "-" $MY_PV)"
+MY_P="${PN}-$(replace_version_separator 2 "-")"
 
 DESCRIPTION="Open-iSCSI is a high performance, transport independent, multi-platform implementation of RFC3720"
 HOMEPAGE="http://www.open-iscsi.org/"
-SRC_URI="http://www.open-iscsi.org/bits/${MY_PV}.tar.gz"
+SRC_URI="http://www.open-iscsi.org/bits/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc x86"
 IUSE="debug slp"
 
 DEPEND="slp? ( net-libs/openslp )"
 RDEPEND="${DEPEND}
+	sys-fs/lsscsi
 	sys-apps/util-linux"
 
-S="${WORKDIR}/${MY_PV}"
+S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
 	linux-info_pkg_setup
@@ -33,7 +34,7 @@ pkg_setup() {
 	# Needs to be done, as iscsid currently only starts, when having the iSCSI
 	# support loaded as module. Kernel builtion options don't work. See this for
 	# more information:
-	# http://groups.google.com/group/open-iscsi/browse_thread/thread/cc10498655b40507/fd6a4ba0c8e91966
+	# https://groups.google.com/group/open-iscsi/browse_thread/thread/cc10498655b40507/fd6a4ba0c8e91966
 	# If there's a new release, check whether this is still valid!
 	CONFIG_CHECK_MODULES="SCSI_ISCSI_ATTRS ISCSI_TCP"
 	if linux_config_exists; then
@@ -68,14 +69,21 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" sbindir="${ROOT}usr/sbin/" install
+	emake DESTDIR="${ED}" sbindir="/usr/sbin" install
 
 	dodoc README THANKS
 
 	docinto test/
 	dodoc test/*
 
+	insinto /etc/iscsi
 	newins "${FILESDIR}"/initiatorname.iscsi initiatorname.iscsi.example
+
+	# udev pieces
+	insinto /lib/udev/rules.d
+	doins "${FILESDIR}"/99-iscsi.rules
+	exeinto /etc/udev/scripts
+	doexe "${FILESDIR}"/iscsidev.sh
 
 	newconfd "${FILESDIR}"/iscsid-conf.d iscsid
 	newinitd "${FILESDIR}"/iscsid-init.d iscsid

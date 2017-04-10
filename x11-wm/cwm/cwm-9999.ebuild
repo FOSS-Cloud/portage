@@ -1,14 +1,14 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/cwm/cwm-9999.ebuild,v 1.5 2013/08/27 20:12:55 xmw Exp $
+# $Id$
 
 EAPI=5
 
-inherit toolchain-funcs git-2
+inherit eutils toolchain-funcs git-2
 
 DESCRIPTION="OpenBSD fork of calmwm, a clean and lightweight window manager"
 HOMEPAGE="http://www.openbsd.org/cgi-bin/cvsweb/xenocara/app/cwm/
-	http://github.com/chneukirchen/cwm"
+	https://github.com/chneukirchen/cwm"
 EGIT_BRANCH=linux
 
 LICENSE="ISC"

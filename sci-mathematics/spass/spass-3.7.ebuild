@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/spass/spass-3.7.ebuild,v 1.5 2012/12/05 10:35:35 gienah Exp $
+# $Id$
 
 EAPI=5
 
@@ -40,6 +40,7 @@ src_install() {
 	fi
 
 	if use isabelle; then
+		ewarn "All open source versions of spass are broken with Isabelle 2016.1"
 		ISABELLE_HOME="$(isabelle getenv ISABELLE_HOME | cut -d'=' -f 2)"
 		[[ -n "${ISABELLE_HOME}" ]] || die "ISABELLE_HOME empty"
 		dodir "${ISABELLE_HOME}/contrib/${PN}-${PV}/etc"

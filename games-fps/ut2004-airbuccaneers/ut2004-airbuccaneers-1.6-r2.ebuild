@@ -1,8 +1,8 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/ut2004-airbuccaneers/ut2004-airbuccaneers-1.6-r2.ebuild,v 1.2 2009/10/10 17:31:28 nyhm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 
 MOD_DESC="Pirate-style conversion with flying wooden ships"
 MOD_NAME="Air Buccaneers"
@@ -11,8 +11,8 @@ MOD_ICON="Help/abuicon.ico"
 
 inherit games games-mods
 
-HOMEPAGE="http://ludocraft.oulu.fi/airbuccaneers/"
-SRC_URI="http://ludocraft.oulu.fi/airbuccaneers/download/airbuccaneers1_6_zipinstall.zip"
+HOMEPAGE="http://www.ludocraft.com/entertainment/airbuccaneers-mod/"
+SRC_URI="http://bin.ludocraft.com/files/airbuccaneers_mod_1_6_zipinstall_with_info.zip"
 
 LICENSE="freedist"
 KEYWORDS="amd64 x86"

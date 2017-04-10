@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer>
+  <maintainer type="person">
     <email>mjo@gentoo.org</email>
     <name>Michael Orlitzky</name>
   </maintainer>
@@ -23,4 +23,8 @@
     operations, but its memory usage is very efficient, especially for
     repeated TXT values which are stored only once.
   </longdescription>
+
+  <upstream>
+    <remote-id type="github">spamhaus/rbldnsd</remote-id>
+  </upstream>
 </pkgmetadata>

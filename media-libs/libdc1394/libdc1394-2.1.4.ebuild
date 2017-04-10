@@ -1,11 +1,11 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libdc1394/libdc1394-2.1.4.ebuild,v 1.2 2012/05/05 08:02:42 jdhore Exp $
+# $Id$
 
 EAPI=4
 
 DESCRIPTION="Library to interface with IEEE 1394 cameras following the IIDC specification"
-HOMEPAGE="http://sourceforge.net/projects/libdc1394/"
+HOMEPAGE="https://sourceforge.net/projects/libdc1394/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"

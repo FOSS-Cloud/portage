@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/gr-osmosdr/gr-osmosdr-9999.ebuild,v 1.18 2014/08/28 19:58:13 zerochaos Exp $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -19,7 +19,7 @@ else
 	#git clone git://git.osmocom.org/gr-osmosdr.git
 	#cd gr-osmosdr
 	#git archive --format=tar --prefix=gr-osmosdr-${PV}/ v${PV} | xz > ../gr-osmosdr-${PV}.tar.xz
-	SRC_URI="https://dev.gentoo.org/~zerochaos/distfiles/${P}.tar.xz"
+	SRC_URI="http://cgit.osmocom.org/gr-osmosdr/snapshot/gr-osmosdr-${PV}.tar.xz"
 	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
@@ -66,5 +66,7 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
-	python_fix_shebang "${ED}"/usr/bin
+	if use python; then
+		python_fix_shebang "${ED}"/usr/bin
+	fi
 }

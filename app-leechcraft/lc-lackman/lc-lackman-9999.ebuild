@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-lackman/lc-lackman-9999.ebuild,v 1.2 2014/08/14 09:21:36 pinkbyte Exp $
+# $Id$
 
-EAPI="5"
+EAPI=6
 
 inherit leechcraft
 
@@ -13,6 +13,11 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="~app-leechcraft/lc-core-${PV}
-		>=dev-qt/qtwebkit-4.6:4"
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtsql:5[sqlite]
+	dev-qt/qtxml:5
+	dev-qt/qtxmlpatterns:5
+"
 RDEPEND="${DEPEND}
-		virtual/leechcraft-downloader-http"
+		~virtual/leechcraft-downloader-http-${PV}"

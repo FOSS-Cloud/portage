@@ -1,15 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/libsigrokdecode/libsigrokdecode-0.3.0.ebuild,v 1.2 2014/06/14 06:09:26 vapier Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python3_{2,3,4} )
+PYTHON_COMPAT=( python3_4 )
 inherit eutils python-single-r1 autotools
 
 if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="git://sigrok.org/${PN}"
-	inherit git-2 autotools
+	inherit git-r3 autotools
 else
 	SRC_URI="http://sigrok.org/download/source/${PN}/${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"

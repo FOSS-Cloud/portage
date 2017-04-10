@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/sidplayfp/sidplayfp-1.1.0.ebuild,v 1.1 2013/10/01 15:14:47 ssuominen Exp $
+# $Id$
 
 EAPI=5
 inherit eutils
 
 DESCRIPTION="A sidplay2 fork with resid-fp"
-HOMEPAGE="http://sourceforge.net/projects/sidplay-residfp/"
+HOMEPAGE="https://sourceforge.net/projects/sidplay-residfp/"
 SRC_URI="mirror://sourceforge/sidplay-residfp/${P}.tar.gz"
 
 LICENSE="GPL-2"

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/gnome2-utils.eclass,v 1.36 2014/03/01 10:18:35 mgorny Exp $
+# $Id$
 
 # @ECLASS: gnome2-utils.eclass
 # @MAINTAINER:
@@ -15,10 +15,11 @@
 #  * GConf schemas management
 #  * scrollkeeper (old Gnome help system) management
 
-inherit multilib
+[[ ${EAPI:-0} == [012345] ]] && inherit multilib
+inherit eutils xdg-utils
 
 case "${EAPI:-0}" in
-	0|1|2|3|4|5) ;;
+	0|1|2|3|4|5|6) ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
@@ -90,23 +91,24 @@ DEPEND=">=sys-apps/sed-4"
 # Reset various variables inherited from root's evironment to a reasonable
 # default for ebuilds to help avoid access violations and test failures.
 gnome2_environment_reset() {
+	xdg_environment_reset
+
 	# Respected by >=glib-2.30.1-r1
 	export G_HOME="${T}"
 
 	# GST_REGISTRY is to work around gst utilities trying to read/write /root
 	export GST_REGISTRY="${T}/registry.xml"
 
-	# XXX: code for resetting XDG_* directories should probably be moved into
-	# a separate function in a non-gnome eclass
-	export XDG_DATA_HOME="${T}/.local/share"
-	export XDG_CONFIG_HOME="${T}/.config"
-	export XDG_CACHE_HOME="${T}/.cache"
-	export XDG_RUNTIME_DIR="${T}/run"
-	mkdir -p "${XDG_DATA_HOME}" "${XDG_CONFIG_HOME}" "${XDG_CACHE_HOME}" \
-		"${XDG_RUNTIME_DIR}"
-	# This directory needs to be owned by the user, and chmod 0700
-	# http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-	chmod 0700 "${XDG_RUNTIME_DIR}"
+	# Ensure we don't rely on dconf/gconf while building, bug #511946
+	export GSETTINGS_BACKEND="memory" 
+
+	if has ${EAPI:-0} 6; then
+		# Try to cover the packages honoring this variable, bug #508124
+		export GST_INSPECT="$(type -P true)"
+		
+		# Stop relying on random DISPLAY variable values, bug #534312
+		unset DISPLAY
+	fi
 }
 
 # @FUNCTION: gnome2_gconf_savelist
@@ -116,9 +118,9 @@ gnome2_environment_reset() {
 # This function should be called from pkg_preinst.
 gnome2_gconf_savelist() {
 	has ${EAPI:-0} 0 1 2 && ! use prefix && ED="${D}"
-	pushd "${ED}" &> /dev/null
+	pushd "${ED}" > /dev/null || die
 	export GNOME2_ECLASS_SCHEMAS=$(find 'etc/gconf/schemas/' -name '*.schemas' 2> /dev/null)
-	popd &> /dev/null
+	popd > /dev/null || die
 }
 
 # @FUNCTION: gnome2_gconf_install
@@ -210,9 +212,9 @@ gnome2_gconf_uninstall() {
 # This function should be called from pkg_preinst.
 gnome2_icon_savelist() {
 	has ${EAPI:-0} 0 1 2 && ! use prefix && ED="${D}"
-	pushd "${ED}" &> /dev/null
+	pushd "${ED}" > /dev/null || die
 	export GNOME2_ECLASS_ICONS=$(find 'usr/share/icons' -maxdepth 1 -mindepth 1 -type d 2> /dev/null)
-	popd &> /dev/null
+	popd > /dev/null || die
 }
 
 # @FUNCTION: gnome2_icon_cache_update
@@ -331,9 +333,9 @@ gnome2_omf_fix() {
 # This function should be called from pkg_preinst.
 gnome2_scrollkeeper_savelist() {
 	has ${EAPI:-0} 0 1 2 && ! use prefix && ED="${D}"
-	pushd "${ED}" &> /dev/null
+	pushd "${ED}" > /dev/null || die
 	export GNOME2_ECLASS_SCROLLS=$(find 'usr/share/omf' -type f -name "*.omf" 2> /dev/null)
-	popd &> /dev/null
+	popd > /dev/null || die
 }
 
 # @FUNCTION: gnome2_scrollkeeper_update
@@ -366,9 +368,9 @@ gnome2_scrollkeeper_update() {
 # This function should be called from pkg_preinst.
 gnome2_schemas_savelist() {
 	has ${EAPI:-0} 0 1 2 && ! use prefix && ED="${D}"
-	pushd "${ED}" &>/dev/null
+	pushd "${ED}" > /dev/null || die
 	export GNOME2_ECLASS_GLIB_SCHEMAS=$(find 'usr/share/glib-2.0/schemas' -name '*.gschema.xml' 2>/dev/null)
-	popd &>/dev/null
+	popd > /dev/null || die
 }
 
 # @FUNCTION: gnome2_schemas_update
@@ -402,9 +404,9 @@ gnome2_schemas_update() {
 # This function should be called from pkg_preinst.
 gnome2_gdk_pixbuf_savelist() {
 	has ${EAPI:-0} 0 1 2 && ! use prefix && ED="${D}"
-	pushd "${ED}" 1>/dev/null
+	pushd "${ED}" > /dev/null || die
 	export GNOME2_ECLASS_GDK_PIXBUF_LOADERS=$(find usr/lib*/gdk-pixbuf-2.0 -type f 2>/dev/null)
-	popd 1>/dev/null
+	popd > /dev/null || die
 }
 
 # @FUNCTION: gnome2_gdk_pixbuf_update
@@ -431,7 +433,7 @@ gnome2_gdk_pixbuf_update() {
 	fi
 
 	ebegin "Updating gdk-pixbuf loader cache"
-	local tmp_file=$(mktemp -t tmp.XXXXXXXXXX_gdkpixbuf)
+	local tmp_file=$(emktemp)
 	${updater} 1> "${tmp_file}" &&
 	chmod 0644 "${tmp_file}" &&
 	cp -f "${tmp_file}" "${EROOT}usr/$(get_libdir)/gdk-pixbuf-2.0/2.10.0/loaders.cache" &&
@@ -439,39 +441,18 @@ gnome2_gdk_pixbuf_update() {
 	eend $?
 }
 
-
 # @FUNCTION: gnome2_query_immodules_gtk2
 # @USAGE: gnome2_query_immodules_gtk2
 # @DESCRIPTION:
 # Updates gtk2 immodules/gdk-pixbuf loaders listing.
 gnome2_query_immodules_gtk2() {
-	if has_version ">=x11-libs/gtk+-2.24.20:2"; then
-		"${EPREFIX}/usr/bin/gtk-query-immodules-2.0" --update-cache
-	else
-		local GTK2_CONFDIR="/etc/gtk-2.0/$(get_abi_CHOST)"
+	local updater=${EPREFIX}/usr/bin/${CHOST}-gtk-query-immodules-2.0
+	[[ ! -x ${updater} ]] && updater=${EPREFIX}/usr/bin/gtk-query-immodules-2.0
 
-		local query_exec="${EPREFIX}/usr/bin/gtk-query-immodules-2.0"
-		local gtk_conf="${EPREFIX}${GTK2_CONFDIR}/gtk.immodules"
-		local gtk_conf_dir=$(dirname "${gtk_conf}")
-
-		einfo "Generating Gtk2 immodules/gdk-pixbuf loaders listing:"
-		einfo "-> ${gtk_conf}"
-
-		mkdir -p "${gtk_conf_dir}"
-		local tmp_file=$(mktemp -t tmp.XXXXXXXXXXgtk_query_immodules)
-		if [ -z "${tmp_file}" ]; then
-			ewarn "gtk_query_immodules: cannot create temporary file"
-			return 1
-		fi
-
-		if ${query_exec} > "${tmp_file}"; then
-			cat "${tmp_file}" > "${gtk_conf}" || \
-				ewarn "Failed to write to ${gtk_conf}"
-		else
-			ewarn "Cannot update gtk.immodules, file generation failed"
-		fi
-		rm "${tmp_file}"
-	fi
+	ebegin "Updating gtk2 input method module cache"
+	GTK_IM_MODULE_FILE="${EROOT}usr/$(get_libdir)/gtk-2.0/2.10.0/immodules.cache" \
+		"${updater}" --update-cache
+	eend $?
 }
 
 # @FUNCTION: gnome2_query_immodules_gtk3
@@ -479,7 +460,36 @@ gnome2_query_immodules_gtk2() {
 # @DESCRIPTION:
 # Updates gtk3 immodules/gdk-pixbuf loaders listing.
 gnome2_query_immodules_gtk3() {
-	"${EPREFIX}/usr/bin/gtk-query-immodules-3.0" --update-cache
+	local updater=${EPREFIX}/usr/bin/${CHOST}-gtk-query-immodules-3.0
+	[[ ! -x ${updater} ]] && updater=${EPREFIX}/usr/bin/gtk-query-immodules-3.0
+
+	ebegin "Updating gtk3 input method module cache"
+	GTK_IM_MODULE_FILE="${EROOT}usr/$(get_libdir)/gtk-3.0/3.0.0/immodules.cache" \
+		"${updater}" --update-cache
+	eend $?
+}
+
+# @FUNCTION: gnome2_giomodule_cache_update
+# @USAGE: gnome2_giomodule_cache_update
+# @DESCRIPTION:
+# Updates glib's gio modules cache.
+# This function should be called from pkg_postinst and pkg_postrm.
+gnome2_giomodule_cache_update() {
+	has ${EAPI:-0} 0 1 2 && ! use prefix && EROOT="${ROOT}"
+	local updater="${EROOT}/usr/bin/${CHOST}-gio-querymodules"
+
+	if [[ ! -x ${updater} ]]; then
+		updater="${EROOT}/usr/bin/gio-querymodules"
+	fi
+
+	if [[ ! -x ${updater} ]]; then
+		debug-print "${updater} is not executable"
+		return
+	fi
+
+	ebegin "Updating GIO modules cache"
+	${updater} "${EROOT%/}"/usr/$(get_libdir)/gio/modules
+	eend $?
 }
 
 # @FUNCTION: gnome2_disable_deprecation_warning
@@ -500,8 +510,8 @@ gnome2_disable_deprecation_warning() {
 		fi
 
 		LC_ALL=C sed -r -i \
-			-e 's:-D[A-Z_]+_DISABLE_DEPRECATED:$(NULL):g' \
-			-e 's:-DGSEAL_ENABLE+[A-Z_]:$(NULL):g' \
+			-e 's:-D[A-Z_]+_DISABLE_DEPRECATED:$(/bin/true):g' \
+			-e 's:-DGSEAL_ENABLE(=[A-Za-z0-9_]*)?:$(/bin/true):g' \
 			-i "${makefile}"
 
 		if [[ $? -ne 0 ]]; then
@@ -511,7 +521,7 @@ gnome2_disable_deprecation_warning() {
 		fi
 	done < <(find "${S}" -name "Makefile.in" \
 		-o -name "Makefile.am" -o -name "Makefile.decl" \
-		| sort; echo configure)
+		| sort; [[ -f "${S}"/configure ]] && echo configure)
 # TODO: sedding configure.ac can trigger maintainer mode; bug #439602
 #		-o -name "configure.ac" -o -name "configure.in" \
 #		| sort; echo configure)

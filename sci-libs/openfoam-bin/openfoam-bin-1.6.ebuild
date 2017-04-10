@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/openfoam-bin/openfoam-bin-1.6.ebuild,v 1.4 2013/02/10 08:53:08 pacho Exp $
+# $Id$
 
 EAPI="2"
 
@@ -9,9 +9,6 @@ inherit eutils versionator multilib toolchain-funcs
 MY_PN="OpenFOAM"
 MY_PV=$(get_version_component_range 1-2)
 MY_P="${MY_PN}-${MY_PV}"
-
-use x86 && WM_OPTIONS="linuxGccDPOpt"
-use amd64 && WM_OPTIONS="linux64GccDPOpt"
 
 DESCRIPTION="Open Field Operation and Manipulation - CFD Simulation Toolbox"
 HOMEPAGE="http://www.opencfd.co.uk/openfoam/"
@@ -33,7 +30,8 @@ DEPEND="!=sci-libs/openfoam-${MY_PV}*
 	!=sci-libs/openfoam-wmake-${MY_PV}*
 	sci-visualization/opendx
 	virtual/mpi"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	=sys-libs/ncurses-5*"
 
 S=${WORKDIR}/${MY_P}
 INSDIR="/usr/$(get_libdir)/${MY_PN}/${MY_P}"
@@ -72,6 +70,9 @@ src_configure() {
 
 	sed -i -e "s|WM_MPLIB:=OPENMPI|WM_MPLIB:="${WM_MPLIB}"|" etc/bashrc
 	sed -i -e "s|setenv WM_MPLIB OPENMPI|setenv WM_MPLIB "${WM_MPLIB}"|" etc/cshrc
+
+	use x86 && WM_OPTIONS="linuxGccDPOpt"
+	use amd64 && WM_OPTIONS="linux64GccDPOpt"
 
 	mv lib/${WM_OPTIONS}/$MPI_VERSION* lib/${WM_OPTIONS}/$MPI_VERSION
 }

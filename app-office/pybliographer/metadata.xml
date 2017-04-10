@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>tex</herd>
-<longdescription lang='en'>
+	<maintainer type="project">
+		<email>tex@gentoo.org</email>
+		<name>Gentoo TeX Project</name>
+	</maintainer>
+	<longdescription lang="en">
   Pybliographer is a tool for managing bibliographic databases, with
   the following features:
   * a user-friendly Gnome interface for editing, searching, inserting
@@ -11,4 +14,7 @@
   * powerful APIs to integrate these features into your own custom
   application, with your own specific database schema.
 </longdescription>
+	<upstream>
+		<remote-id type="sourceforge">pybliographer</remote-id>
+	</upstream>
 </pkgmetadata>

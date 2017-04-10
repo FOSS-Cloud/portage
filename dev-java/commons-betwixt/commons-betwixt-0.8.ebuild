@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/commons-betwixt/commons-betwixt-0.8.ebuild,v 1.8 2012/06/20 07:29:38 sera Exp $
+# $Id$
 
 EAPI=2
 JAVA_PKG_IUSE="doc test source"
@@ -11,7 +11,7 @@ DESCRIPTION="Introspective Bean to XML mapper"
 
 LICENSE="Apache-2.0"
 SLOT="0.7"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 COMMON_DEP="

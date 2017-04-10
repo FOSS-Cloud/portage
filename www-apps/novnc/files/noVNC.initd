@@ -1,7 +1,7 @@
-#!/sbin/runscript
+#!/sbin/openrc-run
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/novnc/files/noVNC.initd,v 1.2 2013/10/29 06:55:05 prometheanfire Exp $
+# $Id$
 #
 # Author: Cor Cornelisse <corcornelisse@gmail.com>
 
@@ -17,6 +17,7 @@ depend() {
 }
 
 checkconfig() {
+  checkpath -d -m 0750 /var/log/noVNC
 	if [ ! -r /etc/conf.d/${SVCNAME} ]; then
 		eerror "No config file found: /etc/conf.d/${SVCNAME}"
 		return 1

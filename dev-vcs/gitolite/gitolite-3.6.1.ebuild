@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/gitolite/gitolite-3.6.1.ebuild,v 1.1 2014/07/01 01:22:11 radhermit Exp $
+# $Id$
 
 EAPI=5
 
 inherit perl-module user versionator
 
 DESCRIPTION="Highly flexible server for git directory version tracker"
-HOMEPAGE="http://github.com/sitaramc/gitolite"
+HOMEPAGE="https://github.com/sitaramc/gitolite"
 SRC_URI="https://github.com/sitaramc/gitolite/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -21,7 +21,8 @@ DEPEND="dev-lang/perl
 	>=dev-vcs/git-1.6.6"
 RDEPEND="${DEPEND}
 	!dev-vcs/gitolite-gentoo
-	vim-syntax? ( app-vim/gitolite-syntax )"
+	vim-syntax? ( app-vim/gitolite-syntax )
+	dev-perl/JSON"
 
 pkg_setup() {
 	enewgroup git
@@ -71,7 +72,7 @@ pkg_postinst() {
 	if [[ "$(get_major_version $REPLACING_VERSIONS)" == "2" ]]; then
 		ewarn
 		elog "***NOTE*** This is a major upgrade and will likely break your existing gitolite-2.x setup!"
-		elog "Please read http://sitaramc.github.com/gitolite/install.html#migr first!"
+		elog "Please read http://gitolite.com/gitolite/migr.html first!"
 	fi
 
 	# bug 352291

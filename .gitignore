@@ -1,3 +1,5 @@
-
-# always ignore the cache
-metadata/md5-cache
+/.ebuild.x
+/distfiles/
+/local/
+/packages/
+/profiles/use.local.desc

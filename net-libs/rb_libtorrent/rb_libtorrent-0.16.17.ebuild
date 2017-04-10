@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/rb_libtorrent/rb_libtorrent-0.16.17.ebuild,v 1.2 2014/09/24 19:40:13 maekke Exp $
+# $Id$
 
 EAPI="4"
-PYTHON_DEPEND="python? 2:2.6"
+PYTHON_DEPEND="python? 2:2.7"
 PYTHON_USE_WITH="threads"
 PYTHON_USE_WITH_OPT="python"
 
@@ -14,13 +14,13 @@ MY_P=${MY_P/torrent/torrent-rasterbar}
 S=${WORKDIR}/${MY_P}
 
 DESCRIPTION="C++ BitTorrent implementation focusing on efficiency and scalability"
-HOMEPAGE="http://www.rasterbar.com/products/libtorrent/"
+HOMEPAGE="http://libtorrent.org"
 SRC_URI="mirror://sourceforge/libtorrent/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 arm ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
-IUSE="debug doc examples python ssl static-libs"
+KEYWORDS="amd64 arm ppc ppc64 sparc x86 ~x86-fbsd"
+IUSE="debug doc examples python ssl static-libs test"
 RESTRICT="test"
 
 DEPEND=">=dev-libs/boost-1.48[python?,threads(+)]

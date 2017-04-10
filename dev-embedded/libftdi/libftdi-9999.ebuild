@@ -1,48 +1,56 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/libftdi/libftdi-9999.ebuild,v 1.8 2013/03/12 11:17:26 vapier Exp $
+# $Id$
 
-EAPI="4"
+EAPI=6
 
-inherit cmake-utils eutils
+PYTHON_COMPAT=( python2_7 python3_4 python3_5 python3_6 )
+inherit cmake-utils python-single-r1
 
 MY_P="${PN}1-${PV}"
 if [[ ${PV} == 9999* ]] ; then
 	EGIT_REPO_URI="git://developer.intra2net.com/${PN}"
-	inherit git-2
+	inherit git-r3
 else
 	SRC_URI="http://www.intra2net.com/en/developer/${PN}/download/${MY_P}.tar.bz2"
-	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 fi
 
 DESCRIPTION="Userspace access to FTDI USB interface chips"
 HOMEPAGE="http://www.intra2net.com/en/developer/libftdi/"
 
 LICENSE="LGPL-2"
-SLOT="0"
-IUSE="cxx doc examples python static-libs tools"
+SLOT="1"
+IUSE="cxx doc examples python static-libs test tools"
 
 RDEPEND="virtual/libusb:1
 	cxx? ( dev-libs/boost )
-	python? ( dev-lang/python )
-	tools? ( dev-libs/confuse )"
+	python? ( ${PYTHON_DEPS} )
+	tools? (
+		!<dev-embedded/ftdi_eeprom-1.0
+		dev-libs/confuse
+	)"
 DEPEND="${RDEPEND}
+	python? ( dev-lang/swig )
 	doc? ( app-doc/doxygen )"
+
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
+pkg_setup() {
+	use python && python-single-r1_pkg_setup
+}
 
 S=${WORKDIR}/${MY_P}
 
-src_prepare() {
-	epatch "${FILESDIR}"/${PN}-1.0-staticlibs.patch
-}
-
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use cxx FTDIPP)
-		$(cmake-utils_use doc DOCUMENTATION)
-		$(cmake-utils_use examples EXAMPLES)
-		$(cmake-utils_use python PYTHON_BINDINGS)
-		$(cmake-utils_use static-libs STATICLIBS)
-		$(cmake-utils_use tools FTDI_EEPROM)
+		-DFTDIPP=$(usex cxx)
+		-DDOCUMENTATION=$(usex doc)
+		-DEXAMPLES=$(usex examples)
+		-DPYTHON_BINDINGS=$(usex python)
+		-DSTATICLIBS=$(usex static-libs)
+		-DBUILD_TESTS=$(usex test)
+		-DFTDI_EEPROM=$(usex tools)
 		-DCMAKE_SKIP_BUILD_RPATH=ON
 	)
 	cmake-utils_src_configure
@@ -50,11 +58,15 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
+	use python && python_optimize
 	dodoc AUTHORS ChangeLog README TODO
 
 	if use doc ; then
+		# Clean up crap man pages. #356369
+		rm -vf "${CMAKE_BUILD_DIR}"/doc/man/man3/_* || die
+
 		doman "${CMAKE_BUILD_DIR}"/doc/man/man3/*
-		dohtml "${CMAKE_BUILD_DIR}"/doc/html/*
+		dodoc -r "${CMAKE_BUILD_DIR}"/doc/html
 	fi
 	if use examples ; then
 		docinto examples

@@ -1,13 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/avrdude/avrdude-5.11.1.ebuild,v 1.9 2012/05/30 07:29:42 jdhore Exp $
+# $Id$
 
 EAPI="4"
 
 inherit eutils
 
 DESCRIPTION="AVR Downloader/UploaDEr"
-HOMEPAGE="http://savannah.nongnu.org/projects/avrdude"
+HOMEPAGE="https://savannah.nongnu.org/projects/avrdude"
 SRC_URI="mirror://nongnu/${PN}/${P}.tar.gz
 	doc? (
 		mirror://nongnu/${PN}/${PN}-doc-${PV}.tar.gz
@@ -20,7 +20,7 @@ KEYWORDS="amd64 arm ppc ppc64 x86"
 IUSE="doc ftdi ncurses readline"
 
 RDEPEND="virtual/libusb:1
-	ftdi? ( dev-embedded/libftdi )
+	ftdi? ( dev-embedded/libftdi:0 )
 	ncurses? ( sys-libs/ncurses )
 	readline? ( sys-libs/readline )"
 DEPEND="${RDEPEND}"

@@ -1,10 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/bzr.eclass,v 1.20 2013/07/11 18:38:59 ulm Exp $
+# $Id$
 #
 # @ECLASS: bzr.eclass
 # @MAINTAINER:
-# Emacs team <emacs@gentoo.org>
 # Bazaar team <bazaar@gentoo.org>
 # @AUTHOR:
 # Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
@@ -291,13 +290,13 @@ bzr_bootstrap() {
 
 		for patch in ${EBZR_PATCHES} ; do
 			if [[ -f ${patch} ]] ; then
-				epatch ${patch}
+				epatch "${patch}"
 			else
 				# This loop takes care of wildcarded patches given via
 				# EBZR_PATCHES in an ebuild
 				for lpatch in "${FILESDIR}"/${patch} ; do
 					if [[ -f ${lpatch} ]] ; then
-						epatch ${lpatch}
+						epatch "${lpatch}"
 					else
 						die "${EBZR}: ${patch} is not found"
 					fi

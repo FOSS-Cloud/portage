@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/xtables-addons/xtables-addons-1.47.1.ebuild,v 1.5 2013/04/01 16:47:30 pinkbyte Exp $
+# $Id$
 
 EAPI="5"
 
 inherit eutils linux-info linux-mod multilib
 
-DESCRIPTION="extensions not yet accepted in the main kernel/iptables (patch-o-matic(-ng) successor)"
+DESCRIPTION="iptables extensions not yet accepted in the main kernel"
 HOMEPAGE="http://xtables-addons.sourceforge.net/"
 SRC_URI="mirror://sourceforge/xtables-addons/${P}.tar.xz"
 

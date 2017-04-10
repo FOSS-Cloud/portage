@@ -1,11 +1,11 @@
 # Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/playmidi/playmidi-2.5-r2.ebuild,v 1.4 2007/12/11 15:48:24 fmccor Exp $
+# $Id$
 
 inherit eutils toolchain-funcs
 
 DESCRIPTION="Command Line and GUI based MIDI Player"
-HOMEPAGE="http://sourceforge.net/projects/playmidi/"
+HOMEPAGE="https://sourceforge.net/projects/playmidi/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"

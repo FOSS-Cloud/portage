@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/rpcbind/rpcbind-9999.ebuild,v 1.11 2014/01/30 21:06:30 radhermit Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 inherit eutils systemd
 
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="git://git.infradead.org/~steved/rpcbind.git"
+	EGIT_REPO_URI="git://linux-nfs.org/~steved/rpcbind.git"
 	inherit autotools git-r3
 else
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
@@ -15,17 +15,19 @@ else
 fi
 
 DESCRIPTION="portmap replacement which supports RPC over various protocols"
-HOMEPAGE="http://sourceforge.net/projects/rpcbind/"
+HOMEPAGE="https://sourceforge.net/projects/rpcbind/"
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="debug selinux tcpd warmstarts"
+IUSE="debug selinux systemd tcpd warmstarts"
 
-RDEPEND=">=net-libs/libtirpc-0.2.3
-	selinux? ( sec-policy/selinux-rpcbind )
+CDEPEND=">=net-libs/libtirpc-0.2.3:=
+	systemd? ( sys-apps/systemd:= )
 	tcpd? ( sys-apps/tcp-wrappers )"
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	virtual/pkgconfig"
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-rpcbind )"
 
 src_prepare() {
 	[[ ${PV} == "9999" ]] && eautoreconf
@@ -37,6 +39,7 @@ src_configure() {
 		--bindir="${EPREFIX}"/sbin \
 		--with-statedir="${EPREFIX}"/run/${PN} \
 		--with-rpcuser=root \
+		--with-systemdsystemunitdir=$(usex systemd "$(systemd_get_unitdir)" "no") \
 		$(use_enable tcpd libwrap) \
 		$(use_enable debug) \
 		$(use_enable warmstarts)

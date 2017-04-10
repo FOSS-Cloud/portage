@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>hwoarang@gentoo.org</email>
 		<name>Markos Chandras</name>
 	</maintainer>
@@ -9,5 +9,6 @@
 	</longdescription>
 	<upstream>
 		<remote-id type="google-code">fuse-zip</remote-id>
+		<remote-id type="bitbucket">agalanin/fuse-zip</remote-id>
 	</upstream>
 </pkgmetadata>

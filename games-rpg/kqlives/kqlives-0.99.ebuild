@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/kqlives/kqlives-0.99.ebuild,v 1.6 2012/05/02 21:10:33 jdhore Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 MY_P=${P/lives}
@@ -20,7 +20,7 @@ RDEPEND=">=x11-libs/gtk+-2.8:2
 	>=gnome-base/libglade-2.4
 	media-libs/allegro:0
 	media-libs/aldumb
-	dev-lang/lua
+	dev-lang/lua:0
 	nls? ( virtual/libintl )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
@@ -30,14 +30,12 @@ S=${WORKDIR}/${MY_P}
 
 src_configure() {
 	egamesconf \
-		--disable-dependency-tracking \
 		$(use_enable nls) \
 		$(use_enable cheats)
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
-	dodoc AUTHORS ChangeLog README
+	default
 
 	local x
 	for x in diff draw draw2 dump; do

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/snapper/snapper-9999.ebuild,v 1.4 2014/09/12 19:32:35 dilfridge Exp $
+# $Id$
 
 EAPI=5
 
@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="+btrfs ext4 lvm pam xattr"
 
-RDEPEND="dev-libs/boost[threads]
+RDEPEND="dev-libs/boost:=[threads]
 	dev-libs/libxml2
 	dev-libs/icu:=
 	sys-apps/acl
@@ -26,7 +26,7 @@ RDEPEND="dev-libs/boost[threads]
 	sys-apps/util-linux
 	sys-libs/zlib
 	virtual/libintl
-	btrfs? ( sys-fs/btrfs-progs )
+	btrfs? ( >=sys-fs/btrfs-progs-3.17.1 )
 	ext4? ( sys-fs/e2fsprogs )
 	lvm? ( sys-fs/lvm2 )
 	pam? ( sys-libs/pam )
@@ -36,7 +36,9 @@ DEPEND="${RDEPEND}
 	sys-devel/gettext
 	virtual/pkgconfig"
 
-DOCS=( AUTHORS README package/snapper.changes )
+REQUIRED_USE="|| ( btrfs ext4 lvm )"
+
+DOCS=( AUTHORS package/snapper.changes )
 
 PATCHES=( "${FILESDIR}"/cron-confd.patch )
 
@@ -45,6 +47,7 @@ src_configure() {
 		--with-conf="/etc/conf.d"
 		--docdir="/usr/share/doc/${PF}"
 		--disable-zypp
+		--enable-rollback
 		$(use_enable btrfs)
 		$(use_enable ext4)
 		$(use_enable lvm)

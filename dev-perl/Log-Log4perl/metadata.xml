@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>perl</herd>
+  <maintainer type="project">
+    <email>perl@gentoo.org</email>
+    <name>Gentoo Perl Project</name>
+  </maintainer>
   <upstream>
     <remote-id type="cpan">Log-Log4perl</remote-id>
     <remote-id type="cpan-module">Log::Log4perl</remote-id>
@@ -30,6 +33,7 @@
     <remote-id type="cpan-module">Log::Log4perl::Filter::Boolean</remote-id>
     <remote-id type="cpan-module">Log::Log4perl::Filter::LevelMatch</remote-id>
     <remote-id type="cpan-module">Log::Log4perl::Filter::LevelRange</remote-id>
+    <remote-id type="cpan-module">Log::Log4perl::Filter::MDC</remote-id>
     <remote-id type="cpan-module">Log::Log4perl::Filter::StringMatch</remote-id>
     <remote-id type="cpan-module">Log::Log4perl::InternalDebug</remote-id>
     <remote-id type="cpan-module">Log::Log4perl::JavaMap</remote-id>
@@ -53,5 +57,6 @@
     <remote-id type="cpan-module">Log::Log4perl::Util</remote-id>
     <remote-id type="cpan-module">Log::Log4perl::Util::Semaphore</remote-id>
     <remote-id type="cpan-module">Log::Log4perl::Util::TimeTracker</remote-id>
+    <remote-id type="sourceforge">log4perl</remote-id>
   </upstream>
 </pkgmetadata>

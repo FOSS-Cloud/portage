@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/dataplot/dataplot-20090821.ebuild,v 1.6 2012/10/16 19:13:05 jlec Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 inherit eutils fortran-2 toolchain-funcs autotools
 
@@ -24,6 +24,8 @@ LICENSE="public-domain"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="examples gd opengl X"
 
+REQUIRED_USE="opengl? ( X )"
+
 COMMON_DEPEND="
 	media-libs/plotutils
 	opengl? ( virtual/opengl )
@@ -39,19 +41,19 @@ S_AUX="${WORKDIR}/${MY_P_AUX}"
 src_unpack() {
 	# unpacking and renaming because
 	# upstream does not use directories
-	mkdir "${S_AUX}"
-	pushd "${S_AUX}" > /dev/null
+	mkdir "${S_AUX}" || die
+	pushd "${S_AUX}" > /dev/null || die
 	unpack ${MY_P_AUX}.tar.gz
-	popd > /dev/null
-	mkdir ${MY_P}
-	cd "${S}"
+	popd > /dev/null || die
+	mkdir ${MY_P} || die
+	cd "${S}" || die
 	unpack ${MY_P}.tar.gz
 }
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-opengl.patch
-	cp "${FILESDIR}"/Makefile.am.${PV} Makefile.am
-	cp "${FILESDIR}"/configure.ac.${PV} configure.ac
+	cp "${FILESDIR}"/Makefile.am.${PV} Makefile.am || die
+	cp "${FILESDIR}"/configure.ac.${PV} configure.ac || die
 	sed -e "s:IHOST1='SUN':IHOST1='@HOST@:" \
 		-e "s:/usr/local/lib:@datadir@:g" \
 		dp1_linux.f > dp1_linux.f.in || die
@@ -69,7 +71,7 @@ src_configure() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	default
 
 	if use examples; then
 		insinto /usr/share/doc/${PF}/examples
@@ -78,9 +80,4 @@ src_install() {
 	insinto /usr/share/dataplot
 	doins "${S_AUX}"/dp{mes,sys,log}f.tex
 	doenvd "${FILESDIR}"/90${PN}
-}
-
-pkg_postinst() {
-	elog "Before using dataplot, please run (as root):"
-	elog "env-update && source /etc/profile"
 }

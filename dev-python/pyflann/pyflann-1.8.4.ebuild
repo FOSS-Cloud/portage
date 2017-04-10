@@ -1,17 +1,17 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyflann/pyflann-1.8.4.ebuild,v 1.3 2013/09/05 18:47:18 mgorny Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit distutils-r1
 
 DESCRIPTION="Python bindings for FLANN artificial neural network library"
 HOMEPAGE="http://www.cs.ubc.ca/~mariusm/index.php/FLANN/FLANN/"
 SRC_URI="http://people.cs.ubc.ca/~mariusm/uploads/FLANN/flann-${PV}-src.zip
-	test? ( http://dev.gentoo.org/~bicatali/distfiles/flann-${PV}-testdata.tar.xz )"
+	test? ( https://dev.gentoo.org/~bicatali/distfiles/flann-${PV}-testdata.tar.xz )"
 
 LICENSE="BSD"
 SLOT="0"

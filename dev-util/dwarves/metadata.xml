@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer>
-    <email>maintainer-needed@gentoo.org</email>
+  <maintainer type="person">
+    <email>zzam@gentoo.org</email>
+    <name>Matthias Schwarzott</name>
   </maintainer>
   <longdescription lang="en">
     The more-than-seven dwarves is a collection of tools that allows

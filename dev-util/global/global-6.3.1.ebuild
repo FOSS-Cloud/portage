@@ -1,21 +1,21 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/global/global-6.3.1.ebuild,v 1.2 2014/10/01 19:59:55 floppym Exp $
+# $Id$
 
 EAPI="5"
 
 inherit autotools elisp-common eutils
 
 DESCRIPTION="GNU Global is a tag system to find the locations of a specified object in various sources"
-HOMEPAGE="http://www.gnu.org/software/global/global.html"
+HOMEPAGE="https://www.gnu.org/software/global/global.html"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86 ~x86-fbsd"
+KEYWORDS="amd64 ppc x86 ~x86-fbsd"
 IUSE="doc emacs vim"
 
-RDEPEND="sys-devel/libtool
+RDEPEND="|| ( dev-libs/libltdl:0 sys-devel/libtool:2 )
 	sys-libs/ncurses
 	emacs? ( virtual/emacs )
 	vim? ( || ( app-editors/vim app-editors/gvim ) )"

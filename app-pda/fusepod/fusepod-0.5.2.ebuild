@@ -1,12 +1,12 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-pda/fusepod/fusepod-0.5.2.ebuild,v 1.4 2012/08/16 22:00:53 johu Exp $
+# $Id$
 
 EAPI=4
 inherit eutils
 
 DESCRIPTION="A userspace filesystem which mounts your iPod into a directory"
-HOMEPAGE="http://sourceforge.net/projects/fusepod/"
+HOMEPAGE="https://sourceforge.net/projects/fusepod/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"

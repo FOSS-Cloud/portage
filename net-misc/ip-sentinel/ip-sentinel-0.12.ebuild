@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/ip-sentinel/ip-sentinel-0.12.ebuild,v 1.8 2014/07/18 16:02:43 jer Exp $
+# $Id$
 
 EAPI=5
 inherit eutils user
@@ -8,7 +8,7 @@ inherit eutils user
 DESCRIPTION="Prevent unauthorized usage of IPs in the local ethernet broadcastdomain by answering ARP-requests"
 HOMEPAGE="http://www.nongnu.org/ip-sentinel/"
 LICENSE="GPL-2"
-SRC_URI="http://savannah.nongnu.org/download/ip-sentinel/${P}.tar.bz2"
+SRC_URI="https://savannah.nongnu.org/download/ip-sentinel/${P}.tar.bz2"
 SLOT="0"
 KEYWORDS="x86"
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Crypt-Random-Source/Crypt-Random-Source-0.70.0-r1.ebuild,v 1.1 2014/08/24 01:52:15 axs Exp $
+# $Id$
 
 EAPI=5
 
@@ -24,7 +24,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? (
 		dev-perl/Test-Exception
-		dev-perl/Test-use-ok
+		>=virtual/perl-Test-Simple-1.1.10
 	)"
 
 SRC_TEST="do"

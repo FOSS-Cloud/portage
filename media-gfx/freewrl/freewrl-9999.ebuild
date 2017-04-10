@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/freewrl/freewrl-9999.ebuild,v 1.6 2014/04/22 19:22:43 axs Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,6 +9,7 @@ inherit autotools nsplugins eutils flag-o-matic java-pkg-opt-2 multilib
 if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://git.code.sf.net/p/freewrl/git"
+	EGIT_BRANCH="develop"
 	S="${WORKDIR}/${P}/freex3d"
 	SRC_URI=
 	KEYWORDS=
@@ -21,24 +22,30 @@ DESCRIPTION="VRML97 and X3D compliant browser, library, and web-browser plugin"
 HOMEPAGE="http://freewrl.sourceforge.net/"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="curl debug java libeai motif +nsplugin opencl osc +sox static-libs"
+IUSE="curl debug java libeai motif +nsplugin opencl osc rbp +sox static-libs"
 
-COMMONDEPEND="x11-libs/libXau
-	x11-libs/libXdmcp
-	x11-libs/libXext
+COMMONDEPEND="x11-libs/libICE
+	x11-libs/libSM
 	x11-libs/libX11
-	motif? ( x11-libs/motif )
+	x11-libs/libXext
+	x11-libs/libXmu
+	x11-libs/libXt
+	x11-libs/libXxf86vm
+	motif? ( x11-libs/motif:0= )
 	!motif? ( x11-libs/libXaw )
 	media-libs/mesa
 	virtual/opengl
-	media-libs/libpng
-	virtual/jpeg
+	media-libs/freealut
+	media-libs/openal
+	media-libs/libpng:0=
+	virtual/jpeg:0=
 	media-libs/imlib2
 	>=media-libs/freetype-2
 	media-libs/fontconfig
 	curl? ( net-misc/curl )
 	osc? ( media-libs/liblo )
 	opencl? ( virtual/opencl )
+	rbp? ( dev-games/ode:0=[double-precision] )
 	dev-lang/spidermonkey:0="
 DEPEND="${COMMONDEPEND}
 	virtual/pkgconfig
@@ -46,24 +53,19 @@ DEPEND="${COMMONDEPEND}
 	nsplugin? ( net-misc/npapi-sdk )"
 RDEPEND="${COMMONDEPEND}
 	media-fonts/dejavu
-	|| ( media-gfx/imagemagick
-		media-gfx/graphicsmagick[imagemagick] )
 	app-arch/unzip
+	virtual/imagemagick-tools
 	java? ( >=virtual/jre-1.4 )
 	sox? ( media-sound/sox )"
 
 src_prepare() {
-	if [[ ${PV} != "9999" ]]; then
-	epatch "${FILESDIR}"/${P}-fontconfig-match.patch
-	epatch "${FILESDIR}"/${P}-mozjs187-config.patch
-	fi
 	epatch_user
 	eautoreconf
 }
 
 src_configure() {
 	# list of js libs without .pc support, to disable ./configure auto-checking
-	local spidermonkeys=( mozilla-js xulrunner-js firefox-js firefox2-js seamonkey-js )
+	local spidermonkeys=( mozilla-js )
 	# list of .pc supported spidermonkeys, to disable ./configure auto-checking
 	local spidermonkeys_pc=( mozjs187 mozjs185 )
 
@@ -72,10 +74,10 @@ src_configure() {
 		--with-x
 		--with-imageconvert=/usr/bin/convert
 		--with-unzip=/usr/bin/unzip
-		--disable-mozjs-17.0
+		--with-javascript=spidermonkey
 		${spidermonkeys[@]/#/ --disable-}"
 
-	if has_version "<dev-lang/spidermonkey-1.8.5" ; then
+	if has_version "<dev-lang/spidermonkey-1.8.5:0" ; then
 		# spidermonkey pre-1.8.5 has no pkg-config, so override ./configure
 		myconf+="${spidermonkeys_pc[@]/#/ --disable-}"
 		JAVASCRIPT_ENGINE_CFLAGS="-I/usr/include/js -DXP_UNIX"
@@ -104,6 +106,7 @@ src_configure() {
 		$(use_enable java) \
 		$(use_enable nsplugin plugin) \
 		$(use_enable osc) \
+		$(use_enable rbp) \
 		$(use_enable static-libs static) \
 		$(use_enable sox sound) \
 		$(usex sox "--with-soundconv=/usr/bin/sox") \

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/gmp-ecm/gmp-ecm-6.4.4-r1.ebuild,v 1.2 2013/03/10 09:02:26 patrick Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,10 +16,10 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+blas +custom-tune gwnum -openmp static-libs test"
 
 DEPEND="
-	dev-libs/gmp
+	dev-libs/gmp:0=
 	blas? ( sci-libs/gsl )
 	gwnum? ( sci-mathematics/gwnum )
-	openmp? ( sys-devel/gcc[openmp] )"
+	openmp? ( sys-devel/gcc:*[openmp] )"
 RDEPEND="${DEPEND}"
 
 # can't be both enabled
@@ -60,6 +60,6 @@ src_compile() {
 
 src_install() {
 	default
-	mkdir -p "${D}/usr/include/${PN}/"
-	cp "${S}"/*.h "${D}/usr/include/${PN}" || die "Failed to copy headers" # needed by other apps like YAFU
+	mkdir -p "${ED}/usr/include/${PN}/"
+	cp "${S}"/*.h "${ED}/usr/include/${PN}" || die "Failed to copy headers" # needed by other apps like YAFU
 }

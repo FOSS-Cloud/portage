@@ -1,13 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/analog/analog-6.0-r4.ebuild,v 1.10 2012/03/04 10:27:52 pacho Exp $
+# $Id$
 
 EAPI=4
 
 inherit eutils toolchain-funcs
 
 DESCRIPTION="A webserver log analyzer"
-HOMEPAGE="http://www.analog.cx/"
+HOMEPAGE="http://www.c-amie.co.uk/analog/"
 SRC_URI="http://www.analog.cx/${P}.tar.gz"
 
 LICENSE="GPL-2"

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>dev-embedded</herd>
-	<maintainer>
-		<email>radhermit@gentoo.org</email>
-		<name>Tim Harder</name>
+	<maintainer type="project">
+		<email>embedded@gentoo.org</email>
+		<name>Embedded Gentoo</name>
 	</maintainer>
 	<longdescription>
 		MSPDebug is a free debugger for use with MSP430 MCUs. It supports
@@ -12,4 +11,8 @@
 		used as a proxy for gdb or as an independent debugger with support for
 		programming, disassembly, and reverse engineering.
 	</longdescription>
+	<upstream>
+		<remote-id type="sourceforge">mspdebug</remote-id>
+		<remote-id type="github">dlbeer/mspdebug</remote-id>
+	</upstream>
 </pkgmetadata>

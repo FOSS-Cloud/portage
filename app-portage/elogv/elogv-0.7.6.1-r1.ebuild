@@ -1,12 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/elogv/elogv-0.7.6.1-r1.ebuild,v 1.6 2014/03/13 20:10:58 ottxor Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_6 python2_7 )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="ncurses"
-inherit distutils-r1 prefix
+inherit distutils-r1
 
 DESCRIPTION="Curses based utility to parse the contents of elogs created by Portage"
 HOMEPAGE="https://github.com/gentoo/elogv"
@@ -44,7 +44,7 @@ pkg_postinst() {
 	elog "and at least one out of "
 	elog "		 PORTAGE_ELOG_CLASSES=\"warn error info log qa\""
 	elog "More information on the elog system can be found"
-	elog "in ${EPREFIX}/etc/make.conf.example"
+	elog "in ${EPREFIX}/usr/share/portage/config/make.conf.example"
 	elog
 	elog "To operate properly this software needs the directory"
 	elog "${PORT_LOGDIR:-${EPREFIX}/var/log/portage}/elog created, belonging to group portage."

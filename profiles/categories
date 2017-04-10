@@ -11,6 +11,7 @@ app-doc
 app-editors
 app-emacs
 app-emulation
+app-eselect
 app-forensics
 app-i18n
 app-laptop
@@ -30,7 +31,9 @@ dev-cpp
 dev-db
 dev-dotnet
 dev-embedded
+dev-erlang
 dev-games
+dev-go
 dev-haskell
 dev-java
 dev-lang
@@ -42,6 +45,7 @@ dev-perl
 dev-php
 dev-python
 dev-qt
+dev-ros
 dev-ruby
 dev-scheme
 dev-tcltk
@@ -71,11 +75,11 @@ gnome-extra
 gnustep-apps
 gnustep-base
 gnustep-libs
-gpe-base
-gpe-utils
 java-virtuals
-kde-base
+kde-apps
+kde-frameworks
 kde-misc
+kde-plasma
 lxde-base
 lxqt-base
 mail-client
@@ -110,11 +114,8 @@ net-print
 net-proxy
 net-voip
 net-wireless
-net-zope
 perl-core
-razorqt-base
-rox-base
-rox-extra
+ros-meta
 sci-astronomy
 sci-biology
 sci-calculators
@@ -133,14 +134,15 @@ sys-block
 sys-boot
 sys-cluster
 sys-devel
+sys-fabric
 sys-firmware
 sys-freebsd
 sys-fs
-sys-infiniband
 sys-kernel
 sys-libs
 sys-power
 sys-process
+virtual
 www-apache
 www-apps
 www-client
@@ -159,4 +161,3 @@ x11-themes
 x11-wm
 xfce-base
 xfce-extra
-virtual

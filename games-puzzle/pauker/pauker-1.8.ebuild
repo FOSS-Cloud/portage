@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/pauker/pauker-1.8.ebuild,v 1.6 2010/02/09 21:23:47 josejx Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 JAVA_PKG_IUSE="doc source"
 inherit eutils java-pkg-2 java-ant-2 games
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/pauker/${P}.src.jar"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 COMMON_DEP="dev-java/browserlauncher2:1.0

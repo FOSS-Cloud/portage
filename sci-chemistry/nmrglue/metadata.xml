@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>sci-chemistry</herd>
-  <maintainer>
-    <email>jlec@gentoo.org</email>
+  <maintainer type="project">
+    <email>sci-chemistry@gentoo.org</email>
+    <name>Gentoo Chemistry Project</name>
   </maintainer>
   <longdescription>
 Nmrglue has the ability to read, write and convert between a number of NMR file 
@@ -23,4 +23,7 @@ When used in conjunction with the matplotlib (or other) python plotting library
 nmrglue can be used to create publication quality figures of NMR spectrum or 
 examine data interactively.
 </longdescription>
+  <upstream>
+    <remote-id type="github">jjhelmus/nmrglue</remote-id>
+  </upstream>
 </pkgmetadata>

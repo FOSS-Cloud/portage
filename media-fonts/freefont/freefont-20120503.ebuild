@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-fonts/freefont/freefont-20120503.ebuild,v 1.5 2014/02/19 19:29:03 bicatali Exp $
+# $Id$
 
 EAPI=5
 
 inherit font
 
 DESCRIPTION="OpenType and TrueType Unicode fonts from the Free UCS Outline Fonts Project"
-HOMEPAGE="http://savannah.nongnu.org/projects/freefont/"
+HOMEPAGE="https://savannah.nongnu.org/projects/freefont/"
 SRC_URI="mirror://gnu/freefont/${PN}-ttf-${PV}.zip
 	mirror://gnu/freefont/${PN}-otf-${PV}.tar.gz"
 

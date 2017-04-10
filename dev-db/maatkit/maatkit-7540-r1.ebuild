@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/maatkit/maatkit-7540-r1.ebuild,v 1.3 2014/03/03 23:36:33 pacho Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,7 +8,7 @@ inherit perl-app perl-module toolchain-funcs
 
 DESCRIPTION="essential command-line utilities for MySQL"
 HOMEPAGE="http://www.maatkit.org/"
-SRC_URI="http://maatkit.googlecode.com/files/${P}.tar.gz"
+SRC_URI="https://maatkit.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -104,7 +104,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	perl-module_pkg_postinst
 	if use udf; then
 		mysql-udf_pkg_postinst murmur_udf murmur_hash INTEGER
 		mysql-udf_pkg_postinst fnv_udf fnv_64 INTEGER

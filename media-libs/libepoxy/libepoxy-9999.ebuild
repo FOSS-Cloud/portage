@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libepoxy/libepoxy-9999.ebuild,v 1.4 2014/07/21 08:33:13 chithanh Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,9 @@ if [[ ${PV} = 9999* ]]; then
 	GIT_ECLASS="git-r3"
 fi
 
-inherit autotools-multilib ${GIT_ECLASS}
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
+PYTHON_REQ_USE='xml(+)'
+inherit autotools-multilib ${GIT_ECLASS} python-any-r1
 
 DESCRIPTION="Epoxy is a library for handling OpenGL function pointer management for you"
 HOMEPAGE="https://github.com/anholt/libepoxy"
@@ -20,19 +22,18 @@ if [[ ${PV} = 9999* ]]; then
 	KEYWORDS=""
 	SRC_URI=""
 else
-	KEYWORDS="~amd64 ~arm ~hppa ~x86"
-	SRC_URI="https://github.com/anholt/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+	SRC_URI="https://github.com/anholt/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
 LICENSE="MIT"
 SLOT="0"
 IUSE="test"
-RESTICT="test" # FIXME: tests fail when run from portage.
 
-DEPEND="dev-lang/python
-	media-libs/mesa[egl]
+DEPEND="${PYTHON_DEPS}
+	media-libs/mesa[egl,${MULTILIB_USEDEP}]
 	x11-misc/util-macros
-	x11-libs/libX11"
+	x11-libs/libX11[${MULTILIB_USEDEP}]"
 RDEPEND=""
 
 src_unpack() {

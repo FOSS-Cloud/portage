@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/evilwm/evilwm-1.0.1.ebuild,v 1.8 2014/08/10 19:58:08 slyfox Exp $
+# $Id$
 
 EAPI=3
 inherit toolchain-funcs multilib
@@ -11,7 +11,7 @@ HOMEPAGE="http://evilwm.sourceforge.net"
 
 LICENSE="MIT 9wm"
 SLOT="0"
-KEYWORDS="alpha amd64 ppc sparc x86 ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~sparc64-solaris"
+KEYWORDS="alpha amd64 ppc sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~sparc64-solaris"
 IUSE=""
 
 RDEPEND="x11-libs/libXext

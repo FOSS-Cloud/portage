@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/commons-io/commons-io-2.4.ebuild,v 1.2 2014/08/10 20:11:05 slyfox Exp $
+# $Id$
 
 EAPI=5
 JAVA_PKG_IUSE="doc source"
@@ -14,7 +14,7 @@ SRC_URI="mirror://apache/commons/io/source/${MY_P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="1"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="amd64 ppc64 x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE="test"
 
 RDEPEND=">=virtual/jre-1.6"
@@ -28,6 +28,7 @@ S=${WORKDIR}/${MY_P}
 
 EANT_EXTRA_ARGS="-Dcomponent.version=${PV}"
 JAVA_ANT_REWRITE_CLASSPATH="yes"
+JAVA_ANT_ENCODING="ISO-8859-1"
 
 java_prepare() {
 	# Setting java.io.tmpdir doesn't have effect unless we do this because the vm is forked

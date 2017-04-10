@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/ExtUtils-LibBuilder/ExtUtils-LibBuilder-0.04.ebuild,v 1.2 2013/08/03 20:17:50 mrueg Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,11 +16,15 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 DEPEND="virtual/perl-ExtUtils-CBuilder
-	virtual/perl-Module-Build
+	dev-perl/Module-Build
 	virtual/perl-File-Spec
 	virtual/perl-File-Temp
-	test? ( >=dev-perl/Test-Pod-1.22
-		>=dev-perl/Test-Pod-Coverage-1.08 )"
+	test? ( virtual/perl-Test-Simple )"
 RDEPEND=""
 
 SRC_TEST="do"
+
+src_test() {
+	perl_rm_files t/pod.t t/pod-coverage.t t/manifest.t
+	perl-module_src_test
+}

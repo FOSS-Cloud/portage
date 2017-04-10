@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>robbat2@gentoo.org</email>
 	</maintainer>
-	<maintainer>
+	<maintainer type="person">
 		<email>prometheanfire@gentoo.org</email>
 	</maintainer>
 	<longdescription>High-performance, distributed memory object caching system, generic in nature,
@@ -20,6 +20,6 @@ on a memcache miss.</longdescription>
 		<flag name="slabs-reassign">Allow manual reassignment of memory slabs at the cost of slab optimizations.</flag>
 	</use>
 	<upstream>
-		<remote-id type="google-code">memcached</remote-id>
+		<remote-id type="github">memcached/memcached</remote-id>
 	</upstream>
 </pkgmetadata>

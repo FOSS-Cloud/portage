@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-imgaste/lc-imgaste-9999.ebuild,v 1.1 2013/06/11 14:25:18 maksbotan Exp $
+# $Id$
 
-EAPI="5"
+EAPI=6
 
 inherit leechcraft
 
@@ -12,5 +12,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="~app-leechcraft/lc-core-${PV}"
+DEPEND="~app-leechcraft/lc-core-${PV}
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
+"
 RDEPEND="${DEPEND}"

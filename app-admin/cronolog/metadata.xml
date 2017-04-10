@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>dastergon@gentoo.org</email>
-		<name>Pavlos Ratis</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		Cronolog is a simple filter program that reads log file entries from
 		standard input and writes each entry to the output file specified by a
@@ -14,4 +11,3 @@
 		as Apache, to split the access log into daily or monthly logs.
 	</longdescription>
 </pkgmetadata>
-

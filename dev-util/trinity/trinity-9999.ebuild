@@ -1,15 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/trinity/trinity-9999.ebuild,v 1.5 2014/06/25 04:57:32 radhermit Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit toolchain-funcs git-r3
 
-EGIT_REPO_URI="git://git.codemonkey.org.uk/trinity"
+EGIT_REPO_URI="https://github.com/kernelslacker/trinity.git"
 
 DESCRIPTION="A Linux system call fuzz tester"
-HOMEPAGE="http://codemonkey.org.uk/projects/trinity/"
+HOMEPAGE="http://codemonkey.org.uk/projects/trinity/ https://github.com/kernelslacker/trinity/"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -24,10 +24,7 @@ src_prepare() {
 		-i Makefile || die
 
 	tc-export CC
-}
-
-src_configure() {
-	./configure.sh || die
+	default
 }
 
 src_compile() {

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/compiz-fusion/compiz-fusion-0.8.8.ebuild,v 1.2 2012/08/30 17:46:09 pinkbyte Exp $
+# $Id$
 
 DESCRIPTION="Compiz Fusion (meta)"
 HOMEPAGE="http://www.compiz.org/"
@@ -16,7 +16,7 @@ RDEPEND="
 	>=x11-plugins/compiz-plugins-main-${PV}
 	>=x11-plugins/compiz-plugins-extra-${PV}
 	unsupported? ( >=x11-plugins/compiz-plugins-unsupported-${PV} )
-	>=x11-apps/ccsm-0.8.4
+	>=x11-misc/ccsm-0.8.4
 	emerald? ( >=x11-wm/emerald-${PV} )
 	gnome? ( >=x11-libs/compizconfig-backend-gconf-${PV} )
 	kde? ( >=x11-libs/compizconfig-backend-kconfig4-${PV} )"

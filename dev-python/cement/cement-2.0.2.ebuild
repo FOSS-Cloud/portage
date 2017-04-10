@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/cement/cement-2.0.2.ebuild,v 1.7 2014/08/27 03:29:31 patrick Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit distutils-r1 versionator
 
@@ -19,28 +19,29 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="test doc"
 
-RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
+RDEPEND=""
 DEPEND="${RDEPEND}
-	test? ( dev-python/nose[${PYTHON_USEDEP}]
-		dev-python/coverage[${PYTHON_USEDEP}] )"
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
+	test? (
+		dev-python/nose[${PYTHON_USEDEP}]
+		dev-python/coverage[${PYTHON_USEDEP}]
+	)"
 
 DOCS=( ChangeLog CONTRIBUTORS README.md )
 PATCHES=( "${FILESDIR}"/tests-installation.patch )
 # https://github.com/cement/cement/issues/185
 
 python_test() {
-	nosetests || die "Tests fail with ${EPYTHON}"
+	nosetests --verbose || die "Tests fail with ${EPYTHON}"
 }
 
 python_compile_all() {
-	if use doc; then
-		"${PYTHON}" setup.py build_sphinx || die "couldn't build docs"
-	fi
+	use doc && esetup.py build_sphinx
 }
 
 python_install_all() {
-	use doc && HTML_DOCS=( doc/build/html/* )
+	use doc && HTML_DOCS=( doc/build/html/. )
 
 	distutils-r1_python_install_all
 }

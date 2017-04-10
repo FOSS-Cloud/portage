@@ -1,19 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/pymacs/pymacs-0.25-r1.ebuild,v 1.9 2014/01/15 09:17:18 ago Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit elisp distutils-r1 vcs-snapshot
 
 DESCRIPTION="A tool that allows both-side communication beetween Python and Emacs Lisp"
-HOMEPAGE="http://pymacs.progiciels-bpi.ca/"
+HOMEPAGE="http://www.emacswiki.org/emacs/PyMacs"
 SRC_URI="https://github.com/pinard/Pymacs/tarball/v${PV} -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm hppa ia64 ppc ppc64 ~s390 ~sh x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="amd64 arm hppa ia64 ppc ppc64 ~s390 ~sh x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
 IUSE="doc"
 
 DEPEND="doc? ( >=dev-python/docutils-0.7
@@ -39,6 +39,7 @@ python_compile_all() {
 
 python_install_all() {
 	elisp_src_install
+	distutils-r1_python_install_all
 	dodoc pymacs.rst
 	use doc && dodoc pymacs.pdf
 }

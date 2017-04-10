@@ -1,18 +1,18 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/gtk-gamess/gtk-gamess-2.00.ebuild,v 1.9 2012/05/04 07:02:32 jdhore Exp $
+# $Id$
 
-EAPI="1"
+EAPI=5
 
 DESCRIPTION="GUI for GAMESS, a General Atomic and Molecular Electronic Structure System"
-HOMEPAGE="http://sourceforge.net/projects/gtk-gamess/"
+HOMEPAGE="https://sourceforge.net/projects/gtk-gamess/"
 
 SRC_URI="mirror://sourceforge/gtk-gamess/${P}.tar.gz"
 LICENSE="GPL-2"
 
 SLOT="0"
 
-KEYWORDS="~ppc ~x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 
 IUSE=""
 
@@ -25,7 +25,6 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_install() {
-
-	make DESTDIR="${D}" install || die "install failed"
+	emake DESTDIR="${D}" install
 	dodoc README
 }

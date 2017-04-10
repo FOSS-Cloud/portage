@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/backlite/backlite-1.0.3-r1.ebuild,v 1.9 2014/03/01 22:39:54 billie Exp $
+# $Id$
 
 EAPI=5
 
@@ -24,7 +24,7 @@ DEPEND=">=media-libs/libmpeg2-0.5.1
 	media-video/ffmpeg
 	dev-qt/qtgui:4
 	dev-qt/qtdbus:4
-	|| ( dev-qt/qtphonon:4 media-libs/phonon )"
+	|| ( dev-qt/qtphonon:4 media-libs/phonon[qt4] )"
 
 RDEPEND="${DEPEND}
 	media-video/dvdauthor
@@ -34,7 +34,8 @@ src_prepare() {
 	sed -i -e '/^MimeTypes=.*/d' \
 		-e '/^Encoding=.*/d' *.desktop || die
 	epatch "${FILESDIR}/${P}-ffmpeg-0.11.patch" \
-		"${FILESDIR}/${P}-includepaths.patch"
+		"${FILESDIR}/${P}-includepaths.patch" \
+		"${FILESDIR}/${P}-ffmpeg2.patch"
 }
 
 src_configure() {

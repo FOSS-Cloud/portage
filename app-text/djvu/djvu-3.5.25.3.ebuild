@@ -1,8 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/djvu/djvu-3.5.25.3.ebuild,v 1.16 2014/06/10 01:03:57 vapier Exp $
+# $Id$
 
 EAPI=5
+
 inherit autotools eutils fdo-mime flag-o-matic
 
 MY_P="${PN}libre-${PV#*_p}"
@@ -27,7 +28,7 @@ src_prepare() {
 	sed -i \
 		-e 's/AC_CXX_OPTIMIZE/OPTS=;AC_SUBST(OPTS)/' \
 		configure.ac || die #263688
-	rm aclocal.m4 config/{libtool.m4,ltmain.sh,install-sh}
+	rm aclocal.m4 config/{libtool.m4,ltmain.sh,install-sh,config.sub,config.guess,ltoptions.m4,ltversion.m4,lt~obsolete.m4}
 #	epatch "${FILESDIR}/${PN}-3.5.24-gcc46.patch"
 	AT_M4DIR="config" eautoreconf
 }
@@ -63,9 +64,8 @@ src_install() {
 
 pkg_postinst() {
 	fdo-mime_mime_database_update
-	if ! has_version app-text/djview; then
-		elog "For djviewer or browser plugin, emerge app-text/djview."
-	fi
+	has_version app-text/djview || \
+		optfeature "For djviewer or browser plugin" app-text/djview
 }
 
 pkg_postrm() {

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/netpbm/netpbm-10.66.00.ebuild,v 1.2 2014/06/16 00:15:40 vapier Exp $
+# $Id$
 
 EAPI="4"
 
@@ -12,8 +12,8 @@ SRC_URI="mirror://gentoo/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
-IUSE="doc jbig jpeg jpeg2k png rle sse2 static-libs svga tiff X xml zlib"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+IUSE="doc jbig jpeg jpeg2k png rle cpu_flags_x86_sse2 static-libs svga tiff X xml zlib"
 
 RDEPEND="jbig? ( media-libs/jbigkit )
 	jpeg? ( virtual/jpeg:0 )
@@ -61,6 +61,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/netpbm-10.66-jpeg-dirs.patch
 	epatch "${FILESDIR}"/netpbm-10.66-jbig-2.patch
 	epatch "${FILESDIR}"/netpbm-10.66-failing-tests.patch
+	epatch "${FILESDIR}"/netpbm-10.66-wordaccess_be_aligned.patch #547252
 
 	# make sure we use system urt
 	sed -i '/SUPPORT_SUBDIRS/s:urt::' GNUmakefile || die
@@ -71,8 +72,9 @@ src_prepare() {
 
 	# disable certain tests based on active USE flags
 	local del=(
-		$(usex jbig '' 'jbigtopnm pnmtojbig')
+		$(usex jbig '' 'jbigtopnm pnmtojbig jbig-roundtrip')
 		$(usex rle '' 'utahrle-roundtrip')
+		$(usex tiff '' 'tiff-roundtrip')
 	)
 	if [[ ${#del[@]} -gt 0 ]] ; then
 		sed -i -r $(printf -- ' -e /%s.test/d' "${del[@]}") test/Test-Order || die
@@ -80,7 +82,9 @@ src_prepare() {
 	del=(
 		pnmtofiasco fiascotopnm # We always disable fiasco
 		$(usex jbig '' 'jbigtopnm pnmtojbig')
+		$(usex jpeg2k '' 'jpeg2ktopam pamtojpeg2k')
 		$(usex rle '' 'pnmtorle rletopnm')
+		$(usex tiff '' 'pamtotiff pnmtotiff pnmtotiffcmyk tifftopnm')
 	)
 	if [[ ${#del[@]} -gt 0 ]] ; then
 		sed -i -r $(printf -- ' -e s/\<%s\>(:.ok)?//' "${del[@]}") test/all-in-place.{ok,test} || die
@@ -131,7 +135,7 @@ src_configure() {
 	STATICLIB_TOO = $(usex static-libs Y N)
 
 	# The var is called SSE, but the code is actually SSE2.
-	WANT_SSE = $(usex sse2 Y N)
+	WANT_SSE = $(usex cpu_flags_x86_sse2 Y N)
 
 	# Gentoo build options
 	TIFFLIB = $(netpbm_config tiff)

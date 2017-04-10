@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/cgit/cgit-9999.ebuild,v 1.11 2014/07/04 20:32:57 hasufell Exp $
+# $Id$
 
 EAPI="4"
 
@@ -13,7 +13,7 @@ inherit webapp eutils multilib user toolchain-funcs git-2
 DESCRIPTION="a fast web-interface for git repositories"
 HOMEPAGE="http://git.zx2c4.com/cgit/about"
 SRC_URI=""
-EGIT_REPO_URI="git://git.zx2c4.com/cgit"
+EGIT_REPO_URI="https://git.zx2c4.com/cgit"
 
 LICENSE="GPL-2"
 SLOT="0"

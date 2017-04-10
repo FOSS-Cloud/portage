@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mjpegtools/mjpegtools-2.1.0-r2.ebuild,v 1.4 2014/09/13 23:48:31 billie Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,11 +12,11 @@ SRC_URI="mirror://sourceforge/mjpeg/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="1"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd"
-IUSE="dv gtk mmx png quicktime sdl sdlgfx static-libs v4l"
+KEYWORDS="alpha amd64 ~arm hppa ia64 ppc ppc64 sparc x86 ~amd64-fbsd"
+IUSE="dv gtk cpu_flags_x86_mmx png quicktime sdl sdlgfx static-libs"
 REQUIRED_USE="sdlgfx? ( sdl )"
 
-RDEPEND=">=virtual/jpeg-0-r2[${MULTILIB_USEDEP}]
+RDEPEND="virtual/jpeg:0=[${MULTILIB_USEDEP}]
 	quicktime? ( >=media-libs/libquicktime-1.2.4-r1[${MULTILIB_USEDEP}] )
 	dv? ( >=media-libs/libdv-1.0.0-r3[${MULTILIB_USEDEP}] )
 	png? ( media-libs/libpng:0= )
@@ -27,7 +27,7 @@ RDEPEND=">=virtual/jpeg-0-r2[${MULTILIB_USEDEP}]
 	)"
 
 DEPEND="${RDEPEND}
-	mmx? ( dev-lang/nasm )
+	cpu_flags_x86_mmx? ( dev-lang/nasm )
 	>=sys-apps/sed-4
 	virtual/awk
 	>=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}]"
@@ -37,13 +37,6 @@ RDEPEND="${RDEPEND}
 		!<=app-emulation/emul-linux-x86-medialibs-20140508-r4
 		!app-emulation/emul-linux-x86-medialibs[-abi_x86_32(-)]
 	)"
-
-pkg_pretend() {
-	if has_version ">=sys-kernel/linux-headers-2.6.38" && use v4l; then
-		ewarn "Current versions of mjpegtools only support V4L1 which is not available"
-		ewarn "for kernel versions 2.6.38 and above. V4L1 will be disabled."
-	fi
-}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-pic.patch
@@ -59,14 +52,14 @@ multilib_src_configure() {
 
 	local myconf=(
 		--enable-compile-warnings
-		$(use_enable mmx simd-accel)
+		$(use_enable cpu_flags_x86_mmx simd-accel)
 		$(use_enable static-libs static)
 		--enable-largefile
 
 		$(use_with quicktime libquicktime)
 		$(use_with dv libdv)
 		$(use_with sdl libsdl)
-		$(use_with v4l)
+		--without-v4l
 		$(use_with sdl x)
 
 		# used by tools only

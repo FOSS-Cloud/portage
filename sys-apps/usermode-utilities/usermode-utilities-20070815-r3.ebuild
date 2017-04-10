@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/usermode-utilities/usermode-utilities-20070815-r3.ebuild,v 1.5 2013/05/12 23:52:16 vapier Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 inherit eutils toolchain-funcs
 
@@ -16,7 +16,7 @@ KEYWORDS="amd64 arm x86"
 IUSE="fuse"
 
 RDEPEND="fuse? ( sys-fs/fuse )
-	sys-libs/readline"
+	sys-libs/readline:0="
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/tools-${PV}
@@ -26,6 +26,8 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-rollup.patch
 	# Fix owner of humfsify; bug #364531
 	epatch "${FILESDIR}"/${P}-humfsify-owner.patch
+	epatch "${FILESDIR}"/${P}-headers.patch #580816
+
 	sed -i -e 's:-o \$(BIN):$(LDFLAGS) -o $(BIN):' "${S}"/*/Makefile || die "LDFLAGS sed failed"
 	sed -i -e 's:-o \$@:$(LDFLAGS) -o $@:' "${S}"/moo/Makefile || die "LDFLAGS sed (moo) failed"
 	if ! use fuse; then

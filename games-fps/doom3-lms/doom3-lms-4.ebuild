@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/doom3-lms/doom3-lms-4.ebuild,v 1.3 2013/04/29 16:21:08 ulm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 
 MOD_DESC="add co-op support and/or play against swarms of monsters"
 MOD_NAME="Last Man Standing"
@@ -20,7 +20,7 @@ RESTRICT="fetch bindist"
 
 pkg_nofetch() {
 	elog "Please download ${SRC_URI} from:"
-	elog "http://www.filefront.com/9934113"
+	elog "http://www.moddb.com/mods/last-man-standing-coop/downloads"
 	elog "and move it to ${DISTDIR}"
 }
 

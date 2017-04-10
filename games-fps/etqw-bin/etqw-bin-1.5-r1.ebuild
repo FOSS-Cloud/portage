@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/etqw-bin/etqw-bin-1.5-r1.ebuild,v 1.1 2014/07/07 18:03:58 axs Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -11,28 +11,19 @@ SRC_URI="ftp://ftp.i3d.net/Games/Enemy%20Territory%20Quake%20Wars/Patches/ETQW-c
 
 LICENSE="ETQW"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="cdinstall"
 RESTRICT="strip"
 
 DEPEND="app-arch/unzip"
 RDEPEND="sys-libs/glibc
 	amd64? ( sys-libs/glibc[multilib] )
-	|| (
-		(
-			>=sys-libs/zlib-1.2.8-r1[abi_x86_32(-)]
-			>=virtual/jpeg-62:62[abi_x86_32(-)]
-			>=media-libs/libsdl-1.2.15-r4[video,sound,opengl,abi_x86_32(-)]
-			>=media-libs/alsa-lib-1.0.27.2[abi_x86_32(-)]
-			>=x11-libs/libX11-1.6.2[abi_x86_32(-)]
-			>=x11-libs/libXext-1.3.2[abi_x86_32(-)]
-		)
-		(
-			app-emulation/emul-linux-x86-sdl[-abi_x86_32(-)]
-			app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)]
-			app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
-		)
-	)
+	>=sys-libs/zlib-1.2.8-r1[abi_x86_32(-)]
+	>=virtual/jpeg-62:62[abi_x86_32(-)]
+	>=media-libs/libsdl-1.2.15-r4[video,sound,opengl,abi_x86_32(-)]
+	>=media-libs/alsa-lib-1.0.27.2[abi_x86_32(-)]
+	>=x11-libs/libX11-1.6.2[abi_x86_32(-)]
+	>=x11-libs/libXext-1.3.2[abi_x86_32(-)]
 	cdinstall? ( games-fps/etqw-data )"
 
 S=${WORKDIR}/data

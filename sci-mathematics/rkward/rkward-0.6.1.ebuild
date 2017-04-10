@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/rkward/rkward-0.6.1.ebuild,v 1.3 2014/03/04 20:20:02 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -21,7 +21,7 @@ IUSE="debug"
 
 DEPEND="
 	dev-lang/R
-	$(add_kdebase_dep katepart)"
+	$(add_kdeapps_dep katepart)"
 RDEPEND="${DEPEND}"
 
 src_configure() {

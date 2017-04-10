@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/keyutils/keyutils-1.5.9-r1.ebuild,v 1.11 2014/08/10 17:25:33 ago Exp $
+# $Id$
 
 EAPI="5"
 
 inherit multilib eutils toolchain-funcs linux-info multilib-minimal
 
 DESCRIPTION="Linux Key Management Utilities"
-HOMEPAGE="http://people.redhat.com/dhowells/keyutils/"
-SRC_URI="http://people.redhat.com/dhowells/${PN}/${P}.tar.bz2"
+HOMEPAGE="https://people.redhat.com/dhowells/keyutils/"
+SRC_URI="https://people.redhat.com/dhowells/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="alpha amd64 arm arm64 hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-linux ~arm-linux ~ia64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-linux ~arm-linux ~x86-linux"
 IUSE="test"
 
 RDEPEND="
@@ -56,8 +56,9 @@ multilib_src_compile() {
 		-e '/^C.*FLAGS/s|:=|+=|' \
 		-e 's:-Werror::' \
 		-e '/^BUILDFOR/s:=.*:=:' \
-		-e "/^LIBDIR/s:=.*:=/usr/$(get_libdir):" \
+		-e "/^LIBDIR/s:=.*:= /usr/$(get_libdir):" \
 		-e '/^USRLIBDIR/s:=.*:=$(LIBDIR):' \
+		-e "s: /: ${EPREFIX}/:g" \
 		Makefile || die
 
 	emake
@@ -73,7 +74,7 @@ multilib_src_test() {
 
 multilib_src_install() {
 	default
-	multilib_is_native_abi && gen_usr_ldscript -a keyutils
+	gen_usr_ldscript -a keyutils
 }
 
 multilib_src_install_all() {

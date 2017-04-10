@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/xmltv/xmltv-0.5.57.ebuild,v 1.2 2014/09/27 19:09:01 zlogene Exp $
+# $Id$
 
 EAPI=5
 
@@ -34,7 +34,7 @@ za nl in il"
 RDEPEND=">=dev-perl/libwww-perl-5.65
 	>=dev-perl/XML-Parser-2.34
 	>=dev-perl/XML-Twig-3.10
-	>=dev-perl/DateManip-5.42
+	>=dev-perl/Date-Manip-5.42
 	>=dev-perl/XML-Writer-0.6
 	virtual/perl-Memoize
 	virtual/perl-Storable
@@ -66,8 +66,8 @@ DEPEND="${RDEPEND}
 	ee? ( dev-perl/IO-stringy )
 	re? ( dev-perl/Lingua-EN-Numbers-Ordinate )
 	tv_combiner? ( dev-perl/XML-LibXML )
-	tv_check? ( dev-perl/perl-tk dev-perl/Tk-TableMatrix )
-	tv_pick_cgi? ( virtual/perl-CGI dev-perl/Lingua-EN-Numbers-Ordinate )
+	tv_check? ( dev-perl/Tk dev-perl/Tk-TableMatrix )
+	tv_pick_cgi? ( dev-perl/CGI dev-perl/Lingua-EN-Numbers-Ordinate )
 	na_dtv? ( >=dev-perl/WWW-Mechanize-1.02 dev-perl/TimeDate dev-perl/IO-stringy dev-perl/XML-LibXML )
 	"
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/qlogtools/qlogtools-3.1.ebuild,v 1.9 2010/01/14 15:16:48 bangert Exp $
+# $Id$
 
 inherit eutils toolchain-funcs
 
@@ -18,7 +18,7 @@ RDEPEND="!app-text/multitail"
 
 src_unpack() {
 	unpack ${A}
-	EPATCH_OPTS="-p1 -d ${P}" epatch ${FILESDIR}/qlogtools-3.1-errno.patch
+	EPATCH_OPTS="-p1 -d ${P}" epatch "${FILESDIR}"/qlogtools-3.1-errno.patch
 }
 
 src_compile() {

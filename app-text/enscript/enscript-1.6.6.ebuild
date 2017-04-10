@@ -1,14 +1,14 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/enscript/enscript-1.6.6.ebuild,v 1.9 2012/12/30 14:35:21 ago Exp $
+# $Id$
 
-EAPI="2"
+EAPI=6
 
-inherit eutils
+inherit eutils toolchain-funcs
 
-DESCRIPTION="powerful text-to-postscript converter"
+DESCRIPTION="Powerful text-to-postscript converter"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
-HOMEPAGE="http://www.gnu.org/software/enscript/enscript.html"
+HOMEPAGE="https://www.gnu.org/software/enscript/enscript.html"
 
 KEYWORDS="alpha amd64 hppa ia64 ~mips ppc ppc64 sparc x86 ~amd64-fbsd ~x86-fbsd"
 SLOT="0"
@@ -27,26 +27,27 @@ src_prepare() {
 	epatch "${FILESDIR}"/enscript-1.6.5.2-php.st.patch
 	use ruby && epatch "${FILESDIR}"/enscript-1.6.2-ruby.patch
 	sed -i src/tests/passthrough.test -e 's|tail +2|tail -n +2|g' || die
+	default
 }
 
 src_configure() {
 	econf $(use_enable nls)
 }
 
-src_install() {
-	emake DESTDIR="${D}" install || die "install failed"
+src_compile() {
+	emake AR="$(tc-getAR)"
+}
 
-	dodoc AUTHORS ChangeLog NEWS README* THANKS TODO || die "dodoc failed"
+src_install() {
+	emake DESTDIR="${D}" install
+
+	dodoc AUTHORS ChangeLog NEWS README* THANKS TODO
 
 	insinto /usr/share/enscript/hl
-	doins "${FILESDIR}"/ebuild.st || die "doins ebuild.st failed"
+	doins "${FILESDIR}"/ebuild.st
 
 	if use ruby ; then
 		insinto /usr/share/enscript/hl
-		doins "${FILESDIR}"/ruby.st || die "doins ruby.st failed"
+		doins "${FILESDIR}"/ruby.st
 	fi
-}
-
-pkg_postinst() {
-	elog "Now, customize /etc/enscript.cfg."
 }

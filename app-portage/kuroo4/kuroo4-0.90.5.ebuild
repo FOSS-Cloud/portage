@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/kuroo4/kuroo4-0.90.5.ebuild,v 1.1 2014/09/05 21:48:27 dolsen Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,10 +15,10 @@ KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug"
 
-DEPEND="dev-db/sqlite"
+DEPEND="dev-db/sqlite:3"
 
 RDEPEND="${DEPEND}
 	app-portage/gentoolkit
-	$(add_kdebase_dep kdesu)
-	$(add_kdebase_dep kompare)
+	$(add_kdeapps_dep kdesu)
+	kde-apps/kompare:*
 "

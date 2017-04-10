@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/munin/munin-2.0.19.ebuild,v 1.5 2014/07/15 16:45:14 jer Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,7 +13,7 @@ MY_P=${P/_/-}
 DESCRIPTION="Munin Server Monitoring Tool"
 HOMEPAGE="http://munin-monitoring.org/"
 SRC_URI="mirror://sourceforge/munin/${MY_P}.tar.gz
-	http://dev.gentoo.org/~flameeyes/${PN}/${P}-gentoo-${PATCHSET}.tar.xz"
+	https://dev.gentoo.org/~flameeyes/${PN}/${P}-gentoo-${PATCHSET}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -25,7 +25,7 @@ REQUIRED_USE="cgi? ( !minimal ) apache? ( cgi )"
 # Some of the postgres plugins use DBD::Pg, while others call psql directly.
 # Some of the mysql plugins use DBD::mysql, while others call mysqladmin directly.
 # We replace the original ipmi plugins with the freeipmi_ plugin which at least works.
-DEPEND_COM="dev-lang/perl[berkdb]
+DEPEND_COM="dev-lang/perl:=[berkdb]
 			kernel_linux? ( sys-process/procps )
 			doc? ( dev-python/sphinx )
 			asterisk? ( dev-perl/Net-Telnet )
@@ -34,7 +34,7 @@ DEPEND_COM="dev-lang/perl[berkdb]
 					 dev-perl/Cache-Cache
 					 dev-perl/DBD-mysql )
 			ssl? ( dev-perl/Net-SSLeay )
-			postgres? ( dev-perl/DBD-Pg dev-db/postgresql-base )
+			postgres? ( dev-perl/DBD-Pg dev-db/postgresql )
 			memcached? ( dev-perl/Cache-Memcached )
 			cgi? ( dev-perl/FCGI )
 			apache? ( www-servers/apache[apache2_modules_cgi,apache2_modules_cgid,apache2_modules_rewrite] )
@@ -46,7 +46,7 @@ DEPEND_COM="dev-lang/perl[berkdb]
 				dev-perl/HTTP-Date
 			)
 			dev-perl/DBI
-			dev-perl/DateManip
+			dev-perl/Date-Manip
 			dev-perl/File-Copy-Recursive
 			dev-perl/List-MoreUtils
 			dev-perl/Log-Log4perl
@@ -54,7 +54,7 @@ DEPEND_COM="dev-lang/perl[berkdb]
 			dev-perl/Net-DNS
 			dev-perl/Net-Netmask
 			dev-perl/Net-SNMP
-			dev-perl/net-server[ipv6(-)?]
+			dev-perl/Net-Server[ipv6(-)?]
 			virtual/perl-Digest-MD5
 			virtual/perl-Getopt-Long
 			virtual/perl-MIME-Base64
@@ -71,7 +71,7 @@ DEPEND_COM="dev-lang/perl[berkdb]
 
 # Keep this seperate, as previous versions have had other deps here
 DEPEND="${DEPEND_COM}
-	virtual/perl-Module-Build
+	dev-perl/Module-Build
 	java? ( >=virtual/jdk-1.5 )
 	test? (
 		dev-perl/Test-Deep

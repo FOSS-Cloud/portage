@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/valknut/valknut-0.4.9.ebuild,v 1.10 2013/03/03 13:48:03 xarthisius Exp $
+# $Id$
 
 EAPI=2
 
 inherit eutils
 
 DESCRIPTION="A open source cross platform client for the Direct Connect network"
-HOMEPAGE="http://sourceforge.net/projects/wxdcgui/"
+HOMEPAGE="https://sourceforge.net/projects/wxdcgui/"
 SRC_URI="mirror://sourceforge/wxdcgui/${P}.tar.bz2
 	gnome? ( mirror://sourceforge/wxdcgui/${P}-gnome-icons.tar.gz )
 	kde? ( mirror://sourceforge/wxdcgui/${P}-oxygen-icons.tar.gz )"

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-doc/NaturalDocs/NaturalDocs-1.52-r1.ebuild,v 1.6 2013/08/26 16:59:53 ago Exp $
+# $Id$
 
 EAPI="5"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/naturaldocs/${P}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 hppa ia64 ppc sparc x86"
+KEYWORDS="alpha amd64 hppa ia64 ppc ~ppc64 sparc x86"
 
 IUSE=""
 
@@ -30,7 +30,7 @@ src_install() {
 	doins -r Config/*
 	dosym /etc/${PN} /usr/share/${PN}/Config
 
-	perlinfo
+	perl_set_version
 	insinto ${VENDOR_LIB}
 	doins -r Modules/NaturalDocs
 	dodir /usr/share/${PN}/Modules

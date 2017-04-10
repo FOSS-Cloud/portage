@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/amavisd-new/amavisd-new-2.8.1-r1.ebuild,v 1.9 2014/08/25 12:32:29 armin76 Exp $
+# $Id$
 
 EAPI=4
 inherit eutils systemd user
@@ -12,7 +12,7 @@ SRC_URI="http://www.ijs.si/software/amavisd/${MY_P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 hppa ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="amd64 hppa ~ppc ~ppc64 sparc x86"
 IUSE="clamav courier dkim ldap mysql postgres qmail razor snmp spamassassin zmq"
 
 DEPEND=">=sys-apps/sed-4
@@ -45,10 +45,10 @@ RDEPEND="${DEPEND}
 	virtual/perl-MIME-Base64
 	>=dev-perl/MIME-tools-5.415
 	>=dev-perl/MailTools-1.58
-	>=dev-perl/net-server-0.91
+	>=dev-perl/Net-Server-0.91
 	virtual/perl-Digest-MD5
 	dev-perl/IO-stringy
-	dev-perl/IO-Socket-IP
+	virtual/perl-IO-Socket-IP
 	>=virtual/perl-Time-HiRes-1.49
 	dev-perl/Unix-Syslog
 	sys-apps/file

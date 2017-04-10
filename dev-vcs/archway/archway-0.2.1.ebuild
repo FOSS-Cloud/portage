@@ -1,13 +1,13 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/archway/archway-0.2.1.ebuild,v 1.3 2011/03/28 16:42:42 angelos Exp $
+# $Id$
 
 EAPI=3
 inherit eutils
 
 DESCRIPTION="A GUI for GNU Arch"
 HOMEPAGE="http://www.nongnu.org/archway/"
-SRC_URI="http://savannah.nongnu.org/download/${PN}/${P}.tar.gz"
+SRC_URI="https://savannah.nongnu.org/download/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

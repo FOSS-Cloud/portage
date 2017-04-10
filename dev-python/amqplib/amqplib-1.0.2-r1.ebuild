@@ -1,19 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/amqplib/amqplib-1.0.2-r1.ebuild,v 1.4 2014/06/01 11:33:29 idella4 Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} pypy )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} pypy )
 
 inherit distutils-r1
 
 DESCRIPTION="Python client for the Advanced Message Queuing Procotol (AMQP)"
-HOMEPAGE="http://code.google.com/p/py-amqplib/"
-SRC_URI="http://py-amqplib.googlecode.com/files/${P}.tgz"
+HOMEPAGE="https://barryp.org/software/py-amqplib/"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tgz"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~arm64 x86"
 IUSE="examples extras test"
 
 PATCHES=(
@@ -29,11 +29,10 @@ python_test() {
 python_install_all() {
 	distutils-r1_python_install_all
 
-	dodoc -r docs/
+	dodoc -r docs/.
 	if use examples; then
 		docinto examples
 		dodoc -r demo/.
-		docompress -x /usr/share/doc/${PF}/examples
 	fi
 	if use extras; then
 		insinto /usr/share/${PF}

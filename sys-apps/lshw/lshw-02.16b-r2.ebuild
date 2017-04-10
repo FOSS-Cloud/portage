@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/lshw/lshw-02.16b-r2.ebuild,v 1.12 2013/08/08 19:42:32 mr_bones_ Exp $
+# $Id$
 
 EAPI=4
 inherit flag-o-matic eutils toolchain-funcs
@@ -39,7 +39,7 @@ src_prepare() {
 
 		for i in $(cd po ; echo *.po | sed 's/\.po//') ; do
 			if has ${i} ${LINGUAS} ; then
-				langs += " ${i}"
+				langs+=" ${i}"
 			fi
 		done
 		sed -i \

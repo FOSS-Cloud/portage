@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>maintainer-needed@gentoo.org</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		What is this thing? Why it's a rhyming dictionary, of course! But more
 		specifically, it's a command-line program that takes a word and returns
@@ -12,4 +10,7 @@
 		can get a syllable count of a certain word ("whitening" has 2-3
 		syllables, etc.).
 	</longdescription>
+	<upstream>
+		<remote-id type="sourceforge">rhyme</remote-id>
+	</upstream>
 </pkgmetadata>

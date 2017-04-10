@@ -1,26 +1,25 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva-intel-driver/libva-intel-driver-9999.ebuild,v 1.12 2014/06/18 21:02:16 mgorny Exp $
+# $Id$
 
 EAPI=5
 
 SCM=""
 if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
-	SCM=git-2
+	SCM=git-r3
 	EGIT_BRANCH=master
-	EGIT_REPO_URI="git://anongit.freedesktop.org/git/vaapi/intel-driver"
+	EGIT_REPO_URI="https://github.com/01org/intel-vaapi-driver"
 fi
 
 AUTOTOOLS_AUTORECONF="yes"
 inherit autotools-multilib ${SCM}
 
 DESCRIPTION="HW video decode support for Intel integrated graphics"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/vaapi"
+HOMEPAGE="https://github.com/01org/intel-vaapi-driver"
 if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
 	SRC_URI=""
-	S="${WORKDIR}/${PN}"
 else
-	SRC_URI="http://www.freedesktop.org/software/vaapi/releases/libva-intel-driver/${P}.tar.bz2"
+	SRC_URI="https://github.com/01org/intel-vaapi-driver/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
 LICENSE="MIT"
@@ -32,8 +31,7 @@ else
 fi
 IUSE="+drm wayland X"
 
-RDEPEND=">=x11-libs/libva-1.3.0[X?,wayland?,drm?,${MULTILIB_USEDEP}]
-	!<x11-libs/libva-1.0.15[video_cards_intel]
+RDEPEND=">=x11-libs/libva-1.7.2[X?,wayland?,drm?,${MULTILIB_USEDEP}]
 	>=x11-libs/libdrm-2.4.46[video_cards_intel,${MULTILIB_USEDEP}]
 	wayland? ( >=media-libs/mesa-9.1.6[egl,${MULTILIB_USEDEP}] >=dev-libs/wayland-1.0.6[${MULTILIB_USEDEP}] )"
 
@@ -41,6 +39,12 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 DOCS=( AUTHORS NEWS README )
+AUTOTOOLS_PRUNE_LIBTOOL_FILES="all"
+
+src_prepare() {
+	sed -e 's/intel-gen4asm/\0diSaBlEd/g' -i configure.ac || die
+	autotools-multilib_src_prepare
+}
 
 multilib_src_configure() {
 	local myeconfargs=(

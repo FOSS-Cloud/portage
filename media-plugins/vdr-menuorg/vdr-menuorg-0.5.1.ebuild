@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-menuorg/vdr-menuorg-0.5.1.ebuild,v 1.1 2013/03/31 18:10:02 hd_brummy Exp $
+# $Id$
 
 EAPI="5"
 
-inherit vdr-plugin-2
+inherit flag-o-matic vdr-plugin-2
 
 VERSION="1312" # every bump, new version
 
@@ -21,6 +21,10 @@ DEPEND=">=media-video/vdr-2.0.0[menuorg]
 	dev-cpp/libxmlpp:2.6
 	dev-cpp/glibmm"
 RDEPEND="${DEPEND}"
+
+src_compile() {
+	emake CXXFLAGS+=-std=c++11
+}
 
 src_install() {
 	vdr-plugin-2_src_install

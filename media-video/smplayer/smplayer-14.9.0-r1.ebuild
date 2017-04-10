@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/smplayer/smplayer-14.9.0-r1.ebuild,v 1.1 2014/10/07 19:51:37 sping Exp $
+# $Id$
 
 EAPI=5
 PLOCALES="ar_SY bg ca cs da de el_GR en_US es et eu fi fr gl he_IL hr hu it ja
@@ -13,10 +13,10 @@ inherit eutils l10n qt4-r2
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="Great Qt4 GUI front-end for mplayer"
-HOMEPAGE="http://smplayer.sourceforge.net/"
+HOMEPAGE="http://www.smplayer.eu/"
 LICENSE="GPL-2 BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux"
+KEYWORDS="amd64 ~arm hppa ~ppc ~ppc64 x86 ~x86-fbsd ~amd64-linux"
 IUSE="autoshutdown bidi debug"
 
 DEPEND="dev-qt/qtcore:4
@@ -24,10 +24,8 @@ DEPEND="dev-qt/qtcore:4
 	autoshutdown? ( dev-qt/qtdbus:4 )"
 COMMON_USE="libass,png,X"
 RDEPEND="${DEPEND}
-	|| (
-		media-video/mplayer[bidi?,${COMMON_USE}]
-		media-video/mplayer2[${COMMON_USE}]
-	)"
+	media-video/mplayer[bidi?,${COMMON_USE}]
+"
 
 src_prepare() {
 	use bidi || epatch "${FILESDIR}"/${P}-zero-bidi.patch

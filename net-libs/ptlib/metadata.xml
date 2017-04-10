@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>maintainer-needed@gentoo.org</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<use>
 		<flag name="asn">Enable ASN decoding/encoding support</flag>
 		<flag name="dtmf">Enable DTMF encoding/decoding support</flag>
@@ -21,5 +19,7 @@
 		<flag name="vxml">Enable VoiceXML support</flag>
 		<flag name="wav">Enable WAVFILE support</flag>
 	</use>
+	<upstream>
+		<remote-id type="sourceforge">opalvoip</remote-id>
+	</upstream>
 </pkgmetadata>
-

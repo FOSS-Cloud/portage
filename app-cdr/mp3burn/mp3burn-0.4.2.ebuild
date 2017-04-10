@@ -1,9 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/mp3burn/mp3burn-0.4.2.ebuild,v 1.3 2012/03/25 17:02:13 armin76 Exp $
+# $Id$
+
+EAPI=5
+inherit eutils
 
 DESCRIPTION="Burn mp3s without filling up your disk with .wav files"
-HOMEPAGE="http://sourceforge.net/projects/mp3burn"
+HOMEPAGE="https://sourceforge.net/projects/mp3burn"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -18,17 +21,18 @@ RDEPEND="${DEPEND}
 	media-sound/vorbis-tools
 	virtual/cdrtools
 	dev-perl/MP3-Info
-	dev-perl/ogg-vorbis-header
-	dev-perl/String-ShellQuote"
+	dev-perl/Ogg-Vorbis-Header
+	dev-perl/String-ShellQuote
+"
 
-S=${WORKDIR}/${PN}
+S="${WORKDIR}/${PN}"
 
-src_compile() {
-	emake || die "emake failed"
+src_prepare() {
+	epatch "${FILESDIR}/${P}-build.patch"
 }
 
 src_install() {
-	dobin ${PN} || die "dobin failed"
+	dobin ${PN}
 	doman ${PN}.1
-	dodoc Changelog README
+	einstalldocs
 }

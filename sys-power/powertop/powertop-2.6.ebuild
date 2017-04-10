@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/powertop/powertop-2.6.ebuild,v 1.3 2014/09/14 09:08:37 maekke Exp $
+# $Id$
 
 EAPI="5"
 
@@ -11,7 +11,7 @@ if [[ ${PV} == "9999" ]] ; then
 	SRC_URI=""
 else
 	SRC_URI="https://01.org/sites/default/files/downloads/${PN}/${P}.tar.gz"
-	KEYWORDS="amd64 arm ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="amd64 arm ppc sparc x86 ~amd64-linux ~x86-linux"
 fi
 
 DESCRIPTION="tool that helps you find what software is using the most power"
@@ -24,7 +24,7 @@ IUSE="unicode X"
 COMMON_DEPEND="
 	dev-libs/libnl:3
 	sys-apps/pciutils
-	sys-libs/ncurses[unicode?]
+	sys-libs/ncurses:*[unicode?]
 "
 
 DEPEND="${COMMON_DEPEND}
@@ -52,7 +52,6 @@ pkg_setup() {
 		~HPET_TIMER
 		~CPU_FREQ_STAT
 		~CPU_FREQ_GOV_ONDEMAND
-		~PM_RUNTIME
 		~FTRACE
 		~BLK_DEV_IO_TRACE
 		~TIMER_STATS
@@ -67,7 +66,6 @@ pkg_setup() {
 	ERROR_KERNEL_HPET_TIMER="HPET_TIMER should be enabled in the kernel for full powertop function"
 	ERROR_KERNEL_CPU_FREQ_STAT="CPU_FREQ_STAT should be enabled in the kernel for full powertop function"
 	ERROR_KERNEL_CPU_FREQ_GOV_ONDEMAND="CPU_FREQ_GOV_ONDEMAND should be enabled in the kernel for full powertop function"
-	ERROR_KERNEL_PM_RUNTIME="PM_RUNTIME should be enabled in the kernel for full powertop function"
 	ERROR_KERNEL_FTRACE="FTRACE needs to be turned on to enable BLK_DEV_IO_TRACE"
 	ERROR_KERNEL_BLK_DEV_IO_TRACE="BLK_DEV_IO_TRACE needs to be turned on to enable TIMER_STATS, TRACING and EVENT_POWER_TRACING_DEPRECATED"
 	ERROR_KERNEL_TIMER_STATS="TIMER_STATS should be enabled in the kernel for full powertop function"
@@ -84,6 +82,15 @@ pkg_setup() {
 		if kernel_is -lt 3 9 0; then
 			CONFIG_CHECK="~EVENT_POWER_TRACING_DEPRECATED"
 			ERROR_KERNEL_EVENT_POWER_TRACING_DEPRECATED="EVENT_POWER_TRACING_DEPRECATED should be enabled in the kernel for full powertop function"
+			check_extra_config
+		fi
+		if kernel_is -lt 3 19; then
+			CONFIG_CHECK="~PM_RUNTIME"
+			ERROR_KERNEL_PM_RUNTIME="PM_RUNTIME should be enabled in the kernel for full powertop function"
+			check_extra_config
+		else
+			CONFIG_CHECK="~PM"
+			ERROR_KERNEL_PM="PM should be enabled in the kernel for full powertop function"
 			check_extra_config
 		fi
 	fi

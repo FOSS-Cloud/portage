@@ -1,10 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/tkimg/tkimg-1.4-r9.ebuild,v 1.4 2014/03/05 15:45:24 ago Exp $
+# $Id$
 
 EAPI=5
-
-VIRTUALX_USE=test
 
 inherit eutils multilib prefix toolchain-funcs virtualx
 
@@ -13,7 +11,7 @@ MYP="${PN}${PV}"
 DESCRIPTION="Adds a lot of image formats to Tcl/Tk"
 HOMEPAGE="http://tkimg.sourceforge.net/"
 SRC_URI="
-	http://dev.gentoo.org/~jlec/distfiles/${P}-patchset-1.tar.xz
+	https://dev.gentoo.org/~jlec/distfiles/${P}-patchset-1.tar.xz
 	mirror://sourceforge/${PN}/${PV}/${MYP}.tar.bz2"
 
 SLOT="0"
@@ -22,13 +20,13 @@ KEYWORDS="amd64 ppc x86 ~amd64-linux ~x86-linux"
 IUSE="doc test static-libs"
 
 RDEPEND="
-	dev-lang/tk
+	dev-lang/tk:=
 	>=dev-tcltk/tcllib-1.11
 	media-libs/tiff:0=
 	>=media-libs/libpng-1.6:0=
 	>=sys-libs/zlib-1.2.7:=
 	x11-libs/libX11
-	virtual/jpeg"
+	virtual/jpeg:="
 DEPEND="${RDEPEND}
 	test? (
 		x11-apps/xhost

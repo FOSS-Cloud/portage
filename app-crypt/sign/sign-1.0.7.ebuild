@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/sign/sign-1.0.7.ebuild,v 1.15 2012/11/04 16:53:14 ulm Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 inherit toolchain-funcs eutils
 
@@ -12,10 +12,12 @@ SRC_URI="http://swapped.cc/${PN}/files/${P}.tar.gz"
 
 LICENSE="BZIP2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86 ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos"
-IUSE=""
+KEYWORDS="amd64 ppc x86 ~amd64-linux ~x86-linux ~ppc-macos"
+IUSE="libressl"
 
-RDEPEND=">=dev-libs/openssl-0.9.8"
+RDEPEND="
+	!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:0= )"
 DEPEND="${RDEPEND}"
 
 src_prepare() {

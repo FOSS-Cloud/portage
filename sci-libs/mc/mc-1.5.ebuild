@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/mc/mc-1.5.ebuild,v 1.5 2012/10/16 20:40:42 jlec Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 AUTOTOOLS_AUTORECONF=true
 
@@ -13,7 +13,7 @@ HOMEPAGE="http://fetk.org/codes/mc/index.html"
 SRC_URI="http://www.fetk.org/codes/download/${P}.tar.gz"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 LICENSE="GPL-2"
 IUSE="debug doc static-libs"
 
@@ -23,7 +23,7 @@ RDEPEND="
 	sci-libs/amd
 	sci-libs/gamer
 	sci-libs/punc
-	sci-libs/superlu
+	<sci-libs/superlu-5
 	sci-libs/umfpack
 	virtual/blas
 	virtual/lapack"
@@ -31,7 +31,8 @@ DEPEND="
 	${RDEPEND}
 	doc? (
 		media-gfx/graphviz
-		app-doc/doxygen )"
+		app-doc/doxygen
+		)"
 
 S="${WORKDIR}"/${PN}
 

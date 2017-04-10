@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/libudev/libudev-215-r1.ebuild,v 1.1 2014/08/06 18:32:03 mgorny Exp $
+# $Id$
 
 EAPI=5
 inherit multilib-build
@@ -17,13 +17,10 @@ IUSE="static-libs systemd"
 DEPEND=""
 RDEPEND="
 	!systemd? ( || (
+		>=sys-fs/eudev-1.3:0/0[${MULTILIB_USEDEP},static-libs?]
 		>=sys-fs/udev-208-r1:0/0[${MULTILIB_USEDEP},static-libs?]
-		>=sys-fs/eudev-1.3:0/0[${MULTILIB_USEDEP},static-libs?] )
-	)
-	systemd? ( || (
-		>=sys-apps/systemd-212-r5:0/2[${MULTILIB_USEDEP}]
-		>=sys-apps/systemd-208-r3:0/1[${MULTILIB_USEDEP}]
-		>=sys-apps/systemd-208:0/0[${MULTILIB_USEDEP}] )
-	)"
+	) )
+	systemd? ( >=sys-apps/systemd-212-r5:0/2[${MULTILIB_USEDEP}] )
+"
 
 REQUIRED_USE="systemd? ( !static-libs )"

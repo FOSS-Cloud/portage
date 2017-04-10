@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/lsdldoom/lsdldoom-1.5.ebuild,v 1.4 2013/02/25 02:43:31 vapier Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="Port of ID's doom to SDL"
@@ -21,7 +21,9 @@ RDEPEND="${DEPEND}
 	shareware? ( games-fps/doom-data )
 	freedoom? ( games-fps/freedoom )"
 
-PATCHES=( "${FILESDIR}"/${P}-paths.patch )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-paths.patch
+}
 
 src_configure() {
 	# cpu-opt -> just adds -mcpu crap to CFLAGS
@@ -32,8 +34,7 @@ src_configure() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
-	prepalldocs
-	dodoc ChangeLog
+	DOCS="ChangeLog" \
+		default
 	prepgamesdirs
 }

@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/amq-protocol/amq-protocol-1.9.2.ebuild,v 1.3 2014/08/05 16:00:38 mrueg Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby20 ruby21 ruby22"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="ChangeLog.md README.md"
@@ -13,7 +13,7 @@ RUBY_FAKEGEM_RECIPE_TEST="rspec"
 inherit ruby-fakegem
 
 DESCRIPTION="An AMQP 0.9.1 serialization library for Ruby"
-HOMEPAGE="http://github.com/ruby-amqp/amq-protocol"
+HOMEPAGE="https://github.com/ruby-amqp/amq-protocol"
 
 LICENSE="MIT"
 SLOT="0"

@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/mbrowse/mbrowse-0.4.3.ebuild,v 1.5 2014/07/13 13:38:51 jer Exp $
+# $Id$
 
 EAPI=5
 
 inherit autotools
 
 DESCRIPTION="MBrowse is a graphical MIB browser"
-HOMEPAGE="http://sourceforge.net/projects/mbrowse/"
+HOMEPAGE="https://sourceforge.net/projects/mbrowse/"
 SRC_URI="mirror://sourceforge/${PN}/files/${P}.tar.gz"
 
 LICENSE="GPL-2"

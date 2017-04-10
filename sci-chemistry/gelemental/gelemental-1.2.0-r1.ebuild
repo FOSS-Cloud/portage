@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/gelemental/gelemental-1.2.0-r1.ebuild,v 1.1 2012/07/31 06:54:41 jlec Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
-inherit autotools-utils fdo-mime gnome2-utils eutils
+inherit autotools-utils fdo-mime flag-o-matic gnome2-utils eutils
 
-DESCRIPTION="Periodic table viewer that provides detailed information on the chemical elements"
+DESCRIPTION="Periodic table viewer with detailed information on the chemical elements"
 HOMEPAGE="http://freecode.com/projects/gelemental/"
 SRC_URI="
 	http://www.kdau.com/files/${P}.tar.bz2
@@ -14,7 +14,7 @@ SRC_URI="
 
 LICENSE="GPL-3 MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="doc static-libs"
 
 RDEPEND="
@@ -40,11 +40,13 @@ PATCHES=(
 		"${WORKDIR}"/debian/patches/fix_zinc_german_translation.patch
 		"${WORKDIR}"/debian/patches/ftbfs_missing_limits.patch
 		"${WORKDIR}"/debian/patches/lp673285_link_in_about.patch
+		"${FILESDIR}"/${PN}-1.2.0-fix-c++14.patch
 	)
 
 AUTOTOOLS_IN_SOURCE_BUILD=1
 
 src_configure() {
+	append-cxxflags -std=c++11 #566450
 	local myeconfargs=( $(use_enable doc api-docs) )
 	autotools-utils_src_configure
 }

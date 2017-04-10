@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/motif/motif-2.2.3-r12.ebuild,v 1.12 2014/06/18 21:14:36 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,10 +14,9 @@ SRC_URI="ftp://ftp.ics.com/openmotif/2.2/${PV}/src/${MY_P}.tar.gz
 
 LICENSE="MOTIF MIT"
 SLOT="2.2"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 
-RDEPEND="abi_x86_32? ( !app-emulation/emul-linux-x86-motif[-abi_x86_32(-)] )
-	>=x11-libs/libX11-1.6.2[${MULTILIB_USEDEP}]
+RDEPEND=">=x11-libs/libX11-1.6.2[${MULTILIB_USEDEP}]
 	>=x11-libs/libXext-1.3.2[${MULTILIB_USEDEP}]
 	>=x11-libs/libXmu-1.1.1-r1[${MULTILIB_USEDEP}]
 	>=x11-libs/libXp-1.0.2[${MULTILIB_USEDEP}]
@@ -68,8 +67,8 @@ multilib_src_install() {
 
 multilib_src_install_all() {
 	# cleanups
-	rm -Rf "${D}"/usr/bin
-	rm -f "${D}"/usr/lib*/*.{so,la,a}
+	rm -rf "${ED}"/usr/bin
+	rm -f "${ED}"/usr/lib*/*.{so,la,a}
 
 	dodoc README RELEASE RELNOTES BUGREPORT TODO
 }

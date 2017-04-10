@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-roguelike/tome/tome-2.3.5.ebuild,v 1.8 2014/07/04 06:51:01 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -12,10 +12,10 @@ SRC_URI="http://t-o-m-e.net/dl/src/tome-${MY_PV}-src.tar.bz2"
 
 LICENSE="Moria"
 SLOT="0"
-KEYWORDS="~amd64 ppc x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="X Xaw3d gtk sdl"
 
-RDEPEND=">=sys-libs/ncurses-5
+RDEPEND=">=sys-libs/ncurses-5:0
 	X? ( x11-libs/libX11 )
 	Xaw3d? ( x11-libs/libXaw )
 	sdl? (
@@ -24,6 +24,7 @@ RDEPEND=">=sys-libs/ncurses-5
 		media-libs/libsdl )
 	gtk? ( >=x11-libs/gtk+-2.12.8:2 ) "
 DEPEND="${RDEPEND}
+	virtual/pkgconfig
 	x11-misc/makedepend"
 
 S=${WORKDIR}/tome-${MY_PV}-src/src
@@ -31,6 +32,7 @@ S=${WORKDIR}/tome-${MY_PV}-src/src
 src_prepare() {
 	mv makefile.std makefile
 	epatch "${FILESDIR}/${PV}-gentoo-paths.patch" \
+		"${FILESDIR}"/${P}-format.patch \
 		"${FILESDIR}"/${P}-noX.patch
 	sed -i -e '/^CC =/d' makefile || die
 	sed -i -e "s:xx:x:" ../lib/edit/p_info.txt || die
@@ -41,7 +43,7 @@ src_prepare() {
 }
 
 src_compile() {
-	local GENTOO_INCLUDES="" GENTOO_DEFINES="-DUSE_GCU " GENTOO_LIBS="-lncurses"
+	local GENTOO_INCLUDES="" GENTOO_DEFINES="-DUSE_GCU " GENTOO_LIBS="$(pkg-config ncurses --libs)"
 	if use sdl || use X || use gtk || use Xaw3d; then
 		GENTOO_DEFINES="${GENTOO_DEFINES} -DUSE_EGO_GRAPHICS -DUSE_TRANSPARENCY \
 			-DSUPPORT_GAMMA"

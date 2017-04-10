@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/conky/conky-1.9.0-r3.ebuild,v 1.10 2014/03/24 15:12:42 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3 BSD LGPL-2.1 MIT"
 SLOT="0"
-KEYWORDS="alpha amd64 ~arm ppc ppc64 sparc x86"
+KEYWORDS="alpha ~arm ppc ppc64 sparc"
 IUSE="apcupsd audacious curl debug eve hddtemp imlib iostats lua lua-cairo lua-imlib math moc mpd nano-syntax ncurses nvidia +portmon rss thinkpad truetype vim-syntax weather-metar weather-xoap wifi X xmms2"
 
 DEPEND_COMMON="
@@ -20,26 +20,26 @@ DEPEND_COMMON="
 		imlib? ( media-libs/imlib2[X] )
 		lua-cairo? (
 			>=dev-lua/toluapp-1.0.93
-			>=dev-lang/lua-5.1.4-r8
+			>=dev-lang/lua-5.1.4-r8:0
 			x11-libs/cairo[X] )
 		lua-imlib? (
 			>=dev-lua/toluapp-1.0.93
-			>=dev-lang/lua-5.1.4-r8
+			>=dev-lang/lua-5.1.4-r8:0
 			media-libs/imlib2[X] )
 		nvidia? ( media-video/nvidia-settings )
 		truetype? ( x11-libs/libXft >=media-libs/freetype-2 )
 		x11-libs/libX11
 		x11-libs/libXdamage
 		x11-libs/libXext
-		audacious? ( >=media-sound/audacious-1.5 dev-libs/glib )
+		audacious? ( >=media-sound/audacious-1.5 dev-libs/glib:2 )
 		xmms2? ( media-sound/xmms2 )
 	)
 	curl? ( net-misc/curl )
 	eve? ( net-misc/curl dev-libs/libxml2 )
-	portmon? ( dev-libs/glib )
-	lua? ( >=dev-lang/lua-5.1.4-r8 )
-	ncurses? ( sys-libs/ncurses )
-	rss? ( dev-libs/libxml2 net-misc/curl dev-libs/glib )
+	portmon? ( dev-libs/glib:2 )
+	lua? ( >=dev-lang/lua-5.1.4-r8:0 )
+	ncurses? ( sys-libs/ncurses:= )
+	rss? ( dev-libs/libxml2 net-misc/curl dev-libs/glib:2 )
 	wifi? ( net-wireless/wireless-tools )
 	weather-metar? ( net-misc/curl )
 	weather-xoap? ( dev-libs/libxml2 net-misc/curl )
@@ -59,17 +59,21 @@ DEPEND="
 	"
 
 src_prepare() {
-	epatch "${FILESDIR}/${PN}-1.8.1-utf8-scroll.patch" \
+	epatch \
+		"${FILESDIR}/${PN}-1.8.1-utf8-scroll.patch" \
 		"${FILESDIR}/${P}-ncurses.patch" \
 		"${FILESDIR}/${P}-lines-fix.patch" \
 		"${FILESDIR}/${P}-update-when-message-count-decreases.patch" \
 		"${FILESDIR}/${P}-apcupsd.patch" \
 		"${FILESDIR}/${P}-default-graph-size.patch" \
-		"${FILESDIR}/${P}-diskio-dmmajor.patch"
+		"${FILESDIR}/${P}-diskio-dmmajor.patch" \
+		"${FILESDIR}/${P}-tinfo.patch" \
+		"${FILESDIR}/${P}-update-noaa-metar-uri.patch"
 
 	# Allow user patches #478482
-	# Only run autotools if user patched something
-	epatch_user && eautoreconf || elibtoolize
+	epatch_user
+
+	eautoreconf
 }
 
 src_configure() {
@@ -136,7 +140,7 @@ pkg_postinst() {
 		elog "There are pretty html docs available at the conky homepage"
 		elog "or in ${ROOT%/}/usr/share/doc/${PF}/html."
 		elog
-		elog "Also see http://www.gentoo.org/doc/en/conky-howto.xml"
+		elog "Also see https://wiki.gentoo.org/wiki/Conky/HOWTO"
 		elog
 	fi
 }

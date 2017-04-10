@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/gqrx/gqrx-2.3.1.ebuild,v 1.1 2014/08/31 03:07:45 zerochaos Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,7 +14,7 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	KEYWORDS=""
 else
-	SRC_URI="https://github.com/csete/gqrx/archive/v${PV}.tar.gz"
+	SRC_URI="https://github.com/csete/gqrx/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
@@ -25,11 +25,11 @@ IUSE="pulseaudio"
 DEPEND=">=net-wireless/gnuradio-3.7_rc:=[audio,analog,filter]
 	>=net-wireless/gr-osmosdr-0.1.0:=
 	dev-libs/boost:=
-	dev-qt/qtgui:=
-	dev-qt/qtcore:=
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
 	pulseaudio? ( media-sound/pulseaudio:= )"
 RDEPEND="${DEPEND}
-	dev-qt/qtsvg"
+	dev-qt/qtsvg:4"
 
 src_prepare() {
 	if use !pulseaudio; then

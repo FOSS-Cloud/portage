@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/lxdvdrip/lxdvdrip-1.77.ebuild,v 1.1 2014/03/17 21:55:28 beandog Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,7 +8,7 @@ inherit eutils toolchain-funcs
 
 DESCRIPTION="Command line tool to automate the process of ripping and burning DVDs"
 SRC_URI="mirror://sourceforge/lxdvdrip/${P}.tgz"
-HOMEPAGE="http://sourceforge.net/projects/lxdvdrip/"
+HOMEPAGE="https://sourceforge.net/projects/lxdvdrip/"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/zsh/zsh-5.0.5.ebuild,v 1.10 2014/08/29 06:07:51 zlogene Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,12 +13,12 @@ SRC_URI="http://www.zsh.org/pub/${P}.tar.bz2
 
 LICENSE="ZSH gdbm? ( GPL-2 )"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="caps debug doc examples gdbm maildir pcre static unicode"
 
 RDEPEND="
-	>=sys-libs/ncurses-5.1
-	static? ( >=sys-libs/ncurses-5.7-r4[static-libs] )
+	>=sys-libs/ncurses-5.1:0=
+	static? ( >=sys-libs/ncurses-5.7-r4:0=[static-libs] )
 	caps? ( sys-libs/libcap )
 	pcre? ( >=dev-libs/libpcre-3.9
 		static? ( >=dev-libs/libpcre-3.9[static-libs] ) )
@@ -143,10 +143,10 @@ src_install() {
 
 pkg_postinst() {
 	if [[ -z ${REPLACING_VERSIONS} ]] ; then
-		# should link to http://www.gentoo.org/doc/en/zsh.xml
+		# should link to https://www.gentoo.org/doc/en/zsh.xml
 		echo
 		elog "If you want to enable Portage completions and Gentoo prompt,"
-		elog "emerge app-shells/zsh-completion and add"
+		elog "emerge app-shells/gentoo-zsh-completions and add"
 		elog "	autoload -U compinit promptinit"
 		elog "	compinit"
 		elog "	promptinit; prompt gentoo"

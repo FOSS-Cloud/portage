@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdw/cdw-9999.ebuild,v 1.3 2012/01/20 18:45:04 mr_bones_ Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 ECVS_SERVER="cdw.cvs.sourceforge.net:/cvsroot/cdw"
 ECVS_MODULE="cdw"
 ECVS_TOPDIR="${DISTDIR}/cvs-src/${ECVS_MODULE}"
@@ -23,6 +23,7 @@ DEPEND="virtual/cdrtools
 	dev-libs/libburn
 	dev-libs/libcdio[-minimal]
 	sys-libs/ncurses[unicode]"
+RDEPEND=${DEPEND}
 
 S=${WORKDIR}/${ECVS_MODULE}
 
@@ -31,6 +32,6 @@ src_prepare() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
-	dodoc AUTHORS ChangeLog NEWS README THANKS cdw.conf
+	DOCS="AUTHORS ChangeLog NEWS README THANKS cdw.conf" \
+		default
 }

@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-scheme/gauche/gauche-0.9.3.3.ebuild,v 1.6 2014/09/07 03:29:55 hattya Exp $
+# $Id$
 
-EAPI="5"
+EAPI="6"
 
 inherit autotools eutils
 
@@ -22,13 +22,18 @@ DEPEND="${RDEPEND}
 	test? ( dev-libs/openssl )"
 S="${WORKDIR}/${MY_P}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.9-rpath.patch
+	"${FILESDIR}"/${PN}-0.9-gauche.m4.patch
+	"${FILESDIR}"/${PN}-0.9-ext-ldflags.patch
+	"${FILESDIR}"/${PN}-0.9-xz-info.patch
+	"${FILESDIR}"/${PN}-0.9-rfc.tls.patch
+	"${FILESDIR}"/${P}-gauche.threads.patch
+	"${FILESDIR}"/${P}-file.util.patch
+)
+
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-rpath.diff
-	epatch "${FILESDIR}"/${PN}-gauche.m4.diff
-	epatch "${FILESDIR}"/${PN}-ext-ldflags.diff
-	epatch "${FILESDIR}"/${PN}-xz-info.diff
-	epatch "${FILESDIR}"/${PN}-rfc.tls.diff
-	epatch "${FILESDIR}"/${P}-gauche.threads.diff
+	default
 	eautoconf
 }
 

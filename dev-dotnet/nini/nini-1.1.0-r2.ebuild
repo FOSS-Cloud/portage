@@ -1,9 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-dotnet/nini/nini-1.1.0-r2.ebuild,v 1.2 2009/10/21 16:00:30 maekke Exp $
+# $Id$
 
-EAPI=2
-
+EAPI=5
 inherit mono multilib versionator
 
 DESCRIPTION="Nini - A configuration library for .NET"
@@ -18,21 +17,21 @@ IUSE="debug"
 RDEPEND=">=dev-lang/mono-2"
 DEPEND="${RDEPEND}
 	app-arch/sharutils
-	sys-apps/sed"
+"
 
-S=${WORKDIR}/Nini/Source
+S="${WORKDIR}/Nini/Source"
 
 src_prepare() {
-	uudecode -o Nini.snk "${FILESDIR}"/Nini.snk.uue
+	uudecode -o Nini.snk "${FILESDIR}"/Nini.snk.uue || die
 }
 
 src_configure() {
-	use debug&&DEBUG="-debug"
+	use debug && DEBUG="-debug"
 }
 
 src_compile() {
 	#See nini in Debian for info
-	gmcs	${DEBUG} \
+	mcs	${DEBUG} \
 		-nowarn:1616 \
 		-target:library \
 		-out:Nini.dll \

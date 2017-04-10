@@ -1,15 +1,15 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udftools/udftools-1.0.0b-r9.ebuild,v 1.8 2013/02/18 22:42:11 zmedico Exp $
+# $Id$
 
 EAPI="2"
 
-inherit eutils
+inherit eutils flag-o-matic
 
 MY_P=${P}3
 
 DESCRIPTION="Ben Fennema's tools for packet writing and the UDF filesystem"
-HOMEPAGE="http://sourceforge.net/projects/linux-udf/"
+HOMEPAGE="https://sourceforge.net/projects/linux-udf/"
 SRC_URI="mirror://sourceforge/linux-udf/${MY_P}.tar.gz
 	http://w1.894.telia.com/~u89404340/patches/packet/${MY_P}.patch.bz2"
 
@@ -31,6 +31,8 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-bigendian.patch #120245
 	epatch "${FILESDIR}"/${P}-openflags.patch #232100
 	epatch "${FILESDIR}"/${P}-limits_h.patch
+	# Force older C standard as the code relies on static inline behavior. #548324
+	append-flags -std=gnu89
 }
 
 src_install() {

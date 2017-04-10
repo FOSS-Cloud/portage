@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-scheme/slib/slib-3.2.2.ebuild,v 1.3 2010/11/14 16:11:56 jlec Exp $
+# $Id$
 
 EAPI="3"
 
@@ -19,7 +19,7 @@ HOMEPAGE="http://swiss.csail.mit.edu/~jaffer/SLIB"
 
 SLOT="0"
 LICENSE="public-domain BSD"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
+KEYWORDS="alpha amd64 ia64 ppc ~ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
 IUSE="" #test"
 
 #unzip for unpacking
@@ -28,6 +28,13 @@ DEPEND="app-arch/unzip"
 #		test? ( dev-scheme/scm )"
 
 INSTALL_DIR="/usr/share/slib/"
+
+_fix_txi_file() {
+	local inplace_filename="${1}"
+	local tempfile="$(emktemp)"
+	awk -f "${FILESDIR}"/slib-3.2.2-fix-texinfo.awk < "${inplace_filename}" > "${tempfile}"
+	mv "${tempfile}" "${inplace_filename}" || die
+}
 
 src_prepare() {
 	sed "s:prefix = /usr/local/:prefix = ${ED}/usr/:" -i Makefile || die
@@ -40,6 +47,11 @@ src_prepare() {
 #	diff -u Makefile.old Makefile
 
 	sed 's:(lambda () "/usr/local/share/gambc/")):(lambda () "'"${EPREFIX}"'/usr/share/gambit")):' -i gambit.init || die
+
+	einfo "Fixing Texinfo files..."
+	for i in *.txi *.texi ; do
+		_fix_txi_file "${i}" || die
+	done
 }
 
 src_compile() {

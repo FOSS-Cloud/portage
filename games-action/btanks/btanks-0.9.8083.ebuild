@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/btanks/btanks-0.9.8083.ebuild,v 1.6 2012/10/08 09:02:14 tupone Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils scons-utils games
 
 DESCRIPTION="Fast 2D tank arcade game with multiplayer and split-screen modes"
@@ -11,10 +11,10 @@ SRC_URI="mirror://sourceforge/btanks/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
-RDEPEND=">=dev-lang/lua-5.1
+RDEPEND=">=dev-lang/lua-5.1:0
 	media-libs/libsdl[joystick,video]
 	media-libs/libvorbis
 	virtual/opengl
@@ -37,17 +37,16 @@ src_compile() {
 		prefix="${GAMES_PREFIX}" \
 		lib_dir="$(games_get_libdir)"/${PN} \
 		plugins_dir="$(games_get_libdir)"/${PN} \
-		resources_dir="${GAMES_DATADIR}"/${PN} \
-		|| die
+		resources_dir="${GAMES_DATADIR}"/${PN}
 }
 
 src_install() {
-	dogamesbin build/release/engine/btanks || die "dogamesbin failed"
-	newgamesbin build/release/editor/bted btanksed || die "newgamesbin failed"
+	dogamesbin build/release/engine/btanks
+	newgamesbin build/release/editor/bted btanksed
 	exeinto "$(games_get_libdir)"/${PN}
-	doexe build/release/*/*.so || die "doexe failed"
+	doexe build/release/*/*.so
 	insinto "${GAMES_DATADIR}"/${PN}
-	doins -r data || die "doins failed"
+	doins -r data
 	newicon engine/src/bt.xpm ${PN}.xpm
 	make_desktop_entry ${PN} "Battle Tanks"
 	dodoc ChangeLog *.txt

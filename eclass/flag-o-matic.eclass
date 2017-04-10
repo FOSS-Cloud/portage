@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/flag-o-matic.eclass,v 1.202 2014/08/11 00:36:05 kumba Exp $
+# $Id$
 
 # @ECLASS: flag-o-matic.eclass
 # @MAINTAINER:
@@ -23,48 +23,50 @@ all-flag-vars() {
 # {C,CPP,CXX,CCAS,F,FC,LD}FLAGS that we allow in strip-flags
 # Note: shell globs and character lists are allowed
 setup-allowed-flags() {
-	ALLOWED_FLAGS="-pipe"
-	ALLOWED_FLAGS+=" -O -O1 -O2 -Os -Og -mcpu -march -mtune"
-	ALLOWED_FLAGS+=" -fstack-protector*"
-	ALLOWED_FLAGS+=" -fbounds-checking -fno-strict-overflow"
-	ALLOWED_FLAGS+=" -fno-PIE -fno-pie -fno-unit-at-a-time"
-	ALLOWED_FLAGS+=" -g -g[0-9] -ggdb -ggdb[0-9] -gdwarf-* gstabs -gstabs+"
-	ALLOWED_FLAGS+=" -fno-ident -fpermissive -frecord-gcc-switches"
-	ALLOWED_FLAGS+=" -fdiagnostics*"
-	ALLOWED_FLAGS+=" -W* -w"
+	ALLOWED_FLAGS=(
+		-pipe -O '-O[12sg]' -mcpu -march -mtune
+		'-fstack-protector*' '-fsanitize*' '-fstack-check*' -fno-stack-check
+		-fbounds-check -fbounds-checking -fno-strict-overflow
+		-fno-PIE -fno-pie -nopie -no-pie -fno-unit-at-a-time
+		-g '-g[0-9]' -ggdb '-ggdb[0-9]' '-gdwarf-*' gstabs -gstabs+
+		-fno-ident -fpermissive -frecord-gcc-switches
+		'-fdiagnostics*' '-fplugin*'
+		'-W*' -w
+
+		# CPPFLAGS and LDFLAGS
+		'-[DUILR]*' '-Wl,*'
+	)
 
 	# allow a bunch of flags that negate features / control ABI
-	ALLOWED_FLAGS+=" -fno-stack-protector* -fabi-version=* \
-		-fno-strict-aliasing -fno-bounds-checking -fstrict-overflow \
-		-fno-omit-frame-pointer -fno-builtin*"
-	ALLOWED_FLAGS+=" -mregparm -mno-app-regs -mapp-regs -mno-mmx -mno-sse \
-		-mno-sse2 -mno-sse3 -mno-ssse3 -mno-sse4 -mno-sse4.1 -mno-sse4.2 \
-		-mno-avx -mno-aes -mno-pclmul -mno-sse4a -mno-3dnow -mno-popcnt \
-		-mno-abm -mips1 -mips2 -mips3 -mips4 -mips32 -mips64 -mips16 -mplt \
-		-msoft-float -mno-soft-float -mhard-float -mno-hard-float -mfpu \
-		-mieee -mieee-with-inexact -mschedule -mfloat-gprs -mspe -mno-spe \
-		-mtls-direct-seg-refs -mno-tls-direct-seg-refs -mflat -mno-flat \
-		-mno-faster-structs -mfaster-structs -m32 -m64 -mx32 -mabi \
-		-mlittle-endian -mbig-endian -EL -EB -fPIC -mlive-g0 -mcmodel \
-		-mstack-bias -mno-stack-bias -msecure-plt -m*-toc -mfloat-abi \
-		-mfix-r10000 -mno-fix-r10000 -D* -U*"
+	ALLOWED_FLAGS+=(
+		'-fno-stack-protector*' '-fabi-version=*'
+		-fno-strict-aliasing -fno-bounds-check -fno-bounds-checking -fstrict-overflow
+		-fno-omit-frame-pointer '-fno-builtin*'
+	)
+	ALLOWED_FLAGS+=(
+		-mregparm -mno-app-regs -mapp-regs -mno-mmx -mno-sse
+		-mno-sse2 -mno-sse3 -mno-ssse3 -mno-sse4 -mno-sse4.1 -mno-sse4.2
+		-mno-avx -mno-aes -mno-pclmul -mno-sse4a -mno-3dnow -mno-popcnt
+		-mno-abm -mips1 -mips2 -mips3 -mips4 -mips32 -mips64 -mips16 -mplt
+		-msoft-float -mno-soft-float -mhard-float -mno-hard-float -mfpu
+		-mieee -mieee-with-inexact -mschedule -mfloat-gprs -mspe -mno-spe
+		-mtls-direct-seg-refs -mno-tls-direct-seg-refs -mflat -mno-flat
+		-mno-faster-structs -mfaster-structs -m32 -m64 -mx32 -mabi
+		-mlittle-endian -mbig-endian -EL -EB -fPIC -mlive-g0 -mcmodel
+		-mstack-bias -mno-stack-bias -msecure-plt '-m*-toc' -mfloat-abi
+		-mfix-r10000 -mno-fix-r10000 -mthumb -marm
 
-	# 4.5
-	ALLOWED_FLAGS+=" -mno-fma4 -mno-movbe -mno-xop -mno-lwp"
-	# 4.6
-	ALLOWED_FLAGS+=" -mno-fsgsbase -mno-rdrnd -mno-f16c -mno-bmi -mno-tbm"
-	# 4.7
-	ALLOWED_FLAGS+=" -mno-avx2 -mno-bmi2 -mno-fma -mno-lzcnt"
-	# 4.8
-	ALLOWED_FLAGS+=" -mno-fxsr -mno-rtm -mno-xsave -mno-xsaveopt"
-	# 4.9
-	ALLOWED_FLAGS+=" -mno-avx512cd -mno-avx512er -mno-avx512f -mno-avx512pf -mno-sha"
-
-	# CPPFLAGS and LDFLAGS
-	ALLOWED_FLAGS+=" -I* -L* -R* -Wl,*"
-
-	export ALLOWED_FLAGS
-	return 0
+		# gcc 4.5
+		-mno-fma4 -mno-movbe -mno-xop -mno-lwp
+		# gcc 4.6
+		-mno-fsgsbase -mno-rdrnd -mno-f16c -mno-bmi -mno-tbm
+		# gcc 4.7
+		-mno-avx2 -mno-bmi2 -mno-fma -mno-lzcnt
+		# gcc 4.8
+		-mno-fxsr -mno-hle -mno-rtm -mno-xsave -mno-xsaveopt
+		# gcc 4.9
+		-mno-avx512cd -mno-avx512er -mno-avx512f -mno-avx512pf -mno-sha
+	)
 }
 
 # inverted filters for hardened compiler.  This is trying to unpick
@@ -78,7 +80,16 @@ _filter-hardened() {
 			# thinking about -fPIE.
 			-fPIC|-fpic|-fPIE|-fpie|-Wl,pie|-pie)
 				gcc-specs-pie || continue
-				is-flagq -nopie || append-flags -nopie;;
+				if ! is-flagq -nopie && ! is-flagq -no-pie ; then
+					# Support older Gentoo form first (-nopie) before falling
+					# back to the official gcc-6+ form (-no-pie).
+					if test-flags -nopie >/dev/null ; then
+						append-flags -nopie
+					else
+						append-flags -no-pie
+					fi
+				fi
+				;;
 			-fstack-protector)
 				gcc-specs-ssp || continue
 				is-flagq -fno-stack-protector || append-flags $(test-flags -fno-stack-protector);;
@@ -375,6 +386,7 @@ filter-mfpmath() {
 strip-flags() {
 	local x y var
 
+	local ALLOWED_FLAGS
 	setup-allowed-flags
 
 	set -f	# disable pathname expansion
@@ -384,7 +396,7 @@ strip-flags() {
 
 		for x in ${!var} ; do
 			local flag=${x%%=*}
-			for y in ${ALLOWED_FLAGS} ; do
+			for y in "${ALLOWED_FLAGS[@]}" ; do
 				if [[ -z ${flag%%${y}} ]] ; then
 					new+=( "${x}" )
 					break
@@ -415,13 +427,18 @@ test-flag-PROG() {
 
 	[[ -z ${comp} || -z ${flag} ]] && return 1
 
-	# use -c so we can test the assembler as well
-	local PROG=$(tc-get${comp})
-	if ${PROG} -c -o /dev/null -x${lang} - < /dev/null > /dev/null 2>&1 ; then
-		${PROG} "${flag}" -c -o /dev/null -x${lang} - < /dev/null \
-			> /dev/null 2>&1
+	local cmdline=(
+		$(tc-get${comp})
+		# Clang will warn about unknown gcc flags but exit 0.
+		# Need -Werror to force it to exit non-zero.
+		-Werror
+		# Use -c so we can test the assembler as well.
+		-c -o /dev/null
+	)
+	if "${cmdline[@]}" -x${lang} - </dev/null >/dev/null 2>&1 ; then
+		"${cmdline[@]}" "${flag}" -x${lang} - </dev/null >/dev/null 2>&1
 	else
-		${PROG} "${flag}" -c -o /dev/null /dev/null > /dev/null 2>&1
+		"${cmdline[@]}" "${flag}" -c -o /dev/null /dev/null >/dev/null 2>&1
 	fi
 }
 
@@ -545,27 +562,8 @@ get-flag() {
 	return 1
 }
 
-# @FUNCTION: has_m64
-# @DESCRIPTION:
-# This doesn't test if the flag is accepted, it tests if the flag actually
-# WORKS. Non-multilib gcc will take both -m32 and -m64. If the flag works
-# return code is 0, else the return code is 1.
 has_m64() {
-	eqawarn "${FUNCNAME}: don't use this anymore"
-
-	# this doesnt test if the flag is accepted, it tests if the flag
-	# actually -WORKS-. non-multilib gcc will take both -m32 and -m64!
-	# please dont replace this function with test_flag in some future
-	# clean-up!
-
-	local temp="$(emktemp)"
-	echo "int main() { return(0); }" > "${temp}".c
-	MY_CC=$(tc-getCC)
-	${MY_CC/ .*/} -m64 -o "$(emktemp)" "${temp}".c > /dev/null 2>&1
-	local ret=$?
-	rm -f "${temp}".c
-	[[ ${ret} != 1 ]] && return 0
-	return 1
+	die "${FUNCNAME}: don't use this anymore"
 }
 
 has_m32() {

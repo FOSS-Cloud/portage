@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-sap-ccms-plugin/nagios-sap-ccms-plugin-0.8.ebuild,v 1.6 2014/01/26 03:45:15 creffett Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,7 +10,7 @@ MY_P="sap-ccms-plugin-${PV}"
 
 DESCRIPTION="Nagios plugin that provides an interface to SAP CCMS
 Infrastructure"
-HOMEPAGE="http://sourceforge.net/projects/nagios-sap-ccms/"
+HOMEPAGE="https://sourceforge.net/projects/nagios-sap-ccms/"
 SRC_URI="mirror://sourceforge/nagios-sap-ccms/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
@@ -23,7 +23,7 @@ QA_FLAGS_IGNORED="/usr/lib/librfccm.so"
 
 DEPEND="
 	net-analyzer/nagios-core
-	dev-libs/iniparser
+	dev-libs/iniparser:0
 "
 RDEPEND=${DEPEND}
 

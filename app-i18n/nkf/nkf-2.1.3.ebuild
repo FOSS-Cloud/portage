@@ -1,20 +1,20 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/nkf/nkf-2.1.3.ebuild,v 1.5 2014/08/09 08:30:22 jer Exp $
+# $Id$
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit eutils distutils-r1 perl-module toolchain-funcs
 
 DESCRIPTION="Network Kanji code conversion Filter with UTF-8/16 support"
 HOMEPAGE="http://sourceforge.jp/projects/nkf/"
 SRC_URI="mirror://sourceforge.jp/nkf/59912/${P}.tar.gz
-	python? ( http://dev.gentoo.org/~naota/files/NKF_python20090602.tgz )"
+	python? ( https://dev.gentoo.org/~naota/files/NKF_python20090602.tgz )"
 
 LICENSE="ZLIB"
 SLOT="0"
 KEYWORDS="alpha amd64 hppa ia64 ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-macos"
-IUSE="perl python linguas_ja"
+IUSE="perl python l10n_ja"
 
 src_prepare() {
 	sed -i \
@@ -52,7 +52,7 @@ src_install() {
 	dobin nkf || die
 	doman nkf.1
 
-	if use linguas_ja; then
+	if use l10n_ja; then
 		./nkf -e nkf.1j > nkf.1
 		doman -i18n=ja nkf.1
 	fi

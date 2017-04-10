@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/ircii/ircii-20111115.ebuild,v 1.6 2012/05/09 13:23:29 grobian Exp $
+# $Id$
 
 EAPI=4
 
@@ -13,7 +13,7 @@ HOMEPAGE="http://eterna.com.au/ircii/"
 
 SLOT="0"
 LICENSE="BSD"
-KEYWORDS="amd64 ~ppc x86 ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="amd64 ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris"
 IUSE="ipv6"
 
 DEPEND="sys-libs/ncurses

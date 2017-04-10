@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lua/luacrypto/luacrypto-0.3.2-r1.ebuild,v 1.2 2013/05/09 16:57:05 radhermit Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,9 +13,11 @@ SRC_URI="https://github.com/mkottman/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="libressl"
 
-RDEPEND=">=dev-lang/lua-5.1
-	dev-libs/openssl:0"
+RDEPEND="
+	>=dev-lang/lua-5.1:0
+	!libressl? ( dev-libs/openssl:0 ) libressl? ( dev-libs/libressl:0 )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/openmortal/openmortal-0.7-r1.ebuild,v 1.1 2014/09/02 21:50:25 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils games
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE=""
 
 DEPEND="media-libs/libsdl[video]
@@ -21,20 +21,20 @@ DEPEND="media-libs/libsdl[video]
 	media-libs/sdl-net
 	>=media-libs/freetype-2.4.0
 	dev-lang/perl"
-RDEPEND="${DEPEND}"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	epatch \
 		"${FILESDIR}/${P}"-gcc41.patch \
 		"${FILESDIR}/${P}"-freetype.patch
-
+	mv configure.{in,ac} || die
 	eautoreconf
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	DOCS="AUTHORS ChangeLog README TODO" \
+		default
 	newicon data/gfx/icon.png ${PN}.png
 	make_desktop_entry ${PN} OpenMortal
-	dodoc AUTHORS ChangeLog README TODO
 	prepgamesdirs
 }

@@ -1,12 +1,12 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/logsentry/logsentry-1.1.1.ebuild,v 1.29 2010/08/13 12:49:06 xarthisius Exp $
+# $Id$
 
 inherit toolchain-funcs
 
-DESCRIPTION="automatically monitor system logs and mail security violations on a periodic basis"
+DESCRIPTION="Automatically monitor system logs and mail security violations"
 # Seems that the project has been discontinued by CISCO?
-HOMEPAGE="http://sourceforge.net/projects/sentrytools/"
+HOMEPAGE="https://sourceforge.net/projects/sentrytools/"
 SRC_URI="mirror://gentoo/${P}.tar.gz"
 
 LICENSE="GPL-2"

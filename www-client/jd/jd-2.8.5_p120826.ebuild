@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/jd/jd-2.8.5_p120826.ebuild,v 1.2 2014/07/14 00:15:14 hasufell Exp $
+# $Id$
 
 EAPI=5
-inherit eutils autotools autotools-utils
+inherit eutils autotools autotools-utils flag-o-matic
 
 MY_P="${P/_p/-}"
 MY_P="${MY_P/_/-}"
@@ -38,6 +38,7 @@ S="${WORKDIR}/${MY_P}"
 AUTOTOOLS_AUTORECONF=1
 
 src_configure() {
+	append-cxxflags -std=c++11
 	# use gnomeui sm instead of Xorg SM/ICE
 	local myeconfargs=(
 		--with-xdgopen

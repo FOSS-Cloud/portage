@@ -1,17 +1,19 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-vim/youcompleteme/youcompleteme-20130910.ebuild,v 1.2 2013/09/10 10:41:22 radhermit Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
-inherit multilib python-single-r1 cmake-utils vim-plugin
+
+PYTHON_COMPAT=( python2_7 )
+
+inherit eutils multilib python-single-r1 cmake-utils vim-plugin
 
 if [[ ${PV} == 9999* ]] ; then
 	EGIT_REPO_URI="git://github.com/Valloric/YouCompleteMe.git"
 	inherit git-r3
 else
 	KEYWORDS="~amd64 ~x86"
-	SRC_URI="http://dev.gentoo.org/~radhermit/vim/${P}.tar.xz"
+	SRC_URI="https://dev.gentoo.org/~radhermit/vim/${P}.tar.xz"
 fi
 
 DESCRIPTION="vim plugin: a code-completion engine for Vim"
@@ -54,14 +56,14 @@ src_configure() {
 
 src_test() {
 	# TODO: use system gmock/gtest
-	cd "${S}"/cpp
+	cd "${S}"/cpp || die
 	emake ycm_core_tests
 	cd ycm/tests || die
 	LD_LIBRARY_PATH="${EROOT}"/usr/$(get_libdir)/llvm \
 		"${S}"/cpp/ycm/tests/ycm_core_tests || die
 
-	cd "${S}"/python/ycm
-	nosetests || die
+	cd "${S}"/python/ycm || die
+	nosetests --verbose || die
 }
 
 src_install() {
@@ -79,10 +81,6 @@ src_install() {
 pkg_postinst() {
 	vim-plugin_pkg_postinst
 
-	if [[ -z ${REPLACING_VERSIONS} ]] ; then
-		elog
-		elog "optional dependencies:"
-		elog "  dev-python/jedi (better python autocompletion)"
-		elog
-	fi
+	[[ -z ${REPLACING_VERSIONS} ]] && \
+		optfeature "better python autocompletion" dev-python/jedi
 }

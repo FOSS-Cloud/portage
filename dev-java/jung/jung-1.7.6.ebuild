@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jung/jung-1.7.6.ebuild,v 1.5 2012/04/13 18:44:06 ulm Exp $
+# $Id$
 
 EAPI="2"
 JAVA_PKG_IUSE="doc source"
@@ -32,7 +32,7 @@ PATCHES=( "${FILESDIR}/${P}-build.xml.patch" )
 S="${WORKDIR}/src"
 
 java_prepare() {
-	epatch ${PATCHES}
+	epatch "${PATCHES[@]}"
 	rm -R doc/*
 	find "${WORKDIR}" -iname '*.jar' -delete
 	find "${WORKDIR}" -iname '*.class' -delete

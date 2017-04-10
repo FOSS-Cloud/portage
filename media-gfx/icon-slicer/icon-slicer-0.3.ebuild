@@ -1,12 +1,12 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/icon-slicer/icon-slicer-0.3.ebuild,v 1.16 2012/05/05 07:00:27 jdhore Exp $
+# $Id$
 
 EAPI=2
 
 DESCRIPTION="utility for generating icon themes and libXcursor cursor themes"
-HOMEPAGE="http://www.freedesktop.org/software/icon-slicer/"
-SRC_URI="http://www.freedesktop.org/software/icon-slicer/releases/${P}.tar.gz"
+HOMEPAGE="https://www.freedesktop.org/software/icon-slicer/"
+SRC_URI="https://www.freedesktop.org/software/icon-slicer/releases/${P}.tar.gz"
 
 KEYWORDS="alpha amd64 ~hppa ia64 ppc sparc x86"
 LICENSE="GPL-2"

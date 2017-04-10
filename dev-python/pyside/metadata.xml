@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>qt</herd>
+	<maintainer type="project">
+		<email>qt@gentoo.org</email>
+		<name>Gentoo Qt Project</name>
+	</maintainer>
 	<use>
 		<flag name="X">Build QtGui and QtTest modules</flag>
 		<flag name="declarative">Build QtDeclarative module</flag>
 		<flag name="designer">Build QtDesigner and QtUiTools modules</flag>
 		<flag name="help">Build QtHelp module</flag>
-		<flag name="kde">Select <pkg>media-libs/phonon</pkg> as Phonon variant (needed for KDE)</flag>
 		<flag name="multimedia">Build QtMultimedia module</flag>
 		<flag name="opengl">Build QtOpenGL module</flag>
 		<flag name="phonon">Build phonon module</flag>

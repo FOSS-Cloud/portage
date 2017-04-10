@@ -1,17 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-qt/qt-mobility/qt-mobility-1.2.2_p20130703-r1.ebuild,v 1.1 2014/05/23 13:57:23 pesa Exp $
+# $Id$
 
 EAPI=5
 
 inherit multilib qt4-r2
 
 DESCRIPTION="Additional Qt APIs for mobile devices and desktop platforms"
-HOMEPAGE="http://qt-project.org/wiki/Category:Developing_with_Qt::QtMobility"
-SRC_URI="http://dev.gentoo.org/~pesa/distfiles/${P}.tar.xz"
+HOMEPAGE="http://doc-snapshots.qt.io/qt-mobility/index.html"
+SRC_URI="https://dev.gentoo.org/~pesa/distfiles/${P}.tar.xz"
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm ~ppc ~ppc64 x86"
 
 QT_MOBILITY_MODULES=(connectivity +contacts feedback gallery location
 		messaging multimedia organizer publishsubscribe
@@ -144,7 +144,7 @@ src_install() {
 	qt4-r2_src_install
 
 	if use doc; then
-		dohtml -r doc/html/*
+		dodoc -r doc/html
 		dodoc doc/qch/qtmobility.qch
 		docompress -x /usr/share/doc/${PF}/qtmobility.qch
 	fi

@@ -1,14 +1,13 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gdb-apple/gdb-apple-1461.ebuild,v 1.4 2013/02/09 04:36:22 vapier Exp $
 
-EAPI="3"
+EAPI="6"
 
 inherit eutils flag-o-matic
 
 APPLE_PV=${PV}.2
 DESCRIPTION="Apple branch of the GNU Debugger, Developer Tools 3.2.2"
-HOMEPAGE="http://sourceware.org/gdb/"
+HOMEPAGE="https://sourceware.org/gdb/"
 SRC_URI="http://www.opensource.apple.com/darwinsource/tarballs/other/gdb-${APPLE_PV}.tar.gz"
 
 LICENSE="APSL-2 GPL-2"
@@ -33,6 +32,8 @@ src_prepare() {
 
 	# for FSF gcc / gcc-apple:42
 	sed -e 's/-Wno-long-double//' -i gdb/config/*/macosx.mh
+
+	eapply_user
 }
 
 src_configure() {

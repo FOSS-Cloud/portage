@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>proxy-maintainers</herd>
-	<maintainer>
+    <maintainer type="person">
+        <email>julien@thebault.co</email>
+        <name>Lujeni</name>
+        <description>Proxy-Maintainer, assign bugs</description>
+    </maintainer>
+	<maintainer type="person">
 		<email>ultrabug@gentoo.org</email>
 		<name>Alexys Jacob</name>
 	</maintainer>
-	<maintainer>
-		<email>bugs@bergstroem.nu</email>
-		<name>Johan Bergström</name>
-		<description>Proxy Maintainer. CC on bugs</description>
-	</maintainer>
+	<maintainer type="project">
+        <email>proxy-maint@gentoo.org</email>
+        <name>Proxy Maintainers</name>
+    </maintainer>
 	<longdescription lang="en">
 	MongoDB (from "humongous") is a scalable, high-performance, open source,
 	schema-free, document-oriented database. Written in C++, MongoDB features:
@@ -20,10 +23,8 @@
 	and powerful queries).
 	</longdescription>
 	<use>
-		<flag name="spidermonkey">Use embedded SpiderMonkey engine
-			(<pkg>dev-lang/spidermonkey</pkg>) instead of v8</flag>
 		<flag name="mms-agent">Install the MongoDB Monitoring Service agent</flag>
-		<flag name="sharedclient">build client shared library libmongoclient.so</flag>
+		<flag name="tools">Install the MongoDB tools (mongoimport, mongodump...) 
+			from <pkg>app-admin/mongo-tools</pkg></flag>
 	</use>
 </pkgmetadata>
-

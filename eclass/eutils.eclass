@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/eutils.eclass,v 1.437 2014/09/19 17:09:05 vapier Exp $
+# $Id$
 
 # @ECLASS: eutils.eclass
 # @MAINTAINER:
@@ -19,50 +19,6 @@ if [[ -z ${_EUTILS_ECLASS} ]]; then
 _EUTILS_ECLASS=1
 
 inherit multilib toolchain-funcs
-
-if has "${EAPI:-0}" 0 1 2; then
-
-# @FUNCTION: epause
-# @USAGE: [seconds]
-# @DESCRIPTION:
-# Sleep for the specified number of seconds (default of 5 seconds).  Useful when
-# printing a message the user should probably be reading and often used in
-# conjunction with the ebeep function.  If the EPAUSE_IGNORE env var is set,
-# don't wait at all. Defined in EAPIs 0 1 and 2.
-epause() {
-	[[ -z ${EPAUSE_IGNORE} ]] && sleep ${1:-5}
-}
-
-# @FUNCTION: ebeep
-# @USAGE: [number of beeps]
-# @DESCRIPTION:
-# Issue the specified number of beeps (default of 5 beeps).  Useful when
-# printing a message the user should probably be reading and often used in
-# conjunction with the epause function.  If the EBEEP_IGNORE env var is set,
-# don't beep at all. Defined in EAPIs 0 1 and 2.
-ebeep() {
-	local n
-	if [[ -z ${EBEEP_IGNORE} ]] ; then
-		for ((n=1 ; n <= ${1:-5} ; n++)) ; do
-			echo -ne "\a"
-			sleep 0.1 &>/dev/null ; sleep 0,1 &>/dev/null
-			echo -ne "\a"
-			sleep 1
-		done
-	fi
-}
-
-else
-
-ebeep() {
-	ewarn "QA Notice: ebeep is not defined in EAPI=${EAPI}, please file a bug at http://bugs.gentoo.org"
-}
-
-epause() {
-	ewarn "QA Notice: epause is not defined in EAPI=${EAPI}, please file a bug at http://bugs.gentoo.org"
-}
-
-fi
 
 # @FUNCTION: eqawarn
 # @USAGE: [message]
@@ -83,7 +39,7 @@ fi
 # Remove CVS directories recursiveley.  Useful when a source tarball contains
 # internal CVS directories.  Defaults to $PWD.
 ecvs_clean() {
-	[[ -z $* ]] && set -- .
+	[[ $# -eq 0 ]] && set -- .
 	find "$@" -type d -name 'CVS' -prune -print0 | xargs -0 rm -rf
 	find "$@" -type f -name '.cvs*' -print0 | xargs -0 rm -rf
 }
@@ -94,8 +50,18 @@ ecvs_clean() {
 # Remove .svn directories recursiveley.  Useful when a source tarball contains
 # internal Subversion directories.  Defaults to $PWD.
 esvn_clean() {
-	[[ -z $* ]] && set -- .
+	[[ $# -eq 0 ]] && set -- .
 	find "$@" -type d -name '.svn' -prune -print0 | xargs -0 rm -rf
+}
+
+# @FUNCTION: egit_clean
+# @USAGE: [list of dirs]
+# @DESCRIPTION:
+# Remove .git* directories/files recursiveley.  Useful when a source tarball
+# contains internal Git directories.  Defaults to $PWD.
+egit_clean() {
+	[[ $# -eq 0 ]] && set -- .
+	find "$@" -type d -name '.git*' -prune -print0 | xargs -0 rm -rf
 }
 
 # @FUNCTION: estack_push
@@ -143,7 +109,7 @@ estack_pop() {
 	if [[ -n ${_estack_retvar} ]] ; then
 		eval ${_estack_retvar}=\"\${${_estack_name}\[${_estack_i}\]}\"
 	fi
-	eval unset ${_estack_name}\[${_estack_i}\]
+	eval unset \"${_estack_name}\[${_estack_i}\]\"
 }
 
 # @FUNCTION: evar_push
@@ -231,7 +197,7 @@ evar_pop() {
 # A common example is to disable shell globbing so that special meaning/care
 # may be used with variables/arguments to custom functions.  That would be:
 # @CODE
-#		eshopts_push -s noglob
+#		eshopts_push -o noglob
 #		for x in ${foo} ; do
 #			if ...some check... ; then
 #				eshopts_pop
@@ -523,6 +489,10 @@ epatch() {
 			einfo "  ${patchname} ..."
 		fi
 
+		# Handle aliased patch command #404447 #461568
+		local patch="patch"
+		eval $(alias patch 2>/dev/null | sed 's:^alias ::')
+
 		# most of the time, there will only be one run per unique name,
 		# but if there are more, make sure we get unique log filenames
 		local STDERR_TARGET="${T}/${patchname}.out"
@@ -530,7 +500,13 @@ epatch() {
 			STDERR_TARGET="${T}/${patchname}-$$.out"
 		fi
 
-		printf "***** %s *****\nPWD: %s\n\n" "${patchname}" "${PWD}" > "${STDERR_TARGET}"
+		printf "***** %s *****\nPWD: %s\nPATCH TOOL: %s -> %s\nVERSION INFO:\n%s\n\n" \
+			"${patchname}" \
+			"${PWD}" \
+			"${patch}" \
+			"$(type -P "${patch}")" \
+			"$(${patch} --version)" \
+			> "${STDERR_TARGET}"
 
 		# Decompress the patch if need be
 		local count=0
@@ -574,9 +550,6 @@ epatch() {
 
 		# Dynamically detect the correct -p# ... i'm lazy, so shoot me :/
 		local patch_cmd
-		# Handle aliased patch command #404447 #461568
-		local patch="patch"
-		eval $(alias patch 2>/dev/null | sed 's:^alias ::')
 		while [[ ${count} -lt 5 ]] ; do
 			patch_cmd="${patch} -p${count} ${EPATCH_OPTS}"
 
@@ -584,7 +557,7 @@ epatch() {
 			(
 			_epatch_draw_line "***** ${patchname} *****"
 			echo
-			echo "PATCH COMMAND:  ${patch_cmd} < '${PATCH_TARGET}'"
+			echo "PATCH COMMAND:  ${patch_cmd} --dry-run -f < '${PATCH_TARGET}'"
 			echo
 			_epatch_draw_line "***** ${patchname} *****"
 			${patch_cmd} --dry-run -f < "${PATCH_TARGET}" 2>&1
@@ -599,6 +572,7 @@ epatch() {
 				_epatch_draw_line "***** ${patchname} *****"
 				echo
 				echo "ACTUALLY APPLYING ${patchname} ..."
+				echo "PATCH COMMAND:  ${patch_cmd} < '${PATCH_TARGET}'"
 				echo
 				_epatch_draw_line "***** ${patchname} *****"
 				${patch_cmd} < "${PATCH_TARGET}" 2>&1
@@ -620,6 +594,8 @@ epatch() {
 
 			: $(( count++ ))
 		done
+
+		(( EPATCH_N_APPLIED_PATCHES++ ))
 
 		# if we had to decompress the patch, delete the temp one
 		if [[ -n ${PIPE_CMD} ]] ; then
@@ -653,60 +629,6 @@ epatch() {
 
 	[[ ${SINGLE_PATCH} == "no" ]] && einfo "Done with patching"
 	: # everything worked
-}
-
-# @FUNCTION: epatch_user
-# @USAGE:
-# @DESCRIPTION:
-# Applies user-provided patches to the source tree. The patches are
-# taken from /etc/portage/patches/<CATEGORY>/<P-PR|P|PN>[:SLOT]/, where the first
-# of these three directories to exist will be the one to use, ignoring
-# any more general directories which might exist as well. They must end
-# in ".patch" to be applied.
-#
-# User patches are intended for quick testing of patches without ebuild
-# modifications, as well as for permanent customizations a user might
-# desire. Obviously, there can be no official support for arbitrarily
-# patched ebuilds. So whenever a build log in a bug report mentions that
-# user patches were applied, the user should be asked to reproduce the
-# problem without these.
-#
-# Not all ebuilds do call this function, so placing patches in the
-# stated directory might or might not work, depending on the package and
-# the eclasses it inherits and uses. It is safe to call the function
-# repeatedly, so it is always possible to add a call at the ebuild
-# level. The first call is the time when the patches will be
-# applied.
-#
-# Ideally, this function should be called after gentoo-specific patches
-# have been applied, so that their code can be modified as well, but
-# before calls to e.g. eautoreconf, as the user patches might affect
-# autotool input files as well.
-epatch_user() {
-	[[ $# -ne 0 ]] && die "epatch_user takes no options"
-
-	# Allow multiple calls to this function; ignore all but the first
-	local applied="${T}/epatch_user.log"
-	[[ -e ${applied} ]] && return 2
-
-	# don't clobber any EPATCH vars that the parent might want
-	local EPATCH_SOURCE check base=${PORTAGE_CONFIGROOT%/}/etc/portage/patches
-	for check in ${CATEGORY}/{${P}-${PR},${P},${PN}}{,:${SLOT}}; do
-		EPATCH_SOURCE=${base}/${CTARGET}/${check}
-		[[ -r ${EPATCH_SOURCE} ]] || EPATCH_SOURCE=${base}/${CHOST}/${check}
-		[[ -r ${EPATCH_SOURCE} ]] || EPATCH_SOURCE=${base}/${check}
-		if [[ -d ${EPATCH_SOURCE} ]] ; then
-			EPATCH_SOURCE=${EPATCH_SOURCE} \
-			EPATCH_SUFFIX="patch" \
-			EPATCH_FORCE="yes" \
-			EPATCH_MULTI_MSG="Applying user patches from ${EPATCH_SOURCE} ..." \
-			epatch
-			echo "${EPATCH_SOURCE}" > "${applied}"
-			return 0
-		fi
-	done
-	echo "none" > "${applied}"
-	return 1
 }
 
 # @FUNCTION: emktemp
@@ -769,7 +691,7 @@ edos2unix() {
 #           a full path to an icon
 # type:     what kind of application is this?
 #           for categories:
-#           http://standards.freedesktop.org/menu-spec/latest/apa.html
+#           https://specifications.freedesktop.org/menu-spec/latest/apa.html
 #           if unset, function tries to guess from package's category
 # fields:	extra fields to append to the desktop file; a printf string
 # @CODE
@@ -903,10 +825,11 @@ make_desktop_entry() {
 				;;
 		esac
 	fi
-	if [ "${SLOT}" == "0" ] ; then
+	local slot=${SLOT%/*}
+	if [[ ${slot} == "0" ]] ; then
 		local desktop_name="${PN}"
 	else
-		local desktop_name="${PN}-${SLOT}"
+		local desktop_name="${PN}-${slot}"
 	fi
 	local desktop="${T}/$(echo ${exec} | sed 's:[[:space:]/:]:_:g')-${desktop_name}.desktop"
 	#local desktop=${T}/${exec%% *:-${desktop_name}}.desktop
@@ -958,8 +881,6 @@ _eutils_eprefix_init() {
 
 # @FUNCTION: validate_desktop_entries
 # @USAGE: [directories]
-# @MAINTAINER:
-# Carsten Lohrke <carlo@gentoo.org>
 # @DESCRIPTION:
 # Validate desktop entries using desktop-file-utils
 validate_desktop_entries() {
@@ -1081,7 +1002,7 @@ _iconins() {
 				size=${2}
 			fi
 			case ${size} in
-			16|22|24|32|36|48|64|72|96|128|192|256)
+			16|22|24|32|36|48|64|72|96|128|192|256|512)
 				size=${size}x${size};;
 			scalable)
 				;;
@@ -1139,7 +1060,7 @@ _iconins() {
 #    !!! must specify to install into /usr/share/icons/... !!!
 #    size of the icon, like 48 or 48x48
 #    supported icon sizes are:
-#    16 22 24 32 36 48 64 72 96 128 192 256 scalable
+#    16 22 24 32 36 48 64 72 96 128 192 256 512 scalable
 #  -c, --context
 #    defaults to "apps"
 #  -t, --theme
@@ -1379,20 +1300,34 @@ built_with_use() {
 	[[ ${opt} = "-a" ]]
 }
 
+# If an overlay has eclass overrides, but doesn't actually override the
+# libtool.eclass, we'll have ECLASSDIR pointing to the active overlay's
+# eclass/ dir, but libtool.eclass is still in the main Gentoo tree.  So
+# add a check to locate the ELT-patches/ regardless of what's going on.
+# Note: Duplicated in libtool.eclass.
+_EUTILS_ECLASSDIR_LOCAL=${BASH_SOURCE[0]%/*}
+eutils_elt_patch_dir() {
+	local d="${ECLASSDIR}/ELT-patches"
+	if [[ ! -d ${d} ]] ; then
+		d="${_EUTILS_ECLASSDIR_LOCAL}/ELT-patches"
+	fi
+	echo "${d}"
+}
+
 # @FUNCTION: epunt_cxx
 # @USAGE: [dir to scan]
 # @DESCRIPTION:
 # Many configure scripts wrongly bail when a C++ compiler could not be
 # detected.  If dir is not specified, then it defaults to ${S}.
 #
-# http://bugs.gentoo.org/73450
+# https://bugs.gentoo.org/73450
 epunt_cxx() {
 	local dir=$1
 	[[ -z ${dir} ]] && dir=${S}
 	ebegin "Removing useless C++ checks"
 	local f p any_found
 	while IFS= read -r -d '' f; do
-		for p in "${PORTDIR}"/eclass/ELT-patches/nocxx/*.patch ; do
+		for p in "$(eutils_elt_patch_dir)"/nocxx/*.patch ; do
 			if patch --no-backup-if-mismatch -p1 "${f}" "${p}" >/dev/null ; then
 				any_found=1
 				break
@@ -1438,7 +1373,7 @@ make_wrapper() {
 	fi
 	# We don't want to quote ${bin} so that people can pass complex
 	# things as ${bin} ... "./someprog --args"
-	printf 'exec %s "$@"\n' "${bin/#\//${EPREFIX}\/}"
+	printf 'exec %s "$@"\n' "${bin/#\//${EPREFIX}/}"
 	) > "${tmpwrapper}"
 	chmod go+rx "${tmpwrapper}"
 
@@ -1481,23 +1416,6 @@ path_exists() {
 	esac
 }
 
-# @FUNCTION: in_iuse
-# @USAGE: <flag>
-# @DESCRIPTION:
-# Determines whether the given flag is in IUSE. Strips IUSE default prefixes
-# as necessary.
-#
-# Note that this function should not be used in the global scope.
-in_iuse() {
-	debug-print-function ${FUNCNAME} "${@}"
-	[[ ${#} -eq 1 ]] || die "Invalid args to ${FUNCNAME}()"
-
-	local flag=${1}
-	local liuse=( ${IUSE} )
-
-	has "${flag}" "${liuse[@]#[+-]}"
-}
-
 # @FUNCTION: use_if_iuse
 # @USAGE: <flag>
 # @DESCRIPTION:
@@ -1508,17 +1426,6 @@ use_if_iuse() {
 	in_iuse $1 || return 1
 	use $1
 }
-
-# @FUNCTION: usex
-# @USAGE: <USE flag> [true output] [false output] [true suffix] [false suffix]
-# @DESCRIPTION:
-# Proxy to declare usex for package managers or EAPIs that do not provide it
-# and use the package manager implementation when available (i.e. EAPI >= 5).
-# If USE flag is set, echo [true output][true suffix] (defaults to "yes"),
-# otherwise echo [false output][false suffix] (defaults to "no").
-if has "${EAPI:-0}" 0 1 2 3 4; then
-	usex() { use "$1" && echo "${2-yes}$4" || echo "${3-no}$5" ; } #382963
-fi
 
 # @FUNCTION: prune_libtool_files
 # @USAGE: [--all|--modules]
@@ -1577,7 +1484,7 @@ prune_libtool_files() {
 		fi
 
 		[[ ${f} != ${archivefile} ]] || die 'regex sanity check failed'
-		local reason pkgconfig_scanned
+		local reason= pkgconfig_scanned=
 		local snotlink=$(sed -n -e 's:^shouldnotlink=::p' "${f}")
 
 		if [[ ${snotlink} == yes ]]; then
@@ -1666,6 +1573,194 @@ prune_libtool_files() {
 	fi
 }
 
+# @FUNCTION: optfeature
+# @USAGE: <short description> <package atom to match> [other atoms]
+# @DESCRIPTION:
+# Print out a message suggesting an optional package (or packages) which
+# provide the described functionality
+#
+# The following snippet would suggest app-misc/foo for optional foo support,
+# app-misc/bar or app-misc/baz[bar] for optional bar support
+# and either both app-misc/a and app-misc/b or app-misc/c for alphabet support.
+# @CODE
+#	optfeature "foo support" app-misc/foo
+#	optfeature "bar support" app-misc/bar app-misc/baz[bar]
+#	optfeature "alphabet support" "app-misc/a app-misc/b" app-misc/c
+# @CODE
+optfeature() {
+	debug-print-function ${FUNCNAME} "$@"
+	local i j msg
+	local desc=$1
+	local flag=0
+	shift
+	for i; do
+		for j in ${i}; do
+			if has_version "${j}"; then
+				flag=1
+			else
+				flag=0
+				break
+			fi
+		done
+		if [[ ${flag} -eq 1 ]]; then
+			break
+		fi
+	done
+	if [[ ${flag} -eq 0 ]]; then
+		for i; do
+			msg=" "
+			for j in ${i}; do
+				msg+=" ${j} and"
+			done
+			msg="${msg:0: -4} for ${desc}"
+			elog "${msg}"
+		done
+	fi
+}
+
+check_license() {
+	die "you no longer need this as portage supports ACCEPT_LICENSE itself"
+}
+
+case ${EAPI:-0} in
+0|1|2)
+
+# @FUNCTION: epause
+# @USAGE: [seconds]
+# @DESCRIPTION:
+# Sleep for the specified number of seconds (default of 5 seconds).  Useful when
+# printing a message the user should probably be reading and often used in
+# conjunction with the ebeep function.  If the EPAUSE_IGNORE env var is set,
+# don't wait at all. Defined in EAPIs 0 1 and 2.
+epause() {
+	[[ -z ${EPAUSE_IGNORE} ]] && sleep ${1:-5}
+}
+
+# @FUNCTION: ebeep
+# @USAGE: [number of beeps]
+# @DESCRIPTION:
+# Issue the specified number of beeps (default of 5 beeps).  Useful when
+# printing a message the user should probably be reading and often used in
+# conjunction with the epause function.  If the EBEEP_IGNORE env var is set,
+# don't beep at all. Defined in EAPIs 0 1 and 2.
+ebeep() {
+	local n
+	if [[ -z ${EBEEP_IGNORE} ]] ; then
+		for ((n=1 ; n <= ${1:-5} ; n++)) ; do
+			echo -ne "\a"
+			sleep 0.1 &>/dev/null ; sleep 0,1 &>/dev/null
+			echo -ne "\a"
+			sleep 1
+		done
+	fi
+}
+
+;;
+*)
+
+ebeep() {
+	ewarn "QA Notice: ebeep is not defined in EAPI=${EAPI}, please file a bug at https://bugs.gentoo.org"
+}
+
+epause() {
+	ewarn "QA Notice: epause is not defined in EAPI=${EAPI}, please file a bug at https://bugs.gentoo.org"
+}
+
+;;
+esac
+
+case ${EAPI:-0} in
+0|1|2|3|4)
+
+# @FUNCTION: usex
+# @USAGE: <USE flag> [true output] [false output] [true suffix] [false suffix]
+# @DESCRIPTION:
+# Proxy to declare usex for package managers or EAPIs that do not provide it
+# and use the package manager implementation when available (i.e. EAPI >= 5).
+# If USE flag is set, echo [true output][true suffix] (defaults to "yes"),
+# otherwise echo [false output][false suffix] (defaults to "no").
+usex() { use "$1" && echo "${2-yes}$4" || echo "${3-no}$5" ; } #382963
+
+;;
+esac
+
+case ${EAPI:-0} in
+0|1|2|3|4|5)
+
+# @VARIABLE: EPATCH_USER_SOURCE
+# @DESCRIPTION:
+# Location for user patches, see the epatch_user function.
+# Should be set by the user. Don't set this in ebuilds.
+: ${EPATCH_USER_SOURCE:=${PORTAGE_CONFIGROOT%/}/etc/portage/patches}
+
+# @FUNCTION: epatch_user
+# @USAGE:
+# @DESCRIPTION:
+# Applies user-provided patches to the source tree. The patches are
+# taken from /etc/portage/patches/<CATEGORY>/<P-PR|P|PN>[:SLOT]/, where the first
+# of these three directories to exist will be the one to use, ignoring
+# any more general directories which might exist as well. They must end
+# in ".patch" to be applied.
+#
+# User patches are intended for quick testing of patches without ebuild
+# modifications, as well as for permanent customizations a user might
+# desire. Obviously, there can be no official support for arbitrarily
+# patched ebuilds. So whenever a build log in a bug report mentions that
+# user patches were applied, the user should be asked to reproduce the
+# problem without these.
+#
+# Not all ebuilds do call this function, so placing patches in the
+# stated directory might or might not work, depending on the package and
+# the eclasses it inherits and uses. It is safe to call the function
+# repeatedly, so it is always possible to add a call at the ebuild
+# level. The first call is the time when the patches will be
+# applied.
+#
+# Ideally, this function should be called after gentoo-specific patches
+# have been applied, so that their code can be modified as well, but
+# before calls to e.g. eautoreconf, as the user patches might affect
+# autotool input files as well.
+epatch_user() {
+	[[ $# -ne 0 ]] && die "epatch_user takes no options"
+
+	# Allow multiple calls to this function; ignore all but the first
+	local applied="${T}/epatch_user.log"
+	[[ -e ${applied} ]] && return 2
+
+	# don't clobber any EPATCH vars that the parent might want
+	local EPATCH_SOURCE check
+	for check in ${CATEGORY}/{${P}-${PR},${P},${PN}}{,:${SLOT%/*}}; do
+		EPATCH_SOURCE=${EPATCH_USER_SOURCE}/${CTARGET}/${check}
+		[[ -r ${EPATCH_SOURCE} ]] || EPATCH_SOURCE=${EPATCH_USER_SOURCE}/${CHOST}/${check}
+		[[ -r ${EPATCH_SOURCE} ]] || EPATCH_SOURCE=${EPATCH_USER_SOURCE}/${check}
+		if [[ -d ${EPATCH_SOURCE} ]] ; then
+			local old_n_applied_patches=${EPATCH_N_APPLIED_PATCHES:-0}
+			EPATCH_SOURCE=${EPATCH_SOURCE} \
+			EPATCH_SUFFIX="patch" \
+			EPATCH_FORCE="yes" \
+			EPATCH_MULTI_MSG="Applying user patches from ${EPATCH_SOURCE} ..." \
+			epatch
+			echo "${EPATCH_SOURCE}" > "${applied}"
+			if [[ ${old_n_applied_patches} -lt ${EPATCH_N_APPLIED_PATCHES} ]]; then
+				has epatch_user_death_notice ${EBUILD_DEATH_HOOKS} || \
+					EBUILD_DEATH_HOOKS+=" epatch_user_death_notice"
+			fi
+			return 0
+		fi
+	done
+	echo "none" > "${applied}"
+	return 1
+}
+
+# @FUNCTION: epatch_user_death_notice
+# @INTERNAL
+# @DESCRIPTION:
+# Include an explicit notice in the die message itself that user patches were
+# applied to this build.
+epatch_user_death_notice() {
+	ewarn "!!! User patches were applied to this build!"
+}
+
 # @FUNCTION: einstalldocs
 # @DESCRIPTION:
 # Install documentation using DOCS and HTML_DOCS.
@@ -1727,51 +1822,24 @@ einstalldocs() {
 	return 0
 }
 
-check_license() { die "you no longer need this as portage supports ACCEPT_LICENSE itself"; }
-
-# @FUNCTION: optfeature
-# @USAGE: <short description> <package atom to match> [other atoms]
+# @FUNCTION: in_iuse
+# @USAGE: <flag>
 # @DESCRIPTION:
-# Print out a message suggesting an optional package (or packages) which
-# provide the described functionality
+# Determines whether the given flag is in IUSE. Strips IUSE default prefixes
+# as necessary.
 #
-# The following snippet would suggest app-misc/foo for optional foo support,
-# app-misc/bar or app-misc/baz[bar] for optional bar support
-# and either both app-misc/a and app-misc/b or app-misc/c for alphabet support.
-# @CODE
-#	optfeature "foo support" app-misc/foo
-#	optfeature "bar support" app-misc/bar app-misc/baz[bar]
-#	optfeature "alphabet support" "app-misc/a app-misc/b" app-misc/c
-# @CODE
-optfeature() {
-	debug-print-function ${FUNCNAME} "$@"
-	local i j msg
-	local desc=$1
-	local flag=0
-	shift
-	for i; do
-		for j in ${i}; do
-			if has_version "${j}"; then
-				flag=1
-			else
-				flag=0
-				break
-			fi
-		done
-		if [[ ${flag} -eq 1 ]]; then
-			break
-		fi
-	done
-	if [[ ${flag} -eq 0 ]]; then
-		for i; do
-			msg=" "
-			for j in ${i}; do
-				msg+=" ${j} and"
-			done
-			msg="${msg:0: -4} for ${desc}"
-			elog "${msg}"
-		done
-	fi
+# Note that this function should not be used in the global scope.
+in_iuse() {
+	debug-print-function ${FUNCNAME} "${@}"
+	[[ ${#} -eq 1 ]] || die "Invalid args to ${FUNCNAME}()"
+
+	local flag=${1}
+	local liuse=( ${IUSE} )
+
+	has "${flag}" "${liuse[@]#[+-]}"
 }
+
+;;
+esac
 
 fi

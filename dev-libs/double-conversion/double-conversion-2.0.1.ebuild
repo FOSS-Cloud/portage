@@ -1,24 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/double-conversion/double-conversion-2.0.1.ebuild,v 1.1 2014/04/02 22:54:52 bicatali Exp $
+# $Id$
 
 EAPI=5
 
 inherit scons-utils eutils
 
-DESCRIPTION="Binary-decimal and decimal-binary routines forIEEE doubles"
-HOMEPAGE="http://code.google.com/p/double-conversion/"
-SRC_URI="http://${PN}.googlecode.com/files/${P}.tar.gz"
+DESCRIPTION="Binary-decimal and decimal-binary conversion routines for IEEE doubles"
+HOMEPAGE="https://github.com/google/double-conversion"
+SRC_URI="https://github.com/google/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/1"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="static-libs"
-
-RDEPEND=""
-DEPEND="${RDEPEND}"
-
-S="${WORKDIR}"
 
 LIBNAME=lib${PN}
 
@@ -27,7 +22,7 @@ src_prepare() {
 }
 
 src_compile() {
-	escons ${LIBNAME}.so
+	escons ${LIBNAME}.so.1
 	use static-libs && escons ${LIBNAME}.a
 }
 

@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/conveysdl/conveysdl-1.3.ebuild,v 1.7 2010/08/14 05:50:18 mr_bones_ Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils toolchain-funcs games
 
 DESCRIPTION="Guide the blob along the conveyer belt collecting the red blobs"
@@ -11,11 +11,12 @@ SRC_URI="http://www.cloudsprinter.com/software/conveysdl/${P/-/.}.tar"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86 ~x86-fbsd"
+KEYWORDS="amd64 ~ppc x86 ~x86-fbsd"
 IUSE=""
 
-DEPEND="media-libs/libsdl
+DEPEND="media-libs/libsdl[sound,video]
 	media-libs/sdl-mixer"
+RDEPEND=${DEPEND}
 
 S=${WORKDIR}
 
@@ -23,13 +24,11 @@ src_prepare() {
 	# Incomplete readme
 	sed -i \
 		-e 's:I k:use -nosound to disable sound\n\nI k:' \
-		readme \
-		|| die "sed failed"
+		readme || die
 
 	sed -i \
 		-e 's:SDL_Mi:SDL_mi:' \
-		main.c \
-		|| die "sed failed"
+		main.c || die
 
 	epatch \
 		"${FILESDIR}"/${P}-arrays.patch \
@@ -42,14 +41,13 @@ src_compile() {
 		CFLAGS="${CFLAGS} $(sdl-config --cflags) \
 			-DDATA_PREFIX=\\\"${GAMES_DATADIR}/${PN}/\\\" \
 			-DENABLE_SOUND" \
-		LDLIBS="-lSDL_mixer $(sdl-config --libs)" \
-		|| die "emake failed"
+		LDLIBS="-lSDL_mixer $(sdl-config --libs)"
 }
 
 src_install() {
-	newgamesbin main ${PN} || die "newgamesbin failed"
+	newgamesbin main ${PN}
 	insinto "${GAMES_DATADIR}"/${PN}
-	doins -r gfx sounds levels || die "doins failed"
+	doins -r gfx sounds levels
 	newicon gfx/jblob.bmp ${PN}.bmp
 	make_desktop_entry ${PN} Convey /usr/share/pixmaps/${PN}.bmp
 	dodoc readme

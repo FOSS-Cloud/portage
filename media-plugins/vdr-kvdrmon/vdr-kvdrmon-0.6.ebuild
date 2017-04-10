@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-kvdrmon/vdr-kvdrmon-0.6.ebuild,v 1.4 2014/02/23 20:08:27 hd_brummy Exp $
+# $Id$
 
 EAPI=5
 
@@ -19,3 +19,12 @@ DEPEND=">=media-video/vdr-1.3.0"
 RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}/${P}-remove-menu-entry.diff" )
+
+src_prepare() {
+	vdr-plugin-2_src_prepare
+
+	if has_version ">=media-video/vdr-2.1.1"; then
+		sed -e "s/VideoDiskSpace/cVideoDirectory::VideoDiskSpace/" \
+		-i helpers.c
+	fi
+}

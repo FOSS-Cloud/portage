@@ -1,21 +1,24 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/tpm-emulator/tpm-emulator-0.7.4-r1.ebuild,v 1.2 2013/05/10 06:27:54 patrick Exp $
+# $Id$
 
-EAPI=2
+EAPI=6
 inherit user linux-mod cmake-utils udev
 
 MY_P=${P/-/_}
 DESCRIPTION="Emulator driver for tpm"
-HOMEPAGE="https://developer.berlios.de/projects/tpm-emulator"
-SRC_URI="mirror://berlios/tpm-emulator/${MY_P}.tar.gz"
+HOMEPAGE="https://sourceforge.net/projects/tpm-emulator.berlios/"
+SRC_URI="mirror://sourceforge/tpm-emulator/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="ssl modules"
-RDEPEND="ssl? ( dev-libs/openssl )"
+IUSE="libressl ssl modules"
+RDEPEND="ssl? (
+		!libressl? ( dev-libs/openssl:0= )
+		libressl? ( dev-libs/libressl:0= )
+	)"
 DEPEND="${RDEPEND}
 	!ssl? ( dev-libs/gmp )"
 
@@ -32,6 +35,7 @@ pkg_setup() {
 }
 
 src_prepare() {
+	default
 	# do not build and install the kernel module
 	sed -i 's/COMMAND ${tpmd_dev_BUILD_CMD}//' tpmd_dev/CMakeLists.txt || die
 	sed -i 's/install(CODE.*//' tpmd_dev/CMakeLists.txt || die
@@ -39,7 +43,7 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_use ssl OPENSSL)
+		-DUSE_OPENSSL=$(usex ssl)
 	)
 	cmake-utils_src_configure
 

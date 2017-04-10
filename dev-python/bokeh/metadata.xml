@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>sci</herd>
+  <maintainer type="project">
+    <email>sci@gentoo.org</email>
+    <name>Gentoo Science Project</name>
+  </maintainer>
   <longdescription lang="en">
   Bokeh is a Python interactive visualization library for large
   datasets that natively uses the latest web technologies. Its goal is
@@ -9,7 +12,12 @@
   style of Protovis/D3, while delivering high-performance
   interactivity over large data to thin clients.
 </longdescription>
-  <use>
-    <flag name="chaco">Enable interface for implementing qplot and ggplot like functionality using chaco</flag>
-  </use>
+  <upstream>
+    <remote-id type="pypi">bokeh</remote-id>
+    <remote-id type="github">ContinuumIO/bokeh</remote-id>
+    <maintainer status="unknown">
+      <email>info@continuum.io</email>
+      <name>Continuum Analytics</name>
+    </maintainer>
+  </upstream>
 </pkgmetadata>

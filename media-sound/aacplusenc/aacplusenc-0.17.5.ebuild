@@ -1,13 +1,14 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/aacplusenc/aacplusenc-0.17.5.ebuild,v 1.2 2011/12/04 22:53:46 radhermit Exp $
+# $Id$
 
-EAPI=4
-inherit eutils toolchain-funcs
+EAPI=6
+
+inherit toolchain-funcs
 
 DESCRIPTION="High-Efficiency AAC (AAC+) Encoder"
 HOMEPAGE="http://teknoraver.net/software/mp4tools/"
-SRC_URI="http://ppa.launchpad.net/teknoraver/ppa/ubuntu/pool/main/a/${PN}/${PN}_${PV}.tar.gz"
+SRC_URI="https://launchpad.net/~teknoraver/+archive/ubuntu/ppa/+files/${PN}_${PV}.tar.gz"
 
 LICENSE="GPL-1"
 SLOT="0"
@@ -21,14 +22,14 @@ DEPEND="${RDEPEND}
 # 3GPP patenting issues
 RESTRICT="mirror test"
 
+PATCHES=(
+	"${FILESDIR}/${P}-asneeded.patch"
+	"${FILESDIR}/${P}-libm.patch"
+)
 S=${WORKDIR}/${PN}
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-asneeded.patch
-
-	# Fix linking order (bug #393137)
-	epatch "${FILESDIR}"/${P}-libm.patch
-
+	default
 	sed \
 		-e 's:LDFLAGS:LIBRARIES:g' \
 		-e 's:$(CC) $(CFLAGS):$(CC) $(LDFLAGS) $(CFLAGS):' \

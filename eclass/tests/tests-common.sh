@@ -1,15 +1,28 @@
 #!/bin/bash
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-if ! source /etc/init.d/functions.sh ; then
-	echo "Missing functions.sh.  Please to install!" 1>&2
+if ! source /lib/gentoo/functions.sh ; then
+	echo "Missing functions.sh.  Please install sys-apps/gentoo-functions!" 1>&2
 	exit 1
 fi
 
+# Let overlays override this so they can add their own testsuites.
+TESTS_ECLASS_SEARCH_PATHS=( .. )
+
 inherit() {
-	local e
+	local e path
 	for e in "$@" ; do
-		source ../${e}.eclass
+		for path in "${TESTS_ECLASS_SEARCH_PATHS[@]}" ; do
+			local eclass=${path}/${e}.eclass
+			if [[ -e "${eclass}" ]] ; then
+				source "${eclass}"
+				return 0
+			fi
+		done
 	done
+	die "could not find ${eclass}"
 }
 EXPORT_FUNCTIONS() { :; }
 
@@ -50,47 +63,6 @@ die() {
 
 has_version() {
 	portageq has_version / "$@"
-}
-
-KV_major() {
-	[[ -z $1 ]] && return 1
-
-	local KV=$@
-	echo "${KV%%.*}"
-}
-
-KV_minor() {
-	[[ -z $1 ]] && return 1
-
-	local KV=$@
-	KV=${KV#*.}
-	echo "${KV%%.*}"
-}
-
-KV_micro() {
-	[[ -z $1 ]] && return 1
-
-	local KV=$@
-	KV=${KV#*.*.}
-	echo "${KV%%[^[:digit:]]*}"
-}
-
-KV_to_int() {
-	[[ -z $1 ]] && return 1
-
-	local KV_MAJOR=$(KV_major "$1")
-	local KV_MINOR=$(KV_minor "$1")
-	local KV_MICRO=$(KV_micro "$1")
-	local KV_int=$(( KV_MAJOR * 65536 + KV_MINOR * 256 + KV_MICRO ))
-
-	# We make version 2.2.0 the minimum version we will handle as
-	# a sanity check ... if its less, we fail ...
-	if [[ ${KV_int} -ge 131584 ]] ; then
-		echo "${KV_int}"
-		return 0
-	fi
-
-	return 1
 }
 
 tret=0

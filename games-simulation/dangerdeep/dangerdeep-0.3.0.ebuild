@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-simulation/dangerdeep/dangerdeep-0.3.0.ebuild,v 1.12 2013/02/07 22:15:30 ulm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils scons-utils games
 
 DESCRIPTION="a World War II German submarine simulation"
@@ -12,8 +12,8 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz
 
 LICENSE="GPL-2 CC-BY-NC-ND-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
-IUSE="sse debug"
+KEYWORDS="amd64 x86"
+IUSE="cpu_flags_x86_sse debug"
 
 RDEPEND="virtual/opengl
 	virtual/glu
@@ -37,7 +37,7 @@ src_prepare() {
 src_compile() {
 	local sse=-1
 
-	if use sse ; then
+	if use cpu_flags_x86_sse ; then
 		use amd64 && sse=3 || sse=1
 	fi
 
@@ -48,10 +48,10 @@ src_compile() {
 }
 
 src_install() {
-	dogamesbin build/linux/${PN} || die "dogamesbin failed"
+	dogamesbin build/linux/${PN}
 
 	insinto "${GAMES_DATADIR}"/${PN}
-	doins -r ../data/* || die "doins failed"
+	doins -r ../data/*
 
 	newicon dftd_icon.png ${PN}.png
 	make_desktop_entry ${PN} "Danger from the Deep"

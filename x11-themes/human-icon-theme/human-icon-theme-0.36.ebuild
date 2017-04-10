@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/human-icon-theme/human-icon-theme-0.36.ebuild,v 1.3 2013/02/07 22:57:23 ulm Exp $
+# $Id$
 
 EAPI=4
 inherit gnome2-utils
@@ -8,7 +8,7 @@ inherit gnome2-utils
 DESCRIPTION="A nice and well polished icon theme"
 HOMEPAGE="http://packages.ubuntu.com/lucid/human-icon-theme"
 SRC_URI="mirror://ubuntu/pool/universe/h/${PN}/${PN}_${PV}.tar.gz
-	http://www.gentoo.org/images/gentoo-logo.svg"
+	https://www.gentoo.org/images/gentoo-logo.svg"
 
 LICENSE="CC-BY-SA-2.5"
 SLOT="0"
@@ -17,7 +17,7 @@ IUSE=""
 
 RESTRICT="binchecks strip"
 
-RDEPEND="|| ( x11-themes/tangerine-icon-theme x11-themes/gnome-icon-theme )"
+RDEPEND="|| ( x11-themes/tangerine-icon-theme x11-themes/adwaita-icon-theme )"
 DEPEND=">=gnome-base/librsvg-2.34
 	>=x11-misc/icon-naming-utils-0.8.90
 	dev-util/intltool

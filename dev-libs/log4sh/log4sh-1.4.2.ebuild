@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/log4sh/log4sh-1.4.2.ebuild,v 1.4 2013/03/07 18:04:21 ago Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils
 
 DESCRIPTION="A flexible logging framework for shell scripts"
-HOMEPAGE="http://sourceforge.net/projects/log4sh"
+HOMEPAGE="https://sourceforge.net/projects/log4sh"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tgz"
 
 LICENSE="LGPL-2.1"

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jstun/jstun-0.7.3.ebuild,v 1.1 2013/06/29 22:07:14 tomwij Exp $
+# $Id$
 
 EAPI="5"
 
@@ -14,16 +14,18 @@ SRC_URI="http://${PN}.javawi.de/${P}.src.tar.gz"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-COMMON_DEP="dev-java/slf4j-api:0"
+CDEPEND="dev-java/slf4j-api:0"
 
-RDEPEND=">=virtual/jre-1.5
-	${COMMON_DEP}"
+RDEPEND="
+	>=virtual/jre-1.5
+	${CDEPEND}"
 
-DEPEND=">=virtual/jdk-1.5
+DEPEND="
+	>=virtual/jdk-1.5
 	test? ( dev-java/junit:0 )
-	${COMMON_DEP}"
+	${CDEPEND}"
 
 S="${WORKDIR}/STUN"
 
@@ -35,8 +37,7 @@ RESTRICT="test"
 EANT_BUILD_XML="build/build.xml"
 
 java_prepare() {
-	rm -v *.jar || die
-	rm -v build/*.jar || die
+	rm -v *.jar build/*.jar || die
 
 	java-pkg_jar-from slf4j-api
 }

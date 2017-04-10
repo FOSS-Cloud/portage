@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/stardork/stardork-0.7.ebuild,v 1.2 2012/01/28 14:55:58 phajdan.jr Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit toolchain-funcs games
 
 DESCRIPTION="An ncurses-based space shooter"
@@ -11,21 +11,23 @@ SRC_URI="mirror://sourceforge/stardork/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 x86"
+KEYWORDS="amd64 ~ppc ~ppc64 x86"
 IUSE=""
 
-DEPEND="sys-libs/ncurses"
+RDEPEND="sys-libs/ncurses:0"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 src_prepare() {
 	rm -f Makefile
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)" LDLIBS=-lncurses ${PN} || die
+	emake CC="$(tc-getCC)" LDLIBS="$(pkg-config ncurses --libs)" ${PN}
 }
 
 src_install() {
-	dogamesbin ${PN} || die
+	dogamesbin ${PN}
 	dodoc README
 	prepgamesdirs
 }

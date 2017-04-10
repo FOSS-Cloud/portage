@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/charm/charm-6.5.1-r3.ebuild,v 1.2 2013/12/15 04:19:41 nicolasbock Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit eutils flag-o-matic fortran-2 multilib toolchain-funcs python-any-r1
 
@@ -33,7 +33,6 @@ DEPEND="
 	)"
 
 REQUIRED_USE="
-	doc? ( ${PYTHON_REQUIRED_USE} )
 	cmkopt? ( !charmdebug !charmtracing )
 	charmproduction? ( !charmdebug !charmtracing )"
 

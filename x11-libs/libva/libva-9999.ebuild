@@ -1,26 +1,26 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libva/libva-9999.ebuild,v 1.21 2014/06/18 21:02:06 mgorny Exp $
+# $Id$
 
 EAPI=5
 
 SCM=""
 if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
-	SCM=git-2
+	SCM=git-r3
 	EGIT_BRANCH=master
-	EGIT_REPO_URI="git://anongit.freedesktop.org/vaapi/libva"
+	EGIT_REPO_URI="https://github.com/01org/libva"
 fi
 
 AUTOTOOLS_AUTORECONF="yes"
 inherit autotools-multilib ${SCM} multilib
 
 DESCRIPTION="Video Acceleration (VA) API for Linux"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/vaapi"
+HOMEPAGE="https://01.org/linuxmedia/vaapi"
 if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
 	SRC_URI=""
-	S="${WORKDIR}/${PN}"
 else
-	SRC_URI="http://www.freedesktop.org/software/vaapi/releases/libva/${P}.tar.bz2"
+	SRC_URI="https://github.com/01org/libva/archive/${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${P}"
 fi
 
 LICENSE="MIT"
@@ -31,9 +31,8 @@ else
 	KEYWORDS=""
 fi
 IUSE="+drm egl opengl vdpau wayland X"
-REQUIRED_USE="|| ( drm wayland X )"
 
-VIDEO_CARDS="dummy nvidia intel fglrx"
+VIDEO_CARDS="dummy nvidia intel i965 fglrx nouveau"
 for x in ${VIDEO_CARDS}; do
 	IUSE+=" video_cards_${x}"
 done
@@ -51,14 +50,19 @@ RDEPEND=">=x11-libs/libdrm-2.4.46[${MULTILIB_USEDEP}]
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 PDEPEND="video_cards_nvidia? ( >=x11-libs/libva-vdpau-driver-0.7.4-r1[${MULTILIB_USEDEP}] )
+	video_cards_nouveau? ( >=x11-libs/libva-vdpau-driver-0.7.4-r3[${MULTILIB_USEDEP}] )
 	vdpau? ( >=x11-libs/libva-vdpau-driver-0.7.4-r1[${MULTILIB_USEDEP}] )
-	video_cards_fglrx? ( >=x11-libs/xvba-video-0.8.0-r1[${MULTILIB_USEDEP}] )
+	video_cards_fglrx? (
+		|| ( >=x11-drivers/ati-drivers-14.12-r3[${MULTILIB_USEDEP}]
+			>=x11-libs/xvba-video-0.8.0-r1[${MULTILIB_USEDEP}] )
+		)
 	video_cards_intel? ( >=x11-libs/libva-intel-driver-1.2.2-r1[${MULTILIB_USEDEP}] )
+	video_cards_i965? ( >=x11-libs/libva-intel-driver-1.2.2-r1[${MULTILIB_USEDEP}] )
 	"
 
-REQUIRED_USE="opengl? ( X )"
+REQUIRED_USE="|| ( drm wayland X )
+		opengl? ( X )"
 
-PATCHES=( "${FILESDIR}/${PN}-1.2.0-autotools-out-of-source-build.patch" )
 DOCS=( NEWS )
 
 MULTILIB_WRAPPED_HEADERS=(

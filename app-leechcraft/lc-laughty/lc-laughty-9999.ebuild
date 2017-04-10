@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-laughty/lc-laughty-9999.ebuild,v 1.2 2013/05/29 08:49:09 pinkbyte Exp $
+# $Id$
 
-EAPI="5"
+EAPI=6
 
 inherit leechcraft
 
@@ -13,6 +13,9 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="~app-leechcraft/lc-core-${PV}
-	dev-qt/qtdbus:4"
+	dev-qt/qtnetwork:5
+	dev-qt/qtgui:5
+	dev-qt/qtdbus:5
+	"
 RDEPEND="${DEPEND}
-	virtual/leechcraft-notifier"
+	~virtual/leechcraft-notifier-${PV}"

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>robbat2@gentoo.org</email>
 	</maintainer>
-	<maintainer>
+	<maintainer type="person">
 		<email>prometheanfire@gentoo.org</email>
 	</maintainer>
 	<longdescription>
@@ -12,9 +12,12 @@
 	(http://danga.com/memcached). It has been designed to be light on memory
 	usage, thread safe, and provide full access to server side methods.
 	</longdescription>
-<use>
-	<flag name='hsieh'>Use Hsieh hash algorithm.</flag>
-	<flag name='libevent'>Use the libevent event loop interface.</flag>
-	<flag name='sasl'>Use sasl auth for communications.</flag>
-</use>
+	<use>
+		<flag name="hsieh">Use Hsieh hash algorithm.</flag>
+		<flag name="libevent">Use the libevent event loop interface.</flag>
+		<flag name="sasl">Use sasl auth for communications.</flag>
+	</use>
+	<upstream>
+		<remote-id type="launchpad">libmemcached</remote-id>
+	</upstream>
 </pkgmetadata>

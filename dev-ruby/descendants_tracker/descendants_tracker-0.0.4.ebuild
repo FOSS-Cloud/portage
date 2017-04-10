@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/descendants_tracker/descendants_tracker-0.0.4.ebuild,v 1.2 2014/08/26 20:12:49 blueness Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 RUBY_FAKEGEM_RECIPE_DOC="yard"
@@ -16,8 +16,10 @@ HOMEPAGE="https://github.com/dkubb/descendants_tracker"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
+
+ruby_add_rdepend "dev-ruby/thread_safe"
 
 all_ruby_prepare() {
 	# Remove dependency on devtools

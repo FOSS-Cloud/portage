@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/zmap/zmap-9999.ebuild,v 1.6 2014/05/11 16:05:59 jlec Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit cmake-utils fcaps git-r3
 
@@ -14,12 +14,13 @@ EGIT_REPO_URI="git://github.com/zmap/zmap.git"
 SLOT="0"
 LICENSE="Apache-2.0"
 KEYWORDS=""
-IUSE="json redis"
+IUSE="mongo redis"
 
 RDEPEND="
-	dev-libs/gmp
+	dev-libs/gmp:0
 	net-libs/libpcap
-	json? ( dev-libs/json-c )
+	dev-libs/json-c
+	mongo? ( dev-db/mongo )
 	redis? ( dev-libs/hiredis )"
 DEPEND="${RDEPEND}
 	dev-util/gengetopt
@@ -31,8 +32,9 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_DEVELOPMENT=OFF
 		-DENABLE_HARDENING=OFF
-		$(cmake-utils_use_with json)
-		$(cmake-utils_use_with redis)
+		-DWITH_WERROR=OFF
+		-DWITH_mongo="$(usex mongo)"
+		-DWITH_redis="$(usex redis)"
 		)
 	cmake-utils_src_configure
 }

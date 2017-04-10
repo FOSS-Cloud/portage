@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/bbdb/bbdb-3.1.2.ebuild,v 1.1 2014/07/28 16:33:40 ulm Exp $
+# $Id$
 
 EAPI=5
 
 inherit elisp autotools
 
 DESCRIPTION="The Insidious Big Brother Database"
-HOMEPAGE="http://savannah.nongnu.org/projects/bbdb/"
+HOMEPAGE="https://savannah.nongnu.org/projects/bbdb/"
 SRC_URI="http://download.savannah.gnu.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3+ GPL-1+ FDL-1.3+"

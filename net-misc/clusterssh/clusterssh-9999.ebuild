@@ -1,12 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/clusterssh/clusterssh-9999.ebuild,v 1.8 2014/08/10 20:43:41 slyfox Exp $
+# $Id$
 
 EAPI=5
 
 inherit git-2 perl-module
 
-EGIT_REPO_URI="git://clusterssh.git.sourceforge.net/gitroot/clusterssh/clusterssh"
+EGIT_REPO_URI="git://git.code.sf.net/p/clusterssh/code"
+EGIT_PROJECT="${PN}"
 
 DESCRIPTION="Concurrent Multi-Server Terminal Access"
 HOMEPAGE="http://clusterssh.sourceforge.net"
@@ -24,7 +25,7 @@ RDEPEND="
 	dev-perl/Test-Trap
 	dev-perl/Test-DistManifest
 	dev-perl/Try-Tiny
-	dev-perl/perl-tk
+	dev-perl/Tk
 	dev-perl/Config-Simple
 	dev-perl/X11-Protocol
 	dev-perl/XML-Simple
@@ -33,7 +34,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-perl/File-Which
-	virtual/perl-Module-Build
+	dev-perl/Module-Build
 	dev-perl/Test-Pod
 	test? ( dev-perl/Test-Differences )"
 

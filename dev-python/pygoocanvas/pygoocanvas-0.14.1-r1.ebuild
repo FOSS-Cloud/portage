@@ -1,17 +1,17 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pygoocanvas/pygoocanvas-0.14.1-r1.ebuild,v 1.6 2013/04/06 09:10:36 pacho Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 GNOME_TARBALL_SUFFIX="bz2"
-PYTHON_COMPAT=(python2_{6,7} )
+PYTHON_COMPAT=(python2_7 )
 
 inherit gnome2 python-r1
 
 DESCRIPTION="GooCanvas python bindings"
-HOMEPAGE="http://live.gnome.org/PyGoocanvas"
+HOMEPAGE="https://live.gnome.org/PyGoocanvas"
 
 LICENSE="GPL-2"
 SLOT="0"

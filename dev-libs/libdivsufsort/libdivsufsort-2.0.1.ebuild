@@ -1,13 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libdivsufsort/libdivsufsort-2.0.1.ebuild,v 1.1 2012/04/10 15:49:03 mgorny Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 inherit cmake-utils multilib
 
 DESCRIPTION="Suffix-sorting library (for BWT)"
-HOMEPAGE="http://code.google.com/p/libdivsufsort/"
-SRC_URI="http://${PN}.googlecode.com/files/${P}.tar.bz2"
+HOMEPAGE="https://github.com/y-256/libdivsufsort"
+SRC_URI="https://github.com/y-256/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -15,6 +15,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 src_prepare() {
+	cmake-utils_src_prepare
+
 	# will appreciate saner approach, if there is any
 	sed -i -e "s:\(DESTINATION \)lib:\1$(get_libdir):" \
 		*/CMakeLists.txt || die

@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mydumper/mydumper-0.6.2.ebuild,v 1.1 2014/09/30 03:39:07 grknight Exp $
+# $Id$
 
 EAPI=5
 inherit cmake-utils versionator
 
 DESCRIPTION="A high-performance multi-threaded backup (and restore) toolset for MySQL and Drizzle"
 HOMEPAGE="https://launchpad.net/mydumper"
-SRC_URI="http://launchpad.net/mydumper/$(get_version_component_range 1-2)/${PV}/+download/${P}.tar.gz"
+SRC_URI="https://launchpad.net/mydumper/$(get_version_component_range 1-2)/${PV}/+download/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -18,7 +18,7 @@ RDEPEND="dev-libs/libpcre
 	dev-libs/glib:2"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	doc? ( dev-python/sphinx )"
+	doc? ( <dev-python/sphinx-1.3 )"
 
 DOCS=( README )
 

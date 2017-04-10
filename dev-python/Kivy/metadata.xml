@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer>
+  <maintainer type="person">
     <email>slis@gentoo.org</email>
   </maintainer>
   <use>
@@ -12,4 +12,7 @@
       Install garden tool to manage user maintained widgets
     </flag>
   </use>
+  <upstream>
+    <remote-id type="pypi">Kivy</remote-id>
+  </upstream>
 </pkgmetadata>

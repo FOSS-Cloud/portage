@@ -1,13 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/worldofpadman/worldofpadman-1.6.ebuild,v 1.6 2014/06/24 23:34:13 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
-
 inherit eutils games
 
 DESCRIPTION="A cartoon style multiplayer first-person shooter"
-HOMEPAGE="http://worldofpadman.com/"
+HOMEPAGE="http://worldofpadman.net/"
 SRC_URI="mirror://sourceforge/${PN}/wop-1.5-unified.zip
 	mirror://sourceforge/${PN}/wop-1.5.x-to-1.6-patch-unified.zip"
 
@@ -20,7 +19,7 @@ RDEPEND="sys-libs/zlib
 	!dedicated? (
 		media-libs/speex
 		virtual/jpeg:0
-		media-libs/libsdl
+		media-libs/libsdl[opengl,video,X]
 		virtual/opengl
 		virtual/glu
 		openal? ( media-libs/openal )
@@ -63,12 +62,12 @@ src_compile() {
 		BUILD_CLIENT=$(use dedicated && echo 0) \
 		DEFAULT_BASEDIR="${GAMES_DATADIR}"/${PN} \
 		OPTIMIZE= \
-		USE_CURL=$(use curl && echo 1 || echo 0) \
+		USE_CURL=$(usex curl 1 0) \
 		USE_CURL_DLOPEN=0 \
-		USE_OPENAL=$(use openal && echo 1 || echo 0) \
+		USE_OPENAL=$(usex openal 1 0) \
 		USE_OPENAL_DLOPEN=0 \
-		USE_CODEC_VORBIS=$(use vorbis && echo 1 || echo 0) \
-		USE_CIN_THEORA=$(use theora && echo 1 || echo 0) \
+		USE_CODEC_VORBIS=$(usex vorbis 1 0) \
+		USE_CIN_THEORA=$(usex theora 1 0) \
 		USE_RENDERER_DLOPEN=0 \
 		USE_INTERNAL_ZLIB=0 \
 		USE_INTERNAL_JPEG=0 \

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/sunpinyin-data/sunpinyin-data-20121025.ebuild,v 1.1 2013/01/30 13:33:55 yngwin Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,12 +9,12 @@ LM_VERSION="${PV}"
 
 DESCRIPTION="Data sets for Sunpinyin"
 HOMEPAGE="https://open-gram.googlecode.com/"
-SRC_URI="http://open-gram.googlecode.com/files/dict.utf8-${DICT_VERSION}.tar.bz2
-	http://open-gram.googlecode.com/files/lm_sc.t3g.arpa-${LM_VERSION}.tar.bz2"
+SRC_URI="https://open-gram.googlecode.com/files/dict.utf8-${DICT_VERSION}.tar.bz2
+	https://open-gram.googlecode.com/files/lm_sc.t3g.arpa-${LM_VERSION}.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 DEPEND=">=app-i18n/sunpinyin-2.0.4_pre20130108"

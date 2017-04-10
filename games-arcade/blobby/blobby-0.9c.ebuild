@@ -1,12 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/blobby/blobby-0.9c.ebuild,v 1.7 2014/05/15 16:27:24 ulm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit cmake-utils eutils games
 
 DESCRIPTION="A beach ball game with blobs of goo"
-HOMEPAGE="http://sourceforge.net/projects/blobby/"
+HOMEPAGE="https://sourceforge.net/projects/blobby/"
 SRC_URI="mirror://sourceforge/${PN}/${PN}2-linux-${PV}.tar.gz"
 
 LICENSE="GPL-2"

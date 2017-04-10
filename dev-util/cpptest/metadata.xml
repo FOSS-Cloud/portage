@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>sping@gentoo.org</email>
 		<name>Sebastian Pipping</name>
 	</maintainer>
@@ -10,4 +10,7 @@
 		automated tests in C++. The focus lies on usability and extendability.
 		Several output formats are supported and new ones are easily added.
 	</longdescription>
+	<upstream>
+		<remote-id type="sourceforge">cpptest</remote-id>
+	</upstream>
 </pkgmetadata>

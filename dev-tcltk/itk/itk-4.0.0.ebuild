@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/itk/itk-4.0.0.ebuild,v 1.1 2013/02/14 17:17:38 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -20,7 +20,7 @@ LICENSE="BSD"
 KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 DEPEND="
-	>=dev-lang/tk-8.6
+	>=dev-lang/tk-8.6:=
 	=dev-tcltk/itcl-${ITCL_VERSION}*"
 RDEPEND="${DEPEND}"
 

@@ -1,7 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/freebsd.eclass,v 1.35 2013/08/28 15:56:11 aballier Exp $
+# $Id$
 #
+# @MAINTAINER:
+# maintainer-needed@gentoo.org
+# @AUTHOR:
 # Diego Pettenò <flameeyes@gentoo.org>
 
 inherit versionator eutils flag-o-matic bsdmk
@@ -66,9 +69,18 @@ if [[ ${MY_PV} == *9999* ]]; then
 	ESVN_PROJECT="freebsd-${BRANCH}"
 fi
 
-if [[ ${PN} != "freebsd-share" ]] && [[ ${PN} != freebsd-sources ]]; then
-	IUSE="profile"
+# use the original source code.
+if [[ ${MY_PV} != *9999* ]] && version_is_at_least 10.0 ${RV} ; then
+	DL_PV=${MY_PV/_rc/-RC}
+	DL_PV=${DL_PV/_beta/-BETA}
+	DL_PV=${DL_PV/_alpha/-ALPHA}
+	if [[ ${DL_PV} == ${MY_PV} ]]; then
+		DL_PV="${DL_PV}-RELEASE"
+	fi
+	SRC_URI="mirror://freebsd/releases/i386/${DL_PV}/src.txz -> freebsd-src-${MY_PV}.tar.xz"
 fi
+
+IUSE="profile"
 
 #unalias -a
 alias install-info='/usr/bin/bsdinstall-info'
@@ -90,9 +102,33 @@ doperiodic() {
 freebsd_get_bmake() {
 	local bmake
 	bmake=$(get_bmake)
-	[[ ${CBUILD} == *-freebsd* ]] || bmake="${bmake} -m /usr/share/mk/freebsd"
+	if version_is_at_least 11.0 ${RV} ; then
+		if [[ ${CBUILD} == *-freebsd* ]] ; then
+			bmake="${bmake} -m /usr/share/mk/system"
+		else
+			bmake="${bmake} -m /usr/share/mk/freebsd/system"
+		fi
+	else
+		[[ ${CBUILD} == *-freebsd* ]] || bmake="${bmake} -m /usr/share/mk/freebsd"
+	fi
 
 	echo "${bmake}"
+}
+
+# Generates a patch SRC_URI or DISTDIR of upstream.
+freebsd_upstream_patches() {
+	local opt=$1
+	[[ ${#UPSTREAM_PATCHES[@]} -eq 0 ]] && return 1
+	for x in "${UPSTREAM_PATCHES[@]}"
+	do
+		local out=${PN}-${x/\//-}
+		out=${out/:/}
+		if [[ ${opt} == -s ]] ; then
+			echo "${DISTDIR}/${out}"
+		else
+			echo "https://security.freebsd.org/patches/${x} -> ${out}"
+		fi
+	done
 }
 
 freebsd_do_patches() {
@@ -104,6 +140,13 @@ freebsd_do_patches() {
 		for x in ${PATCHES} ; do
 			epatch "${x}"
 		done
+	fi
+
+	# Upstream patches need to be applied on WORKDIR.
+	if [[ ${#UPSTREAM_PATCHES[@]} -gt 0 ]] ; then
+		cd "${WORKDIR}" || die
+		epatch $(freebsd_upstream_patches -s)
+		cd "${S}" || die
 	fi
 	epatch_user
 }
@@ -129,29 +172,84 @@ freebsd_rename_libraries() {
 freebsd_src_unpack() {
 	if [[ ${MY_PV} == *9999* ]]; then
 		S="${WORKDIR}" subversion_src_unpack
+
+		# When share/mk exists in ${WORKDIR}, it is used on FreeBSD 10.0
+		# Removed "${WORKDIR}"/share/mk/*.mk, use to force /usr/share/mk.
+		if [[ ${PN} != freebsd-mk-defs ]] ; then
+			[[ -e "${WORKDIR}"/share/mk ]] && rm -rf "${WORKDIR}"/share/mk/*.mk
+		fi
 	else
-		unpack ${A}
+		if version_is_at_least 10.0 ${RV} ; then
+			local tarball="freebsd-src-${MY_PV}.tar.xz"
+			local topdir="usr/src/"
+			local extractlist=()
+			for i in ${EXTRACTONLY} ; do
+				extractlist+=( ${topdir}${i} )
+			done
+			ebegin "Unpacking parts of ${tarball} to ${WORKDIR}"
+			cd "${WORKDIR}" || die
+			tar -xJpf "${DISTDIR}/${tarball}" --strip-components=2 "${extractlist[@]}" 2> /dev/null || die "tar extract command failed"
+			cd - || die
+		else
+			for f in ${A} ; do
+				[[ ${f} == *.tar.* ]] && unpack ${f}
+			done
+		fi
 	fi
 	cd "${S}"
 
 	dummy_mk ${REMOVE_SUBDIRS}
 
 	freebsd_do_patches
-	freebsd_rename_libraries
+	if ! version_is_at_least 11.0 ${RV} ; then
+		freebsd_rename_libraries
+	fi
 
 	# Starting from FreeBSD 9.2, its install command supports the -l option and
 	# they now use it. Emulate it if we are on a system that does not have it.
-	if [[ ${RV} > 9.1 ]] && ! has_version '>=sys-freebsd/freebsd-ubin-9.2_beta1' ; then
+	if version_is_at_least 9.2 ${RV} && ! has_version '>=sys-freebsd/freebsd-ubin-9.2_beta1' ; then
 		export INSTALL_LINK="ln -f"
 		export INSTALL_SYMLINK="ln -fs"
 	fi
+	if version_is_at_least 11.0 ${RV} ; then
+		export RSYMLINK=" -l s"
+	fi
+
+	# When CC=clang, force use clang-cpp #478810, #595878
+	if [[ $(tc-getCC) == *clang* ]] ; then
+		if type -P clang-cpp > /dev/null ; then
+			export CPP=clang-cpp
+		else
+			mkdir "${WORKDIR}"/workaround_clang-cpp || die "Could not create ${WORKDIR}/workaround_clang-cpp"
+			ln -s "$(type -P clang)" "${WORKDIR}"/workaround_clang-cpp/clang-cpp || die "Could not create clang-cpp symlink."
+			export CPP="${WORKDIR}/workaround_clang-cpp/clang-cpp"
+		fi
+	fi
+
+	# Add a special CFLAGS required for multilib support.
+	use amd64-fbsd && export CFLAGS_x86_fbsd="${CFLAGS_x86_fbsd} -DCOMPAT_32BIT -B/usr/lib32 -L/usr/lib32"
 }
 
 freebsd_src_compile() {
 	use profile && filter-flags "-fomit-frame-pointer"
-	use profile || mymakeopts="${mymakeopts} NO_PROFILE= "
+	if version_is_at_least 11.0 ${RV} ; then
+		if ! use profile ; then
+			mymakeopts="${mymakeopts} WITHOUT_PROFILE= "
+		fi
+		# Disable debugging info, use FEATURES=splitdebug instead.
+		mymakeopts="${mymakeopts} WITHOUT_DEBUG_FILES= "
+		# Test does not support yet.
+		mymakeopts="${mymakeopts} WITHOUT_TESTS= "
+		# Force set SRCTOP.
+		mymakeopts="${mymakeopts} SRCTOP=${WORKDIR} "
+		# Set common option.
+		mymakeopts="${mymakeopts} WITHOUT_MANCOMPRESS= WITHOUT_INFOCOMPRESS= "
+	else
+		use profile || mymakeopts="${mymakeopts} NO_PROFILE= "
+		mymakeopts="${mymakeopts} NO_MANCOMPRESS= NO_INFOCOMPRESS= "
+	fi
 
-	mymakeopts="${mymakeopts} NO_MANCOMPRESS= NO_INFOCOMPRESS= NO_FSCHG="
+	mymakeopts="${mymakeopts} NO_FSCHG="
 
 	# Make sure to use FreeBSD definitions while crosscompiling
 	[[ -z "${BMAKE}" ]] && BMAKE="$(freebsd_get_bmake)"
@@ -210,11 +308,26 @@ freebsd_multilib_multibuild_wrapper() {
 }
 
 freebsd_src_install() {
-	use profile || mymakeopts="${mymakeopts} NO_PROFILE= "
+	if version_is_at_least 11.0 ${RV} ; then
+		if ! use profile ; then
+			mymakeopts="${mymakeopts} WITHOUT_PROFILE= "
+		fi
+		# Disable debugging info, use FEATURES=splitdebug instead.
+		mymakeopts="${mymakeopts} WITHOUT_DEBUG_FILES= "
+		# Test does not support yet.
+		mymakeopts="${mymakeopts} WITHOUT_TESTS= "
+		# Force set SRCTOP.
+		mymakeopts="${mymakeopts} SRCTOP=${WORKDIR} "
+		# Set common option.
+		mymakeopts="${mymakeopts} WITHOUT_MANCOMPRESS= WITHOUT_INFOCOMPRESS= "
+	else
+		use profile || mymakeopts="${mymakeopts} NO_PROFILE= "
+		mymakeopts="${mymakeopts} NO_MANCOMPRESS= NO_INFOCOMPRESS= "
+	fi
 
-	mymakeopts="${mymakeopts} NO_MANCOMPRESS= NO_INFOCOMPRESS= NO_FSCHG="
+	mymakeopts="${mymakeopts} NO_FSCHG="
 
 	[[ -z "${BMAKE}" ]] && BMAKE="$(freebsd_get_bmake)"
 
-	bsdmk_src_install
+	bsdmk_src_install "$@"
 }

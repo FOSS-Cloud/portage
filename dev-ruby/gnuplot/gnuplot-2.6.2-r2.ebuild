@@ -1,9 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/gnuplot/gnuplot-2.6.2-r2.ebuild,v 1.1 2014/05/15 00:51:50 mrueg Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="AUTHORS.txt ChangeLog README.textile"
@@ -24,7 +25,9 @@ RDEPEND+=" sci-visualization/gnuplot"
 
 all_ruby_prepare() {
 	# Existing metadata causes a crash in jruby, so use our own.
-	rm ../metadata || die "Unable to remove metadata."
+	rm -f ../metadata || die "Unable to remove metadata."
+
+	sed -i -e 's/Config/RbConfig/' test/test_gnuplot.rb || die
 }
 
 each_ruby_test() {

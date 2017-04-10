@@ -1,19 +1,19 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pywebkitgtk/pywebkitgtk-1.1.8-r1.ebuild,v 1.6 2013/06/26 23:05:58 floppym Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools-utils python-r1 virtualx
 
 DESCRIPTION="Python bindings for the WebKit GTK+ port"
-HOMEPAGE="http://code.google.com/p/pywebkitgtk/"
-SRC_URI="http://pywebkitgtk.googlecode.com/files/${P}.tar.gz"
+HOMEPAGE="https://github.com/jmalonzo/pywebkitgtk"
+SRC_URI="https://github.com/jmalonzo/${PN}/archive/${PN^^}_${PV//./_}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="LGPL-2"
+LICENSE="LGPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ~ppc ~sparc x86"
 IUSE="test"
 
 RDEPEND="dev-python/pygobject:2[${PYTHON_USEDEP}]
@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local myeconfargs=( --disable-static )
-	python_parallel_foreach_impl autotools-utils_src_configure
+	python_foreach_impl autotools-utils_src_configure
 }
 
 src_compile() {

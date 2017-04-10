@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hashed-storage/hashed-storage-0.5.11.ebuild,v 1.3 2014/07/25 09:16:25 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,7 +15,7 @@ SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86 ~x86-fbsd ~ppc-macos ~x86-macos"
 IUSE="diff hpc test"
 
 RDEPEND="dev-haskell/binary:=[profile?]
@@ -36,6 +36,11 @@ DEPEND="${RDEPEND}
 		dev-haskell/test-framework-quickcheck2:=[profile?]
 		dev-haskell/zip-archive:=[profile?] )
 "
+
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-ghc-7.10.patch
+	epatch "${FILESDIR}"/${P}-QC-2.8.2.patch
+}
 
 src_configure() {
 	haskell-cabal_src_configure \

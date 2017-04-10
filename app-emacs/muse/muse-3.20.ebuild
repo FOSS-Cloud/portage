@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/muse/muse-3.20.ebuild,v 1.10 2012/12/01 19:47:21 armin76 Exp $
+# $Id$
 
 EAPI=4
 
 inherit elisp
 
-DESCRIPTION="Muse-mode is similar to EmacsWikiMode, but more focused on publishing to various formats"
+DESCRIPTION="An authoring and publishing environment for Emacs"
 HOMEPAGE="http://mwolson.org/projects/EmacsMuse.html"
 SRC_URI="http://download.gna.org/muse-el/${P}.tar.gz"
 

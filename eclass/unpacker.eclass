@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/unpacker.eclass,v 1.18 2014/07/11 08:21:58 ulm Exp $
+# $Id$
 
 # @ECLASS: unpacker.eclass
 # @MAINTAINER:
@@ -212,7 +212,7 @@ unpack_makeself() {
 				eerror "I'm sorry, but I was unable to support the Makeself file."
 				eerror "The version I detected was '${ver}'."
 				eerror "Please file a bug about the file ${src##*/} at"
-				eerror "http://bugs.gentoo.org/ so that support can be added."
+				eerror "https://bugs.gentoo.org/ so that support can be added."
 				die "makeself version '${ver}' not supported"
 				;;
 		esac
@@ -440,6 +440,9 @@ unpacker_src_uri_depends() {
 		case ${uri} in
 		*.cpio.*|*.cpio)
 			d="app-arch/cpio" ;;
+		*.deb)
+			# platforms like AIX don't have a good ar
+			d="kernel_AIX? ( app-arch/deb2targz )" ;;
 		*.rar|*.RAR)
 			d="app-arch/unrar" ;;
 		*.7z)

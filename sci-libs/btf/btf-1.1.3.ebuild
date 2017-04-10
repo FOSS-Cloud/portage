@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/btf/btf-1.1.3.ebuild,v 1.1 2012/01/20 05:51:46 bicatali Exp $
+# $Id$
 
 EAPI=4
 

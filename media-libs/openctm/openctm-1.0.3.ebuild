@@ -1,12 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/openctm/openctm-1.0.3.ebuild,v 1.5 2014/08/20 10:58:35 amynka Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils multilib versionator flag-o-matic
 
-MY_PF=OpenCTM-${PV}
+MY_PV=OpenCTM-${PV}
 
 DESCRIPTION="OpenCTM - the Open Compressed Triangle Mesh."
 HOMEPAGE="http://openctm.sourceforge.net"
@@ -21,15 +21,20 @@ DEPEND="dev-libs/tinyxml
 	media-libs/freeglut
 	media-libs/glew
 	media-libs/pnglite
-	virtual/opengl"
+	virtual/opengl
+	x11-libs/gtk+:2"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${MY_PF}"
+S="${WORKDIR}/${MY_PV}"
 
 src_prepare() {
-	epatch "${FILESDIR}"/openctm-fix-makefiles.patch \
+	epatch \
+		"${FILESDIR}"/openctm-fix-makefiles.patch \
 		"${FILESDIR}"/openctm-no-strip.patch
-	mv Makefile.linux Makefile
+	mv Makefile.linux Makefile || die
+	sed \
+		-e "s:@GENTOO_LIBDIR@:$(get_libdir):g" \
+		-i Makefile || die
 }
 
 src_compile() {

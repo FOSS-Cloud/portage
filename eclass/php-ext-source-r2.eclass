@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/php-ext-source-r2.eclass,v 1.33 2013/06/01 18:51:57 robbat2 Exp $
+# $Id$
 
 # @ECLASS: php-ext-source-r2.eclass
 # @MAINTAINER:
@@ -16,7 +16,7 @@
 # This eclass provides a unified interface for compiling and installing standalone
 # PHP extensions (modules).
 
-inherit flag-o-matic autotools multilib
+inherit flag-o-matic autotools multilib eutils
 
 EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install
 
@@ -32,6 +32,7 @@ case ${EAPI} in
 esac
 
 # @ECLASS-VARIABLE: PHP_EXT_NAME
+# @REQUIRED
 # @DESCRIPTION:
 # The extension name. This must be set, otherwise the eclass dies.
 # Only automagically set by php-ext-pecl-r2.eclass, so unless your ebuild
@@ -51,9 +52,14 @@ esac
 [[ -z "${PHP_EXT_ZENDEXT}" ]] && PHP_EXT_ZENDEXT="no"
 
 # @ECLASS-VARIABLE: USE_PHP
+# @REQUIRED
 # @DESCRIPTION:
 # Lists the PHP slots compatibile the extension is compatibile with
-[[ -z "${USE_PHP}" ]] && USE_PHP="php5-3"
+# Example:
+# @CODE
+# USE_PHP="php5-5 php5-6"
+# @CODE
+[[ -z "${USE_PHP}" ]] && die "USE_PHP is not set for the php-ext-source-r2 eclass"
 
 # @ECLASS-VARIABLE: PHP_EXT_OPTIONAL_USE
 # @DESCRIPTION:
@@ -96,11 +102,12 @@ DEPEND="${DEPEND}
 # @DESCRIPTION:
 # runs standard src_unpack + _phpize
 
-# @VARIABLE: PHP_EXT_SKIP_PHPIZE
+# @ECLASS-VARIABLE: PHP_EXT_SKIP_PHPIZE
 # @DESCRIPTION:
 # phpize will be run by default for all ebuilds that use
 # php-ext-source-r2_src_unpack
 # Set PHP_EXT_SKIP_PHPIZE="yes" in your ebuild if you do not want to run phpize.
+
 php-ext-source-r2_src_unpack() {
 	unpack ${A}
 	local slot orig_s="${PHP_EXT_S}"
@@ -122,10 +129,10 @@ php-ext-source-r2_src_prepare() {
 # Runs phpize and autotools in addition to the standard src_unpack
 php-ext-source-r2_phpize() {
 	if [[ "${PHP_EXT_SKIP_PHPIZE}" != 'yes' ]] ; then
-		# Create configure out of config.m4
-		# I wish I could run this to solve #329071, but I cannot
-		#autotools_run_tool ${PHPIZE}
-		${PHPIZE}
+		# Create configure out of config.m4. We use autotools_run_tool
+		# to avoid some warnings about WANT_AUTOCONF and
+		# WANT_AUTOMAKE (see bugs #329071 and #549268).
+		autotools_run_tool ${PHPIZE}
 		# force run of libtoolize and regeneration of related autotools
 		# files (bug 220519)
 		rm aclocal.m4
@@ -137,9 +144,10 @@ php-ext-source-r2_phpize() {
 # @DESCRIPTION:
 # Takes care of standard configure for PHP extensions (modules).
 
-# @VARIABLE: my_conf
+# @ECLASS-VARIABLE: my_conf
 # @DESCRIPTION:
 # Set this in the ebuild to pass configure options to econf.
+
 php-ext-source-r2_src_configure() {
 	# net-snmp creates this file #385403
 	addpredict /usr/share/snmp/mibs/.index
@@ -175,7 +183,7 @@ php-ext-source-r2_src_compile() {
 # @DESCRIPTION:
 # Takes care of standard install for PHP extensions (modules).
 
-# @VARIABLE: DOCS
+# @ECLASS-VARIABLE: DOCS
 # @DESCRIPTION:
 # Set in ebuild if you wish to install additional, package-specific documentation.
 php-ext-source-r2_src_install() {
@@ -183,8 +191,9 @@ php-ext-source-r2_src_install() {
 	for slot in $(php_get_slots); do
 		php_init_slot_env ${slot}
 
-		# Let's put the default module away
-		insinto "${EXT_DIR}"
+		# Let's put the default module away. Strip $EPREFIX from
+		# $EXT_DIR before calling newins (which handles EPREFIX itself).
+		insinto "${EXT_DIR#$EPREFIX}"
 		newins "modules/${PHP_EXT_NAME}.so" "${PHP_EXT_NAME}.so" || die "Unable to install extension"
 
 		local doc
@@ -209,12 +218,12 @@ php_get_slots() {
 php_init_slot_env() {
 	libdir=$(get_libdir)
 
-	PHPIZE="/usr/${libdir}/${1}/bin/phpize"
-	PHPCONFIG="/usr/${libdir}/${1}/bin/php-config"
-	PHPCLI="/usr/${libdir}/${1}/bin/php"
-	PHPCGI="/usr/${libdir}/${1}/bin/php-cgi"
+	PHPIZE="${EPREFIX}/usr/${libdir}/${1}/bin/phpize"
+	PHPCONFIG="${EPREFIX}/usr/${libdir}/${1}/bin/php-config"
+	PHPCLI="${EPREFIX}/usr/${libdir}/${1}/bin/php"
+	PHPCGI="${EPREFIX}/usr/${libdir}/${1}/bin/php-cgi"
 	PHP_PKG="$(best_version =dev-lang/php-${1:3}*)"
-	PHPPREFIX="/usr/${libdir}/${slot}"
+	PHPPREFIX="${EPREFIX}/usr/${libdir}/${slot}"
 	EXT_DIR="$(${PHPCONFIG} --extension-dir 2>/dev/null)"
 	PHP_CURRENTSLOT=${1:3}
 
@@ -225,13 +234,13 @@ php_init_slot_env() {
 php-ext-source-r2_buildinilist() {
 	# Work out the list of <ext>.ini files to edit/add to
 	if [[ -z "${PHPSAPILIST}" ]] ; then
-		PHPSAPILIST="apache2 cli cgi fpm embed"
+		PHPSAPILIST="apache2 cli cgi fpm embed phpdbg"
 	fi
 
 	PHPINIFILELIST=""
 	local x
 	for x in ${PHPSAPILIST} ; do
-		if [[ -f "/etc/php/${x}-${1}/php.ini" ]] ; then
+		if [[ -f "${EPREFIX}/etc/php/${x}-${1}/php.ini" ]] ; then
 			PHPINIFILELIST="${PHPINIFILELIST} etc/php/${x}-${1}/ext/${PHP_EXT_NAME}.ini"
 		fi
 	done
@@ -273,7 +282,7 @@ php-ext-source-r2_createinifiles() {
 		done
 
 		# Add support for installing PHP files into a version dependant directory
-		PHP_EXT_SHARED_DIR="/usr/share/php/${PHP_EXT_NAME}"
+		PHP_EXT_SHARED_DIR="${EPREFIX}/usr/share/php/${PHP_EXT_NAME}"
 	done
 }
 

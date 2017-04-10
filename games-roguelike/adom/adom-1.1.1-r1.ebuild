@@ -1,7 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-roguelike/adom/adom-1.1.1-r1.ebuild,v 1.11 2012/09/24 00:37:02 vapier Exp $
+# $Id$
 
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="Ancient Domains Of Mystery rogue-like game"
@@ -15,8 +16,9 @@ IUSE=""
 RESTRICT="strip" #bug #137340
 QA_FLAGS_IGNORED="${GAMES_PREFIX_OPT:1}/bin/adom"
 
-DEPEND=">=sys-libs/ncurses-5.0
-	amd64? ( app-emulation/emul-linux-x86-baselibs )"
+RDEPEND="|| (
+	>=sys-libs/ncurses-5.9-r3:0/5[abi_x86_32(-)]
+	>=sys-libs/ncurses-5.9-r3:5/5[abi_x86_32(-)] )"
 
 S=${WORKDIR}/${PN}
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/regex-posix/regex-posix-0.95.2.ebuild,v 1.8 2013/06/29 16:33:17 ago Exp $
+# $Id$
 
 EAPI=4
 
@@ -8,7 +8,7 @@ CABAL_FEATURES="lib profile haddock hscolour hoogle"
 inherit base haskell-cabal
 
 DESCRIPTION="Replaces/Enhances Text.Regex"
-HOMEPAGE="http://sourceforge.net/projects/lazy-regex"
+HOMEPAGE="https://sourceforge.net/projects/lazy-regex"
 SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="BSD"

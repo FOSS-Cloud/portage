@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/udev.eclass,v 1.14 2014/07/30 20:00:19 ssuominen Exp $
+# $Id$
 
 # @ECLASS: udev.eclass
 # @MAINTAINER:
@@ -28,10 +28,13 @@
 # }
 # @CODE
 
+if [[ -z ${_UDEV_ECLASS} ]]; then
+_UDEV_ECLASS=1
+
 inherit toolchain-funcs
 
 case ${EAPI:-0} in
-	0|1|2|3|4|5) ;;
+	0|1|2|3|4|5|6) ;;
 	*) die "${ECLASS}.eclass API in EAPI ${EAPI} not yet established."
 esac
 
@@ -113,3 +116,5 @@ udev_reload() {
 		eend $?
 	fi
 }
+
+fi

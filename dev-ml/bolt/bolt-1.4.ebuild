@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/bolt/bolt-1.4.ebuild,v 1.2 2013/08/16 23:06:22 aballier Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,8 +15,11 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="doc"
 
-DEPEND=">=dev-lang/ocaml-3.11:=[ocamlopt]"
-RDEPEND="${DEPEND}"
+RDEPEND=">=dev-lang/ocaml-3.11:=[ocamlopt]
+	dev-ml/camlp4:="
+DEPEND="${RDEPEND}
+	dev-ml/ocamlbuild
+"
 
 src_configure() {
 	sh configure

@@ -1,42 +1,44 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/pesign/pesign-0.108.ebuild,v 1.3 2014/05/13 02:22:31 patrick Exp $
+# $Id$
 
-EAPI="4"
+EAPI=5
+
 inherit eutils multilib
 
 DESCRIPTION="Tools for manipulating signed PE-COFF binaries"
 HOMEPAGE="https://github.com/vathpela/pesign"
-SRC_URI="https://github.com/vathpela/${PN}/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/vathpela/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="libressl"
 
-RDEPEND="dev-libs/openssl
-	sys-apps/util-linux"
+RDEPEND="
+	dev-libs/nspr
+	!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:0= )
+	sys-apps/util-linux
+"
 DEPEND="${RDEPEND}
 	sys-apps/help2man
 	sys-boot/gnu-efi
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
 src_prepare() {
 	epatch "${FILESDIR}"/destdir.patch
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "Install failed"
-	dodoc README COPYING TODO || die
+	default
 
 	# remove some files that don't make sense for Gentoo installs
-	rm -rf "${D}/etc/"
-	rm -rf "${D}/usr/share/doc/pesign/"
+	rm -rf "${ED}/etc/" "${ED}/usr/share/doc/pesign/" || die
 
 	# create .so symlink
-	cd "${D}/usr/$(get_libdir)/"
-	#cd ${D}/lib64/
-	ln -s libdpe.so libdpe.so.0
+	ln -s libdpe.so "${ED}/usr/$(get_libdir)/libdpe.so.0"
 }
 #
 #src_prepare() {

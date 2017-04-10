@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lisp/clisp/clisp-2.48-r2.ebuild,v 1.6 2014/07/11 03:22:37 patrick Exp $
+# $Id$
 
 EAPI="2"
 
@@ -23,7 +23,7 @@ RDEPEND="virtual/libiconv
 		 gdbm? ( sys-libs/gdbm )
 		 gtk? ( >=x11-libs/gtk+-2.10:2 >=gnome-base/libglade-2.6:2.0 )
 		 pari? ( >=sci-mathematics/pari-2.3.0 )
-		 postgres? ( >=dev-db/postgresql-base-8.0 )
+		 postgres? ( >=dev-db/postgresql-8.0 )
 		 readline? ( >=sys-libs/readline-5.0 )
 		 pcre? ( dev-libs/libpcre )
 		 svm? ( sci-libs/libsvm )
@@ -158,7 +158,7 @@ it is likely that you will encounter bugs in using them. If you do,
 please report bugs upstream:
 
 Mailing list: https://lists.sourceforge.net/lists/listinfo/clisp-devel
-Bug tracker:  http://sourceforge.net/tracker/?atid=101355&group_id=1355
+Bug tracker:  https://sourceforge.net/tracker/?atid=101355&group_id=1355
 
 EOF
 	fi

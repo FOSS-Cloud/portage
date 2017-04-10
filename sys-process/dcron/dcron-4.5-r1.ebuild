@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/dcron/dcron-4.5-r1.ebuild,v 1.10 2014/01/18 03:47:10 vapier Exp $
+# $Id$
 
 EAPI=4
 
@@ -39,18 +39,10 @@ src_install() {
 	doins extra/prune-cronstamps
 	dodoc extra/run-cron extra/root.crontab
 
-	newinitd "${FILESDIR}"/dcron.init-4.5 dcron
-	newconfd "${FILESDIR}"/dcron.confd-4.4 dcron
+	newinitd "${FILESDIR}"/dcron.init dcron
+	newconfd "${FILESDIR}"/dcron.confd dcron
 	systemd_dounit "${FILESDIR}"/dcron.service
 
 	insinto /etc/logrotate.d
 	newins extra/crond.logrotate dcron
-}
-
-pkg_postinst() {
-	# upstream renamed their pid file
-	local src="${ROOT}/var/run/cron.pid" dst="${ROOT}/var/run/crond.pid"
-	if [ -e "${src}" -a ! -e "${dst}" ] ; then
-		cp "${src}" "${dst}"
-	fi
 }

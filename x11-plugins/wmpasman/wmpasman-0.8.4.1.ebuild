@@ -1,11 +1,11 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-plugins/wmpasman/wmpasman-0.8.4.1.ebuild,v 1.13 2014/09/01 15:48:04 voyageur Exp $
+# $Id$
 
 EAPI=5
 
 DESCRIPTION="Password storage/retrieval in a dockapp"
-HOMEPAGE="http://sourceforge.net/projects/wmpasman/"
+HOMEPAGE="https://sourceforge.net/projects/wmpasman/"
 SRC_URI="mirror://sourceforge/wmpasman/${P}.tar.gz"
 
 LICENSE="GPL-2"

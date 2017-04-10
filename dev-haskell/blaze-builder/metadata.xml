@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>haskell</herd>
+	<maintainer type="project">
+		<email>haskell@gentoo.org</email>
+		<name>Gentoo Haskell</name>
+	</maintainer>
 	<longdescription>
 		This library provides an abstraction of buffered output of
 		byte streams and several convenience functions to exploit
@@ -13,4 +16,7 @@
 		when writing the resulting lazy bytestring to a file or
 		sending it over the network.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">meiersi/blaze-builder</remote-id>
+	</upstream>
 </pkgmetadata>

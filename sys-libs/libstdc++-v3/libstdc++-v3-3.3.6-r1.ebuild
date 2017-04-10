@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libstdc++-v3/libstdc++-v3-3.3.6-r1.ebuild,v 1.13 2014/06/26 08:24:44 mgorny Exp $
+# $Id$
 
 inherit eutils flag-o-matic libtool multilib
 
@@ -109,10 +109,10 @@ do_filter_flags() {
 	strip-flags
 }
 
-PATCH_VER="1.8"
+PATCH_VER="1.9"
 
 DESCRIPTION="Compatibility package for running binaries linked against a pre gcc 3.4 libstdc++"
-HOMEPAGE="http://gcc.gnu.org/libstdc++/"
+HOMEPAGE="https://gcc.gnu.org/libstdc++/"
 SRC_URI="ftp://gcc.gnu.org/pub/gcc/releases/gcc-${PV}/gcc-${PV}.tar.bz2
 	mirror://gentoo/gcc-${PV}-patches-${PATCH_VER}.tar.bz2"
 
@@ -121,7 +121,7 @@ SLOT="5"
 KEYWORDS="amd64 ~mips ppc -ppc64 sparc x86 ~x86-fbsd"
 IUSE="multilib nls"
 
-DEPEND="<sys-devel/bison-3"
+DEPEND="sys-devel/bison"
 RDEPEND=""
 
 S=${WORKDIR}/gcc-${PV}

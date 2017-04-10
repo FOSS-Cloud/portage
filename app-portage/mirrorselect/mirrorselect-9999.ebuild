@@ -1,15 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/mirrorselect/mirrorselect-9999.ebuild,v 1.9 2014/05/06 02:55:53 dolsen Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 PYTHON_REQ_USE="xml"
 
 inherit eutils distutils-r1 git-2 prefix
 
-EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/mirrorselect.git"
+EGIT_REPO_URI="git://anongit.gentoo.org/proj/mirrorselect.git"
 EGIT_MASTER="master"
 
 DESCRIPTION="Tool to help select distfiles mirrors for Gentoo"

@@ -1,44 +1,37 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/gentoo-systemd-integration/gentoo-systemd-integration-9999.ebuild,v 1.8 2014/07/06 13:23:06 mgorny Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-#if LIVE
-AUTOTOOLS_AUTORECONF=1
-EGIT_REPO_URI="http://bitbucket.org/mgorny/${PN}.git"
-inherit git-2
-#endif
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://anongit.gentoo.org/git/proj/gentoo-systemd-integration.git"
+	inherit autotools git-r3
+else
+	SRC_URI="https://dev.gentoo.org/~floppym/dist/${P}.tar.gz"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+fi
 
-inherit autotools-utils systemd
+inherit systemd
 
 DESCRIPTION="systemd integration files for Gentoo"
-HOMEPAGE="https://bitbucket.org/mgorny/gentoo-systemd-integration"
-SRC_URI="https://www.bitbucket.org/mgorny/${PN}/downloads/${P}.tar.bz2"
+HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Systemd"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE=""
 
-DEPEND="!sys-fs/udev"
-RDEPEND="${DEPEND}
-	>=sys-apps/systemd-207"
+RDEPEND=">=sys-apps/systemd-207
+	!sys-fs/eudev
+	!sys-fs/udev"
+DEPEND=">=sys-apps/systemd-207
+	virtual/pkgconfig"
 
-#if LIVE
-SRC_URI=
-KEYWORDS=
+if [[ ${PV} == 9999 ]]; then
+	DEPEND+=" sys-devel/systemd-m4"
+fi
 
-DEPEND="${DEPEND}
-	sys-devel/systemd-m4"
-#endif
-
-src_configure() {
-	local myeconfargs=(
-		"$(systemd_with_unitdir)"
-		# TODO: solve it better in the eclass
-		--with-systemdsystemgeneratordir="$(systemd_get_utildir)"/system-generators
-	)
-
-	autotools-utils_src_configure
+src_prepare() {
+	default
+	[[ ${PV} != 9999 ]] || eautoreconf
 }

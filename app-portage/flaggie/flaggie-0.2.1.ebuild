@@ -1,15 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/flaggie/flaggie-0.2.1.ebuild,v 1.11 2014/07/06 13:15:31 mgorny Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy pypy2_0 )
+
+PYTHON_COMPAT=( python{2_7,3_4} pypy )
 
 inherit bash-completion-r1 distutils-r1
 
 DESCRIPTION="A smart CLI mangler for package.* files"
-HOMEPAGE="https://bitbucket.org/mgorny/flaggie/"
-SRC_URI="https://www.bitbucket.org/mgorny/${PN}/downloads/${P}.tar.bz2"
+HOMEPAGE="https://github.com/mgorny/flaggie/"
+SRC_URI="https://github.com/mgorny/flaggie/releases/download/${P}/${P}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"

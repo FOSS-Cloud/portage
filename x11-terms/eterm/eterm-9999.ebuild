@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/eterm/eterm-9999.ebuild,v 1.20 2012/08/23 04:06:33 ottxor Exp $
+# $Id$
 
 EAPI="3"
 inherit eutils autotools
@@ -8,14 +8,14 @@ inherit eutils autotools
 MY_P=Eterm-${PV}
 
 if [[ ${PV} == "9999" ]] ; then
-	ESVN_REPO_URI="http://svn.enlightenment.org/svn/e/trunk/eterm/Eterm"
+	ESVN_REPO_URI="https://svn.enlightenment.org/svn/e/trunk/eterm/Eterm"
 	inherit subversion
 	SRC_URI=""
 	KEYWORDS=""
 else
 	SRC_URI="http://www.eterm.org/download/${MY_P}.tar.gz
 		!minimal? ( http://www.eterm.org/download/Eterm-bg-${PV}.tar.gz )"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd ~amd64-linux ~ppc-macos ~x86-macos"
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~ppc-macos ~x86-macos"
 fi
 
 DESCRIPTION="A vt102 terminal emulator for X"
@@ -23,7 +23,7 @@ HOMEPAGE="http://www.eterm.org/"
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="escreen minimal mmx sse2 unicode +utempter"
+IUSE="escreen minimal cpu_flags_x86_mmx cpu_flags_x86_sse2 unicode +utempter"
 
 RDEPEND="x11-libs/libX11
 	x11-libs/libXmu
@@ -63,8 +63,8 @@ src_configure() {
 		$(use_enable escreen) \
 		--with-imlib \
 		--enable-trans \
-		$(use_enable mmx) \
-		$(use_enable sse2) \
+		$(use_enable cpu_flags_x86_mmx mmx) \
+		$(use_enable cpu_flags_x86_sse2 sse2) \
 		$(use_enable unicode multi-charset) \
 		$(use_enable utempter utmp) \
 		--with-delete=execute \

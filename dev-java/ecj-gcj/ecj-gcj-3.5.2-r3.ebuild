@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/ecj-gcj/ecj-gcj-3.5.2-r3.ebuild,v 1.1 2012/12/14 13:08:17 sera Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,14 +15,12 @@ SRC_URI="http://download.eclipse.org/eclipse/downloads/drops/${DMF}/${MY_PN}src-
 
 LICENSE="EPL-1.0"
 SLOT="3.5"
-KEYWORDS="~amd64 ~ia64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="+native"
 
-COMMON_DEPEND="
-	sys-devel/gcc[gcj]
-	|| ( app-admin/eselect-java >=app-admin/eselect-ecj-0.6 )"
-RDEPEND="${COMMON_DEPEND}"
-DEPEND="${COMMON_DEPEND}
+RDEPEND="sys-devel/gcc:*[gcj]
+	app-eselect/eselect-java"
+DEPEND="${RDEPEND}
 	app-arch/unzip
 	!dev-java/eclipse-ecj:3.5[gcj]"
 

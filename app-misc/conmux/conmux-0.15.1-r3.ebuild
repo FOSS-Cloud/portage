@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/conmux/conmux-0.15.1-r3.ebuild,v 1.2 2014/07/24 19:42:39 hwoarang Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,7 +8,7 @@ inherit perl-module
 
 DESCRIPTION="A console multiplexor"
 HOMEPAGE="https://github.com/autotest/autotest"
-SRC_URI="http://dev.gentoo.org/~hwoarang/distfiles/${P}.tar.gz"
+SRC_URI="https://dev.gentoo.org/~hwoarang/distfiles/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -25,7 +25,7 @@ src_prepare() {
 }
 
 src_install() {
-		perlinfo
+		perl_set_version
 		emake BASE="${D}/usr" install
 		# helpers and drivers have been removed in src_prepare
 		insinto /usr/share/${PN}/
@@ -38,7 +38,7 @@ src_install() {
 		mv "${D}"/usr/bin/console "${D}"/usr/bin/${PN}-console || \
 			die "failed to rename console to conmux-console"
 		# Fix up directory for the module
-		perlinfo
+		perl_set_version
 		dodir ${VENDOR_LIB}/${PN}
 		mv "${D}"/usr/lib/Conmux.pm "${D}"/${VENDOR_LIB}/. || \
 			die "failed to move the Conmux.pm module"

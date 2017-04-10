@@ -1,36 +1,43 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/enzyme/enzyme-9999.ebuild,v 1.2 2013/12/07 08:47:21 tomwij Exp $
+# $Id$
 
-EAPI="5"
-PYTHON_COMPAT=( python{2_7,3_3} )
-EGIT_REPO_URI="https://github.com/Diaoul/enzyme.git"
+EAPI=6
 
-inherit distutils-r1 git-2
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
+PYTHON_REQ_USE='xml(+)'
+
+inherit distutils-r1 git-r3
 
 DESCRIPTION="Python video metadata parser"
 HOMEPAGE="https://github.com/Diaoul/enzyme https://pypi.python.org/pypi/enzyme"
-SRC_URI="test? ( http://downloads.sourceforge.net/project/matroska/test_files/matroska_test_w1_1.zip )"
+EGIT_REPO_URI=( {https,git}://github.com/Diaoul/${PN}.git )
+SRC_URI="test? ( mirror://sourceforge/matroska/test_files/matroska_test_w1_1.zip )"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS=""
 IUSE="test"
 
-RDEPEND=""
+RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
 	test? (
-		dev-python/requests[${PYTHON_USEDEP}]
+		app-arch/unzip
 		dev-python/pyyaml[${PYTHON_USEDEP}]
+		dev-python/requests[${PYTHON_USEDEP}]
 	)
-	dev-python/setuptools[${PYTHON_USEDEP}]
 "
+
+src_unpack() {
+	default_src_unpack
+	git-r3_src_unpack
+}
 
 python_prepare_all() {
 	if use test; then
-		mkdir enzyme/tests/test_{parsers,mkv} || die
-		ln -s "${WORKDIR}"/test* enzyme/tests/test_parsers/ || die
-		ln -s "${WORKDIR}"/test* enzyme/tests/test_mkv/ || die
+		mkdir enzyme/tests/test_{mkv,parsers} || die
+		ln -s "${WORKDIR}"/test*.mkv enzyme/tests/test_mkv/ || die
+		ln -s "${WORKDIR}"/test*.mkv enzyme/tests/test_parsers/ || die
 	fi
 
 	distutils-r1_python_prepare_all

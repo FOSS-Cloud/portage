@@ -1,19 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pydns/pydns-2.3.6-r1.ebuild,v 1.8 2014/10/04 14:15:11 blueness Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} pypy pypy2_0 )
+PYTHON_COMPAT=( python2_7 pypy )
 
 inherit distutils-r1
 
 DESCRIPTION="Python module for DNS (Domain Name Service)"
-HOMEPAGE="http://pydns.sourceforge.net/ http://pypi.python.org/pypi/pydns"
+HOMEPAGE="http://pydns.sourceforge.net/ https://pypi.python.org/pypi/pydns"
 SRC_URI="http://downloads.sourceforge.net/project/pydns/pydns/${P}/${P}.tar.gz"
 
 LICENSE="CNRI"
 SLOT="2"
-KEYWORDS="~amd64 ~hppa ~ia64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 hppa ~ia64 ~ppc ~sparc x86"
 IUSE="examples"
 
 DEPEND="!dev-python/pydns:0

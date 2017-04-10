@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/microcode-ctl/microcode-ctl-1.23.ebuild,v 1.4 2014/01/14 13:58:26 ago Exp $
+# $Id$
 
 EAPI="5"
 
@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS="-* amd64 x86"
 IUSE="selinux"
 
-DEPEND="selinux? ( sec-policy/selinux-cpucontrol )"
-RDEPEND=">=sys-apps/microcode-data-20090330
+DEPEND=""
+RDEPEND=">=sys-firmware/intel-microcode-20090330
 	selinux? ( sec-policy/selinux-cpucontrol )"
 
 S=${WORKDIR}/${MY_P}

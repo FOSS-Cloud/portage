@@ -1,15 +1,13 @@
-#!/sbin/runscript
-# Copyright 1999-2011 Gentoo Foundation
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox/files/vboxwebsrv-initd,v 1.2 2012/03/16 22:36:03 hwoarang Exp $
+# $Id$
 
 depend() {
 	need net
 }
 
 start() {
-	#checkconfig || return $?
-
 	ebegin "Starting VirtualBox WebService"
 	start-stop-daemon --start --quiet --user ${VBOXWEBSRV_USER} --pidfile /var/run/vboxwebsrv.pid \
 		--background --make-pidfile --exec /usr/bin/vboxwebsrv \

@@ -1,8 +1,8 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-misc/ggencoder/ggencoder-0.91a.ebuild,v 1.5 2014/08/10 21:21:18 slyfox Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit eutils qt4-r2
 
 DESCRIPTION="Utility to encode and decode Game Genie (tm) codes"
@@ -16,6 +16,7 @@ IUSE="doc"
 
 DEPEND="dev-qt/qtcore:4
 	dev-qt/qtgui:4"
+RDEPEND=${DEPEND}
 
 S=${WORKDIR}/${P}/source
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/a8/a8-0.11-r2.ebuild,v 1.4 2014/08/15 08:49:51 ssuominen Exp $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -8,20 +8,20 @@ PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1 eutils gnome2-utils
 
 DESCRIPTION="An ultra-lightweight IDE, that embeds Vim, a terminal emulator, and a file browser"
-HOMEPAGE="http://github.com/aliafshar/a8"
+HOMEPAGE="https://github.com/aliafshar/a8"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND=">=dev-python/dbus-python-1[${PYTHON_USEDEP}]
 	dev-python/logbook[${PYTHON_USEDEP}]
-	dev-python/psutil
+	dev-python/psutil[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	>=dev-python/pygtk-2.22[${PYTHON_USEDEP}]
-	>=dev-python/pygtkhelpers-0.4.3
+	>=dev-python/pygtkhelpers-0.4.3[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	>=x11-libs/vte-0.28.2-r206:0[python,${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}

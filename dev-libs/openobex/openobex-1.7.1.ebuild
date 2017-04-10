@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/openobex/openobex-1.7.1.ebuild,v 1.1 2014/09/11 09:31:47 mgorny Exp $
+# $Id$
 
 EAPI=5
 
 inherit cmake-utils udev
 
-DESCRIPTION="An implementation of the OBEX protocol used for transferring data to mobile devices"
-HOMEPAGE="http://sourceforge.net/projects/openobex/"
+DESCRIPTION="Implementation of the OBEX protocol used for transferring data to mobile devices"
+HOMEPAGE="https://sourceforge.net/projects/openobex/"
 SRC_URI="mirror://sourceforge/${PN}/${PV}/${P}-Source.tar.gz"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0/2"
-KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 arm hppa ppc ppc64 sparc x86"
 IUSE="bluetooth irda usb"
 
 RDEPEND="bluetooth? ( net-wireless/bluez:= )

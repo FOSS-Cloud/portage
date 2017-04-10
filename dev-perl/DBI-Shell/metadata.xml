@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>perl</herd>
+  <maintainer type="project">
+    <email>perl@gentoo.org</email>
+    <name>Gentoo Perl Project</name>
+  </maintainer>
   <longdescription>Provides dbish, a command line tool for interacting with
-	any installed DBD module directly.</longdescription>
+  any installed DBD module directly.</longdescription>
   <upstream>
     <remote-id type="cpan">DBI-Shell</remote-id>
     <remote-id type="cpan-module">DBI::Format</remote-id>

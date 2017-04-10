@@ -1,11 +1,37 @@
-# $Header: /var/cvsroot/gentoo-x86/profiles/features/selinux/package.mask,v 1.54 2014/10/07 19:02:34 swift Exp $
+# $Id$
 
-# Sven Vermeulen <swift@gentoo.org> (Aug 28 2014)
-# Masking these for heavy testing; downgrading might not be possible so
-# we need to make sure these work properly.
->=sys-libs/libselinux-2.4_rc2
->=sys-libs/libsemanage-2.4_rc2
->=sys-libs/libsepol-2.4_rc2
->=sys-apps/policycoreutils-2.4_rc2
->=sys-apps/checkpolicy-2.4_rc2
->=dev-python/sepolgen-1.2.2_rc2
+# Göktürk Yüksek <gokturk@gentoo.org> (09 Nov 2016)
+# On behalf of proxy-maint
+# Mask due to the package requiring systemd
+# and causing unresolvable dep issues
+# See: https://github.com/gentoo/gentoo/pull/2262
+www-misc/profile-sync-daemon
+
+# Jason Zaman <perfinion@gentoo.org> (27 Jun 2015)
+# SystemD has no support in the SELinux policy at the moment.
+# Please see: https://wiki.gentoo.org/wiki/SELinux/FAQ#Can_I_use_SELinux_with_SystemD.3F
+app-admin/systemdgenie
+app-eselect/eselect-gnome-shell-extensions
+sys-apps/systemd
+app-admin/calamares
+dev-python/python-systemd
+gnome-base/gdm
+gnome-base/gnome
+gnome-base/gnome-extra-apps
+gnome-base/gnome-light
+gnome-base/gnome-shell
+gnome-extra/chrome-gnome-shell
+gnome-extra/gnome-logs
+gnome-extra/gnome-shell-extensions
+gnome-extra/gnome-shell-frippery
+gnome-extra/gnome-shell-extensions-topicons
+gnome-extra/gnome-tweak-tool
+x11-themes/zukitwo-shell
+gnome-extra/office-runner
+kde-misc/systemd-kcm
+net-firewall/firewalld
+net-misc/netctl
+sys-apps/gentoo-systemd-integration
+sys-apps/systemd-readahead
+sys-apps/systemd-sysv-utils
+sys-process/systemd-cron

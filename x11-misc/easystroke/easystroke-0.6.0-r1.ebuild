@@ -1,24 +1,24 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/easystroke/easystroke-0.6.0-r1.ebuild,v 1.2 2014/06/05 21:29:36 jer Exp $
+# $Id$
 
 EAPI=5
 inherit eutils toolchain-funcs
 
 DESCRIPTION="a gesture-recognition application for X11"
-HOMEPAGE="http://sourceforge.net/apps/trac/easystroke/"
+HOMEPAGE="https://sourceforge.net/apps/trac/easystroke/"
 SRC_URI="mirror://sourceforge/project/${PN}/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 RDEPEND="
 	dev-cpp/gtkmm:3.0
 	dev-libs/boost
 	dev-libs/dbus-glib
 	dev-libs/glib:2
+	x11-base/xorg-server
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXfixes

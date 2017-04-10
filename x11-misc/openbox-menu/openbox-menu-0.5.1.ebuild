@@ -1,17 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/openbox-menu/openbox-menu-0.5.1.ebuild,v 1.1 2014/09/17 08:15:41 jer Exp $
+# $Id$
 
 EAPI=5
 inherit eutils toolchain-funcs
 
 DESCRIPTION="Another dynamic menu generator for Openbox"
-HOMEPAGE="http://mimasgpc.free.fr/openbox-menu_en.html"
+HOMEPAGE="http://fabrice.thiroux.free.fr/openbox-menu_en.html"
 SRC_URI="https://bitbucket.org/fabriceT/${PN}/downloads/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+icons svg"
 REQUIRED_USE="svg? ( icons )"
 

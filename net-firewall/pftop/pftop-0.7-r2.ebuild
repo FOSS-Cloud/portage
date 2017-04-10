@@ -1,13 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/pftop/pftop-0.7-r2.ebuild,v 1.1 2012/07/22 00:01:31 the_paya Exp $
+# $Id$
 
 EAPI=4
 PATCH_PV=3
 
 inherit bsdmk flag-o-matic eutils
 
-DESCRIPTION="Pftop: curses-based utility for real-time display of active states and rule statistics for pf"
+DESCRIPTION="Tool for real-time display of active states and rule statistics for pf"
 HOMEPAGE="http://www.eee.metu.edu.tr/~canacar/pftop/"
 SRC_URI="http://www.eee.metu.edu.tr/~canacar/${P}.tar.gz
 	mirror://gentoo/${P}-patches-${PATCH_PV}.tar.bz2"

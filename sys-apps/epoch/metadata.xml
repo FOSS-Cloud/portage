@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>TomWij@gentoo.org</email>
-		<name>Tom Wijsman</name>
+	<maintainer type="person">
+		<email>alicef@gentoo.org</email>
+		<name>Alice Ferrazzi</name>
 	</maintainer>
 	<longdescription>
 		Epoch is an init system (analogous to systemd or upstart)

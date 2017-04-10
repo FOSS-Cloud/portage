@@ -1,13 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/unreal-tournament-goty/unreal-tournament-goty-436.ebuild,v 1.16 2014/05/01 13:58:53 ulm Exp $
+# $Id$
+
+EAPI=5
 
 inherit eutils unpacker cdrom games
 
 DESCRIPTION="Futuristic FPS (Game Of The Year edition)"
-HOMEPAGE="http://www.unrealtournament.com/"
-SRC_URI="ftp://ftp.lokigames.com/pub/beta/ut/ut-install-${PV}-GOTY.run
-	ftp://ftp.lokigames.com/pub/patches/ut/IpDrv-${PV}-Linux-08-20-02.zip"
+HOMEPAGE="http://www.oldunreal.com/"
+SRC_URI="http://www.ut-files.com/Patches/ut-install-${PV}-GOTY.run
+	http://www.ut-files.com/Patches/ipdrv-${PV}-linux-08-20-02.zip -> IpDrv-${PV}-Linux-08-20-02.zip"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
@@ -16,12 +18,15 @@ IUSE="3dfx S3TC nls opengl"
 RESTRICT="mirror bindist"
 
 DEPEND="!games-fps/unreal-tournament
-	app-arch/unzip"
-RDEPEND="opengl? ( virtual/opengl )
-	x11-libs/libXext
-	x11-libs/libX11
-	x11-libs/libXau
-	x11-libs/libXdmcp"
+	app-arch/unzip
+"
+RDEPEND="
+	opengl? ( virtual/opengl[abi_x86_32(-)] )
+	x11-libs/libXext[abi_x86_32(-)]
+	x11-libs/libX11[abi_x86_32(-)]
+	x11-libs/libXau[abi_x86_32(-)]
+	x11-libs/libXdmcp[abi_x86_32(-)]
+"
 
 S=${WORKDIR}
 
@@ -49,7 +54,7 @@ src_install() {
 	# the most important things, ucc & ut :)
 	exeinto "${dir}"
 	doexe bin/x86/{ucc,ut} || die "install ucc/ut"
-	dosed "s:\`FindPath \$0\`:${dir}:" "${dir}"/ucc
+	sed -i -e "s:\`FindPath \$0\`:${dir}:" "${ED}/${dir}"/ucc || die
 
 	# export some symlinks so ppl can run
 	dodir "${GAMES_BINDIR}"

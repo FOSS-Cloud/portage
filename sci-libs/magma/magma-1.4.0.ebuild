@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/magma/magma-1.4.0.ebuild,v 1.1 2014/01/07 22:17:59 bicatali Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 FORTRAN_STANDARD="77 90"
 
@@ -16,7 +16,7 @@ SRC_URI="http://icl.cs.utk.edu/projectsfiles/${PN}/downloads/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="fermi kepler static-libs test"
 
 REQUIRED_USE="?? ( fermi kepler )"
@@ -24,7 +24,6 @@ REQUIRED_USE="?? ( fermi kepler )"
 RDEPEND="
 	dev-util/nvidia-cuda-toolkit
 	virtual/cblas
-	virtual/fortran
 	virtual/lapack"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig

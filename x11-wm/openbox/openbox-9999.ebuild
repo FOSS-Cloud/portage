@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/openbox/openbox-9999.ebuild,v 1.24 2013/08/24 23:35:40 hwoarang Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python2_6 python2_7 )
+PYTHON_COMPAT=( python2_7 )
 inherit multilib autotools python-r1 eutils
 
 DESCRIPTION="A standards compliant, fast, light-weight, extensible window manager"
@@ -13,12 +13,12 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-2
 	EGIT_REPO_URI="git://git.openbox.org/dana/openbox"
 	SRC_URI="branding? (
-	http://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo.tar.gz )"
+	https://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo.tar.gz )"
 	KEYWORDS=""
 
 else
 	SRC_URI="http://openbox.org/dist/openbox/${P}.tar.gz
-	branding? ( http://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo.tar.gz )"
+	branding? ( https://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo.tar.gz )"
 	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~arm-linux ~x86-linux"
 fi
 
@@ -63,7 +63,6 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-3.5.2-gnome-session.patch
 	sed -i \
 		-e "s:-O0 -ggdb ::" \
-		-e 's/-fno-strict-aliasing//' \
 		"${S}"/m4/openbox.m4 || die
 	epatch_user
 	eautoreconf

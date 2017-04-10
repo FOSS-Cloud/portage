@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/gtklp/gtklp-1.3.1.ebuild,v 1.1 2014/05/06 21:43:26 mrueg Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit autotools eutils
 
@@ -13,19 +13,22 @@ SRC_URI="mirror://sourceforge/gtklp/${P}.src.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ppc ~sparc x86"
 IUSE="nls ssl"
 
 RDEPEND="x11-libs/gtk+:2
-	>=net-print/cups-1.6
+	net-print/cups
 	nls? ( sys-devel/gettext )
-	ssl? ( dev-libs/openssl )"
+	ssl? ( dev-libs/openssl:0= )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 DOCS="AUTHORS BUGS ChangeLog README TODO USAGE"
 
+PATCHES=( "${FILESDIR}/${P}-formatsec.patch" )
+
 src_prepare() {
+	default
 	sed -e '/DEF_BROWSER_CMD/{s:netscape:firefox:}' \
 		-e '/DEF_HELP_HOME/{s:631/sum.html#STANDARD_OPTIONS:631/help/:}' \
 		-i include/defaults.h || die

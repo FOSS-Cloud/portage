@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/loquacious/loquacious-1.9.1-r2.ebuild,v 1.1 2014/05/06 21:19:35 p8952 Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
@@ -16,7 +16,7 @@ RUBY_FAKEGEM_EXTRADOC="History.txt README.rdoc"
 inherit ruby-fakegem
 
 DESCRIPTION="Descriptive configuration files for Ruby written in Ruby"
-HOMEPAGE="http://github.com/TwP/loquacious"
+HOMEPAGE="https://github.com/TwP/loquacious"
 
 IUSE=""
 LICENSE="MIT"
@@ -25,7 +25,7 @@ KEYWORDS="~amd64 ~x86"
 
 all_ruby_prepare() {
 	# Remove metadata because it confuses jruby.
-	rm ../metadata || die
+	rm -f ../metadata || die
 }
 
 all_ruby_compile() {

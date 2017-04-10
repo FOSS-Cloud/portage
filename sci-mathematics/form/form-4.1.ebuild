@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/form/form-4.1.ebuild,v 1.1 2013/11/05 18:49:54 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="devref doc doxygen gmp mpi threads zlib"
 
 RDEPEND="
-	gmp? ( dev-libs/gmp )
+	gmp? ( dev-libs/gmp:0= )
 	mpi? ( virtual/mpi )
 	zlib? ( sys-libs/zlib )"
 DEPEND="${RDEPEND}

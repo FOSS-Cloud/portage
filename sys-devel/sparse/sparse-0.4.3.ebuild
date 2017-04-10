@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/sparse/sparse-0.4.3.ebuild,v 1.13 2012/07/08 17:34:30 armin76 Exp $
+# $Id$
 
 EAPI="2"
 
@@ -11,7 +11,7 @@ if [[ ${PV} == "9999" ]] ; then
 fi
 
 DESCRIPTION="C semantic parser"
-HOMEPAGE="http://sparse.wiki.kernel.org/index.php/Main_Page"
+HOMEPAGE="https://sparse.wiki.kernel.org/index.php/Main_Page"
 
 if [[ ${PV} == "9999" ]] ; then
 	SRC_URI=""
@@ -32,7 +32,7 @@ DEPEND="${RDEPEND}
 	xml? ( virtual/pkgconfig )"
 
 src_prepare() {
-	# http://git.overlays.gentoo.org/gitweb/?p=proj/sparse.git;a=summary
+	# https://cgit.gentoo.org/proj/sparse.git
 	epatch "${FILESDIR}"/${P}-gentoo.patch
 }
 

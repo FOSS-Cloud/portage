@@ -10,7 +10,11 @@
 		<flag name="web">Adds generic web interface support</flag>
 		<flag name="eventhandler">Adds support for running custom scripts whenever a host or service state change occurs</flag>
 	</use>
-	<maintainer>
+	<maintainer type="person">
 		<email>prometheanfire@gentoo.org</email>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">icinga/icinga-core</remote-id>
+		<remote-id type="sourceforge">icinga</remote-id>
+	</upstream>
 </pkgmetadata>

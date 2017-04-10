@@ -1,8 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/pythonprop/pythonprop-0.13.ebuild,v 1.1 2013/11/30 10:13:31 tomjbe Exp $
+# $Id$
 
-EAPI="4"
+EAPI=5
+
 PYTHON_COMPAT=( python2_7 )
 
 inherit python-single-r1
@@ -16,12 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="sci-electronics/voacapl
-	dev-python/matplotlib[gtk]
-	dev-python/basemap"
+RDEPEND="
+	dev-python/matplotlib[gtk2,${PYTHON_USEDEP}]
+	dev-python/basemap[${PYTHON_USEDEP}]
+	sci-electronics/voacapl
+"
 DEPEND="${RDEPEND}"
-
-src_install() {
-	emake DESTDIR="${D}" install
-	dodoc AUTHORS ChangeLog NEWS TODO
-}

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/libgnomecups/libgnomecups-0.2.3-r5.ebuild,v 1.9 2014/09/15 08:23:46 ago Exp $
+# $Id$
 
 EAPI=5
 GCONF_DEBUG="yes"
@@ -9,11 +9,11 @@ GNOME_TARBALL_SUFFIX="bz2"
 inherit autotools eutils gnome2 multilib-minimal
 
 DESCRIPTION="GNOME cups library"
-HOMEPAGE="http://www.gnome.org/"
+HOMEPAGE="https://www.gnome.org/"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 ~arm hppa ia64 ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE=""
 
 RDEPEND="

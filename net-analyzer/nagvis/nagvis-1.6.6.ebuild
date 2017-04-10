@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagvis/nagvis-1.6.6.ebuild,v 1.4 2014/08/10 20:58:48 slyfox Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
-inherit eutils confutils depend.php depend.apache
+inherit eutils depend.apache
 
 DESCRIPTION="NagVis is a visualization addon for the well known network managment system Nagios"
 HOMEPAGE="http://www.nagvis.org/"
@@ -15,18 +15,17 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="apache2 automap"
 
-DEPEND=""
+DEPEND="virtual/httpd-php"
 RDEPEND="|| ( net-analyzer/nagios net-analyzer/icinga )
 	automap? ( >=media-gfx/graphviz-2.14 )
 	apache2? ( dev-lang/php[apache2] )
 	net-analyzer/mk-livestatus
-	dev-lang/php[gd,nls,json,session,pdo,sqlite,sockets,mysql,unicode,xml]"
+	dev-lang/php[gd,nls,json,session,pdo,sqlite,sockets,mysql,unicode,xml]
+	virtual/httpd-php:*"
 
-need_php_httpd
 want_apache2
 
 pkg_setup() {
-	confutils_require_built_with_all dev-lang/php gd nls json session pdo sqlite3 sockets mysql unicode xml
 	depend.apache_pkg_setup
 }
 

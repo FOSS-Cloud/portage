@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/sylpheed/sylpheed-3.4.2.ebuild,v 1.1 2014/06/13 13:37:26 hattya Exp $
+# $Id$
 
 EAPI="5"
 
-inherit eutils
+inherit eutils multilib
 
 DESCRIPTION="A lightweight email client and newsreader"
 HOMEPAGE="http://sylpheed.sraoss.jp/"
@@ -12,7 +12,7 @@ SRC_URI="http://${PN}.sraoss.jp/${PN}/v${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 hppa ia64 ppc ppc64 sparc x86 ~x86-fbsd"
 IUSE="crypt ipv6 ldap nls oniguruma pda spell ssl xface"
 
 CDEPEND="x11-libs/gtk+:2
@@ -22,7 +22,7 @@ CDEPEND="x11-libs/gtk+:2
 	oniguruma? ( dev-libs/oniguruma )
 	pda? ( app-pda/jpilot )
 	spell? ( app-text/gtkspell:2 )
-	ssl? ( dev-libs/openssl )"
+	ssl? ( dev-libs/openssl:0 )"
 RDEPEND="${CDEPEND}
 	app-misc/mime-types
 	net-misc/curl"
@@ -41,6 +41,7 @@ src_configure() {
 		$(use_enable spell gtkspell) \
 		$(use_enable ssl) \
 		$(use_enable xface compface) \
+		--with-plugindir=/usr/$(get_libdir)/${PN}/plugins \
 		--with-manualdir=${htmldir}/manual \
 		--with-faqdir=${htmldir}/faq \
 		--disable-updatecheck
@@ -54,7 +55,7 @@ src_install() {
 	domenu *.desktop
 
 	cd plugin/attachment_tool
-	docinto plugin/attachment_tool
 	emake DESTDIR="${D}" install-plugin
+	docinto plugin/attachment_tool
 	dodoc README
 }

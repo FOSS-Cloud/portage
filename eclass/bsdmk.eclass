@@ -1,12 +1,10 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/bsdmk.eclass,v 1.12 2013/08/09 16:26:59 aballier Exp $
+# $Id$
 
 # @ECLASS: bsdmk.eclass
 # @MAINTAINER:
-# Otavio R. Piske "AngusYoung" <angusyoung@gentoo.org>
-# Diego Pettenò <flameeyes@gentoo.org>
-# Benigno B. Junior <bbj@gentoo.org>
+# maintainer-needed@gentoo.org
 # @BLURB: Some functions for BSDmake
 
 inherit toolchain-funcs portability flag-o-matic
@@ -81,5 +79,5 @@ bsdmk_src_compile() {
 # @DESCRIPTION:
 # The bsdmk src_install function, which is exported
 bsdmk_src_install() {
-	mkinstall || die "install failed"
+	mkinstall "$@" || die "install failed"
 }

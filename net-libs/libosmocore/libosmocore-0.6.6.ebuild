@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libosmocore/libosmocore-0.6.6.ebuild,v 1.1 2014/04/26 02:08:08 zx2c4 Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="embedded"
 
-RDEPEND=""
+RDEPEND="embedded? ( sys-libs/talloc )"
 DEPEND="${RDEPEND}
 	app-doc/doxygen"
 

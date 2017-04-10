@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/amq-client/amq-client-1.0.4.ebuild,v 1.3 2014/08/05 16:00:46 mrueg Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby20 ruby21 ruby22"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="README.textile"
@@ -15,7 +15,7 @@ RUBY_FAKEGEM_BINWRAP=""
 inherit versionator ruby-fakegem
 
 DESCRIPTION="A fully-featured, low-level AMQP 0.9.1 client"
-HOMEPAGE="http://github.com/ruby-amqp/amq-client"
+HOMEPAGE="https://github.com/ruby-amqp/amq-client"
 
 LICENSE="MIT"
 SLOT="0"

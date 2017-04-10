@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/ossp-uuid/ossp-uuid-1.6.2-r2.ebuild,v 1.15 2014/08/10 20:38:35 slyfox Exp $
+# $Id$
 
 EAPI="4"
 
 PHP_EXT_NAME="uuid"
 PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
-USE_PHP="php5-3 php5-4"
+USE_PHP="php5-4"
 
 MY_P="uuid-${PV}"
 PHP_EXT_S="${WORKDIR}/${MY_P}/php"
@@ -21,7 +21,7 @@ SRC_URI="ftp://ftp.ossp.org/pkg/lib/uuid/${MY_P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~x86-macos"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~x86-macos"
 IUSE="+cxx perl php static-libs"
 
 DEPEND="perl? ( dev-lang/perl )"

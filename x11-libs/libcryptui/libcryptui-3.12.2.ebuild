@@ -1,19 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libcryptui/libcryptui-3.12.2.ebuild,v 1.4 2014/10/04 08:47:48 pacho Exp $
+# $Id$
 
-EAPI="5"
-GCONF_DEBUG="yes"
-
-inherit gnome2
+EAPI=6
+inherit autotools gnome2
 
 DESCRIPTION="User interface components for OpenPGP"
 HOMEPAGE="https://wiki.gnome.org/Apps/Seahorse"
 
 LICENSE="GPL-2+ LGPL-2.1+ FDL-1.1"
 SLOT="0"
-IUSE="+introspection libnotify"
-KEYWORDS="amd64 x86 ~x86-fbsd"
+IUSE="debug +introspection libnotify"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 x86 ~x86-fbsd"
 
 # Pull in libnotify-0.7 because it's controlled via an automagic ifdef
 COMMON_DEPEND="
@@ -24,16 +22,14 @@ COMMON_DEPEND="
 	x11-libs/libICE
 	x11-libs/libSM
 
-	>=app-crypt/gpgme-1
-	|| (
-		=app-crypt/gnupg-2.0*
-		=app-crypt/gnupg-1.4* )
+	>=app-crypt/gpgme-1:1=
+	>=app-crypt/gnupg-1.4
 
-	introspection? ( >=dev-libs/gobject-introspection-0.6.4 )
+	introspection? ( >=dev-libs/gobject-introspection-0.6.4:= )
 	libnotify? ( >=x11-libs/libnotify-0.7:= )
 "
 DEPEND="${COMMON_DEPEND}
-	>=app-text/scrollkeeper-0.3
+	app-text/rarian
 	>=dev-util/gtk-doc-am-1.9
 	>=dev-util/intltool-0.35
 	sys-devel/gettext
@@ -45,11 +41,15 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 src_prepare() {
+	# Support GnuPG 2.1, https://bugzilla.gnome.org/show_bug.cgi?id=745843
+	eapply "${FILESDIR}"/${PN}-3.12.2-gnupg-2.1.patch
+
 	# FIXME: Do not mess with CFLAGS with USE="debug"
 	sed -e '/CFLAGS="$CFLAGS -g -O0/d' \
 		-e 's/-Werror//' \
 		-i configure.ac configure || die "sed failed"
 
+	eautoreconf
 	gnome2_src_prepare
 }
 
@@ -57,6 +57,7 @@ src_configure() {
 	gnome2_src_configure \
 		--disable-static \
 		--disable-update-mime-database \
+		$(use_enable debug) \
 		$(use_enable introspection) \
 		$(use_enable libnotify)
 }

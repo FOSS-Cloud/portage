@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-misc/gBhed/gBhed-0.17.ebuild,v 1.6 2011/02/22 21:20:20 mr_bones_ Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="An Al Bhed translator"
@@ -15,6 +15,7 @@ KEYWORDS="amd64 ppc x86"
 IUSE="gtk"
 
 DEPEND="gtk? ( x11-libs/gtk+:2 )"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	sed -i 's/19/32/' src/gui/translation_fork.c || die
@@ -27,13 +28,13 @@ src_configure() {
 }
 
 src_install() {
-	emake -C src DESTDIR="${D}" install || die "emake install failed"
+	emake -C src DESTDIR="${D}" install
 	dodoc AUTHORS ChangeLog NEWS README THANKS TODO
 	doman doc/abtranslate.1
 
 	if use gtk ; then
 		insinto "${GAMES_DATADIR}"/${PN}/pixmaps
-		doins pixmaps/*.{jpg,png,xpm} || die "doins failed"
+		doins pixmaps/*.{jpg,png,xpm}
 		newicon pixmaps/gbhed48.png ${PN}.png
 		make_desktop_entry gbhed ${PN}
 		doman doc/gbhed.1

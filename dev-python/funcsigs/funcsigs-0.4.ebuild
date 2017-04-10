@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/funcsigs/funcsigs-0.4.ebuild,v 1.2 2014/06/27 01:50:48 idella4 Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 pypy )
+PYTHON_COMPAT=( python2_7 pypy pypy3 )
 
 inherit distutils-r1
 
@@ -14,11 +14,13 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="Apache-2.0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-linux ~x86-linux"
 IUSE="test"
 
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
-DEPEND="test? ( dev-python/unittest2[${PYTHON_USEDEP}] )"
+DEPEND="
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	test? ( dev-python/unittest2[${PYTHON_USEDEP}] )"
+RDEPEND=""
 
 python_test() {
 	esetup.py test

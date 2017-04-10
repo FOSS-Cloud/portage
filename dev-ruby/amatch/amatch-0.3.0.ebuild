@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/amatch/amatch-0.3.0.ebuild,v 1.1 2014/04/08 06:45:00 graaff Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="CHANGES README.rdoc"
@@ -11,7 +11,7 @@ RUBY_FAKEGEM_EXTRADOC="CHANGES README.rdoc"
 inherit multilib ruby-fakegem
 
 DESCRIPTION="Approximate Matching Extension for Ruby"
-HOMEPAGE="http://flori.github.com/amatch/"
+HOMEPAGE="https://flori.github.com/amatch/"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/octave/octave-3.6.4-r1.ebuild,v 1.3 2014/02/24 11:16:44 gienah Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,23 +15,24 @@ HOMEPAGE="http://www.octave.org/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.bz2"
 
 SLOT="0/${PV}"
-IUSE="curl doc fftw +glpk gnuplot hdf5 +imagemagick opengl postscript
+IUSE="curl doc fftw +glpk gnuplot graphicsmagick hdf5 +imagemagick opengl postscript
 	+qhull +qrupdate readline +sparse static-libs X zlib"
-KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm hppa ppc ppc64 x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 
 RDEPEND="
 	app-text/ghostscript-gpl
 	dev-libs/libpcre
-	sys-libs/ncurses
+	sys-libs/ncurses:0=
 	virtual/lapack
 	curl? ( net-misc/curl )
 	fftw? ( sci-libs/fftw:3.0 )
 	glpk? ( sci-mathematics/glpk )
 	gnuplot? ( sci-visualization/gnuplot )
 	hdf5? ( sci-libs/hdf5 )
-	imagemagick? ( || (
-			media-gfx/graphicsmagick[cxx]
-			media-gfx/imagemagick[cxx] ) )
+	imagemagick? (
+		!graphicsmagick? ( media-gfx/imagemagick:=[cxx] )
+		graphicsmagick? ( media-gfx/graphicsmagick:=[cxx] )
+	)
 	opengl? (
 		media-libs/freetype:2
 		media-libs/fontconfig
@@ -43,7 +44,7 @@ RDEPEND="
 		media-gfx/transfig )
 	qhull? ( media-libs/qhull )
 	qrupdate? ( sci-libs/qrupdate )
-	readline? ( sys-libs/readline )
+	readline? ( sys-libs/readline:0 )
 	sparse? (
 		sci-libs/arpack
 		sci-libs/camd
@@ -59,7 +60,6 @@ DEPEND="${RDEPEND}
 	doc? (
 		virtual/latex-base
 		dev-texlive/texlive-genericrecommended
-		dev-texlive/texlive-metapost
 		sys-apps/texinfo )
 	dev-util/gperf
 	virtual/pkgconfig"
@@ -67,8 +67,7 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.4.3-{pkgbuilddir,texi}.patch
 	"${FILESDIR}"/${PN}-3.6.3-legendtext.patch
-	"${FILESDIR}"/${P}-texinfo.patch
-	"${FILESDIR}"/${P}-gcc-4.8.patch
+	"${FILESDIR}"/${PN}-3.6.4-texinfo.patch
 )
 
 src_prepare() {
@@ -101,6 +100,7 @@ src_configure() {
 		$(use_with fftw fftw3f)
 		$(use_with glpk)
 		$(use_with hdf5)
+		$(use_with imagemagick magick $(usex graphicsmagick GraphicsMagick ImageMagick))
 		$(use_with opengl)
 		$(use_with qhull)
 		$(use_with qrupdate)
@@ -113,15 +113,6 @@ src_configure() {
 		$(use_with X x)
 		$(use_with zlib z)
 	)
-	if use imagemagick; then
-		if has_version media-gfx/graphicsmagick[cxx]; then
-			myeconfargs+=( "--with-magick=GraphicsMagick" )
-		else
-			myeconfargs+=( "--with-magick=ImageMagick" )
-		fi
-	else
-		myeconfargs+=( "--without-magick" )
-	fi
 	autotools-utils_src_configure
 }
 

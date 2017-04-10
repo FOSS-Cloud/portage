@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/mini-qmail/mini-qmail-1.06.ebuild,v 1.11 2013/02/28 17:50:48 zx2c4 Exp $
+# $Id$
 
 GENQMAIL_PV=20080406
 
@@ -8,16 +8,16 @@ inherit eutils qmail
 
 DESCRIPTION="a small null client that forwards mail via QMQP to a full qmail server"
 HOMEPAGE="
-	http://netqmail.org
+	http://netqmail.org/
 	http://cr.yp.to/qmail/mini.html
-	http://qmail.org
+	http://qmail.org/
 "
 SRC_URI="mirror://qmail/netqmail-${PV}.tar.gz
-	http://dev.gentoo.org/~hollow/distfiles/${GENQMAIL_F}"
+	https://dev.gentoo.org/~hollow/distfiles/${GENQMAIL_F}"
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="~amd64 arm hppa ~mips ~ppc ~x86"
+KEYWORDS="amd64 arm hppa ~mips ppc x86"
 IUSE=""
 
 DEPEND=""
@@ -51,7 +51,7 @@ src_unpack() {
 }
 
 src_compile() {
-	qmail_src_compile
+	MAKEOPTS="${MAKEOPTS} -j1" qmail_src_compile #398135
 }
 
 # make check is actually an install-check target, see bug #364955

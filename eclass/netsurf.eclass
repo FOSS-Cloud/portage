@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/netsurf.eclass,v 1.1 2013/06/23 16:36:49 xmw Exp $
+# $Id$
 
 # @ECLASS: netsurf.eclass
 # @MAINTAINER:
@@ -17,7 +17,7 @@ case ${EAPI:-0} in
 	*) ;;
 esac
 
-inherit base toolchain-funcs multilib-minimal
+inherit eutils toolchain-funcs multilib-minimal
 
 EXPORT_FUNCTIONS src_prepare src_configure src_compile src_install
 
@@ -56,10 +56,12 @@ DEPEND="virtual/pkgconfig"
 
 # @FUNCTION: netsurf_src_prepare
 # @DESCRIPTION:
-# Run base_src_prepare for PATCHES support and multilib_copy_sources for 
-# in-source build.
+# Apply and PATCHES and multilib_copy_sources for in-source build.
 netsurf_src_prepare() {
-	base_src_prepare
+	[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
+	debug-print "$FUNCNAME: applying user patches"
+	epatch_user
+
 	multilib_copy_sources
 }
 
@@ -96,6 +98,8 @@ multilib_src_configure() {
 		sed -e "/^libdir/s:/lib:/$(get_libdir):g" \
 			-i ${PN}.pc.in || die
 	fi
+	sed -e 's:/bin/which:which:' \
+		-i ../${NETSURF_BUILDSYSTEM}/makefiles/Makefile.tools || die
 }
 
 # @FUNCTION: netsurf_make
@@ -110,7 +114,7 @@ netsurf_make() {
 			fi
 		fi
 		emake CC="$(tc-getCC)" LD="$(tc-getLD)" "${netsurf_makeconf[@]}" \
-			COMPONENT_TYPE=${COMPONENT_TYPE} "$@"
+			COMPONENT_TYPE=${COMPONENT_TYPE} LIBDIR="$(get_libdir)" "$@"
 	done
 }
 

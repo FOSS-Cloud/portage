@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hwloc/hwloc-1.8.1.ebuild,v 1.2 2014/02/28 17:25:45 bicatali Exp $
+# $Id$
 
 EAPI=5
 
@@ -22,7 +22,7 @@ IUSE="cairo cuda debug gl +numa opencl +pci plugins svg static-libs xml X"
 RDEPEND="sys-libs/ncurses
 	cairo? ( x11-libs/cairo[X?,svg?] )
 	cuda? ( dev-util/nvidia-cuda-toolkit )
-	gl? ( media-video/nvidia-settings )
+	gl? ( || ( x11-drivers/nvidia-drivers[static-libs,tools] media-video/nvidia-settings ) )
 	opencl? ( x11-drivers/ati-drivers )
 	pci? (
 			sys-apps/pciutils

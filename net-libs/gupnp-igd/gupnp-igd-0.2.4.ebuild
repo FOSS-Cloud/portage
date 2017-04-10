@@ -1,20 +1,20 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gupnp-igd/gupnp-igd-0.2.4.ebuild,v 1.1 2014/10/02 11:52:56 pacho Exp $
+# $Id$
 
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 AUTOTOOLS_AUTORECONF=true
 
-inherit eutils gnome.org python-r1 multilib-minimal
+inherit eutils gnome.org python-r1 multilib-minimal xdg-utils
 
 DESCRIPTION="Library to handle UPnP IGD port mapping for GUPnP"
 HOMEPAGE="http://gupnp.org"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm hppa ~ia64 ~ppc ppc64 ~sparc x86"
 IUSE="+introspection python"
 
 RDEPEND="
@@ -40,6 +40,8 @@ PATCHES=(
 )
 
 multilib_src_configure() {
+	xdg_environment_reset
+
 	local myconf=(
 		--disable-static
 		--disable-gtk-doc
@@ -63,7 +65,7 @@ multilib_src_configure() {
 				--enable-python
 		}
 
-		use python && python_parallel_foreach_impl python_configure
+		use python && python_foreach_impl python_configure
 	fi
 }
 

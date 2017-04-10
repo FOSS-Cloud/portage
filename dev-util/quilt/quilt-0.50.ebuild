@@ -1,12 +1,12 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/quilt/quilt-0.50.ebuild,v 1.7 2012/04/01 17:15:59 armin76 Exp $
+# $Id$
 
 inherit bash-completion-r1 eutils
 
 DESCRIPTION="quilt patch manager"
-HOMEPAGE="http://savannah.nongnu.org/projects/quilt"
-SRC_URI="http://savannah.nongnu.org/download/quilt/${P}.tar.gz"
+HOMEPAGE="https://savannah.nongnu.org/projects/quilt"
+SRC_URI="https://savannah.nongnu.org/download/quilt/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -1,6 +1,11 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/chromium.eclass,v 1.9 2013/12/04 04:23:08 phajdan.jr Exp $
+# $Id$
+
+# DEPRECATED
+# This eclass has been deprecated and should not be used by any new ebuilds.
+
+# @DEAD
 
 # @ECLASS: chromium.eclass
 # @MAINTAINER:
@@ -10,6 +15,8 @@
 # @BLURB: Shared functions for chromium and google-chrome
 
 inherit eutils fdo-mime gnome2-utils linux-info
+
+eqawarn "chromium.eclass is deprecated"
 
 if [[ ${CHROMIUM_EXPORT_PHASES} != no ]]; then
 	EXPORT_FUNCTIONS pkg_preinst pkg_postinst pkg_postrm
@@ -31,8 +38,13 @@ chromium_suid_sandbox_check_kernel_config() {
 		# Bug #363987.
 		ERROR_PID_NS="PID_NS is required for sandbox to work"
 		ERROR_NET_NS="NET_NS is required for sandbox to work"
+		ERROR_USER_NS="USER_NS is required for sandbox to work"
 		ERROR_SECCOMP_FILTER="SECCOMP_FILTER is required for sandbox to work"
-		CONFIG_CHECK="~PID_NS ~NET_NS ~SECCOMP_FILTER"
+		# Warn if the kernel does not support features needed for the browser to work
+		# (bug #552576, bug #556286).
+		ERROR_ADVISE_SYSCALLS="CONFIG_ADVISE_SYSCALLS is required for the renderer (bug #552576)"
+		ERROR_COMPAT_VDSO="CONFIG_COMPAT_VDSO causes segfaults (bug #556286)"
+		CONFIG_CHECK="~PID_NS ~NET_NS ~SECCOMP_FILTER ~USER_NS ~ADVISE_SYSCALLS ~!COMPAT_VDSO"
 		check_extra_config
 	fi
 }
@@ -59,23 +71,11 @@ if [[ ${CHROMIUM_LANGS} ]]; then
 fi
 
 _chromium_crlang() {
-	local x
-	for x in "$@"; do
-		case $x in
-			es_LA) echo es-419 ;;
-			*) echo "${x/_/-}" ;;
-		esac
-	done
+	echo "${@/_/-}"
 }
 
 _chromium_syslang() {
-	local x
-	for x in "$@"; do
-		case $x in
-			es-419) echo es_LA ;;
-			*) echo "${x/-/_}" ;;
-		esac
-	done
+	echo "${@/-/_}"
 }
 
 _chromium_strip_pak() {
@@ -135,7 +135,7 @@ chromium_pkg_postinst() {
 		elog "Depending on your desktop environment, you may need"
 		elog "to install additional packages to get icons on the Downloads page."
 		elog
-		elog "For KDE, the required package is kde-base/oxygen-icons."
+		elog "For KDE, the required package is kde-frameworks/oxygen-icons."
 		elog
 		elog "For other desktop environments, try one of the following:"
 		elog " - x11-themes/gnome-icon-theme"

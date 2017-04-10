@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/openib.eclass,v 1.11 2014/04/16 10:09:29 alexxy Exp $
+# $Id$
 
 # @ECLASS: openib.eclass
 # @AUTHOR:
@@ -42,7 +42,6 @@ SLOT="${OFED_VER}"
 # Defines array of ofed version supported by eclass
 
 OFED_VERSIONS=(
-	"1.5.4.1"
 	"3.5"
 	"3.12"
 	)
@@ -52,10 +51,10 @@ OFED_VERSIONS=(
 # function that creates blockers list for ofed
 block_other_ofed_versions() {
 	local slot
-	RDEPEND="${RDEPEND} !sys-infiniband/${PN}:0"
+	RDEPEND="${RDEPEND} !sys-fabric/${PN}:0"
 	for slot in ${OFED_VERSIONS[@]}; do
 		if [[ ${slot} != ${SLOT} ]]; then
-			RDEPEND+=" !sys-infiniband/${PN}:${slot}"
+			RDEPEND+=" !sys-fabric/${PN}:${slot}"
 		fi
 	done
 }
@@ -70,14 +69,7 @@ fi
 
 case ${PN} in
 	ofed)
-		case ${PV} in
-			1.5.*|1.5.*.*)
-				MY_PN="ofa_kernel"
-				;;
-			*)
-				MY_PN="compat-rdma"
-				;;
-		esac
+		MY_PN="compat-rdma"
 		;;
 	*)
 		MY_PN="${PN}"

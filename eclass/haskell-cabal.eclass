@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/haskell-cabal.eclass,v 1.46 2014/06/27 07:26:18 slyfox Exp $
+# $Id$
 
 # @ECLASS: haskell-cabal.eclass
 # @MAINTAINER:
@@ -20,25 +20,24 @@
 #   haddock    --  for documentation generation
 #   hscolour   --  generation of colourised sources
 #   hoogle     --  generation of documentation search index
-#   alex       --  lexer/scanner generator
-#   happy      --  parser generator
-#   c2hs       --  C interface generator
-#   cpphs      --  C preprocessor clone written in Haskell
 #   profile    --  if package supports to build profiling-enabled libraries
 #   bootstrap  --  only used for the cabal package itself
-#   bin        --  the package installs binaries
 #   lib        --  the package installs libraries
 #   nocabaldep --  don't add dependency on cabal.
 #                  only used for packages that _must_ not pull the dependency
 #                  on cabal, but still use this eclass (e.g. haskell-updater).
+#   ghcdeps    --  constraint dependency on package to ghc onces
+#                  only used for packages that use libghc internally and _must_
+#                  not pull upper versions
 #   test-suite --  add support for cabal test-suites (introduced in Cabal-1.8)
 
-inherit eutils ghc-package multilib multiprocessing
+inherit eutils ghc-package multilib toolchain-funcs
 
 # @ECLASS-VARIABLE: CABAL_EXTRA_CONFIGURE_FLAGS
 # @DESCRIPTION:
 # User-specified additional parameters passed to 'setup configure'.
-# example: /etc/portage/make.conf: CABAL_EXTRA_CONFIGURE_FLAGS=--enable-shared
+# example: /etc/portage/make.conf:
+#    CABAL_EXTRA_CONFIGURE_FLAGS="--enable-shared --enable-executable-dynamic"
 : ${CABAL_EXTRA_CONFIGURE_FLAGS:=}
 
 # @ECLASS-VARIABLE: CABAL_EXTRA_BUILD_FLAGS
@@ -55,13 +54,20 @@ inherit eutils ghc-package multilib multiprocessing
 # linking 'setup' faster.
 : ${GHC_BOOTSTRAP_FLAGS:=}
 
+# @ECLASS-VARIABLE: CABAL_EXTRA_TEST_FLAGS
+# @DESCRIPTION:
+# User-specified additional parameters passed to 'setup test'.
+# example: /etc/portage/make.conf:
+#    CABAL_EXTRA_TEST_FLAGS="-v3 --show-details=streaming"
+: ${CABAL_EXTRA_TEST_FLAGS:=}
+
 # @ECLASS-VARIABLE: CABAL_DEBUG_LOOSENING
 # @DESCRIPTION:
 # Show debug output for 'cabal_chdeps' function if set.
 # Needs working 'diff'.
 : ${CABAL_DEBUG_LOOSENING:=}
 
-HASKELL_CABAL_EXPF="pkg_setup src_compile src_test src_install"
+HASKELL_CABAL_EXPF="pkg_setup src_compile src_test src_install pkg_postinst pkg_postrm"
 
 # 'dev-haskell/cabal' passes those options with ./configure-based
 # configuration, but most packages don't need/don't accept it:
@@ -69,7 +75,7 @@ HASKELL_CABAL_EXPF="pkg_setup src_compile src_test src_install"
 QA_CONFIGURE_OPTIONS+=" --with-compiler --with-hc --with-hc-pkg --with-gcc"
 
 case "${EAPI:-0}" in
-	2|3|4|5) HASKELL_CABAL_EXPF+=" src_configure" ;;
+	2|3|4|5|6) HASKELL_CABAL_EXPF+=" src_configure" ;;
 	*) ;;
 esac
 
@@ -80,16 +86,16 @@ for feature in ${CABAL_FEATURES}; do
 		haddock)    CABAL_USE_HADDOCK=yes;;
 		hscolour)   CABAL_USE_HSCOLOUR=yes;;
 		hoogle)     CABAL_USE_HOOGLE=yes;;
-		alex)       CABAL_USE_ALEX=yes;;
-		happy)      CABAL_USE_HAPPY=yes;;
-		c2hs)       CABAL_USE_C2HS=yes;;
-		cpphs)      CABAL_USE_CPPHS=yes;;
 		profile)    CABAL_USE_PROFILE=yes;;
 		bootstrap)  CABAL_BOOTSTRAP=yes;;
-		bin)        CABAL_HAS_BINARIES=yes;;
 		lib)        CABAL_HAS_LIBRARIES=yes;;
 		nocabaldep) CABAL_FROM_GHC=yes;;
+		ghcdeps)    CABAL_GHC_CONSTRAINT=yes;;
 		test-suite) CABAL_TEST_SUITE=yes;;
+
+		# does nothing, removed 2016-09-04
+		bin)        ;;
+
 		*) CABAL_UNKNOWN="${CABAL_UNKNOWN} ${feature}";;
 	esac
 done
@@ -98,7 +104,13 @@ if [[ -n "${CABAL_USE_HADDOCK}" ]]; then
 	IUSE="${IUSE} doc"
 	# don't require depend on itself to build docs.
 	# ebuild bootstraps docs from just built binary
-	[[ ${CATEGORY}/${PN} = "dev-haskell/haddock" ]] || DEPEND="${DEPEND} doc? ( dev-haskell/haddock )"
+	#
+	# starting from ghc-7.10.2 we install haddock bundled with
+	# ghc to keep links to base and ghc library, otherwise
+	# newer haddock versions change index format and can't
+	# read index files for packages coming with ghc.
+	[[ ${CATEGORY}/${PN} = "dev-haskell/haddock" ]] || \
+		DEPEND="${DEPEND} doc? ( || ( dev-haskell/haddock >=dev-lang/ghc-7.10.2 ) )"
 fi
 
 if [[ -n "${CABAL_USE_HSCOLOUR}" ]]; then
@@ -106,20 +118,10 @@ if [[ -n "${CABAL_USE_HSCOLOUR}" ]]; then
 	DEPEND="${DEPEND} hscolour? ( dev-haskell/hscolour )"
 fi
 
-if [[ -n "${CABAL_USE_ALEX}" ]]; then
-	DEPEND="${DEPEND} dev-haskell/alex"
-fi
-
-if [[ -n "${CABAL_USE_HAPPY}" ]]; then
-	DEPEND="${DEPEND} dev-haskell/happy"
-fi
-
-if [[ -n "${CABAL_USE_C2HS}" ]]; then
-	DEPEND="${DEPEND} dev-haskell/c2hs"
-fi
-
-if [[ -n "${CABAL_USE_CPPHS}" ]]; then
-	DEPEND="${DEPEND} dev-haskell/cpphs"
+if [[ -n "${CABAL_USE_HOOGLE}" ]]; then
+	# enabled only in ::haskell
+	#IUSE="${IUSE} hoogle"
+	CABAL_USE_HOOGLE=
 fi
 
 if [[ -n "${CABAL_USE_PROFILE}" ]]; then
@@ -130,17 +132,9 @@ if [[ -n "${CABAL_TEST_SUITE}" ]]; then
 	IUSE="${IUSE} test"
 fi
 
-# We always use a standalone version of Cabal, rather than the one that comes
-# with GHC. But of course we can't depend on cabal when building cabal itself.
-if [[ -z ${CABAL_MIN_VERSION} ]]; then
-	CABAL_MIN_VERSION=1.1.4
-fi
-if [[ -z "${CABAL_BOOTSTRAP}" && -z "${CABAL_FROM_GHC}" ]]; then
-	DEPEND="${DEPEND} >=dev-haskell/cabal-${CABAL_MIN_VERSION}"
-fi
-
-# returns the version of cabal currently in use
-_CABAL_VERSION_CACHE=""
+# returns the version of cabal currently in use.
+# Rarely it's handy to pin cabal version from outside.
+: ${_CABAL_VERSION_CACHE:=""}
 cabal-version() {
 	if [[ -z "${_CABAL_VERSION_CACHE}" ]]; then
 		if [[ "${CABAL_BOOTSTRAP}" ]]; then
@@ -148,9 +142,7 @@ cabal-version() {
 			# of this package itself.
 			_CABAL_VERSION_CACHE="${PV}"
 		elif [[ "${CABAL_FROM_GHC}" ]]; then
-			local cabal_package=$(echo "$(ghc-libdir)"/Cabal-*)
-			# /path/to/ghc/Cabal-${VER} -> ${VER}
-			_CABAL_VERSION_CACHE="${cabal_package/*Cabal-/}"
+			_CABAL_VERSION_CACHE="$(ghc-cabal-version)"
 		else
 			# We ask portage, not ghc, so that we only pick up
 			# portage-installed cabal versions.
@@ -163,19 +155,16 @@ cabal-version() {
 cabal-bootstrap() {
 	local setupmodule
 	local cabalpackage
+	local setup_bootstrap_args=()
+
 	if [[ -f "${S}/Setup.lhs" ]]; then
 		setupmodule="${S}/Setup.lhs"
 	elif [[ -f "${S}/Setup.hs" ]]; then
 		setupmodule="${S}/Setup.hs"
 	else
-		die "No Setup.lhs or Setup.hs found"
-	fi
-
-	if [[ -z "${CABAL_BOOTSTRAP}" && -z "${CABAL_FROM_GHC}" ]] && ! ghc-sanecabal "${CABAL_MIN_VERSION}"; then
-		eerror "The package dev-haskell/cabal is not correctly installed for"
-		eerror "the currently active version of ghc ($(ghc-version)). Please"
-		eerror "run haskell-updater or re-build dev-haskell/cabal."
-		die "cabal is not correctly installed"
+		eqawarn "No Setup.lhs or Setup.hs found. Either add Setup.hs to package or call cabal-mksetup from ebuild"
+		cabal-mksetup
+		setupmodule="${S}/Setup.hs"
 	fi
 
 	# We build the setup program using the latest version of
@@ -183,8 +172,17 @@ cabal-bootstrap() {
 	cabalpackage=Cabal-$(cabal-version)
 	einfo "Using cabal-$(cabal-version)."
 
+	if $(ghc-supports-threaded-runtime); then
+		# Cabal has a bug that deadlocks non-threaded RTS:
+		#     https://bugs.gentoo.org/537500
+		#     https://github.com/haskell/cabal/issues/2398
+		setup_bootstrap_args+=(-threaded)
+	fi
+
 	make_setup() {
 		set -- -package "${cabalpackage}" --make "${setupmodule}" \
+			$(ghc-make-args) \
+			"${setup_bootstrap_args[@]}" \
 			${HCFLAGS} \
 			${GHC_BOOTSTRAP_FLAGS} \
 			"$@" \
@@ -221,7 +219,7 @@ cabal-mksetup() {
 	rm -vf "${setupdir}"/Setup.{lhs,hs}
 	elog "Creating 'Setup.hs' for 'Simple' build type."
 
-	echo 'import Distribution.Simple; main = defaultMainWithHooks defaultUserHooks' \
+	echo 'import Distribution.Simple; main = defaultMain' \
 		> "${setup_src}" || die "failed to create default Setup.hs"
 }
 
@@ -237,11 +235,31 @@ cabal-haddock() {
 	./setup "$@" || die "setup haddock failed"
 }
 
+cabal-hoogle() {
+	ewarn "hoogle USE flag requires doc USE flag, building without hoogle"
+}
+
 cabal-hscolour-haddock() {
 	# --hyperlink-source implies calling 'setup hscolour'
 	set -- haddock --hyperlink-source
 	echo ./setup "$@"
 	./setup "$@" --hyperlink-source || die "setup haddock --hyperlink-source failed"
+}
+
+cabal-hoogle-haddock() {
+	set -- haddock --hoogle
+	echo ./setup "$@"
+	./setup "$@" || die "setup haddock --hoogle failed"
+}
+
+cabal-hoogle-hscolour-haddock() {
+	cabal-hscolour-haddock
+	cabal-hoogle-haddock
+}
+
+cabal-hoogle-hscolour() {
+	ewarn "hoogle USE flag requires doc USE flag, building without hoogle"
+	cabal-hscolour
 }
 
 cabal-die-if-nonempty() {
@@ -282,28 +300,29 @@ cabal-configure() {
 	has "${EAPI:-0}" 0 1 2 && ! use prefix && EPREFIX=
 
 	if [[ -n "${CABAL_USE_HADDOCK}" ]] && use doc; then
-		cabalconf+=(--with-haddock=${EPREFIX}/usr/bin/haddock)
+		# We use the bundled with GHC version if exists
+		# Haddock is very picky about index files
+		# it generates for ghc's base and other packages.
+		local p=${EPREFIX}/usr/bin/haddock-ghc-$(ghc-version)
+		if [[ -f $p ]]; then
+			cabalconf+=(--with-haddock="${p}")
+		else
+			cabalconf+=(--with-haddock=${EPREFIX}/usr/bin/haddock)
+		fi
 	fi
 	if [[ -n "${CABAL_USE_PROFILE}" ]] && use profile; then
 		cabalconf+=(--enable-library-profiling)
 	fi
-	if [[ -n "${CABAL_USE_ALEX}" ]]; then
-		cabalconf+=(--with-alex=${EPREFIX}/usr/bin/alex)
-	fi
 
-	if [[ -n "${CABAL_USE_HAPPY}" ]]; then
-		cabalconf+=(--with-happy=${EPREFIX}/usr/bin/happy)
-	fi
-
-	if [[ -n "${CABAL_USE_C2HS}" ]]; then
-		cabalconf+=(--with-c2hs=${EPREFIX}/usr/bin/c2hs)
-	fi
-	if [[ -n "${CABAL_USE_CPPHS}" ]]; then
-		cabalconf+=(--with-cpphs=${EPREFIX}/usr/bin/cpphs)
-	fi
 	if [[ -n "${CABAL_TEST_SUITE}" ]]; then
 		cabalconf+=($(use_enable test tests))
 	fi
+
+	if [[ -n "${CABAL_GHC_CONSTRAINT}" ]]; then
+		cabalconf+=($(cabal-constraint "ghc"))
+	fi
+
+	cabalconf+=(--ghc-options="$(ghc-make-args)")
 
 	local option
 	for option in ${HCFLAGS}
@@ -311,17 +330,8 @@ cabal-configure() {
 		cabalconf+=(--ghc-option="$option")
 	done
 
-	# parallel on all available cores
-	if ghc-supports-parallel-make; then
-		local max_jobs=$(makeopts_jobs)
-
-		# limit to very small value, as parallelism
-		# helps slightly, but makes things severely worse
-		# when amount of threads is Very Large.
-		[[ ${max_jobs} -gt 4 ]] && max_jobs=4
-
-		cabalconf+=(--ghc-option=-j"$max_jobs")
-	fi
+	# toolchain
+	cabalconf+=(--with-ar="$(tc-getAR)")
 
 	# Building GHCi libs on ppc64 causes "TOC overflow".
 	if use ppc64; then
@@ -331,7 +341,8 @@ cabal-configure() {
 	# currently cabal does not respect CFLAGS and LDFLAGS on it's own (bug #333217)
 	# so translate LDFLAGS to ghc parameters (without filtering)
 	local flag
-	for flag in $LDFLAGS; do cabalconf+=(--ghc-option="-optl$flag"); done
+	for flag in   $CFLAGS; do cabalconf+=(--ghc-option="-optc$flag"); done
+	for flag in  $LDFLAGS; do cabalconf+=(--ghc-option="-optl$flag"); done
 
 	# disable executable stripping for the executables, as portage will
 	# strip by itself, and pre-stripping gives a QA warning.
@@ -353,9 +364,14 @@ cabal-configure() {
 			cabalconf+=(--enable-shared)
 
 	if $(ghc-supports-shared-libraries); then
-		# maybe a bit lower
-		if $(ghc-supports-dynamic-by-default); then
+		# Experimental support for dynamically linked binaries.
+		# We are enabling it since 7.10.1_rc3
+		if version_is_at_least "7.10.0.20150316" "$(ghc-version)"; then
+			# we didn't enable it before as it was not stable on all arches
 			cabalconf+=(--enable-shared)
+			# Known to break on ghc-7.8/Cabal-1.18
+			# https://ghc.haskell.org/trac/ghc/ticket/9625
+			cabalconf+=(--enable-executable-dynamic)
 		fi
 	fi
 
@@ -413,8 +429,7 @@ cabal-pkg() {
 	if [[ -n ${CABAL_HAS_LIBRARIES} ]]; then
 		# Newer cabal can generate a package conf for us:
 		./setup register --gen-pkg-config="${T}/${P}.conf"
-		ghc-setup-pkg "${T}/${P}.conf"
-		ghc-install-pkg
+		ghc-install-pkg "${T}/${P}.conf"
 	fi
 }
 
@@ -426,10 +441,18 @@ cabal-pkg() {
 # However portage still records the dependency and we can upgrade the package
 # to a later one that's not included with ghc.
 # You can also put a space separated list, eg CABAL_CORE_LIB_GHC_PV="6.6 6.6.1".
+# Those versions are taken as-is from ghc `--numeric-version`.
+# Package manager versions are also supported:
+#     CABAL_CORE_LIB_GHC_PV="7.10.* PM:7.8.4-r1".
 cabal-is-dummy-lib() {
-	for version in ${CABAL_CORE_LIB_GHC_PV[*]}; do
-		[[ "$(ghc-version)" == ${version} ]] && return 0
+	local bin_ghc_version=$(ghc-version)
+	local pm_ghc_version=$(ghc-pm-version)
+
+	for version in ${CABAL_CORE_LIB_GHC_PV}; do
+		[[ "${bin_ghc_version}" == ${version} ]] && return 0
+		[[ "${pm_ghc_version}"  == ${version} ]] && return 0
 	done
+
 	return 1
 }
 
@@ -438,9 +461,6 @@ cabal-is-dummy-lib() {
 haskell-cabal_pkg_setup() {
 	if [[ -n ${CABAL_HAS_LIBRARIES} ]]; then
 		[[ ${RDEPEND} == *dev-lang/ghc* ]] || eqawarn "QA Notice: A library does not have runtime dependency on dev-lang/ghc."
-	fi
-	if [[ -z "${CABAL_HAS_BINARIES}" ]] && [[ -z "${CABAL_HAS_LIBRARIES}" ]]; then
-		eqawarn "QA Notice: Neither bin nor lib are in CABAL_FEATURES."
 	fi
 	if [[ -n "${CABAL_UNKNOWN}" ]]; then
 		eqawarn "QA Notice: Unknown entry in CABAL_FEATURES: ${CABAL_UNKNOWN}"
@@ -453,13 +473,13 @@ haskell-cabal_pkg_setup() {
 haskell-cabal_src_configure() {
 	cabal-is-dummy-lib && return
 
-	pushd "${S}" > /dev/null
+	pushd "${S}" > /dev/null || die
 
 	cabal-bootstrap
 
 	cabal-configure "$@"
 
-	popd > /dev/null
+	popd > /dev/null || die
 }
 
 # exported function: nice alias
@@ -487,41 +507,73 @@ cabal_src_compile() {
 
 	if [[ -n "${CABAL_USE_HADDOCK}" ]] && use doc; then
 		if [[ -n "${CABAL_USE_HSCOLOUR}" ]] && use hscolour; then
-			# hscolour and haddock
-			cabal-hscolour-haddock
+			if [[ -n "${CABAL_USE_HOOGLE}" ]] && use hoogle; then
+				# hoogle, hscolour and haddock
+				cabal-hoogle-hscolour-haddock
+			else
+				# haddock and hscolour
+				cabal-hscolour-haddock
+			fi
 		else
-			# just haddock
-			cabal-haddock
+			if [[ -n "${CABAL_USE_HOOGLE}" ]] && use hoogle; then
+				# hoogle and haddock
+				cabal-hoogle-haddock
+			else
+				# just haddock
+				cabal-haddock
+			fi
 		fi
 	else
 		if [[ -n "${CABAL_USE_HSCOLOUR}" ]] && use hscolour; then
-			# just hscolour
-			cabal-hscolour
+			if [[ -n "${CABAL_USE_HOOGLE}" ]] && use hoogle; then
+				# hoogle and hscolour
+				cabal-hoogle-hscolour
+			else
+				# just hscolour
+				cabal-hscolour
+			fi
+		else
+			if [[ -n "${CABAL_USE_HOOGLE}" ]] && use hoogle; then
+				# just hoogle
+				cabal-hoogle
+			fi
 		fi
 	fi
 }
 
 haskell-cabal_src_compile() {
-	pushd "${S}" > /dev/null
+	pushd "${S}" > /dev/null || die
 
 	cabal_src_compile "$@"
 
-	popd > /dev/null
+	popd > /dev/null || die
 }
 
 haskell-cabal_src_test() {
-	pushd "${S}" > /dev/null
+	local cabaltest=()
+
+	pushd "${S}" > /dev/null || die
 
 	if cabal-is-dummy-lib; then
 		einfo ">>> No tests for dummy library: ${CATEGORY}/${PF}"
 	else
 		einfo ">>> Test phase [cabal test]: ${CATEGORY}/${PF}"
-		set -- test "$@"
+
+		# '--show-details=streaming' appeared in Cabal-1.20
+		if ./setup test --help | grep -q -- "'streaming'"; then
+			cabaltest+=(--show-details=streaming)
+		fi
+
+		set -- test \
+			"${cabaltest[@]}" \
+			${CABAL_TEST_FLAGS} \
+			${CABAL_EXTRA_TEST_FLAGS} \
+			"$@"
 		echo ./setup "$@"
 		./setup "$@" || die "cabal test failed"
 	fi
 
-	popd > /dev/null
+	popd > /dev/null || die
 }
 
 # exported function: cabal-style copy and register
@@ -538,35 +590,26 @@ cabal_src_install() {
 	local ghc_confdir_with_prefix="$(ghc-confdir)"
 	# remove EPREFIX
 	dodir ${ghc_confdir_with_prefix#${EPREFIX}}
-	local conf_file="${D}/$(ghc-confdir)/$(ghc-localpkgconf)"
-	[[ -e $conf_file ]] || echo '[]' > "$conf_file" || die
-
-	# make sure installed packages do not destroy ghc's
-	# bundled packages
-	local initial_pkg_db=${ROOT}/$(ghc-libdir)/package.conf.d.initial
-	if [[ -e ${initial_pkg_db} ]]; then
-		local checked_pkg
-		for checked_pkg in $(ghc-listpkg "${conf_file}")
-		do
-			local initial_pkg
-			for initial_pkg in $(ghc-listpkg "${initial_pkg_db}"); do
-				if [[ ${checked_pkg} = ${initial_pkg} ]]; then
-					eerror "Package ${checked_pkg} is shipped with $(ghc-version)."
-					eerror "Ebuild author forgot CABAL_CORE_LIB_GHC_PV entry."
-					eerror "Found in ${initial_pkg_db}."
-					die
-				fi
-			done
-		done
-	fi
+	local hint_db="${D}/$(ghc-confdir)"
+	local hint_file="${hint_db}/${PF}.conf"
+	mkdir -p "${hint_db}" || die
+	touch "${hint_file}" || die
 }
 
 haskell-cabal_src_install() {
-	pushd "${S}" > /dev/null
+	pushd "${S}" > /dev/null || die
 
 	cabal_src_install
 
-	popd > /dev/null
+	popd > /dev/null || die
+}
+
+haskell-cabal_pkg_postinst() {
+	ghc-package_pkg_postinst
+}
+
+haskell-cabal_pkg_postrm() {
+	ghc-package_pkg_postrm
 }
 
 # @FUNCTION: cabal_flag
@@ -664,6 +707,16 @@ cabal_chdeps() {
 
 	echo "${new_c}" > "$cf" ||
 		die "failed to update"
+}
+
+# @FUNCTION: cabal-constraint
+# @DESCRIPTION:
+# Allowes to set contraint to the libraries that are
+# used by specified package
+cabal-constraint() {
+	while read p v ; do
+		echo "--constraint \"$p == $v\""
+	done < $(ghc-pkgdeps ${1})
 }
 
 # @FUNCTION: replace-hcflags

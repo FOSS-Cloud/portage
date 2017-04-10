@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/gstreamer.eclass,v 1.2 2014/06/19 09:28:09 mgorny Exp $
+# $Id$
 
 # @ECLASS: gstreamer.eclass
 # @MAINTAINER:
@@ -23,10 +23,10 @@
 # plugin, consider adding media-plugins/gst-plugins-meta dependency, but
 # also list any packages that provide explicitly requested plugins.
 
-inherit eutils multilib multilib-minimal toolchain-funcs versionator
+inherit eutils multilib multilib-minimal toolchain-funcs versionator xdg-utils
 
 case "${EAPI:-0}" in
-	5)
+	5|6)
 		;;
 	0|1|2|3|4)
 		die "EAPI=\"${EAPI:-0}\" is not supported anymore"
@@ -58,7 +58,7 @@ esac
 : ${GST_TARBALL_SUFFIX:="xz"}
 
 # Even though xz-utils are in @system, they must still be added to DEPEND; see
-# http://archives.gentoo.org/gentoo-dev/msg_a0d4833eb314d1be5d5802a3b710e0a4.xml
+# https://archives.gentoo.org/gentoo-dev/msg_a0d4833eb314d1be5d5802a3b710e0a4.xml
 if [[ ${GST_TARBALL_SUFFIX} == "xz" ]]; then
 	DEPEND="${DEPEND} app-arch/xz-utils"
 fi
@@ -77,8 +77,8 @@ fi
 
 
 DESCRIPTION="${BUILD_GST_PLUGINS} plugin for gstreamer"
-HOMEPAGE="http://gstreamer.freedesktop.org/"
-SRC_URI="http://gstreamer.freedesktop.org/src/${GST_ORG_MODULE}/${GST_ORG_MODULE}-${PV}.tar.${GST_TARBALL_SUFFIX}"
+HOMEPAGE="https://gstreamer.freedesktop.org/"
+SRC_URI="https://gstreamer.freedesktop.org/src/${GST_ORG_MODULE}/${GST_ORG_MODULE}-${PV}.tar.${GST_TARBALL_SUFFIX}"
 
 LICENSE="GPL-2"
 case ${GST_ORG_PVP} in
@@ -125,6 +125,16 @@ fi
 
 DEPEND="${DEPEND} ${RDEPEND}"
 
+# @FUNCTION: gstreamer_environment_reset
+# @INTERNAL
+# @DESCRIPTION:
+# Clean up environment for clean builds.
+# >=dev-lang/orc-0.4.23 rely on environment variables to find a place to
+# allocate files to mmap.
+gstreamer_environment_reset() {
+	xdg_environment_reset
+}
+
 # @FUNCTION: gstreamer_get_plugins
 # @INTERNAL
 # @DESCRIPTION:
@@ -161,7 +171,7 @@ gstreamer_get_plugin_dir() {
 # @USAGE: gstreamer_system_link gst-libs/gst/audio:gstreamer-audio [...]
 # @DESCRIPTION:
 # Walks through makefiles in order to make sure build will link against system
-# librairies.
+# libraries.
 # Takes a list of path fragments and corresponding pkgconfig libraries
 # separated by colon (:). Will replace the path fragment by the output of
 # pkgconfig.
@@ -189,6 +199,7 @@ gstreamer_multilib_src_configure() {
 	local plugin gst_conf=() ECONF_SOURCE=${ECONF_SOURCE:-${S}}
 
 	gstreamer_get_plugins
+	gstreamer_environment_reset
 
 	for plugin in ${GST_PLUGINS_LIST} ; do
 		if has ${plugin} ${GST_PLUGINS_BUILD} ; then
@@ -221,7 +232,7 @@ gstreamer_multilib_src_configure() {
 	einfo "Configuring to build ${GST_PLUGINS_BUILD} plugin(s) ..."
 	econf \
 		--with-package-name="Gentoo GStreamer ebuild" \
-		--with-package-origin="http://www.gentoo.org" \
+		--with-package-origin="https://www.gentoo.org" \
 		"${gst_conf[@]}" "${@}"
 }
 

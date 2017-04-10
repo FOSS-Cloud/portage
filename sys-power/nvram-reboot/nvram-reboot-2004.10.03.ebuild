@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/nvram-reboot/nvram-reboot-2004.10.03.ebuild,v 1.2 2013/06/12 06:51:15 robbat2 Exp $
+# $Id$
 
 inherit mount-boot
 
 MY_P="${P/nvram-/}"
 DESCRIPTION="PowerOff Boot-Images for nvram-wakeup (not needed for GRUB)"
-HOMEPAGE="http://sourceforge.net/projects/nvram-wakeup/"
+HOMEPAGE="https://sourceforge.net/projects/nvram-wakeup/"
 SRC_URI="mirror://sourceforge/nvram-wakeup/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"

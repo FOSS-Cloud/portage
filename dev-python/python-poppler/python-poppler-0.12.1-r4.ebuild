@@ -1,15 +1,16 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-poppler/python-poppler-0.12.1-r4.ebuild,v 1.5 2013/05/20 08:42:30 ago Exp $
+# $Id$
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_6,2_7} )
+
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools-utils eutils python-r1
 
 DESCRIPTION="Python bindings to the Poppler PDF library"
-HOMEPAGE="http://launchpad.net/poppler-python"
-SRC_URI="http://launchpad.net/poppler-python/trunk/development/+download/pypoppler-${PV}.tar.gz"
+HOMEPAGE="https://launchpad.net/poppler-python"
+SRC_URI="https://launchpad.net/poppler-python/trunk/development/+download/pypoppler-${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -31,10 +32,11 @@ PATCHES=(
 	"${FILESDIR}"/${P}-79_78.diff
 	"${FILESDIR}"/${P}-poppler0.15.0-changes.patch
 	"${FILESDIR}"/${P}-poppler-0.18.0-minimal-fix.patch
+	"${FILESDIR}"/${P}-poppler-0.39.0-changes.patch
 )
 
 src_configure() {
-	python_parallel_foreach_impl autotools-utils_src_configure
+	python_foreach_impl autotools-utils_src_configure
 }
 
 src_compile() {

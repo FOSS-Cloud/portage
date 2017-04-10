@@ -1,23 +1,20 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/lib-compat-loki/lib-compat-loki-0.2-r1.ebuild,v 1.2 2014/09/06 13:25:54 ulm Exp $
+# $Id$
 
 EAPI=5
 
 DESCRIPTION="Compatibility libc6 libraries for Loki games"
-HOMEPAGE="http://www.gentoo.org/"
+HOMEPAGE="https://www.gentoo.org/"
 SRC_URI="http://www.blfh.de/gentoo/distfiles/${P}.tar.bz2
-	http://dev.gentoo.org/~wolf31o2/sources/lib-compat-loki/${P}.tar.bz2"
+	https://dev.gentoo.org/~wolf31o2/sources/lib-compat-loki/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="sys-libs/lib-compat
-	|| (
-		>=media-libs/libsdl-1.2.15-r4[abi_x86_32(-)]
-		amd64? ( app-emulation/emul-linux-x86-sdl[-abi_x86_32(-)] )
-	)"
+	>=media-libs/libsdl-1.2.15-r4[abi_x86_32(-)]"
 
 # I'm not quite sure if this is necessary:
 RESTRICT="strip"

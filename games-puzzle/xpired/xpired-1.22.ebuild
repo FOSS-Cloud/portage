@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/xpired/xpired-1.22.ebuild,v 1.13 2014/08/10 21:21:13 slyfox Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="A Sokoban-styled puzzle game with lots more action"
@@ -17,23 +17,25 @@ IUSE=""
 DEPEND="media-libs/sdl-gfx
 	media-libs/sdl-image[jpeg]
 	media-libs/sdl-mixer[mod]"
+RDEPEND=${DEPEND}
 
 S=${WORKDIR}/src
 
-PATCHES=( "${FILESDIR}"/${P}-ldflags.patch )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-ldflags.patch
+}
 
 src_compile() {
 	emake \
 		PREFIX=/usr/games \
-		SHARE_PREFIX=/usr/share/games/xpired \
-		|| die
+		SHARE_PREFIX=/usr/share/games/xpired
 }
 
 src_install() {
 	emake \
 		PREFIX="${D}/usr/games" \
 		SHARE_PREFIX="${D}/usr/share/games/${PN}" \
-		install || die
+		install
 	newicon img/icon.bmp ${PN}.bmp
 	make_desktop_entry xpired Xpired /usr/share/pixmaps/${PN}.bmp
 	make_desktop_entry xpiredit "Xpired Level Editor"

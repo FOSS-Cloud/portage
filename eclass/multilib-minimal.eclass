@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/multilib-minimal.eclass,v 1.9 2014/05/02 16:16:37 mgorny Exp $
+# $Id$
 
 # @ECLASS: multilib-minimal.eclass
 # @MAINTAINER:
-# Julian Ospald <hasufell@gentoo.org>
+# Multilib team <multilib@gentoo.org>
 # @BLURB: wrapper for multilib builds providing convenient multilib_src_* functions
 # @DESCRIPTION:
 #
@@ -25,12 +25,13 @@
 
 # EAPI=4 is required for meaningful MULTILIB_USEDEP.
 case ${EAPI:-0} in
-	4|5) ;;
+	4|5|6) ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
 
-inherit eutils multilib-build
+[[ ${EAPI} == [45] ]] && inherit eutils
+inherit multilib-build
 
 EXPORT_FUNCTIONS src_configure src_compile src_test src_install
 
@@ -51,7 +52,7 @@ multilib-minimal_src_configure() {
 		popd >/dev/null || die
 	}
 
-	multilib_parallel_foreach_abi multilib-minimal_abi_src_configure
+	multilib_foreach_abi multilib-minimal_abi_src_configure
 }
 
 multilib-minimal_src_compile() {

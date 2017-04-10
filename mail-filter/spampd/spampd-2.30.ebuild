@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/spampd/spampd-2.30.ebuild,v 1.6 2014/08/10 21:17:16 slyfox Exp $
+# $Id$
 
 DESCRIPTION="spampd is a program to scan messages for possible Unsolicited Commercial E-mail content"
 HOMEPAGE="http://www.worlddesign.com/index.cfm/rd/mta/spampd.htm"
@@ -11,7 +11,7 @@ KEYWORDS="~amd64 ~ppc x86"
 IUSE=""
 
 RDEPEND="dev-lang/perl
-	dev-perl/net-server
+	dev-perl/Net-Server
 	mail-filter/spamassassin"
 DEPEND="${RDEPEND}"
 

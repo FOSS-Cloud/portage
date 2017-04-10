@@ -1,7 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/briquolo/briquolo-0.5.7.ebuild,v 1.4 2014/07/23 07:07:25 tupone Exp $
+# $Id$
 
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="Breakout with 3D representation based on OpenGL"
@@ -15,45 +16,36 @@ IUSE="nls"
 
 RDEPEND="virtual/opengl
 	virtual/glu
-	media-libs/libsdl
+	media-libs/libsdl[joystick,sound,video]
 	media-libs/sdl-mixer
 	media-libs/sdl-ttf
-	media-libs/libpng
+	media-libs/libpng:0
 	nls? ( virtual/libintl )"
 DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	epatch "${FILESDIR}"/${P}-gcc43.patch \
 		"${FILESDIR}"/${P}-libpng14.patch
 	# no thanks we'll take care of it.
 	sed -i \
 		-e '/^SUBDIRS/s/desktop//' \
-		Makefile.in \
-		|| die "sed Makefile.in failed"
+		Makefile.in || die
 	sed -i \
 		-e "/CXXFLAGS/s:-O3:${CXXFLAGS}:" \
 		-e 's:=.*share/locale:=/usr/share/locale:' \
-		configure \
-		|| die "sed configure failed"
+		configure || die
 	sed -i \
 		-e 's:$(datadir)/locale:/usr/share/locale:' \
-		po/Makefile.in.in \
-		|| die "sed Makefile.in.in failed"
+		po/Makefile.in.in || die
 }
 
-src_compile() {
-	egamesconf \
-		--disable-dependency-tracking \
-		$(use_enable nls) || die
-	emake || die "emake failed"
+src_configure() {
+	egamesconf $(use_enable nls)
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-	dodoc AUTHORS ChangeLog README
+	default
 	doicon desktop/briquolo.svg
 	make_desktop_entry briquolo Briquolo
 	prepgamesdirs

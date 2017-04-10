@@ -1,17 +1,17 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/cooledit/cooledit-3.17.17-r1.ebuild,v 1.4 2012/04/24 13:57:45 scarabeus Exp $
+# $Id$
 
 inherit autotools eutils
 
 DESCRIPTION="Cooledit is a full featured multiple window text editor"
 HOMEPAGE="http://freshmeat.net/projects/cooledit/"
 SRC_URI="ftp://ftp.ibiblio.org/pub/Linux/apps/editors/X/cooledit/${P}.tar.gz
-	http://dev.gentoo.org/~hwoarang/distfiles/${P}-nopython.tar.gz"
+	https://dev.gentoo.org/~hwoarang/distfiles/${P}-nopython.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ppc x86 ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="~amd64 ppc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
 IUSE="nls"
 
 RDEPEND="x11-libs/libX11

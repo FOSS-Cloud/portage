@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/gd4o/gd4o-1.0_alpha5.ebuild,v 1.3 2013/03/10 10:46:45 aballier Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ inherit toolchain-funcs findlib
 MY_P="${P/_alpha/a}"
 
 DESCRIPTION="OCaml interface to the GD graphics library"
-HOMEPAGE="http://sourceforge.net/projects/gd4o/"
+HOMEPAGE="https://sourceforge.net/projects/gd4o/"
 SRC_URI="mirror://sourceforge/gd4o/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2.1"
@@ -19,9 +19,9 @@ IUSE="doc +ocamlopt"
 
 DEPEND=">=dev-lang/ocaml-3.10.2:=[ocamlopt?]
 	media-libs/gd
-	virtual/jpeg
+	virtual/jpeg:0
 	sys-libs/zlib
-	media-libs/libpng
+	media-libs/libpng:0=
 	media-libs/freetype:2"
 RDEPEND="${DEPEND}"
 

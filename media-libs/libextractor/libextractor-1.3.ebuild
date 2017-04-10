@@ -1,17 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libextractor/libextractor-1.3.ebuild,v 1.4 2014/07/14 14:52:01 ssuominen Exp $
+# $Id$
 
 EAPI=5
 inherit eutils flag-o-matic multilib toolchain-funcs
 
 DESCRIPTION="A library used to extract metadata from files of arbitrary type"
-HOMEPAGE="http://www.gnu.org/software/libextractor/"
+HOMEPAGE="https://www.gnu.org/software/libextractor/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ppc ppc64 x86"
 IUSE="+archive +bzip2 ffmpeg flac gif gsf gtk jpeg mp4 +magic midi mpeg tidy tiff vorbis +zlib" # test
 
 RESTRICT="test"
@@ -55,6 +55,8 @@ DEPEND="${RDEPEND}
 DOCS="AUTHORS ChangeLog NEWS README TODO"
 
 src_prepare() {
+	epatch "${FILESDIR}"/${P}-giflib-5.patch #571902
+
 	# m4/ax_create_pkgconfig_info.m4 is passing environment LDFLAGS to Libs:
 	sed -i \
 		-e '/^ax_create_pkgconfig_ldflags=/s:$LDFLAGS ::' \

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/oidentd/oidentd-2.0.8-r5.ebuild,v 1.8 2014/08/01 11:34:06 armin76 Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,7 +17,8 @@ IUSE="debug ipv6 masquerade"
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-masquerading.patch" \
-		"${FILESDIR}/${P}-bind-to-ipv6-too.patch"
+		"${FILESDIR}/${P}-bind-to-ipv6-too.patch" \
+		"${FILESDIR}/${P}-gcc5.patch"
 }
 
 src_configure() {

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/wxGTK/wxGTK-2.9.4.1-r1.ebuild,v 1.2 2014/01/27 17:35:05 dirtyepic Exp $
+# $Id$
 
 EAPI="5"
 
@@ -15,7 +15,7 @@ SRC_URI="mirror://sourceforge/wxpython/wxPython-src-2.9.4.0.tar.bz2
 	doc? ( mirror://sourceforge/wxpython/wxPython-docs-2.9.4.0.tar.bz2 )
 	mirror://sourceforge/wxpython/wxPython-src-${PV}.patch"
 
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
 IUSE="+X aqua doc debug gnome gstreamer opengl pch sdl tiff webkit"
 
 SLOT="2.9/2.9.4"
@@ -27,7 +27,7 @@ RDEPEND="
 		>=dev-libs/glib-2.22:2
 		media-libs/libpng:0=
 		sys-libs/zlib
-		virtual/jpeg
+		virtual/jpeg:0=
 		>=x11-libs/gtk+-2.18:2
 		x11-libs/libSM
 		x11-libs/libXinerama
@@ -42,8 +42,8 @@ RDEPEND="
 		webkit? ( net-libs/webkit-gtk:2 )
 		)
 	aqua? (
-		>=x11-libs/gtk+-2.4[aqua=]
-		virtual/jpeg
+		x11-libs/gtk+:2[aqua=]
+		virtual/jpeg:0=
 		tiff?   ( media-libs/tiff:0 )
 		)"
 
@@ -57,7 +57,7 @@ DEPEND="${RDEPEND}
 		)"
 #	test? ( dev-util/cppunit )
 
-PDEPEND=">=app-admin/eselect-wxwidgets-1.4"
+PDEPEND=">=app-eselect/eselect-wxwidgets-1.4"
 
 LICENSE="wxWinLL-3
 		GPL-2
@@ -91,7 +91,7 @@ src_configure() {
 	# apps can disable these features by building w/ -NDEBUG or wxDEBUG_LEVEL_0.
 	# wxDEBUG_LEVEL=2 enables assertions that have expensive runtime costs.
 	# http://docs.wxwidgets.org/2.9/overview_debugging.html
-	# http://groups.google.com/group/wx-dev/browse_thread/thread/c3c7e78d63d7777f/05dee25410052d9c
+	# https://groups.google.com/group/wx-dev/browse_thread/thread/c3c7e78d63d7777f/05dee25410052d9c
 	use debug \
 		&& myconf="${myconf} --enable-debug=max"
 
@@ -168,11 +168,11 @@ src_install() {
 }
 
 pkg_postinst() {
-	has_version app-admin/eselect-wxwidgets \
+	has_version app-eselect/eselect-wxwidgets \
 		&& eselect wxwidgets update
 }
 
 pkg_postrm() {
-	has_version app-admin/eselect-wxwidgets \
+	has_version app-eselect/eselect-wxwidgets \
 		&& eselect wxwidgets update
 }

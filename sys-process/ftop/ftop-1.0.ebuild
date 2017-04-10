@@ -1,9 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/ftop/ftop-1.0.ebuild,v 1.1 2014/01/30 00:21:21 tomwij Exp $
+# $Id$
 
-EAPI="5"
+EAPI=5
 
+AUTOTOOLS_AUTORECONF=frob
 inherit autotools-utils
 
 DESCRIPTION="Monitor open files and filesystems"
@@ -12,9 +13,12 @@ SRC_URI="https://${PN}.googlecode.com/files/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64 ~hppa ~x86"
 
-DEPEND="sys-libs/ncurses"
+DEPEND="sys-libs/ncurses:0="
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-overflow.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-overflow.patch
+	"${FILESDIR}"/${P}-tinfo.patch
+)

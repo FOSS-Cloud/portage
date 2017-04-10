@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/paste/paste-1.7.5.1-r2.ebuild,v 1.1 2013/12/03 12:57:34 dev-zero Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 # notes wrt py-3 compatibility:
 # Debian ships paste for py3 using 2to3. Many tests fail when using such converted code and
 # the fact that the errors are sometimes nested inside paste indicate that the
@@ -16,12 +16,12 @@ MY_PN="Paste"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Tools for using a Web Server Gateway Interface stack"
-HOMEPAGE="http://pythonpaste.org http://pypi.python.org/pypi/Paste"
+HOMEPAGE="http://pythonpaste.org https://pypi.python.org/pypi/Paste"
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~x86-interix ~amd64-linux ~x86-linux ~x64-macos ~x86-macos ~sparc-solaris"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos ~sparc-solaris"
 IUSE="doc flup openid"
 
 RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]

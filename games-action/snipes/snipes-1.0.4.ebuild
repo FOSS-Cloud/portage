@@ -1,22 +1,25 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/snipes/snipes-1.0.4.ebuild,v 1.5 2011/12/19 06:36:52 mr_bones_ Exp $
+# $Id$
 
-EAPI=2
-inherit base eutils games
+EAPI=5
+inherit toolchain-funcs eutils games
 
 DESCRIPTION="2D scrolling shooter, resembles the old DOS game of same name"
-HOMEPAGE="http://cyp.github.com/snipes/"
-SRC_URI="http://cyp.github.com/snipes/${P}.tar.gz"
+HOMEPAGE="https://cyp.github.com/snipes/"
+SRC_URI="https://cyp.github.com/snipes/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-DEPEND="media-libs/libsdl"
+DEPEND="media-libs/libsdl[sound,video]"
+RDEPEND=${DEPEND}
 
-PATCHES=( "${FILESDIR}"/${P}-nongnulinker.patch )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-nongnulinker.patch
+}
 
 src_compile() {
 	tc-getLD
@@ -24,7 +27,7 @@ src_compile() {
 }
 
 src_install() {
-	dogamesbin snipes || die "dogamesbin failed"
+	dogamesbin snipes
 	doman snipes.6
 	dodoc ChangeLog
 	doicon ${PN}.png

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/eudev-1.9-r2.ebuild,v 1.5 2014/08/01 19:54:55 zlogene Exp $
+# $Id$
 
 EAPI="5"
 
@@ -12,7 +12,7 @@ if [[ ${PV} = 9999* ]]; then
 	EGIT_REPO_URI="git://github.com/gentoo/eudev.git"
 	inherit git-2
 else
-	SRC_URI="http://dev.gentoo.org/~blueness/${PN}/${P}.tar.gz"
+	SRC_URI="https://dev.gentoo.org/~blueness/${PN}/${P}.tar.gz"
 	KEYWORDS="amd64 arm hppa ~mips ppc ppc64 x86"
 fi
 
@@ -53,7 +53,8 @@ RDEPEND="${COMMON_DEPEND}
 	!<sys-fs/lvm2-2.02.103
 	!<sec-policy/selinux-base-2.20120725-r10
 	!sys-fs/udev
-	!sys-apps/systemd"
+	!sys-apps/systemd
+	gudev? ( !dev-libs/libgudev )"
 
 PDEPEND="hwdb? ( >=sys-apps/hwids-20140304[udev] )
 	keymap? ( >=sys-apps/hwids-20140304[udev] )
@@ -71,7 +72,7 @@ pkg_pretend() {
 		ewarn
 		ewarn "As of 2013-01-29, ${P} provides the new interface renaming functionality,"
 		ewarn "as described in the URL below:"
-		ewarn "http://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames"
+		ewarn "https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames"
 		ewarn
 		ewarn "This functionality is enabled BY DEFAULT because eudev has no means of synchronizing"
 		ewarn "between the default or user-modified choice of sys-fs/udev.  If you wish to disable"
@@ -85,7 +86,7 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD ~EPOLL ~FHANDLE ~NET"
+	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD ~EPOLL ~FHANDLE ~NET ~UNIX"
 	linux-info_pkg_setup
 	get_running_version
 
@@ -249,22 +250,41 @@ pkg_postinst() {
 		ewarn "else losetup may be confused when looking for unused devices."
 	fi
 
+	# https://cgit.freedesktop.org/systemd/systemd/commit/rules/50-udev-default.rules?id=3dff3e00e044e2d53c76fa842b9a4759d4a50e69
+	# https://bugs.gentoo.org/246847
+	# https://bugs.gentoo.org/514174
+	enewgroup input
+
+	# REPLACING_VERSIONS should only ever have zero or 1 values but in case it doesn't,
+	# process it as a list.  We only care about the zero case (new install) or the case where
+	# the same version is being re-emerged.  If there is a second version, allow it to abort.
+	local rv rvres=doitnew
+	for rv in ${REPLACING_VERSIONS} ; do
+		if [[ ${rvres} == doit* ]]; then
+			if [[ ${rv%-r*} == ${PV} ]]; then
+				rvres=doit
+			else
+				rvres=${rv}
+			fi
+		fi
+	done
+
 	if use hwdb && has_version 'sys-apps/hwids[udev]'; then
 		udevadm hwdb --update --root="${ROOT%/}"
 
-		# http://cgit.freedesktop.org/systemd/systemd/commit/?id=1fab57c209035f7e66198343074e9cee06718bda
+		# https://cgit.freedesktop.org/systemd/systemd/commit/?id=1fab57c209035f7e66198343074e9cee06718bda
 		# reload database after it has be rebuilt, but only if we are not upgrading
 		# also pass if we are -9999 since who knows what hwdb related changes there might be
-		if [[ ${REPLACING_VERSIONS%-r*} == ${PV} || -z ${REPLACING_VERSIONS} ]] && \
-		[[ ${ROOT%/} == "" ]] && [[ ${PV} != "9999" ]]; then
+		if [[ ${rvres} == doit* ]] && [[ ${ROOT%/} == "" ]] && [[ ${PV} != "9999" ]]; then
 			udevadm control --reload
 		fi
 	fi
-
-	ewarn
-	ewarn "You need to restart eudev as soon as possible to make the"
-	ewarn "upgrade go into effect:"
-	ewarn "\t/etc/init.d/udev --nodeps restart"
+	if [[ ${rvres} != doitnew ]]; then
+		ewarn
+		ewarn "You need to restart eudev as soon as possible to make the"
+		ewarn "upgrade go into effect:"
+		ewarn "\t/etc/init.d/udev --nodeps restart"
+	fi
 
 	if use rule-generator && use openrc && \
 	[[ -x $(type -P rc-update) ]] && rc-update show | grep udev-postmount | grep -qsv 'boot\|default\|sysinit'; then
@@ -278,24 +298,6 @@ pkg_postinst() {
 	elog
 	elog "For more information on eudev on Gentoo, writing udev rules, and"
 	elog "fixing known issues visit:"
-	elog "         http://www.gentoo.org/doc/en/udev-guide.xml"
+	elog "         https://www.gentoo.org/doc/en/udev-guide.xml"
 	elog
-
-	# http://cgit.freedesktop.org/systemd/systemd/commit/rules/50-udev-default.rules?id=3dff3e00e044e2d53c76fa842b9a4759d4a50e69
-	# http://bugs.gentoo.org/246847
-	# http://bugs.gentoo.org/514174
-	enewgroup input
-
-	# Update hwdb database in case the format is changed by udev version.
-	if has_version 'sys-apps/hwids[udev]'; then
-		udevadm hwdb --update --root="${ROOT%/}"
-		# Only reload when we are not upgrading to avoid potential race w/ incompatible hwdb.bin and the running udevd
-		if [[ -z ${REPLACING_VERSIONS} ]]; then
-			# http://cgit.freedesktop.org/systemd/systemd/commit/?id=1fab57c209035f7e66198343074e9cee06718bda
-			if [[ ${ROOT} != "" ]] && [[ ${ROOT} != "/" ]]; then
-				return 0
-			fi
-			udevadm control --reload
-		fi
-	fi
 }

@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-apps/xinput_calibrator/xinput_calibrator-0.7.5.ebuild,v 1.5 2013/10/18 21:30:18 vapier Exp $
+# $Id$
 
-EAPI=4
-inherit autotools-utils
+EAPI=5
+inherit autotools-utils flag-o-matic
 
 DESCRIPTION="A generic touchscreen calibration program for X.Org"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/xinput_calibrator"
+HOMEPAGE="https://www.freedesktop.org/wiki/Software/xinput_calibrator"
 SRC_URI="mirror://github/tias/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
@@ -23,6 +23,8 @@ DEPEND="x11-libs/libX11
 RDEPEND="${DEPEND}"
 
 src_configure() {
+	append-cxxflags -std=c++11 #566594
+
 	local myeconfargs=(
 		--with-gui=$(use gtk && echo "gtkmm" || echo "x11")
 	)

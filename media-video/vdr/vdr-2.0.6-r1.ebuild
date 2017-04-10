@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vdr/vdr-2.0.6-r1.ebuild,v 1.1 2014/10/01 16:02:21 hd_brummy Exp $
+# $Id$
 
 EAPI=5
 
@@ -28,9 +28,9 @@ EXT_P="extpng-${P}-gentoo-edition-v6"
 DESCRIPTION="Video Disk Recorder - turns a pc into a powerful set top box for DVB"
 HOMEPAGE="http://www.tvdr.de/"
 SRC_URI="ftp://ftp.tvdr.de/vdr/${MY_P}.tar.bz2
-	http://dev.gentoo.org/~hd_brummy/distfiles/${EXT_P}.patch.bz2"
+	https://dev.gentoo.org/~hd_brummy/distfiles/${EXT_P}.patch.bz2"
 
-KEYWORDS="~arm ~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~arm ~ppc x86"
 SLOT="0"
 LICENSE="GPL-2"
 
@@ -38,7 +38,7 @@ REQUIRED_USE="
 	permashift? ( !permashift_v1 )
 	permashift_v1? ( !permashift )"
 
-COMMON_DEPEND="virtual/jpeg
+COMMON_DEPEND="virtual/jpeg:*
 	sys-libs/libcap
 	>=media-libs/fontconfig-2.4.2
 	>=media-libs/freetype-2"
@@ -274,5 +274,5 @@ pkg_postinst() {
 	elog "\t2. select font VDRSymbolsSans in Setup"
 	elog ""
 	elog "To get an idea how to proceed now, have a look at our vdr-guide:"
-	elog "\thttp://www.gentoo.org/doc/en/vdr-guide.xml"
+	elog "\thttps://wiki.gentoo.org/wiki/VDR"
 }

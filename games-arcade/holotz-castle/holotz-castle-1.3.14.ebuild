@@ -1,8 +1,8 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/holotz-castle/holotz-castle-1.3.14.ebuild,v 1.5 2014/07/25 14:19:05 tupone Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit eutils toolchain-funcs games
 
 DESCRIPTION="2D platform game"
@@ -20,15 +20,16 @@ RDEPEND="virtual/opengl
 	media-libs/libsdl
 	media-libs/sdl-ttf
 	media-libs/sdl-image"
-DEPEND="${RDEPEND}"
+DEPEND=${RDEPEND}
 
 S=${WORKDIR}/${P}-src
 
-PATCHES=(
-	"${FILESDIR}"/${P}-build.patch
-	"${FILESDIR}"/${P}-gcc44.patch
-	"${FILESDIR}"/${P}-underlink.patch
-)
+src_prepare() {
+	epatch \
+		"${FILESDIR}"/${P}-build.patch \
+		"${FILESDIR}"/${P}-gcc44.patch \
+		"${FILESDIR}"/${P}-underlink.patch
+}
 
 src_compile() {
 	tc-export AR

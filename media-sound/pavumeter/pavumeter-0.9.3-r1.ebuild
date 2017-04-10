@@ -1,8 +1,9 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/pavumeter/pavumeter-0.9.3-r1.ebuild,v 1.5 2012/05/05 08:45:52 mgorny Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
+inherit flag-o-matic
 
 DESCRIPTION="PulseAudio Volume Meter, simple GTK volume meter for PulseAudio"
 HOMEPAGE="http://0pointer.de/lennart/projects/pavumeter/"
@@ -21,13 +22,12 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_configure() {
+	append-cxxflags -std=c++11 #568592
 	econf \
-		--disable-dependency-tracking \
 		--disable-lynx
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
+	default
 	dohtml -r doc
-	dodoc README
 }

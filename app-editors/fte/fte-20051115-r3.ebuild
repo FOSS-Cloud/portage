@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/fte/fte-20051115-r3.ebuild,v 1.5 2012/11/21 11:15:04 ago Exp $
+# $Id$
 
 EAPI=4
 
@@ -8,17 +8,19 @@ inherit eutils toolchain-funcs
 
 DESCRIPTION="Lightweight text-mode editor"
 HOMEPAGE="http://fte.sourceforge.net"
-SRC_URI="mirror://sourceforge/fte/${P}-src.zip
+SRC_URI="
+	mirror://sourceforge/fte/${P}-src.zip
 	mirror://sourceforge/fte/${P}-common.zip"
 
 LICENSE="|| ( GPL-2 Artistic )"
 SLOT="0"
-KEYWORDS="~alpha amd64 ppc -sparc x86 ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~alpha amd64 ppc -sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="gpm slang X"
 
 S="${WORKDIR}/${PN}"
 
-RDEPEND=">=sys-libs/ncurses-5.2
+RDEPEND="
+	>=sys-libs/ncurses-5.2
 	X? (
 		x11-libs/libXdmcp
 		x11-libs/libXau
@@ -41,10 +43,12 @@ set_targets() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/fte-gcc34
-	epatch "${FILESDIR}"/${PN}-new_keyword.patch
-	epatch "${FILESDIR}"/${PN}-slang.patch
-	epatch "${FILESDIR}"/${PN}-interix.patch
+	epatch \
+		"${FILESDIR}"/fte-gcc34 \
+		"${FILESDIR}"/${PN}-new_keyword.patch \
+		"${FILESDIR}"/${PN}-slang.patch \
+		"${FILESDIR}"/${PN}-interix.patch \
+		"${FILESDIR}"/${PN}-cpp14.patch # bug #595048
 
 	[[ -e /usr/include/linux/keyboard.h ]] && \
 		sed /usr/include/linux/keyboard.h -e '/wait.h/d' > src/hacked_keyboard.h
@@ -57,6 +61,7 @@ src_prepare() {
 		-e '/^LDFLAGS/s:=:+=:g' \
 		-e 's:= g++:= $(CXX):g' \
 		-i src/fte-unix.mak || die "sed CFLAGS, LDFLAGS, CC"
+	ecvs_clean
 }
 
 src_configure() {
@@ -108,11 +113,8 @@ src_install() {
 	dodoc CHANGES BUGS HISTORY README TODO
 	dohtml doc/*
 
-	dodir usr/share/fte
 	insinto /usr/share/fte
 	doins -r config/*
-
-	rm -rf "${ED}"/usr/share/fte/CVS
 }
 
 pkg_postinst() {

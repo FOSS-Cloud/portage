@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/typhoeus/typhoeus-0.6.9.ebuild,v 1.1 2014/09/01 05:52:35 graaff Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21 ruby22"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md UPGRADE.md"
 RUBY_FAKEGEM_TASK_DOC=""
@@ -13,8 +13,7 @@ RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Typhoeus runs HTTP requests in parallel while cleanly encapsulating
-handling logic."
+DESCRIPTION="Runs HTTP requests in parallel while cleanly encapsulating handling logic"
 HOMEPAGE="http://rubygems.org/gems/typhoeus/"
 
 LICENSE="Ruby"

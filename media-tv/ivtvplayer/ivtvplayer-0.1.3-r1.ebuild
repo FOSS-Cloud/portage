@@ -1,21 +1,21 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/ivtvplayer/ivtvplayer-0.1.3-r1.ebuild,v 1.5 2014/08/10 21:03:05 slyfox Exp $
+# $Id$
 
 EAPI="2"
 
 inherit eutils
 
 DESCRIPTION="Simple IVTV command line TV and radio player with support of LIRC"
-HOMEPAGE="http://sourceforge.net/projects/ivtvplayer/"
+HOMEPAGE="https://sourceforge.net/projects/ivtvplayer/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE="gtk xosd"
-RDEPEND="|| ( media-tv/ivtv media-tv/v4l-utils )
+RDEPEND="media-tv/v4l-utils
 	 || ( media-video/mplayer[v4l]
-	 	media-video/mplayer[dvb] )
+		media-video/mplayer[dvb] )
 	 media-sound/alsa-utils
 	 dev-perl/XML-Simple
 	 gtk? ( dev-perl/gtk2-perl )

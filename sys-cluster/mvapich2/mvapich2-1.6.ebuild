@@ -1,6 +1,6 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/mvapich2/mvapich2-1.6.ebuild,v 1.1 2011/06/30 23:11:15 alexxy Exp $
+# $Id$
 
 EAPI="4"
 
@@ -18,11 +18,11 @@ IUSE="debug fortran large-cluster medium-cluster romio threads"
 RDEPEND="
 	|| (
 		(
-			sys-infiniband/libibverbs
-			sys-infiniband/libibumad
-			sys-infiniband/libibmad
-			sys-infiniband/librdmacm )
-		sys-infiniband/openib-userspace )"
+			sys-fabric/libibverbs
+			sys-fabric/libibumad
+			sys-fabric/libibmad
+			sys-fabric/librdmacm )
+		sys-fabric/openib-userspace )"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/mvapich2-${PV/_/-}"

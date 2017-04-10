@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/znc/znc-1.4-r1.ebuild,v 1.1 2014/07/25 10:52:42 pacho Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{3_2,3_3} )
+PYTHON_COMPAT=( python3_4 )
 inherit base python-single-r1 systemd user
 
 MY_PV=${PV/_/-}
@@ -16,12 +16,12 @@ if [[ ${PV} == *9999* ]]; then
 	SRC_URI=""
 	KEYWORDS=""
 else
-	SRC_URI="http://znc.in/releases/${PN}-${MY_PV}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~x86"
+	SRC_URI="http://znc.in/releases/archive/${PN}-${MY_PV}.tar.gz"
+	KEYWORDS="amd64 ~arm x86"
 fi
 
 HOMEPAGE="http://znc.in"
-LICENSE="GPL-2"
+LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="daemon debug ipv6 perl python ssl sasl tcl"
 
@@ -31,8 +31,8 @@ RDEPEND="
 	perl? ( >=dev-lang/perl-5.10 )
 	python? ( ${PYTHON_DEPS} )
 	sasl? ( >=dev-libs/cyrus-sasl-2 )
-	ssl? ( >=dev-libs/openssl-0.9.7d )
-	tcl? ( dev-lang/tcl )
+	ssl? ( >=dev-libs/openssl-0.9.7d:0 )
+	tcl? ( dev-lang/tcl:0= )
 "
 DEPEND="
 	virtual/pkgconfig

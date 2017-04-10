@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/ekiga/ekiga-4.0.1.ebuild,v 1.3 2014/07/25 21:54:48 johu Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,9 +16,9 @@ HOMEPAGE="http://www.ekiga.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86"
 IUSE="avahi dbus debug doc eds gconf gnome gstreamer h323 kde kontact ldap
-libnotify mmx nls pulseaudio +shm static v4l xcap xv"
+libnotify cpu_flags_x86_mmx nls pulseaudio +shm static v4l xcap xv"
 
 RDEPEND=">=dev-libs/glib-2.24.0:2
 	>=dev-libs/boost-1.49
@@ -36,7 +36,7 @@ RDEPEND=">=dev-libs/glib-2.24.0:2
 		( >=gnome-base/libgnome-2.14.0
 		>=gnome-base/libgnomeui-2.14.0 ) ) )
 	gstreamer? ( >=media-libs/gst-plugins-base-0.10.21.3:0.10 )
-	kde? ( kontact? ( $(add_kdebase_dep kdepimlibs) ) )
+	kde? ( kontact? ( $(add_kdeapps_dep kdepimlibs) ) )
 	ldap? ( dev-libs/cyrus-sasl:2
 		net-nds/openldap )
 	libnotify? ( x11-libs/libnotify )
@@ -99,7 +99,7 @@ pkg_setup() {
 		$(use_enable kontact kab)
 		$(use_enable ldap)
 		$(use_enable libnotify notify)
-		$(use_enable mmx)
+		$(use_enable cpu_flags_x86_mmx mmx)
 		$(use_enable nls)
 		$(use_enable shm)
 		$(use_enable static static-libs)

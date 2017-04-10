@@ -1,9 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/tinyxml/tinyxml-2.6.2-r2.ebuild,v 1.6 2012/07/29 16:09:01 armin76 Exp $
+# $Id$
 
 EAPI=4
-inherit flag-o-matic toolchain-funcs eutils multilib
+inherit flag-o-matic toolchain-funcs eutils multilib versionator
 
 DESCRIPTION="a simple, small, C++ XML parser that can be easily integrating into other programs"
 HOMEPAGE="http://www.grinninglizard.com/tinyxml/index.html"
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}_${PV//./_}.tar.gz"
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~ia64 ppc ~ppc64 sparc x86 ~x64-macos ~x86-macos"
+KEYWORDS="alpha amd64 arm ~arm64 ~hppa ia64 ppc ppc64 sparc x86 ~x64-macos ~x86-macos"
 IUSE="debug doc static-libs +stl"
 
 RDEPEND=""
@@ -20,9 +20,8 @@ DEPEND="doc? ( app-doc/doxygen )"
 S="${WORKDIR}/${PN}"
 
 src_prepare() {
-	local major_v minor_v
-	major_v=$(echo ${PV} | cut -d \. -f 1)
-	minor_v=$(echo ${PV} | cut -d \. -f 2-3)
+	local major_v=$(get_major_version)
+	local minor_v=$(get_version_component_range 2-3)
 
 	sed -e "s:@MAJOR_V@:$major_v:" \
 	    -e "s:@MINOR_V@:$minor_v:" \

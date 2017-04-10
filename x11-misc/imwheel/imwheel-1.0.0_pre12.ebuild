@@ -1,6 +1,6 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/imwheel/imwheel-1.0.0_pre12.ebuild,v 1.8 2008/01/07 10:49:35 nelchael Exp $
+# $Id$
 
 inherit eutils
 
@@ -30,7 +30,7 @@ S=${WORKDIR}/${P/_/}
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	#epatch ${FILESDIR}/${P}-gentoo.diff
+	#epatch "${FILESDIR}"/${P}-gentoo.diff
 	sed -i -e "s:/etc:${D}/etc:g" Makefile.am || die
 	sed -i -e "s:/etc:${D}/etc:g" Makefile.in || die
 }

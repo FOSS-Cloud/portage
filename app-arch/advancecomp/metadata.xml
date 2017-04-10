@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>xmw@gentoo.org</email>
 		<name>Michael Weber</name>
 	</maintainer>
@@ -9,4 +9,7 @@
 		AdvanceCOMP is a set of recompression utilities for .PNG, .MNG, .ZIP
 		and .GZ files
 	</longdescription>
+	<upstream>
+		<remote-id type="sourceforge">advancemame</remote-id>
+	</upstream>
 </pkgmetadata>

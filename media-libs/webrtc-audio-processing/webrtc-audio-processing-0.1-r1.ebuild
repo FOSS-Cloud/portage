@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/webrtc-audio-processing/webrtc-audio-processing-0.1-r1.ebuild,v 1.4 2014/01/14 13:54:26 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,8 +8,8 @@ AUTOTOOLS_PRUNE_LIBTOOL_FILES=all
 inherit autotools-multilib
 
 DESCRIPTION="AudioProcessing library from the webrtc.org code base"
-HOMEPAGE="http://www.freedesktop.org/software/pulseaudio/webrtc-audio-processing/"
-SRC_URI="http://freedesktop.org/software/pulseaudio/${PN}/${P}.tar.xz"
+HOMEPAGE="https://www.freedesktop.org/software/pulseaudio/webrtc-audio-processing/"
+SRC_URI="https://freedesktop.org/software/pulseaudio/${PN}/${P}.tar.xz"
 
 LICENSE="BSD"
 SLOT="0"

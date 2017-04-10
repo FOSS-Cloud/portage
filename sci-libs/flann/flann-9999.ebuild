@@ -1,14 +1,14 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/flann/flann-9999.ebuild,v 1.2 2013/12/07 19:17:02 jlec Exp $
+# $Id$
 
 EAPI=5
 
 inherit cmake-utils cuda eutils git-r3 multilib toolchain-funcs
 
-DESCRIPTION="Library for performing fast approximate nearest neighbor searches in high dimensional spaces"
+DESCRIPTION="Fast approximate nearest neighbor searches in high dimensional spaces"
 HOMEPAGE="http://www.cs.ubc.ca/research/flann/"
-SRC_URI="test? ( http://dev.gentoo.org/~bicatali/distfiles/${PN}-1.8.4-testdata.tar.xz )"
+SRC_URI="test? ( https://dev.gentoo.org/~bicatali/distfiles/${PN}-1.8.4-testdata.tar.xz )"
 EGIT_REPO_URI="https://github.com/mariusmuja/flann.git"
 
 LICENSE="BSD"
@@ -32,14 +32,6 @@ DEPEND="${RDEPEND}
 		cuda? ( sci-libs/hdf5 )
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.8.4-options.patch
-	"${FILESDIR}"/${PN}-1.8.4-CUDA_NVCC_FLAGS.patch
-	"${FILESDIR}"/${PN}-1.8.4-cuda5.5.patch
-	"${FILESDIR}"/${PN}-1.8.4-multilib.patch
-	"${FILESDIR}"/${PN}-1.8.4-docdir.patch
-)
 
 pkg_setup() {
 	if use openmp; then

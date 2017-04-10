@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gpsbabel/gpsbabel-1.4.4.ebuild,v 1.5 2014/03/02 09:40:59 pacho Exp $
+# $Id$
 
 EAPI=4
 
@@ -9,7 +9,7 @@ inherit eutils qt4-r2 autotools
 DESCRIPTION="GPS waypoints, tracks and routes converter"
 HOMEPAGE="http://www.gpsbabel.org/"
 SRC_URI="
-	http://dev.gentoo.org/~patrick/${P}.tar.gz
+	https://dev.gentoo.org/~patrick/${P}.tar.gz
 	doc? ( http://www.gpsbabel.org/style3.css -> gpsbabel.org-style3.css )"
 LICENSE="GPL-2"
 
@@ -44,8 +44,10 @@ PATCHES=(
 	"${FILESDIR}/${PN}-xmldoc.patch"
 )
 
+RESTRICT="test" # bug 421699
+
 src_prepare() {
-	epatch ${PATCHES[@]}
+	epatch "${PATCHES[@]}"
 	epatch_user
 	rm -rf shapelib || die
 

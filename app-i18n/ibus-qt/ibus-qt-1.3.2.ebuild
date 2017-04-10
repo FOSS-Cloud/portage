@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/ibus-qt/ibus-qt-1.3.2.ebuild,v 1.1 2014/01/06 04:40:43 naota Exp $
+# $Id$
 
 EAPI="5"
 inherit cmake-utils eutils multilib
 
 MY_P="${P}-Source"
 DESCRIPTION="Qt IBus library and Qt input method plugin"
-HOMEPAGE="http://code.google.com/p/ibus/"
-SRC_URI="http://ibus.googlecode.com/files/${MY_P}.tar.gz"
+HOMEPAGE="https://github.com/ibus/ibus/wiki"
+SRC_URI="https://ibus.googlecode.com/files/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc"
 
 RDEPEND=">=app-i18n/ibus-1.3.7
@@ -30,7 +30,11 @@ S="${WORKDIR}/${MY_P}"
 
 DOCS="AUTHORS README TODO"
 
-mycmakeargs="-DLIBDIR=$(get_libdir) -DDOCDIR=${EPREFIX}/usr/share/doc/${PF} all"
+src_configure() {
+	local mycmakeargs=( -DLIBDIR=$(get_libdir) -DDOCDIR=${EPREFIX}/usr/share/doc/${PF} all )
+
+	cmake-utils_src_configure
+}
 
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-1.2.0.20091217-doc.patch"

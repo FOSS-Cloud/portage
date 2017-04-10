@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/avr-libc/avr-libc-1.7.1.ebuild,v 1.3 2012/04/13 18:03:10 ulm Exp $
+# $Id$
 
 EAPI="4"
 
@@ -11,9 +11,9 @@ inherit flag-o-matic eutils
 
 DESCRIPTION="C library for Atmel AVR microcontrollers"
 HOMEPAGE="http://www.nongnu.org/avr-libc/"
-SRC_URI="http://savannah.nongnu.org/download/avr-libc/${P}.tar.bz2
-	http://savannah.nongnu.org/download/avr-libc/${PN}-manpages-${PV}.tar.bz2
-	doc? ( http://savannah.nongnu.org/download/avr-libc/${PN}-user-manual-${PV}.tar.bz2 )"
+SRC_URI="https://savannah.nongnu.org/download/avr-libc/${P}.tar.bz2
+	https://savannah.nongnu.org/download/avr-libc/${PN}-manpages-${PV}.tar.bz2
+	doc? ( https://savannah.nongnu.org/download/avr-libc/${PN}-user-manual-${PV}.tar.bz2 )"
 
 LICENSE="BSD"
 SLOT="0"

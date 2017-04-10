@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jgoodies-common/jgoodies-common-1.8.0.ebuild,v 1.1 2014/07/11 17:36:23 ercpe Exp $
+# $Id$
 
 EAPI="5"
 
@@ -18,14 +18,16 @@ SRC_URI="http://www.jgoodies.com/download/libraries/${MY_PN}/${MY_P}.zip"
 
 LICENSE="BSD"
 SLOT="1.8"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RESTRICT="test"
 
-DEPEND=">=virtual/jdk-1.6
-	app-arch/unzip"
 RDEPEND=">=virtual/jre-1.6"
+
+DEPEND="
+	app-arch/unzip
+	>=virtual/jdk-1.6"
 
 S="${WORKDIR}"/${P}
 

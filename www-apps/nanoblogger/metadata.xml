@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>web-apps</herd>
+	<maintainer type="project">
+		<email>web-apps@gentoo.org</email>
+		<name>Gentoo Webapps</name>
+	</maintainer>
 	<longdescription lang="en">
 Nanoblogger is a small weblog engine written in Bash for the command line. It
 uses common UNIX tools such as cat, grep, and sed.  Features include: support
@@ -14,4 +17,7 @@ for relative and absolute links, per-weblog configuration, simple cache system
 for faster content generation, auto-detection of weblog by current directory, no
 database dependencies (uses flat-file), and mutliplatform portability.
 	</longdescription>
+	<upstream>
+		<remote-id type="sourceforge">nanoblogger</remote-id>
+	</upstream>
 </pkgmetadata>

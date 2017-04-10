@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>games</herd>
+	<maintainer type="project">
+		<email>games@gentoo.org</email>
+		<name>Gentoo Games Project</name>
+	</maintainer>
 	<use>
 		<flag name="aimodules">Support for dynamically loadable AI
 			modules (server-side)</flag>
 		<flag name="auth">Add authentication capability via
 			mysql, postgres or sqlite3</flag>
-		<flag name="ggz">Add support for GGZ Gaming Zone</flag>
 		<flag name="mapimg">Additional mag image toolkit
 			via <pkg>media-gfx/imagemagick</pkg></flag>
 		<flag name="modpack">Build the freeciv-modpack-program
@@ -16,5 +18,10 @@
 			will also make it impossible to start local games.</flag>
 		<flag name="sound">Add support for sound provided by
 			<pkg>media-libs/sdl-mixer</pkg></flag>
+		<flag name="system-lua">Use <pkg>dev-lang/lua</pkg> instead of
+			the bundled liblua</flag>
 	</use>
+	<upstream>
+		<remote-id type="sourceforge">freeciv</remote-id>
+	</upstream>
 </pkgmetadata>

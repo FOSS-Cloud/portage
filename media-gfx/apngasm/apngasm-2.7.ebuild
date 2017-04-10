@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/apngasm/apngasm-2.7.ebuild,v 1.4 2014/02/22 08:06:45 ago Exp $
+# $Id$
 
 EAPI="5"
 
 inherit eutils toolchain-funcs
 
 DESCRIPTION="create an APNG from multiple PNG files"
-HOMEPAGE="http://sourceforge.net/projects/apngasm/"
+HOMEPAGE="https://sourceforge.net/projects/apngasm/"
 SRC_URI="mirror://sourceforge/${PN}/${PV}/${P}-src.zip"
 
 LICENSE="LGPL-2.1"

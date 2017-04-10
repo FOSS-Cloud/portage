@@ -1,58 +1,91 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openvpn/openvpn-9999.ebuild,v 1.7 2013/05/03 07:56:29 djc Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 
-inherit multilib autotools flag-o-matic user git-2
+inherit autotools flag-o-matic user systemd linux-info git-r3
 
 DESCRIPTION="Robust and highly flexible tunneling application compatible with many OSes"
 EGIT_REPO_URI="https://github.com/OpenVPN/${PN}.git"
+EGIT_SUBMODULES=(-cmocka)
 HOMEPAGE="http://openvpn.net/"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="examples down-root iproute2 pam passwordsave pkcs11 +plugins polarssl selinux +ssl +lzo static userland_BSD"
+
+IUSE="down-root examples inotify iproute2 libressl lz4 +lzo mbedtls pam"
+IUSE+=" pkcs11 +plugins polarssl selinux +ssl static systemd test userland_BSD"
 
 REQUIRED_USE="static? ( !plugins !pkcs11 )
-			polarssl? ( ssl )
-			!plugins? ( !pam !down-root )"
+	lzo? ( !lz4 )
+	pkcs11? ( ssl )
+	mbedtls? ( ssl !libressl )
+	pkcs11? ( ssl )
+	!plugins? ( !pam !down-root )
+	inotify? ( plugins )"
 
-DEPEND="
+CDEPEND="
 	kernel_linux? (
-		iproute2? ( sys-apps/iproute2[-minimal] ) !iproute2? ( sys-apps/net-tools )
+		iproute2? ( sys-apps/iproute2[-minimal] )
+		!iproute2? ( sys-apps/net-tools )
 	)
 	pam? ( virtual/pam )
-	selinux? ( sec-policy/selinux-openvpn )
 	ssl? (
-		!polarssl? ( >=dev-libs/openssl-0.9.7 ) polarssl? ( >=net-libs/polarssl-1.1.0 )
+		!mbedtls? (
+			!libressl? ( >=dev-libs/openssl-0.9.8:* )
+			libressl? ( dev-libs/libressl )
+		)
+		mbedtls? ( net-libs/mbedtls )
 	)
+	lz4? ( app-arch/lz4 )
 	lzo? ( >=dev-libs/lzo-1.07 )
-	pkcs11? ( >=dev-libs/pkcs11-helper-1.05 )"
-RDEPEND="${DEPEND}"
+	pkcs11? ( >=dev-libs/pkcs11-helper-1.11 )
+	systemd? ( sys-apps/systemd )"
+DEPEND="${CDEPEND}
+	test? ( dev-util/cmocka )"
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-openvpn )"
+
+CONFIG_CHECK="~TUN"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-external-cmocka.patch"
+)
+
+pkg_setup()  {
+	linux-info_pkg_setup
+}
 
 src_prepare() {
+	default
 	eautoreconf
 }
 
 src_configure() {
-	use static && LDFLAGS="${LDFLAGS} -Xcompiler -static"
-	local myconf
-	use polarssl && myconf="--with-crypto-library=polarssl"
+	use static && append-ldflags -Xcompiler -static
 	econf \
-		${myconf} \
-		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
 		--with-plugindir="${ROOT}/usr/$(get_libdir)/$PN" \
-		$(use_enable passwordsave password-save) \
-		$(use_enable ssl) \
+		$(usex mbedtls 'with-crypto-library' 'mbedtls' '' '') \
+		$(use_enable inotify async-push) \
 		$(use_enable ssl crypto) \
+		$(use_enable lz4) \
 		$(use_enable lzo) \
 		$(use_enable pkcs11) \
 		$(use_enable plugins) \
 		$(use_enable iproute2) \
 		$(use_enable pam plugin-auth-pam) \
-		$(use_enable down-root plugin-down-root)
+		$(use_enable down-root plugin-down-root) \
+		$(use_enable test tests) \
+		$(use_enable systemd)
+}
+
+src_test() {
+	make check || die "top-level tests failed"
+	pushd tests/unit_tests > /dev/null || die
+	make check || die "unit tests failed"
+	popd > /dev/null || die
 }
 
 src_install() {
@@ -77,6 +110,10 @@ src_install() {
 		insinto /usr/share/doc/${PF}/examples
 		doins -r sample contrib
 	fi
+
+	systemd_newtmpfilesd "${FILESDIR}"/${PN}.tmpfile ${PN}.conf
+	systemd_newunit distro/systemd/openvpn-client@.service openvpn-client@.service
+	systemd_newunit distro/systemd/openvpn-server@.service openvpn-server@.service
 }
 
 pkg_postinst() {

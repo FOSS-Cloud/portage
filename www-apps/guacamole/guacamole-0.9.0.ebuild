@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/guacamole/guacamole-0.9.0.ebuild,v 1.1 2014/05/03 12:09:01 nativemad Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,8 +8,8 @@ inherit eutils
 DESCRIPTION="Guacamole is a html5 vnc client as servlet"
 HOMEPAGE="http://guacamole.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${PN}-client-${PV}.tar.gz
-	mysql? ( http://sourceforge.net/projects/${PN}/files/current/extensions/${PN}-auth-mysql-0.9.0.tar.gz )
-	ldap? ( http://sourceforge.net/projects/guacamole/files/current/extensions/guacamole-auth-ldap-0.9.0.tar.gz )"
+	mysql? ( https://sourceforge.net/projects/${PN}/files/current/extensions/${PN}-auth-mysql-0.9.0.tar.gz )
+	ldap? ( https://sourceforge.net/projects/guacamole/files/current/extensions/guacamole-auth-ldap-0.9.0.tar.gz )"
 S="${WORKDIR}/${PN}-client-${PV}"
 
 LICENSE="AGPL-3"

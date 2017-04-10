@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-dicts/myspell-it/myspell-it-20081129-r1.ebuild,v 1.1 2012/06/13 13:36:47 scarabeus Exp $
+# $Id$
 
 EAPI=4
 
@@ -21,7 +21,7 @@ MYSPELL_THES=(
 inherit myspell-r2
 
 DESCRIPTION="Italian dictionaries for myspell/hunspell"
-HOMEPAGE="http://sourceforge.net/projects/linguistico/"
+HOMEPAGE="https://sourceforge.net/projects/linguistico/"
 SRC_URI="mirror://sourceforge/linguistico/Dizionari.IT_${PV}.oxt"
 
 LICENSE="AGPL-3 GPL-3 LGPL-3"

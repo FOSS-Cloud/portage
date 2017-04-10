@@ -1,33 +1,29 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/rednotebook/rednotebook-1.8.0.ebuild,v 1.2 2014/01/13 20:52:11 mattm Exp $
+# $Id$
 
-EAPI="4"
+EAPI=5
+
 PYTHON_COMPAT=( python2_7 )
-DISTUTILS_JOBS="1"
 
-inherit python-r1 eutils distutils-r1
+inherit eutils distutils-r1
 
-DESCRIPTION="A graphical journal with calendar, templates, tags, keyword searching, and export functionality"
+DESCRIPTION="Graphical journal with calendar, templates, tags and keyword searching"
 HOMEPAGE="http://rednotebook.sourceforge.net"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="libyaml spell"
 
-RDEPEND="${PYTHON_DEPS}
-	dev-python/pyyaml[libyaml?]
-	>=dev-python/pygtk-2.13
-	>=dev-python/pywebkitgtk-1.1.5
-	dev-python/chardet
-	spell? ( dev-python/gtkspell-python )"
+RDEPEND="
+	dev-python/pyyaml[libyaml?,${PYTHON_USEDEP}]
+	>=dev-python/pygtk-2.13[${PYTHON_USEDEP}]
+	>=dev-python/pywebkitgtk-1.1.5[${PYTHON_USEDEP}]
+	dev-python/chardet[${PYTHON_USEDEP}]
+	spell? ( dev-python/gtkspell-python[${PYTHON_USEDEP}] )"
 DEPEND="${RDEPEND}"
-
-pkg_setup() {
-	python_setup
-}
 
 src_prepare() {
 	! use spell && epatch "${FILESDIR}/${PN}-1.6.5-disable-spell.patch"

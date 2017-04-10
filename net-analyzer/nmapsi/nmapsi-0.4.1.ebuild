@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nmapsi/nmapsi-0.4.1.ebuild,v 1.2 2013/03/02 22:46:17 hwoarang Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,7 +10,7 @@ inherit cmake-utils l10n
 
 MY_P=${PN}4-${PV}
 
-DESCRIPTION="A Qt4 frontend to nmap"
+DESCRIPTION="A Qt frontend to nmap"
 HOMEPAGE="http://www.nmapsi4.org/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.xz"
 
@@ -24,7 +24,7 @@ DEPEND="
 	dev-qt/qtdbus:4
 	dev-qt/qtgui:4
 	dev-qt/qtwebkit:4
-	kde? ( kde-base/kdelibs:4 )
+	kde? ( kde-frameworks/kdelibs:4 )
 "
 RDEPEND="${DEPEND}
 	>=net-analyzer/nmap-6.00
@@ -34,9 +34,11 @@ RDEPEND="${DEPEND}
 S=${WORKDIR}/${MY_P}
 
 DOCS=( AUTHORS HACKING NEWS TODO Translation )
+PATCHES=( "${FILESDIR}/${P}-kdelibs-4.14.11.patch" )
 
 src_prepare() {
 	l10n_for_each_disabled_locale_do nmapsi_disable_locale
+	cmake-utils_src_prepare
 }
 
 src_configure() {

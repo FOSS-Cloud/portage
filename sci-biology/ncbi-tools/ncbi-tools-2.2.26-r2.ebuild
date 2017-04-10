@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/ncbi-tools/ncbi-tools-2.2.26-r2.ebuild,v 1.6 2013/06/12 11:31:50 jlec Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils flag-o-matic prefix toolchain-funcs
 
-DESCRIPTION="Development toolkit and applications for computational biology, including NCBI BLAST"
+DESCRIPTION="Development toolkit and applications for computational biology, including BLAST"
 HOMEPAGE="http://www.ncbi.nlm.nih.gov/"
 SRC_URI="ftp://ftp.ncbi.nlm.nih.gov/blast/executables/release/${PV}/ncbi.tar.gz -> ${P}.tar.gz"
 
@@ -18,8 +18,16 @@ IUSE="doc static-libs X"
 RDEPEND="
 	app-shells/tcsh
 	dev-lang/perl
-	media-libs/libpng
-	X? ( x11-libs/motif:0 )"
+	media-libs/libpng:0=
+	X? (
+		media-libs/fontconfig
+		x11-libs/motif:0=
+		x11-libs/libICE
+		x11-libs/libX11
+		x11-libs/libXft
+		x11-libs/libXmu
+		x11-libs/libXt
+		)"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/ncbi"
@@ -39,7 +47,9 @@ pkg_setup() {
 src_prepare() {
 	epatch \
 		"${FILESDIR}"/${PN}-extra_vib.patch \
-		"${FILESDIR}"/${P}-bfr-overflow.patch
+		"${FILESDIR}"/${P}-bfr-overflow.patch \
+		"${FILESDIR}"/${P}-format-security.patch \
+		"${FILESDIR}"/${P}-_DEFAULT_SOURCE.patch
 
 	if use ppc || use ppc64; then
 		epatch "${FILESDIR}"/${PN}-lop.patch

@@ -1,12 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/paprefs/paprefs-0.9.10.ebuild,v 1.4 2012/05/05 08:45:42 mgorny Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
+inherit flag-o-matic
 
 DESCRIPTION="PulseAudio Preferences, configuration dialog for PulseAudio"
-HOMEPAGE="http://freedesktop.org/software/pulseaudio/paprefs"
-SRC_URI="http://freedesktop.org/software/pulseaudio/${PN}/${P}.tar.xz"
+HOMEPAGE="https://freedesktop.org/software/pulseaudio/paprefs"
+SRC_URI="https://freedesktop.org/software/pulseaudio/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -18,13 +19,14 @@ RDEPEND="dev-cpp/gtkmm:2.4
 	>=dev-cpp/gconfmm-2.6
 	>=dev-libs/libsigc++-2.2:2
 	media-sound/pulseaudio[glib,gnome]
-	|| ( x11-themes/tango-icon-theme x11-themes/gnome-icon-theme )"
+	|| ( x11-themes/tango-icon-theme x11-themes/adwaita-icon-theme )"
 DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext
 		dev-util/intltool )
 	virtual/pkgconfig"
 
 src_configure() {
+	append-cxxflags -std=c++11 #568590
 	econf \
 		--disable-dependency-tracking \
 		--disable-lynx \
@@ -32,7 +34,6 @@ src_configure() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
+	default
 	dohtml -r doc
-	dodoc README
 }

@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/egoboo/egoboo-2.8.1.ebuild,v 1.6 2012/10/30 11:11:59 ago Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="A 3d dungeon crawling adventure in the spirit of NetHack"
@@ -22,6 +22,7 @@ DEPEND="virtual/opengl
 	media-libs/sdl-ttf
 	net-libs/enet:0
 	dev-games/physfs"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	edos2unix src/game/platform/file_linux.c \
@@ -32,24 +33,22 @@ src_prepare() {
 		-e "s:@GENTOO_DATADIR@:${GAMES_DATADIR}/${PN}:" \
 		-e "s:@GENTOO_CONFDIR@:${GAMES_SYSCONFDIR}/${PN}:" \
 		src/game/platform/file_linux.c || die "sed failed"
-	rm -rf src/enet || die "failed removing enet"
+	rm -rf src/enet || die
 }
 
 src_compile() {
-	emake -C src/game PROJ_NAME=egoboo-2.x || die "emake failed"
+	emake -C src/game PROJ_NAME=egoboo-2.x
 }
 
 src_install() {
-	dodoc BUGS.txt Changelog.txt doc/*.txt doc/*.pdf || die "dodoc failed"
+	dodoc BUGS.txt Changelog.txt doc/*.txt doc/*.pdf
 
 	insinto "${GAMES_DATADIR}/${PN}"
-	doins -r basicdat modules \
-		|| die "doins failed"
+	doins -r basicdat modules
 	insinto "${GAMES_SYSCONFDIR}/${PN}"
-	doins -r controls.txt setup.txt \
-		|| die "doins on sysconf failed"
+	doins -r controls.txt setup.txt
 
-	newgamesbin src/game/egoboo-2.x ${PN} || die "newgamesbin failed"
+	newgamesbin src/game/egoboo-2.x ${PN}
 
 	newicon basicdat/icon.bmp ${PN}.bmp
 	make_desktop_entry ${PN} Egoboo /usr/share/pixmaps/${PN}.bmp

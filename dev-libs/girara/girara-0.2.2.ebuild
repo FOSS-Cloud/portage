@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/girara/girara-0.2.2.ebuild,v 1.2 2014/07/26 08:34:47 ssuominen Exp $
+# $Id$
 
 EAPI=5
 
-inherit multilib toolchain-funcs
+inherit multilib toolchain-funcs virtualx
 [[ ${PV} == 9999* ]] && inherit git-2
 
-DESCRIPTION="A library that implements a user interface that focuses on simplicity and minimalism"
+DESCRIPTION="UI library that focuses on simplicity and minimalism"
 HOMEPAGE="http://pwmt.org/projects/girara/"
 if ! [[ ${PV} == 9999* ]]; then
 SRC_URI="http://pwmt.org/projects/${PN}/download/${P}.tar.gz"
 fi
-EGIT_REPO_URI="git://git.pwmt.org/${PN}.git"
+EGIT_REPO_URI="https://git.pwmt.org/pwmt/${PN}.git"
 EGIT_BRANCH="develop"
 
 LICENSE="ZLIB"
@@ -22,7 +22,7 @@ KEYWORDS="amd64 arm x86 ~amd64-linux ~x86-linux"
 else
 KEYWORDS=""
 fi
-IUSE="libnotify static-libs"
+IUSE="libnotify static-libs test"
 
 RDEPEND=">=dev-libs/glib-2.28
 	>=x11-libs/gtk+-3.2:3
@@ -56,6 +56,10 @@ src_prepare() {
 
 src_compile() {
 	emake "${mygiraraconf[@]}"
+}
+
+src_test() {
+	virtx default
 }
 
 src_install() {

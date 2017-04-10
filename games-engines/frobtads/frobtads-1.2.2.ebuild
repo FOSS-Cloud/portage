@@ -1,8 +1,8 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-engines/frobtads/frobtads-1.2.2.ebuild,v 1.4 2012/12/04 15:38:48 ago Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit eutils flag-o-matic games
 
 DESCRIPTION="Curses-based interpreter and development tools for TADS 2 and TADS 3 text adventures"
@@ -17,15 +17,14 @@ IUSE="debug tads2compiler tads3compiler"
 RESTRICT="!tads3compiler? ( test )"
 
 RDEPEND="net-misc/curl
-	sys-libs/ncurses"
-DEPEND="${RDEPEND}"
+	sys-libs/ncurses:0"
+DEPEND=${RDEPEND}
 
 DOCS=( doc/{AUTHORS,BUGS,ChangeLog.old,NEWS,README,SRC_GUIDELINES,THANKS} )
 
 src_configure() {
 	append-cxxflags -fpermissive
 	egamesconf \
-		--disable-silent-rules \
 		$(use_enable debug t3debug) \
 		$(use_enable debug error-checking) \
 		$(use_enable tads2compiler t2-compiler) \

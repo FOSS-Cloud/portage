@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/gngb/gngb-20060309.ebuild,v 1.10 2014/07/30 16:43:44 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils games
@@ -18,6 +18,7 @@ DEPEND="media-libs/libsdl[sound,joystick,video]
 	sys-libs/zlib
 	app-arch/bzip2
 	opengl? ( virtual/opengl )"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-ovflfix.patch
@@ -30,7 +31,6 @@ src_configure() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
-	dodoc AUTHORS ChangeLog NEWS README TODO
+	default
 	prepgamesdirs
 }

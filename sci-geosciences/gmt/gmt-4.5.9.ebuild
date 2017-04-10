@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gmt/gmt-4.5.9.ebuild,v 1.1 2013/02/02 06:40:13 patrick Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 AUTOTOOLS_AUTORECONF=yes
 
@@ -13,9 +13,9 @@ GSHHS="gshhs-2.2.0"
 DESCRIPTION="Powerful map generator"
 HOMEPAGE="http://gmt.soest.hawaii.edu/"
 SRC_URI="
-	mirror://gmt/${P}.tar.bz2
-	mirror://gmt/${GSHHS}.tar.bz2
-	gmttria? ( mirror://gmt/${P}-non-gpl.tar.bz2 )"
+	mirror://gmt/legacy/${P}.tar.bz2
+	mirror://gmt/legacy/${GSHHS}.tar.bz2
+	gmttria? ( mirror://gmt/legacy/${P}-non-gpl.tar.bz2 )"
 
 LICENSE="GPL-2 gmttria? ( Artistic )"
 SLOT="0"
@@ -42,6 +42,7 @@ MAKEOPTS+=" -j1"
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.5.9-no-strip.patch
 	"${FILESDIR}"/${PN}-4.5.6-respect-ldflags.patch
+	"${FILESDIR}"/${PN}-4.5.9-unistd.h.patch
 	)
 
 AUTOTOOLS_IN_SOURCE_BUILD=1

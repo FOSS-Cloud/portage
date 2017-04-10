@@ -1,12 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libcdr/libcdr-9999.ebuild,v 1.12 2014/09/14 08:48:56 dilfridge Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_REPO_URI="git://anongit.freedesktop.org/git/libreoffice/libcdr/"
-inherit base eutils
-[[ ${PV} == 9999 ]] && inherit autotools git-2
+[[ ${PV} == 9999 ]] && inherit autotools git-r3
 
 DESCRIPTION="Library parsing the Corel cdr documents"
 HOMEPAGE="https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
@@ -14,8 +13,9 @@ HOMEPAGE="https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
 
 LICENSE="MPL-2.0"
 SLOT="0"
-[[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~arm ~ppc ~x86"
-IUSE="doc static-libs"
+[[ ${PV} == 9999 ]] || \
+KEYWORDS="~amd64 ~arm ~hppa ~ppc64 ~x86"
+IUSE="doc static-libs test"
 
 RDEPEND="
 	dev-libs/icu:=
@@ -24,26 +24,28 @@ RDEPEND="
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}
+	dev-libs/boost
 	sys-devel/libtool
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
+	test? ( dev-util/cppunit )
 "
 
 src_prepare() {
-	base_src_prepare
+	default
 	[[ -d m4 ]] || mkdir "m4"
 	[[ ${PV} == 9999 ]] && eautoreconf
 }
 
 src_configure() {
 	econf \
-		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
-		$(use_enable static-libs static) \
 		--disable-werror \
-		$(use_with doc docs)
+		$(use_with doc docs) \
+		$(use_enable static-libs static) \
+		$(use_enable test tests)
 }
 
 src_install() {
 	default
-	prune_libtool_files --all
+	find "${D}" -name '*.la' -delete || die
 }

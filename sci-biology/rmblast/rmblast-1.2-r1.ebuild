@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/rmblast/rmblast-1.2-r1.ebuild,v 1.1 2013/02/18 10:48:11 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,8 +17,9 @@ SLOT="0"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="dev-libs/boost"
-RDEPEND="${DEPEND}"
+RDEPEND="dev-libs/boost"
+DEPEND="${RDEPEND}
+	app-arch/cpio"
 
 S="${WORKDIR}/${P}-ncbi-blast-${MY_NCBI_BLAST_V}-src/c++"
 
@@ -28,6 +29,7 @@ src_prepare() {
 		-e 's/-print-file-name=libstdc++.a//' \
 		-e '/sed/ s/\([gO]\[0-9\]\)\*/\1\\+/' \
 		-e "/DEF_FAST_FLAGS=/s:=\".*\":=\"${CFLAGS}\":g" \
+		-e 's/2.95\* | 2.96\* | 3\.\* | 4\.\* )/2.95\* | 2.96\* | \[3-9\]\.\* )/g' \
 		-i src/build-system/configure || die
 	epatch "${FILESDIR}"/${P}-gcc47.patch
 }

@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/aria/aria-2.3.2_p20130826.ebuild,v 1.2 2014/01/06 12:00:45 jlec Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="tk"
 
 inherit eutils python-single-r1 versionator
@@ -26,7 +26,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="
 	${PYTHON_DEPS}
 	dev-tcltk/tix
-	dev-lang/tk
+	dev-lang/tk:0=
 	>=dev-python/numpy-1.1[${PYTHON_USEDEP}]
 	dev-python/matplotlib[${PYTHON_USEDEP},tk]
 	>=sci-chemistry/cns-1.2.1-r7[aria,openmp]

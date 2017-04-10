@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/PDL/PDL-2.4.11.ebuild,v 1.15 2014/09/01 09:10:18 zlogene Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,12 +9,11 @@ FORTRAN_NEEDED=fortran
 
 inherit perl-module eutils fortran-2
 
-HOMEPAGE="http://pdl.perl.org/"
 DESCRIPTION="Perl Data Language for scientific computing"
 
 LICENSE="|| ( Artistic GPL-1+ ) public-domain PerlDL"
 SLOT="0"
-KEYWORDS="amd64 arm ppc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 arm x86 ~amd64-linux ~x86-linux"
 # proj support removed #497328
 IUSE="+badval doc fftw fortran gd gsl hdf netpbm pdl2 pgplot plplot threads"
 
@@ -52,7 +51,7 @@ mydoc="BUGS DEPENDENCIES DEVELOPMENT Known_problems MANIFEST* Release_Notes"
 SRC_TEST="do"
 
 pkg_setup() {
-	perl-module_pkg_setup
+	perl_set_version
 	use fortran && fortran-2_pkg_setup
 }
 
@@ -66,6 +65,12 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-2.4.11-shared-hdf.patch
 	find . -name Makefile.PL -exec \
 		sed -i -e "s|/usr|${EPREFIX}/usr|g" {} \; || die
+
+	if has_version ">=sci-libs/plplot-5.11"; then
+		sed \
+			-e 's:plplotd:plplot:g' \
+			-i Graphics/PLplot/Makefile.PL || die
+	fi
 }
 
 src_configure() {

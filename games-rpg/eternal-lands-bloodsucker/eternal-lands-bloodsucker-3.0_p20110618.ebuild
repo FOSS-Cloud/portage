@@ -1,14 +1,14 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/eternal-lands-bloodsucker/eternal-lands-bloodsucker-3.0_p20110618.ebuild,v 1.2 2013/02/07 22:13:58 ulm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 
 inherit eutils games
 
 DESCRIPTION="Non-official map pack for Eternal Lands"
 HOMEPAGE="http://maps.el-pl.org/"
-SRC_URI="http://dev.gentoo.org/~rich0/distfiles/${P}.tar.bz2"
+SRC_URI="https://dev.gentoo.org/~rich0/distfiles/${P}.tar.bz2"
 LICENSE="CC-BY-NC-SA-3.0"
 SLOT="0"
 
@@ -24,7 +24,7 @@ S="${WORKDIR}"
 src_install() {
 	insopts -m 0660
 	insinto "${GAMES_DATADIR}/eternal-lands"
-	doins -r maps || die "doins failed"
+	doins -r maps
 
 	prepgamesdirs
 }

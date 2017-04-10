@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/aws-iam-tools/aws-iam-tools-1.3.0.ebuild,v 1.1 2012/02/16 15:10:46 lxnay Exp $
+# $Id$
 
 EAPI="2"
 
-DESCRIPTION="The Command Line Interface (CLI) for the AWS Identity and Access Management (IAM) Service"
+DESCRIPTION="The Command Line Interface for the AWS Identity and Access Management Service"
 HOMEPAGE="http://aws.amazon.com/developertools/AWS-Identity-and-Access-Management/4143"
 SRC_URI="mirror://sabayon/${CATEGORY}/IAMCli-${PV}.zip"
 

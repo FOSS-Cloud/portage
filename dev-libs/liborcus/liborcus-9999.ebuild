@@ -1,45 +1,58 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/liborcus/liborcus-9999.ebuild,v 1.11 2014/09/14 08:19:29 dilfridge Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-EGIT_REPO_URI="git://gitorious.org/orcus/orcus.git"
+EGIT_REPO_URI="https://gitlab.com/orcus/orcus.git"
 
-[[ ${PV} == 9999 ]] && GITECLASS="git-2 autotools"
-inherit eutils ${GITECLASS}
+PYTHON_COMPAT=( python3_{4,5} )
+
+[[ ${PV} == 9999 ]] && GITECLASS="git-r3 autotools"
+inherit python-single-r1 ${GITECLASS}
 unset GITECLASS
 
 DESCRIPTION="Standalone file import filter library for spreadsheet documents"
-HOMEPAGE="http://gitorious.org/orcus/pages/Home"
-[[ ${PV} == 9999 ]] || SRC_URI="http://kohei.us/files/orcus/src/${P}.tar.bz2"
+HOMEPAGE="https://gitlab.com/orcus/orcus/blob/master/README.md"
+[[ ${PV} == 9999 ]] || SRC_URI="http://kohei.us/files/orcus/src/${P}.tar.xz"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/0.12" # based on SONAME of liborcus.so
 [[ ${PV} == 9999 ]] || \
 KEYWORDS="~amd64 ~arm ~ppc ~x86"
-IUSE="static-libs"
+IUSE="python +spreadsheet-model static-libs tools"
 
 RDEPEND="
-	>=dev-libs/boost-1.51.0:=
-	>=dev-libs/libixion-0.5.0:=
+	dev-libs/boost:=
+	sys-libs/zlib:=
+	python? ( ${PYTHON_DEPS} )
+	spreadsheet-model? ( >=dev-libs/libixion-0.12.1:= )
 "
 DEPEND="${RDEPEND}
-	>=dev-util/mdds-0.7.1
+	>=dev-util/mdds-1.2.2:1
 "
 
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
+pkg_setup() {
+	use python && python-single-r1_pkg_setup
+}
+
 src_prepare() {
+	default
 	[[ ${PV} == 9999 ]] && eautoreconf
 }
 
 src_configure() {
 	econf \
 		--disable-werror \
-		$(use_enable static-libs static)
+		$(use_enable python) \
+		$(use_enable spreadsheet-model) \
+		$(use_enable static-libs static) \
+		$(use_with tools)
 }
 
 src_install() {
 	default
-
-	prune_libtool_files --all
+	find "${D}" -name '*.la' -delete || die
 }

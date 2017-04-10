@@ -1,13 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/unreal-tournament/unreal-tournament-451.ebuild,v 1.30 2014/05/01 14:41:59 ulm Exp $
+# $Id$
+
+EAPI=5
 
 inherit eutils unpacker cdrom games
 
 DESCRIPTION="Futuristic FPS"
-HOMEPAGE="http://www.unrealtournament.com/ http://utpg.org/"
-SRC_URI="ftp://ftp.lokigames.com/pub/patches/ut/ut-install-436.run
-	http://utpg.org/patches/UTPGPatch${PV}.tar.bz2"
+HOMEPAGE="http://www.oldunreal.com/"
+SRC_URI="http://www.ut-files.com/Patches/ut-install-436.run
+	http://www.ut-files.com/Patches/utpgpatch${PV}.tar.bz2 -> UTPGPatch${PV}.tar.bz2"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
@@ -15,18 +17,17 @@ KEYWORDS="-* amd64 x86"
 IUSE="3dfx opengl"
 RESTRICT="mirror bindist"
 
-RDEPEND="!amd64? (
-	x11-libs/libXext
-	x11-libs/libX11
-	x11-libs/libXau
-	x11-libs/libXdmcp
-	=media-libs/libsdl-1.2*
-	opengl? ( virtual/opengl ) )
-	amd64? ( app-emulation/emul-linux-x86-sdl
-		app-emulation/emul-linux-x86-baselibs
-		app-emulation/emul-linux-x86-xlibs )"
+RDEPEND="
+	>=media-libs/libsdl-1.2.15-r5[abi_x86_32(-)]
+	x11-libs/libX11[abi_x86_32(-)]
+	x11-libs/libXau[abi_x86_32(-)]
+	x11-libs/libXdmcp[abi_x86_32(-)]
+	x11-libs/libXext[abi_x86_32(-)]
+	opengl? ( virtual/opengl[abi_x86_32(-)] )
+"
 DEPEND="${RDEPEND}
-	!games-fps/unreal-tournament-goty"
+	!games-fps/unreal-tournament-goty
+"
 
 S=${WORKDIR}
 
@@ -64,7 +65,7 @@ src_install() {
 	# the most important things, ucc & ut :)
 	exeinto "${dir}"
 	doexe bin/x86/{ucc,ut} || die "install ucc/ut"
-	dosed "s:\`FindPath \$0\`:${dir}:" "${dir}"/ucc
+	sed -i -e "s:\`FindPath \$0\`:${dir}:" "${ED}/${dir}"/ucc || die
 
 	# install a few random files
 	insinto "${dir}"
@@ -82,7 +83,7 @@ src_install() {
 	# finally, unleash the UTPG patch
 	cp -rf UTPG/* "${Ddir}/"
 	# fix a small bug until next official release
-	dosed "/^LoadClassMismatch/s:%s.%s:%s:" "${dir}"/System/Core.int
+	sed -i -e "/^LoadClassMismatch/s:%s.%s:%s:" "${ED}/${dir}"/System/Core.int || die
 
 	# now we uncompress the maps (GOTY edition installs maps as .uz)
 	einfo "Uncompressing Maps ... this may take some time"

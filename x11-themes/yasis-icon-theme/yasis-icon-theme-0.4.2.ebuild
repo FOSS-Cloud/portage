@@ -1,7 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/yasis-icon-theme/yasis-icon-theme-0.4.2.ebuild,v 1.1 2010/11/11 10:33:57 ssuominen Exp $
+# $Id$
 
+EAPI=5
 inherit gnome2-utils
 
 DESCRIPTION="A scalable icon theme called Yasis"
@@ -13,19 +14,19 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
-RDEPEND="!minimal? ( || ( x11-themes/gnome-icon-theme x11-themes/nuovo-icon-theme ) )"
+RDEPEND="!minimal? ( || ( x11-themes/adwaita-icon-theme x11-themes/nuovo-icon-theme ) )"
 DEPEND=""
 
 RESTRICT="binchecks strip"
 
-S=${WORKDIR}
+S="${WORKDIR}"
 
 src_install() {
 	dodoc yasis/{AUTHORS,README}
 	rm -f yasis/{AUTHORS,COPYING,DONATE,INSTALL,README}
 
 	insinto /usr/share/icons
-	doins -r yasis || die
+	doins -r yasis
 }
 
 pkg_preinst() { gnome2_icon_savelist; }

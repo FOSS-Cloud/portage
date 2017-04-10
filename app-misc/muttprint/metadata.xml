@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>nimiux@gentoo.org</email>
 		<name>Chema Alonso</name>
 	</maintainer>
@@ -12,6 +12,9 @@
 		Impresión elegante de sus correos
 	</longdescription>
 	<use>
-		<flag name='doc'>Builds documentation</flag>
+		<flag name="doc">Builds documentation</flag>
 	</use>
+	<upstream>
+		<remote-id type="sourceforge">muttprint</remote-id>
+	</upstream>
 </pkgmetadata>

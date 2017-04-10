@@ -1,22 +1,25 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/edbrowse/edbrowse-3.5.1.ebuild,v 1.1 2014/09/29 10:20:27 teiresias Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 inherit eutils
 
 DESCRIPTION="editor, browser, and mail client using the /bin/ed interface"
 HOMEPAGE="http://the-brannons.com/edbrowse/"
 SRC_URI="http://the-brannons.com/${PN}/${P}.zip"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="linguas_fr odbc"
+IUSE="libressl odbc l10n_fr"
+
 COMMON_DEPEND=">=dev-lang/spidermonkey-24.0:24
 	>=sys-libs/readline-6.0
 	>=net-misc/curl-7.36.0
 	>=dev-libs/libpcre-7.8
-	>=dev-libs/openssl-0.9.8j
+	!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:0= )
 	odbc? ( dev-db/unixODBC )"
 DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
@@ -51,7 +54,7 @@ src_install() {
 	dobin setup.ebrc
 	dohtml usersguide.html philosophy.html
 	dodoc sample.ebrc
-	if use linguas_fr; then
+	if use l10n_fr; then
 		dohtml usersguide_fr.html philosophy_fr.html
 		dodoc sample_fr.ebrc
 	fi

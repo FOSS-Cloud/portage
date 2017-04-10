@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol-plugins-dynamics/pymol-plugins-dynamics-1.2.0.ebuild,v 1.2 2013/05/29 16:20:55 jlec Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit python-r1
 
@@ -38,6 +38,6 @@ src_prepare() {
 
 src_install() {
 	python_moduleinto pmg_tk/startup
-	python_parallel_foreach_impl python_domodule dynamics_pymol_plugin.py
-	python_parallel_foreach_impl python_doscript pydynamics*
+	python_foreach_impl python_domodule dynamics_pymol_plugin.py
+	python_foreach_impl python_doscript pydynamics*
 }

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/binkplayer/binkplayer-1.99w.ebuild,v 1.4 2014/09/04 00:57:12 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 DESCRIPTION="Bink Video! Player"
@@ -12,23 +12,17 @@ SRC_URI="mirror://gentoo/${P}.zip"
 # distributable per http://www.radgametools.com/binkfaq.htm
 LICENSE="freedist"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE=""
 
 DEPEND="app-arch/unzip"
-RDEPEND="amd64? (
-		app-emulation/emul-linux-x86-sdl
-	)
-	x86? (
-		media-libs/libsdl
-		media-libs/sdl-mixer
-	)"
+RDEPEND="
+	>=media-libs/libsdl-1.2.15-r5[abi_x86_32(-)]
+	>=media-libs/openal-1.15.1-r1[abi_x86_32(-)]"
 
 S=${WORKDIR}
 
-QA_FLAGS_IGNORED="opt/bin/BinkPlayer"
-QA_PRESTRIPPED="opt/bin/BinkPlayer"
-QA_EXECSTACK="opt/bin/BinkPlayer"
+QA_PREBUILT="opt/bin/BinkPlayer"
 
 src_install() {
 	into /opt

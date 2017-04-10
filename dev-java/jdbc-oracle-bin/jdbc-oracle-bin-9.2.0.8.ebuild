@@ -1,6 +1,6 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jdbc-oracle-bin/jdbc-oracle-bin-9.2.0.8.ebuild,v 1.1 2007/06/09 21:23:59 caster Exp $
+# $Id$
 
 inherit java-pkg-2
 
@@ -24,7 +24,7 @@ SRC_URI="
 	debug? ( ${file_main_debug} )
 	${file_rowset}
 	doc? ( ${file_doc} )"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~x86"
 LICENSE="oracle-jdbc"
 SLOT="9.2"
 DEPEND=""

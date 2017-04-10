@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/qemacs/qemacs-0.4.0_pre20090420-r1.ebuild,v 1.10 2013/04/14 16:05:04 ulm Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils flag-o-matic toolchain-funcs
 
 DESCRIPTION="QEmacs is a very small but powerful UNIX editor"
-HOMEPAGE="http://savannah.nongnu.org/projects/qemacs"
+HOMEPAGE="https://savannah.nongnu.org/projects/qemacs"
 SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1+ GPL-2+"

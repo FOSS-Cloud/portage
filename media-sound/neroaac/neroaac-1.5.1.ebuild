@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/neroaac/neroaac-1.5.1.ebuild,v 1.4 2012/06/13 08:15:35 sbriesen Exp $
+# $Id$
 
 EAPI=4
 
@@ -12,7 +12,7 @@ SRC_URI="http://ftp6.nero.com/tools/NeroAACCodec-${PV}.zip"
 
 LICENSE="Nero-AAC-EULA"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE="doc"
 
 RDEPEND=""

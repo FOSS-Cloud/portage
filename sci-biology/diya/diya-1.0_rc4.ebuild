@@ -1,12 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/diya/diya-1.0_rc4.ebuild,v 1.2 2014/07/15 12:59:44 zlogene Exp $
+# $Id$
 
 EAPI="5"
 
 inherit perl-module
 
-DESCRIPTION="Do It Yourself Annotation, a collection of tools and libraries for sequence assembly and annotation"
+DESCRIPTION="Do It Yourself Annotation, tools & libraries for sequence assembly & annotation"
 HOMEPAGE="http://gmod.org/wiki/Diya"
 SRC_URI="mirror://sourceforge/diyg/files/diya/diya-1.0/diya-${PV/_/-}.tar.gz"
 

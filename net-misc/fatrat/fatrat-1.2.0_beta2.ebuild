@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/fatrat/fatrat-1.2.0_beta2.ebuild,v 1.4 2014/01/05 22:20:59 polynomial-c Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,16 +13,17 @@ SRC_URI="http://www.dolezel.info/download/data/${PN}/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="bittorrent +curl doc jabber nls webinterface"
+IUSE="bittorrent +curl doc xmpp nls webinterface"
 
-RDEPEND="dev-qt/qtgui:4
+RDEPEND="dev-qt/qtdbus:4
+	dev-qt/qtgui:4
 	dev-qt/qtsvg:4
 	bittorrent? ( >=net-libs/rb_libtorrent-0.14.5
 			>=dev-cpp/asio-1.1.0
 			dev-qt/qtwebkit:4 )
 	curl? ( >=net-misc/curl-7.18.2 )
 	doc? ( dev-qt/qthelp:4 )
-	jabber? ( net-libs/gloox )
+	xmpp? ( net-libs/gloox )
 	webinterface? ( dev-qt/qtscript:4 )"
 DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
@@ -37,7 +38,7 @@ src_configure() {
 			$(cmake-utils_use_with bittorrent) \
 			$(cmake-utils_use_with curl) \
 			$(cmake-utils_use_with doc DOCUMENTATION) \
-			$(cmake-utils_use_with jabber) \
+			$(cmake-utils_use_with xmpp JABBER) \
 			$(cmake-utils_use_with nls) \
 			$(cmake-utils_use_with webinterface)"
 		cmake-utils_src_configure

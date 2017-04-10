@@ -1,73 +1,71 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/weechat/weechat-9999.ebuild,v 1.33 2014/08/10 20:54:10 slyfox Exp $
+# $Id$
 
-EAPI=5
-PYTHON_COMPAT=( python{2_7,3_2,3_3} )
+EAPI=6
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
+CMAKE_MAKEFILE_GENERATOR=emake
+inherit python-single-r1 cmake-utils
 
-EGIT_REPO_URI="https://github.com/weechat/weechat.git"
-[[ ${PV} == "9999" ]] && GIT_ECLASS="git-r3"
-inherit eutils python-single-r1 multilib cmake-utils ${GIT_ECLASS}
+if [[ ${PV} == "9999" ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/weechat/weechat.git"
+else
+	SRC_URI="https://weechat.org/files/src/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
 
 DESCRIPTION="Portable and multi-interface IRC client"
 HOMEPAGE="http://weechat.org/"
-[[ ${PV} == "9999" ]] || SRC_URI="http://${PN}.org/files/src/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-if [[ ${PV} == "9999" ]]; then
-	KEYWORDS=""
-else
-	KEYWORDS="~amd64 ~ppc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
-fi
 
 NETWORKS="+irc"
-PLUGINS="+alias +charset +fifo +logger +relay +rmodifier +scripts +spell +xfer"
-#INTERFACES="+ncurses gtk"
+PLUGINS="+alias +charset +exec +fifo +logger +relay +scripts +spell +trigger +xfer"
+# dev-lang/v8 was dropped from Gentoo so we can't enable javascript support
 SCRIPT_LANGS="guile lua +perl +python ruby tcl"
-IUSE="${SCRIPT_LANGS} ${PLUGINS} ${INTERFACES} ${NETWORKS} doc nls +ssl"
+LANGS=" cs de es fr hu it ja pl pt pt_BR ru tr"
+IUSE="doc nls +ssl test ${LANGS// / linguas_} ${SCRIPT_LANGS} ${PLUGINS} ${INTERFACES} ${NETWORKS}"
 
 RDEPEND="
-	dev-libs/libgcrypt:0
+	dev-libs/libgcrypt:0=
 	net-misc/curl[ssl]
-	sys-libs/ncurses
+	sys-libs/ncurses:0=
 	sys-libs/zlib
 	charset? ( virtual/libiconv )
-	guile? ( dev-scheme/guile )
-	lua? ( dev-lang/lua[deprecated] )
+	guile? ( >=dev-scheme/guile-2.0 )
+	lua? ( dev-lang/lua:0[deprecated] )
 	nls? ( virtual/libintl )
 	perl? ( dev-lang/perl )
 	python? ( ${PYTHON_DEPS} )
-	ruby? ( >=dev-lang/ruby-1.9 )
+	ruby? ( || ( dev-lang/ruby:2.4 dev-lang/ruby:2.3 dev-lang/ruby:2.2 dev-lang/ruby:2.1 ) )
 	ssl? ( net-libs/gnutls )
 	spell? ( app-text/aspell )
-	tcl? ( >=dev-lang/tcl-8.4.15 )
+	tcl? ( >=dev-lang/tcl-8.4.15:0= )
 "
-#	ncurses? ( sys-libs/ncurses )
-#	gtk? ( x11-libs/gtk+:2 )
 DEPEND="${RDEPEND}
 	doc? (
-		app-text/asciidoc
+		>=dev-ruby/asciidoctor-1.5.4
 		dev-util/source-highlight
 	)
 	nls? ( >=sys-devel/gettext-0.15 )
+	test? ( dev-util/cpputest )
 "
 
-DOCS="AUTHORS.asciidoc ChangeLog.asciidoc ReleaseNotes.asciidoc README.asciidoc"
+DOCS="AUTHORS.adoc ChangeLog.adoc Contributing.adoc ReleaseNotes.adoc README.adoc"
 
-#REQUIRED_USE=" || ( ncurses gtk )"
+# tests need to be fixed to not use system plugins if weechat is already installed
+RESTRICT="test"
 
-LANGS=( cs de es fr hu it ja pl pt_BR ru )
-for X in "${LANGS[@]}" ; do
-	IUSE="${IUSE} linguas_${X}"
-done
+PATCHES=( "${FILESDIR}"/${PN}-1.2-tinfo.patch )
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
 
 src_prepare() {
-	local i
+	default
 
 	# fix libdir placement
 	sed -i \
@@ -76,7 +74,8 @@ src_prepare() {
 		CMakeLists.txt || die "sed failed"
 
 	# install only required translations
-	for i in "${LANGS[@]}" ; do
+	local i
+	for i in ${LANGS} ; do
 		if ! use linguas_${i} ; then
 			sed -i \
 				-e "/${i}.po/d" \
@@ -85,46 +84,55 @@ src_prepare() {
 	done
 
 	# install only required documentation ; en always
-	for i in `grep ADD_SUBDIRECTORY doc/CMakeLists.txt \
-			| sed -e 's/.*ADD_SUBDIRECTORY( \(..\) ).*/\1/' -e '/en/d'`; do
+	for i in $(grep add_subdirectory doc/CMakeLists.txt \
+			| sed -e 's/.*add_subdirectory(\(..\)).*/\1/' -e '/en/d'); do
 		if ! use linguas_${i} ; then
 			sed -i \
-				-e '/ADD_SUBDIRECTORY( '${i}' )/d' \
+				-e '/add_subdirectory('${i}')/d' \
 				doc/CMakeLists.txt || die
 		fi
 	done
+
+	# install docs in correct directory
+	sed -i "s#\${SHAREDIR}/doc/\${PROJECT_NAME}#\0-${PV}/html#" doc/*/CMakeLists.txt || die
 }
 
 src_configure() {
-	# $(cmake-utils_use_enable gtk)
-	# $(cmake-utils_use_enable ncurses)
 	local mycmakeargs=(
-		"-DENABLE_NCURSES=ON"
-		"-DENABLE_LARGEFILE=ON"
-		"-DENABLE_DEMO=OFF"
-		"-DENABLE_GTK=OFF"
-		"-DPYTHON_EXECUTABLE=${PYTHON}"
-		$(cmake-utils_use_enable alias)
-		$(cmake-utils_use_enable doc)
-		$(cmake-utils_use_enable charset)
-		$(cmake-utils_use_enable fifo)
-		$(cmake-utils_use_enable guile)
-		$(cmake-utils_use_enable irc)
-		$(cmake-utils_use_enable logger)
-		$(cmake-utils_use_enable lua)
-		$(cmake-utils_use_enable nls)
-		$(cmake-utils_use_enable perl)
-		$(cmake-utils_use_enable python)
-		$(cmake-utils_use_enable relay)
-		$(cmake-utils_use_enable rmodifier)
-		$(cmake-utils_use_enable ruby)
-		$(cmake-utils_use_enable scripts)
-		$(cmake-utils_use_enable scripts script)
-		$(cmake-utils_use_enable spell ASPELL)
-		$(cmake-utils_use_enable ssl GNUTLS)
-		$(cmake-utils_use_enable tcl)
-		$(cmake-utils_use_enable xfer)
+		-DENABLE_NCURSES=ON
+		-DENABLE_LARGEFILE=ON
+		-DENABLE_JAVASCRIPT=OFF
+		-DENABLE_ALIAS=$(usex alias)
+		-DENABLE_DOC=$(usex doc)
+		-DENABLE_CHARSET=$(usex charset)
+		-DENABLE_EXEC=$(usex exec)
+		-DENABLE_FIFO=$(usex fifo)
+		-DENABLE_GUILE=$(usex guile)
+		-DENABLE_IRC=$(usex irc)
+		-DENABLE_LOGGER=$(usex logger)
+		-DENABLE_LUA=$(usex lua)
+		-DENABLE_NLS=$(usex nls)
+		-DENABLE_PERL=$(usex perl)
+		-DENABLE_PYTHON=$(usex python)
+		-DENABLE_RELAY=$(usex relay)
+		-DENABLE_RUBY=$(usex ruby)
+		-DENABLE_SCRIPTS=$(usex scripts)
+		-DENABLE_SCRIPT=$(usex scripts)
+		-DENABLE_ASPELL=$(usex spell)
+		-DENABLE_GNUTLS=$(usex ssl)
+		-DENABLE_TCL=$(usex tcl)
+		-DENABLE_TESTS=$(usex test)
+		-DENABLE_TRIGGER=$(usex trigger)
+		-DENABLE_XFER=$(usex xfer)
 	)
+
+	if use python; then
+		python_export PYTHON_LIBPATH
+		mycmakeargs+=(
+			-DPYTHON_EXECUTABLE="${PYTHON}"
+			-DPYTHON_LIBRARY="${PYTHON_LIBPATH}"
+		)
+	fi
 
 	cmake-utils_src_configure
 }

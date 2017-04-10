@@ -1,10 +1,10 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tex/catdvi/catdvi-0.14-r1.ebuild,v 1.5 2011/12/04 14:39:58 hwoarang Exp $
+# $Id$
 
 EAPI=4
 
-inherit eutils autotools toolchain-funcs
+inherit eutils autotools toolchain-funcs flag-o-matic
 
 DESCRIPTION="DVI to plain text translator"
 HOMEPAGE="http://catdvi.sourceforge.net"
@@ -15,12 +15,15 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="virtual/tex-base"
-RDEPEND="${DEPEND}"
+RDEPEND="virtual/tex-base
+	dev-libs/kpathsea"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-kpathsea.patch"
 	eautoconf
+	has_version '>=dev-libs/kpathsea-6.2.1' && append-cppflags "$($(tc-getPKG_CONFIG) --cflags kpathsea)"
 }
 
 src_compile() {

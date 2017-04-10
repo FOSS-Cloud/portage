@@ -1,12 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libqxt/libqxt-0.6.2-r2.ebuild,v 1.3 2014/09/27 11:38:23 maekke Exp $
+# $Id$
 
 EAPI=5
 
-inherit multilib qt4-r2
+inherit multilib qmake-utils qt4-r2
 
-DESCRIPTION="The Qt eXTension library provides cross-platform utility classes for the Qt toolkit"
+DESCRIPTION="Extension library providing cross-platform utility classes for the Qt toolkit"
 HOMEPAGE="http://libqxt.org/"
 SRC_URI="http://dev.libqxt.org/libqxt/get/v${PV}.tar.bz2 -> ${P}.tar.bz2"
 
@@ -16,11 +16,9 @@ KEYWORDS="amd64 ~arm x86"
 IUSE="berkdb debug doc sql web xscreensaver zeroconf"
 
 COMMON_DEPEND="
+	dev-qt/designer:4
 	dev-qt/qtcore:4[ssl]
-	|| (
-		( >=dev-qt/qtgui-4.8.5:4 dev-qt/designer:4 )
-		<dev-qt/qtgui-4.8.5:4
-	)
+	dev-qt/qtgui:4
 	x11-libs/libXrandr
 	berkdb? ( >=sys-libs/db-4.6 )
 	sql? ( dev-qt/qtsql:4 )
@@ -41,6 +39,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-invoke-prev-filter.patch"	# bug 494448
 	"${FILESDIR}/${PN}-media-keys.patch"		# bug 495984
 	"${FILESDIR}/${PN}-xrandr-missing-lib.patch"
+	"${FILESDIR}/${PN}-gcc6-fix.patch"
 )
 
 src_prepare() {
@@ -57,7 +56,7 @@ src_configure() {
 		-prefix "${EPREFIX}/usr"
 		-libdir "${EPREFIX}/usr/$(get_libdir)"
 		-docdir "${EPREFIX}/usr/share/doc/${PF}"
-		-qmake-bin "${EPREFIX}/usr/bin/qmake"
+		-qmake-bin "${EPREFIX}/$(qt4_get_bindir)/qmake"
 		$(use debug && echo -debug || echo -release)
 		$(use berkdb || echo -no-db -nomake berkeley)
 		$(use doc || echo -nomake docs)

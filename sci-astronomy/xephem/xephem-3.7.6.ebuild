@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-astronomy/xephem/xephem-3.7.6.ebuild,v 1.1 2013/04/07 17:18:11 xarthisius Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE=""
 
 RDEPEND=">=x11-libs/motif-2.3:0
-	virtual/jpeg
+	virtual/jpeg:0
 	media-libs/libpng:0="
 DEPEND="${RDEPEND}
 	sys-apps/groff"

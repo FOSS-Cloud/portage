@@ -1,12 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/openjade/openjade-1.3.2-r6.ebuild,v 1.13 2014/04/06 15:17:31 vapier Exp $
+# $Id$
 
 EAPI=5
 
-inherit autotools sgml-catalog eutils flag-o-matic multilib
+inherit autotools sgml-catalog eutils flag-o-matic multilib toolchain-funcs
 
-DESCRIPTION="Jade is an implementation of DSSSL - an ISO standard for formatting SGML and XML documents"
+DESCRIPTION="Jade is an implementation of DSSSL for formatting SGML and XML documents"
 HOMEPAGE="http://openjade.sourceforge.net"
 SRC_URI="mirror://sourceforge/openjade/${P}.tar.gz"
 
@@ -50,6 +50,11 @@ src_prepare() {
 }
 
 src_configure() {
+	# avoids dead-store elimination optimization
+	# leading to segfaults on GCC 6
+	# bug #592590 #596506
+	tc-is-clang || append-cxxflags $(test-flags-CXX -fno-lifetime-dse)
+
 	# We need Prefix env, bug #287358
 	export CONFIG_SHELL="${CONFIG_SHELL:-${BASH}}"
 	econf \

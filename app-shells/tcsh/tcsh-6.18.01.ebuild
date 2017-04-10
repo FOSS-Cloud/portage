@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/tcsh/tcsh-6.18.01.ebuild,v 1.13 2013/05/20 17:44:48 ago Exp $
+# $Id$
 
 EAPI="3"
 
@@ -11,11 +11,11 @@ CONFVER="1.9"
 DESCRIPTION="Enhanced version of the Berkeley C shell (csh)"
 HOMEPAGE="http://www.tcsh.org/"
 SRC_URI="ftp://ftp.astron.com/pub/tcsh/${P}.tar.gz
-	http://www.gentoo.org/~grobian/distfiles/tcsh-gentoo-patches-r${CONFVER}.tar.bz2"
+	https://www.gentoo.org/~grobian/distfiles/tcsh-gentoo-patches-r${CONFVER}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 s390 sh sparc x86 ~ppc-aix ~x86-fbsd ~x64-freebsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="s390 sh"
 IUSE="nls doc"
 RESTRICT="test"
 
@@ -66,8 +66,7 @@ src_configure() {
 	econf \
 		--prefix="${EPREFIX:-/}" \
 		--datarootdir='${prefix}/usr/share' \
-		$(use_enable nls) \
-		|| die
+		$(use_enable nls)
 }
 
 src_install() {

@@ -1,12 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/libetonyek/libetonyek-9999.ebuild,v 1.4 2014/09/13 08:57:12 dilfridge Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_REPO_URI="git://anongit.freedesktop.org/git/libreoffice/libetonyek"
-inherit base eutils
-[[ ${PV} == 9999 ]] && inherit autotools git-2
+[[ ${PV} == 9999 ]] && inherit autotools git-r3
 
 DESCRIPTION="Library parsing Apple Keynote presentations"
 HOMEPAGE="https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
@@ -15,40 +14,50 @@ HOMEPAGE="https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
 LICENSE="|| ( GPL-2+ LGPL-2.1 MPL-1.1 )"
 SLOT="0"
 [[ ${PV} == 9999 ]] || \
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="doc static-libs test"
 
 RDEPEND="
-	dev-libs/boost:=
+	app-text/liblangtag
 	dev-libs/librevenge
 	dev-libs/libxml2
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}
-	>=dev-libs/boost-1.46
-	dev-util/gperf
+	dev-libs/boost
+	>=dev-util/mdds-1.2.2:1
+	media-libs/glm
 	sys-devel/libtool
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
 	test? ( dev-util/cppunit )
 "
 
+pkg_pretend() {
+	if [[ $(gcc-major-version) -lt 4 ]] || {
+		[[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 8 ]]; }
+	then
+		eerror "Compilation with gcc older than 4.8 is not supported"
+		die "Too old gcc found."
+	fi
+}
+
 src_prepare() {
+	default
 	[[ -d m4 ]] || mkdir "m4"
-	base_src_prepare
 	[[ ${PV} == 9999 ]] && eautoreconf
 }
 
 src_configure() {
 	econf \
-		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
-		$(use_enable static-libs static) \
 		--disable-werror \
+		$(use_with doc docs) \
+		$(use_enable static-libs static) \
 		$(use_enable test tests) \
-		$(use_with doc docs)
+		--with-mdds=1.2
 }
 
 src_install() {
 	default
-	prune_libtool_files --all
+	find "${D}" -name '*.la' -delete || die
 }

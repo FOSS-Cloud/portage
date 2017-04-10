@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/osqoop/osqoop-1.1.1.ebuild,v 1.3 2013/03/02 23:19:36 hwoarang Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 
 inherit cmake-utils toolchain-funcs
 
@@ -22,6 +22,8 @@ DEPEND="${RDEPEND}"
 S=${WORKDIR}/${PN}-${PN}
 
 src_prepare() {
+	cmake-utils_src_prepare
+
 	for f in $(find datasource processing -name CMakeLists.txt); do
 		sed -e '/install(TARGETS/s:DESTINATION :DESTINATION '$(get_libdir)/${PN}'/:' \
 			-i "${f}" || die

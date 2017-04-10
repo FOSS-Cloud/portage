@@ -1,14 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/sphinx-better-theme/sphinx-better-theme-0.1.5.ebuild,v 1.12 2014/05/14 16:11:06 ago Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy )
+
+PYTHON_COMPAT=( python2_7 python3_{4,5,6} pypy )
 
 inherit distutils-r1
 
 DESCRIPTION="A nice-looking, customizable theme for Sphinx"
-HOMEPAGE="https://github.com/irskep/sphinx-better-theme
+HOMEPAGE="
+	https://github.com/irskep/sphinx-better-theme
 	https://pypi.python.org/pypi/sphinx-better-theme"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

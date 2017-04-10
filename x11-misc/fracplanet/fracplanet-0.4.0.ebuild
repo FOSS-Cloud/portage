@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/fracplanet/fracplanet-0.4.0.ebuild,v 1.3 2013/03/02 23:48:11 hwoarang Exp $
+# $Id$
 
 EAPI=4
 inherit qt4-r2
 
 DESCRIPTION="Fractal planet and terrain generator"
-HOMEPAGE="http://sourceforge.net/projects/fracplanet/"
+HOMEPAGE="https://sourceforge.net/projects/fracplanet/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"

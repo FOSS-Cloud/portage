@@ -1,12 +1,12 @@
-#!/sbin/runscript
-# Copyright 1999-2013 Gentoo Foundation
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/virtualbox-guest-additions/files/virtualbox-guest-additions-8.initd,v 1.2 2013/02/11 22:13:47 polynomial-c Exp $
+# $Id$
 
 pidfile="/var/run/vboxguest-service.pid"
 command="/usr/sbin/vboxguest-service"
 command_args="--foreground"
-start_stop_daemon_args="--make-pidfile --pidfile ${pidfile} --background"
+command_background="true"
 
 depend() {
         need dbus localmount

@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyutil/pyutil-2.0.0.ebuild,v 1.2 2014/07/06 12:49:09 mgorny Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_6 python2_7 )
+PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1
 
 DESCRIPTION="A collection of utilities for Python programmers"
@@ -13,7 +13,7 @@ SRC_URI="mirror://pypi/p/pyutil/pyutil-${PV}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="dev-python/simplejson[${PYTHON_USEDEP}]

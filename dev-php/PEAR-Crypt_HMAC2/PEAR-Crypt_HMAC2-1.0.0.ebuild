@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/PEAR-Crypt_HMAC2/PEAR-Crypt_HMAC2-1.0.0.ebuild,v 1.3 2012/08/03 19:53:10 olemarkus Exp $
+# $Id$
 
 EAPI="4"
 
@@ -16,7 +16,7 @@ src_install() {
 	php-pear-r1_src_install
 
 	#Useless file that often conflicts with other packages
-	rm ${D}/usr/share/php/generate_package_xml.php
+	rm "${D}/usr/share/php/generate_package_xml.php"
 }
 
 pkg_postinst() {

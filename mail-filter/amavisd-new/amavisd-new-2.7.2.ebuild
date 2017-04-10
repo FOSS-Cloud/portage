@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/amavisd-new/amavisd-new-2.7.2.ebuild,v 1.7 2014/08/10 21:15:10 slyfox Exp $
+# $Id$
 
 EAPI=4
 inherit eutils user
@@ -41,7 +41,7 @@ RDEPEND="${DEPEND}
 	virtual/perl-MIME-Base64
 	>=dev-perl/MIME-tools-5.415
 	>=dev-perl/MailTools-1.58
-	>=dev-perl/net-server-0.91
+	>=dev-perl/Net-Server-0.91
 	virtual/perl-Digest-MD5
 	dev-perl/IO-stringy
 	>=virtual/perl-Time-HiRes-1.49

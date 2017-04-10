@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/connect/connect-1.103.ebuild,v 1.2 2014/07/06 13:20:53 mgorny Exp $
+# $Id$
 
-EAPI=3
+EAPI=5
 
 inherit toolchain-funcs
 
@@ -11,10 +11,10 @@ DESCRIPTION="network connection relaying command (proxy)"
 HOMEPAGE="https://bitbucket.org/gotoh/connect"
 HG_COMMIT_ID="ee1fbc21da4b" # bitbucket commit id
 #SRC_URI="https://www.bitbucket.org/gotoh/connect/get/${PV}.tar.bz2 -> ${P}.tar.bz2"
-SRC_URI="http://bitbucket.org/gotoh/connect/get/${HG_COMMIT_ID}.tar.bz2 -> ${P}.tar.bz2"
+SRC_URI="https://bitbucket.org/gotoh/connect/get/${HG_COMMIT_ID}.tar.bz2 -> ${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 DEPEND=""
 RDEPEND=""
 S="${WORKDIR}/gotoh-connect-${HG_COMMIT_ID}"

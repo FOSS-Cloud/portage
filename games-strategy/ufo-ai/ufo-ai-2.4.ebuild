@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/ufo-ai/ufo-ai-2.4.ebuild,v 1.5 2014/05/10 05:40:33 ssuominen Exp $
+# $Id$
 
-EAPI=3
+EAPI=5
 inherit eutils flag-o-matic games
 
 MY_P=${P/o-a/oa}
@@ -15,7 +15,7 @@ SRC_URI="mirror://sourceforge/ufoai/${MY_P}-source.tar.bz2
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE="debug dedicated editor"
 
 # Dependencies and more instructions can be found here:
@@ -56,6 +56,7 @@ src_prepare() {
 
 	epatch \
 		"${FILESDIR}"/${P}-mathlib.patch \
+		"${FILESDIR}"/${P}-anon.patch \
 		"${FILESDIR}"/${P}-locale.patch
 
 	cp "${DISTDIR}"/1maps.pk3 "${WORKDIR}"/base/ || die
@@ -81,35 +82,35 @@ src_configure() {
 }
 
 src_compile() {
-	emake || die
-	emake lang || die
+	emake
+	emake lang
 
 	if use editor; then
-		emake uforadiant || die
+		emake uforadiant
 	fi
 }
 
 src_install() {
-	newicon src/ports/linux/ufo.png ${PN}.png || die
-	dobin ufoded || die
+	newicon src/ports/linux/ufo.png ${PN}.png
+	dobin ufoded
 	make_desktop_entry ufoded "UFO: Alien Invasion Server" ${PN}
 	if ! use dedicated; then
-		dobin ufo || die
+		dobin ufo
 		make_desktop_entry ufo "UFO: Alien Invasion" ${PN}
 	fi
 
 	if use editor; then
-		dobin ufo2map ufomodel || die
+		dobin ufo2map ufomodel
 	fi
 
 	# install data
 	insinto "${GAMES_DATADIR}"/${PN/-}
-	doins -r base || die
+	doins -r base
 	rm -rf "${ED}/${GAMES_DATADIR}/${PN/-}/base/game.so"
 	dogameslib base/game.so
 
 	# move translations where they belong
-	dodir "${GAMES_DATADIR_BASE}/locale" || die
+	dodir "${GAMES_DATADIR_BASE}/locale"
 	mv "${ED}/${GAMES_DATADIR}/${PN/-}/base/i18n/"* \
 		"${ED}/${GAMES_DATADIR_BASE}/locale/" || die
 	rm -rf "${ED}/${GAMES_DATADIR}/${PN/-}/base/i18n/" || die

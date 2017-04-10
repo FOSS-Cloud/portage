@@ -1,13 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/unoconv/unoconv-99999999.ebuild,v 1.2 2012/03/31 11:57:35 scarabeus Exp $
+# $Id$
 
-EAPI=3
+EAPI=6
 
-PYTHON_DEPEND="2"
+PYTHON_COMPAT=( python2_7 python3_{4,5} )
 EGIT_REPO_URI="https://github.com/dagwieers/unoconv.git"
-[[ ${PV} == 9999* ]] && SCM_ECLASS="git-2"
-inherit eutils python ${SCM_ECLASS}
+[[ ${PV} == 9999* ]] && SCM_ECLASS="git-r3"
+inherit python-single-r1 ${SCM_ECLASS}
 unset SCM_ECLASS
 
 DESCRIPTION="Convert between document formats supported by Libreoffice"
@@ -16,26 +16,27 @@ HOMEPAGE="http://dag.wieers.com/home-made/unoconv/"
 
 LICENSE="GPL-2"
 SLOT="0"
-[[ ${PV} == 9999* ]] || KEYWORDS="~amd64 ~x86"
+[[ ${PV} == 9999* ]] || \
+KEYWORDS="~amd64 ~x86"
 IUSE=""
+
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND=""
 RDEPEND="${DEPEND}
+	${PYTHON_DEPS}
 	!app-text/odt2txt
 	virtual/ooo
 "
 
-pkg_setup() {
-	python_set_active_version 2
-}
+DOCS=( ChangeLog CHANGELOG.md README.adoc )
 
-src_prepare() {
-	epatch "${FILESDIR}/timeout.patch"
-	python_convert_shebangs -r 2 .
-}
+PATCHES=( "${FILESDIR}/timeout.patch" )
 
 src_compile() { :; }
 
 src_install() {
-	emake docs-install install install-links DESTDIR="${D}" || die
+	emake doc-install install install-links DESTDIR="${D}" || die
+	einstalldocs
+	python_fix_shebang .
 }

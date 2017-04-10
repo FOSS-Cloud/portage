@@ -1,9 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xmonad-log-applet/xmonad-log-applet-2.0.0-r301.ebuild,v 1.1 2014/06/01 18:22:02 pacho Exp $
+# $Id$
 
-EAPI=4
-
+EAPI=6
 inherit autotools gnome2
 
 DESCRIPTION="Gnome and XFCE applet for displaying XMonad log"
@@ -28,21 +27,21 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
 	eautoreconf
+	gnome2_src_prepare
 }
 
 src_configure() {
-	econf --sysconfdir=/etc --with-panel=xfce4
+	gnome2_src_configure --sysconfdir=/etc --with-panel=xfce4
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	gnome2_src_install
 	dodoc AUTHORS.md README.md
 	dodoc "${FILESDIR}"/xmonad.hs
 }
 
 pkg_postinst() {
-	ghc-package_pkg_postinst
-
+	gnome2_pkg_postinst
 	elog "Remember to update your xmonad.hs accordingly"
 	elog "a sample xmonad.hs is provided in /usr/share/doc/${PF}"
 }

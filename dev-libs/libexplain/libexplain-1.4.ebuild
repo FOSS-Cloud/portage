@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libexplain/libexplain-1.4.ebuild,v 1.1 2014/03/08 23:55:42 radhermit Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,9 +14,9 @@ HOMEPAGE="http://libexplain.sourceforge.net/"
 SRC_URI="http://libexplain.sourceforge.net/${P}.tar.gz"
 
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ppc ~ppc64 x86 ~amd64-linux ~x86-linux"
 LICENSE="GPL-3 LGPL-3"
-IUSE="doc static-libs"
+IUSE="static-libs"
 
 RDEPEND="
 	sys-libs/libcap
@@ -24,11 +24,13 @@ RDEPEND="
 	sys-process/lsof"
 DEPEND="${RDEPEND}
 	>=sys-kernel/linux-headers-2.6.35
-	doc? (
-		app-text/ghostscript-gpl
-		sys-apps/groff
-	)
+	app-text/ghostscript-gpl
+	sys-apps/groff
 "
+# Test fails with:
+# This is not a bug, but it does indicate where libexplain's ioctl support
+# could be improved.
+RESTRICT="test"
 
 DOCS=( README )
 
@@ -46,9 +48,4 @@ src_prepare() {
 	cp "${S}"/etc/configure.ac "${S}" || die
 
 	autotools-utils_src_prepare
-}
-
-src_compile() {
-	autotools-utils_src_compile
-	use doc && autotools-utils_src_compile all-doc
 }

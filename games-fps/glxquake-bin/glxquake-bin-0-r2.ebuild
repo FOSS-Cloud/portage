@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/glxquake-bin/glxquake-bin-0-r2.ebuild,v 1.1 2014/07/07 19:17:50 axs Exp $
+# $Id$
 
 EAPI=5
 inherit games
@@ -11,24 +11,17 @@ SRC_URI="http://www.wh-hms.uni-ulm.de/~mfcn/shared/glxquake/glxquake.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 RESTRICT="strip"
 IUSE=""
 
 RDEPEND="sys-libs/glibc
 	amd64? ( sys-libs/glibc[multilib] )
-	|| (
-	(
-		virtual/opengl[abi_x86_32(-)]
-		x11-libs/libX11[abi_x86_32(-)]
-		x11-libs/libXext[abi_x86_32(-)]
-		x11-libs/libXxf86vm[abi_x86_32(-)]
-		x11-libs/libXxf86dga[abi_x86_32(-)]
-	)
-	(
-		app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
-		app-emulation/emul-linux-x86-opengl[-abi_x86_32(-)]
-	) )"
+	virtual/opengl[abi_x86_32(-)]
+	x11-libs/libX11[abi_x86_32(-)]
+	x11-libs/libXext[abi_x86_32(-)]
+	x11-libs/libXxf86vm[abi_x86_32(-)]
+	x11-libs/libXxf86dga[abi_x86_32(-)]"
 
 S=${WORKDIR}/glxquake
 

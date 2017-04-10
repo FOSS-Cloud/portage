@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lua/LuaBitOp/LuaBitOp-1.0.2-r1.ebuild,v 1.2 2014/06/19 08:16:35 mgorny Exp $
+# $Id$
 
 EAPI="5"
 inherit toolchain-funcs multilib-minimal
@@ -11,10 +11,10 @@ SRC_URI="http://bitop.luajit.org/download/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~hppa ~mips ~x86"
+KEYWORDS="amd64 ~arm ~hppa ~mips ppc ppc64 sparc x86"
 IUSE=""
 
-RDEPEND=">=dev-lang/lua-5.1.5-r2[${MULTILIB_USEDEP}]"
+RDEPEND=">=dev-lang/lua-5.1.5-r2:*[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}
 	>=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}]"
 
@@ -34,7 +34,8 @@ multilib_src_test() {
 
 multilib_src_install()
 {
-	exeinto "$($(tc-getPKG_CONFIG) --variable INSTALL_CMOD lua)"
+	local instdir="$($(tc-getPKG_CONFIG) --variable INSTALL_CMOD lua)"
+	exeinto "${instdir#${EPREFIX}}"
 	doexe bit.so
 }
 

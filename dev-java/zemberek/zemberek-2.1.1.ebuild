@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/zemberek/zemberek-2.1.1.ebuild,v 1.8 2012/02/14 11:54:08 naota Exp $
+# $Id$
 
 EAPI=2
 JAVA_PKG_IUSE="source doc test"
@@ -8,17 +8,17 @@ JAVA_PKG_IUSE="source doc test"
 inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="Zemberek NLP library"
-HOMEPAGE="http://code.google.com/p/zemberek/"
-SRC_URI="http://${PN}.googlecode.com/files/${P}-nolibs-src.zip"
+HOMEPAGE="https://github.com/ahmetaa/zemberek-nlp"
+SRC_URI="https://${PN}.googlecode.com/files/${P}-nolibs-src.zip"
 
 LICENSE="MPL-1.1"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd"
+KEYWORDS="amd64 ppc64 x86 ~x86-fbsd"
 LANGS="tr tk"
 
 S=${WORKDIR}/${P}-nolibs-src
 
-IUSE="linguas_tk +linguas_tr"
+IUSE="l10n_tk +l10n_tr"
 
 RDEPEND=">=virtual/jre-1.5"
 
@@ -35,24 +35,28 @@ java_prepare() {
 	use test && java-pkg_jarfrom --build-only --into lib/gelistirme junit-4 junit.jar
 	# Added hamcrest-core as a workaround
 	# Issue spotted by Markus Meier <maekke@gentoo.org>
-	# See http://bugs.gentoo.org/show_bug.cgi?id=253753#c3
+	# See https://bugs.gentoo.org/show_bug.cgi?id=253753#c3
 	use test && java-pkg_jarfrom --build-only --into lib/gelistirme hamcrest-core
 	epatch "${FILESDIR}"/${P}-classpathfix.patch
 }
 
 src_compile() {
-	strip-linguas ${LANGS}
-	local anttargs
-	for jar in cekirdek demo ${LINGUAS}; do
+	local anttargs langs="" jar
+	for jar in ${LANGS}; do
+		use l10n_${jar} && langs+=" ${jar}"
+	done
+	for jar in cekirdek demo ${langs}; do
 		anttargs="${anttargs} jar-${jar}"
 	done
 	eant ${anttargs} $(use_doc javadocs)
 }
 
 src_install() {
-	strip-linguas ${LANGS}
-	local sourcetrees=""
-	for jar in cekirdek demo ${LINGUAS}; do
+	local sourcetrees="" langs="" jar
+	for jar in ${LANGS}; do
+		use l10n_${jar} && langs+=" ${jar}"
+	done
+	for jar in cekirdek demo ${langs}; do
 		java-pkg_newjar dagitim/jar/zemberek-${jar}-${PV}.jar zemberek2-${jar}.jar
 		sourcetrees="${sourcetrees} src/${jar}/net"
 	done

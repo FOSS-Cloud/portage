@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>perl</herd>
+  <maintainer type="project">
+    <email>perl@gentoo.org</email>
+    <name>Gentoo Perl Project</name>
+  </maintainer>
   <upstream>
     <remote-id type="cpan">Crypt-OpenPGP</remote-id>
     <remote-id type="cpan-module">Crypt::OpenPGP</remote-id>
@@ -29,6 +32,10 @@
     <remote-id type="cpan-module">Crypt::OpenPGP::Digest::MD5</remote-id>
     <remote-id type="cpan-module">Crypt::OpenPGP::Digest::RIPEMD160</remote-id>
     <remote-id type="cpan-module">Crypt::OpenPGP::Digest::SHA1</remote-id>
+    <remote-id type="cpan-module">Crypt::OpenPGP::Digest::SHA224</remote-id>
+    <remote-id type="cpan-module">Crypt::OpenPGP::Digest::SHA256</remote-id>
+    <remote-id type="cpan-module">Crypt::OpenPGP::Digest::SHA384</remote-id>
+    <remote-id type="cpan-module">Crypt::OpenPGP::Digest::SHA512</remote-id>
     <remote-id type="cpan-module">Crypt::OpenPGP::ElGamal::Private</remote-id>
     <remote-id type="cpan-module">Crypt::OpenPGP::ElGamal::Public</remote-id>
     <remote-id type="cpan-module">Crypt::OpenPGP::ErrorHandler</remote-id>

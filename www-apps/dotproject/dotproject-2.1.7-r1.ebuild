@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/dotproject/dotproject-2.1.7-r1.ebuild,v 1.1 2013/01/03 12:41:25 elvanor Exp $
+# $Id$
 
 EAPI="5"
-inherit eutils webapp depend.php
+inherit eutils webapp
 
 DESCRIPTION="dotProject is a PHP web-based project management framework"
 HOMEPAGE="http://www.dotproject.net/"
@@ -15,10 +15,10 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="app-text/poppler[utils]
-	dev-php/PEAR-Date"
+	dev-php/PEAR-Date
+	virtual/httpd-php"
 
 need_httpd_cgi
-need_php_httpd
 
 S=${WORKDIR}/${PN}
 

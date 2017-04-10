@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/yajl-ruby/yajl-ruby-1.2.1.ebuild,v 1.1 2014/08/20 18:44:01 graaff Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 
@@ -15,7 +15,7 @@ RUBY_FAKEGEM_TASK_DOC=""
 inherit multilib ruby-fakegem
 
 DESCRIPTION="Ruby C bindings to the Yajl JSON stream-based parser library"
-HOMEPAGE="http://github.com/brianmario/yajl-ruby"
+HOMEPAGE="https://github.com/brianmario/yajl-ruby"
 
 LICENSE="MIT"
 SLOT="0"
@@ -42,5 +42,5 @@ each_ruby_compile() {
 each_ruby_test() {
 	# Set RUBYLIB to pass search path on to additional interpreters that
 	# are started.
-	RUBYLIB=lib ${RUBY} -S rspec --format progress spec || die
+	RUBYLIB=lib ruby-ng_rspec || die
 }

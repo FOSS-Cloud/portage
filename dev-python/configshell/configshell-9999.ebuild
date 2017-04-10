@@ -1,27 +1,31 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/configshell/configshell-9999.ebuild,v 1.2 2012/10/19 04:56:43 patrick Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 
-EGIT_REPO_URI="git://linux-iscsi.org/${PN}.git"
-PYTHON_DEPEND="2"
-RESTRICT_PYTHON_ABIS="3.* 2.7-pypy-* 2.5-jython"
-SUPPORT_PYTHON_ABIS="1"
+PYTHON_COMPAT=( python2_7 )
 
-inherit eutils distutils git-2 python
+inherit distutils-r1
 
 DESCRIPTION="ConfigShell Community Edition for target_core_mod/ConfigFS"
-HOMEPAGE="http://linux-iscsi.org/"
-SRC_URI=""
+HOMEPAGE="http://linux-iscsi.org/wiki/targetcli"
 
-LICENSE="AGPL-3"
+LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	dev-python/epydoc
-	dev-python/simpleparse
-	"
-RDEPEND="${DEPEND}"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="git://github.com/Datera/${PN}.git
+		https://github.com/Datera/${PN}.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/Datera/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
+
+DEPEND="dev-python/epydoc[${PYTHON_USEDEP}]
+	dev-python/pyparsing[${PYTHON_USEDEP}]"
+RDEPEND="${DEPEND}
+	dev-python/urwid[${PYTHON_USEDEP}]"

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/nonolith-connect/nonolith-connect-1.1.ebuild,v 1.4 2014/01/06 13:31:37 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -28,7 +28,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch ${PATCHES[@]}
+	epatch "${PATCHES[@]}"
 }
 
 src_configure() {

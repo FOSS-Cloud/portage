@@ -1,8 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/dvibook/dvibook-20001129.ebuild,v 1.9 2014/08/06 07:09:33 patrick Exp $
 
-inherit eutils
+EAPI="6"
+
+inherit toolchain-funcs
 
 DESCRIPTION="DVI file utilities: dvibook, dviconcat, dvitodvi, and dviselect"
 HOMEPAGE="http://www.ctan.org/tex-archive/dviware/dvibook/"
@@ -12,27 +13,25 @@ SRC_URI="mirror://gentoo/${P}.tar.gz"
 LICENSE="dvibook"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc x86"
-
 IUSE=""
+
 DEPEND="x11-misc/imake
 	x11-misc/gccmakedep
 	app-text/rman"
 RDEPEND=""
 
-S=${WORKDIR}/${PN}
+S="${WORKDIR}/${PN}"
 
-src_unpack() {
-	unpack ${A}
-	epatch ${FILESDIR}/${P}.patch
-}
+PATCHES=(
+	"${FILESDIR}/${P}.patch"
+)
 
 src_compile() {
 	xmkmf -a || die "xmkmf failed"
-	emake || die "emake failed"
+	emake CC="$(tc-getCC)"
 }
 
 src_install() {
-	make DESTDIR=${D} install install.man || die
-
+	emake DESTDIR="${D}" install install.man
 	dodoc README
 }

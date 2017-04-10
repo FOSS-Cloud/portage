@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>shell-tools</herd>
-  <maintainer>
+  <maintainer type="person">
     <email>swegener@gentoo.org</email>
     <description>Primary Maintainer</description>
+  </maintainer>
+  <maintainer type="project">
+    <email>shell-tools@gentoo.org</email>
+    <name>Gentoo Shell Tools Project</name>
   </maintainer>
   <longdescription>
 Screen is a full-screen window manager that multiplexes a physical terminal
@@ -28,5 +31,6 @@ session is detached from the users terminal.
     <flag name="multiuser">Enable multiuser support (by setting correct
     permissions)</flag>
     <flag name="nethack">Express error messages in nethack style</flag>
+    <flag name="utmp">Include utmp support</flag>
   </use>
 </pkgmetadata>

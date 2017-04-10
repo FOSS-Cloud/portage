@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/freesteam/freesteam-9999.ebuild,v 1.2 2014/01/06 14:46:21 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ inherit eutils multilib scons-utils toolchain-funcs subversion
 DESCRIPTION="Open source implementation of IF97 steam tables"
 HOMEPAGE="http://freesteam.sourceforge.net/"
 SRC_URI=""
-ESVN_REPO_URI=https://freesteam.svn.sourceforge.net/svnroot/freesteam/trunk
+ESVN_REPO_URI="https://svn.code.sf.net/p/freesteam/code/trunk"
 
 LICENSE="GPL-2"
 SLOT="0"

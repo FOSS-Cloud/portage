@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>emacs</herd>
+<maintainer type="project">
+  <email>gnu-emacs@gentoo.org</email>
+  <name>Gentoo GNU Emacs project</name>
+</maintainer>
 <longdescription>
   ECB stands for "Emacs Code Browser". While Emacs already has good editing
   support for many modes, its browsing support is somewhat lacking. That's
@@ -29,4 +32,7 @@
   informational windows should be displayed where. ECB comes with a number of
   ready-made window layouts to choose from.
 </longdescription>
+<upstream>
+  <remote-id type="sourceforge">ecb</remote-id>
+</upstream>
 </pkgmetadata>

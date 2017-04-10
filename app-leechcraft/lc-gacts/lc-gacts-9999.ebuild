@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-gacts/lc-gacts-9999.ebuild,v 1.2 2013/12/17 11:13:08 pinkbyte Exp $
+# $Id$
 
-EAPI="4"
+EAPI=6
 
 inherit leechcraft
 
@@ -13,12 +13,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="~app-leechcraft/lc-core-${PV}
-	x11-libs/libqxt"
+	dev-qt/qtwidgets:5
+	dev-qt/qtx11extras:5
+"
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		-DWITH_GACTS_BUNDLED_QXT=OFF
-	)
-	cmake-utils_src_configure
-}

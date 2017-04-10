@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/ctags/ctags-5.8-r1.ebuild,v 1.1 2014/09/26 20:11:29 radhermit Exp $
+# $Id$
 
 EAPI="5"
 
@@ -13,10 +13,10 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="ada"
 
-RDEPEND="app-admin/eselect-ctags"
+RDEPEND="app-eselect/eselect-ctags"
 
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-5.6-ebuilds.patch"
@@ -38,16 +38,16 @@ src_configure() {
 		--with-posix-regex \
 		--without-readlib \
 		--disable-etags \
-		--enable-tmpdir=/tmp
+		--enable-tmpdir="${EPREFIX}"/tmp
 }
 
 src_install() {
-	emake prefix="${D}"/usr mandir="${D}"/usr/share/man install
+	emake prefix="${ED}"/usr mandir="${ED}"/usr/share/man install
 
 	# namepace collision with X/Emacs-provided /usr/bin/ctags -- we
 	# rename ctags to exuberant-ctags (Mandrake does this also).
-	mv "${D}"/usr/bin/{ctags,exuberant-ctags} || die
-	mv "${D}"/usr/share/man/man1/{ctags,exuberant-ctags}.1 || die
+	mv "${ED}"/usr/bin/{ctags,exuberant-ctags} || die
+	mv "${ED}"/usr/share/man/man1/{ctags,exuberant-ctags}.1 || die
 
 	dodoc FAQ NEWS README
 	dohtml EXTENDING.html ctags.html

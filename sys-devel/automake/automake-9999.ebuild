@@ -1,25 +1,27 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/automake/automake-9999.ebuild,v 1.9 2013/12/24 06:48:21 vapier Exp $
+# $Id$
 
-EAPI="2"
+EAPI="4"
+
 EGIT_REPO_URI="git://git.savannah.gnu.org/${PN}.git
 	http://git.savannah.gnu.org/r/${PN}.git"
 
 inherit eutils git-2
 
 DESCRIPTION="Used to generate Makefile.in from Makefile.am"
-HOMEPAGE="http://www.gnu.org/software/automake/"
+HOMEPAGE="https://www.gnu.org/software/automake/"
 SRC_URI=""
 
-LICENSE="GPL-3"
+LICENSE="GPL-2"
+# Use Gentoo versioning for slotting.
 SLOT="${PV:0:4}"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="dev-lang/perl
-	>=sys-devel/automake-wrapper-9
-	>=sys-devel/autoconf-2.60
+	>=sys-devel/automake-wrapper-10
+	>=sys-devel/autoconf-2.69
 	>=sys-apps/texinfo-4.7
 	sys-devel/gnuconfig"
 DEPEND="${RDEPEND}
@@ -29,17 +31,21 @@ src_prepare() {
 	export WANT_AUTOCONF=2.5
 	# Don't try wrapping the autotools this thing runs as it tends
 	# to be a bit esoteric, and the script does `set -e` itself.
-	./bootstrap
+	./bootstrap.sh
 }
 
 src_configure() {
-	econf --docdir=/usr/share/doc/${PF}
+	econf --docdir="\$(datarootdir)/doc/${PF}"
+}
+
+src_test() {
+	emake check
 }
 
 # slot the info pages.  do this w/out munging the source so we don't have
 # to depend on texinfo to regen things.  #464146 (among others)
 slot_info_pages() {
-	pushd "${D}"/usr/share/info >/dev/null
+	pushd "${ED}"/usr/share/info >/dev/null
 	rm -f dir
 
 	# Rewrite all the references to other pages.
@@ -66,16 +72,15 @@ slot_info_pages() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
+	default
 	slot_info_pages
-	dodoc NEWS README THANKS TODO AUTHORS ChangeLog
 
 	# SLOT the docs and junk
 	local x
 	for x in aclocal automake ; do
 		help2man "perl -Ilib ${x}" > ${x}-${SLOT}.1
 		doman ${x}-${SLOT}.1
-		rm -f "${D}"/usr/bin/${x}
+		rm -f "${ED}"/usr/bin/${x}
 	done
 
 	# remove all config.guess and config.sub files replacing them

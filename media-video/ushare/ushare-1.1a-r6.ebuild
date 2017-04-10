@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ushare/ushare-1.1a-r6.ebuild,v 1.3 2013/09/30 17:14:42 ago Exp $
+# $Id$
 
 EAPI=4
 inherit eutils multilib readme.gentoo toolchain-funcs user systemd
@@ -12,10 +12,9 @@ SRC_URI="http://ushare.geexbox.org/releases/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="dlna nls"
+IUSE="nls"
 
-RDEPEND=">=net-libs/libupnp-1.6.14
-	dlna? ( >=media-libs/libdlna-0.2.4 )"
+RDEPEND=">=net-libs/libupnp-1.6.14:0"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
@@ -31,7 +30,7 @@ src_prepare() {
 
 src_configure() {
 	local myconf
-	myconf="--prefix=/usr --sysconfdir=/etc --disable-strip $(use_enable dlna)"
+	myconf="--prefix=/usr --sysconfdir=/etc --disable-strip --disable-dlna"
 	# nls can only be disabled, on by default.
 	use nls || myconf="${myconf} --disable-nls"
 

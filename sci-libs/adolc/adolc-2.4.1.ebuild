@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/adolc/adolc-2.4.1.ebuild,v 1.2 2014/01/15 19:44:44 bicatali Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,7 +16,7 @@ SRC_URI="http://www.coin-or.org/download/source/${MYPN}/${MYPN}-${PV}.tgz"
 
 LICENSE="|| ( EPL-1.0 GPL-2 )"
 SLOT="0/1"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="sparse static-libs"
 
 RDEPEND="sparse? ( sci-libs/colpack )"

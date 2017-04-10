@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libvpd/libvpd-2.1.3.ebuild,v 1.2 2013/02/28 20:31:30 ranger Exp $
+# $Id$
 
 EAPI=4
 
 DESCRIPTION="Library implementation for listing vpds"
-HOMEPAGE="http://sourceforge.net/projects/linux-diag/"
-SRC_URI="http://sourceforge.net/projects/linux-diag/files/libvpd/${PV}/libvpd-${PV}.tar.gz"
+HOMEPAGE="https://sourceforge.net/projects/linux-diag/"
+SRC_URI="https://sourceforge.net/projects/linux-diag/files/libvpd/${PV}/libvpd-${PV}.tar.gz"
 
 LICENSE="IBM"
 SLOT="0"

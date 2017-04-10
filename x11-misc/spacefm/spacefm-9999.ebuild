@@ -1,21 +1,21 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/spacefm/spacefm-9999.ebuild,v 1.12 2013/01/14 17:56:49 hasufell Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 
 EGIT_REPO_URI="git://github.com/IgnorantGuru/${PN}.git"
 EGIT_BRANCH="next"
 
-inherit fdo-mime git-2 gnome2-utils linux-info
+inherit fdo-mime git-r3 gnome2-utils linux-info
 
 DESCRIPTION="A multi-panel tabbed file manager"
-HOMEPAGE="http://ignorantguru.github.com/spacefm/"
+HOMEPAGE="https://ignorantguru.github.com/spacefm/"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="+startup-notification"
+IUSE="gtk2 +gtk3 +startup-notification +video-thumbnails"
 
 RDEPEND="dev-libs/glib:2
 	dev-util/desktop-file-utils
@@ -23,10 +23,12 @@ RDEPEND="dev-libs/glib:2
 	virtual/freedesktop-icon-theme
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
-	x11-libs/gtk+:3
+	gtk2? ( gtk3? ( x11-libs/gtk+:3 ) !gtk3? ( x11-libs/gtk+:2 ) )
+	!gtk2? ( x11-libs/gtk+:3 )
 	x11-libs/pango
 	x11-libs/libX11
 	x11-misc/shared-mime-info
+	video-thumbnails? ( media-video/ffmpegthumbnailer )
 	startup-notification? ( x11-libs/startup-notification )"
 DEPEND="${RDEPEND}
 	dev-util/intltool
@@ -37,10 +39,11 @@ src_configure() {
 	econf \
 		--htmldir=/usr/share/doc/${PF}/html \
 		$(use_enable startup-notification) \
+		$(use_enable video-thumbnails) \
 		--disable-hal \
 		--enable-inotify \
 		--disable-pixmaps \
-		--with-gtk3=yes
+		$(use_with gtk3 gtk3 "yes")
 }
 
 pkg_preinst() {
@@ -62,8 +65,7 @@ pkg_postinst() {
 	elog "  sys-apps/udevil"
 	elog "To perform as root functionality you need one of the following:"
 	elog "  x11-misc/ktsuss"
-	elog "  x11-libs/gksu"
-	elog "  kde-base/kdesu"
+	elog "  kde-apps/kdesu"
 	elog "Other optional dependencies:"
 	elog "  sys-apps/dbus"
 	elog "  sys-process/lsof (device processes)"

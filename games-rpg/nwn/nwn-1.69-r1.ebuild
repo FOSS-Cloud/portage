@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/nwn/nwn-1.69-r1.ebuild,v 1.7 2014/09/03 21:45:03 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -10,7 +10,7 @@ PATCH_URL_BASE=http://files.bioware.com/neverwinternights/updates/linux/${MY_PV}
 
 DESCRIPTION="role-playing game set in a huge medieval fantasy world of Dungeons and Dragons"
 HOMEPAGE="http://nwn.bioware.com/downloads/linuxclient.html"
-SRC_URI="http://dev.gentoo.org/~calchan/distfiles/nwn-libs-1.tar.bz2
+SRC_URI="https://dev.gentoo.org/~calchan/distfiles/nwn-libs-1.tar.bz2
 	!sou? ( !hou? ( ${PATCH_URL_BASE}orig.tar.gz ) )
 	sou? ( !hou? ( ${PATCH_URL_BASE}xp1.tar.gz ) )
 	hou? ( ${PATCH_URL_BASE}xp2.tar.gz )"
@@ -31,16 +31,12 @@ RDEPEND="
 		${NWN_DATA},linguas_en]
 		${NWN_DATA},-linguas_fr,-linguas_de,-linguas_es,-linguas_it]
 	)
-	virtual/opengl
 	!<games-rpg/nwmouse-0.1-r1
-	x86? (
-		x11-libs/libXext
-		x11-libs/libX11
-		media-libs/libsdl )
-	amd64? (
-		app-emulation/emul-linux-x86-baselibs
-		app-emulation/emul-linux-x86-xlibs
-		app-emulation/emul-linux-x86-sdl )"
+	x11-libs/libXext[abi_x86_32(-)]
+	x11-libs/libX11[abi_x86_32(-)]
+	>=media-libs/libsdl-1.2.15-r5[abi_x86_32(-)]
+	virtual/opengl[abi_x86_32(-)]
+"
 DEPEND=""
 
 S=${WORKDIR}/nwn

@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/surf/surf-0.6-r1.ebuild,v 1.7 2013/11/01 13:50:07 ago Exp $
+# $Id$
 
 EAPI=5
 inherit eutils savedconfig toolchain-funcs
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 
 COMMON_DEPEND="
-	dev-libs/glib
+	dev-libs/glib:2
 	net-libs/libsoup
 	net-libs/webkit-gtk:2
 	x11-libs/gtk+:2

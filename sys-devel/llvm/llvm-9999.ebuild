@@ -1,13 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-9999.ebuild,v 1.91 2014/09/29 16:03:23 mgorny Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-PYTHON_COMPAT=( python2_7 pypy )
+: ${CMAKE_MAKEFILE_GENERATOR:=ninja}
+# (needed due to CMAKE_BUILD_TYPE != Gentoo)
+CMAKE_MIN_VERSION=3.7.0-r1
+PYTHON_COMPAT=( python2_7 )
 
-inherit eutils flag-o-matic git-r3 multibuild multilib \
-	multilib-minimal python-r1 toolchain-funcs pax-utils check-reqs
+inherit check-reqs cmake-utils flag-o-matic git-r3 \
+	multilib-minimal pax-utils python-any-r1 toolchain-funcs versionator
 
 DESCRIPTION="Low Level Virtual Machine"
 HOMEPAGE="http://llvm.org/"
@@ -15,72 +18,72 @@ SRC_URI=""
 EGIT_REPO_URI="http://llvm.org/git/llvm.git
 	https://github.com/llvm-mirror/llvm.git"
 
-LICENSE="UoI-NCSA"
-SLOT="0/${PV}"
-KEYWORDS=""
-IUSE="clang debug doc gold libedit +libffi multitarget ncurses ocaml python
-	+static-analyzer test xml video_cards_radeon
-	kernel_Darwin"
+# Keep in sync with CMakeLists.txt
+ALL_LLVM_TARGETS=( AArch64 AMDGPU ARM BPF Hexagon Lanai Mips MSP430
+	NVPTX PowerPC RISCV Sparc SystemZ X86 XCore )
+ALL_LLVM_TARGETS=( "${ALL_LLVM_TARGETS[@]/#/llvm_targets_}" )
 
-COMMON_DEPEND="
+# Additional licenses:
+# 1. OpenBSD regex: Henry Spencer's license ('rc' in Gentoo) + BSD.
+# 2. ARM backend: LLVM Software Grant by ARM.
+# 3. MD5 code: public-domain.
+# 4. Tests (not installed):
+#  a. gtest: BSD.
+#  b. YAML tests: MIT.
+
+LICENSE="UoI-NCSA rc BSD public-domain
+	llvm_targets_ARM? ( LLVM-Grant )"
+SLOT="5"
+KEYWORDS=""
+IUSE="debug +doc gold libedit +libffi multitarget ncurses test
+	elibc_musl kernel_Darwin ${ALL_LLVM_TARGETS[*]}"
+
+RDEPEND="
 	sys-libs/zlib:0=
-	clang? (
-		python? ( ${PYTHON_DEPS} )
-		static-analyzer? (
-			dev-lang/perl:*
-			${PYTHON_DEPS}
-		)
-		xml? ( dev-libs/libxml2:2= )
-	)
 	gold? ( >=sys-devel/binutils-2.22:*[cxx] )
 	libedit? ( dev-libs/libedit:0=[${MULTILIB_USEDEP}] )
 	libffi? ( >=virtual/libffi-3.0.13-r1:0=[${MULTILIB_USEDEP}] )
-	ncurses? ( >=sys-libs/ncurses-5.9-r3:5=[${MULTILIB_USEDEP}] )
-	ocaml? ( dev-lang/ocaml:0= )"
+	ncurses? ( >=sys-libs/ncurses-5.9-r3:0=[${MULTILIB_USEDEP}] )"
 # configparser-3.2 breaks the build (3.3 or none at all are fine)
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-lang/perl
-	dev-python/sphinx
-	>=sys-devel/make-3.81
-	>=sys-devel/flex-2.5.4
-	>=sys-devel/bison-1.875d
-	|| ( >=sys-devel/gcc-3.0 >=sys-devel/gcc-apple-4.2.1
+	|| ( >=sys-devel/gcc-3.0 >=sys-devel/llvm-3.5
 		( >=sys-freebsd/freebsd-lib-9.1-r10 sys-libs/libcxx )
 	)
-	|| ( >=sys-devel/binutils-2.18 >=sys-devel/binutils-apple-3.2.3 )
-	clang? ( xml? ( virtual/pkgconfig ) )
+	|| ( >=sys-devel/binutils-2.18 >=sys-devel/binutils-apple-5.1 )
+	kernel_Darwin? ( <sys-libs/libcxx-$(get_version_component_range 1-3).9999 )
+	doc? ( dev-python/sphinx )
+	gold? ( sys-libs/binutils-libs )
 	libffi? ( virtual/pkgconfig )
-	!<dev-python/configparser-3.3.0.2
+	test? ( $(python_gen_any_dep "~dev-python/lit-${PV}[\${PYTHON_USEDEP}]") )
+	!!<dev-python/configparser-3.3.0.2
 	${PYTHON_DEPS}"
-RDEPEND="${COMMON_DEPEND}
-	clang? ( !<=sys-devel/clang-${PV}-r99 )
-	abi_x86_32? ( !<=app-emulation/emul-linux-x86-baselibs-20130224-r2
-		!app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)] )"
-PDEPEND="clang? ( =sys-devel/clang-${PV}-r100 )"
+# There are no file collisions between these versions but having :0
+# installed means llvm-config there will take precedence.
+RDEPEND="${RDEPEND}
+	!sys-devel/llvm:0"
+PDEPEND="app-vim/llvm-vim
+	gold? ( sys-devel/llvmgold )"
 
-# pypy gives me around 1700 unresolved tests due to open file limit
-# being exceeded. probably GC does not close them fast enough.
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
-	test? ( || ( $(python_gen_useflags 'python*') ) )"
+	|| ( ${ALL_LLVM_TARGETS[*]} )
+	multitarget? ( ${ALL_LLVM_TARGETS[*]} )"
 
-# Some people actually override that in make.conf. That sucks since
-# we need to run install per-directory, and ninja can't do that...
-# so why did it call itself ninja in the first place?
-CMAKE_MAKEFILE_GENERATOR=emake
+# least intrusive of all
+CMAKE_BUILD_TYPE=RelWithDebInfo
 
-pkg_pretend() {
+python_check_deps() {
+	! use test \
+		|| has_version "dev-python/lit[${PYTHON_USEDEP}]"
+}
+
+check_space() {
 	# in megs
-	# !clang !debug !multitarget -O2       400
-	# !clang !debug  multitarget -O2       550
-	#  clang !debug !multitarget -O2       950
-	#  clang !debug  multitarget -O2      1200
-	# !clang  debug  multitarget -O2      5G
-	#  clang !debug  multitarget -O0 -g  12G
-	#  clang  debug  multitarget -O2     16G
-	#  clang  debug  multitarget -O0 -g  14G
+	# !debug !multitarget -O2       400
+	# !debug  multitarget -O2       550
+	#  debug  multitarget -O2      5G
 
 	local build_size=550
-	use clang && build_size=1200
 
 	if use debug; then
 		ewarn "USE=debug is known to increase the size of package considerably"
@@ -88,7 +91,7 @@ pkg_pretend() {
 		ewarn
 
 		(( build_size *= 14 ))
-	elif is-flagq -g || is-flagq -ggdb; then
+	elif is-flagq '-g?(gdb)?([1-9])'; then
 		ewarn "The C++ compiler -g option is known to increase the size of the package"
 		ewarn "considerably. If you run out of space, please consider removing it."
 		ewarn
@@ -102,390 +105,162 @@ pkg_pretend() {
 
 	local CHECKREQS_DISK_BUILD=${build_size}M
 	check-reqs_pkg_pretend
+}
 
-	if [[ ${MERGE_TYPE} != binary ]]; then
-		echo 'int main() {return 0;}' > "${T}"/test.cxx || die
-		ebegin "Trying to build a C++11 test program"
-		if ! $(tc-getCXX) -std=c++11 -o /dev/null "${T}"/test.cxx; then
-			eerror "LLVM-${PV} requires C++11-capable C++ compiler. Your current compiler"
-			eerror "does not seem to support -std=c++11 option. Please upgrade your compiler"
-			eerror "to gcc-4.7 or an equivalent version supporting C++11."
-			die "Currently active compiler does not support -std=c++11"
-		fi
-		eend ${?}
-	fi
+pkg_pretend() {
+	check_space
 }
 
 pkg_setup() {
-	pkg_pretend
-}
-
-src_unpack() {
-	if use clang; then
-		git-r3_fetch "http://llvm.org/git/compiler-rt.git
-			https://github.com/llvm-mirror/compiler-rt.git"
-		git-r3_fetch "http://llvm.org/git/clang.git
-			https://github.com/llvm-mirror/clang.git"
-		git-r3_fetch "http://llvm.org/git/clang-tools-extra.git
-			https://github.com/llvm-mirror/clang-tools-extra.git"
-	fi
-	git-r3_fetch
-
-	if use clang; then
-		git-r3_checkout http://llvm.org/git/compiler-rt.git \
-			"${S}"/projects/compiler-rt
-		git-r3_checkout http://llvm.org/git/clang.git \
-			"${S}"/tools/clang
-		git-r3_checkout http://llvm.org/git/clang-tools-extra.git \
-			"${S}"/tools/clang/tools/extra
-	fi
-	git-r3_checkout
+	check_space
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-3.2-nodoctargz.patch
-	epatch "${FILESDIR}"/${PN}-3.5-gcc-4.9.patch
-	epatch "${FILESDIR}"/${PN}-3.5-gentoo-install.patch
+	# Python is needed to run tests using lit
+	python_setup
 
-	if use clang; then
-		# Automatically select active system GCC's libraries, bugs #406163 and #417913
-		epatch "${FILESDIR}"/clang-3.5-gentoo-runtime-gcc-detection-v3.patch
+	# Fix llvm-config for shared linking and sane flags
+	# https://bugs.gentoo.org/show_bug.cgi?id=565358
+	eapply "${FILESDIR}"/9999/0007-llvm-config-Clean-up-exported-values-update-for-shar.patch
 
-		epatch "${FILESDIR}"/clang-3.5-gentoo-install.patch
-	fi
+	# support building llvm against musl-libc
+	use elibc_musl && eapply "${FILESDIR}"/9999/musl-fixes.patch
 
-	if use prefix && use clang; then
-		sed -e "/^CFLAGS /s@-Werror@-I${EPREFIX}/usr/include@" \
-				-i 'projects/compiler-rt/make/platform/clang_linux.mk' || die
-	fi
-
-	local sub_files=(
-		Makefile.config.in
-		Makefile.rules
-		tools/llvm-config/llvm-config.cpp
-	)
-	use clang && sub_files+=(
-		tools/clang/lib/Driver/Tools.cpp
-		tools/clang/tools/scan-build/scan-build
-	)
-
-	# unfortunately ./configure won't listen to --mandir and the-like, so take
-	# care of this.
-	# note: we're setting the main libdir intentionally.
-	# where per-ABI is appropriate, we use $(GENTOO_LIBDIR) make.
-	einfo "Fixing install dirs"
-	sed -e "s,@libdir@,$(get_libdir),g" \
-		-e "s,@PF@,${PF},g" \
-		-e "s,@EPREFIX@,${EPREFIX},g" \
-		-i "${sub_files[@]}" \
-		|| die "install paths sed failed"
+	# disable use of SDK on OSX, bug #568758
+	sed -i -e 's/xcrun/false/' utils/lit/lit/util.py || die
 
 	# User patches
-	epatch_user
-
-	python_setup
+	eapply_user
 }
 
 multilib_src_configure() {
-	# disable timestamps since they confuse ccache
-	local conf_flags=(
-		--disable-timestamps
-		--enable-keep-symbols
-		--enable-shared
-		--with-optimize-option=
-		$(use_enable !debug optimized)
-		$(use_enable debug assertions)
-		$(use_enable debug expensive-checks)
-		$(use_enable libedit)
-		$(use_enable ncurses terminfo)
-		$(use_enable libffi)
+	local ffi_cflags ffi_ldflags
+	if use libffi; then
+		ffi_cflags=$($(tc-getPKG_CONFIG) --cflags-only-I libffi)
+		ffi_ldflags=$($(tc-getPKG_CONFIG) --libs-only-L libffi)
+	fi
+
+	local libdir=$(get_libdir)
+	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/llvm/${SLOT}"
+		-DLLVM_LIBDIR_SUFFIX=${libdir#lib}
+
+		-DBUILD_SHARED_LIBS=ON
+		-DLLVM_TARGETS_TO_BUILD="${LLVM_TARGETS// /;}"
+		-DLLVM_BUILD_TESTS=$(usex test)
+
+		-DLLVM_ENABLE_FFI=$(usex libffi)
+		-DLLVM_ENABLE_LIBEDIT=$(usex libedit)
+		-DLLVM_ENABLE_TERMINFO=$(usex ncurses)
+		-DLLVM_ENABLE_ASSERTIONS=$(usex debug)
+		-DLLVM_ENABLE_EH=ON
+		-DLLVM_ENABLE_RTTI=ON
+
+		-DWITH_POLLY=OFF # TODO
+
+		-DLLVM_HOST_TRIPLE="${CHOST}"
+
+		-DFFI_INCLUDE_DIR="${ffi_cflags#-I}"
+		-DFFI_LIBRARY_DIR="${ffi_ldflags#-L}"
+
+		# disable OCaml bindings (now in dev-ml/llvm-ocaml)
+		-DOCAMLFIND=NO
 	)
 
-	# well, it's used only by clang executable c-index-test
-	if multilib_is_native_abi && use clang && use xml; then
-		conf_flags+=( XML2CONFIG="$(tc-getPKG_CONFIG) libxml-2.0" )
-	else
-		conf_flags+=( ac_cv_prog_XML2CONFIG="" )
-	fi
+#	Note: go bindings have no CMake rules at the moment
+#	but let's kill the check in case they are introduced
+#	if ! multilib_is_native_abi || ! use go; then
+		mycmakeargs+=(
+			-DGO_EXECUTABLE=GO_EXECUTABLE-NOTFOUND
+		)
+#	fi
 
-	local targets bindings
-	if use multitarget; then
-		targets='all'
-	else
-		targets='host,cpp'
-		use video_cards_radeon && targets+=',r600'
-	fi
-	conf_flags+=( --enable-targets=${targets} )
+	use test && mycmakeargs+=(
+		-DLIT_COMMAND="${EPREFIX}/usr/bin/lit"
+	)
 
 	if multilib_is_native_abi; then
-		use gold && conf_flags+=( --with-binutils-include="${EPREFIX}"/usr/include/ )
-		# extra commas don't hurt
-		use ocaml && bindings+=',ocaml'
-	fi
-
-	[[ ${bindings} ]] || bindings='none'
-	conf_flags+=( --enable-bindings=${bindings} )
-
-	if use libffi; then
-		local CPPFLAGS=${CPPFLAGS}
-		append-cppflags "$(pkg-config --cflags libffi)"
-	fi
-
-	# llvm prefers clang over gcc, so we may need to force that
-	tc-export CC CXX
-
-	ECONF_SOURCE=${S} \
-	econf "${conf_flags[@]}"
-}
-
-set_makeargs() {
-	MAKEARGS=(
-		VERBOSE=1
-		REQUIRES_RTTI=1
-		GENTOO_LIBDIR=$(get_libdir)
-	)
-
-	# for tests, we want it all! otherwise, we may use a little filtering...
-	# adding ONLY_TOOLS also disables unittest building...
-	if [[ ${EBUILD_PHASE_FUNC} != src_test ]]; then
-		local tools=( llvm-config )
-		use clang && tools+=( clang )
-
-		if multilib_is_native_abi; then
-			tools+=(
-				opt llvm-as llvm-dis llc llvm-ar llvm-nm llvm-link lli
-				llvm-extract llvm-mc llvm-bcanalyzer llvm-diff macho-dump
-				llvm-objdump llvm-readobj llvm-rtdyld llvm-dwarfdump llvm-cov
-				llvm-size llvm-stress llvm-mcmarkup llvm-profdata
-				llvm-symbolizer obj2yaml yaml2obj lto bugpoint
-			)
-
-			# the build system runs explicitly specified tools in parallel,
-			# so we need to split it into two runs
-			if [[ ${1} != -1 ]]; then
-				# those require lto
-				tools+=( llvm-lto )
-				use gold && tools+=( gold )
-
-				# those require clang :)
-				# we need to explicitly specify all its tools
-				# since we're passing BUILD_CLANG_ONLY
-				use clang && tools+=(
-					clang/tools/{clang-check,clang-format,extra}
-				)
-			fi
-		fi
-
-		MAKEARGS+=(
-			# filter tools + disable unittests implicitly
-			ONLY_TOOLS="${tools[*]}"
-
-			# this disables unittests & docs from clang
-			BUILD_CLANG_ONLY=YES
+		mycmakeargs+=(
+			-DLLVM_BUILD_DOCS=$(usex doc)
+			-DLLVM_ENABLE_OCAMLDOC=OFF
+			-DLLVM_ENABLE_SPHINX=$(usex doc)
+			-DLLVM_ENABLE_DOXYGEN=OFF
+			-DLLVM_INSTALL_UTILS=ON
+		)
+		use doc && mycmakeargs+=(
+			-DLLVM_INSTALL_SPHINX_HTML_DIR="${EPREFIX}/usr/share/doc/${PF}/html"
+			-DSPHINX_WARNINGS_AS_ERRORS=OFF
+		)
+		use gold && mycmakeargs+=(
+			-DLLVM_BINUTILS_INCDIR="${EPREFIX}"/usr/include
 		)
 	fi
+
+	if tc-is-cross-compiler; then
+		[[ -x "/usr/bin/llvm-tblgen" ]] \
+			|| die "/usr/bin/llvm-tblgen not found or usable"
+		mycmakeargs+=(
+			-DCMAKE_CROSSCOMPILING=ON
+			-DLLVM_TABLEGEN=/usr/bin/llvm-tblgen
+		)
+	fi
+
+	cmake-utils_src_configure
 }
 
 multilib_src_compile() {
-	local MAKEARGS
-	set_makeargs -1
-	emake "${MAKEARGS[@]}"
+	cmake-utils_src_compile
 
-	if multilib_is_native_abi; then
-		set_makeargs
-		emake -C tools "${MAKEARGS[@]}"
+	pax-mark m "${BUILD_DIR}"/bin/llvm-rtdyld
+	pax-mark m "${BUILD_DIR}"/bin/lli
+	pax-mark m "${BUILD_DIR}"/bin/lli-child-target
 
-		emake -C "${S}"/docs -f Makefile.sphinx man
-		use clang && emake -C "${S}"/tools/clang/docs/tools \
-			BUILD_FOR_WEBSITE=1 DST_MAN_DIR="${T}"/ man
-		use doc && emake -C "${S}"/docs -f Makefile.sphinx html
-	fi
-
-	if use debug; then
-		pax-mark m Debug+Asserts+Checks/bin/llvm-rtdyld
-		pax-mark m Debug+Asserts+Checks/bin/lli
-	else
-		pax-mark m Release/bin/llvm-rtdyld
-		pax-mark m Release/bin/lli
+	if use test; then
+		pax-mark m "${BUILD_DIR}"/unittests/ExecutionEngine/Orc/OrcJITTests
+		pax-mark m "${BUILD_DIR}"/unittests/ExecutionEngine/MCJIT/MCJITTests
+		pax-mark m "${BUILD_DIR}"/unittests/Support/SupportTests
 	fi
 }
 
 multilib_src_test() {
-	local MAKEARGS
-	set_makeargs
-
-	# build the remaining tools & unittests
-	emake "${MAKEARGS[@]}"
-
-	pax-mark m unittests/ExecutionEngine/JIT/Release/JITTests
-	pax-mark m unittests/ExecutionEngine/MCJIT/Release/MCJITTests
-	pax-mark m unittests/Support/Release/SupportTests
-
 	# respect TMPDIR!
 	local -x LIT_PRESERVES_TMP=1
-	emake "${MAKEARGS[@]}" check
-	use clang && emake "${MAKEARGS[@]}" -C tools/clang test
+	cmake-utils_src_make check
 }
 
 src_install() {
 	local MULTILIB_CHOST_TOOLS=(
-		/usr/bin/llvm-config
+		/usr/lib/llvm/${SLOT}/bin/llvm-config
 	)
 
 	local MULTILIB_WRAPPED_HEADERS=(
-		/usr/include/llvm/Config/config.h
 		/usr/include/llvm/Config/llvm-config.h
 	)
 
-	if use clang; then
-		# note: magic applied below
-		MULTILIB_CHOST_TOOLS+=(
-			/usr/bin/clang
-			/usr/bin/clang++
-			/usr/bin/clang-${PV}
-			/usr/bin/clang++-${PV}
-		)
-
-		MULTILIB_WRAPPED_HEADERS+=(
-			/usr/include/clang/Config/config.h
-		)
-	fi
-
+	local LLVM_LDPATHS=()
 	multilib-minimal_src_install
+
+	# move wrapped headers back
+	mv "${ED%/}"/usr/include "${ED%/}"/usr/lib/llvm/${SLOT}/include || die
 }
 
 multilib_src_install() {
-	local MAKEARGS
-	set_makeargs
+	cmake-utils_src_install
 
-	local root=${D}/_${ABI}
+	# move headers to /usr/include for wrapping
+	rm -rf "${ED%/}"/usr/include || die
+	mv "${ED%/}"/usr/lib/llvm/${SLOT}/include "${ED%/}"/usr/include || die
 
-	emake "${MAKEARGS[@]}" DESTDIR="${root}" install
-	multibuild_merge_root "${root}" "${D}"
-
-	if ! multilib_is_native_abi; then
-		# Backwards compat, will be happily removed someday.
-		dosym "${CHOST}"-llvm-config /usr/bin/llvm-config.${ABI}
-	else
-		# Install docs.
-		doman "${S}"/docs/_build/man/*.1
-		use clang && doman "${T}"/clang.1
-		use doc && dohtml -r "${S}"/docs/_build/html/
-
-		# Symlink the gold plugin.
-		if use gold; then
-			dodir /usr/${CHOST}/binutils-bin/lib/bfd-plugins
-			dosym ../../../../$(get_libdir)/LLVMgold.so \
-				/usr/${CHOST}/binutils-bin/lib/bfd-plugins/LLVMgold.so
-		fi
-	fi
-
-	# apply CHOST and PV to clang executables
-	# they're statically linked so we don't have to worry about the lib
-	if use clang; then
-		local clang_tools=( clang clang++ )
-		local i
-
-		# append ${PV} and symlink back
-		# TODO: use alternatives.eclass? does that make any sense?
-		# maybe with USE=-clang on :0 and USE=clang on older
-		for i in "${clang_tools[@]}"; do
-			mv "${ED%/}/usr/bin/${i}"{,-${PV}} || die
-			dosym "${i}"-${PV} /usr/bin/${i}
-		done
-
-		# now prepend ${CHOST} and let the multilib-build.eclass symlink it
-		if ! multilib_is_native_abi; then
-			# non-native? let's replace it with a simple wrapper
-			for i in "${clang_tools[@]}"; do
-				rm "${ED%/}/usr/bin/${i}-${PV}" || die
-				cat > "${T}"/wrapper.tmp <<-_EOF_
-					#!${EPREFIX}/bin/sh
-					exec "${i}-${PV}" $(get_abi_CFLAGS) "\${@}"
-				_EOF_
-				newbin "${T}"/wrapper.tmp "${i}-${PV}"
-			done
-		fi
-	fi
-
-	# Fix install_names on Darwin.  The build system is too complicated
-	# to just fix this, so we correct it post-install
-	local lib= f= odylib= libpv=${PV}
-	if [[ ${CHOST} == *-darwin* ]] ; then
-		eval $(grep PACKAGE_VERSION= configure)
-		[[ -n ${PACKAGE_VERSION} ]] && libpv=${PACKAGE_VERSION}
-		for lib in lib{EnhancedDisassembly,LLVM-${libpv},LTO,profile_rt,clang}.dylib LLVMHello.dylib ; do
-			# libEnhancedDisassembly is Darwin10 only, so non-fatal
-			# + omit clang libs if not enabled
-			[[ -f ${ED}/usr/lib/${lib} ]] || continue
-
-			ebegin "fixing install_name of $lib"
-			install_name_tool \
-				-id "${EPREFIX}"/usr/lib/${lib} \
-				"${ED}"/usr/lib/${lib}
-			eend $?
-		done
-		for f in "${ED}"/usr/bin/* "${ED}"/usr/lib/lib{LTO,clang}.dylib ; do
-			# omit clang libs if not enabled
-			[[ -f ${ED}/usr/lib/${lib} ]] || continue
-
-			odylib=$(scanmacho -BF'%n#f' "${f}" | tr ',' '\n' | grep libLLVM-${libpv}.dylib)
-			ebegin "fixing install_name reference to ${odylib} of ${f##*/}"
-			install_name_tool \
-				-change "${odylib}" \
-					"${EPREFIX}"/usr/lib/libLLVM-${libpv}.dylib \
-				-change "@rpath/libclang.dylib" \
-					"${EPREFIX}"/usr/lib/libclang.dylib \
-				-change "${S}"/Release/lib/libclang.dylib \
-					"${EPREFIX}"/usr/lib/libclang.dylib \
-				"${f}"
-			eend $?
-		done
-	fi
+	LLVM_LDPATHS+=( "${EPREFIX}/usr/lib/llvm/${SLOT}/$(get_libdir)" )
 }
 
 multilib_src_install_all() {
-	insinto /usr/share/vim/vimfiles/syntax
-	doins utils/vim/*.vim
-
-	if use clang; then
-		cd tools/clang || die
-
-		if use static-analyzer ; then
-			dobin tools/scan-build/ccc-analyzer
-			dosym ccc-analyzer /usr/bin/c++-analyzer
-			dobin tools/scan-build/scan-build
-
-			insinto /usr/share/${PN}
-			doins tools/scan-build/scanview.css
-			doins tools/scan-build/sorttable.js
-		fi
-
-		python_inst() {
-			if use static-analyzer ; then
-				pushd tools/scan-view >/dev/null || die
-
-				python_doscript scan-view
-
-				touch __init__.py || die
-				python_moduleinto clang
-				python_domodule __init__.py Reporter.py Resources ScanView.py startfile.py
-
-				popd >/dev/null || die
-			fi
-
-			if use python ; then
-				pushd bindings/python/clang >/dev/null || die
-
-				python_moduleinto clang
-				python_domodule __init__.py cindex.py enumerations.py
-
-				popd >/dev/null || die
-			fi
-
-			# AddressSanitizer symbolizer (currently separate)
-			python_doscript "${S}"/projects/compiler-rt/lib/asan/scripts/asan_symbolize.py
-		}
-		python_foreach_impl python_inst
-	fi
+	local revord=$(( 9999 - ${SLOT} ))
+	cat <<-_EOF_ > "${T}/10llvm-${revord}" || die
+		PATH="${EPREFIX}/usr/lib/llvm/${SLOT}/bin"
+		# we need to duplicate it in ROOTPATH for Portage to respect...
+		ROOTPATH="${EPREFIX}/usr/lib/llvm/${SLOT}/bin"
+		LDPATH="$( IFS=:; echo "${LLVM_LDPATHS[*]}" )"
+_EOF_
+	doenvd "${T}/10llvm-${revord}"
 }

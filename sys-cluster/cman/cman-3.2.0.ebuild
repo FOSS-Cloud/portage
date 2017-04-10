@@ -69,7 +69,7 @@ src_configure() {
 		--cflags="-Wall" \
 		--libdir=/usr/$(get_libdir) \
 		--disable_kernel_check \
-		--kernel_src=nowhere \
+		--kernel_src=${KERNEL_DIR} \
 		--somajor="$MAJ_PV" \
 		--sominor="$MIN_PV" \
 		--without_rgmanager \

@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/portsentry/portsentry-1.2-r1.ebuild,v 1.6 2014/07/16 16:54:07 jer Exp $
+# $Id$
 
 EAPI=5
 inherit eutils toolchain-funcs
 
 DESCRIPTION="Automated port scan detector and response tool"
 # Seems like CISCO took the site down?
-HOMEPAGE="http://sourceforge.net/projects/sentrytools/"
+HOMEPAGE="https://sourceforge.net/projects/sentrytools/"
 SRC_URI="mirror://sourceforge/sentrytools/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ppc x86"
+KEYWORDS="amd64 ppc x86"
 
 S="${WORKDIR}"/${PN}_beta
 

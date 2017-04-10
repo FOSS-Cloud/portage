@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/molmol/molmol-2k_p2-r5.ebuild,v 1.2 2014/07/23 09:03:00 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -29,7 +29,7 @@ DEPEND="
 	media-libs/tiff:0
 	sys-libs/zlib
 	virtual/glu
-	virtual/jpeg
+	virtual/jpeg:0
 	x11-libs/libXpm
 	x11-libs/motif:0
 	x11-apps/xdpyinfo"

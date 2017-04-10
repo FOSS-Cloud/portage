@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/dante/dante-1.4.0-r2.ebuild,v 1.1 2014/08/19 02:30:06 zerochaos Exp $
+# $Id$
 
 EAPI="5"
 
@@ -13,19 +13,20 @@ SRC_URI="ftp://ftp.inet.no/pub/socks/${MY_P}.tar.gz"
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm hppa ia64 ~m68k ~mips ppc ~ppc64 ~s390 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="~alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="debug kerberos pam selinux static-libs tcpd upnp"
 
-RDEPEND="pam? ( virtual/pam )
+CDEPEND="pam? ( virtual/pam )
 	kerberos? ( virtual/krb5 )
-	selinux? ( sec-policy/selinux-dante )
 	tcpd? ( sys-apps/tcp-wrappers )
 	userland_GNU? ( virtual/shadow )
 	upnp? ( net-libs/miniupnpc )"
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	sys-devel/flex
 	sys-devel/bison"
-
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-dante )
+"
 DOCS="BUGS CREDITS NEWS README SUPPORT doc/README* doc/*.txt doc/SOCKS4.protocol"
 
 S="${WORKDIR}/${MY_P}"
@@ -34,7 +35,8 @@ src_prepare() {
 	epatch	\
 		"${FILESDIR}"/${PN}-1.4.0-socksify.patch \
 		"${FILESDIR}"/${PN}-1.4.0-osdep-format-macro.patch \
-		"${FILESDIR}"/${PN}-1.4.0-cflags.patch
+		"${FILESDIR}"/${PN}-1.4.0-cflags.patch \
+		"${FILESDIR}"/${PN}-1.4.0-HAVE_SENDBUF_IOCTL.patch
 
 	sed -i \
 		-e 's:/etc/socks\.conf:"${EPREFIX}"/etc/socks/socks.conf:' \

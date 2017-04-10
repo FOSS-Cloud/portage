@@ -1,11 +1,11 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/linuxspa/linuxspa-0.7.1.ebuild,v 1.4 2008/12/30 20:12:04 angelos Exp $
+# $Id$
 
 inherit eutils toolchain-funcs
 
 DESCRIPTION="Linux Serial Protocol Analyser"
-HOMEPAGE="http://sourceforge.net/projects/serialsniffer/"
+HOMEPAGE="https://sourceforge.net/projects/serialsniffer/"
 SRC_URI="mirror://sourceforge/serialsniffer/LinuxSPA-0.7.1.tgz"
 LICENSE="GPL-2"
 

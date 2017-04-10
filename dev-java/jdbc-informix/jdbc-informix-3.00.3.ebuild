@@ -1,6 +1,6 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jdbc-informix/jdbc-informix-3.00.3.ebuild,v 1.6 2009/07/07 23:22:17 flameeyes Exp $
+# $Id$
 
 JAVA_PKG_IUSE="doc examples"
 
@@ -13,7 +13,7 @@ DESCRIPTION="JDBC Type 4 Drivers for Informix"
 SRC_URI="${At}"
 HOMEPAGE="http://www.ibm.com/software/data/informix/tools/jdbc/"
 DOWNLOADPAGE="http://www14.software.ibm.com/webapp/download/search.jsp?go=y&rs=ifxjdbc"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="amd64 x86"
 LICENSE="informix-jdbc"
 SLOT="0"
 DEPEND=">=virtual/jre-1.4"

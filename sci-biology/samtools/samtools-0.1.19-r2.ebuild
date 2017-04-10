@@ -1,14 +1,14 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/samtools/samtools-0.1.19-r2.ebuild,v 1.2 2014/09/20 19:39:21 jlec Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit eutils multilib python-r1 toolchain-funcs
 
-DESCRIPTION="Utilities for SAM (Sequence Alignment/Map), a format for large nucleotide sequence alignments"
+DESCRIPTION="Utilities for analysing and manipulating the SAM/BAM alignment formats"
 HOMEPAGE="http://samtools.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
@@ -19,7 +19,7 @@ IUSE="examples"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-CDEPEND="sys-libs/ncurses"
+CDEPEND="sys-libs/ncurses:0="
 RDEPEND="${CDEPEND}
 	dev-lang/lua
 	dev-lang/perl"

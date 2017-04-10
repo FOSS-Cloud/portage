@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/lcr/lcr-9999.ebuild,v 1.3 2014/04/29 01:24:56 zx2c4 Exp $
+# $Id$
 
 EAPI=5
 
@@ -27,11 +27,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	sed -i 's:#!/usr/bin/env python:#!/usr/bin/env python2:' "${S}"/libgsmhr/fetch_sources.py
 	eautoreconf
 }
 
 src_configure() {
-	econf \
+	CXXFLAGS="$CXXFLAGS -I./include" CFLAGS="$CFLAGS -I./include" econf \
 		$(use_with asterisk) \
 		$(use_with ssl) \
 		$(use_with gsm-bs) \

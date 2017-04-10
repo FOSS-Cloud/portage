@@ -1,32 +1,36 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/screen-9999.ebuild,v 1.4 2014/08/30 10:32:59 polynomial-c Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_REPO_URI="git://git.savannah.gnu.org/screen.git"
-EGIT_BOOTSTRAP="cd src; ./autogen.sh"
-EGIT_SOURCEDIR="${WORKDIR}/${P}" # needed for setting S later on
+EGIT_CHECKOUT_DIR="${WORKDIR}/${P}" # needed for setting S later on
 
-WANT_AUTOCONF="2.5"
+inherit eutils flag-o-matic toolchain-funcs pam autotools user git-r3
 
-inherit eutils flag-o-matic toolchain-funcs pam autotools user git-2
-
-DESCRIPTION="Full-screen window manager that multiplexes physical terminals between several processes"
-HOMEPAGE="http://www.gnu.org/software/screen/"
+DESCRIPTION="screen manager with VT100/ANSI terminal emulation"
+HOMEPAGE="https://www.gnu.org/software/screen/"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug nethack pam selinux multiuser"
+IUSE="debug nethack pam selinux multiuser utmp"
 
-RDEPEND=">=sys-libs/ncurses-5.2
-	pam? ( virtual/pam )
-	selinux? ( sec-policy/selinux-screen )"
-DEPEND="${RDEPEND}
+CDEPEND="
+	>=sys-libs/ncurses-5.2:0=
+	pam? ( virtual/pam )"
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-screen )
+	utmp? (
+		kernel_linux? ( sys-libs/libutempter )
+		kernel_FreeBSD? ( || ( >=sys-freebsd/freebsd-lib-9.0 sys-libs/libutempter ) )
+	)
+"
+DEPEND="${CDEPEND}
 	sys-apps/texinfo"
-RDEPEND="${RDEPEND}"
 
+RESTRICT="test"
 S="${WORKDIR}"/${P}/src
 
 pkg_setup() {
@@ -35,12 +39,14 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# Don't use utempter even if it is found on the system
-	epatch "${FILESDIR}"/4.0.2-no-utempter.patch
+	default
 
 	# sched.h is a system header and causes problems with some C libraries
 	mv sched.h _sched.h || die
-	sed -i '/include/ s:sched.h:_sched.h:' screen.h || die
+	sed -i \
+		-e '/include/ s:sched.h:_sched.h:' \
+		screen.h winmsg.c canvas.h sched.c || die
+	sed -i -e 's:sched.h:_sched.h:g' Makefile.in || die
 
 	# Fix manpage.
 	sed -i \
@@ -65,19 +71,17 @@ src_configure() {
 	use debug && append-cppflags "-DDEBUG"
 
 	econf \
-		--with-socket-dir="${EPREFIX}/tmp/screen" \
-		--with-sys-screenrc="${EPREFIX}/etc/screenrc" \
+		--enable-socket-dir="${EPREFIX}/tmp/screen" \
+		--with-system_screenrc="${EPREFIX}/etc/screenrc" \
 		--with-pty-mode=0620 \
 		--with-pty-group=5 \
-		--enable-rxvt_osc \
 		--enable-telnet \
-		--enable-colors256 \
-		$(use_enable pam)
+		$(use_enable pam) \
+		$(use_enable utmp)
 }
 
 src_compile() {
 	LC_ALL=POSIX emake comm.h term.h
-	emake osdef.h
 
 	emake -C doc screen.info
 	default
@@ -114,7 +118,7 @@ src_install() {
 	pamd_mimic_system screen auth
 
 	dodoc \
-		README ChangeLog INSTALL TODO NEWS* patchlevel.h \
+		README ChangeLog INSTALL TODO NEWS* \
 		doc/{FAQ,README.DOTSCREEN,fdpat.ps,window_to_display.ps}
 
 	doman doc/screen.1

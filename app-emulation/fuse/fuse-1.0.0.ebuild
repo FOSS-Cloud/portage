@@ -1,9 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/fuse/fuse-1.0.0.ebuild,v 1.6 2012/05/03 18:49:08 jdhore Exp $
+# $Id$
 
 EAPI=4
-inherit eutils
+inherit eutils flag-o-matic
 
 DESCRIPTION="Free Unix Spectrum Emulator by Philip Kendall"
 HOMEPAGE="http://fuse-emulator.sourceforge.net"
@@ -74,6 +74,8 @@ src_configure() {
 	else  # We default to X user interface
 		guiflag="--without-gtk"
 	fi
+
+	append-libs -lm #370265, fixed in 1.1.1
 
 	econf \
 		--without-win32 \

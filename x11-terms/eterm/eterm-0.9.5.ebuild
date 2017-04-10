@@ -1,6 +1,6 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/eterm/eterm-0.9.5.ebuild,v 1.13 2009/08/16 20:21:57 nerdboy Exp $
+# $Id$
 
 EAPI="2"
 inherit eutils autotools
@@ -8,7 +8,7 @@ inherit eutils autotools
 MY_P=Eterm-${PV}
 
 if [[ ${PV} == "9999" ]] ; then
-	ESVN_REPO_URI="http://svn.enlightenment.org/svn/e/trunk/eterm/Eterm"
+	ESVN_REPO_URI="https://svn.enlightenment.org/svn/e/trunk/eterm/Eterm"
 	inherit subversion
 	SRC_URI=""
 	KEYWORDS=""
@@ -25,7 +25,7 @@ HOMEPAGE="http://www.eterm.org/"
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="escreen minimal mmx sse2 unicode"
+IUSE="escreen minimal cpu_flags_x86_mmx cpu_flags_x86_sse2 unicode"
 
 RDEPEND="x11-libs/libX11
 	x11-libs/libXmu
@@ -64,8 +64,8 @@ src_configure() {
 		$(use_enable escreen) \
 		--with-imlib \
 		--enable-trans \
-		$(use_enable mmx) \
-		$(use_enable sse2) \
+		$(use_enable cpu_flags_x86_mmx mmx) \
+		$(use_enable cpu_flags_x86_sse2 sse2) \
 		$(use_enable unicode multi-charset) \
 		--with-delete=execute \
 		--with-backspace=auto

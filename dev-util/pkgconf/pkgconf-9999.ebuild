@@ -1,24 +1,28 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/pkgconf/pkgconf-9999.ebuild,v 1.13 2014/03/30 09:16:07 mgorny Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="git://github.com/pkgconf/pkgconf.git"
-	inherit autotools git-2 multilib-minimal
+	EGIT_REPO_URI=( {https,git}://github.com/pkgconf/${PN}.git )
+	inherit autotools git-r3
 else
-	inherit autotools multilib-minimal vcs-snapshot
-	SRC_URI="https://github.com/pkgconf/pkgconf/tarball/${P} -> ${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd"
+	SRC_URI="https://distfiles.dereferenced.org/pkgconf/${P}.tar.xz"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc64-solaris ~x64-solaris"
 fi
+
+inherit multilib-minimal
 
 DESCRIPTION="pkg-config compatible replacement with no dependencies other than ANSI C89"
 HOMEPAGE="https://github.com/pkgconf/pkgconf"
 
 LICENSE="BSD-1"
 SLOT="0"
-IUSE="+pkg-config strict"
+IUSE="+pkg-config"
+
+# tests require 'kyua'
+RESTRICT="test"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -33,8 +37,9 @@ MULTILIB_CHOST_TOOLS=(
 )
 
 src_prepare() {
-	[[ -e configure ]] || eautoreconf
+	default
 
+	[[ ${PV} == "9999" ]] && eautoreconf
 	if use pkg-config; then
 		MULTILIB_CHOST_TOOLS+=(
 			/usr/bin/pkg-config
@@ -43,14 +48,15 @@ src_prepare() {
 }
 
 multilib_src_configure() {
-	ECONF_SOURCE=${S} \
-	econf $(use_enable strict)
+	ECONF_SOURCE=${S} econf
 }
 
 multilib_src_install() {
 	default
-	use pkg-config \
-		&& dosym pkgconf /usr/bin/pkg-config \
-		|| rm "${ED}"/usr/share/aclocal/pkg.m4 \
-		|| die
+
+	if use pkg-config; then
+		dosym pkgconf /usr/bin/pkg-config
+	else
+		rm "${ED%/}"/usr/share/aclocal/pkg.m4 || die
+	fi
 }

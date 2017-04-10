@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/spamassassin-botnet/spamassassin-botnet-0.8-r1.ebuild,v 1.1 2013/09/01 17:02:25 idella4 Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,7 +10,7 @@ MY_PN="${PN/b/B}"
 MY_PN="${MY_PN/spamassassin-/}"
 MY_P="${MY_PN}-${PV}"
 DESCRIPTION="SpamAssassin plugin that attempts to detect messages sent by a botnet"
-HOMEPAGE="http://people.ucsc.edu/~jrudd/spamassassin/"
+HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
 SRC_URI="http://people.ucsc.edu/~jrudd/spamassassin/${MY_P}.tar"
 
 LICENSE="GPL-2"
@@ -29,7 +29,7 @@ src_compile() {
 }
 
 src_install() {
-	perlinfo
+	perl_set_version
 
 	local plugin_dir=${VENDOR_LIB}/Mail/SpamAssassin/Plugin
 

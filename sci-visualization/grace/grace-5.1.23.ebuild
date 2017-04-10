@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/grace/grace-5.1.23.ebuild,v 1.1 2013/01/23 11:29:17 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ DESCRIPTION="Motif based XY-plotting tool"
 HOMEPAGE="http://plasma-gate.weizmann.ac.il/Grace/"
 SRC_URI="
 	http://pkgs.fedoraproject.org/cgit/grace.git/plain/grace.png
-	http://dev.gentoo.org/~jlec/distfiles/${PN}.png.tar
+	https://dev.gentoo.org/~jlec/distfiles/${PN}.png.tar
 	ftp://plasma-gate.weizmann.ac.il/pub/${PN}/src/stable/${P}.tar.gz"
 
 SLOT="0"
@@ -22,14 +22,14 @@ IUSE="fortran fftw jpeg netcdf png"
 
 DEPEND="
 	media-libs/t1lib
-	media-libs/tiff
+	media-libs/tiff:0
 	sys-libs/zlib
 	>=x11-libs/motif-2.3:0
 	x11-libs/xbae
 	fftw? ( sci-libs/fftw:2.1 )
-	jpeg? ( virtual/jpeg )
+	jpeg? ( virtual/jpeg:0 )
 	netcdf? ( sci-libs/netcdf )
-	png? ( media-libs/libpng )"
+	png? ( media-libs/libpng:0= )"
 RDEPEND="${DEPEND}
 	x11-misc/xdg-utils"
 

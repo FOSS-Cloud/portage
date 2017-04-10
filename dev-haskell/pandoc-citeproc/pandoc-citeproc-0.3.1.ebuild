@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/pandoc-citeproc/pandoc-citeproc-0.3.1.ebuild,v 1.1 2014/07/02 15:45:40 gienah Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,7 +16,7 @@ SRC_URI="mirror://hackage/packages/archive/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+bibutils embed_data_files +hexpat +network test_citeproc unicode_collation"
 
 RDEPEND=">=app-text/pandoc-1.12.1:=[profile?]
@@ -39,7 +39,8 @@ RDEPEND=">=app-text/pandoc-1.12.1:=[profile?]
 	hexpat? ( >=dev-haskell/hexpat-0.20.2:=[profile?] )
 	!hexpat? ( dev-haskell/xml:=[profile?] )
 	network? ( >=dev-haskell/http-4000.0.9:=[profile?]
-			>=dev-haskell/network-2:=[profile?] )
+			>=dev-haskell/network-2:=[profile?]
+			dev-haskell/network-uri:=[profile?] )
 	unicode_collation? ( dev-haskell/text-icu:=[profile?] )
 	!unicode_collation? ( dev-haskell/rfc5051:=[profile?] )
 "
@@ -51,6 +52,11 @@ DEPEND="${RDEPEND}
 		dev-haskell/text
 		>=dev-haskell/yaml-0.8.8.2 )
 "
+
+src_prepare() {
+	cabal_chdeps \
+		'network >= 2,' 'network >= 2, network-uri,'
+}
 
 src_configure() {
 	# workaround bug on ghc-7.6.3:

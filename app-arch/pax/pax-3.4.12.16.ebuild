@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/pax/pax-3.4.12.16.ebuild,v 1.9 2013/06/29 19:26:25 ago Exp $
+# $Id$
 
 EAPI="4"
 
@@ -12,7 +12,7 @@ RPM_PV=$(get_version_component_range 3)
 FC_PV=$(get_version_component_range 4)
 
 DESCRIPTION="pax (Portable Archive eXchange) is the POSIX standard archive tool"
-HOMEPAGE="http://www.openbsd.org/cgi-bin/cvsweb/src/bin/pax/"
+HOMEPAGE="http://cvsweb.openbsd.org/cgi-bin/cvsweb/src/bin/pax/"
 SRC_URI="mirror://fedora-dev/releases/${FC_PV}/Everything/source/SRPMS/${MY_P}-${RPM_PV}.fc${FC_PV}.src.rpm"
 
 LICENSE="GPL-2"
@@ -25,6 +25,7 @@ S=${WORKDIR}/${MY_P}
 src_prepare() {
 	rpm_spec_epatch ../${PN}.spec
 	epatch "${FILESDIR}"/pax-3.4-x32.patch
+	epatch "${FILESDIR}"/pax-3.4-sysmacros.patch
 	sed -i configure.in -e 's|AM_CONFIG_HEADER|AC_CONFIG_HEADERS|g' || die
 	eautoreconf
 }

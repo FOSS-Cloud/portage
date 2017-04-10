@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-misc/repsnapper/repsnapper-9999.ebuild,v 1.1 2013/05/06 11:00:14 slis Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,13 +17,16 @@ IUSE=""
 
 DEPEND="
 	>=dev-cpp/gtkglextmm-1.2
-	>=dev-cpp/gtkmm-2.4
-	dev-cpp/libxmlpp
+	dev-cpp/gtkmm:2.4
+	dev-cpp/libxmlpp:2.6
 	dev-libs/libzip
 	virtual/opengl
 "
 RDEPEND=${DEPEND}
 
 src_prepare() {
+	epatch "${FILESDIR}/std-c11.patch"
+	epatch "${FILESDIR}/std_abs.patch"
 	eautoreconf
+	append-cxxflags -std=c++11
 }

@@ -1,20 +1,105 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/qmake-utils.eclass,v 1.3 2014/07/28 21:19:52 pesa Exp $
+# $Id$
 
 # @ECLASS: qmake-utils.eclass
 # @MAINTAINER:
-# Qt herd <qt@gentoo.org>
+# qt@gentoo.org
 # @AUTHOR:
 # Davide Pesavento <pesa@gentoo.org>
 # @BLURB: Common functions for qmake-based packages.
 # @DESCRIPTION:
 # Utility eclass providing wrapper functions for Qt4 and Qt5 qmake.
+#
+# This eclass does not set any metadata variables nor export any phase
+# functions. It can be inherited safely.
 
 if [[ -z ${_QMAKE_UTILS_ECLASS} ]]; then
 _QMAKE_UTILS_ECLASS=1
 
-inherit eutils multilib toolchain-funcs
+[[ ${EAPI:-0} == [012345] ]] && inherit multilib
+inherit eutils toolchain-funcs
+
+# @FUNCTION: qt4_get_bindir
+# @DESCRIPTION:
+# Echoes the directory where Qt4 binaries are installed.
+# EPREFIX is already prepended to the returned path.
+qt4_get_bindir() {
+	has "${EAPI:-0}" 0 1 2 && use !prefix && EPREFIX=
+
+	local qtbindir=${EPREFIX}$(qt4_get_libdir)/bin
+	if [[ -d ${qtbindir} ]]; then
+		echo ${qtbindir}
+	else
+		echo ${EPREFIX}/usr/bin
+	fi
+}
+
+# @FUNCTION: qt4_get_headerdir
+# @DESCRIPTION:
+# Echoes the directory where Qt4 headers are installed.
+qt4_get_headerdir() {
+	echo /usr/include/qt4
+}
+
+# @FUNCTION: qt4_get_libdir
+# @DESCRIPTION:
+# Echoes the directory where Qt4 libraries are installed.
+qt4_get_libdir() {
+	echo /usr/$(get_libdir)/qt4
+}
+
+# @FUNCTION: qt4_get_mkspecsdir
+# @DESCRIPTION:
+# Echoes the directory where Qt4 mkspecs are installed.
+qt4_get_mkspecsdir() {
+	echo /usr/share/qt4/mkspecs
+}
+
+# @FUNCTION: qt4_get_plugindir
+# @DESCRIPTION:
+# Echoes the directory where Qt4 plugins are installed.
+qt4_get_plugindir() {
+	echo $(qt4_get_libdir)/plugins
+}
+
+# @FUNCTION: qt5_get_bindir
+# @DESCRIPTION:
+# Echoes the directory where Qt5 binaries are installed.
+# EPREFIX is already prepended to the returned path.
+qt5_get_bindir() {
+	has "${EAPI:-0}" 0 1 2 && use !prefix && EPREFIX=
+
+	echo ${EPREFIX}$(qt5_get_libdir)/qt5/bin
+}
+
+# @FUNCTION: qt5_get_headerdir
+# @DESCRIPTION:
+# Echoes the directory where Qt5 headers are installed.
+qt5_get_headerdir() {
+	echo /usr/include/qt5
+}
+
+# @FUNCTION: qt5_get_libdir
+# @DESCRIPTION:
+# Echoes the directory where Qt5 libraries are installed.
+qt5_get_libdir() {
+	echo /usr/$(get_libdir)
+}
+
+# @FUNCTION: qt5_get_mkspecsdir
+# @DESCRIPTION:
+# Echoes the directory where Qt5 mkspecs are installed.
+qt5_get_mkspecsdir() {
+	echo $(qt5_get_libdir)/qt5/mkspecs
+}
+
+# @FUNCTION: qt5_get_plugindir
+# @DESCRIPTION:
+# Echoes the directory where Qt5 plugins are installed.
+qt5_get_plugindir() {
+	echo $(qt5_get_libdir)/qt5/plugins
+}
 
 # @FUNCTION: qmake-utils_find_pro_file
 # @RETURN: zero or one qmake .pro file names
@@ -62,10 +147,10 @@ qmake-utils_find_pro_file() {
 # @FUNCTION: eqmake4
 # @USAGE: [project_file] [parameters to qmake]
 # @DESCRIPTION:
-# Wrapper for Qt4's qmake. If project_file isn't specified, eqmake4 will
-# look for it in the current directory (${S}, non-recursively). If more
-# than one project file are found, then ${PN}.pro is processed, provided
-# that it exists. Otherwise eqmake4 fails.
+# Wrapper for Qt4's qmake. If project_file is not specified, eqmake4 looks
+# for one in the current directory (non-recursively). If multiple project
+# files are found, then ${PN}.pro is used, if it exists, otherwise eqmake4
+# will not be able to continue.
 #
 # All other arguments are appended unmodified to qmake command line.
 #
@@ -83,14 +168,13 @@ eqmake4() {
 
 	local qmake_args=("$@")
 
-	# check if project file was passed as a first argument
-	# if not, then search for it
+	# Check if the project file name was passed as first argument. If not, look for candidates.
 	local regexp='.*\.pro'
 	if ! [[ ${1} =~ ${regexp} ]]; then
 		local project_file=$(qmake-utils_find_pro_file)
 		if [[ -z ${project_file} ]]; then
 			echo
-			eerror "No project files found in '${PWD}'!"
+			eerror "No project files found in '${PWD}'"
 			eerror "This shouldn't happen - please send a bug report to https://bugs.gentoo.org/"
 			echo
 			die "eqmake4 failed"
@@ -98,13 +182,12 @@ eqmake4() {
 		qmake_args+=("${project_file}")
 	fi
 
-	# make sure CONFIG variable is correctly set
-	# for both release and debug builds
-	local config_add="release"
-	local config_remove="debug"
-	if has debug ${IUSE} && use debug; then
-		config_add="debug"
-		config_remove="release"
+	# Make sure the CONFIG variable is correctly set for both release and debug builds.
+	local config_add=release
+	local config_remove=debug
+	if use_if_iuse debug; then
+		config_add=debug
+		config_remove=release
 	fi
 
 	local awkscript='BEGIN {
@@ -158,10 +241,8 @@ eqmake4() {
 
 	[[ -n ${EQMAKE4_EXCLUDE} ]] && eshopts_pop
 
-	"${EPREFIX}"/usr/bin/qmake \
+	"$(qt4_get_bindir)"/qmake \
 		-makefile \
-		QTDIR="${EPREFIX}"/usr/$(get_libdir) \
-		QMAKE="${EPREFIX}"/usr/bin/qmake \
 		QMAKE_AR="$(tc-getAR) cqs" \
 		QMAKE_CC="$(tc-getCC)" \
 		QMAKE_CXX="$(tc-getCXX)" \
@@ -179,12 +260,11 @@ eqmake4() {
 		QMAKE_LFLAGS="${LDFLAGS}" \
 		QMAKE_LFLAGS_RELEASE= \
 		QMAKE_LFLAGS_DEBUG= \
-		QMAKE_LIBDIR_QT="${EPREFIX}"/usr/$(get_libdir)/qt4 \
-		QMAKE_LIBDIR_X11="${EPREFIX}"/usr/$(get_libdir) \
-		QMAKE_LIBDIR_OPENGL="${EPREFIX}"/usr/$(get_libdir) \
+		QMAKE_LIBDIR_QT="${EPREFIX}$(qt4_get_libdir)" \
+		QMAKE_LIBDIR_X11="${EPREFIX}/usr/$(get_libdir)" \
+		QMAKE_LIBDIR_OPENGL="${EPREFIX}/usr/$(get_libdir)" \
 		"${qmake_args[@]}"
 
-	# was qmake successful?
 	if ! eend $? ; then
 		echo
 		eerror "Running qmake has failed! (see above for details)"
@@ -207,11 +287,9 @@ eqmake4() {
 eqmake5() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	has "${EAPI:-0}" 0 1 2 && use !prefix && EPREFIX=
-
 	ebegin "Running qmake"
 
-	"${EPREFIX}"/usr/$(get_libdir)/qt5/bin/qmake \
+	"$(qt5_get_bindir)"/qmake \
 		-makefile \
 		QMAKE_AR="$(tc-getAR) cqs" \
 		QMAKE_CC="$(tc-getCC)" \
@@ -234,7 +312,6 @@ eqmake5() {
 		QMAKE_LFLAGS_DEBUG= \
 		"$@"
 
-	# was qmake successful?
 	if ! eend $? ; then
 		echo
 		eerror "Running qmake has failed! (see above for details)"

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-engines/renpy/renpy-6.17.7.ebuild,v 1.2 2014/07/30 18:06:23 nimiux Exp $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -14,12 +14,12 @@ SRC_URI="http://www.renpy.org/dl/${PV}/${P}-source.tar.bz2"
 LICENSE="MIT"
 SLOT="$(get_version_component_range 1-2)"
 MYSLOT=$(delete_all_version_separators ${SLOT})
-KEYWORDS="amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="development doc examples"
 REQUIRED_USE="examples? ( development )"
 
 RDEPEND="
-	>=app-admin/eselect-renpy-0.4
+	>=app-eselect/eselect-renpy-0.4
 	dev-libs/fribidi
 	dev-python/pygame[X,${PYTHON_USEDEP}]
 	>=dev-lang/python-exec-0.3[${PYTHON_USEDEP}]

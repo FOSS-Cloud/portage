@@ -1,17 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/glog/glog-0.3.3-r1.ebuild,v 1.2 2014/06/18 19:04:45 mgorny Exp $
+# $Id$
 
 EAPI="4"
 inherit eutils multilib-minimal
 
 DESCRIPTION="Google's C++ logging library"
-HOMEPAGE="http://code.google.com/p/google-glog/"
-SRC_URI="http://google-glog.googlecode.com/files/${P}.tar.gz"
+HOMEPAGE="https://github.com/google/glog"
+SRC_URI="https://google-glog.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ppc64 ~s390 ~sh ~sparc x86 ~amd64-linux ~x86-linux"
 IUSE="gflags static-libs unwind test"
 
 RDEPEND="gflags? ( >=dev-cpp/gflags-2.0-r1[${MULTILIB_USEDEP}] )

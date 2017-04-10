@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/x264-encoder/x264-encoder-9999.ebuild,v 1.8 2014/03/09 10:19:46 aballier Exp $
+# $Id$
 
 EAPI=5
 
-inherit flag-o-matic multilib toolchain-funcs
+inherit flag-o-matic multilib toolchain-funcs eutils
 
 DESCRIPTION="A free commandline encoder for X264/AVC streams"
 HOMEPAGE="http://www.videolan.org/developers/x264.html"
@@ -29,7 +29,7 @@ REQUIRED_USE="ffmpegsource? ( ffmpeg )"
 RDEPEND="ffmpeg? ( virtual/ffmpeg )
 	~media-libs/x264-${PV}[10bit=,interlaced=,threads=]
 	ffmpegsource? ( media-libs/ffmpegsource )
-	mp4? ( >=media-video/gpac-0.4.1_pre20060122 )"
+	mp4? ( >=media-video/gpac-0.5.2 )"
 
 ASM_DEP=">=dev-lang/yasm-1.2.0"
 DEPEND="${RDEPEND}
@@ -37,6 +37,10 @@ DEPEND="${RDEPEND}
 	x86? ( ${ASM_DEP} )
 	x86-fbsd? ( ${ASM_DEP} )
 	virtual/pkgconfig"
+
+src_prepare() {
+	epatch "${FILESDIR}/gpac.patch"
+}
 
 src_configure() {
 	tc-export CC

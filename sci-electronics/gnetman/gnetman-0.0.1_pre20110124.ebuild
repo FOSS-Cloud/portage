@@ -1,13 +1,13 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/gnetman/gnetman-0.0.1_pre20110124.ebuild,v 1.1 2012/05/25 07:49:02 xmw Exp $
+# $Id$
 
 EAPI=4
 
-inherit toolchain-funcs
+inherit eutils toolchain-funcs
 
 DESCRIPTION="A GNU Netlist Manipulation Library"
-HOMEPAGE="http://sourceforge.net/projects/gnetman/"
+HOMEPAGE="https://sourceforge.net/projects/gnetman/"
 #snapshot from http://gnetman.git.sourceforge.net/git/gitweb.cgi?p=gnetman/gnetman;
 SRC_URI="mirror://gentoo/${P}.tar.gz"
 
@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 
 S=${WORKDIR}/${P}/src/batch
 
-RDEPEND="dev-lang/tcl
+RDEPEND=">=dev-lang/tcl-8.6:0
 	sci-electronics/geda"
 DEPEND="${RDEPEND}
 	dev-db/datadraw"
@@ -30,6 +30,10 @@ src_prepare() {
 		-e '/^$(TARGET):/,+3s:$(CFLAGS):$(CFLAGS) $(LDFLAGS):' \
 		-i configure || die
 	tc-export CC
+
+	cd ../.. || die
+	# fix build issues with tcl-8.6, #452034
+	epatch "${FILESDIR}/${P}-tcl86.patch"
 }
 
 src_install () {

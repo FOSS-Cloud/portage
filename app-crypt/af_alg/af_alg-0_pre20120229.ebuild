@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/af_alg/af_alg-0_pre20120229.ebuild,v 1.2 2013/03/03 08:24:42 vapier Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,9 +17,10 @@ SRC_URI="http://src.carnivore.it/users/common/af_alg/snapshot/${MY_P}.tar.gz"
 LICENSE="openssl"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="libressl"
 
-DEPEND="dev-libs/openssl"
+DEPEND="!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:0= )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"

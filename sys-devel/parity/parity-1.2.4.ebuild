@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/parity/parity-1.2.4.ebuild,v 1.3 2014/08/10 20:20:00 slyfox Exp $
+# $Id$
 
 EAPI=4
 
@@ -9,7 +9,7 @@ HOMEPAGE="http://www.sourceforge.net/projects/parity/"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit subversion
-	ESVN_REPO_URI="https://parity.svn.sf.net/svnroot/parity/trunk"
+	ESVN_REPO_URI="https://svn.code.sf.net/p/parity/code/trunk"
 	ESVN_BOOTSTRAP="confix --bootstrap"
 	ESVN_PROJECT="${PN}"
 	KEYWORDS=""
@@ -17,7 +17,7 @@ if [[ ${PV} == 9999 ]]; then
 	DEPEND="dev-util/confix"
 else
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
-	KEYWORDS="~x86-interix ~x86-winnt"
+	KEYWORDS="~x86-winnt"
 fi
 
 LICENSE="LGPL-3"

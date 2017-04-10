@@ -1,11 +1,13 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/ethercard-diag/ethercard-diag-20050321.1g.ebuild,v 1.2 2008/04/14 06:00:40 vapier Exp $
+# $Id$
+
+EAPI="6"
 
 inherit toolchain-funcs
 
 DESCRIPTION="low level mii diagnostic tools including mii-diag and etherwake (merge of netdiag/isa-diag)"
-HOMEPAGE="ftp://ftp.scyld.com/pub/diag/ ftp://ftp.scyld.com/pub/isa-diag/"
+HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
 SRC_URI="mirror://gentoo/${P}.tar.lzma"
 
 LICENSE="GPL-2"
@@ -17,11 +19,11 @@ DEPEND="!sys-apps/nictools"
 
 src_compile() {
 	tc-export CC AR
-	emake || die
+	default
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
+	default
 	dodir /sbin
-	mv "${D}"/usr/sbin/{mii-diag,ether-wake} "${D}"/sbin/ || die
+	mv "${ED%/}"/usr/sbin/{mii-diag,ether-wake} "${ED%/}"/sbin/ || die
 }

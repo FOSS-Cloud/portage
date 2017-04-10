@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/rtorrent/rtorrent-0.9.4-r1.ebuild,v 1.1 2014/07/01 19:31:42 pacho Exp $
+# $Id$
 
 EAPI=5
 
-inherit eutils systemd
+inherit autotools eutils systemd
 
 DESCRIPTION="BitTorrent Client using libtorrent"
 HOMEPAGE="http://libtorrent.rakshasa.no/"
@@ -18,23 +18,28 @@ IUSE="daemon debug ipv6 selinux test xmlrpc"
 COMMON_DEPEND="~net-libs/libtorrent-0.13.${PV##*.}
 	>=dev-libs/libsigc++-2.2.2:2
 	>=net-misc/curl-7.19.1
-	sys-libs/ncurses
-	selinux? ( sec-policy/selinux-rtorrent )
+	sys-libs/ncurses:0=
 	xmlrpc? ( dev-libs/xmlrpc-c )"
 RDEPEND="${COMMON_DEPEND}
-	daemon? ( app-misc/screen )"
+	daemon? ( app-misc/screen )
+	selinux? ( sec-policy/selinux-rtorrent )
+"
 DEPEND="${COMMON_DEPEND}
-	test? ( dev-util/cppunit )
+	dev-util/cppunit
 	virtual/pkgconfig"
 
 DOCS=( doc/rtorrent.rc )
 
 src_prepare() {
 	# bug #358271
-	epatch "${FILESDIR}"/${PN}-0.9.1-ncurses.patch
+	epatch \
+		"${FILESDIR}"/${PN}-0.9.1-ncurses.patch \
+		"${FILESDIR}"/${P}-tinfo.patch
 
 	# upstream forgot to include
 	cp "${FILESDIR}"/rtorrent.1 "${S}"/doc/ || die
+
+	eautoreconf
 }
 
 src_configure() {

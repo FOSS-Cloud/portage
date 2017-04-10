@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/renameutils/renameutils-0.12.0.ebuild,v 1.5 2012/07/03 16:43:49 ranger Exp $
+# $Id$
 
 EAPI="4"
 
@@ -8,7 +8,7 @@ inherit autotools eutils
 
 DESCRIPTION="Use your favorite text editor to rename files"
 HOMEPAGE="http://www.nongnu.org/renameutils/"
-SRC_URI="http://savannah.nongnu.org/download/renameutils/${P}.tar.gz"
+SRC_URI="https://savannah.nongnu.org/download/renameutils/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 ppc x86"

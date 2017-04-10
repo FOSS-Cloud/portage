@@ -1,11 +1,11 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/lufs/lufs-0.9.7-r3.ebuild,v 1.12 2010/05/23 01:57:36 vapier Exp $
+# $Id$
 
 inherit eutils autotools
 
 DESCRIPTION="User-mode filesystem implementation"
-HOMEPAGE="http://sourceforge.net/projects/lufs/"
+HOMEPAGE="https://sourceforge.net/projects/lufs/"
 SRC_URI="mirror://sourceforge/lufs/${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -66,6 +66,6 @@ pkg_postinst() {
 	fi
 	ewarn "If something does not work for you with this setup please"
 	ewarn "complain to bugs.gentoo.org"
-	einfo "Note: There is also the native sshfs-fuse implementation now"
+	einfo "Note: There is also the native sshfs implementation now"
 	use amd64 && ewarn "lufs-sshfs does not work on amd64 and is disabled there."
 }

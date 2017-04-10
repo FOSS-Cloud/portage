@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/simon/simon-0.4.1.ebuild,v 1.3 2013/08/28 11:14:18 ago Exp $
+# $Id$
 
 # KEEP KDE ECLASSES OUT OF HERE
 
@@ -19,7 +19,7 @@ SRC_URI="mirror://kde/stable/simon/${PV}/src/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="kdepim libsamplerate nls opencv sphinx"
+IUSE="libsamplerate nls opencv pim sphinx"
 
 RDEPEND="
 	dev-qt/qtcore:4
@@ -27,18 +27,18 @@ RDEPEND="
 	dev-qt/qtgui:4
 	dev-qt/qtscript:4
 	dev-qt/qtsql:4
-	kde-base/kdelibs:4
+	kde-frameworks/kdelibs:4
 	media-libs/alsa-lib
 	x11-libs/libX11
 	x11-libs/libXtst
-	x11-libs/qwt:6
-	kdepim? ( kde-base/kdepimlibs:4 )
+	x11-libs/qwt:6[qt4(+)]
 	libsamplerate? ( media-libs/libsamplerate )
 	nls? (
-		kde-base/kde-l10n
+		kde-apps/kde4-l10n
 		virtual/libintl
 	)
 	opencv? ( media-libs/opencv )
+	pim? ( kde-apps/kdepimlibs:4 )
 	sphinx? (
 		>=app-accessibility/pocketsphinx-0.8
 		>=app-accessibility/sphinxbase-0.8
@@ -51,11 +51,12 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )"
 
-src_prepare() {
-	epatch "${FILESDIR}"/${P}-libdir.patch \
-		"${FILESDIR}"/${P}-linguas.patch \
-		"${FILESDIR}"/${P}-sphinx.patch
-}
+PATCHES=(
+	"${FILESDIR}"/${P}-libdir.patch
+	"${FILESDIR}"/${P}-linguas.patch
+	"${FILESDIR}"/${P}-sphinx.patch
+	"${FILESDIR}"/${P}-opencv-include.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
@@ -63,7 +64,7 @@ src_configure() {
 		-DBackendType=$(usex sphinx "both" "jhtk")
 		$(cmake-utils_use_with sphinx Sphinxbase)
 		$(cmake-utils_use_with sphinx Pocketsphinx)
-		$(cmake-utils_use_with kdepim KdepimLibs)
+		$(cmake-utils_use_with pim KdepimLibs)
 		$(cmake-utils_use_with libsamplerate LibSampleRate)
 		$(cmake-utils_use_with opencv OpenCV)
 		$(cmake-utils_use_enable nls NLS)
@@ -80,7 +81,7 @@ pkg_postinst() {
 	gnome2_icon_cache_update
 
 	elog "optional dependencies:"
-	elog "  kde-base/jovie (support for Jovie TTS system)"
+	elog "  kde-apps/jovie (support for Jovie TTS system)"
 	use sphinx && elog "  app-accessibility/julius (alternative backend)"
 }
 

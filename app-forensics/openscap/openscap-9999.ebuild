@@ -1,14 +1,14 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-forensics/openscap/openscap-9999.ebuild,v 1.6 2014/08/27 18:26:53 mgorny Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit bash-completion-r1 eutils multilib python-single-r1
 
-DESCRIPTION="Framework which enables integration with the Security Content Automation Protocol (SCAP)"
+DESCRIPTION="Framework which enables integration with Security Content Automation Protocol"
 HOMEPAGE="http://www.open-scap.org/"
 if [[ "${PV}" != "9999" ]];
 then
@@ -88,6 +88,8 @@ src_prepare() {
 
 	if [[ "${PV}" == "9999" ]];
 	then
+		# fix automake failure about missing 'config/config.rpath'
+		touch config/config.rpath
 		eautoreconf
 	fi
 

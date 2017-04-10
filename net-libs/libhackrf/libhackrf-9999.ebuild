@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libhackrf/libhackrf-9999.ebuild,v 1.5 2014/08/28 17:07:36 zerochaos Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit cmake-utils udev
 
@@ -11,32 +11,36 @@ HOMEPAGE="http://greatscottgadgets.com/hackrf/"
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/mossmann/hackrf.git"
-	inherit git-2
+	inherit git-r3
 	KEYWORDS=""
-	EGIT_SOURCEDIR="${WORKDIR}/hackrf"
+	EGIT_CHECKOUT_DIR="${WORKDIR}/hackrf"
 	S="${WORKDIR}/hackrf/host/libhackrf"
 else
 	S="${WORKDIR}/hackrf-${PV}/host/libhackrf"
-	SRC_URI="mirror://sourceforge/hackrf/hackrf-${PV}.tar.xz"
+	SRC_URI="https://github.com/mossmann/hackrf/releases/download/v${PV}/hackrf-${PV}.tar.xz"
 	KEYWORDS="~amd64 ~arm ~ppc ~x86"
 fi
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-IUSE=""
+IUSE="+udev"
 
 DEPEND="virtual/libusb:1"
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	sed -i 's#plugdev#usb#' 53-hackrf.rules
-}
-
-src_install() {
-	cmake-utils_src_install
-	udev_dorules 53-hackrf.rules
+src_configure(){
+	mycmakeargs=(
+		-DENABLE_INSTALL_UDEV_RULES="$(usex udev)"
+	)
+	if use udev; then
+		mycmakeargs+=(
+			-DUDEV_RULES_GROUP=usb
+			-DUDEV_RULES_PATH="$(get_udevdir)/rules.d"
+		)
+	fi
+	cmake-utils_src_configure
 }
 
 pkg_postinst() {
-	einfo "Users in the usb group can use hackrf."
+	use udev && einfo "Users in the usb group can use hackrf."
 }

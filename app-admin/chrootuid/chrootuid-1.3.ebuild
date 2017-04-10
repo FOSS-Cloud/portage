@@ -1,6 +1,6 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/chrootuid/chrootuid-1.3.ebuild,v 1.15 2011/08/23 12:11:23 hattya Exp $
+# $Id$
 
 EAPI="4"
 
@@ -8,7 +8,7 @@ inherit toolchain-funcs
 
 MY_P="${P/-/}"
 
-DESCRIPTION="run a network service at low privilege level and with restricted file system access"
+DESCRIPTION="Run a network service at low privilege level and restricted file system access"
 HOMEPAGE="ftp://ftp.porcupine.org/pub/security/index.html"
 SRC_URI="ftp://ftp.porcupine.org/pub/security/${MY_P}.tar.gz"
 

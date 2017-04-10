@@ -1,17 +1,17 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-base/xorg-x11/xorg-x11-7.4-r2.ebuild,v 1.3 2012/10/06 20:41:11 ulm Exp $
+# $Id$
 
 EAPI="2"
 
 inherit eutils
 
 DESCRIPTION="An X11 implementation maintained by the X.Org Foundation (meta package)"
-HOMEPAGE="http://xorg.freedesktop.org"
+HOMEPAGE="https://www.x.org/wiki/"
 
 LICENSE="metapackage"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sh sparc x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 sh sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE=""
 
 # Server
@@ -147,7 +147,7 @@ pkg_postinst() {
 	elog
 
 	# (#76985)
-	elog "Visit http://www.gentoo.org/doc/en/index.xml?catid=desktop"
+	elog "Visit https://www.gentoo.org/doc/en/index.xml?catid=desktop"
 	elog "for more information on configuring X."
 	elog
 }

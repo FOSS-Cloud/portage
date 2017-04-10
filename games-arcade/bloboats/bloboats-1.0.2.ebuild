@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/bloboats/bloboats-1.0.2.ebuild,v 1.5 2013/02/07 22:03:08 ulm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="arcade-like boat racing game combining platform jumpers and elastomania / x-moto like games"
@@ -14,11 +14,14 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="media-libs/libsdl[video]
+DEPEND="media-libs/libsdl[opengl,video]
 	media-libs/sdl-mixer[vorbis]
 	media-libs/sdl-image[png]
 	media-libs/sdl-net
+	virtual/opengl
+	virtual/glu
 	media-libs/libvorbis"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-warnings.patch
@@ -30,16 +33,15 @@ src_prepare() {
 		-e "/CXXFLAGS_DEFAULT/s:-O2:${CXXFLAGS} \$(LDFLAGS):" \
 		-e "/^CXX[ _]/d" \
 		-e '/STRIP/d' \
-		Makefile \
-		|| die
+		Makefile || die
 }
 
 src_install() {
-	dogamesbin bin/bloboats || die
+	dogamesbin bin/bloboats
 	insinto "${GAMES_DATADIR}"/${PN}
-	doins -r data/* || die
+	doins -r data/*
 	insinto "$GAMES_SYSCONFDIR"
-	doins bloboats.dirs || die
+	doins bloboats.dirs
 	dodoc readme.txt
 	prepgamesdirs
 }

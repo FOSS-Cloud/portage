@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nntp/brag/brag-1.4.3.ebuild,v 1.4 2012/03/19 19:12:18 armin76 Exp $
+# $Id$
 
 EAPI=4
 
@@ -13,7 +13,8 @@ SLOT="0"
 KEYWORDS="~amd64 ppc x86"
 IUSE=""
 
-RDEPEND="dev-lang/tcl
+RDEPEND="
+	dev-lang/tcl:0
 	app-text/uudeview"
 
 src_compile() { :; }

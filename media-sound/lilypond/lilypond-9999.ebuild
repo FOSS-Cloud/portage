@@ -1,13 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/lilypond/lilypond-9999.ebuild,v 1.8 2014/09/07 07:22:29 radhermit Exp $
+# $Id$
 
-EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
+EAPI=6
+PYTHON_COMPAT=( python2_7 )
 
-inherit elisp-common autotools eutils git-r3 python-single-r1
+[[ "${PV}" = "9999" ]] && inherit git-r3
+inherit elisp-common autotools python-single-r1 xdg-utils
 
-EGIT_REPO_URI="git://git.sv.gnu.org/lilypond.git"
+if [[ "${PV}" = "9999" ]]; then
+	EGIT_REPO_URI="git://git.sv.gnu.org/lilypond.git"
+else
+	SRC_URI="http://download.linuxaudio.org/lilypond/sources/v${PV:0:4}/${P}.tar.gz"
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~x86"
+fi
 
 DESCRIPTION="GNU Music Typesetter"
 HOMEPAGE="http://lilypond.org/"
@@ -15,26 +21,33 @@ HOMEPAGE="http://lilypond.org/"
 LICENSE="GPL-3 FDL-1.3"
 SLOT="0"
 LANGS=" ca cs da de el eo es fi fr it ja nl ru sv tr uk vi zh_TW"
-IUSE="debug emacs profile vim-syntax ${LANGS// / linguas_}"
+IUSE="debug emacs guile2 profile vim-syntax ${LANGS// / linguas_}"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND=">=app-text/ghostscript-gpl-8.15
-	>=dev-scheme/guile-1.8.2[deprecated,regex]
-	media-fonts/urw-fonts
+	>=dev-scheme/guile-1.8.2:12[deprecated,regex]
+	media-fonts/tex-gyre
 	media-libs/fontconfig
 	media-libs/freetype:2
 	>=x11-libs/pango-1.12.3
 	emacs? ( virtual/emacs )
+	guile2? ( >=dev-scheme/guile-2:12 )
+	!guile2? (
+		>=dev-scheme/guile-1.8.2:12[deprecated,regex]
+		<dev-scheme/guile-2.0:12
+	)
 	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}
 	app-text/t1utils
 	dev-lang/perl
+	dev-libs/kpathsea
+	>=dev-texlive/texlive-metapost-2013
 	|| (
-		( >=dev-texlive/texlive-metapost-2013 >=dev-tex/metapost-1.803 )
-		<dev-texlive/texlive-metapost-2013
+		>=app-text/texlive-core-2013
+		>=dev-tex/metapost-1.803
 	)
 	virtual/pkgconfig
-	media-gfx/fontforge
+	media-gfx/fontforge[png]
 	>=sys-apps/texinfo-4.11
 	>=sys-devel/bison-2.0
 	sys-devel/flex
@@ -43,6 +56,8 @@ DEPEND="${RDEPEND}
 
 # Correct output data for tests isn't bundled with releases
 RESTRICT="test"
+
+DOCS=( DEDICATION HACKING README.txt ROADMAP )
 
 pkg_setup() {
 	# make sure >=metapost-1.803 is selected if it's installed, bug 498704
@@ -57,6 +72,8 @@ pkg_setup() {
 }
 
 src_prepare() {
+	default
+
 	if ! use vim-syntax ; then
 		sed -i 's/vim//' GNUmakefile.in || die
 	fi
@@ -75,19 +92,25 @@ src_prepare() {
 	rm tex/texinfo.tex || die
 
 	eautoreconf
+
+	xdg_environment_reset #586592
 }
 
 src_configure() {
 	# documentation generation currently not supported since it requires a newer
 	# version of texi2html than is currently in the tree
 
-	econf \
-		--with-ncsb-dir=/usr/share/fonts/urw-fonts \
-		--disable-documentation \
-		--disable-optimising \
-		--disable-pipe \
-		$(use_enable debug debugging) \
+	local myeconfargs+=(
+		--with-texgyre-dir=/usr/share/fonts/tex-gyre
+		--disable-documentation
+		--disable-optimising
+		--disable-pipe
+		$(use_enable debug debugging)
+		$(use_enable guile2)
 		$(use_enable profile profiling)
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_compile() {
@@ -113,7 +136,7 @@ src_install () {
 
 	python_fix_shebang "${ED}"
 
-	dodoc HACKING README.txt
+	einstalldocs
 }
 
 pkg_postinst() {

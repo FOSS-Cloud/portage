@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/color-theme/color-theme-6.6.0-r1.ebuild,v 1.9 2014/06/01 10:39:50 ulm Exp $
+# $Id$
 
 EAPI=5
 
 inherit readme.gentoo elisp
 
-DESCRIPTION="Install color themes (includes many themes and allows you to share your own with the world)"
+DESCRIPTION="Install color themes (includes many themes)"
 HOMEPAGE="http://www.nongnu.org/color-theme/"
 SRC_URI="http://download.savannah.gnu.org/releases-noredirect/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ppc sparc x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~x86-macos"
+KEYWORDS="amd64 ~arm ppc sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x86-macos"
 
 ELISP_PATCHES="${P}-replace-in-string.patch"
 ELISP_REMOVE="color-theme-autoloads.*"

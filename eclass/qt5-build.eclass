@@ -1,34 +1,25 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/qt5-build.eclass,v 1.8 2014/10/07 16:23:39 pesa Exp $
+# $Id$
 
 # @ECLASS: qt5-build.eclass
 # @MAINTAINER:
-# Qt herd <qt@gentoo.org>
+# qt@gentoo.org
 # @AUTHOR:
 # Davide Pesavento <pesa@gentoo.org>
 # @BLURB: Eclass for Qt5 split ebuilds.
 # @DESCRIPTION:
 # This eclass contains various functions that are used when building Qt5.
-# Requires EAPI 5.
+# Requires EAPI 5 or 6.
+
+if [[ ${CATEGORY} != dev-qt ]]; then
+	die "qt5-build.eclass is only to be used for building Qt 5."
+fi
 
 case ${EAPI} in
-	5)	: ;;
+	5|6)	: ;;
 	*)	die "qt5-build.eclass: unsupported EAPI=${EAPI:-0}" ;;
 esac
-
-inherit eutils flag-o-matic multilib toolchain-funcs virtualx
-
-QT5_MINOR_VERSION=${PV#*.}
-QT5_MINOR_VERSION=${QT5_MINOR_VERSION%%.*}
-
-HOMEPAGE="https://www.qt.io/ https://qt-project.org/"
-if [[ ${QT5_MINOR_VERSION} -ge 4 ]]; then
-	LICENSE="|| ( LGPL-2.1 LGPL-3 )"
-else
-	LICENSE="|| ( LGPL-2.1 GPL-3 )"
-fi
-SLOT="5"
 
 # @ECLASS-VARIABLE: QT5_MODULE
 # @DESCRIPTION:
@@ -36,86 +27,11 @@ SLOT="5"
 # SRC_URI and EGIT_REPO_URI. Must be defined before inheriting the eclass.
 : ${QT5_MODULE:=${PN}}
 
-case ${PV} in
-	5.9999)
-		# git dev branch
-		QT5_BUILD_TYPE="live"
-		EGIT_BRANCH="dev"
-		;;
-	5.?.9999)
-		# git stable branches (5.x)
-		QT5_BUILD_TYPE="live"
-		EGIT_BRANCH=${PV%.9999}
-		;;
-	*_alpha*|*_beta*|*_rc*)
-		# development releases
-		QT5_BUILD_TYPE="release"
-		MY_P=${QT5_MODULE}-opensource-src-${PV/_/-}
-		SRC_URI="http://download.qt-project.org/development_releases/qt/${PV%.*}/${PV/_/-}/submodules/${MY_P}.tar.xz"
-		S=${WORKDIR}/${MY_P}
-		;;
-	*)
-		# official stable releases
-		QT5_BUILD_TYPE="release"
-		MY_P=${QT5_MODULE}-opensource-src-${PV}
-		SRC_URI="http://download.qt-project.org/archive/qt/${PV%.*}/${PV}/submodules/${MY_P}.tar.xz"
-		S=${WORKDIR}/${MY_P}
-		;;
-esac
-
-EGIT_REPO_URI=(
-	"git://gitorious.org/qt/${QT5_MODULE}.git"
-	"https://git.gitorious.org/qt/${QT5_MODULE}.git"
-)
-[[ ${QT5_BUILD_TYPE} == live ]] && inherit git-r3
-
-IUSE="debug test"
-
-[[ ${PN} == qtwebkit ]] && RESTRICT="mirror" # bug 524584
-[[ ${QT5_BUILD_TYPE} == release && ${QT5_MINOR_VERSION} -le 3 ]] && RESTRICT="test" # bug 457182
-
-DEPEND="
-	dev-lang/perl
-	virtual/pkgconfig
-"
-if [[ ${PN} != qttest ]]; then
-	if [[ ${QT5_MODULE} == qtbase ]]; then
-		DEPEND+=" test? ( ~dev-qt/qttest-${PV}[debug=] )"
-	else
-		DEPEND+=" test? ( >=dev-qt/qttest-${PV}:5[debug=] )"
-	fi
-fi
-
-EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install src_test pkg_postinst pkg_postrm
-
-# @ECLASS-VARIABLE: PATCHES
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# Array variable containing all the patches to be applied. This variable
-# is expected to be defined in the global scope of ebuilds. Make sure to
-# specify the full path. This variable is used in src_prepare phase.
-#
-# Example:
-# @CODE
-#	PATCHES=(
-#		"${FILESDIR}/mypatch.patch"
-#		"${FILESDIR}/mypatch2.patch"
-#	)
-# @CODE
-
 # @ECLASS-VARIABLE: QT5_TARGET_SUBDIRS
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # Array variable containing the source directories that should be built.
 # All paths must be relative to ${S}.
-
-# @ECLASS-VARIABLE: QT5_BUILD_DIR
-# @DESCRIPTION:
-# Build directory for out-of-source builds.
-case ${QT5_BUILD_TYPE} in
-	live)    : ${QT5_BUILD_DIR:=${S}_build} ;;
-	release) : ${QT5_BUILD_DIR:=${S}} ;; # workaround for bug 497312
-esac
 
 # @ECLASS-VARIABLE: QT5_GENTOO_CONFIG
 # @DEFAULT_UNSET
@@ -132,27 +48,116 @@ esac
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
+[[ ${EAPI} == 5 ]] && inherit multilib
+inherit eutils flag-o-matic toolchain-funcs versionator virtualx
+
+HOMEPAGE="https://www.qt.io/"
+
+QT5_MINOR_VERSION=$(get_version_component_range 2)
+QT5_PATCH_VERSION=$(get_version_component_range 3)
+readonly QT5_MINOR_VERSION QT5_PATCH_VERSION
+
+if [[ ${QT5_MINOR_VERSION} -ge 7 ]]; then
+	LICENSE="|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3"
+else
+	LICENSE="|| ( LGPL-2.1 LGPL-3 ) FDL-1.3"
+fi
+
+SLOT=5/$(get_version_component_range 1-2)
+
+case ${PV} in
+	5.9999)
+		# git dev branch
+		QT5_BUILD_TYPE="live"
+		EGIT_BRANCH="dev"
+		;;
+	5.?.9999)
+		# git stable branch
+		QT5_BUILD_TYPE="live"
+		EGIT_BRANCH=${PV%.9999}
+		;;
+	*_alpha*|*_beta*|*_rc*)
+		# development release
+		QT5_BUILD_TYPE="release"
+		MY_P=${QT5_MODULE}-opensource-src-${PV/_/-}
+		SRC_URI="https://download.qt.io/development_releases/qt/${PV%.*}/${PV/_/-}/submodules/${MY_P}.tar.xz"
+		S=${WORKDIR}/${MY_P}
+		;;
+	*)
+		# official stable release
+		QT5_BUILD_TYPE="release"
+		MY_P=${QT5_MODULE}-opensource-src-${PV}
+		# bug 586646
+		if [[ ${PV} = 5.6.1 ]]; then
+			SRC_URI="https://download.qt.io/official_releases/qt/${PV%.*}/${PV}-1/submodules/${MY_P}-1.tar.xz"
+		else
+			SRC_URI="https://download.qt.io/official_releases/qt/${PV%.*}/${PV}/submodules/${MY_P}.tar.xz"
+		fi
+		S=${WORKDIR}/${MY_P}
+		;;
+esac
+readonly QT5_BUILD_TYPE
+
+EGIT_REPO_URI=(
+	"git://code.qt.io/qt/${QT5_MODULE}.git"
+	"https://code.qt.io/git/qt/${QT5_MODULE}.git"
+	"https://github.com/qtproject/${QT5_MODULE}.git"
+)
+[[ ${QT5_BUILD_TYPE} == live ]] && inherit git-r3
+
+# @ECLASS-VARIABLE: QT5_BUILD_DIR
+# @DESCRIPTION:
+# Build directory for out-of-source builds.
+case ${QT5_BUILD_TYPE} in
+	live)    : ${QT5_BUILD_DIR:=${S}_build} ;;
+	release) : ${QT5_BUILD_DIR:=${S}} ;; # workaround for bug 497312
+esac
+
+IUSE="debug test"
+
+[[ ${PN} == qtwebkit ]] && RESTRICT+=" mirror" # bug 524584
+[[ ${QT5_BUILD_TYPE} == release ]] && RESTRICT+=" test" # bug 457182
+
+DEPEND="
+	dev-lang/perl
+	virtual/pkgconfig
+"
+if [[ ${PN} != qttest ]]; then
+	DEPEND+=" test? ( ~dev-qt/qttest-${PV} )"
+fi
+RDEPEND="
+	dev-qt/qtchooser
+"
+
 
 ######  Phase functions  ######
+
+EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install src_test pkg_postinst pkg_postrm
 
 # @FUNCTION: qt5-build_src_unpack
 # @DESCRIPTION:
 # Unpacks the sources.
 qt5-build_src_unpack() {
-	if [[ $(gcc-major-version) -lt 4 ]] || [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 5 ]]; then
-		ewarn
-		ewarn "Using a GCC version lower than 4.5 is not supported."
-		ewarn
+	if tc-is-gcc; then
+		local min_gcc4_minor_version=5
+		if [[ ${QT5_MINOR_VERSION} -ge 7 || ${PN} == qtwebengine ]]; then
+			min_gcc4_minor_version=7
+		fi
+		if [[ $(gcc-major-version) -lt 4 ]] || \
+		   [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt ${min_gcc4_minor_version} ]]; then
+			eerror "GCC version 4.${min_gcc4_minor_version} or later is required to build this package"
+			die "GCC 4.${min_gcc4_minor_version} or later required"
+		fi
 	fi
 
-	if [[ ${PN} == qtwebkit ]]; then
+	# bug 307861
+	if [[ ${PN} == qtwebengine || ${PN} == qtwebkit ]]; then
 		eshopts_push -s extglob
 		if is-flagq '-g?(gdb)?([1-9])'; then
 			ewarn
 			ewarn "You have enabled debug info (probably have -g or -ggdb in your CFLAGS/CXXFLAGS)."
 			ewarn "You may experience really long compilation times and/or increased memory usage."
 			ewarn "If compilation fails, please try removing -g/-ggdb before reporting a bug."
-			ewarn "For more info check out https://bugs.gentoo.org/307861"
 			ewarn
 		fi
 		eshopts_pop
@@ -181,24 +186,35 @@ qt5-build_src_prepare() {
 		sed -i -e "/outpath\/qmake\".*\"\$MAKE\")/ s:): \
 			${MAKEOPTS} ${EXTRA_EMAKE} 'CC=$(tc-getCC)' 'CXX=$(tc-getCXX)' \
 			'QMAKE_CFLAGS=${CFLAGS}' 'QMAKE_CXXFLAGS=${CXXFLAGS}' 'QMAKE_LFLAGS=${LDFLAGS}'&:" \
-			-e '/"$CFG_RELEASE_QMAKE"/,/^\s\+fi$/ d' \
+			-e 's/\(setBootstrapVariable\s\+\|EXTRA_C\(XX\)\?FLAGS=.*\)QMAKE_C\(XX\)\?FLAGS_\(DEBUG\|RELEASE\).*/:/' \
 			configure || die "sed failed (respect env for qmake build)"
 		sed -i -e '/^CPPFLAGS\s*=/ s/-g //' \
 			qmake/Makefile.unix || die "sed failed (CPPFLAGS for qmake build)"
 
-		# Respect CXX in {bsymbolic_functions,fvisibility,precomp}.test
+		# Respect CXX in bsymbolic_functions, fvisibility, precomp, and a few other tests
 		sed -i -e "/^QMAKE_CONF_COMPILER=/ s:=.*:=\"$(tc-getCXX)\":" \
 			configure || die "sed failed (QMAKE_CONF_COMPILER)"
 
 		# Respect toolchain and flags in config.tests
-		find config.tests/unix -name '*.test' -type f \
-			-execdir sed -i -e '/bin\/qmake/ s/-nocache //' '{}' + \
-			|| die "sed failed (config.tests)"
+		find config.tests/unix -name '*.test' -type f -execdir \
+			sed -i -e 's/-nocache //' '{}' + || die
+
+		# Don't inject -msse/-mavx/... into CXXFLAGS when detecting
+		# compiler support for extended instruction sets (bug 552942)
+		find config.tests/common -name '*.pro' -type f -execdir \
+			sed -i -e '/QMAKE_CXXFLAGS\s*+=/ d' '{}' + || die
+
+		# Don't add -O3 to CXXFLAGS (bug 549140)
+		sed -i -e '/CONFIG\s*+=/ s/optimize_full//' \
+			src/{corelib/corelib,gui/gui}.pro || die "sed failed (optimize_full)"
 	fi
 
-	# apply patches
-	[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
-	epatch_user
+	if [[ ${EAPI} == 5 ]]; then
+		[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
+		epatch_user
+	else
+		default
+	fi
 }
 
 # @FUNCTION: qt5-build_src_configure
@@ -224,31 +240,27 @@ qt5-build_src_compile() {
 # @DESCRIPTION:
 # Runs tests in the target directories.
 qt5-build_src_test() {
-	echo ">>> Test phase [QtTest]: ${CATEGORY}/${PF}"
+	# disable broken cmake tests (bug 474004)
+	local myqmakeargs=("${myqmakeargs[@]}" -after SUBDIRS-=cmake SUBDIRS-=installed_cmake)
 
-	# '-after SUBDIRS-=...' disables broken cmake tests (bug 474004)
-	qt5_foreach_target_subdir qt5_qmake -after SUBDIRS-=cmake SUBDIRS-=installed_cmake
+	qt5_foreach_target_subdir qt5_qmake
 	qt5_foreach_target_subdir emake
 
 	# create a custom testrunner script that correctly sets
-	# {,DY}LD_LIBRARY_PATH before executing the given test
+	# LD_LIBRARY_PATH before executing the given test
 	local testrunner=${QT5_BUILD_DIR}/gentoo-testrunner
-	cat <<-EOF > "${testrunner}"
+	cat > "${testrunner}" <<-_EOF_ || die
 	#!/bin/sh
 	export LD_LIBRARY_PATH="${QT5_BUILD_DIR}/lib:${QT5_LIBDIR}"
-	export DYLD_LIBRARY_PATH="${QT5_BUILD_DIR}/lib:${QT5_LIBDIR}"
 	"\$@"
-	EOF
+	_EOF_
 	chmod +x "${testrunner}"
 
-	_qt5_test_runner() {
-		qt5_foreach_target_subdir emake TESTRUNNER="'${testrunner}'" check
-	}
-
+	set -- qt5_foreach_target_subdir emake TESTRUNNER="'${testrunner}'" check
 	if [[ ${VIRTUALX_REQUIRED} == test ]]; then
-		VIRTUALX_COMMAND="_qt5_test_runner" virtualmake
+		virtx "$@"
 	else
-		_qt5_test_runner
+		"$@"
 	fi
 }
 
@@ -261,11 +273,28 @@ qt5-build_src_install() {
 	if [[ ${PN} == qtcore ]]; then
 		pushd "${QT5_BUILD_DIR}" >/dev/null || die
 
-		set -- emake INSTALL_ROOT="${D}" install_{mkspecs,qmake,syncqt}
+		local qmake_install_target=install_qmake
+		if [[ ${QT5_MINOR_VERSION} -ge 7 ]]; then
+			# qmake/qmake-aux.pro
+			qmake_install_target=sub-qmake-qmake-aux-pro-install_subtargets
+		fi
+
+		local global_docs_install_target=
+		if [[ ${QT5_MINOR_VERSION} -le 6 && ${QT5_PATCH_VERSION} -le 2 ]]; then
+			global_docs_install_target=install_global_docs
+		fi
+
+		set -- emake INSTALL_ROOT="${D}" \
+			${qmake_install_target} \
+			install_{syncqt,mkspecs} \
+			${global_docs_install_target}
+
 		einfo "Running $*"
 		"$@"
 
 		popd >/dev/null || die
+
+		docompress -x "${QT5_DOCDIR#${EPREFIX}}"/global
 
 		# install an empty Gentoo/gentoo-qconfig.h in ${D}
 		# so that it's placed under package manager control
@@ -276,9 +305,24 @@ qt5-build_src_install() {
 		)
 
 		# include gentoo-qconfig.h at the beginning of QtCore/qconfig.h
-		sed -i -e '1a#include <Gentoo/gentoo-qconfig.h>\n' \
+		sed -i -e '1i #include <Gentoo/gentoo-qconfig.h>\n' \
 			"${D}${QT5_HEADERDIR}"/QtCore/qconfig.h \
 			|| die "sed failed (qconfig.h)"
+
+		# install qtchooser configuration file
+		cat > "${T}/qt5-${CHOST}.conf" <<-_EOF_ || die
+			${QT5_BINDIR}
+			${QT5_LIBDIR}
+		_EOF_
+
+		(
+			insinto /etc/xdg/qtchooser
+			doins "${T}/qt5-${CHOST}.conf"
+		)
+
+		# convenience symlinks
+		dosym qt5-"${CHOST}".conf /etc/xdg/qtchooser/5.conf
+		dosym qt5-"${CHOST}".conf /etc/xdg/qtchooser/qt5.conf
 	fi
 
 	qt5_install_module_qconfigs
@@ -305,18 +349,17 @@ qt5-build_pkg_postrm() {
 ######  Public helpers  ######
 
 # @FUNCTION: qt_use
-# @USAGE: <flag> [feature] [enableopt]
+# @USAGE: <flag> [feature] [enableval]
 # @DESCRIPTION:
 # <flag> is the name of a flag in IUSE.
 #
-# Echoes "-${enableopt}-${feature}" if <flag> is enabled, or "-no-${feature}"
-# if it is disabled. If [feature] is not specified, it defaults to the value
-# of <flag>. If [enableopt] is not specified, the whole "-${enableopt}" prefix
-# is omitted.
+# Outputs "-${enableval}-${feature}" if <flag> is enabled, "-no-${feature}"
+# otherwise. If [feature] is not specified, <flag> is used in its place.
+# If [enableval] is not specified, the "-${enableval}" prefix is omitted.
 qt_use() {
 	[[ $# -ge 1 ]] || die "${FUNCNAME}() requires at least one argument"
 
-	use "$1" && echo "${3:+-$3}-${2:-$1}" || echo "-no-${2:-$1}"
+	usex "$1" "${3:+-$3}-${2:-$1}" "-no-${2:-$1}"
 }
 
 # @FUNCTION: qt_use_compile_test
@@ -371,6 +414,7 @@ qt_use_disable_mod() {
 # Prepares the environment for building Qt.
 qt5_prepare_env() {
 	# setup installation directories
+	# note: keep paths in sync with qmake-utils.eclass
 	QT5_PREFIX=${EPREFIX}/usr
 	QT5_HEADERDIR=${QT5_PREFIX}/include/qt5
 	QT5_LIBDIR=${QT5_PREFIX}/$(get_libdir)
@@ -386,6 +430,10 @@ qt5_prepare_env() {
 	QT5_EXAMPLESDIR=${QT5_DATADIR}/examples
 	QT5_TESTSDIR=${QT5_DATADIR}/tests
 	QT5_SYSCONFDIR=${EPREFIX}/etc/xdg
+	readonly QT5_PREFIX QT5_HEADERDIR QT5_LIBDIR QT5_ARCHDATADIR \
+		QT5_BINDIR QT5_PLUGINDIR QT5_LIBEXECDIR QT5_IMPORTDIR \
+		QT5_QMLDIR QT5_DATADIR QT5_DOCDIR QT5_TRANSLATIONDIR \
+		QT5_EXAMPLESDIR QT5_TESTSDIR QT5_SYSCONFDIR
 
 	if [[ ${QT5_MODULE} == qtbase ]]; then
 		# see mkspecs/features/qt_config.prf
@@ -396,28 +444,31 @@ qt5_prepare_env() {
 # @FUNCTION: qt5_foreach_target_subdir
 # @INTERNAL
 # @DESCRIPTION:
-# Executes the arguments inside each directory listed in QT5_TARGET_SUBDIRS.
+# Executes the command given as argument from inside each directory
+# listed in QT5_TARGET_SUBDIRS. Handles autotests subdirs automatically.
 qt5_foreach_target_subdir() {
 	[[ -z ${QT5_TARGET_SUBDIRS[@]} ]] && QT5_TARGET_SUBDIRS=("")
 
-	local ret=0 subdir=
+	local die_args=()
+	[[ ${EAPI} != 5 ]] && die_args+=(-n)
+
+	local subdir=
 	for subdir in "${QT5_TARGET_SUBDIRS[@]}"; do
 		if [[ ${EBUILD_PHASE} == test ]]; then
 			subdir=tests/auto${subdir#src}
 			[[ -d ${S}/${subdir} ]] || continue
 		fi
 
-		mkdir -p "${QT5_BUILD_DIR}/${subdir}" || die
-		pushd "${QT5_BUILD_DIR}/${subdir}" >/dev/null || die
+		local msg="Running $* ${subdir:+in ${subdir}}"
+		einfo "${msg}"
 
-		einfo "Running $* ${subdir:+in ${subdir}}"
-		"$@"
-		((ret+=$?))
+		mkdir -p "${QT5_BUILD_DIR}/${subdir}" || die "${die_args[@]}" || return $?
+		pushd "${QT5_BUILD_DIR}/${subdir}" >/dev/null || die "${die_args[@]}" || return $?
 
-		popd >/dev/null || die
+		"$@" || die "${die_args[@]}" "${msg} failed" || return $?
+
+		popd >/dev/null || die "${die_args[@]}" || return $?
 	done
-
-	return ${ret}
 }
 
 # @FUNCTION: qt5_symlink_tools_to_build_dir
@@ -429,7 +480,6 @@ qt5_symlink_tools_to_build_dir() {
 	local tool= tools=()
 	if [[ ${PN} != qtcore ]]; then
 		tools+=(qmake moc rcc qlalr)
-		[[ ${PN} != qdoc ]] && tools+=(qdoc)
 		[[ ${PN} != qtdbus ]] && tools+=(qdbuscpp2xml qdbusxml2cpp)
 		[[ ${PN} != qtwidgets ]] && tools+=(uic)
 	fi
@@ -451,7 +501,7 @@ qt5_symlink_tools_to_build_dir() {
 # Runs ./configure for modules belonging to qtbase.
 qt5_base_configure() {
 	# setup toolchain variables used by configure
-	tc-export CC CXX RANLIB STRIP
+	tc-export AR CC CXX OBJDUMP RANLIB STRIP
 	export LD="$(tc-getCXX)"
 
 	# configure arguments
@@ -473,21 +523,26 @@ qt5_base_configure() {
 		-examplesdir "${QT5_EXAMPLESDIR}"
 		-testsdir "${QT5_TESTSDIR}"
 
-		# debug/release
-		$(use debug && echo -debug || echo -release)
+		# configure in release mode by default,
+		# override via the CONFIG qmake variable
+		-release
 		-no-separate-debug-info
+
+		# no need to forcefully build host tools in optimized mode,
+		# just follow the overall debug/release build type
+		-no-optimized-tools
 
 		# licensing stuff
 		-opensource -confirm-license
 
-		# let configure automatically figure out if C++11 is supported
-		#-c++11
+		# autodetect the highest supported version of the C++ standard
+		#-c++std <c++11|c++14|c++1z>
 
 		# build shared libraries
 		-shared
 
 		# always enable large file support
-		-largefile
+		$([[ ${QT5_MINOR_VERSION} -lt 8 ]] && echo -largefile)
 
 		# disabling accessibility is not recommended by upstream, as
 		# it will break QStyle and may break other internal parts of Qt
@@ -497,36 +552,40 @@ qt5_base_configure() {
 		-no-sql-db2 -no-sql-ibase -no-sql-mysql -no-sql-oci -no-sql-odbc
 		-no-sql-psql -no-sql-sqlite -no-sql-sqlite2 -no-sql-tds
 
-		# obsolete flag, does nothing
-		#-qml-debug
+		# ensure the QML debugging support (qmltooling) is built in qtdeclarative
+		-qml-debug
+
+		# MIPS DSP instruction set extensions
+		$(is-flagq -mno-dsp   && echo -no-mips_dsp)
+		$(is-flagq -mno-dspr2 && echo -no-mips_dspr2)
 
 		# use pkg-config to detect include and library paths
 		-pkg-config
 
-		# prefer system libraries (only common deps here)
+		# prefer system libraries (only common hard deps here)
 		-system-zlib
 		-system-pcre
-
-		# don't specify -no-gif because there is no way to override it later
-		#-no-gif
+		# TODO after bug 581054
+		#$([[ ${QT5_MINOR_VERSION} -ge 7 ]] && echo -system-doubleconversion)
 
 		# disable everything to prevent automagic deps (part 1)
 		-no-mtdev
-		-no-journald
+		-no-journald -no-syslog
 		-no-libpng -no-libjpeg
 		-no-freetype -no-harfbuzz
-		-no-openssl
+		-no-openssl -no-libproxy
+		-no-xkbcommon-x11 -no-xkbcommon-evdev
 		-no-xinput2 -no-xcb-xlib
+
+		# cannot use -no-gif because there is no way to override it later
+		#-no-gif
 
 		# always enable glib event loop support
 		-glib
 
 		# disable everything to prevent automagic deps (part 2)
 		-no-pulseaudio -no-alsa
-
-		# disable gtkstyle because it adds qt4 include paths to the compiler
-		# command line if x11-libs/cairo is built with USE=qt4 (bug 433826)
-		-no-gtkstyle
+		$([[ ${QT5_MINOR_VERSION} -ge 7 ]] && echo -no-gtk || echo -no-gtkstyle)
 
 		# exclude examples and tests from default build
 		-nomake examples
@@ -534,49 +593,43 @@ qt5_base_configure() {
 		-no-compile-examples
 
 		# disable rpath on non-prefix (bugs 380415 and 417169)
-		$(use prefix || echo -no-rpath)
+		$(usex prefix '' -no-rpath)
 
 		# print verbose information about each configure test
 		-verbose
-
-		# doesn't actually matter since we override CXXFLAGS
-		#-no-optimized-qmake
-
-		# obsolete flag, does nothing
-		#-nis
 
 		# always enable iconv support
 		-iconv
 
 		# disable everything to prevent automagic deps (part 3)
-		-no-cups -no-evdev -no-icu -no-fontconfig -no-dbus
+		-no-cups -no-evdev -no-tslib -no-icu -no-fontconfig -no-dbus
 
-		# don't strip
+		# let portage handle stripping
 		-no-strip
 
-		# precompiled headers are not that useful for us
-		# and cause problems on hardened, so turn them off
+		# precompiled headers can cause problems on hardened, so turn them off
 		-no-pch
 
-		# reduced relocations cause major breakage on at least arm and ppc, so we
-		# don't specify anything and let configure figure out if they are supported,
-		# see also https://bugreports.qt-project.org/browse/QTBUG-36129
+		# link-time code generation is not something we want to enable by default
+		-no-ltcg
+
+		# reduced relocations cause major breakage on at least arm and ppc, so
+		# don't specify anything and let the configure figure out if they are
+		# supported; see also https://bugreports.qt.io/browse/QTBUG-36129
 		#-reduce-relocations
 
 		# let configure automatically detect if GNU gold is available
 		#-use-gold-linker
 
 		# disable all platform plugins by default, override in qtgui
-		-no-xcb -no-eglfs -no-directfb -no-linuxfb -no-kms
+		-no-xcb -no-eglfs -no-kms -no-gbm -no-directfb -no-linuxfb -no-mirclient
 
 		# disable undocumented X11-related flags, override in qtgui
 		# (not shown in ./configure -help output)
 		-no-xkb -no-xrender
 
 		# disable obsolete/unused X11-related flags
-		# (not shown in ./configure -help output)
-		-no-mitshm -no-xcursor -no-xfixes -no-xinerama -no-xinput
-		-no-xrandr -no-xshape -no-xsync -no-xvideo
+		$([[ ${QT5_MINOR_VERSION} -lt 8 ]] && echo -no-mitshm -no-xcursor -no-xfixes -no-xrandr -no-xshape -no-xsync)
 
 		# always enable session management support: it doesn't need extra deps
 		# at configure time and turning it off is dangerous, see bug 518262
@@ -585,11 +638,19 @@ qt5_base_configure() {
 		# typedef qreal to double (warning: changing this flag breaks the ABI)
 		-qreal double
 
-		# disable opengl and egl by default, override in qtgui and qtopengl
+		# disable OpenGL and EGL support by default, override in qtgui,
+		# qtopengl, qtprintsupport and qtwidgets
 		-no-opengl -no-egl
 
-		# use upstream default
-		#-no-system-proxies
+		# disable libinput-based generic plugin by default, override in qtgui
+		-no-libinput
+
+		# disable gstreamer by default, override in qtmultimedia
+		-no-gstreamer
+
+		# respect system proxies by default: it's the most natural
+		# setting, and it'll become the new upstream default in 5.8
+		-system-proxies
 
 		# do not build with -Werror
 		-no-warnings-are-errors
@@ -621,6 +682,9 @@ qt5_qmake() {
 	fi
 
 	"${qmakepath}"/qmake \
+		"${projectdir}" \
+		CONFIG+=$(usex debug debug release) \
+		CONFIG-=$(usex debug release debug) \
 		QMAKE_AR="$(tc-getAR) cqs" \
 		QMAKE_CC="$(tc-getCC)" \
 		QMAKE_LINK_C="$(tc-getCC)" \
@@ -640,9 +704,8 @@ qt5_qmake() {
 		QMAKE_LFLAGS="${LDFLAGS}" \
 		QMAKE_LFLAGS_RELEASE= \
 		QMAKE_LFLAGS_DEBUG= \
-		"${projectdir}" \
-		"$@" \
-		|| die "qmake failed (${projectdir})"
+		"${myqmakeargs[@]}" \
+		|| die "qmake failed (${projectdir#${S}/})"
 }
 
 # @FUNCTION: qt5_install_module_qconfigs

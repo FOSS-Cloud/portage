@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd></herd>
-  <maintainer>
+  <maintainer type="person">
     <email>mjo@gentoo.org</email>
   </maintainer>
   <longdescription>
@@ -19,4 +18,7 @@
     data," available at
     http://kore-nordmann.de/talks/11_03_learning_xml_schema_definitions_from_xml_data.pdf.
   </longdescription>
+  <upstream>
+    <remote-id type="github">kore/XML-Schema-learner</remote-id>
+  </upstream>
 </pkgmetadata>

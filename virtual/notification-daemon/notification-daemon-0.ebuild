@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/notification-daemon/notification-daemon-0.ebuild,v 1.13 2014/06/02 04:50:52 rafaelmartins Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,13 +10,16 @@ SRC_URI=""
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="alpha amd64 arm ia64 ~mips ppc ppc64 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
-IUSE="gnome"
+KEYWORDS="alpha amd64 arm ~arm64 ia64 ~mips ppc ppc64 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
+IUSE="gnome kde"
 
 RDEPEND="
 	gnome? ( || ( x11-misc/notification-daemon
 		gnome-base/gnome-shell ) )
-	!gnome? ( || ( x11-misc/notification-daemon
+	kde? ( kde-plasma/plasma-workspace )
+	!gnome? ( !kde? ( || (
+		x11-misc/notification-daemon
+		gnome-extra/cinnamon
 		xfce-extra/xfce4-notifyd
 		x11-misc/qtnotifydaemon
 		x11-misc/notify-osd
@@ -24,8 +27,7 @@ RDEPEND="
 		>=x11-wm/awesome-3.4.4
 		x11-wm/enlightenment[enlightenment_modules_notification]
 		x11-wm/enlightenment[e_modules_notification]
-		kde-base/knotify
 		x11-misc/mate-notification-daemon
-		razorqt-base/razorqt-notifications
-		lxqt-base/lxqt-notificationd ) )"
+		lxqt-base/lxqt-notificationd
+		kde-misc/colibri ) ) )"
 DEPEND=""

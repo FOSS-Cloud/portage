@@ -1,66 +1,127 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/merkaartor/merkaartor-9999.ebuild,v 1.14 2013/03/02 23:21:39 hwoarang Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 
-REDMINE_HASH="253"
-[[ ${PV} == 9999 ]] && SCM_ECLASS=git-2
-EGIT_REPO_URI="git://gitorious.org/merkaartor/main.git"
-EGIT_PROJECT=${PN}
-inherit multilib qt4-r2 ${SCM_ECLASS}
+PLOCALES="ar cs de en es et fr hr hu id_ID it ja nl pl pt_BR pt ru sk sv uk vi zh_CN zh_TW"
 
-DESCRIPTION="A Qt4 based map editor for the openstreetmap.org project"
-HOMEPAGE="http://www.merkaartor.be"
-[[ ${PV} == 9999 ]] || SRC_URI="http://merkaartor.be/attachments/download/${REDMINE_HASH}/merkaartor-${PV}.tar.bz2"
+inherit fdo-mime gnome2-utils git-r3 l10n qmake-utils
+
+DESCRIPTION="A Qt based map editor for the openstreetmap.org project"
+HOMEPAGE="http://www.merkaartor.be https://github.com/openstreetmap/merkaartor"
+SRC_URI=""
+EGIT_REPO_URI="https://github.com/openstreetmap/merkaartor.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-[[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~x86"
-IUSE="debug exif gps nls libproxy webkit"
+KEYWORDS=""
+IUSE="debug exif gps libproxy qrcode qt5"
 
-QT_MINIMAL="4.7.2"
+REQUIRED_USE="qrcode? ( !qt5 )"
+
 RDEPEND="
+	!qt5? (
+		dev-qt/qtcore:4
+		dev-qt/qtgui:4
+		dev-qt/qtsingleapplication[qt4]
+		dev-qt/qtsvg:4
+		dev-qt/qtwebkit:4
+	)
+	qt5? (
+		dev-qt/qtconcurrent:5
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtprintsupport:5
+		dev-qt/qtsvg:5
+		dev-qt/qtwebkit:5
+		dev-qt/qtwidgets:5
+		dev-qt/qtxml:5
+	)
+	dev-qt/qtsingleapplication[X,qt5?]
 	>=sci-libs/gdal-1.6.0
 	>=sci-libs/proj-4.6
-	>=dev-qt/qtgui-${QT_MINIMAL}:4
-	>=dev-qt/qtsvg-${QT_MINIMAL}:4
-	exif? ( media-gfx/exiv2 )
-	gps? ( >=sci-geosciences/gpsd-2.92[cxx] )
+	sys-libs/zlib
+	exif? ( media-gfx/exiv2:= )
+	gps? ( >=sci-geosciences/gpsd-3.13[cxx] )
 	libproxy? ( net-libs/libproxy )
-	webkit? ( >=dev-qt/qtwebkit-${QT_MINIMAL}:4 )
+	qrcode? ( media-gfx/zbar[qt4] )
 "
-DEPEND="${DEPEND}
-	>=dev-libs/boost-1.46
+DEPEND="${RDEPEND}
+	qt5? ( dev-qt/linguist-tools:5 )
+	virtual/pkgconfig
 "
 
-DOCS="AUTHORS CHANGELOG HACKING"
+DOCS=( AUTHORS CHANGELOG )
 
-MAKEOPTS+=" -j1"
+src_unpack() {
+	git-r3_src_unpack
+}
 
-merkaartor_use() {
-	local useflag=${1}
-	[[ -z ${useflag} ]] && die "No useflag specified"
-	if use ${useflag}; then
-		echo "1"
-	else
-		echo "0"
+src_prepare() {
+	default
+
+	my_rm_loc() {
+		sed -i -e "s:../translations/${PN}_${1}.\(ts\|qm\)::" src/src.pro || die
+		rm "translations/${PN}_${1}.ts" || die
+	}
+
+	if [[ -n "$(l10n_get_locales)" ]]; then
+		l10n_for_each_disabled_locale_do my_rm_loc
+		if use qt5 ; then
+			$(qt5_get_bindir)/lrelease src/src.pro || die
+		else
+			$(qt4_get_bindir)/lrelease src/src.pro || die
+		fi
+	fi
+
+	# build system expects to be building from git
+	if [[ ${PV} != *9999 ]] ; then
+		sed -i "${S}"/src/Config.pri -e "s:SION = .*:SION = \"${PV}\":g" || die
 	fi
 }
 
 src_configure() {
-	local myconf
-	myconf+=" RELEASE=1 ZBAR=0" # deps not in main tree so hard-disable
-	myconf+=" GEOIMAGE=$(${PN}_use exif)"
-	myconf+=" GPSDLIB=$(${PN}_use gps)"
-	myconf+=" LIBPROXY=$(${PN}_use libproxy)"
-	myconf+=" NODEBUG=$(use debug && echo "0" || echo "1")" # inverse logic
-	myconf+=" NOUSEWEBKIT=$(use webkit && echo "0" || echo "1")" # inverse logic
-	myconf+=" TRANSDIR_MERKAARTOR=/usr/share/${PN}/translations TRANSDIR_SYSTEM=/usr/share/qt4/translations" #385671
-
-	if use nls; then
-		lrelease src/src.pro || die "lrelease failed"
+	# TRANSDIR_SYSTEM is for bug #385671
+	if use qt5 ; then
+		eqmake5 \
+		PREFIX="${ED}usr" \
+		LIBDIR="${ED}usr/$(get_libdir)" \
+		TRANSDIR_MERKAARTOR="${ED}usr/share/${PN}/translations" \
+		TRANSDIR_SYSTEM="${EPREFIX}/usr/share/qt5/translations" \
+		SYSTEM_QTSA=1 \
+		NODEBUG="$(usex debug '0' '1')" \
+		GEOIMAGE="$(usex exif '1' '0')" \
+		GPSDLIB="$(usex gps '1' '0')" \
+		LIBPROXY="$(usex libproxy '1' '0')" \
+		ZBAR="$(usex qrcode '1' '0')" \
+		Merkaartor.pro
+	else
+		eqmake4 \
+		PREFIX="${ED}usr" \
+		LIBDIR="${ED}usr/$(get_libdir)" \
+		TRANSDIR_MERKAARTOR="${ED}usr/share/${PN}/translations" \
+		TRANSDIR_SYSTEM="${EPREFIX}/usr/share/qt4/translations" \
+		SYSTEM_QTSA=1 \
+		NODEBUG="$(usex debug '0' '1')" \
+		GEOIMAGE="$(usex exif '1' '0')" \
+		GPSDLIB="$(usex gps '1' '0')" \
+		LIBPROXY="$(usex libproxy '1' '0')" \
+		ZBAR="$(usex qrcode '1' '0')" \
+		Merkaartor.pro
 	fi
+}
 
-	eqmake4 Merkaartor.pro LIBDIR=/usr/$(get_libdir) PREFIX=/usr/ ${myconf}
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
 }

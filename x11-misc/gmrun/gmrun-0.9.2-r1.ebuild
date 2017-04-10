@@ -1,12 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/gmrun/gmrun-0.9.2-r1.ebuild,v 1.11 2014/09/08 08:45:50 jer Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils
 
 DESCRIPTION="A GTK-2 based launcher box with bash style auto completion!"
-HOMEPAGE="http://sourceforge.net/projects/gmrun/"
+HOMEPAGE="https://sourceforge.net/projects/gmrun/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-1"

@@ -1,11 +1,11 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/advancecomp/advancecomp-1.15.ebuild,v 1.11 2013/04/02 20:55:35 ago Exp $
+# $Id$
 
 EAPI=4
 inherit eutils
 
-DESCRIPTION="Recompress ZIP, PNG and MNG using deflate 7-Zip, considerably improving compression"
+DESCRIPTION="Recompress ZIP, PNG and MNG, considerably improving compression"
 HOMEPAGE="http://advancemame.sourceforge.net/comp-readme.html"
 SRC_URI="mirror://sourceforge/advancemame/${P}.tar.gz"
 

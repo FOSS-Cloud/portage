@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/visit/visit-2.7.3.ebuild,v 1.1 2014/07/25 12:24:12 slis Exp $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -24,7 +24,7 @@ RDEPEND="
 	hdf5? ( sci-libs/hdf5 )
 	netcdf? ( sci-libs/netcdf )
 	silo? ( sci-libs/silo )
-	>=sci-libs/vtk-6.0.0[imaging,python,rendering,${PYTHON_USEDEP}]
+	>=sci-libs/vtk-6.0.0[imaging,python,rendering,qt4,${PYTHON_USEDEP}]
 	sys-libs/zlib"
 DEPEND="${RDEPEND}"
 

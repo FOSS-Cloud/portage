@@ -1,15 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/emms/emms-3.0-r1.ebuild,v 1.3 2014/06/07 11:16:03 ulm Exp $
+# $Id$
 
 EAPI=5
 
 inherit elisp toolchain-funcs
 
 DESCRIPTION="The Emacs Multimedia System"
-HOMEPAGE="http://www.gnu.org/software/emms/
-	http://www.emacswiki.org/cgi-bin/wiki/EMMS"
-SRC_URI="http://www.gnu.org/software/emms/download/${P}.tar.gz"
+HOMEPAGE="https://www.gnu.org/software/emms/
+	http://www.emacswiki.org/emacs/EMMS"
+SRC_URI="https://www.gnu.org/software/emms/download/${P}.tar.gz"
 
 LICENSE="GPL-3+ FDL-1.1+"
 SLOT="0"

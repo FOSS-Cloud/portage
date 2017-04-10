@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/dhex/dhex-0.68.ebuild,v 1.4 2014/03/20 04:15:35 mattst88 Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 inherit eutils toolchain-funcs
 
@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="amd64 ~arm ~mips x86"
 IUSE=""
 
-DEPEND="sys-libs/ncurses"
+DEPEND="sys-libs/ncurses:="
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${MY_P}
@@ -27,7 +27,9 @@ src_prepare() {
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)"
+	emake \
+		CC="$(tc-getCC)" \
+		LIBS="$($(tc-getPKG_CONFIG) --libs ncurses)"
 }
 
 src_install() {

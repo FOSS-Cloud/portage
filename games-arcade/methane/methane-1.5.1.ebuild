@@ -1,15 +1,15 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/methane/methane-1.5.1.ebuild,v 1.5 2013/01/18 09:40:41 mr_bones_ Exp $
+# $Id$
 
-EAPI=4
-inherit eutils games
+EAPI=5
+inherit eutils flag-o-matic games
 
 DESCRIPTION="Port from an old amiga game"
 HOMEPAGE="http://methane.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tgz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
@@ -22,10 +22,11 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-gentoo.patch
 	sed -i \
 		-e "s:@GENTOO_DATADIR@:${GAMES_DATADIR}:" \
-		sources/target.cpp
+		sources/target.cpp || die
 
 	# fix weird parallel make issue wrt #450422
 	mkdir build || die
+	append-cxxflags -Wno-narrowing # build with gcc5 (bug #573788)
 }
 
 src_install() {

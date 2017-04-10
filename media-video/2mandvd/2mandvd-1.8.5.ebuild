@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/2mandvd/2mandvd-1.8.5.ebuild,v 1.1 2013/08/31 08:27:16 pesa Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 LANGS="cs de en it ru"
 
 inherit qt4-r2
@@ -15,11 +15,12 @@ SRC_URI="http://download.tuxfamily.org/${PN}/${MY_PN}-${PV}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+KEYWORDS="amd64 x86"
+IUSE="debug libav"
 
-DEPEND="media-libs/libsdl
-	virtual/ffmpeg
+DEPEND="libav? ( media-video/libav:= )
+	!libav? ( media-video/ffmpeg:0= )
+	media-libs/libsdl
 	virtual/glu
 	virtual/opengl
 	dev-qt/qtcore:4
@@ -44,6 +45,8 @@ S=${WORKDIR}/${MY_PN}
 PATCHES=(
 	"${FILESDIR}/${PN}-1.7.3-libav.patch"
 	"${FILESDIR}/${PN}-1.8.5-libavformat54.patch"
+	"${FILESDIR}/${PN}-1.8.5-gcc6.patch"
+	"${FILESDIR}/${PN}-1.8.5-ffmpeg3.patch"
 )
 
 src_prepare() {

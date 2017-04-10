@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/ocsync/ocsync-0.90.4.ebuild,v 1.1 2014/02/24 13:55:54 voyageur Exp $
+# $Id$
 
 EAPI=5
 
@@ -19,7 +19,7 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-db/sqlite:3
-	>=dev-libs/iniparser-3.1
+	>=dev-libs/iniparser-3.1:0
 	net-libs/neon[ssl]
 	iconv? ( virtual/libiconv )
 	samba? ( net-fs/samba )
@@ -36,6 +36,9 @@ DEPEND="${DEPEND}
 src_prepare() {
 	cmake-utils_src_prepare
 
+	sed -e "s/__FUNCTION__/__func__/" -i \
+		src/csync_log.h src/httpbf/src/httpbf.c \
+		tests/csync_tests/check_csync_log.c || die
 	# proper docdir
 	sed -e "s:/doc/ocsync:/doc/${PF}:" \
 		-i doc/CMakeLists.txt || die

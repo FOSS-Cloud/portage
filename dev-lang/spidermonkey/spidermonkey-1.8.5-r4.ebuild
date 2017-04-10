@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/spidermonkey/spidermonkey-1.8.5-r4.ebuild,v 1.20 2013/08/30 17:28:21 axs Exp $
+# $Id$
 
 EAPI="5"
 WANT_AUTOCONF="2.1"
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="threads"
 inherit autotools eutils toolchain-funcs multilib python-any-r1 versionator pax-utils
 
@@ -13,18 +13,19 @@ TARBALL_PV="$(replace_all_version_separators '' $(get_version_component_range 1-
 MY_P="${MY_PN}-${PV}"
 TARBALL_P="${MY_PN}${TARBALL_PV}-1.0.0"
 DESCRIPTION="Stand-alone JavaScript C library"
-HOMEPAGE="http://www.mozilla.org/js/spidermonkey/"
+HOMEPAGE="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey"
 SRC_URI="https://ftp.mozilla.org/pub/mozilla.org/js/${TARBALL_P}.tar.gz"
 
 LICENSE="NPL-1.1"
 SLOT="0/mozjs185"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x64-macos"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x64-macos"
 IUSE="debug minimal static-libs test"
 
 S="${WORKDIR}/${MY_P}"
 BUILDDIR="${S}/js/src"
 
 RDEPEND=">=dev-libs/nspr-4.7.0
+	sys-libs/readline:0=
 	x64-macos? ( dev-libs/jemalloc )"
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
@@ -56,6 +57,8 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-1.8.5-ia64-static-strings.patch
 	# https://bugs.gentoo.org/show_bug.cgi?id=431560
 	epatch "${FILESDIR}"/${PN}-1.8.5-isfinite.patch
+	# https://bugs.gentoo.org/show_bug.cgi?id=552786
+	epatch "${FILESDIR}"/${PN}-perl-defined-array-check.patch
 
 	epatch_user
 
@@ -75,31 +78,39 @@ src_configure() {
 		--enable-readline \
 		--enable-threadsafe \
 		--with-system-nspr \
+		--disable-optimize \
+		--disable-profile-guided-optimization \
 		$(use_enable debug) \
 		$(use_enable static-libs static) \
 		$(use_enable test tests)
 }
 
+cross_make() {
+	emake \
+		CFLAGS="${BUILD_CFLAGS}" \
+		CXXFLAGS="${BUILD_CXXFLAGS}" \
+		AR="${BUILD_AR}" \
+		CC="${BUILD_CC}" \
+		CXX="${BUILD_CXX}" \
+		RANLIB="${BUILD_RANLIB}" \
+		"$@"
+}
 src_compile() {
 	cd "${BUILDDIR}" || die
 	if tc-is-cross-compiler; then
-		make CFLAGS="" CXXFLAGS="" \
-			CC=$(tc-getBUILD_CC) CXX=$(tc-getBUILD_CXX) \
-			AR=$(tc-getBUILD_AR) RANLIB=$(tc-getBUILD_RANLIB) \
-			jscpucfg host_jsoplengen host_jskwgen || die
-		make CFLAGS="" CXXFLAGS="" \
-			CC=$(tc-getBUILD_CC) CXX=$(tc-getBUILD_CXX) \
-			AR=$(tc-getBUILD_AR) RANLIB=$(tc-getBUILD_RANLIB) \
-			-C config nsinstall || die
+		tc-export_build_env BUILD_{AR,CC,CXX,RANLIB}
+		cross_make jscpucfg host_jsoplengen host_jskwgen
+		cross_make -C config nsinstall
 		mv {,native-}jscpucfg || die
 		mv {,native-}host_jskwgen || die
 		mv {,native-}host_jsoplengen || die
 		mv config/{,native-}nsinstall || die
-		sed -e 's@./jscpucfg@./native-jscpucfg@' \
+		sed -i \
+			-e 's@./jscpucfg@./native-jscpucfg@' \
 			-e 's@./host_jskwgen@./native-host_jskwgen@' \
 			-e 's@./host_jsoplengen@./native-host_jsoplengen@' \
-			-i Makefile || die
-		sed -e 's@/nsinstall@/native-nsinstall@' -i config/config.mk || die
+			Makefile || die
+		sed -i -e 's@/nsinstall@/native-nsinstall@' config/config.mk || die
 		rm -f config/host_nsinstall.o \
 			config/host_pathsub.o \
 			host_jskwgen.o \

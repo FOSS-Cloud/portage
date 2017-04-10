@@ -1,26 +1,24 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/gnome-doc-utils/gnome-doc-utils-0.20.10-r1.ebuild,v 1.15 2014/09/07 13:36:14 pacho Exp $
+# $Id$
 
-EAPI="5"
-GCONF_DEBUG="no"
-PYTHON_COMPAT=( python2_{6,7} )
+EAPI=6
+PYTHON_COMPAT=( python2_7 )
 
 inherit gnome2 multibuild python-r1
 
 DESCRIPTION="A collection of documentation utilities for the Gnome project"
-HOMEPAGE="http://live.gnome.org/GnomeDocUtils"
+HOMEPAGE="https://wiki.gnome.org/Projects/GnomeDocUtils"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 
 IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="
-	${PYTHON_DEPS}
-	>=dev-libs/libxml2-2.6.12[python,${PYTHON_USEDEP}]
+RDEPEND="${PYTHON_DEPS}
+	>=dev-libs/libxml2-2.6.12:2[python,${PYTHON_USEDEP}]
 	>=dev-libs/libxslt-1.1.8
 "
 DEPEND="${RDEPEND}
@@ -38,7 +36,7 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	# Stop build from relying on installed package
-	epatch "${FILESDIR}"/${P}-fix-out-of-tree-build.patch
+	eapply "${FILESDIR}"/${P}-fix-out-of-tree-build.patch
 
 	gnome2_src_prepare
 
@@ -57,7 +55,7 @@ src_configure() {
 }
 
 src_compile() {
-	python_foreach_impl run_in_build_dir gnome2_src_compile
+	MAKEOPTS="${MAKEOPTS} -j1" python_foreach_impl run_in_build_dir gnome2_src_compile #574282
 }
 
 src_test() {
@@ -65,7 +63,6 @@ src_test() {
 }
 
 src_install() {
-	dodoc AUTHORS ChangeLog NEWS README
 	python_foreach_impl run_in_build_dir gnome2_src_install
 	python_replicate_script "${ED}"/usr/bin/xml2po
 }

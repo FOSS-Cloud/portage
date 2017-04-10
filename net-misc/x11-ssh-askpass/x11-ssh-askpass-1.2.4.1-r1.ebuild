@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/x11-ssh-askpass/x11-ssh-askpass-1.2.4.1-r1.ebuild,v 1.13 2012/12/15 15:45:04 ulm Exp $
+# $Id$
 
 inherit eutils multilib
 
@@ -20,7 +20,7 @@ RDEPEND="virtual/ssh
 	x11-libs/libICE"
 
 DEPEND="${RDEPEND}
-	x11-misc/imake
+	>=x11-misc/imake-1.0.7
 	app-text/rman"
 
 src_compile() {

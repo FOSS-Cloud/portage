@@ -1,17 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pycairo/pycairo-1.10.0-r4.ebuild,v 1.19 2014/05/21 14:34:31 idella4 Exp $
+# $Id$
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
+PYTHON_REQ_USE='threads(+)'
 
-inherit eutils python-r1 waf-utils
+inherit eutils python-r1 waf-utils toolchain-funcs
 
 PYCAIRO_PYTHON2_VERSION="${PV}"
 PYCAIRO_PYTHON3_VERSION="${PV}"
 
 DESCRIPTION="Python bindings for the cairo library"
-HOMEPAGE="http://cairographics.org/pycairo/ http://pypi.python.org/pypi/pycairo"
+HOMEPAGE="http://cairographics.org/pycairo/ https://pypi.python.org/pypi/pycairo"
 SRC_URI="http://cairographics.org/releases/py2cairo-${PYCAIRO_PYTHON2_VERSION}.tar.bz2
 	http://cairographics.org/releases/pycairo-${PYCAIRO_PYTHON3_VERSION}.tar.bz2"
 
@@ -74,6 +75,10 @@ src_configure() {
 	if ! use xcb; then
 		export PYCAIRO_DISABLE_XPYB=1
 	fi
+
+	tc-export PKG_CONFIG
+	# Also export the var with the slightly diff name that waf uses for no good reason.
+	export PKGCONFIG=${PKG_CONFIG}
 
 	# Added by grobian:
 	# If WAF_BINARY is an absolute path, the configure is different and fails to

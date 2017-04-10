@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/gawk/gawk-4.0.2.ebuild,v 1.13 2014/01/18 02:58:35 vapier Exp $
+# $Id$
 
 EAPI="4"
 
 inherit eutils toolchain-funcs multilib
 
 DESCRIPTION="GNU awk pattern-matching language"
-HOMEPAGE="http://www.gnu.org/software/gawk/gawk.html"
+HOMEPAGE="https://www.gnu.org/software/gawk/gawk.html"
 SRC_URI="mirror://gnu/gawk/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="nls readline"
 
 # older gawk's provided shared lib for baselayout-1
@@ -54,7 +54,8 @@ src_install() {
 
 pkg_postinst() {
 	# symlink creation here as the links do not belong to gawk, but to any awk
-	if has_version app-admin/eselect && has_version app-admin/eselect-awk ; then
+	if has_version app-admin/eselect \
+			&& has_version app-eselect/eselect-awk ; then
 		eselect awk update ifunset
 	else
 		local l
@@ -66,7 +67,8 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	if has_version app-admin/eselect && has_version app-admin/eselect-awk ; then
+	if has_version app-admin/eselect \
+			&& has_version app-eselect/eselect-awk ; then
 		eselect awk update ifunset
 	fi
 }

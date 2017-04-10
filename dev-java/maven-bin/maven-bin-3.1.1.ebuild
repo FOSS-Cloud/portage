@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/maven-bin/maven-bin-3.1.1.ebuild,v 1.2 2014/03/10 21:05:30 johu Exp $
+# $Id$
 
 EAPI="5"
 
@@ -17,14 +17,14 @@ HOMEPAGE="http://maven.apache.org/"
 
 LICENSE="Apache-2.0"
 SLOT="3.1"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 # TODO: Needs further resolution:
 #
 # - https://bugs.gentoo.org/show_bug.cgi?id=472850
 # - https://bugs.gentoo.org/show_bug.cgi?id=477436
 #
-DEPEND="|| ( app-admin/eselect-java app-admin/eselect-maven )
+DEPEND="app-eselect/eselect-java
 	|| ( dev-java/commons-logging:0 dev-java/log4j:0 dev-java/avalon-logkit:2.0 )
 	dev-java/aopalliance:1
 	dev-java/avalon-framework:4.1

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libktorrent/libktorrent-1.3.1.ebuild,v 1.7 2014/03/01 22:26:27 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -21,24 +21,23 @@ if [[ ${PV} != 9999* ]]; then
 	SRC_URI="http://ktorrent.org/downloads/${KTORRENT_VERSION}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
 
-	KEYWORDS="amd64 ~arm ppc ppc64 x86"
-else
-	KEYWORDS=""
+	KEYWORDS="amd64 ~arm x86"
 fi
+
 VIRTUALX_REQUIRED="test"
 inherit kde4-base
 
 DESCRIPTION="A BitTorrent library based on KDE Platform"
-HOMEPAGE="http://ktorrent.org/"
+HOMEPAGE="http://ktorrent.pwsp.net/"
 
 LICENSE="GPL-2"
 SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	app-crypt/qca:2
-	dev-libs/gmp
-	dev-libs/libgcrypt:0
+	app-crypt/qca:2[qt4(+)]
+	dev-libs/gmp:0=
+	dev-libs/libgcrypt:0=
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost

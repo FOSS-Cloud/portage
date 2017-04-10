@@ -1,17 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-vim/youcompleteme/youcompleteme-99999999.ebuild,v 1.4 2014/06/25 17:52:17 maksbotan Exp $
+# $Id$
 
 EAPI=5
+
 PYTHON_COMPAT=( python2_7 )
-inherit multilib python-single-r1 cmake-utils vim-plugin
+
+inherit eutils multilib python-single-r1 cmake-utils vim-plugin
 
 if [[ ${PV} == 9999* ]] ; then
 	EGIT_REPO_URI="git://github.com/Valloric/YouCompleteMe.git"
 	inherit git-r3
 else
 	KEYWORDS="~amd64 ~x86"
-	SRC_URI="http://dev.gentoo.org/~radhermit/vim/${P}.tar.xz"
+	SRC_URI="https://dev.gentoo.org/~radhermit/vim/${P}.tar.xz"
 fi
 
 DESCRIPTION="vim plugin: a code-completion engine for Vim"
@@ -33,9 +35,10 @@ COMMON_DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 	dev-python/bottle[${PYTHON_USEDEP}]
-	dev-python/futures[${PYTHON_USEDEP}]
+	virtual/python-futures[${PYTHON_USEDEP}]
 	dev-python/jedi[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/sh[${PYTHON_USEDEP}]
 	dev-python/waitress[${PYTHON_USEDEP}]
 "
 DEPEND="
@@ -61,7 +64,7 @@ src_prepare() {
 		rm -r "${S}"/third_party/${third_party_module} || die "Failed to remove third party module ${third_party_module}"
 	done
 	# Argparse is included in python 2.7
-	for third_party_module in argparse bottle jedi waitress; do
+	for third_party_module in argparse bottle jedi waitress sh requests; do
 		rm -r "${S}"/third_party/ycmd/third_party/${third_party_module} || die "Failed to remove third party module ${third_party_module}"
 	done
 }
@@ -77,16 +80,16 @@ src_configure() {
 }
 
 src_test() {
-	cd "${S}/third_party/ycmd/cpp/ycm/tests"
+	cd "${S}/third_party/ycmd/cpp/ycm/tests" || die
 	LD_LIBRARY_PATH="${EROOT}"/usr/$(get_libdir)/llvm \
 		./ycm_core_tests || die
 
-	cd "${S}"/python/ycm
+	cd "${S}"/python/ycm || die
 
 	local dirs=( "${S}"/third_party/*/ "${S}"/third_party/ycmd/third_party/*/ )
 	local -x PYTHONPATH=${PYTHONPATH}:$(IFS=:; echo "${dirs[*]}")
 
-	nosetests || die
+	nosetests --verbose || die
 }
 
 src_install() {
@@ -94,7 +97,7 @@ src_install() {
 	rm -r *.md *.sh COPYING.txt third_party/ycmd/cpp || die
 	rm -r third_party/ycmd/{*.md,*.sh} || die
 	find python -name *test* -exec rm -rf {} + || die
-	find "${S}" -name '.git*' -exec rm -rf {} + || die
+	egit_clean
 	rm third_party/ycmd/libclang.so || die
 
 	vim-plugin_src_install

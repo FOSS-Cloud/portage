@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>xfce</herd>
-	<maintainer>
-		<email>hasufell@gentoo.org</email>
-		<name>Julian Ospald</name>
+	<maintainer type="person">
+		<email>christian.tietz@mailbox.org</email>
+		<name>Christian Tietz</name>
+		<description>Proxy Maintainer</description>
 	</maintainer>
-	<longdescription lang='en'>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>xfce@gentoo.org</email>
+		<name>XFCE Team</name>
+	</maintainer>
+	<longdescription lang="en">
 		Whisker Menu is an alternate application launcher for Xfce.
 		When you open it you are shown a list of applications you have
 		marked as favorites. You can browse through all of your installed
@@ -30,18 +38,12 @@
 		installed on your computer).
 	</longdescription>
 	<upstream>
-		<maintainer status='active'>
+		<maintainer status="active">
 			<email>graeme@gottcode.org</email>
 			<name>Graeme Gott</name>
 		</maintainer>
-		<bugs-to>
-			https://github.com/gottcode/xfce4-whiskermenu-plugin/issues?labels=bug&amp;state=open
-		</bugs-to>
-		<changelog>
-			http://gottcode.org/xfce4-whiskermenu-plugin/#releasenotes
-		</changelog>
-		<remote-id type='github'>
-			gottcode/xfce4-whiskermenu-plugin
-		</remote-id>
+		<bugs-to>https://github.com/gottcode/xfce4-whiskermenu-plugin/issues?labels=bug&amp;state=open</bugs-to>
+		<changelog>https://gottcode.org/xfce4-whiskermenu-plugin/#releasenotes</changelog>
+		<remote-id type="github">gottcode/xfce4-whiskermenu-plugin</remote-id>
 	</upstream>
 </pkgmetadata>

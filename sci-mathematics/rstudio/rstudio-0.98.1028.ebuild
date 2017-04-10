@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/rstudio/rstudio-0.98.1028.ebuild,v 1.1 2014/08/27 15:51:02 hasufell Exp $
+# $Id$
 
 EAPI=5
 
-inherit eutils cmake-utils gnome2-utils versionator fdo-mime java-pkg-2
+inherit eutils cmake-utils gnome2-utils versionator fdo-mime java-pkg-2 pax-utils
 
 # TODO
 # * package gin and gwt
@@ -21,17 +21,19 @@ PACKRAT_VER=0.3.0
 RMARKDOWN_VER=0.2.49
 
 DESCRIPTION="IDE for the R language"
-HOMEPAGE="http://www.rstudio.org
+HOMEPAGE="
+	http://www.rstudio.org
 	https://github.com/rstudio/rstudio/"
-SRC_URI="https://github.com/rstudio/rstudio/archive/v${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="
+	https://github.com/rstudio/rstudio/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://s3.amazonaws.com/rstudio-buildtools/gin-${GINVER}.zip
 	https://s3.amazonaws.com/rstudio-buildtools/gwt-${GWTVER}.zip
 	https://s3.amazonaws.com/rstudio-buildtools/selenium-java-${SELENIUMVER}.zip
 	https://s3.amazonaws.com/rstudio-buildtools/selenium-server-standalone-${SELENIUMVER}.jar
 	https://s3.amazonaws.com/rstudio-buildtools/chromedriver-linux
 	https://s3.amazonaws.com/rstudio-dictionaries/core-dictionaries.zip
-	http://dev.gentoo.org/~hasufell/distfiles/packrat_${PACKRAT_VER}.tar.gz
-	http://dev.gentoo.org/~hasufell/distfiles/rmarkdown_${RMARKDOWN_VER}.tar.gz"
+	https://dev.gentoo.org/~hasufell/distfiles/packrat_${PACKRAT_VER}.tar.gz
+	https://dev.gentoo.org/~hasufell/distfiles/rmarkdown_${RMARKDOWN_VER}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
@@ -41,13 +43,15 @@ IUSE=""
 QTVER=4.8
 QTSLOT=4
 RDEPEND="
+	app-text/pandoc
+	dev-haskell/pandoc-citeproc
 	>=dev-lang/R-2.11.1
 	>=dev-libs/boost-1.50
 	dev-libs/mathjax
 	dev-libs/openssl:0
 	sys-apps/util-linux
 	sys-libs/zlib
-	>=virtual/jre-1.5
+	>=virtual/jre-1.5:=
 	x11-libs/pango
 	>=dev-qt/qtcore-${QTVER}:${QTSLOT}
 	>=dev-qt/qtdbus-${QTVER}:${QTSLOT}
@@ -91,9 +95,10 @@ src_unpack() {
 src_prepare() {
 	java-pkg-2_src_prepare
 
-	find . -name .gitignore -delete || die
+	egit_clean
 
-	epatch "${FILESDIR}"/${PN}-0.98.490-prefs.patch \
+	epatch \
+		"${FILESDIR}"/${PN}-0.98.490-prefs.patch \
 		"${FILESDIR}"/${PN}-0.98.932-paths.patch \
 		"${FILESDIR}"/${PN}-0.98.932-pandoc.patch \
 		"${FILESDIR}"/${PN}-0.98.490-linker_flags.patch
@@ -112,6 +117,11 @@ src_prepare() {
 	sed -i \
 		-e "s:/usr:${EPREFIX}/usr:g" \
 		CMakeGlobals.txt src/cpp/desktop/CMakeLists.txt || die
+
+	# specify that namespace core the is in the global namespace and not
+	# relative to some other namespace (like its ::core not ::boost::core)
+	find . \( -name *.cpp -or -name *.hpp \) -exec sed \
+		-e 's@<core::@< ::core::@g' -e 's@\([^:]\)core::@\1::core::@g' -i {} \;
 }
 
 src_configure() {
@@ -134,6 +144,7 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
+	pax-mark m "${ED}usr/bin/rstudio"
 }
 
 pkg_preinst() {

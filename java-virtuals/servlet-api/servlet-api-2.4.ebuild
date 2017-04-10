@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/java-virtuals/servlet-api/servlet-api-2.4.ebuild,v 1.13 2013/02/05 07:28:28 zerochaos Exp $
+# $Id$
 
-EAPI=1
+EAPI=5
 
 inherit java-virtuals-2
 
@@ -12,7 +12,7 @@ SRC_URI=""
 
 LICENSE="public-domain"
 SLOT="${PV}"
-KEYWORDS="amd64 ~arm ~ia64 ppc ppc64 x86 ~x86-fbsd ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="amd64 ~arm ppc64 x86 ~x86-fbsd ~ppc-macos ~x64-macos ~x86-macos"
 IUSE=""
 
 RDEPEND="|| (

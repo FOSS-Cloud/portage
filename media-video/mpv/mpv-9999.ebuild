@@ -1,230 +1,316 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mpv/mpv-9999.ebuild,v 1.56 2014/09/30 15:32:18 maksbotan Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-EGIT_REPO_URI="https://github.com/mpv-player/mpv.git"
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
+PYTHON_REQ_USE='threads(+)'
 
-inherit eutils waf-utils pax-utils fdo-mime gnome2-utils
-[[ ${PV} == *9999* ]] && inherit git-r3
+WAF_PV=1.8.12
 
-WAF_V="1.7.16"
+inherit gnome2-utils pax-utils python-r1 toolchain-funcs versionator waf-utils xdg-utils
 
-DESCRIPTION="Video player based on MPlayer/mplayer2"
-HOMEPAGE="http://mpv.io/"
-SRC_URI="http://ftp.waf.io/pub/release/waf-${WAF_V}"
-[[ ${PV} == *9999* ]] || \
-SRC_URI+=" https://github.com/mpv-player/mpv/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Media player based on MPlayer and mplayer2"
+HOMEPAGE="https://mpv.io/"
 
-LICENSE="GPL-2"
+if [[ ${PV} != *9999* ]]; then
+	SRC_URI="https://github.com/mpv-player/mpv/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~hppa ~x86 ~amd64-linux"
+	DOCS=( RELEASE_NOTES )
+else
+	EGIT_REPO_URI=( {https,git}://github.com/mpv-player/mpv.git )
+	inherit git-r3
+fi
+SRC_URI+=" https://waf.io/waf-${WAF_PV}"
+DOCS+=( README.md )
+
+# See Copyright in sources and Gentoo bug 506946. Waf is BSD, libmpv is ISC.
+LICENSE="GPL-2+ BSD ISC"
 SLOT="0"
-[[ ${PV} == *9999* ]] || \
-KEYWORDS="~alpha ~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux"
-IUSE="+alsa bluray bs2b cdio -doc-pdf dvb +dvd dvdnav +enca encode +iconv jack -joystick
-jpeg ladspa lcms +libass libcaca libguess libmpv lirc lua luajit +mpg123 -openal +opengl
-oss portaudio postproc pulseaudio pvr +quvi samba sdl selinux +shm v4l vaapi vdpau
-vf-dlopen wayland +X xinerama +xscreensaver +xv"
+IUSE="+alsa aqua archive bluray cdda +cli coreaudio cplugins cuda doc drm dvb
+	dvd +egl encode gbm +iconv jack jpeg lcms +libass libav libcaca libmpv +lua
+	luajit openal +opengl oss pulseaudio raspberry-pi rubberband samba sdl
+	selinux test tools +uchardet v4l vaapi vdpau vf-dlopen wayland +X xinerama
+	+xscreensaver +xv zsh-completion"
+IUSE+=" cpu_flags_x86_sse4_1"
 
 REQUIRED_USE="
-	dvdnav? ( dvd )
-	enca? ( iconv )
-	lcms? ( opengl )
-	libguess? ( iconv )
+	|| ( cli libmpv )
+	aqua? ( opengl )
+	cuda? ( !libav || ( opengl egl ) )
+	egl? ( || ( gbm X wayland ) )
+	gbm? ( drm egl )
+	lcms? ( || ( opengl egl ) )
 	luajit? ( lua )
-	opengl? ( || ( wayland X ) )
-	pvr? ( v4l )
-	vaapi? ( X )
+	opengl? ( || ( aqua X !cli? ( libmpv ) ) )
+	test? ( || ( opengl egl ) )
+	tools? ( cli )
+	uchardet? ( iconv )
+	v4l? ( || ( alsa oss ) )
+	vaapi? ( || ( gbm X wayland ) )
 	vdpau? ( X )
-	wayland? ( opengl )
+	wayland? ( egl )
 	xinerama? ( X )
 	xscreensaver? ( X )
 	xv? ( X )
+	zsh-completion? ( cli )
+	${PYTHON_REQUIRED_USE}
 "
 
-RDEPEND+="
-	|| (
-		>=media-video/libav-10:=[encode?,threads,vaapi?,vdpau?]
-		>=media-video/ffmpeg-2.1.4:0=[encode?,threads,vaapi?,vdpau?]
-	)
+COMMON_DEPEND="
+	!libav? ( >=media-video/ffmpeg-3.2.2:0=[encode?,threads,vaapi?,vdpau?] )
+	libav? ( >=media-video/libav-12:0=[encode?,threads,vaapi?,vdpau?] )
 	sys-libs/zlib
+	alsa? ( >=media-libs/alsa-lib-1.0.18 )
+	archive? ( >=app-arch/libarchive-3.0.0:= )
+	bluray? ( >=media-libs/libbluray-0.3.0 )
+	cdda? ( dev-libs/libcdio-paranoia )
+	cuda? ( >=media-video/ffmpeg-3.3:0 )
+	drm? ( x11-libs/libdrm )
+	dvd? (
+		>=media-libs/libdvdnav-4.2.0
+		>=media-libs/libdvdread-4.1.0
+	)
+	egl? ( media-libs/mesa[egl,gbm(-)?,wayland(-)?] )
+	iconv? (
+		virtual/libiconv
+		uchardet? ( app-i18n/uchardet )
+	)
+	jack? ( virtual/jack )
+	jpeg? ( virtual/jpeg:0 )
+	lcms? ( >=media-libs/lcms-2.6:2 )
+	libass? (
+		>=media-libs/libass-0.12.1:=[fontconfig,harfbuzz]
+		virtual/ttf-fonts
+	)
+	libcaca? ( >=media-libs/libcaca-0.99_beta18 )
+	lua? (
+		!luajit? ( <dev-lang/lua-5.3:= )
+		luajit? ( dev-lang/luajit:2 )
+	)
+	openal? ( >=media-libs/openal-1.13 )
+	opengl? ( X? ( virtual/opengl ) )
+	pulseaudio? ( media-sound/pulseaudio )
+	raspberry-pi? (
+		>=media-libs/raspberrypi-userland-0_pre20160305-r1
+		virtual/opengl
+	)
+	rubberband? ( >=media-libs/rubberband-1.8.0 )
+	samba? ( net-fs/samba[smbclient(+)] )
+	sdl? ( media-libs/libsdl2[sound,threads,video,X?,wayland?] )
+	v4l? ( media-libs/libv4l )
+	vaapi? ( >=x11-libs/libva-1.4.0[drm?,X?,wayland?] )
+	vdpau? ( >=x11-libs/libvdpau-0.2 )
+	wayland? (
+		>=dev-libs/wayland-1.6.0
+		>=x11-libs/libxkbcommon-0.3.0
+	)
 	X? (
 		x11-libs/libX11
 		x11-libs/libXext
 		>=x11-libs/libXrandr-1.2.0
-		opengl? ( virtual/opengl )
-		lcms? ( >=media-libs/lcms-2.6:2 )
-		vaapi? ( >=x11-libs/libva-0.34.0[X(+)] )
-		vdpau? ( >=x11-libs/libvdpau-0.2 )
+		opengl? ( x11-libs/libXdamage )
 		xinerama? ( x11-libs/libXinerama )
 		xscreensaver? ( x11-libs/libXScrnSaver )
 		xv? ( x11-libs/libXv )
 	)
-	alsa? ( media-libs/alsa-lib )
-	bluray? ( >=media-libs/libbluray-0.3.0 )
-	bs2b? ( media-libs/libbs2b )
-	cdio? (
-		dev-libs/libcdio
-		dev-libs/libcdio-paranoia
-	)
-	dvb? ( virtual/linuxtv-dvb-headers )
-	dvd? (
-		>=media-libs/libdvdread-4.1.3
-		dvdnav? ( >=media-libs/libdvdnav-4.2.0 )
-	)
-	enca? ( app-i18n/enca )
-	iconv? ( virtual/libiconv )
-	jack? ( media-sound/jack-audio-connection-kit )
-	jpeg? ( virtual/jpeg:0 )
-	ladspa? ( media-libs/ladspa-sdk )
-	libass? (
-		>=media-libs/libass-0.9.10:=[enca?,fontconfig]
-		virtual/ttf-fonts
-	)
-	libcaca? ( >=media-libs/libcaca-0.99_beta18 )
-	libguess? ( >=app-i18n/libguess-1.0 )
-	lirc? ( app-misc/lirc )
-	lua? (
-		!luajit? ( >=dev-lang/lua-5.1 )
-		luajit? ( dev-lang/luajit:2 )
-	)
-	mpg123? ( >=media-sound/mpg123-1.14.0 )
-	openal? ( >=media-libs/openal-1.13 )
-	portaudio? ( >=media-libs/portaudio-19_pre20111121 )
-	postproc? (
-		|| (
-			>=media-libs/libpostproc-10.20140517
-			>=media-video/ffmpeg-2.1.4:0
-		)
-	)
-	pulseaudio? ( media-sound/pulseaudio )
-	quvi? (
-		>=media-libs/libquvi-0.4.1:=
-		|| (
-			>=media-video/libav-10[network]
-			>=media-video/ffmpeg-2.1.4:0[network]
-		)
-	)
-	samba? ( net-fs/samba )
-	sdl? ( media-libs/libsdl2[threads] )
-	selinux? ( sec-policy/selinux-mplayer )
-	v4l? ( media-libs/libv4l )
-	wayland? (
-		>=dev-libs/wayland-1.6.0
-		media-libs/mesa[egl,wayland]
-		>=x11-libs/libxkbcommon-0.3.0
-	)
 "
-DEPEND="${RDEPEND}
-	virtual/pkgconfig
-	>=dev-lang/perl-5.8
+DEPEND="${COMMON_DEPEND}
+	${PYTHON_DEPS}
 	dev-python/docutils
-	doc-pdf? ( dev-python/rst2pdf )
-	X? (
-		x11-proto/videoproto
-		xinerama? ( x11-proto/xineramaproto )
-		xscreensaver? ( x11-proto/scrnsaverproto )
-	)
+	virtual/pkgconfig
+	doc? ( dev-python/rst2pdf )
+	dvb? ( virtual/linuxtv-dvb-headers )
+	test? ( >=dev-util/cmocka-1.0.0 )
+	v4l? ( virtual/os-headers )
+	zsh-completion? ( dev-lang/perl )
 "
-DOCS=( Copyright README.md etc/example.conf etc/input.conf )
+RDEPEND="${COMMON_DEPEND}
+	cuda? ( x11-drivers/nvidia-drivers[X] )
+	selinux? ( sec-policy/selinux-mplayer )
+	tools? ( ${PYTHON_DEPS} )
+"
 
-pkg_setup() {
-	if use !libass; then
-		ewarn
-		ewarn "You've disabled the libass flag. No OSD or subtitles will be displayed."
+PATCHES=(
+	"${FILESDIR}/${PN}-0.19.0-make-ffmpeg-version-check-non-fatal.patch"
+	"${FILESDIR}/${PN}-0.23.0-make-libavdevice-check-accept-libav.patch"
+)
+
+mpv_check_compiler() {
+	if [[ ${MERGE_TYPE} != "binary" ]]; then
+		if tc-is-gcc && ( [[ $(gcc-major-version) -lt 4 ]] || \
+			( [[ $(gcc-major-version) -eq 4 ]] && [[ $(gcc-minor-version) -lt 5 ]] ) ); then
+			die "${PN} requires GCC>=4.5."
+		fi
+		if ( use opengl || use egl ) && ! tc-has-tls; then
+			die "Your compiler lacks C++11 TLS support. Use GCC>=4.8 or Clang>=3.3."
+		fi
+		if use vaapi && use cpu_flags_x86_sse4_1 && ! tc-is-gcc; then
+			die "${PN} requires GCC for SSE4.1 intrinsics."
+		fi
 	fi
-
-	einfo "For additional format support you need to enable the support on your"
-	einfo "libavcodec/libavformat provider:"
-	einfo "    media-video/libav or media-video/ffmpeg"
 }
 
-src_unpack() {
-	if [[ ${PV} == *9999* ]]; then
-		git-r3_src_unpack
-	else
-		default_src_unpack
-	fi
+pkg_pretend() {
+	mpv_check_compiler
+}
 
-	cp "${DISTDIR}"/waf-${WAF_V} "${S}"/waf || die
-	chmod 0755 "${S}"/waf || die
+pkg_setup() {
+	mpv_check_compiler
+	[[ ${MERGE_TYPE} != "binary" ]] && python_setup
 }
 
 src_prepare() {
-	epatch_user
+	cp "${DISTDIR}/waf-${WAF_PV}" "${S}"/waf || die
+	chmod +x "${S}"/waf || die
+	default_src_prepare
 }
 
 src_configure() {
-	# keep build reproducible
-	# do not add -g to CFLAGS
-	# SDL output is fallback for platforms where nothing better is available
-	# media-sound/rsound is in pro-audio overlay only
-	# vapoursynth is not packaged
-	waf-utils_src_configure \
-		--disable-build-date \
-		--disable-optimize \
-		--disable-debug-build \
-		--disable-sdl1 \
-		$(use_enable sdl sdl2) \
-		--disable-rsound \
-		--disable-vapoursynth \
-		$(use_enable encode encoding) \
-		$(use_enable joystick) \
-		$(use_enable bluray libbluray) \
-		$(use_enable quvi libquvi) \
-		$(use_enable samba libsmbclient) \
-		$(use_enable lirc) \
-		$(use_enable lua) \
-		$(usex luajit '--lua=luajit' '') \
-		$(use_enable doc-pdf pdf-build) \
-		$(use_enable vf-dlopen vf-dlopen-filters) \
-		$(use_enable cdio cdda) \
-		$(use_enable dvd dvdread) \
-		$(use_enable dvdnav) \
-		$(use_enable enca) \
-		$(use_enable iconv) \
-		$(use_enable libass) \
-		$(use_enable libguess) \
-		$(use_enable libmpv libmpv-shared) \
-		$(use_enable dvb) \
-		$(use_enable pvr) \
-		$(use_enable v4l libv4l2) \
-		$(use_enable v4l tv) \
-		$(use_enable v4l tv-v4l2) \
-		$(use_enable mpg123) \
-		$(use_enable jpeg) \
-		$(use_enable libcaca caca) \
-		$(use_enable postproc libpostproc) \
-		$(use_enable alsa) \
-		$(use_enable jack) \
-		$(use_enable ladspa) \
-		$(use_enable portaudio) \
-		$(use_enable bs2b libbs2b) \
-		$(use_enable openal) \
-		$(use_enable oss oss-audio) \
-		$(use_enable pulseaudio pulse) \
-		$(use_enable shm) \
-		$(use_enable X x11) \
-		$(use_enable X xext) \
-		$(use_enable X xrandr) \
-		$(use_enable vaapi) \
-		$(use_enable vdpau) \
-		$(use_enable wayland) \
-		$(use_enable xinerama) \
-		$(use_enable xv) \
-		$(use_enable opengl gl) \
-		$(use_enable lcms lcms2) \
-		$(use_enable xscreensaver xss) \
-		--confdir="${EPREFIX}"/etc/${PN} \
-		--mandir="${EPREFIX}"/usr/share/man \
-		--docdir="${EPREFIX}"/usr/share/doc/${PF}
+	tc-export CC PKG_CONFIG AR
+
+	if tc-is-cross-compiler && use raspberry-pi; then
+		export EXTRA_PKG_CONFIG_LIBDIR="${SYSROOT%/}${EPREFIX}/opt/vc/lib/pkgconfig"
+		# Drop next line when Gentoo bug 607344 is fixed or if you fixed it locally.
+		die "${PN} can't be cross built with raspberry-pi USE enabled. See Gentoo bug 607344."
+	fi
+
+	local mywafargs=(
+		--confdir="${EPREFIX}/etc/${PN}"
+		--docdir="${EPREFIX}/usr/share/doc/${PF}"
+		--htmldir="${EPREFIX}/usr/share/doc/${PF}/html"
+
+		$(usex cli '' '--disable-cplayer')
+		$(use_enable libmpv libmpv-shared)
+
+		# See deep down below for build-date.
+		--disable-libmpv-static
+		--disable-static-build
+		--disable-optimize		# Don't add '-O2' to CFLAGS.
+		--disable-debug-build	# Don't add '-g' to CFLAGS.
+		--enable-html-build
+
+		$(use_enable doc pdf-build)
+		$(use_enable cplugins)
+		$(use_enable vf-dlopen vf-dlopen-filters)
+		$(use_enable zsh-completion zsh-comp)
+		$(use_enable test)
+
+		$(use_enable iconv)
+		$(use_enable samba libsmbclient)
+		$(use_enable lua)
+		$(usex luajit '--lua=luajit' '')
+		$(use_enable libass)
+		$(use_enable libass libass-osd)
+		$(use_enable encode encoding)
+		$(use_enable bluray libbluray)
+		$(use_enable dvd dvdread)
+		$(use_enable dvd dvdnav)
+		$(use_enable cdda)
+		$(use_enable uchardet)
+		$(use_enable rubberband)
+		$(use_enable lcms lcms2)
+		--disable-vapoursynth	# Only available in overlays.
+		--disable-vapoursynth-lazy
+		$(use_enable archive libarchive)
+
+		--enable-libavdevice
+
+		# Audio outputs:
+		$(use_enable sdl sdl2)	# Listed under audio, but also includes video.
+		--disable-sdl1
+		$(use_enable oss oss-audio)
+		--disable-rsound		# Only available in overlays.
+		--disable-sndio			# Only available in overlays.
+		$(use_enable pulseaudio pulse)
+		$(use_enable jack)
+		$(use_enable openal)
+		--disable-opensles
+		$(use_enable alsa)
+		$(use_enable coreaudio)
+
+		# Video outputs:
+		$(use_enable aqua cocoa)
+		$(use_enable drm)
+		$(use_enable gbm)
+		$(use_enable wayland)
+		$(use_enable X x11)
+		$(use_enable xscreensaver xss)
+		$(use_enable X xext)
+		$(use_enable xv)
+		$(use_enable xinerama)
+		$(use_enable X xrandr)
+		$(usex opengl "$(use_enable aqua gl-cocoa)" '--disable-gl-cocoa')
+		$(usex opengl "$(use_enable X gl-x11)" '--disable-gl-x11')
+		$(usex egl "$(use_enable X egl-x11)" '--disable-egl-x11')
+		$(usex egl "$(use_enable gbm egl-drm)" '--disable-egl-drm')
+		$(use_enable wayland gl-wayland)
+		$(use_enable vdpau)
+		$(usex vdpau "$(use_enable opengl vdpau-gl-x11)" '--disable-vdpau-gl-x11')
+		$(use_enable vaapi)		# See below for vaapi-glx, vaapi-x-egl.
+		$(usex vaapi "$(use_enable X vaapi-x11)" '--disable-vaapi-x11')
+		$(usex vaapi "$(use_enable wayland vaapi-wayland)" '--disable-vaapi-wayland')
+		$(usex vaapi "$(use_enable gbm vaapi-drm)" '--disable-vaapi-drm')
+		$(use_enable libcaca caca)
+		$(use_enable jpeg)
+		--disable-android
+		$(use_enable raspberry-pi rpi)
+		$(usex opengl "$(use_enable !aqua standard-gl)" '--disable-standard-gl')
+		--disable-ios-gl
+		$(usex libmpv "$(use_enable opengl plain-gl)" '--disable-plain-gl')
+		--disable-mali-fbdev	# Only available in overlays.
+
+		# HWaccels:
+		# Automagic Video Toolbox HW acceleration. See Gentoo bug 577332.
+		$(use_enable vaapi vaapi-hwaccel)
+		$(use_enable vdpau vdpau-hwaccel)
+		$(use_enable cuda cuda-hwaccel)
+
+		# TV features:
+		$(use_enable v4l tv)
+		$(use_enable v4l tv-v4l2)
+		$(use_enable v4l libv4l2)
+		$(use_enable v4l audio-input)
+		$(use_enable dvb dvbin)
+
+		# Miscellaneous features:
+		--disable-apple-remote	# Needs testing first. See Gentoo bug 577332.
+	)
+
+	if use vaapi && use X; then
+		mywafargs+=(
+			$(use_enable opengl vaapi-glx)
+			$(use_enable egl vaapi-x-egl)
+		)
+	fi
+
+	if ! use egl && ! use opengl && ! use raspberry-pi; then
+		mywafargs+=(--disable-gl)
+	fi
+
+	# Create reproducible non-live builds.
+	[[ ${PV} != *9999* ]] && mywafargs+=(--disable-build-date)
+
+	waf-utils_src_configure "${mywafargs[@]}"
 }
 
 src_install() {
 	waf-utils_src_install
 
-	if use luajit; then
-		pax-mark -m "${ED}"usr/bin/mpv
+	if use lua; then
+		insinto /usr/share/${PN}
+		doins -r TOOLS/lua
+	fi
+
+	if use cli && use luajit; then
+		pax-mark -m "${ED}"usr/bin/${PN}
+	fi
+
+	if use tools; then
+		dobin TOOLS/{mpv_identify.sh,umpv}
+		newbin TOOLS/idet.sh mpv_idet.sh
+		python_replicate_script "${ED}"usr/bin/umpv
 	fi
 }
 
@@ -233,11 +319,61 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	fdo-mime_desktop_database_update
+	local rv softvol_0_18_1=0 osc_0_21_0=0
+
+	for rv in ${REPLACING_VERSIONS}; do
+		version_compare ${rv} 0.18.1
+		[[ $? -eq 1 ]] && softvol_0_18_1=1
+		version_compare ${rv} 0.21.0
+		[[ $? -eq 1 ]] && osc_0_21_0=1
+	done
+
+	if [[ ${softvol_0_18_1} -eq 1 ]]; then
+		elog "Since version 0.18.1 the software volume control is always enabled."
+		elog "This means that volume controls don't change the system volume,"
+		elog "e.g. per-application volume with PulseAudio."
+		elog "If you want to restore the previous behaviour, please refer to"
+		elog
+		elog "https://wiki.gentoo.org/wiki/Mpv#Volume_in_0.18.1"
+		elog
+	fi
+
+	if [[ ${osc_0_21_0} -eq 1 ]]; then
+		elog "In version 0.21.0 the default OSC layout was changed."
+		elog "If you want to restore the previous layout, please refer to"
+		elog
+		elog "https://wiki.gentoo.org/wiki/Mpv#OSC_in_0.21.0"
+		elog
+	fi
+
+	# bash-completion < 2.3-r1 already installs (mostly broken) mpv completion.
+	if use cli && ! has_version '<app-shells/bash-completion-2.3-r1' && \
+		! has_version 'app-shells/mpv-bash-completion'; then
+		elog "If you want to have command-line completion via bash-completion,"
+		elog "please install app-shells/mpv-bash-completion."
+	fi
+
+	if use cli && [[ -n ${REPLACING_VERSIONS} ]] && \
+		has_version 'app-shells/mpv-bash-completion'; then
+		elog "If command-line completion doesn't work after mpv update,"
+		elog "please rebuild app-shells/mpv-bash-completion."
+	fi
+
 	gnome2_icon_cache_update
+	xdg_desktop_database_update
 }
 
 pkg_postrm() {
-	fdo-mime_desktop_database_update
 	gnome2_icon_cache_update
+	xdg_desktop_database_update
+}
+
+src_test() {
+	cd "${S}"/build/test || die
+	local test
+	for test in *; do
+		if [[ -x ${test} ]]; then
+			./"${test}" || die "Test suite failed"
+		fi
+	done
 }

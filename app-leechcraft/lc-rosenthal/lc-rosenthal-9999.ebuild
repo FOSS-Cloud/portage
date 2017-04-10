@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-rosenthal/lc-rosenthal-9999.ebuild,v 1.1 2014/01/26 17:36:21 maksbotan Exp $
+# $Id$
 
-EAPI="4"
+EAPI=6
 
 inherit leechcraft
 
@@ -10,8 +10,9 @@ DESCRIPTION="Spellchecking support for LeechCraft"
 
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
 DEPEND="~app-leechcraft/lc-core-${PV}
+	dev-qt/qtgui:5
 	app-text/hunspell"
 RDEPEND="${DEPEND}"

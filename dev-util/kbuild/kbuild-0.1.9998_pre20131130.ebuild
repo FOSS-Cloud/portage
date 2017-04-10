@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/kbuild/kbuild-0.1.9998_pre20131130.ebuild,v 1.1 2013/11/30 17:51:39 polynomial-c Exp $
+# $Id$
 
 EAPI=4
 
@@ -10,14 +10,15 @@ MY_P=kBuild-${PV/_/-}-src
 DESCRIPTION="A makefile framework for writing simple makefiles for complex tasks"
 HOMEPAGE="http://svn.netlabs.org/kbuild/wiki"
 #SRC_URI="ftp://ftp.netlabs.org/pub/${PN}/${MY_P}.tar.gz"
-SRC_URI="http://dev.gentoo.org/~polynomial-c/${MY_P}.tar.xz"
+SRC_URI="https://dev.gentoo.org/~polynomial-c/${MY_P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="sys-devel/flex
+DEPEND="sys-apps/texinfo
+	sys-devel/flex
 	sys-devel/gettext
 	virtual/yacc"
 RDEPEND=""

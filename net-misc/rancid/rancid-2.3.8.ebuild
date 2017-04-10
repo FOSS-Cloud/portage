@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/rancid/rancid-2.3.8.ebuild,v 1.5 2013/06/17 10:22:08 pinkbyte Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,19 +8,21 @@ inherit autotools eutils readme.gentoo user
 
 DESCRIPTION="Really Awesome New Cisco confIg Differ"
 HOMEPAGE="http://www.shrubbery.net/rancid/"
-SRC_URI="ftp://ftp.shrubbery.net/pub/${PN}/${P}.tar.gz"
+SRC_URI="http://http.debian.net/debian/pool/main/${PN:0:1}/${PN}/${PN}_${PV}.orig.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD-4"
 
 SLOT="0"
 RESTRICT="mirror"
 KEYWORDS="~amd64 ~x86"
 IUSE="+cvs subversion"
+
 REQUIRED_USE="^^ ( cvs subversion )"
 
 # app-arch/par is blocker, due to bug #455838
-DEPEND="!app-arch/par
+DEPEND="
+	!app-arch/par
 	dev-lang/perl
-	dev-lang/tcl
+	dev-lang/tcl:0=
 	dev-tcltk/expect
 	sys-apps/diffutils
 	cvs? ( dev-vcs/cvs )

@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/fcitx-sunpinyin/fcitx-sunpinyin-0.4.1.ebuild,v 1.2 2014/03/08 12:04:23 pacho Exp $
+# $Id$
 
-EAPI=5
+EAPI="5"
 
 inherit cmake-utils gnome2-utils
 
@@ -12,17 +12,14 @@ SRC_URI="http://download.fcitx-im.org/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="amd64 ~ppc ppc64 ~x86"
 IUSE=""
 
 RDEPEND=">=app-i18n/fcitx-4.2.8
-	>app-i18n/sunpinyin-2.0.3"
-DEPEND="${RDEPEND}
+	>=app-i18n/sunpinyin-2.0.4_alpha
 	virtual/libintl"
-
-src_prepare() {
-	epatch_user
-}
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 pkg_postinst() {
 	gnome2_icon_cache_update

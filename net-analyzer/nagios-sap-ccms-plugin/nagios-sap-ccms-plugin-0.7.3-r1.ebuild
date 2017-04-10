@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-sap-ccms-plugin/nagios-sap-ccms-plugin-0.7.3-r1.ebuild,v 1.3 2012/06/12 02:47:09 zmedico Exp $
+# $Id$
 
 inherit multilib
 
@@ -8,7 +8,7 @@ MY_P="sap-ccms-plugin-${PV}"
 
 DESCRIPTION="Nagios plugin that provides an interface to SAP CCMS
 Infrastructure"
-HOMEPAGE="http://sourceforge.net/projects/nagios-sap-ccms/"
+HOMEPAGE="https://sourceforge.net/projects/nagios-sap-ccms/"
 SRC_URI="mirror://sourceforge/nagios-sap-ccms/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"

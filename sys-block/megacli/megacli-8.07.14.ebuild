@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/megacli/megacli-8.07.14.ebuild,v 1.1 2014/03/21 11:53:47 xarthisius Exp $
+# $Id$
 
 EAPI=5
 
@@ -20,7 +20,7 @@ IUSE=""
 
 DEPEND="app-arch/unzip
 	app-admin/chrpath"
-RDEPEND=""
+RDEPEND="=sys-libs/ncurses-5*"
 
 S=${WORKDIR}
 

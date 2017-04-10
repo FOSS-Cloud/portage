@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/ngstar/ngstar-2.1.8-r2.ebuild,v 1.9 2012/07/21 20:33:46 tupone Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="NGStar is a clone of a HP48 game called dstar"
@@ -11,11 +11,13 @@ SRC_URI="mirror://gentoo//${P}-src.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="sys-libs/ncurses
+RDEPEND="sys-libs/ncurses:0
 	sys-libs/gpm"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 src_prepare() {
 	epatch \
@@ -28,17 +30,16 @@ src_prepare() {
 		-e "s:@GENTOO_BIN@:${GAMES_BINDIR}:" \
 		-e "/^CPPFLAGS/s:+=:+= ${CXXFLAGS}:" \
 		-e "/SILENT/d" \
-		configure || die "sed configure failed"
+		configure || die
 }
 
 src_configure() {
 	./configure \
 		--prefix "" \
-		--without-fltk2 || die "configure failed"
+		--without-fltk2 || die
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-	dodoc AUTHORS Changelog README TODO
+	default
 	prepgamesdirs
 }

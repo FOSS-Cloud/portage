@@ -1,14 +1,14 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/kio-ftps/kio-ftps-0.2.ebuild,v 1.5 2014/03/20 22:13:40 johu Exp $
+# $Id$
 
 EAPI=5
 
 inherit kde4-base
 
 DESCRIPTION="KDE ftps KIO slave"
-HOMEPAGE="http://kasablanca.berlios.de/kio-ftps/"
-SRC_URI="mirror://berlios/kasablanca/${P}.tar.gz"
+HOMEPAGE="http://kde-apps.org/content/show.php/kio-ftps?content=35875"
+SRC_URI="https://dev.gentoo.org/~johu/distfiles/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="4"
@@ -17,8 +17,8 @@ IUSE="debug"
 
 # This is just for some app we can use kio-ftps with
 RDEPEND="|| (
-	$(add_kdebase_dep konqueror)
-	$(add_kdebase_dep dolphin)
+	$(add_kdeapps_dep konqueror)
+	$(add_kdeapps_dep dolphin)
 )"
 
 S="${WORKDIR}/${PN}"

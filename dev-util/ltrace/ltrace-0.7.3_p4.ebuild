@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/ltrace/ltrace-0.7.3_p4.ebuild,v 1.2 2014/05/29 00:57:22 jer Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils
@@ -17,19 +17,22 @@ SRC_URI="
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug selinux test unwind"
 
 RDEPEND="dev-libs/elfutils
 	selinux? ( sys-libs/libselinux )
 	unwind? ( sys-libs/libunwind )"
 DEPEND="${RDEPEND}
+	sys-libs/binutils-libs
 	test? ( dev-util/dejagnu )"
 
 S=${WORKDIR}/${PN}-${LTRACE_V}
 
 src_prepare() {
 	epatch "${WORKDIR}"/debian/patches/[0-9]*
+	epatch "${FILESDIR}"/${PN}-0.7.3-test-protos.patch #bug 421649
+	epatch "${FILESDIR}"/${PN}-0.7.3-alpha-protos.patch
 	sed -i '/^dist_doc_DATA/d' Makefile.am || die
 	eautoreconf
 }

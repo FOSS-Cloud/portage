@@ -1,32 +1,31 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-misc/monitorix/monitorix-3.5.1.ebuild,v 1.1 2014/05/23 15:58:03 tomwij Exp $
+# $Id$
 
 EAPI="5"
 
 inherit eutils systemd user
 
 DESCRIPTION="A lightweight system monitoring tool"
-HOMEPAGE="http://www.${PN}.org/"
+HOMEPAGE="http://www.monitorix.org/"
 SRC_URI="http://www.${PN}.org/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="apcupsd evms hddtemp httpd lm_sensors postfix"
+IUSE="apcupsd hddtemp httpd lm_sensors postfix"
 
 DEPEND="sys-apps/sed"
-RDEPEND="dev-perl/config-general
+RDEPEND="dev-perl/Config-General
 	dev-perl/DBI
 	dev-perl/HTTP-Server-Simple
 	dev-perl/IO-Socket-SSL
 	dev-perl/libwww-perl
 	dev-perl/MIME-Lite
 	dev-perl/XML-Simple
-	net-analyzer/rrdtool[perl]
-	virtual/perl-CGI
+	net-analyzer/rrdtool[graph,perl]
+	dev-perl/CGI
 	apcupsd? ( sys-power/apcupsd )
-	evms? ( sys-fs/evms )
 	hddtemp? ( app-admin/hddtemp )
 	httpd? ( virtual/httpd-cgi )
 	lm_sensors? ( sys-apps/lm_sensors )
@@ -47,7 +46,7 @@ src_prepare() {
 src_install() {
 	dosbin ${PN}
 
-	newinitd "${FILESDIR}"/${P}.init ${PN}
+	newinitd "${FILESDIR}"/${PN}.init ${PN}
 
 	insinto /etc/monitorix
 	doins ${PN}.conf

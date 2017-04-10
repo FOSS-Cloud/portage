@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-engines/gargoyle/gargoyle-2011.1.ebuild,v 1.7 2012/09/23 08:54:41 phajdan.jr Exp $
+# $Id$
 
 # Regarding licenses: libgarglk is licensed under the GPLv2. Bundled
 # interpreters are licensed under GPLv2, BSD or MIT license, except:
@@ -9,12 +9,12 @@
 # Since we don't compile or install any of the bundled fonts, their licenses
 # don't apply. (Fonts are installed through dependencies instead.)
 
-EAPI=4
-inherit eutils multiprocessing toolchain-funcs gnome2-utils games
+EAPI=5
+inherit eutils flag-o-matic multiprocessing toolchain-funcs gnome2-utils games
 
 DESCRIPTION="An Interactive Fiction (IF) player supporting all major formats"
 HOMEPAGE="http://ccxvii.net/gargoyle/"
-SRC_URI="http://garglk.googlecode.com/files/${P}-sources.zip"
+SRC_URI="https://garglk.googlecode.com/files/${P}-sources.zip"
 
 LICENSE="BSD GPL-2 MIT Hugo Glulxe"
 SLOT="0"
@@ -22,14 +22,14 @@ KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="
-	>=media-fonts/libertine-ttf-5
+	>=media-fonts/libertine-5
 	media-fonts/liberation-fonts
 	media-libs/freetype:2
 	media-libs/libpng:0
 	media-libs/sdl-mixer
 	media-libs/sdl-sound[modplug,mp3,vorbis]
 	sys-libs/zlib
-	virtual/jpeg
+	virtual/jpeg:0
 	x11-libs/gtk+:2"
 DEPEND="${RDEPEND}
 	app-arch/unzip
@@ -57,6 +57,7 @@ src_prepare() {
 	sed -i -e 's/Linux Libertine O/Linux Libertine/g' garglk/garglk.ini || die
 
 	epatch "${FILESDIR}"/${P}-desktopfile.patch
+	append-cflags -std=gnu89 # build with gcc5 (bug #573378)
 }
 
 src_compile() {

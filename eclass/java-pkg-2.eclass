@@ -1,11 +1,6 @@
-# Eclass for Java packages
-#
-# Copyright (c) 2004-2005, Thomas Matthijs <axxo@gentoo.org>
-# Copyright (c) 2004-2011, Gentoo Foundation
-#
-# Licensed under the GNU General Public License, v2
-#
-# $Header: /var/cvsroot/gentoo-x86/eclass/java-pkg-2.eclass,v 1.39 2012/07/21 11:57:30 sera Exp $
+# Copyright 2004-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 # @ECLASS: java-pkg-2.eclass
 # @MAINTAINER:
@@ -81,6 +76,9 @@ java-pkg-2_src_prepare() {
 
 java-pkg-2_src_compile() {
 	if [[ -e "${EANT_BUILD_XML:=build.xml}" ]]; then
+		# auto generate classpath
+		java-pkg_gen-cp EANT_GENTOO_CLASSPATH
+
 		[[ "${EANT_FILTER_COMPILER}" ]] && \
 			java-pkg_filter-compiler ${EANT_FILTER_COMPILER}
 		local antflags="${EANT_BUILD_TARGET:=jar}"
@@ -96,25 +94,6 @@ java-pkg-2_src_compile() {
 	fi
 }
 
-
-# @FUNCTION: java-pkg-2_supports-test
-# @INTERNAL
-# @DESCRIPTION:
-# test whether a build.xml has a test target.
-
-java-pkg-2_supports-test() {
-	python << EOF
-from xml.dom.minidom import parse
-import sys
-dom = parse("${1}")
-for elem in dom.getElementsByTagName('target'):
-	if elem.getAttribute('name') == 'test':
-			sys.exit(0)
-sys.exit(1)
-EOF
-	return $?
-}
-
 # @FUNCTION: java-pkg-2_src_test
 # @DESCRIPTION:
 # src_test, not exported.
@@ -122,34 +101,41 @@ EOF
 java-pkg-2_src_test() {
 	[[ -e "${EANT_BUILD_XML:=build.xml}" ]] || return
 
-	if [[ ${EANT_TEST_TARGET} ]] || java-pkg-2_supports-test ${EANT_BUILD_XML}; then
-		local opts task
+	if [[ ${EANT_TEST_TARGET} ]] || < "${EANT_BUILD_XML}" tr -d "\n" | grep -Eq "<target\b[^>]*\bname=[\"']test[\"']"; then
+		local opts task_re junit_re pkg
 
 		if [[ ${EANT_TEST_JUNIT_INTO} ]]; then
 			java-pkg_jar-from --into "${EANT_TEST_JUNIT_INTO}" junit
 		fi
 
-		ANT_TASKS=${EANT_TEST_ANT_TASKS:-${ANT_TASKS:-${EANT_ANT_TASKS}}}
-
-		if [[ ${DEPEND} = *dev-java/ant-junit* ]]; then
-
-			if [[ ${ANT_TASKS} && "${ANT_TASKS}" != none ]]; then
-				ANT_TASKS="${ANT_TASKS} ant-junit"
-			else
-				ANT_TASKS="ant-junit"
-			fi
-
-			task=true
+		if [[ ${EANT_TEST_GENTOO_CLASSPATH} ]]; then
+			EANT_GENTOO_CLASSPATH="${EANT_TEST_GENTOO_CLASSPATH}"
 		fi
 
-		if [[ ${task} ]] || [[ ${DEPEND} = *dev-java/junit* ]]; then
-			opts="-Djunit.jar=\"$(java-pkg_getjar junit junit.jar)\""
-			if [[ ${EANT_TEST_GENTOO_CLASSPATH} ]]; then
-				EANT_GENTOO_CLASSPATH="${EANT_TEST_GENTOO_CLASSPATH},junit"
-			elif [[ ${EANT_GENTOO_CLASSPATH} ]]; then
-				EANT_GENTOO_CLASSPATH+=',junit'
+		ANT_TASKS=${EANT_TEST_ANT_TASKS:-${ANT_TASKS:-${EANT_ANT_TASKS}}}
+
+		task_re="\bdev-java/ant-junit(4)?(-[^:]+)?(:\S+)\b"
+		junit_re="\bdev-java/junit(-[^:]+)?(:\S+)\b"
+
+		if [[ ${DEPEND} =~ ${task_re} ]]; then
+			pkg="ant-junit${BASH_REMATCH[1]}${BASH_REMATCH[3]}"
+			pkg="${pkg%:0}"
+
+			if [[ ${ANT_TASKS} && "${ANT_TASKS}" != none ]]; then
+				ANT_TASKS="${ANT_TASKS} ${pkg}"
 			else
-				EANT_GENTOO_CLASSPATH=junit
+				ANT_TASKS="${pkg}"
+			fi
+		elif [[ ${DEPEND} =~ ${junit_re} ]]; then
+			pkg="junit${BASH_REMATCH[2]}"
+			pkg="${pkg%:0}"
+
+			opts="-Djunit.jar=\"$(java-pkg_getjar ${pkg} junit.jar)\""
+
+			if [[ ${EANT_GENTOO_CLASSPATH} ]]; then
+				EANT_GENTOO_CLASSPATH+=",${pkg}"
+			else
+				EANT_GENTOO_CLASSPATH="${pkg}"
 			fi
 		fi
 

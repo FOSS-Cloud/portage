@@ -1,28 +1,29 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/yaz/yaz-3.0.53.ebuild,v 1.2 2012/05/04 18:35:44 jdhore Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils autotools
 
-DESCRIPTION="C/C++ programmer's toolkit supporting the development of Z39.50v3 clients and servers"
+DESCRIPTION="C/C++ toolkit for Z39.50v3 clients and servers"
 HOMEPAGE="http://www.indexdata.dk/yaz"
 SRC_URI="http://ftp.indexdata.dk/pub/${PN}/${P}.tar.gz"
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
-IUSE="debug icu tcpd ziffy"
+KEYWORDS="alpha amd64 arm hppa ~ia64 ~mips ~ppc ppc64 ~s390 ~sh ~sparc x86"
+IUSE="debug icu libressl tcpd ziffy"
 
 RDEPEND="dev-libs/libxml2
 	dev-libs/libxslt
-	dev-libs/openssl
-	icu? ( dev-libs/icu )
+	!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:0= )
+	icu? ( dev-libs/icu:= )
 	tcpd? ( sys-apps/tcp-wrappers )
 	ziffy? ( net-libs/libpcap )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	dev-lang/tcl
+	dev-lang/tcl:0
 	>=sys-devel/libtool-2"
 
 src_prepare() {

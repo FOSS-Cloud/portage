@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/libglade/libglade-2.6.4-r2.ebuild,v 1.12 2014/09/15 08:20:22 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,11 +14,11 @@ PYTHON_REQ_USE='xml(+)'
 inherit autotools eutils gnome2 multilib-minimal python-single-r1 virtualx
 
 DESCRIPTION="Library to construct graphical interfaces at runtime"
-HOMEPAGE="http://library.gnome.org/devel/libglade/stable/"
+HOMEPAGE="https://library.gnome.org/devel/libglade/stable/"
 
 LICENSE="LGPL-2"
 SLOT="2.0"
-KEYWORDS="alpha amd64 ~arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="static-libs test tools"
 REQUIRED_USE="tools? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -95,7 +95,7 @@ multilib_src_install_all() {
 pkg_postinst() {
 	echo ">>> Updating XML catalog"
 	"${EPREFIX}"/usr/bin/xmlcatalog --noout --add "system" \
-		"http://glade.gnome.org/glade-2.0.dtd" \
+		"https://glade.gnome.org/glade-2.0.dtd" \
 		"${EPREFIX}"/usr/share/xml/libglade/glade-2.0.dtd /etc/xml/catalog
 	gnome2_pkg_postinst
 }

@@ -1,6 +1,6 @@
 # Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/hotwayd/hotwayd-0.8.4.ebuild,v 1.6 2007/07/02 14:55:14 peper Exp $
+# $Id$
 
 inherit eutils
 
@@ -24,7 +24,7 @@ hotmail_greed_warning() {
 	ewarn "Since Hotmail started to charge for WebDAV access, you need a Hotmail Plus"
 	ewarn "(or equivalent MSN) account to keep using hotwayd. More info:"
 	ewarn "http://www.boolean.ca/hotpop/"
-	ewarn "http://sourceforge.net/forum/forum.php?thread_id=1277989&forum_id=80217"
+	ewarn "https://sourceforge.net/forum/forum.php?thread_id=1277989&forum_id=80217"
 	echo
 	ebeep 3
 	epause 10

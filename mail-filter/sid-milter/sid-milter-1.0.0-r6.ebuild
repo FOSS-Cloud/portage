@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/sid-milter/sid-milter-1.0.0-r6.ebuild,v 1.2 2013/02/17 17:37:05 ago Exp $
+# $Id$
 
 EAPI=4
 
 inherit eutils toolchain-funcs user
 
 DESCRIPTION="A milter-based application to provide Sender-ID verification service"
-HOMEPAGE="http://sourceforge.net/projects/sid-milter/"
+HOMEPAGE="https://sourceforge.net/projects/sid-milter/"
 SRC_URI="mirror://sourceforge/sid-milter/${P}.tar.gz"
 
 LICENSE="Sendmail-Open-Source"

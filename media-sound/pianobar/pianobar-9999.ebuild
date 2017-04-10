@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/pianobar/pianobar-9999.ebuild,v 1.8 2014/06/22 13:07:34 radhermit Exp $
+# $Id$
 
-EAPI="5"
+EAPI=6
 inherit toolchain-funcs flag-o-matic multilib
 
 if [[ ${PV} == 9999 ]]; then
@@ -21,28 +21,22 @@ SLOT="0"
 IUSE="static-libs"
 
 RDEPEND="media-libs/libao
-	net-libs/gnutls
+	net-misc/curl
 	dev-libs/libgcrypt:0=
-	dev-libs/json-c
+	dev-libs/json-c:=
 	>=virtual/ffmpeg-9"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-src_prepare() {
-	sed -e '/@echo /d' \
-		-e 's/@${CC}/${CC}/' \
-		-i Makefile || die
-}
-
 src_compile() {
 	append-cflags -std=c99
 	tc-export CC
-	emake DYNLINK=1
+	emake V=1 DYNLINK=1
 }
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr LIBDIR=/usr/$(get_libdir) DYNLINK=1 install
-	dodoc ChangeLog README
+	dodoc ChangeLog README.md
 
 	use static-libs || { rm "${D}"/usr/lib*/*.a || die; }
 

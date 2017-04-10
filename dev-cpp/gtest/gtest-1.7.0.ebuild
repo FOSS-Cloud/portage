@@ -1,23 +1,23 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/gtest/gtest-1.7.0.ebuild,v 1.6 2014/08/21 11:29:34 armin76 Exp $
+# $Id$
 
 EAPI="5"
 
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_IN_SOURCE_BUILD=1
 # Python is required for tests and some build tasks.
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit eutils python-any-r1 autotools-multilib
 
 DESCRIPTION="Google C++ Testing Framework"
-HOMEPAGE="http://code.google.com/p/googletest/"
-SRC_URI="http://googletest.googlecode.com/files/${P}.zip"
+HOMEPAGE="https://github.com/google/googletest"
+SRC_URI="https://googletest.googlecode.com/files/${P}.zip"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="examples static-libs"
 
 DEPEND="app-arch/unzip

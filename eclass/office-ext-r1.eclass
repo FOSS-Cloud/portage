@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/office-ext-r1.eclass,v 1.4 2013/03/29 10:02:23 scarabeus Exp $
+# $Id$
 
 # @ECLASS: office-ext-r1.eclass
 # @MAINTAINER:
@@ -72,14 +72,23 @@ RDEPEND=""
 
 for i in ${OFFICE_IMPLEMENTATIONS[@]}; do
 	IUSE+=" office_implementation_${i}"
-	RDEPEND+="
-		office_implementation_${i}? (
-			|| (
-				app-office/${i}${OFFICE_REQ_USE}
-				app-office/${i}-bin${OFFICE_REQ_USE}
+	if [[ ${i} == "openoffice" ]]; then
+		# special only binary
+		RDEPEND+="
+			office_implementation_openoffice? (
+				app-office/openoffice-bin${OFFICE_REQ_USE}
 			)
-		)
-	"
+		"
+	else
+		RDEPEND+="
+			office_implementation_${i}? (
+				|| (
+					app-office/${i}${OFFICE_REQ_USE}
+					app-office/${i}-bin${OFFICE_REQ_USE}
+				)
+			)
+		"
+	fi
 done
 
 REQUIRED_USE="|| ( "
@@ -164,7 +173,7 @@ UNOPKG_BINARY="/usr/lib64/openoffice/program/unopkg"
 office-ext-r1_add_extension() {
 	debug-print-function ${FUNCNAME} "$@"
 	local ext=$1
-	local tmpdir=$(mktemp -d --tmpdir="${T}")
+	local tmpdir=$(emktemp -d)
 
 	debug-print "${FUNCNAME}: ${UNOPKG_BINARY} add --shared \"${ext}\""
 	ebegin "Adding office extension: \"${ext}\""

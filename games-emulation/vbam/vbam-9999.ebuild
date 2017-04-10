@@ -1,30 +1,34 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/vbam/vbam-9999.ebuild,v 1.7 2014/08/03 04:25:13 radhermit Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 WX_GTK_VER="3.0"
+inherit cmake-utils wxwidgets gnome2-utils fdo-mime eutils
 
-inherit cmake-utils wxwidgets subversion gnome2-utils fdo-mime games
-
-ESVN_REPO_URI="https://vbam.svn.sourceforge.net/svnroot/vbam/trunk"
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/visualboyadvance-m/visualboyadvance-m.git"
+	inherit git-r3
+else
+	SRC_URI="https://dev.gentoo.org/~radhermit/distfiles/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 DESCRIPTION="Game Boy, GBC, and GBA emulator forked from VisualBoyAdvance"
-HOMEPAGE="http://vba-m.ngemu.com"
+HOMEPAGE="https://github.com/visualboyadvance-m/visualboyadvance-m"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
 IUSE="cairo ffmpeg gtk link lirc nls openal +sdl wxwidgets"
 REQUIRED_USE="|| ( sdl gtk wxwidgets )"
 
-RDEPEND=">=media-libs/libpng-1.4
-	media-libs/libsdl[joystick]
-	link? ( <media-libs/libsfml-2.0 )
+RDEPEND=">=media-libs/libpng-1.4:0=
+	media-libs/libsdl2[joystick]
+	link? ( >=media-libs/libsfml-2.0:= )
 	sys-libs/zlib
 	virtual/glu
 	virtual/opengl
-	ffmpeg? ( virtual/ffmpeg )
+	ffmpeg? ( virtual/ffmpeg[-libav] )
 	gtk? ( >=dev-cpp/glibmm-2.4.0:2
 		>=dev-cpp/gtkmm-2.4.0:2.4
 		>=dev-cpp/gtkglextmm-1.2.0 )
@@ -36,37 +40,32 @@ RDEPEND=">=media-libs/libpng-1.4
 		x11-libs/wxGTK:${WX_GTK_VER}[X,opengl]
 	)"
 DEPEND="${RDEPEND}
-	wxwidgets? ( || ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] ) )
+	wxwidgets? ( virtual/imagemagick-tools )
 	x86? ( || ( dev-lang/nasm dev-lang/yasm ) )
 	nls? ( sys-devel/gettext )
 	virtual/pkgconfig"
 
 src_prepare() {
-	# fix issue with zlib-1.2.5.1 macros (bug #383179)
-	sed -i '1i#define OF(x) x' src/common/memgzio.c || die
-
-	sed -i "s:\(DESTINATION\) bin:\1 ${GAMES_BINDIR}:" \
-		CMakeLists.txt src/wx/CMakeLists.txt || die
+	default
 
 	# fix desktop file QA warnings
-	edos2unix src/gtk/gvbam.desktop src/wx/wxvbam.desktop || die
+	edos2unix src/gtk/gvbam.desktop src/wx/wxvbam.desktop
 }
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_enable cairo CAIRO)
-		$(cmake-utils_use_enable ffmpeg FFMPEG)
-		$(cmake-utils_use_enable gtk GTK)
-		$(cmake-utils_use_enable link LINK)
-		$(cmake-utils_use_enable lirc LIRC)
-		$(cmake-utils_use_enable nls NLS)
-		$(cmake-utils_use_enable openal OPENAL)
-		$(cmake-utils_use_enable sdl SDL)
-		$(cmake-utils_use_enable wxwidgets WX)
-		$(cmake-utils_use_enable x86 ASM_CORE)
-		$(cmake-utils_use_enable x86 ASM_SCALERS)
+		-DENABLE_CAIRO=$(usex cairo)
+		-DENABLE_FFMPEG=$(usex ffmpeg)
+		-DENABLE_GTK=$(usex gtk)
+		-DENABLE_LINK=$(usex link)
+		-DENABLE_LIRC=$(usex lirc)
+		-DENABLE_NLS=$(usex nls)
+		-DENABLE_OPENAL=$(usex openal)
+		-DENABLE_SDL=$(usex sdl)
+		-DENABLE_WX=$(usex wxwidgets)
+		-DENABLE_ASM_CORE=$(usex x86)
+		-DENABLE_ASM_SCALERS=$(usex x86)
 		-DCMAKE_SKIP_RPATH=ON
-		-DDATA_INSTALL_DIR=share/games/${PN}
 	)
 	cmake-utils_src_configure
 }
@@ -79,22 +78,20 @@ src_install() {
 	cmake-utils_src_install
 
 	if use sdl ; then
-		dodoc doc/ReadMe.SDL.txt || die
-		doman debian/vbam.1 || die
+		dodoc doc/ReadMe.SDL.txt
+		doman src/debian/vbam.1
 	fi
-
-	prepgamesdirs
+	use wxwidgets && doman src/debian/wxvbam.1
+	use gtk && doman src/debian/gvbam.1
 }
 
 pkg_preinst() {
-	games_pkg_preinst
 	if use gtk || use wxwidgets ; then
 		gnome2_icon_savelist
 	fi
 }
 
 pkg_postinst() {
-	games_pkg_postinst
 	if use gtk || use wxwidgets ; then
 		gnome2_icon_cache_update
 	fi

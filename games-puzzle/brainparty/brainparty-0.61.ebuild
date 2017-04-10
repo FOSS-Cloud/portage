@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/brainparty/brainparty-0.61.ebuild,v 1.5 2014/05/15 16:49:00 ulm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="A puzzle-solving, brain-stretching game for all ages"
 HOMEPAGE="http://www.tuxradar.com/brainparty"
-SRC_URI="http://launchpad.net/brainparty/trunk/${PV}/+download/${PN}${PV}.tar.gz"
+SRC_URI="https://launchpad.net/brainparty/trunk/${PV}/+download/${PN}${PV}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -19,6 +19,7 @@ DEPEND="media-libs/libsdl[sound,opengl,video]
 	media-libs/sdl-ttf
 	media-libs/sdl-image[png]
 	media-libs/sdl-gfx"
+RDEPEND=${DEPEND}
 
 S=${WORKDIR}/${PN}
 
@@ -28,20 +29,20 @@ src_prepare() {
 		-e 's/CXXFLAGS = .*/CXXFLAGS+=-c/' \
 		-e '/^CXX =/d' \
 		-e '/-o brainparty/s/INCLUDES) /&$(LDFLAGS) /' \
-		Makefile \
-		|| die "sed failed"
+		Makefile || die
 	sed -i \
 		"/^int main(/ a\\\\tchdir(\"${GAMES_DATADIR}/${PN}\");\n" \
-		main.cpp \
-		|| die "sed failed"
-	epatch "${FILESDIR}"/${P}-savegame.patch
+		main.cpp || die
+	epatch \
+		"${FILESDIR}"/${P}-savegame.patch \
+		"${FILESDIR}"/${P}-gcc49.patch
 
 }
 
 src_install() {
-	dogamesbin brainparty || die
+	dogamesbin brainparty
 	insinto "${GAMES_DATADIR}/${PN}/Content"
-	doins Content/* || die
+	doins Content/*
 	newicon Content/icon.bmp ${PN}.bmp
 	make_desktop_entry brainparty "Brain Party" /usr/share/pixmaps/${PN}.bmp
 	prepgamesdirs

@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pdbmat/pdbmat-3.89.ebuild,v 1.4 2013/05/21 17:19:44 jlec Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 
 inherit cmake-utils fortran-2
 
@@ -19,11 +19,14 @@ S="${WORKDIR}"/Source_ENM2011
 
 src_prepare() {
 	cp "${FILESDIR}"/CMakeLists.txt . || die
+
+	cmake-utils_src_prepare
 }
 
 src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use examples EXAMPLES)
+	local mycmakeargs=(
+		-DEXAMPLES=$(usex examples)
 	)
+
 	cmake-utils_src_configure
 }

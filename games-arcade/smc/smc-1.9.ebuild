@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/smc/smc-1.9.ebuild,v 1.10 2013/10/23 22:08:17 mr_bones_ Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit autotools eutils flag-o-matic games
 
 MUSIC_P=SMC_Music_4.1_high
@@ -22,7 +22,7 @@ RDEPEND="<dev-games/cegui-0.7[opengl,devil]
 	virtual/glu
 	x11-libs/libX11
 	dev-libs/libpcre[unicode]
-	media-libs/libpng
+	media-libs/libpng:0
 	media-libs/libsdl[X,joystick,opengl]
 	media-libs/sdl-image[png]
 	media-libs/sdl-mixer[vorbis]

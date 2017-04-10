@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-check_dnssec/nagios-check_dnssec-0.1_p28.ebuild,v 1.3 2014/08/10 20:58:40 slyfox Exp $
+# $Id$
 
 EAPI=4
 
@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-DEPEND="net-analyzer/nagios-plugins
+DEPEND="|| ( net-analyzer/nagios-plugins net-analyzer/monitoring-plugins )
 		net-libs/ldns"
 RDEPEND="${DEPEND}"
 

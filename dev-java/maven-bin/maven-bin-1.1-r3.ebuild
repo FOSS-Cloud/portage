@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/maven-bin/maven-bin-1.1-r3.ebuild,v 1.5 2012/12/22 15:39:57 ago Exp $
+# $Id$
 
 EAPI="4"
 
@@ -15,10 +15,10 @@ HOMEPAGE="http://maven.apache.org/"
 
 LICENSE="Apache-2.0"
 SLOT="1.1"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="|| ( app-admin/eselect-java app-admin/eselect-maven )"
+DEPEND="app-eselect/eselect-java"
 RDEPEND=">=virtual/jdk-1.5
 	${DEPEND}"
 

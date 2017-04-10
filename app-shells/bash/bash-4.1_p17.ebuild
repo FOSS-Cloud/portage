@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/bash/bash-4.1_p17.ebuild,v 1.4 2014/10/08 06:21:18 armin76 Exp $
+# $Id$
 
 EAPI="4"
 
@@ -35,12 +35,14 @@ SRC_URI="mirror://gnu/bash/${MY_P}.tar.gz $(patches)"
 LICENSE="GPL-3"
 SLOT="${MY_PV}"
 KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~sparc-fbsd ~x86-fbsd"
-IUSE="afs mem-scramble +net nls +readline"
+IUSE="afs mem-scramble +net nls +readline static"
 
-DEPEND=">=sys-libs/ncurses-5.2-r2
-	readline? ( >=sys-libs/readline-6.2 )
-	nls? ( virtual/libintl )"
-RDEPEND="${DEPEND}"
+LIB_DEPEND=">=sys-libs/ncurses-5.2-r2[static-libs(+)]
+	nls? ( virtual/libintl )
+	readline? ( >=sys-libs/readline-6.2[static-libs(+)] )"
+RDEPEND="!static? ( ${LIB_DEPEND//\[static-libs(+)]} )"
+DEPEND="${RDEPEND}
+	static? ( ${LIB_DEPEND} )"
 
 S=${WORKDIR}/${MY_P}
 
@@ -68,6 +70,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-4.1-fbsd-eaccess.patch #303411
 	sed -i '1i#define NEED_FPURGE_DECL' execute_cmd.c # needs fpurge() decl
 	epatch "${FILESDIR}"/${PN}-4.1-parallel-build.patch
+	epatch "${FILESDIR}"/${PN}-4.2-dev-fd-buffer-overflow.patch #431850
 
 	epatch_user
 }
@@ -78,19 +81,17 @@ src_configure() {
 	myconf+=( --without-lispdir ) #335896
 
 	# For descriptions of these, see config-top.h
-	# bashrc/#26952 bash_logout/#90488 ssh/#24762
+	# bashrc/#26952 bash_logout/#90488 ssh/#24762 mktemp/#574426
 	append-cppflags \
 		-DDEFAULT_PATH_VALUE=\'\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\' \
 		-DSTANDARD_UTILS_PATH=\'\"/bin:/usr/bin:/sbin:/usr/sbin\"\' \
 		-DSYS_BASHRC=\'\"/etc/bash/bashrc\"\' \
 		-DSYS_BASH_LOGOUT=\'\"/etc/bash/bash_logout\"\' \
 		-DNON_INTERACTIVE_LOGIN_SHELLS \
-		-DSSH_SOURCE_BASHRC
+		-DSSH_SOURCE_BASHRC \
+		-DUSE_MKTEMP -DUSE_MKSTEMP
 
-	# Don't even think about building this statically without
-	# reading Bug 7714 first.  If you still build it statically,
-	# don't come crying to us with bugs ;).
-	#use static && export LDFLAGS="${LDFLAGS} -static"
+	use static && append-ldflags -static
 	use nls || myconf+=( --disable-nls )
 
 	# Historically, we always used the builtin readline, but since

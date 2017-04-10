@@ -1,10 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/4ti2/4ti2-1.6.2.ebuild,v 1.2 2014/07/18 12:27:10 nimiux Exp $
+# $Id$
 
 EAPI=5
 
 AUTOTOOLS_AUTORECONF=true
+# The swig subdir is not used, so we can skip running autotools in it. #518000
+AT_NO_RECURSIVE=1
 
 inherit autotools-utils
 
@@ -14,7 +16,7 @@ SRC_URI="http://4ti2.de/version_${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86 ~x86-macos"
+KEYWORDS="amd64 x86 ~x86-macos"
 IUSE="static-libs"
 
 DEPEND="

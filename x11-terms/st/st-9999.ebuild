@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/st/st-9999.ebuild,v 1.12 2014/01/06 21:17:53 jer Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 inherit eutils git-r3 multilib savedconfig toolchain-funcs
 
 DESCRIPTION="simple terminal implementation for X"
@@ -11,20 +11,25 @@ EGIT_REPO_URI="git://git.suckless.org/st"
 
 LICENSE="MIT-with-advertising"
 SLOT="0"
-KEYWORDS=""
 IUSE="savedconfig"
 
-RDEPEND="media-libs/fontconfig
+RDEPEND="
+	>=sys-libs/ncurses-6.0:0=
+	media-libs/fontconfig
 	x11-libs/libX11
 	x11-libs/libXext
-	x11-libs/libXft"
-DEPEND="${RDEPEND}
-	sys-libs/ncurses
+	x11-libs/libXft
+"
+DEPEND="
+	${RDEPEND}
 	virtual/pkgconfig
 	x11-proto/xextproto
-	x11-proto/xproto"
+	x11-proto/xproto
+"
 
 src_prepare() {
+	eapply_user
+
 	sed -e '/^CFLAGS/s:[[:space:]]-Wall[[:space:]]: :' \
 		-e '/^CFLAGS/s:[[:space:]]-O[^[:space:]]*[[:space:]]: :' \
 		-e '/^LDFLAGS/{s:[[:space:]]-s[[:space:]]: :}' \
@@ -32,6 +37,7 @@ src_prepare() {
 		-e "/^X11LIB/{s:/usr/X11R6/lib:/usr/$(get_libdir)/X11:}" \
 		-i config.mk || die
 	sed -e '/@echo/!s:@::' \
+		-e '/tic/d' \
 		-i Makefile || die
 	tc-export CC
 
@@ -40,7 +46,6 @@ src_prepare() {
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr install
-	tic -s -o "${ED}"/usr/share/terminfo st.info || die
 	dodoc TODO
 
 	make_desktop_entry ${PN} simpleterm utilities-terminal 'System;TerminalEmulator;' ''

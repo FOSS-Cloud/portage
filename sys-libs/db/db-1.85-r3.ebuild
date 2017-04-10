@@ -1,11 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/db/db-1.85-r3.ebuild,v 1.18 2014/01/18 04:14:32 vapier Exp $
+# $Id$
 
 inherit eutils toolchain-funcs multilib multilib
 
 DESCRIPTION="old berk db kept around for really old packages"
-HOMEPAGE="http://www.oracle.com/technology/software/products/berkeley-db/db/index.html"
+HOMEPAGE="http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html"
 SRC_URI="http://download.oracle.com/berkeley-db/db.${PV}.tar.gz
 		 mirror://gentoo/${PF}.1.patch.bz2"
 # The patch used by Gentoo is from Fedora, and includes all 5 patches found on
@@ -36,7 +36,7 @@ src_compile() {
 }
 
 src_install() {
-	make -C PORT/linux install DESTDIR="${D}" || die
+	make -C PORT/linux install DESTDIR="${ED}" || die
 
 	# binary compat symlink
 	dosym libdb1.so.2 /usr/$(get_libdir)/libdb.so.2 || die

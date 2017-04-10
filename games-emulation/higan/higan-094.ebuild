@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/higan/higan-094.ebuild,v 1.1 2014/02/23 03:27:16 hasufell Exp $
+# $Id$
 
 EAPI=5
 
-inherit eutils gnome2-utils toolchain-funcs games
+inherit eutils gnome2-utils toolchain-funcs qmake-utils games
 
 MY_P=${PN}_v${PV}-source
 
@@ -14,7 +14,7 @@ SRC_URI="http://byuu.org/files/${MY_P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="ao +alsa openal opengl oss profile_accuracy +profile_balanced profile_performance pulseaudio qt4 +sdl udev xv"
 REQUIRED_USE="|| ( ao openal alsa pulseaudio oss )
 	|| ( xv opengl sdl )
@@ -73,7 +73,7 @@ src_prepare() {
 	# regenerate .moc if needed
 	if use qt4; then
 		cd phoenix/qt || die
-		moc -i -I. -o platform.moc platform.moc.hpp || die
+		 "$(qt4_get_bindir)"/moc -i -I. -o platform.moc platform.moc.hpp || die
 	fi
 
 	for i in profile_accuracy profile_balanced profile_performance ; do

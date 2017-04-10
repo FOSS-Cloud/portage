@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/agda-lib-ffi/agda-lib-ffi-0.0.2.ebuild,v 1.2 2014/08/10 20:23:23 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -30,5 +30,5 @@ S="${WORKDIR}/${AGDA_P}/ffi"
 
 src_prepare() {
 	cabal_chdeps \
-		'base >= 3.0.3.1 && < 4.7' 'base >= 3.0.3.1 && < 4.8'
+		'base >= 3.0.3.1 && < 4.7' 'base >= 3.0.3.1'
 }

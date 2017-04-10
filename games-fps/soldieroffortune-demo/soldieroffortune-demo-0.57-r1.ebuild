@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/soldieroffortune-demo/soldieroffortune-demo-0.57-r1.ebuild,v 1.1 2014/07/10 22:14:04 axs Exp $
+# $Id$
 
 EAPI=5
 inherit eutils unpacker games
@@ -13,26 +13,17 @@ SRC_URI="mirror://lokigames/loki_demos/${MY_PN}.run"
 
 LICENSE="LOKI-EULA"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 RESTRICT="strip"
 
 DEPEND="games-util/loki_patch"
-RDEPEND="|| (
-	(
-		virtual/opengl[abi_x86_32(-)]
-		media-libs/libsdl[X,opengl,sound,abi_x86_32(-)]
-		x11-libs/libXrender[abi_x86_32(-)]
-		x11-libs/libXrandr[abi_x86_32(-)]
-		x11-libs/libXcursor[abi_x86_32(-)]
-		media-libs/smpeg[abi_x86_32(-)]
-	)
-	(
-		app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
-		app-emulation/emul-linux-x86-sdl[-abi_x86_32(-)]
-		app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)]
-	)
-)"
+RDEPEND="virtual/opengl[abi_x86_32(-)]
+	media-libs/libsdl[X,opengl,sound,abi_x86_32(-)]
+	x11-libs/libXrender[abi_x86_32(-)]
+	x11-libs/libXrandr[abi_x86_32(-)]
+	x11-libs/libXcursor[abi_x86_32(-)]
+	media-libs/smpeg[abi_x86_32(-)]"
 
 S=${WORKDIR}
 
@@ -44,7 +35,7 @@ src_install() {
 	local demo="data/demos/sof_demo"
 	local exe="sof-bin.x86"
 
-	loki_patch patch.dat data/ || die "loki patch failed"
+	loki_patch patch.dat data/ || die
 
 	insinto "${dir}"
 	exeinto "${dir}"
@@ -57,9 +48,10 @@ src_install() {
 	games_make_wrapper ${PN} "./${exe}" "${dir}" "${dir}"
 
 	# fix buffer overflow
-	sed -i -e '/^exec/i \
+	sed -i \
+		-e '/^exec/i \
 export MESA_EXTENSION_MAX_YEAR=2003 \
-export __GL_ExtensionStringVersion=17700' "${ED}"/usr/games/bin/${PN}
+export __GL_ExtensionStringVersion=17700' "${ED}"${GAMES_BINDIR}/${PN} || die
 
 	newicon "${demo}"/launch/box.png ${PN}.png
 	make_desktop_entry ${PN} "Soldier of Fortune (Demo)"

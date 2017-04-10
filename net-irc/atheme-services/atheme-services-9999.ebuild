@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/atheme-services/atheme-services-9999.ebuild,v 1.5 2012/05/17 00:48:10 jdhore Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 inherit git-2 user eutils flag-o-matic perl-module
 
@@ -113,7 +113,7 @@ src_install() {
 	doins contrib/*.{c,pl,php,py,rb}
 
 	if use perl; then
-		perlinfo
+		perl_set_version
 		insinto "${VENDOR_LIB#${EPREFIX}}"
 		doins -r contrib/Atheme{,.pm}
 	fi

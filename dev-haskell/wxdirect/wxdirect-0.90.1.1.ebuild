@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/wxdirect/wxdirect-0.90.1.1.ebuild,v 1.1 2014/03/23 15:05:13 gienah Exp $
+# $Id$
 
 EAPI=5
 
@@ -36,5 +36,7 @@ src_prepare() {
 		-i "${S}/${PN}.cabal" \
 		|| die "Could not change ${PN}.cabal for wxdirect slot ${WX_GTK_VER}"
 	cabal_chdeps \
-		'process    >= 1.1   && < 1.2' 'process    >= 1.1'
+		'process    >= 1.1   && < 1.2' 'process    >= 1.1' \
+		'time       >= 1.0   && < 1.5' 'time       >= 1.0' \
+		'filepath   <  1.4' 'filepath'
 }

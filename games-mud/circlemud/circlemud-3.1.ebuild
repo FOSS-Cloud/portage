@@ -1,20 +1,21 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-mud/circlemud/circlemud-3.1.ebuild,v 1.13 2010/10/12 02:07:55 mr_bones_ Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="a multi-user dungeon game system server"
 HOMEPAGE="http://www.circlemud.org/"
-SRC_URI="ftp://ftp.circlemud.org/pub/CircleMUD/${PV/.*}.x/circle-${PV}.tar.bz2"
+SRC_URI="http://www.circlemud.org/pub/CircleMUD/3.x/circle-${PV}.tar.bz2"
 
 LICENSE="circlemud"
 SLOT="0"
-KEYWORDS="~amd64 ppc x86"
+KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-DEPEND="dev-libs/openssl"
+DEPEND="dev-libs/openssl:0="
+RDEPEND=${DEPEND}
 
 S=${WORKDIR}/circle-${PV}
 
@@ -39,15 +40,17 @@ src_prepare() {
 }
 
 src_compile() {
-	emake -C src || die "emake failed"
+	emake -C src
 }
 
 src_install() {
+	local bin
+
 	for bin in autowiz delobjs listrent mudpasswd play2to3 purgeplay \
 	           shopconv showplay sign split wld2html ; do
-		newgamesbin bin/${bin} ${PN}-${bin} || die
+		newgamesbin bin/${bin} ${PN}-${bin}
 	done
-	dogamesbin bin/circle || die
+	dogamesbin bin/circle
 
 	dodir "${GAMES_DATADIR}/${PN}"
 	cp -r lib/*  "${D}/${GAMES_DATADIR}/${PN}" || die

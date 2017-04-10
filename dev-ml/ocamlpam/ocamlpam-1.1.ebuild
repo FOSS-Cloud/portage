@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocamlpam/ocamlpam-1.1.ebuild,v 1.2 2013/08/19 13:51:51 aballier Exp $
+# $Id$
 
 EAPI=5
 
@@ -21,6 +21,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-makefile.patch"
+	has_version '>=dev-lang/ocaml-4.04_beta' && epatch "${FILESDIR}/ocaml404.patch"
 }
 
 src_compile() {

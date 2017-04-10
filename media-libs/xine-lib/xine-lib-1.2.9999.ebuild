@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/xine-lib-1.2.9999.ebuild,v 1.28 2014/07/10 13:39:31 ssuominen Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit flag-o-matic libtool multilib
 
@@ -25,14 +25,17 @@ HOMEPAGE="http://xine.sourceforge.net/"
 
 LICENSE="GPL-2"
 SLOT="1"
-IUSE="a52 aac aalib +alsa altivec bluray +css directfb dts dvb dxr3 fbcon flac fusion gtk imagemagick ipv6 jack jpeg libcaca mad +mmap mng modplug musepack opengl oss pulseaudio samba sdl speex theora truetype v4l vaapi vcd vdpau vdr vidix +vis vorbis vpx wavpack +X +xcb xinerama +xv xvmc ${NLS_IUSE}"
+IUSE="a52 aac aalib +alsa altivec bluray +css directfb dts dvb dxr3 fbcon flac fusionsound gtk imagemagick ipv6 jack jpeg libav libcaca mad +mmap mng modplug musepack opengl oss pulseaudio samba sdl speex theora truetype v4l vaapi vcd vdpau vdr vidix +vis vorbis vpx wavpack +X +xcb xinerama +xv xvmc ${NLS_IUSE}"
 
 RDEPEND="${NLS_RDEPEND}
 	dev-libs/libxdg-basedir
 	media-libs/libdvdnav
 	sys-libs/zlib
-	|| ( media-video/ffmpeg:0 media-libs/libpostproc <media-video/libav-0.8.2-r1 )
-	virtual/ffmpeg
+	!libav? ( media-video/ffmpeg:0= )
+	libav? (
+		media-libs/libpostproc:0=
+		media-video/libav:0=
+	)
 	virtual/libiconv
 	a52? ( media-libs/a52dec )
 	aac? ( media-libs/faad2 )
@@ -44,9 +47,9 @@ RDEPEND="${NLS_RDEPEND}
 	dts? ( media-libs/libdca )
 	dxr3? ( media-libs/libfame )
 	flac? ( media-libs/flac )
-	fusion? ( media-libs/FusionSound )
+	fusionsound? ( >=dev-libs/DirectFB-1.7.1[fusionsound] )
 	gtk? ( x11-libs/gdk-pixbuf:2 )
-	imagemagick? ( || ( media-gfx/imagemagick media-gfx/graphicsmagick ) )
+	imagemagick? ( virtual/imagemagick-tools )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.100 )
 	jpeg? ( virtual/jpeg:0 )
 	libcaca? ( media-libs/libcaca )
@@ -77,14 +80,14 @@ RDEPEND="${NLS_RDEPEND}
 	vaapi? ( x11-libs/libva )
 	vcd? (
 		>=media-video/vcdimager-0.7.23
-		dev-libs/libcdio[-minimal]
+		dev-libs/libcdio:0=[-minimal]
 		)
 	vdpau? ( x11-libs/libvdpau )
 	vorbis? (
 		media-libs/libogg
 		media-libs/libvorbis
 		)
-	vpx? ( media-libs/libvpx )
+	vpx? ( media-libs/libvpx:0= )
 	wavpack? ( media-sound/wavpack )
 	X? (
 		x11-libs/libX11
@@ -114,6 +117,8 @@ REQUIRED_USE="vidix? ( || ( X fbcon ) )
 	xinerama? ( X )"
 
 src_prepare() {
+	default
+
 	sed -i -e '/define VDR_ABS_FIFO_DIR/s|".*"|"/var/vdr/xine"|' src/vdr/input_vdr.c || die
 
 	if [[ ${PV} == *9999* ]]; then
@@ -142,7 +147,7 @@ src_configure() {
 	local myconf=()
 	[[ ${PV} == *9999* ]] || myconf=( $(use_enable nls) )
 
-	if has_version '>=media-video/ffmpeg-2.2:0'; then
+	if ! use libav && has_version '>=media-video/ffmpeg-2.2:0'; then
 		myconf+=( --enable-avformat ) #507474
 	fi
 
@@ -186,7 +191,7 @@ src_configure() {
 		$(use_with X x) \
 		$(use_with alsa) \
 		--without-esound \
-		$(use_with fusion fusionsound) \
+		$(use_with fusionsound) \
 		$(use_with jack) \
 		$(use_with pulseaudio) \
 		$(use_with libcaca caca) \

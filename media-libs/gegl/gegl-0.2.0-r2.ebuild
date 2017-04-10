@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gegl/gegl-0.2.0-r2.ebuild,v 1.13 2014/03/04 20:03:39 vincent Exp $
+# $Id$
 
 EAPI=5
 
@@ -19,7 +19,7 @@ LICENSE="|| ( GPL-3 LGPL-3 )"
 SLOT="0"
 KEYWORDS="alpha amd64 ~arm hppa ia64 ~mips ppc ppc64 sparc x86 ~amd64-fbsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
 
-IUSE="cairo debug ffmpeg jpeg jpeg2k lensfun mmx openexr png raw sdl sse svg umfpack" # +introspection vala
+IUSE="cairo debug ffmpeg jpeg jpeg2k lensfun libav cpu_flags_x86_mmx openexr png raw sdl cpu_flags_x86_sse svg umfpack" # +introspection vala
 
 RDEPEND="
 	>=media-libs/babl-0.1.10
@@ -28,11 +28,14 @@ RDEPEND="
 	x11-libs/pango
 	sys-libs/zlib
 	cairo? ( x11-libs/cairo )
-	ffmpeg? ( virtual/ffmpeg )
-	jpeg? ( virtual/jpeg )
-	jpeg2k? ( >=media-libs/jasper-1.900.1 )
+	ffmpeg? (
+		libav? ( media-video/libav:0= )
+		!libav? ( media-video/ffmpeg:0= )
+	)
+	jpeg? ( virtual/jpeg:0 )
+	jpeg2k? ( >=media-libs/jasper-1.900.1:= )
 	openexr? ( media-libs/openexr )
-	png? ( media-libs/libpng )
+	png? ( media-libs/libpng:0= )
 	raw? ( =media-libs/libopenraw-0.0.9 )
 	sdl? ( media-libs/libsdl )
 	svg? ( >=gnome-base/librsvg-2.14:2 )
@@ -69,6 +72,9 @@ src_prepare() {
 	fi
 
 	epatch "${FILESDIR}"/${P}-g_log_domain.patch
+
+	# https://bugs.gentoo.org/show_bug.cgi?id=605216
+	epatch "${FILESDIR}"/${P}-underlinking.patch
 	eautoreconf
 
 	# https://bugs.gentoo.org/show_bug.cgi?id=468248
@@ -94,7 +100,7 @@ src_configure() {
 	#  - Parameter --with-exiv2 compiles a noinst-app only, no use
 	#
 	#  - Parameter --disable-workshop disables any use of Lua, effectivly
-	# 
+	#
 	#  - v4l support does not work with our media-libs/libv4l-0.8.9,
 	#    upstream bug at https://bugzilla.gnome.org/show_bug.cgi?id=654675
 	#
@@ -110,8 +116,8 @@ src_configure() {
 		--without-libspiro \
 		--disable-docs --disable-workshop \
 		--with-pango --with-gdk-pixbuf \
-		$(use_enable mmx) \
-		$(use_enable sse) \
+		$(use_enable cpu_flags_x86_mmx mmx) \
+		$(use_enable cpu_flags_x86_sse sse) \
 		$(use_enable debug) \
 		$(use_with cairo) \
 		$(use_with cairo pangocairo) \

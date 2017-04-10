@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/wally/wally-2.4.5.ebuild,v 1.1 2014/08/06 11:36:51 jer Exp $
+# $Id$
 
 EAPI=5
 KDE_REQUIRED="optional"
@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="debug kde"
 
 DEPEND="
@@ -24,7 +24,7 @@ DEPEND="
 	dev-qt/qtgui:4
 	dev-qt/qtsql:4
 	dev-qt/qtsvg:4
-	kde? ( $(add_kdebase_dep kdelibs) )
+	kde? ( kde-frameworks/kdelibs:4 )
 "
 RDEPEND="${DEPEND}"
 

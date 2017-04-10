@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>tristan@gentoo.org</email>
-		<name>Tristan Heaven</name>
-	</maintainer>
-	<use>
-		<flag name="applet">Enable applet for <pkg>gnome-base/gnome-panel</pkg></flag>
-	</use>
+  <maintainer type="person">
+    <email>graaff@gentoo.org</email>
+  </maintainer>
 </pkgmetadata>

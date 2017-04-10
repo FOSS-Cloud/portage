@@ -1,9 +1,6 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/pam_ldap/pam_ldap-183.ebuild,v 1.8 2006/12/17 21:57:50 killerfox Exp $
-
-WANT_AUTOCONF="latest"
-WANT_AUTOMAKE="latest"
+# $Id$
 
 inherit eutils pam autotools
 
@@ -22,7 +19,7 @@ DEPEND=">=sys-libs/glibc-2.1.3
 
 src_unpack() {
 	unpack ${A}
-	#EPATCH_OPTS="-p1 -d ${S}" epatch ${FILESDIR}/${PN}-176-fix-referral-tls.patch
+	#EPATCH_OPTS="-p1 -d ${S}" epatch "${FILESDIR}"/${PN}-176-fix-referral-tls.patch
 
 	cd "${S}"
 	eautoreconf

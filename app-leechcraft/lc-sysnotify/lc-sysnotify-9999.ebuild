@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-sysnotify/lc-sysnotify-9999.ebuild,v 1.1 2013/05/24 15:23:51 pinkbyte Exp $
+# $Id$
 
-EAPI="5"
+EAPI=6
 
 inherit leechcraft
 
@@ -13,5 +13,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="~app-leechcraft/lc-core-${PV}
-	dev-qt/qtdbus:4"
+	dev-qt/qtgui:5
+	dev-qt/qtdbus:5
+"
 RDEPEND="${DEPEND}"

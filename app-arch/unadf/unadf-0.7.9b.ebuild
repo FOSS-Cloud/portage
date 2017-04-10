@@ -1,15 +1,15 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/unadf/unadf-0.7.9b.ebuild,v 1.11 2010/01/01 19:41:00 fauli Exp $
+# $Id$
 
 inherit eutils
 
 DESCRIPTION="Extract files from Amiga adf disk images"
-SRC_URI="http://perso.club-internet.fr/lclevy/adflib/adflib.zip"
-HOMEPAGE="http://perso.club-internet.fr/lclevy/adflib/adflib.html"
+SRC_URI="mirror://gentoo/adflib.zip"
+HOMEPAGE="http://lclevy.free.fr/adflib/"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="hppa ppc x86 ~x86-interix ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="hppa ppc x86 ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris"
 IUSE=""
 DEPEND="app-arch/unzip
 		x11-misc/makedepend"

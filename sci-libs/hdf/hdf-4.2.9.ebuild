@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/hdf/hdf-4.2.9.ebuild,v 1.1 2013/02/19 11:27:09 xarthisius Exp $
+# $Id$
 
 EAPI=4
 
@@ -22,7 +22,7 @@ IUSE="fortran szip static-libs"
 RDEPEND="
 	sys-libs/zlib
 	virtual/jpeg
-	szip? ( >=sci-libs/szip-2 )"
+	szip? ( virtual/szip )"
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${MYP}

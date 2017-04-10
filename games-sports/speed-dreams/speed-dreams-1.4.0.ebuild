@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-sports/speed-dreams/speed-dreams-1.4.0.ebuild,v 1.8 2012/03/16 20:04:54 tupone Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit autotools eutils versionator games
 
 DESCRIPTION="A fork of the famous open racing car simulator TORCS"
@@ -23,7 +23,7 @@ RDEPEND="virtual/opengl
 	x11-libs/libXxf86vm
 	xrandr? ( x11-libs/libXrandr )
 	sys-libs/zlib
-	>=media-libs/libpng-1.2.40"
+	>=media-libs/libpng-1.2.40:0"
 DEPEND="${RDEPEND}
 	>=media-libs/plib-1.8.3
 	x11-proto/xproto
@@ -39,13 +39,14 @@ DEPEND="${RDEPEND}
 S=${WORKDIR}/${PN}-$(get_version_component_range 1-3)-src
 
 src_prepare() {
-	# http://sourceforge.net/apps/trac/speed-dreams/ticket/111
+	# https://sourceforge.net/apps/trac/speed-dreams/ticket/111
 	MAKEOPTS="${MAKEOPTS} -j1"
 
 	epatch \
 			"${FILESDIR}"/${P}-asneeded.patch \
 			"${FILESDIR}"/${P}-automake.patch \
-			"${FILESDIR}"/${P}-libpng15.patch
+			"${FILESDIR}"/${P}-libpng15.patch \
+			"${FILESDIR}"/${P}-math-hack.patch
 
 	sed -i \
 		-e '/ADDCFLAGS/s: -O2::' \
@@ -54,6 +55,7 @@ src_prepare() {
 		-e '/COPYING/s:=.*:= \\:' \
 		Makefile || die
 	sed -i \
+		-e '/LDFLAGS/s:-L/usr/lib::' \
 		-e "/^datadir/s:=.*:= ${GAMES_DATADIR}/${PN}:" \
 		Make-config.in || die
 
@@ -70,7 +72,7 @@ src_configure() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install datainstall || die
+	emake DESTDIR="${D}" install datainstall
 
 	find "${D}" -name Makefile -exec rm -f {} +
 

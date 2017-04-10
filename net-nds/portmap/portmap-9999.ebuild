@@ -1,9 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/portmap/portmap-9999.ebuild,v 1.5 2012/12/09 12:34:07 ulm Exp $
+# $Id$
+
+EAPI=5
 
 EGIT_REPO_URI="git://neil.brown.name/portmap"
-inherit toolchain-funcs user git-2
+inherit toolchain-funcs user git-r3
 
 DESCRIPTION="Netkit - portmapper"
 HOMEPAGE="ftp://ftp.porcupine.org/pub/security/index.html"
@@ -14,8 +16,13 @@ SLOT="0"
 KEYWORDS=""
 IUSE="selinux tcpd"
 
-DEPEND="selinux? ( sec-policy/selinux-portmap )
-	tcpd? ( >=sys-apps/tcp-wrappers-7.6-r7 )"
+DEPEND="
+	tcpd? ( >=sys-apps/tcp-wrappers-7.6-r7 )
+"
+
+RDEPEND="
+	selinux? ( sec-policy/selinux-portmap )
+"
 
 pkg_setup() {
 	enewgroup rpc 111
@@ -24,14 +31,14 @@ pkg_setup() {
 
 src_compile() {
 	tc-export CC
-	emake NO_TCP_WRAPPER="$(use tcpd || echo NO)" || die
+	emake NO_TCP_WRAPPER="$(use tcpd || echo NO)"
 }
 
 src_install() {
 	into /
-	dosbin portmap || die "portmap"
+	dosbin portmap
 	into /usr
-	dosbin pmap_dump pmap_set || die "pmap"
+	dosbin pmap_dump pmap_set
 
 	doman *.8
 	dodoc BLURBv5 CHANGES README*

@@ -1,17 +1,21 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/sgt-puzzles/sgt-puzzles-99999999.ebuild,v 1.5 2012/05/04 04:45:28 jdhore Exp $
+# $Id$
 
-EAPI=2
-inherit eutils toolchain-funcs games
+EAPI=6
+
+inherit eutils gnome2-utils toolchain-funcs autotools
+
 if [[ ${PV} == "99999999" ]] ; then
-	ESVN_REPO_URI="svn://svn.tartarus.org/sgt/puzzles"
-	inherit subversion
-	SRC_URI=""
+	inherit git-r3
+	EGIT_REPO_URI="git://git.tartarus.org/simon/puzzles.git"
+	GENTOO_ICONS="20160315"
+	SRC_URI="https://dev.gentoo.org/~np-hardass/distfiles/${PN}/${PN}-icons-${GENTOO_ICONS}.tar.xz"
 	KEYWORDS=""
 else
-	SRC_URI="http://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-r${PV}.tar.gz"
-	S=${WORKDIR}/puzzles-r${PV}
+	MAGIC=b958129
+	SRC_URI="http://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-${PV}.${MAGIC}.tar.gz"
+	S=${WORKDIR}/puzzles-${PV}.${MAGIC}
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -20,58 +24,91 @@ HOMEPAGE="http://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="doc"
+IUSE="+doc gtk3"
 
-RDEPEND="x11-libs/gtk+:2"
-DEPEND="${RDEPEND}
+COMMON_DEPEND="
+	!gtk3? ( x11-libs/gtk+:2 )
+	gtk3? ( x11-libs/gtk+:3 )"
+
+RDEPEND="${COMMON_DEPEND}
+	x11-misc/xdg-utils" # Used by builtin help patch
+
+DEPEND="${COMMON_DEPEND}
 	dev-lang/perl
 	virtual/pkgconfig
 	doc? ( >=app-doc/halibut-1.0 )"
 
+PATCHES=( "${FILESDIR}/${PN}-20161207-builtin-help.patch" )
+
+src_unpack() {
+	default
+	if [[ ${PV} == "99999999" ]]; then
+		git-r3_src_unpack
+	fi
+}
+
 src_prepare() {
+	default
+
 	sed -i \
 		-e 's/-O2 -Wall -Werror -ansi -pedantic -g//' \
 		-e "s/libstr =/libstr = '\$(LDFLAGS) ' ./" \
-		mkfiles.pl \
-		|| die
-	./mkfiles.pl
-	sed -i \
-		-e '1iPKG_CONFIG ?= pkg-config' \
-		-e '/^GTK_CONFIG/s:=.*:= $(PKG_CONFIG) gtk+-2.0:' \
-		Makefile || die
+		mkfiles.pl || die
+	./mkfiles.pl || die
+	eautoreconf
+
+	# Import icons from latest Gentoo tarball for live
+	if [[ ${PV} == "99999999" ]]; then
+		cp -R ../${PN}-icons/icons . || die
+	fi
+}
+
+src_configure() {
+	econf \
+		--program-prefix="${PN}_" \
+		--with-gtk=$(usex gtk3 3 2)
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)" || die
+	emake CC="$(tc-getCC)"
 	if use doc ; then
-		halibut --text --html --info --pdf --ps puzzles.but
+		halibut --text --html --info --pdf --ps puzzles.but || die
 	fi
 }
 
 src_install() {
-	dodir "${GAMES_BINDIR}"
-	emake DESTDIR="${D}" gamesdir="${GAMES_BINDIR}" install || die
-	dodoc README
+	default
 
 	local file name
 	for file in *.R ; do
 		[[ ${file} == "nullgame.R" ]] && continue
-		name=$(sed -n 's/^[a-z]*\.exe://p' "${file}")
+		name=$(awk -F: '/exe:/ { print $3 }' "${file}")
 		file=${file%.R}
-		if [[ ${PV} -lt 99999999 ]] ; then
-			newicon icons/${file}-48d24.png ${PN}-${file}.png || die
-			make_desktop_entry "${GAMES_BINDIR}/${file}" "${name}" "${PN}-${file}"
-		else
-			# No icons with the live version
-			make_desktop_entry "${GAMES_BINDIR}/${file}" "${name}"
-		fi
+		newicon -s 48 icons/${file}-48d24.png ${PN}_${file}.png
+		make_desktop_entry "${PN}_${file}" "${name}" "${PN}_${file}" "Game;LogicGame;${PN};"
 	done
 
 	if use doc ; then
-		dohtml *.html
-		doinfo puzzles.info
-		dodoc puzzles.pdf puzzles.ps puzzles.txt puzzles.chm
+		DOCS=( puzzles.{pdf,ps,txt} )
+		HTML_DOCS=( *.html )
+		einstalldocs
+		doinfo puzzles.info{,-1,-2,-3}
 	fi
 
-	prepgamesdirs
+	insinto /etc/xdg/menus/applications-merged
+	doins "${FILESDIR}/${PN}.menu"
+	insinto /usr/share/desktop-directories
+	doins "${FILESDIR}/${PN}.directory"
+}
+
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
 }

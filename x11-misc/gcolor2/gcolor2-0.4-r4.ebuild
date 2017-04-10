@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/gcolor2/gcolor2-0.4-r4.ebuild,v 1.5 2014/02/22 22:50:41 pacho Exp $
+# $Id$
 
 EAPI=5
 GCONF_DEBUG="no"
@@ -10,7 +10,7 @@ inherit autotools eutils gnome2
 DESCRIPTION="A GTK+ color selector"
 HOMEPAGE="http://gcolor2.sourceforge.net"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz
-	http://dev.gentoo.org/~pacho/gnome/${PN}.svg"
+	https://dev.gentoo.org/~pacho/gnome/${PN}.svg"
 
 LICENSE="GPL-2 public-domain"
 SLOT="0"
@@ -39,7 +39,7 @@ src_prepare() {
 src_install() {
 	gnome2_src_install
 
-	# Icon from http://sourceforge.net/p/gcolor2/patches/5/
+	# Icon from https://sourceforge.net/p/gcolor2/patches/5/
 	doicon -s scalable "${DISTDIR}/${PN}.svg"
 	make_desktop_entry ${PN} Gcolor2 ${PN} Graphics
 }

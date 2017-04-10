@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/kamerka/kamerka-0.10.ebuild,v 1.1 2014/07/31 10:17:48 kensington Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,13 +13,13 @@ HOMEPAGE="http://dos1.github.io/kamerka/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="
 	dev-qt/qtdeclarative:4
 	media-libs/libv4l
-	media-libs/phonon
+	media-libs/phonon[qt4]
 	media-libs/qimageblitz
 "
 DEPEND="${RDEPEND}"

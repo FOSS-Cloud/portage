@@ -1,10 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/fhist/fhist-1.19.ebuild,v 1.6 2011/10/07 15:03:15 jlec Exp $
+# $Id$
 
 EAPI=4
 
-inherit eutils
+inherit eutils flag-o-matic
 
 DESCRIPTION="File history and comparison tools"
 HOMEPAGE="http://fhist.sourceforge.net/fhist.html"
@@ -23,8 +23,8 @@ DEPEND="${RDEPEND}
 	sys-devel/bison
 	test? ( app-arch/sharutils )"
 
-MAKEOPTS+=" -j1"
-
 src_prepare() {
+	MAKEOPTS+=" -j1"
 	epatch "${FILESDIR}"/${PV}-ldflags.patch
+	append-cflags -fgnu89-inline
 }

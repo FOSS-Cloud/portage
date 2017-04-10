@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/yate/yate-9999.ebuild,v 1.5 2014/07/27 21:41:21 zerochaos Exp $
+# $Id$
 
 EAPI=5
 
@@ -20,11 +20,11 @@ else
 fi
 
 LICENSE="GPL-2"
-SLOT="0"
-IUSE="doc sse2 sctp dahdi zaptel wpcard tdmcard wanpipe +ilbc +ilbc-webrtc +isac-float isac-fixed postgres mysql +gsm +speex h323 spandsp +ssl qt4 +zlib amrnb"
+SLOT="0/${PV}"
+IUSE="doc cpu_flags_x86_sse2 sctp dahdi zaptel wpcard tdmcard wanpipe +ilbc +ilbc-webrtc +isac-float isac-fixed postgres mysql +gsm +speex h323 spandsp +ssl qt4 +zlib amrnb"
 
 RDEPEND="
-	postgres? ( dev-db/postgresql-base )
+	postgres? ( dev-db/postgresql )
 	mysql? ( virtual/mysql )
 	gsm? ( media-sound/gsm )
 	speex? ( media-libs/speex )
@@ -41,7 +41,6 @@ DEPEND="doc? ( || ( app-doc/doxygen dev-util/kdoc ) )
 	${RDEPEND}"
 
 src_prepare() {
-	epatch "${FILESDIR}"/dont-mess-with-cflags.patch
 	eautoreconf
 	./yate-config.sh || die
 }
@@ -55,7 +54,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		--with-archlib=$(get_libdir) \
-		$(use_enable sse2) \
+		$(use_enable cpu_flags_x86_sse2 sse2) \
 		$(use_enable sctp) \
 		$(use_enable dahdi) \
 		$(use_enable zaptel) \

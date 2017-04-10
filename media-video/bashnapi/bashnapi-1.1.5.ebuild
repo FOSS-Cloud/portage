@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/bashnapi/bashnapi-1.1.5.ebuild,v 1.1 2013/05/12 07:15:59 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,7 +8,7 @@ SUB_VER=0.15
 MY_TAR=napi_v${PV}_subotage_${SUB_VER}
 
 DESCRIPTION="Napiprojekt.pl subtitle downloader in bash"
-HOMEPAGE="http://sourceforge.net/projects/bashnapi/"
+HOMEPAGE="https://sourceforge.net/projects/bashnapi/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_TAR}.tgz"
 
 LICENSE="GPL-3"

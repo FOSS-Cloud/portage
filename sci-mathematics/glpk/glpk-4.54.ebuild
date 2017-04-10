@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/glpk/glpk-4.54.ebuild,v 1.2 2014/09/01 16:41:18 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,12 +10,12 @@ inherit eutils flag-o-matic toolchain-funcs autotools-utils
 
 DESCRIPTION="GNU Linear Programming Kit"
 LICENSE="GPL-3"
-HOMEPAGE="http://www.gnu.org/software/glpk/"
+HOMEPAGE="https://www.gnu.org/software/glpk/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 SLOT="0/36"
 IUSE="doc examples gmp odbc mysql static-libs"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
+KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 
 RDEPEND="
 	sci-libs/amd:0=

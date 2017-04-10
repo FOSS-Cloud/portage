@@ -1,14 +1,14 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/network_interface/network_interface-0.0.1-r1.ebuild,v 1.2 2014/05/21 02:20:21 mrueg Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_TASK_DOC=""
 
-RUBY_FAKEGEM_RECIPE_TEST="default"
+RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
 inherit ruby-fakegem
 
@@ -19,6 +19,13 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
+
+# Tests are brittle as they cannot deal with all network interface configurations.
+RESTRICT="test"
+
+all_ruby_prepare() {
+	sed -i -e 's:/sbin/ifconfig:/bin/ifconfig:' spec/spec_helper.rb || die
+}
 
 each_ruby_configure() {
 	${RUBY} -C ext/network_interface_ext extconf.rb || die

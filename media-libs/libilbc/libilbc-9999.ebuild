@@ -1,33 +1,29 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libilbc/libilbc-9999.ebuild,v 1.2 2012/11/22 01:17:41 lu_zero Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 if [[ ${PV} == 9999 ]] ; then
 	SCM="autotools git-2"
-	EGIT_REPO_URI="git://github.com/lu-zero/libilbc.git"
+	EGIT_REPO_URI="https://github.com/TimothyGu/libilbc"
 	SRC_URI=""
-	KEYWORDS=""
 else
-	SRC_URI="http://dev.gentoo.org/~lu_zero/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64"
+	SRC_URI="https://github.com/TimothyGu/libilbc/releases/download/v${PV}/${P}.tar.bz2"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 fi
 
-inherit eutils multilib ${SCM}
+inherit eutils multilib ${SCM} autotools-multilib
 
 DESCRIPTION="Packaged version of iLBC codec from the WebRTC project"
-HOMEPAGE="https://github.com/dekkers/libilbc"
+HOMEPAGE="https://github.com/TimothyGu/libilbc"
 
 LICENSE="BSD"
 SLOT="0"
-IUSE=""
+IUSE="static-libs"
 
 src_prepare() {
+	epatch "${FILESDIR}"/${PN}-2.0.2-ppc_ppc64.patch
 	[[ ${PV} == *9999 ]] && eautoreconf
-}
-
-src_install() {
-	emake DESTDIR="${D}" install || die
-	find "${D}"usr/$(get_libdir) -name '*.la' -delete
+	autotools-multilib_src_prepare
 }

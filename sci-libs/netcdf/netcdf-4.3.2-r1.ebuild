@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/netcdf/netcdf-4.3.2-r1.ebuild,v 1.1 2014/08/11 07:15:23 dev-zero Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,13 +12,13 @@ SRC_URI="ftp://ftp.unidata.ucar.edu/pub/netcdf/${P}.tar.gz"
 
 LICENSE="UCAR-Unidata"
 SLOT="0/7"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm ppc ppc64 x86 ~amd64-linux ~x86-linux"
 IUSE="+dap examples hdf +hdf5 mpi static-libs szip test tools"
 
 RDEPEND="
 	dap? ( net-misc/curl:0= )
 	hdf? ( sci-libs/hdf:0= sci-libs/hdf5:0= )
-	hdf5? ( sci-libs/hdf5:0=[mpi=,szip=,zlib] )"
+	hdf5? ( sci-libs/hdf5:0=[hl(+),mpi=,szip=,zlib] )"
 DEPEND="${RDEPEND}"
 # doc generation is missing many doxygen files in tar ball
 #	doc? ( app-doc/doxygen[dot] )"

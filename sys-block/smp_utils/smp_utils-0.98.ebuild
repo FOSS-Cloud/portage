@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/smp_utils/smp_utils-0.98.ebuild,v 1.1 2014/09/22 08:16:14 polynomial-c Exp $
+# $Id$
 
 EAPI=4
 
@@ -18,3 +18,7 @@ IUSE="static-libs"
 DOCS=( AUTHORS ChangeLog COVERAGE CREDITS README )
 
 AUTOTOOLS_IN_SOURCE_BUILD=1
+
+PATCHES=(
+	"${FILESDIR}"/${P}-sysmacros.patch #580258
+)

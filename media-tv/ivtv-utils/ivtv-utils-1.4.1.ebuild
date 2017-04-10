@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/ivtv-utils/ivtv-utils-1.4.1.ebuild,v 1.2 2012/04/17 09:37:49 ssuominen Exp $
+# $Id$
 
 EAPI=4
 inherit eutils toolchain-funcs
@@ -22,7 +22,7 @@ RDEPEND="${DEPEND}
 		dev-perl/Video-ivtv
 		dev-perl/Config-IniFiles
 		virtual/perl-Getopt-Long
-		dev-perl/perl-tk
+		dev-perl/Tk
 		)"
 
 src_prepare() {

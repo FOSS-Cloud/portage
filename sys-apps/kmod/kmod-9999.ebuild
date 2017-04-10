@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-9999.ebuild,v 1.81 2014/09/02 03:24:55 ryao Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 
 inherit bash-completion-r1 eutils multilib python-r1
 
@@ -18,7 +18,7 @@ else
 fi
 
 DESCRIPTION="library and tools for managing linux kernel modules"
-HOMEPAGE="http://git.kernel.org/?p=utils/kernel/kmod/kmod.git"
+HOMEPAGE="https://git.kernel.org/?p=utils/kernel/kmod/kmod.git"
 
 LICENSE="LGPL-2"
 SLOT="0"
@@ -30,9 +30,11 @@ IUSE="debug doc lzma python static-libs +tools zlib"
 # See bug #408915.
 RESTRICT="test"
 
+# Block systemd below 217 for -static-nodes-indicate-that-creation-of-static-nodes-.patch
 RDEPEND="!sys-apps/module-init-tools
 	!sys-apps/modutils
-	!<sys-apps/openrc-0.12
+	!<sys-apps/openrc-0.13.8
+	!<sys-apps/systemd-216-r3
 	lzma? ( >=app-arch/xz-utils-5.0.4-r1 )
 	python? ( ${PYTHON_DEPS} )
 	zlib? ( >=sys-libs/zlib-1.2.6 )" #427130
@@ -62,7 +64,6 @@ src_prepare() {
 		fi
 		eautoreconf
 	else
-		epatch "${FILESDIR}"/${PN}-15-dynamic-kmod.patch #493630
 		elibtoolize
 	fi
 
@@ -97,17 +98,11 @@ src_configure() {
 	kmod_configure --disable-python
 
 	if use python; then
-		python_parallel_foreach_impl kmod_configure --enable-python
+		python_foreach_impl kmod_configure --enable-python
 	fi
 }
 
 src_compile() {
-	if [[ ${PV} != 9999* ]]; then
-		# Force -j1 because of -15-dynamic-kmod.patch, likely caused by lack of eautoreconf
-		# wrt #494806
-		local MAKEOPTS="${MAKEOPTS} -j1"
-	fi
-
 	emake -C "${BUILD_DIR}"
 
 	if use python; then
@@ -147,7 +142,7 @@ src_install() {
 	if use tools; then
 		local bincmd sbincmd
 		for sbincmd in depmod insmod lsmod modinfo modprobe rmmod; do
-			dosym /bin/kmod /sbin/${sbincmd}
+			dosym ../bin/kmod /sbin/${sbincmd}
 		done
 
 		# These are also usable as normal user

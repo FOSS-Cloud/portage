@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-roguelike/hengband/hengband-1.6.2-r1.ebuild,v 1.6 2010/10/28 11:12:45 tupone Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils autotools games
 
 DESCRIPTION="An Angband variant, with a Japanese/fantasy theme"
@@ -13,9 +13,9 @@ SRC_URI="mirror://sourceforge.jp/hengband/10331/${P}.tar.bz2
 KEYWORDS="ppc x86 ~x86-fbsd"
 LICENSE="Moria"
 SLOT="0"
-IUSE="X linguas_ja"
+IUSE="X l10n_ja"
 
-RDEPEND=">=sys-libs/ncurses-5
+RDEPEND=">=sys-libs/ncurses-5:0
 	X? ( x11-libs/libX11 )"
 DEPEND="${RDEPEND}
 	X? ( x11-libs/libXt )"
@@ -29,18 +29,19 @@ src_prepare() {
 		-e 's|root\.|root:|' lib/*/Makefile.in \
 		|| die
 	sed -i \
-		-e 's:/games/:/:g' configure \
+		-e 's:/games/:/:g' configure.in \
 		|| die
 	epatch \
 		"../${P}"-mispellings.patch	\
 		"${FILESDIR}/${P}"-added_faq.patch \
 		"${FILESDIR}"/${P}-ovflfix.patch
+	mv configure.in configure.ac || die
 	eautoreconf
 }
 
 src_configure() {
 	local myconf
-	use linguas_ja || myconf="--disable-japanese"
+	use l10n_ja || myconf="--disable-japanese"
 
 	egamesconf \
 		--with-setgid=${GAMES_GROUP} \
@@ -50,7 +51,7 @@ src_configure() {
 
 src_install() {
 	make DESTDIR="${D}" install || die "make install failed"
-	if use linguas_ja ; then
+	if use l10n_ja ; then
 		dodoc readme.txt autopick.txt readme_eng.txt autopick_eng.txt
 	else
 		newdoc readme_eng.txt readme.txt

@@ -1,16 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/easytag/easytag-2.1.8.ebuild,v 1.9 2014/01/26 12:09:16 ago Exp $
+# $Id$
 
 EAPI=5
 inherit eutils autotools gnome.org fdo-mime
 
 DESCRIPTION="GTK+ utility for editing MP2, MP3, MP4, FLAC, Ogg and other media tags"
-HOMEPAGE="http://projects.gnome.org/easytag/"
+HOMEPAGE="https://projects.gnome.org/easytag/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 hppa ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
+KEYWORDS="alpha amd64 hppa ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
 IUSE="flac mp3 mp4 nls speex vorbis wavpack"
 
 RDEPEND=">=x11-libs/gtk+-2.24:2
@@ -22,7 +22,7 @@ RDEPEND=">=x11-libs/gtk+-2.24:2
 		media-libs/flac
 		media-libs/libvorbis
 		)
-	mp4? ( media-libs/taglib[mp4] )
+	mp4? ( media-libs/taglib[mp4(+)] )
 	vorbis? ( media-libs/libvorbis )
 	wavpack? ( media-sound/wavpack )
 	speex? (

@@ -1,10 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-firmware/nvidia-firmware/nvidia-firmware-340.32.ebuild,v 1.1 2014/08/23 23:07:12 idl0r Exp $
+# $Id$
 
 EAPI=5
 
-inherit unpacker
+PYTHON_COMPAT=( python2_7 )
+inherit python-any-r1 unpacker
 
 NV_URI="http://us.download.nvidia.com/XFree86/"
 X86_NV_PACKAGE="NVIDIA-Linux-x86-${PV}"
@@ -12,7 +13,7 @@ X86_NV_PACKAGE="NVIDIA-Linux-x86-${PV}"
 EXTRACT_FIRMWARE_REV="96641bfebb2547402b2145fcf0e3116410f0da87"
 
 DESCRIPTION="Kernel and mesa firmware for nouveau (video accel and pgraph)"
-HOMEPAGE="http://nouveau.freedesktop.org/wiki/VideoAcceleration/"
+HOMEPAGE="https://nouveau.freedesktop.org/wiki/VideoAcceleration/"
 SRC_URI="${NV_URI}Linux-x86/${PV}/${X86_NV_PACKAGE}.run
 	https://raw.github.com/imirkin/re-vp2/${EXTRACT_FIRMWARE_REV}/extract_firmware.py -> nvidia_extract_firmware-${PV}.py"
 
@@ -20,7 +21,7 @@ LICENSE="MIT NVIDIA-r2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-DEPEND="=dev-lang/python-2*"
+DEPEND="${PYTHON_DEPS}"
 RDEPEND=""
 
 RESTRICT="bindist mirror"
@@ -34,7 +35,7 @@ src_unpack() {
 }
 
 src_compile() {
-	python2 "${DISTDIR}"/nvidia_extract_firmware-${PV}.py || die "Extracting firmwares failed..."
+	"${PYTHON}" "${DISTDIR}"/nvidia_extract_firmware-${PV}.py || die "Extracting firmwares failed..."
 }
 
 src_install() {

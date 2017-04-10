@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/gnu-crypto/gnu-crypto-2.0.1-r2.ebuild,v 1.13 2012/10/18 12:47:00 ottxor Exp $
+# $Id$
 
 EAPI=4
 JAVA_PKG_IUSE="doc source"
@@ -8,12 +8,12 @@ JAVA_PKG_IUSE="doc source"
 inherit java-pkg-2 eutils
 
 DESCRIPTION="GNU Crypto cryptographic primitives for Java"
-HOMEPAGE="http://www.gnu.org/software/gnu-crypto/"
+HOMEPAGE="https://www.gnu.org/software/gnu-crypto/"
 SRC_URI="ftp://ftp.gnupg.org/GnuPG/gnu-crypto/gnu-crypto-2.0.1.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="amd64 ppc64 x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
 IUSE=""
 
 DEPEND=">=virtual/jdk-1.3"

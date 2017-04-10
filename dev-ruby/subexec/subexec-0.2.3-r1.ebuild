@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/subexec/subexec-0.2.3-r1.ebuild,v 1.3 2014/07/29 06:30:24 graaff Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="README.md"
@@ -16,8 +16,8 @@ inherit ruby-fakegem eutils
 GITHUB_USER="nulayer"
 
 DESCRIPTION="Subexec spawns an external command with a timeout"
-HOMEPAGE="http://github.com/nulayer/subexec"
-SRC_URI="http://github.com/${GITHUB_USER}/${PN}/archive/v${PV}.tar.gz -> ${P}.tgz"
+HOMEPAGE="https://github.com/nulayer/subexec"
+SRC_URI="https://github.com/${GITHUB_USER}/${PN}/archive/v${PV}.tar.gz -> ${P}.tgz"
 
 LICENSE="MIT"
 SLOT="0"

@@ -1,43 +1,44 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/qmf/qmf-4.0.3.ebuild,v 1.3 2013/09/14 10:06:29 ago Exp $
+# $Id$
 
 EAPI=5
 
 inherit qt4-r2
 
-if [[ ${PV} == *9999* ]]; then
-	inherit git-2
-	EGIT_REPO_URI="git://gitorious.org/qt-labs/messagingframework.git
-		https://git.gitorious.org/qt-labs/messagingframework.git"
+if [[ ${PV} == *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI=(
+		"git://code.qt.io/qt-labs/messagingframework.git"
+		"https://code.qt.io/git/qt-labs/messagingframework.git"
+	)
 else
-	SRC_URI="http://dev.gentoo.org/~pesa/distfiles/${P}.tar.gz"
+	SRC_URI="https://dev.gentoo.org/~pesa/distfiles/${P}.tar.gz"
 	S=${WORKDIR}/qt-labs-messagingframework
 fi
 
 DESCRIPTION="The Qt Messaging Framework"
-HOMEPAGE="http://qt.gitorious.org/qt-labs/messagingframework"
+HOMEPAGE="https://code.qt.io/cgit/qt-labs/messagingframework.git/"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ~ppc ~ppc64 x86"
 IUSE="debug doc examples icu test zlib"
 
 RDEPEND="
-	>=dev-qt/qtcore-4.8:4
-	>=dev-qt/qtgui-4.8:4
-	>=dev-qt/qtsql-4.8:4
-	examples? ( >=dev-qt/qtwebkit-4.8:4 )
+	dev-qt/qtcore:4[ssl]
+	dev-qt/qtgui:4
+	dev-qt/qtsql:4
+	examples? ( dev-qt/qtwebkit:4 )
 	icu? ( dev-libs/icu:= )
 	zlib? ( sys-libs/zlib )
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	test? ( >=dev-qt/qttest-4.8:4 )
-	!!<net-libs/qmf-2.0_p201209
+	test? ( dev-qt/qttest:4 )
 "
 
-DOCS=(CHANGES)
+DOCS=( CHANGES )
 PATCHES=(
 	"${FILESDIR}/${PN}-4.0.2-tests.patch"
 )
@@ -76,7 +77,6 @@ src_configure() {
 }
 
 src_test() {
-	echo ">>> Test phase [QTest]: ${CATEGORY}/${PF}"
 	cd "${S}"/tests
 
 	export QMF_DATA=${T}
@@ -101,7 +101,7 @@ src_install() {
 	if use doc; then
 		emake docs
 
-		dohtml -r doc/html/*
+		dodoc -r doc/html
 		dodoc doc/html/qmf.qch
 		docompress -x /usr/share/doc/${PF}/qmf.qch
 	fi

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/rrdtool/rrdtool-1.4.8-r1.ebuild,v 1.12 2014/09/20 21:13:22 ago Exp $
+# $Id$
 
 EAPI="5"
 
@@ -15,22 +15,22 @@ SRC_URI="http://oss.oetiker.ch/rrdtool/pub/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~x86-fbsd ~amd64-linux ~ia64-linux ~x86-linux ~x86-macos ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x86-macos ~x86-solaris"
 IUSE="dbi doc +graph lua perl python rrdcgi ruby static-libs tcl tcpd"
 
 CDEPEND="
-	>=dev-libs/glib-2.28.7[static-libs(+)?]
-	>=dev-libs/libxml2-2.7.8[static-libs(+)?]
+	>=dev-libs/glib-2.28.7:2[static-libs(+)?]
+	>=dev-libs/libxml2-2.7.8:2[static-libs(+)?]
 	dbi? ( dev-db/libdbi[static-libs(+)?] )
 	graph? (
-		>=media-libs/libpng-1.5.10[static-libs(+)?]
+		>=media-libs/libpng-1.5.10:0=[static-libs(+)?]
 		>=x11-libs/cairo-1.10.2[svg,static-libs(+)?]
 		>=x11-libs/pango-1.28
 	)
-	lua? ( dev-lang/lua[deprecated] )
-	perl? ( dev-lang/perl )
+	lua? ( dev-lang/lua:*[deprecated] )
+	perl? ( dev-lang/perl:= )
 	python? ( ${PYTHON_DEPS} )
-	tcl? ( dev-lang/tcl )
+	tcl? ( dev-lang/tcl:0= )
 	tcpd? ( sys-apps/tcp-wrappers )
 "
 
@@ -48,12 +48,12 @@ PDEPEND="
 "
 
 python_compile() {
-	cd bindings/python || die 'can not enter to python bindings directory'
+	cd bindings/python || die
 	distutils-r1_python_compile
 }
 
 python_install() {
-	cd bindings/python || die 'can not enter to python bindings directory'
+	cd bindings/python || die
 	distutils-r1_python_install
 }
 
@@ -133,8 +133,6 @@ src_install() {
 		perl_delete_packlist
 	fi
 
-	use python && distutils-r1_src_install
-
 	dodoc CHANGES CONTRIBUTORS NEWS README THREADS TODO
 
 	find "${ED}"usr -name '*.la' -exec rm -f {} +
@@ -144,6 +142,8 @@ src_install() {
 
 	newconfd "${FILESDIR}"/rrdcached.confd rrdcached
 	newinitd "${FILESDIR}"/rrdcached.init rrdcached
+
+	use python && distutils-r1_src_install
 }
 
 pkg_postinst() {

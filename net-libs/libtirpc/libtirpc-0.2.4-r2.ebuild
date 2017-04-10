@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libtirpc/libtirpc-0.2.4-r2.ebuild,v 1.2 2014/06/18 20:40:15 mgorny Exp $
+# $Id$
 
 EAPI="4"
 
@@ -43,7 +43,7 @@ multilib_src_install() {
 	default
 
 	# libtirpc replaces rpc support in glibc, so we need it in /
-	multilib_is_native_abi && gen_usr_ldscript -a tirpc
+	gen_usr_ldscript -a tirpc
 }
 
 multilib_src_install_all() {

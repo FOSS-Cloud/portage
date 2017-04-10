@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/db/db-5.1.29-r1.ebuild,v 1.1 2014/08/04 03:34:08 robbat2 Exp $
+# $Id$
 
 EAPI=5
-inherit eutils db flag-o-matic java-pkg-opt-2 autotools multilib
+inherit eutils db flag-o-matic java-pkg-opt-2 autotools multilib toolchain-funcs
 
 #Number of official patches
 #PATCHNO=`echo ${PV}|sed -e "s,\(.*_p\)\([0-9]*\),\2,"`
@@ -20,7 +20,7 @@ fi
 S_BASE="${WORKDIR}/${MY_P}"
 S="${S_BASE}/build_unix"
 DESCRIPTION="Oracle Berkeley DB"
-HOMEPAGE="http://www.oracle.com/technology/software/products/berkeley-db/index.html"
+HOMEPAGE="http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html"
 SRC_URI="http://download.oracle.com/berkeley-db/${MY_P}.tar.gz"
 for (( i=1 ; i<=${PATCHNO} ; i++ )) ; do
 	export SRC_URI="${SRC_URI} http://www.oracle.com/technology/products/berkeley-db/db/update/${MY_PV}/patch.${MY_PV}.${i}"
@@ -34,11 +34,11 @@ IUSE="doc java cxx tcl test"
 REQUIRED_USE="test? ( tcl )"
 
 # the entire testsuite needs the TCL functionality
-DEPEND="tcl? ( >=dev-lang/tcl-8.4 )
-	test? ( >=dev-lang/tcl-8.4 )
+DEPEND="tcl? ( >=dev-lang/tcl-8.4:0 )
+	test? ( >=dev-lang/tcl-8.4:0 )
 	java? ( >=virtual/jdk-1.5 )
 	>=sys-devel/binutils-2.16.1"
-RDEPEND="tcl? ( dev-lang/tcl )
+RDEPEND="tcl? ( dev-lang/tcl:0 )
 	java? ( >=virtual/jre-1.5 )"
 
 src_prepare() {
@@ -57,6 +57,9 @@ src_prepare() {
 	# upstream autoconf fails to build DBM when it's supposed to
 	# merged upstream in 5.0.26
 	#epatch "${FILESDIR}"/${PN}-5.0.21-enable-dbm-autoconf.patch
+
+	# Needed when compiling with clang
+	epatch "${FILESDIR}"/${P}-rename-atomic-compare-exchange.patch
 
 	# Upstream release script grabs the dates when the script was run, so lets
 	# end-run them to keep the date the same.
@@ -97,6 +100,8 @@ src_prepare() {
 src_configure() {
 	local myconf=''
 
+	tc-ld-disable-gold #470634
+
 	# compilation with -O0 fails on amd64, see bug #171231
 	if use amd64; then
 		replace-flags -O0 -O2
@@ -120,7 +125,7 @@ src_configure() {
 	# Bug #270851: test needs TCL support
 	if use tcl || use test ; then
 		myconf="${myconf} --enable-tcl"
-		myconf="${myconf} --with-tcl=/usr/$(get_libdir)"
+		myconf="${myconf} --with-tcl=${EPREFIX}/usr/$(get_libdir)"
 	else
 		myconf="${myconf} --disable-tcl"
 	fi
@@ -165,13 +170,13 @@ src_install() {
 
 	dodir /usr/sbin
 	# This file is not always built, and no longer exists as of db-4.8
-	[[ -f "${D}"/usr/bin/berkeley_db_svc ]] && \
-	mv "${D}"/usr/bin/berkeley_db_svc "${D}"/usr/sbin/berkeley_db"${SLOT/./}"_svc
+	[[ -f "${ED}"/usr/bin/berkeley_db_svc ]] && \
+	mv "${ED}"/usr/bin/berkeley_db_svc "${ED}"/usr/sbin/berkeley_db"${SLOT/./}"_svc
 
 	if use java; then
-		java-pkg_regso "${D}"/usr/"$(get_libdir)"/libdb_java*.so
-		java-pkg_dojar "${D}"/usr/"$(get_libdir)"/*.jar
-		rm -f "${D}"/usr/"$(get_libdir)"/*.jar
+		java-pkg_regso "${ED}"/usr/"$(get_libdir)"/libdb_java*.so
+		java-pkg_dojar "${ED}"/usr/"$(get_libdir)"/*.jar
+		rm -f "${ED}"/usr/"$(get_libdir)"/*.jar
 	fi
 }
 

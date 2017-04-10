@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/lua/lua-5.2.3-r1.ebuild,v 1.1 2014/06/12 21:46:47 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,11 +12,11 @@ SRC_URI="http://www.lua.org/ftp/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="5.2"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~arm-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="+deprecated emacs readline static"
 
-RDEPEND="readline? ( sys-libs/readline )
-	app-admin/eselect-lua
+RDEPEND="readline? ( sys-libs/readline:0= )
+	app-eselect/eselect-lua
 	!dev-lang/lua:0"
 DEPEND="${RDEPEND}
 	sys-devel/libtool"
@@ -30,6 +30,12 @@ src_prepare() {
 	local PATCH_PV=$(get_version_component_range 1-2)
 
 	epatch "${FILESDIR}"/${PN}-${PATCH_PV}-make-r1.patch
+
+	# use glibtool on Darwin (versus Apple libtool)
+	if [[ ${CHOST} == *-darwin* ]] ; then
+		sed -i -e '/LIBTOOL = /s:/libtool:/glibtool:' \
+			Makefile src/Makefile || die
+	fi
 
 	[ -d "${FILESDIR}/${PV}" ] && \
 		EPATCH_SOURCE="${FILESDIR}/${PV}" EPATCH_SUFFIX="upstream.patch" epatch
@@ -108,6 +114,7 @@ multilib_src_install() {
 	# We want packages to find our things...
 	cp "${FILESDIR}/lua.pc" "${WORKDIR}"
 	sed -i \
+		-e "s:^prefix= :prefix= ${EPREFIX}:" \
 		-e "s:^V=.*:V= ${PATCH_PV}:" \
 		-e "s:^R=.*:R= ${PV}:" \
 		-e "s:/,lib,:/$(get_libdir):g" \

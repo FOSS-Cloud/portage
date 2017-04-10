@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-lhtr/lc-lhtr-9999.ebuild,v 1.2 2013/06/17 09:02:53 maksbotan Exp $
+# $Id$
 
-EAPI="4"
+EAPI=6
 
 inherit leechcraft
 
@@ -13,7 +13,9 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="~app-leechcraft/lc-core-${PV}
-	app-text/htmltidy
-	dev-qt/qtwebkit:4
-	"
+	app-text/tidy-html5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtwebkit:5
+"
 RDEPEND="${DEPEND}"

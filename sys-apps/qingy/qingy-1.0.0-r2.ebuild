@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/qingy/qingy-1.0.0-r2.ebuild,v 1.1 2014/07/19 14:09:13 pacho Exp $
+# $Id$
 
 EAPI=5
 inherit autotools elisp-common eutils pam systemd
@@ -11,12 +11,12 @@ DESCRIPTION="a DirectFB getty replacement"
 HOMEPAGE="http://qingy.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2
 	mirror://gentoo/${PN}-gentoo-theme-${GENTOO_THEME_VERSION}.tar.bz2
-	http://dev.gentoo.org/~gienah/2big4tree/sys-apps/qingy/${P}-screensavers.patch.gz
-	http://dev.gentoo.org/~gienah/2big4tree/sys-apps/qingy/${P}-consolekit-pam.patch.gz"
+	https://dev.gentoo.org/~gienah/2big4tree/sys-apps/qingy/${P}-screensavers.patch.gz
+	https://dev.gentoo.org/~gienah/2big4tree/sys-apps/qingy/${P}-consolekit-pam.patch.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="consolekit crypt directfb emacs gpm opensslcrypt pam static X"
 
 RDEPEND=">=sys-libs/ncurses-5.7-r7:=
@@ -47,6 +47,7 @@ src_prepare() {
 	epatch "${DISTDIR}"/${P}-screensavers.patch.gz
 	# bug #372675 - fix from upstream
 	epatch "${DISTDIR}"/${P}-consolekit-pam.patch.gz
+	epatch_user #510738
 	eautoreconf
 }
 

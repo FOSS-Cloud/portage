@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/engauge/engauge-5.2.ebuild,v 1.1 2014/02/05 21:58:43 calchan Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 
-inherit versionator qt4-r2 eutils
+inherit versionator qmake-utils eutils
 
 DESCRIPTION="Convert an image file showing a graph or map into numbers"
 HOMEPAGE="http://digitizer.sourceforge.net/"
@@ -28,6 +28,7 @@ src_prepare() {
 		src/digitmain.cpp || die "sed failed"
 	sed -i -e '/unix {/a DEFINES += DEBIAN_PACKAGE' \
 		digitizer.pro || die "sed failed"
+	eapply_user
 }
 
 src_configure() {

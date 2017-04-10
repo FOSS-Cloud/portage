@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pSQL/pSQL-1.2.0.ebuild,v 1.2 2013/09/20 17:53:21 jlec Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit python-r1
 
@@ -25,7 +25,7 @@ RDEPEND="
 DEPEND=""
 
 src_install() {
-	python_parallel_foreach_impl python_domodule pSQL.py
+	python_foreach_impl python_domodule pSQL.py
 
 	dodoc *pSQL
 }

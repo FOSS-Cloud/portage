@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>blueness@gentoo.org</email>
 		<name>Anthony G. Basile</name>
 	</maintainer>
@@ -10,6 +10,9 @@
 		website or indexing service to discover content.
 	</longdescription>
 	<use>
-		<flag name='vlc'>Enable vlc support.</flag>
+		<flag name="vlc">Enable vlc support.</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">Tribler/tribler</remote-id>
+	</upstream>
 </pkgmetadata>

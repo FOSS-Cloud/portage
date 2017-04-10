@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-engines/solarus/solarus-1.3.1.ebuild,v 1.1 2014/08/26 01:31:39 hasufell Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="http://www.zelda-solarus.com/downloads/${PN}/${P}-src.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="doc luajit"
 
 RDEPEND="
@@ -24,7 +24,7 @@ RDEPEND="
 	media-libs/sdl2-image[png]
 	>=media-libs/sdl2-ttf-2.0.12
 	luajit? ( dev-lang/luajit:2 )
-	!luajit? ( dev-lang/lua )"
+	!luajit? ( dev-lang/lua:0 )"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 

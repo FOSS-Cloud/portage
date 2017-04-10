@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libssh/libssh-9999.ebuild,v 1.8 2014/06/18 20:38:27 mgorny Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit eutils cmake-multilib multilib git-r3
 
@@ -13,16 +13,20 @@ EGIT_REPO_URI="git://git.libssh.org/projects/libssh.git"
 LICENSE="LGPL-2.1"
 KEYWORDS=""
 SLOT="0"
-IUSE="debug doc examples gcrypt gssapi pcap +sftp ssh1 server static-libs test zlib"
+IUSE="debug doc examples gcrypt gssapi libressl pcap +sftp ssh1 server static-libs test zlib"
 # Maintainer: check IUSE-defaults at DefineOptions.cmake
 
 RDEPEND="
 	zlib? ( >=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}] )
-	!gcrypt? ( >=dev-libs/openssl-1.0.1h-r2[${MULTILIB_USEDEP}] )
+	!gcrypt? (
+		!libressl? ( >=dev-libs/openssl-1.0.1h-r2:0[${MULTILIB_USEDEP}] )
+		libressl? ( dev-libs/libressl[${MULTILIB_USEDEP}] )
+	)
 	gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0[${MULTILIB_USEDEP}] )
 	gssapi? ( >=virtual/krb5-0-r1[${MULTILIB_USEDEP}] )
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	doc? ( app-doc/doxygen )
 	test? ( >=dev-util/cmocka-0.3.1[${MULTILIB_USEDEP}] )
 "
@@ -42,18 +46,19 @@ src_prepare() {
 
 multilib_src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with debug DEBUG_CALLTRACE)
-		$(cmake-utils_use_with debug DEBUG_CRYPTO)
-		$(cmake-utils_use_with gcrypt)
-		$(cmake-utils_use_with gssapi)
-		$(cmake-utils_use_with pcap)
-		$(cmake-utils_use_with server)
-		$(cmake-utils_use_with sftp)
-		$(cmake-utils_use_with ssh1)
-		$(cmake-utils_use_with static-libs STATIC_LIB)
-		$(cmake-utils_use_with test STATIC_LIB)
-		$(cmake-utils_use_with test TESTING)
-		$(cmake-utils_use_with zlib)
+		-DWITH_DEBUG_CALLTRACE="$(usex debug)"
+		-DWITH_DEBUG_CRYPTO="$(usex debug)"
+		-DWITH_GCRYPT="$(usex gcrypt)"
+		-DWITH_GSSAPI="$(usex gssapi)"
+		-DWITH_NACL=no
+		-DWITH_PCAP="$(usex pcap)"
+		-DWITH_SERVER="$(usex server)"
+		-DWITH_SFTP="$(usex sftp)"
+		-DWITH_SSH1="$(usex ssh1)"
+		-DWITH_STATIC_LIB="$(usex static-libs)"
+		-DWITH_STATIC_LIB="$(usex test)"
+		-DWITH_TESTING="$(usex test)"
+		-DWITH_ZLIB="$(usex zlib)"
 	)
 
 	cmake-utils_src_configure
@@ -67,7 +72,10 @@ multilib_src_compile() {
 multilib_src_install() {
 	cmake-utils_src_install
 
-	multilib_is_native_abi && use doc && dohtml -r doc/html/.
+	if multilib_is_native_abi && use doc ; then
+		docinto html
+		dodoc -r doc/html/.
+	fi
 
 	use static-libs || rm -f "${D}"/usr/$(get_libdir)/libssh{,_threads}.a
 }

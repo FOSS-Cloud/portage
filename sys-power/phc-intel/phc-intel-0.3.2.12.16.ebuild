@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/phc-intel/phc-intel-0.3.2.12.16.ebuild,v 1.1 2014/08/05 07:10:07 xmw Exp $
+# $Id$
 
 EAPI=5
 
@@ -32,10 +32,9 @@ pkg_setup() {
 		eerror "Please use a previous version of ${PN} or a newer kernel."
 		die
 	fi
-	if kernel_is gt 3 16 ; then
-		eerror "Your kernel version is not yet supported by this version of ${PN}."
-		eerror "Please use a newer version of ${PN} or an older kernel."
-		die
+	if kernel_is gt 3 19 ; then
+		eerror "Your kernel version is not yet tested with this version of ${PN}."
+		eerror "It might not build or expose runtime problems."
 	fi
 	linux-mod_pkg_setup
 }
@@ -63,8 +62,10 @@ src_prepare() {
 
 	if kernel_is lt 3 0 ; then
 		epatch inc/${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}/linux-phc-0.3.2.patch
-	else
+	elif kernel_is lt 3 17 ; then
 		epatch inc/${KV_MAJOR}.${KV_MINOR}/linux-phc-0.3.2.patch
+	else
+		epatch inc/3.16/linux-phc-0.3.2.patch
 	fi
 
 	mv acpi-cpufreq.c phc-intel.c || die

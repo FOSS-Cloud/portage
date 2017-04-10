@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/zathura-djvu/zathura-djvu-9999.ebuild,v 1.2 2014/04/04 21:08:46 ssuominen Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ HOMEPAGE="http://pwmt.org/projects/zathura/"
 if ! [[ ${PV} == 9999* ]]; then
 SRC_URI="http://pwmt.org/projects/zathura/plugins/download/${P}.tar.gz"
 fi
-EGIT_REPO_URI="git://git.pwmt.org/${PN}.git"
+EGIT_REPO_URI="https://git.pwmt.org/pwmt/${PN}.git"
 EGIT_BRANCH="develop"
 
 LICENSE="ZLIB"
@@ -25,7 +25,7 @@ fi
 IUSE=""
 
 RDEPEND=">=app-text/djvu-3.5.24-r1:=
-	>=app-text/zathura-0.2.7
+	>=app-text/zathura-0.3.1
 	dev-libs/glib:2=
 	x11-libs/cairo:="
 DEPEND="${RDEPEND}

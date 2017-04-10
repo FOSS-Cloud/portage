@@ -1,12 +1,12 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-forensics/rifiuti/rifiuti-20040505_p1.ebuild,v 1.8 2012/11/25 09:51:10 radhermit Exp $
+# $Id$
 
 inherit toolchain-funcs
 
 MY_P=${PN}_${PV/_p/_}
 DESCRIPTION="Recycle Bin Analyzer"
-HOMEPAGE="http://sourceforge.net/projects/odessa/"
+HOMEPAGE="https://sourceforge.net/projects/odessa/"
 SRC_URI="mirror://sourceforge/odessa/${MY_P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"

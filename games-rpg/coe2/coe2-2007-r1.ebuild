@@ -1,9 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/coe2/coe2-2007-r1.ebuild,v 1.2 2014/04/16 17:02:40 ulm Exp $
+# $Id$
 
 EAPI=5
-
 inherit eutils games
 
 DESCRIPTION="Precursor to the Dominions series"
@@ -16,20 +15,19 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 RESTRICT="mirror bindist"
 
-RDEPEND="media-libs/libsdl"
+RDEPEND="media-libs/libsdl[sound,video]"
 DEPEND="${RDEPEND}
 	app-arch/unzip"
 
-S="${WORKDIR}/coe"
+S=${WORKDIR}/coe
 
 # bug #430026
-QA_PREBUILT="/opt/coe2/coe_linux"
+QA_PREBUILT="${GAMES_PREFIX_OPT}/coe2/coe_linux"
 
 src_prepare() {
-	rm *.{dll,exe} || die 'rm failed'
-	rm -r old || die 'rm failed'
+	rm -r *.{dll,exe} old || die
 	if use amd64 ; then
-		mv -f coe_linux64bit coe_linux || die "mv amd64 image failed"
+		mv -f coe_linux64bit coe_linux || die
 	fi
 }
 
@@ -49,8 +47,8 @@ src_install() {
 	dodir "${state_dir}"
 	for slot in {0..4} ; do
 		f=save${slot}
-		dosym "${state_dir}/save${slot}" "${dir}/${f}"
-		echo "empty slot ${slot}" > "${D}${state_dir}/${f}" || die "echo"
+		dosym "${state_dir}/save${slot}" "${GAMES_PREFIX_OPT}/${PN}/${f}"
+		echo "empty slot ${slot}" > "${D}${state_dir}/${f}" || die
 		fperms 660 "${state_dir}/${f}"
 	done
 

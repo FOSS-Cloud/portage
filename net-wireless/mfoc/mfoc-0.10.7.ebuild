@@ -1,27 +1,25 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/mfoc/mfoc-0.10.7.ebuild,v 1.1 2013/12/20 01:13:43 mrueg Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit autotools
 
 DESCRIPTION="Mifare Classic Offline Cracker"
-HOMEPAGE="https://code.google.com/p/mfoc"
-SRC_URI="https://mfoc.googlecode.com/files/${P}.tar.bz2"
+HOMEPAGE="https://github.com/nfc-tools/mfoc"
+SRC_URI="https://github.com/nfc-tools/${PN}/archive/${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="GPL-2 GPL-2+ BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 DEPEND=">=dev-libs/libnfc-1.7.0"
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	eautoreconf
-}
+S="${WORKDIR}/${PN}-${P}"
 
-src_install() {
-	emake DESTDIR="${D}" install
+src_prepare() {
+	default
+	eautoreconf
 }

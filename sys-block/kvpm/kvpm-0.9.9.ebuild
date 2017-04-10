@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/kvpm/kvpm-0.9.9.ebuild,v 1.1 2014/09/18 17:31:48 mrueg Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_DOC_DIRS="docbook"
 KDE_HANDBOOK="optional"
@@ -23,3 +23,5 @@ RDEPEND="
 	>=sys-fs/lvm2-2.02.98
 "
 DEPEND="${RDEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-glibc-sysmacros.patch" )

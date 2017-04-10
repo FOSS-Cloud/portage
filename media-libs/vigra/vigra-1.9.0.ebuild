@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/vigra/vigra-1.9.0.ebuild,v 1.3 2013/09/16 09:42:55 scarabeus Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,19 +14,19 @@ inherit cmake-utils eutils multilib python-single-r1
 MY_P=${P}-src
 
 DESCRIPTION="a C++ computer vision library with emphasis on customizability of algorithms and data structures"
-HOMEPAGE="http://hci.iwr.uni-heidelberg.de/vigra/"
+HOMEPAGE="https://ukoethe.github.io/vigra/"
 SRC_URI="http://hci.iwr.uni-heidelberg.de/${PN}/${MY_P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="amd64 ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="doc +fftw +hdf5 +jpeg openexr +png +python test +tiff"
 
 # Pull in dev-lang/python:2.7 for vigra-config which is always installed
 RDEPEND="dev-lang/python:2.7
 	>=dev-libs/boost-1.52.0-r6:=[python?,${PYTHON_USEDEP}]
 	fftw? ( sci-libs/fftw:3.0 )
-	hdf5? ( sci-libs/hdf5 )
+	hdf5? ( sci-libs/hdf5:= )
 	jpeg? ( virtual/jpeg )
 	openexr? ( media-libs/openexr:= )
 	png? ( media-libs/libpng:0= )
@@ -64,7 +64,7 @@ src_configure() {
 	local libdir=$(get_libdir)
 
 	# required for ddocdir
-	_check_build_dir init
+	_cmake_check_build_dir init
 	local mycmakeargs=(
 		-DDOCDIR="${CMAKE_BUILD_DIR}"/doc
 		-DLIBDIR_SUFFIX=${libdir/lib}

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/dirvish/dirvish-1.2.1.ebuild,v 1.3 2014/08/10 01:54:02 patrick Exp $
+# $Id$
 
 DESCRIPTION="Dirvish is a fast, disk based, rotating network backup system"
 HOMEPAGE="http://www.dirvish.org/"
@@ -12,8 +12,8 @@ KEYWORDS="amd64 ppc x86"
 IUSE=""
 
 DEPEND="app-arch/tar"
-RDEPEND="dev-perl/Time-modules
-	dev-perl/Period
+RDEPEND="dev-perl/Time-ParseDate
+	dev-perl/Time-Period
 	>=net-misc/rsync-2.5.7"
 
 src_compile() {

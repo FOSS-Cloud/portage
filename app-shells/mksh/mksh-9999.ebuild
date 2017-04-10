@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/mksh-9999.ebuild,v 1.5 2013/04/07 06:05:24 patrick Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 
 inherit eutils toolchain-funcs
 
@@ -47,4 +47,11 @@ src_install() {
 
 src_test() {
 	./test.sh || die
+}
+
+pkg_postinst() {
+	ebegin "Updating /etc/shells"
+	( grep -v "^/bin/mksh$" "${ROOT}"etc/shells; echo "/bin/mksh" ) > "${T}"/shells
+	mv -f "${T}"/shells "${ROOT}"etc/shells
+	eend $?
 }

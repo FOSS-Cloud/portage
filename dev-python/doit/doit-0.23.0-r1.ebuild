@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/doit/doit-0.23.0-r1.ebuild,v 1.3 2014/03/31 21:15:38 mgorny Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy pypy2_0 )
+PYTHON_COMPAT=( python{2_7,3_4} pypy )
 inherit eutils distutils-r1
 
 DESCRIPTION="Automation tool"
-HOMEPAGE="http://python-doit.sourceforge.net/ http://pypi.python.org/pypi/doit"
+HOMEPAGE="http://python-doit.sourceforge.net/ https://pypi.python.org/pypi/doit"
 SRC_URI="mirror://pypi/${PN::1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="test"
 
 RDEPEND="dev-python/pyinotify[${PYTHON_USEDEP}]

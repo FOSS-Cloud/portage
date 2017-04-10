@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/quake3-bin/quake3-bin-1.32c-r2.ebuild,v 1.1 2014/07/08 21:20:41 axs Exp $
+# $Id$
 
 EAPI=5
 inherit eutils unpacker games
@@ -12,7 +12,7 @@ SRC_URI="mirror://idsoftware/quake3/linux/linuxq3apoint-1.32b-3.x86.run
 
 LICENSE="Q3AEULA GPL-2" #gpl for init script bug #425942
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="cdinstall dedicated teamarena"
 RESTRICT="strip"
 
@@ -24,17 +24,11 @@ RDEPEND="sys-libs/glibc
 		teamarena? ( games-fps/quake3-teamarena )
 	)
 	dedicated? ( app-misc/screen )
-	!dedicated? ( || (
-		(
-			>=virtual/opengl-7.0-r1[abi_x86_32(-)]
-			>=x11-libs/libXext-1.3.2[abi_x86_32(-)]
-			>=x11-libs/libX11-1.6.2[abi_x86_32(-)]
-		)
-		(
-			app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
-			app-emulation/emul-linux-x86-opengl[-abi_x86_32(-)]
-		)
-	) )"
+	!dedicated? (
+		>=virtual/opengl-7.0-r1[abi_x86_32(-)]
+		>=x11-libs/libXext-1.3.2[abi_x86_32(-)]
+		>=x11-libs/libX11-1.6.2[abi_x86_32(-)]
+	)"
 
 S=${WORKDIR}
 

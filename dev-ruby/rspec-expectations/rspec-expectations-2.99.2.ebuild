@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec-expectations/rspec-expectations-2.99.2.ebuild,v 1.3 2014/08/13 18:32:48 armin76 Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby21 ruby22 ruby23 ruby24"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
@@ -53,9 +53,8 @@ all_ruby_prepare() {
 
 each_ruby_prepare() {
 	case ${RUBY} in
-		*jruby)
-			# Avoid a test failing on backtrace details.
-			sed -e '/when the root file is loaded/,/end/ s:^:#:' -i spec/rspec/expectations_spec.rb || die
+		*ruby24)
+			sed -i -e 's/of Fixnum/of Integer/' spec/rspec/expectations/expectation_target_spec.rb spec/rspec/matchers/be_instance_of_spec.rb || die
 			;;
 	esac
 }

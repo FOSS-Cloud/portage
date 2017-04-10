@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>sci-electronics</herd>
+  <maintainer type="project">
+    <email>sci-electronics@gentoo.org</email>
+    <name>Gentoo Electronics Project</name>
+  </maintainer>
   <longdescription>
   GTKWave is a fully featured GTK+ based wave viewer for Unix and Win32 which
   reads LXT, LXT2, VZT, and GHW files as well as standard Verilog VCD/EVCD
@@ -13,4 +16,7 @@
     <flag name="judy">Enables Judy array support.</flag>
     <flag name="packed">Enables '#pragma pack' for data arrays (saves memory, costs time).</flag>
   </use>
+  <upstream>
+    <remote-id type="sourceforge">gtkwave</remote-id>
+  </upstream>
 </pkgmetadata>

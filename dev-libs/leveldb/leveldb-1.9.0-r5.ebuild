@@ -1,14 +1,14 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/leveldb/leveldb-1.9.0-r5.ebuild,v 1.5 2014/08/11 22:10:39 blueness Exp $
+# $Id$
 
 EAPI=4
 
 inherit eutils multilib toolchain-funcs
 
 DESCRIPTION="a fast key-value storage library written at Google"
-HOMEPAGE="http://code.google.com/p/leveldb/"
-SRC_URI="http://${PN}.googlecode.com/files/${P}.tar.gz"
+HOMEPAGE="https://github.com/google/leveldb"
+SRC_URI="https://${PN}.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"

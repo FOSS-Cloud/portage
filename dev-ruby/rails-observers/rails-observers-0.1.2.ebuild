@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rails-observers/rails-observers-0.1.2.ebuild,v 1.2 2014/09/04 14:07:48 graaff Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21"
 
 RUBY_FAKEGEM_TASK_TEST="test:regular"
 
@@ -23,6 +23,8 @@ SLOT="$(get_version_component_range 1-2)"
 KEYWORDS="~amd64"
 IUSE=""
 
+RUBY_PATCHES=( "${P}-fix-tests.patch" )
+
 ruby_add_rdepend "=dev-ruby/activemodel-4*"
 
 ruby_add_bdepend "
@@ -35,3 +37,8 @@ ruby_add_bdepend "
 		=dev-ruby/actionpack-4*
 		>=dev-ruby/sqlite3-1.3
 	)"
+
+all_ruby_prepare() {
+	# Avoid rake test since it will run with the wrong ruby interpreter.
+	rm test/rake_test.rb || die
+}

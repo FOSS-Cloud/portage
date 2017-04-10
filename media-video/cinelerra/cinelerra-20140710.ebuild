@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/cinelerra/cinelerra-20140710.ebuild,v 1.1 2014/07/10 17:59:35 ssuominen Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils multilib flag-o-matic
 
 DESCRIPTION="The most advanced non-linear video editor and compositor"
 HOMEPAGE="http://www.cinelerra.org/"
-SRC_URI="http://dev.gentoo.org/~ssuominen/${P}.tar.xz"
+SRC_URI="https://dev.gentoo.org/~ssuominen/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="3dnow alsa altivec css debug ieee1394 mmx opengl oss"
+KEYWORDS="amd64 ~ppc x86"
+IUSE="cpu_flags_x86_3dnow alsa altivec css debug ieee1394 cpu_flags_x86_mmx opengl oss"
 
 RDEPEND="media-libs/a52dec:=
 	media-libs/faac:=
@@ -52,7 +52,7 @@ RDEPEND="media-libs/a52dec:=
 DEPEND="${RDEPEND}
 	app-arch/xz-utils
 	virtual/pkgconfig
-	mmx? ( dev-lang/nasm )"
+	cpu_flags_x86_mmx? ( dev-lang/nasm )"
 
 src_prepare() {
 	epatch \
@@ -60,10 +60,18 @@ src_prepare() {
 		"${FILESDIR}"/${PN}-ffmpeg.patch \
 		"${FILESDIR}"/${P}-underlinking.patch \
 		"${FILESDIR}"/${P}-ffmpeg-0.11.patch \
-		"${FILESDIR}"/${PN}-libav9.patch
+		"${FILESDIR}"/${PN}-libav9.patch \
+		"${FILESDIR}"/${PN}-pngtoh.patch \
+		"${FILESDIR}"/${PN}-nofindobject.patch \
+		"${FILESDIR}"/${PN}-asm-gcc52.patch \
+		"${FILESDIR}"/${PN}-putbits-gcc52.patch
 
 	if has_version '>=media-video/ffmpeg-2' ; then
 		epatch "${FILESDIR}"/${PN}-ffmpeg2.patch
+	fi
+
+	if has_version '>=media-video/ffmpeg-2.9' ; then
+		epatch "${FILESDIR}"/${PN}-ffmpeg29.patch
 	fi
 
 	eautoreconf
@@ -82,8 +90,8 @@ src_configure() {
 		--disable-esd \
 		$(use_enable ieee1394 firewire) \
 		$(use_enable css) \
-		$(use_enable mmx) \
-		$(use_enable 3dnow) \
+		$(use_enable cpu_flags_x86_mmx mmx) \
+		$(use_enable cpu_flags_x86_3dnow 3dnow) \
 		$(use_enable altivec) \
 		$(use_enable opengl) \
 		--with-plugindir=/usr/$(get_libdir)/${PN} \

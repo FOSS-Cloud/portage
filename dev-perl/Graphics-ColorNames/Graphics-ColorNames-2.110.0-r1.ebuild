@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Graphics-ColorNames/Graphics-ColorNames-2.110.0-r1.ebuild,v 1.1 2014/08/26 18:23:49 axs Exp $
+# $Id$
 
 EAPI=5
 
@@ -11,7 +11,7 @@ inherit perl-module
 DESCRIPTION="Defines RGB values for common color names"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 IUSE="recommended"
 
 COMMON_DEPEND="
@@ -22,9 +22,6 @@ COMMON_DEPEND="
 	recommended? (
 		>=dev-perl/Color-Library-0.02
 		dev-perl/Tie-Sub
-		dev-perl/Test-Pod-Coverage
-		>=dev-perl/Test-Pod-1.00
-		dev-perl/Test-Portability-Files
 		>=dev-perl/Pod-Readme-0.09
 	)
 "
@@ -32,9 +29,15 @@ DEPEND="
 	${COMMON_DEPEND}
 	dev-perl/Test-Exception
 	virtual/perl-Test-Simple
-	virtual/perl-Module-Build
+	dev-perl/Module-Build
 "
 RDEPEND="
 	${COMMON_DEPEND}
 "
 SRC_TEST="do"
+
+src_test() {
+	perl_rm_files t/90-pod-coverage.t t/90-pod.t \
+		t/90-file-port.t
+	perl-module_src_test
+}

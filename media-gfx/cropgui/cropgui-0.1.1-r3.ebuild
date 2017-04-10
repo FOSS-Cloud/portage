@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/cropgui/cropgui-0.1.1-r3.ebuild,v 1.3 2014/05/25 12:22:07 zlogene Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 inherit eutils python-r1
 
 DESCRIPTION="GUI for lossless cropping of jpeg images"
@@ -18,7 +18,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}"
 RDEPEND="${PYTHON_DEPS}
-	virtual/python-imaging[${PYTHON_USEDEP}]
+	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pygobject:2[${PYTHON_USEDEP}]
 	dev-python/pygtk:2[${PYTHON_USEDEP}]
 "
@@ -45,7 +45,7 @@ install_cropgui_wrapper() {
 }
 
 src_install() {
-	local python_moduleroot="${PN}"
+	python_moduleinto "${PN}"
 	python_foreach_impl install_cropgui_wrapper
 
 	domenu "${PN}.desktop"

@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/redis-py/redis-py-2.7.4.ebuild,v 1.5 2014/03/31 21:09:33 mgorny Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy pypy2_0 )
+PYTHON_COMPAT=( python2_7 pypy )
 
 inherit distutils-r1
 
@@ -11,7 +11,7 @@ MY_PN="redis"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Python client for Redis key-value store"
-HOMEPAGE="http://github.com/andymccurdy/redis-py http://pypi.python.org/pypi/redis"
+HOMEPAGE="https://github.com/andymccurdy/redis-py https://pypi.python.org/pypi/redis"
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
@@ -43,12 +43,6 @@ python_compile() {
 	if use test; then
 		cp -r tests-hidden "${BUILD_DIR}"/tests || die
 	fi
-}
-
-src_test() {
-#	local DISTUTILS_NO_PARALLEL_BUILD=1
-
-	distutils-r1_src_test
 }
 
 python_test() {

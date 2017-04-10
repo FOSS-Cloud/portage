@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/sdl-mixer/sdl-mixer-1.2.12-r4.ebuild,v 1.4 2014/08/08 11:57:01 hasufell Exp $
+# $Id$
 
 EAPI=5
 inherit eutils multilib-minimal
@@ -12,7 +12,7 @@ SRC_URI="http://www.libsdl.org/projects/SDL_mixer/release/${MY_P}.tar.gz"
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 sh sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-solaris"
 IUSE="flac fluidsynth mad midi mikmod mod modplug mp3 playtools smpeg static-libs timidity vorbis +wav"
 REQUIRED_USE="
 	midi? ( || ( timidity fluidsynth ) )
@@ -38,7 +38,7 @@ RDEPEND=">=media-libs/libsdl-1.2.15-r4[${MULTILIB_USEDEP}]
 	)
 	mod? (
 		modplug? ( >=media-libs/libmodplug-0.8.8.4-r1[${MULTILIB_USEDEP}] )
-		mikmod? ( >=media-libs/libmikmod-3.2.0[${MULTILIB_USEDEP}] )
+		mikmod? ( >=media-libs/libmikmod-3.3.6-r1[${MULTILIB_USEDEP}] )
 	)
 	vorbis? (
 		>=media-libs/libvorbis-1.3.3-r1[${MULTILIB_USEDEP}]
@@ -80,7 +80,8 @@ multilib_src_configure() {
 		$(use_enable smpeg music-mp3) \
 		$(use_enable mad music-mp3-mad-gpl) \
 		$(use_enable timidity music-timidity-midi) \
-		$(use_enable fluidsynth music-fluidsynth-midi)
+		$(use_enable fluidsynth music-fluidsynth-midi) \
+		LIBMIKMOD_CONFIG=${EPREFIX}/usr/bin/${CHOST}-libmikmod-config
 }
 
 multilib_src_install() {
@@ -92,9 +93,7 @@ multilib_src_install() {
 
 multilib_src_install_all() {
 	dodoc CHANGES README
-	if ! use static-libs ; then
-		prune_libtool_files --all
-	fi
+	prune_libtool_files
 }
 
 pkg_postinst() {

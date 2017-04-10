@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-9999.ebuild,v 1.162 2014/09/01 16:47:04 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,15 +10,15 @@ ESVN_REPO_URI="svn://svn.mplayerhq.hu/mplayer/trunk"
 
 inherit toolchain-funcs eutils flag-o-matic multilib base ${SVN_ECLASS}
 
-IUSE="3dnow 3dnowext a52 aalib +alsa altivec aqua bidi bindist bl bluray
+IUSE="cpu_flags_x86_3dnow cpu_flags_x86_3dnowext a52 aalib +alsa altivec aqua bidi bl bluray
 bs2b cddb +cdio cdparanoia cpudetection debug dga
 directfb doc dts dv dvb +dvd +dvdnav +enca +encode faac faad fbcon
 ftp gif ggi gsm +iconv ipv6 jack joystick jpeg jpeg2k kernel_linux ladspa
-+libass libcaca libmpeg2 lirc live lzo mad md5sum +mmx mmxext mng mp3 nas
++libass libcaca libmpeg2 lirc live lzo mad md5sum +cpu_flags_x86_mmx cpu_flags_x86_mmxext mng mp3 nas
 +network nut openal opengl +osdmenu oss png pnm pulseaudio pvr
-radio rar rtc rtmp samba selinux +shm sdl speex sse sse2 ssse3
-tga theora tremor +truetype toolame twolame +unicode v4l vdpau vidix
-vorbis +X x264 xanim xinerama +xscreensaver +xv xvid xvmc zoran"
+radio rar rtc rtmp samba selinux +shm sdl speex cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_ssse3
+tga theora tremor +truetype toolame twolame +unicode v4l vcd vdpau vidix
+vorbis +X x264 xinerama +xscreensaver +xv xvid xvmc yuv4mpeg zoran"
 
 VIDEO_CARDS="s3virge mga tdfx"
 for x in ${VIDEO_CARDS}; do
@@ -57,17 +57,17 @@ X_RDEPS="
 # Rar: althrought -gpl version is nice, it cant do most functions normal rars can
 #	nemesi? ( net-libs/libnemesi )
 RDEPEND+="
-	sys-libs/ncurses
+	sys-libs/ncurses:0=
 	app-arch/bzip2
 	sys-libs/zlib
-	|| ( >=media-video/ffmpeg-2.0:0 >=media-video/libav-9 )
+	>=media-video/ffmpeg-3.0:0=[vdpau?]
 	a52? ( media-libs/a52dec )
 	aalib? ( media-libs/aalib )
 	alsa? ( media-libs/alsa-lib )
 	bidi? ( dev-libs/fribidi )
 	bluray? ( >=media-libs/libbluray-0.2.1 )
 	bs2b? ( media-libs/libbs2b )
-	cdio? ( dev-libs/libcdio )
+	cdio? ( dev-libs/libcdio:0= dev-libs/libcdio-paranoia )
 	cdparanoia? ( !cdio? ( media-sound/cdparanoia ) )
 	dga? ( x11-libs/libXxf86dga )
 	directfb? ( dev-libs/DirectFB )
@@ -87,14 +87,14 @@ RDEPEND+="
 	enca? ( app-i18n/enca )
 	faad? ( media-libs/faad2 )
 	ggi? ( media-libs/libggi media-libs/libggiwmh )
-	gif? ( media-libs/giflib )
+	gif? ( media-libs/giflib:0= )
 	gsm? ( media-sound/gsm )
 	iconv? ( virtual/libiconv )
 	jack? ( media-sound/jack-audio-connection-kit )
 	jpeg? ( virtual/jpeg:0 )
 	jpeg2k? ( media-libs/openjpeg:0 )
 	ladspa? ( media-libs/ladspa-sdk )
-	libass? ( >=media-libs/libass-0.9.10:=[enca?] )
+	libass? ( >=media-libs/libass-0.9.10:= )
 	libcaca? ( media-libs/libcaca )
 	libmpeg2? ( media-libs/libmpeg2 )
 	lirc? ( app-misc/lirc )
@@ -107,7 +107,7 @@ RDEPEND+="
 	nut? ( >=media-libs/libnut-661 )
 	openal? ( media-libs/openal )
 	opengl? ( virtual/opengl )
-	png? ( media-libs/libpng )
+	png? ( media-libs/libpng:0= )
 	pnm? ( media-libs/netpbm )
 	pulseaudio? ( media-sound/pulseaudio )
 	rar? (
@@ -118,7 +118,6 @@ RDEPEND+="
 	)
 	rtmp? ( media-video/rtmpdump )
 	samba? ( net-fs/samba )
-	selinux? ( sec-policy/selinux-mplayer )
 	sdl? ( media-libs/libsdl )
 	speex? ( media-libs/speex )
 	theora? ( media-libs/libtheora[encode?] )
@@ -127,7 +126,6 @@ RDEPEND+="
 	vdpau? ( x11-libs/libvdpau )
 	vorbis? ( !tremor? ( media-libs/libvorbis ) )
 	X? ( ${X_RDEPS}	)
-	xanim? ( media-video/xanim )
 	xinerama? ( x11-libs/libXinerama )
 	xscreensaver? ( x11-libs/libXScrnSaver )
 	xv? ( x11-libs/libXv )
@@ -153,6 +151,9 @@ DEPEND="${RDEPEND}
 	x86? ( ${ASM_DEP} )
 	x86-fbsd? ( ${ASM_DEP} )
 "
+RDEPEND+="
+	selinux? ( sec-policy/selinux-mplayer )
+"
 
 SLOT="0"
 LICENSE="GPL-2"
@@ -170,7 +171,6 @@ fi
 # radio requires oss or alsa backend
 # xvmc requires xvideo support
 REQUIRED_USE="
-	bindist? ( !faac )
 	dga? ( X )
 	dvdnav? ( dvd )
 	enca? ( iconv )
@@ -185,6 +185,7 @@ REQUIRED_USE="
 	xscreensaver? ( X )
 	xv? ( X )
 	xvmc? ( xv )"
+RESTRICT="faac? ( bindist )"
 
 pkg_setup() {
 	if [[ ${PV} == *9999* ]]; then
@@ -291,7 +292,7 @@ src_configure() {
 		$(use_enable network networking)
 		$(use_enable joystick)
 	"
-	uses="bl bluray enca ftp rtc" # nemesi <- not working with in-tree ebuild
+	uses="bl bluray enca ftp rtc vcd" # nemesi <- not working with in-tree ebuild
 	myconf+=" --disable-nemesi" # nemesi automagic disable
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
@@ -320,9 +321,6 @@ src_configure() {
 	#
 	# dvdread - accessing a DVD
 	# dvdnav - navigation of menus
-	#
-	# use external libdvdcss, dvdread and dvdnav
-	myconf+=" --disable-dvdread-internal --disable-libdvdcss-internal"
 	use dvd || myconf+=" --disable-dvdread"
 	use dvdnav || myconf+=" --disable-dvdnav"
 
@@ -389,7 +387,7 @@ src_configure() {
 		use ${i} || myconf+=" --disable-lib${i}"
 	done
 
-	uses="faad gif jpeg libmpeg2 live mad mng png pnm speex tga theora tremor xanim"
+	uses="faad gif jpeg libmpeg2 live mad mng png pnm speex tga theora tremor"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done
@@ -417,7 +415,7 @@ src_configure() {
 	################
 	# Video Output #
 	################
-	uses="directfb md5sum sdl"
+	uses="directfb md5sum sdl yuv4mpeg"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done
@@ -466,7 +464,12 @@ src_configure() {
 	# Platform specific flags, hardcoded on amd64 (see below)
 	use cpudetection && myconf+=" --enable-runtime-cpudetection"
 
-	uses="3dnow 3dnowext altivec mmx mmxext shm sse sse2 ssse3"
+	uses="3dnow 3dnowext mmx mmxext sse sse2 ssse3"
+	for i in ${uses}; do
+		myconf+=" $(use_enable cpu_flags_x86_${i} ${i})"
+	done
+
+	uses="altivec shm"
 	for i in ${uses}; do
 		myconf+=" $(use_enable ${i})"
 	done

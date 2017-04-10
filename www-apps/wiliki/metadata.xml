@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>scheme</herd>
+	<maintainer type="project">
+		<email>scheme@gentoo.org</email>
+		<name>Gentoo Scheme Project</name>
+	</maintainer>
 	<longdescription>
 	WiLiKi is a lightweight Wiki Engine written in Scheme.
 
@@ -12,4 +15,7 @@
 
 	http://practical-scheme.net/wiliki/
 	</longdescription>
+	<upstream>
+		<remote-id type="sourceforge">wiliki</remote-id>
+	</upstream>
 </pkgmetadata>

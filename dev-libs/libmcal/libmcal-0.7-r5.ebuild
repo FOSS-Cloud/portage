@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libmcal/libmcal-0.7-r5.ebuild,v 1.15 2011/02/06 12:37:55 leio Exp $
+# $Id$
 
 inherit eutils multilib
 
@@ -28,10 +28,10 @@ src_unpack() {
 		sed -e 's|/var/calendar|/var/spool/calendar|g' -i ${i}
 	done
 	cd ${S}
-	epatch ${FILESDIR}/${P}-fpic.patch
-	epatch ${FILESDIR}/${P}-libdir.patch
-	epatch ${FILESDIR}/${P}-gcc4.patch
-	epatch ${FILESDIR}/${P}-flexfix.patch
+	epatch "${FILESDIR}"/${P}-fpic.patch
+	epatch "${FILESDIR}"/${P}-libdir.patch
+	epatch "${FILESDIR}"/${P}-gcc4.patch
+	epatch "${FILESDIR}"/${P}-flexfix.patch
 }
 
 src_compile() {

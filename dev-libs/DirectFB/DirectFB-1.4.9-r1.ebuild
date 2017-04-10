@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/DirectFB/DirectFB-1.4.9-r1.ebuild,v 1.7 2012/01/27 20:11:51 tupone Exp $
+# $Id$
 
 EAPI=2
 inherit eutils toolchain-funcs
@@ -25,14 +25,14 @@ IUSE_INPUT_DEVICES=" dynapro elo2300 evdev joystick keyboard lirc mouse mutouch 
 IUD=${IUSE_INPUT_DEVICES// / input_devices_}
 
 DESCRIPTION="Thin library on top of the Linux framebuffer devices"
-HOMEPAGE="http://www.directfb.org/"
-SRC_URI="http://directfb.org/downloads/Core/${PN}-${PV:0:3}/${P}.tar.gz
-	http://directfb.org/downloads/Old/${P}.tar.gz"
+HOMEPAGE="http://www.directfb.net/"
+SRC_URI="http://directfb.net/downloads/Core/${PN}-${PV:0:3}/${P}.tar.gz
+	http://directfb.net/downloads/Old/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="alpha amd64 arm hppa ia64 -mips ppc ppc64 sh -sparc x86"
-IUSE="debug doc fbcon gif jpeg mmx png sdl sse static-libs truetype v4l X zlib ${IUV} ${IUD}"
+IUSE="debug doc fbcon gif jpeg cpu_flags_x86_mmx png sdl cpu_flags_x86_sse static-libs truetype v4l X zlib ${IUV} ${IUD}"
 
 RDEPEND="sdl? ( media-libs/libsdl )
 	gif? ( media-libs/giflib )
@@ -90,8 +90,8 @@ src_configure() {
 		$(use_enable static-libs static) \
 		$(use_enable X x11) \
 		$(use_enable fbcon fbdev) \
-		$(use_enable mmx) \
-		$(use_enable sse) \
+		$(use_enable cpu_flags_x86_mmx mmx) \
+		$(use_enable cpu_flags_x86_sse sse) \
 		$(use_enable jpeg) \
 		$(use_enable png) \
 		$(use_enable gif) \

@@ -1,15 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/adonthell/adonthell-0.3.5-r1.ebuild,v 1.7 2014/05/15 16:57:07 ulm Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python2_6 python2_7 )
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools eutils python-single-r1 games
 
 DESCRIPTION="roleplaying game engine"
 HOMEPAGE="http://adonthell.linuxgames.com/"
-SRC_URI="http://savannah.nongnu.org/download/${PN}/${PN}-src-${PV}.tar.gz"
+SRC_URI="https://savannah.nongnu.org/download/${PN}/${PN}-src-${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -44,6 +44,7 @@ src_prepare() {
 	epatch \
 		"${FILESDIR}"/${P}-configure.in.patch \
 		"${FILESDIR}"/${P}-glibc-2.10.patch \
+		"${FILESDIR}"/${P}-format.patch \
 		"${FILESDIR}"/${P}-gcc46.patch
 	sed -i \
 		-e "/AC_PATH_PROGS/s:python:${EPYTHON}:" \

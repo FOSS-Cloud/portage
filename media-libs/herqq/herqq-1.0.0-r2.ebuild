@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/herqq/herqq-1.0.0-r2.ebuild,v 1.1 2014/06/23 06:08:20 kensington Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/hupnp/${P}.zip"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~ppc ~ppc64 x86"
 IUSE="doc"
 
 # no release of QtSolutions using bundled libQtSolutions_SOAP
@@ -25,6 +25,7 @@ DEPEND="${RDEPEND}
 "
 
 DOCS=( hupnp/ChangeLog )
+PATCHES=( "${FILESDIR}/${P}-gcc6.patch" )
 
 src_prepare() {
 	# fix the .pro file for multilib issues

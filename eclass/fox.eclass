@@ -1,10 +1,10 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/fox.eclass,v 1.17 2012/09/27 16:35:41 axs Exp $
+# $Id$
 
 # @ECLASS: fox.eclass
 # @MAINTAINER:
-# mabi@gentoo.org
+# maintainer-needed@gentoo.org
 # @BLURB: Functionality required the FOX Toolkit and it's applications
 # @DESCRIPTION:
 # This eclass allows building SLOT-able FOX Toolkit installations
@@ -61,7 +61,7 @@ FOX_APPS="adie calculator pathfinder shutterbug"
 # @DESCRIPTION:
 # Set this to add additional configuration options during src_configure
 
-DESCRIPTION="C++ based Toolkit for developing Graphical User Interfaces easily and effectively"
+DESCRIPTION="C++ Toolkit for developing Graphical User Interfaces easily and effectively"
 HOMEPAGE="http://www.fox-toolkit.org/"
 SRC_URI="ftp://ftp.fox-toolkit.org/pub/fox-${FOX_PV}.tar.gz"
 

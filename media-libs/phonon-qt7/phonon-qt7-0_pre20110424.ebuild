@@ -1,14 +1,14 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/phonon-qt7/phonon-qt7-0_pre20110424.ebuild,v 1.7 2012/10/01 17:45:14 grobian Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 
-inherit cmake-utils base
+inherit cmake-utils
 
 DESCRIPTION="Phonon QuickTime7 backend"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/phonon/phonon-quicktime"
-SRC_URI="http://dev.gentoo.org/~dilfridge/distfiles/${P}.tar.bz2"
+SRC_URI="https://dev.gentoo.org/~dilfridge/distfiles/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 KEYWORDS="~ppc-macos ~x64-macos"
@@ -35,7 +35,7 @@ PATCHES=(
 )
 
 src_prepare() {
-	base_src_prepare  # for PATCHES
+	cmake-utils_src_prepare  # for PATCHES
 	sed -i -e "/^include_directories/s:): ${EPREFIX}/usr/include):" \
 		CMakeLists.txt || die
 }

@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/btparser/btparser-0.24.ebuild,v 1.4 2013/06/30 15:00:28 jlec Exp $
+# $Id$
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit eutils python-single-r1
 
@@ -24,10 +24,8 @@ DEPEND="${RDEPEND}
 	app-arch/xz-utils"
 
 src_configure() {
-	# Configure checks for python.pc; our python-2.7 installs python-2.7.pc,
-	# while python-2.6 does not install any pkgconfig file.
-	export PYTHON_CFLAGS=$(python-config --includes)
-	export PYTHON_LIBS=$(python-config --libs)
+	export PYTHON_CFLAGS=$(python_get_CFLAGS)
+	export PYTHON_LIBS=$(python_get_LIBS)
 
 	econf \
 		$(use_enable static-libs static) \

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/elvis/elvis-2.2.0-r4.ebuild,v 1.7 2013/03/01 07:42:26 ssuominen Exp $
+# $Id$
 
 EAPI=5
 inherit eutils versionator toolchain-funcs
@@ -13,7 +13,7 @@ SRC_URI="ftp://ftp.cs.pdx.edu/pub/elvis/${PN}-${MY_PV}.tar.gz"
 
 LICENSE="Artistic"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 x86 ~x86-interix ~ppc-macos ~x86-macos ~m68k-mint ~sparc-solaris"
+KEYWORDS="amd64 ppc ppc64 x86 ~ppc-macos ~x86-macos ~m68k-mint ~sparc-solaris"
 IUSE="X"
 
 RDEPEND=">=sys-libs/ncurses-5.7-r7
@@ -22,7 +22,7 @@ RDEPEND=">=sys-libs/ncurses-5.7-r7
 		>=x11-libs/libXt-1.0.0
 		>=x11-libs/libXpm-3.5.4.2
 		>=x11-libs/libXft-2.1.8.2 )
-	app-admin/eselect-vi"
+	app-eselect/eselect-vi"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/swh-plugins/swh-plugins-0.4.15-r3.ebuild,v 1.3 2014/06/18 20:26:22 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,8 +12,8 @@ SRC_URI="http://plugin.org.uk/releases/${PV}/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
-IUSE="3dnow nls sse"
+KEYWORDS="amd64 ~ppc x86 ~amd64-linux ~x86-linux"
+IUSE="cpu_flags_x86_3dnow nls cpu_flags_x86_sse"
 
 RDEPEND="
 	>=media-sound/gsm-1.0.13-r1[${MULTILIB_USEDEP}]
@@ -58,8 +58,8 @@ src_prepare() {
 
 multilib_src_configure() {
 	ECONF_SOURCE="${S}" econf \
-		$(use_enable sse) \
-		$(use_enable 3dnow) \
+		$(use_enable cpu_flags_x86_sse sse) \
+		$(use_enable cpu_flags_x86_3dnow 3dnow) \
 		$(use_enable nls) \
 		--enable-fast-install \
 		--disable-dependency-tracking

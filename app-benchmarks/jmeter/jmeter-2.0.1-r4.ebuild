@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-benchmarks/jmeter/jmeter-2.0.1-r4.ebuild,v 1.4 2014/08/05 07:59:55 patrick Exp $
+# $Id$
 
 inherit java-pkg-2 java-ant-2
 
@@ -48,7 +48,7 @@ src_compile() {
 }
 
 src_install() {
-	DIROPTIONS="--mode=0775"
+	diropts --mode=0775
 	dodir /opt/${PN}
 	local dest="${D}/opt/${PN}/"
 	cp -pPR bin/ lib/ printable_docs/ "${dest}"

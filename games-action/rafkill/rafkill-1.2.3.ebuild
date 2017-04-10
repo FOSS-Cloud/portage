@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/rafkill/rafkill-1.2.3.ebuild,v 1.10 2012/07/19 11:49:38 tupone Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils scons-utils games
 
 DESCRIPTION="space shoot-em-up game"
@@ -16,6 +16,7 @@ IUSE=""
 
 DEPEND="<media-libs/allegro-5
 	media-libs/aldumb"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	rm -f {data,music}/.sconsign
@@ -26,18 +27,17 @@ src_prepare() {
 		"${FILESDIR}"/${P}-ldflags.patch
 	sed -i \
 		-e "/^#define INSTALL_DIR/s:\.:${GAMES_DATADIR}:" \
-		src/defs.cpp \
-		|| die "sed failed"
+		src/defs.cpp || die
 }
 
 src_compile() {
-	escons || die
+	escons
 }
 
 src_install() {
-	dogamesbin ${PN} || die "dogamesbin failed"
+	dogamesbin ${PN}
 	insinto "${GAMES_DATADIR}"/${PN}
-	doins -r data music || die "doins failed"
+	doins -r data music
 	dodoc README
 	prepgamesdirs
 }

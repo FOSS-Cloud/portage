@@ -1,10 +1,14 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/diffball/diffball-1.0.1.ebuild,v 1.7 2012/05/04 17:51:44 jdhore Exp $
+# $Id$
+
+EAPI=6
+
+inherit flag-o-matic
 
 DESCRIPTION="Delta compression suite for using/generating binary patches"
-HOMEPAGE="http://diffball.googlecode.com/"
-SRC_URI="http://diffball.googlecode.com/files/${P}.tar.bz2"
+HOMEPAGE="https://diffball.googlecode.com/"
+SRC_URI="https://diffball.googlecode.com/files/${P}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"
@@ -20,12 +24,12 @@ DEPEND="${RDEPEND}
 # Invalid RESTRICT for source package. Investigate.
 RESTRICT="strip"
 
-src_compile() {
-	econf $(use_enable debug asserts)
-	emake || die "emake failed"
+src_prepare() {
+	# fix bug 548316 by restoring pre-GCC5 inline semantics
+	append-cflags -std=gnu89
+	default
 }
 
-src_install() {
-	emake DESTDIR="${D}" install || die
-	dodoc AUTHORS ChangeLog README TODO
+src_configure() {
+	econf $(use_enable debug asserts)
 }

@@ -1,36 +1,27 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs/zfs-9999.ebuild,v 1.54 2014/07/30 19:21:10 ssuominen Exp $
+# $Id$
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_6,2_7,3_1,3_2,3_3} )
-
-inherit python-r1
-
-AT_M4DIR="config"
-AUTOTOOLS_AUTORECONF="1"
-AUTOTOOLS_IN_SOURCE_BUILD="1"
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 
 if [ ${PV} == "9999" ] ; then
-	inherit git-2 linux-mod
+	inherit git-r3 linux-mod
+	AUTOTOOLS_AUTORECONF="1"
 	EGIT_REPO_URI="https://github.com/zfsonlinux/${PN}.git"
 else
-	inherit eutils versionator
-	MY_PV=$(replace_version_separator 3 '-')
-	SRC_URI="https://github.com/zfsonlinux/${PN}/archive/${PN}-${MY_PV}.tar.gz
-		http://dev.gentoo.org/~ryao/dist/${PN}-kmod-${MY_PV}-p2.tar.xz"
-	S="${WORKDIR}/${PN}-${PN}-${MY_PV}"
-	KEYWORDS="~amd64"
+	SRC_URI="https://github.com/zfsonlinux/${PN}/releases/download/${P}/${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64"
 fi
 
-inherit bash-completion-r1 flag-o-matic toolchain-funcs autotools-utils udev systemd
+inherit autotools-utils bash-completion-r1 flag-o-matic linux-info python-r1 systemd toolchain-funcs udev
 
 DESCRIPTION="Userland utilities for ZFS Linux kernel module"
 HOMEPAGE="http://zfsonlinux.org/"
 
-LICENSE="BSD-2 CDDL bash-completion? ( MIT )"
+LICENSE="BSD-2 CDDL MIT"
 SLOT="0"
-IUSE="bash-completion custom-cflags debug kernel-builtin +rootfs test-suite static-libs"
+IUSE="custom-cflags debug kernel-builtin +rootfs test-suite static-libs"
 RESTRICT="test"
 
 COMMON_DEPEND="
@@ -63,25 +54,45 @@ RDEPEND="${COMMON_DEPEND}
 		)
 "
 
+AT_M4DIR="config"
+AUTOTOOLS_IN_SOURCE_BUILD="1"
+
 pkg_setup() {
-	:
+	if use kernel_linux && use test-suite; then
+		linux-info_pkg_setup
+		if  ! linux_config_exists; then
+			ewarn "Cannot check the linux kernel configuration."
+		else
+			# recheck that we don't have usblp to collide with libusb
+			if use test-suite; then
+				if linux_chkconfig_present BLK_DEV_LOOP; then
+					eerror "The ZFS test suite requires loop device support enabled."
+					eerror "Please enable it:"
+					eerror "    CONFIG_BLK_DEV_LOOP=y"
+					eerror "in /usr/src/linux/.config or"
+					eerror "    Device Drivers --->"
+					eerror "        Block devices --->"
+					eerror "            [ ] Loopback device support"
+				fi
+			fi
+		fi
+	fi
+
 }
 
 src_prepare() {
-	if [ ${PV} != "9999" ]
-	then
-		# Apply patch set
-		EPATCH_SUFFIX="patch" \
-		EPATCH_FORCE="yes" \
-		epatch "${WORKDIR}/${PN}-kmod-${MY_PV}-patches"
-	fi
-
 	# Update paths
 	sed -e "s|/sbin/lsmod|/bin/lsmod|" \
 		-e "s|/usr/bin/scsi-rescan|/usr/sbin/rescan-scsi-bus|" \
 		-e "s|/sbin/parted|/usr/sbin/parted|" \
 		-i scripts/common.sh.in
 
+	if use kernel-builtin
+	then
+		einfo "kernel-builtin enabled, removing module loading from"
+		einfo "systemd units."
+		sed -i -e '/modprobe\ zfs/d' etc/systemd/system/*.service.in || die
+	fi
 	autotools-utils_src_prepare
 }
 
@@ -91,6 +102,7 @@ src_configure() {
 		--bindir="${EPREFIX}/bin"
 		--sbindir="${EPREFIX}/sbin"
 		--with-config=user
+		--with-dracutdir="/usr/$(get_libdir)/dracut"
 		--with-linux="${KV_DIR}"
 		--with-linux-obj="${KV_OUT_DIR}"
 		--with-udevdir="$(get_udevdir)"
@@ -108,15 +120,19 @@ src_configure() {
 		sed -e "s:@sbindir@:${EPREFIX}/sbin:g" \
 			-e "s:@sysconfdir@:${EPREFIX}/etc:g" \
 		> "${T}/zfs-init.sh" || die
+	if use kernel-builtin
+	then
+		sed -i -e '/modprobe\ zfs/d' "${T}/zfs.service" || die
+	fi
 }
 
 src_install() {
 	autotools-utils_src_install
 	gen_usr_ldscript -a uutil nvpair zpool zfs zfs_core
-	rm -rf "${ED}usr/lib/dracut"
 	use test-suite || rm -rf "${ED}usr/share/zfs"
 
-	use bash-completion && newbashcomp "${FILESDIR}/bash-completion-r1" zfs
+	newbashcomp "${FILESDIR}/bash-completion-r1" zfs
+	bashcomp_alias zfs zpool
 
 	exeinto /usr/libexec
 	doexe "${T}/zfs-init.sh"
@@ -124,7 +140,6 @@ src_install() {
 }
 
 pkg_postinst() {
-
 	if ! use kernel-builtin && [ ${PV} = "9999" ]
 	then
 		einfo "Adding ${P} to the module database to ensure that the"
@@ -132,13 +147,54 @@ pkg_postinst() {
 		update_moduledb
 	fi
 
-	[ -e "${EROOT}/etc/runlevels/boot/zfs" ] \
-		|| ewarn 'You should add zfs to the boot runlevel.'
+	if [ -e "${EROOT}etc/runlevels/boot/zfs" ]
+	then
+		einfo 'The zfs boot script has been split into the zfs-import,'
+		einfo 'zfs-mount and zfs-share scripts.'
+		einfo
+		einfo 'You had the zfs script in your boot runlevel. For your'
+		einfo 'convenience, it has been automatically removed and the three'
+		einfo 'scripts that replace it have been configured to start.'
+		einfo 'The zfs-import and zfs-mount scripts have been added to the boot'
+		einfo 'runlevel while the zfs-share script is in the default runlevel.'
 
-	if [ -e "${EROOT}/etc/runlevels/shutdown/zfs-shutdown" ]
+		rm "${EROOT}etc/runlevels/boot/zfs"
+		ln -snf "${EROOT}etc/init.d/zfs-import" \
+			"${EROOT}etc/runlevels/boot/zfs-import"
+		ln -snf "${EROOT}etc/init.d/zfs-mount" \
+			"${EROOT}etc/runlevels/boot/zfs-mount"
+		ln -snf "${EROOT}etc/init.d/zfs-share" \
+			"${EROOT}etc/runlevels/default/zfs-share"
+	else
+		[ -e "${EROOT}etc/runlevels/boot/zfs-import" ] || \
+			einfo "You should add zfs-import to the boot runlevel."
+		[ -e "${EROOT}etc/runlevels/boot/zfs-mount" ] || \
+			einfo "You should add zfs-mount to the boot runlevel."
+		[ -e "${EROOT}etc/runlevels/default/zfs-share" ] || \
+			einfo "You should add zfs-share to the default runlevel."
+	fi
+
+	if [ -e "${EROOT}etc/runlevels/default/zed" ]
+	then
+		einfo 'The downstream OpenRC zed script has replaced by the upstream'
+		einfo 'OpenRC zfs-zed script.'
+		einfo
+		einfo 'You had the zed script in your default runlevel. For your'
+		einfo 'convenience, it has been automatically removed and the zfs-zed'
+		einfo 'script that replaced it has been configured to start.'
+
+		rm "${EROOT}etc/runlevels/boot/zed"
+		ln -snf "${EROOT}etc/init.d/zfs-sed" \
+			"${EROOT}etc/runlevels/default/zfs-zed"
+	else
+		[ -e "${EROOT}etc/runlevels/default/zfs-zed" ] || \
+			einfo "You should add zfs-zed to the default runlevel."
+	fi
+
+	if [ -e "${EROOT}etc/runlevels/shutdown/zfs-shutdown" ]
 	then
 		einfo "The zfs-shutdown script is obsolete. Removing it from runlevel."
-		rm "${EROOT}/etc/runlevels/shutdown/zfs-shutdown"
+		rm "${EROOT}etc/runlevels/shutdown/zfs-shutdown"
 	fi
 
 }

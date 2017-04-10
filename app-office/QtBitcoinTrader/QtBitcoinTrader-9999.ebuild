@@ -1,11 +1,11 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/QtBitcoinTrader/QtBitcoinTrader-9999.ebuild,v 1.4 2013/12/14 03:28:27 alexxy Exp $
+# $Id$
 
 EAPI=5
 
 if [[ $PV = *9999* ]]; then
-	eclass=git-2
+	eclass=git-r3
 	EGIT_REPO_URI="
 		git://github.com/JulyIGHOR/QtBitcoinTrader.git
 		https://github.com/JulyIGHOR/QtBitcoinTrader.git"
@@ -18,7 +18,7 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-inherit base fdo-mime qt4-r2 ${eclass}
+inherit base fdo-mime qmake-utils ${eclass}
 
 DESCRIPTION="Mt.Gox and BTC-e Bitcoin Trading Client"
 HOMEPAGE="https://github.com/JulyIGHOR/QtBitcoinTrader"
@@ -28,16 +28,28 @@ SLOT="0"
 IUSE=""
 
 DEPEND="
-	dev-qt/qtgui:4
-	dev-qt/qtmultimedia:4"
+	dev-libs/openssl:0
+	sys-libs/zlib
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtscript:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtmultimedia:5
+"
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	eqmake4 \
-		src/${PN}_Desktop.pro \
-		PREFIX="${EPREFIX}/usr" \
-		DESKTOPDIR="${EPREFIX}/usr/share/applications" \
-		ICONDIR="${EPREFIX}/usr/share/pixmaps"
+	eqmake5 \
+			src/${PN}_Desktop.pro \
+			PREFIX="${EPREFIX}/usr" \
+			DESKTOPDIR="${EPREFIX}/usr/share/applications" \
+			ICONDIR="${EPREFIX}/usr/share/pixmaps"
+}
+
+src_install() {
+	emake INSTALL_ROOT="${D}" install
+	einstalldocs
 }
 
 pkg_postinst() {

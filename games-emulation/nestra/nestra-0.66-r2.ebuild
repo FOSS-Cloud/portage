@@ -1,8 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/nestra/nestra-0.66-r2.ebuild,v 1.3 2009/08/17 20:32:59 fauli Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils toolchain-funcs flag-o-matic multilib games
 
 PATCH="${P/-/_}-10.diff"
@@ -13,11 +13,11 @@ SRC_URI="http://nestra.linuxgames.com/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="amd64? ( app-emulation/emul-linux-x86-xlibs )
-	x11-libs/libX11"
+RDEPEND="x11-libs/libX11[abi_x86_32(-)]"
+DEPEND=${RDEPEND}
 
 S=${WORKDIR}/${PN}
 
@@ -33,8 +33,7 @@ src_prepare() {
 		-e 's:-O2 ::' \
 		-e "s:gcc:$(tc-getCC) ${CFLAGS}:" \
 		-e "s:ld:$(tc-getLD) -m elf_i386 $(raw-ldflags):" \
-		Makefile \
-		|| die "sed failed"
+		Makefile || die
 }
 
 src_compile() {
@@ -43,7 +42,7 @@ src_compile() {
 }
 
 src_install() {
-	dogamesbin nestra || die "dogamesbin failed"
+	dogamesbin nestra
 	dodoc BUGS CHANGES README
 	doman nestra.6
 	prepgamesdirs

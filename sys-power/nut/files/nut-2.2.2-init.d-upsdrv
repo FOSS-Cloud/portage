@@ -1,13 +1,13 @@
-#!/sbin/runscript
-# Copyright 1999-2011 Gentoo Foundation
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/nut/files/nut-2.2.2-init.d-upsdrv,v 1.2 2011/12/04 10:43:19 swegener Exp $
+# $Id$
 
 extra_commands="stopall startall"
 
 UPSNAME=${SVCNAME#*.}
 msgtext="drivers"
-[ "${UPSNAME}" == "${SVCNAME}" ] && UPSNAME=''
+[ "${UPSNAME}" = "${SVCNAME}" ] && UPSNAME=''
 [ -n "$UPSNAME" ] && msgtext="driver for $UPSNAME"
 
 depend() {

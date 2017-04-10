@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/colpack/colpack-1.0.6.ebuild,v 1.2 2012/06/28 23:39:16 bicatali Exp $
+# $Id$
 
 EAPI=4
 
@@ -15,7 +15,7 @@ SRC_URI="http://www.cscapes.org/download/${MYPN}/${MYPN}-${PV}.tar.gz"
 
 SLOT="0"
 IUSE="openmp static-libs"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND=""
 DEPEND="${RDEPEND}"

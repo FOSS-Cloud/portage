@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/darktable/darktable-9999.ebuild,v 1.13 2014/02/11 05:43:49 radhermit Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-inherit cmake-utils toolchain-funcs gnome2-utils fdo-mime git-2 pax-utils eutils
+inherit cmake-utils flag-o-matic toolchain-funcs gnome2-utils fdo-mime git-r3 pax-utils eutils versionator
 
 EGIT_REPO_URI="git://github.com/darktable-org/darktable.git"
 
@@ -13,47 +13,50 @@ HOMEPAGE="http://www.darktable.org/"
 
 LICENSE="GPL-3 CC-BY-3.0"
 SLOT="0"
-LANGS=" cs da de el es fr it ja nl pl pt_BR pt_PT ru sq sv uk"
+#KEYWORDS="~amd64 ~x86"
+LANGS=" ca cs da de es fr he hu it ja nl pl ru sk sl sv uk"
 # TODO add lua once dev-lang/lua-5.2 is unmasked
-IUSE="colord doc flickr geo gnome-keyring gphoto2 graphicsmagick jpeg2k kde
-nls opencl openmp pax_kernel +rawspeed +slideshow +squish web-services webp
-${LANGS// / linguas_}"
+IUSE="colord cups cpu_flags_x86_sse3 doc flickr geo gphoto2 graphicsmagick jpeg2k kwallet libsecret
+nls opencl openmp openexr pax_kernel webp
+${LANGS// / l10n_}"
+
+# sse3 support is required to build darktable
+REQUIRED_USE="cpu_flags_x86_sse3"
 
 CDEPEND="
 	dev-db/sqlite:3
-	>=dev-libs/glib-2.28:2
+	dev-libs/json-glib
 	dev-libs/libxml2:2
+	dev-libs/pugixml:0=
 	gnome-base/librsvg:2
-	media-gfx/exiv2:0=[xmp]
+	>=media-gfx/exiv2-0.25-r2:0=[xmp]
 	media-libs/lcms:2
-	>=media-libs/lensfun-0.2.3
+	>=media-libs/lensfun-0.2.3:0=
 	media-libs/libpng:0=
-	media-libs/openexr:0=
 	media-libs/tiff:0
+	net-libs/libsoup:2.4
 	net-misc/curl
-	virtual/jpeg
+	virtual/jpeg:0
+	virtual/glu
+	virtual/opengl
 	x11-libs/cairo
-	x11-libs/gdk-pixbuf:2
-	x11-libs/gtk+:2
+	>=x11-libs/gtk+-3.14:3
 	x11-libs/pango
-	colord? ( x11-misc/colord:0= )
+	colord? ( x11-libs/colord-gtk:0= )
+	cups? ( net-print/cups )
 	flickr? ( media-libs/flickcurl )
-	geo? ( net-libs/libsoup:2.4 )
-	gnome-keyring? ( gnome-base/gnome-keyring )
+	geo? ( >=sci-geosciences/osm-gps-map-1.1.0 )
 	gphoto2? ( media-libs/libgphoto2:= )
 	graphicsmagick? ( media-gfx/graphicsmagick )
 	jpeg2k? ( media-libs/openjpeg:0 )
+	libsecret? ( >=app-crypt/libsecret-0.18 )
 	opencl? ( virtual/opencl )
-	slideshow? (
-		media-libs/libsdl
-		virtual/glu
-		virtual/opengl
-	)
-	web-services? ( dev-libs/json-glib )
+	openexr? ( media-libs/openexr:0= )
 	webp? ( media-libs/libwebp:0= )"
 RDEPEND="${CDEPEND}
-	kde? ( kde-base/kwalletd )"
+	kwallet? ( kde-apps/kwalletd:4 )"
 DEPEND="${CDEPEND}
+	dev-util/intltool
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )"
 
@@ -64,34 +67,30 @@ pkg_pretend() {
 }
 
 src_prepare() {
-	sed -e "s:\(/share/doc/\)darktable:\1${PF}:" \
-		-e "s:LICENSE::" \
-		-i doc/CMakeLists.txt || die
+	use cpu_flags_x86_sse3 && append-flags -msse3
 
 	cmake-utils_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_use colord COLORD)
-		$(cmake-utils_use_use flickr FLICKR)
-		$(cmake-utils_use_use geo GEO)
-		$(cmake-utils_use_use gnome-keyring GNOME_KEYRING)
-		$(cmake-utils_use_use gphoto2 CAMERA_SUPPORT)
-		$(cmake-utils_use_use graphicsmagick GRAPHICSMAGICK)
-		$(cmake-utils_use_use jpeg2k OPENJPEG)
-		$(cmake-utils_use_use nls NLS)
-		$(cmake-utils_use_use opencl OPENCL)
-		$(cmake-utils_use_use openmp OPENMP)
-		$(cmake-utils_use !rawspeed DONT_USE_RAWSPEED)
-		$(cmake-utils_use_use squish SQUISH)
-		$(cmake-utils_use_build slideshow SLIDESHOW)
-		$(cmake-utils_use_use web-services GLIBJSON)
-		$(cmake-utils_use_use webp WEBP)
-		-DUSE_LUA=OFF
+		-DBUILD_PRINT=$(usex cups)
+		-DCMAKE_INSTALL_DOCDIR="/usr/share/doc/${PF}"
 		-DCUSTOM_CFLAGS=ON
-		-DINSTALL_IOP_EXPERIMENTAL=ON
-		-DINSTALL_IOP_LEGACY=ON
+		-DUSE_CAMERA_SUPPORT=$(usex gphoto2)
+		-DUSE_COLORD=$(usex colord)
+		-DUSE_FLICKR=$(usex flickr)
+		-DUSE_GRAPHICSMAGICK=$(usex graphicsmagick)
+		-DUSE_KWALLET=$(usex kwallet)
+		-DUSE_LIBSECRET=$(usex libsecret)
+		-DUSE_LUA=OFF
+		-DUSE_MAP=$(usex geo)
+		-DUSE_NLS=$(usex nls)
+		-DUSE_OPENCL=$(usex opencl)
+		-DUSE_OPENEXR=$(usex openexr)
+		-DUSE_OPENJPEG=$(usex jpeg2k)
+		-DUSE_OPENMP=$(usex openmp)
+		-DUSE_WEBP=$(usex webp)
 	)
 	cmake-utils_src_configure
 }
@@ -100,7 +99,7 @@ src_install() {
 	cmake-utils_src_install
 
 	for lang in ${LANGS} ; do
-		use linguas_${lang} || rm -r "${ED}"/usr/share/locale/${lang}
+		use l10n_${lang} || rm -r "${ED}"/usr/share/locale/${lang/-/_}
 	done
 
 	if use pax_kernel && use opencl ; then

@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/distutils-r1.eclass,v 1.102 2014/08/24 13:23:48 mgorny Exp $
+# $Id$
 
-# @ECLASS: distutils-r1
+# @ECLASS: distutils-r1.eclass
 # @MAINTAINER:
 # Python team <python@gentoo.org>
 # @AUTHOR:
@@ -40,14 +40,14 @@
 # as well. Thus, all the variables defined and documented there are
 # relevant to the packages using distutils-r1.
 #
-# For more information, please see the python-r1 Developer's Guide:
-# http://www.gentoo.org/proj/en/Python/python-r1/dev-guide.xml
+# For more information, please see the wiki:
+# https://wiki.gentoo.org/wiki/Project:Python/distutils-r1
 
 case "${EAPI:-0}" in
-	0|1|2|3)
+	0|1|2|3|4)
 		die "Unsupported EAPI=${EAPI:-0} (too old) for ${ECLASS}"
 		;;
-	4|5)
+	5|6)
 		;;
 	*)
 		die "Unsupported EAPI=${EAPI} (unknown) for ${ECLASS}"
@@ -79,7 +79,8 @@ esac
 
 if [[ ! ${_DISTUTILS_R1} ]]; then
 
-inherit eutils toolchain-funcs
+[[ ${EAPI} == [45] ]] && inherit eutils
+inherit toolchain-funcs xdg-utils
 
 if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
 	inherit multiprocessing python-r1
@@ -150,6 +151,8 @@ fi
 # @ECLASS-VARIABLE: EXAMPLES
 # @DEFAULT_UNSET
 # @DESCRIPTION:
+# OBSOLETE: this variable is deprecated and banned in EAPI 6
+#
 # An array containing examples installed into 'examples' doc
 # subdirectory. The files and directories listed there must exist
 # in the directory from which distutils-r1_python_install_all() is run
@@ -181,19 +184,30 @@ fi
 # 'build --build-base ${BUILD_DIR}' to enforce keeping & using built
 # files in the specific root.
 
-# @ECLASS-VARIABLE: DISTUTILS_NO_PARALLEL_BUILD
+# @ECLASS-VARIABLE: DISTUTILS_ALL_SUBPHASE_IMPLS
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# If set to a non-null value, the parallel build feature will
-# be disabled.
+# An array of patterns specifying which implementations can be used
+# for *_all() sub-phase functions. If undefined, defaults to '*'
+# (allowing any implementation). If multiple values are specified,
+# implementations matching any of the patterns will be accepted.
 #
-# When parallel builds are used, the implementation-specific sub-phases
-# for selected Python implementation will be run in parallel. This will
-# increase build efficiency with distutils which does not do parallel
-# builds.
+# If the restriction needs to apply conditionally to a USE flag,
+# the variable should be set conditionally as well (e.g. in an early
+# phase function or other convenient location).
 #
-# This variable can be used to disable the afore-mentioned feature
-# in case it causes issues with the package.
+# Please remember to add a matching || block to REQUIRED_USE,
+# to ensure that at least one implementation matching the patterns will
+# be enabled.
+#
+# Example:
+# @CODE
+# REQUIRED_USE="doc? ( || ( $(python_gen_useflags 'python2*') ) )"
+#
+# pkg_setup() {
+#     use doc && DISTUTILS_ALL_SUBPHASE_IMPLS=( 'python2*' )
+# }
+# @CODE
 
 # @ECLASS-VARIABLE: mydistutilsargs
 # @DEFAULT_UNSET
@@ -225,10 +239,22 @@ fi
 esetup.py() {
 	debug-print-function ${FUNCNAME} "${@}"
 
+	local die_args=()
+	[[ ${EAPI} != [45] ]] && die_args+=( -n )
+
+	[[ ${BUILD_DIR} ]] && _distutils-r1_create_setup_cfg
+
 	set -- "${PYTHON:-python}" setup.py "${mydistutilsargs[@]}" "${@}"
 
 	echo "${@}" >&2
-	"${@}" || die
+	"${@}" || die "${die_args[@]}"
+	local ret=${?}
+
+	if [[ ${BUILD_DIR} ]]; then
+		rm "${HOME}"/.pydistutils.cfg || die "${die_args[@]}"
+	fi
+
+	return ${ret}
 }
 
 # @FUNCTION: distutils_install_for_testing
@@ -298,9 +324,14 @@ _distutils-r1_disable_ez_setup() {
 distutils-r1_python_prepare_all() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ ${PATCHES} ]] && epatch "${PATCHES[@]}"
-
-	epatch_user
+	if [[ ! ${DISTUTILS_OPTIONAL} ]]; then
+		if [[ ${EAPI} != [45] ]]; then
+			default
+		else
+			[[ ${PATCHES} ]] && epatch "${PATCHES[@]}"
+			epatch_user
+		fi
+	fi
 
 	# by default, use in-source build if python_prepare() is used
 	if [[ ! ${DISTUTILS_IN_SOURCE_BUILD+1} ]]; then
@@ -326,7 +357,7 @@ distutils-r1_python_prepare_all() {
 distutils-r1_python_prepare() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	:
+	[[ ${EAPI} == [45] ]] || die "${FUNCNAME} is banned in EAPI 6 (it was a no-op)"
 }
 
 # @FUNCTION: distutils-r1_python_configure
@@ -335,7 +366,7 @@ distutils-r1_python_prepare() {
 distutils-r1_python_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	:
+	[[ ${EAPI} == [45] ]] || die "${FUNCNAME} is banned in EAPI 6 (it was a no-op)"
 }
 
 # @FUNCTION: _distutils-r1_create_setup_cfg
@@ -361,9 +392,6 @@ _distutils-r1_create_setup_cfg() {
 		# make the ebuild writer lives easier
 		build-scripts = %(build-base)s/scripts
 
-		[egg_info]
-		egg-base = ${BUILD_DIR}
-
 		# this is needed by distutils_install_for_testing since
 		# setuptools like to create .egg files for install --home.
 		[bdist_egg]
@@ -382,7 +410,7 @@ _distutils-r1_create_setup_cfg() {
 			root = ${D}
 		_EOF_
 
-		if [[ ! ${DISTUTILS_SINGLE_IMPL} ]] && _python_want_python_exec2; then
+		if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
 			cat >> "${HOME}"/.pydistutils.cfg <<-_EOF_ || die
 				install-scripts = $(python_get_scriptdir)
 			_EOF_
@@ -399,7 +427,7 @@ _distutils-r1_create_setup_cfg() {
 _distutils-r1_copy_egg_info() {
 	mkdir -p "${BUILD_DIR}" || die
 	# stupid freebsd can't do 'cp -t ${BUILD_DIR} {} +'
-	find -name '*.egg-info' -type d -exec cp -pr {} "${BUILD_DIR}"/ ';' || die
+	find -name '*.egg-info' -type d -exec cp -R -p {} "${BUILD_DIR}"/ ';' || die
 }
 
 # @FUNCTION: distutils-r1_python_compile
@@ -414,7 +442,6 @@ _distutils-r1_copy_egg_info() {
 distutils-r1_python_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	_distutils-r1_create_setup_cfg
 	_distutils-r1_copy_egg_info
 
 	esetup.py build "${@}"
@@ -433,11 +460,7 @@ _distutils-r1_wrap_scripts() {
 	local bindir=${2}
 
 	local PYTHON_SCRIPTDIR
-	if _python_want_python_exec2; then
-		python_export PYTHON_SCRIPTDIR
-	else
-		PYTHON_SCRIPTDIR=${bindir}
-	fi
+	python_export PYTHON_SCRIPTDIR
 
 	local f python_files=() non_python_files=()
 
@@ -451,7 +474,7 @@ _distutils-r1_wrap_scripts() {
 			if [[ ${shebang} == '#!'*${EPYTHON}* ]]; then
 				debug-print "${FUNCNAME}: matching shebang: ${shebang}"
 				python_files+=( "${f}" )
-			elif _python_want_python_exec2; then
+			else
 				debug-print "${FUNCNAME}: non-matching shebang: ${shebang}"
 				non_python_files+=( "${f}" )
 			fi
@@ -462,18 +485,11 @@ _distutils-r1_wrap_scripts() {
 		for f in "${python_files[@]}"; do
 			local basename=${f##*/}
 
-			if ! _python_want_python_exec2; then
-				local newf=${f%/*}/${basename}-${EPYTHON}
-				debug-print "${FUNCNAME}: renaming ${f#${path}/} to ${newf#${path}/}"
-				mv "${f}" "${newf}" || die
-			fi
-
 			debug-print "${FUNCNAME}: installing wrapper at ${bindir}/${basename}"
-			_python_ln_rel "${path}${EPREFIX}"$(_python_get_wrapper_path) \
+			_python_ln_rel "${path}${EPREFIX}"/usr/lib/python-exec/python-exec2 \
 				"${path}${bindir}/${basename}" || die
 		done
 
-		# (non-empty only with python-exec:2)
 		for f in "${non_python_files[@]}"; do
 			local basename=${f##*/}
 
@@ -500,12 +516,9 @@ distutils-r1_python_install() {
 	# enable compilation for the install phase.
 	local -x PYTHONDONTWRITEBYTECODE=
 
-	# re-create setup.cfg with install paths
-	_distutils-r1_create_setup_cfg
-
 	# python likes to compile any module it sees, which triggers sandbox
 	# failures if some packages haven't compiled their modules yet.
-	addpredict "$(python_get_sitedir)"
+	addpredict "${EPREFIX}/usr/$(get_libdir)/${EPYTHON}"
 	addpredict /usr/lib/portage/pym
 	addpredict /usr/local # bug 498232
 
@@ -533,31 +546,33 @@ distutils-r1_python_install() {
 			case "${a}" in
 				--install-scripts=*)
 					scriptdir=${a#--install-scripts=}
-					if _python_want_python_exec2; then
-						unset "${arg_var}"
-					fi
+					unset "${arg_var}"
 					;;
 				--install-scripts)
 					scriptdir=${!1}
-					if _python_want_python_exec2; then
-						unset "${arg_var}" "${1}"
-					fi
+					unset "${arg_var}" "${1}"
 					shift
 					;;
 			esac
 		done
 	fi
 
-	local root=${D}/_${EPYTHON}
-	[[ ${DISTUTILS_SINGLE_IMPL} ]] && root=${D}
+	local root=${D%/}/_${EPYTHON}
+	[[ ${DISTUTILS_SINGLE_IMPL} ]] && root=${D%/}
 
 	esetup.py install --root="${root}" "${args[@]}"
 
-	if [[ -d ${root}$(python_get_sitedir)/tests ]]; then
-		die "Package installs 'tests' package, file collisions likely."
-	fi
+	local forbidden_package_names=( examples test tests )
+	local p
+	for p in "${forbidden_package_names[@]}"; do
+		if [[ -d ${root}$(python_get_sitedir)/${p} ]]; then
+			die "Package installs '${p}' package which is forbidden and likely a bug in the build system."
+		fi
+	done
 	if [[ -d ${root}/usr/$(get_libdir)/pypy/share ]]; then
-		die "Package installs 'share' in PyPy prefix, see bug #465546."
+		local cmd=die
+		[[ ${EAPI} == [45] ]] && cmd=eqawarn
+		"${cmd}" "Package installs 'share' in PyPy prefix, see bug #465546."
 	fi
 
 	if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
@@ -575,9 +590,13 @@ distutils-r1_python_install_all() {
 	einstalldocs
 
 	if declare -p EXAMPLES &>/dev/null; then
-		local INSDESTTREE=/usr/share/doc/${PF}/examples
-		doins -r "${EXAMPLES[@]}"
-		docompress -x "${INSDESTTREE}"
+		[[ ${EAPI} != [45] ]] && die "EXAMPLES are banned in EAPI ${EAPI}"
+
+		(
+			docinto examples
+			dodoc -r "${EXAMPLES[@]}"
+		)
+		docompress -x "/usr/share/doc/${PF}/examples"
 	fi
 
 	_DISTUTILS_DEFAULT_CALLED=1
@@ -601,18 +620,19 @@ distutils-r1_run_phase() {
 
 	if [[ ${DISTUTILS_IN_SOURCE_BUILD} ]]; then
 		if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
-			pushd "${BUILD_DIR}" >/dev/null || die
+			cd "${BUILD_DIR}" || die
 		fi
 		local BUILD_DIR=${BUILD_DIR}/build
 	fi
 	local -x PYTHONPATH="${BUILD_DIR}/lib:${PYTHONPATH}"
 
-	if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
-		local -x TMPDIR=${T}/${EPYTHON}
-		local -x HOME=${TMPDIR}/home
-
-		mkdir -p "${TMPDIR}" "${HOME}" || die
-	fi
+	# Bug 559644
+	# using PYTHONPATH when the ${BUILD_DIR}/lib is not created yet might lead to
+	# problems in setup.py scripts that try to import modules/packages from that path
+	# during the build process (Python at startup evaluates PYTHONPATH, if the dir is
+	# not valid then associates a NullImporter object to ${BUILD_DIR}/lib storing it
+	# in the sys.path_importer_cache)
+	mkdir -p "${BUILD_DIR}/lib" || die
 
 	# Set up build environment, bug #513664.
 	local -x AR=${AR} CC=${CC} CPP=${CPP} CXX=${CXX}
@@ -632,33 +652,38 @@ distutils-r1_run_phase() {
 
 	"${@}"
 
-	if [[ ${DISTUTILS_IN_SOURCE_BUILD} && ! ${DISTUTILS_SINGLE_IMPL} ]]
-	then
-		popd >/dev/null || die
-	fi
+	cd "${_DISTUTILS_INITIAL_CWD}" || die
 }
 
 # @FUNCTION: _distutils-r1_run_common_phase
 # @USAGE: [<argv>...]
 # @INTERNAL
 # @DESCRIPTION:
-# Run the given command, restoring the best-implementation state.
+# Run the given command, restoring the state for a most preferred Python
+# implementation matching DISTUTILS_ALL_SUBPHASE_IMPLS.
 #
 # If in-source build is used, the command will be run in the copy
-# of sources made for the best Python interpreter.
+# of sources made for the selected Python interpreter.
 _distutils-r1_run_common_phase() {
 	local DISTUTILS_ORIG_BUILD_DIR=${BUILD_DIR}
 
 	if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
-		local MULTIBUILD_VARIANTS
-		_python_obtain_impls
+		local best_impl patterns=( "${DISTUTILS_ALL_SUBPHASE_IMPLS[@]-*}" )
+		_distutils_try_impl() {
+			local pattern
+			for pattern in "${patterns[@]}"; do
+				if [[ ${EPYTHON} == ${pattern} ]]; then
+					best_impl=${MULTIBUILD_VARIANT}
+				fi
+			done
+		}
+		python_foreach_impl _distutils_try_impl
+		unset -f _distutils_try_impl
 
-		multibuild_for_best_variant _python_multibuild_wrapper \
-			distutils-r1_run_phase "${@}"
-	else
-		# semi-hack, be careful.
-		_distutils-r1_run_foreach_impl "${@}"
+		local PYTHON_COMPAT=( "${best_impl}" )
 	fi
+
+	_distutils-r1_run_foreach_impl "${@}"
 }
 
 # @FUNCTION: _distutils-r1_run_foreach_impl
@@ -669,15 +694,21 @@ _distutils-r1_run_common_phase() {
 _distutils-r1_run_foreach_impl() {
 	debug-print-function ${FUNCNAME} "${@}"
 
+	if [[ ${DISTUTILS_NO_PARALLEL_BUILD} ]]; then
+		[[ ${EAPI} == [45] ]] || die "DISTUTILS_NO_PARALLEL_BUILD is banned in EAPI ${EAPI}"
+
+		eqawarn "DISTUTILS_NO_PARALLEL_BUILD is no longer meaningful. Now all builds"
+		eqawarn "are non-parallel. Please remove it from the ebuild."
+
+		unset DISTUTILS_NO_PARALLEL_BUILD # avoid repeated warnings
+	fi
+
+	# store for restoring after distutils-r1_run_phase.
+	local _DISTUTILS_INITIAL_CWD=${PWD}
 	set -- distutils-r1_run_phase "${@}"
 
 	if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
-		if [[ ${DISTUTILS_NO_PARALLEL_BUILD} || ${DISTUTILS_SINGLE_IMPL} ]]
-		then
-			python_foreach_impl "${@}"
-		else
-			python_parallel_foreach_impl "${@}"
-		fi
+		python_foreach_impl "${@}"
 	else
 		if [[ ! ${EPYTHON} ]]; then
 			die "EPYTHON unset, python-single-r1_pkg_setup not called?!"
@@ -702,7 +733,10 @@ distutils-r1_src_prepare() {
 	fi
 
 	if [[ ! ${_DISTUTILS_DEFAULT_CALLED} ]]; then
-		eqawarn "QA warning: python_prepare_all() didn't call distutils-r1_python_prepare_all"
+		local cmd=die
+		[[ ${EAPI} == [45] ]] && cmd=eqawarn
+
+		"${cmd}" "QA: python_prepare_all() didn't call distutils-r1_python_prepare_all"
 	fi
 
 	if declare -f python_prepare >/dev/null; then
@@ -712,6 +746,7 @@ distutils-r1_src_prepare() {
 
 distutils-r1_src_configure() {
 	python_export_utf8_locale
+	xdg_environment_reset # Bug 577704
 
 	if declare -f python_configure >/dev/null; then
 		_distutils-r1_run_foreach_impl python_configure
@@ -736,11 +771,18 @@ distutils-r1_src_compile() {
 	fi
 }
 
+_clean_egg_info() {
+	# Work around for setuptools test behavior (bug 534058).
+	# https://bitbucket.org/pypa/setuptools/issue/292
+	rm -rf "${BUILD_DIR}"/lib/*.egg-info
+}
+
 distutils-r1_src_test() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	if declare -f python_test >/dev/null; then
 		_distutils-r1_run_foreach_impl python_test
+		_distutils-r1_run_foreach_impl _clean_egg_info
 	fi
 
 	if declare -f python_test_all >/dev/null; then
@@ -766,8 +808,45 @@ distutils-r1_src_install() {
 	fi
 
 	if [[ ! ${_DISTUTILS_DEFAULT_CALLED} ]]; then
-		eqawarn "QA warning: python_install_all() didn't call distutils-r1_python_install_all"
+		local cmd=die
+		[[ ${EAPI} == [45] ]] && cmd=eqawarn
+
+		"${cmd}" "QA: python_install_all() didn't call distutils-r1_python_install_all"
 	fi
+}
+
+# -- distutils.eclass functions --
+
+distutils_get_intermediate_installation_image() {
+	die "${FUNCNAME}() is invalid for distutils-r1"
+}
+
+distutils_src_unpack() {
+	die "${FUNCNAME}() is invalid for distutils-r1, and you don't want it in EAPI ${EAPI} anyway"
+}
+
+distutils_src_prepare() {
+	die "${FUNCNAME}() is invalid for distutils-r1, you probably want: ${FUNCNAME/_/-r1_}"
+}
+
+distutils_src_compile() {
+	die "${FUNCNAME}() is invalid for distutils-r1, you probably want: ${FUNCNAME/_/-r1_}"
+}
+
+distutils_src_test() {
+	die "${FUNCNAME}() is invalid for distutils-r1, you probably want: ${FUNCNAME/_/-r1_}"
+}
+
+distutils_src_install() {
+	die "${FUNCNAME}() is invalid for distutils-r1, you probably want: ${FUNCNAME/_/-r1_}"
+}
+
+distutils_pkg_postinst() {
+	die "${FUNCNAME}() is invalid for distutils-r1, and pkg_postinst is unnecessary"
+}
+
+distutils_pkg_postrm() {
+	die "${FUNCNAME}() is invalid for distutils-r1, and pkg_postrm is unnecessary"
 }
 
 _DISTUTILS_R1=1

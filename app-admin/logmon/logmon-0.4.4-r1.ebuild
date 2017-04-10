@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/logmon/logmon-0.4.4-r1.ebuild,v 1.6 2014/07/31 11:02:41 pinkbyte Exp $
+# $Id$
 
 EAPI="5"
 
@@ -29,6 +29,8 @@ src_prepare() {
 
 	# Fixes maintainer-mode detected.
 	epatch "${FILESDIR}"/${P}-maintainer-mode.patch
+
+	epatch "${FILESDIR}"/${P}-tinfo.patch
 
 	eautoreconf
 }

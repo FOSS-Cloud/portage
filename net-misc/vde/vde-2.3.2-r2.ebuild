@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/vde/vde-2.3.2-r2.ebuild,v 1.1 2014/08/23 12:03:02 swift Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,7 +15,7 @@ HOMEPAGE="http://vde.sourceforge.net/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ppc ~ppc64 x86"
 
 IUSE="pcap python selinux ssl static-libs"
 

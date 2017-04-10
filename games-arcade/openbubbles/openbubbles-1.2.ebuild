@@ -1,28 +1,30 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/openbubbles/openbubbles-1.2.ebuild,v 1.7 2009/06/13 17:15:44 nyhm Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="A clone of Evan Bailey's game Bubbles"
-HOMEPAGE="http://www.freewebs.com/lasindi/openbubbles/index.html"
-SRC_URI="http://www.freewebs.com/lasindi/openbubbles/${P}.tar.bz2"
+HOMEPAGE="https://web.archive.org/web/20101126190910/http://www.freewebs.com/lasindi/openbubbles/"
+SRC_URI="https://web.archive.org/web/20101126190910/http://www.freewebs.com/lasindi/openbubbles/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~hppa x86 ~x86-fbsd"
 IUSE=""
 
-DEPEND="media-libs/libsdl
-	media-libs/sdl-image
+DEPEND="media-libs/libsdl[sound,video]
+	media-libs/sdl-image[png]
 	media-libs/sdl-gfx"
+RDEPEND=${DEPEND}
 
-PATCHES=( "${FILESDIR}"/${P}-glibc2.10.patch )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-glibc2.10.patch
+}
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-	dodoc AUTHORS ChangeLog NEWS README
+	default
 	newicon data/bubble.png ${PN}.png
 	make_desktop_entry ${PN} "OpenBubbles"
 	prepgamesdirs

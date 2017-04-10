@@ -1,16 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/libhangul/libhangul-0.1.0.ebuild,v 1.6 2014/08/10 17:49:37 slyfox Exp $
+# $Id$
 
 EAPI=4
 
 DESCRIPTION="libhangul is a generalized and portable library for processing hangul"
-HOMEPAGE="http://code.google.com/p/libhangul/"
-SRC_URI="http://libhangul.googlecode.com/files/${P}.tar.gz"
+HOMEPAGE="https://code.google.com/p/libhangul/"
+SRC_URI="https://libhangul.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="amd64 ~ppc ppc64 x86"
 IUSE="nls static-libs test"
 
 RDEPEND="nls? ( virtual/libintl )"

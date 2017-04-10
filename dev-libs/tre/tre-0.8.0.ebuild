@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/tre/tre-0.8.0.ebuild,v 1.19 2012/05/04 18:35:55 jdhore Exp $
+# $Id$
 
 EAPI=3
 
@@ -11,12 +11,12 @@ RESTRICT_PYTHON_ABIS="3.* *-jython"
 inherit distutils eutils
 
 DESCRIPTION="Lightweight, robust, and efficient POSIX compliant regexp matching library"
-HOMEPAGE="http://laurikari.net/tre/"
+HOMEPAGE="http://laurikari.net/tre/ https://github.com/laurikari/tre/"
 SRC_URI="http://laurikari.net/tre/${P}.tar.bz2"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="alpha amd64 hppa ia64 ppc ppc64 sparc x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~x86-solaris"
+KEYWORDS="alpha amd64 hppa ia64 ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x86-solaris"
 IUSE="nls python static-libs"
 
 RDEPEND="
@@ -79,7 +79,7 @@ pkg_postinst() {
 	echo
 	ewarn "app-misc/glimpse, app-text/agrep and this package all provide agrep."
 	ewarn "If this causes any unforeseen incompatibilities please file a bug"
-	ewarn "on http://bugs.gentoo.org."
+	ewarn "on https://bugs.gentoo.org."
 	echo
 
 	use python && distutils_pkg_postinst

@@ -1,9 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/wargus-data/wargus-data-0.ebuild,v 1.6 2014/01/22 04:57:38 mr_bones_ Exp $
+# $Id$
 
-EAPI=4
-
+EAPI=5
 inherit cdrom games
 
 DESCRIPTION="Warcraft II data for wargus (needs DOS CD)"
@@ -15,7 +14,9 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
+# wargus is needed for wartool (bug #578340)
 DEPEND="${RDEPEND}
+	games-strategy/wargus
 	media-sound/cdparanoia
 	media-sound/timidity++
 	media-video/ffmpeg2theora"

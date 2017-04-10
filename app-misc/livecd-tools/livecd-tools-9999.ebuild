@@ -1,21 +1,21 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/livecd-tools/livecd-tools-9999.ebuild,v 1.11 2013/01/03 17:40:47 williamh Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 if [[ ${PV} == "9999" ]]; then
-	EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/livecd-tools.git"
-	inherit git-2
+	EGIT_REPO_URI="git://anongit.gentoo.org/proj/livecd-tools.git"
+	inherit git-r3
 else
-	SRC_URI="mirror://gentoo/${P}.tar.bz2"
+	SRC_URI="https://dev.gentoo.org/~williamh/dist/${P}.tar.gz"
 	KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 fi
 
 inherit eutils
 
 DESCRIPTION="Gentoo LiveCD tools for autoconfiguration of hardware"
-HOMEPAGE="http://wolf31o2.org/projects/livecd-tools"
+HOMEPAGE="https://www.gentoo.org"
 
 SLOT="0"
 LICENSE="GPL-2"

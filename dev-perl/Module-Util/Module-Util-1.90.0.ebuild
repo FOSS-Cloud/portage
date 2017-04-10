@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Module-Util/Module-Util-1.90.0.ebuild,v 1.1 2013/01/16 20:10:25 tove Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,11 +16,13 @@ IUSE="test"
 
 RDEPEND=""
 DEPEND="
-	>=virtual/perl-Module-Build-0.400.0
-	test? (
-		dev-perl/Test-Pod
-		dev-perl/Test-Pod-Coverage
-	)
+	>=dev-perl/Module-Build-0.400.0
+	test? ( virtual/perl-Test-Simple )
 "
 
 SRC_TEST=do
+
+src_test() {
+	perl_rm_files "t/99..pod.t"
+	perl-module_src_test
+}

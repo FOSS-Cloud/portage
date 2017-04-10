@@ -1,17 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/fbterm/fbterm-1.7-r1.ebuild,v 1.1 2014/08/07 14:28:44 dlan Exp $
+# $Id$
 
 EAPI="5"
 inherit autotools-utils
 
 DESCRIPTION="Fast terminal emulator for the Linux framebuffer"
-HOMEPAGE="http://fbterm.googlecode.com/"
-SRC_URI="http://fbterm.googlecode.com/files/${P}.0.tar.gz"
+HOMEPAGE="https://fbterm.googlecode.com/"
+SRC_URI="https://fbterm.googlecode.com/files/${P}.0.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="caps gpm video_cards_vesa"
 
 RDEPEND="caps? ( sys-libs/libcap )

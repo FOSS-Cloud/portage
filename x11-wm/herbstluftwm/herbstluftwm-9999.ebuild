@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/herbstluftwm/herbstluftwm-9999.ebuild,v 1.11 2014/06/21 06:26:05 radhermit Exp $
+# $Id$
 
 EAPI=5
 inherit toolchain-funcs bash-completion-r1
 
 if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="git://git.cs.fau.de/hlwm"
+	EGIT_REPO_URI="https://github.com/herbstluftwm/herbstluftwm.git"
 	EXTRA_DEPEND="app-text/asciidoc"
 else
 	SRC_URI="http://herbstluftwm.org/tarballs/${P}.tar.gz"
@@ -40,7 +40,7 @@ src_compile() {
 
 src_install() {
 	dobin herbstluftwm herbstclient
-	dodoc BUGS MIGRATION NEWS README
+	dodoc BUGS MIGRATION NEWS README.md
 
 	doman doc/{herbstluftwm,herbstclient}.1
 

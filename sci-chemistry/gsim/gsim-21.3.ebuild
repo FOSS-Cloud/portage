@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/gsim/gsim-21.3.ebuild,v 1.1 2013/11/09 11:23:26 jlec Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils qt4-r2 toolchain-funcs
 
 DESCRIPTION="Programm for visualisation and processing of experimental and simulated NMR spectra"
-HOMEPAGE="http://sourceforge.net/projects/gsim/"
+HOMEPAGE="https://sourceforge.net/projects/gsim/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"

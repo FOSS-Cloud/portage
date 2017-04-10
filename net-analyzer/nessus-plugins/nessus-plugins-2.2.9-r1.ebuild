@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nessus-plugins/nessus-plugins-2.2.9-r1.ebuild,v 1.2 2011/09/12 08:01:31 radhermit Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 inherit eutils toolchain-funcs
 
@@ -13,10 +13,11 @@ SRC_URI="ftp://ftp.nessus.org/pub/nessus/nessus-${PV}/src/nessus-plugins-GPL-${P
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
-IUSE=""
+IUSE="libressl"
 
 RDEPEND="
-	dev-libs/openssl:0
+	!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:0= )
 	~net-analyzer/nessus-core-${PV}
 	~net-analyzer/nessus-libraries-${PV}
 	net-libs/libpcap"

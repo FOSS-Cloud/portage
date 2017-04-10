@@ -1,15 +1,15 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-voip/telepathy-salut/telepathy-salut-0.8.1.ebuild,v 1.13 2013/09/05 19:02:50 mgorny Exp $
+# $Id$
 
 EAPI="5"
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit eutils python-any-r1
 
 DESCRIPTION="A link-local XMPP connection manager for Telepathy"
-HOMEPAGE="http://telepathy.freedesktop.org/wiki/CategorySalut"
-SRC_URI="http://telepathy.freedesktop.org/releases/${PN}/${P}.tar.gz"
+HOMEPAGE="https://telepathy.freedesktop.org/wiki/CategorySalut"
+SRC_URI="https://telepathy.freedesktop.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -26,7 +26,7 @@ RDEPEND="
 	net-libs/libsoup:2.4
 	sys-apps/util-linux
 	gnutls? ( >=net-libs/gnutls-2.10.2 )
-	!gnutls? ( >=dev-libs/openssl-0.9.8g[-bindist] )
+	!gnutls? ( >=dev-libs/openssl-0.9.8g:0[-bindist] )
 "
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/telepathy-farstream/telepathy-farstream-0.6.2.ebuild,v 1.1 2014/09/01 15:19:24 pacho Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -8,12 +8,12 @@ GCONF_DEBUG="no"
 inherit gnome2
 
 DESCRIPTION="Telepathy client library that uses Farstream to handle Call channels"
-HOMEPAGE="http://telepathy.freedesktop.org"
-SRC_URI="http://telepathy.freedesktop.org/releases/${PN}/${P}.tar.gz"
+HOMEPAGE="https://telepathy.freedesktop.org/"
+SRC_URI="https://telepathy.freedesktop.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0/3"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86"
 IUSE="examples +introspection"
 
 RDEPEND="
@@ -22,7 +22,7 @@ RDEPEND="
 	>=dev-libs/dbus-glib-0.60
 	media-libs/gstreamer:1.0[introspection?]
 	>=net-libs/telepathy-glib-0.21[introspection?]
-	net-libs/farstream:0.2[introspection?]
+	net-libs/farstream:0.2=[introspection?]
 	introspection? ( >=dev-libs/gobject-introspection-1.30 )
 "
 DEPEND="${RDEPEND}

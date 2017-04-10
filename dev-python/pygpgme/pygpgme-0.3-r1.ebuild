@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pygpgme/pygpgme-0.3-r1.ebuild,v 1.3 2013/06/30 15:57:56 jlec Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 
-inherit distutils-r1
+inherit distutils-r1 flag-o-matic
 
 DESCRIPTION="A Python wrapper for the GPGME library"
 HOMEPAGE="https://launchpad.net/pygpgme"
@@ -14,20 +14,12 @@ SRC_URI="https://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~arm64 x86"
 IUSE=""
 
 DEPEND="app-crypt/gpgme"
 RDEPEND="${DEPEND}"
 
-python_prepare_all() {
-	sed \
-		-e 's/#include <gpgme\.h>/#include <gpgme\/gpgme\.h>/' \
-		-i "${S}/src/pygpgme.h" || die
-	sed \
-		-e 's/suite.addTest(tests.test_sign_verify.test_suite())/#\0/' \
-		-e 's/suite.addTest(tests.test_encrypt_decrypt.test_suite())/#\0/' \
-		-e 's/suite.addTest(tests.test_passphrase.test_suite())/#\0/' \
-		-i "${S}/tests/__init__.py" || die
-	distutils-r1_python_prepare_all
+python_configure_all() {
+	append-cflags $(gpgme-config --cflags)
 }

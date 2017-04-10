@@ -1,11 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/btparser/btparser-0.25.ebuild,v 1.3 2014/07/23 15:14:05 ago Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit autotools gnome2 python-single-r1
 
@@ -34,10 +34,8 @@ src_prepare() {
 }
 
 src_configure() {
-	# Configure checks for python.pc; our python-2.7 installs python-2.7.pc,
-	# while python-2.6 does not install any pkgconfig file.
-	export PYTHON_CFLAGS=$(python-config --includes)
-	export PYTHON_LIBS=$(python-config --libs)
+	export PYTHON_CFLAGS=$(python_get_CFLAGS)
+	export PYTHON_LIBS=$(python_get_LIBS)
 
 	gnome2_src_configure \
 		$(use_enable static-libs static)

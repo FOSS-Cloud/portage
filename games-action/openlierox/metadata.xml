@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>games</herd>
-	<maintainer>
-		<email>sping@gentoo.org</email>
+	<maintainer type="project">
+		<email>games@gentoo.org</email>
+		<name>Gentoo Games Project</name>
 	</maintainer>
 	<use>
 		<flag name="breakpad">
@@ -11,4 +11,7 @@
 			breakpad crash reporting system
 		</flag>
 	</use>
+	<upstream>
+		<remote-id type="sourceforge">openlierox</remote-id>
+	</upstream>
 </pkgmetadata>

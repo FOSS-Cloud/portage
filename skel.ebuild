@@ -1,33 +1,26 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 # NOTE: The comments in this file are for instruction and documentation.
 # They're not meant to appear with your final, production ebuild.  Please
 # remember to remove them before submitting or committing your ebuild.  That
 # doesn't mean you can't add your own comments though.
 
-# The 'Header' on the third line should just be left alone.  When your ebuild
-# will be committed to cvs, the details on that line will be automatically
+# The 'Id' on the third line should just be left alone.  When your ebuild
+# will be committed to git, the details on that line will be automatically
 # generated to contain the correct data.
 
 # The EAPI variable tells the ebuild format in use.
-# Defaults to 0 if not specified.
 # It is suggested that you use the latest EAPI approved by the Council.
 # The PMS contains specifications for all EAPIs. Eclasses will test for this
-# variable if they need to use EAPI > 0 features.
-EAPI=5
+# variable if they need to use features that are not universal in all EAPIs.
+EAPI=6
 
-# inherit lists eclasses to inherit functions from. Almost all ebuilds should
-# inherit eutils, as a large amount of important functionality has been
-# moved there. For example, the epatch call mentioned below wont work
-# without the following line:
+# inherit lists eclasses to inherit functions from. For example, an ebuild
+# that needs the epatch function from eutils.eclass won't work without the
+# following line:
 inherit eutils
-# A well-used example of an eclass function that needs eutils is epatch. If
-# your source needs patches applied, it's suggested to put your patch in the
-# 'files' directory and use:
-#
-#   epatch "${FILESDIR}"/patch-name-here
 #
 # eclasses tend to list descriptions of how to use their functions properly.
 # take a look at /usr/portage/eclass/ for more examples.
@@ -36,7 +29,7 @@ inherit eutils
 DESCRIPTION="This is a sample skeleton ebuild file"
 
 # Homepage, not used by Portage directly but handy for developer reference
-HOMEPAGE="http://foo.example.org/"
+HOMEPAGE="https://foo.example.org/"
 
 # Point to any required sources; these will be automatically downloaded by
 # Portage.
@@ -111,7 +104,6 @@ RDEPEND="${DEPEND}"
 
 # The following src_configure function is implemented as default by portage, so
 # you only need to call it if you need a different behaviour.
-# This function is available only in EAPI 2 and later.
 #src_configure() {
 	# Most open-source packages use GNU autoconf for configuration.
 	# The default, quickest (and preferred) way of running configure is:
@@ -130,30 +122,25 @@ RDEPEND="${DEPEND}"
 	#	--mandir=/usr/share/man || die
 	# Note the use of --infodir and --mandir, above. This is to make
 	# this package FHS 2.2-compliant.  For more information, see
-	#   http://www.pathname.com/fhs/
+	#   https://www.pathname.com/fhs/
 #}
 
 # The following src_compile function is implemented as default by portage, so
 # you only need to call it, if you need different behaviour.
-# For EAPI < 2 src_compile runs also commands currently present in
-# src_configure. Thus, if you're using an older EAPI, you need to copy them
-# to your src_compile and drop the src_configure function.
 #src_compile() {
-	# emake (previously known as pmake) is a script that calls the
-	# standard GNU make with parallel building options for speedier
-	# builds (especially on SMP systems).  Try emake first.  It might
-	# not work for some packages, because some makefiles have bugs
-	# related to parallelism, in these cases, use emake -j1 to limit
-	# make to a single process.  The -j1 is a visual clue to others
-	# that the makefiles have bugs that have been worked around.
+	# emake is a script that calls the standard GNU make with parallel
+	# building options for speedier builds (especially on SMP systems).
+	# Try emake first.  It might not work for some packages, because
+	# some makefiles have bugs related to parallelism, in these cases,
+	# use emake -j1 to limit make to a single process.  The -j1 is a
+	# visual clue to others that the makefiles have bugs that have been
+	# worked around.
 
 	#emake
 #}
 
 # The following src_install function is implemented as default by portage, so
 # you only need to call it, if you need different behaviour.
-# For EAPI < 4 src_install is just returing true, so you need to always specify
-# this function in older EAPIs.
 #src_install() {
 	# You must *personally verify* that this trick doesn't install
 	# anything outside of DESTDIR; do this by reading and
@@ -178,8 +165,4 @@ RDEPEND="${DEPEND}"
 	#	install
 	# Again, verify the Makefiles!  We don't want anything falling
 	# outside of ${D}.
-
-	# The portage shortcut to the above command is simply:
-	#
-	#einstall
 #}

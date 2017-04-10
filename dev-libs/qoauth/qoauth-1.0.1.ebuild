@@ -1,27 +1,27 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/qoauth/qoauth-1.0.1.ebuild,v 1.12 2013/04/02 20:56:16 ago Exp $
+# $Id$
 
 EAPI=4
 
 inherit qt4-r2
 
 DESCRIPTION="A Qt-based library for OAuth support"
-HOMEPAGE="http://wiki.github.com/ayoy/qoauth"
+HOMEPAGE="https://wiki.github.com/ayoy/qoauth"
 SRC_URI="http://files.ayoy.net/qoauth/release/${PV}/src/${P}-src.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 x86"
+KEYWORDS="amd64 ppc ~ppc64 x86"
 IUSE="debug doc static-libs test"
 
-COMMON_DEPEND="app-crypt/qca:2[debug?]"
+COMMON_DEPEND="app-crypt/qca:2[debug?,qt4(+)]"
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
 	test? ( dev-qt/qttest:4 )
 "
 RDEPEND="${COMMON_DEPEND}
-	app-crypt/qca-ossl:2[debug?]
+	app-crypt/qca:2[ssl]
 "
 
 S=${WORKDIR}/${P}-src

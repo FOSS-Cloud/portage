@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/mongo-c-driver/mongo-c-driver-0.98.2.ebuild,v 1.1 2014/08/19 07:48:18 ultrabug Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,11 +13,14 @@ SRC_URI="https://github.com/mongodb/${PN}/releases/download/${PV}/${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~hppa ~x86"
-IUSE="debug examples sasl ssl static-libs test"
+IUSE="debug examples libressl sasl ssl static-libs test"
 
 RDEPEND=">=dev-libs/libbson-0.98.0
 	sasl? ( dev-libs/cyrus-sasl )
-	ssl? ( dev-libs/openssl )"
+	ssl? (
+		!libressl? ( dev-libs/openssl:0= )
+		libressl? ( dev-libs/libressl:0= )
+	)"
 DEPEND="${RDEPEND}
 	test? ( dev-db/mongodb )"
 

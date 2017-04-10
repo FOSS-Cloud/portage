@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/magic/magic-7.5.202-r1.ebuild,v 1.5 2014/08/10 20:28:13 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,10 +16,10 @@ SLOT="0"
 KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-RDEPEND="sys-libs/ncurses
-	sys-libs/readline
-	dev-lang/tcl
-	dev-lang/tk
+RDEPEND="sys-libs/ncurses:0=
+	sys-libs/readline:0=
+	dev-lang/tcl:0=
+	dev-lang/tk:0=
 	dev-tcltk/blt"
 DEPEND="${RDEPEND}
 	app-shells/tcsh"

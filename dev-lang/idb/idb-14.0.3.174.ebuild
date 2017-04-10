@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/idb/idb-14.0.3.174.ebuild,v 1.1 2014/06/02 11:29:35 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,13 +17,12 @@ _INTEL_PV1=14
 DESCRIPTION="Intel C/C++/FORTRAN debugger"
 HOMEPAGE="http://software.intel.com/en-us/articles/intel-composer-xe/"
 
-IUSE="eclipse"
+IUSE=""
 KEYWORDS="-* ~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 DEPEND=">=dev-libs/intel-common-13.1[compiler]"
 RDEPEND="${DEPEND}
-	virtual/jre
-	eclipse? ( dev-util/eclipse-sdk )"
+	virtual/jre"
 
 INTEL_BIN_RPMS="idb"
 INTEL_DAT_RPMS="idb-common idbcdt"

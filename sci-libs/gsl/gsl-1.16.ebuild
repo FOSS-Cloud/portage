@@ -1,23 +1,23 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/gsl/gsl-1.16.ebuild,v 1.1 2014/04/16 13:34:45 hasufell Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils flag-o-matic autotools toolchain-funcs
 
 DESCRIPTION="The GNU Scientific Library"
-HOMEPAGE="http://www.gnu.org/software/gsl/"
+HOMEPAGE="https://www.gnu.org/software/gsl/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~x86-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE="cblas-external static-libs"
 
 RDEPEND="cblas-external? ( virtual/cblas )"
 DEPEND="${RDEPEND}
-	app-admin/eselect-cblas
+	app-eselect/eselect-cblas
 	virtual/pkgconfig"
 
 DOCS=( AUTHORS BUGS ChangeLog NEWS README THANKS TODO )
@@ -49,7 +49,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-cblas.patch
 	eautoreconf
 
-	cp "${FILESDIR}"/eselect.cblas.gsl "${T}"/
+	cp "${FILESDIR}"/eselect.cblas.gsl "${T}"/ || die
 	sed -i -e "s:/usr:${EPREFIX}/usr:" "${T}"/eselect.cblas.gsl || die
 	if [[ ${CHOST} == *-darwin* ]] ; then
 		sed -i -e 's/\.so\([\.0-9]\+\)\?/\1.dylib/g' \
@@ -68,10 +68,14 @@ src_configure() {
 		$(use_enable static-libs static)
 }
 
+src_test() {
+	emake -j1 check
+}
+
 src_install() {
 	default
 
-	find "${ED}" -name '*.la' -exec rm -f {} +
+	find "${ED}" -name '*.la' -exec rm -f {} + || die
 
 	# take care of pkgconfig file for cblas implementation.
 	sed -e "s/@LIBDIR@/$(get_libdir)/" \
@@ -81,7 +85,7 @@ src_install() {
 		"${FILESDIR}"/cblas.pc.in > cblas.pc \
 		|| die "sed cblas.pc failed"
 	insinto /usr/$(get_libdir)/blas/gsl
-	doins cblas.pc || die "installing cblas.pc failed"
+	doins cblas.pc
 	eselect cblas add $(get_libdir) "${T}"/eselect.cblas.gsl \
 		${ESELECT_PROF}
 }

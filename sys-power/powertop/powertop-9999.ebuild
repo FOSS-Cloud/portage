@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/powertop/powertop-9999.ebuild,v 1.28 2014/05/30 14:29:49 zerochaos Exp $
+# $Id$
 
-EAPI="5"
+EAPI="6"
 
-inherit eutils linux-info autotools
+inherit eutils linux-info
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="git://github.com/fenrus75/powertop.git"
-	inherit git-2 autotools
+	inherit git-r3 autotools
 	SRC_URI=""
 else
 	SRC_URI="https://01.org/sites/default/files/downloads/${PN}/${P}.tar.gz"
@@ -19,12 +19,12 @@ HOMEPAGE="https://01.org/powertop/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="unicode X"
+IUSE="nls unicode X"
 
 COMMON_DEPEND="
 	dev-libs/libnl:3
 	sys-apps/pciutils
-	sys-libs/ncurses[unicode?]
+	sys-libs/ncurses:=[unicode?]
 "
 
 DEPEND="${COMMON_DEPEND}
@@ -37,8 +37,6 @@ RDEPEND="
 	virtual/libintl
 "
 
-DOCS=( TODO README )
-
 pkg_setup() {
 	CONFIG_CHECK="
 		~X86_MSR
@@ -50,7 +48,6 @@ pkg_setup() {
 		~HPET_TIMER
 		~CPU_FREQ_STAT
 		~CPU_FREQ_GOV_ONDEMAND
-		~PM_RUNTIME
 		~FTRACE
 		~BLK_DEV_IO_TRACE
 		~TIMER_STATS
@@ -65,7 +62,6 @@ pkg_setup() {
 	ERROR_KERNEL_HPET_TIMER="HPET_TIMER should be enabled in the kernel for full powertop function"
 	ERROR_KERNEL_CPU_FREQ_STAT="CPU_FREQ_STAT should be enabled in the kernel for full powertop function"
 	ERROR_KERNEL_CPU_FREQ_GOV_ONDEMAND="CPU_FREQ_GOV_ONDEMAND should be enabled in the kernel for full powertop function"
-	ERROR_KERNEL_PM_RUNTIME="PM_RUNTIME should be enabled in the kernel for full powertop function"
 	ERROR_KERNEL_FTRACE="FTRACE needs to be turned on to enable BLK_DEV_IO_TRACE"
 	ERROR_KERNEL_BLK_DEV_IO_TRACE="BLK_DEV_IO_TRACE needs to be turned on to enable TIMER_STATS, TRACING and EVENT_POWER_TRACING_DEPRECATED"
 	ERROR_KERNEL_TIMER_STATS="TIMER_STATS should be enabled in the kernel for full powertop function"
@@ -84,14 +80,28 @@ pkg_setup() {
 			ERROR_KERNEL_EVENT_POWER_TRACING_DEPRECATED="EVENT_POWER_TRACING_DEPRECATED should be enabled in the kernel for full powertop function"
 			check_extra_config
 		fi
+		if kernel_is -lt 3 19; then
+			CONFIG_CHECK="~PM_RUNTIME"
+			ERROR_KERNEL_PM_RUNTIME="PM_RUNTIME should be enabled in the kernel for full powertop function"
+			check_extra_config
+		else
+			CONFIG_CHECK="~PM"
+			ERROR_KERNEL_PM="PM should be enabled in the kernel for full powertop function"
+			check_extra_config
+		fi
 	fi
 }
 
 src_prepare() {
-	eautoreconf
+	default
+	if [[ ${PV} == "9999" ]] ; then
+		chmod +x scripts/version || die "Failed to make 'scripts/version' executable"
+		scripts/version || die "Failed to extract version information"
+		eautoreconf
+	fi
 }
 
 src_configure() {
 	export ac_cv_search_delwin=$(usex unicode -lncursesw -lncurses)
-	default
+	econf $(use_enable nls)
 }

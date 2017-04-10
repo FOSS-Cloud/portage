@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/serious-sam-tfe/serious-sam-tfe-1_beta3.ebuild,v 1.2 2014/05/15 16:45:59 ulm Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 inherit cdrom eutils games unpacker
 
@@ -22,19 +22,16 @@ KEYWORDS="-* ~amd64 ~x86"
 RESTRICT="strip"
 IUSE="alsa"
 
-RDEPEND="amd64? (
-		app-emulation/emul-linux-x86-opengl
-		app-emulation/emul-linux-x86-sdl
-		app-emulation/emul-linux-x86-soundlibs
+RDEPEND="
+	>=media-libs/libsdl-1.2.15-r5[X,joystick,opengl,video,abi_x86_32(-)]
+	virtual/opengl[abi_x86_32(-)]
+	alsa? (
+		>=media-libs/libogg-1.3.1[abi_x86_32(-)]
+		>=media-libs/libsdl-1.2.15-r5[alsa,sound,abi_x86_32(-)]
+		>=media-libs/libvorbis-1.3.3-r1[abi_x86_32(-)]
 	)
-	x86? (
-		alsa? (
-			media-libs/libogg
-			media-libs/libsdl[alsa,sound]
-			media-libs/libvorbis
-		)
-		media-libs/libsdl[X,joystick,opengl,video]
-	)"
+"
+
 DEPEND="games-util/loki_patch"
 
 S=${WORKDIR}

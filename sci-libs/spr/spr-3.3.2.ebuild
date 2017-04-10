@@ -1,15 +1,14 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/spr/spr-3.3.2.ebuild,v 1.2 2012/08/03 22:37:37 bicatali Exp $
+# $Id$
 
-EAPI=4
-inherit eutils autotools
+EAPI=6
 
-MYP=SPR-${PV}
+inherit autotools
 
 DESCRIPTION="Statistical analysis and machine learning library"
 HOMEPAGE="http://statpatrec.sourceforge.net/"
-SRC_URI="mirror://sourceforge/statpatrec/${MYP}.tar.gz"
+SRC_URI="mirror://sourceforge/statpatrec/${P^^}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -20,15 +19,18 @@ IUSE="root static-libs"
 DEPEND="root? ( sci-physics/root )"
 RDEPEND="${DEPEND}"
 
-S=${WORKDIR}/${MYP}
+S=${WORKDIR}/${P^^}
+PATCHES=(
+	"${FILESDIR}"/${P}-autotools.patch
+	"${FILESDIR}"/${P}-gcc46.patch
+	"${FILESDIR}"/${P}-fix-c++14.patch
+)
 
 src_prepare() {
-	epatch \
-		"${FILESDIR}"/${P}-autotools.patch \
-		"${FILESDIR}"/${P}-gcc46.patch
+	default
 	rm aclocal.m4 || die
 	eautoreconf
-	cp data/gauss* src/
+	cp data/gauss* src/ || die
 }
 
 src_configure() {

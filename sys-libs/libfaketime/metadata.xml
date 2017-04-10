@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>radhermit@gentoo.org</email>
-		<name>Tim Harder</name>
+	<maintainer type="person">
+		<email>whissi@gentoo.org</email>
+		<name>Thomas Deutschmann</name>
 	</maintainer>
 	<longdescription lang="en">
 		The Fake Time Preload Library (FTPL, a.k.a. libfaketime) intercepts
@@ -13,4 +13,7 @@
 		without having to change the time system-wide. FTPL allows you to specify both
 		absolute dates (e.g., 2004-01-01) and relative dates (e.g., 10 days ago).
 	</longdescription>
+	<upstream>
+		<remote-id type="github">wolfcw/libfaketime</remote-id>
+	</upstream>
 </pkgmetadata>

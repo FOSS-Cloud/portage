@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/android-sdk-update-manager/android-sdk-update-manager-21.ebuild,v 1.2 2013/01/20 00:14:14 rich0 Exp $
+# $Id$
 
-EAPI="3"
+EAPI=5
 
 inherit eutils user
 
@@ -10,7 +10,7 @@ MY_P="android-sdk_r${PV}-linux"
 
 DESCRIPTION="Open Handset Alliance's Android SDK"
 HOMEPAGE="http://developer.android.com"
-SRC_URI="http://dl.google.com/android/${MY_P}.tgz"
+SRC_URI="https://dl.google.com/android/${MY_P}.tgz"
 IUSE=""
 RESTRICT="mirror"
 
@@ -20,11 +20,12 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/tar
 		app-arch/gzip"
-RDEPEND=">=virtual/jdk-1.5
+RDEPEND="
+	>=virtual/jdk-1.5
 	>=dev-java/ant-core-1.6.5
 	>=dev-java/swt-3.5[cairo]
-	amd64? ( app-emulation/emul-linux-x86-gtklibs )
-	x86? ( x11-libs/gtk+:2 )"
+	>=x11-libs/gtk+-2.24.23-r2:2[abi_x86_32(-)]
+"
 
 ANDROID_SDK_DIR="/opt/${PN}"
 QA_FLAGS_IGNORED_x86="
@@ -51,14 +52,14 @@ src_prepare(){
 }
 
 src_install(){
-	dodoc tools/NOTICE.txt "SDK Readme.txt" || die
+	dodoc tools/NOTICE.txt "SDK Readme.txt"
 	rm -f tools/NOTICE.txt "SDK Readme.txt"
 
 	dodir "${ANDROID_SDK_DIR}/tools"
 	cp -pPR tools/* "${ED}${ANDROID_SDK_DIR}/tools" || die "failed to install tools"
 
 	# Maybe this is needed for the tools directory too.
-	dodir "${ANDROID_SDK_DIR}"/{add-ons,docs,platforms,temp} || die "failed to dodir"
+	dodir "${ANDROID_SDK_DIR}"/{add-ons,docs,platforms,temp}
 
 	fowners root:android "${ANDROID_SDK_DIR}"/{,add-ons,docs,platforms,temp,tools} || die
 	fperms 0775 "${ANDROID_SDK_DIR}"/{,add-ons,docs,platforms,temp,tools} || die
@@ -79,12 +80,11 @@ src_install(){
 
 	echo "ANDROID_SWT=\"${SWT_PATH}\"" >> "${T}/80${PN}" || die
 
-	doenvd "${T}/80${PN}" || die
+	doenvd "${T}/80${PN}"
 
 	echo "SEARCH_DIRS_MASK=\"${EPREFIX}${ANDROID_SDK_DIR}\"" > "${T}/80${PN}" || die
 
-	insinto "/etc/revdep-rebuild" && doins "${T}/80${PN}" || die
-
+	insinto "/etc/revdep-rebuild" && doins "${T}/80${PN}"
 }
 
 pkg_postinst() {
@@ -94,7 +94,7 @@ pkg_postinst() {
 	elog "Just run 'gpasswd -a <USER> android', then have <USER> re-login."
 	elog "See http://developer.android.com/sdk/adding-components.html for more"
 	elog "information."
-	elog "If you have problems downloading the SDK, see http://code.google.com/p/android/issues/detail?id=4406"
+	elog "If you have problems downloading the SDK, see https://code.google.com/p/android/issues/detail?id=4406"
 	elog "You need to run env-update and source /etc/profile in any open shells"
 	elog "if you get an SWT error."
 }

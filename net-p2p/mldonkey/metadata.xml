@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>net-p2p</herd>
+  <maintainer type="project">
+	<email>ml@gentoo.org</email>
+	<name>Gentoo ML Project</name>
+  </maintainer>
   <longdescription>An ocaml client to access the eDonkey network.</longdescription>
   <use>
     <flag name="bittorrent">enable bittorrent support</flag>
@@ -10,4 +13,7 @@
     <flag name="guionly">enable client build only</flag>
     <flag name="magic">enable use of libmagic</flag>
   </use>
+  <upstream>
+    <remote-id type="sourceforge">mldonkey</remote-id>
+  </upstream>
 </pkgmetadata>

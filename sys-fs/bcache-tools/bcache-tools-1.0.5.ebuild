@@ -1,12 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/bcache-tools/bcache-tools-1.0.5.ebuild,v 1.1 2014/01/20 11:44:03 jlec Exp $
+# $Id$
 
 EAPI=5
 
 inherit toolchain-funcs udev
 
-DESCRIPTION="Tools for bachefs"
+DESCRIPTION="Tools for bcachefs"
 HOMEPAGE="http://bcache.evilpiepirate.org/"
 SRC_URI="https://github.com/g2p/bcache-tools/archive/v${PV}.tar.gz -> ${P}.tgz"
 
@@ -22,7 +22,7 @@ src_prepare() {
 	tc-export CC
 	sed \
 		-e '/^CFLAGS/s:-O2::' \
-		-e '/^CFLAGS/s:-g::' \
+		-e '/^CFLAGS/s:-g:-std=gnu89:' \
 		-i Makefile || die
 }
 

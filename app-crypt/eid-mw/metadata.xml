@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>proxy-maintainers</herd>
-<maintainer>
+<maintainer type="person">
   <email>vincent.hardy.be@gmail.com</email>
 </maintainer>
-<maintainer>
-  <email>flameeyes@gentoo.org</email>
+<maintainer type="project">
+   <email>proxy-maint@gentoo.org</email>
+   <name>Proxy Maintainers</name>
 </maintainer>
 <longdescription>
 eid-mw is Belgian Electronic Identity Card (eID) middleware supplied by the Belgian Federal Government.
@@ -20,10 +20,16 @@ These three functions form the basis of the countless applications for your eID.
 </longdescription>
 <use>
   <flag name="gtk">
-    Enable the dialog pages, by using <pkg>x11-libs/gtk+:2</pkg>
+    All dialogs are available, by using <pkg>x11-libs/gtk+</pkg>
   </flag>
-  <flag name="xpi">
+  <flag name="dialogs">
+    Enable "askaccess" dialog box, by using <pkg>x11-libs/gtk+</pkg>
+  </flag>
+   <flag name="xpi">
     Build and install an extension for Mozilla browsers.
+  </flag>
+  <flag name="p11-kit">
+    Support for app-crypt/p11-kit.
   </flag>
 </use>
 </pkgmetadata>

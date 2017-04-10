@@ -1,15 +1,15 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect/eselect-9999.ebuild,v 1.16 2013/10/29 21:08:27 ulm Exp $
+# $Id$
 
 EAPI=5
 
-EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/eselect.git"
+EGIT_REPO_URI="git://anongit.gentoo.org/proj/eselect.git"
 
 inherit autotools git-r3 bash-completion-r1
 
 DESCRIPTION="Gentoo's multi-purpose configuration and management tool"
-HOMEPAGE="http://wiki.gentoo.org/wiki/Project:Eselect"
+HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Eselect"
 
 LICENSE="GPL-2+ || ( GPL-2+ CC-BY-SA-2.5 )"
 SLOT="0"
@@ -23,10 +23,9 @@ RDEPEND="sys-apps/sed
 	)"
 DEPEND="${RDEPEND}
 	doc? ( dev-python/docutils )"
-RDEPEND="!app-admin/eselect-news
-	${RDEPEND}
+RDEPEND="${RDEPEND}
 	sys-apps/file
-	sys-libs/ncurses"
+	sys-libs/ncurses:0"
 
 PDEPEND="emacs? ( app-emacs/eselect-mode )
 	vim-syntax? ( app-vim/eselect-syntax )"

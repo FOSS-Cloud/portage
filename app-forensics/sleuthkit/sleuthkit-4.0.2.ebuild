@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-forensics/sleuthkit/sleuthkit-4.0.2.ebuild,v 1.5 2013/07/27 22:09:02 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -19,7 +19,7 @@ DEPEND="dev-db/sqlite:3
 	ewf? ( app-forensics/libewf )
 	aff? ( app-forensics/afflib )"
 RDEPEND="${DEPEND}
-	dev-perl/DateManip"
+	dev-perl/Date-Manip"
 
 DOCS=( NEWS.txt README.txt )
 

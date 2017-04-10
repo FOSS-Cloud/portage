@@ -1,21 +1,21 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/udev-init-scripts-9999.ebuild,v 1.29 2014/08/18 19:02:25 williamh Exp $
+# $Id$
 
 EAPI=5
 
 if [ "${PV}" = "9999" ]; then
-	EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/udev-gentoo-scripts.git"
+	EGIT_REPO_URI="git://anongit.gentoo.org/proj/udev-gentoo-scripts.git"
 	inherit git-r3
 else
-	SRC_URI="http://dev.gentoo.org/~williamh/dist/${P}.tar.bz2"
+	SRC_URI="https://dev.gentoo.org/~williamh/dist/${P}.tar.gz"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 fi
 
 inherit eutils
 
 DESCRIPTION="udev startup scripts for openrc"
-HOMEPAGE="http://www.gentoo.org"
+HOMEPAGE="https://www.gentoo.org"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -23,38 +23,24 @@ IUSE=""
 
 RESTRICT="test"
 
-RDEPEND=">=virtual/udev-180
-	!<sys-fs/udev-186
-	!<sys-apps/openrc-0.13"
-DEPEND="${RDEPEND}"
+DEPEND=""
+RDEPEND=">=virtual/udev-217
+	!<sys-apps/openrc-0.14"
 
 src_prepare() {
 	epatch_user
 }
 
 pkg_postinst() {
-	# Add udev to the sysinit runlevel automatically if this is
-	# the first install of this package.
-	if [[ -z ${REPLACING_VERSIONS} ]]; then
-		if [[ ! -d ${ROOT%/}/etc/runlevels/sysinit ]]; then
-			mkdir -p "${ROOT%/}"/etc/runlevels/sysinit
+	# Add udev and udev-trigger to the sysinit runlevel automatically.
+	for f in udev udev-trigger; do
+		if [[ -x ${ROOT%/}/etc/init.d/${f} &&
+			-d ${ROOT%/}/etc/runlevels/sysinit &&
+			! -L "${ROOT%/}/etc/runlevels/sysinit/${f}" ]]; then
+			ln -snf /etc/init.d/${f} "${ROOT%/}"/etc/runlevels/sysinit/${f}
+			ewarn "Adding ${f} to the sysinit runlevel"
 		fi
-		if [[ -x ${ROOT%/}/etc/init.d/udev ]]; then
-			ln -s /etc/init.d/udev "${ROOT%/}"/etc/runlevels/sysinit/udev
-		fi
-	fi
-
-	# Warn the user about adding udev to their sysinit runlevel
-	if [[ -e ${ROOT%/}/etc/runlevels/sysinit ]]; then
-		if [[ ! -e ${ROOT%/}/etc/runlevels/sysinit/udev ]]; then
-			ewarn
-			ewarn "You need to add udev to the sysinit runlevel."
-			ewarn "If you do not do this,"
-			ewarn "your system will not be able to boot!"
-			ewarn "Run this command:"
-			ewarn "\trc-update add udev sysinit"
-		fi
-	fi
+	done
 
 	if ! has_version "sys-fs/eudev[rule-generator]" && \
 	[[ -x $(type -P rc-update) ]] && rc-update show | grep udev-postmount | grep -qs 'boot\|default\|sysinit'; then

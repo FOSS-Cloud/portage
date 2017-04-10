@@ -1,17 +1,17 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/exempi/exempi-2.2.1.ebuild,v 1.1 2013/07/01 17:06:50 ssuominen Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils
 
 DESCRIPTION="Exempi is a port of the Adobe XMP SDK to work on UNIX"
-HOMEPAGE="http://libopenraw.freedesktop.org/wiki/Exempi"
-SRC_URI="http://libopenraw.freedesktop.org/download/${P}.tar.gz"
+HOMEPAGE="https://libopenraw.freedesktop.org/wiki/Exempi"
+SRC_URI="https://libopenraw.freedesktop.org/download/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="2"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 ~sh sparc x86 ~x86-fbsd"
 IUSE="examples static-libs"
 
 RDEPEND=">=dev-libs/expat-2:=

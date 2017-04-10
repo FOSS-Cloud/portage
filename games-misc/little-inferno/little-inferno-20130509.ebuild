@@ -1,9 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-misc/little-inferno/little-inferno-20130509.ebuild,v 1.3 2013/08/18 00:27:50 hasufell Exp $
+# $Id$
 
 EAPI=5
-
 inherit eutils gnome2-utils unpacker games
 
 DESCRIPTION="Throw your toys into your fire, and play with them as they burn"
@@ -21,24 +20,13 @@ QA_PREBUILT="${MYGAMEDIR#/}/LittleInferno.bin.x86
 	${MYGAMEDIR#/}/lib/*"
 
 RDEPEND="
-	virtual/opengl
-	amd64? (
-		app-emulation/emul-linux-x86-baselibs
-		app-emulation/emul-linux-x86-xlibs
-		!bundled-libs? (
-			app-emulation/emul-linux-x86-sdl
-			app-emulation/emul-linux-x86-soundlibs
-		)
-	)
-	x86? (
-		net-misc/curl
-		x11-libs/libX11
-		!bundled-libs? (
-			media-libs/libogg
-			media-libs/libvorbis
-			media-libs/openal
-		)
-	)"
+	>=net-misc/curl-7.37.0-r1[abi_x86_32(-)]
+	x11-libs/libX11[abi_x86_32(-)]
+	virtual/opengl[abi_x86_32(-)]
+	!bundled-libs? (
+		>=media-libs/libogg-1.3.1[abi_x86_32(-)]
+		>=media-libs/libvorbis-1.3.3-r1[abi_x86_32(-)]
+		>=media-libs/openal-1.15.1-r1[abi_x86_32(-)] )"
 DEPEND="app-arch/xz-utils"
 
 src_unpack() {

@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/ccollect/ccollect-0.8.ebuild,v 1.5 2012/02/23 17:21:51 ranger Exp $
+# $Id$
 
 EAPI="2"
 
-DESCRIPTION="(pseudo) incremental backup with different exclude lists using hardlinks and rsync"
+DESCRIPTION="Pseudo incremental backup with different exclude lists using hardlinks and rsync"
 HOMEPAGE="http://www.nico.schottelius.org/software/ccollect/"
 SRC_URI="http://www.nico.schottelius.org/software/${PN}/download/${P}.tar.bz2"
 

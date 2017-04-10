@@ -1,9 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/barbarian-bin/barbarian-bin-1.01-r1.ebuild,v 1.2 2014/08/10 21:21:56 slyfox Exp $
+# $Id$
 
 EAPI=5
-
 inherit eutils games
 
 MY_PN=${PN/-bin/}
@@ -13,17 +12,14 @@ SRC_URI="http://www.pcpages.com/tomberrr/downloads/${MY_PN}${PV/./}_linux.zip"
 
 LICENSE="CC-BY-NC-ND-2.0"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 RESTRICT="strip"
 IUSE=""
 
 DEPEND="app-arch/unzip"
 RDEPEND="sys-libs/libstdc++-v3:5
 	amd64? ( sys-libs/libstdc++-v3:5[multilib] )
-	|| (
-		>=media-libs/libsdl-1.2.15-r4[abi_x86_32(-)]
-		amd64? ( app-emulation/emul-linux-x86-sdl[-abi_x86_32(-)] )
-	)"
+	>=media-libs/libsdl-1.2.15-r4[abi_x86_32(-)]"
 
 game_dest="${GAMES_PREFIX_OPT}/${MY_PN}"
 QA_PREBUILT="${game_dest:1}/Barbarian"
@@ -32,7 +28,7 @@ S=${WORKDIR}
 
 src_install() {
 	dodir "${game_dest}"
-	cp -r gfx sounds "${D}${game_dest}/" || die "cp gfx sounds failed"
+	cp -r gfx sounds "${D}${game_dest}/" || die
 
 	exeinto "${game_dest}"
 	doexe Barbarian

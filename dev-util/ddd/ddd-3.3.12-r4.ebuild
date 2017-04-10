@@ -1,17 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/ddd/ddd-3.3.12-r4.ebuild,v 1.1 2014/04/08 00:48:03 reavertm Exp $
+# $Id$
 
 EAPI="4"
 
 inherit autotools-utils eutils
 
 DESCRIPTION="Graphical front-end for command-line debuggers"
-HOMEPAGE="http://www.gnu.org/software/ddd"
+HOMEPAGE="https://www.gnu.org/software/ddd"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3 LGPL-3 FDL-1.1"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~ppc-aix ~amd64-linux ~x86-linux"
 SLOT="0"
 IUSE="+gnuplot readline"
 

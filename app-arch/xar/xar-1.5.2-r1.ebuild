@@ -1,14 +1,14 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/xar/xar-1.5.2-r1.ebuild,v 1.6 2012/08/26 17:02:08 armin76 Exp $
+# $Id$
 
 EAPI=4
 
 inherit autotools base eutils
 
 DESCRIPTION="An easily extensible archive format"
-HOMEPAGE="http://code.google.com/p/xar"
-SRC_URI="http://xar.googlecode.com/files/${P}.tar.gz"
+HOMEPAGE="https://github.com/mackyle/xar"
+SRC_URI="https://github.com/mackyle/${PN}/archive/${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"

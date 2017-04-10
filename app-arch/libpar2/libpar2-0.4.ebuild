@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/libpar2/libpar2-0.4.ebuild,v 1.4 2013/12/24 12:54:13 ago Exp $
+# $Id$
 
 EAPI=5
 
-inherit autotools-utils
+inherit autotools-utils flag-o-matic
 
 DESCRIPTION="A library for par2, extracted from par2cmdline"
 HOMEPAGE="https://launchpad.net/libpar2/"
@@ -23,3 +23,8 @@ DOCS=( AUTHORS ChangeLog README )
 
 # Needed to install all headers properly (bug #391815)
 AUTOTOOLS_IN_SOURCE_BUILD=1
+
+src_prepare() {
+	autotools-utils_src_prepare
+	append-cxxflags -std=c++11 #567498
+}

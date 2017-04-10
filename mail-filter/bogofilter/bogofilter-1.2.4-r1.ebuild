@@ -1,8 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/bogofilter/bogofilter-1.2.4-r1.ebuild,v 1.11 2014/08/13 09:32:57 ago Exp $
+# $Id$
 
 EAPI=5
+
 inherit autotools db-use eutils flag-o-matic toolchain-funcs
 
 DESCRIPTION="Bayesian spam filter designed with fast algorithms, and tuned for speed"
@@ -11,19 +12,20 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ppc ~ppc64 ~sh sparc x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 ~sh sparc x86 ~x86-fbsd"
 IUSE="berkdb sqlite tokyocabinet"
 
-DEPEND="virtual/libiconv
-	berkdb?  ( >=sys-libs/db-3.2 )
+DEPEND="
+	virtual/libiconv
+	berkdb?  ( >=sys-libs/db-3.2:* )
 	!berkdb? (
 		sqlite?  ( >=dev-db/sqlite-3.6.22 )
 		!sqlite? (
 			tokyocabinet? ( dev-db/tokyocabinet )
-			!tokyocabinet? ( >=sys-libs/db-3.2 )
+			!tokyocabinet? ( >=sys-libs/db-3.2:* )
 		)
 	)
-	sci-libs/gsl
+	sci-libs/gsl:=
 	app-arch/pax"
 # pax needed for bf_tar
 RDEPEND="${DEPEND}"

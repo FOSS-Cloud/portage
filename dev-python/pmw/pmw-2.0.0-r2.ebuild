@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pmw/pmw-2.0.0-r2.ebuild,v 1.3 2014/05/27 20:01:58 hwoarang Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{3_2,3_3} )
+PYTHON_COMPAT=( python3_4 )
 PYTHON_REQ_USE="tk"
 
 inherit distutils-r1
@@ -17,12 +17,12 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="py3"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
+KEYWORDS="alpha amd64 ia64 ppc sparc x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE="doc examples test"
 
 DEPEND="!dev-python/pmw:0"
 RDEPEND="${DEPEND}"
-# http://sourceforge.net/p/pmw/bugs/39/
+# https://sourceforge.net/p/pmw/bugs/39/
 RESTRICT="test"
 
 S="${WORKDIR}/src"

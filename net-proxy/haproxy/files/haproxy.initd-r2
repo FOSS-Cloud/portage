@@ -1,13 +1,13 @@
-#!/sbin/runscript
-# Copyright 1999-2012 Gentoo Foundation
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/haproxy/files/haproxy.initd-r2,v 1.1 2012/09/30 22:07:40 idl0r Exp $
+# $Id$
 
 extra_commands="checkconfig"
 extra_started_commands="reload"
 
 command="/usr/bin/haproxy"
-pidfile="/var/run/${SVCNAME}.pid"
+pidfile="/run/${SVCNAME}.pid"
 
 if [ -z "${CONFFILE}" -a -d "/etc/haproxy" -a -f "/etc/haproxy/${SVCNAME}.cfg" ]; then
 	CONFFILE=/etc/haproxy/${SVCNAME}.cfg

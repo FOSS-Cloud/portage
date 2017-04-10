@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/zhu3d/zhu3d-4.2.4.ebuild,v 1.6 2013/03/02 23:29:22 hwoarang Exp $
+# $Id$
 
 EAPI=4
 
@@ -9,7 +9,7 @@ LANGS="cs de es fr zh"
 inherit eutils qt4-r2
 
 DESCRIPTION="Interactive 3D mathematical function viewer"
-HOMEPAGE="http://sourceforge.net/projects/zhu3d"
+HOMEPAGE="https://sourceforge.net/projects/zhu3d"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"

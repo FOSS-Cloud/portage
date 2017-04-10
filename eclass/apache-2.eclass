@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/apache-2.eclass,v 1.39 2014/08/07 07:37:54 polynomial-c Exp $
+# $Id$
 
 # @ECLASS: apache-2.eclass
 # @MAINTAINER:
-# apache-devs@gentoo.org
+# polynomial-c@gentoo.org
 # @BLURB: Provides a common set of functions for apache-2.x ebuilds
 # @DESCRIPTION:
 # This eclass handles apache-2.x ebuild functions such as LoadModule generation
@@ -16,8 +16,14 @@ inherit autotools eutils flag-o-matic multilib ssl-cert user toolchain-funcs ver
 	&& die "Do not use this eclass with anything else than www-servers/apache ebuilds!"
 
 case ${EAPI:-0} in
-	0|1|2|3)
-		die "This eclass requires >=EAPI-4"
+	0|1|2|3|4)
+		die "This eclass is banned for EAPI<5"
+	;;
+	5)
+		:;
+	;;
+	6)
+		die "This eclass is not yet ready for EAPI-6. Please help porting it!"
 	;;
 esac
 
@@ -25,7 +31,8 @@ esac
 case $(get_version_component_range 1-2) in
 	2.4)
 		DEFAULT_MPM_THREADED="event" #509922
-		RDEPEND=">=dev-libs/apr-1.5.1" #492578
+		RDEPEND=">=dev-libs/apr-1.5.1
+			!www-apache/mod_macro" #492578 #477702
 	;;
 	*)
 		DEFAULT_MPM_THREADED="worker"
@@ -70,7 +77,7 @@ esac
 [[ -n "$GENTOO_PATCH_A" ]] || GENTOO_PATCH_A="${GENTOO_PATCHNAME}-${GENTOO_PATCHSTAMP}.tar.bz2"
 
 SRC_URI="mirror://apache/httpd/httpd-${PV}.tar.bz2
-	http://dev.gentoo.org/~${GENTOO_DEVELOPER}/dist/apache/${GENTOO_PATCH_A}"
+	https://dev.gentoo.org/~${GENTOO_DEVELOPER}/dist/apache/${GENTOO_PATCH_A}"
 
 # @VARIABLE: IUSE_MPMS_FORK
 # @DESCRIPTION:
@@ -88,7 +95,7 @@ SRC_URI="mirror://apache/httpd/httpd-${PV}.tar.bz2
 # built-in modules
 
 IUSE_MPMS="${IUSE_MPMS_FORK} ${IUSE_MPMS_THREAD}"
-IUSE="${IUSE} debug doc ldap selinux ssl static suexec threads"
+IUSE="${IUSE} debug doc ldap libressl selinux ssl static suexec threads"
 
 for module in ${IUSE_MODULES} ; do
 	IUSE="${IUSE} apache2_modules_${module}"
@@ -105,10 +112,13 @@ DEPEND="dev-lang/perl
 	apache2_modules_deflate? ( sys-libs/zlib )
 	apache2_modules_mime? ( app-misc/mime-types )
 	ldap? ( =net-nds/openldap-2* )
-	selinux? ( sec-policy/selinux-apache )
-	ssl? ( >=dev-libs/openssl-0.9.8m )
+	ssl? (
+		!libressl? ( >=dev-libs/openssl-1.0.2:0= )
+		libressl? ( dev-libs/libressl:= )
+	)
 	!=www-servers/apache-1*"
-RDEPEND+=" ${DEPEND}"
+RDEPEND+=" ${DEPEND}
+	selinux? ( sec-policy/selinux-apache )"
 PDEPEND="~app-admin/apache-tools-${PV}"
 
 S="${WORKDIR}/httpd-${PV}"
@@ -260,7 +270,7 @@ setup_modules() {
 	fi
 
 	if use ssl ; then
-		MY_CONF+=( --with-ssl="${EPREFIX}"/usr --enable-ssl=${mod_type} )
+		MY_CONF+=( --with-ssl --enable-ssl=${mod_type} )
 		MY_MODS+=( ssl )
 	else
 		MY_CONF+=( --without-ssl --disable-ssl )
@@ -364,7 +374,7 @@ check_upgrade() {
 		eerror "(${EROOT}etc/apache2/apache2-builtin-mods) exists on your"
 		eerror "system."
 		eerror
-		eerror "Please read http://www.gentoo.org/doc/en/apache-upgrading.xml"
+		eerror "Please read https://wiki.gentoo.org/wiki/Project:Apache/Upgrading"
 		eerror "for detailed information how to convert this file to the new"
 		eerror "APACHE2_MODULES USE_EXPAND variable."
 		eerror
@@ -443,6 +453,20 @@ apache-2_src_prepare() {
 
 	epatch "${GENTOO_PATCHDIR}"/patches/*.patch
 
+	if [[ ${EAPI} = 5 ]] ; then
+		# Handle patches from ebuild's PATCHES array if one is given
+		if [[ -n "${PATCHES}" ]] ; then
+			local patchestype=$(declare -p PATCHES 2>&-)
+			if [[ "${patchestype}" != "declare -a PATCHES="* ]] ; then
+				die "Declaring PATCHES as a variable is forbidden. Please use an array instead."
+			fi
+			epatch "${PATCHES[@]}"
+		fi
+
+		# Handle user patches
+		epatch_user
+	fi
+
 	# setup the filesystem layout config
 	cat "${GENTOO_PATCHDIR}"/patches/config.layout >> "${S}"/config.layout || \
 		die "Failed preparing config.layout!"
@@ -461,9 +485,16 @@ apache-2_src_prepare() {
 
 	# This package really should upgrade to using pcre's .pc file.
 	cat <<-\EOF >"${T}"/pcre-config
-	#!/bin/sh
-	[ "${flag}" = "--version" ] && set -- --modversion
-	exec ${PKG_CONFIG} libpcre "$@"
+	#!/bin/bash
+	flags=()
+	for flag; do
+		if [[ ${flag} == "--version" ]]; then
+			flags+=( --modversion )
+		else
+			flags+=( "${flag}" )
+		fi
+	done
+	exec ${PKG_CONFIG} libpcre "${flags[@]}"
 	EOF
 	chmod a+x "${T}"/pcre-config
 }

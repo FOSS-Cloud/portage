@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/liblaretz/liblaretz-0.1.0.ebuild,v 1.3 2014/04/03 08:00:21 zlogene Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 DESCRIPTION="Shared library to be used by the Laretz sync server and its clients"
 HOMEPAGE="http://leechcraft.org"

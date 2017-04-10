@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/imdbpy/imdbpy-5.0.ebuild,v 1.1 2014/05/09 04:42:31 patrick Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} pypy pypy2_0 )
+PYTHON_COMPAT=( python2_7 pypy )
 
 inherit distutils-r1
 
@@ -11,7 +11,7 @@ MY_PN="IMDbPY"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Python package to access the IMDb movie database"
-HOMEPAGE="http://imdbpy.sourceforge.net/ http://pypi.python.org/pypi/IMDbPY"
+HOMEPAGE="http://imdbpy.sourceforge.net/ https://pypi.python.org/pypi/IMDbPY"
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -24,7 +24,6 @@ RDEPEND=""
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
-DISTUTILS_GLOBAL_OPTIONS=("*-jython --without-cutils")
 DOCS=( docs/FAQS.txt docs/imdbpy48.dtd docs/imdbpy.cfg )
 
 PATCHES=( "${FILESDIR}/${PN}-4.6-data_location.patch" )

@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/cfgio/cfgio-0.1.2.ebuild,v 1.1 2014/05/27 06:31:20 ercpe Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python3_3 )
+PYTHON_COMPAT=( python3_4 )
 
 inherit distutils-r1
 

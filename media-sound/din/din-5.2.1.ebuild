@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/din/din-5.2.1.ebuild,v 1.1 2013/04/06 09:50:00 radhermit Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,13 +8,14 @@ inherit eutils autotools
 
 DESCRIPTION="a software musical instrument and audio synthesizer"
 HOMEPAGE="http://dinisnoise.org/"
-SRC_URI="http://din.googlecode.com/files/${P}.tar.gz"
+SRC_URI="https://din.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-lang/tcl:=
+RDEPEND="
+	dev-lang/tcl:0=
 	media-libs/liblo
 	media-sound/jack-audio-connection-kit
 	net-libs/libircclient

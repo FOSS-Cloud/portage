@@ -1,13 +1,13 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/realtime-base/realtime-base-0.1.ebuild,v 1.18 2012/11/06 11:12:14 aballier Exp $
+# $Id$
 
 EAPI=3
 
 inherit user
 
 DESCRIPTION="Sets up realtime scheduling"
-HOMEPAGE="http://www.jackaudio.org/linux_rt_config"
+HOMEPAGE="http://jackaudio.org/faq/linux_rt_config.html"
 SRC_URI=""
 
 LICENSE="public-domain"

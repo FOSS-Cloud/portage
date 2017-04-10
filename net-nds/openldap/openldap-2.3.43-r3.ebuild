@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/openldap/openldap-2.3.43-r3.ebuild,v 1.2 2013/03/03 09:02:31 vapier Exp $
+# $Id$
 
 EAPI="2"
 
@@ -13,7 +13,7 @@ DESCRIPTION="LDAP suite of application and development tools"
 HOMEPAGE="http://www.OpenLDAP.org/"
 SRC_URI="mirror://openldap/openldap-release/${P}.tgz"
 
-LICENSE="OPENLDAP"
+LICENSE="OPENLDAP GPL-2"
 SLOT="0"
 KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86-fbsd"
 IUSE="berkdb crypt debug gdbm ipv6 kerberos minimal odbc overlays perl samba sasl slp smbkrb5passwd ssl tcpd selinux"
@@ -30,7 +30,7 @@ RDEPEND="sys-libs/ncurses
 	!minimal? (
 		odbc? ( dev-db/unixODBC )
 		slp? ( net-libs/openslp )
-		perl? ( dev-lang/perl[-build] )
+		perl? ( || ( >=dev-lang/perl-5.16 <dev-lang/perl-5.16[-build] ) )
 		samba? ( dev-libs/openssl )
 		kerberos? ( virtual/krb5 )
 		berkdb? (
@@ -180,7 +180,7 @@ pkg_setup() {
 		die "Please set ssl useflag"
 	fi
 
-	if use minimal && has_version "net-nds/openldap" && built_with_use net-nds/openldap minimal ; then
+	if use minimal && has_version 'net-nds/openldap[minimal]' ; then
 		einfo
 		einfo "Skipping scan for previous datadirs as requested by minimal useflag"
 		einfo
@@ -188,8 +188,12 @@ pkg_setup() {
 		openldap_find_versiontags
 	fi
 
-	enewgroup ldap 439
-	enewuser ldap 439 -1 /usr/$(get_libdir)/openldap ldap
+	# The user/group are only used for running daemons which are
+	# disabled in minimal builds, so elide the accounts too.
+	if ! use minimal ; then
+		enewgroup ldap 439
+		enewuser ldap 439 -1 /usr/$(get_libdir)/openldap ldap
+	fi
 }
 
 src_prepare() {
@@ -521,7 +525,7 @@ pkg_postinst() {
 	elog
 	elog "Getting started using OpenLDAP? There is some documentation available:"
 	elog "Gentoo Guide to OpenLDAP Authentication"
-	elog "(http://www.gentoo.org/doc/en/ldap-howto.xml)"
+	elog "(https://www.gentoo.org/doc/en/ldap-howto.xml)"
 	elog
 
 	# note to bug #110412

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>games</herd>
-	<herd>proxy-maintainers</herd>
-	<maintainer>
-		<email>hasufell@gentoo.org</email>
-		<name>Julian Ospald</name>
-		<description>Maintainer, assign bugs to him</description>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
 	</maintainer>
-	<maintainer>
+	<maintainer type="person">
 		<email>mwoodj@knology.net</email>
 		<name>Mike Wood</name>
 		<description>Proxy maintainer. CC him on bugs</description>
+	</maintainer>
+	<maintainer type="project">
+		<email>games@gentoo.org</email>
+		<name>Gentoo Games Project</name>
 	</maintainer>
 	<use>
 		<flag name="odalaunch">Build the wxwidgets based launcher.</flag>
@@ -23,6 +24,7 @@
 		<changelog>http://odamex.net/changelog.php</changelog>
 		<doc lang="en">http://odamex.net/wiki/Odamex</doc>
 		<bugs-to>http://odamex.net/bugs/</bugs-to>
+		<remote-id type="sourceforge">odamex</remote-id>
 	</upstream>
 	<longdescription lang="en">
 		Odamex is a free and open source port for the classic
@@ -34,4 +36,3 @@
 		on almost any platform. 
 	</longdescription>
 </pkgmetadata>
-

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/keynote/keynote-2.3-r3.ebuild,v 1.5 2013/02/20 23:26:27 pinkbyte Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,9 +13,12 @@ SRC_URI="http://www1.cs.columbia.edu/~angelos/Code/${P}.tar.gz"
 LICENSE="keynote"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="ssl"
+IUSE="libressl ssl"
 
-RDEPEND="ssl? ( dev-libs/openssl )"
+RDEPEND="ssl? (
+		!libressl? ( dev-libs/openssl:0= )
+		libressl? ( dev-libs/libressl:0= )
+	)"
 DEPEND="${RDEPEND}
 	virtual/yacc"
 

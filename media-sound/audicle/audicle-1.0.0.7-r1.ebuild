@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/audicle/audicle-1.0.0.7-r1.ebuild,v 1.1 2013/06/27 07:09:40 pinkbyte Exp $
+# $Id$
 
 EAPI=5
 inherit eutils toolchain-funcs flag-o-matic
@@ -23,7 +23,7 @@ RDEPEND="jack? ( media-sound/jack-audio-connection-kit )
 	x11-libs/gtk+:2
 	truetype? ( media-libs/ftgl
 		media-fonts/corefonts )
-	app-admin/eselect-audicle"
+	app-eselect/eselect-audicle"
 DEPEND="${RDEPEND}
 	sys-devel/bison
 	sys-devel/flex
@@ -40,7 +40,7 @@ PATCHES=(
 )
 
 src_prepare() {
-	epatch ${PATCHES[@]}
+	epatch "${PATCHES[@]}"
 
 	sed -i \
 		-e 's@../ftgl_lib/FTGL/include@/usr/include/FTGL@' \

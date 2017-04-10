@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/ptlib/ptlib-2.10.11.ebuild,v 1.4 2014/08/04 18:46:43 armin76 Exp $
+# $Id$
 
 EAPI="5"
 
@@ -13,12 +13,12 @@ SRC_URI="mirror://sourceforge/opalvoip/${P}.tar.bz2
 
 LICENSE="MPL-1.0"
 SLOT="0/${PV}"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 ~arm ia64 ppc ppc64 sparc x86"
 # default enabled are features from 'minsize', the most used according to ptlib
 IUSE="alsa +asn debug doc +dtmf examples ffmpeg ftp +http ipv6
-jabber ldap lua mail odbc oss pch pulseaudio qos remote sasl sdl serial
+xmpp ldap lua mail odbc oss pch pulseaudio qos remote sasl sdl serial
 shmvideo snmp soap socks +sound ssl static-libs +stun telnet tts v4l +video
-vxml wav xml xmlrpc"
+vxml +wav +xml xmlrpc"
 
 CDEPEND="
 	ldap? ( net-nds/openldap )
@@ -51,7 +51,7 @@ conditional_use_warn_msg() {
 }
 
 REQUIRED_USE="sdl? ( video )
-	jabber? ( xml )
+	xmpp? ( xml )
 	vxml? ( http tts xml )
 	xmlrpc? ( http xml )
 	soap? ( http xml )"
@@ -130,7 +130,7 @@ src_configure() {
 		$(use_enable http httpsvc) \
 		--disable-dc \
 		$(use_enable ipv6) \
-		$(use_enable jabber) \
+		$(use_enable xmpp jabber) \
 		$(use_enable ldap openldap) \
 		$(use_enable lua) \
 		$(use_enable mail pop3smtp) \
@@ -222,9 +222,4 @@ pkg_postinst() {
 		ewarn "Most audio/video have been disabled silently even if enabled via USE flags."
 		ewarn "Having a feature enabled via use flag but disabled can lead to issues."
 	fi
-
-	ewarn "If you've just removed pwlib to install ptlib, some packages will be broken."
-	ewarn "Please use 'revdep-rebuild' from app-portage/gentoolkit to check."
-	ewarn "If some packages need pwlib, consider removing ptlib and re-installing pwlib"
-	ewarn "or help us to make them live together."
 }

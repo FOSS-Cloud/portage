@@ -1,8 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/ax25-apps/ax25-apps-0.0.8_rc4.ebuild,v 1.4 2013/08/28 11:15:59 ago Exp $
+# $Id$
 
 EAPI=5
+inherit autotools eutils
 
 MY_P=${P/_/-}
 
@@ -15,12 +16,19 @@ SLOT="0"
 KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-DEPEND=">=dev-libs/libax25-0.0.12_rc2
-	sys-libs/ncurses
-	!media-sound/listen"
-RDEPEND=${DEPEND}
+RDEPEND=">=dev-libs/libax25-0.0.12_rc2
+	sys-libs/ncurses:="
+DEPEND="${RDEPEND}
+	virtual/pkgconfig
+	!media-sound/listen
+	!dev-ruby/listen"
 
 S=${WORKDIR}/${MY_P}
+
+src_prepare() {
+	epatch "$FILESDIR"/$PN-0.8.4-tinfo.patch
+	eautoreconf
+}
 
 src_install() {
 	default

@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-openchrome/xf86-video-openchrome-0.3.3.ebuild,v 1.4 2014/02/20 11:46:20 chithanh Exp $
+# $Id$
 
 EAPI=5
 XORG_DRI="always"
 inherit xorg-2
 
 DESCRIPTION="X.Org driver for VIA/S3G cards"
-HOMEPAGE="http://www.freedesktop.org/wiki/Openchrome/"
+HOMEPAGE="https://www.freedesktop.org/wiki/Openchrome/"
 LICENSE="MIT"
 
 KEYWORDS="amd64 x86"
@@ -24,6 +24,8 @@ DEPEND="
 "
 
 DOCS=( ChangeLog NEWS README )
+
+PATCHES=( "${FILESDIR}"/${P}-glibc-2.20.patch ) #526728
 
 src_configure() {
 	XORG_CONFIGURE_OPTIONS=(

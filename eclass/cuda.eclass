@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/cuda.eclass,v 1.4 2014/09/17 10:21:37 jlec Exp $
+# $Id$
 
 inherit flag-o-matic toolchain-funcs versionator
 
@@ -16,6 +16,8 @@ inherit flag-o-matic toolchain-funcs versionator
 # @EXAMPLE:
 # inherit cuda
 
+if [[ -z ${_CUDA_ECLASS} ]]; then
+
 # @ECLASS-VARIABLE: NVCCFLAGS
 # @DESCRIPTION:
 # nvcc compiler flags (see nvcc --help), which should be used like
@@ -29,7 +31,7 @@ inherit flag-o-matic toolchain-funcs versionator
 
 # @FUNCTION: cuda_gccdir
 # @USAGE: [-f]
-# @RETURN: gcc bindir compatible with current cuda, optionally (-f) prefixed with "--compiler-bindir="
+# @RETURN: gcc bindir compatible with current cuda, optionally (-f) prefixed with "--compiler-bindir "
 # @DESCRIPTION:
 # Helper for determination of the latest gcc bindir supported by
 # then current nvidia cuda toolkit.
@@ -37,13 +39,15 @@ inherit flag-o-matic toolchain-funcs versionator
 # Example:
 # @CODE
 # cuda_gccdir -f
-# -> --compiler-bindir="/usr/x86_64-pc-linux-gnu/gcc-bin/4.6.3"
+# -> --compiler-bindir "/usr/x86_64-pc-linux-gnu/gcc-bin/4.6.3"
 # @CODE
 cuda_gccdir() {
+	debug-print-function ${FUNCNAME} "$@"
+
 	local gcc_bindir ver args="" flag ret
 
 	# Currently we only support the gnu compiler suite
-	if [[ $(tc-getCXX) != *g++* ]]; then
+	if  ! tc-is-gcc ; then
 		ewarn "Currently we only support the gnu compiler suite"
 		return 2
 	fi
@@ -51,7 +55,7 @@ cuda_gccdir() {
 	while [ "$1" ]; do
 		case $1 in
 			-f)
-				flag="--compiler-bindir="
+				flag="--compiler-bindir "
 				;;
 			*)
 				;;
@@ -71,13 +75,13 @@ cuda_gccdir() {
 	fi
 
 	for ver in ${args}; do
-		has_version sys-devel/gcc:${ver} && \
+		has_version "=sys-devel/gcc-${ver}*" && \
 		 gcc_bindir="$(ls -d ${EPREFIX}/usr/*pc-linux-gnu/gcc-bin/${ver}* | tail -n 1)"
 	done
 
 	if [[ -n ${gcc_bindir} ]]; then
 		if [[ -n ${flag} ]]; then
-			ret="${flag}\\\"${gcc_bindir}\\\""
+			ret="${flag}\"${gcc_bindir}\""
 		else
 			ret="${gcc_bindir}"
 		fi
@@ -96,6 +100,8 @@ cuda_gccdir() {
 # Correct NVCCFLAGS by adding the necessary reference to gcc bindir and
 # passing CXXFLAGS to underlying compiler without disturbing nvcc.
 cuda_sanitize() {
+	debug-print-function ${FUNCNAME} "$@"
+
 	local rawldflags=$(raw-ldflags)
 	# Be verbose if wanted
 	[[ "${CUDA_VERBOSE}" == true ]] && NVCCFLAGS+=" -v"
@@ -104,7 +110,7 @@ cuda_sanitize() {
 	NVCCFLAGS+=" $(cuda_gccdir -f)"
 
 	# Tell nvcc which flags should be used for underlying C compiler
-	NVCCFLAGS+=" --compiler-options=\"${CXXFLAGS}\" --linker-options=\"${rawldflags// /,}\""
+	NVCCFLAGS+=" --compiler-options \"${CXXFLAGS}\" --linker-options \"${rawldflags// /,}\""
 
 	debug-print "Using ${NVCCFLAGS} for cuda"
 	export NVCCFLAGS
@@ -114,6 +120,8 @@ cuda_sanitize() {
 # @DESCRIPTION:
 # Call cuda_src_prepare for EAPIs not supporting src_prepare
 cuda_pkg_setup() {
+	debug-print-function ${FUNCNAME} "$@"
+
 	cuda_src_prepare
 }
 
@@ -121,14 +129,18 @@ cuda_pkg_setup() {
 # @DESCRIPTION:
 # Sanitise and export NVCCFLAGS by default
 cuda_src_prepare() {
+	debug-print-function ${FUNCNAME} "$@"
+
 	cuda_sanitize
 }
-
 
 case "${EAPI:-0}" in
 	0|1)
 		EXPORT_FUNCTIONS pkg_setup ;;
-	2|3|4|5)
+	2|3|4|5|6)
 		EXPORT_FUNCTIONS src_prepare ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
+
+_CUDA_ECLASS=1
+fi

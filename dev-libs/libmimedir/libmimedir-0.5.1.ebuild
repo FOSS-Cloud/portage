@@ -1,12 +1,12 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libmimedir/libmimedir-0.5.1.ebuild,v 1.1 2012/06/15 08:37:06 ssuominen Exp $
+# $Id$
 
 EAPI=4
 inherit eutils
 
 DESCRIPTION="Library for manipulating MIME directory profiles (RFC2425)"
-HOMEPAGE="http://sourceforge.net/projects/libmimedir/"
+HOMEPAGE="https://sourceforge.net/projects/libmimedir/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="BSD-2 GPL-2" # COPYING -> BSD-2, dirsynt.* -> GPL-2

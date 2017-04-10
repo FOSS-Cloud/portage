@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libpostproc/libpostproc-10.20140517-r1.ebuild,v 1.7 2014/08/25 11:00:07 ago Exp $
+# $Id$
 
 EAPI="5"
 
@@ -19,30 +19,30 @@ if [ "${PV#9999}" != "${PV}" ] ; then
 elif [ "${PV%_p*}" != "${PV}" ] ; then # Snapshot
 	SRC_URI="mirror://gentoo/${P}.tar.xz"
 else # Release
-	SRC_URI="http://dev.gentoo.org/~lu_zero/distfiles/${P}.tar.xz"
+	SRC_URI="https://dev.gentoo.org/~lu_zero/distfiles/${P}.tar.xz"
 fi
 
 LICENSE="GPL-2"
 SLOT="0"
 if [ "${PV#9999}" = "${PV}" ] ; then
-	KEYWORDS="alpha amd64 ~arm ~hppa ~ia64 ppc ppc64 ~sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+	KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ppc ppc64 sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 fi
 IUSE="pic static-libs"
 
 # String for CPU features in the useflag[:configure_option] form
 # if :configure_option isn't set, it will use 'useflag' as configure option
-CPU_FEATURES="3dnow:amd3dnow altivec mmx mmxext"
+CPU_FEATURES="cpu_flags_x86_3dnow:amd3dnow altivec cpu_flags_x86_mmx:mmx cpu_flags_x86_mmxext:mmxext"
 for i in ${CPU_FEATURES}; do
 	IUSE="${IUSE} ${i%:*}"
 done
 
-DEPEND=">=virtual/ffmpeg-9-r1[${MULTILIB_USEDEP}]"
-RDEPEND="${DEPEND}
-	!<media-video/libav-0.8.2-r2
+RDEPEND="
+	>=media-video/libav-0.8.2-r2:0=
 	!media-video/ffmpeg:0
 	abi_x86_32? ( !<=app-emulation/emul-linux-x86-medialibs-20140508-r3
 		!app-emulation/emul-linux-x86-medialibs[-abi_x86_32(-)] )
 "
+DEPEND="${RDEPEND}"
 
 multilib_src_configure() {
 	local myconf=( ${EXTRA_LIBPOSTPROC_CONF} )

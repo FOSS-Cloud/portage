@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/SQL-Statement/SQL-Statement-1.405.0-r1.ebuild,v 1.1 2014/08/21 19:45:02 axs Exp $
+# $Id$
 
 EAPI=5
 
@@ -19,10 +19,7 @@ RDEPEND=">=dev-perl/DBI-1.616
 	>=dev-perl/Params-Util-0.35
 	virtual/perl-Scalar-List-Utils"
 DEPEND="${RDEPEND}
-	test? (
-		dev-perl/Test-Pod
-		dev-perl/Test-Pod-Coverage
-	)"
+	test? ( virtual/perl-Test-Simple )"
 
 SRC_TEST="do"
 
@@ -34,4 +31,10 @@ pkg_setup() {
 		ewarn "  * behavior for unquoted identifiers modified to lower case them"
 		ewarn "  * IN and BETWEEN operators are supported native"
 	fi
+}
+
+src_test() {
+	# XT tests don't normally run, but upstream...
+	perl_rm_files "xt/pod.t" "xt/pod-cm.t" "xt/pod_coverage.t"
+	perl-module_src_test
 }

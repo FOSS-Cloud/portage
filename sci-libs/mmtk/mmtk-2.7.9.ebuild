@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/mmtk/mmtk-2.7.9.ebuild,v 1.1 2013/06/16 15:39:09 jlec Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit distutils-r1
 
@@ -14,8 +14,6 @@ NUMBER="4324"
 
 MY_PN=${PN/mmtk/MMTK}
 MY_P=${MY_PN}-${PV}
-
-PYTHON_MODNAME="${MY_PN}"
 
 DESCRIPTION="Molecular Modeling ToolKit for Python"
 HOMEPAGE="http://dirac.cnrs-orleans.fr/MMTK/"
@@ -28,7 +26,7 @@ IUSE="examples"
 
 RDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
-	dev-python/numpy[${PYTHON_USEDEP}]
+	<dev-python/numpy-1.9[${PYTHON_USEDEP}]
 	dev-python/scientificpython[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 

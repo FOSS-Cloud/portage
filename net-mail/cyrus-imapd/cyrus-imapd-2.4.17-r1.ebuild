@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/cyrus-imapd/cyrus-imapd-2.4.17-r1.ebuild,v 1.2 2014/08/10 20:44:18 slyfox Exp $
+# $Id$
 
 EAPI=4
 
@@ -17,18 +17,19 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="afs berkdb kerberos mysql nntp pam postgres replication sieve snmp sqlite ssl tcpd"
 
+# virtual/mysql-5.5 added for the --variable= option below
 RDEPEND="sys-libs/zlib
 	>=dev-libs/cyrus-sasl-2.1.13
 	afs? ( net-fs/openafs )
 	berkdb? ( >=sys-libs/db-3.2 )
 	kerberos? ( virtual/krb5 )
-	mysql? ( virtual/mysql )
+	mysql? ( >=virtual/mysql-5.5 )
 	nntp? ( !net-nntp/leafnode )
 	pam? (
 			virtual/pam
 			>=net-mail/mailbase-1
 		)
-	postgres? ( dev-db/postgresql-base )
+	postgres? ( dev-db/postgresql )
 	snmp? ( >=net-analyzer/net-snmp-5.2.2-r1 )
 	sqlite? ( dev-db/sqlite )
 	ssl? ( >=dev-libs/openssl-0.9.6 )
@@ -98,9 +99,8 @@ src_prepare() {
 src_configure() {
 	local myconf
 	if use mysql ; then
-		myconf=$(mysql_config --include)
-		myconf="--with-mysql-incdir=${myconf#-I}"
-		myconf+=" --with-mysql-libdir=/usr/$(get_libdir)/mysql"
+		myconf="--with-mysql-incdir=$(mysql_config --variable=pkgincludedir)"
+		myconf+=" --with-mysql-libdir=$(mysql_config --variable=pkglibdir)"
 	fi
 	if use afs ; then
 		myconf+=" --with-afs-libdir=/usr/$(get_libdir)"

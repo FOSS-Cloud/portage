@@ -1,12 +1,14 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/cppzmq/cppzmq-0_pre130717-r1.ebuild,v 1.3 2014/08/30 18:34:00 zerochaos Exp $
+# $Id$
 
 EAPI=5
 
-DESCRIPTION="CPPZMQ - High-level CPP Binding for ZeroMQ"
+inherit toolchain-funcs
+
+DESCRIPTION="High-level CPP Binding for ZeroMQ"
 HOMEPAGE="https://github.com/zeromq/cppzmq"
-SRC_URI="http://dev.gentoo.org/~jlec/distfiles/${P}.tar.xz"
+SRC_URI="https://dev.gentoo.org/~jlec/distfiles/${P}.tar.xz"
 
 SLOT="0"
 LICENSE="MIT"
@@ -19,4 +21,9 @@ DEPEND=""
 src_install() {
 	doheader zmq.hpp
 	dodoc README
+}
+
+src_test() {
+	$(tc-getCC) -c ./zmq.hpp -L ./.libs/ -I ./include/ -o ./test.o || die "This version of cppzmq is not compatible with the installed version of net-libs/zeromq"
+	rm -f ./test.o
 }

@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>python</herd>
-	<herd>proxy-maintainers</herd>
-	<maintainer>
+	<maintainer type="person">
 		<email>blueness@gentoo.org</email>
 		<name>Anthony G. Basile</name>
 	</maintainer>
-	<maintainer>
-		<email>bugs@bergstroem.nu</email>
-		<name>Johan Bergström</name>
+	<maintainer type="project">
+		<email>python@gentoo.org</email>
+		<name>Python</name>
 	</maintainer>
 	<longdescription lang="en">
 		Whoosh is a fast, featureful full-text indexing and searching
@@ -18,4 +16,8 @@
 		Every part of how Whoosh works can be extended or replaced to meet
 		your needs exactly.
 	</longdescription>
+	<upstream>
+		<remote-id type="pypi">Whoosh</remote-id>
+		<remote-id type="bitbucket">mchaput/whoosh</remote-id>
+	</upstream>
 </pkgmetadata>

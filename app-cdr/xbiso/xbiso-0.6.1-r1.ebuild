@@ -1,17 +1,17 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/xbiso/xbiso-0.6.1-r1.ebuild,v 1.2 2011/12/22 18:30:40 ssuominen Exp $
+# $Id$
 
 EAPI=4
 inherit flag-o-matic
 
 DESCRIPTION="Xbox xdvdfs ISO extraction utility"
-HOMEPAGE="http://sourceforge.net/projects/xbiso/"
+HOMEPAGE="https://sourceforge.net/projects/xbiso/"
 SRC_URI="mirror://sourceforge/xbiso/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
 IUSE=""
 
 RDEPEND="net-libs/ftplib"

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Devel-ArgNames/Devel-ArgNames-0.30.0-r1.ebuild,v 1.1 2014/08/26 16:09:05 axs Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,6 +16,9 @@ IUSE="test"
 
 RDEPEND="dev-perl/PadWalker"
 DEPEND="${RDEPEND}
-	test? ( dev-perl/Test-use-ok )"
+	test? (
+		>=virtual/perl-Test-Simple-1.1.10
+	)
+"
 
 SRC_TEST="do"

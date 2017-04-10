@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/subversion.eclass,v 1.87 2014/01/07 01:59:10 floppym Exp $
+# $Id$
 
 # @ECLASS: subversion.eclass
 # @MAINTAINER:
@@ -21,9 +21,16 @@ case "${EAPI:-0}" in
 		EXPORT_FUNCTIONS src_unpack pkg_preinst
 		DEPEND="dev-vcs/subversion"
 		;;
-	*)
+	2|3|4|5)
 		EXPORT_FUNCTIONS src_unpack src_prepare pkg_preinst
 		DEPEND="|| ( dev-vcs/subversion[http] dev-vcs/subversion[webdav-neon] dev-vcs/subversion[webdav-serf] )"
+		;;
+	6)
+		EXPORT_FUNCTIONS src_unpack pkg_preinst
+		DEPEND="|| ( dev-vcs/subversion[http] dev-vcs/subversion[webdav-neon] dev-vcs/subversion[webdav-serf] )"
+		;;
+	*)
+		die "EAPI ${EAPI} is not supported in subversion.eclass"
 		;;
 esac
 
@@ -116,7 +123,8 @@ ESVN_PROJECT="${ESVN_PROJECT:-${PN/-svn}}"
 
 # @ECLASS-VARIABLE: ESVN_BOOTSTRAP
 # @DESCRIPTION:
-# bootstrap script or command like autogen.sh or etc..
+# Bootstrap script or command like autogen.sh or etc..
+# Removed in EAPI 6 and later.
 ESVN_BOOTSTRAP="${ESVN_BOOTSTRAP:-}"
 
 # @ECLASS-VARIABLE: ESVN_PATCHES
@@ -127,6 +135,8 @@ ESVN_BOOTSTRAP="${ESVN_BOOTSTRAP:-}"
 #
 # Patches are searched both in ${PWD} and ${FILESDIR}, if not found in either
 # location, the installation dies.
+#
+# Removed in EAPI 6 and later, use PATCHES instead.
 ESVN_PATCHES="${ESVN_PATCHES:-}"
 
 # @ECLASS-VARIABLE: ESVN_RESTRICT
@@ -343,7 +353,7 @@ subversion_fetch() {
 		mkdir -p "${S}"
 
 		# export to the ${WORKDIR}
-		#*  "svn export" has a bug.  see http://bugs.gentoo.org/119236
+		#*  "svn export" has a bug.  see https://bugs.gentoo.org/119236
 		#* svn export . "${S}" || die "${ESVN}: can't export to ${S}."
 		rsync -rlpgo --exclude=".svn/" . "${S}" || die "${ESVN}: can't export to ${S}."
 	fi
@@ -355,7 +365,10 @@ subversion_fetch() {
 # @FUNCTION: subversion_bootstrap
 # @DESCRIPTION:
 # Apply patches in ${ESVN_PATCHES} and run ${ESVN_BOOTSTRAP} if specified.
+# Removed in EAPI 6 and later.
 subversion_bootstrap() {
+	[[ ${EAPI} == [012345] ]] || die "${FUNCNAME} is removed from subversion.eclass in EAPI 6 and later"
+
 	if has "export" ${ESVN_RESTRICT}; then
 		return
 	fi
@@ -432,7 +445,9 @@ subversion_src_unpack() {
 # @FUNCTION: subversion_src_prepare
 # @DESCRIPTION:
 # Default src_prepare. Bootstrap.
+# Removed in EAPI 6 and later.
 subversion_src_prepare() {
+	[[ ${EAPI} == [012345] ]] || die "${FUNCNAME} is removed from subversion.eclass in EAPI 6 and later"
 	subversion_bootstrap || die "${ESVN}: unknown problem occurred in subversion_bootstrap."
 }
 

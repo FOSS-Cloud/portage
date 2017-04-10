@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/ibm-powerpc-utils/ibm-powerpc-utils-1.2.12.ebuild,v 1.2 2013/02/27 20:59:10 ranger Exp $
+# $Id$
 
 inherit eutils
 
@@ -8,7 +8,7 @@ MY_P="powerpc-utils-${PV}"
 
 DESCRIPTION="This package provides utilities for the maintainance
 of the IBM and Apple powerpc platforms."
-HOMEPAGE="http://sourceforge.net/projects/powerpc-utils"
+HOMEPAGE="https://sourceforge.net/projects/powerpc-utils"
 SRC_URI="mirror://sourceforge/powerpc-utils/${MY_P}.tar.gz"
 
 S="${WORKDIR}/${MY_P}"

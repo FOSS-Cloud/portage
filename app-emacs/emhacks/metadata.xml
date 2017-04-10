@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>emacs</herd>
+<maintainer type="project">
+  <email>gnu-emacs@gentoo.org</email>
+  <name>Gentoo GNU Emacs project</name>
+</maintainer>
 <longdescription>
   The EMHACKS project goal is to provide a set of useful libraries to help
   using Emacs or XEmacs.
@@ -14,6 +17,9 @@
   tabbar,   Display a tab bar in the header line.
 </longdescription>
 <use>
-  <flag name='jde'>Enable support for Java Development Environment</flag>
+  <flag name="jde">Enable support for Java Development Environment</flag>
 </use>
+<upstream>
+  <remote-id type="sourceforge">emhacks</remote-id>
+</upstream>
 </pkgmetadata>

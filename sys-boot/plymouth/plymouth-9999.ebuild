@@ -1,24 +1,24 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/plymouth/plymouth-9999.ebuild,v 1.1 2014/07/06 18:16:51 maksbotan Exp $
+# $Id$
 
 EAPI=5
 
 SRC_URI="
-	http://dev.gentoo.org/~aidecoe/distfiles/${CATEGORY}/${PN}/gentoo-logo.png"
+	https://dev.gentoo.org/~aidecoe/distfiles/${CATEGORY}/${PN}/gentoo-logo.png"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="git://anongit.freedesktop.org/plymouth"
 	AUTOTOOLS_AUTORECONF="1"
 	inherit git-r3
 else
-	SRC_URI="${SRC_URI} http://www.freedesktop.org/software/plymouth/releases/${P}.tar.bz2"
+	SRC_URI="${SRC_URI} https://www.freedesktop.org/software/plymouth/releases/${P}.tar.bz2"
 fi
 
 inherit autotools-utils readme.gentoo systemd toolchain-funcs
 
 DESCRIPTION="Graphical boot animation (splash) and logger"
-HOMEPAGE="http://cgit.freedesktop.org/plymouth/"
+HOMEPAGE="https://cgit.freedesktop.org/plymouth/"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -27,10 +27,10 @@ KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug gdm +gtk +libkms +pango static-libs"
 
 CDEPEND="
-	>=media-libs/libpng-1.2.16
+	>=media-libs/libpng-1.2.16:=
 	gtk? (
 		dev-libs/glib:2
-		>=x11-libs/gtk+-2.12:2
+		>=x11-libs/gtk+-3.14:3
 		x11-libs/cairo )
 	libkms? ( x11-libs/libdrm[libkms] )
 	pango? ( >=x11-libs/pango-1.21 )
@@ -46,7 +46,7 @@ RDEPEND="${CDEPEND}
 
 DOC_CONTENTS="
 	Follow the following instructions to set up Plymouth:\n
-	http://dev.gentoo.org/~aidecoe/doc/en/plymouth.xml
+	https://dev.gentoo.org/~aidecoe/doc/en/plymouth.xml
 "
 
 src_prepare() {
@@ -59,6 +59,7 @@ src_configure() {
 		--localstatedir=/var
 		--without-rhgb-compat-link
 		--enable-systemd-integration
+		"$(systemd_with_unitdir)"
 		$(use_enable debug tracing)
 		$(use_enable gtk gtk)
 		$(use_enable libkms drm)

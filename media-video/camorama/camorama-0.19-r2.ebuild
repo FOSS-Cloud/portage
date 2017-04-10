@@ -1,32 +1,34 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/camorama/camorama-0.19-r2.ebuild,v 1.6 2012/05/05 08:58:53 jdhore Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
+GNOME_TARBALL_SUFFIX="bz2"
+
 inherit eutils gnome2
 
 DESCRIPTION="A webcam application featuring various image filters"
-HOMEPAGE="http://git.gnome.org/browse/camorama/"
+HOMEPAGE="https://git.gnome.org/browse/camorama/"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~ppc x86"
 IUSE=""
 
-RDEPEND=">=gnome-base/gconf-2
+RDEPEND="
+	>=gnome-base/gconf-2
 	>=gnome-base/libglade-2
 	>=gnome-base/libgnome-2
+	gnome-base/libgnome-keyring
 	>=gnome-base/libgnomeui-2
 	media-libs/libv4l
-	x11-libs/gtk+:2"
+	x11-libs/gtk+:2
+"
 DEPEND="${RDEPEND}
 	dev-util/intltool
 	virtual/pkgconfig
-	sys-devel/gettext"
-
-pkg_setup() {
-	G2CONF="${G2CONF} --disable-schemas-install"
-}
+	sys-devel/gettext
+"
 
 src_prepare() {
 	epatch \

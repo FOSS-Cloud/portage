@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/traceroute/traceroute-2.0.20.ebuild,v 1.2 2014/07/17 22:57:43 jer Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,13 +12,15 @@ SRC_URI="mirror://sourceforge/traceroute/${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-linux ~arm-linux ~x86-linux"
 IUSE="static"
 
-RDEPEND="!<net-misc/iputils-20121221-r1"
+RDEPEND="!<net-misc/iputils-20121221-r1
+	!net-misc/iputils[traceroute]"
 
 src_compile() {
 	use static && append-ldflags -static
+	append-ldflags -L../libsupp #432116
 	tc-export AR CC RANLIB
 	emake env=yes
 }

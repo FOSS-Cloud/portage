@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/advancemenu/advancemenu-2.7.ebuild,v 1.2 2014/07/21 19:15:24 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils games
@@ -11,12 +11,12 @@ SRC_URI="mirror://sourceforge/advancemame/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE="alsa debug fbcon ncurses oss sdl slang truetype"
 
 RDEPEND="dev-libs/expat
 	alsa? ( media-libs/alsa-lib )
-	ncurses? ( sys-libs/ncurses )
+	ncurses? ( sys-libs/ncurses:0 )
 	sdl? ( media-libs/libsdl )
 	slang? ( >=sys-libs/slang-1.4 )
 	!sdl? ( ( !fbcon? ( media-libs/libsdl ) ) )

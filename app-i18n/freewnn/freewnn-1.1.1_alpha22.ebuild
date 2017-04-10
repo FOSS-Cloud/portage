@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/freewnn/freewnn-1.1.1_alpha22.ebuild,v 1.3 2014/09/15 23:05:14 naota Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,7 +15,7 @@ SRC_URI="mirror://sourceforge.jp/freewnn/59257/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 hppa ia64 ppc ppc64 sparc x86"
 IUSE="X ipv6"
 
 DEPEND="X? ( x11-libs/libX11 x11-libs/libXmu x11-libs/libXt )"
@@ -33,6 +33,11 @@ src_prepare() {
 	#bug #318593
 
 	epatch "${FILESDIR}"/${P}-parallel-build.patch #517916
+
+	# 542534
+	sed -i -e "s/egrep -v/egrep -av/" kWnn/kdic/Makefile.in \
+		cWnn/tdic/Makefile.in cWnn/cdic/Makefile.in \
+		Wnn/pubdicplus/Makefile.in || die
 }
 
 src_configure() {

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>perl</herd>
+  <maintainer type="project">
+    <email>perl@gentoo.org</email>
+    <name>Gentoo Perl Project</name>
+  </maintainer>
   <upstream>
     <remote-id type="cpan">PDF-API2</remote-id>
     <remote-id type="cpan-module">PDF::API2</remote-id>
@@ -103,7 +106,7 @@
     <remote-id type="cpan-module">PDF::API2::Resource::XObject::Image::PNG</remote-id>
     <remote-id type="cpan-module">PDF::API2::Resource::XObject::Image::PNM</remote-id>
     <remote-id type="cpan-module">PDF::API2::Resource::XObject::Image::TIFF</remote-id>
-    <remote-id type="cpan-module">PDF::API2::Resource::XObject::Image::Tiff::File</remote-id>
+    <remote-id type="cpan-module">PDF::API2::Resource::XObject::Image::TIFF::File</remote-id>
     <remote-id type="cpan-module">PDF::API2::UniWrap</remote-id>
     <remote-id type="cpan-module">PDF::API2::Util</remote-id>
     <remote-id type="cpan-module">PDF::API2::Win32</remote-id>

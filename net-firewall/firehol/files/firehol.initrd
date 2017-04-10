@@ -1,10 +1,10 @@
-#!/sbin/runscript
-# Copyright 1999-2004 Gentoo Foundation
+#!/sbin/openrc-run
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/firehol/files/firehol.initrd,v 1.7 2008/04/26 10:00:56 alonbl Exp $
+# $Id$
 
-
-opts="start stop restart try status panic save"
+extra_commands="save panic try"
+extra_started_commands="reload"
 
 depend() {
 	need localmount
@@ -41,7 +41,6 @@ restart() {
                 svc_start;
         eend $?
 }
-
 
 try() {
 	ebegin "Trying FireHOL configuration"

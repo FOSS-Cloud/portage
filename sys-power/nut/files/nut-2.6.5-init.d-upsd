@@ -1,7 +1,7 @@
-#!/sbin/runscript
-# Copyright 1999-2013 Gentoo Foundation
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/nut/files/nut-2.6.5-init.d-upsd,v 1.1 2013/08/12 18:35:12 robbat2 Exp $
+# $Id$
 
 extra_started_commands="reload"
 
@@ -18,7 +18,7 @@ start() {
 	ebegin "Starting upsd"
 	# clean up first
 	pkill -u root,nut -x ${bin}
-	sleep 1s
+	sleep 1
 	rm -f ${pidfile}
 	# now start up
 	start-stop-daemon --start --quiet --exec ${bin}

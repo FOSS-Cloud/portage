@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/mico/mico-9999.ebuild,v 1.6 2014/02/19 14:10:04 haubi Exp $
+# $Id$
 
 EAPI="3"
 
@@ -21,7 +21,7 @@ SRC_URI="http://www.mico.org/${P}.tar.gz"
 	SRC_URI=""
 
 [[ -n ${PATCH_VER} ]] &&
-	SRC_URI="${SRC_URI} http://dev.gentoo.org/~haubi/distfiles/${P}-gentoo-patches-${PATCH_VER}.tar.bz2"
+	SRC_URI="${SRC_URI} https://dev.gentoo.org/~haubi/distfiles/${P}-gentoo-patches-${PATCH_VER}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
@@ -34,10 +34,10 @@ RESTRICT="test" #298101
 
 RDEPEND="
 	gtk?       ( x11-libs/gtk+:2 )
-	postgres?  ( dev-db/postgresql-base )
+	postgres?  ( dev-db/postgresql )
 	qt4?       ( dev-qt/qtgui:4[qt3support] )
 	ssl?       ( dev-libs/openssl )
-	tcl?       ( dev-lang/tcl )
+	tcl?       ( dev-lang/tcl:0 )
 	X?         ( x11-libs/libXt )
 "
 DEPEND="${RDEPEND}

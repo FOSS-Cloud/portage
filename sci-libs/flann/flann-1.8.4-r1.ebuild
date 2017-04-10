@@ -1,20 +1,20 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/flann/flann-1.8.4-r1.ebuild,v 1.1 2013/12/07 19:10:22 jlec Exp $
+# $Id$
 
 EAPI=5
 
 inherit cmake-utils cuda eutils multilib toolchain-funcs
 
-DESCRIPTION="Library for performing fast approximate nearest neighbor searches in high dimensional spaces"
+DESCRIPTION="Fast approximate nearest neighbor searches in high dimensional spaces"
 HOMEPAGE="http://www.cs.ubc.ca/research/flann/"
 SRC_URI="
 	http://people.cs.ubc.ca/~mariusm/uploads/FLANN/${P}-src.zip
-	test? ( http://dev.gentoo.org/~bicatali/distfiles/${P}-testdata.tar.xz )"
+	test? ( https://dev.gentoo.org/~bicatali/distfiles/${P}-testdata.tar.xz )"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="cuda doc examples mpi openmp octave static-libs test"
 
 RDEPEND="

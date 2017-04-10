@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/squirm/squirm-1.26-r1.ebuild,v 1.3 2012/12/17 09:32:16 ago Exp $
+# $Id$
 
-EAPI="5"
+EAPI=6
 
-inherit eutils toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="A redirector for Squid"
 HOMEPAGE="http://squirm.foote.com.au"
@@ -16,17 +16,19 @@ KEYWORDS="~amd64 ppc x86"
 IUSE=""
 
 RDEPEND="net-proxy/squid"
+DEPEND="${RDEPEND}"
 
-src_prepare() {
-	epatch "${FILESDIR}"/${P}-gentoo.patch
-}
+PATCHES=(
+	"${FILESDIR}"/${P}-gentoo.patch
+	"${FILESDIR}"/${P}-gcc5.patch
+)
 
 src_compile() {
 	emake CC="$(tc-getCC)" LDOPTS="${LDFLAGS}"
 }
 
 src_install() {
-	emake PREFIX="${ED}/opt/squirm" install
+	emake PREFIX="${ED%/}/opt/squirm" install
 }
 
 pkg_postinst() {

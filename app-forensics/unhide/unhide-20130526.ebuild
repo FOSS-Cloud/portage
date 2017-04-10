@@ -1,12 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-forensics/unhide/unhide-20130526.ebuild,v 1.2 2014/08/10 17:47:23 slyfox Exp $
+# $Id$
 
 EAPI="5"
 
 inherit toolchain-funcs
 
-DESCRIPTION="A forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs or other technique"
+DESCRIPTION="A forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs"
 HOMEPAGE="http://www.unhide-forensics.info"
 SRC_URI="mirror://sourceforge/${PN}/files/${P}.tgz"
 

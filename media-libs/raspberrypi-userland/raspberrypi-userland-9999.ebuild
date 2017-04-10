@@ -1,61 +1,45 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/raspberrypi-userland/raspberrypi-userland-9999.ebuild,v 1.2 2013/07/13 17:13:52 chithanh Exp $
+# $Id$
 
 EAPI=5
-
-inherit cmake-utils
+inherit cmake-utils flag-o-matic git-r3
 
 DESCRIPTION="Raspberry Pi userspace tools and libraries"
 HOMEPAGE="https://github.com/raspberrypi/userland"
-
-if [[ ${PV} == 9999* ]]; then
-	inherit git-2
-	EGIT_REPO_URI="git://github.com/${PN/-//}.git"
-	SRC_URI=""
-	KEYWORDS=""
-else
-	SRC_URI="mirror://gentoo/${P}.tar.xz"
-	KEYWORDS="~arm"
-fi
+SRC_URI=""
 
 LICENSE="BSD"
 SLOT="0"
+KEYWORDS=""
+IUSE=""
 
-# TODO:
-# * port vcfiled init script
-# * stuff is still installed to hardcoded /opt/vc location, investigate whether
-#   anything else depends on it being there
-# * live ebuild
+DEPEND=""
+RDEPEND=""
 
-src_unpack() {
-	if [[ ${PV} == 9999* ]]; then
-		git-2_src_unpack
-	else
-		default
-		mv userland-*/ ${P}/ || die
-	fi
-}
+EGIT_REPO_URI="https://github.com/raspberrypi/userland"
 
-src_prepare() {
-	# init script for Debian, not useful on Gentoo
-	sed -i "/DESTINATION \/etc\/init.d/,+2d" interface/vmcs_host/linux/vcfiled/CMakeLists.txt || die
+PATCHES=( "${FILESDIR}"/${P}-gentoo.patch )
+
+pkg_setup() {
+	append-ldflags $(no-as-needed)
 }
 
 src_configure() {
-	# toolchain file not needed, but build fails if it is not specified
-	local mycmakeargs="-DCMAKE_TOOLCHAIN_FILE=/dev/null"
+	local mycmakeargs=(
+		-DVMCS_INSTALL_PREFIX="/usr"
+	)
+
 	cmake-utils_src_configure
 }
 
 src_install() {
 	cmake-utils_src_install
-	doenvd "${FILESDIR}"/04${PN}
 
-	# enable dynamic switching of the GL implementation
-	dodir /usr/lib/opengl
-	dosym ../../../opt/vc /usr/lib/opengl/${PN}
+	insinto /lib/udev/rules.d
+	doins "${FILESDIR}"/92-local-vchiq-permissions.rules
 
-	# tell eselect opengl that we do not have libGL
-	touch "${ED}"/opt/vc/.gles-only
+	dodir /usr/share/doc/${PF}
+	mv "${D}"/usr/src/hello_pi "${D}"/usr/share/doc/${PF}/
+	rmdir "${D}"/usr/src
 }

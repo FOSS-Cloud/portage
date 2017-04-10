@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>java</herd>
+	<maintainer type="project">
+		<email>java@gentoo.org</email>
+		<name>Java</name>
+	</maintainer>
 	<longdescription lang="en">
 		jnr-netdb is a java interface to getservbyname(3), getservbyport(3).
 
@@ -11,5 +14,7 @@
 		environments
 		where neither native code, nor filesystem access is possible.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">jnr/jnr-netdb</remote-id>
+	</upstream>
 </pkgmetadata>
-

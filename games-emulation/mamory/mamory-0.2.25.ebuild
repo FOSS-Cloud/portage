@@ -1,8 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/mamory/mamory-0.2.25.ebuild,v 1.4 2012/04/25 16:25:16 jlec Exp $
+# $Id$
 
-inherit autotools games
+EAPI=5
+inherit autotools flag-o-matic games
 
 DESCRIPTION="ROM management tools and library"
 HOMEPAGE="http://mamory.sourceforge.net/"
@@ -10,45 +11,39 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ppc x86"
+KEYWORDS="amd64 ppc x86"
 IUSE=""
 
 DEPEND="dev-libs/expat"
+RDEPEND=${DEPEND}
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	# Make sure the system expat is used
 	sed -i \
 		-e 's/#ifdef.*SYSEXPAT/#if 1/' \
-		mamory/amlxml.c mamory/amlxml.h \
-		|| die "sed amlxml failed"
+		mamory/amlxml.c mamory/amlxml.h || die
 
 	# Remove hardcoded CFLAGS options
 	sed -i \
 		-e '/AC_ARG_ENABLE(debug,/ {N;N;N;d}' \
-		configure.ac \
-		|| die "sed configure.ac failed"
+		configure.ac || die
 
 	# Make it possible for eautoreconf to fix fPIC etc.
 	sed -i \
 		-e '/libcommon_la_LDFLAGS= -static/d' \
-		common/Makefile.am \
-		|| die "sed Makefile.am failed"
+		common/Makefile.am || die
 
 	AT_M4DIR="config" eautoreconf
+	append-cflags -std=gnu89 # build with gcc5 (bug #570500)
 }
 
-src_compile() {
+src_configure() {
 	egamesconf \
-		--disable-dependency-tracking \
-		--includedir=/usr/include || die
-	emake || die "emake failed"
+		--includedir=/usr/include
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-	dodoc AUTHORS ChangeLog README TODO
+	default
 	dohtml DOCS/mamory.html
 	prepgamesdirs
 }

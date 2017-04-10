@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/baselayout-prefix/baselayout-prefix-2.2-r3.ebuild,v 1.6 2014/02/12 19:57:23 redlizard Exp $
+# $Id$
 
 EAPI=3
 
@@ -9,14 +9,14 @@ inherit eutils multilib libtool
 MY_P=${P/-prefix/}  # just use "upstream" sources
 EINFO=einfo-1.0.6
 DESCRIPTION="Minimal baselayout and e-functions for Gentoo Prefix installs"
-HOMEPAGE="http://www.gentoo.org/"
+HOMEPAGE="https://www.gentoo.org/"
 SRC_URI="mirror://gentoo/${MY_P}.tar.bz2
-	http://dev.gentoo.org/~vapier/dist/${MY_P}.tar.bz2
-	http://dev.gentoo.org/~redlizard/distfiles/${EINFO}.tar.xz"
+	https://dev.gentoo.org/~vapier/dist/${MY_P}.tar.bz2
+	https://dev.gentoo.org/~redlizard/distfiles/${EINFO}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~arm ~arm-linux ~ppc-aix ~x64-freebsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
+KEYWORDS="~arm ~ppc-aix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
 IUSE="build kernel_linux"
 
 S=${WORKDIR}/${EINFO}

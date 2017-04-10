@@ -1,12 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/gxmessage/gxmessage-2.20.1.ebuild,v 1.5 2014/05/14 14:19:39 ago Exp $
+# $Id$
 
 EAPI=5
 inherit gnome2-utils
 
 DESCRIPTION="A GTK+ based xmessage clone"
-HOMEPAGE="http://savannah.gnu.org/projects/gxmessage/ http://homepages.ihug.co.nz/~trmusson/programs.html#gxmessage"
+HOMEPAGE="https://savannah.gnu.org/projects/gxmessage/ http://homepages.ihug.co.nz/~trmusson/programs.html#gxmessage"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz
 	http://homepages.ihug.co.nz/~trmusson/stuff/${P}.tar.gz"
 

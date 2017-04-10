@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/go-mono.eclass,v 1.15 2013/07/27 16:18:00 pacho Exp $
+# $Id$
 
 # @ECLASS: go-mono.eclass
 # @MAINTAINER:
@@ -32,13 +32,13 @@ then
 elif [[ "${PV}" == "9999" ]]
 then
 	GO_MONO_P=${P}
-	EGIT_REPO_URI="http://github.com/mono/${GIT_PN}.git"
+	EGIT_REPO_URI="https://github.com/mono/${GIT_PN}.git"
 	SRC_URI=""
 	inherit autotools git
 elif [[ "${PV%.9999}" != "${PV}" ]]
 then
 	GO_MONO_P=${P}
-	EGIT_REPO_URI="http://github.com/mono/${GIT_PN}.git"
+	EGIT_REPO_URI="https://github.com/mono/${GIT_PN}.git"
 	EGIT_BRANCH="mono-$(get_version_component_range 1)-$(get_version_component_range 2)${GO_MONO_SUB_BRANCH}"
 	SRC_URI=""
 	inherit autotools git
@@ -65,8 +65,7 @@ then
 fi
 
 DEPEND="${DEPEND}
-	virtual/pkgconfig
-	userland_GNU? ( >=sys-apps/findutils-4.4.0 )"
+	virtual/pkgconfig"
 
 # @FUNCTION: go-mono_src_unpack
 # @DESCRIPTION:

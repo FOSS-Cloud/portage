@@ -1,76 +1,59 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/quassel/quassel-9999.ebuild,v 1.73 2014/09/24 13:01:04 kensington Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-inherit cmake-utils eutils pax-utils systemd user versionator
+inherit cmake-utils eutils pax-utils systemd user
 
 EGIT_REPO_URI="git://git.quassel-irc.org/quassel"
 [[ "${PV}" == "9999" ]] && inherit git-r3
 
 DESCRIPTION="Qt/KDE IRC client supporting a remote daemon for 24/7 connectivity"
 HOMEPAGE="http://quassel-irc.org/"
-[[ "${PV}" == "9999" ]] || SRC_URI="http://quassel-irc.org/pub/${P/_/-}.tar.bz2"
+[[ "${PV}" == "9999" ]] || SRC_URI="http://quassel-irc.org/pub/${P}.tar.bz2"
 
 LICENSE="GPL-3"
-KEYWORDS=""
 SLOT="0"
-IUSE="ayatana crypt dbus debug kde monolithic phonon postgres qt5 +server +ssl syslog webkit X"
+KEYWORDS=""
+IUSE="+breeze crypt +dbus debug kde monolithic oxygen postgres +server snorenotify +ssl syslog urlpreview X"
 
 SERVER_RDEPEND="
-	qt5? (
-		dev-qt/qtscript:5
-		postgres? ( dev-qt/qtsql:5[postgres] )
-		!postgres? ( dev-qt/qtsql:5[sqlite] dev-db/sqlite:3[threadsafe(+),-secure-delete] )
-	)
-	!qt5? (
-		dev-qt/qtscript:4
-		crypt? (
-			app-crypt/qca:2
-			app-crypt/qca-ossl
-		)
-		postgres? ( dev-qt/qtsql:4[postgres] )
-		!postgres? ( dev-qt/qtsql:4[sqlite] dev-db/sqlite:3[threadsafe(+),-secure-delete] )
-	)
+	dev-qt/qtscript:5
+	crypt? ( app-crypt/qca:2[qt5,ssl] )
+	postgres? ( dev-qt/qtsql:5[postgres] )
+	!postgres? ( dev-qt/qtsql:5[sqlite] dev-db/sqlite:3[threadsafe(+),-secure-delete] )
 	syslog? ( virtual/logger )
 "
 
 GUI_RDEPEND="
-	qt5? (
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		dbus? (
-			dev-libs/libdbusmenu-qt[qt5(+)]
-			dev-qt/qtdbus:5
-		)
-		phonon? ( media-libs/phonon[qt5] )
-		webkit? ( dev-qt/qtwebkit:5 )
+	dev-qt/qtgui:5
+	dev-qt/qtmultimedia:5
+	dev-qt/qtwidgets:5
+	breeze? ( kde-frameworks/breeze-icons:5 )
+	dbus? (
+		>=dev-libs/libdbusmenu-qt-0.9.3_pre20140619[qt5]
+		dev-qt/qtdbus:5
 	)
-	!qt5? (
-		dev-qt/qtgui:4
-		ayatana? ( dev-libs/libindicate-qt )
-		dbus? (
-			dev-libs/libdbusmenu-qt[qt4(+)]
-			dev-qt/qtdbus:4
-			kde? (
-				kde-base/kdelibs:4
-				kde-base/oxygen-icons:4
-				ayatana? ( kde-misc/plasma-widget-message-indicator )
-			)
-		)
-		phonon? ( || ( media-libs/phonon[qt4] dev-qt/qtphonon:4 ) )
-		webkit? ( dev-qt/qtwebkit:4 )
+	kde? (
+		kde-frameworks/kconfigwidgets:5
+		kde-frameworks/kcoreaddons:5
+		kde-frameworks/knotifications:5
+		kde-frameworks/knotifyconfig:5
+		kde-frameworks/ktextwidgets:5
+		kde-frameworks/kwidgetsaddons:5
+		kde-frameworks/kxmlgui:5
+		kde-frameworks/sonnet:5
 	)
+	oxygen? ( kde-frameworks/oxygen-icons:5 )
+	snorenotify? ( >=x11-libs/snorenotify-0.7.0 )
+	urlpreview? ( dev-qt/qtwebengine:5[widgets] )
 "
 
 RDEPEND="
 	sys-libs/zlib
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtnetwork:5[ssl?]
-	)
-	!qt5? ( dev-qt/qtcore:4[ssl?] )
+	dev-qt/qtcore:5
+	dev-qt/qtnetwork:5[ssl?]
 	monolithic? (
 		${SERVER_RDEPEND}
 		${GUI_RDEPEND}
@@ -81,24 +64,21 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	qt5? ( dev-qt/linguist-tools:5 )
+	dev-qt/linguist-tools:5
+	kde-frameworks/extra-cmake-modules
 "
 
-DOCS=( AUTHORS ChangeLog README )
-
-S="${WORKDIR}/${P/_/-}"
+DOCS=( AUTHORS ChangeLog README.md )
 
 REQUIRED_USE="
 	|| ( X server monolithic )
-	ayatana? ( || ( X monolithic ) )
 	crypt? ( || ( server monolithic ) )
-	dbus? ( || ( X monolithic ) )
 	kde? ( || ( X monolithic ) )
-	phonon? ( || ( X monolithic ) )
+	monolithic? ( || ( breeze oxygen ) )
 	postgres? ( || ( server monolithic ) )
-	qt5? ( !ayatana !crypt !kde phonon )
+	snorenotify? ( || ( X monolithic ) )
 	syslog? ( || ( server monolithic ) )
-	webkit? ( || ( X monolithic ) )
+	X? ( || ( breeze oxygen ) )
 "
 
 pkg_setup() {
@@ -113,20 +93,22 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package ayatana IndicateQt)
-		$(cmake-utils_use_find_package crypt QCA2)
-		$(cmake-utils_use_find_package dbus dbusmenu-qt)
+		-DUSE_QT4=OFF
+		-DUSE_QT5=ON
+		-DWANT_CORE=$(usex server)
+		-DWANT_MONO=$(usex monolithic)
+		-DWANT_QTCLIENT=$(usex X)
+		-DWITH_KDE=$(usex kde)
+		-DWITH_WEBKIT=OFF
+		-DWITH_WEBENGINE=$(usex urlpreview)
+		-DWITH_BREEZE=OFF
+		-DWITH_BREEZE_DARK=OFF
+		-DWITH_OXYGEN=OFF
+		-DEMBED_DATA=OFF
+		-DCMAKE_SKIP_RPATH=ON
+		$(cmake-utils_use_find_package crypt QCA2-QT5)
 		$(cmake-utils_use_find_package dbus dbusmenu-qt5)
-		$(cmake-utils_use_with kde)
-		$(cmake-utils_use_with !kde OXYGEN)
-		$(cmake-utils_use_want monolithic MONO)
-		$(cmake-utils_use_find_package phonon)
-		$(cmake-utils_use_find_package phonon Phonon4Qt5)
-		$(cmake-utils_use_use qt5)
-		$(cmake-utils_use_want server CORE)
-		$(cmake-utils_use_with webkit)
-		$(cmake-utils_use_want X QTCLIENT)
-		"-DEMBED_DATA=OFF"
+		$(cmake-utils_use_find_package snorenotify LibsnoreQt5)
 	)
 
 	cmake-utils_src_configure
@@ -157,7 +139,7 @@ src_install() {
 pkg_postinst() {
 	if use monolithic && use ssl ; then
 		elog "Information on how to enable SSL support for client/core connections"
-		elog "is available at http://bugs.quassel-irc.org/wiki/quassel-irc."
+		elog "is available at http://bugs.quassel-irc.org/projects/quassel-irc/wiki/Client-Core_SSL_support."
 	fi
 
 	if use server; then
@@ -168,18 +150,6 @@ pkg_postinst() {
 	if use server || use monolithic ; then
 		einfo "Quassel can use net-misc/oidentd package if installed on your system."
 		einfo "Consider installing it if you want to run quassel within identd daemon."
-	fi
-
-	# temporary info mesage
-	if use server && [[ $(get_version_component_range 2 ${REPLACING_VERSIONS}) -lt 7 ]]; then
-		echo
-		ewarn "Please note that all configuration moved from"
-		ewarn "/home/\${QUASSEL_USER}/.config/quassel-irc.org/"
-		ewarn "to: ${QUASSEL_DIR}."
-		echo
-		ewarn "For migration, stop the core, move quasselcore files (pretty much"
-		ewarn "everything apart from quasselclient.conf and settings.qss) into"
-		ewarn "new location and then start server again."
 	fi
 }
 

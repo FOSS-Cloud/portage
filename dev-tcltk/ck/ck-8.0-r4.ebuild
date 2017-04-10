@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/ck/ck-8.0-r4.ebuild,v 1.3 2014/03/03 23:30:38 pacho Exp $
+# $Id$
 
 EAPI=5
 
-inherit eutils multilib
+inherit eutils multilib toolchain-funcs
 
 MY_P=${PN}${PV}
 S=${WORKDIR}/${MY_P}
@@ -13,15 +13,20 @@ DESCRIPTION="A curses based toolkit for tcl"
 HOMEPAGE="http://www.ch-werner.de/ck/"
 SRC_URI="
 	http://www.ch-werner.de/ck/${MY_P}.tar.gz
-	http://dev.gentoo.org/~jlec/distfiles/${P}-tcl8.6.patch.xz"
+	https://dev.gentoo.org/~jlec/distfiles/${P}-tcl8.6.patch.xz"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="dev-lang/tk"
-RDEPEND="${DEPEND}"
+RDEPEND="
+	dev-lang/tk
+	sys-libs/ncurses[gpm]
+	sys-libs/gpm
+	"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 src_prepare() {
 	epatch \
@@ -36,4 +41,9 @@ src_configure() {
 	econf \
 		--with-tcl="${EPREFIX}/usr/$(get_libdir)" \
 		--enable-shared
+}
+
+src_compile() {
+	emake \
+		CURSES_LIB_SWITCHES="$($(tc-getPKG_CONFIG) --libs ncursesw) -lgpm"
 }

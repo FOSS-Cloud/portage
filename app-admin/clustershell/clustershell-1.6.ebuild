@@ -1,17 +1,17 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/clustershell/clustershell-1.6.ebuild,v 1.4 2013/09/05 18:15:50 mgorny Exp $
+# $Id$
 
 # TODO: test phase
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_6 python2_7 )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="xml"
 inherit distutils-r1
 
 DESCRIPTION="Python framework for efficient cluster administration"
-HOMEPAGE="http://cea-hpc.github.com/clustershell/"
+HOMEPAGE="https://cea-hpc.github.com/clustershell/"
 SRC_URI="https://github.com/cea-hpc/clustershell/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="CeCILL-C"

@@ -1,15 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/openocd/openocd-0.8.0.ebuild,v 1.3 2014/06/17 04:57:34 vapier Exp $
+# $Id$
 
 EAPI="5"
 
-inherit eutils multilib flag-o-matic toolchain-funcs udev
+inherit eutils multilib flag-o-matic toolchain-funcs udev user
 
 # One ebuild to rule them all
 if [[ ${PV} == "9999" ]] ; then
 	inherit autotools git-2
 	EGIT_REPO_URI="git://git.code.sf.net/p/${PN}/code"
+	EGIT_PROJECT="${PN}"
 else
 	MY_PV="${PV/_/-}"
 	MY_P="${PN}-${MY_PV}"
@@ -32,10 +33,14 @@ RDEPEND=">=dev-lang/jimtcl-0.75
 		virtual/libusb:0
 		virtual/libusb:1
 	)
-	ftdi? ( dev-embedded/libftdi )"
+	ftdi? ( dev-embedded/libftdi:= )"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
+
+pkg_setup() {
+	enewgroup plugdev
+}
 
 src_prepare() {
 	epatch_user
@@ -104,7 +109,7 @@ src_configure() {
 
 	if use ftdi; then
 		myconf+=(
-			--enable-usb_blaster_libftd
+			--enable-usb_blaster_libftdi
 			--enable-openjtag_ftdi
 			--enable-presto_libftdi
 		)
@@ -128,5 +133,9 @@ src_configure() {
 src_install() {
 	default
 	env -uRESTRICT prepstrip "${ED}"/usr/bin "${ED}"/usr/$(get_libdir)
-	udev_dorules ${D}/usr/share/${PN}/contrib/*.rules
+	udev_dorules "${D}"/usr/share/${PN}/contrib/*.rules
+}
+
+pkg_postinst() {
+	elog "To access openocd devices as user you must be in the plugdev group"
 }

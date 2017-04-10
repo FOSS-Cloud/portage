@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/crunch/crunch-3.6.ebuild,v 1.1 2014/05/24 22:31:52 zerochaos Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils toolchain-funcs
 
 DESCRIPTION="A wordlist generator"
-HOMEPAGE="http://sourceforge.net/projects/crunch-wordlist/"
+HOMEPAGE="https://sourceforge.net/projects/crunch-wordlist/"
 SRC_URI="mirror://sourceforge/crunch-wordlist/crunch-wordlist/${P}.tgz"
 
 LICENSE="GPL-2"

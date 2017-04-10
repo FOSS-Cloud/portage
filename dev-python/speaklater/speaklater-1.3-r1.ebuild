@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/speaklater/speaklater-1.3-r1.ebuild,v 1.4 2014/09/30 07:08:01 idella4 Exp $
+# $Id$
 
-EAPI=5
-PYTHON_COMPAT=( python{2_7,3_3,3_4} pypy )
+EAPI=6
+PYTHON_COMPAT=( python{2_7,3_4,3_5} pypy )
 inherit distutils-r1
 
 DESCRIPTION="Lazy strings for Python"
@@ -12,8 +12,22 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="test"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND=""
+
+python_prepare() {
+	# https://github.com/mitsuhiko/speaklater/issues/2
+	if python_is_python3; then
+		2to3 -n -w --no-diffs ${PN}.py || die
+		2to3 -d -n -w --no-diffs ${PN}.py || die
+		# fix unicode in doctests
+		sed -ri "s/(^ {4}l?)u'/\1'/" ${PN}.py || die
+	fi
+}
+
+python_test() {
+	"${PYTHON}" -m doctest -v ${PN}.py || die "tests failed with ${EPYTHON}"
+}

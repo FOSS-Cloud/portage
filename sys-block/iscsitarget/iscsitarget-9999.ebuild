@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/iscsitarget/iscsitarget-9999.ebuild,v 1.4 2013/10/03 17:50:56 ryao Exp $
+# $Id$
 
 EAPI="4"
 
@@ -8,9 +8,9 @@ inherit linux-mod eutils flag-o-matic
 
 if [ ${PV} == "9999" ] ; then
 	inherit subversion
-	ESVN_REPO_URI="http://svn.code.sf.net/p/iscsitarget/code/trunk"
+	ESVN_REPO_URI="https://svn.code.sf.net/p/iscsitarget/code/trunk"
 else
-	SRC_URI="http://dev.gentoo.org/~ryao/dist/${P}.tar.xz"
+	SRC_URI="https://dev.gentoo.org/~ryao/dist/${P}.tar.xz"
 	KEYWORDS="~amd64 ~ppc ~x86"
 fi
 

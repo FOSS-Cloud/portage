@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/mpdscribble/mpdscribble-0.22.ebuild,v 1.4 2012/05/05 08:38:38 mgorny Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 inherit eutils
 
 DESCRIPTION="An MPD client that submits information to Audioscrobbler"
@@ -14,19 +14,16 @@ SLOT="0"
 KEYWORDS="amd64 ~hppa ~ppc x86"
 IUSE="+curl"
 
-RDEPEND=">=dev-libs/glib-2.16:2
-	>=media-libs/libmpdclient-2.2
+RDEPEND="dev-libs/glib
+	media-libs/libmpdclient
 	curl? ( net-misc/curl )
 	!curl? ( net-libs/libsoup:2.4 )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_configure() {
-	local myclient=soup
-	use curl && myclient=curl
 	econf \
-		--with-http-client=${myclient} \
-		--docdir="${EPREFIX}"/usr/share/doc/${PF}
+		--with-http-client=$(usex curl curl soup)
 }
 
 src_install() {

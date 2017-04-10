@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-core/nagios-core-3.5.1.ebuild,v 1.8 2014/09/19 10:30:51 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -21,7 +21,7 @@ DEPEND="virtual/mailx
 		lighttpd? ( www-servers/lighttpd dev-lang/php[cgi] )
 		apache2? ( || ( dev-lang/php[apache2] dev-lang/php[cgi] ) )
 	)
-	perl? ( >=dev-lang/perl-5.6.1-r7 )"
+	perl? ( >=dev-lang/perl-5.6.1-r7:= )"
 RDEPEND="${DEPEND}
 	!net-analyzer/nagios-imagepack
 	vim-syntax? ( app-vim/nagios-syntax )"
@@ -95,6 +95,7 @@ src_install() {
 	if ! use web ; then
 		sed -i -e 's/cd $(SRC_CGI) && $(MAKE) $@/# line removed due missing web use flag/' \
 			-e 's/cd $(SRC_HTM) && $(MAKE) $@/# line removed due missing web use flag/' \
+			-e 's/$(MAKE) install-exfoliation/# line removed due missing web use flag/' \
 			Makefile
 	fi
 
@@ -103,7 +104,9 @@ src_install() {
 	emake DESTDIR="${D}" install
 	emake DESTDIR="${D}" install-config
 	emake DESTDIR="${D}" install-commandmode
-	emake DESTDIR="${D}" install-classicui
+	if use web; then
+		emake DESTDIR="${D}" install-classicui
+	fi
 
 	newinitd "${FILESDIR}"/nagios3 nagios
 	newconfd "${FILESDIR}"/conf.d nagios

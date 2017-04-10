@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/xpilot/xpilot-4.5.5.ebuild,v 1.3 2010/06/21 20:13:52 maekke Exp $
+# $Id$
 
-EAPI=2
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="A multi-player 2D client/server space game"
@@ -28,21 +28,24 @@ src_prepare() {
 		-e '/^INSTMAN/s:=.*:=/usr/share/man/man6:' \
 		-e "/^INSTLIB/s:=.*:=${GAMES_DATADIR}/${PN}:" \
 		-e "/^INSTBIN/s:=.*:=${GAMES_BINDIR}:" \
-		Local.config \
-		|| die "sed failed"
+		Local.config || die
+	# work with glibc-2.20
+	sed -i \
+		-e 's/getline/lgetline/' \
+		src/client/textinterface.c || die
 }
 
 src_compile() {
-	xmkmf || die "xmkmf failed"
-	emake Makefiles || die "emake Makefiles failed"
-	emake includes || die "emake includes failed"
-	emake depend || die "emake depend failed"
-	emake CC="${CC}" CDEBUGFLAGS="${CFLAGS} ${LDFLAGS}" || die "emake failed"
+	xmkmf || die
+	emake Makefiles
+	emake includes
+	emake depend
+	emake CC="${CC}" CDEBUGFLAGS="${CFLAGS} ${LDFLAGS}"
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-	emake DESTDIR="${D}" install.man || die "emake install.man failed"
+	emake DESTDIR="${D}" install
+	emake DESTDIR="${D}" install.man
 	newicon lib/textures/logo.ppm ${PN}.ppm
 	make_desktop_entry ${PN} XPilot /usr/share/pixmaps/${PN}.ppm
 	dodoc README.txt doc/{ChangeLog,CREDITS,FAQ,README*,TODO}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>hwoarang@gentoo.org</email>
 		<name>Markos Chandras</name>
 	</maintainer>
@@ -13,5 +13,7 @@
 		to suit your needs. SocNetV also offers a built-in web crawler, allowing you to 
 		automatically create networks from all links found in a given initial URL.
 	</longdescription>
+	<upstream>
+		<remote-id type="sourceforge">socnetv</remote-id>
+	</upstream>
 </pkgmetadata>
-

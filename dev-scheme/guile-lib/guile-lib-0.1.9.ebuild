@@ -1,10 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-scheme/guile-lib/guile-lib-0.1.9.ebuild,v 1.9 2013/05/25 07:46:02 ago Exp $
+# $Id$
 
 EAPI="3"
-
-inherit eutils
 
 DESCRIPTION="An accumulation place for pure-scheme Guile modules"
 HOMEPAGE="http://www.nongnu.org/guile-lib/"

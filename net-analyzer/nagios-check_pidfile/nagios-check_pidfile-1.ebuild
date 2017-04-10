@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-check_pidfile/nagios-check_pidfile-1.ebuild,v 1.2 2014/01/26 03:03:36 creffett Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=net-analyzer/nagios-plugins-1.4.13-r1"
+DEPEND="|| ( >=net-analyzer/nagios-plugins-1.4.13-r1 net-analyzer/monitoring-plugins )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/check_pidfile-${PV}

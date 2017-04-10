@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer>
+  <maintainer type="person">
     <email>zerochaos@gentoo.org</email>
     <name>Rick Farina</name>
   </maintainer>
@@ -9,4 +9,8 @@
     <flag name="pcap">Add support for network packet capture via net-libs/libpcap</flag>
     <flag name="wireshark-plugins">Build the wireshark plugins for bluetooth baseband sniffing</flag>
   </use>
+  <upstream>
+    <remote-id type="github">greatscottgadgets/libbtbb</remote-id>
+    <remote-id type="sourceforge">libbtbb</remote-id>
+  </upstream>
 </pkgmetadata>

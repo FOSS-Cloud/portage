@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/mhddfs/mhddfs-0.1.39.ebuild,v 1.3 2012/12/25 16:21:58 ago Exp $
+# $Id$
 
 EAPI=4
 
@@ -15,7 +15,7 @@ SRC_URI="http://mhddfs.uvw.ru/downloads/${MY_P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="linguas_ru suid"
+IUSE="l10n_ru suid"
 
 RDEPEND=">=sys-fs/fuse-2.7.0"
 DEPEND="${RDEPEND}
@@ -32,7 +32,7 @@ src_install() {
 	dobin mhddfs
 	doman mhddfs.1
 	dodoc ${DOCS}
-	use linguas_ru && dodoc README.ru.UTF-8
+	use l10n_ru && dodoc README.ru.UTF-8
 	use suid && fperms u+s /usr/bin/${PN}
 }
 

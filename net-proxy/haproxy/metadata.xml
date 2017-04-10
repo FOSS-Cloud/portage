@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>net-proxy</herd>
-	<maintainer>
+	<maintainer type="person">
 		<email>idl0r@gentoo.org</email>
 		<name>Christian Ruppert</name>
 	</maintainer>
@@ -20,6 +19,12 @@ It can:
 Its event-driven architecture allows it to easily handle thousands of simultaneous connections on hundreds of instances without risking the system's stability.
 	</longdescription>
 	<use>
-		<flag name='tools'>Install additional tools (halog, iprange).</flag>
+		<flag name="net_ns">Enable network namespace support (CONFIG_NET_NS)</flag>
+		<flag name="pcre-jit">Use JIT support for PCRE</flag>
+		<flag name="slz">Use <pkg>dev-libs/libslz</pkg> compression library</flag>
+		<flag name="tools">Install additional tools (halog, iprange)</flag>
+		<flag name="device-atlas">Use <pkg>dev-libs/device-atlas-api-c</pkg> library</flag>
+		<flag name="51degrees">Device Detection using 51 Degrees</flag>
+		<flag name="wurfl">Device Detection using WURFL</flag>
 	</use>
 </pkgmetadata>

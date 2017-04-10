@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/ucommon/ucommon-6.1.10.ebuild,v 1.1 2014/09/13 14:15:31 mgorny Exp $
+# $Id$
 
 EAPI="5"
 
@@ -9,20 +9,23 @@ AUTOTOOLS_AUTORECONF=1
 inherit autotools-utils eutils
 
 DESCRIPTION="Portable C++ runtime for threads and sockets"
-HOMEPAGE="http://www.gnu.org/software/commoncpp"
+HOMEPAGE="https://www.gnu.org/software/commoncpp"
 SRC_URI="mirror://gnu/commoncpp/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0/6"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux"
-IUSE="doc static-libs socks +cxx debug ssl gnutls"
+IUSE="doc static-libs socks +cxx debug libressl ssl gnutls"
 
 RDEPEND="
 	ssl? (
-		!gnutls? ( dev-libs/openssl:0= )
 		gnutls? (
 			net-libs/gnutls:0=
 			dev-libs/libgcrypt:0=
+		)
+		!gnutls? (
+			!libressl? ( dev-libs/openssl:0= )
+			libressl? ( dev-libs/libressl:0= )
 		)
 	)"
 
@@ -35,7 +38,8 @@ PATCHES=( "${FILESDIR}"/6.1/disable_rtf_gen_doxy.patch
 		  "${FILESDIR}"/6.1/install_gcrypt.m4_file.patch
 		  "${FILESDIR}"/6.1/gcrypt_autotools.patch )
 
-#AUTOTOOLS_IN_SOURCE_BUILD=1
+# Needed for doxygen, bug #526726
+AUTOTOOLS_IN_SOURCE_BUILD=1
 
 src_prepare() {
 	# Aclocal 1.13 deprecated error BGO #467674

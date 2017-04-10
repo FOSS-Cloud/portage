@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/rtcwmp-demo/rtcwmp-demo-1.1-r1.ebuild,v 1.1 2014/07/09 22:23:25 axs Exp $
+# $Id$
 
 EAPI=5
 inherit eutils unpacker games
@@ -14,24 +14,18 @@ SRC_URI="mirror://idsoftware/wolf/linux/old/${MY_P}
 
 LICENSE="RTCW GPL-2" # gpl for init script bug #425946
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="dedicated"
 RESTRICT="strip mirror"
 
 RDEPEND="sys-libs/glibc
 	amd64? ( sys-libs/glibc[multilib] )
 	dedicated? ( app-misc/screen )
-	!dedicated? ( || (
-		(
-			virtual/opengl
-			x11-libs/libX11
-			x11-libs/libXext
-		)
-		(
-			app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
-			app-emulation/emul-linux-x86-opengl[-abi_x86_32(-)]
-		)
-	) )"
+	!dedicated? (
+		virtual/opengl
+		x11-libs/libX11
+		x11-libs/libXext
+	)"
 
 QA_PREBUILT="${GAMES_PREFIX_OPT:1}/{PN}/*
 	${GAMES_PREFIX_OPT:1}/{PN}/demomain/*"

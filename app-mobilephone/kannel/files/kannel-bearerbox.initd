@@ -1,7 +1,7 @@
-#!/sbin/runscript
-# Copyright 1999-2009 Gentoo Foundation
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/kannel/files/kannel-bearerbox.initd,v 1.1 2009/09/25 01:20:06 mrness Exp $
+# $Id$
 
 KANNEL_SERVICE=${SVCNAME#*-}
 
@@ -19,6 +19,7 @@ checkconfig() {
 
 start() {
 	checkconfig || return 1
+	checkpath -o root:kannel -m 0770 -d /var/run/kannel
 
 	ebegin "Starting kannel ${KANNEL_SERVICE}"
 	start-stop-daemon --start --quiet --exec /usr/sbin/${KANNEL_SERVICE} -- \

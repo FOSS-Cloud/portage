@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/DateTime-Format-ICal/DateTime-Format-ICal-0.90.0.ebuild,v 1.1 2011/08/31 12:34:47 tove Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 MODULE_AUTHOR=DROLSKY
 MODULE_VERSION=0.09
@@ -20,6 +20,6 @@ RDEPEND="dev-perl/DateTime
 	>=dev-perl/DateTime-TimeZone-0.22
 	>=dev-perl/Params-Validate-0.59"
 DEPEND="${RDEPEND}
-	virtual/perl-Module-Build"
+	dev-perl/Module-Build"
 
 SRC_TEST=do

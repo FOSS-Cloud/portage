@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer>
+  <maintainer type="person">
     <email>slis@gentoo.org</email>
   </maintainer>
   <longdescription>
@@ -10,4 +10,7 @@
 	rediscover evolutionary algorithms. DEAP is the proof that evolutionary 
 	algorithms do **not** need to be neither complex or complicated.
   </longdescription>
+  <upstream>
+    <remote-id type="pypi">deap</remote-id>
+  </upstream>
 </pkgmetadata>

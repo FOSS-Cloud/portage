@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>sci-chemistry</herd>
-<longdescription lang="en">
+  <maintainer type="project">
+    <email>sci-chemistry@gentoo.org</email>
+    <name>Gentoo Chemistry Project</name>
+  </maintainer>
+  <longdescription lang="en">
   XDS-Viewer is a program for viewing X-ray diffraction and control
   images in the context of data processing by the XDS Program Package
   (external link). Potential users of the software are scientists
@@ -13,4 +16,7 @@
   comes with XDS. XDS-Viewer will automatically invoke the convertion
   program for images other than CBF. 
 </longdescription>
+  <upstream>
+    <remote-id type="sourceforge">xds-viewer</remote-id>
+  </upstream>
 </pkgmetadata>

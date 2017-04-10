@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/ima-evm-utils/ima-evm-utils-9999.ebuild,v 1.1 2013/02/10 10:23:44 swift Exp $
+# $Id$
 
 EAPI=5
 
-EGIT_REPO_URI="git://linux-ima.git.sourceforge.net/gitroot/linux-ima/ima-evm-utils.git"
+EGIT_REPO_URI="git://git.code.sf.net/p/linux-ima/ima-evm-utils"
 EGIT_BOOTSTRAP="autogen.sh"
 
 inherit git-2 eutils

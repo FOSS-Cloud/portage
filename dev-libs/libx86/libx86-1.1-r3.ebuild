@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libx86/libx86-1.1-r3.ebuild,v 1.3 2013/03/26 11:44:11 ago Exp $
+# $Id$
 
 EAPI=5
 
-inherit eutils multilib toolchain-funcs
+inherit eutils multilib toolchain-funcs flag-o-matic
 
 DESCRIPTION="A hardware-independent library for executing real-mode x86 code"
 HOMEPAGE="http://www.codon.org.uk/~mjg59/libx86"
@@ -20,8 +20,11 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-0.99-ifmask.patch
 	# Patch for bugs #236888 and #456648
 	epatch "${FILESDIR}"/${P}-makefile.patch
+}
 
+src_configure() {
 	tc-export CC AR
+	append-flags -fno-delete-null-pointer-checks #523276
 }
 
 src_compile() {

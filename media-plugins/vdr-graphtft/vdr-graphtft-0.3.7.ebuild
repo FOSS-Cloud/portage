@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-graphtft/vdr-graphtft-0.3.7.ebuild,v 1.2 2013/06/17 20:08:39 scarabeus Exp $
+# $Id$
 
 EAPI="5"
 
@@ -58,7 +58,7 @@ src_prepare() {
 
 	vdr-plugin-2_src_prepare
 
-	remove_i18n_include graphtft.h setup.h
+	vdr_remove_i18n_include graphtft.h setup.h
 
 	# UINT64_C is needed by ffmpeg headers
 	append-cxxflags -D__STDC_CONSTANT_MACROS

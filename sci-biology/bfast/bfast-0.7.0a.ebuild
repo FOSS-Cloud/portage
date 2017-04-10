@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/bfast/bfast-0.7.0a.ebuild,v 1.3 2013/02/17 10:38:44 jlec Exp $
+# $Id$
 
 EAPI=5
 
 AUTOTOOLS_AUTORECONF=true
 
-inherit autotools-utils
+inherit autotools-utils flag-o-matic
 
 DESCRIPTION="Blat-like Fast Accurate Search Tool"
 HOMEPAGE="https://sourceforge.net/projects/bfast/"
@@ -35,6 +35,8 @@ src_prepare() {
 		-i Makefile.am || die
 
 	use test && AUTOTOOLS_IN_SOURCE_BUILD=1
+
+	append-flags -fgnu89-inline
 
 	autotools-utils_src_prepare
 }

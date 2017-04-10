@@ -1,13 +1,14 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/glpk/glpk-4.45.ebuild,v 1.11 2014/02/05 21:54:33 bicatali Exp $
+# $Id$
 
 EAPI=2
-inherit flag-o-matic
+
+inherit eutils flag-o-matic
 
 DESCRIPTION="GNU Linear Programming Kit"
 LICENSE="GPL-3"
-HOMEPAGE="http://www.gnu.org/software/glpk/"
+HOMEPAGE="https://www.gnu.org/software/glpk/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 SLOT="0"

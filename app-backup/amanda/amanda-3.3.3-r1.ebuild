@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/amanda/amanda-3.3.3-r1.ebuild,v 1.8 2014/06/23 15:49:43 robbat2 Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils perl-module user systemd
@@ -8,9 +8,12 @@ inherit autotools eutils perl-module user systemd
 DESCRIPTION="The Advanced Maryland Automatic Network Disk Archiver"
 HOMEPAGE="http://www.amanda.org/"
 SRC_URI="mirror://sourceforge/amanda/${P}.tar.gz"
+
 LICENSE="HPND BSD BSD-2 GPL-2+ GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 ~sparc x86"
+IUSE="curl gnuplot ipv6 kerberos minimal nls readline s3 samba systemd xfs"
+
+KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
 RDEPEND="sys-libs/readline
 	virtual/awk
 	app-arch/tar
@@ -42,8 +45,6 @@ DEPEND="${RDEPEND}
 	app-text/docbook-xml-dtd
 	dev-libs/libxslt
 	"
-
-IUSE="curl gnuplot ipv6 kerberos minimal nls readline s3 samba systemd xfs"
 
 MYFILESDIR="${T}/files"
 ENVDIR="/etc/env.d"
@@ -135,6 +136,8 @@ src_unpack() {
 }
 
 src_prepare() {
+	# gentoo bug #537248
+	epatch "${FILESDIR}/local-amanda-perl5.20.patch"
 
 	# gentoo bug #331111
 	sed -i '/^check-local: check-perl$/d' "${S}"/config/automake/scripts.am
@@ -274,7 +277,7 @@ src_configure() {
 	myconf="${myconf} `use_enable nls`"
 
 	# Bug #296634: Perl location
-	perlinfo
+	perl_set_version
 	myconf="${myconf} --with-amperldir=${VENDOR_LIB}"
 
 	# Bug 296633: --disable-syntax-checks
@@ -406,7 +409,7 @@ src_install() {
 	newdoc "${FILESDIR}/example_global.conf" global.conf
 
 	einfo "Cleaning up dud .la files"
-	perlinfo
+	perl_set_version
 	find "${D}"/"${VENDOR_LIB}" -name '*.la' -print0 |xargs -0 rm -f
 }
 
@@ -440,6 +443,9 @@ pkg_postinst() {
 	elog "Otherwise, please look at /usr/share/doc/${PF}/inetd.amanda.sample"
 	elog "as an example of how to configure your inetd."
 	elog
+	elog "systemd-users: enable and start amanda.socket or the relevant services"
+	elog "regarding what auth method you use."
+	elog
 	elog "NOTICE: If you need raw access to partitions you need to add the"
 	elog "amanda user to the 'disk' group."
 	elog
@@ -453,7 +459,7 @@ pkg_postinst() {
 	elog "Please note that this package no longer explicitly depends on"
 	elog "virtual/inetd, as it supports modes where an inetd is not needed"
 	elog "(see bug #506028 for details)."
-
+	elog "The only exception is when you use the authentication method 'local'."
 }
 
 # We have had reports of amanda file permissions getting screwed up.

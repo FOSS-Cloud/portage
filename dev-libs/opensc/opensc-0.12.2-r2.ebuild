@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/opensc/opensc-0.12.2-r2.ebuild,v 1.8 2012/09/30 17:20:43 armin76 Exp $
+# $Id$
 
 EAPI=4
 
@@ -15,10 +15,11 @@ SLOT="0"
 KEYWORDS="alpha amd64 arm hppa ia64 m68k ppc ppc64 s390 sh sparc x86"
 IUSE="doc libtool +pcsc-lite openct readline ssl zlib"
 
-RDEPEND="libtool? ( sys-devel/libtool )
+# Drop the libtool dep once libltdl goes stable.
+RDEPEND="libtool? ( || ( dev-libs/libltdl:0 <sys-devel/libtool-2.4.3-r2:2 ) )
 	zlib? ( sys-libs/zlib )
-	readline? ( sys-libs/readline )
-	ssl? ( dev-libs/openssl )
+	readline? ( sys-libs/readline:0 )
+	ssl? ( dev-libs/openssl:0 )
 	openct? ( >=dev-libs/openct-0.5.0 )
 	pcsc-lite? ( >=sys-apps/pcsc-lite-1.3.0 )"
 DEPEND="${RDEPEND}

@@ -1,10 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/ncmpcpp/ncmpcpp-9999.ebuild,v 1.5 2014/09/04 00:26:16 jer Exp $
+# $Id$
 
-EAPI=5
-
-inherit autotools bash-completion-r1 eutils git-r3
+EAPI=6
+inherit autotools git-r3
 
 DESCRIPTION="featureful ncurses based MPD client inspired by ncmpc"
 HOMEPAGE="http://ncmpcpp.rybczak.net/"
@@ -16,13 +15,18 @@ KEYWORDS=""
 IUSE="clock curl outputs taglib unicode visualizer"
 
 RDEPEND="
+	!dev-libs/boost:0/1.57.0
 	>=media-libs/libmpdclient-2.1
+	dev-libs/boost:=[nls,threads]
+	sys-libs/ncurses:=[unicode?]
+	sys-libs/readline:*
 	curl? ( net-misc/curl )
-	dev-libs/boost[nls]
-	sys-libs/ncurses[unicode?]
-	sys-libs/readline
 	taglib? ( media-libs/taglib )
-	visualizer? ( sci-libs/fftw:3.0 )
+	unicode? (
+		dev-libs/boost:=[icu]
+		dev-libs/icu:=
+	)
+	visualizer? ( sci-libs/fftw:3.0= )
 "
 DEPEND="
 	${RDEPEND}
@@ -30,6 +34,8 @@ DEPEND="
 "
 
 src_prepare() {
+	default
+
 	sed -i -e '/^docdir/d' {,doc/}Makefile.am || die
 	sed -i -e 's|COPYING||g' Makefile.am || die
 	eautoreconf
@@ -50,14 +56,14 @@ src_configure() {
 src_install() {
 	default
 
-	newbashcomp doc/${PN}-completion.bash ${PN}
+	dodoc doc/{bindings,config}
 }
 
 pkg_postinst() {
 	echo
 	elog "Example configuration files have been installed at"
 	elog "${ROOT}usr/share/doc/${PF}"
-	elog "${P} uses ~/.ncmpcpp/config and ~/.ncmpcpp/keys"
+	elog "${P} uses ~/.ncmpcpp/config and ~/.ncmpcpp/bindings"
 	elog "as user configuration files."
 	echo
 	if use visualizer; then

@@ -1,9 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/spectools/spectools-9999.ebuild,v 1.8 2014/06/18 20:42:56 zerochaos Exp $
+# $Id$
 
 EAPI=5
-inherit udev toolchain-funcs
+
+inherit autotools eutils toolchain-funcs udev
 
 MY_PN=${PN}
 MY_PV=${PV/\./-}
@@ -16,8 +17,8 @@ if [[ ${PV} == "9999" ]] ; then
 		inherit git-r3
 		KEYWORDS=""
 else
-		SRC_URI="http://www.kismetwireless.net/code/${MY_P}.tar.gz"
-		KEYWORDS="~amd64 ~arm ~ppc ~x86"
+		SRC_URI="http://www.kismetwireless.net/code/${MY_P}.tar.xz"
+		KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
 fi
 
 DESCRIPTION="Spectrum Analyzer for Meta-Geek Wi-Spy and GSG Ubertooth hardware"
@@ -27,13 +28,24 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug +ncurses +gtk"
 
-RDEPEND="virtual/libusb:0
-	ncurses? ( sys-libs/ncurses )
-	gtk? ( x11-libs/gtk+:2 )"
+RDEPEND="
+	virtual/libusb:0
+	ncurses? ( sys-libs/ncurses:0= )
+	gtk? ( x11-libs/gtk+:2
+		x11-libs/cairo
+		x11-libs/gdk-pixbuf
+		x11-libs/pango
+		dev-libs/glib:= )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 # Upstream has still not migrated to the libusb-1 line.
 # Maemo: Add hildon and bbus
+
+src_prepare() {
+	epatch "${FILESDIR}"/${PN}-2011.08.1_p20140618-tinfo.patch
+	mv configure.{in,ac} || die
+	eautoreconf
+}
 
 # Please note that upstream removed the --with-gtk-version option
 # and GTK is now automagical. GTK1 support was also removed.

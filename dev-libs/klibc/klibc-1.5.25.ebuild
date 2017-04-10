@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/klibc/klibc-1.5.25.ebuild,v 1.10 2014/08/10 20:34:39 slyfox Exp $
+# $Id$
 
 # Robin H. Johnson <robbat2@gentoo.org>, 12 Nov 2007:
 # This still needs major work.
@@ -12,7 +12,7 @@
 # We need to bring in the kernel sources seperately
 # Because they have to be configured in a way that differs from the copy in
 # /usr/src/. The sys-kernel/linux-headers are too stripped down to use
-# unfortunetly.
+# unfortunately.
 # This will be able to go away once the klibc author updates his code
 # to build again the headers provided by the kernel's 'headers_install' target.
 

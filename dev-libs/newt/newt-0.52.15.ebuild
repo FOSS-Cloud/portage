@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/newt/newt-0.52.15.ebuild,v 1.11 2014/08/14 16:51:44 phajdan.jr Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit python-r1 eutils multilib autotools toolchain-funcs
 
@@ -14,7 +14,7 @@ SRC_URI="https://fedorahosted.org/releases/n/e/newt/${P}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 arm hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd"
 IUSE="gpm tcl nls"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -24,7 +24,7 @@ RDEPEND="${PYTHON_DEPS}
 	=sys-libs/slang-2*
 	elibc_uclibc? ( sys-libs/ncurses )
 	gpm? ( sys-libs/gpm )
-	tcl? ( >=dev-lang/tcl-8.5 )
+	tcl? ( >=dev-lang/tcl-8.5:0 )
 	"
 DEPEND="${RDEPEND}"
 
@@ -56,7 +56,8 @@ src_prepare() {
 
 	epatch "${FILESDIR}"/${PN}-0.52.13-gold.patch \
 		"${FILESDIR}"/${PN}-0.52.15-snack.patch \
-		"${FILESDIR}"/${PN}-0.52.14-tcl.patch
+		"${FILESDIR}"/${PN}-0.52.14-tcl.patch \
+		"${FILESDIR}"/${PN}-0.52.15-makefile.patch
 	eautoreconf
 }
 

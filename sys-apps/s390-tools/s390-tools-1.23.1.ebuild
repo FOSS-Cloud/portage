@@ -1,8 +1,8 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/s390-tools/s390-tools-1.23.1.ebuild,v 1.2 2014/04/06 14:42:27 vapier Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 inherit eutils udev
 
@@ -21,9 +21,11 @@ SRC_URI="http://download.boulder.ibm.com/ibmdl/pub/software/dw/linux390/ht_src/$
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="-* s390"
-IUSE="fuse snmp zfcpdump"
+IUSE="fuse ncurses snmp zfcpdump"
 
-RDEPEND="fuse? ( sys-fs/fuse )
+RDEPEND="sys-libs/zlib
+	fuse? ( sys-fs/fuse )
+	ncurses? ( sys-libs/ncurses:0= )
 	snmp? ( net-analyzer/net-snmp )"
 DEPEND="${RDEPEND}
 	dev-util/indent
@@ -34,6 +36,7 @@ src_prepare() {
 
 	use snmp || sed -i -e 's:osasnmpd::' Makefile
 	use fuse || { sed -i -e 's:cmsfs-fuse::' Makefile; export WITHOUT_FUSE=1; }
+	use ncurses || sed -i -e 's:hyptop::' Makefile
 
 	if use zfcpdump ; then
 		local x

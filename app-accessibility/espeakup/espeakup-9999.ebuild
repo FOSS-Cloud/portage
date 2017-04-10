@@ -1,21 +1,23 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/espeakup/espeakup-9999.ebuild,v 1.10 2013/10/10 22:39:11 williamh Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="git://github.com/williamh/espeakup.git"
-	vcs=git-2
+	inherit git-r3
 else
-	SRC_URI=""
+	EGIT_COMMIT=v${PV}
+	SRC_URI="https://github.com/williamh/espeakup/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
+	inherit vcs-snapshot
 fi
 
-inherit $vcs linux-info
+inherit linux-info
 
 DESCRIPTION="espeakup is a small lightweight connector for espeak and speakup"
-HOMEPAGE="http://www.github.com/williamh/espeakup"
+HOMEPAGE="https://github.com/williamh/espeakup"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -42,13 +44,9 @@ pkg_setup() {
 	fi
 }
 
-src_compile() {
-	emake || die "Compile failed."
-}
-
 src_install() {
-	emake DESTDIR="${D}" PREFIX=/usr install || die "Install failed."
-	dodoc README ToDo
+	emake DESTDIR="${D}" PREFIX=/usr install
+	einstalldocs
 	newconfd "${FILESDIR}"/espeakup.confd espeakup
 	newinitd "${FILESDIR}"/espeakup.rc espeakup
 }

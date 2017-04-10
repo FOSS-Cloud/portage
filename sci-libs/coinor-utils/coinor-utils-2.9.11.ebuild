@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/coinor-utils/coinor-utils-2.9.11.ebuild,v 1.4 2014/02/04 10:44:35 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="bzip2 doc glpk blas lapack static-libs test zlib"
 
 RDEPEND="
-	sys-libs/readline
+	sys-libs/readline:0=
 	bzip2? ( app-arch/bzip2 )
 	blas? ( virtual/blas )
 	glpk? ( sci-mathematics/glpk:= )

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/johntheripper/johntheripper-1.7.9-r6.ebuild,v 1.13 2013/07/02 02:11:48 jsbronder Exp $
+# $Id$
 
 EAPI="4"
 
@@ -19,15 +19,16 @@ SRC_URI="http://www.openwall.com/john/g/${MY_P}.tar.bz2
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ~mips ppc ppc64 sparc x86 ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="alpha amd64 arm hppa ~mips ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos"
 #Remove AltiVec USE flag. Appears to be an upstream issue.
-IUSE="cuda custom-cflags -minimal mmx mpi opencl openmp sse2"
+IUSE="cuda custom-cflags -minimal cpu_flags_x86_mmx mpi opencl openmp cpu_flags_x86_sse2"
 REQUIRED_USE="openmp? ( !minimal )
 	mpi? ( !minimal )
 	cuda? ( !minimal )
 	opencl? ( !minimal )"
 
-RDEPEND="!minimal? ( >=dev-libs/openssl-0.9.7:0 )
+RDEPEND="sys-libs/zlib
+	!minimal? ( >=dev-libs/openssl-0.9.7:0 )
 	mpi? ( virtual/mpi )
 	cuda? ( x11-drivers/nvidia-drivers dev-util/nvidia-cuda-toolkit )
 	opencl? ( virtual/opencl )"
@@ -75,9 +76,9 @@ get_target() {
 			echo "linux-x86-xop"
 		elif has_avx; then
 			echo "linux-x86-avx"
-		elif use sse2; then
+		elif use cpu_flags_x86_sse2; then
 			echo "linux-x86-sse2"
-		elif use mmx; then
+		elif use cpu_flags_x86_mmx; then
 			echo "linux-x86-mmx"
 		else
 			echo "linux-x86-any"
@@ -91,7 +92,7 @@ get_target() {
 	#	fi
 		# for Tiger this can be macosx-ppc64
 	elif use x86-macos; then
-		if use sse2; then
+		if use cpu_flags_x86_sse2; then
 			echo "macosx-x86-sse2"
 		else
 			echo "macosx-x86"
@@ -99,9 +100,9 @@ get_target() {
 	elif use x86-solaris; then
 		echo "solaris-x86-any"
 	elif use x86-fbsd; then
-		if use sse2; then
+		if use cpu_flags_x86_sse2; then
 			echo "freebsd-x86-sse2"
-		elif use mmx; then
+		elif use cpu_flags_x86_mmx; then
 			echo "freebsd-x86-mmx"
 		else
 			echo "freebsd-x86-any"

@@ -1,14 +1,14 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/pocketsphinx/pocketsphinx-0.8.ebuild,v 1.3 2013/06/27 18:20:46 ago Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 DISTUTILS_OPTIONAL=1
 inherit eutils distutils-r1
 
-DESCRIPTION="Large open source vocabulary, speaker-independent continuous speech recognition engine"
+DESCRIPTION="Speaker-independent large vocabulary with continuous speech recognizer"
 HOMEPAGE="https://sourceforge.net/projects/cmusphinx/"
 SRC_URI="mirror://sourceforge/cmusphinx/${P}.tar.gz"
 

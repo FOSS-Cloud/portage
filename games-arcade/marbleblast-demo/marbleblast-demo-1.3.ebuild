@@ -1,7 +1,7 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/marbleblast-demo/marbleblast-demo-1.3.ebuild,v 1.9 2013/01/31 20:50:24 tupone Exp $
-
+# $Id$
+EAPI=5
 inherit unpacker games
 
 DESCRIPTION="race marbles through crazy stages"

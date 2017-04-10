@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/udev/udev-215.ebuild,v 1.2 2014/08/03 12:29:47 ssuominen Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,5 +15,5 @@ IUSE="systemd"
 
 DEPEND=""
 RDEPEND="
-	!systemd? ( || ( >=sys-fs/udev-208-r1 >=sys-fs/eudev-1.3 ) )
+	!systemd? ( || ( >=sys-fs/eudev-1.3 >=sys-fs/udev-208-r1 ) )
 	systemd? ( >=sys-apps/systemd-208:0 )"

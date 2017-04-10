@@ -1,26 +1,26 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/google-musicmanager/google-musicmanager-1.0.129.6633_beta.ebuild,v 1.1 2014/10/08 09:50:12 ottxor Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils unpacker
 
-#http://dl.google.com/linux/musicmanager/deb/dists/stable/main/binary-i386/Packages
-MY_URL="http://dl.google.com/linux/musicmanager/deb/pool/main/${P:0:1}/${PN}-beta"
+#https://dl.google.com/linux/musicmanager/deb/dists/stable/main/binary-i386/Packages
+MY_URL="https://dl.google.com/linux/musicmanager/deb/pool/main/${P:0:1}/${PN}-beta"
 MY_PKG="${PN}-beta_${PV/_beta}-r0_i386.deb"
 
 DESCRIPTION="Google Music Manager is a application for adding music to your Google Music library"
-HOMEPAGE="http://music.google.com"
+HOMEPAGE="https://music.google.com"
 SRC_URI="x86? ( ${MY_URL}/${MY_PKG} )
 	amd64? ( ${MY_URL}/${MY_PKG/i386/amd64} )"
 
 LICENSE="Google-TOS Apache-2.0 MIT LGPL-2.1 gSOAP BSD FDL-1.2 MPL-1.1 openssl ZLIB libtiff"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="log"
 
-OBSOLETE="no"
+OBSOLETE="yes"
 [[ $OBSOLETE = yes ]] && RESTRICT="fetch strip" || RESTRICT="strip mirror"
 
 RDEPEND="
@@ -52,12 +52,12 @@ pkg_nofetch() {
 		elog "This ebuild is intended for users who already downloaded it previously and have problems"
 		elog "with ${PV}+. If you can get the distfile from e.g. another computer of yours, or search"
 		use amd64 && MY_PKG="${MY_PKG/i386/amd64}"
-		elog "it with google: http://www.google.com/search?q=intitle:%22index+of%22+${MY_PKG}"
+		elog "it with google: https://www.google.com/search?q=intitle:%22index+of%22+${MY_PKG}"
 		elog "and copy the file ${MY_PKG} to ${DISTDIR}."
 	else
 		einfo "This version is no longer available from Google."
 		einfo "Note that Gentoo cannot mirror the distfiles due to license reasons, so we have to follow the bump."
-		einfo "Please file a version bump bug on http://bugs.gentoo.org (search	existing bugs for ${PN} first!)."
+		einfo "Please file a version bump bug on https://bugs.gentoo.org (search	existing bugs for ${PN} first!)."
 	fi
 }
 

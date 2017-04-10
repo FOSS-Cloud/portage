@@ -1,12 +1,12 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/dclib/dclib-0.3.23.ebuild,v 1.9 2010/07/29 08:45:01 ssuominen Exp $
+# $Id$
 
 EAPI=2
 inherit autotools eutils
 
 DESCRIPTION="DirectConnect client library"
-HOMEPAGE="http://sourceforge.net/projects/wxdcgui"
+HOMEPAGE="https://sourceforge.net/projects/wxdcgui"
 SRC_URI="mirror://sourceforge/wxdcgui/${P}.tar.bz2"
 
 LICENSE="GPL-2"

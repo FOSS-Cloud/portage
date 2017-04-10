@@ -1,13 +1,13 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/ascal/ascal-0.1.1.ebuild,v 1.6 2009/10/29 14:49:32 maekke Exp $
+# $Id$
 
-EAPI=2
-inherit autotools eutils games
+EAPI=5
+inherit autotools eutils flag-o-matic games
 
 DESCRIPTION="A game similar to Draughts but with some really cool enhancements"
 HOMEPAGE="http://ascal.sourceforge.net/"
-SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
+SRC_URI="mirror://sourceforge/ascal/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -26,8 +26,12 @@ src_prepare() {
 	eautoreconf
 }
 
+src_configure() {
+	append-cxxflags -std=c++11
+	egamesconf
+}
+
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-	dodoc AUTHORS ChangeLog NEWS README THANKS
+	default
 	prepgamesdirs
 }

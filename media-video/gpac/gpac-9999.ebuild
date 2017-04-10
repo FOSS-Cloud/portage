@@ -1,15 +1,15 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/gpac/gpac-9999.ebuild,v 1.2 2014/10/07 22:17:32 lu_zero Exp $
+# $Id$
 
 EAPI=4
 
 if [[ ${PV} == *9999 ]] ; then
-	SCM="subversion"
-	ESVN_REPO_URI="svn://svn.code.sf.net/p/gpac/code/trunk/gpac"
+	SCM="git-r3"
+	EGIT_REPO_URI="https://github.com/gpac/gpac"
 	KEYWORDS=""
 else
-	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+	SRC_URI="https://github.com/gpac/gpac/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
 fi
 
@@ -20,9 +20,8 @@ HOMEPAGE="http://gpac.wp.mines-telecom.fr/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="a52 aac alsa debug dvb ffmpeg ipv6 jack jpeg jpeg2k mad opengl oss png pulseaudio sdl ssl static-libs theora truetype vorbis xml xvid"
-
-S="${WORKDIR}"/${PN}
+IUSE="a52 aac alsa debug dvb ffmpeg ipv6 jack jpeg jpeg2k mad opengl oss png
+	pulseaudio sdl ssl static-libs theora truetype vorbis xml xvid X"
 
 RDEPEND="
 	a52? ( media-libs/a52dec )
@@ -45,10 +44,12 @@ RDEPEND="
 	jpeg2k? ( media-libs/openjpeg:0 )
 	ssl? ( dev-libs/openssl )
 	pulseaudio? ( media-sound/pulseaudio )
-	x11-libs/libXt
-	x11-libs/libX11
-	x11-libs/libXv
-	x11-libs/libXext"
+	X? (
+		x11-libs/libXt
+		x11-libs/libX11
+		x11-libs/libXv
+		x11-libs/libXext
+	)"
 # disabled upstream, see applications/Makefile
 # wxwidgets? ( =x11-libs/wxGTK-2.8* )
 
@@ -65,7 +66,8 @@ my_use() {
 
 src_prepare() {
 	epatch	"${FILESDIR}"/110_all_implicitdecls.patch \
-			"${FILESDIR}"/${PN}-0.5.1-build-fixes.patch
+			"${FILESDIR}"/${PN}-0.5.3-static-libs.patch \
+			"${FILESDIR}"/${PN}-0.5.2-gf_isom_set_pixel_aspect_ratio.patch
 	sed -i -e "s:\(--disable-.*\)=\*):\1):" configure || die
 }
 
@@ -88,6 +90,7 @@ src_configure() {
 		$(use_enable sdl) \
 		$(use_enable ssl) \
 		$(use_enable static-libs static-lib) \
+		$(use_enable X x11) $(use_enable X x11-shm) $(use_enable X x11-xv) \
 		--disable-wx \
 		$(my_use a52) \
 		$(my_use aac faad) \
@@ -103,13 +106,14 @@ src_configure() {
 		$(my_use xvid) \
 		--extra-cflags="${CFLAGS}" \
 		--cc="$(tc-getCC)" \
-		--libdir="/$(get_libdir)"
+		--libdir="/$(get_libdir)" \
+		--verbose
 }
 
 src_install() {
 	emake STRIP="true" DESTDIR="${D}" install
 	emake STRIP="true" DESTDIR="${D}" install-lib
-	dodoc AUTHORS BUGS Changelog README TODO INSTALLME
+	dodoc AUTHORS BUGS Changelog README.md TODO
 	dodoc doc/*.txt
 	dohtml doc/*.html
 }

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/bnd-junit/bnd-junit-2.1.0.ebuild,v 1.2 2014/08/10 20:08:48 slyfox Exp $
+# $Id$
 
 EAPI="5"
 
@@ -16,11 +16,12 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-CDEPEND="dev-java/osgi-core-api:0
-	dev-java/bndlib:0
-	test? ( dev-java/junit:4 )"
+CDEPEND="
+	dev-java/osgi-core-api:0
+	dev-java/bndlib:0"
 
 DEPEND=">=virtual/jdk-1.5
+	test? ( dev-java/junit:4 )
 	${CDEPEND}"
 
 RDEPEND=">=virtual/jre-1.5

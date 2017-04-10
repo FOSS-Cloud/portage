@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/syslinux/syslinux-4.07.ebuild,v 1.4 2013/09/23 11:56:54 jlec Exp $
+# $Id$
 
 inherit eutils toolchain-funcs
 
@@ -60,7 +60,7 @@ src_unpack() {
 }
 
 src_compile() {
-	emake CC=$(tc-getCC) installer || die
+	emake CC="$(tc-getCC)" installer || die
 }
 
 src_install() {

@@ -1,51 +1,51 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/dtc/dtc-9999.ebuild,v 1.3 2012/11/10 01:52:23 vapier Exp $
+# $Id$
 
-EAPI="4"
-MY_P="${PN}-v${PV}"
+EAPI=6
+inherit multilib toolchain-funcs eutils
 
-inherit multilib toolchain-funcs
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="git://git.jdl.com/software/dtc.git"
-	inherit git-2
+	EGIT_REPO_URI="git://git.kernel.org/pub/scm/utils/dtc/dtc.git"
+	inherit git-r3
 else
-	SRC_URI="http://www.jdl.com/software/${MY_P}.tgz"
-	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+	SRC_URI="mirror://kernel/software/utils/${PN}/${P}.tar.xz"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 fi
 
-DESCRIPTION="Open Firmware device-trees compiler"
-HOMEPAGE="http://git.jdl.com/gitweb/?p=dtc.git"
+DESCRIPTION="Open Firmware device tree compiler"
+HOMEPAGE="https://devicetree.org/ https://git.kernel.org/cgit/utils/dtc/dtc.git/"
 
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="static-libs"
 
-RDEPEND=""
-DEPEND="sys-devel/flex
-	sys-devel/bison"
-
-S=${WORKDIR}/${MY_P}
+DEPEND="
+	sys-devel/bison
+	sys-devel/flex
+"
+DOCS="
+	Documentation/manual.txt
+"
 
 src_prepare() {
+	default
+
 	sed -i \
 		-e '/^CFLAGS =/s:=:+=:' \
 		-e '/^CPPFLAGS =/s:=:+=:' \
 		-e 's:-Werror::' \
 		-e 's:-g -Os::' \
-		-e '/^PREFIX =/s:=.*:= /usr:' \
-		-e "/^LIBDIR =/s:=.*:= /usr/$(get_libdir):" \
+		-e "/^PREFIX =/s:=.*:= ${EPREFIX}/usr:" \
+		-e "/^LIBDIR =/s:=.*:= \$(PREFIX)/$(get_libdir):" \
 		Makefile || die
+
 	tc-export AR CC
 	export V=1
 }
 
-src_test() {
-	emake check
-}
-
 src_install() {
-	emake DESTDIR="${D}" install
+	default
+
 	use static-libs || find "${ED}" -name '*.a' -delete
-	dodoc Documentation/manual.txt
 }

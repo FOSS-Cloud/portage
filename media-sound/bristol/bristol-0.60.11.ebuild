@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/bristol/bristol-0.60.11.ebuild,v 1.1 2013/03/09 21:42:48 radhermit Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils autotools
 
 DESCRIPTION="Synthesizer keyboard emulation package: Moog, Hammond and others"
-HOMEPAGE="http://sourceforge.net/projects/bristol"
+HOMEPAGE="https://sourceforge.net/projects/bristol"
 SRC_URI="mirror://sourceforge/bristol/${P}.tar.gz"
 
 LICENSE="GPL-2"

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/tokyotyrant/tokyotyrant-1.1.41-r1.ebuild,v 1.2 2014/01/08 06:30:37 vapier Exp $
+# $Id$
 
 EAPI=2
 
@@ -12,7 +12,7 @@ SRC_URI="${HOMEPAGE}${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~ppc-macos ~x86-macos"
+KEYWORDS="amd64 x86 ~ppc-macos ~x86-macos"
 IUSE="debug examples lua"
 
 DEPEND="dev-db/tokyocabinet

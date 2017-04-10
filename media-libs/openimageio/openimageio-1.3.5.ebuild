@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/openimageio/openimageio-1.3.5.ebuild,v 1.3 2014/02/17 06:41:48 ssuominen Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,12 +9,12 @@ PYTHON_COMPAT=( python2_7 )
 inherit cmake-utils eutils multilib python-single-r1 vcs-snapshot
 
 DESCRIPTION="A library for reading and writing images"
-HOMEPAGE="http://sites.google.com/site/openimageio/ http://github.com/OpenImageIO"
-SRC_URI="http://github.com/OpenImageIO/oiio/archive/Release-${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://sites.google.com/site/openimageio/ https://github.com/OpenImageIO"
+SRC_URI="https://github.com/OpenImageIO/oiio/archive/Release-${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~ppc64 x86"
 IUSE="gif jpeg2k colorio opencv opengl python qt4 ssl tbb +truetype"
 
 RESTRICT="test" #431412
@@ -29,13 +29,13 @@ RDEPEND="dev-libs/boost[python?]
 	media-libs/tiff:0=
 	sci-libs/hdf5
 	sys-libs/zlib:=
-	virtual/jpeg
+	virtual/jpeg:0
 	gif? ( media-libs/giflib )
 	jpeg2k? ( >=media-libs/openjpeg-1.5:0= )
 	colorio? ( >=media-libs/opencolorio-1.0.7:= )
 	opencv? (
 		>=media-libs/opencv-2.3:=
-		python? ( || ( <media-libs/opencv-2.4.8 >=media-libs/opencv-2.4.8[python,${PYTHON_USEDEP}] ) )
+		python? ( >=media-libs/opencv-2.4.8[python,${PYTHON_USEDEP}] )
 	)
 	opengl? (
 		virtual/glu

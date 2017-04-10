@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/superswitcher/superswitcher-0.6.ebuild,v 1.9 2014/08/10 20:03:59 slyfox Exp $
+# $Id$
 
 EAPI=4
 inherit autotools eutils
 
 DESCRIPTION="A more feature-full replacement of the Alt-Tab window switching behavior"
-HOMEPAGE="http://code.google.com/p/superswitcher/"
-SRC_URI="http://superswitcher.googlecode.com/files/${P}.tar.gz"
+HOMEPAGE="https://code.google.com/p/superswitcher/"
+SRC_URI="https://superswitcher.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -37,5 +37,5 @@ src_prepare() {
 }
 
 src_install() {
-	MAKEOPTS+="-j1" default
+	MAKEOPTS=-j1 default
 }

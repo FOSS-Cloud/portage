@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/mercury-extras/mercury-extras-13.05.2.ebuild,v 1.1 2014/02/18 10:36:37 keri Exp $
+# $Id$
 
 EAPI=2
 
@@ -16,7 +16,7 @@ SRC_URI="http://dl.mercurylang.org/release/${MY_P}.tar.gz
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="X cairo examples glut iodbc ncurses odbc opengl ssl tcl tk xml"
 
@@ -28,8 +28,8 @@ RDEPEND="~dev-lang/mercury-${PV}
 	ncurses? ( sys-libs/ncurses )
 	opengl? ( virtual/opengl )
 	tcl? ( tk? (
-			dev-lang/tcl
-			dev-lang/tk
+			dev-lang/tcl:0
+			dev-lang/tk:0
 			x11-libs/libX11
 			x11-libs/libXmu ) )"
 
@@ -187,7 +187,7 @@ src_install() {
 			doins mopenssl/*.m || die
 		fi
 
-		rm -rf $(find "${D}"/usr/share/doc/${PF}/samples -name CVS)
+		ecvs_clean
 	fi
 
 	dodoc README || die

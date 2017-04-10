@@ -1,12 +1,12 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/bfm/bfm-1.2-r1.ebuild,v 1.6 2007/11/19 16:56:29 wltjr Exp $
+# $Id$
 
 JAVA_PKG_IUSE="doc source"
 
 inherit java-pkg-2 java-ant-2
 
-DESCRIPTION="File manager and first person shooter written in Java3D, you remove files by shooting at them"
+DESCRIPTION="File manager and first person shooter written in Java3D, shoot to remove files"
 HOMEPAGE="http://bfm.webhop.net"
 SRC_URI="http://bfm.webhop.net/releases/${P}.tar.gz"
 

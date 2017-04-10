@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/texhyphj/texhyphj-1.1.ebuild,v 1.1 2014/07/12 07:41:43 ercpe Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ JAVA_PKG_IUSE="doc source"
 inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="Re-implementation of Franklin Mark Liang's hyphenation algorithm in Java"
-HOMEPAGE="http://www.davidashen.net/texhyphj.html http://sourceforge.net/projects/texhyphj/"
+HOMEPAGE="http://www.davidashen.net/texhyphj.html https://sourceforge.net/projects/texhyphj/"
 SRC_URI="http://ftp.davidashen.net/TeXHyphenator-J/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"

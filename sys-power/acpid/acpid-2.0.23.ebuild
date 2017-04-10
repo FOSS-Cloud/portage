@@ -1,22 +1,21 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/acpid/acpid-2.0.23.ebuild,v 1.1 2014/08/24 09:04:35 ssuominen Exp $
+# $Id$
 
 EAPI=5
 inherit linux-info systemd
 
 DESCRIPTION="Daemon for Advanced Configuration and Power Interface"
-HOMEPAGE="http://sourceforge.net/projects/acpid2"
+HOMEPAGE="https://sourceforge.net/projects/acpid2"
 SRC_URI="mirror://sourceforge/${PN}2/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ia64 -ppc ~x86"
+KEYWORDS="amd64 ia64 x86"
 IUSE="selinux"
 
 RDEPEND="selinux? ( sec-policy/selinux-apm )"
-DEPEND="${RDEPEND}
-	    >=sys-kernel/linux-headers-3"
+DEPEND=">=sys-kernel/linux-headers-3"
 
 pkg_pretend() {
 	local CONFIG_CHECK="~INPUT_EVDEV"
@@ -55,7 +54,7 @@ pkg_postinst() {
 		elog
 		elog "You may wish to read the Gentoo Linux Power Management Guide,"
 		elog "which can be found online at:"
-		elog "http://www.gentoo.org/doc/en/power-management-guide.xml"
+		elog "https://www.gentoo.org/doc/en/power-management-guide.xml"
 		elog
 	fi
 

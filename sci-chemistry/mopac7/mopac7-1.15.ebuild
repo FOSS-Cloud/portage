@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/mopac7/mopac7-1.15.ebuild,v 1.10 2014/01/03 15:28:32 ulm Exp $
+# $Id$
 
 EAPI=4
 
 inherit autotools fortran-2 toolchain-funcs
 
 DESCRIPTION="Autotooled, updated version of a powerful, fast semi-empirical package"
-HOMEPAGE="http://sourceforge.net/projects/mopac7/"
+HOMEPAGE="https://sourceforge.net/projects/mopac7/"
 SRC_URI="
 	http://www.bioinformatics.org/ghemical/download/current/${P}.tar.gz
 	http://wwwuser.gwdg.de/~ggroenh/qmmm/mopac/dcart.f

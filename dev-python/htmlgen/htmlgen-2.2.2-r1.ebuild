@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/htmlgen/htmlgen-2.2.2-r1.ebuild,v 1.7 2014/03/18 16:43:28 ago Exp $
+# $Id$
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit eutils python-r1
 
@@ -18,7 +18,7 @@ KEYWORDS="amd64 ia64 ppc x86"
 IUSE="doc"
 
 DEPEND="${PYTHON_DEPS}
-	virtual/python-imaging[${PYTHON_USEDEP}]"
+	dev-python/pillow[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -43,7 +43,7 @@ src_install() {
 	mkdir htmlgen || die
 	touch htmlgen/__init__.py || die
 	ln ${files} htmlgen/ || die
-	python_parallel_foreach_impl python_domodule htmlgen
+	python_foreach_impl python_domodule htmlgen
 
 	if use doc; then
 		# fix the image locations in the docs

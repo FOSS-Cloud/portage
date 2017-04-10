@@ -1,12 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/zaz/zaz-1.0.0.ebuild,v 1.8 2014/06/13 15:50:01 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit autotools flag-o-matic eutils games
 
 DESCRIPTION="A puzzle game where the player has to arrange balls in triplets"
-HOMEPAGE="http://sourceforge.net/projects/zaz/"
+HOMEPAGE="https://sourceforge.net/projects/zaz/"
 SRC_URI="mirror://sourceforge/zaz/${P}.tar.bz2"
 
 LICENSE="GPL-3 GPL-3+ CC-BY-SA-3.0 OFL"

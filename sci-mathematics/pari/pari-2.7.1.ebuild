@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/pari/pari-2.7.1.ebuild,v 1.1 2014/05/29 19:53:31 bicatali Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="http://pari.math.u-bordeaux.fr/pub/${PN}/unix/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0/4"
-KEYWORDS="~alpha ~amd64 ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-fbsd ~x86-linux ~x86-macos ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x86-macos ~x86-solaris"
 IUSE="data doc fltk gmp qt4 X"
 
 RDEPEND="
@@ -43,6 +43,8 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-2.7.0-no-automagic.patch
 	# sage-on-gentoo trac 15654: PARI discriminant speed depends on stack size
 	epatch "${FILESDIR}"/${PN}-2.7.0-slow-discriminant.patch
+	# fix building docs with perl-5.22
+	epatch "${FILESDIR}"/${PN}-2.7.1-perl-5.22-doc.patch
 
 	# disable default building of docs during install
 	sed -i \

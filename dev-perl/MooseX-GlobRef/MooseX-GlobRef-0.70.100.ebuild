@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/MooseX-GlobRef/MooseX-GlobRef-0.70.100.ebuild,v 1.1 2011/08/29 17:46:21 tove Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 MODULE_AUTHOR=DEXTER
 MODULE_VERSION=0.0701
@@ -16,7 +16,7 @@ IUSE="test"
 
 RDEPEND=">=dev-perl/Moose-0.96"
 DEPEND="${RDEPEND}
-	virtual/perl-Module-Build
+	dev-perl/Module-Build
 	test? (
 		>=dev-perl/Test-Unit-Lite-0.12
 		dev-perl/Test-Assert

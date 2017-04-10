@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/thor/thor-0.19.1.ebuild,v 1.2 2014/08/12 21:30:54 blueness Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_RECIPE_DOC="rdoc"
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
@@ -16,14 +16,17 @@ inherit ruby-fakegem
 DESCRIPTION="A scripting framework that replaces rake and sake"
 HOMEPAGE="http://whatisthor.com/"
 
-SRC_URI="http://github.com/erikhuda/${PN}/archive/v${PV}.tar.gz -> ${PN}-git-${PV}.tgz"
+SRC_URI="https://github.com/erikhuda/${PN}/archive/v${PV}.tar.gz -> ${PN}-git-${PV}.tgz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux"
 IUSE="doc"
 
-ruby_add_bdepend "
+# fakeweb is not compatible with ruby22. Upstream has switched to
+# webmock but leads to circular dependencies via childlabor's
+# dependencies, so skip tests for ruby22 for now.
+USE_RUBY="ruby20 ruby21" ruby_add_bdepend "
 	test? (
 		>=dev-ruby/fakeweb-1.3
 		dev-ruby/childlabor
@@ -47,14 +50,16 @@ all_ruby_prepare() {
 	sed -i -e '/uses maximum terminal width/,/end/ s:^:#:' spec/shell/basic_spec.rb || die
 }
 
-each_ruby_prepare() {
-	# Skip two failing specs on thor. Our jruby 1.6 is too old to file
-	# bugs against and the next thor version will no longer work with
-	# this version altogether.
+each_ruby_test() {
 	case ${RUBY} in
-		*jruby)
-			sed -i -e '/works with glob characters in the path/,/end/ s:^:#:' \
-				spec/actions/directory_spec.rb || die
+		*ruby23)
+			einfo "Skipping tests due to circular dependencies"
+			;;
+		*ruby22)
+			einfo "Skipping tests due to circular dependencies"
+			;;
+		*)
+			ruby-ng_rspec spec || die
 			;;
 	esac
 }

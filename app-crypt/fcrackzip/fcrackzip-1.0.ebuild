@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/fcrackzip/fcrackzip-1.0.ebuild,v 1.2 2010/06/05 18:58:41 ssuominen Exp $
+# $Id$
 
-EAPI=3
+EAPI=6
 
 DESCRIPTION="a zip password cracker"
 HOMEPAGE="http://oldhome.schmorp.de/marc/fcrackzip.html"
@@ -17,11 +17,11 @@ RDEPEND="app-arch/unzip"
 DEPEND=""
 
 src_prepare() {
+	default
 	sed -i -e '/funroll/d' configure || die
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
-	mv -vf "${D}"/usr/bin/{zipinfo,fcrack-zipinfo} || die
-	dodoc AUTHORS ChangeLog NEWS README
+	default
+	mv "${ED}"/usr/bin/{zipinfo,fcrack-zipinfo} || die
 }

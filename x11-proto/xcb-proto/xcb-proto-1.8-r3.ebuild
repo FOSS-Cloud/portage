@@ -1,21 +1,21 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-proto/xcb-proto/xcb-proto-1.8-r3.ebuild,v 1.15 2014/05/23 22:43:17 mgorny Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+PYTHON_COMPAT=( python2_7 )
 XORG_MULTILIB=yes
 
 inherit python-r1 xorg-2
 
 DESCRIPTION="X C-language Bindings protocol headers"
-HOMEPAGE="http://xcb.freedesktop.org/"
+HOMEPAGE="https://xcb.freedesktop.org/"
 EGIT_REPO_URI="git://anongit.freedesktop.org/git/xcb/proto"
 [[ ${PV} != 9999* ]] && \
-	SRC_URI="http://xcb.freedesktop.org/dist/${P}.tar.bz2"
+	SRC_URI="https://xcb.freedesktop.org/dist/${P}.tar.bz2"
 
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE=""
 
 RDEPEND="${PYTHON_DEPS}"
@@ -31,7 +31,7 @@ multilib_src_configure() {
 	autotools-utils_src_configure
 
 	if multilib_is_native_abi; then
-		python_parallel_foreach_impl autotools-utils_src_configure
+		python_foreach_impl autotools-utils_src_configure
 	fi
 }
 

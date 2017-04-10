@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/mercury/mercury-13.05.2.ebuild,v 1.1 2014/02/18 10:34:16 keri Exp $
+# $Id$
 
 EAPI=2
 
@@ -16,7 +16,7 @@ SRC_URI="http://dl.mercurylang.org/release/${MY_P}.tar.gz
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="debug emacs erlang examples java minimal readline threads"
 
@@ -34,7 +34,7 @@ S="${WORKDIR}"/${MY_P}
 SITEFILE=50${PN}-gentoo.el
 
 src_prepare() {
-	cd "${WORKDIR}"
+	cd "${WORKDIR}" || die
 	EPATCH_FORCE=yes
 	EPATCH_SUFFIX=patch
 	epatch "${WORKDIR}"/${PV}
@@ -43,7 +43,7 @@ src_prepare() {
 		"${S}"/scripts/Mmake.vars.in \
 		|| die "sed libdir failed"
 
-	cd "${S}"
+	cd "${S}" || die
 	eautoconf
 }
 
@@ -117,7 +117,7 @@ src_test() {
 		TWS="${S}"
 	fi
 
-	cd "${S}"/tests
+	cd "${S}"/tests || die
 	sed -e "s:@WORKSPACE@:${TWS}:" < WS_FLAGS.ws > WS_FLAGS \
 		|| die "sed WORKSPACE failed"
 
@@ -183,8 +183,7 @@ src_install() {
 			doins -r samples/java_interface || die
 		fi
 
-		rm -rf $(find "${D}"/usr/share/doc/${PF}/samples \
-				-name CVS -o -name .cvsignore)
+		ecvs_clean "${D}"/usr/share/doc/${PF}/samples
 	fi
 }
 

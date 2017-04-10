@@ -1,6 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation.
+# Copyright 1999-2017 Gentoo Foundation.
 # Distributed under the terms of the GNU General Public License, v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86-fbsd/use.mask,v 1.15 2013/08/22 16:07:41 chithanh Exp $
+# $Id$
+
+# Michael Palimaka <kensington@gentoo.org> (21 Jun 2016)
+# Unkeyworded
+qt5
 
 # Unmask the flag which corresponds to ARCH.
 -x86-fbsd
@@ -10,16 +14,25 @@
 # IPMI is only implemented for x86, amd64 and ia64
 -ipmi
 
--3dnow
--3dnowext
--mmx
--mmxext
--sse
--sse2
--sse3
--sse4
--sse4a
--ssse3
+-cpu_flags_x86_3dnow
+-cpu_flags_x86_3dnowext
+-cpu_flags_x86_aes
+-cpu_flags_x86_avx
+-cpu_flags_x86_avx2
+-cpu_flags_x86_fma3
+-cpu_flags_x86_fma4
+-cpu_flags_x86_mmx
+-cpu_flags_x86_mmxext
+-cpu_flags_x86_padlock
+-cpu_flags_x86_popcnt
+-cpu_flags_x86_sse
+-cpu_flags_x86_sse2
+-cpu_flags_x86_sse3
+-cpu_flags_x86_sse4_1
+-cpu_flags_x86_sse4_2
+-cpu_flags_x86_sse4a
+-cpu_flags_x86_ssse3
+-cpu_flags_x86_xop
 
 # nvidia drivers works on x86
 -xvmc
@@ -30,8 +43,9 @@
 -video_cards_vmware
 -input_devices_vmmouse
 
-# Diablo Latte and Caffe (JRE and JDK) works here
--java
+# James Le Cuirot <chewi@gentoo.org> (19 May 2015)
+# icedtea needs testing and gcj isn't supported
+java
 
 # No pulseaudio version is keyworded; unmask when it works
 pulseaudio

@@ -1,72 +1,84 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/trojita/trojita-9999.ebuild,v 1.24 2014/04/29 16:44:18 johu Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-QT_REQUIRED="4.8.0"
 EGIT_REPO_URI="git://anongit.kde.org/${PN}.git"
-[[ ${PV} == "9999" ]] && GIT_ECLASS="git-2"
-
-inherit cmake-utils virtualx ${GIT_ECLASS}
+inherit cmake-utils fdo-mime gnome2-utils virtualx
+[[ ${PV} == 9999 ]] && inherit git-r3
 
 DESCRIPTION="A Qt IMAP e-mail client"
 HOMEPAGE="http://trojita.flaska.net/"
-if [[ ${PV} == "9999" ]]; then
-	SRC_URI=""
-	KEYWORDS=""
-else
-	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
-	KEYWORDS="~amd64 ~ppc ~x86"
-	MY_LANGS="bs cs da de el es et fr ga gl hu ia it lt mr nb nl pl pt pt_BR ro sk sv tr ug uk zh_CN zh_TW"
+if [[ ${PV} != 9999 ]]; then
+	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="0"
-IUSE="debug +password test +zlib"
-for MY_LANG in ${MY_LANGS} ; do
-	IUSE="${IUSE} linguas_${MY_LANG}"
-done
+IUSE="+crypt debug +dbus +password test +zlib"
 
 RDEPEND="
-	>=dev-qt/qtbearer-${QT_REQUIRED}:4
-	>=dev-qt/qtgui-${QT_REQUIRED}:4
-	>=dev-qt/qtsql-${QT_REQUIRED}:4[sqlite]
-	>=dev-qt/qtwebkit-${QT_REQUIRED}:4
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5[ssl]
+	dev-qt/qtsql:5[sqlite]
+	dev-qt/qtsvg:5
+	dev-qt/qtwebkit:5
+	dev-qt/qtwidgets:5
+	crypt? (
+		dev-libs/mimetic
+		>=app-crypt/gpgme-1.8.0[cxx,qt5]
+	)
+	dbus? ( dev-qt/qtdbus:5 )
+	password? ( dev-libs/qtkeychain[qt5] )
+	zlib? ( sys-libs/zlib )
 "
 DEPEND="${RDEPEND}
-	password? ( dev-libs/qtkeychain[qt4] )
-	test? ( >=dev-qt/qttest-${QT_REQUIRED}:4 )
-	zlib? (
-		virtual/pkgconfig
-		sys-libs/zlib
-	)
+	dev-qt/linguist-tools:5
+	test? ( dev-qt/qttest:5 )
+	zlib? ( virtual/pkgconfig )
 "
 
 DOCS="README LICENSE"
 
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_with password QTKEYCHAIN_PLUGIN)
-		$(cmake-utils_use_with test TESTS)
-		$(cmake-utils_use_with zlib ZLIB)
-	)
-	if [[ ${MY_LANGS} ]]; then
-		rm po/trojita_common_x-test.po
-		for x in po/*.po; do
-			mylang=${x#po/trojita_common_}
-			mylang=${mylang%.po}
-			use linguas_$mylang || rm $x
-		done
-	fi
+src_prepare() {
+	cmake-utils_src_prepare
 
 	# the build system is taking a look at `git describe ... --dirty` and
 	# gentoo's modifications to CMakeLists.txt break these
 	sed -i "s/--dirty//" "${S}/cmake/TrojitaVersion.cmake" || die "Cannot fix the version check"
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_CRYPTO_MESSAGES=$(usex crypt)
+		-DWITH_GPGMEPP=$(usex crypt)
+		-DWITH_MIMETIC=$(usex crypt)
+		-DWITH_DBUS=$(usex dbus)
+		-DWITH_QTKEYCHAINPLUGIN=$(usex password)
+		-DWITH_TESTS=$(usex test)
+		-DWITH_ZLIB=$(usex zlib)
+	)
 
 	cmake-utils_src_configure
 }
 
 src_test() {
-	VIRTUALX_COMMAND=cmake-utils_src_test virtualmake
+	virtx cmake-utils_src_test
+}
+
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
 }

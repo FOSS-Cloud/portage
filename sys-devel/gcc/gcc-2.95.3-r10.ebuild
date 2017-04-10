@@ -1,14 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gcc/gcc-2.95.3-r10.ebuild,v 1.11 2014/01/19 01:51:34 dirtyepic Exp $
+# $Id$
 
-EAPI="2"
+EAPI="5"
 
 PATCH_VER="1.4"
 
 inherit eutils flag-o-matic toolchain
-
-DESCRIPTION="The GNU Compiler Collection"
 
 KEYWORDS="~alpha ~ppc ~sparc ~x86"
 

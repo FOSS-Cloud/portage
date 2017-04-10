@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>python</herd>
+  <maintainer type="project">
+    <email>python@gentoo.org</email>
+    <name>Python</name>
+  </maintainer>
   <longdescription lang="en">
   IPython provides a replacement for the interactive Python interpreter with
   extra functionality. Main features:
@@ -21,7 +24,7 @@
   * Integrated access to the pdb debugger and the Python profiler.
 </longdescription>
   <longdescription lang="ja">
-対話的に利用する場合にPythonインタープリタから、より機能が豊富なIPythonへ置き換&gt;える事ができます。
+対話的に利用する場合にPythonインタープリタから、より機能が豊富なIPythonへ置き換える事ができます。
 
 主機能：
 * 内包的オブジェクトの分析。

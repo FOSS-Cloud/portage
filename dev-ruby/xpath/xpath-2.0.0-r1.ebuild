@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/xpath/xpath-2.0.0-r1.ebuild,v 1.4 2014/08/05 16:00:31 mrueg Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby21 ruby22 ruby23 ruby24"
 
 RUBY_FAKEGEM_EXTRADOC="README.md"
 
@@ -16,7 +16,7 @@ DESCRIPTION="XPath is a Ruby DSL around a subset of XPath 1.0"
 HOMEPAGE="https://github.com/jnicklas/xpath"
 LICENSE="MIT"
 
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 SLOT="2"
 IUSE=""
 

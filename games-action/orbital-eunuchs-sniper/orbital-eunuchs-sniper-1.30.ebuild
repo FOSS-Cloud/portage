@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/orbital-eunuchs-sniper/orbital-eunuchs-sniper-1.30.ebuild,v 1.5 2013/10/19 19:13:10 tristan Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils games
@@ -12,12 +12,13 @@ SRC_URI="http://filesingularity.timedoctor.org/${MY_P}.tar.gz"
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ppc x86"
+KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-DEPEND="media-libs/libsdl
-	media-libs/sdl-mixer
-	media-libs/sdl-image"
+DEPEND="media-libs/libsdl[joystick,video]
+	media-libs/sdl-mixer[vorbis]
+	media-libs/sdl-image[png]"
+RDEPEND=${DEPEND}
 
 S=${WORKDIR}/${MY_P}
 
@@ -32,7 +33,8 @@ src_prepare() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-	dodoc AUTHORS ChangeLog readme.txt README TODO
+	DOCS="AUTHORS ChangeLog readme.txt README TODO" \
+		default
+	make_desktop_entry snipe2d "Orbital Eunuchs Sniper"
 	prepgamesdirs
 }

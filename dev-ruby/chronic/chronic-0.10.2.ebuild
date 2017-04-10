@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/chronic/chronic-0.10.2.ebuild,v 1.4 2014/08/05 16:00:28 mrueg Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="HISTORY.md README.md"
@@ -16,7 +16,7 @@ DESCRIPTION="Chronic is a natural language date/time parser written in pure Ruby
 HOMEPAGE="https://github.com/mojombo/chronic"
 LICENSE="MIT"
 
-KEYWORDS="~amd64 ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 hppa ia64 ppc ppc64 x86 ~x86-fbsd ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 SLOT="0"
 IUSE=""
 
@@ -24,18 +24,4 @@ ruby_add_bdepend "test? ( >=dev-ruby/minitest-5 )"
 
 all_ruby_prepare() {
 	sed -i -e '/git ls-files/d' chronic.gemspec || die
-}
-
-each_ruby_prepare() {
-	case ${RUBY} in
-		*jruby)
-			# Two tests error when using ruby18, however the library still
-			# functions correctly: https://github.com/mojombo/chronic/issues/219
-			# The same tests also fail on jruby1.6
-			sed -i -e '/def test_time/,+9d' test/test_chronic.rb || die
-			sed -i -e '/def test_handle_generic/,+29d' test/test_parsing.rb || die
-			;;
-		*)
-			;;
-	esac
 }

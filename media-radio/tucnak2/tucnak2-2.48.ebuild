@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/tucnak2/tucnak2-2.48.ebuild,v 1.6 2013/09/13 18:47:14 tomjbe Exp $
+# $Id$
 
 EAPI=4
 inherit eutils autotools
@@ -19,7 +19,7 @@ RDEPEND=">=dev-libs/glib-2
 	>=media-libs/libsdl-1.2
 	alsa? ( media-libs/alsa-lib )
 	fftw? ( sci-libs/fftw:3.0 )
-	ftdi? ( dev-embedded/libftdi )
+	ftdi? ( dev-embedded/libftdi:0 )
 	gpm? ( sys-libs/gpm )
 	hamlib? ( media-libs/hamlib )
 	>=media-libs/libpng-1.2"

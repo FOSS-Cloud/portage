@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>maintainer-needed@gentoo.org</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		rxvt is a color vt102 terminal emulator intended as an xterm(1)
 		replacement for users who do not require features such as Tektronix
@@ -11,8 +9,11 @@
 		uses much less swap space.
 	</longdescription>
 	<use>
-		<flag name='linuxkeys'>Define LINUX_KEYS (changes Home/End key)</flag>
-		<flag name='xgetdefault'>Enable resources via X instead of rxvt small
+		<flag name="linuxkeys">Define LINUX_KEYS (changes Home/End key)</flag>
+		<flag name="xgetdefault">Enable resources via X instead of rxvt small
 			version</flag>
 	</use>
+	<upstream>
+		<remote-id type="sourceforge">rxvt</remote-id>
+	</upstream>
 </pkgmetadata>

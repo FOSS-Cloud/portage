@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/heroes3/heroes3-1.3.1a-r2.ebuild,v 1.16 2014/09/07 09:54:24 ulm Exp $
+# $Id$
 
 #	[x] Base Install Required (+4 MB)
 #	[x] Scenarios (+7 MB)
@@ -10,6 +10,7 @@
 #	--------------------
 #	Total 341 MB
 
+EAPI=5
 LANGS="de es pl"
 LANGPACKPREFIX="${PN}-lang"
 LANGPACKBASE="http://babelize.org/download/"
@@ -25,6 +26,7 @@ HOMEPAGE="http://www.lokigames.com/products/heroes3/"
 # here so someone else can stabilize loki_setupdb and loki_patch for PPC and
 # then KEYWORD this appropriately.
 SRC_URI="x86? ( mirror://lokigames/${PN}/${P}-cdrom-x86.run )
+	amd64? ( mirror://lokigames/${PN}/${P}-cdrom-x86.run )
 	ppc? ( mirror://lokigames/${PN}/${P}-ppc.run )"
 # This is commented because the server is unreachable.
 #	linguas_es? ( ${LANGPACKPATHPREFIX}-es.tar.gz )
@@ -37,7 +39,7 @@ LICENSE="LOKI-EULA"
 SLOT="0"
 IUSE="nocd maps music sounds videos"
 #linguas_en linguas_es linguas_pl linguas_de"
-KEYWORDS="~ppc ~x86"
+KEYWORDS="~amd64 ~ppc x86"
 RESTRICT="strip"
 
 DEPEND="=dev-util/xdelta-1*
@@ -90,7 +92,7 @@ pkg_setup() {
 
 src_unpack() {
 	cdrom_get_cds hiscore.tar.gz
-	use x86 && unpack_makeself ${P}-cdrom-x86.run
+	(use x86 || use amd64) && unpack_makeself ${P}-cdrom-x86.run
 	use ppc && unpack_makeself ${P}-ppc.run
 
 #	for i in ${LINGUAS}
@@ -116,7 +118,7 @@ src_install() {
 
 	if use nocd
 	then
-		doins -r "${CDROM_ROOT}"/{data,maps,mp3} || die "copying data"
+		doins -r "${CDROM_ROOT}"/{data,maps,mp3}
 	else
 		if use maps
 		then
@@ -164,11 +166,11 @@ src_install() {
 #		done
 #	fi
 
-	tar zxf "${CDROM_ROOT}"/hiscore.tar.gz -C "${Ddir}" || die "unpacking hiscore"
+	tar zxf "${CDROM_ROOT}"/hiscore.tar.gz -C "${Ddir}" || die
 
 	cd "${S}"
 	loki_patch --verify patch.dat
-	loki_patch patch.dat "${Ddir}" >& /dev/null || die "patching"
+	loki_patch patch.dat "${Ddir}" >& /dev/null || die
 
 	# now, since these files are coming off a cd, the times/sizes/md5sums wont
 	# be different ... that means portage will try to unmerge some files (!)
@@ -183,25 +185,21 @@ src_install() {
 	if ! use ppc
 	then
 		einfo "Linking libs provided by 'sys-libs/lib-compat-loki' to '${dir}'."
-		dosym /lib/loki_ld-linux.so.2 "${dir}"/ld-linux.so.2 || die "dosym"
-		dosym /usr/lib/loki_libc.so.6 "${dir}"/libc.so.6 || die "dosym"
-		dosym /usr/lib/loki_libnss_files.so.2 "${dir}"/libnss_files.so.2 \
-			|| die "dosym failed"
+		dosym /lib/loki_ld-linux.so.2 "${dir}"/ld-linux.so.2
+		dosym /usr/lib/loki_libc.so.6 "${dir}"/libc.so.6
+		dosym /usr/lib/loki_libnss_files.so.2 "${dir}"/libnss_files.so.2
 	fi
 
 	elog "Changing 'hiscore.dat' to be writeable for group 'games'."
-	fperms g+w "${dir}/data/hiscore.dat" || die "fperms failed"
+	fperms g+w "${dir}/data/hiscore.dat"
 
 	# in order to play campaign games, put this wrapper in place.
 	# it changes CWD to a user-writeable directory before executing heroes3.
 	# (fixes bug #93604)
 	einfo "Preparing wrapper."
-	cp "${FILESDIR}"/heroes3-wrapper.sh "${T}"/heroes3 || \
-		die "copying wrapper failed"
-	sed -i -e "s:GAMES_PREFIX_OPT:${GAMES_PREFIX_OPT}:" "${T}"/heroes3 ||
-		die "sed failed"
-	dogamesbin "${T}"/heroes3 || die "doexe failed"
-
+	cp "${FILESDIR}"/heroes3-wrapper.sh "${T}"/heroes3 || die
+	sed -i -e "s:GAMES_PREFIX_OPT:${GAMES_PREFIX_OPT}:" "${T}"/heroes3 || die
+	dogamesbin "${T}"/heroes3
 }
 
 pkg_postinst() {

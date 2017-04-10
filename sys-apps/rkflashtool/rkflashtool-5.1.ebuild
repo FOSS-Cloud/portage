@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/rkflashtool/rkflashtool-5.1.ebuild,v 1.1 2014/01/08 04:43:34 mrueg Exp $
+# $Id$
 
 EAPI=5
 
 inherit toolchain-funcs
 
 DESCRIPTION="Tool for flashing Rockchip devices"
-HOMEPAGE="http://sourceforge.net/projects/rkflashtool/"
+HOMEPAGE="https://sourceforge.net/projects/rkflashtool/"
 SRC_URI="mirror://sourceforge/project/${PN}/${P}/${P}-src.tar.xz"
 
 LICENSE="BSD-2"

@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/lorcon/lorcon-9999.ebuild,v 1.4 2014/04/17 21:21:19 zerochaos Exp $
+# $Id$
 
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 DISTUTILS_OPTIONAL=1
 
-USE_RUBY="ruby19"
+USE_RUBY="ruby20 ruby21"
 RUBY_OPTIONAL=yes
 
 inherit distutils-r1 ruby-ng
@@ -20,7 +20,7 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	KEYWORDS=""
 else
-	SRC_URI="http://dev.gentoo.org/~zerochaos/distfiles/${P}.tar.xz"
+	SRC_URI="https://dev.gentoo.org/~zerochaos/distfiles/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm ~ppc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 fi
 
@@ -30,7 +30,7 @@ IUSE="python ruby"
 
 DEPEND="ruby? ( $(ruby_implementations_depend) )
 	python? ( ${PYTHON_DEPS} )
-	dev-libs/libnl
+	dev-libs/libnl:3=
 	net-libs/libpcap"
 RDEPEND="${DEPEND}"
 
@@ -91,8 +91,9 @@ each_ruby_compile() {
 	sed -i "s#-I/usr/include/lorcon2#-I${WORKDIR}/${P}/ruby-lorcon -L${WORKDIR}/${P}/.libs#" ruby-lorcon/extconf.rb
 	"${RUBY}" -C ruby-lorcon extconf.rb || die
 	sed -i 's#<lorcon2/lorcon.h>#"../lorcon.h"#' ruby-lorcon/Lorcon2.h
-	sed -i "s#-L\.#-L. -L${WORKDIR}/${P}/.libs -lorcon2 #g" ruby-lorcon/Makefile || die
-	emake -C ruby-lorcon
+	sed -i -e "s#-L\.#-L. -L${WORKDIR}/${P}/.libs -lorcon2 #g" \
+		-e "s#-Wl,--no-undefined##" ruby-lorcon/Makefile || die
+	emake V=1 -C ruby-lorcon
 }
 
 each_ruby_install() {

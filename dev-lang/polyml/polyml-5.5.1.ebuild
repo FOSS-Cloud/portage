@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/polyml/polyml-5.5.1.ebuild,v 1.1 2014/02/11 14:35:09 gienah Exp $
+# $Id$
 
 EAPI="5"
 
@@ -17,7 +17,7 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64 ~x86"
 IUSE="X elibc_glibc +gmp portable test +threads"
 
-RDEPEND="X? ( x11-libs/motif )
+RDEPEND="X? ( x11-libs/motif:0 )
 		gmp? ( >=dev-libs/gmp-5 )
 		elibc_glibc? ( threads? ( >=sys-libs/glibc-2.13 ) )
 		virtual/libffi"
@@ -29,9 +29,9 @@ PATCHES=(
 	# Bug 256679 - patch the assembler code.  The remaining executable stacks in ./.libs/poly
 	# comes from the polyml generated ./polyexport.o file.
 	"${FILESDIR}/${PN}-5.5.0-asm.patch"
-	# http://sourceforge.net/p/polyml/code/1875/ for isabelle-2013.2
+	# https://sourceforge.net/p/polyml/code/1875/ for isabelle-2013.2
 	"${FILESDIR}/${PN}-5.5.1-inputN-return-for-zero-chars.patch"
-	# http://sourceforge.net/p/polyml/code/1869/
+	# https://sourceforge.net/p/polyml/code/1869/
 	# Adds Test146.ML that fails, applying it anyway as it is required by
 	# sci-mathematics/isabelle-2013.2
 	"${FILESDIR}/${PN}-5.5.1-optimize-closure.patch"

@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/spread/spread-4.1.0-r1.ebuild,v 1.1 2014/03/11 09:50:44 kumba Exp $
+# $Id$
 
-EAPI="4"
-inherit eutils user
+EAPI="6"
+inherit user
 
 MY_PN="spread-src"
 
@@ -13,7 +13,7 @@ SRC_URI="mirror://gentoo/${MY_PN}-${PV}.tar.gz"
 
 LICENSE="Spread-1.0 GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 IUSE=""
 
 DEPEND=""
@@ -27,6 +27,8 @@ pkg_setup() {
 }
 
 src_prepare() {
+	default
+
 	# don't strip binaries
 	sed -i -e 's/0755 -s/0755/g' daemon/Makefile.in examples/Makefile.in
 }
@@ -34,4 +36,5 @@ src_prepare() {
 src_install() {
 	emake DESTDIR="${D}" docdir="/usr/share/doc/${PF}" install
 	newinitd "${FILESDIR}"/spread.init.d spread
+	dodir /var/run/spread
 }

@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/gtkdatabox/gtkdatabox-0.9.2.0.ebuild,v 1.3 2013/06/29 09:37:06 ago Exp $
+# $Id$
 
 EAPI="4"
 inherit eutils
 
 DESCRIPTION="Gtk+ Widgets for live display of large amounts of fluctuating numerical data"
-HOMEPAGE="http://sourceforge.net/projects/gtkdatabox/"
+HOMEPAGE="https://sourceforge.net/projects/gtkdatabox/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
@@ -16,7 +16,6 @@ IUSE="doc examples +glade static-libs test"
 
 RDEPEND="
 	glade? (
-		dev-util/glade:3
 		gnome-base/libglade
 	)
 	x11-libs/cairo

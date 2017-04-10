@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-forensics/afflib/afflib-3.7.4.ebuild,v 1.6 2014/06/24 19:23:51 maekke Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_PRUNE_LIBTOOL_FILES=modules
 
@@ -18,17 +18,17 @@ SRC_URI="https://github.com/simsong/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm hppa ppc x86"
+KEYWORDS="amd64 ~arm hppa ppc x86 ~x64-macos"
 IUSE="fuse ncurses python qemu readline s3 static-libs threads"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="dev-libs/expat
-	dev-libs/openssl
+	dev-libs/openssl:0
 	sys-libs/zlib
 	fuse? ( sys-fs/fuse )
 	ncurses? ( sys-libs/ncurses )
 	python? ( ${PYTHON_DEPS} )
-	readline? ( sys-libs/readline )
+	readline? ( sys-libs/readline:0 )
 	s3? ( net-misc/curl )"
 DEPEND="${RDEPEND}"
 

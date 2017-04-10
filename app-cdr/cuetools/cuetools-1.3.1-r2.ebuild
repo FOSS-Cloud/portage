@@ -1,14 +1,14 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/cuetools/cuetools-1.3.1-r2.ebuild,v 1.2 2012/09/03 01:29:09 ottxor Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 inherit eutils
 
 DESCRIPTION="Utilities to manipulate and convert cue and toc files"
-HOMEPAGE="http://developer.berlios.de/projects/cuetools/"
-SRC_URI="mirror://berlios/${PN}/${P}.tar.gz
+HOMEPAGE="https://github.com/svend/cuetools"
+SRC_URI="https://github.com/svend/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	mirror://gentoo/${P}-debian.patch.bz2"
 
 LICENSE="GPL-2"

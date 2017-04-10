@@ -1,9 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-kids/crayon-physics/crayon-physics-55.ebuild,v 1.7 2014/05/15 16:47:38 ulm Exp $
+# $Id$
 
 EAPI=5
-
 inherit eutils gnome2-utils games
 
 DESCRIPTION="2D physics puzzle/sandbox game with drawing"
@@ -20,22 +19,13 @@ MYGAMEDIR=${GAMES_PREFIX_OPT}/${PN}
 QA_PREBUILT="${MYGAMEDIR#/}/crayon
 	${MYGAMEDIR#/}/lib32/*"
 
-# fuck this pulseaudio linkage
 RDEPEND="
-	virtual/opengl
-	amd64? (
-		app-emulation/emul-linux-x86-opengl
-		app-emulation/emul-linux-x86-qtlibs
-		app-emulation/emul-linux-x86-sdl
-		app-emulation/emul-linux-x86-soundlibs
-		app-emulation/emul-linux-x86-xlibs
-	)
+	dev-qt/qtcore:4[abi_x86_32(-)]
+	dev-qt/qtgui:4[abi_x86_32(-)]
+	virtual/glu[abi_x86_32(-)]
+	virtual/opengl[abi_x86_32(-)]
+	x11-libs/libX11[abi_x86_32(-)]
 	x86? (
-		media-sound/pulseaudio
-		dev-qt/qtcore:4
-		dev-qt/qtgui:4
-		virtual/glu
-		x11-libs/libX11
 		!bundled-libs? (
 			media-libs/libmikmod
 			media-libs/libsdl:0[X,sound,video,opengl,joystick]
@@ -44,7 +34,7 @@ RDEPEND="
 			media-libs/sdl-mixer[vorbis,wav]
 			media-libs/smpeg[X,opengl]
 			media-libs/tiff:0
-			virtual/jpeg
+			virtual/jpeg:0
 		)
 	)"
 

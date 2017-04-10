@@ -1,20 +1,23 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jakarta-oro/jakarta-oro-2.0.8-r3.ebuild,v 1.7 2014/08/10 20:15:54 slyfox Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 JAVA_PKG_IUSE="doc examples source"
 
 inherit java-pkg-2 java-ant-2
 
+MY_J=${PN%%-*}
+MY_O=${PN##*-}
+
 DESCRIPTION="A set of text-processing Java classes"
 HOMEPAGE="http://jakarta.apache.org/oro/index.html"
-SRC_URI="mirror://apache/jakarta/oro/source/${P}.tar.gz"
+SRC_URI="http://archive.apache.org/dist/${MY_J}/${MY_O}/${P}.tar.gz"
 
 LICENSE="Apache-1.1"
 SLOT="2.0"
-KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd ~x64-freebsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="amd64 ppc64 x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE=""
 
 DEPEND=">=virtual/jdk-1.3"

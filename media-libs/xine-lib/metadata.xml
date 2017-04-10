@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>video</herd>
-	<maintainer>
+	<maintainer type="project">
 		<email>media-video@gentoo.org</email>
 	</maintainer>
 	<longdescription>An open source library for media applications</longdescription>
@@ -19,7 +18,7 @@
 			container (OggFLAC), but might have better support for exotic features like
 			24-bit samples or 96kHz sample rates.
 		</flag>
-		<flag name="fusion">
+		<flag name="fusionsound">
 			Enable support for the Fusion audio sub system
 		</flag>
 		<flag name="gtk">
@@ -48,9 +47,6 @@
 			is still experimental, and might not be as good looking as the bitmap fonts
 			used with this USE flag disabled.
 		</flag>
-		<flag name="vaapi">
-			Enables VAAPI (Video Acceleration API) for hardware decoding
-		</flag>
 		<flag name="vdr">
 			Build the VDR plugin
 		</flag>
@@ -67,4 +63,7 @@
 			Enable support for XVideo Motion Compensation (accelerated mpeg playback).
 		</flag>
 	</use>
+	<upstream>
+		<remote-id type="sourceforge">xine</remote-id>
+	</upstream>
 </pkgmetadata>

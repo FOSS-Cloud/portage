@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/compiz/compiz-0.8.8-r3.ebuild,v 1.1 2013/04/09 07:26:11 pinkbyte Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,7 +13,7 @@ SRC_URI="http://releases.compiz.org/${PV}/${P}.tar.bz2"
 LICENSE="GPL-2 LGPL-2.1 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="+cairo dbus fuse gnome gconf gtk kde +svg"
+IUSE="+cairo dbus fuse gnome gconf gtk +svg"
 
 COMMONDEPEND="
 	>=dev-libs/glib-2
@@ -51,12 +51,6 @@ COMMONDEPEND="
 		>=x11-libs/libwnck-2.18.3:1
 		x11-libs/pango
 	)
-	kde? (
-		|| (
-			>=kde-base/kwin-4.2.0
-			kde-base/kwin:live
-		)
-	)
 	svg? (
 		>=gnome-base/librsvg-2.14.0:2
 		>=x11-libs/cairo-1.0
@@ -88,14 +82,6 @@ src_prepare() {
 	if ! use gnome || ! use gconf; then
 		epatch "${FILESDIR}"/${PN}-no-gconf.patch
 	fi
-	if use kde; then
-		# patch for KDE 4.8 compatibility. Picked up from stuff overlay
-		has_version ">=kde-base/kwin-4.8" && epatch "${FILESDIR}"/${PN}-kde-4.8.patch
-		# patch for KDE 4.9 compatibility. Picked up from http://cgit.compiz.org
-		has_version ">=kde-base/kwin-4.9" && epatch "${FILESDIR}"/${PN}-kde-4.9.patch
-		# patch for KDE 4.10 compatibility. Picked up from stuff overlay
-		has_version ">=kde-base/kwin-4.10" && epatch "${FILESDIR}"/${PN}-kde-4.10.patch
-	fi
 	eautoreconf
 }
 
@@ -123,7 +109,7 @@ src_configure() {
 		$(use_enable gnome) \
 		$(use_enable gnome metacity) \
 		$(use_enable gtk) \
-		$(use_enable kde kde4) \
+		--disable-kde4 \
 		--disable-kde \
 		${myconf}
 }

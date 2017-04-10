@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/wxGTK/wxGTK-2.8.12.1-r1.ebuild,v 1.12 2014/05/23 08:21:26 rhill Exp $
+# $Id$
 
 EAPI="5"
 
@@ -16,7 +16,7 @@ BASE_P="${PN}-${BASE_PV}"
 # docs, and are released more frequently than wxGTK.
 SRC_URI="mirror://sourceforge/wxpython/wxPython-src-${PV}.tar.bz2"
 
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
 IUSE="+X aqua doc debug gnome gstreamer odbc opengl pch sdl tiff"
 
 SLOT="2.8"
@@ -29,7 +29,7 @@ RDEPEND="
 		dev-libs/glib:2
 		media-libs/libpng:0=
 		sys-libs/zlib
-		virtual/jpeg
+		virtual/jpeg:0=
 		x11-libs/gtk+:2
 		x11-libs/libSM
 		x11-libs/libXinerama
@@ -44,8 +44,8 @@ RDEPEND="
 		tiff?   ( media-libs/tiff:0 )
 		)
 	aqua? (
-		>=x11-libs/gtk+-2.4[aqua=]
-		virtual/jpeg
+		x11-libs/gtk+:2[aqua=]
+		virtual/jpeg:0=
 		tiff?   ( media-libs/tiff:0 )
 		)"
 
@@ -58,7 +58,7 @@ DEPEND="${RDEPEND}
 			x11-proto/xf86vidmodeproto
 			)"
 
-PDEPEND=">=app-admin/eselect-wxwidgets-0.7"
+PDEPEND=">=app-eselect/eselect-wxwidgets-0.7"
 
 LICENSE="wxWinLL-3
 		GPL-2
@@ -177,11 +177,11 @@ src_install() {
 }
 
 pkg_postinst() {
-	has_version app-admin/eselect-wxwidgets \
+	has_version app-eselect/eselect-wxwidgets \
 		&& eselect wxwidgets update
 }
 
 pkg_postrm() {
-	has_version app-admin/eselect-wxwidgets \
+	has_version app-eselect/eselect-wxwidgets \
 		&& eselect wxwidgets update
 }

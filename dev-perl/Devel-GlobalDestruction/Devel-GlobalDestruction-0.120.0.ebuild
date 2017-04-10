@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Devel-GlobalDestruction/Devel-GlobalDestruction-0.120.0.ebuild,v 1.1 2014/01/02 20:32:52 zlogene Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,10 +8,10 @@ MODULE_AUTHOR=HAARG
 MODULE_VERSION=0.12
 inherit perl-module
 
-DESCRIPTION="Expose PL_dirty, the flag which marks global destruction"
+DESCRIPTION='Returns the equivalent of ${^GLOBAL_PHASE} eq DESTRUCT for older perls'
 
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~x86 ~ppc-aix ~x86-solaris"
+KEYWORDS="amd64 ~arm ~hppa ppc ppc64 x86 ~ppc-aix ~x86-fbsd ~x86-solaris"
 IUSE=""
 
 RDEPEND=">=dev-perl/Sub-Exporter-Progressive-0.1.11"
