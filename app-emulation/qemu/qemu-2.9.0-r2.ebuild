@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI="6"
 
 PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="ncurses,readline"
@@ -13,11 +13,11 @@ inherit eutils flag-o-matic linux-info toolchain-funcs multilib python-r1 \
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://git.qemu.org/qemu.git"
-	inherit git-2
+	inherit git-r3
 	SRC_URI=""
 else
 	SRC_URI="http://wiki.qemu-project.org/download/${P}.tar.bz2"
-	KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~x86-fbsd"
+	KEYWORDS="amd64 ~arm64 ~ppc ~ppc64 x86 ~x86-fbsd"
 fi
 
 DESCRIPTION="QEMU + Kernel-based Virtual Machine userland tools"
@@ -25,19 +25,20 @@ HOMEPAGE="http://www.qemu.org http://www.linux-kvm.org"
 
 LICENSE="GPL-2 LGPL-2 BSD-2"
 SLOT="0"
-IUSE="accessibility +aio alsa bluetooth bzip2 +caps +curl debug +fdt glusterfs \
-gnutls gtk gtk2 infiniband iscsi +jpeg \
-kernel_linux kernel_FreeBSD lzo ncurses nfs nls numa opengl +pin-upstream-blobs
-+png pulseaudio python \
-rbd sasl +seccomp sdl sdl2 selinux smartcard snappy spice ssh static static-softmmu
-static-user systemtap tci test +threads usb usbredir vde +vhost-net \
-virgl virtfs +vnc vte xattr xen xfs"
+IUSE="accessibility +aio alsa bluetooth bzip2 +caps +curl debug +fdt
+	glusterfs gnutls gtk gtk2 infiniband iscsi +jpeg kernel_linux
+	kernel_FreeBSD lzo ncurses nfs nls numa opengl +pin-upstream-blobs +png
+	pulseaudio python rbd sasl +seccomp sdl sdl2 selinux smartcard snappy
+	spice ssh static static-user systemtap tci test usb usbredir vde
+	+vhost-net virgl virtfs +vnc vte xattr xen xfs"
 
-COMMON_TARGETS="aarch64 alpha arm cris i386 m68k microblaze microblazeel mips
-mips64 mips64el mipsel or32 ppc ppc64 s390x sh4 sh4eb sparc sparc64
-x86_64"
-IUSE_SOFTMMU_TARGETS="${COMMON_TARGETS} lm32 moxie ppcemb tricore unicore32 xtensa xtensaeb"
-IUSE_USER_TARGETS="${COMMON_TARGETS} armeb mipsn32 mipsn32el ppc64abi32 ppc64le sparc32plus tilegx"
+COMMON_TARGETS="aarch64 alpha arm cris i386 m68k microblaze microblazeel
+	mips mips64 mips64el mipsel nios2 or1k ppc ppc64 s390x sh4 sh4eb sparc
+	sparc64 x86_64"
+IUSE_SOFTMMU_TARGETS="${COMMON_TARGETS}
+	lm32 moxie ppcemb tricore unicore32 xtensa xtensaeb"
+IUSE_USER_TARGETS="${COMMON_TARGETS}
+	armeb hppa mipsn32 mipsn32el ppc64abi32 ppc64le sparc32plus tilegx"
 
 use_softmmu_targets=$(printf ' qemu_softmmu_targets_%s' ${IUSE_SOFTMMU_TARGETS})
 use_user_targets=$(printf ' qemu_user_targets_%s' ${IUSE_USER_TARGETS})
@@ -49,35 +50,41 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	gtk2? ( gtk )
 	qemu_softmmu_targets_arm? ( fdt )
 	qemu_softmmu_targets_microblaze? ( fdt )
+	qemu_softmmu_targets_mips64el? ( fdt )
 	qemu_softmmu_targets_ppc? ( fdt )
 	qemu_softmmu_targets_ppc64? ( fdt )
 	sdl2? ( sdl )
-	static? ( static-softmmu static-user )
-	static-softmmu? ( !alsa !pulseaudio !bluetooth !opengl !gtk !gtk2 )
+	static? ( static-user !alsa !bluetooth !gtk !gtk2 !opengl !pulseaudio )
 	virtfs? ( xattr )
 	vte? ( gtk )"
 
+# Dependencies required for qemu tools (qemu-nbd, qemu-img, qemu-io, ...)
+# and user/softmmu targets (qemu-*, qemu-system-*).
+#
 # Yep, you need both libcap and libcap-ng since virtfs only uses libcap.
 #
 # The attr lib isn't always linked in (although the USE flag is always
 # respected).  This is because qemu supports using the C library's API
 # when available rather than always using the extranl library.
-#
-# Older versions of gnutls are supported, but it's simpler to just require
-# the latest versions.  This is also why we require nettle.
-#
-# TODO: Split out tools deps into another var.  e.g. bzip2 is only used by
-# system binaries and tools, not user binaries.
-COMMON_LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
+ALL_DEPEND="
+	>=dev-libs/glib-2.0[static-libs(+)]
 	sys-libs/zlib[static-libs(+)]
-	bzip2? ( app-arch/bzip2[static-libs(+)] )
+	python? ( ${PYTHON_DEPS} )
+	systemtap? ( dev-util/systemtap )
 	xattr? ( sys-apps/attr[static-libs(+)] )"
-SOFTMMU_LIB_DEPEND="${COMMON_LIB_DEPEND}
+
+# Dependencies required for qemu tools (qemu-nbd, qemu-img, qemu-io, ...)
+# softmmu targets (qemu-system-*).
+SOFTMMU_TOOLS_DEPEND="
 	>=x11-libs/pixman-0.28.0[static-libs(+)]
-	accessibility? ( app-accessibility/brltty[static-libs(+)] )
+	accessibility? (
+		app-accessibility/brltty[api]
+		app-accessibility/brltty[static-libs(+)]
+	)
 	aio? ( dev-libs/libaio[static-libs(+)] )
 	alsa? ( >=media-libs/alsa-lib-1.0.13 )
 	bluetooth? ( net-wireless/bluez )
+	bzip2? ( app-arch/bzip2[static-libs(+)] )
 	caps? ( sys-libs/libcap-ng[static-libs(+)] )
 	curl? ( >=net-misc/curl-7.15.4[static-libs(+)] )
 	fdt? ( >=sys-apps/dtc-1.4.0[static-libs(+)] )
@@ -139,8 +146,9 @@ SOFTMMU_LIB_DEPEND="${COMMON_LIB_DEPEND}
 	vde? ( net-misc/vde[static-libs(+)] )
 	virgl? ( media-libs/virglrenderer[static-libs(+)] )
 	virtfs? ( sys-libs/libcap )
+	xen? ( app-emulation/xen-tools:= )
 	xfs? ( sys-fs/xfsprogs[static-libs(+)] )"
-USER_LIB_DEPEND="${COMMON_LIB_DEPEND}"
+
 X86_FIRMWARE_DEPEND="
 	>=sys-firmware/ipxe-1.0.0_p20130624
 	pin-upstream-blobs? (
@@ -153,14 +161,14 @@ X86_FIRMWARE_DEPEND="
 		sys-firmware/sgabios
 		sys-firmware/vgabios
 	)"
+
 CDEPEND="
-	!static-softmmu? ( $(printf "%s? ( ${SOFTMMU_LIB_DEPEND//\[static-libs(+)]} ) " ${use_softmmu_targets}) )
-	!static-user? ( $(printf "%s? ( ${USER_LIB_DEPEND//\[static-libs(+)]} ) " ${use_user_targets}) )
+	!static? (
+		${ALL_DEPEND//\[static-libs(+)]}
+		${SOFTMMU_TOOLS_DEPEND//\[static-libs(+)]}
+	)
 	qemu_softmmu_targets_i386? ( ${X86_FIRMWARE_DEPEND} )
-	qemu_softmmu_targets_x86_64? ( ${X86_FIRMWARE_DEPEND} )
-	python? ( ${PYTHON_DEPS} )
-	systemtap? ( dev-util/systemtap )
-	xen? ( app-emulation/xen-tools:= )"
+	qemu_softmmu_targets_x86_64? ( ${X86_FIRMWARE_DEPEND} )"
 DEPEND="${CDEPEND}
 	dev-lang/perl
 	=dev-lang/python-2*
@@ -168,15 +176,27 @@ DEPEND="${CDEPEND}
 	virtual/pkgconfig
 	kernel_linux? ( >=sys-kernel/linux-headers-2.6.35 )
 	gtk? ( nls? ( sys-devel/gettext ) )
-	static-softmmu? ( $(printf "%s? ( ${SOFTMMU_LIB_DEPEND} ) " ${use_softmmu_targets}) )
-	static-user? ( $(printf "%s? ( ${USER_LIB_DEPEND} ) " ${use_user_targets}) )
+	static? (
+		${ALL_DEPEND}
+		${SOFTMMU_TOOLS_DEPEND}
+	)
+	static-user? ( ${ALL_DEPEND} )
 	test? (
 		dev-libs/glib[utils]
 		sys-devel/bc
 	)"
 RDEPEND="${CDEPEND}
-	selinux? ( sec-policy/selinux-qemu )
-"
+	selinux? ( sec-policy/selinux-qemu )"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.5.0-cflags.patch
+	"${FILESDIR}"/${PN}-2.5.0-sysmacros.patch
+	"${FILESDIR}"/${PN}-2.9.0-CVE-2017-8309.patch # bug 616870
+	"${FILESDIR}"/${PN}-2.9.0-CVE-2017-8379.patch # bug 616872
+	"${FILESDIR}"/${PN}-2.9.0-CVE-2017-8380.patch # bug 616874
+	"${FILESDIR}"/${PN}-2.9.0-CVE-2017-8112.patch # bug 616636
+	"${FILESDIR}"/${PN}-2.9.0-CVE-2017-7493.patch # bug 618808
+)
 
 STRIP_MASK="/usr/share/qemu/palcode-clipper"
 
@@ -186,8 +206,7 @@ QA_PREBUILT="
 	usr/share/qemu/openbios-sparc32
 	usr/share/qemu/palcode-clipper
 	usr/share/qemu/s390-ccw.img
-	usr/share/qemu/u-boot.e500
-"
+	usr/share/qemu/u-boot.e500"
 
 QA_WX_LOAD="usr/bin/qemu-i386
 	usr/bin/qemu-x86_64
@@ -199,7 +218,7 @@ QA_WX_LOAD="usr/bin/qemu-i386
 	usr/bin/qemu-microblazeel
 	usr/bin/qemu-mips
 	usr/bin/qemu-mipsel
-	usr/bin/qemu-or32
+	usr/bin/qemu-or1k
 	usr/bin/qemu-ppc
 	usr/bin/qemu-ppc64
 	usr/bin/qemu-ppc64abi32
@@ -332,37 +351,13 @@ src_prepare() {
 		-e 's/^(C|OP_C|HELPER_C)FLAGS=/\1FLAGS+=/' \
 		Makefile Makefile.target || die
 
-	epatch "${FILESDIR}"/${PN}-2.5.0-cflags.patch
-	epatch "${FILESDIR}"/${PN}-2.5.0-sysmacros.patch
-	epatch "${FILESDIR}"/${PN}-2.7.0-CVE-2016-8669-1.patch #597108
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2016-9908.patch   #601826
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2016-9912.patch   #602630
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2016-10028.patch  #603444
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2016-10155.patch  #606720
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-2615.patch   #608034
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-2630.patch   #609396
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5525-1.patch #606264
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5525-2.patch
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5552.patch   #606722
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5578.patch   #607000
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5579.patch   #607100
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5667.patch   #607766
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5856.patch   #608036
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5857.patch   #608038
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5898.patch   #608520
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5931.patch   #608728
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5973.patch   #609334
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-5987.patch   #609398
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-6058.patch   #609638
-	epatch "${FILESDIR}"/${PN}-2.8.0-CVE-2017-2620.patch   #609206
+	default
 
 	# Fix ld and objcopy being called directly
 	tc-export AR LD OBJCOPY
 
 	# Verbose builds
 	MAKEOPTS+=" V=1"
-
-	epatch_user
 
 	# Run after we've applied all patches.
 	handle_locales
@@ -377,7 +372,6 @@ qemu_src_configure() {
 
 	local buildtype=$1
 	local builddir="${S}/${buildtype}-build"
-	local static_flag="static-${buildtype}"
 
 	mkdir "${builddir}"
 
@@ -406,9 +400,9 @@ qemu_src_configure() {
 		$(use_enable xattr attr)
 	)
 
-	# Disable options not used by user targets as the default configure
-	# options will autoprobe and try to link in a bunch of unused junk.
-	conf_softmmu() {
+	# Disable options not used by user targets. This simplifies building
+	# static user targets (USE=static-user) considerably.
+	conf_notuser() {
 		if [[ ${buildtype} == "user" ]] ; then
 			echo "--disable-${2:-$1}"
 		else
@@ -416,47 +410,60 @@ qemu_src_configure() {
 		fi
 	}
 	conf_opts+=(
-		$(conf_softmmu accessibility brlapi)
-		$(conf_softmmu aio linux-aio)
-		$(conf_softmmu bzip2)
-		$(conf_softmmu bluetooth bluez)
-		$(conf_softmmu caps cap-ng)
-		$(conf_softmmu curl)
-		$(conf_softmmu fdt)
-		$(conf_softmmu glusterfs)
-		$(conf_softmmu gnutls)
-		$(conf_softmmu gnutls nettle)
-		$(conf_softmmu gtk)
-		$(conf_softmmu infiniband rdma)
-		$(conf_softmmu iscsi libiscsi)
-		$(conf_softmmu jpeg vnc-jpeg)
-		$(conf_softmmu kernel_linux kvm)
-		$(conf_softmmu lzo)
-		$(conf_softmmu ncurses curses)
-		$(conf_softmmu nfs libnfs)
-		$(conf_softmmu numa)
-		$(conf_softmmu opengl)
-		$(conf_softmmu png vnc-png)
-		$(conf_softmmu rbd)
-		$(conf_softmmu sasl vnc-sasl)
-		$(conf_softmmu sdl)
-		$(conf_softmmu seccomp)
-		$(conf_softmmu smartcard)
-		$(conf_softmmu snappy)
-		$(conf_softmmu spice)
-		$(conf_softmmu ssh libssh2)
-		$(conf_softmmu usb libusb)
-		$(conf_softmmu usbredir usb-redir)
-		$(conf_softmmu vde)
-		$(conf_softmmu vhost-net)
-		$(conf_softmmu virgl virglrenderer)
-		$(conf_softmmu virtfs)
-		$(conf_softmmu vnc)
-		$(conf_softmmu vte)
-		$(conf_softmmu xen)
-		$(conf_softmmu xen xen-pci-passthrough)
-		$(conf_softmmu xfs xfsctl)
+		$(conf_notuser accessibility brlapi)
+		$(conf_notuser aio linux-aio)
+		$(conf_notuser bzip2)
+		$(conf_notuser bluetooth bluez)
+		$(conf_notuser caps cap-ng)
+		$(conf_notuser curl)
+		$(conf_notuser fdt)
+		$(conf_notuser glusterfs)
+		$(conf_notuser gnutls)
+		$(conf_notuser gnutls nettle)
+		$(conf_notuser gtk)
+		$(conf_notuser infiniband rdma)
+		$(conf_notuser iscsi libiscsi)
+		$(conf_notuser jpeg vnc-jpeg)
+		$(conf_notuser kernel_linux kvm)
+		$(conf_notuser lzo)
+		$(conf_notuser ncurses curses)
+		$(conf_notuser nfs libnfs)
+		$(conf_notuser numa)
+		$(conf_notuser opengl)
+		$(conf_notuser png vnc-png)
+		$(conf_notuser rbd)
+		$(conf_notuser sasl vnc-sasl)
+		$(conf_notuser sdl)
+		$(conf_notuser seccomp)
+		$(conf_notuser smartcard)
+		$(conf_notuser snappy)
+		$(conf_notuser spice)
+		$(conf_notuser ssh libssh2)
+		$(conf_notuser usb libusb)
+		$(conf_notuser usbredir usb-redir)
+		$(conf_notuser vde)
+		$(conf_notuser vhost-net)
+		$(conf_notuser virgl virglrenderer)
+		$(conf_notuser virtfs)
+		$(conf_notuser vnc)
+		$(conf_notuser vte)
+		$(conf_notuser xen)
+		$(conf_notuser xen xen-pci-passthrough)
+		$(conf_notuser xfs xfsctl)
 	)
+
+	if [[ ! ${buildtype} == "user" ]] ; then
+		# audio options
+		local audio_opts="oss"
+		use alsa && audio_opts="alsa,${audio_opts}"
+		use sdl && audio_opts="sdl,${audio_opts}"
+		use pulseaudio && audio_opts="pa,${audio_opts}"
+		conf_opts+=(
+			--audio-drv-list="${audio_opts}"
+		)
+		use gtk && conf_opts+=( --with-gtkabi=$(usex gtk2 2.0 3.0) )
+		use sdl && conf_opts+=( --with-sdlabi=$(usex sdl2 2.0 1.2) )
+	fi
 
 	case ${buildtype} in
 	user)
@@ -466,31 +473,25 @@ qemu_src_configure() {
 			--disable-blobs
 			--disable-tools
 		)
+		local static_flag="static-user"
 		;;
 	softmmu)
-		# audio options
-		local audio_opts="oss"
-		use alsa && audio_opts="alsa,${audio_opts}"
-		use sdl && audio_opts="sdl,${audio_opts}"
-		use pulseaudio && audio_opts="pa,${audio_opts}"
-
 		conf_opts+=(
 			--disable-linux-user
 			--enable-system
+			--disable-tools
 			--with-system-pixman
-			--audio-drv-list="${audio_opts}"
 		)
-		use gtk && conf_opts+=( --with-gtkabi=$(usex gtk2 2.0 3.0) )
-		use sdl && conf_opts+=( --with-sdlabi=$(usex sdl2 2.0 1.2) )
+		local static_flag="static"
 		;;
 	tools)
 		conf_opts+=(
 			--disable-linux-user
 			--disable-system
 			--disable-blobs
-			$(use_enable bzip2)
+			--enable-tools
 		)
-		static_flag="static"
+		local static_flag="static"
 		;;
 	esac
 
@@ -506,7 +507,7 @@ qemu_src_configure() {
 	if use ${static_flag}; then
 		conf_opts+=( --static --disable-pie )
 	else
-		gcc-specs-pie && conf_opts+=( --enable-pie )
+		tc-enables-pie && conf_opts+=( --enable-pie )
 	fi
 
 	echo "../configure ${conf_opts[*]}"
@@ -546,7 +547,7 @@ src_configure() {
 
 	[[ -n ${softmmu_targets} ]] && qemu_src_configure "softmmu"
 	[[ -n ${user_targets}    ]] && qemu_src_configure "user"
-	[[ -z ${softmmu_targets}${user_targets} ]] && qemu_src_configure "tools"
+	qemu_src_configure "tools"
 }
 
 src_compile() {
@@ -560,10 +561,8 @@ src_compile() {
 		default
 	fi
 
-	if [[ -z ${softmmu_targets}${user_targets} ]]; then
-		cd "${S}/tools-build"
-		default
-	fi
+	cd "${S}/tools-build"
+	default
 }
 
 src_test() {
@@ -633,6 +632,7 @@ EOF
 	done
 	cat "${FILESDIR}"/qemu-binfmt.initd.tail >>"${out}" || die
 }
+
 src_install() {
 	if [[ -n ${user_targets} ]]; then
 		cd "${S}/user-build"
@@ -663,22 +663,17 @@ src_install() {
 		fi
 	fi
 
-	if [[ -z ${softmmu_targets}${user_targets} ]]; then
-		cd "${S}/tools-build"
-		emake DESTDIR="${ED}" install
-	fi
+	cd "${S}/tools-build"
+	emake DESTDIR="${ED}" install
 
 	# Disable mprotect on the qemu binaries as they use JITs to be fast #459348
 	pushd "${ED}"/usr/bin >/dev/null
-	pax-mark m "${softmmu_bins[@]}" "${user_bins[@]}"
+	pax-mark mr "${softmmu_bins[@]}" "${user_bins[@]}" # bug 575594
 	popd >/dev/null
 
 	# Install config file example for qemu-bridge-helper
 	insinto "/etc/qemu"
 	doins "${FILESDIR}/bridge.conf"
-
-	# Remove the docdir placed qmp-commands.txt
-	mv "${ED}/usr/share/doc/${PF}/html/qmp-commands.txt" "${S}/docs/" || die
 
 	cd "${S}"
 	dodoc Changelog MAINTAINERS docs/specs/pci-ids.txt
@@ -730,7 +725,6 @@ src_install() {
 
 pkg_postinst() {
 	DISABLE_AUTOFORMATTING=true
-	FORCE_PRINT_ELOG=1 # remove for next version bump
 	readme.gentoo_print_elog
 
 	if [[ -n ${softmmu_targets} ]] && use kernel_linux; then
